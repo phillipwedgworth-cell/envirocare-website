@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* EnviroCare brand: bright kelly green from the logo + sunflower gold.
+   Logo greens read brighter than #1B7A3C — bumped to #0E8E40 (kelly green).
+   Tailwind's emerald palette is remapped so all emerald-* classes pick up brand. */
+@theme {
+  --color-emerald-50:  #E8F7EE;
+  --color-emerald-100: #C9EBD6;
+  --color-emerald-200: #93D6AD;
+  --color-emerald-300: #5DC084;
+  --color-emerald-400: #2EAA61;
+  --color-emerald-500: #0E8E40;
+  --color-emerald-600: #0A7935;
+  --color-emerald-700: #07642B;
+  --color-emerald-800: #064E22;
+  --color-emerald-900: #053A1A;
+  --color-emerald-950: #0E1A0F;
+
+  --color-gold-50:  #FFF7DC;
+  --color-gold-100: #FEEDA6;
+  --color-gold-200: #FDE173;
+  --color-gold-300: #FCD43E;
+  --color-gold-400: #FBC51A;
+  --color-gold-500: #F5A800;
+  --color-gold-600: #D08D00;
+  --color-gold-700: #A37000;
+  --color-gold-800: #7A5300;
+  --color-gold-900: #4D3500;
+
+  --color-cream:    #FEFDF8;
+
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --green:        #0E8E40;
+  --green-bright: #2EAA61;
+  --green-deep:   #07642B;
+  --green-darker: #0E1A0F;
+  --gold:         #F5A800;
+  --gold-bright:  #FBC51A;
+  --cream:        #FEFDF8;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--green-darker);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 { font-family: var(--font-serif); }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: var(--font-sans); }
+
+/* ── Hero animations (v4) ── */
+@keyframes ec-orb-a { from { transform: translate(0,0); } to { transform: translate(-50px,40px); } }
+@keyframes ec-orb-b { from { transform: translate(0,0); } to { transform: translate(35px,-35px); } }
+@keyframes ec-pulse-dot { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.82); opacity: 0.7; } }
+@keyframes ec-pulse-ring { 0% { transform: scale(0.5); opacity: 0.9; } 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes ec-pulse-cta { 0% { transform: scale(1); opacity: 1; } 70%,100% { transform: scale(1.28); opacity: 0; } }
+@keyframes ec-card-slow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes ec-card-fast { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
+@keyframes ec-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.ec-pulse-dot { background: #5CB85C; border-radius: 50%; width: 8px; height: 8px; animation: ec-pulse-dot 2.2s ease-in-out infinite; position: relative; z-index: 1; }
+.ec-pulse-ring { position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid #5CB85C; animation: ec-pulse-ring 2.2s ease-out infinite; }
+.ec-cta-pulse { position: relative; }
+.ec-cta-pulse::before, .ec-cta-pulse::after { content: ""; position: absolute; inset: -5px; border-radius: 50px; border: 2px solid rgba(245,168,0,0.7); pointer-events: none; animation: ec-pulse-cta 2.8s ease-out infinite; }
+.ec-cta-pulse::after { inset: -11px; border-color: rgba(245,168,0,0.3); animation-delay: 0.55s; }
+.ec-card-slow { animation: ec-card-slow 3.8s ease-in-out infinite; }
+.ec-card-fast { animation: ec-card-fast 2.8s ease-in-out infinite; }
+.ec-orb-1 { animation: ec-orb-a 17s ease-in-out infinite alternate; }
+.ec-orb-2 { animation: ec-orb-b 13s ease-in-out infinite alternate; }
+.ec-marquee-track { animation: ec-marquee 30s linear infinite; }
+.ec-marquee-track:hover { animation-play-state: paused; }
+
+.ec-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; max-width: 1320px; margin: 0 auto; position: relative; z-index: 10; }
+.ec-hero-visual { position: relative; }
+
+/* ── Desktop / mobile visibility ── */
+.ec-desktop-only { display: flex; }
+.ec-mobile-only { display: none; }
+
+@media (max-width: 960px) {
+  .ec-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .ec-hero-visual { display: none; }
+  .ec-desktop-only { display: none; }
+  .ec-mobile-only { display: flex; }
+}
+
+/* ── Hamburger button ── */
+.ec-burger { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(14,142,64,0.18); background: #fff; display: inline-flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; transition: background 0.2s; }
+.ec-burger:hover { background: #E8F5EE; }
+.ec-burger svg { display: block; }
+
+/* ── Mobile overlay menu ── */
+.ec-menu-overlay { position: fixed; inset: 0; z-index: 1000; background: #FEFDF8; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity 0.28s ease, visibility 0.28s ease; overflow-y: auto; }
+.ec-menu-overlay[data-open="true"] { opacity: 1; visibility: visible; }
+.ec-menu-overlay > * { transform: translateY(-12px); transition: transform 0.34s cubic-bezier(0.16,1,0.3,1); }
+.ec-menu-overlay[data-open="true"] > * { transform: translateY(0); }
+body.ec-menu-locked { overflow: hidden; }
+
+.ec-menu-bar { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.4rem; border-bottom: 1px solid rgba(14,142,64,0.10); }
+.ec-menu-close { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(14,142,64,0.18); background: #fff; display: inline-flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
+.ec-menu-close:hover { background: #E8F5EE; }
+
+.ec-menu-body { flex: 1; padding: 2rem 1.6rem 2.5rem; max-width: 640px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 0.25rem; }
+.ec-menu-link { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 7vw, 2.6rem); font-weight: 700; color: #0E1A0F; text-decoration: none; padding: 0.95rem 0; border-bottom: 1px solid rgba(14,142,64,0.10); display: flex; justify-content: space-between; align-items: center; transition: color 0.2s, padding-left 0.25s; line-height: 1.05; letter-spacing: -0.02em; }
+.ec-menu-link:hover, .ec-menu-link:active { color: #0E8E40; padding-left: 0.4rem; }
+.ec-menu-link em { font-style: italic; color: #0E8E40; font-weight: 700; }
+.ec-menu-link .ec-menu-arrow { color: #0E8E40; opacity: 0.4; font-size: 0.7em; }
+
+.ec-menu-pay { margin-top: 1.4rem; background: #F5A800; color: #0E1A0F; border-radius: 14px; padding: 1.05rem 1.3rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(245,168,0,0.28); transition: transform 0.2s, box-shadow 0.2s; }
+.ec-menu-pay:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(245,168,0,0.38); }
+.ec-menu-pay-sub { font-size: 0.78rem; font-weight: 500; opacity: 0.72; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.ec-menu-quote { margin-top: 0.6rem; background: #0E8E40; color: #fff; border-radius: 14px; padding: 1.05rem 1.3rem; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(14,142,64,0.28); }
+
+.ec-menu-offices { margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; flex-direction: column; gap: 0.85rem; font-family: 'DM Sans', system-ui, sans-serif; }
+.ec-menu-offices-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5A7060; margin-bottom: 0.2rem; }
+.ec-menu-office { display: flex; justify-content: space-between; align-items: center; text-decoration: none; padding: 0.45rem 0; }
+.ec-menu-office-name { font-size: 0.95rem; color: #0E1A0F; font-weight: 600; }
+.ec-menu-office-phone { font-size: 0.95rem; color: #0E8E40; font-weight: 700; }
+
+.ec-menu-foot { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; align-items: center; gap: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; color: #5A7060; }
+.ec-menu-foot-dot { width: 8px; height: 8px; border-radius: 50%; background: #5CB85C; }
