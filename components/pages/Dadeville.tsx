@@ -106,7 +106,7 @@ export default function Dadeville() {
               { icon: "🪲", name: "Termite Control", desc: "Free inspection. Dadeville's lake soil creates ideal termite conditions. We inspect docks too.", highlight: false },
               { icon: "🐜", name: "Pest Control", desc: "Full perimeter pest control for Dadeville homes. Ants, roaches, spiders, crickets and more.", highlight: false },
               { icon: "🔥", name: "Fire Ant Control", desc: "Fire ants throughout Tallapoosa County lawns and waterfront areas. Colony elimination.", highlight: false },
-              { icon: "🐭", name: "Rodent Control", desc: "Mice and rats entering Dadeville homes seasonally. Elimination and entry point sealing.", highlight: false },
+              { icon: "🕷️", name: "Tick Control", desc: "Waterfront and wooded properties need tick protection. Yard treatments bundled free with mosquito service.", highlight: false },
               { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite combined. Most popular for Lake Martin area homeowners.", highlight: false },
             ].map((s, i) => (
               <div key={i} className={`p-6 rounded-xl border transition ${s.highlight ? "border-teal-500 bg-teal-50 shadow-md" : "border-slate-200 hover:border-teal-300 hover:shadow-sm"}`}>

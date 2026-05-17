@@ -78,7 +78,7 @@ export default function Auburn() {
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Auburn Has Unique Pest Challenges</h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                Auburn's combination of college-town density, older housing stock, and Alabama's warm climate creates year-round pest pressure. Student rentals and historic homes near campus tend to see higher rates of roach, rodent, and bed bug activity. Newer subdivisions battle termites and fire ants.
+                Auburn's combination of college-town density, older housing stock, and Alabama's warm climate creates year-round pest pressure. Student rentals and historic homes near campus tend to see higher rates of roach and ant activity. Newer subdivisions battle termites and fire ants.
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
                 We serve Auburn from our Alexander City office — close enough for same-day and next-day service, experienced enough to understand Lee County's specific pest environment.
@@ -134,7 +134,7 @@ export default function Auburn() {
               { icon: "🐜", name: "Pest Control", desc: "Full perimeter pest control for Auburn homes, apartments, and rentals. Ants, roaches, spiders, crickets.", href: "/services/pest-control" },
               { icon: "🪲", name: "Termite Inspection", desc: "Pre-purchase and annual inspections. Free termite inspection for Auburn homeowners.", href: "/services/termite-control", highlight: true },
               { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments April through October. Auburn's warm climate means a long season.", href: "/services/mosquito-control" },
-              { icon: "🐭", name: "Rodent Control", desc: "Mice and rats are common in older Auburn homes near campus. We eliminate and seal.", href: "/services/rodent-control" },
+              { icon: "🕷️", name: "Tick Control", desc: "Lee County's wooded areas and greenways bring tick pressure. Yard treatments bundled free with mosquito.", href: "/services/tick-control" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Auburn area fire ants. Colony elimination for yards, parks, and commercial properties.", href: "/services/fire-ant-control" },
               { icon: "🏢", name: "Commercial Pest Control", desc: "Restaurants, retail, offices near Auburn and Opelika. Discreet, compliant service.", href: "/services/commercial" },
             ].map((s, i) => (
@@ -159,7 +159,7 @@ export default function Auburn() {
               { q: "Do you serve Auburn even though your office is in Alexander City?", a: "Yes. Our Alexander City office serves Auburn, Opelika, and Lee County. It's about 45 minutes away, which puts us in the same-day service range for most Auburn locations. We've been growing our Auburn presence and have regular routes through the area." },
               { q: "Do you handle student rental properties?", a: "Yes. We work with landlords and property managers in Auburn regularly. We can service multiple units in a single visit, coordinate with tenants, and provide documentation for lease compliance purposes." },
               { q: "Are there pre-purchase termite inspections available in Auburn?", a: "Yes. We offer WDO (wood-destroying organism) inspections that satisfy most lender and real estate requirements in Alabama. These are commonly needed when buying a home in Auburn or Opelika." },
-              { q: "What pests are most common in Auburn?", a: "Near campus and in older housing: roaches, rodents, and bed bugs. In suburban Auburn and Opelika: termites, fire ants, and mosquitoes are the biggest issues. We handle all of them." },
+              { q: "What pests are most common in Auburn?", a: "Near campus and in older housing: roaches, ants, and spiders. In suburban Auburn and Opelika: termites, fire ants, and mosquitoes are the biggest issues. We handle all of them." },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
                 <button onClick={() => setFaqOpen(faqOpen === i ? null : i)}
@@ -203,7 +203,7 @@ export default function Auburn() {
               <button onClick={() => setQuoteOpen(false)} className="text-3xl leading-none text-emerald-300 hover:text-white">×</button>
             </div>
             <div className="p-6 space-y-3">
-              {["Pest Control","Termite Inspection","Mosquito Control","Rodent Control","Commercial Service","Not sure — just inspect"].map(o => (
+              {["Pest Control","Termite Inspection","Mosquito Control","Tick Control","Commercial Service","Not sure — just inspect"].map(o => (
                 <button key={o} className="w-full text-left px-4 py-3 border border-slate-200 rounded-lg hover:border-emerald-500 hover:bg-emerald-50 transition text-slate-700 text-sm font-medium">{o}</button>
               ))}
               <div className="pt-3 border-t border-slate-100 text-center">

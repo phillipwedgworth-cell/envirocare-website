@@ -281,9 +281,7 @@ export default function ContactUs() {
                   <option>Mosquito Control</option>
                   <option>Tick Control</option>
                   <option>Fire Ant Control</option>
-                  <option>Rodent Control</option>
-                  <option>Bee & Wasp Control</option>
-                  <option>Raccoon Control</option>
+                  <option>Flea Control</option>
                   <option>Bundle Package</option>
                   <option>Commercial Service</option>
                   <option>Not sure — please inspect</option>

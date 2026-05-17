@@ -112,7 +112,7 @@ export default function Alabaster() {
               { icon: "🪲", name: "Termite Control", desc: "Free inspection. Protect your Alabaster home's structure from Alabama's aggressive termites.", href: "/services/termite-control", highlight: true },
               { icon: "🦟", name: "Mosquito Control", desc: "Take back your yard. Monthly treatments timed to Alabama's mosquito season.", href: "/services/mosquito-control" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Eliminate fire ant colonies before they become a danger to your family.", href: "/services/fire-ant-control" },
-              { icon: "🐭", name: "Rodent Control", desc: "Mice and rats in Alabaster homes. We find them, eliminate them, and seal entry points.", href: "/services/rodent-control" },
+              { icon: "🕷️", name: "Tick Control", desc: "Tick yard treatments for Alabaster's wooded neighborhoods. Break the tick lifecycle around your home.", href: "/services/tick-control" },
               { icon: "🏢", name: "Commercial", desc: "Restaurants, offices, warehouses — discreet, compliant pest control for Alabaster businesses.", href: "/services/commercial" },
             ].map((s, i) => (
               <div key={i} className={`p-6 rounded-xl border transition ${s.highlight ? "border-emerald-500 bg-emerald-50 shadow-md" : "border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md"}`}>

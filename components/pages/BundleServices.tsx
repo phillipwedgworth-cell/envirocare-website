@@ -37,7 +37,7 @@ const BUNDLES = [
       "Monthly Mosquito + Tick Treatments",
       "Sentricon Termite Bait System",
       "Fire Ant Control",
-      "Rodent Inspection",
+      "Flea Control",
       "Priority Same-Day Service",
       "Quarterly Walk-through Report",
     ],

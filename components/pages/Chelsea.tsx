@@ -95,7 +95,7 @@ export default function Chelsea() {
               { icon: "🪲", name: "Termite Control", desc: "Chelsea's newer construction isn't immune. We inspect, treat, and protect with industry-leading termite solutions.", href: "/services/termite-control", highlight: true },
               { icon: "🦟", name: "Mosquito Control", desc: "Shelby County summers are prime mosquito season. Monthly yard treatments protect your family all season long.", href: "/services/mosquito-control" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Fire ants are a real hazard in Chelsea's growing neighborhoods. Colony elimination and lasting perimeter protection.", href: "/services/fire-ant-control" },
-              { icon: "🐭", name: "Rodent Control", desc: "Mice and rats entering Chelsea homes through foundation gaps. We eliminate them and seal entry points.", href: "/services/rodent-control" },
+              { icon: "🕷️", name: "Tick Control", desc: "Chelsea's wooded areas and greenways mean tick pressure. Yard treatments break the tick lifecycle around your home.", href: "/services/tick-control" },
               { icon: "📦", name: "Bundle & Save", desc: "Most popular: Pest + Mosquito + Termite in one simple monthly plan. Maximum protection, easy payment.", href: "/bundle-services" },
             ].map((s, i) => (
               <div key={i} className={`p-6 rounded-xl border transition ${s.highlight ? "border-emerald-500 bg-emerald-50 shadow-md" : "border-slate-200 hover:border-emerald-300 hover:shadow-md"}`}>
@@ -191,7 +191,7 @@ export default function Chelsea() {
           <div className="space-y-3">
             {[
               { q: "Do you serve the 35242 zip code?", a: "Yes — 35242 is one of our primary service areas in the Birmingham region. Our Alabaster office is just minutes away, giving us fast response times across Chelsea and the surrounding zip codes." },
-              { q: "Chelsea is growing fast. Do you handle new construction?", a: "Absolutely. New construction in Chelsea and Shelby County brings its own pest challenges — disturbed soil attracts termites, and newer homes sometimes have gaps that rodents exploit. We offer pre-treatment and post-construction inspections." },
+              { q: "Chelsea is growing fast. Do you handle new construction?", a: "Absolutely. New construction in Chelsea and Shelby County brings its own pest challenges — disturbed soil attracts termites, and new builds need pre-treatment before the slab is poured. We offer builder pre-treatment and post-construction inspections." },
               { q: "What pests are most common in Chelsea?", a: "Termites are the biggest threat — Shelby County's soil and humidity are ideal for them. Fire ants are a major issue in Chelsea's lawns. Mosquitoes are heavy in summer. Moisture ants appear in older crawlspaces." },
               { q: "How do I know which plan is right for my Chelsea home?", a: "We start with a free inspection. Our technician assesses your property — the type of home, lot, surrounding vegetation, existing pest pressure — and recommends a plan tailored to your specific situation. No pressure, no one-size-fits-all." },
             ].map((item, i) => (
