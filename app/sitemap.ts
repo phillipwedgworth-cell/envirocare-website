@@ -17,7 +17,13 @@ const ROUTES = [
   '/services/mosquito-control',
   '/services/tick-control',
   '/services/sentricon',
-  // City pages
+  '/services/fire-ant',
+  '/services/flea',
+  '/services/crawlspace',
+  '/services/builder',
+  '/services/commercial',
+  '/services/real-estate-wdo',
+  // City pages — Birmingham region
   '/birmingham',
   '/hoover',
   '/chelsea',
@@ -25,16 +31,29 @@ const ROUTES = [
   '/alabaster',
   '/vestavia-hills',
   '/mountain-brook',
+  '/homewood',
+  '/helena',
+  '/calera',
+  '/trussville',
+  '/greystone',
+  // City pages — Lake Martin / East Alabama region
   '/lake-martin',
   '/alexander-city',
   '/dadeville',
   '/eclectic',
   '/auburn',
+  '/opelika',
+  '/mt-laurel',
+  // City pages — Huntsville / North Alabama region
   '/huntsville',
   '/madison',
   '/athens',
   '/decatur',
   '/hartselle',
+  '/harvest',
+  '/hampton-cove',
+  // City pages — other
+  '/tuscaloosa',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
