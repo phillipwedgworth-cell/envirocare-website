@@ -1,11 +1,10 @@
-import MosquitoService from '../../../components/pages/MosquitoService';
+import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
-  title: "Mosquito Control Alabama | Yard Treatments | EnviroCare",
-  description: "Professional mosquito control for Alabama yards. Monthly treatments April–October. 50% off your first treatment. Family-owned since 1958. Free inspection.",
-  alternates: { canonical: "https://envirocarellc.com/services/mosquito-control" },
+  title: 'Alabama Mosquito Yard Treatment | EnviroCare 21-Day Service',
+  description: 'Mosquito barrier yard service every 21 days, April–October. Family-owned, pet-safe once dry. Call (205) 649-5278.',
 };
 
-export default function Page() {
-  return <MosquitoService />;
+export default function MosquitoControlPage() {
+  return <ServicePage slug="mosquito-control" />;
 }

@@ -1,11 +1,10 @@
-import Chelsea from '../../components/pages/Chelsea';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Chelsea AL 35043 | EnviroCare Pest & Termite",
-  description: "Chelsea, AL pest control from EnviroCare. Termite, mosquito, fire ant and tick treatment for Shelby County. Local family-owned company since 1958. Free inspection.",
-  alternates: { canonical: "https://envirocarellc.com/chelsea" },
+  title: 'Chelsea Pest Control & Termite Service | EnviroCare Since 1958',
+  description: 'Chelsea, AL pest control. Family-owned bi-monthly service. Sentricon® termite protection. Call (205) 940-6360.',
 };
 
-export default function Page() {
-  return <Chelsea />;
+export default function ChelseaPage() {
+  return <CityPage slug="chelsea" />;
 }

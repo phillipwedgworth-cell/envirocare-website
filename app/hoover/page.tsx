@@ -1,11 +1,10 @@
-import Hoover from '../../components/pages/Hoover';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Hoover AL | Same-Day Service | EnviroCare",
-  description: "Hoover pest, termite and mosquito control. Local technicians from our Alabaster office. Family-owned since 1958. Free termite inspection. Serving Riverchase, The Preserve, and all of Hoover.",
-  alternates: { canonical: "https://envirocarellc.com/hoover" },
+  title: 'Hoover Pest Control & Termite Service | EnviroCare Since 1958',
+  description: 'Hoover, AL family-owned pest control. Sentricon® $1M coverage. Mosquito & tick yard service. Call (205) 940-6360.',
 };
 
-export default function Page() {
-  return <Hoover />;
+export default function HooverPage() {
+  return <CityPage slug="hoover" />;
 }

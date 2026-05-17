@@ -1,11 +1,10 @@
-import MountainBrook from '../../components/pages/MountainBrook';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Mountain Brook AL | EnviroCare Pest & Termite",
-  description: "Mountain Brook pest, termite and tick control. Discreet, professional service for wooded estates and shaded properties. Family-owned since 1958. Free inspection.",
-  alternates: { canonical: "https://envirocarellc.com/mountain-brook" },
+  title: 'Mountain Brook Pest & Termite Control | EnviroCare Since 1958',
+  description: 'Mountain Brook pest control. Sentricon® $1M termite coverage. Discreet, professional service. Call (205) 940-6360.',
 };
 
-export default function Page() {
-  return <MountainBrook />;
+export default function MountainBrookPage() {
+  return <CityPage slug="mountain-brook" />;
 }

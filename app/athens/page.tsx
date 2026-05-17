@@ -1,11 +1,10 @@
-import Athens from '../../components/pages/Athens';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Athens AL | Limestone County | EnviroCare",
-  description: "Athens, AL pest, termite, and mosquito control. Serving Limestone County from our Huntsville office. Family-owned since 1958. Free termite inspection.",
-  alternates: { canonical: "https://envirocarellc.com/athens" },
+  title: 'Athens Pest Control & Termite Service | EnviroCare Since 1958',
+  description: 'Athens, AL pest control. Limestone County family service. Sentricon® $1M coverage. Call (256) 937-7676.',
 };
 
-export default function Page() {
-  return <Athens />;
+export default function AthensPage() {
+  return <CityPage slug="athens" />;
 }

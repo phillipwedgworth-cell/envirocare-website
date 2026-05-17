@@ -1,11 +1,10 @@
-import Hartselle from '../../components/pages/Hartselle';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Hartselle AL | Morgan County | EnviroCare",
-  description: "Hartselle pest, termite, and mosquito control. Wooded yard tick treatment. Family-owned Alabama company since 1958. Free termite inspection.",
-  alternates: { canonical: "https://envirocarellc.com/hartselle" },
+  title: 'Hartselle Pest Control & Termite Service | EnviroCare Since 1958',
+  description: 'Hartselle pest control. Morgan County family service. Sentricon® $1M coverage. Call (256) 937-7676.',
 };
 
-export default function Page() {
-  return <Hartselle />;
+export default function HartsellePage() {
+  return <CityPage slug="hartselle" />;
 }

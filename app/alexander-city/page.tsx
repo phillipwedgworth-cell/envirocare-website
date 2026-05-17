@@ -1,11 +1,10 @@
-import AlexanderCity from '../../components/pages/AlexanderCity';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Alexander City AL | EnviroCare HQ Since 1958",
-  description: "Alexander City pest, termite, and mosquito control. EnviroCare started here in 1958 — the Wedgworth family's home base on Lake Martin. Free inspection. Same-day service.",
-  alternates: { canonical: "https://envirocarellc.com/alexander-city" },
+  title: 'Alexander City Pest Control | EnviroCare Home Office Since 1958',
+  description: 'Alexander City pest control — EnviroCare\',
 };
 
-export default function Page() {
-  return <AlexanderCity />;
+export default function AlexanderCityPage() {
+  return <CityPage slug="alexander-city" />;
 }

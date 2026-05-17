@@ -1,11 +1,10 @@
-import Madison from '../../components/pages/Madison';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Madison AL | EnviroCare Pest & Termite",
-  description: "Madison, AL pest, termite, and mosquito control. Local specialists serving Madison families and businesses from our Huntsville office. Family-owned since 1958.",
-  alternates: { canonical: "https://envirocarellc.com/madison" },
+  title: 'Madison Pest Control & Termite Service | EnviroCare Since 1958',
+  description: 'Madison, AL pest control. North Alabama family service. Sentricon® termite protection. Call (256) 937-7676.',
 };
 
-export default function Page() {
-  return <Madison />;
+export default function MadisonPage() {
+  return <CityPage slug="madison" />;
 }

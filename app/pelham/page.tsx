@@ -1,11 +1,10 @@
-import Pelham from '../../components/pages/Pelham';
+import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: "Pest Control Pelham AL | Same-Day Service | EnviroCare",
-  description: "Pelham pest, termite and mosquito control. Our Alabaster office is minutes away. Family-owned Alabama company since 1958. Free termite inspection. Same-day service available.",
-  alternates: { canonical: "https://envirocarellc.com/pelham" },
+  title: 'Pelham Pest Control & Termite Service | EnviroCare Since 1958',
+  description: 'Pelham pest control. Oak Mountain area family-owned service. Sentricon® $1M coverage. Call (205) 940-6360.',
 };
 
-export default function Page() {
-  return <Pelham />;
+export default function PelhamPage() {
+  return <CityPage slug="pelham" />;
 }

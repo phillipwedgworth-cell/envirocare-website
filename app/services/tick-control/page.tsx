@@ -1,10 +1,10 @@
-import TickService from '../../../components/pages/TickService';
+import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
-  title: "Tick Control Alabama | Family & Pet Safe Yard Treatments",
-  description: "Professional tick control for Alabama yards. Lone star, dog, and deer ticks. Family- and pet-safe treatments targeting wooded edges and tick habitat. Free inspection.",
+  title: 'Alabama Tick Yard Treatment | EnviroCare Lone Star & Deer Ticks',
+  description: 'Targeted tick yard treatment for Alabama properties. Bundles with mosquito service. Family-owned. Call (205) 649-5278.',
 };
 
 export default function TickControlPage() {
-  return <TickService />;
+  return <ServicePage slug="tick-control" />;
 }

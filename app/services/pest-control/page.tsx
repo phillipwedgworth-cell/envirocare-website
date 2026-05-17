@@ -1,11 +1,10 @@
-import PestControlService from '../../../components/pages/PestControlService';
+import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
-  title: "Pest Control Alabama | Quarterly Plan, No Contract | EnviroCare",
-  description: "Alabama's family-owned pest control since 1958. Quarterly plans for ants, roaches, spiders, rodents and more. Free re-visits, no long-term contracts. Free inspection.",
-  alternates: { canonical: "https://envirocarellc.com/services/pest-control" },
+  title: 'Alabama Pest Control | EnviroCare Bi-Monthly Service Since 1958',
+  description: 'Bi-monthly perimeter pest control across Birmingham, Lake Martin, Huntsville. 30+ pests covered, unlimited re-services. Family-owned. Call (205) 649-5278.',
 };
 
-export default function Page() {
-  return <PestControlService />;
+export default function PestControlPage() {
+  return <ServicePage slug="pest-control" />;
 }
