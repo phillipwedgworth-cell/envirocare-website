@@ -24,9 +24,9 @@ export default function TermiteInspectionServicePage() {
           "price": {
             "@type": "PriceSpecification",
             "priceCurrency": "USD",
-            "price": "299"
+            "price": "32"
           },
-          "priceRange": "$299-599"
+          "priceRange": "$32/mo"
         }
       `}</script>
 
@@ -324,9 +324,9 @@ export default function TermiteInspectionServicePage() {
           <div className="p-8 bg-white border-2 border-red-600 rounded-lg">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Treatment Cost</h3>
             <div className="mb-6">
-              <p className="text-slate-600 mb-2">Typical range:</p>
-              <p className="text-3xl font-bold text-red-600">$299 - $599</p>
-              <p className="text-sm text-slate-600 mt-2">Depends on size, severity, treatment type</p>
+              <p className="text-slate-600 mb-2">Sentricon® Always Active™:</p>
+              <p className="text-3xl font-bold text-red-600">$32/mo</p>
+              <p className="text-sm text-slate-600 mt-2">Annual renewal after install. Free inspection — exact quote after assessment.</p>
             </div>
             <p className="text-slate-600 text-sm">
               After inspection, we'll provide exact quote. No hidden fees. Satisfaction guaranteed.
