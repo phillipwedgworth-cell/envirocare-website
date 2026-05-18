@@ -5,16 +5,20 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 /**
- * EnviroCare Homepage v2.2 — Path B with REAL PHOTOS (May 18, 2026)
+ * EnviroCare Homepage v4 — Uses YOUR existing photos (May 18, 2026)
  *
- * Photos shipped (web-optimized, 620KB total):
- *   /hero-family.jpg          - Family + dog + sunset backyard (hero background)
- *   /lake-martin-aerial.jpg   - Real Lake Martin aerial view (office card)
- *   /kevin.jpg                - Kevin in green EnviroCare polo (heritage)
- *   /tick-grass.jpg           - (available for future use)
- *   /termite-damage.jpg       - (available for future use)
+ * Photos referenced (already in your repo's /public/ folder):
+ *   /family-yard.jpg            - Hero background (269KB)
+ *   /kevin-headshot.jpg         - Heritage Kevin polaroid (134KB)
+ *   /ribbon-cutting-1.jpg       - Heritage Birmingham polaroid (522KB)
+ *   /ribbon-cutting-2.jpg       - Heritage Huntsville polaroid (516KB)
+ *   /truck.jpg                  - Bundle section truck image (229KB)
+ *
+ * One NEW photo shipped in this zip's /public/:
+ *   /lake-martin-aerial.jpg     - Real Lake Martin aerial for office card (163KB)
  *
  * Logo fix preserved: image-only, no duplicate wordmark text.
+ * Includes new ALL 27 CITIES section between offices and heritage.
  */
 
 export default function Homepage() {
@@ -769,7 +773,7 @@ function Heritage() {
             {/* Kevin Wedgworth photo - polaroid style */}
             <div className="ec-photo-frame ec-photo-kevin">
               <img
-                src="/kevin.jpg"
+                src="/kevin-headshot.jpg"
                 alt="Kevin Wedgworth, third-generation owner"
                 className="ec-photo-img"
                 onError={(e) => {
@@ -787,7 +791,7 @@ function Heritage() {
             {/* Ribbon cutting photos */}
             <div className="ec-photo-frame ec-photo-ribbon-1">
               <img
-                src="/ribbon-1.jpg"
+                src="/ribbon-cutting-1.jpg"
                 alt="Birmingham office ribbon cutting"
                 className="ec-photo-img"
                 onError={(e) => {
@@ -803,7 +807,7 @@ function Heritage() {
 
             <div className="ec-photo-frame ec-photo-ribbon-2">
               <img
-                src="/ribbon-2.jpg"
+                src="/ribbon-cutting-2.jpg"
                 alt="Huntsville office ribbon cutting"
                 className="ec-photo-img"
                 onError={(e) => {
@@ -1235,7 +1239,7 @@ const HOMEPAGE_CSS = `
     position: relative;
     background:
       linear-gradient(180deg, rgba(232,245,238,0.92) 0%, rgba(254,253,248,0.95) 60%, rgba(254,253,248,1) 100%),
-      url('/hero-family.jpg') center 30% / cover no-repeat;
+      url('/family-yard.jpg') center 30% / cover no-repeat;
     padding: 64px 20px 0;
     overflow: hidden;
   }
