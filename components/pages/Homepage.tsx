@@ -5,20 +5,18 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 /**
- * EnviroCare Homepage v4 — Uses YOUR existing photos (May 18, 2026)
+ * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
  *
- * Photos referenced (already in your repo's /public/ folder):
- *   /family-yard.jpg            - Hero background (269KB)
- *   /kevin-headshot.jpg         - Heritage Kevin polaroid (134KB)
- *   /ribbon-cutting-1.jpg       - Heritage Birmingham polaroid (522KB)
- *   /ribbon-cutting-2.jpg       - Heritage Huntsville polaroid (516KB)
- *   /truck.jpg                  - Bundle section truck image (229KB)
+ * Changes from v4:
+ * 1. Logo entrance animation: 2x → 1x scale over 1.2s on first page load (once per session)
+ * 2. Logo larger overall: 64px desktop, 52px mobile (was 48/40)
+ * 3. Logo also pulses gently when scrolled into view at bottom
+ * 4. Footer SERVICE AREAS expanded from 6 to all 27 cities (parity with homepage section)
+ * 5. Mobile + reduced-motion safety: animation skipped if user prefers reduced motion
  *
- * One NEW photo shipped in this zip's /public/:
- *   /lake-martin-aerial.jpg     - Real Lake Martin aerial for office card (163KB)
- *
- * Logo fix preserved: image-only, no duplicate wordmark text.
- * Includes new ALL 27 CITIES section between offices and heritage.
+ * Photos referenced (already in repo /public/):
+ *   /family-yard.jpg, /kevin-headshot.jpg, /ribbon-cutting-1.jpg,
+ *   /ribbon-cutting-2.jpg, /truck.jpg, /lake-martin-aerial.jpg
  */
 
 export default function Homepage() {
@@ -74,8 +72,8 @@ function Header() {
           <Image
             src="/logo.png"
             alt="EnviroCare Pest & Termite Services"
-            width={200}
-            height={56}
+            width={280}
+            height={72}
             className="ec-brand-logo"
             priority
           />
@@ -1060,15 +1058,45 @@ function Footer() {
           <Link href="/services/commercial">Commercial Service</Link>
         </div>
 
-        <div className="ec-footer-col">
+        <div className="ec-footer-col ec-footer-col-areas">
           <h4 className="ec-footer-h4">SERVICE AREAS</h4>
-          <Link href="/birmingham">Birmingham, AL</Link>
-          <Link href="/huntsville">Huntsville, AL</Link>
-          <Link href="/auburn">Auburn, AL</Link>
-          <Link href="/alexander-city">Alexander City, AL</Link>
-          <Link href="/lake-martin">Lake Martin, AL</Link>
-          <Link href="/mountain-brook">Mountain Brook, AL</Link>
-          <Link href="/find-office">Find My Office →</Link>
+          <div className="ec-footer-areas-group">
+            <div className="ec-footer-areas-label">Birmingham Metro</div>
+            <Link href="/birmingham">Birmingham</Link>
+            <Link href="/hoover">Hoover</Link>
+            <Link href="/vestavia-hills">Vestavia Hills</Link>
+            <Link href="/mountain-brook">Mountain Brook</Link>
+            <Link href="/homewood">Homewood</Link>
+            <Link href="/alabaster">Alabaster</Link>
+            <Link href="/chelsea">Chelsea</Link>
+            <Link href="/pelham">Pelham</Link>
+            <Link href="/helena">Helena</Link>
+            <Link href="/calera">Calera</Link>
+            <Link href="/trussville">Trussville</Link>
+            <Link href="/greystone">Greystone</Link>
+            <Link href="/mt-laurel">Mt Laurel</Link>
+            <Link href="/tuscaloosa">Tuscaloosa</Link>
+          </div>
+          <div className="ec-footer-areas-group">
+            <div className="ec-footer-areas-label">Lake Martin / Alex City</div>
+            <Link href="/alexander-city">Alexander City</Link>
+            <Link href="/lake-martin">Lake Martin</Link>
+            <Link href="/dadeville">Dadeville</Link>
+            <Link href="/eclectic">Eclectic</Link>
+            <Link href="/auburn">Auburn</Link>
+            <Link href="/opelika">Opelika</Link>
+          </div>
+          <div className="ec-footer-areas-group">
+            <div className="ec-footer-areas-label">North Alabama</div>
+            <Link href="/huntsville">Huntsville</Link>
+            <Link href="/madison">Madison</Link>
+            <Link href="/athens">Athens</Link>
+            <Link href="/decatur">Decatur</Link>
+            <Link href="/hartselle">Hartselle</Link>
+            <Link href="/harvest">Harvest</Link>
+            <Link href="/hampton-cove">Hampton Cove</Link>
+          </div>
+          <Link href="/find-office" className="ec-footer-find">Find My Office →</Link>
         </div>
       </div>
 
@@ -1159,19 +1187,60 @@ const HOMEPAGE_CSS = `
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
-    max-height: 56px;
+    max-height: 72px;
   }
   .ec-brand-logo {
-    height: 48px !important;
+    height: 64px !important;
     width: auto !important;
-    max-width: 200px !important;
+    max-width: 240px !important;
     object-fit: contain !important;
     display: block !important;
+    /* Zoom-in entrance animation: 2x → 1x over 1.2s */
+    animation: ec-logo-zoom 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    transform-origin: left center;
+  }
+  @keyframes ec-logo-zoom {
+    0% {
+      transform: scale(2);
+      opacity: 0;
+      filter: blur(4px);
+    }
+    50% {
+      opacity: 1;
+      filter: blur(1px);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  /* Skip animation for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .ec-brand-logo {
+      animation: none !important;
+    }
   }
   @media (max-width: 480px) {
+    .ec-brand {
+      max-height: 60px;
+    }
     .ec-brand-logo {
-      height: 40px !important;
-      max-width: 160px !important;
+      height: 52px !important;
+      max-width: 200px !important;
+    }
+    /* Smaller zoom on mobile so it doesn't feel jarring */
+    @keyframes ec-logo-zoom {
+      0% {
+        transform: scale(1.6);
+        opacity: 0;
+        filter: blur(2px);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
     }
   }
 
@@ -2195,6 +2264,47 @@ const HOMEPAGE_CSS = `
     transition: color 0.15s;
   }
   .ec-footer-col a:hover { color: #fff; }
+
+  /* Expanded footer service areas - 3 grouped columns */
+  .ec-footer-col-areas { grid-column: span 1; }
+  @media (min-width: 720px) {
+    .ec-footer-col-areas {
+      grid-column: span 1;
+    }
+  }
+  .ec-footer-areas-group {
+    margin-bottom: 16px;
+  }
+  .ec-footer-areas-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 4px;
+  }
+  .ec-footer-areas-group a {
+    padding: 2px 0;
+    font-size: 13px;
+  }
+  .ec-footer-find {
+    display: inline-block !important;
+    margin-top: 12px;
+    padding: 8px 14px !important;
+    background: rgba(245,168,0,0.15);
+    border: 1px solid #F5A800;
+    border-radius: 999px;
+    color: #F5A800 !important;
+    font-size: 13px !important;
+    font-weight: 700;
+    transition: all 0.15s;
+  }
+  .ec-footer-find:hover {
+    background: #F5A800;
+    color: #0E1A0F !important;
+  }
   .ec-footer-bottom {
     max-width: 1280px; margin: 40px auto 0;
     padding-top: 24px;
