@@ -1,8 +1,8 @@
-import BlogPage from '@/components/pages/BlogPage';
+import BlogPage from '@/components/BlogPage';
 
 export const metadata = {
-  title: 'Alabama Pest Control Blog — Real Knowledge From EnviroCare Since 1958',
-  description: 'Real Alabama pest knowledge from 68 years in the field. Seasonal guides, Sentricon® deep-dives, and homeowner advice you won\'t find in big-box marketing.',
+  title: 'EnviroCare Field Notes | Alabama Pest Control Blog | Since 1958',
+  description: 'Honest Alabama pest control advice from EnviroCare. Termites, mosquitoes, fire ants, real estate WDO letters. Family-owned, three generations. Call (205) 649-5278.',
 };
 
 export default function Page() {
