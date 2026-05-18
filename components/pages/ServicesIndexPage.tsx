@@ -77,7 +77,7 @@ export default function ServicesIndexPage() {
             <div className="svc-card feat">
               <div className="svc-card-tag">Most Popular</div>
               <div className="svc-card-name">Pest Control</div>
-              <div className="svc-card-price">$35/mo ACH · or $70 bi-monthly</div>
+              <div className="svc-card-price">$35/mo ACH</div>
               <div className="svc-card-desc">Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, no contracts.</div>
               <a href="/services/pest-control" className="svc-card-link">Learn more →</a>
             </div>

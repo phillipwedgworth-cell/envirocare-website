@@ -32,7 +32,6 @@ export const SERVICES: Service[] = [
     category: 'core',
     serviceArt: 'pest',
     price: '$35/mo ACH',
-    priceSub: 'or $70 bi-monthly',
     metaTitle: 'Alabama Pest Control | EnviroCare Bi-Monthly Service Since 1958',
     metaDescription: 'Bi-monthly perimeter pest control across Birmingham, Lake Martin, Huntsville. 30+ pests covered, unlimited re-services. Family-owned. Call (205) 649-5278.',
     heroEyebrow: 'Year-Round Pest Defense',
