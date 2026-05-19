@@ -17,7 +17,7 @@ const BASE_URL = 'https://envirocare-web.vercel.app';
 const CITY_SLUGS = [
   'birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
   'alabaster', 'chelsea', 'pelham', 'helena', 'calera',
-  'trussville', 'greystone', 'mt-laurel', 'tuscaloosa',
+  'trussville', 'mt-laurel', 'tuscaloosa',
   'lake-martin', 'alexander-city', 'dadeville', 'eclectic',
   'auburn', 'opelika',
   'huntsville', 'madison', 'athens', 'decatur', 'hartselle',

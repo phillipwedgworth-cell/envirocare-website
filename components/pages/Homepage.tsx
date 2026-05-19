@@ -461,7 +461,6 @@ function ServiceAreas() {
     { name: 'Helena', slug: 'helena' },
     { name: 'Calera', slug: 'calera' },
     { name: 'Trussville', slug: 'trussville' },
-    { name: 'Greystone', slug: 'greystone' },
     { name: 'Mt Laurel', slug: 'mt-laurel' },
     { name: 'Tuscaloosa', slug: 'tuscaloosa' },
   ];
@@ -1073,7 +1072,6 @@ function Footer() {
             <Link href="/helena">Helena</Link>
             <Link href="/calera">Calera</Link>
             <Link href="/trussville">Trussville</Link>
-            <Link href="/greystone">Greystone</Link>
             <Link href="/mt-laurel">Mt Laurel</Link>
             <Link href="/tuscaloosa">Tuscaloosa</Link>
           </div>

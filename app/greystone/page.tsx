@@ -1,8 +1,8 @@
 import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: 'Greystone Pest Control & Termite Service | EnviroCare Since 1958',
-  description: 'Greystone pest control. Premium home termite protection. Sentricon® $1M coverage. Call (205) 940-6360.',
+  title: 'Greystone Area Pest Control (Hoover, AL) | EnviroCare Since 1958',
+  description: 'Pest control for the Greystone area of Hoover, AL. Sentricon® $1M termite coverage. Family-owned since 1958. Call (205) 940-6360.',
 };
 
 export default function GreystonePage() {
