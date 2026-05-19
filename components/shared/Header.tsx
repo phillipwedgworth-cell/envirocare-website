@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Phone, ArrowRight } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Phone, ArrowRight, ChevronDown } from "lucide-react";
 
 // When the customer payment portal goes live, change this single value.
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
@@ -13,18 +13,31 @@ const DARK = "#0E1A0F";
 
 const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
 
-const NAV_LINKS: [string, string][] = [
-  ["Services", "/services/pest-control"],
-  ["Lake Martin", "/lake-martin"],
-  ["Pricing", "/quote"],
-  ["About", "/about-us"],
+const SERVICES_ITEMS: [string, string][] = [
+  ["Pest Control", "/services/pest-control"],
+  ["Termite / Sentricon®", "/services/termite-control"],
+  ["Mosquito Control", "/services/mosquito-control"],
+  ["Tick Control", "/services/tick-control"],
+  ["Fire Ant Control", "/services/fire-ant"],
+  ["Flea Control", "/services/flea"],
+  ["Builder Pre-Treat", "/services/builder"],
+  ["Real Estate / WDO", "/services/real-estate-wdo"],
+  ["Crawlspace Service", "/services/crawlspace"],
+  ["Commercial Service", "/services/commercial"],
+];
+
+const AREAS_ITEMS: [string, string, string][] = [
+  ["Birmingham / Shelby County", "/birmingham", "(205) 940-6360"],
+  ["Lake Martin / Alex City", "/lake-martin", "(256) 234-6162"],
+  ["Huntsville / North Alabama", "/huntsville", "(256) 937-7676"],
 ];
 
 const OVERLAY_LINKS: [string, string, boolean][] = [
   ["Services", "/services/pest-control", false],
-  ["Lake Martin", "/lake-martin", true],
+  ["Service Areas", "/find-office", false],
   ["Pricing", "/quote", false],
   ["About", "/about-us", false],
+  ["Reviews", "/reviews", false],
   ["Specials", "/special-offers", false],
   ["Contact", "/contact-us", false],
 ];
@@ -34,6 +47,57 @@ const OFFICES = [
   { name: "Lake Martin · Alex City", phone: "(256) 234-6162", tel: "2562346162" },
   { name: "Huntsville", phone: "(256) 937-7676", tel: "2569377676" },
 ];
+
+function Dropdown({ label, children }: { label: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div ref={ref} style={{ position: "relative" }} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen(v => !v)}
+        style={{ background: "none", border: "none", cursor: "pointer", fontSize: 14, color: "#1f2a23", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 4, padding: "0.5rem 0.6rem", ...sf, lineHeight: 1 }}
+      >
+        {label}
+        <ChevronDown size={13} style={{ transition: "transform 0.15s", transform: open ? "rotate(180deg)" : "none", opacity: 0.6 }} />
+      </button>
+
+      {open && (
+        <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, background: "#fff", border: "1px solid #E8E2D8", borderRadius: 10, boxShadow: "0 8px 32px rgba(0,0,0,0.10)", minWidth: 200, padding: "6px 0", zIndex: 200 }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DropItem({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      style={{ display: "block", padding: "9px 18px", fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 500, ...sf, whiteSpace: "nowrap" }}
+      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#F0FAF4"; (e.currentTarget as HTMLElement).style.color = G; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "#1f2a23"; }}
+    >
+      {children}
+    </a>
+  );
+}
+
+const divider = (
+  <span style={{ width: 1, height: 18, background: "rgba(0,0,0,0.12)", display: "inline-block", margin: "0 4px", verticalAlign: "middle" }} />
+);
 
 export default function Header({ showTopBar = true }: { showTopBar?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -74,10 +138,10 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
           ))}
 
           <a href={PAYMENT_PORTAL_URL} className="ec-menu-pay" onClick={() => setMenuOpen(false)}>
-            <span>Pay My Bill <span className="ec-menu-pay-sub" style={{ display: "block", marginTop: 2 }}>Customer Portal</span></span>
+            <span>Customer Login <span className="ec-menu-pay-sub" style={{ display: "block", marginTop: 2 }}>Pay My Bill</span></span>
             <ArrowRight size={20} />
           </a>
-          <a href="/quote" className="ec-menu-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote <ArrowRight size={18} /></a>
+          <a href="/request-quote" className="ec-menu-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote <ArrowRight size={18} /></a>
 
           <div className="ec-menu-offices">
             <div className="ec-menu-offices-label">Call Your Local Office</div>
@@ -108,28 +172,56 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
       {/* HEADER */}
       <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${scrolled ? "rgba(14,142,64,0.18)" : "#D4E8D8"}`, padding: "0 clamp(1.5rem, 5vw, 4rem)", transition: "all 0.2s", boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.06)" : "none" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 96 }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
+
+          {/* LEFT: Logo — ~50px tall */}
           <a href="/" style={{ display: "block", textDecoration: "none", flexShrink: 0 }} aria-label="EnviroCare home">
-            <img src="/logo.svg" alt="EnviroCare Pest & Termite Services" width={380} height={146} style={{ width: "clamp(220px, 26vw, 380px)", height: "auto", display: "block" }} />
+            <img src="/logo.svg" alt="EnviroCare Pest & Termite Services" style={{ height: 50, width: "auto", display: "block" }} />
           </a>
 
-          <nav className="ec-desktop-only" style={{ gap: 28, alignItems: "center", ...sf }}>
-            {NAV_LINKS.map(([l, h]) => (
-              <a key={l} href={h} style={{ fontSize: 14, color: l === "Lake Martin" ? G : "#1f2a23", textDecoration: "none", fontWeight: l === "Lake Martin" ? 700 : 600 }}>{l}</a>
-            ))}
-            <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600 }}>Pay Bill</a>
-            <a href="tel:2056495278" style={{ fontSize: 13, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
-              <Phone size={14} /> (205) 649-5278
-            </a>
-            <a href="/quote" style={{ background: GOLD, color: DARK, borderRadius: 50, padding: "0.55rem 1.4rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40` }}>Get Free Quote</a>
+          {/* CENTER: Nav with dropdowns */}
+          <nav className="ec-desktop-only" style={{ gap: 2, alignItems: "center", ...sf }}>
+            <Dropdown label="Services">
+              {SERVICES_ITEMS.map(([label, href]) => (
+                <DropItem key={label} href={href}>{label}</DropItem>
+              ))}
+            </Dropdown>
+
+            <Dropdown label="Service Areas">
+              {AREAS_ITEMS.map(([label, href, phone]) => (
+                <DropItem key={label} href={href}>
+                  <span style={{ display: "block" }}>{label}</span>
+                  <span style={{ display: "block", fontSize: 12, color: G, marginTop: 1 }}>{phone}</span>
+                </DropItem>
+              ))}
+              <div style={{ borderTop: "1px solid #E8E2D8", margin: "6px 0" }} />
+              <DropItem href="/find-office">Find My Office →</DropItem>
+            </Dropdown>
+
+            <a href="/quote" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>Pricing</a>
+            <a href="/about-us" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>About</a>
+            <a href="/reviews" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>Reviews</a>
           </nav>
 
+          {/* RIGHT: Phone | Customer Login | Get Free Quote */}
+          <div className="ec-desktop-only" style={{ alignItems: "center", gap: 0, ...sf }}>
+            <a href="tel:2056495278" style={{ fontSize: 13.5, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
+              <Phone size={14} /> (205) 649-5278
+            </a>
+            {divider}
+            <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0 12px" }}>Customer Login</a>
+            {divider}
+            <a href="/request-quote" style={{ marginLeft: 8, background: GOLD, color: DARK, borderRadius: 50, padding: "0.52rem 1.3rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap" }}>Get Free Quote</a>
+          </div>
+
+          {/* MOBILE: phone icon + burger */}
           <div className="ec-mobile-only" style={{ alignItems: "center", gap: 8 }}>
             <a href="tel:2056495278" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
             <button type="button" className="ec-burger" aria-label="Open menu" aria-expanded={menuOpen} aria-controls="ec-mobile-menu" onClick={() => setMenuOpen(true)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="13" x2="20" y2="13"/><line x1="4" y1="19" x2="14" y2="19"/></svg>
             </button>
           </div>
+
         </div>
       </header>
     </>
