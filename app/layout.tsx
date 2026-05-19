@@ -192,17 +192,6 @@ const huntsvilleJsonLd = {
     postalCode: '35806',
     addressCountry: 'US',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Huntsville',
-    },
-  },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
