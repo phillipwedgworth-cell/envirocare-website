@@ -90,16 +90,16 @@ export default function AboutUs() {
 
             {/* Timeline */}
             <div>
-              <h3 className="font-bold text-slate-900 mb-8 text-lg">68+ Years of Protecting Alabama</h3>
+              <h3 className="font-bold text-slate-900 mb-8 text-lg">Three Generations of Protecting Alabama</h3>
               <div className="space-y-1">
                 {[
-                  { year: "1958", title: "Founded in Alexander City", desc: "Phillip M. Wedgworth starts EnviroCare to serve the Lake Martin and Alexander City community. First office at 1785 Tallapoosa St." },
+                  { year: "1958", title: "The Founding", desc: "Phillip M. Wedgworth started EnviroCare in Alexander City with one truck and one belief: that Alabama families deserved a pest control company that actually answered the phone and stood behind the work." },
                   { year: "1960s–70s", title: "Growing with Lake Martin", desc: "As Lake Martin grows, so does EnviroCare. Expanded service to Dadeville, Eclectic, and surrounding communities." },
-                  { year: "1980s", title: "Second generation joins", desc: "The next generation of the Wedgworth family takes on leadership roles, bringing new energy while honoring the original mission." },
-                  { year: "1990s–2000s", title: "Birmingham expansion", desc: "EnviroCare opens the Birmingham-area office (Alabaster) to serve greater Birmingham, Hoover, Shelby County." },
-                  { year: "2010s", title: "Huntsville office opens", desc: "North Alabama growth creates demand. EnviroCare opens at 7027 Old Madison Pike, Huntsville — now serving Madison, Athens, Decatur." },
-                  { year: "2020s", title: "Third generation leading", desc: "Three generations. Three offices. Thousands of Alabama families protected. Same values, modern methods." },
-                  { year: "Today", title: "Still family. Still local.", desc: "EnviroCare serves 30+ Alabama communities with the same commitment the family started with in 1958. No franchises. No national call centers. Your neighbors." },
+                  { year: "1980s", title: "Second Generation", desc: "His son Phillip L. Wedgworth took over leadership, growing the business across Alabama and building the reputation EnviroCare carries today. Phillip L. retired in the 2010s after decades of service." },
+                  { year: "1990s–2000s", title: "Birmingham Expansion", desc: "EnviroCare opens the Birmingham-area office (Alabaster) to serve greater Birmingham, Hoover, Shelby County, and beyond." },
+                  { year: "2020s", title: "Third Generation", desc: "His grandson Kevin Wedgworth now runs EnviroCare. Same family. Same answer to your pest problem." },
+                  { year: "2022", title: "Huntsville Opens", desc: "EnviroCare opened its Huntsville office, bringing three generations of Alabama pest control expertise to North Alabama — now serving Madison, Athens, Decatur, and beyond." },
+                  { year: "Today", title: "Still Family. Still Local.", desc: "EnviroCare serves Alabama from three offices — Birmingham, Lake Martin, and Huntsville — and remains 100% family-owned." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="flex flex-col items-center">
@@ -286,7 +286,7 @@ export default function AboutUs() {
       {/* CTA */}
       <section className="py-20 px-6 bg-emerald-800 text-white text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4">65 Years of Caring. Ready to Help You.</h2>
+          <h2 className="text-4xl font-bold mb-4">68 Years of Caring. Ready to Help You.</h2>
           <p className="text-emerald-100 text-lg mb-8">Free inspection from your local EnviroCare office. No obligation, no pressure.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)}
