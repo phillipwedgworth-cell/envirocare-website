@@ -6,5 +6,25 @@ export const metadata = {
 };
 
 export default function QuotePage() {
-  return <PricingCalculator />;
+  return (
+    <>
+      <PricingCalculator />
+      <p style={{
+        textAlign: 'center',
+        fontFamily: "'DM Sans', system-ui, sans-serif",
+        fontSize: '14px',
+        color: '#5A6660',
+        padding: '0 16px 40px',
+        margin: 0,
+      }}>
+        Need help choosing?{' '}
+        <a
+          href="/request-quote"
+          style={{ color: '#0E8E40', textDecoration: 'underline', fontWeight: 600 }}
+        >
+          Request a personal quote →
+        </a>
+      </p>
+    </>
+  );
 }

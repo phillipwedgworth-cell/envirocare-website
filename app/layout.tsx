@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import StickyCallButton from '@/components/StickyCallButton';
 import LogoFix from '@/components/LogoFix';
+import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://envirocare-web.vercel.app'),
@@ -114,19 +115,19 @@ const birminghamJsonLd = {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '500',
+    bestRating: '5',
+    worstRating: '1',
+    itemReviewed: {
+      '@type': 'PestControlService',
+      name: 'EnviroCare Pest & Termite Services — Birmingham',
+    },
   },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '07:00',
-      closes: '18:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
       opens: '08:00',
-      closes: '12:00',
+      closes: '17:00',
     },
   ],
 };
@@ -155,7 +156,21 @@ const lakeMartinJsonLd = {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '500',
+    bestRating: '5',
+    worstRating: '1',
+    itemReviewed: {
+      '@type': 'PestControlService',
+      name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
+    },
   },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:00',
+    },
+  ],
 };
 
 const huntsvilleJsonLd = {
@@ -181,7 +196,21 @@ const huntsvilleJsonLd = {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '500',
+    bestRating: '5',
+    worstRating: '1',
+    itemReviewed: {
+      '@type': 'PestControlService',
+      name: 'EnviroCare Pest & Termite Services — Huntsville',
+    },
   },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:00',
+    },
+  ],
 };
 
 const organizationJsonLd = {
@@ -282,6 +311,9 @@ export default function RootLayout({
 
         {/* Mobile-only sticky call button with zip-aware office routing */}
         <StickyCallButton />
+
+        {/* AI chat assistant — all pages, green bubble bottom-right */}
+        <ChatWidget />
       </body>
     </html>
   );
