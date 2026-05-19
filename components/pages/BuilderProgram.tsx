@@ -411,7 +411,7 @@ export default function BuilderProgram() {
                   <Phone className="w-5 h-5 text-slate-400 group-hover:text-green-600 transition" />
                 </a>
               ))}
-              <p className="text-xs text-slate-500 text-center pt-2">Or email us at <a href="mailto:info@envirocarellc.com" className="underline">info@envirocarellc.com</a></p>
+              <p className="text-xs text-slate-500 text-center pt-2">Or email us at <a href="mailto:service@envirocarellc.com" className="underline">service@envirocarellc.com</a></p>
             </div>
           </div>
         </div>
