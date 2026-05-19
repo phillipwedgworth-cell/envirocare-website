@@ -1,8 +1,24 @@
 import type { Metadata, Viewport } from 'next';
+import { Playfair_Display, DM_Sans } from 'next/font/google';
 import './globals.css';
 import StickyCallButton from '@/components/StickyCallButton';
 import LogoFix from '@/components/LogoFix';
 import ChatWidget from '@/components/ChatWidget';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://envirocare-web.vercel.app'),
@@ -236,22 +252,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <head>
-        {/* Preconnect to font origins for faster first paint */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        {/* Load Playfair Display + DM Sans synchronously in <head> for faster paint */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-
         {/* Preload the hero truck image — biggest LCP element */}
         <link rel="preload" as="image" href="/truck.jpg" fetchPriority="high" />
 

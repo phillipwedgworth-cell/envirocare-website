@@ -221,6 +221,8 @@ export default function AboutUs() {
                 src="/kevin-headshot.jpg"
                 alt="Kevin Wedgworth - EnviroCare Operations"
                 className="w-full h-auto object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div>
@@ -254,6 +256,8 @@ export default function AboutUs() {
               src="/ribbon-cutting-1.jpg"
               alt="EnviroCare office ribbon cutting ceremony with community members"
               className="w-full h-auto object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <p className="text-center text-sm text-slate-500 mt-4">EnviroCare office opening — supported by the local community we've served for generations</p>
