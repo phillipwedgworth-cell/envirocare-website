@@ -1,0 +1,15 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/Dadeville": [
+      "static/chunks/0lv_9dps0_7a-.js",
+      "static/chunks/0-fa615zbscil.js",
+      "static/chunks/turbopack-0q6hzk7397899.js"
+    ]
+  },
+  "ampFirstPages": []
+}

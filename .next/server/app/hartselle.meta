@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/hartselle/layout,_N_T_/hartselle/page,_N_T_/hartselle"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/hartselle/__PAGE__",
+    "/hartselle",
+    "/_index",
+    "/_head"
+  ]
+}

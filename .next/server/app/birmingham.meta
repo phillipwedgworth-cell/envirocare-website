@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/birmingham/layout,_N_T_/birmingham/page,_N_T_/birmingham"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/birmingham/__PAGE__",
+    "/birmingham",
+    "/_index",
+    "/_head"
+  ]
+}

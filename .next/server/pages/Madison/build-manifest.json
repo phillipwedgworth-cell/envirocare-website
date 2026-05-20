@@ -1,0 +1,15 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/Madison": [
+      "static/chunks/141.tlfvr1.uh.js",
+      "static/chunks/0-fa615zbscil.js",
+      "static/chunks/turbopack-187rl8eb2ed6t.js"
+    ]
+  },
+  "ampFirstPages": []
+}

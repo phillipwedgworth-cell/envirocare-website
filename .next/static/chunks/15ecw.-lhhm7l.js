@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/Decatur", [
+  "static/chunks/0ycobh~fd_6fz.js",
+  "static/chunks/0-fa615zbscil.js",
+  "static/chunks/turbopack-0ve3vt1e-n-ay.js"
+])

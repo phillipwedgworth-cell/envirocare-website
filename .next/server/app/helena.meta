@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/helena/layout,_N_T_/helena/page,_N_T_/helena"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/helena/__PAGE__",
+    "/helena",
+    "/_index",
+    "/_head"
+  ]
+}

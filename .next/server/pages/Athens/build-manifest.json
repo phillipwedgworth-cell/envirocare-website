@@ -1,0 +1,15 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/Athens": [
+      "static/chunks/05g-trsjb.69u.js",
+      "static/chunks/0-fa615zbscil.js",
+      "static/chunks/turbopack-0z_zcn2qx.3ep.js"
+    ]
+  },
+  "ampFirstPages": []
+}

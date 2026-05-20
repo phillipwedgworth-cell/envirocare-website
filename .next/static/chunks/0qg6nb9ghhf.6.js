@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/SpecialOffers", [
+  "static/chunks/0couwji23-1mp.js",
+  "static/chunks/0-fa615zbscil.js",
+  "static/chunks/turbopack-0on58anagz4u2.js"
+])

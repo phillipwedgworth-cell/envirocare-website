@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/AlexanderCity", [
+  "static/chunks/0asl-8n55~r8l.js",
+  "static/chunks/0-fa615zbscil.js",
+  "static/chunks/turbopack-166epx2070.p6.js"
+])

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://envirocare-web.vercel.app
+
+# Sitemaps
+Sitemap: https://envirocare-web.vercel.app/sitemap.xml

@@ -1,0 +1,15 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/Chelsea": [
+      "static/chunks/0v1gna4xiysnp.js",
+      "static/chunks/0-fa615zbscil.js",
+      "static/chunks/turbopack-15lky6so09f2s.js"
+    ]
+  },
+  "ampFirstPages": []
+}
