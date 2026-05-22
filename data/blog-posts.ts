@@ -339,6 +339,441 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Or our main line, <strong>(205) 649-5278</strong>. Standard turnaround is 48 hours. Rush inspections are available when needed.</p>
 `,
   },
+
+  {
+    slug: 'pests-after-rain-alabama',
+    title: 'Why Pests Get Worse After Rain in Alabama',
+    excerpt: 'Fire ants, palmetto bugs, and millipedes all surge after Alabama rainstorms. Rain floods habitats and drives pests toward your home.',
+    publishedAt: '2026-05-20',
+    author: 'Kevin Wedgworth',
+    category: 'Seasonal',
+    readMinutes: 4,
+    heroEmoji: '🌧️',
+    metaTitle: 'Why Pests Get Worse After Rain in Alabama | EnviroCare',
+    metaDescription: 'Fire ants, palmetto bugs, millipedes, and mosquitoes all surge after Alabama rainstorms. Learn why rain drives pests indoors and how proactive perimeter treatment stops them.',
+    body: `
+<p class="lede">Every pest company in Alabama gets the same call after a rainstorm: why are there suddenly bugs everywhere? Rain disrupts underground and outdoor habitats, forcing pests toward your home.</p>
+
+<h2>Fire Ants</h2>
+<p>Heavy rain floods their tunnels, and they build new mounds on higher ground — often your yard. You may see dozens of new mounds after a single storm.</p>
+
+<h2>American Roaches (Palmetto Bugs)</h2>
+<p>American roaches live in storm drains and mulch. When rain saturates these areas, they move toward your dry home foundation.</p>
+
+<h2>Millipedes and Mosquitoes</h2>
+<p>Millipedes migrate in mass after rain — sometimes hundreds crawling up foundations. Mosquitoes thrive because standing water is where they breed. A bottle cap of water produces hundreds of mosquitoes per week.</p>
+
+<h2>The Best Defense</h2>
+<p>Proactive perimeter treatment already in place before the storm is your best defense. Our quarterly service creates a treated zone that intercepts pests as they migrate. We offer free re-treatment between scheduled visits for exactly this situation.</p>
+
+<p>Call your nearest EnviroCare office:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'best-time-pest-control-alabama',
+    title: 'The Best Time to Start Pest Control in Alabama',
+    excerpt: 'Early spring (Feb–April) is optimal — get ahead of ant, roach, and termite season. But Alabama pests are year-round, so there is never a bad time to start.',
+    publishedAt: '2026-05-20',
+    author: 'Kevin Wedgworth',
+    category: 'Tips',
+    readMinutes: 4,
+    heroEmoji: '📅',
+    metaTitle: 'The Best Time to Start Pest Control in Alabama | EnviroCare',
+    metaDescription: 'Early spring is ideal but any time works. Alabama pests are year-round. Why starting treatment in February–April gets ahead of summer ant, roach, and termite pressure.',
+    body: `
+<p class="lede">The honest answer: now. The strategic answer: early spring, February through April. Here is why.</p>
+
+<h2>Why Early Spring</h2>
+<p>Spring is when pest populations begin their annual growth. Ant colonies send foragers. Termites swarm. Cockroach reproduction accelerates. Starting treatment in early spring gets ahead of these explosions before they establish indoors.</p>
+
+<p>Think of it like lawn care. You apply pre-emergent before weeds establish. Pest control works the same way — a perimeter barrier in March prevents the summer invasion.</p>
+
+<h2>Any Time Works</h2>
+<p>That said, there is never a bad time. Alabama pests are active year-round. If you are reading this in July with roaches in your kitchen, call today. The treatment works whenever we start it.</p>
+
+<h2>Termites: Start Immediately</h2>
+<p>For termite protection, every month without coverage is a month of potential damage. Alabama is one of the highest-risk states in the country. New homeowners should start immediately — builder soil treatments only last 5–7 years.</p>
+
+<p>EnviroCare offers $50 off initial service. No contracts. Free re-treatment between visits. Call any of our three offices:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'prepare-home-for-pest-control',
+    title: 'How to Prepare Your Home for Pest Control Service',
+    excerpt: 'Clear baseboards, secure pets, give access to crawlspaces. A few simple steps before service make treatment more effective and longer-lasting.',
+    publishedAt: '2026-05-20',
+    author: 'Kevin Wedgworth',
+    category: 'Tips',
+    readMinutes: 3,
+    heroEmoji: '🏡',
+    metaTitle: 'How to Prepare Your Home for Pest Control Service | EnviroCare Alabama',
+    metaDescription: 'A few simple steps before your pest control visit make treatment more effective. Clear baseboards, secure pets, and give access to key areas. Tips from EnviroCare.',
+    body: `
+<p class="lede">Getting the most from your pest control service starts before the technician arrives. A few simple steps help us treat more effectively and make results last longer.</p>
+
+<h2>Clear Access Areas</h2>
+<p>Clear items away from baseboards in the kitchen and bathrooms. Pull appliances forward so we can treat behind them. These areas are prime harborage for roaches, ants, and silverfish — and if we can't reach them, neither can the treatment.</p>
+
+<h2>Secure Pets and Sensitive Items</h2>
+<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are family-safe once dry — about 30 minutes for interior work.</p>
+
+<h2>Trim Exterior Vegetation</h2>
+<p>Trim vegetation at least 12 inches from your home exterior. Overgrown landscaping touching your house creates bridges for pests to bypass our perimeter barrier.</p>
+
+<h2>Give Access to Key Areas</h2>
+<p>Make sure your technician can access the garage, crawlspace, and outdoor storage buildings. These areas often harbor the heaviest pest populations and are the source of many interior invasions.</p>
+
+<h2>After Treatment</h2>
+<p>Avoid mopping baseboards for 48 hours. The residual product continues working for weeks. If you see increased pest activity in the first 7–10 days, that is normal — the treatment flushes pests from hiding before eliminating them.</p>
+
+<p>Questions before your service? Call your nearest EnviroCare office:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'huntsville-pest-control-guide',
+    title: 'Huntsville Pest Control: What North Alabama Homeowners Face',
+    excerpt: 'Limestone geology, Tennessee Valley climate, and rapid suburban growth create unique pest challenges. Local guide from EnviroCare\'s Huntsville office.',
+    publishedAt: '2026-05-20',
+    author: 'Kevin Wedgworth',
+    category: 'Local',
+    readMinutes: 5,
+    heroEmoji: '🚀',
+    metaTitle: 'Huntsville Pest Control: What North Alabama Homeowners Face | EnviroCare',
+    metaDescription: 'Limestone geology, Tennessee Valley climate, and rapid growth create unique pest challenges in Huntsville. Local guide from EnviroCare\'s North Alabama office on Old Madison Pike.',
+    body: `
+<p class="lede">Huntsville and North Alabama present unique pest challenges. The Tennessee Valley climate, limestone geology, and rapid suburban development all influence what pests you deal with — and how to stop them.</p>
+
+<h2>Limestone Geology</h2>
+<p>Limestone geology creates natural voids that pests use as highways through your soil. Centipedes, millipedes, and cave crickets are more common in North Alabama homes on limestone than in clay-soil homes further south.</p>
+
+<h2>New Construction Pressure</h2>
+<p>Explosive growth means new construction constantly disturbs pest habitats. When a developer clears a field in Harvest or Madison, the fire ants and termites don't disappear — they relocate to nearby existing structures.</p>
+
+<h2>Tennessee River and Mosquitoes</h2>
+<p>The Tennessee River creates mosquito breeding habitat throughout the valley. Properties near the river and agricultural irrigation face above-average mosquito pressure throughout spring and summer.</p>
+
+<h2>Brown Recluse</h2>
+<p>Brown recluse are well-established in North Alabama. Older homes in downtown Huntsville with stone foundations and crawlspaces are particularly prone to infestations. If you're storing boxes in an attic or crawlspace, inspect carefully.</p>
+
+<h2>EnviroCare Huntsville</h2>
+<p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: quarterly pest control from $39/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
+
+<p><strong>7027 Old Madison Pike, Suite 108 · Huntsville, AL 35806</strong><br/>
+Free inspections. No contracts. Same-day service available.</p>
+
+<p>Call: <strong>(256) 937-7676</strong></p>
+`,
+  },
+
+  {
+    slug: 'brown-recluse-spiders-alabama',
+    title: 'Brown Recluse Spiders in Alabama: What Every Homeowner Should Know',
+    excerpt: 'Far more common than most realize. How to identify them, what a bite looks like, where they hide in Alabama homes, and how to keep them out.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 5,
+    heroEmoji: '🕷️',
+    metaTitle: 'Brown Recluse Spiders in Alabama: What Every Homeowner Should Know | EnviroCare',
+    metaDescription: 'Brown recluse are far more common in Alabama homes than most realize. Identification, bite risks, prevention tips, and when to call for professional treatment.',
+    body: `
+<p class="lede">The brown recluse is one of two medically significant spiders in Alabama, and far more common in homes than most people realize. Unlike black widows that build obvious webs in visible corners, brown recluse are secretive — hiding in undisturbed boxes, behind furniture, and in attic storage for years without being noticed.</p>
+
+<h2>Identification</h2>
+<p>Brown recluse are tan to light brown with a distinctive violin-shaped marking on the top of the head. About the size of a quarter including legs. They hunt at night and retreat to dark, undisturbed hiding spots during the day. If you see one in daylight, it's usually been displaced.</p>
+
+<h2>Why Alabama</h2>
+<p>Alabama's climate is ideal for brown recluse. They thrive between 70–90°F and prefer dry, undisturbed areas. Homes with lots of storage, cardboard boxes, and undisturbed closets provide perfect habitat. The attic over a spare bedroom is a classic infestation site.</p>
+
+<h2>Bites</h2>
+<p>Bites are painless initially but develop into red, blistering wounds over 2–8 hours. Some cases progress to necrotic tissue death requiring weeks to heal and sometimes surgical intervention. Seek medical attention promptly if you suspect a brown recluse bite — don't wait to see if it gets better.</p>
+
+<h2>Prevention</h2>
+<ul>
+<li>Store items in sealed plastic bins, not cardboard boxes</li>
+<li>Keep closets and attic storage decluttered</li>
+<li>Shake out shoes and clothing that have sat for more than a day</li>
+<li>Move beds away from walls</li>
+<li>Wear gloves when working in storage areas, garages, or crawlspaces</li>
+</ul>
+
+<p>Professional quarterly treatment reduces the insect population that attracts recluse — fewer roaches and silverfish means less food for spiders. If you're finding brown recluse, a single female produces 150 eggs per year. Call EnviroCare for a free inspection:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'cockroach-control-alabama',
+    title: 'Cockroach Control in Alabama: German, American & Smokybrown Roaches',
+    excerpt: 'Three species, three different treatment approaches. Alabama\'s humidity makes cockroach control harder than most states.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Roaches',
+    readMinutes: 4,
+    heroEmoji: '🪳',
+    metaTitle: 'Cockroach Control in Alabama: German, American & Smokybrown | EnviroCare',
+    metaDescription: 'Three cockroach species require three different treatment approaches in Alabama. German roaches inside, American and smokybrown outside. EnviroCare quarterly plan covers all.',
+    body: `
+<p class="lede">Alabama's heat and humidity make it cockroach paradise. German roaches infest kitchens, American roaches invade from outside, and smokybrown roaches fly in through attic vents. Each species requires a different treatment approach — and spraying the wrong place makes infestations worse.</p>
+
+<h2>Warning Signs</h2>
+<p>Droppings like coffee grounds in cabinets, musty odor, and egg cases in dark corners. A single German cockroach female produces 300+ offspring. One egg case hatches in about 28 days. Early professional treatment is critical — populations grow exponentially once established.</p>
+
+<h2>Health Risks</h2>
+<p>Cockroaches spread E. coli, Salmonella, and trigger asthma — especially in children. Alabama's year-round warmth allows roaches to remain active every month, unlike northern states where cold provides a break.</p>
+
+<h2>How We Treat</h2>
+<p>We use gel bait in kitchens and bathrooms for German roaches — spraying drives them deeper into walls. Exterior perimeter spray creates a barrier against American and smokybrown roaches coming in from outside. Attic dust treatment addresses smokybrown roaches entering through roof vents. Quarterly service with unlimited free re-treatments keeps pressure on all species year-round.</p>
+
+<h2>Common Questions</h2>
+
+<h3>Why do I have roaches if my house is clean?</h3>
+<p>Cleanliness helps but doesn't prevent roaches. American and smokybrown roaches enter from outside regardless of indoor conditions. Professional perimeter treatment is the most reliable prevention.</p>
+
+<h3>Are palmetto bugs and cockroaches the same thing?</h3>
+<p>Yes. Palmetto bug is the common name for the American cockroach — large, reddish-brown, and capable of flying short distances. They're not a different species, just a regional nickname.</p>
+
+<p>Cockroach control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'spider-control-alabama',
+    title: 'Spider Control in Alabama: Black Widow, Brown Recluse & More',
+    excerpt: 'Two medically significant species plus dozens of nuisance spiders. Effective control starts with reducing their food supply, not just spraying webs.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 4,
+    heroEmoji: '🕸️',
+    metaTitle: 'Spider Control in Alabama: Black Widow, Brown Recluse & More | EnviroCare',
+    metaDescription: 'Alabama has black widows and brown recluse. Effective spider control starts with reducing their food supply, not just spraying webs. EnviroCare quarterly plan covers 30+ pests.',
+    body: `
+<p class="lede">Alabama is home to black widows and brown recluse — both medically significant. They thrive in garages, crawlspaces, storage areas, and woodpiles. But spraying webs treats the symptom, not the cause. EnviroCare reduces spider populations by eliminating the insects they feed on.</p>
+
+<h2>Dangerous Species</h2>
+<p><strong>Black widows</strong> are shiny black with a red hourglass marking on the underside. Found in garages, under decks, and in woodpiles. Their venom causes painful muscle cramps and nausea — seek medical attention immediately after a bite.</p>
+
+<p><strong>Brown recluse</strong> are tan with a violin-shaped marking on the back. Found in undisturbed areas: closets, attics, stored boxes. Bites cause tissue death in some cases. See a doctor immediately if you suspect a bite.</p>
+
+<h2>Where They Hide</h2>
+<p>Garages, crawlspaces, attics, woodpiles, outdoor storage buildings, and under decks. Multiple webs in corners, seeing spiders during the day, and finding egg sacs are warning signs of a significant population.</p>
+
+<h2>How We Treat</h2>
+<p>Spider control starts with reducing their food supply. Our perimeter barrier treatment knocks down the insects spiders eat. We also treat garages, crawlspaces, and attics with web removal to disrupt breeding. For brown recluse, we use sticky traps and targeted dust in wall voids where they travel.</p>
+
+<h2>Common Questions</h2>
+
+<h3>Will killing the spiders I see fix the problem?</h3>
+<p>No. If the insect food supply remains, new spiders will move in. Our approach reduces the overall insect population so spiders have no reason to stay.</p>
+
+<h3>Are brown recluse common in Alabama?</h3>
+<p>Yes — more common than most people realize. Well established throughout the state, especially in undisturbed areas like attics, closets, and storage boxes.</p>
+
+<p>Spider control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'ant-control-alabama',
+    title: 'Ant Control in Alabama: Fire Ants, Carpenter Ants & House Ants',
+    excerpt: 'Spraying active ant trails backfires — it scatters the colony. Learn why bait-based treatment is the only approach that reaches the queen and ends the infestation.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Ants',
+    readMinutes: 4,
+    heroEmoji: '🐜',
+    metaTitle: 'Ant Control in Alabama: Fire Ants, Carpenter Ants & House Ants | EnviroCare',
+    metaDescription: 'Spraying active ant trails backfires. Alabama has fire ants, carpenter ants, Argentine ants, and more. EnviroCare uses targeted bait to reach the queen and eliminate colonies.',
+    body: `
+<p class="lede">Alabama hosts dozens of ant species — fire ants in the yard, Argentine ants in the kitchen, carpenter ants damaging wood, and odorous house ants trailing across counters. The most common mistake homeowners make is spraying the trails they can see. That kills foragers and scatters the colony into multiple new entry points.</p>
+
+<h2>Common Species</h2>
+<p><strong>Fire ants</strong> build mounds in your yard and sting aggressively when disturbed. <strong>Argentine ants</strong> invade kitchens in large numbers following established trails. <strong>Carpenter ants</strong> excavate galleries in moist wood — they can cause structural damage over years. <strong>Odorous house ants</strong> emit a rotting-coconut smell when crushed.</p>
+
+<h2>The Spraying Problem</h2>
+<p>Spraying active ant trails kills the workers you see but signals the colony that the trail is compromised. Surviving workers release alarm pheromones, the colony scatters, and new trails emerge from different entry points within days. Over-the-counter sprays make infestations harder to treat by dispersing colonies.</p>
+
+<h2>How We Treat</h2>
+<p>Indoor ant control uses slow-acting bait that workers carry back to the colony and feed to the queen. The queen dies, the colony dies. Exterior perimeter barrier stops scouts before they establish new interior trails. For fire ants, broadcast bait covers the whole yard — not just visible mounds — so the entire property is treated.</p>
+
+<h2>Common Questions</h2>
+
+<h3>Why do ants keep coming back after I spray?</h3>
+<p>Spraying kills foragers but not the colony. Surviving workers often scatter the colony and create new entry points. Bait-based treatment reaches the queen — that's the only way to end the infestation.</p>
+
+<h3>Are carpenter ants as bad as termites?</h3>
+<p>They don't eat wood like termites, but they excavate galleries in moist or decayed wood. A mature colony can cause significant structural damage over years. Look for sawdust-like frass near baseboards as an early warning sign.</p>
+
+<p>Ant control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'silverfish-control-alabama',
+    title: 'Silverfish Control in Alabama: Humidity Pests That Damage Your Home',
+    excerpt: 'Silverfish thrive in Alabama\'s humidity and damage books, clothing, and documents. They hide in attics and bathroom walls. Here\'s how to eliminate them.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🐟',
+    metaTitle: 'Silverfish Control in Alabama | EnviroCare Pest & Termite Services',
+    metaDescription: 'Silverfish thrive in Alabama humidity and damage books, clothing, wallpaper, and documents. They hide in attics and bathroom walls. Professional treatment from EnviroCare.',
+    body: `
+<p class="lede">Silverfish thrive in Alabama humidity and are one of the most common household pests we treat — and one of the most overlooked. These fast-moving silver insects damage books, wallpaper, clothing, and stored documents while hiding in walls and attics where they're rarely seen until populations are large.</p>
+
+<h2>Identification</h2>
+<p>Silver-gray, teardrop-shaped, half to three-quarter inch with three tail appendages. Very fast and nocturnal — if you see one during the day, there are many more you're not seeing. They can live for years without food.</p>
+
+<h2>Why Alabama</h2>
+<p>Silverfish require 75%+ humidity to thrive. Bathrooms, laundry rooms, kitchens, and damp crawlspaces are prime habitat. Alabama's climate provides ideal conditions year-round — unlike drier states where they're controlled naturally by low humidity.</p>
+
+<h2>What They Damage</h2>
+<p>They feed on starch — books, wallpaper paste, cotton and linen clothing, stored documents, photos, and natural-fiber upholstery. Attic boxes full of old photos or documents are a common target. By the time you find damage, the population is usually well-established.</p>
+
+<h2>How We Treat</h2>
+<p>Interior treatment targets bathrooms, kitchens, laundry rooms, and attics. Crack-and-crevice treatment addresses hiding spots behind baseboards. Exterior perimeter prevents new silverfish from entering. We also recommend moisture fixes — reducing indoor humidity with exhaust fans and dehumidifiers is the most effective long-term control.</p>
+
+<h2>Common Questions</h2>
+
+<h3>Why do I keep finding them in my bathroom?</h3>
+<p>Bathrooms provide the moisture they need. Poor ventilation and dripping faucets create ideal habitat. Running your exhaust fan after every shower helps significantly.</p>
+
+<h3>How do I prevent silverfish?</h3>
+<p>Reduce indoor humidity, store items in sealed plastic bins rather than cardboard, fix plumbing leaks, and start professional quarterly treatment. Once established, they're very difficult to eliminate with over-the-counter products.</p>
+
+<p>Silverfish control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'cricket-control-alabama',
+    title: 'Cricket Control in Alabama: Stop Chirping in Walls & Basement Invasions',
+    excerpt: 'House crickets chirp all night. Camel crickets invade basements in large numbers. Both surge in fall. Perimeter barriers and granular bait stop them before entry.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🦗',
+    metaTitle: 'Cricket Control in Alabama: Stop Chirping & Basement Invasions | EnviroCare',
+    metaDescription: 'House crickets chirp all night in walls. Camel crickets invade basements in large numbers. Alabama fall cricket invasions stopped with perimeter barriers and granular bait.',
+    body: `
+<p class="lede">House crickets chirp all night from walls and garages. Camel crickets invade damp basements in large numbers. Both enter Alabama homes seeking shelter as temperatures drop in fall — and once inside, they breed and damage fabrics before you realize you have a problem.</p>
+
+<h2>Two Types</h2>
+<p><strong>House crickets</strong> are tan, about an inch long, and produce the familiar chirping sound. Males chirp to attract females — that chirp in the wall at 2am is a mating call. <strong>Camel crickets</strong> are brown and humpbacked, jump erratically when startled, and invade in large groups. They're silent, so you may not realize you have them until you find dozens in a storage area.</p>
+
+<h2>Why They Come Inside</h2>
+<p>Crickets are strongly attracted to light — bright porch lights draw them directly to entry points around your door. They're also seeking warmth as fall temperatures drop. Cracks in foundations and gaps around utility penetrations are common entry points.</p>
+
+<h2>What They Damage</h2>
+<p>Both species feed on cotton, wool, silk, and linen. Stored clothing, curtains, upholstered furniture, and natural-fiber rugs are at risk. In large numbers, camel crickets can damage stored fabrics in basements and closets.</p>
+
+<h2>How We Treat</h2>
+<p>Exterior perimeter barrier stops crickets before entry. Granular bait around the foundation eliminates crickets in landscape beds before they reach the house. Interior treatment targets garages, basements, and utility rooms. Switching porch lights to yellow or sodium vapor bulbs also helps — crickets are strongly attracted to bright white light.</p>
+
+<h2>Common Questions</h2>
+
+<h3>Why do I hear chirping in my walls?</h3>
+<p>Male house crickets chirp to attract mates. They entered through foundation cracks or utility penetrations and are now breeding inside your walls. Professional treatment in the walls and at the perimeter is needed.</p>
+
+<h3>Are camel crickets dangerous?</h3>
+<p>They don't bite or chirp, but appear in large numbers and jump unpredictably when startled. They can damage stored fabrics. Their presence in large numbers also indicates excess moisture in the basement or crawlspace.</p>
+
+<p>Cricket control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
+  {
+    slug: 'centipede-millipede-control-alabama',
+    title: 'Centipede & Millipede Control in Alabama',
+    excerpt: 'Millipedes migrate in hundreds after rain. Centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation — and both are treatable.',
+    publishedAt: '2026-05-21',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🐛',
+    metaTitle: 'Centipede & Millipede Control in Alabama | EnviroCare Pest Services',
+    metaDescription: 'Millipedes migrate in hundreds after Alabama rain. Centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation. EnviroCare quarterly plan.',
+    body: `
+<p class="lede">Centipedes and millipedes are moisture-loving pests that invade Alabama homes after heavy rain. House centipedes are fast predators found in bathrooms year-round. Millipedes invade in mass migrations during wet weather — sometimes hundreds in a single day. Both indicate excess moisture around your foundation that needs to be addressed.</p>
+
+<h2>Centipede vs Millipede</h2>
+<p><strong>Centipedes</strong> are flat, fast, and have one pair of legs per body segment. They're predators that eat roaches, silverfish, and other insects — so their presence inside usually means their prey is there too. House centipedes can deliver a painful bite but rarely do. <strong>Millipedes</strong> are round and slow, with two pairs of legs per segment. They eat decaying plant matter and migrate en masse when their soil habitat floods.</p>
+
+<h2>Why They Come Inside</h2>
+<p>Both species need moisture to survive. Finding them indoors signals excess moisture from poor drainage, leaky pipes, or inadequate ventilation around your foundation. Millipede mass migrations happen after heavy rain saturates soil — hundreds may appear against your foundation overnight, then work their way inside through any gap.</p>
+
+<h2>North Alabama Note</h2>
+<p>Limestone geology in North Alabama (Huntsville area) creates natural underground voids where centipedes and cave crickets thrive. Homes in Madison County see higher centipede pressure than homes on clay soils further south.</p>
+
+<h2>How We Treat</h2>
+<p>Perimeter barrier spray around your foundation and entry points stops both species. Granular treatment in mulch beds and leaf litter where millipedes breed. Interior treatment in bathrooms, basements, and utility areas. We also identify contributing moisture issues — drainage problems and clogged gutters are the most common causes of heavy centipede and millipede pressure.</p>
+
+<h2>Common Questions</h2>
+
+<h3>Why suddenly hundreds of millipedes after rain?</h3>
+<p>Soil oversaturation forces them out of their underground habitat. They migrate to the nearest dry area — your foundation. A perimeter barrier already in place intercepts them before entry.</p>
+
+<h3>Does mulch attract them?</h3>
+<p>Yes. Keep mulch at least 6 inches from your foundation and no more than 2–3 inches deep. Deep mulch against the house creates ideal millipede habitat and bypasses your perimeter treatment.</p>
+
+<p>Centipede and millipede control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
