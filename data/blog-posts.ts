@@ -19,6 +19,156 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'mosquito-season-alabama',
+    title: 'Mosquito Season in Alabama: When It Starts and What Actually Works',
+    excerpt: 'Alabama mosquito season runs April through October — but the homeowners who win the summer start treating before the bites begin. Here\'s why timing beats everything else.',
+    publishedAt: '2026-06-03',
+    author: 'Lex Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 7,
+    heroEmoji: '🦟',
+    metaTitle: 'When Does Mosquito Season Start in Alabama? | EnviroCare',
+    metaDescription: 'Alabama mosquito season runs April–October. Learn when to start treatment, why DIY sprays fail, and what professional barrier service actually does. Call (205) 649-5278.',
+    body: `
+<p class="lede">Every June the phone starts ringing. "We can't sit on the porch anymore." "The kids come in covered in bites." "We've tried everything from the hardware store and nothing works." If that's you right now, here's the honest truth: by the time mosquitoes are bad enough to call about, they've already been breeding in your yard for eight to ten weeks. The fix is real — but it works best when you stop chasing the bites and start breaking the cycle.</p>
+
+<p>I'm a third-generation Alabama pest guy. My family has been treating yards across Birmingham, Lake Martin, and Huntsville since 1958. Here's what we've learned about Alabama mosquitoes, and what actually moves the needle.</p>
+
+<h2>When does mosquito season start in Alabama?</h2>
+
+<p>Functionally, Alabama mosquito season runs from <strong>April through October</strong>. Mosquitoes become active once nighttime temperatures hold above about 50°F and standing water warms up — which in central Alabama usually means late March in a warm year, early April in a normal one. They don't disappear until the first hard frost, which down here can be as late as November.</p>
+
+<p>But "active" and "bothersome" are two different things. In April you barely notice them. The population is small and breeding slowly. By June, every female that survived April has produced multiple batches of eggs, and each of those batches has matured. That's why mosquito pressure feels like it explodes overnight in early summer — it's compounding, like interest. The April population is the principal. June is the interest payment.</p>
+
+<h2>Why timing matters more than the product</h2>
+
+<p>This is the single most important thing on this page: <strong>the best time to start mosquito treatment in Alabama is April, not July.</strong></p>
+
+<p>A female mosquito can lay 100–300 eggs at a time and goes through that cycle every few days in our heat. If you knock the population down in April — before that compounding starts — you spend the whole summer fighting a small problem. If you wait until you're already miserable in July, you're fighting a population that's been doubling for two months. Same treatment, wildly different results, purely because of when you started.</p>
+
+<p>We tell every customer the same thing: it's never too late to start, and starting today beats starting next month. But if you're reading this in spring, get on a program before Memorial Day and you'll have a categorically better summer.</p>
+
+<h2>Why store-bought sprays and gadgets don't work here</h2>
+
+<p>Alabama is one of the hardest mosquito environments in the country — humid, warm for eight months, and full of standing water from our rainfall. Consumer products are simply not built for that pressure. Here's the short version of why each one disappoints:</p>
+
+<ul>
+<li><strong>Citronella candles and torches</strong> create a tiny zone of partial repellency — a few feet at best, gone the moment a breeze picks up.</li>
+<li><strong>Bug zappers</strong> kill mostly harmless night insects. Studies have shown mosquitoes make up a tiny fraction of what they catch — they're drawn to UV light, not the CO₂ and body heat that draw mosquitoes to you.</li>
+<li><strong>Hardware-store hose-end sprays</strong> use low-concentration active ingredients with no residual. They knock down what they hit that day and break down within 24–48 hours in our sun and humidity.</li>
+<li><strong>Standing-water tablets</strong> help if you find every breeding site — but the breeding site is often your neighbor's clogged gutter, not your yard.</li>
+</ul>
+
+<p>None of these are scams exactly. They're just under-powered for Alabama. Professional pest control is a licensed profession for the same reason electrical work is — the effective tools require training and certification to use safely.</p>
+
+<h2>What professional mosquito barrier service actually does</h2>
+
+<p>A real mosquito program isn't "spray the lawn." Mosquitoes don't rest on open, sunny grass — they spend the hot part of the day hiding in cool, shaded, humid harborage. So that's what we treat:</p>
+
+<ul>
+<li><strong>Vegetation, shrubs, and tree lines</strong> — the underside of leaves where adults rest during the day.</li>
+<li><strong>Shaded and damp zones</strong> — deck and porch undersides, dense ground cover, the north side of the house.</li>
+<li><strong>Standing-water sources</strong> — we identify and treat or eliminate breeding sites you may not have noticed.</li>
+</ul>
+
+<p>The products we use carry a residual that stays effective for roughly three to four weeks. That's why a real program is recurring — we return about every 21 days through the season so the barrier never lapses long enough for the population to rebuild. One-and-done treatments are great before a specific event (a graduation party, a lake weekend), but they're not a season strategy.</p>
+
+<h2>What about ticks?</h2>
+
+<p>If your property backs up to woods anywhere in Alabama — and a lot do — the same shaded harborage zones that breed mosquitoes also harbor ticks. We bundle tick control with mosquito service for exactly that reason. If you've got kids or dogs going into the tree line, it's worth doing together. More on that in our <a href="/services/tick-control">tick control</a> overview.</p>
+
+<h2>Waterfront is a different animal</h2>
+
+<p>If you're on Lake Martin or any Alabama waterfront, mosquito pressure is in a category of its own — 880 miles of shoreline on Lake Martin alone means standing water everywhere, and treating near water requires products approved for that use. We've been doing waterfront mosquito work out of our Alexander City office since 1958. We wrote a whole separate guide on it: <a href="/blog/lake-martin-mosquito-guide">the Lake Martin mosquito guide</a>.</p>
+
+<h2>The bottom line</h2>
+
+<p>Alabama mosquito season is long, the pressure is brutal, and store products won't carry you through it. The homeowners who actually enjoy their yards from June to September are the ones who started a recurring barrier program in spring and let the residual do the work. If you're already getting eaten alive, start now — and if you're planning ahead, get set up before the season compounds against you.</p>
+
+<p>See how our seasonal program works on the <a href="/services/mosquito-control">mosquito control page</a>, or check whether your city is in our service area — we cover <a href="/huntsville">Huntsville</a>, the <a href="/lake-martin">Lake Martin</a> area, and the entire Birmingham metro.</p>
+
+<p>Ready to get protected? Call the office nearest you:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+
+<p><em>Lex Wedgworth is a third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
+`,
+  },
+
+  {
+    slug: 'termite-swarmers-in-house',
+    title: 'Found Termite Wings on Your Windowsill? Here\'s Exactly What to Do',
+    excerpt: 'A pile of identical translucent wings on a windowsill is the clearest termite warning sign there is. Don\'t panic, don\'t bug-bomb — here are the five steps that actually protect your home.',
+    publishedAt: '2026-06-17',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '🪟',
+    metaTitle: 'Termite Wings on the Windowsill? What to Do Now | EnviroCare',
+    metaDescription: 'Found termite swarmers or shed wings inside your home? Here are the 5 steps to take, what NOT to do, and how Sentricon® $1M coverage protects you. Call (205) 649-5278.',
+    body: `
+<p class="lede">You walk past a window in late spring and there's a small pile of what looks like fish scales on the sill — thin, translucent, identical. Or maybe a cluster of winged insects is crawling toward the light of a lamp. If that's what you're looking at right now, take a breath. This is fixable. But it is also not something to ignore, and what you do in the next ten minutes matters.</p>
+
+<p>This is a companion to our deeper explainer on <a href="/blog/alabama-termite-swarm-season">why Alabama termite season starts in March</a> — that piece covers the biology. This one is the emergency checklist for when swarmers show up <em>inside your house.</em></p>
+
+<h2>First: is it actually termites?</h2>
+
+<p>Two things swarm indoors in Alabama spring and early summer — termites and ants. Telling them apart takes about five seconds once you know what to look for:</p>
+
+<ul>
+<li><strong>Wings:</strong> Termite swarmers have four wings, all the same length, noticeably longer than the body. Flying ants have four wings too, but the front pair is clearly longer than the back pair.</li>
+<li><strong>Waist:</strong> Termites have a straight, thick body — no pinched waist. Ants have that obvious narrow "wasp waist."</li>
+<li><strong>Antennae:</strong> Termite antennae are straight and beaded. Ant antennae are bent at an elbow.</li>
+<li><strong>The shed wings:</strong> This is the giveaway. Termite swarmers drop their wings almost immediately after landing, so you'll often find a pile of identical wings with no insects attached — on a windowsill, near a baseboard, in a spider web, on the bathroom counter.</li>
+</ul>
+
+<p>If you found a pile of identical, same-length shed wings indoors, that is termites. Not "maybe." A swarm emerging <em>inside</em> your home means a colony is active in or directly under the structure — swarmers don't travel far.</p>
+
+<h2>What NOT to do</h2>
+
+<p>Three instincts to fight, because every one of them makes things worse:</p>
+
+<ul>
+<li><strong>Don't reach for bug spray or a bug bomb.</strong> Killing the swarmers you can see does nothing to the colony of workers underground — and a foggy chemical cloud over the area can actually scatter the colony and make professional treatment harder.</li>
+<li><strong>Don't disturb or "clean up" the area before you've documented it.</strong> Where the swarmers came out tells a technician exactly where the colony is. Vacuuming the evidence and scrubbing the spot erases the most useful clue.</li>
+<li><strong>Don't assume it'll pass.</strong> Swarms last a day or two and then stop on their own. The quiet afterward feels like the problem went away. It didn't — the workers are still eating. The swarm was the symptom, not the event.</li>
+</ul>
+
+<h2>The five steps to take right now</h2>
+
+<ol>
+<li><strong>Photograph everything</strong> — the wings, any live swarmers, and the exact location they emerged from. A wide shot and a close-up.</li>
+<li><strong>Collect a few</strong> in a sandwich bag or a piece of tape. A technician can confirm the species in seconds.</li>
+<li><strong>Note the location precisely.</strong> Interior baseboard? Around a window frame? A porch column? Near the fireplace? This narrows down where the colony is feeding.</li>
+<li><strong>Gently vacuum the rest</strong> once you've documented it — only after the photos. The swarmers indoors will die on their own; they can't survive without soil.</li>
+<li><strong>Call for a free inspection.</strong> Same-day or within 24 hours. The inspection is free and there's no obligation — but the sooner a colony is identified, the less it eats.</li>
+</ol>
+
+<h2>How we stop it</h2>
+
+<p>We've been treating Alabama termites since 1958, and the system we trust in our clay soil is <strong>Sentricon® Always Active™</strong>. It's a bait system, not a chemical barrier: we install monitoring stations every 10–15 feet around your foundation. Foraging workers find the bait, carry it back, and feed it to the colony — including the queen. The whole colony collapses, usually within a few months. No drilling through your slab, no tank trucks in the driveway. You can read the full comparison in our <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon vs. liquid treatment</a> breakdown, or on our <a href="/services/sentricon">Sentricon service page</a>.</p>
+
+<p>Just as important: Sentricon is backed by a <strong>$1,000,000 damage repair warranty</strong> from the manufacturer. If termites cause damage to your home while we're protecting it, that's covered. For most Alabama homeowners, that warranty is the real reason to act before the next swarm season rather than after it. Details on the <a href="/services/termite-control">termite control page</a>.</p>
+
+<h2>One more thing about timing</h2>
+
+<p>Swarmers emerge from established colonies — a colony has usually been maturing for three to five years before it produces its first swarm. So finding swarmers doesn't mean the problem just started; it means it's been underway long enough to reproduce. That's not meant to scare you. It's meant to explain why "wait and see" is the one strategy that reliably costs the most.</p>
+
+<p>If you found wings this week, call the office nearest you and we'll get a Sentricon-certified technician out for a free inspection:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+
+<p><em>Kevin Wedgworth is a third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
+`,
+  },
+
+  {
     slug: 'alabama-termite-swarm-season',
     title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
     excerpt: 'Every March, subterranean termite swarmers emerge across Alabama. Here\'s how to spot them, why Birmingham\'s clay soil makes it worse, and what we recommend.',

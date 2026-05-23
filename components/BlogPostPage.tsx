@@ -10,9 +10,44 @@ export default function BlogPostPage({ slug }: { slug: string }) {
     notFound();
   }
 
+  const SITE_URL = 'https://envirocare-web.vercel.app';
+  const postUrl = `${SITE_URL}/blog/${post.slug}`;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.metaDescription,
+        datePublished: post.publishedAt,
+        author: { '@type': 'Person', name: post.author },
+        publisher: {
+          '@type': 'Organization',
+          name: 'EnviroCare Pest & Termite Services',
+          foundingDate: '1958',
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+        articleSection: post.category,
+        url: postUrl,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Field Notes', item: `${SITE_URL}/blog` },
+          { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="bpp-main">
       <style dangerouslySetInnerHTML={{ __html: POST_CSS }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <article>
         <header className="bpp-hero">
