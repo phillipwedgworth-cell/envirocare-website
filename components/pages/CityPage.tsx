@@ -124,9 +124,60 @@ export default function CityPage({ slug }: { slug: string }) {
   const tel = city.directTel || city.officeTel;
   const svg = CITY_ART_SVG[city.cityArt] || CITY_ART_SVG['community'];
 
+  // ── Structured data (LocalBusiness + Service + BreadcrumbList)
+  const SITE_URL = 'https://envirocare-web.vercel.app';
+  const cityUrl = `${SITE_URL}/${city.slug}`;
+  const businessId = `${cityUrl}#business`;
+  // officeAddress format: "<street...>, <locality>, AL <zip>"
+  const addrParts = city.officeAddress.split(', ');
+  const [addressRegion, postalCode] = (addrParts[addrParts.length - 1] || 'AL').split(' ');
+  const addressLocality = addrParts[addrParts.length - 2] || '';
+  const streetAddress = addrParts.slice(0, -2).join(', ');
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'LocalBusiness',
+        '@id': businessId,
+        name: 'EnviroCare Pest & Termite Services',
+        telephone: phone,
+        foundingDate: '1958',
+        url: cityUrl,
+        priceRange: '$$',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress,
+          addressLocality,
+          addressRegion,
+          postalCode,
+          addressCountry: 'US',
+        },
+        areaServed: [`${city.name}, AL`, ...city.neighborhoods],
+      },
+      {
+        '@type': 'Service',
+        serviceType: 'Pest Control',
+        name: `${city.name} Pest & Termite Control`,
+        provider: { '@id': businessId },
+        areaServed: { '@type': 'City', name: `${city.name}, AL` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: `${city.name}, AL`, item: cityUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CITY_CSS }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <div className="ann">
         🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
