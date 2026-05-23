@@ -1,1 +1,19 @@
 .claude/
+
+# dependencies
+/node_modules
+
+# next.js build output
+/.next
+/out
+
+# typescript
+*.tsbuildinfo
+
+# next-sitemap generated output
+/public/sitemap.xml
+/public/sitemap-*.xml
+/public/robots.txt
+
+# env
+.env*.local
