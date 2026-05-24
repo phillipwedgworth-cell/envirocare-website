@@ -16,7 +16,7 @@
   "crons": [
     {
       "path": "/api/cfo/run",
-      "schedule": "0 11 * * 1",
-      "timezone": "America/Chicago"
-    }  ]
+      "schedule": "0 11 * * 1"
+    }
+  ]
 }
