@@ -145,14 +145,14 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'lake-martin-mosquito-guide',
     title: 'The Lake Martin Mosquito Survival Guide',
-    excerpt: 'If you own a home on Lake Martin, you know August evenings on the dock are a war zone. Here\'s our 21-day yard-barrier system, and what NOT to spend money on.',
+    excerpt: 'If you own a home on Lake Martin, you know August evenings on the dock are a war zone. Here\'s our 30-day yard-barrier system, and what NOT to spend money on.',
     publishedAt: '2026-04-22',
     author: 'Kevin Wedgworth',
     category: 'Mosquito Control',
     readMinutes: 5,
     heroEmoji: '🦟',
     metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare Since 1958',
-    metaDescription: 'Lake Martin mosquito control. 21-day yard barrier service April–October. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
+    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service April–October. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
     body: `
 <p class="lede">Lake Martin is paradise from April through October — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
@@ -172,7 +172,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>A mosquito only needs a bottle cap of water and seven days to go from egg to biting adult. One stagnant boat cover can produce thousands of mosquitoes per week.</p>
 
-<h2>What we do — 21-day yard barrier</h2>
+<h2>What we do — 30-day yard barrier</h2>
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
@@ -785,3 +785,4 @@ export function getAllPosts(): BlogPost[] {
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 }
+

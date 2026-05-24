@@ -55,11 +55,11 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       'max-image-preview': 'large',
       'max-snippet': -1,
       'max-video-preview': -1,
@@ -209,7 +209,7 @@ const organizationJsonLd = {
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
   url: 'https://envirocare-web.vercel.app',
-  logo: '/logo.png',
+  logo: '/logo.svg',
   foundingDate: '1958',
   founder: {
     '@type': 'Person',

@@ -35,7 +35,7 @@ export default function ServicesIndexPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services" className="active">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
@@ -92,7 +92,7 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">April – October</div>
               <div className="svc-card-name">Mosquito Control</div>
               <div className="svc-card-price">$45/mo · seasonal</div>
-              <div className="svc-card-desc">21-day yard barrier April through October. Pet- and kid-safe once dry. Make your patio livable again.</div>
+              <div className="svc-card-desc">30-day yard barrier April through October. Pet- and kid-safe once dry. Make your patio livable again.</div>
               <a href="/services/mosquito-control" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
@@ -614,3 +614,4 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 .nf-link-label{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
 .nf-link-title{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:700;color:#fff}
 `;
+

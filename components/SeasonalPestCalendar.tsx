@@ -43,7 +43,7 @@ const PEST_CALENDAR: Record<number, PestActivity[]> = {
   ],
   // May
   4: [
-    { emoji: '🦟', name: 'Mosquitoes', intensity: 'peak', note: 'Heavy pressure begins. 21-day yard barrier critical.' },
+    { emoji: '🦟', name: 'Mosquitoes', intensity: 'peak', note: 'Heavy pressure begins. 30-day yard barrier critical.' },
     { emoji: '🪳', name: 'American roaches', intensity: 'high', note: '"Water bugs" emerging from sewers and crawlspaces.' },
     { emoji: '🪵', name: 'Late termite swarms', intensity: 'medium', note: 'Final swarms of the year.' },
     { emoji: '🐝', name: 'Carpenter bees', intensity: 'high', note: 'Drilling holes in deck rails, eaves.' },
@@ -323,3 +323,4 @@ const PEST_CAL_CSS = `
   }
 }
 `;
+

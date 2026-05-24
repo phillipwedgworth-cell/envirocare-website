@@ -136,7 +136,7 @@ export default function CityPage({ slug }: { slug: string }) {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -212,8 +212,8 @@ export default function CityPage({ slug }: { slug: string }) {
                 <ul className="prog-features"><li><span className="prog-chk">✓</span>$1M repair coverage</li><li><span className="prog-chk">✓</span>No drilling, no tanks</li><li><span className="prog-chk">✓</span>Annual WDO letter</li></ul>
                 <a href="/services/termite-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">21-day yard barrier April–October. Make your outdoor space livable again.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>April–October coverage</li><li><span className="prog-chk">✓</span>21-day refresh</li><li><span className="prog-chk">✓</span>Pet- & kid-safe once dry</li></ul>
+              <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">30-day yard barrier April–October. Make your outdoor space livable again.</div>
+                <ul className="prog-features"><li><span className="prog-chk">✓</span>April–October coverage</li><li><span className="prog-chk">✓</span>30-day refresh</li><li><span className="prog-chk">✓</span>Pet- & kid-safe once dry</li></ul>
                 <a href="/services/mosquito-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-4"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Tick Control</div><div className="prog-desc">Targeted yard treatments to break the tick lifecycle. Critical for wooded properties.</div>
@@ -662,3 +662,4 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
   .city-art-box{aspect-ratio:16/9}
 }
 `;
+

@@ -70,7 +70,7 @@ function Header() {
       <div className="ec-header-inner">
         <Link href="/" className="ec-brand" aria-label="EnviroCare home">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="EnviroCare Pest & Termite Services"
             width={280}
             height={72}
@@ -298,9 +298,9 @@ function CoreServices() {
           />
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
-            description="21-day yard barrier April–October. Reclaim your deck, dock and outdoor living spaces all season."
+            description="30-day yard barrier April–October. Reclaim your deck, dock and outdoor living spaces all season."
             bullets={['Up to 12 seasonal applications', 'Pet- & kid-safe once dry', '50% off first application']}
-            href="/services/mosquito-control" cornerIcon="🦟" highlight="21-DAY BARRIER"
+            href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER"
           />
           <ServiceCard
             badge="PET & FAMILY SAFE" title="Tick Control"
@@ -752,8 +752,8 @@ function Heritage() {
               behind the work.
             </p>
             <p>
-              Sixty-eight years later, his grandsons{' '}
-              <strong>Phillip, Kevin, and Lex Wedgworth</strong> run the company.
+              Sixty-eight years later, his grandson{' '}
+              <strong>Kevin Wedgworth</strong> runs the company.
               Three Alabama offices. Same family. Same answer to your pest problem.
             </p>
             <blockquote className="ec-heritage-quote">
@@ -1024,7 +1024,7 @@ function Footer() {
       <div className="ec-footer-inner">
         <div className="ec-footer-brand-col">
           <Link href="/" className="ec-footer-brand">
-            <Image src="/logo.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
+            <Image src="/logo.svg" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
             Family-owned and operated since 1958 — now in its third generation

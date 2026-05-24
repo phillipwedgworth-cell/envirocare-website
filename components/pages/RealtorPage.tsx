@@ -41,7 +41,7 @@ export default function RealtorPage() {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -598,3 +598,4 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 .faq-cat:nth-child(even){background:var(--cream)}
 .faq-list-wide{max-width:920px;margin:2rem auto 0}
 `;
+

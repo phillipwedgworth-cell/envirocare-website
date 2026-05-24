@@ -35,7 +35,7 @@ export default function BlogPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
@@ -516,3 +516,4 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 .blog-empty-h{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--green-deep);margin-bottom:.6rem;font-weight:700}
 .blog-empty-p{font-size:1rem;color:var(--ink-soft);line-height:1.6}
 `;
+

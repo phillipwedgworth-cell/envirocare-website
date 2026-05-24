@@ -113,13 +113,13 @@ export const SERVICES: Service[] = [
     serviceArt: 'mosquito',
     price: '$45/mo',
     priceSub: 'April – October season',
-    metaTitle: 'Alabama Mosquito Yard Treatment | EnviroCare 21-Day Service',
+    metaTitle: 'Alabama Mosquito Yard Treatment | EnviroCare 30-day Service',
     metaDescription: 'Mosquito barrier yard service every 21 days, April–October. Family-owned, pet-safe once dry. Call (205) 649-5278.',
     heroEyebrow: 'Take Back Your Yard',
     heroTagline: 'Mosquito Barrier Treatment',
-    heroSubhead: '21-day yard barrier treatments April through October. Make your patio livable, your evenings outdoor again, your kids safer from West Nile and EEE.',
+    heroSubhead: '30-day yard barrier treatments April through October. Make your patio livable, your evenings outdoor again, your kids safer from West Nile and EEE.',
     features: [
-      '21-day refresh cycle',
+      '30-day refresh cycle',
       'April through October coverage',
       'Pet- & kid-safe once dry',
       'Up to 12 applications per season',
@@ -400,3 +400,4 @@ export function getCoreServices(): Service[] {
 export function getSpecialtyServices(): Service[] {
   return SERVICES.filter(s => s.category === 'specialty');
 }
+
