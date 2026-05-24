@@ -97,7 +97,7 @@ const birminghamJsonLd = {
   '@type': 'PestControlService',
   '@id': 'https://envirocare-web.vercel.app/#birmingham',
   name: 'EnviroCare Pest & Termite Services — Birmingham',
-  image: 'https://envirocare-web.vercel.app/og-image.png',
+  image: '/og-image.png',
   description:
     'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
   url: 'https://envirocare-web.vercel.app/birmingham',
@@ -137,7 +137,7 @@ const lakeMartinJsonLd = {
   '@type': 'PestControlService',
   '@id': 'https://envirocare-web.vercel.app/#lake-martin',
   name: "EnviroCare Pest & Termite Services — Alex City / Lake Martin",
-  image: 'https://envirocare-web.vercel.app/og-image.png',
+  image: '/og-image.png',
   description:
     "EnviroCare's original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.",
   url: 'https://envirocare-web.vercel.app/lake-martin',
@@ -178,7 +178,7 @@ const huntsvilleJsonLd = {
   '@type': 'PestControlService',
   '@id': 'https://envirocare-web.vercel.app/#huntsville',
   name: 'EnviroCare Pest & Termite Services — Huntsville',
-  image: 'https://envirocare-web.vercel.app/og-image.png',
+  image: '/og-image.png',
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
   url: 'https://envirocare-web.vercel.app/huntsville',
@@ -209,7 +209,7 @@ const organizationJsonLd = {
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
   url: 'https://envirocare-web.vercel.app',
-  logo: 'https://envirocare-web.vercel.app/logo.png',
+  logo: '/logo.png',
   foundingDate: '1958',
   founder: {
     '@type': 'Person',
@@ -251,9 +251,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-
-        {/* Preload the hero truck image — biggest LCP element */}
-        <link rel="preload" as="image" href="/truck.jpg" fetchPriority="high" />
 
         {/* JSON-LD Structured Data — 4 schemas */}
         <script

@@ -320,7 +320,7 @@ export default function ContactUs() {
           <h2 style={{ fontSize: 26, fontWeight: 400, color: DARK, marginBottom: 24, textAlign: "center" }}>Before You Call</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
-              ["What are your hours?", "Monday–Friday 7am–6pm, Saturday 8am–3pm. Emergency situations — call us, we'll do our best."],
+              ["What are your hours?", "Monday–Friday 7am–6pm. Emergency situations — call us, we'll do our best."],
               ["Can I get same-day service?", "Often yes, especially for urgent situations. Call your nearest office directly for same-day availability."],
               ["Is the inspection really free?", "Yes. We inspect your property, give you a written assessment and quote, with no obligation to purchase."],
               ["Do you serve my city?", "We serve 30+ Alabama communities across 3 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],

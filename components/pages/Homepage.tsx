@@ -300,7 +300,7 @@ function CoreServices() {
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
             description="21-day yard barrier April–October. Reclaim your deck, dock and outdoor living spaces all season."
             bullets={['Up to 12 seasonal applications', 'Pet- & kid-safe once dry', '50% off first application']}
-            href="/services/mosquito-control" cornerIcon="🦟" highlight="21 DAYS"
+            href="/services/mosquito-control" cornerIcon="🦟" highlight="21-DAY BARRIER"
           />
           <ServiceCard
             badge="PET & FAMILY SAFE" title="Tick Control"
@@ -1193,15 +1193,15 @@ const HOMEPAGE_CSS = `
     max-width: 240px !important;
     object-fit: contain !important;
     display: block !important;
-    /* Zoom-in entrance animation: 2x → 1x over 1.2s */
+    /* Zoom-in entrance animation: 1.6x → 1x over 1.2s */
     animation: ec-logo-zoom 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     transform-origin: left center;
   }
   @keyframes ec-logo-zoom {
     0% {
-      transform: scale(2);
+      transform: scale(1.6);
       opacity: 0;
-      filter: blur(4px);
+      filter: blur(2px);
     }
     50% {
       opacity: 1;
@@ -1304,9 +1304,12 @@ const HOMEPAGE_CSS = `
   /* HERO */
   .ec-hero {
     position: relative;
-    background:
+    background-image:
       linear-gradient(180deg, rgba(232,245,238,0.92) 0%, rgba(254,253,248,0.95) 60%, rgba(254,253,248,1) 100%),
-      url('/family-yard.jpg') center 30% / cover no-repeat;
+      url('/family-yard.jpg');
+    background-position: center 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 64px 20px 0;
     overflow: hidden;
   }
