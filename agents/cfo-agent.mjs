@@ -1,63 +1,51 @@
 // agents/cfo-agent.mjs
 // CFO agent foundation for EnviroCare web.
 
-import Anthropic from "@anthropic-ai/sdk";
 import { supabase } from "../lib/supabase.mjs";
+import { getFinancialSnapshot } from "../lib/quickbooks.ts";
+import { getFathomReports } from "../lib/google-drive.ts";
+import { runFinancialPanel } from "../lib/multi-model.ts";
 
-const AGENT_NAME = "CFO Agent";
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
-function formatSnapshot(snapshot, index) {
-  const date = new Date(snapshot.snapshot_date ?? snapshot.created_at).toISOString().slice(0, 10);
-  const payload = snapshot.normalized_json ?? snapshot.raw_json ?? snapshot.metrics ?? {};
-  return `${index + 1}. ${date}: ${JSON.stringify(payload)}`;
-}
-
-async function getLatestSnapshots() {
-  const { data, error } = await supabase
-    .from("cfo_snapshots")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(12);
-
-  if (error) {
-    throw new Error(`Supabase cfo_snapshots query failed: ${error.message}`);
+function ensureSupabase() {
+  if (!supabase) {
+    throw new Error("Missing SUPABASE_URL or SUPABASE_KEY environment variables");
   }
 
-  return data ?? [];
+  return supabase;
 }
 
-function buildPrompt(snapshots, weekOf) {
-  const snapshotSummary = snapshots.length
-    ? snapshots.map(formatSnapshot).join("\n")
-    : "No CFO snapshot data available.";
+async function saveSnapshot(snapshot, fathomReports) {
+  const db = ensureSupabase();
 
-  return `You are an EnviroCare CFO analyst.
+  const { error } = await db.from("cfo_snapshots").insert({
+    snapshot_date: snapshot.snapshot_date,
+    source: snapshot.source,
+    raw_json: {
+      quickbooks: snapshot.raw_json,
+      fathom_reports: fathomReports,
+    },
+    normalized_json: {
+      ...snapshot.normalized_json,
+      fathom_reports: fathomReports,
+    },
+    created_at: new Date().toISOString(),
+  });
 
-Use the latest cfo_snapshots data to write a concise executive financial brief.
-
-WEEK OF: ${weekOf}
-
-SNAPSHOTS:
-${snapshotSummary}
-
-RULES:
-- Start the first line with "• ".
-- Write exactly 5 short bullets.
-- Mention revenue, cash flow, margin, operating risk, and one top recommendation.
-- If no snapshot data exists, say exactly that and recommend populating cfo_snapshots.
-- Do not include a title, sign-off, or extra sections.
-- Stay under 160 words.`;
+  if (error) {
+    throw new Error(`Supabase cfo_snapshots insert failed: ${error.message}`);
+  }
 }
 
-async function saveBrief({ brief, weekOf, snapshotCount }) {
-  const { error } = await supabase.from("cfo_briefs").insert({
+async function saveBrief({ weekOf, snapshotCount, results }) {
+  const db = ensureSupabase();
+
+  const { error } = await db.from("cfo_briefs").insert({
     week_of: weekOf,
-    claude_analysis: brief,
-    gemini_analysis: null,
-    gpt_analysis: null,
-    synthesis: null,
-    flags: null,
+    claude_analysis: results.claude.analysis,
+    gemini_analysis: results.gemini.analysis,
+    gpt_analysis: results.gpt.analysis,
+    synthesis: results.synthesis,
+    flags: Array.from(new Set([...(results.claude.flags ?? []), ...(results.gemini.flags ?? []), ...(results.gpt.flags ?? [])])),
     google_doc_url: null,
     created_at: new Date().toISOString(),
     source: "cfo-agent",
@@ -70,20 +58,23 @@ async function saveBrief({ brief, weekOf, snapshotCount }) {
 }
 
 export async function run() {
-  const snapshots = await getLatestSnapshots();
-  const weekOf = snapshots.length
-    ? new Date(snapshots[0].snapshot_date ?? snapshots[0].created_at).toISOString().slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+  const snapshot = await getFinancialSnapshot();
+  const fathomReports = await getFathomReports();
 
-  const prompt = buildPrompt(snapshots, weekOf);
-  const response = await anthropic.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 420,
-    messages: [{ role: "user", content: prompt }],
-  });
+  await saveSnapshot(snapshot, fathomReports);
 
-  const brief = response.content.find(item => item.type === "text")?.text ?? "• Could not generate CFO brief.";
-  await saveBrief({ brief, weekOf, snapshotCount: snapshots.length });
+  const financialData = [
+    snapshot.normalized_json,
+    {
+      source: "fathom_reports",
+      reports: fathomReports,
+    },
+  ];
 
-  return brief;
+  const results = await runFinancialPanel(financialData);
+  const weekOf = snapshot.snapshot_date;
+
+  await saveBrief({ weekOf, snapshotCount: 1, results });
+
+  return results;
 }
