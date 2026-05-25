@@ -1,0 +1,198 @@
+# ── ROUND 1: Data Gathering (runs in parallel) ──────────────────────────────
+
+audit_site:
+  description: >
+    Perform a comprehensive technical SEO and performance audit of envirocare-web.vercel.app.
+
+    CHECK EVERY PAGE:
+    - Homepage (/)
+    - /alabaster, /huntsville, /alexander-city, /lake-martin
+    - /services/pest-control, /services/sentricon, /services/mosquito-control
+    - /lake-martin/mosquito-control, /lake-martin/termite-control
+    - /huntsville/termite-control, /pricing, /about-us, /contact-us
+
+    FOR EACH PAGE CHECK:
+    1. H1 tag present and keyword-targeted (missing H1 = critical, blocks ranking)
+    2. Meta description 120-160 chars (missing = CTR penalty in search results)
+    3. JSON-LD schema markup (LocalBusiness, Service, FAQPage as appropriate)
+    4. Canonical tag present
+    5. Images have alt text
+    6. Page load time (estimate from response time)
+
+    ALSO CHECK:
+    - Homepage PageSpeed via Google PSI API if accessible
+    - Any 404 pages
+    - Mobile viewport meta
+
+    Read the knowledge files in knowledge/ for context on what matters most.
+
+    Report issues in priority order: H1 missing > schema missing > meta missing > speed > alt text.
+  expected_output: >
+    A numbered list of technical issues found. Each issue must include:
+    1. The specific page URL
+    2. What is missing or broken
+    3. The exact fix (copy to add, tag to implement)
+    4. IMPACT: X/10 (ranking/conversion impact)
+    5. EFFORT: X/10 (minutes/hours to fix)
+
+    End with: "AUDIT SUMMARY: X critical issues, Y warnings, Z info items found."
+  agent: site_auditor
+
+analyze_competitors:
+  description: >
+    Visit and deeply analyze these competitor pages:
+    1. cookspest.com (homepage + Huntsville page if exists)
+    2. terminix.com/branch-offices/alabama/huntsville/
+    3. orkin.com/local/al/huntsville/
+
+    FOR EACH COMPETITOR ANALYZE:
+    - Hero section: what's the main message, what's the primary CTA, what image do they use
+    - Trust signals: what badges, certifications, guarantees do they show
+    - Pricing: is it visible or hidden
+    - Reviews: how many, how prominently displayed
+    - Local relevance: do they mention Alabama specifically or is it a template
+    - Mobile experience indicators
+    - Schema/SEO signals visible in page source
+    - Anything unique or clever they do
+
+    Compare to EnviroCare's known strengths from knowledge/competitors.md:
+    - 1958 founding (Cook's was 1928 but we still have 68 years)
+    - Sentricon Certified Specialist ($1M warranty)
+    - Lake Martin exclusivity (no competitor has dedicated office there)
+    - No contracts, local phone answered by humans, same technician
+
+    Read knowledge/competitors.md and knowledge/brand.md before analyzing.
+  expected_output: >
+    For EACH competitor:
+
+    [Competitor Name]
+    THEY DO BETTER THAN US (5 specific things with evidence from their site):
+    1. ...
+
+    WE DO BETTER THAN THEM (5 specific things we should promote more):
+    1. ...
+
+    STEAL THIS (3 specific tactics/elements we should copy and improve):
+    1. ...
+
+    CRITICAL GAP: One sentence on the most important thing to fix vs this competitor.
+
+    End with: "TOP 3 CROSS-COMPETITOR ACTIONS: ..."
+  agent: competitor_analyst
+
+# ── ROUND 2: Analysis + Recommendations (reads Round 1) ─────────────────────
+
+design_recommendations:
+  description: >
+    Read the site audit findings and competitor analysis above. Read knowledge/brand.md.
+
+    As Creative Director, propose 10 specific design changes to envirocare-web.vercel.app that
+    would make it the best-looking pest control site in Alabama and make every national chain
+    look generic by comparison.
+
+    RULES FOR EACH RECOMMENDATION:
+    - Reference at least one finding from the site audit OR competitor analysis
+    - Specify EXACT element (which section, which component, which page)
+    - Specify EXACT change (hex color, copy text, image description, CSS property)
+    - Explain WHY it beats the current version and at least one competitor
+    - Include IMPACT: X/10 and EFFORT: X/10
+
+    PRIORITY AREAS based on knowledge base:
+    - Trust badges above fold (Sentricon, 1958, family-owned, 500+ reviews)
+    - Hero CTA clarity ("Schedule Free Inspection" vs generic)
+    - Local photography (Lake Martin, Alabama, not stock photos)
+    - Pricing transparency (we show prices, Terminix doesn't)
+    - Mobile experience (current PageSpeed 67/100, target 90+)
+  expected_output: >
+    10 numbered design recommendations. Each formatted as:
+
+    [N]. [Page/Section]: [What changes] → [Exact change with specifics].
+    Beats [competitor] because [specific reason].
+    IMPACT: X/10 EFFORT: X/10
+  agent: design_advisor
+  context:
+    - audit_site
+    - analyze_competitors
+
+content_plan:
+  description: >
+    Read the competitor analysis and site audit above. Read knowledge/goals.md and knowledge/competitors.md.
+
+    Identify the 10 highest-value content pieces EnviroCare should create in the next 30 days.
+
+    PRIORITIZE:
+    1. Lake Martin keywords (zero competition, we have dedicated office)
+    2. Huntsville keywords (Cook's territory, SoLV 0%, must challenge)
+    3. Comparison/alternative pages (capturing competitor's dissatisfied customers)
+    4. Price/cost pages (we show prices, competitors don't — fastest trust win)
+    5. Sentricon keywords (we're certified, Terminix is not preferred partner)
+
+    For each content piece you MUST verify:
+    - No existing page already covers this exact keyword
+    - It addresses a real gap identified by the competitor analysis
+    - It fits EnviroCare's service area (Alabama: Birmingham, Huntsville, Lake Martin)
+
+    Read knowledge/competitors.md for which competitor each piece targets.
+  expected_output: >
+    10 content briefs, each formatted as:
+
+    [N]. Title: [Exact H1 title]
+    URL: /[slug]
+    Target keyword: "[exact phrase" (estimated monthly searches if known)
+    Competitor gap: [which competitor doesn't have this, why we win]
+    Outline:
+    - H2: [section 1]
+    - H2: [section 2]
+    - H2: [section 3]
+    CTA: [what action the page drives]
+    Word count: [target]
+    IMPACT: X/10 EFFORT: X/10
+  agent: content_strategist
+  context:
+    - audit_site
+    - analyze_competitors
+
+# ── ROUND 3: Final Review + Ranking ─────────────────────────────────────────
+
+final_review:
+  description: >
+    You are the Chief Strategy Officer reviewing ALL outputs from all 4 agents.
+
+    YOUR JOB:
+    1. Read the site audit findings
+    2. Read the competitor analysis
+    3. Read the 10 design recommendations
+    4. Read the 10 content briefs
+
+    KILL any recommendation that:
+    - Is not specific enough to implement tomorrow
+    - Doesn't reference actual EnviroCare data or competitor findings
+    - Doesn't specify exact copy, exact placement, or exact implementation
+    - Would apply to any pest control company, not specifically EnviroCare
+
+    RANK survivors by impact/effort ratio (higher impact, lower effort = higher priority).
+
+    OUTPUT: Top 5 actions for THIS WEEK at EnviroCare, in priority order.
+
+    These 5 must collectively move the needle on: Huntsville SoLV (0% → 35%) and
+    Birmingham citation score (24/100 → 80/100) within 90 days.
+  expected_output: >
+    TOP 5 ACTIONS THIS WEEK AT ENVIROCARE
+    Ranked by impact/effort ratio. Execute in this order.
+
+    [1]. [Action title]
+    WHAT: [Exact implementation — specific enough a developer can do it today]
+    WHY: [Data backing this — cite specific agent finding and competitor weakness]
+    IMPACT: X/10 EFFORT: X/10 RATIO: [impact/effort]
+    TIME TO IMPLEMENT: [estimate]
+    AGENT: [which agent recommended it]
+
+    [2-5 same format]
+
+    TOTAL ESTIMATED IMPACT: [what these 5 actions achieve in 90 days]
+  agent: critic
+  context:
+    - audit_site
+    - analyze_competitors
+    - design_recommendations
+    - content_plan
