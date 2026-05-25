@@ -10,7 +10,8 @@ import { run as runBrightLocal } from "./brightlocal.mjs";
 import { run as runOura } from "./oura-health.mjs";
 import { logAgentRun } from "./lib/supabase.mjs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy init — env vars not available at module load time when run via CLI
+function getResend() { return new Resend(process.env.RESEND_API_KEY); }
 
 const AGENTS = [
   { name: "SEO Monitor",   run: runSEO,        key: "seo:last-brief",        emoji: "📈" },
@@ -77,7 +78,7 @@ export default async function handler(req, res) {
 
     const { subject, html } = buildEmail(results);
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: process.env.NOTIFY_FROM || "onboarding@resend.dev",
       to: process.env.NOTIFY_EMAIL,
       subject,
