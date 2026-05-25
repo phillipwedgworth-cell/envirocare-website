@@ -734,8 +734,8 @@ Free inspections. No contracts. Same-day service available.</p>
 
   {
     slug: 'termite-season-2026-alabama',
-    title: 'Termite Season 2026 in Alabama: What's Coming and How to Stay Ahead',
-    excerpt: 'Spring 2026 is shaping up as a heavy termite year. Heavy winter rainfall, warm soil temperatures, and record swarm reports across Central and North Alabama. Here's what you need to know now.',
+    title: "Termite Season 2026 in Alabama: What's Coming and How to Stay Ahead",
+    excerpt: "Spring 2026 is shaping up as a heavy termite year. Heavy winter rainfall, warm soil temperatures, and record swarm reports across Central and North Alabama. Here's what you need to know now.",
     publishedAt: '2026-05-23',
     author: 'Kevin Wedgworth',
     category: 'Termites',
