@@ -187,8 +187,18 @@ function Hero() {
           </div>
         </div>
 
-        {/* Floating info cards - desktop only */}
+        {/* Hero photo + floating info cards - desktop only */}
         <div className="ec-hero-visual">
+          {/* Real family photo — anchors the visual column */}
+          <div className="ec-hero-photo-wrap">
+            <img
+              src="/hero-family.jpg"
+              alt="Alabama family relaxing in pest-free backyard"
+              className="ec-hero-photo"
+            />
+            <div className="ec-hero-photo-tint" aria-hidden="true" />
+          </div>
+
           <div className="ec-floating-card ec-card-price">
             <div className="ec-card-eyebrow">FREE INSPECTION</div>
             <div className="ec-card-price-num">$0</div>
@@ -770,13 +780,12 @@ function Heritage() {
             {/* Kevin Wedgworth photo - polaroid style */}
             <div className="ec-photo-frame ec-photo-kevin">
               <img
-                src="/kevin-headshot.jpg"
+                src="/kevin.jpg"
                 alt="Kevin Wedgworth, third-generation owner"
                 className="ec-photo-img"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement?.classList.add('ec-photo-fallback');
+                  target.src = '/kevin-headshot.jpg';
                 }}
               />
               <div className="ec-photo-caption">
@@ -1455,6 +1464,28 @@ const HOMEPAGE_CSS = `
     display: none;
     position: relative;
     min-height: 540px;
+  }
+  /* Hero family photo — fills the visual column */
+  .ec-hero-photo-wrap {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(14,26,15,0.18);
+  }
+  .ec-hero-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+  .ec-hero-photo-tint {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(14,26,15,0.08) 0%,
+      rgba(14,26,15,0.22) 100%
+    );
   }
   .ec-floating-card {
     position: absolute;

@@ -171,8 +171,11 @@ const EXTERNAL_LINKS = [
   },
 ];
 
-// ── CSS ── (scoped to #cc-root so it doesn't bleed into layout)
+// ── CSS ── (scoped to #cc-root; also hides site widgets that don't belong on ops)
 const CSS = `
+/* Hide customer-facing widgets on the ops page */
+.cw-bubble, .sc-wrap { display: none !important; }
+
 #cc-root {
   background: #0a0f1a;
   color: #e2e8f0;
@@ -316,6 +319,49 @@ const CSS = `
   background: #131d2e; border: 1px solid #1e2e45;
   border-radius: 12px; text-align: center; color: #4a5e78;
 }
+/* ── attention banner ── */
+.cc-alert {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px;
+  background: #1c0f06;
+  border: 1px solid #7c2d12;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+.cc-alert-label {
+  font-size: 12px; font-weight: 700;
+  color: #fb923c; text-transform: uppercase; letter-spacing: .07em;
+  white-space: nowrap;
+}
+.cc-alert-items { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+.cc-alert-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #0a0f1a; border: 1px solid #292524;
+  padding: 3px 10px; border-radius: 999px;
+  font-size: 11px; color: #d4a17a; line-height: 1.4;
+}
+.cc-ok-banner {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  background: #061a0e; border: 1px solid #14532d;
+  border-radius: 10px; margin-bottom: 4px;
+  font-size: 12px; font-weight: 600; color: #4ade80;
+}
+/* ── summary stat row ── */
+.cc-stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 4px;
+}
+@media(min-width: 480px)  { .cc-stat-row { grid-template-columns: repeat(4, 1fr); } }
+.cc-stat-tile {
+  background: #131d2e; border: 1px solid #1e2e45;
+  border-radius: 10px; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.cc-stat-tile-val { font-size: 22px; font-weight: 700; color: #f1f5f9; line-height: 1; }
+.cc-stat-tile-lbl { font-size: 10px; color: #4a5e78; text-transform: uppercase; letter-spacing: .07em; }
 `;
 
 // ── page ──────────────────────────────────────────────────────────────────────
@@ -402,6 +448,52 @@ export default async function CommandCenter({
 
         {data && (
           <>
+            {/* ── SUMMARY STATS ── */}
+            <div className="cc-stat-row" style={{ marginTop: 16 }}>
+              <div className="cc-stat-tile">
+                <div className="cc-stat-tile-val">{agents.length}</div>
+                <div className="cc-stat-tile-lbl">Agents Running</div>
+              </div>
+              <div className="cc-stat-tile">
+                <div className="cc-stat-tile-val" style={{ color: sevCount.critical > 0 ? '#ef4444' : sevCount.high > 0 ? '#f97316' : '#22c55e' }}>
+                  {sevCount.critical + sevCount.high}
+                </div>
+                <div className="cc-stat-tile-lbl">Critical / High</div>
+              </div>
+              <div className="cc-stat-tile">
+                <div className="cc-stat-tile-val">{findings.length}</div>
+                <div className="cc-stat-tile-lbl">Total Findings</div>
+              </div>
+              <div className="cc-stat-tile">
+                <div className="cc-stat-tile-val" style={{ color: seoLatest.some(r => r.solv != null) ? '#0E8E40' : '#4a5e78' }}>
+                  {seoLatest.filter(r => r.solv != null).length}/{KNOWN_LOCATIONS.length}
+                </div>
+                <div className="cc-stat-tile-lbl">Locations w/ SoLV</div>
+              </div>
+            </div>
+
+            {/* ── ATTENTION BANNER ── */}
+            {(sevCount.critical > 0 || sevCount.high > 0) ? (
+              <div className="cc-alert">
+                <span className="cc-alert-label">⚠ Needs Attention</span>
+                <div className="cc-alert-items">
+                  {findings
+                    .filter(f => f.severity === 'critical' || f.severity === 'high')
+                    .slice(0, 5)
+                    .map((f, i) => (
+                      <span key={i} className="cc-alert-chip">
+                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: sevColor(f.severity), display: 'inline-block', flexShrink: 0 }} />
+                        {f.finding.slice(0, 60)}{f.finding.length > 60 ? '…' : ''}
+                      </span>
+                    ))}
+                </div>
+              </div>
+            ) : (
+              <div className="cc-ok-banner">
+                ✓ No critical or high-severity findings
+              </div>
+            )}
+
             {/* ── AGENT STATUS ── */}
             <div className="cc-sect">Agent Status</div>
             <div className="cc-grid3">
