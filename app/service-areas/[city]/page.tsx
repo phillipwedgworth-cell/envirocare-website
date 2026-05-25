@@ -5,7 +5,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 
 // ── CITY DATA ──────────────────────────────────────────────────────────────
 type OfficeKey = "birmingham" | "huntsville" | "lake-martin";
@@ -762,7 +761,6 @@ export default async function ServiceAreaPage({
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

@@ -4,7 +4,6 @@
 
 import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
   title: "Mosquito Control FAQ Alabama | When Does Mosquito Season Start? | EnviroCare",
@@ -532,7 +531,6 @@ export default function MosquitoFAQ() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
