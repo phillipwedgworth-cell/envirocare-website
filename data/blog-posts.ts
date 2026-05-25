@@ -733,6 +733,82 @@ Free inspections. No contracts. Same-day service available.</p>
   },
 
   {
+    slug: 'termite-season-2026-alabama',
+    title: 'Termite Season 2026 in Alabama: What's Coming and How to Stay Ahead',
+    excerpt: 'Spring 2026 is shaping up as a heavy termite year. Heavy winter rainfall, warm soil temperatures, and record swarm reports across Central and North Alabama. Here's what you need to know now.',
+    publishedAt: '2026-05-23',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '🪵',
+    metaTitle: 'Termite Season 2026 Alabama: What Homeowners Need to Know | EnviroCare',
+    metaDescription: 'Termite season 2026 is underway across Alabama. Heavy winter rain and warm soil mean elevated swarm activity. Sentricon® $1M coverage. Free inspection. Call (205) 649-5278.',
+    body: `
+<p class="lede">By late April 2026, our technicians had already logged more termite swarm calls than we typically see through the end of May in a normal year. If you've seen wings on your windowsill or swarmers boiling out of a mulch bed, you're not alone — and you're not too late to protect your home.</p>
+
+<p>Here's what's driving the 2026 season, what's different about this year, and what we're recommending to Alabama homeowners right now.</p>
+
+<h2>Why 2026 is hitting harder</h2>
+
+<p>Three conditions have aligned this spring that we don't see every year:</p>
+
+<ol>
+<li><strong>Above-average winter rainfall.</strong> December 2025 through February 2026 was the wettest three-month stretch Alabama had seen in over a decade. That moisture saturated the clay soils throughout the Birmingham Basin and the Tennessee Valley, which is exactly the environment subterranean termite colonies expand into.</li>
+<li><strong>Soil temperatures spiked early.</strong> After a warm March, soil temps in Central Alabama crossed the 70°F threshold — the trigger for swarm behavior — about two weeks ahead of the historical average.</li>
+<li><strong>Carry-over from 2025.</strong> Last year's late start to the season (we had an unusually cold March 2025) meant colonies that didn't swarm successfully last year are attempting reproduction this spring instead. We're effectively seeing two swarm years compressed into one.</li>
+</ol>
+
+<h2>Where we're seeing it most</h2>
+
+<p>Our Birmingham office has reported the heaviest concentration of new calls in older neighborhoods: Forest Park, Mountain Brook, Avondale, and Crestwood. These areas have mature hardwood trees, aging construction, and high wood-to-soil contact — exactly what Eastern Subterranean termites are hunting for.</p>
+
+<p>The Huntsville office is tracking elevated activity in Madison, Harvest, and Hampton Cove — areas that had significant new construction between 2015 and 2022. Builder soil pre-treatment warranties in those communities are starting to expire. Homeowners who moved in 2018 or 2019 and relied on the builder's soil treatment are now unprotected.</p>
+
+<p>Our Alex City / Lake Martin office is seeing the heaviest activity we've logged in years along the lake's eastern shore. High-water events this winter caused termite colonies to raft and relocate — lakefront lots on the eastern shore around Dadeville and Eclectic are at elevated risk this season.</p>
+
+<h2>What you'll actually see during a swarm</h2>
+
+<p>A swarm looks dramatic but it's not actually the termites causing your damage — it's the reproductive event, not the workers. Hundreds or thousands of winged termites emerge from a single point, fly for 30 to 60 minutes, then fall to the ground and shed their wings. What they leave behind is a pile of identical, translucent wings. That's your evidence.</p>
+
+<p>If you find wings: on a windowsill, near a baseboard, on a door threshold, or around a light fixture — you have an active colony nearby. Not potentially nearby. Present.</p>
+
+<p>The workers, meanwhile, are underground and have been feeding since last fall. The swarm doesn't start the infestation — it's the colony announcing itself after it's already been established for years.</p>
+
+<h2>What changed about our Sentricon recommendations in 2026</h2>
+
+<p>We've always recommended Sentricon® Always Active™ as our primary termite protection for Alabama homes. That hasn't changed. What has changed this year is our urgency about inspecting homes that have gone 5 or more years without a current Sentricon warranty.</p>
+
+<p>Corteva — the manufacturer — updated their warranty terms in early 2026 to require re-inspection for any system that went more than 18 months between technician visits. If you have an existing Sentricon system on your home and your last service visit was more than 18 months ago, your $1,000,000 damage warranty may no longer be active. Call us — we'll inspect and reactivate the warranty at no charge for existing customers.</p>
+
+<h2>For homeowners who don't have termite protection</h2>
+
+<p>The 2026 season is a bad year to be unprotected. Here's the math: a subterranean termite colony in Alabama typically contains 250,000 to one million workers. Each worker consumes about 0.0025 ounces of wood per day. At peak population, a mature colony in your foundation can consume the equivalent of a 1-inch pine board every 23 days. By the time you see visible damage, the colony has usually been present for 3 to 5 years.</p>
+
+<p>We offer free inspections at all three offices. Same-day appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
+
+<h2>Steps to take right now</h2>
+
+<ol>
+<li><strong>Do a 10-minute perimeter walk.</strong> Check the base of your foundation, where mulch meets your siding, any wood posts in contact with the soil, and your crawlspace access door. Look for mud tubes — pencil-thick dirt tunnels running up the foundation face. That's the most reliable field sign of subterranean termite activity.</li>
+<li><strong>Check for wings.</strong> Concentrated piles of small identical wings near windows or light fixtures, especially on south-facing walls, are the #1 indicator homeowners find on their own.</li>
+<li><strong>Check your builder warranty expiration.</strong> Most new construction in Alabama gets a soil pre-treatment that carries a 5-year warranty. After that, the home has no coverage. Look for a pink or blue sheet in your closing documents — it should have an issue date and warranty expiration.</li>
+<li><strong>Call us.</strong> Free inspection, no obligation. We'll tell you what we find and what we'd recommend. If there's no activity, we'll say that too.</li>
+</ol>
+
+<p>Office numbers:</p>
+<ul>
+<li>Birmingham / Alabaster — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+
+<p>Or call our main line: <strong>(205) 649-5278</strong>. If you found swarmers this week, don't wait — same-day inspections are available.</p>
+
+<p><em>Kevin Wedgworth is the third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
+`,
+  },
+
+  {
     slug: 'centipede-millipede-control-alabama',
     title: 'Centipede & Millipede Control in Alabama',
     excerpt: 'Millipedes migrate in hundreds after rain. Centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation — and both are treatable.',
