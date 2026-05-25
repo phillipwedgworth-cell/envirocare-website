@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/Pelham", [
+  "static/chunks/10aurvh_xki5~.js",
+  "static/chunks/0w50_92u3s7pz.js",
+  "static/chunks/turbopack-0nkc16zpcen1d.js"
+])

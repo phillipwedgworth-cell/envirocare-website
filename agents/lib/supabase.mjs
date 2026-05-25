@@ -63,3 +63,59 @@ export async function readFindings(agentNames = [], hoursBack = 24) {
   }
   return data ?? [];
 }
+
+// Write a cross-agent discussion entry to agent_discussions table
+export async function writeDiscussion({
+  agentName,
+  referencesAgent = null,
+  referencesFindingId = null,
+  message,
+  impactScore,
+  effortScore,
+}) {
+  if (!supabase) return null;
+  const { data, error } = await supabase.from("agent_discussions").insert({
+    agent_name: agentName,
+    references_agent: referencesAgent,
+    references_finding_id: referencesFindingId,
+    message,
+    impact_score: impactScore,
+    effort_score: effortScore,
+    created_at: new Date().toISOString(),
+  }).select().single();
+  if (error) {
+    if (error.message?.includes("does not exist")) {
+      console.warn(`[supabase] agent_discussions table missing — run agents/lib/migrations/add_agent_discussions.sql`);
+    } else {
+      console.error(`[${agentName}] writeDiscussion error: ${error.message}`);
+    }
+    return null;
+  }
+  return data;
+}
+
+// Read recent discussion entries, optionally filtered by agent names
+export async function readDiscussions(agentNames = [], hoursBack = 6) {
+  if (!supabase) return [];
+  const since = new Date(Date.now() - hoursBack * 3600000).toISOString();
+  let query = supabase
+    .from("agent_discussions")
+    .select("*")
+    .gte("created_at", since)
+    .order("created_at", { ascending: false })
+    .limit(50);
+  if (agentNames.length > 0) query = query.in("agent_name", agentNames);
+  const { data, error } = await query;
+  if (error) {
+    if (!error.message?.includes("does not exist")) {
+      console.error(`[supabase] readDiscussions error: ${error.message}`);
+    }
+    return [];
+  }
+  return data ?? [];
+}
+
+// Read all discussions from a given round (used by Round 3 critic)
+export async function readAllDiscussions(hoursBack = 6) {
+  return readDiscussions([], hoursBack);
+}

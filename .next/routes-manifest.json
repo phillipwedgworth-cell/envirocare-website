@@ -1,0 +1,654 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "hybrid",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/services/termite",
+      "destination": "/services/termite-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/services/termite(?:/)?$"
+    },
+    {
+      "source": "/services/mosquito",
+      "destination": "/services/mosquito-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/services/mosquito(?:/)?$"
+    },
+    {
+      "source": "/services/pest",
+      "destination": "/services/pest-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/services/pest(?:/)?$"
+    },
+    {
+      "source": "/services/fire-ant",
+      "destination": "/services/fire-ant-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/services/fire-ant(?:/)?$"
+    },
+    {
+      "source": "/services/rodent",
+      "destination": "/services/rodent-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/services/rodent(?:/)?$"
+    },
+    {
+      "source": "/termite",
+      "destination": "/services/termite-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/termite(?:/)?$"
+    },
+    {
+      "source": "/mosquito",
+      "destination": "/services/mosquito-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/mosquito(?:/)?$"
+    },
+    {
+      "source": "/pest-control",
+      "destination": "/services/pest-control",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/pest-control(?:/)?$"
+    },
+    {
+      "source": "/sentricon",
+      "destination": "/services/sentricon",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/sentricon(?:/)?$"
+    },
+    {
+      "source": "/pay",
+      "destination": "https://payenvirocare.key7app.com",
+      "statusCode": 307,
+      "regex": "^(?!/_next)/pay(?:/)?$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about-us",
+      "regex": "^/about\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-us(?:/)?$"
+    },
+    {
+      "page": "/AboutUs",
+      "regex": "^/AboutUs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/AboutUs(?:/)?$"
+    },
+    {
+      "page": "/alabaster",
+      "regex": "^/alabaster(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alabaster(?:/)?$"
+    },
+    {
+      "page": "/Alabaster",
+      "regex": "^/Alabaster(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Alabaster(?:/)?$"
+    },
+    {
+      "page": "/alexander-city",
+      "regex": "^/alexander\\-city(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alexander\\-city(?:/)?$"
+    },
+    {
+      "page": "/AlexanderCity",
+      "regex": "^/AlexanderCity(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/AlexanderCity(?:/)?$"
+    },
+    {
+      "page": "/api/cfo/run",
+      "regex": "^/api/cfo/run(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cfo/run(?:/)?$"
+    },
+    {
+      "page": "/api/cfo/verify",
+      "regex": "^/api/cfo/verify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cfo/verify(?:/)?$"
+    },
+    {
+      "page": "/api/chat",
+      "regex": "^/api/chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/chat(?:/)?$"
+    },
+    {
+      "page": "/api/quote",
+      "regex": "^/api/quote(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/quote(?:/)?$"
+    },
+    {
+      "page": "/athens",
+      "regex": "^/athens(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/athens(?:/)?$"
+    },
+    {
+      "page": "/Athens",
+      "regex": "^/Athens(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Athens(?:/)?$"
+    },
+    {
+      "page": "/auburn",
+      "regex": "^/auburn(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auburn(?:/)?$"
+    },
+    {
+      "page": "/Auburn",
+      "regex": "^/Auburn(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Auburn(?:/)?$"
+    },
+    {
+      "page": "/birmingham",
+      "regex": "^/birmingham(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/birmingham(?:/)?$"
+    },
+    {
+      "page": "/Birmingham",
+      "regex": "^/Birmingham(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Birmingham(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/BuilderProgram",
+      "regex": "^/BuilderProgram(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/BuilderProgram(?:/)?$"
+    },
+    {
+      "page": "/builders",
+      "regex": "^/builders(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/builders(?:/)?$"
+    },
+    {
+      "page": "/bundle-services",
+      "regex": "^/bundle\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/bundle\\-services(?:/)?$"
+    },
+    {
+      "page": "/BundleServices",
+      "regex": "^/BundleServices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/BundleServices(?:/)?$"
+    },
+    {
+      "page": "/calera",
+      "regex": "^/calera(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/calera(?:/)?$"
+    },
+    {
+      "page": "/chelsea",
+      "regex": "^/chelsea(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/chelsea(?:/)?$"
+    },
+    {
+      "page": "/Chelsea",
+      "regex": "^/Chelsea(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Chelsea(?:/)?$"
+    },
+    {
+      "page": "/contact-us",
+      "regex": "^/contact\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact\\-us(?:/)?$"
+    },
+    {
+      "page": "/ContactUs",
+      "regex": "^/ContactUs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ContactUs(?:/)?$"
+    },
+    {
+      "page": "/dadeville",
+      "regex": "^/dadeville(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dadeville(?:/)?$"
+    },
+    {
+      "page": "/Dadeville",
+      "regex": "^/Dadeville(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Dadeville(?:/)?$"
+    },
+    {
+      "page": "/decatur",
+      "regex": "^/decatur(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/decatur(?:/)?$"
+    },
+    {
+      "page": "/Decatur",
+      "regex": "^/Decatur(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Decatur(?:/)?$"
+    },
+    {
+      "page": "/eclectic",
+      "regex": "^/eclectic(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/eclectic(?:/)?$"
+    },
+    {
+      "page": "/Eclectic",
+      "regex": "^/Eclectic(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Eclectic(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/find-office",
+      "regex": "^/find\\-office(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/find\\-office(?:/)?$"
+    },
+    {
+      "page": "/greystone",
+      "regex": "^/greystone(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/greystone(?:/)?$"
+    },
+    {
+      "page": "/hampton-cove",
+      "regex": "^/hampton\\-cove(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hampton\\-cove(?:/)?$"
+    },
+    {
+      "page": "/hartselle",
+      "regex": "^/hartselle(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hartselle(?:/)?$"
+    },
+    {
+      "page": "/Hartselle",
+      "regex": "^/Hartselle(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Hartselle(?:/)?$"
+    },
+    {
+      "page": "/harvest",
+      "regex": "^/harvest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/harvest(?:/)?$"
+    },
+    {
+      "page": "/helena",
+      "regex": "^/helena(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/helena(?:/)?$"
+    },
+    {
+      "page": "/Homepage",
+      "regex": "^/Homepage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Homepage(?:/)?$"
+    },
+    {
+      "page": "/homewood",
+      "regex": "^/homewood(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/homewood(?:/)?$"
+    },
+    {
+      "page": "/hoover",
+      "regex": "^/hoover(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hoover(?:/)?$"
+    },
+    {
+      "page": "/Hoover",
+      "regex": "^/Hoover(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Hoover(?:/)?$"
+    },
+    {
+      "page": "/huntsville",
+      "regex": "^/huntsville(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/huntsville(?:/)?$"
+    },
+    {
+      "page": "/Huntsville",
+      "regex": "^/Huntsville(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Huntsville(?:/)?$"
+    },
+    {
+      "page": "/lake-martin",
+      "regex": "^/lake\\-martin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/lake\\-martin(?:/)?$"
+    },
+    {
+      "page": "/LakeMartin",
+      "regex": "^/LakeMartin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/LakeMartin(?:/)?$"
+    },
+    {
+      "page": "/madison",
+      "regex": "^/madison(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/madison(?:/)?$"
+    },
+    {
+      "page": "/Madison",
+      "regex": "^/Madison(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Madison(?:/)?$"
+    },
+    {
+      "page": "/MosquitoService",
+      "regex": "^/MosquitoService(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/MosquitoService(?:/)?$"
+    },
+    {
+      "page": "/mountain-brook",
+      "regex": "^/mountain\\-brook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mountain\\-brook(?:/)?$"
+    },
+    {
+      "page": "/MountainBrook",
+      "regex": "^/MountainBrook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/MountainBrook(?:/)?$"
+    },
+    {
+      "page": "/mt-laurel",
+      "regex": "^/mt\\-laurel(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mt\\-laurel(?:/)?$"
+    },
+    {
+      "page": "/opelika",
+      "regex": "^/opelika(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/opelika(?:/)?$"
+    },
+    {
+      "page": "/pay",
+      "regex": "^/pay(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pay(?:/)?$"
+    },
+    {
+      "page": "/pelham",
+      "regex": "^/pelham(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pelham(?:/)?$"
+    },
+    {
+      "page": "/Pelham",
+      "regex": "^/Pelham(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Pelham(?:/)?$"
+    },
+    {
+      "page": "/pest-calendar",
+      "regex": "^/pest\\-calendar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pest\\-calendar(?:/)?$"
+    },
+    {
+      "page": "/PestControlService",
+      "regex": "^/PestControlService(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/PestControlService(?:/)?$"
+    },
+    {
+      "page": "/quote",
+      "regex": "^/quote(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quote(?:/)?$"
+    },
+    {
+      "page": "/realtor",
+      "regex": "^/realtor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/realtor(?:/)?$"
+    },
+    {
+      "page": "/request-quote",
+      "regex": "^/request\\-quote(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/request\\-quote(?:/)?$"
+    },
+    {
+      "page": "/reviews",
+      "regex": "^/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/reviews(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/SentriconService",
+      "regex": "^/SentriconService(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/SentriconService(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/services/builder",
+      "regex": "^/services/builder(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/builder(?:/)?$"
+    },
+    {
+      "page": "/services/commercial",
+      "regex": "^/services/commercial(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/commercial(?:/)?$"
+    },
+    {
+      "page": "/services/crawlspace",
+      "regex": "^/services/crawlspace(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/crawlspace(?:/)?$"
+    },
+    {
+      "page": "/services/fire-ant",
+      "regex": "^/services/fire\\-ant(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/fire\\-ant(?:/)?$"
+    },
+    {
+      "page": "/services/flea",
+      "regex": "^/services/flea(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/flea(?:/)?$"
+    },
+    {
+      "page": "/services/mosquito-control",
+      "regex": "^/services/mosquito\\-control(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/mosquito\\-control(?:/)?$"
+    },
+    {
+      "page": "/services/pest-control",
+      "regex": "^/services/pest\\-control(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/pest\\-control(?:/)?$"
+    },
+    {
+      "page": "/services/real-estate-wdo",
+      "regex": "^/services/real\\-estate\\-wdo(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/real\\-estate\\-wdo(?:/)?$"
+    },
+    {
+      "page": "/services/sentricon",
+      "regex": "^/services/sentricon(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/sentricon(?:/)?$"
+    },
+    {
+      "page": "/services/termite-control",
+      "regex": "^/services/termite\\-control(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/termite\\-control(?:/)?$"
+    },
+    {
+      "page": "/services/tick-control",
+      "regex": "^/services/tick\\-control(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/tick\\-control(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/special-offers",
+      "regex": "^/special\\-offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/special\\-offers(?:/)?$"
+    },
+    {
+      "page": "/SpecialOffers",
+      "regex": "^/SpecialOffers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/SpecialOffers(?:/)?$"
+    },
+    {
+      "page": "/TermiteService",
+      "regex": "^/TermiteService(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/TermiteService(?:/)?$"
+    },
+    {
+      "page": "/TickService",
+      "regex": "^/TickService(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/TickService(?:/)?$"
+    },
+    {
+      "page": "/trussville",
+      "regex": "^/trussville(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/trussville(?:/)?$"
+    },
+    {
+      "page": "/tuscaloosa",
+      "regex": "^/tuscaloosa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tuscaloosa(?:/)?$"
+    },
+    {
+      "page": "/vestavia-hills",
+      "regex": "^/vestavia\\-hills(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vestavia\\-hills(?:/)?$"
+    },
+    {
+      "page": "/VestaviaHills",
+      "regex": "^/VestaviaHills(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/VestaviaHills(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

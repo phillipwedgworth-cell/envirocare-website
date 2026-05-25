@@ -1,3 +1,11 @@
 .claude/
 node_modules
 .vercel
+
+# Secret files
+.env
+.env.local
+.env*.local
+supabase/.temp/
+tsconfig.tsbuildinfo
+.next/

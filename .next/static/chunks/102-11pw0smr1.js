@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/Eclectic", [
+  "static/chunks/0iv4ueudjqln~.js",
+  "static/chunks/0w50_92u3s7pz.js",
+  "static/chunks/turbopack-12ef.5scl9vg6.js"
+])

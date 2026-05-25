@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/TickService", [
+  "static/chunks/02aelz6owaama.js",
+  "static/chunks/0w50_92u3s7pz.js",
+  "static/chunks/turbopack-0c_m1h8hr03y4.js"
+])

@@ -1,0 +1,5 @@
+__turbopack_load_page_chunks__("/PestControlService", [
+  "static/chunks/0c5w2bn84.mv_.js",
+  "static/chunks/0w50_92u3s7pz.js",
+  "static/chunks/turbopack-0ik92kba2tnxl.js"
+])
