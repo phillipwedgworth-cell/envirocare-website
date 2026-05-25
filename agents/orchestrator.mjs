@@ -7,16 +7,14 @@
 import { Resend } from "resend";
 import { run as runSEO } from "./seo-monitor.mjs";
 import { run as runBrightLocal } from "./brightlocal.mjs";
-import { run as runOura } from "./oura-health.mjs";
 import { logAgentRun } from "./lib/supabase.mjs";
 
 // Lazy init — env vars not available at module load time when run via CLI
 function getResend() { return new Resend(process.env.RESEND_API_KEY); }
 
 const AGENTS = [
-  { name: "SEO Monitor",   run: runSEO,        key: "seo:last-brief",        emoji: "📈" },
-  { name: "BrightLocal",   run: runBrightLocal, key: "brightlocal:last-brief", emoji: "📊" },
-  { name: "Oura Health",   run: runOura,        key: "oura:today",             emoji: "🤍" },
+  { name: "SEO Monitor",  run: runSEO,         key: "seo:last-brief",        emoji: "📈" },
+  { name: "BrightLocal",  run: runBrightLocal, key: "brightlocal:last-brief", emoji: "📊" },
 ];
 
 async function runAll() {
