@@ -10,7 +10,7 @@
 
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://envirocarellc.com';
+const BASE_URL = 'https://envirocare-web.vercel.app';
 
 // Cities served (from data/cities.ts — Stage 1)
 const CITY_SLUGS = [

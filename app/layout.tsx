@@ -5,7 +5,7 @@ import LogoFix from '@/components/LogoFix';
 import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://envirocarellc.com'),
+  metadataBase: new URL('https://envirocare-web.vercel.app'),
   title: {
     default: 'EnviroCare Pest & Termite Services | Family-Owned Alabama Since 1958',
     template: '%s | EnviroCare Pest & Termite',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'EnviroCare Pest & Termite Services | Alabama Since 1958',
     description:
       'Three generations of Alabama families trust EnviroCare. Sentricon® $1M coverage, bi-monthly pest control, mosquito & tick. Birmingham · Lake Martin · Huntsville.',
-    url: 'https://envirocarellc.com',
+    url: 'https://envirocare-web.vercel.app',
     siteName: 'EnviroCare Pest & Termite Services',
     images: [
       {
@@ -55,11 +55,11 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       'max-image-preview': 'large',
       'max-snippet': -1,
       'max-video-preview': -1,
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     google: 'jsPqwOPMFt1Felwq6xg6-SBxM1w0Sf1zybHX6MXth1M',
   },
   alternates: {
-    canonical: 'https://envirocarellc.com',
+    canonical: 'https://envirocare-web.vercel.app',
   },
 };
 
@@ -95,12 +95,12 @@ export const viewport: Viewport = {
 const birminghamJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocarellc.com/#birmingham',
+  '@id': 'https://envirocare-web.vercel.app/#birmingham',
   name: 'EnviroCare Pest & Termite Services — Birmingham',
   image: '/og-image.png',
   description:
     'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
-  url: 'https://envirocarellc.com/birmingham',
+  url: 'https://envirocare-web.vercel.app/birmingham',
   telephone: '+1-205-940-6360',
   priceRange: '$$',
   address: {
@@ -135,12 +135,12 @@ const birminghamJsonLd = {
 const lakeMartinJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocarellc.com/#lake-martin',
+  '@id': 'https://envirocare-web.vercel.app/#lake-martin',
   name: "EnviroCare Pest & Termite Services — Alex City / Lake Martin",
   image: '/og-image.png',
   description:
     "EnviroCare's original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.",
-  url: 'https://envirocarellc.com/lake-martin',
+  url: 'https://envirocare-web.vercel.app/lake-martin',
   telephone: '+1-256-234-6162',
   priceRange: '$$',
   foundingDate: '1958',
@@ -176,12 +176,12 @@ const lakeMartinJsonLd = {
 const huntsvilleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocarellc.com/#huntsville',
+  '@id': 'https://envirocare-web.vercel.app/#huntsville',
   name: 'EnviroCare Pest & Termite Services — Huntsville',
   image: '/og-image.png',
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
-  url: 'https://envirocarellc.com/huntsville',
+  url: 'https://envirocare-web.vercel.app/huntsville',
   telephone: '+1-256-937-7676',
   priceRange: '$$',
   address: {
@@ -205,10 +205,10 @@ const huntsvilleJsonLd = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://envirocarellc.com/#organization',
+  '@id': 'https://envirocare-web.vercel.app/#organization',
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
-  url: 'https://envirocarellc.com',
+  url: 'https://envirocare-web.vercel.app',
   logo: '/logo.svg',
   foundingDate: '1958',
   founder: {

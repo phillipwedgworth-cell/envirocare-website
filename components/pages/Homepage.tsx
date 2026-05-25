@@ -876,9 +876,11 @@ function Reviews() {
 }
 
 /* ============================================================
-   PRICING
+   PRICING — with Per Service / Monthly Plan toggle
    ============================================================ */
 function Pricing() {
+  const [mode, setMode] = useState<'monthly' | 'perservice'>('monthly');
+
   return (
     <section className="ec-pricing">
       <div className="ec-section-inner">
@@ -888,30 +890,60 @@ function Pricing() {
           Honest, straightforward pricing. No contracts, no hidden fees — pay monthly on ACH, cancel anytime.
         </p>
 
-        <div className="ec-pricing-grid">
-          <PriceCard
-            title="Essential" tags={['Pest']}
-            tagline="Year-round pest control for the everyday Alabama home."
-            price="35" unit="/mo" terms="ACH · or $70 bi-monthly"
-            bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'Family- & pet-safe applications']}
-            cta="Start Essential" href="/quote?plan=essential"
-          />
-          <PriceCard
-            title="Foundation" tags={['Pest', 'Termite']}
-            tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
-            price="67" unit="/mo" terms="ACH · one invoice, one tech"
-            bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
-            cta="Start Foundation" href="/quote?plan=foundation"
-            badge="MOST POPULAR" featured
-          />
-          <PriceCard
-            title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
-            tagline="All four programs — pest, termite, mosquito & tick — under one plan."
-            price="127" unit="/mo" terms="ACH · everything in one invoice"
-            bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Apr–Oct, every 21 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
-            cta="Start Complete" href="/quote?plan=complete"
-          />
+        {/* ── Toggle ── */}
+        <div className="ec-price-toggle-wrap">
+          <button
+            className={`ec-price-toggle-btn ${mode === 'perservice' ? 'ec-toggle-active' : ''}`}
+            onClick={() => setMode('perservice')}
+          >Per Service</button>
+          <div className="ec-price-toggle-track" onClick={() => setMode(mode === 'monthly' ? 'perservice' : 'monthly')} role="switch" aria-checked={mode === 'monthly'}>
+            <div className={`ec-price-toggle-pill ${mode === 'monthly' ? 'ec-pill-right' : 'ec-pill-left'}`} />
+          </div>
+          <button
+            className={`ec-price-toggle-btn ${mode === 'monthly' ? 'ec-toggle-active' : ''}`}
+            onClick={() => setMode('monthly')}
+          >Monthly Plan</button>
         </div>
+
+        {/* ── Monthly Plan cards ── */}
+        {mode === 'monthly' && (
+          <div className="ec-pricing-grid ec-pricing-fade">
+            <PriceCard
+              title="Essential" tags={['Pest']}
+              tagline="Year-round pest control for the everyday Alabama home."
+              price="35" unit="/mo" terms="ACH · or $70 bi-monthly"
+              bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'Family- & pet-safe applications']}
+              cta="Start Essential" href="/quote?plan=essential"
+            />
+            <PriceCard
+              title="Foundation" tags={['Pest', 'Termite']}
+              tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
+              price="67" unit="/mo" terms="ACH · one invoice, one tech"
+              bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
+              cta="Start Foundation" href="/quote?plan=foundation"
+              badge="MOST POPULAR" featured
+            />
+            <PriceCard
+              title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
+              tagline="All four programs — pest, termite, mosquito & tick — under one plan."
+              price="127" unit="/mo" terms="ACH · everything in one invoice"
+              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Apr–Oct, every 21 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
+              cta="Start Complete" href="/quote?plan=complete"
+            />
+          </div>
+        )}
+
+        {/* ── Per Service cards ── */}
+        {mode === 'perservice' && (
+          <div className="ec-svc-price-grid ec-pricing-fade">
+            <SvcPriceCard icon="🛡️" title="Pest Control" price="70" unit="/visit" note="Bi-monthly exterior treatment" bullets={['30+ common pests covered', 'Interior + perimeter', 'Unlimited free re-services']} href="/quote?service=pest" />
+            <SvcPriceCard icon="🪵" title="Termite Inspection" price="0" unit="FREE" note="Full home · no obligation" bullets={['Sentricon® quote included', 'Same-week scheduling', '$1M coverage available']} href="/quote?service=termite" featured />
+            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Pet- & kid-safe once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
+            <SvcPriceCard icon="🐾" title="Tick Treatment" price="69" unit="/treatment" note="Harborage-zone targeted" bullets={['Lone Star, Dog & Deer ticks', 'Yard-wide coverage', 'Free when bundled with mosquito']} href="/quote?service=tick" />
+            <SvcPriceCard icon="🌻" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Family- & pet-safe']} href="/quote?service=fire-ant" />
+            <SvcPriceCard icon="📋" title="WDO / Real Estate Letter" price="125" unit="/letter" note="Fast turnaround · lender-ready" bullets={['NPMA-33 format', 'Same-week scheduling', 'All three offices']} href="/quote?service=wdo" />
+          </div>
+        )}
 
         <div className="ec-offers">
           <div className="ec-offer">
@@ -960,6 +992,28 @@ function PriceCard({ title, tags, tagline, price, unit, terms, bullets, cta, hre
       <Link href={href} className={`ec-price-cta ${featured ? 'ec-price-cta-featured' : ''}`}>
         {cta}
       </Link>
+    </div>
+  );
+}
+
+function SvcPriceCard({ icon, title, price, unit, note, bullets, href, featured }: {
+  icon: string; title: string; price: string; unit: string; note: string;
+  bullets: string[]; href: string; featured?: boolean;
+}) {
+  return (
+    <div className={`ec-svc-price-card ${featured ? 'ec-svc-price-featured' : ''}`}>
+      <div className="ec-svc-price-icon">{icon}</div>
+      <h3 className="ec-svc-price-title">{title}</h3>
+      <div className="ec-svc-price-row">
+        {price !== '0' && <span className="ec-svc-price-dollar">$</span>}
+        <span className="ec-svc-price-num">{price === '0' ? 'FREE' : price}</span>
+        {price !== '0' && <span className="ec-svc-price-unit">{unit}</span>}
+      </div>
+      <div className="ec-svc-price-note">{note}</div>
+      <ul className="ec-svc-price-bullets">
+        {bullets.map((b) => <li key={b}><span className="ec-check">✓</span> {b}</li>)}
+      </ul>
+      <Link href={href} className="ec-svc-price-cta">Get Quote →</Link>
     </div>
   );
 }
@@ -2111,6 +2165,103 @@ const HOMEPAGE_CSS = `
     border-color: #0E8E40;
   }
   .ec-price-cta-featured:hover { background: #0A7935; }
+
+  /* PRICING TOGGLE */
+  .ec-price-toggle-wrap {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 40px;
+  }
+  .ec-price-toggle-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 15px; font-weight: 600;
+    color: #94A89A; padding: 6px 4px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    transition: color 0.2s;
+  }
+  .ec-price-toggle-btn.ec-toggle-active { color: #0E8E40; }
+  .ec-price-toggle-track {
+    width: 64px; height: 32px;
+    background: #E8F5EE; border: 2px solid #0E8E40;
+    border-radius: 999px; position: relative;
+    cursor: pointer; flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .ec-price-toggle-pill {
+    position: absolute; top: 3px;
+    width: 22px; height: 22px;
+    background: #0E8E40; border-radius: 50%;
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .ec-pill-left  { left: 3px; }
+  .ec-pill-right { left: 35px; }
+
+  /* fade-in when switching views */
+  @keyframes ec-price-fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .ec-pricing-fade { animation: ec-price-fade 0.22s ease both; }
+
+  /* PER-SERVICE GRID */
+  .ec-svc-price-grid {
+    display: grid; grid-template-columns: 1fr; gap: 16px;
+  }
+  @media (min-width: 640px) { .ec-svc-price-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ec-svc-price-grid { grid-template-columns: repeat(3, 1fr); } }
+  .ec-svc-price-card {
+    background: #fff; border: 1px solid #E8E2D8;
+    border-radius: 18px; padding: 24px 22px;
+    display: flex; flex-direction: column;
+    transition: all 0.2s;
+  }
+  .ec-svc-price-card:hover {
+    border-color: #0E8E40;
+    box-shadow: 0 8px 24px rgba(14,142,64,0.1);
+    transform: translateY(-2px);
+  }
+  .ec-svc-price-featured {
+    border: 2px solid #F5A800;
+    background: linear-gradient(180deg, #FFF8E7 0%, #fff 40%);
+  }
+  .ec-svc-price-icon { font-size: 32px; margin-bottom: 10px; }
+  .ec-svc-price-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px; font-weight: 700;
+    color: #0E1A0F; margin: 0 0 10px;
+  }
+  .ec-svc-price-row {
+    display: flex; align-items: baseline;
+    gap: 3px; margin-bottom: 4px;
+  }
+  .ec-svc-price-dollar {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px; font-weight: 700; color: #0E8E40;
+  }
+  .ec-svc-price-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42px; font-weight: 700;
+    color: #0E8E40; line-height: 1;
+  }
+  .ec-svc-price-unit { font-size: 14px; color: #5A6660; font-weight: 500; }
+  .ec-svc-price-note {
+    font-size: 12px; color: #5A6660;
+    margin-bottom: 16px; font-style: italic;
+  }
+  .ec-svc-price-bullets {
+    list-style: none; padding: 0; margin: 0 0 20px; flex-grow: 1;
+  }
+  .ec-svc-price-bullets li {
+    padding: 4px 0; font-size: 13px;
+    color: #1A2620; line-height: 1.5;
+  }
+  .ec-svc-price-cta {
+    display: block; padding: 11px;
+    background: #FEFDF8; border: 1.5px solid #0E8E40;
+    color: #0E8E40 !important; border-radius: 999px;
+    font-weight: 700; font-size: 14px; text-align: center;
+    transition: all 0.15s; margin-top: auto;
+  }
+  .ec-svc-price-cta:hover { background: #E8F5EE; }
 
   .ec-offers {
     display: grid; grid-template-columns: 1fr;
