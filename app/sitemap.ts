@@ -10,8 +10,7 @@
 
 import type { MetadataRoute } from 'next';
 
-// Update this when you flip DNS from envirocare-web.vercel.app → envirocarellc.com
-const BASE_URL = 'https://envirocare-web.vercel.app';
+const BASE_URL = 'https://envirocarellc.com';
 
 // Cities served (from data/cities.ts — Stage 1)
 const CITY_SLUGS = [
@@ -69,5 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...mainPages, ...servicePages, ...cityPages];
+  // Location + service sub-pages (city-level SEO landing pages)
+  const locationServicePages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/lake-martin/termite-control`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/alexander-city/mosquito-control`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/alexander-city/termite-control`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+  ];
+
+  return [...mainPages, ...servicePages, ...cityPages, ...locationServicePages];
 }
