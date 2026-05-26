@@ -15,7 +15,7 @@ const OFFICES = [
     city: "Alabaster, AL 35007",
     phone: "(205) 940-6360",
     tel: "2059406360",
-    email: "birmingham@envirocarellc.com",
+    email: "service@envirocarellc.com",
     maps: "https://www.google.com/maps?cid=7378341068021381374",
     hours: "Mon–Fri 7am–6pm · Sat 8am–3pm · Sun Closed",
     serves: "Birmingham · Hoover · Chelsea · Pelham · Alabaster · Vestavia Hills · Mountain Brook · Homewood · Helena · Calera",
@@ -28,7 +28,7 @@ const OFFICES = [
     city: "Alexander City, AL 35010",
     phone: "(256) 234-6162",
     tel: "2562346162",
-    email: "alexcity@envirocarellc.com",
+    email: "service@envirocarellc.com",
     maps: "https://www.google.com/maps?cid=12101127141767078247",
     hours: "Mon–Fri 7am–6pm · Sat 8am–3pm · Sun Closed",
     serves: "Lake Martin · Alexander City · Dadeville · Eclectic · Auburn · Opelika · Wetumpka",
@@ -41,7 +41,7 @@ const OFFICES = [
     city: "Huntsville, AL 35806",
     phone: "(256) 937-7676",
     tel: "2569377676",
-    email: "huntsville@envirocarellc.com",
+    email: "service@envirocarellc.com",
     maps: "https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8",
     hours: "Mon–Fri 7am–6pm · Sat 8am–3pm · Sun Closed",
     serves: "Huntsville · Madison · Athens · Decatur · Hartselle · Hampton Cove · Harvest · North Alabama",
@@ -70,7 +70,7 @@ export default function ContactUs() {
       const body = encodeURIComponent(
         `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nCity: ${form.city}\nService: ${form.service}\n\n${form.message}`
       );
-      window.location.href = `mailto:info@envirocarellc.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:service@envirocarellc.com?subject=${subject}&body=${body}`;
       setSubmitted(true);
       return;
     }
