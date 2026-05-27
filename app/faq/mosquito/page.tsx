@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Mosquito Control FAQ Alabama | When Does Mosquito Season Start? | EnviroCare",
   description:
     "Everything Alabama homeowners ask about mosquito season: when it starts, how long it lasts, whether yard spray is safe for kids and pets, and what $45/mo gets you. EnviroCare, family-owned since 1958.",
-  alternates: { canonical: "https://envirocarellc.com/faq/mosquito" },
+  alternates: { canonical: './' },
 };
 
 const SCHEMA = {

@@ -207,7 +207,7 @@ export async function generateMetadata({
     title: `Pest Control ${data.name} ${data.state} | EnviroCare — Family-Owned Since 1958`,
     description: `EnviroCare pest, termite, and mosquito control in ${data.name}, AL. ${data.blurb.split(".")[0]}. No contract. Call ${data.phoneDisplay}.`,
     alternates: {
-      canonical: `${data.canonicalBase}/service-areas/${data.slug}`,
+      canonical: './',
     },
   };
 }

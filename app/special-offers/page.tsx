@@ -3,7 +3,7 @@
 export const metadata = {
   title: "Special Offers & Deals | $50 Off Pest Control | EnviroCare Alabama",
   description: "Current EnviroCare special offers: $50 off initial pest control, 50% off first mosquito treatment, FREE termite inspection. Alabama pest control since 1958.",
-  alternates: { canonical: "https://envirocare-web.vercel.app/special-offers" },
+  alternates: { canonical: './' },
 };
 
 export default function Page() {
