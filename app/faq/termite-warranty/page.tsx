@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
   description:
     "How does the Sentricon $1,000,000 termite damage warranty work in Alabama? What's covered, what's not, and how to keep it active. EnviroCare is a Sentricon Certified Specialist — family-owned since 1958.",
-  alternates: { canonical: "https://envirocarellc.com/faq/termite-warranty" },
+  alternates: { canonical: './' },
 };
 
 const SCHEMA = {

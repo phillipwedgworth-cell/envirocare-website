@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Pest Control Pricing Alabama | Starting at $35/mo | EnviroCare",
   description:
     "Honest Alabama pest control pricing — Pest Control $35/mo, Sentricon Termite $32/mo, Mosquito+Tick+Flea $60/mo. No contract, no initial fee. Compare vs. Cook's and Waynes.",
-  alternates: { canonical: "https://envirocarellc.com/pricing" },
+  alternates: { canonical: './' },
 };
 
 export default function PricingPage() {
