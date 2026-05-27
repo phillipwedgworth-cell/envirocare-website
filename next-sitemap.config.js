@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://envirocare-web.vercel.app',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://envirocarellc.com',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
