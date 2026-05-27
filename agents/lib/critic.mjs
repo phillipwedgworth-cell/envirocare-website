@@ -4,9 +4,17 @@
 // Hard rule: never change MAX_LOOPS above 3
 // Critic uses Opus 4 — sharpest rubric judgment, kills generic advice
 
-import Anthropic from "@anthropic-ai/sdk";
-
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+let anthropic = null;
+if (process.env.ANTHROPIC_API_KEY) {
+  try {
+    const mod = await import("@anthropic-ai/sdk");
+    const Anthropic = mod.default ?? mod;
+    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  } catch (e) {
+    console.error(`[critic] failed to import @anthropic-ai/sdk: ${e.message}`);
+    anthropic = null;
+  }
+}
 const MAX_LOOPS = 3;
 const CRITIC_MODEL = "claude-opus-4-20250514";
 const CRITIC_TEMPERATURE = 0.4;
@@ -35,6 +43,10 @@ WHAT AUTOMATICALLY FAILS:
 export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate }) {
   let current = output;
   const history = [];
+
+  if (!anthropic) {
+    throw new Error('[critic] ANTHROPIC_API_KEY is not set — critic loop cannot run. Set ANTHROPIC_API_KEY to enable the critic.');
+  }
 
   for (let loop = 1; loop <= MAX_LOOPS; loop++) {
     console.log(`[critic] Loop ${loop}/${MAX_LOOPS} — reviewing ${workerName} output`);

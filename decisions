@@ -1,0 +1,23 @@
+# Pricing Tier Decision
+
+Goal: choose between Essential, Foundation, Outdoor Pro, Complete for launch.
+
+Criteria:
+- Feature coverage vs price sensitivity
+- Ease of implementation on site/pricing page
+- Upsell path from Essential -> Complete
+- Competitive positioning in local markets
+
+Suggested tiers (draft):
+- Essential — core pest control, monthly/quarterly options
+- Foundation — Essential + quarterly termite inspection
+- Outdoor Pro — Foundation + exterior only treatments & mosquito control
+- Complete — All services + annual termite warranty
+
+Next steps:
+1. Review feature mapping against existing `pricing` page components.
+2. Set anchor prices for one test market (e.g., Birmingham).
+3. Update `pages/pricing` content and data file.
+4. A/B test messaging + CTA over 2 weeks.
+
+Action: confirm whether you want me to pick recommended prices and implement the site copy now.

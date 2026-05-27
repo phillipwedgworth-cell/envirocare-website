@@ -1,13 +1,22 @@
 // agents/lib/supabase.mjs
 // Shared Supabase client — imported by kv.mjs, orchestrator.mjs, and any agent that logs data
 
-import { createClient } from "@supabase/supabase-js";
-
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_KEY;
 
-// null when running locally without Supabase env vars — callers must guard
-export const supabase = url && key ? createClient(url, key) : null;
+// Export a supabase client when both env vars are present.
+// Use dynamic import so local development without the package doesn't crash on module load.
+export let supabase = null;
+if (url && key) {
+  try {
+    const mod = await import("@supabase/supabase-js");
+    const createClient = mod.createClient ?? mod.default?.createClient ?? mod.default;
+    supabase = createClient(url, key);
+  } catch (e) {
+    console.error(`[supabase] failed to import @supabase/supabase-js: ${e.message}`);
+    supabase = null;
+  }
+}
 
 export async function logAgentRun(agentName, status, output) {
   if (!supabase) return;

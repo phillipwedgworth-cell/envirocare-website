@@ -3,10 +3,12 @@
 // Uses Supabase in production, local JSON file in dev
 
 import fs from "fs/promises";
+import os from "os";
+import path from "path";
 import { supabase } from "./supabase.mjs";
 
 const IS_LOCAL = !supabase;
-const LOCAL_STATE_FILE = "/tmp/agent-state.json";
+const LOCAL_STATE_FILE = path.join(os.tmpdir(), "envirocare-agent-state.json");
 
 export async function stateGet(key) {
   if (IS_LOCAL) {
