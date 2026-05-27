@@ -20,7 +20,9 @@ audit_site:
     6. Page load time (estimate from response time)
 
     ALSO CHECK:
-    - Homepage PageSpeed via Google PSI API if accessible
+    - Homepage performance via web fetch and page analysis. If Google PSI is not reachable from the sandbox,
+      estimate mobile performance by response time, HTML payload, image weight, JS bundle size, and any
+      mobile render-blocking issues found in the page source.
     - Any 404 pages
     - Mobile viewport meta
 

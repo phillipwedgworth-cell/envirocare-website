@@ -20,8 +20,10 @@ import StickyCallButton from '@/components/StickyCallButton';
 import LogoFix from '@/components/LogoFix';
 import ChatWidget from '@/components/ChatWidget';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocarellc.com';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://envirocare-web.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'EnviroCare Pest & Termite Services | Family-Owned Alabama Since 1958',
     template: '%s | EnviroCare Pest & Termite',
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
     title: 'EnviroCare Pest & Termite Services | Alabama Since 1958',
     description:
       'Three generations of Alabama families trust EnviroCare. Sentricon® $1M coverage, bi-monthly pest control, mosquito & tick. Birmingham · Lake Martin · Huntsville.',
-    url: 'https://envirocare-web.vercel.app',
+    url: SITE_URL,
     siteName: 'EnviroCare Pest & Termite Services',
     images: [
       {
@@ -96,7 +98,7 @@ export const metadata: Metadata = {
     google: 'jsPqwOPMFt1Felwq6xg6-SBxM1w0Sf1zybHX6MXth1M',
   },
   alternates: {
-    canonical: 'https://envirocare-web.vercel.app',
+    canonical: './',
   },
 };
 
@@ -111,12 +113,12 @@ export const viewport: Viewport = {
 const birminghamJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocare-web.vercel.app/#birmingham',
+  '@id': `${SITE_URL}/#birmingham`,
   name: 'EnviroCare Pest & Termite Services — Birmingham',
   image: '/og-image.png',
   description:
     'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
-  url: 'https://envirocare-web.vercel.app/birmingham',
+  url: `${SITE_URL}/birmingham`,
   telephone: '+1-205-940-6360',
   priceRange: '$$',
   address: {
@@ -151,12 +153,12 @@ const birminghamJsonLd = {
 const lakeMartinJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocare-web.vercel.app/#lake-martin',
+  '@id': `${SITE_URL}/#lake-martin`,
   name: "EnviroCare Pest & Termite Services — Alex City / Lake Martin",
   image: '/og-image.png',
   description:
     "EnviroCare's original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.",
-  url: 'https://envirocare-web.vercel.app/lake-martin',
+  url: `${SITE_URL}/lake-martin`,
   telephone: '+1-256-234-6162',
   priceRange: '$$',
   foundingDate: '1958',
@@ -192,12 +194,12 @@ const lakeMartinJsonLd = {
 const huntsvilleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocare-web.vercel.app/#huntsville',
+  '@id': `${SITE_URL}/#huntsville`,
   name: 'EnviroCare Pest & Termite Services — Huntsville',
   image: '/og-image.png',
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
-  url: 'https://envirocare-web.vercel.app/huntsville',
+  url: `${SITE_URL}/huntsville`,
   telephone: '+1-256-937-7676',
   priceRange: '$$',
   address: {
@@ -221,10 +223,10 @@ const huntsvilleJsonLd = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://envirocare-web.vercel.app/#organization',
+  '@id': `${SITE_URL}/#organization`,
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
-  url: 'https://envirocare-web.vercel.app',
+  url: SITE_URL,
   logo: '/logo.svg',
   foundingDate: '1958',
   founder: {
