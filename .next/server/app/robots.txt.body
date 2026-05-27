@@ -1,6 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /api/
-
-Host: https://envirocarellc.com
-Sitemap: https://envirocarellc.com/sitemap.xml
