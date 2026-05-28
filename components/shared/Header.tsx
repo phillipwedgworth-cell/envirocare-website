@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Phone, ArrowRight, ChevronDown } from "lucide-react";
+import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
 
 // When the customer payment portal goes live, change this single value.
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
@@ -217,6 +217,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
           {/* MOBILE: phone icon + burger */}
           <div className="ec-mobile-only" style={{ alignItems: "center", gap: 8 }}>
             <a href="tel:2056495278" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
+            <a href={PAYMENT_PORTAL_URL} aria-label="Customer Login / Pay My Bill" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><User size={18} /></a>
             <button type="button" className="ec-burger" aria-label="Open menu" aria-expanded={menuOpen} aria-controls="ec-mobile-menu" onClick={() => setMenuOpen(true)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="13" x2="20" y2="13"/><line x1="4" y1="19" x2="14" y2="19"/></svg>
             </button>
