@@ -16,7 +16,7 @@ if (process.env.ANTHROPIC_API_KEY) {
   }
 }
 const MAX_LOOPS = 3;
-const CRITIC_MODEL = "claude-opus-4-20250514";
+const CRITIC_MODEL = "claude-opus-4-8";
 const CRITIC_TEMPERATURE = 0.4;
 
 const CRITIC_SYSTEM = `You are the Chief Strategy Officer reviewing AI-generated recommendations for EnviroCare Pest Control.
