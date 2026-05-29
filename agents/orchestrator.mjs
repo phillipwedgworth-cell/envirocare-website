@@ -14,6 +14,7 @@ const PROMPT_VERSION = "2026-05-28";
 // readability of the digest but not correctness.
 const AGENT_REGISTRY = [
   { name: "brightlocal", path: "./brightlocal.mjs" },
+  { name: "seo-monitor", path: "./seo-monitor.mjs" },
   { name: "cfo-agent", path: "./cfo-agent.mjs" },
   { name: "site-reviewer", path: "./site-reviewer.mjs" },
 ];
