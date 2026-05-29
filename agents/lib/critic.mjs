@@ -38,7 +38,8 @@ WHAT AUTOMATICALLY FAILS:
 - Advice that applies to any pest control company, not specifically EnviroCare
 - Missing IMPACT or EFFORT scores
 - Vague fixes like "improve trust signals" without specifying which signal, where, and how
-- Recommendations that don't reference competitor intelligence or site audit findings`;
+- Recommendations that don't reference competitor intelligence or site audit findings
+- ANY claim that the agent took an external action it has no tool for (e.g. "filed a support ticket," "emailed the team," "submitted to Google," "opened a Jira issue") — agents may ONLY claim actions that correspond to actual tool calls they made during this run. If you spot a fabricated action claim, FAIL the output and require the agent to either remove the claim or replace it with what it actually did/observed.`;
 
 export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate }) {
   let current = output;

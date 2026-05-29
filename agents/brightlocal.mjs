@@ -57,10 +57,47 @@ async function getCitationScore({ location_name }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
   try {
-    const report = await blFetch("ct/reports", { "location-id": loc.id });
-    const r = report?.results || report?.data || report;
-    const score = r?.overall_score ?? r?.score ?? r?.citation_score ?? null;
-    return { location: loc.name, score, target: loc.target };
+    // BrightLocal v4 Citation Tracker is a two-step lookup:
+    //   1) find-ct-reports?location_id=X  → list of campaigns for that location
+    //   2) get-ct-report-results?report_id=Y → the actual scores
+    // The earlier single-shot ct/reports path was wrong (404).
+    const findResp = await blFetch("find-ct-reports", { location_id: loc.id });
+    const reports =
+      findResp?.results ||
+      findResp?.data?.reports ||
+      findResp?.data ||
+      findResp?.reports ||
+      [];
+    if (!Array.isArray(reports) || reports.length === 0) {
+      return {
+        location: loc.name,
+        score: null,
+        target: loc.target,
+        note: "No citation tracker report exists for this location — create one in BrightLocal dashboard first",
+      };
+    }
+
+    const report = reports[0];
+    const reportId = report.id ?? report.report_id ?? report.reportId;
+    if (!reportId) {
+      return {
+        location: loc.name,
+        score: null,
+        target: loc.target,
+        note: "Report ID not found in BrightLocal find-ct-reports response",
+      };
+    }
+
+    const resultsResp = await blFetch("get-ct-report-results", { report_id: reportId });
+    const r = resultsResp?.results || resultsResp?.data || resultsResp;
+    const score =
+      r?.overall_score ??
+      r?.score ??
+      r?.citation_score ??
+      r?.summary?.overall_score ??
+      null;
+
+    return { location: loc.name, score, target: loc.target, report_id: reportId };
   } catch (err) {
     return { error: err.message };
   }
@@ -70,8 +107,20 @@ async function getReputationSummary({ location_name }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
   try {
-    const r = await blFetch("rm/reports", { "location-id": loc.id });
-    return { location: loc.name, data: r };
+    // Same two-step pattern as citation tracker for v4.
+    const findResp = await blFetch("find-rm-reports", { location_id: loc.id });
+    const reports =
+      findResp?.results ||
+      findResp?.data?.reports ||
+      findResp?.data ||
+      findResp?.reports ||
+      [];
+    if (!Array.isArray(reports) || reports.length === 0) {
+      return { location: loc.name, data: null, note: "No reputation manager report exists for this location" };
+    }
+    const reportId = reports[0].id ?? reports[0].report_id;
+    const resultsResp = await blFetch("get-rm-report", { report_id: reportId });
+    return { location: loc.name, data: resultsResp?.results || resultsResp?.data || resultsResp };
   } catch (err) {
     return { error: err.message };
   }
