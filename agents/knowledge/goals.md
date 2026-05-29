@@ -16,7 +16,7 @@
 | Core Web Vitals | Failing | Passing | Launch |
 
 ## DNS Flip Context
-The site is currently staging at envirocare-web.vercel.app.
+Production domain: envirocarellc.com (Vercel project: envirocare-website).
 ALL pages are noindex/nofollow until DNS flips to envirocarellc.com.
 Estimated flip date: TBD (when Phillip approves final site).
 On flip day: update metadataBase, all canonicals, robots.ts, enable indexing.
