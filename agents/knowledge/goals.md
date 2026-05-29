@@ -16,7 +16,8 @@
 | Core Web Vitals | Failing | Passing | Launch |
 
 ## DNS Flip Context
-Production domain: envirocarellc.com (Vercel project: envirocare-website).
+Production domain (post-DNS-flip): envirocarellc.com.
+GitHub repo: envirocare-website; Vercel project: envirocare-web (single project).
 ALL pages are noindex/nofollow until DNS flips to envirocarellc.com.
 Estimated flip date: TBD (when Phillip approves final site).
 On flip day: update metadataBase, all canonicals, robots.ts, enable indexing.

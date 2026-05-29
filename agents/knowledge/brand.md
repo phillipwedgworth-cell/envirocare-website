@@ -50,6 +50,7 @@
 - Honest about what works and what doesn't (e.g., bug zappers don't work for mosquitoes)
 
 ## Website
-- **Production**: https://envirocarellc.com
-- **Vercel project**: envirocare-website (the only one — envirocare-web was a duplicate, deleted May 2026)
+- **Production domain (post-DNS-flip)**: https://envirocarellc.com
+- **GitHub repo**: envirocare-website
+- **Vercel project**: envirocare-web (single project; deploys every push from the repo)
 - **Preview deployments**: per-branch URLs under envirocare-50d39ae8.vercel.app, surfaced on the corresponding GitHub PR

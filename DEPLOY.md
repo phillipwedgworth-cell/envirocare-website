@@ -34,7 +34,8 @@ Just needs to go from your computer to the internet.
 6. Wait 2 minutes
 
 ## Step 4: Your site is live!
-Vercel gives you a URL like: envirocare-website.vercel.app
+Vercel gives you a URL like: envirocare-web.vercel.app
+(The Vercel project name is envirocare-web; that's just how it was set up — same repo, no duplicate to clean up.)
 Test all pages work, then connect your real domain.
 
 ---
