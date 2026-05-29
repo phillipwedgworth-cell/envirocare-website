@@ -54,7 +54,6 @@ export async function criticLoop({ workerName, task, output, rubric, revise, onE
     const review = await anthropic.messages.create({
       model: CRITIC_MODEL,
       max_tokens: 500,
-      temperature: CRITIC_TEMPERATURE,
       system: CRITIC_SYSTEM,
       messages: [
         {
