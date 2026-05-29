@@ -39,13 +39,17 @@ const TARGET_PAGES = [
 ];
 
 let anthropic = null;
-if (process.env.ANTHROPIC_API_KEY) {
+let anthropicInitError = null;
+if (!process.env.ANTHROPIC_API_KEY) {
+  anthropicInitError = "ANTHROPIC_API_KEY is not set in this environment";
+} else {
   try {
     const mod = await import("@anthropic-ai/sdk");
     const Anthropic = mod.default ?? mod;
     anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
   } catch (e) {
-    console.error(`[${AGENT_NAME}] failed to load anthropic SDK: ${e.message}`);
+    anthropicInitError = `@anthropic-ai/sdk failed to load: ${e.message}`;
+    console.error(`[${AGENT_NAME}] ${anthropicInitError}`);
   }
 }
 
@@ -302,7 +306,7 @@ OUTPUT (final message, JSON only — no prose, no markdown fences)
 PROMPT VERSION: ${PROMPT_VERSION}`;
 
 async function gatherData() {
-  if (!anthropic) throw new Error("Anthropic SDK unavailable — cannot run worker");
+  if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
 
   const screenshots = [];
   const messages = [{ role: "user", content: "Begin gathering site data for the weekly review." }];

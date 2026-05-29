@@ -19,13 +19,17 @@ const AGENT_REGISTRY = [
 ];
 
 let anthropic = null;
-if (process.env.ANTHROPIC_API_KEY) {
+let anthropicInitError = null;
+if (!process.env.ANTHROPIC_API_KEY) {
+  anthropicInitError = "ANTHROPIC_API_KEY is not set in this environment";
+} else {
   try {
     const mod = await import("@anthropic-ai/sdk");
     const Anthropic = mod.default ?? mod;
     anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
   } catch (e) {
-    console.error(`[orchestrator] failed to load anthropic SDK: ${e.message}`);
+    anthropicInitError = `@anthropic-ai/sdk failed to load: ${e.message}`;
+    console.error(`[orchestrator] ${anthropicInitError}`);
   }
 }
 
@@ -75,7 +79,7 @@ async function runAllAgents() {
 async function synthesizeDigest(outputs, findings, discussions) {
   if (!anthropic) {
     return {
-      brief: "[orchestrator synthesis unavailable — Anthropic SDK not loaded]",
+      brief: `[orchestrator synthesis unavailable — ${anthropicInitError ?? "Anthropic client not initialized"}]`,
       raw_outputs: outputs,
     };
   }
