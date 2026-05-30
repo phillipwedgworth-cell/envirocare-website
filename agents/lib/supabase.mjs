@@ -159,21 +159,19 @@ export async function probe() {
     discussions: null,
   };
   if (!supabase) return out;
-  try {
-    const r1 = await supabase.from("agent_findings").select("*").limit(1);
-    out.findings = r1.error
-      ? { ok: false, error: { message: r1.error.message, code: r1.error.code, details: r1.error.details, hint: r1.error.hint, status: r1.error.status } }
-      : { ok: true, row_count: r1.data?.length ?? 0 };
-  } catch (e) {
-    out.findings = { ok: false, threw: e.message };
+  out.tables = {};
+  for (const t of ["agent_findings", "agent_discussions", "agent_state", "agent_runs"]) {
+    try {
+      const r = await supabase.from(t).select("*").limit(1);
+      out.tables[t] = r.error
+        ? { ok: false, error: { message: r.error.message, code: r.error.code, details: r.error.details, hint: r.error.hint, status: r.error.status } }
+        : { ok: true, row_count: r.data?.length ?? 0 };
+    } catch (e) {
+      out.tables[t] = { ok: false, threw: e.message };
+    }
   }
-  try {
-    const r2 = await supabase.from("agent_discussions").select("*").limit(1);
-    out.discussions = r2.error
-      ? { ok: false, error: { message: r2.error.message, code: r2.error.code, details: r2.error.details, hint: r2.error.hint, status: r2.error.status } }
-      : { ok: true, row_count: r2.data?.length ?? 0 };
-  } catch (e) {
-    out.discussions = { ok: false, threw: e.message };
-  }
+  // Back-compat for the existing field names
+  out.findings = out.tables.agent_findings;
+  out.discussions = out.tables.agent_discussions;
   return out;
 }

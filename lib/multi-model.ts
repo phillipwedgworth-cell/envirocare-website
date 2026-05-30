@@ -116,15 +116,16 @@ export async function callClaude(financialData: FinancialData[]): Promise<ModelR
     financialData
   );
 
-  const response = await fetch("https://api.anthropic.com/v1/chat/completions", {
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${anthropicApiKey}`,
+      "x-api-key": anthropicApiKey,
+      "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
       model: "claude-haiku-4-5-20251001",
-      max_tokens_to_sample: 420,
+      max_tokens: 420,
       messages: [{ role: "user", content: prompt }],
     }),
   });
