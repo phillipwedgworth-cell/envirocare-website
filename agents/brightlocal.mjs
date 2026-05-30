@@ -17,12 +17,16 @@ const WORKER_MODEL = "claude-haiku-4-5-20251001";
 const MAX_TURNS = 12;
 
 const BL_KEY = process.env.BRIGHTLOCAL_API_KEY;
-const BL_API = "https://api.brightlocal.com/v4";
+const BL_API = "https://tools.brightlocal.com/seo-tools/api/v4";
 
+// Citation Tracker report IDs per location — looked up live via BrightLocal
+// MCP get-location. Constants because the report-id is stable per location
+// until the campaign is deleted; refreshing dynamically every run costs an
+// extra API call with no benefit.
 const LOCATIONS = [
-  { name: "Alabaster", id: 4068335, target: 85 },
-  { name: "Huntsville", id: 4068730, target: 85 },
-  { name: "Alex City", id: 4068729, target: 85 },
+  { name: "Alabaster", id: 4068335, ct_report_id: 2418430, rm_report_id: 630345, target: 85 },
+  { name: "Huntsville", id: 4068730, ct_report_id: 2419690, rm_report_id: 630846, target: 85 },
+  { name: "Alex City", id: 4068729, ct_report_id: null, rm_report_id: null, target: 85 }, // no CT/RM campaigns yet
 ];
 
 let anthropic = null;
@@ -40,9 +44,14 @@ if (process.env.ANTHROPIC_API_KEY) {
 
 async function blFetch(endpoint, params = {}) {
   if (!BL_KEY) throw new Error("BRIGHTLOCAL_API_KEY is not set");
-  const url = new URL(`${BL_API}/${endpoint}`);
-  for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-  const r = await fetch(url, { headers: { "api-key": BL_KEY } });
+  // BrightLocal v4 is POST with x-www-form-urlencoded body. api-key goes
+  // in the body, not a header (confirmed empirically — header form 404s).
+  const body = new URLSearchParams({ "api-key": BL_KEY, ...params });
+  const r = await fetch(`${BL_API}/${endpoint}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: body.toString(),
+  });
   if (!r.ok) throw new Error(`BL ${endpoint}: ${r.status}`);
   return r.json();
 }
@@ -56,48 +65,34 @@ function findLocation(name) {
 async function getCitationScore({ location_name }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
+  if (!loc.ct_report_id) {
+    return {
+      location: loc.name,
+      score: null,
+      target: loc.target,
+      note: "No Citation Tracker campaign exists in BrightLocal for this location — create one in the BL dashboard first (then update agents/brightlocal.mjs ct_report_id).",
+    };
+  }
   try {
-    // BrightLocal v4 Citation Tracker is a two-step lookup:
-    //   1) find-ct-reports?location_id=X  → list of campaigns for that location
-    //   2) get-ct-report-results?report_id=Y → the actual scores
-    // The earlier single-shot ct/reports path was wrong (404).
-    const findResp = await blFetch("find-ct-reports", { location_id: loc.id });
-    const reports =
-      findResp?.results ||
-      findResp?.data?.reports ||
-      findResp?.data ||
-      findResp?.reports ||
-      [];
-    if (!Array.isArray(reports) || reports.length === 0) {
-      return {
-        location: loc.name,
-        score: null,
-        target: loc.target,
-        note: "No citation tracker report exists for this location — create one in BrightLocal dashboard first",
-      };
-    }
+    // CT report-id is fixed per location (constant in LOCATIONS above).
+    // BrightLocal returns the citation roster in `response.results.{active,pending,...}`.
+    // "Score" in the BL UI is computed from active vs total; we report
+    // active_count as the raw signal — fewer moving parts, easier to verify.
+    const resp = await blFetch(`get-ct-report-results/${loc.ct_report_id}`);
+    const results = resp?.response?.results || resp?.results || {};
+    const activeCount = Array.isArray(results.active) ? results.active.length : null;
+    const pendingCount = Array.isArray(results.pending) ? results.pending.length : 0;
+    const possibleCount = Array.isArray(results.possible) ? results.possible.length : 0;
 
-    const report = reports[0];
-    const reportId = report.id ?? report.report_id ?? report.reportId;
-    if (!reportId) {
-      return {
-        location: loc.name,
-        score: null,
-        target: loc.target,
-        note: "Report ID not found in BrightLocal find-ct-reports response",
-      };
-    }
-
-    const resultsResp = await blFetch("get-ct-report-results", { report_id: reportId });
-    const r = resultsResp?.results || resultsResp?.data || resultsResp;
-    const score =
-      r?.overall_score ??
-      r?.score ??
-      r?.citation_score ??
-      r?.summary?.overall_score ??
-      null;
-
-    return { location: loc.name, score, target: loc.target, report_id: reportId };
+    return {
+      location: loc.name,
+      score: activeCount,
+      target: loc.target,
+      score_basis: "count of active citations from BrightLocal CT report",
+      pending_count: pendingCount,
+      possible_count: possibleCount,
+      report_id: loc.ct_report_id,
+    };
   } catch (err) {
     return { error: err.message };
   }
@@ -106,21 +101,12 @@ async function getCitationScore({ location_name }) {
 async function getReputationSummary({ location_name }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
+  if (!loc.rm_report_id) {
+    return { location: loc.name, data: null, note: "No Reputation Manager report set up in BrightLocal for this location" };
+  }
   try {
-    // Same two-step pattern as citation tracker for v4.
-    const findResp = await blFetch("find-rm-reports", { location_id: loc.id });
-    const reports =
-      findResp?.results ||
-      findResp?.data?.reports ||
-      findResp?.data ||
-      findResp?.reports ||
-      [];
-    if (!Array.isArray(reports) || reports.length === 0) {
-      return { location: loc.name, data: null, note: "No reputation manager report exists for this location" };
-    }
-    const reportId = reports[0].id ?? reports[0].report_id;
-    const resultsResp = await blFetch("get-rm-report", { report_id: reportId });
-    return { location: loc.name, data: resultsResp?.results || resultsResp?.data || resultsResp };
+    const resp = await blFetch(`get-rm-report/${loc.rm_report_id}`);
+    return { location: loc.name, data: resp?.response || resp?.results || resp };
   } catch (err) {
     return { error: err.message };
   }
