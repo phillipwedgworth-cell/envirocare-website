@@ -150,6 +150,8 @@ export async function probe() {
     has_url: Boolean(url),
     has_key: Boolean(key),
     url_host: url ? new URL(url).host : null,
+    url_path: url ? new URL(url).pathname : null,
+    url_ends_with_slash: url ? url.endsWith("/") : null,
     key_prefix: key ? key.slice(0, 12) : null,
     key_length: key ? key.length : null,
     client_ready: Boolean(supabase),
