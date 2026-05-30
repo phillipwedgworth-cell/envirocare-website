@@ -1,22 +1,28 @@
 // agents/orchestrator.mjs
 // The conductor — runs all available agents, collects findings, runs a
 // Sonnet synthesis across them, and emails one digest via Resend.
-//
-// Agents are loaded dynamically so missing ones (e.g. brightlocal before
-// PR #2 merges) don't crash the whole run — they're just skipped.
 
 import { logAgentRun, readFindings, readDiscussions } from "./lib/supabase.mjs";
+
+// Static imports so Next.js bundler ships the agent files to the lambda.
+// Earlier we used dynamic await import("./brightlocal.mjs") with relative
+// strings — Next.js doesn't trace those at build time, so the files
+// silently weren't in the bundle and every agent reported "skipped" at
+// runtime. Each agent module exports { run }.
+import { run as runBrightlocal } from "./brightlocal.mjs";
+import { run as runSeoMonitor } from "./seo-monitor.mjs";
+import { run as runCfoAgent } from "./cfo-agent.mjs";
+import { run as runSiteReviewer } from "./site-reviewer.mjs";
 
 const ORCHESTRATOR_MODEL = "claude-sonnet-4-6";
 const PROMPT_VERSION = "2026-05-28";
 
-// Each entry: a relative path that exports `run()`. Order matters for
-// readability of the digest but not correctness.
+// Order matters for digest readability but not correctness.
 const AGENT_REGISTRY = [
-  { name: "brightlocal", path: "./brightlocal.mjs" },
-  { name: "seo-monitor", path: "./seo-monitor.mjs" },
-  { name: "cfo-agent", path: "./cfo-agent.mjs" },
-  { name: "site-reviewer", path: "./site-reviewer.mjs" },
+  { name: "brightlocal",   run: runBrightlocal },
+  { name: "seo-monitor",   run: runSeoMonitor },
+  { name: "cfo-agent",     run: runCfoAgent },
+  { name: "site-reviewer", run: runSiteReviewer },
 ];
 
 let anthropic = null;
@@ -45,23 +51,12 @@ if (process.env.RESEND_API_KEY) {
   }
 }
 
-async function loadAgent(path) {
-  try {
-    const mod = await import(path);
-    if (typeof mod.run !== "function") return null;
-    return mod.run;
-  } catch (e) {
-    return null;
-  }
-}
-
 async function runAllAgents() {
   const outputs = {};
-  for (const { name, path } of AGENT_REGISTRY) {
-    const fn = await loadAgent(path);
-    if (!fn) {
-      console.log(`[orchestrator] skipping ${name} (not available)`);
-      outputs[name] = { skipped: true };
+  for (const { name, run: fn } of AGENT_REGISTRY) {
+    if (typeof fn !== "function") {
+      console.log(`[orchestrator] skipping ${name} (run export missing)`);
+      outputs[name] = { skipped: true, reason: "run export missing" };
       continue;
     }
     console.log(`[orchestrator] running ${name}`);
