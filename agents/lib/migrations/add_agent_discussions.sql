@@ -16,9 +16,13 @@ CREATE TABLE IF NOT EXISTS agent_discussions (
 CREATE INDEX IF NOT EXISTS agent_discussions_agent_name_idx ON agent_discussions (agent_name);
 CREATE INDEX IF NOT EXISTS agent_discussions_created_at_idx ON agent_discussions (created_at DESC);
 
--- Enable Row Level Security (disable anon read if you want to lock down)
+-- Enable Row Level Security. No policies are defined: the agents
+-- connect using the service_role key (SUPABASE_KEY in Vercel), which
+-- bypasses RLS by design. This blocks the anon key (browser-exposed)
+-- from reading or writing the table.
+--
+-- DO NOT add a permissive "FOR ALL USING (true)" policy here — that
+-- would make the table world-writable from any browser if anon ever
+-- gets used. If you genuinely need browser access later, write a
+-- narrow policy scoped to specific operations and rows.
 ALTER TABLE agent_discussions ENABLE ROW LEVEL SECURITY;
-
--- Allow service role full access (used by agents via SUPABASE_KEY)
-CREATE POLICY IF NOT EXISTS "service_full_access" ON agent_discussions
-  FOR ALL USING (true) WITH CHECK (true);
