@@ -4,6 +4,19 @@
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_KEY;
 
+// Supabase errors carry code/details/hint in addition to message; .message alone
+// often truncates to "Invalid ..." in Vercel log tables. Format the whole shape.
+function fmtSbError(err) {
+  if (!err) return "(no error object)";
+  return JSON.stringify({
+    message: err.message ?? null,
+    code: err.code ?? null,
+    details: err.details ?? null,
+    hint: err.hint ?? null,
+    status: err.status ?? null,
+  });
+}
+
 // Export a supabase client when both env vars are present.
 // Use dynamic import so local development without the package doesn't crash on module load.
 export let supabase = null;
@@ -48,7 +61,7 @@ export async function writeFinding(agentName, category, severity, pageUrl, findi
     if (error.message?.includes("does not exist")) {
       console.warn(`[supabase] agent_findings table missing — run agents/lib/migrations/add_agent_findings.sql`);
     } else {
-      console.error(`[${agentName}] writeFinding error: ${error.message}`);
+      console.error(`[${agentName}] writeFinding error: ${fmtSbError(error)}`);
     }
   }
 }
@@ -66,7 +79,7 @@ export async function readFindings(agentNames = [], hoursBack = 24) {
   const { data, error } = await query;
   if (error) {
     if (!error.message?.includes("does not exist")) {
-      console.error(`[supabase] readFindings error: ${error.message}`);
+      console.error(`[supabase] readFindings error: ${fmtSbError(error)}`);
     }
     return [];
   }
@@ -96,7 +109,7 @@ export async function writeDiscussion({
     if (error.message?.includes("does not exist")) {
       console.warn(`[supabase] agent_discussions table missing — run agents/lib/migrations/add_agent_discussions.sql`);
     } else {
-      console.error(`[${agentName}] writeDiscussion error: ${error.message}`);
+      console.error(`[${agentName}] writeDiscussion error: ${fmtSbError(error)}`);
     }
     return null;
   }
@@ -117,7 +130,7 @@ export async function readDiscussions(agentNames = [], hoursBack = 6) {
   const { data, error } = await query;
   if (error) {
     if (!error.message?.includes("does not exist")) {
-      console.error(`[supabase] readDiscussions error: ${error.message}`);
+      console.error(`[supabase] readDiscussions error: ${fmtSbError(error)}`);
     }
     return [];
   }
@@ -127,4 +140,38 @@ export async function readDiscussions(agentNames = [], hoursBack = 6) {
 // Read all discussions from a given round (used by Round 3 critic)
 export async function readAllDiscussions(hoursBack = 6) {
   return readDiscussions([], hoursBack);
+}
+
+// Returns connection diagnostics + raw error object (no log truncation).
+// Probes both tables with a 1-row select so we can see Supabase's actual
+// code/details/hint, not just the message.
+export async function probe() {
+  const out = {
+    has_url: Boolean(url),
+    has_key: Boolean(key),
+    url_host: url ? new URL(url).host : null,
+    key_prefix: key ? key.slice(0, 12) : null,
+    key_length: key ? key.length : null,
+    client_ready: Boolean(supabase),
+    findings: null,
+    discussions: null,
+  };
+  if (!supabase) return out;
+  try {
+    const r1 = await supabase.from("agent_findings").select("*").limit(1);
+    out.findings = r1.error
+      ? { ok: false, error: { message: r1.error.message, code: r1.error.code, details: r1.error.details, hint: r1.error.hint, status: r1.error.status } }
+      : { ok: true, row_count: r1.data?.length ?? 0 };
+  } catch (e) {
+    out.findings = { ok: false, threw: e.message };
+  }
+  try {
+    const r2 = await supabase.from("agent_discussions").select("*").limit(1);
+    out.discussions = r2.error
+      ? { ok: false, error: { message: r2.error.message, code: r2.error.code, details: r2.error.details, hint: r2.error.hint, status: r2.error.status } }
+      : { ok: true, row_count: r2.data?.length ?? 0 };
+  } catch (e) {
+    out.discussions = { ok: false, threw: e.message };
+  }
+  return out;
 }

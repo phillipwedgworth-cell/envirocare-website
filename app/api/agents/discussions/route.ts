@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import {
   readFindings,
   readDiscussions,
+  probe,
 } from "@/agents/lib/supabase.mjs";
 
 // Quick read-only window into what the agents are saying to each other —
@@ -14,6 +15,13 @@ export async function GET(request: Request) {
   const hours = Number(url.searchParams.get("hours")) || 168; // 7 days
   const agent = url.searchParams.get("agent");
   const agentsFilter = agent ? [agent] : [];
+
+  // ?debug=1 returns raw Supabase connection diagnostics — useful when
+  // findings/discussions silently come back empty.
+  if (url.searchParams.get("debug")) {
+    const diag = await probe();
+    return NextResponse.json({ ok: true, diag });
+  }
 
   try {
     const [findings, discussions] = await Promise.all([
