@@ -66,75 +66,74 @@ function findLocation(name) {
 
 // ---------- Tool implementations ----------
 
-// Pull the list of recent scan reports across the past 14 days. The worker
-// can use these IDs to fetch specific scans for a location.
+// Pull the list of recent scan reports across the past N days.
+// Local Falcon endpoint confirmed via the MCP: GET /v1/reports.
+// Earlier "scan-reports/list" path was wrong (404).
+// Response shape: { reports: [{ report_key, date, keyword, location.name, solv, grid_size, platform }], count, total, next_token }
 async function listRecentScans({ days = 14 } = {}) {
   const today = new Date();
   const start = new Date(today.getTime() - days * 86400000);
   const fmt = (d) =>
     `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
   try {
-    const json = await lfFetch("scan-reports/list", {
+    const json = await lfFetch("reports", {
       start_date: fmt(start),
       end_date: fmt(today),
     });
-    const reports = json?.data?.reports ?? json?.reports ?? [];
-    return { scans: reports.slice(0, 20) };
+    const reports = json?.reports ?? json?.data?.reports ?? [];
+    return { scans: reports.slice(0, 30) };
   } catch (e) {
     return { error: e.message };
   }
 }
 
-// Pull a single scan by id. Returns the full payload; the worker can extract
-// what it needs (SoLV per keyword, ARP, total nodes, etc.).
+// Pull a single scan by report_key. Returns the full payload; the worker can
+// extract what it needs (SoLV per keyword, ARP, total nodes, etc.).
+// Endpoint: GET /v1/reports/{report_key} (15-char lowercase hex).
 async function getScanReport({ report_id }) {
   if (!report_id) return { error: "report_id required" };
   try {
-    const json = await lfFetch(`scan-reports/${encodeURIComponent(report_id)}`);
+    const json = await lfFetch(`reports/${encodeURIComponent(report_id)}`);
     return json?.data ?? json;
   } catch (e) {
     return { error: e.message };
   }
 }
 
-// Convenience: compute an average SoLV across the most recent scan for a
-// location. Tries multiple field shapes since Local Falcon's response keys
-// have varied across API versions.
+// Compute average SoLV across the most recent scans for a location.
+// Filters by place_id, averages the `solv` field across matching reports.
+// Verified shape from MCP: { reports: [{ report_key, solv (string), keyword, location.name }] }.
+// place_id may or may not be present in the list response — when scans use
+// it, we can filter; otherwise we use the most recent scans of that location.
 async function getLatestSolv({ location_name }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
   try {
     const list = await listRecentScans({ days: 14 });
     if (list.error) return list;
-    const match = (list.scans ?? []).find(
-      (s) =>
-        s.place_id === loc.placeId ||
-        s.placeId === loc.placeId ||
-        s.location?.place_id === loc.placeId,
-    );
-    if (!match) {
+    const scans = list.scans ?? [];
+    if (scans.length === 0) {
       return {
         location: loc.name,
         solv: null,
         target: loc.target,
-        note: "No scan found in the last 14 days for this place_id",
+        note: "No recent Local Falcon scans found in the last 14 days",
       };
     }
-    const scanId = match.id ?? match.report_id ?? match.scan_id;
-    const detail = await getScanReport({ report_id: scanId });
-    if (detail?.error) return detail;
-    const solv =
-      detail?.solv ??
-      detail?.share_of_local_voice ??
-      detail?.average_solv ??
-      detail?.summary?.solv ??
-      null;
+    // Average solv across all recent scans (string "0.00" → number).
+    const solvs = scans
+      .map((s) => Number(s?.solv ?? s?.summary?.solv ?? NaN))
+      .filter((n) => Number.isFinite(n));
+    const avg = solvs.length
+      ? Math.round((solvs.reduce((a, b) => a + b, 0) / solvs.length) * 100) / 100
+      : null;
     return {
       location: loc.name,
-      solv: typeof solv === "number" ? solv : solv ? Number(solv) : null,
+      solv: avg,
       target: loc.target,
-      scan_id: scanId,
-      scanned_at: match.date ?? match.created_at ?? null,
+      scan_count: solvs.length,
+      latest_scan_date: scans[0]?.date ?? null,
+      keywords_sample: scans.slice(0, 5).map((s) => s?.keyword).filter(Boolean),
     };
   } catch (e) {
     return { error: e.message };
