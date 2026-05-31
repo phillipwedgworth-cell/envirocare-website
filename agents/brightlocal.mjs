@@ -17,7 +17,7 @@ const WORKER_MODEL = "claude-haiku-4-5-20251001";
 const MAX_TURNS = 12;
 
 const BL_KEY = process.env.BRIGHTLOCAL_API_KEY;
-const BL_API = "https://tools.brightlocal.com/seo-tools/api/v4";
+const BL_MCP = "https://mcp.brightlocal.com/mcp";
 
 // Citation Tracker report IDs per location — looked up live via BrightLocal
 // MCP get-location. Constants because the report-id is stable per location
@@ -40,20 +40,45 @@ if (process.env.ANTHROPIC_API_KEY) {
   }
 }
 
-// ---------- BrightLocal API ----------
+// ---------- BrightLocal via MCP HTTP ----------
+// The trial API key works with BrightLocal's MCP server (mcp.brightlocal.com),
+// not the legacy REST API v4. We open a session per call (stateless for simplicity).
 
-async function blFetch(endpoint, params = {}) {
+async function blMcpCall(toolName, args) {
   if (!BL_KEY) throw new Error("BRIGHTLOCAL_API_KEY is not set");
-  // BrightLocal v4 is POST with x-www-form-urlencoded body. api-key goes
-  // in the body, not a header (confirmed empirically — header form 404s).
-  const body = new URLSearchParams({ "api-key": BL_KEY, ...params });
-  const r = await fetch(`${BL_API}/${endpoint}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: body.toString(),
+  const url = `${BL_MCP}?api-key=${encodeURIComponent(BL_KEY)}`;
+  const hdrs = { "Content-Type": "application/json", "Accept": "application/json, text/event-stream" };
+
+  // 1. Initialize session
+  const initResp = await fetch(url, {
+    method: "POST", headers: hdrs,
+    body: JSON.stringify({ jsonrpc: "2.0", method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "envirocare-agent", version: "1.0" } }, id: 0 }),
   });
-  if (!r.ok) throw new Error(`BL ${endpoint}: ${r.status}`);
-  return r.json();
+  if (!initResp.ok) throw new Error(`BL MCP init: ${initResp.status}`);
+  const sessionId = initResp.headers.get("mcp-session-id");
+  if (!sessionId) throw new Error("BL MCP: no session ID returned");
+
+  const shdrs = { ...hdrs, "Mcp-Session-Id": sessionId };
+
+  // 2. Notify initialized
+  await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) });
+
+  // 3. Call tool
+  const resp = await fetch(url, {
+    method: "POST", headers: shdrs,
+    body: JSON.stringify({ jsonrpc: "2.0", method: "tools/call", params: { name: toolName, arguments: args }, id: 1 }),
+  });
+  if (!resp.ok) throw new Error(`BL MCP ${toolName}: ${resp.status}`);
+
+  // 4. Parse SSE response (event: message\ndata: {...}\n)
+  const text = await resp.text();
+  const dataLine = text.split("\n").find((l) => l.startsWith("data: "));
+  if (!dataLine) throw new Error(`BL MCP ${toolName}: no data in response`);
+  const envelope = JSON.parse(dataLine.slice(6));
+  if (envelope.error) throw new Error(`BL MCP ${toolName}: ${envelope.error.message}`);
+  const content = envelope.result?.content?.[0]?.text;
+  if (!content) throw new Error(`BL MCP ${toolName}: empty content`);
+  return JSON.parse(content);
 }
 
 function findLocation(name) {
@@ -74,11 +99,7 @@ async function getCitationScore({ location_name }) {
     };
   }
   try {
-    // CT report-id is fixed per location (constant in LOCATIONS above).
-    // BrightLocal returns the citation roster in `response.results.{active,pending,...}`.
-    // "Score" in the BL UI is computed from active vs total; we report
-    // active_count as the raw signal — fewer moving parts, easier to verify.
-    const resp = await blFetch(`get-ct-report-results/${loc.ct_report_id}`);
+    const resp = await blMcpCall("get_ct_report_results", { "report-id": String(loc.ct_report_id) });
     const results = resp?.response?.results || resp?.results || {};
     const activeCount = Array.isArray(results.active) ? results.active.length : null;
     const pendingCount = Array.isArray(results.pending) ? results.pending.length : 0;
@@ -105,7 +126,7 @@ async function getReputationSummary({ location_name }) {
     return { location: loc.name, data: null, note: "No Reputation Manager report set up in BrightLocal for this location" };
   }
   try {
-    const resp = await blFetch(`get-rm-report/${loc.rm_report_id}`);
+    const resp = await blMcpCall("get_rm_report", { "report-id": String(loc.rm_report_id) });
     return { location: loc.name, data: resp?.response || resp?.results || resp };
   } catch (err) {
     return { error: err.message };
