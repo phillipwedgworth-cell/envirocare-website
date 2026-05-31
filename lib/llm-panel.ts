@@ -219,7 +219,18 @@ ${fmt(panel.gpt)}`;
       .replace(/^```\s*/i, "")
       .replace(/\s*```$/i, "")
       .trim();
-    const parsed = JSON.parse(cleaned);
+    let parsed: any;
+    try {
+      parsed = JSON.parse(cleaned);
+    } catch (e: any) {
+      // Sonnet returned something that isn't strict JSON. Log enough to
+      // debug from runtime logs and preserve the raw text as the brief
+      // so the agent's downstream consumers (criticLoop, persistFindings)
+      // still get usable content instead of an empty object.
+      console.error(`[llm-panel] synthesis JSON.parse failed: ${e.message}`);
+      console.error(`[llm-panel] raw response (first 500 chars): ${raw.slice(0, 500)}`);
+      return { ...empty, brief: raw.slice(0, 4000) };
+    }
     return {
       consensus: Array.isArray(parsed.consensus) ? parsed.consensus : [],
       disagreements: Array.isArray(parsed.disagreements) ? parsed.disagreements : [],

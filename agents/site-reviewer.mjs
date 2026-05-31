@@ -332,6 +332,11 @@ async function gatherData() {
       try {
         data = JSON.parse(cleaned);
       } catch (e) {
+        // Worker returned text that isn't valid JSON. Log so we don't
+        // silently lose page data — pages: [] makes the rest of the
+        // pipeline run against empty input and produce a useless brief.
+        console.error(`[${AGENT_NAME}] gather JSON.parse failed: ${e.message}`);
+        console.error(`[${AGENT_NAME}] raw worker text (first 500 chars): ${text.slice(0, 500)}`);
         data = { pages: [], peer_findings_summary: "", raw: text };
       }
       return { data, screenshots };

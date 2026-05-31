@@ -79,6 +79,16 @@ If PASS, write VERDICT: PASS and nothing else.`,
     });
 
     const reviewText = review.content.find(b => b.type === "text")?.text || "";
+    // Defensive: if Anthropic returns no text block (e.g. an unexpected
+    // tool_use stop or a content-filter trim), reviewText is "" and the
+    // VERDICT check below would falsely treat it as FAIL — wasting
+    // tokens looping until MAX_LOOPS escalates. Treat empty critic output
+    // as a critic-side failure and PASS the current draft rather than
+    // re-running the worker for no signal.
+    if (!reviewText) {
+      console.warn(`[critic] ${workerName} — empty review text on loop ${loop}, accepting draft`);
+      return current;
+    }
     const passed = reviewText.includes("VERDICT: PASS");
 
     console.log(`[critic] ${workerName} — loop ${loop}: ${passed ? "PASS ✓" : "FAIL ✗"}`);
