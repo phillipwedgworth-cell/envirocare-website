@@ -176,7 +176,6 @@ function Hero() {
             <div className="ec-stat"><div className="ec-stat-num">68+</div><div className="ec-stat-label">YEARS IN AL</div></div>
             <div className="ec-stat"><div className="ec-stat-num">4.9★</div><div className="ec-stat-label">GOOGLE RATING</div></div>
             <div className="ec-stat"><div className="ec-stat-num">$1M</div><div className="ec-stat-label">SENTRICON® COVERAGE</div></div>
-            <div className="ec-stat"><div className="ec-stat-num">500+</div><div className="ec-stat-label">VERIFIED REVIEWS</div></div>
           </div>
 
           <div className="ec-hero-checks">
@@ -218,7 +217,7 @@ function Hero() {
             <div className="ec-card-google-num">4.9</div>
             <div className="ec-card-google-text">
               <strong>Google Rating</strong>
-              <span>500+ verified reviews</span>
+              <span>Verified Google reviews</span>
             </div>
           </div>
 
@@ -266,7 +265,7 @@ function TrustStrip() {
   return (
     <section className="ec-trust">
       <div className="ec-trust-inner">
-        <span className="ec-trust-item"><span className="ec-trust-icon">★</span><span><strong>4.9 Google</strong> · 500+ Reviews</span></span>
+        <span className="ec-trust-item"><span className="ec-trust-icon">★</span><span><strong>4.9 Google Rating</strong></span></span>
         <span className="ec-trust-divider"></span>
         <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Sentricon® Certified Specialist</span>
         <span className="ec-trust-divider"></span>
@@ -852,7 +851,7 @@ function Reviews() {
           <span className="ec-reviews-rating">
             <span className="ec-reviews-num">4.9</span>
             <span className="ec-reviews-stars">★★★★★</span>
-            <span className="ec-reviews-count">· 500+ reviews</span>
+            <span className="ec-reviews-count">· 4.9★ Google</span>
           </span>
         </div>
         <div className="ec-section-eyebrow">CUSTOMER REVIEWS</div>
@@ -878,7 +877,7 @@ function Reviews() {
           ))}
         </div>
 
-        <Link href="/reviews" className="ec-reviews-link">See all 500+ reviews →</Link>
+        <Link href="/reviews" className="ec-reviews-link">See all reviews →</Link>
       </div>
     </section>
   );
