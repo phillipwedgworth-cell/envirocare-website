@@ -31,11 +31,11 @@ const MAX_TURNS = 25;
 const PROMPT_VERSION = "2026-05-28";
 
 const TARGET_PAGES = [
-  { url: "https://www.envirocarellc.com/", label: "home" },
-  { url: "https://www.envirocarellc.com/services/mosquito-control", label: "mosquito" },
-  { url: "https://www.envirocarellc.com/services/termite-control", label: "termite" },
-  { url: "https://www.envirocarellc.com/huntsville", label: "huntsville" },
-  { url: "https://www.envirocarellc.com/birmingham", label: "birmingham" },
+  { url: "https://envirocare-web.vercel.app/", label: "home" },
+  { url: "https://envirocare-web.vercel.app/services/mosquito-control", label: "mosquito" },
+  { url: "https://envirocare-web.vercel.app/services/termite-control", label: "termite" },
+  { url: "https://envirocare-web.vercel.app/huntsville", label: "huntsville" },
+  { url: "https://envirocare-web.vercel.app/birmingham", label: "birmingham" },
 ];
 
 let anthropic = null;
