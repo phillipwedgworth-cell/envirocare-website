@@ -113,7 +113,7 @@ async function callGemini(input: PanelInput): Promise<ModelOutput> {
   }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`;
+    const url = `https://generativelanguage.googleapis.com/v1/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`;
     const resp = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
