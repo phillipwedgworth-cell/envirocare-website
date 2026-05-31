@@ -28,9 +28,9 @@ const LF_KEY = process.env.LOCAL_FALCON_API_KEY;
 const LF_API = "https://api.localfalcon.com/v1";
 
 const LOCATIONS = [
-  { name: "Alabaster", placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", target: 65 },
-  { name: "Alex City", placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", target: 50 },
-  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", target: 35 },
+  { name: "Alabaster", placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", target: 65, reportKey: "644c1bcec9e3b67" },
+  { name: "Alex City", placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", target: 50, reportKey: "7febc8908039d6d" },
+  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", target: 35, reportKey: "cd64365e1dab32f" },
 ];
 
 let anthropic = null;
@@ -100,40 +100,26 @@ async function getScanReport({ report_id }) {
   }
 }
 
-// Compute average SoLV across the most recent scans for a location.
-// Filters by place_id, averages the `solv` field across matching reports.
-// Verified shape from MCP: { reports: [{ report_key, solv (string), keyword, location.name }] }.
-// place_id may or may not be present in the list response — when scans use
-// it, we can filter; otherwise we use the most recent scans of that location.
+// Pull SoLV for a specific location via its dedicated Local Falcon location-report key.
+// Each location has a stable reportKey (15-char hex) that aggregates all its keyword scans.
+// Using per-location keys avoids the blind-averaging bug where all locations showed the
+// same blended number from the global scan list.
 async function getLatestSolv({ location_name }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
+  if (!loc.reportKey) {
+    return { location: loc.name, solv: null, target: loc.target, note: "No reportKey configured for this location — add it from the Local Falcon UI" };
+  }
   try {
-    const list = await listRecentScans({ days: 14 });
-    if (list.error) return list;
-    const scans = list.scans ?? [];
-    if (scans.length === 0) {
-      return {
-        location: loc.name,
-        solv: null,
-        target: loc.target,
-        note: "No recent Local Falcon scans found in the last 14 days",
-      };
-    }
-    // Average solv across all recent scans (string "0.00" → number).
-    const solvs = scans
-      .map((s) => Number(s?.solv ?? s?.summary?.solv ?? NaN))
-      .filter((n) => Number.isFinite(n));
-    const avg = solvs.length
-      ? Math.round((solvs.reduce((a, b) => a + b, 0) / solvs.length) * 100) / 100
-      : null;
+    const report = await getScanReport({ report_id: loc.reportKey });
+    if (report.error) return { location: loc.name, solv: null, target: loc.target, error: report.error };
+    const solv = Number(report?.solv ?? report?.summary?.solv ?? NaN);
     return {
       location: loc.name,
-      solv: avg,
+      solv: Number.isFinite(solv) ? Math.round(solv * 100) / 100 : null,
       target: loc.target,
-      scan_count: solvs.length,
-      latest_scan_date: scans[0]?.date ?? null,
-      keywords_sample: scans.slice(0, 5).map((s) => s?.keyword).filter(Boolean),
+      report_key: loc.reportKey,
+      report_date: report?.date ?? report?.created_at ?? null,
     };
   } catch (e) {
     return { error: e.message };
