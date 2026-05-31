@@ -52,21 +52,35 @@ if (process.env.RESEND_API_KEY) {
 }
 
 async function runAllAgents() {
+  // Run agents in parallel — each is independent (separate APIs, separate
+  // critic loops). Sequential awaited a sum of runtimes (~7-10 min total)
+  // which blew through Vercel's 300s function timeout. Parallel collapses
+  // total wall time to max(any one agent), comfortably under the limit.
+  // Promise.allSettled so one agent throwing doesn't abort the rest.
+  const settled = await Promise.allSettled(
+    AGENT_REGISTRY.map(async ({ name, run: fn }) => {
+      if (typeof fn !== "function") {
+        console.log(`[orchestrator] skipping ${name} (run export missing)`);
+        return [name, { skipped: true, reason: "run export missing" }];
+      }
+      console.log(`[orchestrator] running ${name}`);
+      try {
+        const result = await fn();
+        return [name, typeof result === "string" ? { brief: result } : result];
+      } catch (e) {
+        console.error(`[orchestrator] ${name} failed: ${e.message}`);
+        return [name, { error: e.message }];
+      }
+    }),
+  );
   const outputs = {};
-  for (const { name, run: fn } of AGENT_REGISTRY) {
-    if (typeof fn !== "function") {
-      console.log(`[orchestrator] skipping ${name} (run export missing)`);
-      outputs[name] = { skipped: true, reason: "run export missing" };
-      continue;
-    }
-    console.log(`[orchestrator] running ${name}`);
-    try {
-      const result = await fn();
-      // Agents may return a string (legacy) or an object with .brief.
-      outputs[name] = typeof result === "string" ? { brief: result } : result;
-    } catch (e) {
-      console.error(`[orchestrator] ${name} failed: ${e.message}`);
-      outputs[name] = { error: e.message };
+  for (const r of settled) {
+    if (r.status === "fulfilled") {
+      const [name, value] = r.value;
+      outputs[name] = value;
+    } else {
+      // Should not happen — the inner try/catch handles agent throws.
+      console.error(`[orchestrator] unexpected rejection: ${r.reason}`);
     }
   }
   return outputs;

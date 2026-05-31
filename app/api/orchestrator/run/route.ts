@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
 import { run as runOrchestrator } from "@/agents/orchestrator.mjs";
 
-export const maxDuration = 300;
+// 800s = Vercel Pro ceiling. Even with parallel agents, the synthesis +
+// critic loops at the end can take 90+ seconds. 300s left no headroom
+// and the Saturday smoke run timed out twice. 800s gives generous buffer
+// for the worst-case single agent + final synthesis without affecting
+// happy-path performance.
+export const maxDuration = 800;
 
 async function execute() {
   try {
