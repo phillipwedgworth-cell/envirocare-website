@@ -49,6 +49,8 @@
 - Local references (Alabama weather, clay soil, lake country)
 - Honest about what works and what doesn't (e.g., bug zappers don't work for mosquitoes)
 
-## Website (current staging URL)
-https://envirocare-web.vercel.app
-Production (post-DNS-flip): https://envirocarellc.com
+## Website
+- **Production domain (post-DNS-flip)**: https://envirocarellc.com
+- **GitHub repo**: envirocare-website
+- **Vercel project**: envirocare-web (single project; deploys every push from the repo)
+- **Preview deployments**: per-branch URLs under envirocare-50d39ae8.vercel.app, surfaced on the corresponding GitHub PR

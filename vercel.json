@@ -15,7 +15,7 @@
     }  ],
   "crons": [
     {
-      "path": "/api/cfo/run",
+      "path": "/api/orchestrator/run",
       "schedule": "0 11 * * 1"
     }
   ]

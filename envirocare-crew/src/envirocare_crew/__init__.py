@@ -1,1 +1,0 @@
-# EnviroCare CrewAI package

@@ -16,7 +16,7 @@ Just needs to go from your computer to the internet.
 
 ## Step 2: Upload this project to GitHub (3 min)
 1. Once logged in, click the green "New" button
-2. Name it: envirocare-web
+2. Name it: envirocare-website
 3. Make it Private
 4. Click "Create repository"
 5. On the next screen, click "uploading an existing file"
@@ -29,12 +29,13 @@ Just needs to go from your computer to the internet.
 1. Go to vercel.com
 2. Click "Sign up" → Continue with GitHub
 3. Click "Add New Project"
-4. Select envirocare-web from your GitHub repos
+4. Select envirocare-website from your GitHub repos
 5. Click Deploy (default settings are correct)
 6. Wait 2 minutes
 
 ## Step 4: Your site is live!
 Vercel gives you a URL like: envirocare-web.vercel.app
+(The Vercel project name is envirocare-web; that's just how it was set up — same repo, no duplicate to clean up.)
 Test all pages work, then connect your real domain.
 
 ---
