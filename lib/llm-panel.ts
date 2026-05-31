@@ -69,7 +69,7 @@ export interface Synthesis {
 }
 
 const DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5-20251001";
-const DEFAULT_GEMINI_MODEL = "gemini-1.5-pro-latest";
+const DEFAULT_GEMINI_MODEL = "gemini-2.0-flash";
 const DEFAULT_GPT_MODEL = "gpt-4o";
 const SYNTHESIZER_MODEL = "claude-sonnet-4-6";
 
