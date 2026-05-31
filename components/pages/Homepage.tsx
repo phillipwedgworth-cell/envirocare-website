@@ -160,7 +160,8 @@ function Hero() {
           <p className="ec-hero-sub">
             The Wedgworth family has kept Alabama homes pest-free for 68 years.
             Termites, mosquitoes, ticks — handled with the care only a family
-            business delivers.
+            business delivers. Serving Birmingham, Huntsville, Auburn, and the
+            Lake Martin area.
           </p>
 
           <div className="ec-hero-ctas">
@@ -168,7 +169,7 @@ function Hero() {
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360</span>
+              <span>📞</span><span>(205) 940-6360 · same-day</span>
             </a>
           </div>
 
