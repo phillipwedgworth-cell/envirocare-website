@@ -36,7 +36,7 @@ async function sendEscalationEmail(messages: Message[]): Promise<void> {
   const key = process.env.RESEND_API_KEY;
   if (!key) return;
   const transcript = messages.map(m =>
-    `<div style="margin-bottom:10px"><strong style="color:${m.role === "user" ? "#1B7A3C" : "#374151"}">${m.role === "user" ? "Visitor" : "Assistant"}:</strong> <span style="margin-left:6px">${m.content.replace(/</g, "&lt;")}</span></div>`
+    `<div style="margin-bottom:10px"><strong style="color:${m.role === "user" ? "#0E8E40" : "#374151"}">${m.role === "user" ? "Visitor" : "Assistant"}:</strong> <span style="margin-left:6px">${m.content.replace(/</g, "&lt;")}</span></div>`
   ).join("");
   await fetch("https://api.resend.com/emails", {
     method: "POST",

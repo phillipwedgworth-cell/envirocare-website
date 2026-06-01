@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Phone, MapPin, Clock, Mail, ChevronDown } from "lucide-react";
 
 import Header from "@/components/shared/Header";
-const G = "#1B7A3C";
+const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
@@ -115,7 +115,7 @@ export default function ContactUs() {
       `}</script>
 
       {/* HERO */}
-      <section style={{ background: `linear-gradient(160deg, ${DARK}, #1B7A3C)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
+      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0E8E40)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: "1px solid rgba(245,168,0,0.3)", borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
           <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>Free Inspection · Same-Day Available</span>
         </div>

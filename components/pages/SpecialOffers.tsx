@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Phone, Clock, CheckCircle } from "lucide-react";
 
 import Header from "@/components/shared/Header";
-const G = "#1B7A3C";
+const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };

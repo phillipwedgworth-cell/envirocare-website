@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* EnviroCare brand: bright kelly green from the logo + sunflower gold.
-   Logo greens read brighter than #1B7A3C — bumped to #0E8E40 (kelly green).
+   Logo greens read brighter than #0E8E40 — bumped to #0E8E40 (kelly green).
    Tailwind's emerald palette is remapped so all emerald-* classes pick up brand. */
 @theme {
   --color-emerald-50:  #E8F7EE;
