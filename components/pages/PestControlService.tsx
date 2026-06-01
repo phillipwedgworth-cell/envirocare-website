@@ -13,11 +13,9 @@ const PESTS: Array<{ icon: string; name: string; body: string }> = [
   { icon: "🐜", name: "Ants",    body: "Argentine, sugar, carpenter, fire ants — every Alabama species, treated at the colony level." },
   { icon: "🪳", name: "Roaches", body: "American, German, smoky brown — interior baiting and exterior perimeter prevention." },
   { icon: "🕷️", name: "Spiders", body: "Brown recluse, black widow, common house spiders — eliminated and prevented from returning." },
-  { icon: "🐭", name: "Rodents", body: "Mice and rats inside homes, attics, and crawlspaces. We eliminate, then seal entry points." },
   { icon: "🦗", name: "Crickets",body: "Field and camel crickets — common in Alabama basements and garages, especially in fall." },
   { icon: "🐞", name: "Beetles", body: "Carpet beetles, ladybugs, weevils, kudzu beetles — interior and exterior treatment." },
   { icon: "🦂", name: "Earwigs & Centipedes", body: "Moisture pests common around foundations, decks, and damp basement areas." },
-  { icon: "🐝", name: "Bees & Wasps", body: "Carpenter bees in wood. Wasps and hornets in eaves. Safe, professional removal." },
 ];
 
 const FAQS: Array<[string, string]> = [
