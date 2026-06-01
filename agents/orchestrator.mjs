@@ -13,6 +13,7 @@ import { run as runBrightlocal } from "./brightlocal.mjs";
 import { run as runSeoMonitor } from "./seo-monitor.mjs";
 import { run as runCfoAgent } from "./cfo-agent.mjs";
 import { run as runSiteReviewer } from "./site-reviewer.mjs";
+import { run as runProposer } from "./proposer.mjs";
 
 const ORCHESTRATOR_MODEL = "claude-sonnet-4-6";
 const PROMPT_VERSION = "2026-05-28";
@@ -86,7 +87,7 @@ async function runAllAgents() {
   return outputs;
 }
 
-async function synthesizeDigest(outputs, findings, discussions) {
+async function synthesizeDigest(outputs, findings, discussions, proposerOut = null) {
   if (!anthropic) {
     return {
       brief: `[orchestrator synthesis unavailable — ${anthropicInitError ?? "Anthropic client not initialized"}]`,
@@ -145,7 +146,7 @@ Rules: specific numbers, named pages/locations, no generic advice, no preamble.
 
 PROMPT VERSION: ${PROMPT_VERSION}`;
 
-  const prompt = `AGENT OUTPUTS
+  const prompt = `${proposerOut ? `PROPOSER RANKED CHANGE LIST (lead the digest with this — these are the specific actions for this week):\n${proposerOut}\n\n` : ""}AGENT OUTPUTS
 ${agentBlocks || "[no agents ran]"}
 
 LAST 24H FINDINGS (shared agent_findings)
@@ -220,8 +221,16 @@ export async function run() {
   const findings = await readFindings([], 24);
   const discussions = await readDiscussions([], 24);
 
+  // Round 2b: Proposer reads findings and produces a ranked change list.
+  let proposerOut = null;
+  try {
+    proposerOut = await runProposer();
+  } catch (e) {
+    console.error("[orchestrator] proposer failed:", e.message);
+  }
+
   // Round 3: Sonnet synthesizes the Monday digest.
-  const { brief, raw_outputs } = await synthesizeDigest(outputs, findings, discussions);
+  const { brief, raw_outputs } = await synthesizeDigest(outputs, findings, discussions, proposerOut);
 
   // Round 4: email it.
   const emailResult = await sendDigest(brief);
