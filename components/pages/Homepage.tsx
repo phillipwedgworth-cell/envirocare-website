@@ -87,7 +87,6 @@ function Header() {
 
         <nav className="ec-nav" aria-label="Main navigation">
           <Link href="/services/pest-control">Services</Link>
-          <Link href="/lake-martin"><em>Lake Martin</em></Link>
           <Link href="/quote">Pricing</Link>
           <Link href="/about-us">About</Link>
           <Link href="/contact-us">Contact</Link>
@@ -100,9 +99,8 @@ function Header() {
             rel="noopener noreferrer"
             className="ec-header-pay"
           >Pay Bill</a>
-          <a href="tel:2059406360" className="ec-header-phone">
-            <span className="ec-phone-icon">📞</span>
-            <span>(205) 940-6360</span>
+          <a href="tel:2056495278" className="ec-header-phone">
+            <span>(205) 649-5278</span>
           </a>
           <Link href="/quote" className="ec-header-quote">Get Free Quote</Link>
         </div>
@@ -118,7 +116,6 @@ function Header() {
       {mobileOpen && (
         <div className="ec-mobile-menu">
           <Link href="/services/pest-control" onClick={() => setMobileOpen(false)}>Services</Link>
-          <Link href="/lake-martin" onClick={() => setMobileOpen(false)}>Lake Martin</Link>
           <Link href="/quote" onClick={() => setMobileOpen(false)}>Pricing</Link>
           <Link href="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact</Link>
@@ -186,7 +183,7 @@ function Hero() {
           <div className="ec-hero-checks">
             <span>✓ Licensed &amp; Insured</span>
             <span>✓ Sentricon® Certified</span>
-            <span>✓ Same-Day Available</span>
+            <span>✓ Fast Scheduling</span>
             <span>✓ Family Owned Since 1958</span>
           </div>
         </div>
@@ -209,11 +206,11 @@ function Hero() {
           </div>
 
           <div className="ec-floating-card ec-card-same-day">
-            <div className="ec-card-icon-circle">⚡</div>
+            <div className="ec-card-icon-circle">📅</div>
             <div>
-              <div className="ec-card-title">Same-Day Service</div>
-              <div className="ec-card-sub">Call before noon — there today</div>
-              <div className="ec-card-tag">AVAILABLE NOW</div>
+              <div className="ec-card-title">Fast Scheduling</div>
+              <div className="ec-card-sub">Most visits within 48 hours</div>
+              <div className="ec-card-tag">LOCAL TEAM</div>
             </div>
           </div>
 
@@ -377,7 +374,7 @@ function ServiceCard({ badge, title, description, bullets, href, cornerIcon, fea
 function SpecialtyServices() {
   const specialty = [
     { icon: '🌻', title: 'Fire Ant Control', desc: 'Yard-wide elimination & mound treatment. Critical for lake homes and barefoot families.', tag: 'ADD-ON', href: '/services/fire-ant' },
-    { icon: '🪲', title: 'Flea Control', desc: 'Yard barrier treatments to break the flea lifecycle. Bundles seamlessly with mosquito & tick service.', tag: 'PET-FRIENDLY', href: '/services/flea' },
+    { icon: '🪲', title: 'Flea Control', desc: 'Yard barrier treatments to break the flea lifecycle. Bundles seamlessly with mosquito & tick service.', tag: 'ADD-ON', href: '/services/flea' },
     { icon: '🏠', title: 'Builder Pre-Treat', desc: 'Pre-construction termite treatment for new builds. The right time to start Sentricon® protection.', tag: 'NEW CONSTRUCTION', href: '/services/builder-pre-treat' },
     { icon: '📋', title: 'Real Estate / WDO Letters', desc: 'Wood-destroying organism inspection letters for closings. Fast turnaround, lender-ready format.', tag: 'CLOSINGS', href: '/services/wdo-letters' },
     { icon: '🏗️', title: 'Crawlspace Service', desc: 'Moisture control, vapor barriers & targeted treatments for the most vulnerable part of your home.', tag: 'FOUNDATION CARE', href: '/services/crawlspace' },
@@ -498,7 +495,6 @@ function ServiceAreas() {
     { name: 'Calera', slug: 'calera' },
     { name: 'Trussville', slug: 'trussville' },
     { name: 'Mt Laurel', slug: 'mt-laurel' },
-    { name: 'Tuscaloosa', slug: 'tuscaloosa' },
   ];
 
   const lakeMartin = [
@@ -530,7 +526,7 @@ function ServiceAreas() {
         <p className="ec-section-sub">
           Whether you&apos;re in downtown Birmingham, on the lake in Dadeville, or
           near Bridge Street in Huntsville — we have a local technician for you.
-          Tap your city for local pricing and same-day scheduling.
+          Tap your city for local pricing and fast scheduling — most visits within 48 hours.
         </p>
 
         <div className="ec-areas-grid">
@@ -913,12 +909,9 @@ function Reviews() {
     <section className="ec-reviews">
       <div className="ec-section-inner">
         <div className="ec-reviews-badge">
+          <span className="ec-reviews-stars">★★★★★</span>
+          <span className="ec-reviews-num">4.9</span>
           <span className="ec-reviews-g">Verified by Google</span>
-          <span className="ec-reviews-rating">
-            <span className="ec-reviews-num">4.9</span>
-            <span className="ec-reviews-stars">★★★★★</span>
-            <span className="ec-reviews-count">· 4.9★ Google</span>
-          </span>
         </div>
         <div className="ec-section-eyebrow">CUSTOMER REVIEWS</div>
         <h2 className="ec-section-h2">What Alabama Families <em>Are Saying</em></h2>
@@ -1145,7 +1138,7 @@ function Footer() {
       <div className="ec-footer-inner">
         <div className="ec-footer-brand-col">
           <Link href="/" className="ec-footer-brand">
-            <Image src="/logo.svg" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
+            <Image src="/logo.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
             Family-owned and operated since 1958 &mdash; now in its third generation
@@ -1195,7 +1188,6 @@ function Footer() {
             <Link href="/calera">Calera</Link>
             <Link href="/trussville">Trussville</Link>
             <Link href="/mt-laurel">Mt Laurel</Link>
-            <Link href="/tuscaloosa">Tuscaloosa</Link>
           </div>
           <div className="ec-footer-areas-group">
             <div className="ec-footer-areas-label">Alex City / Lake Martin</div>
