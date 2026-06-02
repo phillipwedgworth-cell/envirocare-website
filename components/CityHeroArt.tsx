@@ -1,257 +1,320 @@
+"use client";
 // components/CityHeroArt.tsx
-// Unique gold landmark silhouette for each city hero.
-// Rendered as a full-width decorative band, pointer-events:none, aria-hidden.
-// Positioned at zIndex 0; hero text/buttons stay above at zIndex 2+.
+// Unique gold city-landmark silhouette band for each city hero.
+// Sits at the bottom of the green hero, behind the text (zIndex 0).
+// On-brand: gold #F5A800 landmark + translucent depth. No photos, no trademarks.
+// Built 6/1/2026. One scene per live city slug.
 
-const SLUG_TO_ART: Record<string, string> = {
-  // Birmingham region
-  'birmingham':     'vulcan',
-  'tuscaloosa':     'bridge',
-  'helena':         'bridge',
-  'trussville':     'community',
-  'hoover':         'community',
-  'homewood':       'community',
-  'alabaster':      'community',
-  'calera':         'train',
-  'opelika':        'train',
-  'vestavia-hills': 'forest',
-  'chelsea':        'forest',
-  'pelham':         'forest',
-  'mountain-brook': 'oak',
-  'greystone':      'oak',
-  'mt-laurel':      'oak',
-  'auburn':         'oak',
-  // Lake Martin region
-  'lake-martin':    'lake',
-  'alexander-city': 'lake',
-  'dadeville':      'lake',
-  'eclectic':       'lake',
-  // Huntsville region
-  'huntsville':     'rocket',
-  'madison':        'rocket',
-  'athens':         'community',
-  'decatur':        'bridge',
-  'harvest':        'forest',
-  'hartselle':      'forest',
-  'hampton-cove':   'forest',
+const GOLD = "#F5A800";
+const GOLD_SOFT = "rgba(245,168,0,0.82)";
+const DARK_A = "rgba(4,40,20,0.45)"; // front supporting silhouette
+const DARK_B = "rgba(4,40,20,0.26)"; // back ridge
+const WHITE = "rgba(255,255,255,0.07)";
+
+// ---------- reusable element builders (return SVG fragment strings) ----------
+const hill = (fill: string, topY: number) =>
+  `<path d="M0,${topY} C220,${topY - 26} 420,${topY + 14} 640,${topY - 8} C860,${topY - 28} 1040,${topY + 8} 1200,${topY - 12} L1200,200 L0,200 Z" fill="${fill}"/>`;
+
+const ridge = (fill: string, pts: string) =>
+  `<path d="M0,200 ${pts} L1200,200 Z" fill="${fill}"/>`;
+
+const building = (x: number, w: number, h: number, fill: string) =>
+  `<rect x="${x}" y="${200 - h}" width="${w}" height="${h}" fill="${fill}"/>`;
+
+const win = (x: number, y: number, fill = "rgba(7,100,43,0.5)") =>
+  `<rect x="${x}" y="${y}" width="5" height="7" fill="${fill}"/>`;
+
+const pine = (x: number, baseY: number, h: number, fill: string) => {
+  const w = h * 0.5;
+  return `<path d="M${x},${baseY - h} L${x - w / 2},${baseY - h * 0.45} L${x - w * 0.32},${baseY - h * 0.45} L${x - w * 0.6},${baseY} L${x + w * 0.6},${baseY} L${x + w * 0.32},${baseY - h * 0.45} L${x + w / 2},${baseY - h * 0.45} Z" fill="${fill}"/><rect x="${x - 2}" y="${baseY}" width="4" height="6" fill="${fill}"/>`;
 };
 
-const SCENES: Record<string, string> = {
-  vulcan: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><linearGradient id="vFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.22"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.05"/></linearGradient></defs>
-<rect x="0" y="100" width="90" height="100" fill="url(#vFade)"/>
-<rect x="100" y="80" width="110" height="120" fill="url(#vFade)"/>
-<rect x="220" y="60" width="140" height="140" fill="url(#vFade)"/>
-<rect x="380" y="70" width="100" height="130" fill="url(#vFade)"/>
-<rect x="700" y="80" width="120" height="120" fill="url(#vFade)"/>
-<rect x="840" y="60" width="140" height="140" fill="url(#vFade)"/>
-<rect x="1010" y="90" width="100" height="110" fill="url(#vFade)"/>
-<rect x="1120" y="75" width="80" height="125" fill="url(#vFade)"/>
-<g transform="translate(580,10)" fill="#F5A800" opacity="0.55">
-  <rect x="-50" y="150" width="100" height="40" fill="url(#vFade)"/>
-  <rect x="-60" y="185" width="120" height="8" fill="url(#vFade)"/>
-  <rect x="-18" y="100" width="14" height="55"/>
-  <rect x="4" y="100" width="14" height="55"/>
-  <path d="M-28 72 L28 72 L32 102 L-32 102 Z"/>
-  <rect x="-22" y="38" width="44" height="36"/>
-  <circle cx="0" cy="28" r="14"/>
-  <rect x="16" y="8" width="9" height="44" transform="rotate(14,20,30)"/>
-  <circle cx="32" cy="4" r="7" opacity="0.85"/>
-</g>
-<g fill="#F5A800" opacity="0.4">
-  <circle cx="120" cy="18" r="2.5"/><circle cx="300" cy="12" r="3"/><circle cx="900" cy="16" r="2.5"/><circle cx="1080" cy="22" r="3"/>
-</g>
-</svg>`,
+const waterTower = (x: number, baseY: number, s: number, fill: string) =>
+  `<g fill="${fill}"><rect x="${x - 2 * s}" y="${baseY - 18 * s}" width="${4 * s}" height="${18 * s}"/><rect x="${x + 8 * s}" y="${baseY - 18 * s}" width="${4 * s}" height="${18 * s}" transform="translate(${-16 * s},0)"/><ellipse cx="${x}" cy="${baseY - 22 * s}" rx="${10 * s}" ry="${6 * s}"/><rect x="${x - 10 * s}" y="${baseY - 24 * s}" width="${20 * s}" height="${5 * s}"/><rect x="${x - 9 * s}" y="${baseY - 30 * s}" width="${18 * s}" height="${7 * s}" rx="${2 * s}"/></g>`;
 
-  rocket: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><linearGradient id="rFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.2"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.04"/></linearGradient></defs>
-<rect x="0" y="120" width="80" height="80" fill="url(#rFade)"/>
-<rect x="90" y="100" width="60" height="100" fill="url(#rFade)"/>
-<rect x="160" y="80" width="100" height="120" fill="url(#rFade)"/>
-<rect x="650" y="90" width="80" height="110" fill="url(#rFade)"/>
-<rect x="750" y="70" width="110" height="130" fill="url(#rFade)"/>
-<rect x="1050" y="100" width="90" height="100" fill="url(#rFade)"/>
-<g transform="translate(580,0)" fill="#F5A800" opacity="0.55">
-  <polygon points="0,0 -20,55 20,55"/>
-  <rect x="-20" y="55" width="40" height="110"/>
-  <rect x="-20" y="68" width="40" height="5" fill="#0A7935" opacity="0.5"/>
-  <rect x="-20" y="90" width="40" height="5" fill="#0A7935" opacity="0.5"/>
-  <rect x="-20" y="112" width="40" height="5" fill="#0A7935" opacity="0.5"/>
-  <polygon points="-22,165 -16,188 16,188 22,165" opacity="0.85"/>
-  <polygon points="-22,148 -36,182 -22,182" opacity="0.8"/>
-  <polygon points="22,148 36,182 22,182" opacity="0.8"/>
-  <path d="M-16 188 Q-8 200 0 206 Q8 200 16 188 Z" opacity="0.7"/>
-</g>
-<g fill="#F5A800" opacity="0.35">
-  <circle cx="200" cy="20" r="2.5"/><circle cx="440" cy="14" r="3"/><circle cx="820" cy="18" r="2.5"/><circle cx="1100" cy="24" r="2.5"/>
-</g>
-</svg>`,
+const dome = (cx: number, baseY: number, s: number, fill: string) =>
+  `<g fill="${fill}"><rect x="${cx - 26 * s}" y="${baseY - 30 * s}" width="${52 * s}" height="${30 * s}"/><path d="M${cx - 18 * s},${baseY - 30 * s} A${18 * s},${18 * s} 0 0 1 ${cx + 18 * s},${baseY - 30 * s} Z"/><rect x="${cx - 2 * s}" y="${baseY - 56 * s}" width="${4 * s}" height="${10 * s}"/>${[-20, -10, 0, 10, 20].map((o) => `<rect x="${cx + o * s - 1.5 * s}" y="${baseY - 28 * s}" width="${3 * s}" height="${28 * s}" fill="rgba(7,100,43,0.45)"/>`).join("")}</g>`;
 
-  lake: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><linearGradient id="lFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.18"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.04"/></linearGradient></defs>
-<circle cx="1080" cy="40" r="32" fill="#F5A800" opacity="0.55"/>
-<circle cx="1092" cy="37" r="29" fill="#0A7935" opacity="0.9"/>
-<g fill="#F5A800" opacity="0.5">
-  <path d="M100 160 Q130 100 118 50 Z"/><path d="M160 160 Q195 80 180 30 Z"/>
-  <path d="M320 160 Q340 110 330 65 Z"/>
-  <path d="M900 160 Q928 95 915 42 Z"/><path d="M960 160 Q985 105 972 58 Z"/>
-</g>
-<g transform="translate(580,100)" fill="#F5A800" opacity="0.6">
-  <rect x="-55" y="0" width="110" height="60"/>
-  <polygon points="-62,0 62,0 0,-38" opacity="0.8"/>
-  <rect x="-22" y="22" width="26" height="32" fill="#0A7935" opacity="0.5"/>
-  <rect x="16" y="16" width="20" height="20" opacity="0.75"/>
-</g>
-<rect x="0" y="155" width="1200" height="45" fill="#F5A800" opacity="0.08"/>
-<path d="M0 165 Q300 155 600 165 T1200 165" stroke="#F5A800" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
-<path d="M0 178 Q300 170 600 178 T1200 178" stroke="#F5A800" stroke-width="1" stroke-opacity="0.2" fill="none"/>
-<g transform="translate(380,158)" stroke="#F5A800" stroke-width="2.5" opacity="0.6" fill="none">
-  <line x1="-40" y1="0" x2="40" y2="0"/><line x1="-32" y1="0" x2="-32" y2="20"/>
-  <line x1="0" y1="0" x2="0" y2="20"/><line x1="32" y1="0" x2="32" y2="20"/>
-</g>
-</svg>`,
+const waterLines = (y: number, fill = "rgba(255,255,255,0.12)") =>
+  [0, 10, 20].map((o) => `<rect x="40" y="${y + o}" width="${1120}" height="2" rx="1" fill="${fill}"/>`).join("");
 
-  oak: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><radialGradient id="oFol" cx="50%" cy="40%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.22"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.06"/></radialGradient></defs>
-<g transform="translate(580,200)">
-  <rect x="-14" y="-100" width="28" height="100" fill="#F5A800" opacity="0.4"/>
-  <path d="M-12 -65 Q-48 -40 -60 -10 M-12 -40 Q-38 -22 -46 0 M12 -65 Q48 -40 60 -10 M12 -40 Q38 -22 46 0" stroke="#F5A800" stroke-width="4" stroke-opacity="0.35" fill="none" stroke-linecap="round"/>
-  <circle r="110" fill="url(#oFol)"/>
-  <circle cx="-52" cy="-22" r="60" fill="url(#oFol)"/>
-  <circle cx="52" cy="-22" r="60" fill="url(#oFol)"/>
-  <circle cx="-72" cy="28" r="46" fill="url(#oFol)"/>
-  <circle cx="72" cy="28" r="46" fill="url(#oFol)"/>
-</g>
-<g fill="#F5A800" opacity="0.25">
-  <circle cx="80" cy="180" r="3"/><circle cx="180" cy="190" r="2.5"/>
-  <circle cx="1020" cy="182" r="3"/><circle cx="1120" cy="192" r="2.5"/>
-</g>
-<rect x="0" y="185" width="1200" height="15" fill="#F5A800" opacity="0.1"/>
-</svg>`,
+const sun = (x: number, y: number, r: number) =>
+  `<circle cx="${x}" cy="${y}" r="${r}" fill="${GOLD}" opacity="0.9"/>`;
 
-  train: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><linearGradient id="tFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.2"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.04"/></linearGradient></defs>
-<rect x="0" y="145" width="1200" height="5" fill="#F5A800" opacity="0.45"/>
-<rect x="0" y="168" width="1200" height="5" fill="#F5A800" opacity="0.45"/>
-<g opacity="0.35" fill="#F5A800">
-  <rect x="30" y="150" width="5" height="18"/><rect x="120" y="150" width="5" height="18"/>
-  <rect x="210" y="150" width="5" height="18"/><rect x="300" y="150" width="5" height="18"/>
-  <rect x="390" y="150" width="5" height="18"/><rect x="480" y="150" width="5" height="18"/>
-  <rect x="570" y="150" width="5" height="18"/><rect x="660" y="150" width="5" height="18"/>
-  <rect x="750" y="150" width="5" height="18"/><rect x="840" y="150" width="5" height="18"/>
-  <rect x="930" y="150" width="5" height="18"/><rect x="1020" y="150" width="5" height="18"/>
-  <rect x="1110" y="150" width="5" height="18"/>
-</g>
-<g transform="translate(480,95)" fill="#F5A800" opacity="0.58">
-  <rect x="0" y="0" width="200" height="60" rx="5"/>
-  <rect x="0" y="-25" width="60" height="25" rx="3"/>
-  <rect x="90" y="14" width="30" height="24" fill="#0A7935" opacity="0.5"/>
-  <rect x="135" y="14" width="30" height="24" fill="#0A7935" opacity="0.5"/>
-  <circle cx="30" cy="72" r="18" fill="#F5A800" stroke="#0A7935" stroke-width="4"/>
-  <circle cx="90" cy="72" r="18" fill="#F5A800" stroke="#0A7935" stroke-width="4"/>
-  <circle cx="170" cy="72" r="18" fill="#F5A800" stroke="#0A7935" stroke-width="4"/>
-  <rect x="44" y="-46" width="18" height="22"/>
-  <circle cx="53" cy="-52" r="9" opacity="0.9"/>
-</g>
-<g fill="#F5A800" opacity="0.5">
-  <rect x="700" y="80" width="80" height="70" fill="url(#tFade)"/>
-  <polygon points="695,80 785,80 740,55" fill="url(#tFade)"/>
-  <rect x="800" y="65" width="65" height="80" fill="url(#tFade)"/>
-</g>
-<g fill="#F5A800" opacity="0.35">
-  <circle cx="90" cy="48" r="2.5"/><circle cx="260" cy="36" r="3"/><circle cx="940" cy="44" r="2.5"/>
-</g>
-</svg>`,
+const dock = (x: number, y: number, fill: string) =>
+  `<g fill="${fill}"><rect x="${x}" y="${y}" width="86" height="5"/>${[0, 20, 40, 60, 80].map((o) => `<rect x="${x + o}" y="${y}" width="4" height="16"/>`).join("")}</g>`;
 
-  bridge: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><linearGradient id="bFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.18"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.04"/></linearGradient></defs>
-<rect x="0" y="150" width="1200" height="50" fill="#F5A800" opacity="0.1"/>
-<path d="M0 158 Q300 145 600 158 T1200 158" stroke="#F5A800" stroke-width="1.5" stroke-opacity="0.28" fill="none"/>
-<g stroke="#F5A800" stroke-width="3.5" fill="none" opacity="0.55">
-  <path d="M60 145 Q600 30 1140 145"/>
-  <line x1="60" y1="145" x2="60" y2="175"/>
-  <line x1="186" y1="105" x2="186" y2="165"/>
-  <line x1="312" y1="75" x2="312" y2="158"/>
-  <line x1="438" y1="52" x2="438" y2="154"/>
-  <line x1="600" y1="38" x2="600" y2="152"/>
-  <line x1="762" y1="52" x2="762" y2="154"/>
-  <line x1="888" y1="75" x2="888" y2="158"/>
-  <line x1="1014" y1="105" x2="1014" y2="165"/>
-  <line x1="1140" y1="145" x2="1140" y2="175"/>
-</g>
-<rect x="0" y="145" width="1200" height="12" fill="#F5A800" opacity="0.45"/>
-<g fill="#F5A800" opacity="0.4">
-  <rect x="28" y="105" width="36" height="40"/><rect x="1136" y="105" width="36" height="40"/>
-</g>
-<g fill="#F5A800" opacity="0.35">
-  <circle cx="160" cy="30" r="2.5"/><circle cx="440" cy="22" r="3"/><circle cx="900" cy="28" r="2.5"/>
-</g>
-</svg>`,
+// ---------- per-city scenes (viewBox 0 0 1200 200, baseline y=200) ----------
+const scenes: Record<string, string> = {
+  // ===== BIRMINGHAM METRO =====
+  // Birmingham — Vulcan statue on column atop Red Mountain + downtown skyline
+  "birmingham":
+    hill(DARK_B, 150) +
+    building(120, 38, 70, DARK_A) + building(165, 30, 95, DARK_A) + building(200, 44, 60, DARK_A) +
+    building(980, 36, 78, DARK_A) + building(1022, 30, 100, DARK_A) + building(1058, 40, 64, DARK_A) +
+    // Vulcan: ridge mound, column, figure with raised arm
+    `<path d="M520,200 C560,140 640,140 680,200 Z" fill="${DARK_A}"/>` +
+    `<rect x="596" y="96" width="8" height="64" fill="${GOLD}"/>` +
+    `<g fill="${GOLD}"><circle cx="600" cy="84" r="9"/><rect x="592" y="92" width="16" height="26" rx="3"/><rect x="588" y="116" width="7" height="22"/><rect x="605" y="116" width="7" height="22"/><rect x="600" y="96" width="26" height="5" transform="rotate(-32 600 98)"/><rect x="624" y="66" width="5" height="20" transform="rotate(-32 624 76)"/></g>`,
 
-  community: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><linearGradient id="cFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.2"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.05"/></linearGradient></defs>
-<g fill="url(#cFade)" stroke="#F5A800" stroke-opacity="0.15" stroke-width="1">
-  <rect x="30" y="120" width="100" height="80"/><polygon points="30,120 130,120 80,80"/><rect x="65" y="155" width="30" height="45" fill="#0A7935" opacity="0.3"/>
-  <rect x="185" y="100" width="130" height="100"/><polygon points="185,100 315,100 250,55"/><rect x="225" y="145" width="30" height="55" fill="#0A7935" opacity="0.3"/>
-  <rect x="380" y="115" width="90" height="85"/><polygon points="380,115 470,115 425,78"/><rect x="412" y="152" width="26" height="48" fill="#0A7935" opacity="0.3"/>
-  <rect x="740" y="108" width="120" height="92"/><polygon points="740,108 860,108 800,62"/><rect x="780" y="150" width="30" height="50" fill="#0A7935" opacity="0.3"/>
-  <rect x="900" y="120" width="90" height="80"/><polygon points="900,120 990,120 945,82"/><rect x="930" y="155" width="26" height="45" fill="#0A7935" opacity="0.3"/>
-  <rect x="1050" y="100" width="130" height="100"/><polygon points="1050,100 1180,100 1115,56"/><rect x="1090" y="145" width="30" height="55" fill="#0A7935" opacity="0.3"/>
-</g>
-<rect x="0" y="185" width="1200" height="15" fill="#F5A800" opacity="0.12"/>
-<path d="M0 190 L1200 190" stroke="#F5A800" stroke-width="1" stroke-opacity="0.3"/>
-<g fill="#F5A800" opacity="0.35">
-  <circle cx="160" cy="35" r="2.5"/><circle cx="500" cy="28" r="3"/><circle cx="850" cy="32" r="2.5"/><circle cx="1020" cy="40" r="2.5"/>
-</g>
-</svg>`,
+  // Hoover — Galleria curve + suburban skyline + the Met
+  "hoover":
+    hill(DARK_B, 152) +
+    building(150, 40, 56, DARK_A) + building(195, 34, 72, DARK_A) +
+    `<path d="M520,200 L520,150 Q600,108 680,150 L680,200 Z" fill="${GOLD}"/>` +
+    `<rect x="540" y="160" width="120" height="40" fill="rgba(7,100,43,0.4)"/>` +
+    building(980, 36, 60, DARK_A) + building(1020, 30, 80, DARK_A) +
+    pine(1090, 200, 56, DARK_A) + pine(90, 200, 48, DARK_A),
 
-  forest: `<svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<defs><radialGradient id="fFol" cx="50%" cy="40%"><stop offset="0%" stop-color="#F5A800" stop-opacity="0.22"/><stop offset="100%" stop-color="#F5A800" stop-opacity="0.06"/></radialGradient></defs>
-<g fill="url(#fFol)" stroke="#F5A800" stroke-opacity="0.1" stroke-width="1">
-  <rect x="58" y="170" width="12" height="30" fill="#F5A800" opacity="0.3"/>
-  <polygon points="64,50 36,140 92,140"/><polygon points="64,95 38,175 90,175"/>
-  <rect x="178" y="175" width="12" height="25" fill="#F5A800" opacity="0.3"/>
-  <polygon points="184,80 158,165 210,165"/><polygon points="184,125 160,182 208,182"/>
-  <rect x="298" y="170" width="12" height="30" fill="#F5A800" opacity="0.3"/>
-  <polygon points="304,40 270,140 338,140"/><polygon points="304,90 274,175 334,175"/>
-  <rect x="598" y="165" width="12" height="35" fill="#F5A800" opacity="0.3"/>
-  <polygon points="604,30 565,135 643,135"/><polygon points="604,85 570,170 638,170"/>
-  <rect x="758" y="175" width="12" height="25" fill="#F5A800" opacity="0.3"/>
-  <polygon points="764,85 738,168 790,168"/><polygon points="764,128 740,182 788,182"/>
-  <rect x="898" y="170" width="12" height="30" fill="#F5A800" opacity="0.3"/>
-  <polygon points="904,52 872,145 936,145"/><polygon points="904,98 875,178 933,178"/>
-  <rect x="1078" y="175" width="12" height="25" fill="#F5A800" opacity="0.3"/>
-  <polygon points="1084,88 1058,168 1110,168"/><polygon points="1084,130 1060,182 1108,182"/>
-  <rect x="1138" y="170" width="12" height="30" fill="#F5A800" opacity="0.3"/>
-  <polygon points="1144,58 1114,148 1174,148"/><polygon points="1144,105 1118,178 1170,178"/>
-</g>
-<rect x="0" y="190" width="1200" height="10" fill="#F5A800" opacity="0.1"/>
-<g fill="#F5A800" opacity="0.35">
-  <circle cx="140" cy="35" r="2.5"/><circle cx="440" cy="26" r="3"/><circle cx="840" cy="32" r="2.5"/>
-</g>
-</svg>`,
+  // Vestavia Hills — Sibyl Temple rotunda (dome on ring of columns) on a ridge
+  "vestavia-hills":
+    hill(DARK_B, 150) +
+    pine(120, 200, 60, DARK_A) + pine(160, 200, 44, DARK_A) +
+    pine(1060, 200, 58, DARK_A) + pine(1100, 200, 46, DARK_A) +
+    `<path d="M500,200 C560,150 640,150 700,200 Z" fill="${DARK_A}"/>` +
+    `<g fill="${GOLD}"><path d="M566,150 A34,30 0 0 1 634,150 Z"/><rect x="560" y="150" width="80" height="6"/>${[0, 14, 28, 42, 56, 70].map((o) => `<rect x="${562 + o}" y="156" width="5" height="40"/>`).join("")}<rect x="556" y="196" width="88" height="5"/><rect x="598" y="120" width="4" height="14"/></g>`,
+
+  // Mountain Brook — Tudor village rooflines + trees (English Village feel)
+  "mountain-brook":
+    hill(DARK_B, 156) +
+    pine(70, 200, 54, DARK_A) + pine(1130, 200, 54, DARK_A) +
+    // row of steep tudor gables, center one gold
+    [200, 320, 440, 680, 800, 920].map((x, i) =>
+      building(x, 90, 70, i === 2 ? "rgba(0,0,0,0)" : DARK_A) +
+      `<path d="M${x - 6},${130} L${x + 45},${96} L${x + 96},130 Z" fill="${i === 2 ? GOLD : DARK_A}"/>`
+    ).join("") +
+    `<rect x="${440}" y="130" width="90" height="70" fill="${GOLD_SOFT}"/>` +
+    win(470, 150, "rgba(7,100,43,0.5)") + win(500, 150, "rgba(7,100,43,0.5)"),
+
+  // Homewood — bungalow rooflines + Shades Creek trees
+  "homewood":
+    hill(DARK_B, 158) +
+    pine(80, 200, 50, DARK_A) + pine(1120, 200, 50, DARK_A) +
+    [180, 300, 760, 880].map((x) =>
+      building(x, 96, 56, DARK_A) + `<path d="M${x - 8},${144} L${x + 48},${118} L${x + 104},144 Z" fill="${DARK_A}"/>`
+    ).join("") +
+    // center gold bungalow with porch
+    `<rect x="500" y="140" width="200" height="60" fill="${GOLD_SOFT}"/><path d="M492,140 L600,104 L708,140 Z" fill="${GOLD}"/>` +
+    [520, 545, 655, 680].map((x) => `<rect x="${x}" y="158" width="6" height="42" fill="rgba(7,100,43,0.5)"/>`).join(""),
+
+  // Alabaster — water tower + suburban rooftops (home market)
+  "alabaster":
+    hill(DARK_B, 158) +
+    [120, 230, 340, 860, 970, 1080].map((x) =>
+      building(x, 86, 50, DARK_A) + `<path d="M${x - 6},${150} L${x + 43},${126} L${x + 92},150 Z" fill="${DARK_A}"/>`
+    ).join("") +
+    waterTower(600, 196, 2.4, GOLD),
+
+  // Chelsea — rolling rural ridges + barn + pines
+  "chelsea":
+    hill(DARK_B, 140) + hill(DARK_A, 168) +
+    pine(150, 200, 56, DARK_A) + pine(1050, 200, 56, DARK_A) + pine(1095, 200, 42, DARK_A) +
+    `<rect x="556" y="150" width="88" height="50" fill="${GOLD_SOFT}"/><path d="M548,150 L600,118 L652,150 Z" fill="${GOLD}"/>` +
+    `<rect x="592" y="166" width="16" height="34" fill="rgba(7,100,43,0.5)"/>`,
+
+  // Pelham — Oak Mountain ridges (tall peaks) + pine forest
+  "pelham":
+    `<path d="M0,200 L0,120 L260,40 L520,120 L520,200 Z" fill="${DARK_B}"/>` +
+    `<path d="M680,200 L680,110 L940,46 L1200,110 L1200,200 Z" fill="${DARK_B}"/>` +
+    `<path d="M360,200 L360,90 L600,30 L840,90 L840,200 Z" fill="${GOLD_SOFT}"/>` +
+    pine(120, 200, 64, DARK_A) + pine(180, 200, 48, DARK_A) +
+    pine(1020, 200, 64, DARK_A) + pine(1080, 200, 50, DARK_A) +
+    pine(600, 200, 40, DARK_A),
+
+  // Helena — Buck Creek old mill + waterwheel + creek
+  "helena":
+    hill(DARK_B, 154) +
+    waterLines(176) +
+    pine(110, 200, 52, DARK_A) + pine(1110, 200, 52, DARK_A) +
+    // mill building gold + wheel
+    `<rect x="540" y="120" width="90" height="80" fill="${GOLD_SOFT}"/><path d="M534,120 L585,92 L636,120 Z" fill="${GOLD}"/>` +
+    `<g fill="${GOLD}"><circle cx="650" cy="170" r="26" fill="none" stroke="${GOLD}" stroke-width="4"/>${[0, 45, 90, 135].map((a) => `<rect x="648" y="146" width="4" height="48" transform="rotate(${a} 650 170)"/>`).join("")}</g>` +
+    win(560, 140) + win(585, 140) + win(610, 140),
+
+  // Calera — railroad depot + locomotive (Heart of Dixie RR)
+  "calera":
+    hill(DARK_B, 162) +
+    `<rect x="0" y="188" width="1200" height="3" fill="${DARK_A}"/>` +
+    [60, 160, 260, 360, 840, 940, 1040, 1140].map((x) => `<rect x="${x}" y="186" width="8" height="7" fill="${DARK_A}"/>`).join("") +
+    // depot
+    `<rect x="520" y="138" width="160" height="62" fill="${GOLD_SOFT}"/><path d="M508,138 L600,112 L692,138 Z" fill="${GOLD}"/>` +
+    // locomotive
+    `<g fill="${GOLD}"><rect x="700" y="150" width="120" height="40" rx="3"/><rect x="700" y="128" width="40" height="24"/><rect x="712" y="112" width="12" height="18"/><circle cx="724" cy="190" r="12"/><circle cx="772" cy="190" r="12"/><circle cx="812" cy="190" r="9"/></g>` +
+    win(540, 156) + win(565, 156) + win(640, 156),
+
+  // Trussville — Cahaba River + arched bridge + clock tower
+  "trussville":
+    hill(DARK_B, 156) +
+    waterLines(178) +
+    pine(90, 200, 50, DARK_A) + pine(1110, 200, 50, DARK_A) +
+    `<path d="M360,176 Q600,108 840,176" fill="none" stroke="${DARK_A}" stroke-width="10"/>` +
+    [400, 470, 540, 660, 730, 800].map((x) => `<rect x="${x}" y="150" width="5" height="26" fill="${DARK_A}"/>`).join("") +
+    // clock tower gold
+    `<g fill="${GOLD}"><rect x="585" y="96" width="30" height="80"/><path d="M580,96 L600,74 L620,96 Z"/><circle cx="600" cy="120" r="9" fill="rgba(7,100,43,0.6)"/></g>`,
+
+  // Mt Laurel — planned tudor village + trees (sister to Mountain Brook, lighter)
+  "mt-laurel":
+    hill(DARK_B, 158) +
+    pine(100, 200, 56, DARK_A) + pine(150, 200, 42, DARK_A) +
+    pine(1050, 200, 56, DARK_A) + pine(1100, 200, 42, DARK_A) +
+    [360, 470].map((x) => building(x, 90, 60, DARK_A) + `<path d="M${x - 6},140 L${x + 45},112 L${x + 96},140 Z" fill="${DARK_A}"/>`).join("") +
+    `<rect x="560" y="134" width="100" height="66" fill="${GOLD_SOFT}"/><path d="M552,134 L610,104 L668,134 Z" fill="${GOLD}"/>` +
+    win(582, 152) + win(610, 152) + win(638, 152) +
+    [700, 800].map((x) => building(x, 90, 60, DARK_A) + `<path d="M${x - 6},140 L${x + 45},112 L${x + 96},140 Z" fill="${DARK_A}"/>`).join(""),
+
+  // Tuscaloosa — cable bridge over Black Warrior River + low skyline
+  "tuscaloosa":
+    hill(DARK_B, 158) +
+    waterLines(180) +
+    building(120, 36, 56, DARK_A) + building(160, 30, 74, DARK_A) +
+    building(1010, 34, 60, DARK_A) + building(1050, 28, 78, DARK_A) +
+    // cable-stay bridge, gold pylon
+    `<g><rect x="596" y="96" width="8" height="100" fill="${GOLD}"/><path d="M600,100 L460,170 M600,100 L740,170 M600,118 L500,170 M600,118 L700,170 M600,136 L540,170 M600,136 L660,170" stroke="${GOLD_SOFT}" stroke-width="2.5"/><rect x="420" y="170" width="360" height="6" fill="${GOLD}"/></g>`,
+
+  // ===== LAKE MARTIN REGION =====
+  // Lake Martin — sun, water, dock, pines (premium seasonal)
+  "lake-martin":
+    sun(980, 70, 34) +
+    `<path d="M0,150 C220,134 420,162 640,148 C860,134 1040,160 1200,146 L1200,200 L0,200 Z" fill="rgba(7,100,43,0.32)"/>` +
+    waterLines(168, "rgba(255,255,255,0.16)") +
+    pine(90, 152, 70, DARK_A) + pine(140, 152, 52, DARK_A) + pine(1120, 150, 60, DARK_A) +
+    dock(540, 150, GOLD) +
+    `<path d="M640,150 l30,-10 l0,18 Z" fill="${GOLD}"/>`, // little sailboat
+
+  // Alexander City — lake edge + Russell mill town skyline
+  "alexander-city":
+    `<path d="M0,158 C300,146 500,168 760,154 C960,144 1080,164 1200,156 L1200,200 L0,200 Z" fill="rgba(7,100,43,0.3)"/>` +
+    waterLines(176, "rgba(255,255,255,0.14)") +
+    pine(100, 158, 58, DARK_A) + pine(1110, 156, 56, DARK_A) +
+    [500, 560].map((x) => building(x, 50, 64, DARK_A)).join("") +
+    `<rect x="600" y="120" width="64" height="80" fill="${GOLD_SOFT}"/><rect x="606" y="112" width="10" height="10" fill="${GOLD}"/>` +
+    win(612, 136) + win(632, 136) + win(652, 136) + dock(720, 158, GOLD),
+
+  // Dadeville — lake + Tallapoosa County courthouse dome
+  "dadeville":
+    `<path d="M0,160 C260,150 480,170 760,156 C980,146 1100,166 1200,158 L1200,200 L0,200 Z" fill="rgba(7,100,43,0.3)"/>` +
+    waterLines(178, "rgba(255,255,255,0.14)") +
+    pine(110, 160, 56, DARK_A) + pine(1100, 158, 54, DARK_A) +
+    dome(600, 200, 1.7, GOLD) +
+    dock(840, 160, GOLD),
+
+  // Eclectic — small-town water tower + lake horizon
+  "eclectic":
+    `<path d="M0,162 C300,154 520,172 800,160 C1000,150 1100,168 1200,162 L1200,200 L0,200 Z" fill="rgba(7,100,43,0.28)"/>` +
+    waterLines(180, "rgba(255,255,255,0.12)") +
+    pine(120, 162, 54, DARK_A) + pine(1090, 160, 52, DARK_A) +
+    waterTower(600, 196, 2.5, GOLD) +
+    [500, 700].map((x) => building(x, 60, 40, DARK_A)).join(""),
+
+  // Auburn — rolling hills + water tower + oak (NO university marks)
+  "auburn":
+    hill(DARK_B, 138) + hill(DARK_A, 166) +
+    // big oak tree gold
+    `<g fill="${GOLD}"><rect x="596" y="150" width="8" height="50"/><circle cx="600" cy="132" r="34"/><circle cx="566" cy="146" r="22"/><circle cx="634" cy="146" r="22"/></g>` +
+    waterTower(220, 196, 2.0, DARK_A) + waterTower(980, 196, 2.0, DARK_A) +
+    pine(120, 200, 46, DARK_A) + pine(1090, 200, 46, DARK_A),
+
+  // Opelika — historic railroad depot + tracks + smokestack
+  "opelika":
+    hill(DARK_B, 160) +
+    `<rect x="0" y="188" width="1200" height="3" fill="${DARK_A}"/>` +
+    [60, 160, 260, 940, 1040, 1140].map((x) => `<rect x="${x}" y="186" width="8" height="7" fill="${DARK_A}"/>`).join("") +
+    `<rect x="520" y="132" width="170" height="68" fill="${GOLD_SOFT}"/><path d="M506,132 L605,104 L704,132 Z" fill="${GOLD}"/>` +
+    `<rect x="720" y="96" width="16" height="104" fill="${GOLD}"/>` + // smokestack
+    win(545, 150) + win(575, 150) + win(635, 150) + win(665, 150),
+
+  // ===== HUNTSVILLE METRO =====
+  // Huntsville — Saturn V rocket + launch flame (Rocket City)
+  "huntsville":
+    hill(DARK_B, 158) +
+    building(120, 34, 50, DARK_A) + building(160, 28, 68, DARK_A) +
+    building(1020, 32, 54, DARK_A) + building(1058, 26, 72, DARK_A) +
+    // rocket
+    `<g fill="${GOLD}"><path d="M590,40 Q600,20 610,40 L610,150 L590,150 Z"/><rect x="588" y="150" width="24" height="20"/><path d="M588,150 L572,182 L588,176 Z"/><path d="M612,150 L628,182 L612,176 Z"/><rect x="595" y="60" width="10" height="10" fill="rgba(7,100,43,0.6)"/></g>` +
+    `<path d="M592,170 Q600,196 608,170 Z" fill="${GOLD_SOFT}"/>` +
+    pine(80, 200, 40, DARK_A) + pine(1130, 200, 40, DARK_A),
+
+  // Madison — small rocket + tech/research campus boxes
+  "madison":
+    hill(DARK_B, 160) +
+    [140, 250, 360, 840, 950, 1060].map((x) => building(x, 70, 52, DARK_A)).join("") +
+    // tech campus center gold low-rise + small rocket marker
+    `<rect x="500" y="140" width="200" height="60" fill="${GOLD_SOFT}"/>` +
+    [515, 540, 565, 635, 660, 685].map((x) => win(x, 156, "rgba(7,100,43,0.5)")).join("") +
+    `<g fill="${GOLD}"><path d="M596,96 Q600,84 604,96 L604,140 L596,140 Z"/><path d="M596,140 L588,156 L596,152 Z"/><path d="M604,140 L612,156 L604,152 Z"/></g>`,
+
+  // Athens — Limestone County courthouse dome + town square
+  "athens":
+    hill(DARK_B, 158) +
+    pine(110, 200, 48, DARK_A) + pine(1100, 200, 48, DARK_A) +
+    [200, 300, 820, 920].map((x) => building(x, 80, 50, DARK_A)).join("") +
+    dome(600, 200, 2.2, GOLD),
+
+  // Decatur — Tennessee River bridge + old bank columns
+  "decatur":
+    hill(DARK_B, 158) +
+    waterLines(180, "rgba(255,255,255,0.13)") +
+    // truss bridge
+    `<g stroke="${GOLD}" stroke-width="3" fill="none"><path d="M120,168 L1080,168"/><path d="M120,168 L120,140 L1080,140 L1080,168"/>${Array.from({ length: 12 }, (_, i) => `<path d="M${120 + i * 80},140 L${160 + i * 80},168 M${160 + i * 80},140 L${120 + i * 80},168"/>`).join("")}</g>` +
+    // bank with columns gold
+    `<g fill="${GOLD}"><path d="M540,116 L600,96 L660,116 Z"/><rect x="540" y="116" width="120" height="8"/>${[0, 22, 44, 66, 88].map((o) => `<rect x="${548 + o}" y="124" width="6" height="40"/>`).join("")}</g>`,
+
+  // Hartselle — historic small-town main street storefronts
+  "hartselle":
+    hill(DARK_B, 160) +
+    pine(90, 200, 46, DARK_A) + pine(1110, 200, 46, DARK_A) +
+    // row of storefronts, center gold
+    [180, 260, 340, 760, 840, 920].map((x) =>
+      building(x, 74, 56, DARK_A) + `<rect x="${x - 4}" y="${142}" width="82" height="6" fill="${DARK_A}"/>`
+    ).join("") +
+    `<rect x="500" y="128" width="200" height="72" fill="${GOLD_SOFT}"/><rect x="494" y="122" width="212" height="8" fill="${GOLD}"/>` +
+    [520, 560, 600, 640, 680].map((x) => win(x, 144)).join(""),
+
+  // Harvest — rural fields, barn, water tower, big sky
+  "harvest":
+    hill(DARK_B, 134) + hill(DARK_A, 168) +
+    // furrow lines
+    [176, 184, 192].map((y) => `<path d="M0,${y} Q600,${y - 8} 1200,${y}" stroke="rgba(255,255,255,0.07)" stroke-width="2" fill="none"/>`).join("") +
+    `<rect x="556" y="146" width="88" height="54" fill="${GOLD_SOFT}"/><path d="M548,146 L600,116 L652,146 Z" fill="${GOLD}"/>` +
+    `<rect x="592" y="162" width="16" height="38" fill="rgba(7,100,43,0.5)"/>` +
+    waterTower(980, 196, 1.9, DARK_A) +
+    pine(140, 200, 44, DARK_A),
+
+  // Hampton Cove — mountain cove + golf flag + pines (Monte Sano side)
+  "hampton-cove":
+    `<path d="M0,200 L0,90 L300,30 L600,96 L900,34 L1200,96 L1200,200 Z" fill="${DARK_B}"/>` +
+    `<path d="M300,200 L300,108 L600,52 L900,108 L900,200 Z" fill="${GOLD_SOFT}"/>` +
+    pine(110, 200, 60, DARK_A) + pine(160, 200, 44, DARK_A) +
+    pine(1040, 200, 60, DARK_A) + pine(1090, 200, 46, DARK_A) +
+    // golf flag gold
+    `<g fill="${GOLD}"><rect x="598" y="120" width="4" height="60"/><path d="M602,120 L630,130 L602,140 Z"/><ellipse cx="600" cy="182" rx="20" ry="5" fill="rgba(7,100,43,0.4)"/></g>`,
+
+  // fallback
+  "_default":
+    hill(DARK_B, 152) +
+    building(150, 40, 60, DARK_A) + building(195, 32, 84, DARK_A) +
+    building(980, 38, 64, DARK_A) + building(1020, 30, 88, DARK_A) +
+    waterTower(600, 196, 2.2, GOLD) +
+    pine(90, 200, 50, DARK_A) + pine(1120, 200, 50, DARK_A),
 };
-
-const DEFAULT_ART = SCENES.community;
 
 export default function CityHeroArt({ slug }: { slug: string }) {
-  const theme = SLUG_TO_ART[slug] ?? '_default';
-  const svg = SCENES[theme] ?? DEFAULT_ART;
+  const inner = scenes[slug] ?? scenes["_default"];
   return (
-    <div
+    <svg
+      viewBox="0 0 1200 200"
+      preserveAspectRatio="xMidYMax slice"
       aria-hidden="true"
       style={{
-        position: 'absolute',
+        position: "absolute",
         bottom: 0,
         left: 0,
-        right: 0,
-        height: 200,
-        pointerEvents: 'none',
+        width: "100%",
+        height: 210,
+        pointerEvents: "none",
         zIndex: 0,
-        overflow: 'hidden',
-        opacity: 0.85,
       }}
-      dangerouslySetInnerHTML={{ __html: svg }}
+      dangerouslySetInnerHTML={{ __html: inner }}
     />
   );
 }
