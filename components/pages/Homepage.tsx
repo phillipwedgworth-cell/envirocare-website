@@ -4,36 +4,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 
-/**
- * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
- *
- * Changes from v4:
- * 1. Logo entrance animation: 2x → 1x scale over 1.2s on first page load (once per session)
- * 2. Logo larger overall: 64px desktop, 52px mobile (was 48/40)
- * 3. Logo also pulses gently when scrolled into view at bottom
- * 4. Footer SERVICE AREAS expanded from 6 to all 27 cities (parity with homepage section)
- * 5. Mobile + reduced-motion safety: animation skipped if user prefers reduced motion
- *
- * Photos referenced (already in repo /public/):
- *   /family-yard.jpg, /kevin-headshot.jpg, /ribbon-cutting-1.jpg,
- *   /ribbon-cutting-2.jpg, /truck.jpg, /lake-martin-aerial.jpg
- */
-
 export default function Homepage() {
   return (
     <main className="ec-main">
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
-      <TopBanner />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
+      <CallBar />
+      <OfficeStrip />
       <Header />
+      <GoldOfferStrip />
       <Hero />
-      <TrustStrip />
+      <ProofRow />
+      <TruckSection />
       <CoreServices />
+      <Pricing />
+      <Heritage />
+      <NotFranchise />
+      <SafetySection />
+      <Reviews />
       <SpecialtyServices />
       <ThreeOffices />
       <ServiceAreas />
-      <Heritage />
-      <Reviews />
-      <Pricing />
       <BundleCTA />
       <Footer />
     </main>
@@ -41,20 +35,32 @@ export default function Homepage() {
 }
 
 /* ============================================================
-   TOP BANNER
+   CALL BAR + OFFICE STRIP + GOLD OFFER STRIP
    ============================================================ */
-function TopBanner() {
+function CallBar() {
   return (
-    <div className="ec-banner">
-      <div className="ec-banner-inner">
-        <span className="ec-banner-sun">🌻</span>
-        <span className="ec-banner-gold">Family-owned since 1958</span>
-        <span className="ec-banner-dot">·</span>
-        <span className="ec-banner-text">Three generations of the Wedgworth family</span>
-        <span className="ec-banner-dot">·</span>
-        <span className="ec-banner-text">Sentricon® up to $1M coverage</span>
-        <a href="tel:2056495278" className="ec-banner-call">Call (205) 649-5278 →</a>
-      </div>
+    <div className="ec-callbar">
+      <a href="tel:2056495278">
+        Call or Text EnviroCare &middot; <span className="ec-callbar-num">(205) 649-5278</span>
+      </a>
+    </div>
+  );
+}
+
+function OfficeStrip() {
+  return (
+    <div className="ec-offices-strip">
+      <span>Birmingham</span>
+      <span>Alex City / Lake Martin</span>
+      <span>Huntsville</span>
+    </div>
+  );
+}
+
+function GoldOfferStrip() {
+  return (
+    <div className="ec-offer-strip">
+      <b>FREE Termite Inspection</b> &mdash; no obligation
     </div>
   );
 }
@@ -70,7 +76,7 @@ function Header() {
       <div className="ec-header-inner">
         <Link href="/" className="ec-brand" aria-label="EnviroCare home">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="EnviroCare Pest & Termite Services"
             width={280}
             height={72}
@@ -122,7 +128,7 @@ function Header() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
           >Pay Bill</a>
-          <a href="tel:2059406360" onClick={() => setMobileOpen(false)}>📞 (205) 940-6360</a>
+          <a href="tel:2056495278" onClick={() => setMobileOpen(false)}>(205) 649-5278</a>
           <Link href="/quote" className="ec-mobile-cta" onClick={() => setMobileOpen(false)}>
             Get Free Quote →
           </Link>
@@ -148,28 +154,26 @@ function Hero() {
         <div className="ec-hero-content">
           <div className="ec-eyebrow">
             <span className="ec-eyebrow-dot">●</span>
-            FAMILY OWNED · ALABAMA SINCE 1958
+            THE GREEN TRUCK ALABAMA TRUSTS &middot; EST. 1958
           </div>
 
           <h1 className="ec-hero-h1">
-            Protecting Alabama Homes<br />
-            <em className="ec-h1-italic">Three Generations</em><br />
-            <span className="ec-h1-gold">Strong.</span>
+            Three Generations Protecting<br />
+            <em className="ec-h1-italic">Alabama Homes</em><br />
+            <span className="ec-h1-gold">Since 1958.</span>
           </h1>
 
           <p className="ec-hero-sub">
-            The Wedgworth family has kept Alabama homes pest-free for 68 years.
-            Termites, mosquitoes, ticks — handled with the care only a family
-            business delivers. Serving Birmingham, Huntsville, Auburn, and the
-            Lake Martin area.
+            Pest, termite &amp; mosquito protection from a third-generation Alabama
+            family company &mdash; Birmingham, Alex City / Lake Martin, Huntsville &amp; Auburn.
           </p>
 
           <div className="ec-hero-ctas">
             <Link href="/quote" className="ec-cta-primary">
-              <span>Get a Free Quote</span><span className="ec-arrow">→</span>
+              <span>Get a Free Inspection</span><span className="ec-arrow">→</span>
             </Link>
-            <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360 · same-day</span>
+            <a href="tel:2056495278" className="ec-cta-secondary">
+              <span>Call (205) 649-5278</span>
             </a>
           </div>
 
@@ -260,23 +264,45 @@ function Hero() {
 }
 
 /* ============================================================
-   TRUST STRIP
+   PROOF ROW
    ============================================================ */
-function TrustStrip() {
+function ProofRow() {
   return (
-    <section className="ec-trust">
-      <div className="ec-trust-inner">
-        <span className="ec-trust-item"><span className="ec-trust-icon">★</span><span><strong>4.9 Google Rating</strong></span></span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Sentricon® Certified Specialist</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Alabama Dept. of Ag. Licensed</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>AL Pest Control Association</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>3rd-Generation Wedgworth Family</span>
+    <div className="ec-proof">
+      <div className="ec-proof-cell">
+        <div className="ec-proof-val">$1M</div>
+        <div className="ec-proof-label">Sentricon® no-drill</div>
       </div>
-    </section>
+      <div className="ec-proof-cell">
+        <div className="ec-proof-val ec-proof-stars">4.9★</div>
+        <div className="ec-proof-label">Google rating</div>
+      </div>
+      <div className="ec-proof-cell">
+        <div className="ec-proof-val ec-proof-val-sm">Licensed</div>
+        <div className="ec-proof-label">&amp; insured · since 1958</div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   TRUCK SECTION
+   ============================================================ */
+function TruckSection() {
+  return (
+    <div className="ec-truck-wrap">
+      <Image
+        src="/truck-mobile.webp"
+        alt="EnviroCare green service truck"
+        width={800}
+        height={400}
+        className="ec-truck-img"
+        sizes="100vw"
+      />
+      <div className="ec-truck-cap">
+        Real EnviroCare trucks. Real Alabama neighbors. A familiar local team whenever possible.
+      </div>
+    </div>
   );
 }
 
@@ -287,35 +313,35 @@ function CoreServices() {
   return (
     <section className="ec-services">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">OUR CORE SERVICES</div>
-        <h2 className="ec-section-h2">Four Pillars of <em>Total Protection</em></h2>
+        <div className="ec-section-eyebrow">OUR SERVICES</div>
+        <h2 className="ec-section-h2">Four Ways We <em>Protect Your Home</em></h2>
         <p className="ec-section-sub">
-          Every Alabama home needs these four. We&apos;ve perfected each over 68 years
-          across Birmingham, Lake Martin and Huntsville.
+          Pest, termite, mosquito, and tick protection &mdash; handled by the same
+          local Alabama team that&apos;s been doing this since 1958.
         </p>
         <div className="ec-services-grid">
           <ServiceCard
-            badge="MOST POPULAR" title="Pest Control"
-            description="Year-round defense against ants, roaches, spiders & 30+ pests. Bi-monthly service keeps homes pest-free."
-            bullets={['Interior + exterior perimeter', 'Unlimited free re-treatments', '$50 off initial service']}
+            badge="MOST HOMES START HERE" title="Pest Control"
+            description="30+ common pests, inside and out. Bi-monthly service with unlimited free re-service between visits."
+            bullets={['Interior + exterior perimeter', 'Unlimited free re-treatments', 'Bi-monthly schedule']}
             href="/services/pest-control" cornerIcon="🛡️" featured
           />
           <ServiceCard
-            badge="SENTRICON® CERTIFIED" title="Termite Control"
-            description="Sentricon® Always Active™ system. Continuous protection backed by up to $1M damage warranty."
-            bullets={['Free full-home inspection', 'Annual inspection included', 'Crawlspace + dock + pier']}
+            badge="SENTRICON® CERTIFIED" title="Termite — Sentricon®"
+            description="Up to $1M coverage with no drilling required. Year-round monitoring and annual inspection included."
+            bullets={['No drilling, no tank trucks', 'Annual inspection included', 'Up to $1M damage coverage']}
             href="/services/termite-control" cornerIcon="🪵" highlight="$1M COVERAGE"
           />
           <ServiceCard
-            badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
-            description="30-day yard barrier April–October. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['Up to 12 seasonal applications', 'Pet- & kid-safe once dry', '50% off first application']}
+            badge="SEASONAL · MAR–NOV" title="Mosquito Barrier"
+            description="Yard barrier treatment applied every 30 days, March through November. Reclaim your outdoor living spaces."
+            bullets={['Every 30 days, Mar–Nov', 'Deck, yard &amp; dock coverage', 'Free re-service if needed']}
             href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER"
           />
           <ServiceCard
-            badge="PET & FAMILY SAFE" title="Tick Control"
-            description="Targeted yard treatments to break the tick lifecycle. Critical for waterfront and wooded properties."
-            bullets={['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Bundled free with mosquito']}
+            badge="BUNDLED WITH MOSQUITO" title="Tick Protection"
+            description="Targeted yard treatments to break the tick lifecycle. Critical for wooded and waterfront properties."
+            bullets={['Lone Star, Dog &amp; Deer ticks', 'Harborage-zone targeting', 'Free when bundled with mosquito']}
             href="/services/tick-control" cornerIcon="🐾"
           />
         </div>
@@ -834,6 +860,45 @@ function Heritage() {
 }
 
 /* ============================================================
+   NOT A FRANCHISE / NOT A CALL CENTER
+   ============================================================ */
+function NotFranchise() {
+  return (
+    <section className="ec-not-franchise">
+      <div className="ec-section-inner">
+        <div className="ec-section-eyebrow">WHY ENVIROCARE</div>
+        <h2 className="ec-section-h2">Not a Franchise. <em>Not a Call Center.</em></h2>
+        <ul className="ec-nf-list">
+          <li>Local Alabama offices</li>
+          <li>A familiar local team whenever possible</li>
+          <li>Family-owned since 1958</li>
+          <li>Free re-service between visits</li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   SAFETY SECTION
+   ============================================================ */
+function SafetySection() {
+  return (
+    <section className="ec-safety">
+      <div className="ec-section-inner">
+        <p className="ec-safety-p">
+          We protect homes like yours &mdash; including our own.
+        </p>
+        <p className="ec-safety-sub">
+          EPA-registered products. Licensed Alabama technicians. Applied according to label
+          directions, with any drying or re-entry instructions explained before service.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
    REVIEWS
    ============================================================ */
 function Reviews() {
@@ -885,94 +950,91 @@ function Reviews() {
 }
 
 /* ============================================================
-   PRICING — with Per Service / Monthly Plan toggle
+   PRICING — à la carte, real prices, no named tiers
    ============================================================ */
 function Pricing() {
-  const [mode, setMode] = useState<'monthly' | 'perservice'>('monthly');
-
   return (
     <section className="ec-pricing">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">PLANS & PRICING</div>
-        <h2 className="ec-section-h2">Pick Your <em>Protection Plan</em></h2>
+        <div className="ec-section-eyebrow">PRICING</div>
+        <h2 className="ec-section-h2">Simple, <em>honest pricing</em></h2>
         <p className="ec-section-sub">
-          Honest, straightforward pricing. No contracts, no hidden fees — pay monthly on ACH, cancel anytime.
+          Pick what your home needs. Pay monthly by auto-draft, or per service.
         </p>
 
-        {/* ── Toggle ── */}
-        <div className="ec-price-toggle-wrap">
-          <button
-            className={`ec-price-toggle-btn ${mode === 'perservice' ? 'ec-toggle-active' : ''}`}
-            onClick={() => setMode('perservice')}
-          >Per Service</button>
-          <div className="ec-price-toggle-track" onClick={() => setMode(mode === 'monthly' ? 'perservice' : 'monthly')} role="switch" aria-checked={mode === 'monthly'}>
-            <div className={`ec-price-toggle-pill ${mode === 'monthly' ? 'ec-pill-right' : 'ec-pill-left'}`} />
-          </div>
-          <button
-            className={`ec-price-toggle-btn ${mode === 'monthly' ? 'ec-toggle-active' : ''}`}
-            onClick={() => setMode('monthly')}
-          >Monthly Plan</button>
+        <div className="ec-pricing-initial">
+          Every plan starts with a one-time <strong>$150 initial service</strong>.
+          Monthly billing begins the following month &mdash; no setup fee.
         </div>
 
-        {/* ── Monthly Plan cards ── */}
-        {mode === 'monthly' && (
-          <div className="ec-pricing-grid ec-pricing-fade">
-            <PriceCard
-              title="Essential" tags={['Pest']}
-              tagline="Year-round pest control for the everyday Alabama home."
-              price="35" unit="/mo" terms="ACH · or $70 bi-monthly"
-              bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'Family- & pet-safe applications']}
-              cta="Start Essential" href="/quote?plan=essential"
-            />
-            <PriceCard
-              title="Foundation" tags={['Pest', 'Termite']}
-              tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
-              price="67" unit="/mo" terms="ACH · one invoice, one tech"
-              bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
-              cta="Start Foundation" href="/quote?plan=foundation"
-              badge="MOST POPULAR" featured
-            />
-            <PriceCard
-              title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
-              tagline="All four programs — pest, termite, mosquito & tick — under one plan."
-              price="127" unit="/mo" terms="ACH · everything in one invoice"
-              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Apr–Oct, every 21 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
-              cta="Start Complete" href="/quote?plan=complete"
-            />
-          </div>
-        )}
+        <div className="ec-alc-grid">
+          <AlcCard
+            title="Pest Control"
+            desc="30+ common pests, inside &amp; out"
+            price="35"
+            cadence="every other month · unlimited free re-service"
+            alt="or $70 per service"
+            featured
+            tag="Most Homes Start Here"
+          />
+          <AlcCard
+            title="Termite — Sentricon®"
+            desc="Up to $1M coverage · no drilling"
+            price="32"
+            cadence="year-round monitoring · annual inspection"
+            alt="or $380 install + annual renewal"
+          />
+          <AlcCard
+            title="Mosquito Barrier"
+            desc="Yard treatment for mosquitoes"
+            price="45"
+            cadence="monthly, March–November"
+          />
+          <AlcCard
+            title="Mosquito + Tick + Flea"
+            desc="Full outdoor-living protection"
+            price="60"
+            cadence="seasonal · great for lake &amp; wooded lots"
+          />
+        </div>
 
-        {/* ── Per Service cards ── */}
-        {mode === 'perservice' && (
-          <div className="ec-svc-price-grid ec-pricing-fade">
-            <SvcPriceCard icon="🛡️" title="Pest Control" price="70" unit="/visit" note="Bi-monthly exterior treatment" bullets={['30+ common pests covered', 'Interior + perimeter', 'Unlimited free re-services']} href="/quote?service=pest" />
-            <SvcPriceCard icon="🪵" title="Termite Inspection" price="0" unit="FREE" note="Full home · no obligation" bullets={['Sentricon® quote included', 'Same-week scheduling', '$1M coverage available']} href="/quote?service=termite" featured />
-            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Pet- & kid-safe once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
-            <SvcPriceCard icon="🐾" title="Tick Treatment" price="69" unit="/treatment" note="Harborage-zone targeted" bullets={['Lone Star, Dog & Deer ticks', 'Yard-wide coverage', 'Free when bundled with mosquito']} href="/quote?service=tick" />
-            <SvcPriceCard icon="🌻" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Family- & pet-safe']} href="/quote?service=fire-ant" />
-            <SvcPriceCard icon="📋" title="WDO / Real Estate Letter" price="125" unit="/letter" note="Fast turnaround · lender-ready" bullets={['NPMA-33 format', 'Same-week scheduling', 'All three offices']} href="/quote?service=wdo" />
+        <div className="ec-alc-bundle">
+          <div className="ec-alc-bundle-title">Want it all on one bill?</div>
+          <div className="ec-alc-bundle-body">
+            Combine any services into <strong>one monthly payment, one invoice, one technician.</strong>{' '}
+            Tell us what your home needs and we&apos;ll put it together &mdash;{' '}
+            call <strong>(205) 649-5278</strong> or get a free quote.
           </div>
-        )}
+        </div>
 
-        <div className="ec-offers">
-          <div className="ec-offer">
-            <div className="ec-offer-icon">🏷️</div>
-            <div className="ec-offer-title">$50 Off Initial Service</div>
-            <div className="ec-offer-desc">New full-service program customers. Mention when calling.</div>
-          </div>
-          <div className="ec-offer">
-            <div className="ec-offer-icon">✦</div>
-            <div className="ec-offer-title">50% Off First Mosquito App</div>
-            <div className="ec-offer-desc">New mosquito program customers. Mention when calling.</div>
-          </div>
-          <div className="ec-offer">
-            <div className="ec-offer-icon">🔍</div>
-            <div className="ec-offer-title">Free Termite Inspection</div>
-            <div className="ec-offer-desc">No obligation. Schedule today at any AL office.</div>
-          </div>
+        <div className="ec-pricing-cta-row">
+          <Link href="/quote" className="ec-cta-primary">Get a Free Quote →</Link>
         </div>
       </div>
     </section>
+  );
+}
+
+function AlcCard({ title, desc, price, cadence, alt, featured, tag }: {
+  title: string; desc: string; price: string; cadence: string;
+  alt?: string; featured?: boolean; tag?: string;
+}) {
+  return (
+    <div className={`ec-alc-card ${featured ? 'ec-alc-featured' : ''}`}>
+      {tag && <div className="ec-alc-tag">{tag}</div>}
+      <div className="ec-alc-row">
+        <div>
+          <div className="ec-alc-name">{title}</div>
+          <div className="ec-alc-desc" dangerouslySetInnerHTML={{ __html: desc }} />
+        </div>
+        <div className="ec-alc-price-wrap">
+          <span className="ec-alc-price">${price}</span>
+          <span className="ec-alc-per">/month</span>
+        </div>
+      </div>
+      <div className="ec-alc-cadence">{cadence}</div>
+      {alt && <div className="ec-alc-alt">{alt}</div>}
+    </div>
   );
 }
 
@@ -1059,19 +1121,15 @@ function BundleCTA() {
         <div className="ec-bundle-divider"></div>
 
         <h3 className="ec-bundle-h3">
-          🌻 One Invoice. One Tech. <em>One Trusted Team.</em>
+          One Invoice. One Tech. <em>One Trusted Team.</em>
         </h3>
         <p className="ec-bundle-sub">
-          Combine Pest + Termite + Mosquito + Tick on a single plan. Same competitive pricing as standalone — just simpler to manage.
+          Combine any services into one monthly payment, one invoice. Tell us what your home needs
+          and we&apos;ll put it together &mdash; no juggling vendors, no separate bills.
         </p>
-        <div className="ec-bundle-prices">
-          <div className="ec-bundle-line">Pest + Termite <span className="ec-bundle-price">$67/mo</span></div>
-          <div className="ec-bundle-line">Outdoor Bundle (Mosquito + Tick + Flea) <span className="ec-bundle-price">$60/mo</span></div>
-          <div className="ec-bundle-line">All Four Programs <span className="ec-bundle-price">$127/mo</span></div>
-        </div>
         <div className="ec-bundle-ctas">
           <a href="tel:2056495278" className="ec-cta-primary">Call (205) 649-5278</a>
-          <Link href="/quote" className="ec-cta-secondary-light">See Plans →</Link>
+          <Link href="/quote" className="ec-cta-secondary-light">Get a Free Quote →</Link>
         </div>
       </div>
     </section>
@@ -1090,14 +1148,15 @@ function Footer() {
             <Image src="/logo.svg" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
-            Family-owned and operated since 1958 — now in its third generation
-            of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
+            Family-owned and operated since 1958 &mdash; now in its third generation
+            of the Wedgworth family. Three local offices: Birmingham, Alex City / Lake Martin, and Huntsville.
+            Mon&ndash;Fri 8:00&nbsp;AM&ndash;5:00&nbsp;PM &middot; Closed weekends.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2056495278" className="ec-footer-phone">📞 <span>(205) 649-5278</span> — <em>Main Line</em></a>
-            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
-            <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
-            <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
+            <a href="tel:2056495278" className="ec-footer-phone"><span>(205) 649-5278</span> &mdash; <em>Main · Call or Text</em></a>
+            <a href="tel:2059406360" className="ec-footer-phone"><span>(205) 940-6360</span> &mdash; <em>Birmingham</em></a>
+            <a href="tel:2562346162" className="ec-footer-phone"><span>(256) 234-6162</span> &mdash; <em>Alex City / Lake Martin</em></a>
+            <a href="tel:2569377676" className="ec-footer-phone"><span>(256) 937-7676</span> &mdash; <em>Huntsville</em></a>
           </div>
         </div>
 
@@ -1139,7 +1198,7 @@ function Footer() {
             <Link href="/tuscaloosa">Tuscaloosa</Link>
           </div>
           <div className="ec-footer-areas-group">
-            <div className="ec-footer-areas-label">Lake Martin / Alex City</div>
+            <div className="ec-footer-areas-label">Alex City / Lake Martin</div>
             <Link href="/alexander-city">Alexander City</Link>
             <Link href="/lake-martin">Lake Martin</Link>
             <Link href="/dadeville">Dadeville</Link>
@@ -1173,6 +1232,46 @@ function Footer() {
     </footer>
   );
 }
+
+/* ============================================================
+   FAQ JSON-LD
+   ============================================================ */
+const FAQ_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much does pest control cost with EnviroCare?',
+      acceptedAnswer: { '@type': 'Answer', text: 'EnviroCare pest control is $35/month and covers 30+ pests on a bi-monthly schedule with unlimited free re-service between visits, or $70 per service. Every plan starts with a one-time $150 initial service, with monthly billing beginning the following month.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What areas of Alabama does EnviroCare serve?',
+      acceptedAnswer: { '@type': 'Answer', text: 'EnviroCare serves the Birmingham metro, the Alexander City / Lake Martin area, Huntsville and the Tennessee Valley, and Auburn. The family-owned company has been operating in Alabama since 1958 with three local offices.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does EnviroCare use Sentricon for termite control?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. EnviroCare installs the Sentricon termite baiting system with no drilling and up to $1 million in coverage. Termite protection is $32/month, or $380 to install plus an annual renewal.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often does EnviroCare treat for mosquitoes?',
+      acceptedAnswer: { '@type': 'Answer', text: "EnviroCare's mosquito yard barrier is applied every 30 days from March through November. Mosquito service is $45/month, or $60/month bundled with tick and flea protection." },
+    },
+    {
+      '@type': 'Question',
+      name: "Are EnviroCare's pest treatments okay around children and pets?",
+      acceptedAnswer: { '@type': 'Answer', text: 'EnviroCare uses EPA-registered products applied by licensed Alabama technicians according to label directions. Your technician will explain any drying time or re-entry instructions before service.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is EnviroCare a national franchise?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. EnviroCare is a third-generation, family-owned Alabama company founded in 1958. Calls reach local offices rather than a national call center, and customers get a familiar local team whenever possible.' },
+    },
+  ],
+};
 
 /* ============================================================
    STYLES
@@ -2499,4 +2598,141 @@ const HOMEPAGE_CSS = `
   .ec-footer-bottom-links { display: flex; gap: 16px; }
   .ec-footer-bottom-links a { color: rgba(255,255,255,0.5); }
   .ec-footer-bottom-links a:hover { color: #fff; }
+
+  /* CALL BAR */
+  .ec-callbar {
+    background: #07642B; color: #fff;
+    text-align: center; padding: 9px 14px;
+    font-size: 13px; font-weight: 600; letter-spacing: .01em;
+  }
+  .ec-callbar a { color: #fff; text-decoration: none; }
+  .ec-callbar-num { color: #F5A800; font-weight: 800; font-size: 15px; letter-spacing: .02em; }
+
+  /* OFFICE STRIP */
+  .ec-offices-strip {
+    background: #0A7935; color: rgba(255,255,255,.92);
+    display: flex; justify-content: center;
+    font-size: 11px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase;
+  }
+  .ec-offices-strip span {
+    padding: 6px 10px; border-right: 1px solid rgba(255,255,255,.18);
+  }
+  .ec-offices-strip span:last-child { border-right: none; }
+
+  /* GOLD OFFER STRIP */
+  .ec-offer-strip {
+    background: #F5A800; color: #0E1A0F;
+    display: flex; align-items: center; justify-content: center;
+    padding: 9px 14px; font-weight: 700; font-size: 13px; letter-spacing: .02em;
+    gap: 6px;
+  }
+
+  /* PROOF ROW */
+  .ec-proof {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    background: #0E1A0F;
+  }
+  .ec-proof-cell {
+    padding: 14px 8px; text-align: center;
+    border-right: 1px solid rgba(255,255,255,.10);
+  }
+  .ec-proof-cell:last-child { border-right: none; }
+  .ec-proof-val {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700; color: #F5A800; font-size: 20px; line-height: 1;
+  }
+  .ec-proof-stars { font-size: 16px; letter-spacing: 1px; }
+  .ec-proof-val-sm { font-size: 16px; }
+  .ec-proof-label {
+    color: rgba(255,255,255,.72); font-size: 10.5px;
+    font-weight: 600; letter-spacing: .02em; margin-top: 5px; line-height: 1.25;
+  }
+
+  /* TRUCK SECTION */
+  .ec-truck-wrap { position: relative; background: #07642B; }
+  .ec-truck-img { width: 100%; display: block; }
+  .ec-truck-cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(transparent, rgba(7,40,18,.85));
+    color: #fff; padding: 24px 16px 12px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .02em;
+  }
+
+  /* À LA CARTE PRICING */
+  .ec-pricing-initial {
+    background: rgba(245,168,0,.12); border: 1px solid #F5A800;
+    border-radius: 12px; padding: 12px 16px;
+    font-size: 13px; color: #7a5800; font-weight: 600;
+    margin-bottom: 24px; line-height: 1.4;
+  }
+  .ec-alc-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  @media (min-width: 640px) { .ec-alc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ec-alc-grid { grid-template-columns: repeat(4, 1fr); } }
+  .ec-alc-card {
+    background: #fff; border: 1px solid #E8E2D8;
+    border-radius: 16px; padding: 18px 16px; position: relative;
+  }
+  .ec-alc-featured { border: 2px solid #F5A800; box-shadow: 0 10px 26px rgba(245,168,0,.16); }
+  .ec-alc-tag {
+    position: absolute; top: -10px; left: 16px;
+    background: #F5A800; color: #0E1A0F;
+    font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    padding: 4px 11px; border-radius: 20px;
+  }
+  .ec-alc-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .ec-alc-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700; font-size: 17px;
+  }
+  .ec-alc-desc { font-size: 11.5px; color: #6b7065; margin-top: 2px; }
+  .ec-alc-price-wrap { text-align: right; flex-shrink: 0; }
+  .ec-alc-price {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px; color: #0E8E40; font-weight: 700; line-height: 1;
+  }
+  .ec-alc-featured .ec-alc-price { color: #07642B; }
+  .ec-alc-per { font-size: 11.5px; color: #6b7065; display: block; margin-top: 1px; }
+  .ec-alc-cadence {
+    margin-top: 10px; padding-top: 9px;
+    border-top: 1px dashed rgba(14,26,15,.10);
+    font-size: 11px; color: #5e6359;
+  }
+  .ec-alc-alt { font-size: 11px; color: #9a6b00; font-weight: 700; margin-top: 6px; }
+  .ec-alc-bundle {
+    background: #0E1A0F; color: #fff;
+    border-radius: 14px; padding: 18px 20px; margin-top: 12px;
+  }
+  .ec-alc-bundle-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px; font-weight: 700; margin-bottom: 6px;
+  }
+  .ec-alc-bundle-body { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.55; }
+  .ec-alc-bundle-body strong { color: #F5A800; }
+  .ec-pricing-cta-row { text-align: center; margin-top: 32px; }
+
+  /* NOT A FRANCHISE */
+  .ec-not-franchise { background: #fff; }
+  .ec-nf-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: 1fr; gap: 12px;
+    max-width: 560px;
+  }
+  @media (min-width: 640px) { .ec-nf-list { grid-template-columns: repeat(2, 1fr); } }
+  .ec-nf-list li {
+    padding: 14px 18px; background: #E8F5EE;
+    border-left: 4px solid #0E8E40; border-radius: 0 8px 8px 0;
+    font-size: 15px; font-weight: 600; color: #0E1A0F;
+  }
+
+  /* SAFETY SECTION */
+  .ec-safety { background: linear-gradient(180deg, #E8F5EE 0%, #FEFDF8 100%); }
+  .ec-safety-p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(20px, 3vw, 28px); font-weight: 700;
+    color: #0E1A0F; margin: 0 0 12px; line-height: 1.3;
+  }
+  .ec-safety-sub {
+    font-size: 16px; color: #5A6660; line-height: 1.6;
+    max-width: 640px; margin: 0;
+  }
 `;

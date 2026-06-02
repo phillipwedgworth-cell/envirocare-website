@@ -109,143 +109,102 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-// =================== JSON-LD STRUCTURED DATA ===================
-const birminghamJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'PestControlService',
-  '@id': `${SITE_URL}/#birmingham`,
-  name: 'EnviroCare Pest & Termite Services — Birmingham',
-  image: '/og-image.png',
-  description:
-    'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
-  url: `${SITE_URL}/birmingham`,
-  telephone: '+1-205-940-6360',
-  priceRange: '$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '2025 Butler Rd',
-    addressLocality: 'Alabaster',
-    addressRegion: 'AL',
-    postalCode: '35007',
-    addressCountry: 'US',
+// =================== JSON-LD STRUCTURED DATA (@graph) ===================
+const HOURS_SPEC = [
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '17:00',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Birmingham',
-    },
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-  ],
-};
+];
 
-const lakeMartinJsonLd = {
+const siteJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
-  '@id': `${SITE_URL}/#lake-martin`,
-  name: "EnviroCare Pest & Termite Services — Alex City / Lake Martin",
-  image: '/og-image.png',
-  description:
-    "EnviroCare's original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.",
-  url: `${SITE_URL}/lake-martin`,
-  telephone: '+1-256-234-6162',
-  priceRange: '$$',
-  foundingDate: '1958',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '1785 Tallapoosa St',
-    addressLocality: 'Alexander City',
-    addressRegion: 'AL',
-    postalCode: '35010',
-    addressCountry: 'US',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
-    },
-  },
-  openingHoursSpecification: [
+  '@graph': [
     {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-  ],
-};
-
-const huntsvilleJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'PestControlService',
-  '@id': `${SITE_URL}/#huntsville`,
-  name: 'EnviroCare Pest & Termite Services — Huntsville',
-  image: '/og-image.png',
-  description:
-    'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
-  url: `${SITE_URL}/huntsville`,
-  telephone: '+1-256-937-7676',
-  priceRange: '$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '7027 Old Madison Pike, Ste 108',
-    addressLocality: 'Huntsville',
-    addressRegion: 'AL',
-    postalCode: '35806',
-    addressCountry: 'US',
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-  ],
-};
-
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${SITE_URL}/#organization`,
-  name: 'EnviroCare Pest & Termite Services',
-  alternateName: 'EnviroCare',
-  url: SITE_URL,
-  logo: '/logo.svg',
-  foundingDate: '1958',
-  founder: {
-    '@type': 'Person',
-    name: 'Phillip M. Wedgworth',
-  },
-  description:
-    'Three generations of family-owned pest and termite control across Alabama. Founded 1958 in Alexander City.',
-  slogan: 'No One Cares Like EnviroCare.',
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#org`,
+      name: 'EnviroCare Pest & Termite Services',
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.png`,
+      foundingDate: '1958',
+      slogan: 'No One Cares Like EnviroCare',
       telephone: '+1-205-649-5278',
-      contactType: 'customer service',
-      areaServed: 'US',
-      availableLanguage: 'English',
+      areaServed: 'Alabama',
+      sameAs: [],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'EnviroCare Pest & Termite Services',
+      publisher: { '@id': `${SITE_URL}/#org` },
+    },
+    {
+      '@type': 'PestControlService',
+      '@id': `${SITE_URL}/#birmingham`,
+      name: 'EnviroCare Pest & Termite Services — Birmingham',
+      image: `${SITE_URL}/logo.png`,
+      url: `${SITE_URL}/birmingham`,
+      telephone: '+1-205-940-6360',
+      priceRange: '$$',
+      parentOrganization: { '@id': `${SITE_URL}/#org` },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '2025 Butler Rd',
+        addressLocality: 'Alabaster',
+        addressRegion: 'AL',
+        postalCode: '35007',
+        addressCountry: 'US',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: 33.2348, longitude: -86.8164 },
+      openingHoursSpecification: HOURS_SPEC,
+      areaServed: ['Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Alabaster', 'Chelsea', 'Pelham', 'Helena', 'Calera', 'Trussville', 'Greystone', 'Mt Laurel'],
+    },
+    {
+      '@type': 'PestControlService',
+      '@id': `${SITE_URL}/#alexcity`,
+      name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
+      image: `${SITE_URL}/logo.png`,
+      url: `${SITE_URL}/alexander-city`,
+      telephone: '+1-256-234-6162',
+      priceRange: '$$',
+      parentOrganization: { '@id': `${SITE_URL}/#org` },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1785 Tallapoosa St',
+        addressLocality: 'Alexander City',
+        addressRegion: 'AL',
+        postalCode: '35010',
+        addressCountry: 'US',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: 32.9440, longitude: -85.9536 },
+      openingHoursSpecification: HOURS_SPEC,
+      areaServed: ['Alexander City', 'Lake Martin', 'Dadeville', 'Eclectic', 'Auburn', 'Opelika', 'Jacksons Gap', 'Wetumpka'],
+    },
+    {
+      '@type': 'PestControlService',
+      '@id': `${SITE_URL}/#huntsville`,
+      name: 'EnviroCare Pest & Termite Services — Huntsville',
+      image: `${SITE_URL}/logo.png`,
+      url: `${SITE_URL}/huntsville`,
+      telephone: '+1-256-937-7676',
+      priceRange: '$$',
+      parentOrganization: { '@id': `${SITE_URL}/#org` },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '7027 Old Madison Pike, Ste 108',
+        addressLocality: 'Huntsville',
+        addressRegion: 'AL',
+        postalCode: '35806',
+        addressCountry: 'US',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: 34.7252, longitude: -86.6745 },
+      openingHoursSpecification: HOURS_SPEC,
+      areaServed: ['Huntsville', 'Madison', 'Athens', 'Decatur', 'Hartselle', 'Harvest', 'Hampton Cove'],
     },
   ],
-  sameAs: [],
 };
 
 export default function RootLayout({
@@ -256,25 +215,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <head>
-        {/* Preload the hero truck image — biggest LCP element */}
-        <link rel="preload" as="image" href="/truck.jpg" fetchPriority="high" />
+        {/* Preload truck images — LCP candidates on mobile and desktop */}
+        <link rel="preload" as="image" href="/truck-mobile.webp" fetchPriority="high" type="image/webp" />
 
-        {/* JSON-LD Structured Data — 4 schemas */}
+        {/* JSON-LD Structured Data — @graph (Org + WebSite + 3 offices) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(birminghamJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(lakeMartinJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(huntsvilleJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
 
         {/* Google Analytics 4 */}
