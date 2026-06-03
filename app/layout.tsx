@@ -129,17 +129,6 @@ const birminghamJsonLd = {
     postalCode: '35007',
     addressCountry: 'US',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Birmingham',
-    },
-  },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -169,17 +158,6 @@ const lakeMartinJsonLd = {
     addressRegion: 'AL',
     postalCode: '35010',
     addressCountry: 'US',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
-    },
   },
   openingHoursSpecification: [
     {
@@ -227,7 +205,7 @@ const organizationJsonLd = {
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
   url: SITE_URL,
-  logo: '/logo.svg',
+  logo: '/logo.png',
   foundingDate: '1958',
   founder: {
     '@type': 'Person',

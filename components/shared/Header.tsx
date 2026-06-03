@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
@@ -123,7 +123,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
       <div id="ec-mobile-menu" className="ec-menu-overlay" data-open={menuOpen} role="dialog" aria-modal="true" aria-label="Site menu">
         <div className="ec-menu-bar">
           <a href="/" onClick={() => setMenuOpen(false)} aria-label="EnviroCare home">
-            <img src="/logo.svg" alt="EnviroCare" width={220} height={85} style={{ width: 200, height: "auto", display: "block" }} />
+            <img src="/logo.png" alt="EnviroCare" width={220} height={85} style={{ width: 200, height: "auto", display: "block" }} />
           </a>
           <button type="button" className="ec-menu-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
@@ -176,7 +176,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
           {/* LEFT: Logo — ~50px tall */}
           <a href="/" style={{ display: "block", textDecoration: "none", flexShrink: 0 }} aria-label="EnviroCare home">
-            <img src="/logo.svg" alt="EnviroCare Pest & Termite Services" style={{ height: 50, width: "auto", display: "block" }} />
+            <img src="/logo.png" alt="EnviroCare Pest & Termite Services" style={{ height: 50, width: "auto", display: "block" }} />
           </a>
 
           {/* CENTER: Nav with dropdowns */}

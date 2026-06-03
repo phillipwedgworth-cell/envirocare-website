@@ -152,9 +152,9 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🦟',
     metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare Since 1958',
-    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service April–October. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
+    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, EPA-registered products. Reclaim your dock. Call (256) 234-6162.',
     body: `
-<p class="lede">Lake Martin is paradise from April through October — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
+<p class="lede">Lake Martin is paradise from March through November — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
 <p>Our Alex City office has been treating lake homes since 1958. Here's what actually works, what doesn't, and how to think about mosquito control if you live (or weekend) on the water.</p>
 
@@ -176,7 +176,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>April through October. Up to 12 treatments per season. $45/month, or bundle with tick and flea for $60/month.</p>
+<p>March through November. Up to 12 treatments per season. $45/month, or bundle with tick and flea for $60/month.</p>
 
 <h2>What we DON'T recommend</h2>
 
@@ -200,7 +200,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Tick and flea bundle</h2>
 
-<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick + flea yard treatment, $60/month, April through October.</p>
+<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick + flea yard treatment, $60/month, March through November.</p>
 
 <p>Call our Alex City / Lake Martin office: <strong>(256) 234-6162</strong>.</p>
 `,
@@ -427,7 +427,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Clear items away from baseboards in the kitchen and bathrooms. Pull appliances forward so we can treat behind them. These areas are prime harborage for roaches, ants, and silverfish — and if we can't reach them, neither can the treatment.</p>
 
 <h2>Secure Pets and Sensitive Items</h2>
-<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are family-safe once dry — about 30 minutes for interior work.</p>
+<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are EPA-registered once dry — about 30 minutes for interior work.</p>
 
 <h2>Trim Exterior Vegetation</h2>
 <p>Trim vegetation at least 12 inches from your home exterior. Overgrown landscaping touching your house creates bridges for pests to bypass our perimeter barrier.</p>

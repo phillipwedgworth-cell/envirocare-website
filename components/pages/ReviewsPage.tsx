@@ -35,7 +35,7 @@ export default function ReviewsPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
@@ -49,7 +49,7 @@ export default function ReviewsPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">What Alabama Says About Us</span></div>
-          <h1>500+ Five-Star<em>Google Reviews</em></h1>
+          <h1>Five-Star <em>Google Reviews</em></h1>
           <p className="page-hero-sub">68 years. Three generations of the Wedgworth family. Thousands of Alabama homes treated. Here\'s what our customers say — verified on Google.</p>
           <div className="page-hero-cta">
             <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read All Google Reviews →</a>
@@ -61,7 +61,7 @@ export default function ReviewsPage() {
       <div className="trust">
         <div className="trust-inner">
           <div className="ti"><div className="ti-chk">★</div>4.9 Average Rating</div>
-          <div className="ti"><div className="ti-chk">✓</div>500+ Verified Reviews</div>
+          <div className="ti"><div className="ti-chk">✓</div>Verified Reviews</div>
           <div className="ti"><div className="ti-chk">✓</div>3 Office Locations</div>
           <div className="ti"><div className="ti-chk">✓</div>68 Years Family-Owned</div>
           <div className="ti"><div className="ti-chk">✓</div>27 Cities Served</div>
@@ -86,7 +86,7 @@ export default function ReviewsPage() {
           <div className="google-cta">
             <div className="google-cta-stars">★★★★★</div>
             <div className="google-cta-num">4.9 / 5.0</div>
-            <div className="google-cta-lbl">Across 500+ verified Google reviews</div>
+            <div className="google-cta-lbl">Across verified Google reviews</div>
             <div className="page-hero-cta" style={{justifyContent:'center'}}>
               <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read Real Reviews On Google →</a>
             </div>
@@ -97,7 +97,7 @@ export default function ReviewsPage() {
       <section className="office-cta">
         <div className="office-cta-inner">
           <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Try Us Yourself</div>
-          <h3>Join 500+ Happy Alabama Homes</h3>
+          <h3>Join Happy Alabama Homes</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
             <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>

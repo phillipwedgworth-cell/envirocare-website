@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { Phone, MapPin, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -145,7 +145,7 @@ export default function Eclectic() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
             {[
-              { icon: "🦟", name: "Mosquito Control", primary: true, desc: "Our most-requested Lake Martin service. Monthly barrier treatments April–October. Waterfront-safe formulas, dock treatment included. 50% off your first application.", offer: "50% off first treatment" },
+              { icon: "🦟", name: "Mosquito Control", primary: true, desc: "Our most-requested Lake Martin service. Monthly barrier treatments March–November. Waterfront-safe formulas, dock treatment included. 50% off your first application.", offer: "50% off first treatment" },
               { icon: "🪲", name: "Termite Control", primary: false, desc: "Eclectic's moisture-rich waterfront environment is prime termite territory. Free inspection covers the home, crawlspace, dock, pier, and boathouse. Sentricon® system available.", offer: "Free inspection" },
               { icon: "🐜", name: "Pest Control", primary: false, desc: "Full perimeter pest control for Eclectic homes. Quarterly programs keep ants, spiders, roaches, and other pests out all season. Eco-safe for waterfront properties.", offer: "$50 off first service" },
               { icon: "🔥", name: "Fire Ant Control", primary: false, desc: "Fire ants near Lake Martin shorelines are a serious hazard, especially for children and barefoot access. Colony elimination and perimeter barriers.", offer: null },

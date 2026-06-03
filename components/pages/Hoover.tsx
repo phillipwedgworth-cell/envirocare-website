@@ -124,7 +124,7 @@ export default function MadisonLandingPage() {
             {
               icon: "🌱",
               title: "Eco-Friendly",
-              description: "Pet-safe, child-safe treatments. We protect your family while eliminating pests."
+              description: "EPA-registered treatments. We protect your family while eliminating pests."
             },
             {
               icon: "💰",
@@ -184,7 +184,7 @@ export default function MadisonLandingPage() {
               },
               {
                 name: "Tick Control",
-                description: "Tick control for Hoover's wooded subdivisions and family yards. Pet-safe treatment options."
+                description: "Tick control for Hoover's wooded subdivisions and family yards. Applied per label directions."
               },
               {
                 name: "Commercial Pest Control",

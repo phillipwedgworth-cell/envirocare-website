@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { Phone, MapPin, Star, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -61,7 +61,7 @@ export default function Alabaster() {
             {[
               { n: "Local Office", sub: "2025 Butler Rd, Alabaster" },
               { n: "Since 1958", sub: "Trusted in Alabama" },
-              { n: "4.9 Stars", sub: "500+ Reviews" },
+              { n: "4.9 Stars", sub: "Verified Reviews" },
               { n: "Same Day", sub: "Service Available" },
             ].map((t, i) => (
               <div key={i} className="text-center">

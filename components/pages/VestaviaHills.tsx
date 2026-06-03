@@ -124,7 +124,7 @@ export default function MadisonLandingPage() {
             {
               icon: "🌱",
               title: "Eco-Friendly",
-              description: "Pet-safe, child-safe treatments. We protect your family while eliminating pests."
+              description: "EPA-registered treatments. We protect your family while eliminating pests."
             },
             {
               icon: "💰",
@@ -184,7 +184,7 @@ export default function MadisonLandingPage() {
               },
               {
                 name: "Tick Control",
-                description: "Tick suppression for Vestavia Hills properties bordering wooded creek areas. Family and pet-safe."
+                description: "Tick suppression for Vestavia Hills properties bordering wooded creek areas. Applied per label directions."
               },
               {
                 name: "Commercial Pest Control",

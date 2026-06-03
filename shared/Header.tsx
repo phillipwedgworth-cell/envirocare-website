@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { Phone, ArrowRight } from "lucide-react";
@@ -59,7 +59,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
       <div id="ec-mobile-menu" className="ec-menu-overlay" data-open={menuOpen} role="dialog" aria-modal="true" aria-label="Site menu">
         <div className="ec-menu-bar">
           <a href="/" onClick={() => setMenuOpen(false)} aria-label="EnviroCare home">
-            <img src="/logo.svg" alt="EnviroCare" width={220} height={85} style={{ width: 200, height: "auto", display: "block" }} />
+            <img src="/logo.png" alt="EnviroCare" width={220} height={85} style={{ width: 200, height: "auto", display: "block" }} />
           </a>
           <button type="button" className="ec-menu-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
@@ -110,7 +110,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
       <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${scrolled ? "rgba(14,142,64,0.18)" : "#D4E8D8"}`, padding: "0 clamp(1.5rem, 5vw, 4rem)", transition: "all 0.2s", boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.06)" : "none" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 96 }}>
           <a href="/" style={{ display: "block", textDecoration: "none", flexShrink: 0 }} aria-label="EnviroCare home">
-            <img src="/logo.svg" alt="EnviroCare Pest & Termite Services" width={380} height={146} style={{ width: "clamp(220px, 26vw, 380px)", height: "auto", display: "block" }} />
+            <img src="/logo.png" alt="EnviroCare Pest & Termite Services" width={380} height={146} style={{ width: "clamp(220px, 26vw, 380px)", height: "auto", display: "block" }} />
           </a>
 
           <nav className="ec-desktop-only" style={{ gap: 28, alignItems: "center", ...sf }}>

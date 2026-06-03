@@ -58,7 +58,7 @@ export default function Auburn() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { n: "Since 1958", sub: "Family-owned" },
-              { n: "4.9 Stars", sub: "500+ reviews" },
+              { n: "4.9 Stars", sub: "Verified Reviews" },
               { n: "Eco-Safe", sub: "Kid & pet friendly" },
               { n: "Free", sub: "Termite inspection" },
             ].map((t, i) => (
@@ -133,7 +133,7 @@ export default function Auburn() {
             {[
               { icon: "🐜", name: "Pest Control", desc: "Full perimeter pest control for Auburn homes, apartments, and rentals. Ants, roaches, spiders, crickets.", href: "/services/pest-control" },
               { icon: "🪲", name: "Termite Inspection", desc: "Pre-purchase and annual inspections. Free termite inspection for Auburn homeowners.", href: "/services/termite-control", highlight: true },
-              { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments April through October. Auburn's warm climate means a long season.", href: "/services/mosquito-control" },
+              { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments March through November. Auburn's warm climate means a long season.", href: "/services/mosquito-control" },
               { icon: "🕷️", name: "Tick Control", desc: "Lee County's wooded areas and greenways bring tick pressure. Yard treatments bundled free with mosquito.", href: "/services/tick-control" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Auburn area fire ants. Colony elimination for yards, parks, and commercial properties.", href: "/services/fire-ant-control" },
               { icon: "🏢", name: "Commercial Pest Control", desc: "Restaurants, retail, offices near Auburn and Opelika. Discreet, compliant service.", href: "/services/commercial" },

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -70,7 +70,7 @@ function Header() {
       <div className="ec-header-inner">
         <Link href="/" className="ec-brand" aria-label="EnviroCare home">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="EnviroCare Pest & Termite Services"
             width={280}
             height={72}
@@ -308,8 +308,8 @@ function CoreServices() {
           />
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
-            description="30-day yard barrier April–October. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['Up to 12 seasonal applications', 'Pet- & kid-safe once dry', '50% off first application']}
+            description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
+            bullets={['Up to 12 seasonal applications', 'Applied per label directions', '50% off first application']}
             href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER"
           />
           <ServiceCard
@@ -921,7 +921,7 @@ function Pricing() {
               title="Essential" tags={['Pest']}
               tagline="Year-round pest control for the everyday Alabama home."
               price="35" unit="/mo" terms="ACH · or $70 bi-monthly"
-              bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'Family- & pet-safe applications']}
+              bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'Applied per label directions applications']}
               cta="Start Essential" href="/quote?plan=essential"
             />
             <PriceCard
@@ -947,9 +947,9 @@ function Pricing() {
           <div className="ec-svc-price-grid ec-pricing-fade">
             <SvcPriceCard icon="🛡️" title="Pest Control" price="70" unit="/visit" note="Bi-monthly exterior treatment" bullets={['30+ common pests covered', 'Interior + perimeter', 'Unlimited free re-services']} href="/quote?service=pest" />
             <SvcPriceCard icon="🪵" title="Termite Inspection" price="0" unit="FREE" note="Full home · no obligation" bullets={['Sentricon® quote included', 'Same-week scheduling', '$1M coverage available']} href="/quote?service=termite" featured />
-            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Pet- & kid-safe once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
+            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Applied per label directions', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
             <SvcPriceCard icon="🐾" title="Tick Treatment" price="69" unit="/treatment" note="Harborage-zone targeted" bullets={['Lone Star, Dog & Deer ticks', 'Yard-wide coverage', 'Free when bundled with mosquito']} href="/quote?service=tick" />
-            <SvcPriceCard icon="🌻" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Family- & pet-safe']} href="/quote?service=fire-ant" />
+            <SvcPriceCard icon="🌻" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Applied per label directions']} href="/quote?service=fire-ant" />
             <SvcPriceCard icon="📋" title="WDO / Real Estate Letter" price="125" unit="/letter" note="Fast turnaround · lender-ready" bullets={['NPMA-33 format', 'Same-week scheduling', 'All three offices']} href="/quote?service=wdo" />
           </div>
         )}
@@ -1087,7 +1087,7 @@ function Footer() {
       <div className="ec-footer-inner">
         <div className="ec-footer-brand-col">
           <Link href="/" className="ec-footer-brand">
-            <Image src="/logo.svg" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
+            <Image src="/logo.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
             Family-owned and operated since 1958 — now in its third generation

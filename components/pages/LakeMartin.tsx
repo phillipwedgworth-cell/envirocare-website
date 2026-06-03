@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { MapPin, Phone, Star, Shield, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -82,7 +82,7 @@ export default function LakeMartin() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { icon: "🏆", val: "Since 1958", label: "Serving Lake Martin" },
-                { icon: "⭐", val: "4.9 Stars", label: "500+ Reviews" },
+                { icon: "⭐", val: "4.9 Stars", label: "Verified Reviews" },
                 { icon: "📍", val: "Local Office", label: "Alexander City" },
                 { icon: "🌿", val: "Eco-Safe", label: "Pet & kid friendly" },
               ].map((t, i) => (
@@ -244,7 +244,7 @@ export default function LakeMartin() {
                 icon: "🦟",
                 name: "Mosquito Control",
                 tagline: "The #1 complaint at every lake house",
-                description: "Our Lake Martin mosquito program is engineered for waterfront. We treat your yard, shoreline, and surrounding vegetation on a recurring schedule throughout mosquito season (April–October). 50% off your first treatment.",
+                description: "Our Lake Martin mosquito program is engineered for waterfront. We treat your yard, shoreline, and surrounding vegetation on a recurring schedule throughout mosquito season (March–November). 50% off your first treatment.",
                 cta: "50% off first treatment",
                 href: "/services/mosquito-control",
                 highlight: true,
@@ -370,7 +370,7 @@ export default function LakeMartin() {
               },
               {
                 q: "How often should I treat my lake house for mosquitoes?",
-                a: "For waterfront properties on Lake Martin, we recommend monthly treatments from April through October. The lake environment and Alabama humidity create ideal breeding conditions all summer. Many homeowners bundle mosquito control with general pest for maximum protection.",
+                a: "For waterfront properties on Lake Martin, we recommend monthly treatments from March through November. The lake environment and Alabama humidity create ideal breeding conditions all summer. Many homeowners bundle mosquito control with general pest for maximum protection.",
               },
               {
                 q: "Do you treat docks, piers, and boathouses?",

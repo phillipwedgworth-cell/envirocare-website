@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { Phone, MapPin, Star, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -11,7 +11,7 @@ const sf = { fontFamily: "system-ui, sans-serif" };
 const SERVICES = [
   { icon: "🐜", name: "Pest Control", desc: "Ants, roaches, spiders, crickets & more. Full perimeter protection.", highlight: false },
   { icon: "🪲", name: "Termite Control", desc: "Free inspection. Protect your Madison home from Alabama termites.", highlight: true },
-  { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments April–October. 50% off first treatment.", highlight: false },
+  { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments March–November. 50% off first treatment.", highlight: false },
   { icon: "🕷️", name: "Tick Control", desc: "Safe protection for family and pets all season long.", highlight: false },
   { icon: "🔥", name: "Fire Ant Control", desc: "Colony elimination and lasting perimeter protection.", highlight: false },
   { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite combined. Madison's most popular plan.", highlight: false },
@@ -62,7 +62,7 @@ export default function Madison() {
             </a>
           </div>
           <div style={{ display: "flex", gap: 32, flexWrap: "wrap", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24 }}>
-            {[["Since 1958", "Family-owned"], ["4.9 Stars", "500+ Reviews"], ["Same Day", "Available"], ["FREE", "Termite Inspection"]].map(([n, l]) => (
+            {[["Since 1958", "Family-owned"], ["4.9 Stars", "Verified Reviews"], ["Same Day", "Available"], ["FREE", "Termite Inspection"]].map(([n, l]) => (
               <div key={n}><div style={{ fontSize: 18, fontWeight: 800, color: GOLD, ...sf }}>{n}</div><div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 3, ...sf }}>{l}</div></div>
             ))}
           </div>

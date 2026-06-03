@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { Phone, CheckCircle, ChevronDown, Shield, Leaf, Clock } from "lucide-react";
 
@@ -125,7 +125,7 @@ export default function MosquitoControl() {
             {[
               {
                 name: "Seasonal Program",
-                price: "April–October",
+                price: "March–November",
                 tag: "Most Popular",
                 highlight: true,
                 features: [

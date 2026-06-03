@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from 'react';
 
@@ -35,7 +35,7 @@ export default function BlogPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
@@ -65,7 +65,7 @@ export default function BlogPage() {
 
           <div className="blog-grid">
             <div className="blog-card"><div className="blog-thumb"><div className="blog-thumb-icon">🌻</div></div><div className="blog-body"><div className="blog-cat">Termite</div><div className="blog-title">Sentricon® vs Liquid Treatments: The Real Difference</div><div className="blog-excerpt">Why bait stations beat liquid barriers for Alabama homes — and what the chemical industry doesn\'t want you to know about retreat cycles.</div><div className="blog-meta"><span>Coming Soon</span><span>~8 min read</span></div></div></div>
-            <div className="blog-card"><div className="blog-thumb"><div className="blog-thumb-icon">🦟</div></div><div className="blog-body"><div className="blog-cat">Mosquito</div><div className="blog-title">When To Start Mosquito Service In Alabama</div><div className="blog-excerpt">The April-October window most homeowners get wrong. Why starting in March beats waiting for the first bite — and what that means for your yard.</div><div className="blog-meta"><span>Coming Soon</span><span>~5 min read</span></div></div></div>
+            <div className="blog-card"><div className="blog-thumb"><div className="blog-thumb-icon">🦟</div></div><div className="blog-body"><div className="blog-cat">Mosquito</div><div className="blog-title">When To Start Mosquito Service In Alabama</div><div className="blog-excerpt">The March-November window most homeowners get wrong. Why starting in March beats waiting for the first bite — and what that means for your yard.</div><div className="blog-meta"><span>Coming Soon</span><span>~5 min read</span></div></div></div>
             <div className="blog-card"><div className="blog-thumb"><div className="blog-thumb-icon">🏡</div></div><div className="blog-body"><div className="blog-cat">Home</div><div className="blog-title">5 Signs You Have Termites You\'re Missing</div><div className="blog-excerpt">It\'s not just hollow wood. The subtle Alabama-specific signs of subterranean termite activity that even experienced homeowners overlook.</div><div className="blog-meta"><span>Coming Soon</span><span>~6 min read</span></div></div></div>
             <div className="blog-card"><div className="blog-thumb"><div className="blog-thumb-icon">🐛</div></div><div className="blog-body"><div className="blog-cat">Seasonal</div><div className="blog-title">Alabama Pest Calendar: What To Expect Each Month</div><div className="blog-excerpt">From spring ant invasions to fall mouse migration, what every Alabama homeowner should expect — and prepare for — month by month.</div><div className="blog-meta"><span>Coming Soon</span><span>~10 min read</span></div></div></div>
             <div className="blog-card"><div className="blog-thumb"><div className="blog-thumb-icon">🏗️</div></div><div className="blog-body"><div className="blog-cat">Builders</div><div className="blog-title">Pre-Slab Termite Treatment: A Builder\'s Guide</div><div className="blog-excerpt">Alabama code requirements, the right timing, and why coordinating with your pest pro before pour day saves money on the back end.</div><div className="blog-meta"><span>Coming Soon</span><span>~7 min read</span></div></div></div>
