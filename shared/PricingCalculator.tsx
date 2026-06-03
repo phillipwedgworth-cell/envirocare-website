@@ -274,7 +274,7 @@ export default function PricingCalculator() {
                   <Phone size={18} /> Call {officePhone.display}
                 </a>
                 <div style={{ fontSize: 11, color: "#6b7d70", textAlign: "center", marginBottom: 14 }}>
-                  Connects you to your {officePhone.name}. Same-day available.
+                  Connects you to your {officePhone.name}. Fast scheduling.
                 </div>
 
                 <a href="/contact-us"

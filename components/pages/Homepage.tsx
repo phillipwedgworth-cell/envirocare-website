@@ -169,7 +169,7 @@ function Hero() {
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360 · same-day</span>
+              <span>📞</span><span>(205) 649-5278</span>
             </a>
           </div>
 
@@ -182,7 +182,7 @@ function Hero() {
           <div className="ec-hero-checks">
             <span>✓ Licensed &amp; Insured</span>
             <span>✓ Sentricon® Certified</span>
-            <span>✓ Same-Day Available</span>
+            <span>✓ Fast Scheduling</span>
             <span>✓ Family Owned Since 1958</span>
           </div>
         </div>
@@ -207,9 +207,9 @@ function Hero() {
           <div className="ec-floating-card ec-card-same-day">
             <div className="ec-card-icon-circle">⚡</div>
             <div>
-              <div className="ec-card-title">Same-Day Service</div>
-              <div className="ec-card-sub">Call before noon — there today</div>
-              <div className="ec-card-tag">AVAILABLE NOW</div>
+              <div className="ec-card-title">Fast Scheduling</div>
+              <div className="ec-card-sub">Call before noon — check availability</div>
+              <div className="ec-card-tag">CALL FOR AVAILABILITY</div>
             </div>
           </div>
 
@@ -309,11 +309,15 @@ function CoreServices() {
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
             description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
+<<<<<<< HEAD
             bullets={['Up to 12 seasonal applications', 'Applied per label directions', '50% off first application']}
+=======
+            bullets={['Up to 12 seasonal applications', 'Applied according to label directions once dry', '50% off first application']}
+>>>>>>> fix/prelaunch-batch
             href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER"
           />
           <ServiceCard
-            badge="PET & FAMILY SAFE" title="Tick Control"
+            badge="TARGETED TICK CONTROL" title="Tick Control"
             description="Targeted yard treatments to break the tick lifecycle. Critical for waterfront and wooded properties."
             bullets={['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Bundled free with mosquito']}
             href="/services/tick-control" cornerIcon="🐾"
@@ -351,7 +355,7 @@ function ServiceCard({ badge, title, description, bullets, href, cornerIcon, fea
 function SpecialtyServices() {
   const specialty = [
     { icon: '🌻', title: 'Fire Ant Control', desc: 'Yard-wide elimination & mound treatment. Critical for lake homes and barefoot families.', tag: 'ADD-ON', href: '/services/fire-ant' },
-    { icon: '🪲', title: 'Flea Control', desc: 'Yard barrier treatments to break the flea lifecycle. Bundles seamlessly with mosquito & tick service.', tag: 'PET-FRIENDLY', href: '/services/flea' },
+    { icon: '🪲', title: 'Flea Control', desc: 'Yard barrier treatments to break the flea lifecycle. Bundles seamlessly with mosquito & tick service.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
     { icon: '🏠', title: 'Builder Pre-Treat', desc: 'Pre-construction termite treatment for new builds. The right time to start Sentricon® protection.', tag: 'NEW CONSTRUCTION', href: '/services/builder-pre-treat' },
     { icon: '📋', title: 'Real Estate / WDO Letters', desc: 'Wood-destroying organism inspection letters for closings. Fast turnaround, lender-ready format.', tag: 'CLOSINGS', href: '/services/wdo-letters' },
     { icon: '🏗️', title: 'Crawlspace Service', desc: 'Moisture control, vapor barriers & targeted treatments for the most vulnerable part of your home.', tag: 'FOUNDATION CARE', href: '/services/crawlspace' },
@@ -504,7 +508,7 @@ function ServiceAreas() {
         <p className="ec-section-sub">
           Whether you&apos;re in downtown Birmingham, on the lake in Dadeville, or
           near Bridge Street in Huntsville — we have a local technician for you.
-          Tap your city for local pricing and same-day scheduling.
+          Tap your city for local pricing and fast scheduling.
         </p>
 
         <div className="ec-areas-grid">
@@ -921,7 +925,11 @@ function Pricing() {
               title="Essential" tags={['Pest']}
               tagline="Year-round pest control for the everyday Alabama home."
               price="35" unit="/mo" terms="ACH · or $70 bi-monthly"
+<<<<<<< HEAD
               bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'Applied per label directions applications']}
+=======
+              bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'EPA-registered products applied according to label directions']}
+>>>>>>> fix/prelaunch-batch
               cta="Start Essential" href="/quote?plan=essential"
             />
             <PriceCard
@@ -936,7 +944,7 @@ function Pricing() {
               title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
               tagline="All four programs — pest, termite, mosquito & tick — under one plan."
               price="127" unit="/mo" terms="ACH · everything in one invoice"
-              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Apr–Oct, every 21 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
+              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Apr–Oct, every 30 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
               cta="Start Complete" href="/quote?plan=complete"
             />
           </div>
@@ -947,7 +955,11 @@ function Pricing() {
           <div className="ec-svc-price-grid ec-pricing-fade">
             <SvcPriceCard icon="🛡️" title="Pest Control" price="70" unit="/visit" note="Bi-monthly exterior treatment" bullets={['30+ common pests covered', 'Interior + perimeter', 'Unlimited free re-services']} href="/quote?service=pest" />
             <SvcPriceCard icon="🪵" title="Termite Inspection" price="0" unit="FREE" note="Full home · no obligation" bullets={['Sentricon® quote included', 'Same-week scheduling', '$1M coverage available']} href="/quote?service=termite" featured />
+<<<<<<< HEAD
             <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Applied per label directions', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
+=======
+            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Applied according to label directions once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
+>>>>>>> fix/prelaunch-batch
             <SvcPriceCard icon="🐾" title="Tick Treatment" price="69" unit="/treatment" note="Harborage-zone targeted" bullets={['Lone Star, Dog & Deer ticks', 'Yard-wide coverage', 'Free when bundled with mosquito']} href="/quote?service=tick" />
             <SvcPriceCard icon="🌻" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Applied per label directions']} href="/quote?service=fire-ant" />
             <SvcPriceCard icon="📋" title="WDO / Real Estate Letter" price="125" unit="/letter" note="Fast turnaround · lender-ready" bullets={['NPMA-33 format', 'Same-week scheduling', 'All three offices']} href="/quote?service=wdo" />

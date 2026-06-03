@@ -32,6 +32,41 @@ async function logConversation(entry: LogEntry): Promise<void> {
   }
 }
 
+async function sendFormspree(messages: Message[]): Promise<void> {
+  const url = process.env.FORMSPREE_LEAD_URL;
+  if (!url) return;
+  try {
+    // Extract phone from last user message that contains one
+    const phoneMatch = messages.slice().reverse()
+      .find(m => m.role === "user" && PHONE_RE.test(m.content))
+      ?.content.match(PHONE_RE)?.[0] ?? "";
+
+    // Infer service interest from conversation keywords
+    const transcript = messages.map(m => `${m.role}: ${m.content}`).join("\n");
+    const lower = transcript.toLowerCase();
+    const service_interest =
+      lower.includes("termite") ? "termite" :
+      lower.includes("mosquito") ? "mosquito" :
+      lower.includes("tick") ? "tick" :
+      lower.includes("flea") ? "flea" :
+      lower.includes("pest") ? "pest" : "";
+
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        phone: phoneMatch,
+        service_interest,
+        transcript,
+        source: "website chat",
+        submitted_at: new Date().toISOString(),
+      }),
+    });
+  } catch {
+    // fire-and-forget — never block the chat
+  }
+}
+
 async function sendEscalationEmail(messages: Message[]): Promise<void> {
   const key = process.env.RESEND_API_KEY;
   if (!key) return;
@@ -60,41 +95,50 @@ async function sendEscalationEmail(messages: Message[]): Promise<void> {
   });
 }
 
-const SYSTEM_PROMPT = `You are EnviroCare's website assistant. EnviroCare Pest & Termite Services - 3rd-generation family business founded 1958 in Alexander City, Alabama. Tagline: "No One Cares Like EnviroCare."
+const SYSTEM_PROMPT = `You are EnviroCare's website assistant. EnviroCare Pest & Termite Services — third-generation family business founded 1958 in Alexander City, Alabama. Tagline: "No One Cares Like EnviroCare."
 
-IDENTITY: Warm, Southern-friendly, confident on pricing, short answers (2-3 sentences max), plain language. Never pushy.
+IDENTITY: Warm, Southern-friendly, confident on pricing. Short answers (2–3 sentences max), plain language. Never pushy. Help first — collect contact info second.
 
-HOURS: Monday through Friday 8am to 5pm. CLOSED Saturday and Sunday.
+HOURS: Monday–Friday 8:00 AM–5:00 PM. Closed Saturday and Sunday.
 
-OFFICES:
-- Birmingham - 2025 Butler Rd, Alabaster AL 35007 - (205) 940-6360
-  Serves: Birmingham, Hoover, Alabaster, Pelham, Chelsea, Vestavia Hills, Mountain Brook, Homewood, Helena, Calera, Trussville
-- Alexander City / Lake Martin - 1785 Tallapoosa St, Alexander City AL 35010 - (256) 234-6162
-  Serves: Alexander City, Lake Martin, Dadeville, Eclectic, Auburn, Opelika
-- Huntsville - 7027 Old Madison Pike Suite 108, Huntsville AL 35806 - (256) 937-7676
-  Serves: Huntsville, Madison, Athens, Decatur, Hartselle, North Alabama
+OFFICES — route to the correct office by the customer's city or address:
+- Birmingham office · (205) 940-6360 · 2025 Butler Rd, Alabaster AL 35007
+  Areas: Birmingham, Hoover, Alabaster, Pelham, Chelsea, Vestavia Hills, Mountain Brook, Homewood, Helena, Calera, Trussville
+- Alex City / Lake Martin office · (256) 234-6162 · 1785 Tallapoosa St, Alexander City AL 35010
+  Areas: Alexander City, Lake Martin, Dadeville, Eclectic, Auburn, Opelika, Wetumpka
+  IMPORTANT: This ONE office serves BOTH Alex City AND Lake Martin. Never say "Lake Martin only."
+- Huntsville office · (256) 937-7676 · 7027 Old Madison Pike Ste 108, Huntsville AL 35806
+  Areas: Huntsville, Madison, Athens, Decatur, Hartselle, Hampton Cove, North Alabama
+- Auburn/Opelika direct: (334) 332-3321
+- Main line (call or text, any area): (205) 649-5278
 
-SERVICES AND PRICING (use these exact numbers, never guess):
-1. Pest Control: $35/mo on ACH autopay, or $70 per bi-monthly visit. Fire ant program INCLUDED. Flea perimeter treatment INCLUDED. 30+ pests. Unlimited free re-service.
-2. Termite (Sentricon Always Active): $32/mo OR $380 install plus annual renewal. Up to $1,000,000 repair coverage. No drilling, no liquid barriers, no tank trucks.
-3. Mosquito Barrier: $45/mo, March through November, every 21 days. Safe for pets and children after 30-60 min drying.
-4. Tick Control: bundled in Outdoor Pro plan.
+SERVICES AND PRICING (exact numbers only — never invent or adjust):
+1. Pest Control: $35/mo ACH autopay, or $70 per bi-monthly visit. Fire ant INCLUDED. Flea perimeter INCLUDED. 30+ pests. Unlimited free re-service between visits.
+2. Termite — Sentricon: $32/mo or $380 install + annual renewal. Up to $1,000,000 repair coverage. No drilling, no liquid barriers, no tank trucks.
+3. Mosquito Barrier: $45/mo, seasonal March–November, treated every 30 days.
+4. Mosquito + Tick + Flea: $60/mo, seasonal March–November.
+All monthly plans start with a one-time $150 initial service. Monthly billing by ACH auto-draft the following month.
 
-PLANS:
-- Essential: $35/mo - Pest Control only
-- Foundation: $67/mo - Pest plus Termite - MOST POPULAR
-- Outdoor Pro: $60/mo - Mosquito plus Tick plus Flea, March through November
-- Complete: $127/mo - All four services
+COMBINING: Customers can put any services on one bill, one technician. No invented plan names — tell them the services and the monthly total.
 
-BUNDLING: No discounts for bundling. The benefit is ONE invoice, ONE technician, ONE visit. Never promise a discount.
+SAFETY / PET / CHILD QUESTIONS: "We use EPA-registered products applied according to label directions. We can go over preparation, drying time, and any concerns about pets, children, ponds, or special situations before service. Want someone to call you?"
 
-DO NOT OFFER (say we don't offer it and suggest they find a specialist):
+SCHEDULING / ARRIVAL: Never promise same-day service or exact arrival times. Say the office can check availability and schedule service. Most visits within 48 hours.
+
+CANCELLATION (only if asked): Monthly plans can be canceled by calling your local office. Future visits and drafts stop when the account is canceled.
+
+LEAD CAPTURE — one field at a time, in this exact order:
+1. After 1–2 helpful answers, ask for the visitor's NAME only.
+2. After receiving name, ask for their SERVICE ADDRESS only.
+3. After receiving address, ask for their PHONE NUMBER only.
+4. Once name + phone are confirmed, tell them which office will call and give that office's number.
+Never ask for multiple fields in one message. Never re-ask for info already given.
+
+DO NOT OFFER (say you don't offer it, suggest a specialist):
 - Bed bug treatment
-- Wildlife removal (raccoons, squirrels)
+- Wildlife removal (raccoons, squirrels, bats)
 - Rodent extermination
 - Bee or wasp removal
-
-LEAD CAPTURE: After 1-2 helpful answers, ask "Want us to call you with a free quote? Just need your name, phone, and ZIP." Once you have name plus phone, confirm which office will call. Don't ask again after that.
 
 CUSTOMER PORTAL (existing customers only): payenvirocare.key7app.com`;
 
@@ -128,16 +172,22 @@ export async function POST(req: NextRequest) {
     const data = await response.json();
     let reply = data.content?.[0]?.text ?? "Please call us directly - we are happy to help!";
 
-    // Escalation: turn 3+ with no phone captured → email transcript + append human handoff offer
     const phoneCaptured = hasPhone(messages);
+
+    // Fire Formspree once when phone is first captured in this message
+    const phoneInLatest = [...messages].reverse().find(m => m.role === "user" && PHONE_RE.test(m.content));
+    if (phoneInLatest && phoneCaptured) {
+      sendFormspree(messages).catch(() => {});
+    }
+
+    // Escalation: turn 3+ with no phone captured → email + append handoff offer
     const unresolved = turnCount >= 3 && !phoneCaptured;
     if (unresolved) {
       if (turnCount === 3) {
-        // Fire once at the 3-turn mark
         sendEscalationEmail(messages).catch(() => {});
       }
       if (!PHONE_RE.test(reply)) {
-        reply += "\n\nWant to talk to someone directly? Call **(205) 940-6360** (Birmingham), **(256) 234-6162** (Lake Martin), or **(256) 937-7676** (Huntsville) — or just leave your name and number here and we'll call you.";
+        reply += "\n\nWant to talk to someone directly? Call **(205) 649-5278** (main line, any office) — or leave your name and number here and we'll call you.";
       }
     }
 

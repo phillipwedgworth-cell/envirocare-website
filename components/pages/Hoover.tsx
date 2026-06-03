@@ -29,11 +29,6 @@ export default function MadisonLandingPage() {
             "https://www.facebook.com/envirocare",
             "https://www.google.com/maps/place/EnviroCare+Madison"
           ],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "247"
-          },
           "priceRange": "$$"
         }
       `}</script>
@@ -118,7 +113,7 @@ export default function MadisonLandingPage() {
             },
             {
               icon: "⚡",
-              title: "Same-Day Service",
+              title: "Fast Scheduling",
               description: "Call in the morning, technician visits by afternoon. No week-long waits."
             },
             {

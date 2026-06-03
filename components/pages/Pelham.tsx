@@ -26,7 +26,7 @@ export default function Pelham() {
             "postalCode": "35007"
           },
           "areaServed": ["Pelham, AL","Shelby County, AL"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" }
+          
         }
       `}</script>
 
@@ -41,7 +41,7 @@ export default function Pelham() {
             <span className="text-emerald-400">Fast. Local. Guaranteed.</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
-            Pelham families trust EnviroCare for pest, termite, and mosquito control. Our Alabaster office is minutes away — same-day service, licensed technicians, family-owned since 1958.
+            Pelham families trust EnviroCare for pest, termite, and mosquito control. Our Alabaster office is minutes away — fast scheduling, licensed technicians, family-owned since 1958.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <button onClick={() => setQuoteOpen(true)} className="px-8 py-4 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-400 transition shadow-lg">Get Free Inspection</button>
@@ -50,7 +50,7 @@ export default function Pelham() {
             </a>
           </div>
           <div className="flex flex-wrap gap-6 text-sm">
-            {["$50 Off Initial Service","50% Off First Mosquito","FREE Termite Inspection","Same-Day Service Available"].map((t,i) => (
+            {["$50 Off Initial Service","50% Off First Mosquito","FREE Termite Inspection","Fast Scheduling"].map((t,i) => (
               <span key={i} className="flex items-center gap-2 text-emerald-200"><span className="text-emerald-400">✓</span>{t}</span>
             ))}
           </div>
@@ -67,7 +67,7 @@ export default function Pelham() {
             {[
               { icon: "🐜", name: "Pest Control", desc: "Perimeter protection from ants, roaches, spiders, and all Pelham area pests. Quarterly programs with re-treatment guarantee.", highlight: false },
               { icon: "🪲", name: "Termite Control", desc: "Free inspection for Pelham homeowners. Pelham's soil and humidity make termite protection essential.", highlight: true },
-              { icon: "🦟", name: "Mosquito Control", desc: "Monthly treatments April–October. Pelham's greenways and wooded areas drive heavy mosquito pressure.", highlight: false },
+              { icon: "🦟", name: "Mosquito Control", desc: "Monthly treatments March–November. Pelham's greenways and wooded areas drive heavy mosquito pressure.", highlight: false },
               { icon: "🔥", name: "Fire Ant Control", desc: "Aggressive fire ant populations throughout Shelby County. Colony elimination, not just suppression.", highlight: false },
               { icon: "🕷️", name: "Tick Control", desc: "Pelham's greenways and wooded areas create tick habitat. Yard treatments protect your family all season.", highlight: false },
               { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite in one simple monthly plan. Most popular option for Pelham homeowners.", highlight: false },
@@ -91,7 +91,7 @@ export default function Pelham() {
               {[
                 { t: "Office in Alabaster — 5 minutes away", d: "Faster response than any company dispatching from Birmingham proper." },
                 { t: "Family-owned since 1958", d: "Three generations of the Wedgworth family. We treat your home like our own." },
-                { t: "4.9 stars, Verified reviews", d: "Consistent 5-star service across the Birmingham metro for decades." },
+                { t: "4.9★ Google Rated", d: "Consistent 5-star service across the Birmingham metro for decades." },
                 { t: "Licensed & insured in Alabama", d: "Every technician state-certified. Treatments safe for kids and pets." },
                 { t: "Satisfaction guaranteed", d: "Pests return between visits? So do we — at no charge." },
               ].map((item, i) => (
@@ -123,7 +123,7 @@ export default function Pelham() {
       <section className="py-16 px-6 bg-emerald-800 text-white text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Pelham's Trusted Pest Experts</h2>
-          <p className="text-emerald-100 text-lg mb-8">Same-day service from our Alabaster office. Free inspection, guaranteed results.</p>
+          <p className="text-emerald-100 text-lg mb-8">Fast scheduling from our Alabaster office. Free inspection, guaranteed results.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)} className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">Get Free Inspection</button>
             <a href="tel:2059406360" className="flex items-center justify-center gap-2 px-8 py-4 bg-emerald-700 text-white font-bold rounded-xl hover:bg-emerald-600 transition border border-emerald-500">

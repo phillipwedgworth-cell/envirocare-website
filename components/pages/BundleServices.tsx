@@ -38,7 +38,7 @@ const BUNDLES = [
       "Sentricon Termite Bait System",
       "Fire Ant Control",
       "Flea Control",
-      "Priority Same-Day Service",
+      "Priority Scheduling",
       "Quarterly Walk-through Report",
     ],
     price: "Ask for quote",

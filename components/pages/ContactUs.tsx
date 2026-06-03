@@ -117,7 +117,7 @@ export default function ContactUs() {
       {/* HERO */}
       <section style={{ background: `linear-gradient(160deg, ${DARK}, #0E8E40)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: "1px solid rgba(245,168,0,0.3)", borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
-          <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>Free Inspection · Same-Day Available</span>
+          <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>Free Inspection · Fast Scheduling</span>
         </div>
         <h1 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, lineHeight: 1.15, marginBottom: 14 }}>
           Talk to Your <em style={{ color: GOLD }}>Local</em> Office
@@ -321,7 +321,7 @@ export default function ContactUs() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
               ["What are your hours?", "Monday–Friday 7am–6pm. Emergency situations — call us, we'll do our best."],
-              ["Can I get same-day service?", "Often yes, especially for urgent situations. Call your nearest office directly for same-day availability."],
+              ["How quickly can you schedule service?", "Call your nearest office to check availability — most visits are within 48 hours."],
               ["Is the inspection really free?", "Yes. We inspect your property, give you a written assessment and quote, with no obligation to purchase."],
               ["Do you serve my city?", "We serve 30+ Alabama communities across 3 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],
             ].map(([q, a], i) => (

@@ -42,14 +42,14 @@ export const SERVICES: Service[] = [
       '30+ common pests covered',
       'Unlimited free re-services',
       'Same-week scheduling',
-      'Applied per label directions applications',
+      'EPA-registered products applied according to label directions',
       '$1M coverage when bundled with termite',
     ],
     includes: [
       { title: 'Perimeter Treatment', desc: 'Targeted application around the foundation, door frames, and entry points where pests enter.' },
       { title: 'Eaves & Webbing', desc: 'Spider web knockdown and wasp/eave prevention at every visit.' },
       { title: 'Interior Service On Request', desc: 'Free interior service anytime you need it between visits — just call.' },
-      { title: 'EPA-Registered', desc: 'EPA-registered products applied per label directions.' },
+      { title: 'Pet- & Kid-Safe', desc: 'EPA-registered products applied to manufacturer specs. Safe once dry.' },
     ],
     wedgePoints: [
       { lead: 'No contracts', body: 'Cancel anytime. We earn your business every visit, not lock you in.' },
@@ -114,14 +114,14 @@ export const SERVICES: Service[] = [
     price: '$45/mo',
     priceSub: 'April – October season',
     metaTitle: 'Alabama Mosquito Yard Treatment | EnviroCare 30-day Service',
-    metaDescription: 'Mosquito barrier yard service every 21 days, March–November. Family-owned, Applied per label directions. Call (205) 649-5278.',
+    metaDescription: 'Mosquito barrier yard service every 30 days, March–November. Family-owned, pet-safe once dry. Call (205) 649-5278.',
     heroEyebrow: 'Take Back Your Yard',
     heroTagline: 'Mosquito Barrier Treatment',
     heroSubhead: '30-day yard barrier treatments March through November. Make your patio livable, your evenings outdoor again, your kids safer from West Nile and EEE.',
     features: [
       '30-day refresh cycle',
       'March through November coverage',
-      'Applied per label directions',
+      'Applied according to label directions once dry',
       'Up to 12 applications per season',
       'Free re-treatment if needed',
       '50% off first application for new customers',
@@ -130,7 +130,7 @@ export const SERVICES: Service[] = [
       { title: 'Yard Barrier Application', desc: 'Targeted mist application to shrubs, eaves, fence lines, and harborage areas where mosquitoes rest.' },
       { title: 'Special Events Bonus', desc: 'Pre-event knockdown applications for backyard weddings, parties, or holidays at no extra charge.' },
       { title: 'Standing Water Inspection', desc: 'We identify breeding spots on your property and recommend fixes — gutters, planters, kiddie pools, etc.' },
-      { title: 'EPA-Registered', desc: 'EPA-registered pyrethroids applied per label. Re-entry per label directions.' },
+      { title: 'Pet- & Kid-Safe', desc: 'EPA-registered pyrethroids applied per label. Safe for re-entry once dry (typically 30 minutes).' },
     ],
     wedgePoints: [
       { lead: 'Built for Alabama', body: 'Our mosquito season runs March through November, not the generic "warm months." We schedule accordingly.' },
@@ -161,7 +161,7 @@ export const SERVICES: Service[] = [
     features: [
       'Lone Star, Dog & Deer ticks',
       'Harborage-zone targeting',
-      'Applied per label directions',
+      'Applied according to label directions once dry',
       'Bundles with mosquito service',
       'Free re-treatment if needed',
       'Lyme & RMSF risk reduction',
@@ -170,7 +170,7 @@ export const SERVICES: Service[] = [
       { title: 'Targeted Harborage Treatment', desc: 'Tick-favored areas — leaf litter, woodpiles, fence lines, tall grass margins — get focused applications.' },
       { title: 'Lifecycle Disruption', desc: 'We time applications to break the egg-larva-nymph-adult cycle, reducing populations year-over-year.' },
       { title: 'Wooded Property Specialty', desc: 'Lake Martin and forested Birmingham/Huntsville homes need targeted edge treatment, not just yard spray.' },
-      { title: 'EPA-Registered', desc: 'Same EPA-registered products as mosquito service. Applied per label directions.' },
+      { title: 'Pet- & Kid-Safe', desc: 'Same EPA-registered products as mosquito service. Safe once dry.' },
     ],
     wedgePoints: [
       { lead: 'Bundles save complexity', body: 'No separate vendor for ticks — your mosquito tech handles it on the same visit.' },
@@ -212,7 +212,7 @@ export const SERVICES: Service[] = [
     ],
     wedgePoints: [
       { lead: 'Not just mound bait', body: 'Big-box mound bait kills visible mounds but new ones pop up. Yard-wide treatment hits foragers and queens.' },
-      { lead: 'Same-day for emergencies', body: 'Fire ant emergencies (kid stung, dog stung) get priority scheduling.' },
+      { lead: 'Priority scheduling for urgent situations', body: 'Fire ant emergencies (kid stung, dog stung) get priority scheduling.' },
     ],
     faqs: [
       { q: 'How is this different from store-bought mound bait?', a: 'Store bait kills visible mounds but doesn\'t handle queens or foragers. New mounds appear in days. Our yard-wide treatment eliminates the colony network.' },
@@ -225,7 +225,7 @@ export const SERVICES: Service[] = [
     shortName: 'Flea',
     category: 'specialty',
     serviceArt: 'flea',
-    metaTitle: 'Alabama Flea Yard Treatment | EnviroCare Alabama',
+    metaTitle: 'Alabama Flea Yard Treatment | EnviroCare Pet-Safe Service',
     metaDescription: 'Yard flea barrier treatments. Bundles with mosquito & tick service. Applied per label directions. Call (205) 649-5278.',
     heroEyebrow: 'Bundles With Mosquito & Tick',
     heroTagline: 'Flea Yard Control',
@@ -233,7 +233,7 @@ export const SERVICES: Service[] = [
     features: [
       'Yard barrier treatment',
       'Lifecycle disruption',
-      'Applied per label directions',
+      'Applied according to label directions once dry',
       'Bundles with mosquito + tick',
       'Indoor service on request',
       'Same-week scheduling',
@@ -314,7 +314,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'How long does the inspection take?', a: 'About 45-60 minutes for an average home. We need access to attic, crawlspace if applicable, garage, and all exterior.' },
-      { q: 'How fast can I get the letter?', a: 'Same-day inspection turnaround happens often. Most letters are emailed within 48 hours.' },
+      { q: 'How fast can I get the letter?', a: 'Fast turnaround happens often. Most letters are emailed within 48 hours.' },
       { q: 'What if you find termites?', a: 'You get a treatment quote with the letter. You can either treat before closing or negotiate the cost with the buyer/seller.' },
       { q: 'Does my lender accept your letter?', a: 'Yes — NPMA-33 is the federal standard form accepted by VA, FHA, USDA, and all conventional Alabama lenders.' },
     ],

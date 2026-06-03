@@ -32,7 +32,7 @@ export default function Eclectic() {
             "postalCode": "35010"
           },
           "areaServed": ["Eclectic, AL", "Elmore County, AL", "Lake Martin, AL"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" }
+          
         }
       `}</script>
 
@@ -64,7 +64,7 @@ export default function Eclectic() {
             </a>
           </div>
           <div style={{ display: "flex", gap: 32, flexWrap: "wrap", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24 }}>
-            {[["Most", "Lake Martin shoreline of any city"], ["Since 1958", "Serving Eclectic & Lake Martin"], ["Same Day", "From Alexander City office"], ["Eco-Safe", "Waterfront-approved products"]].map(([n, l]) => (
+            {[["Most", "Lake Martin shoreline of any city"], ["Since 1958", "Serving Eclectic & Lake Martin"], ["Fast", "Scheduling"], ["Eco-Safe", "Waterfront-approved products"]].map(([n, l]) => (
               <div key={n}>
                 <div style={{ fontSize: 18, fontWeight: 800, color: GOLD, ...sf }}>{n}</div>
                 <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 3, ...sf }}>{l}</div>
@@ -174,7 +174,7 @@ export default function Eclectic() {
               { q: "Does EnviroCare treat near Lake Martin's water?", a: "Yes — specifically and only with EPA-approved waterfront products. We maintain proper buffers from the shoreline and use formulas that are effective against mosquitoes and pests without harming Lake Martin's aquatic ecosystem. This is a specialty, not an afterthought." },
               { q: "Do you inspect docks and boathouses in Eclectic?", a: "Yes. Docks, piers, and boathouses are high-moisture wood structures that attract termites and wood-boring insects. Our Lake Martin inspections always include all exterior structures on the property, not just the main home." },
               { q: "We only use our lake house seasonally — can you work around that?", a: "Absolutely. Many Eclectic properties are seasonal or weekend homes. We offer lockbox access arrangements and will treat while you're away — notifying you before and after every visit with a written report." },
-              { q: "What's the fastest you can get to Eclectic?", a: "Same-day and next-day service from our Alexander City office is available for most situations. Alexander City is our home — Eclectic is in our backyard, and we treat it that way." },
+              { q: "What's the fastest you can get to Eclectic?", a: "Service is typically available within 48 hours from our Alexander City office for most situations. Alexander City is our home — Eclectic is in our backyard, and we treat it that way." },
             ].map((item, i) => (
               <div key={i} style={{ background: "#fff", border: "1px solid rgba(13,107,94,0.1)", borderRadius: 10, overflow: "hidden" }}>
                 <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
@@ -196,7 +196,7 @@ export default function Eclectic() {
           <div style={{ fontSize: 40, marginBottom: 14 }}>🌻</div>
           <h2 style={{ fontSize: 36, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>Protect Your<br /><em>Lake Martin Home</em></h2>
           <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>
-            EnviroCare has been your neighbor on Lake Martin since 1958. Free inspection, same-day service, waterfront expertise.
+            EnviroCare has been your neighbor on Lake Martin since 1958. Free inspection, fast scheduling, waterfront expertise.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 14 }}>
             <button onClick={() => setQuoteOpen(true)} style={{ background: GOLD, color: DARK, border: "none", borderRadius: 8, padding: "14px 28px", fontWeight: 800, fontSize: 15, cursor: "pointer", ...sf }}>Get Free Inspection</button>

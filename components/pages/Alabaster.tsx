@@ -27,7 +27,7 @@ export default function Alabaster() {
             "postalCode": "35007"
           },
           "areaServed": ["Alabaster, AL", "Pelham, AL", "Helena, AL", "Calera, AL", "Hoover, AL"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" },
+          ,
           "foundingDate": "1958"
         }
       `}</script>
@@ -61,7 +61,11 @@ export default function Alabaster() {
             {[
               { n: "Local Office", sub: "2025 Butler Rd, Alabaster" },
               { n: "Since 1958", sub: "Trusted in Alabama" },
+<<<<<<< HEAD
               { n: "4.9 Stars", sub: "Verified" },
+=======
+              { n: "4.9 Stars", sub: "Verified Reviews" },
+>>>>>>> fix/prelaunch-batch
               { n: "Same Day", sub: "Service Available" },
             ].map((t, i) => (
               <div key={i} className="text-center">
@@ -138,7 +142,7 @@ export default function Alabaster() {
               <div className="space-y-4">
                 {[
                   { title: "Our office is in Alabaster", desc: "2025 Butler Rd. Not a regional dispatch center — our local team is right here." },
-                  { title: "Fastest response times", desc: "When your office is local, same-day service actually means same day." },
+                  { title: "Fastest response times", desc: "When your office is local, scheduling is typically within 48 hours." },
                   { title: "We know Alabaster's pest patterns", desc: "Alabaster's clay soil, drainage, and neighborhoods create specific pest pressures we understand." },
                   { title: "Family owned since 1958", desc: "Three generations. We treat your home like it's our own — because we live here too." },
                   { title: "Licensed, insured, eco-safe", desc: "All Alabama-licensed technicians. Treatments safe for kids, pets, and the environment." },
@@ -209,7 +213,7 @@ export default function Alabaster() {
             {[
               { q: "Do you really have an office in Alabaster?", a: "Yes — 2025 Butler Rd, Alabaster, AL 35007. This is our Birmingham-area office. Your technician dispatches from here, not from a distant location." },
               { q: "What pests are most common in Alabaster?", a: "Alabaster's clay soil and mix of newer and established neighborhoods creates pressure from termites, fire ants, moisture ants, and during summer months, heavy mosquito activity. We treat all of these year-round." },
-              { q: "How quickly can you get to my Alabaster home?", a: "Same-day and next-day service is commonly available. Because our office is in Alabaster, response times are among the fastest of any service area we cover." },
+              { q: "How quickly can you get to my Alabaster home?", a: "Service is typically available within 48 hours. Because our office is in Alabaster, response times are among the fastest of any service area we cover." },
               { q: "Do you serve the whole Shelby County area?", a: "Yes. From our Alabaster office we serve Alabaster, Pelham, Helena, Calera, Hoover, Chelsea, Montevallo, Vincent, and surrounding Shelby County communities." },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
@@ -231,7 +235,7 @@ export default function Alabaster() {
       <section className="py-20 px-6 bg-emerald-800 text-white text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Your Local Alabaster Pest Experts</h2>
-          <p className="text-emerald-100 text-lg mb-8">Free inspection. Same-day service. The office down the road since 1958.</p>
+          <p className="text-emerald-100 text-lg mb-8">Free inspection. Fast scheduling. The office down the road since 1958.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)}
               className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">

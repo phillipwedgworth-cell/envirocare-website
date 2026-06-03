@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { Phone, Check, Shield, AlertTriangle, Heart, Calendar, ChevronDown } from "lucide-react";
 
@@ -30,7 +30,7 @@ export default function TickService() {
         "name": "Tick Control",
         "provider": { "@type": "LocalBusiness", "name": "EnviroCare Pest Control" },
         "areaServed": { "@type": "State", "name": "Alabama" },
-        "description": "Professional tick control for Alabama yards. Applied per label directions treatments targeting tick habitat — wooded edges, leaf litter, tall grass, and trail areas.",
+        "description": "Professional tick control for Alabama yards. Family- and pet-safe treatments targeting tick habitat — wooded edges, leaf litter, tall grass, and trail areas.",
         "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "Contact for pricing" }
       }) }} />
 
@@ -197,7 +197,7 @@ export default function TickService() {
             Stop Pulling Ticks Off<br /><em>Your Family.</em>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>
-            Free property inspection. Same-day availability across Alabama. EPA-registered treatments.
+            Free property inspection. Fast scheduling across Alabama. Family-safe treatments.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/quote" style={{ background: GOLD, color: DARK, padding: "15px 30px", borderRadius: 8, fontWeight: 800, fontSize: 15, textDecoration: "none", ...sf }}>

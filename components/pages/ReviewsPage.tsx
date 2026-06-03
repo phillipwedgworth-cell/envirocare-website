@@ -35,7 +35,7 @@ export default function ReviewsPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>

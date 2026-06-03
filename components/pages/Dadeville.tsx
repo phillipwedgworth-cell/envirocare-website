@@ -26,7 +26,7 @@ export default function Dadeville() {
             "postalCode": "35010"
           },
           "areaServed": ["Dadeville, AL", "Tallapoosa County, AL", "Lake Martin, AL"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" }
+          
         }
       `}</script>
 
@@ -50,7 +50,7 @@ export default function Dadeville() {
             </a>
           </div>
           <div className="flex flex-wrap gap-6 text-sm">
-            {["Since 1958 at Lake Martin","Same-Day from Alex City","Waterfront-Safe Products","FREE Termite Inspection"].map((t,i) => (
+            {["Since 1958 at Lake Martin","Fast Scheduling from Alex City","Waterfront-Safe Products","FREE Termite Inspection"].map((t,i) => (
               <span key={i} className="flex items-center gap-2 text-teal-200"><span className="text-teal-400">✓</span>{t}</span>
             ))}
           </div>
@@ -72,7 +72,7 @@ export default function Dadeville() {
                 "Waterfront mosquito control (lake-safe products)",
                 "Termite inspection including dock and pier structures",
                 "Fire ant control for yards and lake access areas",
-                "Same-day service from Alexander City office",
+                "Fast scheduling from Alexander City office",
                 "Seasonal and year-round programs available",
               ].map((item, i) => (
                 <div key={i} className="flex gap-3 items-center">
@@ -123,7 +123,7 @@ export default function Dadeville() {
       <section className="py-20 px-6 bg-teal-800 text-white text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Protecting Dadeville Since 1958</h2>
-          <p className="text-teal-100 text-lg mb-8">Your local Alexander City office. Same-day service. Free inspection.</p>
+          <p className="text-teal-100 text-lg mb-8">Your local Alexander City office. Fast scheduling. Free inspection.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)} className="px-8 py-4 bg-white text-teal-900 font-bold rounded-xl hover:bg-teal-50 transition shadow-lg">Get Free Inspection</button>
             <a href="tel:2562346162" className="flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-600 transition border border-teal-500">

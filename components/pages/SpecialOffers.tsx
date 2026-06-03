@@ -137,7 +137,7 @@ export default function SpecialOffers() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {[
               { step: "1", icon: <Phone size={22} />, title: "Call Your Local Office", desc: "Tell us which offer you'd like and mention it at time of booking" },
-              { step: "2", icon: "📅", title: "Schedule Your Visit", desc: "We'll confirm a time that works — same-day often available" },
+              { step: "2", icon: "📅", title: "Schedule Your Visit", desc: "We'll confirm a time that works — usually within 48 hours" },
               { step: "3", icon: "🌻", title: "We Show Up", desc: "Licensed EnviroCare technician arrives, inspects, and does the job right" },
               { step: "4", icon: <CheckCircle size={22} />, title: "Offer Applied", desc: "Your discount is applied automatically. No coupons, no hassle" },
             ].map((s, i) => (

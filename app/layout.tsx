@@ -205,7 +205,11 @@ const organizationJsonLd = {
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
   url: SITE_URL,
+<<<<<<< HEAD
   logo: `${SITE_URL}/logo.png`,
+=======
+  logo: '/logo.png',
+>>>>>>> fix/prelaunch-batch
   foundingDate: '1958',
   founder: {
     '@type': 'Person',

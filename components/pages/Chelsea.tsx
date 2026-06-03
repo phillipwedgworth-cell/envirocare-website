@@ -27,7 +27,7 @@ export default function Chelsea() {
             "postalCode": "35007"
           },
           "areaServed": ["Chelsea, AL", "35242", "Shelby County, AL"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" }
+          
         }
       `}</script>
 
@@ -44,7 +44,7 @@ export default function Chelsea() {
             <span className="text-emerald-400">Trusted in Your Neighborhood</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
-            Chelsea families and businesses have trusted EnviroCare for generations. Licensed technicians, eco-friendly treatments, same-day service from our nearby Alabaster office.
+            Chelsea families and businesses have trusted EnviroCare for generations. Licensed technicians, eco-friendly treatments, fast scheduling from our nearby Alabaster office.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <button onClick={() => setQuoteOpen(true)}
@@ -59,7 +59,11 @@ export default function Chelsea() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { n: "Since 1958", sub: "Family Owned" },
+<<<<<<< HEAD
               { n: "4.9 Stars", sub: "Verified" },
+=======
+              { n: "4.9 Stars", sub: "Verified Reviews" },
+>>>>>>> fix/prelaunch-batch
               { n: "Same Day", sub: "Service Available" },
               { n: "Eco-Safe", sub: "Kid & Pet Friendly" },
             ].map((t, i) => (
@@ -127,7 +131,7 @@ export default function Chelsea() {
                   "Serving Chelsea and 35242 zip code directly",
                   "New construction termite inspections available",
                   "Mosquito programs timed to Shelby County's season",
-                  "Same-day service from nearby Alabaster office",
+                  "Fast scheduling from nearby Alabaster office",
                   "Licensed for all Alabama pest control services",
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3 items-start">
@@ -214,7 +218,7 @@ export default function Chelsea() {
       <section className="py-20 px-6 bg-emerald-800 text-white text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Protect Your Chelsea Home</h2>
-          <p className="text-emerald-100 text-lg mb-8">Free inspection. Same-day service. Local experts you can trust.</p>
+          <p className="text-emerald-100 text-lg mb-8">Free inspection. Fast scheduling. Local experts you can trust.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)}
               className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">

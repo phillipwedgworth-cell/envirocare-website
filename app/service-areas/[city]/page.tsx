@@ -54,7 +54,7 @@ const CITIES: Record<string, CityData> = {
       "Birmingham's dense tree canopy, Red Mountain topography, and Cahaba River corridor create some of Alabama's highest pest pressure. From Vestavia Hills to Forest Park, EnviroCare has protected Birmingham homes since 1958.",
     neighborhoods: ["Vestavia Hills", "Mountain Brook", "Homewood", "Hoover", "Forest Park", "Crestwood", "Trussville"],
     pestPressure:
-      "Heavy mosquito and termite pressure. Red clay soil along Red Mountain is prime subterranean termite habitat. Mosquito season runs April–October with peak activity in July–August.",
+      "Heavy mosquito and termite pressure. Red clay soil along Red Mountain is prime subterranean termite habitat. Mosquito season runs March–November with peak activity in July–August.",
     canonicalBase: "https://envirocarellc.com",
   },
   hoover: {
@@ -69,7 +69,7 @@ const CITIES: Record<string, CityData> = {
       "Hoover's rapid growth has brought with it the pest pressure that comes with new construction — disturbed soil, fresh landscaping, and open slab foundations. Our Alabaster office is 12 minutes from most Hoover neighborhoods.",
     neighborhoods: ["Riverchase", "Bluff Park", "Ross Bridge", "Trace Crossings", "Greystone"],
     pestPressure:
-      "High termite risk in newer construction (2000s–2020s build). Mosquitoes are active April–October around Moss Rock Preserve and Patton Creek areas. Ant pressure is elevated in landscaped HOA neighborhoods.",
+      "High termite risk in newer construction (2000s–2020s build). Mosquitoes are active March–November around Moss Rock Preserve and Patton Creek areas. Ant pressure is elevated in landscaped HOA neighborhoods.",
     canonicalBase: "https://envirocarellc.com",
   },
   "vestavia-hills": {
@@ -129,7 +129,7 @@ const CITIES: Record<string, CityData> = {
       "Auburn's college-town density and rapid development around the Opelika corridor bring year-round pest pressure. Our Alexander City office serves Auburn and Lee County with the same family-owned standards.",
     neighborhoods: ["Auburn University area", "Opelika", "Tiger Town", "Donahue Ridge", "Wrights Mill Road area"],
     pestPressure:
-      "High ant and roach pressure in rental housing and high-density areas near campus. Mosquito season April–October. Fire ant pressure in new development along US-280 corridor.",
+      "High ant and roach pressure in rental housing and high-density areas near campus. Mosquito season March–November. Fire ant pressure in new development along US-280 corridor.",
     canonicalBase: "https://envirocarellc.com",
   },
   "lake-martin": {
@@ -144,7 +144,7 @@ const CITIES: Record<string, CityData> = {
       "EnviroCare is the ONLY pest control company with a dedicated Lake Martin office. We understand waterfront properties — our products are safe for the lake, docks, and shoreline. We've protected Lake Martin homes and vacation properties for decades.",
     neighborhoods: ["Kowaliga", "Children's Harbor", "Willow Point", "Cove Marina area", "Dadeville", "Eclectic", "Wind Creek"],
     pestPressure:
-      "Lake Martin's waterfront properties face intense mosquito pressure from late April through October. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered waterfront-safe barrier products. Termites are also active in lakefront construction.",
+      "Lake Martin's waterfront properties face intense mosquito pressure from late March through November. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered waterfront-safe barrier products. Termites are also active in lakefront construction.",
     canonicalBase: "https://envirocarellc.com",
   },
 };
@@ -173,8 +173,8 @@ const SERVICES = [
     icon: "🌿",
     title: "Mosquito Control",
     price: "$45/mo",
-    alt: "April–October season",
-    desc: "21-day barrier spray. Eliminates adult mosquitoes, targets breeding sites. 50% off first application for new customers.",
+    alt: "March–November season",
+    desc: "30-day barrier spray. Eliminates adult mosquitoes, targets breeding sites. 50% off first application for new customers.",
     href: "/services/mosquito-control",
   },
   {
@@ -644,7 +644,7 @@ export default async function ServiceAreaPage({
             },
             {
               q: `What is the price for pest control in ${data.name}?`,
-              a: `Pest control starts at $35/month (ACH auto-draft) or $70 billed every other month. Termite protection with Sentricon is $32/month with no installation fee. Mosquito control is $45/month April through October. Bundled plans (Pest + Termite = $67/month; Everything = $127/month) are available.`,
+              a: `Pest control starts at $35/month (ACH auto-draft) or $70 billed every other month. Termite protection with Sentricon is $32/month with no installation fee. Mosquito control is $45/month March through November. Bundled plans (Pest + Termite = $67/month; Everything = $127/month) are available.`,
             },
           ].map((item, i) => (
             <div

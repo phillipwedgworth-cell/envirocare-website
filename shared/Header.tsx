@@ -90,7 +90,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
           </div>
 
           <div className="ec-menu-foot">
-            <span className="ec-menu-foot-dot ec-pulse-dot" /> Available Today · Same-Day Service
+            <span className="ec-menu-foot-dot ec-pulse-dot" /> Fast Scheduling Available
           </div>
         </div>
       </div>

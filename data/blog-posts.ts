@@ -67,7 +67,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ol>
 <li><strong>Photograph</strong> what you found — both the swarmers and the location.</li>
 <li><strong>Collect a few</strong> in a sandwich bag, just in case.</li>
-<li><strong>Call us</strong> for a free inspection. We'll send a Sentricon-certified technician within 24 hours, usually same-day. The inspection is free and there's no obligation.</li>
+<li><strong>Call us</strong> for a free inspection. We'll send a Sentricon-certified technician within 24 hours, usually fast scheduling. The inspection is free and there's no obligation.</li>
 </ol>
 
 <p>Call our nearest office:</p>
@@ -152,7 +152,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🦟',
     metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare Since 1958',
-    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, EPA-registered products. Reclaim your dock. Call (256) 234-6162.',
+    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
     body: `
 <p class="lede">Lake Martin is paradise from March through November — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
@@ -254,7 +254,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Fire ant control is an add-on to our pest control program, or a one-time service if that's all you need. Bundles with our outdoor program (mosquito + tick + flea) for the most complete summer protection.</p>
 
-<p>Same-day scheduling available. Call our nearest office:</p>
+<p>Fast scheduling available. Call our nearest office:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -427,7 +427,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Clear items away from baseboards in the kitchen and bathrooms. Pull appliances forward so we can treat behind them. These areas are prime harborage for roaches, ants, and silverfish — and if we can't reach them, neither can the treatment.</p>
 
 <h2>Secure Pets and Sensitive Items</h2>
-<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are EPA-registered once dry — about 30 minutes for interior work.</p>
+<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are family-safe once dry — about 30 minutes for interior work.</p>
 
 <h2>Trim Exterior Vegetation</h2>
 <p>Trim vegetation at least 12 inches from your home exterior. Overgrown landscaping touching your house creates bridges for pests to bypass our perimeter barrier.</p>
@@ -477,7 +477,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: quarterly pest control from $39/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
 
 <p><strong>7027 Old Madison Pike, Suite 108 · Huntsville, AL 35806</strong><br/>
-Free inspections. No contracts. Same-day service available.</p>
+Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Call: <strong>(256) 937-7676</strong></p>
 `,
@@ -784,7 +784,7 @@ Free inspections. No contracts. Same-day service available.</p>
 
 <p>The 2026 season is a bad year to be unprotected. Here's the math: a subterranean termite colony in Alabama typically contains 250,000 to one million workers. Each worker consumes about 0.0025 ounces of wood per day. At peak population, a mature colony in your foundation can consume the equivalent of a 1-inch pine board every 23 days. By the time you see visible damage, the colony has usually been present for 3 to 5 years.</p>
 
-<p>We offer free inspections at all three offices. Same-day appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
+<p>We offer free inspections at all three offices. Fast appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
 
 <h2>Steps to take right now</h2>
 
@@ -802,7 +802,7 @@ Free inspections. No contracts. Same-day service available.</p>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p>Or call our main line: <strong>(205) 649-5278</strong>. If you found swarmers this week, don't wait — same-day inspections are available.</p>
+<p>Or call our main line: <strong>(205) 649-5278</strong>. If you found swarmers this week, don't wait — inspections are typically available within 48 hours.</p>
 
 <p><em>Kevin Wedgworth is the third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
 `,

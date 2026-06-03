@@ -9,8 +9,15 @@ interface Message {
 
 const GREETING: Message = {
   role: 'assistant',
-  content: "Hi! I'm the EnviroCare assistant. I can help with pricing, scheduling, and pest questions for our Birmingham, Lake Martin, and Huntsville offices. What can I help you with?",
+  content: "Hi! I'm EnviroCare's assistant — family-owned in Alabama since 1958. I can help with pest, termite, mosquito, or tick service. What's going on at your place?",
 };
+
+const QUICK_REPLIES = [
+  'Get a free quote',
+  'Free termite inspection',
+  'What does it cost?',
+  'Mosquito & tick service',
+];
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -105,6 +112,27 @@ export default function ChatWidget() {
             ))}
             <div ref={bottomRef} />
           </div>
+
+          {messages.length === 1 && !streaming && (
+            <div className="cw-chips">
+              {QUICK_REPLIES.map((q) => (
+                <button
+                  key={q}
+                  className="cw-chip"
+                  type="button"
+                  onClick={() => {
+                    setInput(q);
+                    setTimeout(() => {
+                      const form = document.querySelector('.cw-form') as HTMLFormElement;
+                      form?.requestSubmit();
+                    }, 0);
+                  }}
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+          )}
 
           <form className="cw-form" onSubmit={sendMessage}>
             <input
@@ -320,4 +348,18 @@ const CHAT_CSS = `
   .cw-bubble { bottom: 24px; right: 24px; }
   .cw-panel { bottom: 92px; right: 24px; }
 }
+
+.cw-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px 4px; flex-shrink: 0;
+}
+.cw-chip {
+  background: #E8F5EE; border: 1px solid #0E8E40;
+  color: #0E8E40; border-radius: 999px;
+  padding: 6px 12px; font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.cw-chip:hover { background: #0E8E40; color: #fff; }
 `;

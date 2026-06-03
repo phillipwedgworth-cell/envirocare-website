@@ -204,7 +204,7 @@ if (!service) {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
