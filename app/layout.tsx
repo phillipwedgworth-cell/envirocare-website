@@ -115,7 +115,7 @@ const birminghamJsonLd = {
   '@type': 'PestControlService',
   '@id': `${SITE_URL}/#birmingham`,
   name: 'EnviroCare Pest & Termite Services — Birmingham',
-  image: '/og-image.png',
+  image: `${SITE_URL}/og-image.png`,
   description:
     'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
   url: `${SITE_URL}/birmingham`,
@@ -128,17 +128,6 @@ const birminghamJsonLd = {
     addressRegion: 'AL',
     postalCode: '35007',
     addressCountry: 'US',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Birmingham',
-    },
   },
   openingHoursSpecification: [
     {
@@ -155,7 +144,7 @@ const lakeMartinJsonLd = {
   '@type': 'PestControlService',
   '@id': `${SITE_URL}/#lake-martin`,
   name: "EnviroCare Pest & Termite Services — Alex City / Lake Martin",
-  image: '/og-image.png',
+  image: `${SITE_URL}/og-image.png`,
   description:
     "EnviroCare's original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.",
   url: `${SITE_URL}/lake-martin`,
@@ -169,17 +158,6 @@ const lakeMartinJsonLd = {
     addressRegion: 'AL',
     postalCode: '35010',
     addressCountry: 'US',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '500',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'PestControlService',
-      name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
-    },
   },
   openingHoursSpecification: [
     {
@@ -196,7 +174,7 @@ const huntsvilleJsonLd = {
   '@type': 'PestControlService',
   '@id': `${SITE_URL}/#huntsville`,
   name: 'EnviroCare Pest & Termite Services — Huntsville',
-  image: '/og-image.png',
+  image: `${SITE_URL}/og-image.png`,
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
   url: `${SITE_URL}/huntsville`,
@@ -227,7 +205,7 @@ const organizationJsonLd = {
   name: 'EnviroCare Pest & Termite Services',
   alternateName: 'EnviroCare',
   url: SITE_URL,
-  logo: '/logo.svg',
+  logo: `${SITE_URL}/logo.png`,
   foundingDate: '1958',
   founder: {
     '@type': 'Person',

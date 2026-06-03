@@ -58,7 +58,7 @@ export default function Auburn() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { n: "Since 1958", sub: "Family-owned" },
-              { n: "4.9 Stars", sub: "500+ reviews" },
+              { n: "4.9 Stars", sub: "Verified Reviews" },
               { n: "Eco-Safe", sub: "Kid & pet friendly" },
               { n: "Free", sub: "Termite inspection" },
             ].map((t, i) => (

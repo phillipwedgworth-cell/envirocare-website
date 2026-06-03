@@ -82,7 +82,7 @@ export default function LakeMartin() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { icon: "🏆", val: "Since 1958", label: "Serving Lake Martin" },
-                { icon: "⭐", val: "4.9 Stars", label: "500+ Reviews" },
+                { icon: "⭐", val: "4.9 Stars", label: "Verified" },
                 { icon: "📍", val: "Local Office", label: "Alexander City" },
                 { icon: "🌿", val: "Eco-Safe", label: "Pet & kid friendly" },
               ].map((t, i) => (

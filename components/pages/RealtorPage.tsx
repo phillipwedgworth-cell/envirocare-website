@@ -73,7 +73,7 @@ export default function RealtorPage() {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Google · 500+ Reviews</div>
+          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>NPMA-33 Standard Letter</div>
           <div className="ti"><div className="ti-chk">✓</div>VA / FHA / Conventional Accepted</div>
           <div className="ti"><div className="ti-chk">✓</div>48-Hour Turnaround</div>
