@@ -35,7 +35,7 @@ export default function ReviewsPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
@@ -49,7 +49,7 @@ export default function ReviewsPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">What Alabama Says About Us</span></div>
-          <h1>Five-Star <em>Google Reviews</em></h1>
+          <h1>Five-Star<em>Google Reviews</em></h1>
           <p className="page-hero-sub">68 years. Three generations of the Wedgworth family. Thousands of Alabama homes treated. Here\'s what our customers say — verified on Google.</p>
           <div className="page-hero-cta">
             <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read All Google Reviews →</a>

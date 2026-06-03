@@ -59,7 +59,7 @@ export default function Chelsea() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { n: "Since 1958", sub: "Family Owned" },
-              { n: "4.9 Stars", sub: "Verified Reviews" },
+              { n: "4.9 Stars", sub: "Verified" },
               { n: "Same Day", sub: "Service Available" },
               { n: "Eco-Safe", sub: "Kid & Pet Friendly" },
             ].map((t, i) => (

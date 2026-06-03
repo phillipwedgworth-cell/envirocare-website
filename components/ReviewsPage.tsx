@@ -110,7 +110,7 @@ export default function ReviewsPage() {
             <div className="rv-stats">
               <div className="rv-avg">{avg.toFixed(1)}</div>
               <div className="rv-sub">
-                Average rating · Verified Google reviews
+                Average rating · verified Google reviews
               </div>
             </div>
           </div>

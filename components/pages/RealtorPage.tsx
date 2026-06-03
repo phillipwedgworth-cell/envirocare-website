@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 /**
  * /realtor — for realtors, brokerages, closing attorneys
@@ -41,7 +41,7 @@ export default function RealtorPage() {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -73,7 +73,7 @@ export default function RealtorPage() {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Google · Verified Reviews</div>
+          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>NPMA-33 Standard Letter</div>
           <div className="ti"><div className="ti-chk">✓</div>VA / FHA / Conventional Accepted</div>
           <div className="ti"><div className="ti-chk">✓</div>48-Hour Turnaround</div>

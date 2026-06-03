@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { Phone, MapPin, Star, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -67,7 +67,7 @@ export default function Pelham() {
             {[
               { icon: "🐜", name: "Pest Control", desc: "Perimeter protection from ants, roaches, spiders, and all Pelham area pests. Quarterly programs with re-treatment guarantee.", highlight: false },
               { icon: "🪲", name: "Termite Control", desc: "Free inspection for Pelham homeowners. Pelham's soil and humidity make termite protection essential.", highlight: true },
-              { icon: "🦟", name: "Mosquito Control", desc: "Monthly treatments March–November. Pelham's greenways and wooded areas drive heavy mosquito pressure.", highlight: false },
+              { icon: "🦟", name: "Mosquito Control", desc: "Monthly treatments April–October. Pelham's greenways and wooded areas drive heavy mosquito pressure.", highlight: false },
               { icon: "🔥", name: "Fire Ant Control", desc: "Aggressive fire ant populations throughout Shelby County. Colony elimination, not just suppression.", highlight: false },
               { icon: "🕷️", name: "Tick Control", desc: "Pelham's greenways and wooded areas create tick habitat. Yard treatments protect your family all season.", highlight: false },
               { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite in one simple monthly plan. Most popular option for Pelham homeowners.", highlight: false },
@@ -91,7 +91,7 @@ export default function Pelham() {
               {[
                 { t: "Office in Alabaster — 5 minutes away", d: "Faster response than any company dispatching from Birmingham proper." },
                 { t: "Family-owned since 1958", d: "Three generations of the Wedgworth family. We treat your home like our own." },
-                { t: "4.9 stars, Verified Reviews", d: "Consistent 5-star service across the Birmingham metro for decades." },
+                { t: "4.9 stars, Verified reviews", d: "Consistent 5-star service across the Birmingham metro for decades." },
                 { t: "Licensed & insured in Alabama", d: "Every technician state-certified. Treatments safe for kids and pets." },
                 { t: "Satisfaction guaranteed", d: "Pests return between visits? So do we — at no charge." },
               ].map((item, i) => (

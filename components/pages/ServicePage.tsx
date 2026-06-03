@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ServicePage.tsx — Shared template for all 10 EnviroCare service pages
  * Generated May 16, 2026 — Stage 2 of v2 site-wide rebrand
  *
@@ -204,7 +204,7 @@ if (!service) {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -256,7 +256,7 @@ if (!service) {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Google · Verified Reviews</div>
+          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>AL Pest Control Association</div>
