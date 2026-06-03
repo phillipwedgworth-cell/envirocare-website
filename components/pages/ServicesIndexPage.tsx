@@ -35,7 +35,7 @@ export default function ServicesIndexPage() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services" className="active">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
@@ -60,7 +60,7 @@ export default function ServicesIndexPage() {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Google · 500+ Reviews</div>
+          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>3rd-Generation Wedgworth Family</div>
@@ -92,7 +92,7 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">April – October</div>
               <div className="svc-card-name">Mosquito Control</div>
               <div className="svc-card-price">$45/mo · seasonal</div>
-              <div className="svc-card-desc">30-day yard barrier April through October. Pet- and kid-safe once dry. Make your patio livable again.</div>
+              <div className="svc-card-desc">30-day yard barrier March through November. Pet- and kid-safe once dry. Make your patio livable again.</div>
               <a href="/services/mosquito-control" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">

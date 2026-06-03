@@ -155,7 +155,7 @@ export default function SeasonalPestCalendar() {
             📞 Schedule Service · (205) 649-5278
           </a>
           <p className="spc-cta-note">
-            Same-day appointments available · Free inspection · Family-owned since 1958
+            Fast appointments available · Free inspection · Family-owned since 1958
           </p>
         </div>
       </div>

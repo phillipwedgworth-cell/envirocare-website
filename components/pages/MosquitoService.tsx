@@ -125,7 +125,7 @@ export default function MosquitoControl() {
             {[
               {
                 name: "Seasonal Program",
-                price: "April–October",
+                price: "March–November",
                 tag: "Most Popular",
                 highlight: true,
                 features: [

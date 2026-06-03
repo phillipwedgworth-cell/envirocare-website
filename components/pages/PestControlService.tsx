@@ -23,7 +23,7 @@ const FAQS: Array<[string, string]> = [
   ["Is the treatment safe for kids and pets?", "Yes. We use EPA-registered products applied at proper rates. After exterior application dries (usually 30 minutes), kids and pets can be back outside. Interior products are placed in cracks and crevices, away from living areas."],
   ["Will I be locked into a contract?", "No long-term contracts. You can cancel anytime. We earn your business every quarter, not lock you into a commitment."],
   ["What's the difference between pest control and termite control?", "Pest control protects against ants, roaches, spiders, rodents, and most household pests. Termites are an entirely separate program — they require Sentricon® bait or liquid soil treatment because they live underground and travel through wood. Most customers add termite protection as a bundle."],
-  ["Same-day or next-day service?", "Often yes — call your nearest office. Birmingham, Lake Martin, and Huntsville offices all keep same-day windows open most weekdays."],
+  ["How quickly can you get to my property?", "Often yes — call your nearest office. Birmingham, Lake Martin, and Huntsville offices all keep appointments available most weekdays."],
 ];
 
 export default function PestControlService() {

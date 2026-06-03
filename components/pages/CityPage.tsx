@@ -137,7 +137,7 @@ export default function CityPage({ slug }: { slug: string }) {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -167,7 +167,7 @@ export default function CityPage({ slug }: { slug: string }) {
               <div className="city-stat"><div className="city-stat-n">{city.yearsServed}+</div><div className="city-stat-l">Years Serving AL</div></div>
               <div className="city-stat"><div className="city-stat-n">4.9★</div><div className="city-stat-l">Google Rating</div></div>
               <div className="city-stat"><div className="city-stat-n">$1M</div><div className="city-stat-l">Sentricon® Coverage</div></div>
-              <div className="city-stat"><div className="city-stat-n">500+</div><div className="city-stat-l">Verified Reviews</div></div>
+              <div className="city-stat"><div className="city-stat-n">30+</div><div className="city-stat-l">Pests Covered</div></div>
             </div>
             <div className="city-cta-row">
               <a href={`tel:${tel}`} className="btn-gold" style={{overflow:'visible'}}>Call {phone}</a>
@@ -183,7 +183,7 @@ export default function CityPage({ slug }: { slug: string }) {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Google · 500+ Reviews</div>
+          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>AL Pest Control Association</div>
@@ -214,8 +214,8 @@ export default function CityPage({ slug }: { slug: string }) {
                 <ul className="prog-features"><li><span className="prog-chk">✓</span>$1M repair coverage</li><li><span className="prog-chk">✓</span>No drilling, no tanks</li><li><span className="prog-chk">✓</span>Annual WDO letter</li></ul>
                 <a href="/services/termite-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">30-day yard barrier April–October. Make your outdoor space livable again.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>April–October coverage</li><li><span className="prog-chk">✓</span>30-day refresh</li><li><span className="prog-chk">✓</span>Pet- & kid-safe once dry</li></ul>
+              <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">30-day yard barrier March–November. Make your outdoor space livable again.</div>
+                <ul className="prog-features"><li><span className="prog-chk">✓</span>March–November coverage</li><li><span className="prog-chk">✓</span>30-day refresh</li><li><span className="prog-chk">✓</span>Applied according to label directions once dry</li></ul>
                 <a href="/services/mosquito-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-4"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Tick Control</div><div className="prog-desc">Targeted yard treatments to break the tick lifecycle. Critical for wooded properties.</div>

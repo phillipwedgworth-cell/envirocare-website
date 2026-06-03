@@ -11,7 +11,7 @@ const sf = { fontFamily: "system-ui, sans-serif" };
 const SERVICES = [
   { icon: "🐜", name: "Pest Control", desc: "Ants, roaches, spiders, crickets & more. Full perimeter protection.", highlight: false },
   { icon: "🪲", name: "Termite Control", desc: "Free inspection. Protect your Madison home from Alabama termites.", highlight: true },
-  { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments April–October. 50% off first treatment.", highlight: false },
+  { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments March–November. 50% off first treatment.", highlight: false },
   { icon: "🕷️", name: "Tick Control", desc: "Safe protection for family and pets all season long.", highlight: false },
   { icon: "🔥", name: "Fire Ant Control", desc: "Colony elimination and lasting perimeter protection.", highlight: false },
   { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite combined. Madison's most popular plan.", highlight: false },
@@ -39,7 +39,7 @@ export default function Madison() {
         "url": "https://envirocarellc.com/madison",
         "address": { "@type": "PostalAddress", "addressLocality": "Madison", "addressRegion": "AL", "postalCode": "35758" },
         "areaServed": "Madison, AL",
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" }
+        
       })}} />
 
       {/* HERO */}
@@ -62,7 +62,7 @@ export default function Madison() {
             </a>
           </div>
           <div style={{ display: "flex", gap: 32, flexWrap: "wrap", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24 }}>
-            {[["Since 1958", "Family-owned"], ["4.9 Stars", "500+ Reviews"], ["Same Day", "Available"], ["FREE", "Termite Inspection"]].map(([n, l]) => (
+            {[["Since 1958", "Family-owned"], ["4.9 Stars", "Verified"], ["Fast", "Scheduling"], ["FREE", "Termite Inspection"]].map(([n, l]) => (
               <div key={n}><div style={{ fontSize: 18, fontWeight: 800, color: GOLD, ...sf }}>{n}</div><div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 3, ...sf }}>{l}</div></div>
             ))}
           </div>
@@ -121,7 +121,7 @@ export default function Madison() {
         <div style={{ maxWidth: 520, margin: "0 auto" }}>
           <div style={{ fontSize: 40, marginBottom: 14 }}>🌻</div>
           <h2 style={{ fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>Protect Your<br /><em>Madison Home</em></h2>
-          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>Free inspection. Same-day service from our Huntsville office. The Wedgworth family guarantee.</p>
+          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>Free inspection. Fast scheduling from our Huntsville office. The Wedgworth family guarantee.</p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <button onClick={() => setQuoteOpen(true)} style={{ background: GOLD, color: DARK, border: "none", borderRadius: 8, padding: "14px 28px", fontWeight: 800, fontSize: 15, cursor: "pointer", ...sf }}>Get Free Inspection</button>
             <a href="tel:2569377676" style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 8, padding: "14px 20px", fontWeight: 600, fontSize: 15, textDecoration: "none", ...sf }}>

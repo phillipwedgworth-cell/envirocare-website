@@ -67,7 +67,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ol>
 <li><strong>Photograph</strong> what you found — both the swarmers and the location.</li>
 <li><strong>Collect a few</strong> in a sandwich bag, just in case.</li>
-<li><strong>Call us</strong> for a free inspection. We'll send a Sentricon-certified technician within 24 hours, usually same-day. The inspection is free and there's no obligation.</li>
+<li><strong>Call us</strong> for a free inspection. We'll send a Sentricon-certified technician within 24 hours, usually fast scheduling. The inspection is free and there's no obligation.</li>
 </ol>
 
 <p>Call our nearest office:</p>
@@ -152,9 +152,9 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🦟',
     metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare Since 1958',
-    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service April–October. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
+    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
     body: `
-<p class="lede">Lake Martin is paradise from April through October — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
+<p class="lede">Lake Martin is paradise from March through November — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
 <p>Our Alex City office has been treating lake homes since 1958. Here's what actually works, what doesn't, and how to think about mosquito control if you live (or weekend) on the water.</p>
 
@@ -176,7 +176,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>April through October. Up to 12 treatments per season. $45/month, or bundle with tick and flea for $60/month.</p>
+<p>March through November. Up to 12 treatments per season. $45/month, or bundle with tick and flea for $60/month.</p>
 
 <h2>What we DON'T recommend</h2>
 
@@ -200,7 +200,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Tick and flea bundle</h2>
 
-<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick + flea yard treatment, $60/month, April through October.</p>
+<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick + flea yard treatment, $60/month, March through November.</p>
 
 <p>Call our Alex City / Lake Martin office: <strong>(256) 234-6162</strong>.</p>
 `,
@@ -254,7 +254,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Fire ant control is an add-on to our pest control program, or a one-time service if that's all you need. Bundles with our outdoor program (mosquito + tick + flea) for the most complete summer protection.</p>
 
-<p>Same-day scheduling available. Call our nearest office:</p>
+<p>Fast scheduling available. Call our nearest office:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -477,7 +477,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: quarterly pest control from $39/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
 
 <p><strong>7027 Old Madison Pike, Suite 108 · Huntsville, AL 35806</strong><br/>
-Free inspections. No contracts. Same-day service available.</p>
+Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Call: <strong>(256) 937-7676</strong></p>
 `,
@@ -784,7 +784,7 @@ Free inspections. No contracts. Same-day service available.</p>
 
 <p>The 2026 season is a bad year to be unprotected. Here's the math: a subterranean termite colony in Alabama typically contains 250,000 to one million workers. Each worker consumes about 0.0025 ounces of wood per day. At peak population, a mature colony in your foundation can consume the equivalent of a 1-inch pine board every 23 days. By the time you see visible damage, the colony has usually been present for 3 to 5 years.</p>
 
-<p>We offer free inspections at all three offices. Same-day appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
+<p>We offer free inspections at all three offices. Fast appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
 
 <h2>Steps to take right now</h2>
 
@@ -802,7 +802,7 @@ Free inspections. No contracts. Same-day service available.</p>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p>Or call our main line: <strong>(205) 649-5278</strong>. If you found swarmers this week, don't wait — same-day inspections are available.</p>
+<p>Or call our main line: <strong>(205) 649-5278</strong>. If you found swarmers this week, don't wait — inspections are typically available within 48 hours.</p>
 
 <p><em>Kevin Wedgworth is the third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
 `,

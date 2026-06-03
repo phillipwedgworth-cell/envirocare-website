@@ -34,11 +34,6 @@ export default function LakeMartin() {
             "longitude": "-85.9538"
           },
           "areaServed": ["Lake Martin, AL", "Alexander City, AL", "Dadeville, AL", "Eclectic, AL", "Wetumpka, AL"],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "312"
-          },
           "priceRange": "$$",
           "foundingDate": "1958"
         }
@@ -82,7 +77,7 @@ export default function LakeMartin() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { icon: "🏆", val: "Since 1958", label: "Serving Lake Martin" },
-                { icon: "⭐", val: "4.9 Stars", label: "500+ Reviews" },
+                { icon: "⭐", val: "4.9 Stars", label: "Verified Reviews" },
                 { icon: "📍", val: "Local Office", label: "Alexander City" },
                 { icon: "🌿", val: "Eco-Safe", label: "Pet & kid friendly" },
               ].map((t, i) => (
@@ -118,7 +113,7 @@ export default function LakeMartin() {
                   "Termite protection for pier and dock structures",
                   "Eco-safe solutions that won't harm lake wildlife",
                   "Seasonal programs timed to Alabama's pest calendar",
-                  "Same-day service from our Alexander City office",
+                  "Fast scheduling from our Alexander City office",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
@@ -244,7 +239,7 @@ export default function LakeMartin() {
                 icon: "🦟",
                 name: "Mosquito Control",
                 tagline: "The #1 complaint at every lake house",
-                description: "Our Lake Martin mosquito program is engineered for waterfront. We treat your yard, shoreline, and surrounding vegetation on a recurring schedule throughout mosquito season (April–October). 50% off your first treatment.",
+                description: "Our Lake Martin mosquito program is engineered for waterfront. We treat your yard, shoreline, and surrounding vegetation on a recurring schedule throughout mosquito season (March–November). 50% off your first treatment.",
                 cta: "50% off first treatment",
                 href: "/services/mosquito-control",
                 highlight: true,
@@ -370,7 +365,7 @@ export default function LakeMartin() {
               },
               {
                 q: "How often should I treat my lake house for mosquitoes?",
-                a: "For waterfront properties on Lake Martin, we recommend monthly treatments from April through October. The lake environment and Alabama humidity create ideal breeding conditions all summer. Many homeowners bundle mosquito control with general pest for maximum protection.",
+                a: "For waterfront properties on Lake Martin, we recommend monthly treatments from March through November. The lake environment and Alabama humidity create ideal breeding conditions all summer. Many homeowners bundle mosquito control with general pest for maximum protection.",
               },
               {
                 q: "Do you treat docks, piers, and boathouses?",
@@ -382,7 +377,7 @@ export default function LakeMartin() {
               },
               {
                 q: "How quickly can you get out to Lake Martin?",
-                a: "Same-day and next-day service is available from our Alexander City office. We're your literal neighbors — we're here year-round and know every community around the lake.",
+                a: "Service is typically available within 48 hours from our Alexander City office. We're your literal neighbors — we're here year-round and know every community around the lake.",
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
@@ -422,7 +417,7 @@ export default function LakeMartin() {
               Call (256) 234-6162
             </a>
           </div>
-          <p className="text-teal-300 text-sm mt-6">Alexander City Office · Same-Day Service Available · Licensed & Insured</p>
+          <p className="text-teal-300 text-sm mt-6">Alexander City Office · Fast Scheduling · Licensed & Insured</p>
         </div>
       </section>
 

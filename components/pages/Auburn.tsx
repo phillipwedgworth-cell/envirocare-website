@@ -26,7 +26,7 @@ export default function Auburn() {
             "postalCode": "35010"
           },
           "areaServed": ["Auburn, AL", "Opelika, AL", "Lee County, AL"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "500" }
+          
         }
       `}</script>
 
@@ -58,7 +58,7 @@ export default function Auburn() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { n: "Since 1958", sub: "Family-owned" },
-              { n: "4.9 Stars", sub: "500+ reviews" },
+              { n: "4.9 Stars", sub: "Verified Reviews" },
               { n: "Eco-Safe", sub: "Kid & pet friendly" },
               { n: "Free", sub: "Termite inspection" },
             ].map((t, i) => (
@@ -81,7 +81,7 @@ export default function Auburn() {
                 Auburn's combination of college-town density, older housing stock, and Alabama's warm climate creates year-round pest pressure. Student rentals and historic homes near campus tend to see higher rates of roach and ant activity. Newer subdivisions battle termites and fire ants.
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                We serve Auburn from our Alexander City office — close enough for same-day and next-day service, experienced enough to understand Lee County's specific pest environment.
+                We serve Auburn from our Alexander City office — close enough for fast scheduling, experienced enough to understand Lee County's specific pest environment.
               </p>
               <div className="space-y-2">
                 {[
@@ -105,7 +105,7 @@ export default function Auburn() {
                 <div>
                   <p className="font-medium text-slate-900">Our Nearest Office</p>
                   <p className="text-sm text-slate-600">1785 Tallapoosa St, Alexander City, AL 35010</p>
-                  <p className="text-xs text-slate-500 mt-1">~45 min from Auburn · Same-day service available</p>
+                  <p className="text-xs text-slate-500 mt-1">~45 min from Auburn · Call for availability</p>
                 </div>
               </div>
               <a href="tel:3343323321"
@@ -133,7 +133,7 @@ export default function Auburn() {
             {[
               { icon: "🐜", name: "Pest Control", desc: "Full perimeter pest control for Auburn homes, apartments, and rentals. Ants, roaches, spiders, crickets.", href: "/services/pest-control" },
               { icon: "🪲", name: "Termite Inspection", desc: "Pre-purchase and annual inspections. Free termite inspection for Auburn homeowners.", href: "/services/termite-control", highlight: true },
-              { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments April through October. Auburn's warm climate means a long season.", href: "/services/mosquito-control" },
+              { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments March through November. Auburn's warm climate means a long season.", href: "/services/mosquito-control" },
               { icon: "🕷️", name: "Tick Control", desc: "Lee County's wooded areas and greenways bring tick pressure. Yard treatments bundled free with mosquito.", href: "/services/tick-control" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Auburn area fire ants. Colony elimination for yards, parks, and commercial properties.", href: "/services/fire-ant-control" },
               { icon: "🏢", name: "Commercial Pest Control", desc: "Restaurants, retail, offices near Auburn and Opelika. Discreet, compliant service.", href: "/services/commercial" },
@@ -156,7 +156,7 @@ export default function Auburn() {
           <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">Auburn Pest Control FAQ</h2>
           <div className="space-y-3">
             {[
-              { q: "Do you serve Auburn even though your office is in Alexander City?", a: "Yes. Our Alexander City office serves Auburn, Opelika, and Lee County. It's about 45 minutes away, which puts us in the same-day service range for most Auburn locations. We've been growing our Auburn presence and have regular routes through the area." },
+              { q: "Do you serve Auburn even though your office is in Alexander City?", a: "Yes. Our Alexander City office serves Auburn, Opelika, and Lee County. It's about 45 minutes away, which puts us in the service area for most Auburn locations. We've been growing our Auburn presence and have regular routes through the area." },
               { q: "Do you handle student rental properties?", a: "Yes. We work with landlords and property managers in Auburn regularly. We can service multiple units in a single visit, coordinate with tenants, and provide documentation for lease compliance purposes." },
               { q: "Are there pre-purchase termite inspections available in Auburn?", a: "Yes. We offer WDO (wood-destroying organism) inspections that satisfy most lender and real estate requirements in Alabama. These are commonly needed when buying a home in Auburn or Opelika." },
               { q: "What pests are most common in Auburn?", a: "Near campus and in older housing: roaches, ants, and spiders. In suburban Auburn and Opelika: termites, fire ants, and mosquitoes are the biggest issues. We handle all of them." },
@@ -180,7 +180,7 @@ export default function Auburn() {
       <section className="py-20 px-6 bg-emerald-800 text-white text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Auburn Pest Control You Can Trust</h2>
-          <p className="text-emerald-100 text-lg mb-8">Free inspection. Same-day availability. Family-owned since 1958.</p>
+          <p className="text-emerald-100 text-lg mb-8">Free inspection. Fast scheduling. Family-owned since 1958.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)}
               className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">

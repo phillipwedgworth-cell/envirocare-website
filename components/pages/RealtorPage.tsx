@@ -41,7 +41,7 @@ export default function RealtorPage() {
       <nav>
         <div className="nav-inner">
           <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.svg" alt="EnviroCare Pest & Termite Services" />
+            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
           </div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -73,7 +73,7 @@ export default function RealtorPage() {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Google · 500+ Reviews</div>
+          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>NPMA-33 Standard Letter</div>
           <div className="ti"><div className="ti-chk">✓</div>VA / FHA / Conventional Accepted</div>
           <div className="ti"><div className="ti-chk">✓</div>48-Hour Turnaround</div>
@@ -134,8 +134,8 @@ export default function RealtorPage() {
               <div className="wedge-body">We can email the letter direct to the loan officer if you give us the contact. Saves you a forward.</div>
             </div>
             <div className="wedge-card">
-              <div className="wedge-lead">Same-Day If Needed</div>
-              <div className="wedge-body">Closing tomorrow and the lender needs WDO? Call us — we\'ll prioritize same-day inspection when possible.</div>
+              <div className="wedge-lead">Schedule Quickly</div>
+              <div className="wedge-body">Closing tomorrow and the lender needs WDO? Call us — we\'ll prioritize priority inspection when possible.</div>
             </div>
           </div>
         </div>

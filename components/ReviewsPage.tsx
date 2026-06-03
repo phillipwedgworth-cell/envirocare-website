@@ -77,7 +77,7 @@ const REVIEWS = [
     city: 'Auburn, AL',
     rating: 5,
     date: '2026-04-18',
-    text: 'Got a same-day appointment when I called about wasps under our deck. Tech was here within 4 hours, very thorough. Will absolutely use again.',
+    text: 'Got a fast appointment when I called about wasps under our deck. Tech was here within 4 hours, very thorough. Will absolutely use again.',
     service: 'Pest Control',
     technician: 'James',
   },
@@ -110,7 +110,7 @@ export default function ReviewsPage() {
             <div className="rv-stats">
               <div className="rv-avg">{avg.toFixed(1)}</div>
               <div className="rv-sub">
-                Average rating · <strong>500+</strong> verified Google reviews
+                Average rating · verified Google reviews
               </div>
             </div>
           </div>

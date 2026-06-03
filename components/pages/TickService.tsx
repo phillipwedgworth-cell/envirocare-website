@@ -13,7 +13,7 @@ const FAQS: Array<[string, string]> = [
   ["When is tick season in Alabama?", "Alabama ticks are active year-round in mild years, but peak pressure runs March through October. Lone star ticks become especially heavy May–August. We recommend starting treatment by early spring to suppress populations before they build."],
   ["Are tick treatments safe for pets and kids?", "Yes — once the treatment dries (about 30–60 minutes), it's safe for kids and pets to be back in the yard. We use the same product class your veterinarian uses for tick prevention on dogs, applied to the resting and questing zones in your yard, not directly on animals."],
   ["What's the difference between tick control and just pest control?", "Standard pest control treats the perimeter of your home for crawling pests. Tick control specifically targets where ticks rest and hunt — wooded edges, leaf litter, tall grass, and shaded transitional zones. They need different products and application techniques."],
-  ["How often do treatments happen?", "Most Alabama yards do well with treatments every 21–30 days during tick season (April through October). Larger wooded properties or homes near the lake or trails may need more frequent applications. We assess your property and recommend a schedule that works."],
+  ["How often do treatments happen?", "Most Alabama yards do well with treatments every 21–30 days during tick season (March through November). Larger wooded properties or homes near the lake or trails may need more frequent applications. We assess your property and recommend a schedule that works."],
   ["Will this also kill fleas?", "The treatments we use for ticks are also effective on fleas in the yard. Many of our customers add tick control specifically because of a flea problem and find both go away."],
   ["Do you treat the whole yard or specific zones?", "We focus on tick habitat — wooded borders, fence lines, garden edges, ornamental plantings, leaf litter zones, and pathways through grass. Open lawn and direct sun areas are low-tick habitats and don't need heavy treatment. Smart targeting beats blanket spraying every time."],
 ];
@@ -113,7 +113,7 @@ export default function TickService() {
             {[
               { n: "01", title: "Property Inspection", body: "We walk your yard and identify tick habitat — wooded edges, leaf litter, ornamental beds, fence lines, transitional zones." },
               { n: "02", title: "Targeted Application", body: "EPA-registered treatments applied where ticks rest and quest. Open lawn and play areas get minimal product." },
-              { n: "03", title: "Monthly Re-Treatments", body: "April–October monthly cadence. Each visit re-treats high-pressure zones based on what we observed last visit." },
+              { n: "03", title: "Monthly Re-Treatments", body: "March–November monthly cadence. Each visit re-treats high-pressure zones based on what we observed last visit." },
               { n: "04", title: "Year-Round Monitoring", body: "Off-season check-ins for hot zones (creeks, woods, trail edges). Winter doesn't stop Alabama ticks completely." },
             ].map((s) => (
               <div key={s.n} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 20px", position: "relative" }}>
@@ -197,7 +197,7 @@ export default function TickService() {
             Stop Pulling Ticks Off<br /><em>Your Family.</em>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>
-            Free property inspection. Same-day availability across Alabama. Family-safe treatments.
+            Free property inspection. Fast scheduling across Alabama. Family-safe treatments.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/quote" style={{ background: GOLD, color: DARK, padding: "15px 30px", borderRadius: 8, fontWeight: 800, fontSize: 15, textDecoration: "none", ...sf }}>

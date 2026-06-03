@@ -29,11 +29,6 @@ export default function MadisonLandingPage() {
             "https://www.facebook.com/envirocare",
             "https://www.google.com/maps/place/EnviroCare+Madison"
           ],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "247"
-          },
           "priceRange": "$$"
         }
       `}</script>
@@ -59,7 +54,7 @@ export default function MadisonLandingPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-emerald-50 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Professional pest control for Mountain Brook families. Same-day service, proven results, trusted locally.
+            Professional pest control for Mountain Brook families. Fast scheduling, proven results, trusted locally.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -118,7 +113,7 @@ export default function MadisonLandingPage() {
             },
             {
               icon: "⚡",
-              title: "Same-Day Service",
+              title: "Fast Scheduling",
               description: "Call in the morning, technician visits by afternoon. No week-long waits."
             },
             {

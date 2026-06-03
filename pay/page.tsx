@@ -17,7 +17,7 @@ export default function PayPage() {
     <main style={{ minHeight: "100vh", background: "#FEFDF8", display: "flex", alignItems: "center", justifyContent: "center", padding: "4rem 1.5rem" }}>
       <div style={{ maxWidth: 560, width: "100%", textAlign: "center" }}>
         <a href="/" style={{ display: "inline-block", marginBottom: "2rem" }}>
-          <img src="/logo.svg" alt="EnviroCare" width={260} height={100} style={{ width: 240, height: "auto" }} />
+          <img src="/logo.png" alt="EnviroCare" width={260} height={100} style={{ width: 240, height: "auto" }} />
         </a>
 
         <div style={{ display: "inline-block", border: "1.5px solid #0E8E40", borderRadius: 6, padding: "5px 16px", marginBottom: 18, fontSize: 12, letterSpacing: "0.14em", color: "#0E8E40", fontFamily: "'DM Sans',system-ui,sans-serif", fontWeight: 800, textTransform: "uppercase" }}>

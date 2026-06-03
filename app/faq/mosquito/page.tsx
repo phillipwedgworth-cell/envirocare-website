@@ -21,7 +21,7 @@ const SCHEMA = {
       name: "When does mosquito season start in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Mosquito season in Alabama typically begins in late March to early April — when overnight temperatures stay consistently above 50°F. Activity peaks from May through August, then tapers in September and October. EnviroCare's season runs April through October with 21-day treatment cycles.",
+        text: "Mosquito season in Alabama typically begins in late March to early April — when overnight temperatures stay consistently above 50°F. Activity peaks from May through August, then tapers in September and October. EnviroCare's season runs March through November with 30-day treatment cycles.",
       },
     },
     {
@@ -29,7 +29,7 @@ const SCHEMA = {
       name: "How often do you treat for mosquitoes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Every 21 days (roughly once every three weeks), April through October. That cycle matches the lifespan of adult mosquitoes and breaks the breeding cycle before the next generation explodes. Customers who start treatment in April consistently see lower pressure all season.",
+        text: "Every 30 days, March through November. That cycle matches the lifespan of adult mosquitoes and breaks the breeding cycle before the next generation explodes. Customers who start treatment in April consistently see lower pressure all season.",
       },
     },
     {
@@ -45,7 +45,7 @@ const SCHEMA = {
       name: "How much does mosquito control cost in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare's mosquito program is $45/month, April through October. There's no setup fee and no annual contract. Adding mosquito control to an existing pest or termite plan is $45/month on top of your current plan. Mosquito + Tick + Flea bundled is $60/month.",
+        text: "EnviroCare's mosquito program is $45/month, March through November. There's no setup fee and no annual contract. Adding mosquito control to an existing pest or termite plan is $45/month on top of your current plan. Mosquito + Tick + Flea bundled is $60/month.",
       },
     },
     {
@@ -85,7 +85,7 @@ const FAQS = [
   },
   {
     q: "How often do you treat?",
-    a: "Every 21 days, April through October. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
+    a: "Every 30 days, March through November. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
   },
   {
     q: "Is yard spray safe for kids and pets?",
@@ -93,7 +93,7 @@ const FAQS = [
   },
   {
     q: "How much does mosquito control cost?",
-    a: "$45/month, April through October. No setup fee, no contract, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick + Flea bundled is $60/month — covers the full yard perimeter.",
+    a: "$45/month, March through November. No setup fee, no contract, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick + Flea bundled is $60/month — covers the full yard perimeter.",
   },
   {
     q: "Do you serve Lake Martin waterfront homes?",
@@ -342,8 +342,8 @@ export default function MosquitoFAQ() {
               lineHeight: 1.6,
             }}
           >
-            <strong>EnviroCare service season:</strong> April through October.
-            21-day treatment cycle. Sign up in April for the best results — and
+            <strong>EnviroCare service season:</strong> March through November.
+            30-day treatment cycle. Sign up in April for the best results — and
             50% off your first application.
           </div>
         </div>
@@ -415,7 +415,7 @@ export default function MosquitoFAQ() {
             }}
           >
             {[
-              { n: "$45/mo", label: "April–October" },
+              { n: "$45/mo", label: "March–November" },
               { n: "21 days", label: "Treatment cycle" },
               { n: "Free", label: "Re-service guarantee" },
               { n: "Since 1958", label: "Family-owned Alabama" },

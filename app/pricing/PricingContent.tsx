@@ -38,8 +38,8 @@ const TIERS: Tier[] = [
       "Bi-monthly perimeter treatment",
       "30+ household pests covered",
       "Unlimited free re-service",
-      "Pet- & kid-safe once dry",
-      "Same-day available",
+      "Applied according to label directions once dry",
+      "Schedule service",
     ],
     cta: "Start Essential",
   },
@@ -62,9 +62,9 @@ const TIERS: Tier[] = [
     name: "Outdoor Pro",
     tagline: "Mosquito + Tick + Flea",
     price: 60,
-    altPrice: "April–October · seasonal yard protection",
+    altPrice: "March–November · seasonal yard protection",
     features: [
-      "21-day yard barrier treatment",
+      "30-day yard barrier treatment",
       "Mosquito breeding sites targeted",
       "Tick & flea protection for pets",
       "Family backyard ready",
@@ -297,7 +297,7 @@ export default function PricingContent() {
             <FAQ q="Why is the bundle not discounted?" a="Bundling with us is a convenience play, not a discount play. One invoice, one technician, one schedule. We chose to keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
             <FAQ q="What's the difference between $35/mo ACH and $70 bimonthly?" a="They're the same price ($35 × 2 months = $70). ACH (auto-draft from your bank) gets the lower monthly rate; bimonthly billing is for customers who prefer a paper bill or card." />
             <FAQ q="Why is termite $32/mo OR $380?" a="$32/mo is our ACH monthly rate. $380 is a one-time installation fee with annual renewals — preferred by some homeowners or builders. Both include the same Sentricon® system and warranty." />
-            <FAQ q="What does Mosquito + Tick + Flea cover?" a="A 21-day yard barrier treatment from April through October. It targets mosquito breeding sites and adult populations, plus tick and flea pressure around the perimeter. Especially popular with dog owners and Lake Martin lakefront homes." />
+            <FAQ q="What does Mosquito + Tick + Flea cover?" a="A 30-day yard barrier treatment from March through November. It targets mosquito breeding sites and adult populations, plus tick and flea pressure around the perimeter. Especially popular with dog owners and Lake Martin lakefront homes." />
             <FAQ q="What's the Sentricon $1M warranty?" a="If termites cause structural damage to your home while you're on active Sentricon protection, the manufacturer (Corteva) covers repairs up to $1,000,000. Industry's strongest backing. The system is the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
