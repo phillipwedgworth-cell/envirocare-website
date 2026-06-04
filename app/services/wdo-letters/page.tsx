@@ -2,125 +2,137 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "WDO Inspection Letters | EnviroCare Pest & Termite Services",
+  title: "WDO Inspection Letters in Alabama | Real Estate Termite Reports | EnviroCare",
   description:
-    "Wood-Destroying Organism (WDO) inspection letters for Alabama real estate closings. VA, FHA, and conventional. ADAI Form WDO-100. 24-hour turnaround. Birmingham, Huntsville & Lake Martin.",
+    "Alabama WDO (wood-destroying organism) inspection letters for real estate closings. Fast turnaround for realtors and lenders across Birmingham, Lake Martin, and Huntsville.",
   alternates: { canonical: "/services/wdo-letters" },
   robots: { index: true, follow: true },
 };
 
 const BRAND_GREEN = "#0E8E40";
+const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
 const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 
-const jsonLd = {
+const serviceLd = {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "Service",
+  name: "WDO Inspection Letter",
+  serviceType: "Wood-Destroying Organism Inspection Report",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "EnviroCare Pest & Termite Services",
+    telephone: "+1-205-940-6360",
+    areaServed: "Alabama",
+  },
+  description:
+    "Official Alabama wood-destroying organism (WDO) inspection letters for real estate closings, refinances, and VA/FHA loans.",
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://envirocarellc.com/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://envirocarellc.com/services" },
+    { "@type": "ListItem", position: 3, name: "WDO Inspection Letters", item: "https://envirocarellc.com/services/wdo-letters" },
+  ],
+};
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
     {
-      "@type": "Service",
-      name: "WDO Wood-Destroying Organism Inspection Letter",
-      provider: {
-        "@type": "LocalBusiness",
-        name: "EnviroCare Pest & Termite Services",
-        telephone: "(205) 940-6360",
-        url: "https://envirocarellc.com",
+      "@type": "Question",
+      name: "What is a WDO letter?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A WDO (wood-destroying organism) letter is the official Alabama termite inspection report required by most lenders for real estate closings. It documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
       },
-      areaServed: { "@type": "State", name: "Alabama" },
-      description:
-        "Official WDO inspection letters (ADAI Form WDO-100) for Alabama real estate closings. Accepted for VA, FHA, and conventional loans. 24-hour turnaround available.",
-      serviceType: "WDO Termite Inspection",
     },
     {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://envirocarellc.com/" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://envirocarellc.com/services" },
-        { "@type": "ListItem", position: 3, name: "WDO Inspection Letters" },
-      ],
+      "@type": "Question",
+      name: "How fast can I get a WDO inspection?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most WDO inspections in our service areas are scheduled within 48–72 hours. The completed letter is typically emailed to the realtor and lender within 24 hours of inspection. Rush options are available for tight closings.",
+      },
     },
     {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What is a WDO letter and when is it required?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A WDO (Wood-Destroying Organism) letter is an official inspection report — ADAI Form WDO-100 in Alabama — documenting whether a property shows evidence of termites, wood-boring beetles, or fungal damage. VA loans require it at closing; FHA and many conventional lenders also require or request it.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How fast can you turn around a WDO letter?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "We typically complete the inspection and issue the letter within 24 hours of the inspection for most areas we serve. Call as early as possible in the contract period — rush timelines are tight when closings are imminent.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do you use the official ADAI WDO-100 form?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. All WDO letters are issued on Alabama Department of Agriculture and Industries (ADAI) Form WDO-100, which is the required form accepted by lenders and title companies statewide.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What if the inspection finds active termites or damage?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "We document the findings accurately. If treatment is needed, we can discuss options — including Sentricon® installation — and re-inspect as needed. Sellers, buyers, and their agents can all contact us directly.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Who pays for the WDO inspection?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "In Alabama it varies by contract. VA loans typically require the seller to pay. Conventional and FHA it depends on the purchase agreement. Your real estate agent or lender can clarify who's responsible under your specific contract.",
-          },
-        },
-      ],
+      "@type": "Question",
+      name: "Do you accept VA and FHA loan inspections?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We provide the Alabama Department of Agriculture and Industries Official WDO Inspection Report (Form ADAI-WDO-100), which is accepted for VA, FHA, conventional, and refinance loans.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What if the inspection finds active termites?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "If we find active wood-destroying organisms, we'll document the findings and provide a quote for treatment using Sentricon® or other appropriate methods. Treatment can usually happen quickly enough to keep the closing on schedule.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can the buyer get a termite plan at closing?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We can set up a Sentricon® Always Active termite plan at or after closing. Many buyers include this as part of their negotiated repairs or purchase a plan directly. Up to $1,000,000 repair coverage available.",
+      },
     },
   ],
 };
 
-export default function WdoLettersPage() {
+export default function WDOLettersPage() {
   const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, serif" };
   const sans: React.CSSProperties = { fontFamily: "'DM Sans', system-ui, sans-serif" };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <main style={{ background: CREAM, minHeight: "100vh", color: INK, ...sans }}>
 
         {/* HERO */}
         <section
           style={{
-            background: `linear-gradient(135deg, ${DEEP} 0%, #0a5e28 100%)`,
+            background: `linear-gradient(135deg, ${DEEP} 0%, ${FOREST} 60%, ${BRAND_GREEN} 100%)`,
             color: "#fff",
-            padding: "72px 24px 56px",
+            padding: "80px 24px 64px",
             textAlign: "center",
           }}
         >
-          <div style={{ maxWidth: 760, margin: "0 auto" }}>
-            <p style={{ fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.7, marginBottom: 12 }}>
-              For Realtors, Lenders & Home Buyers
-            </p>
-            <h1 style={{ ...serif, fontSize: "clamp(30px, 5vw, 46px)", fontWeight: 700, margin: "0 0 16px", lineHeight: 1.2 }}>
+          <div style={{ maxWidth: 920, margin: "0 auto" }}>
+            <div
+              style={{
+                display: "inline-block",
+                background: GOLD,
+                color: INK,
+                padding: "6px 14px",
+                borderRadius: 6,
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                marginBottom: 18,
+              }}
+            >
+              For Realtors &amp; Lenders
+            </div>
+            <h1 style={{ ...serif, fontSize: "clamp(36px, 5.5vw, 52px)", fontWeight: 700, margin: "0 0 18px", lineHeight: 1.1 }}>
               WDO Inspection Letters
+              <br />
+              <em style={{ color: GOLD, fontWeight: 500 }}>For Alabama Closings</em>
             </h1>
-            <p style={{ fontSize: 18, opacity: 0.9, maxWidth: 580, margin: "0 auto 12px", lineHeight: 1.65 }}>
-              Official ADAI Form WDO-100 for Alabama real estate closings. Accepted by VA, FHA, and conventional lenders.
-            </p>
-            <p style={{ fontSize: 15, opacity: 0.75, marginBottom: 32 }}>
-              24-hour turnaround available in most service areas.
+            <p style={{ fontSize: 18, lineHeight: 1.6, opacity: 0.92, maxWidth: 720, margin: "0 auto 36px" }}>
+              Schedule an inspection in under a minute. Letter sent to your inbox within 24 hours of the visit. Closings don't
+              wait — neither do we.
             </p>
             <Link
               href="tel:2059406360"
@@ -128,62 +140,97 @@ export default function WdoLettersPage() {
                 display: "inline-block",
                 background: GOLD,
                 color: "#000",
-                padding: "14px 32px",
+                padding: "14px 36px",
                 borderRadius: 8,
                 fontWeight: 700,
-                fontSize: 16,
+                fontSize: 17,
                 textDecoration: "none",
               }}
             >
-              Schedule an Inspection → (205) 940-6360
+              Schedule a WDO Inspection →
             </Link>
           </div>
         </section>
 
-        {/* WHAT IT IS */}
-        <section style={{ padding: "72px 24px", maxWidth: 860, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, alignItems: "start" }}>
-            <div>
-              <h2 style={{ ...serif, fontSize: 30, color: DEEP, marginBottom: 16 }}>
-                What Is a WDO Letter?
-              </h2>
-              <p style={{ fontSize: 16, lineHeight: 1.75, color: "#444", marginBottom: 16 }}>
-                A Wood-Destroying Organism (WDO) inspection letter is an official report — ADAI Form WDO-100 in Alabama — documenting
-                whether a property shows evidence of termites, wood-boring beetles, or fungal wood decay.
-              </p>
-              <p style={{ fontSize: 16, lineHeight: 1.75, color: "#444", marginBottom: 16 }}>
-                VA loans require it at closing. FHA and many conventional lenders also require or request it, especially in Alabama's
-                termite-prone climate.
-              </p>
-              <p style={{ fontSize: 16, lineHeight: 1.75, color: "#444" }}>
-                The letter is issued by a licensed pest control operator and becomes part of the closing packet.
-              </p>
-            </div>
-            <div>
-              <h2 style={{ ...serif, fontSize: 30, color: DEEP, marginBottom: 16 }}>
-                Who Requests It?
-              </h2>
+        {/* TRUST STRIP */}
+        <section
+          style={{
+            background: "#fff",
+            borderBottom: `1px solid rgba(14,142,64,0.12)`,
+            padding: "20px 24px",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 860,
+              margin: "0 auto",
+              display: "flex",
+              gap: 32,
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {["Alabama Licensed & Insured", "Form ADAI-WDO-100", "VA / FHA / Conventional", "Family-owned since 1958"].map((t) => (
+              <span key={t} style={{ fontSize: 13.5, fontWeight: 600, color: DEEP, letterSpacing: "0.02em" }}>
+                ✓ {t}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* WHAT'S COVERED */}
+        <section style={{ padding: "64px 24px", maxWidth: 920, margin: "0 auto" }}>
+          <h2 style={{ ...serif, fontSize: 30, color: DEEP, textAlign: "center", marginBottom: 10 }}>
+            What the WDO inspection covers
+          </h2>
+          <p style={{ textAlign: "center", color: "#666", fontSize: 16, marginBottom: 48 }}>
+            Alabama uses the ADAI-WDO-100 form — the same form accepted by VA, FHA, and conventional lenders statewide.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
+            {[
+              { label: "Subterranean termites", icon: "🐜" },
+              { label: "Drywood termites", icon: "🐜" },
+              { label: "Powderpost beetles", icon: "🪲" },
+              { label: "Old house borers", icon: "🪲" },
+              { label: "Wood-decay fungi", icon: "🍄" },
+              { label: "Previous damage evidence", icon: "🏠" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  background: "#fff",
+                  border: `1px solid rgba(14,142,64,0.15)`,
+                  borderRadius: 10,
+                  padding: "20px 18px",
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: 28, marginBottom: 8 }}>{item.icon}</div>
+                <p style={{ fontSize: 14, fontWeight: 600, color: DEEP, margin: 0 }}>{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* TIMELINE */}
+        <section style={{ background: "#fff", padding: "56px 24px", borderTop: `1px solid rgba(14,142,64,0.1)`, borderBottom: `1px solid rgba(14,142,64,0.1)` }}>
+          <div style={{ maxWidth: 860, margin: "0 auto" }}>
+            <h2 style={{ ...serif, fontSize: 28, color: DEEP, textAlign: "center", marginBottom: 36 }}>
+              From call to closing — how fast it moves
+            </h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 16 }}>
               {[
-                { who: "Buyers", why: "Required by lender; protects against buying a home with hidden termite damage." },
-                { who: "Sellers", why: "Ordered proactively to speed closing and avoid last-minute surprises." },
-                { who: "Realtors", why: "Coordinated early in the contract period to protect closing timelines." },
-                { who: "Lenders & Title", why: "Required by VA; often required or requested on FHA and conventional." },
-              ].map((r) => (
-                <div
-                  key={r.who}
-                  style={{
-                    display: "flex",
-                    gap: 14,
-                    marginBottom: 16,
-                    padding: "14px 16px",
-                    background: "#fff",
-                    borderRadius: 8,
-                    boxShadow: "0 1px 6px rgba(0,0,0,0.06)",
-                    borderLeft: `3px solid ${BRAND_GREEN}`,
-                  }}
-                >
-                  <p style={{ fontWeight: 700, color: DEEP, minWidth: 70, margin: 0, fontSize: 15 }}>{r.who}</p>
-                  <p style={{ fontSize: 15, color: "#444", lineHeight: 1.5, margin: 0 }}>{r.why}</p>
+                { day: "Call or request", text: "Takes under a minute — we just need the address" },
+                { day: "48–72 hrs", text: "Inspection scheduled in most service areas" },
+                { day: "Inspection Day", text: "Licensed inspector on-site, full ADAI form completed" },
+                { day: "+24 Hours", text: "Letter emailed to realtor, lender, and buyer" },
+              ].map((s, i) => (
+                <div key={i} style={{ background: CREAM, padding: 20, borderRadius: 10, border: `1px solid rgba(14,142,64,0.15)`, textAlign: "center" }}>
+                  <div style={{ ...serif, fontSize: 13, color: GOLD, fontWeight: 700, letterSpacing: "0.05em", marginBottom: 8, textTransform: "uppercase" }}>
+                    {s.day}
+                  </div>
+                  <p style={{ fontSize: 14, color: INK, fontWeight: 500, margin: 0, lineHeight: 1.5 }}>{s.text}</p>
                 </div>
               ))}
             </div>
@@ -191,114 +238,80 @@ export default function WdoLettersPage() {
         </section>
 
         {/* LOAN TYPES */}
-        <section style={{ background: DEEP, color: "#fff", padding: "56px 24px" }}>
-          <div style={{ maxWidth: 860, margin: "0 auto" }}>
-            <h2 style={{ ...serif, fontSize: 28, marginBottom: 12, textAlign: "center" }}>
-              Accepted for All Major Loan Types
-            </h2>
-            <p style={{ textAlign: "center", opacity: 0.85, marginBottom: 40, fontSize: 16 }}>
-              Our WDO letters are issued on the official ADAI WDO-100 form and accepted statewide.
-            </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
-              {[
-                { type: "VA Loans", note: "Required at closing — seller typically pays per VA guidelines" },
-                { type: "FHA Loans", note: "Required when evidence of infestation is noted or lender requests" },
-                { type: "Conventional", note: "Frequently requested by lender; varies by underwriter" },
-                { type: "Cash Sales", note: "Optional but recommended in Alabama's termite-active climate" },
-              ].map((l) => (
-                <div
-                  key={l.type}
-                  style={{
-                    background: "rgba(255,255,255,0.1)",
-                    borderRadius: 10,
-                    padding: "24px 20px",
-                    borderTop: `3px solid ${GOLD}`,
-                  }}
-                >
-                  <p style={{ fontWeight: 700, fontSize: 17, margin: "0 0 8px", color: GOLD }}>{l.type}</p>
-                  <p style={{ fontSize: 14, opacity: 0.85, margin: 0, lineHeight: 1.6 }}>{l.note}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* TIMELINE */}
-        <section style={{ padding: "72px 24px", maxWidth: 760, margin: "0 auto" }}>
-          <h2 style={{ ...serif, fontSize: 28, color: DEEP, textAlign: "center", marginBottom: 8 }}>
-            How the Process Works
+        <section style={{ padding: "64px 24px", maxWidth: 860, margin: "0 auto" }}>
+          <h2 style={{ ...serif, fontSize: 28, color: DEEP, textAlign: "center", marginBottom: 40 }}>
+            Accepted for every loan type
           </h2>
-          <p style={{ textAlign: "center", color: "#555", marginBottom: 40, fontSize: 16 }}>
-            Don't wait until the week of closing — schedule as soon as the contract is signed.
-          </p>
-          {[
-            { day: "Day 1", title: "Schedule", body: "Call or contact your nearest EnviroCare office. Provide the property address and your closing date so we can prioritize." },
-            { day: "Day 1–2", title: "Inspection", body: "A licensed technician inspects the interior and exterior of the structure, crawlspace, and accessible areas for evidence of WDO activity or damage." },
-            { day: "Within 24 hrs", title: "Letter Issued", body: "We complete and issue ADAI Form WDO-100. It can be emailed directly to your agent, lender, or title company." },
-            { day: "Closing", title: "Part of Your Packet", body: "The WDO letter becomes part of the closing disclosure package. If treatment was needed, we document that as well." },
-          ].map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                gap: 20,
-                marginBottom: 28,
-                alignItems: "flex-start",
-              }}
-            >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 }}>
+            {[
+              {
+                type: "VA Loans",
+                detail: "VA requires a WDO inspection in Alabama. We provide the ADAI-WDO-100 form accepted by VA appraisers statewide.",
+              },
+              {
+                type: "FHA Loans",
+                detail: "FHA requires evidence of no active infestation at time of appraisal. Our inspection and report satisfies that requirement.",
+              },
+              {
+                type: "Conventional",
+                detail: "Most conventional lenders require a clean WDO letter. We provide the standard Alabama form — accepted by all major lenders.",
+              },
+              {
+                type: "Refinance",
+                detail: "Refinances often require a fresh WDO inspection, especially for government-backed loans. We handle those same-week in most cases.",
+              },
+            ].map((loan, i) => (
               <div
+                key={i}
                 style={{
-                  minWidth: 80,
-                  background: BRAND_GREEN,
-                  color: "#fff",
-                  borderRadius: 8,
-                  padding: "8px 6px",
-                  textAlign: "center",
-                  flexShrink: 0,
+                  background: "#fff",
+                  border: `1px solid rgba(14,142,64,0.18)`,
+                  borderLeft: `4px solid ${BRAND_GREEN}`,
+                  borderRadius: 10,
+                  padding: "22px 20px",
                 }}
               >
-                <p style={{ fontSize: 11, opacity: 0.85, margin: "0 0 2px", fontWeight: 600 }}>STEP</p>
-                <p style={{ fontSize: 13, fontWeight: 700, margin: 0 }}>{item.day}</p>
+                <h3 style={{ ...serif, fontSize: 19, color: DEEP, marginBottom: 8 }}>{loan.type}</h3>
+                <p style={{ fontSize: 14.5, color: "#555", lineHeight: 1.65, margin: 0 }}>{loan.detail}</p>
               </div>
-              <div>
-                <p style={{ fontWeight: 700, color: DEEP, margin: "0 0 6px", fontSize: 16 }}>{item.title}</p>
-                <p style={{ fontSize: 15, lineHeight: 1.65, color: "#444", margin: 0 }}>{item.body}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
 
         {/* FAQ */}
         <section style={{ background: "#fff", padding: "64px 24px" }}>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <h2 style={{ ...serif, fontSize: 28, color: DEEP, textAlign: "center", marginBottom: 40 }}>
-              WDO Letter FAQs
+              Questions from realtors and buyers
             </h2>
             {[
               {
-                q: "What is a WDO letter and when is it required?",
-                a: "A WDO letter is an official inspection report — ADAI Form WDO-100 in Alabama — documenting whether a property shows evidence of termites, wood-boring beetles, or fungal damage. VA loans require it at closing; FHA and many conventional lenders also require or request it.",
+                q: "What is a WDO letter?",
+                a: "A WDO (wood-destroying organism) letter is the official Alabama termite inspection report required by most lenders for real estate closings. It documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
               },
               {
-                q: "How fast can you turn around a WDO letter?",
-                a: "We typically complete the inspection and issue the letter within 24 hours in most areas we serve. Call early in the contract period — rush timelines are tight when closings are imminent.",
+                q: "How fast can I get a WDO inspection?",
+                a: "Most inspections in our service areas are scheduled within 48–72 hours. The completed letter is typically emailed to the realtor and lender within 24 hours of inspection. Rush options are available for tight closings.",
               },
               {
-                q: "Do you use the official ADAI WDO-100 form?",
-                a: "Yes. All WDO letters are issued on ADAI Form WDO-100, which is the required form accepted by lenders and title companies statewide.",
+                q: "Do you accept VA and FHA loan inspections?",
+                a: "Yes. We provide the Alabama Department of Agriculture and Industries Official WDO Inspection Report (Form ADAI-WDO-100), which is accepted for VA, FHA, conventional, and refinance loans.",
               },
               {
-                q: "What if the inspection finds active termites or damage?",
-                a: "We document findings accurately. If treatment is needed, we can discuss options — including Sentricon® installation — and re-inspect as needed. Sellers, buyers, and their agents can all contact us directly.",
+                q: "What if the inspection finds active termites?",
+                a: "If we find active wood-destroying organisms, we'll document the findings and provide a quote for treatment. Sentricon® treatment can usually be completed quickly enough to keep the closing on schedule.",
               },
               {
-                q: "Who pays for the WDO inspection?",
-                a: "In Alabama it varies by contract. VA loans typically require the seller to pay. Conventional and FHA depend on the purchase agreement. Your real estate agent or lender can clarify who's responsible.",
+                q: "Can the buyer get a termite plan at closing?",
+                a: "Yes. We can set up a Sentricon® Always Active termite plan at or after closing. Many buyers include this as part of negotiated repairs or purchase a plan directly. Up to $1,000,000 repair coverage available.",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                style={{ borderBottom: "1px solid rgba(14,142,64,0.15)", padding: "24px 0" }}
+                style={{
+                  borderBottom: "1px solid rgba(14,142,64,0.15)",
+                  padding: "24px 0",
+                }}
               >
                 <h3 style={{ ...serif, fontSize: 18, color: DEEP, marginBottom: 10 }}>{item.q}</h3>
                 <p style={{ fontSize: 15.5, lineHeight: 1.7, color: "#444", margin: 0 }}>{item.a}</p>
@@ -307,14 +320,21 @@ export default function WdoLettersPage() {
           </div>
         </section>
 
-        {/* OFFICES */}
-        <section style={{ padding: "56px 24px", maxWidth: 860, margin: "0 auto" }}>
-          <h2 style={{ ...serif, fontSize: 24, color: DEEP, textAlign: "center", marginBottom: 8 }}>
-            Schedule Your WDO Inspection
-          </h2>
-          <p style={{ textAlign: "center", color: "#555", marginBottom: 32 }}>
-            Call the office closest to the property.
+        {/* CROSS-LINK */}
+        <section style={{ padding: "32px 24px", background: DEEP, color: "#fff", textAlign: "center" }}>
+          <p style={{ fontSize: 15, opacity: 0.85, margin: 0 }}>
+            Building a new home?{" "}
+            <Link href="/services/builder-pre-treat" style={{ color: GOLD, textDecoration: "underline" }}>
+              See our Builder Pre-Treatment page →
+            </Link>
           </p>
+        </section>
+
+        {/* OFFICE CONTACTS */}
+        <section style={{ padding: "48px 24px", maxWidth: 860, margin: "0 auto" }}>
+          <h2 style={{ ...serif, fontSize: 24, color: DEEP, textAlign: "center", marginBottom: 32 }}>
+            Call Your Nearest Office
+          </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
             {[
               { city: "Birmingham / Alabaster", phone: "(205) 940-6360", href: "tel:2059406360" },
@@ -339,11 +359,6 @@ export default function WdoLettersPage() {
               </Link>
             ))}
           </div>
-          <p style={{ textAlign: "center", marginTop: 24 }}>
-            <Link href="/services/builder-pre-treat" style={{ color: BRAND_GREEN, fontWeight: 600 }}>
-              Need pre-construction treatment for a new build? →
-            </Link>
-          </p>
         </section>
 
       </main>

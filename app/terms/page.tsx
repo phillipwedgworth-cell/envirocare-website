@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 const BRAND_GREEN = "#0E8E40";
 const DEEP = "#07642B";
-const GOLD = "#F5A800";
 const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 

@@ -27,9 +27,7 @@ const jsonLd = {
         telephone: "(205) 940-6360",
         url: "https://envirocarellc.com",
       },
-      areaServed: [
-        { "@type": "State", name: "Alabama" },
-      ],
+      areaServed: [{ "@type": "State", name: "Alabama" }],
       description:
         "Fire ant control and re-treatment included at no extra charge for EnviroCare bi-monthly pest control customers.",
       serviceType: "Fire Ant Control",

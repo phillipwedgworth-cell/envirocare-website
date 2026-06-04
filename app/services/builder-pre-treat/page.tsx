@@ -2,80 +2,80 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Builder Termite Pre-Treatment | EnviroCare Pest & Termite Services",
+  title: "New Construction Termite Pre-Treatment | EnviroCare Pest & Termite",
   description:
-    "Pre-construction termite treatment for builders in Alabama. Soil pre-treatment, Sentricon® bait systems, and combination plans. WDO letters available. Serving Birmingham, Huntsville & Lake Martin.",
+    "Code-compliant termite pre-treatment for Alabama builders. Soil treatment, Sentricon® baiting, or combination. WDO paperwork included. Birmingham, Huntsville & Lake Martin.",
   alternates: { canonical: "/services/builder-pre-treat" },
   robots: { index: true, follow: true },
 };
 
 const BRAND_GREEN = "#0E8E40";
+const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
 const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 
-const jsonLd = {
+const serviceLd = {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "Service",
+  name: "New Construction Termite Pre-Treatment",
+  serviceType: "Builder Termite Pre-Treatment",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "EnviroCare Pest & Termite Services",
+    telephone: "+1-205-940-6360",
+    areaServed: "Alabama",
+  },
+  description:
+    "Code-compliant termite pre-treatments for Alabama new construction: soil treatment, Sentricon® baiting system, or combination. Paperwork and WDO documentation included.",
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://envirocarellc.com/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://envirocarellc.com/services" },
+    { "@type": "ListItem", position: 3, name: "Builder Pre-Treatment", item: "https://envirocarellc.com/services/builder-pre-treat" },
+  ],
+};
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
     {
-      "@type": "Service",
-      name: "Builder Pre-Construction Termite Treatment",
-      provider: {
-        "@type": "LocalBusiness",
-        name: "EnviroCare Pest & Termite Services",
-        telephone: "(205) 940-6360",
-        url: "https://envirocarellc.com",
+      "@type": "Question",
+      name: "When during construction does the pre-treatment happen?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Soil treatment happens after footings are poured and before the slab is placed — timing is critical. Sentricon® can be installed at or after framing. We coordinate directly with your super to hit the right window.",
       },
-      areaServed: { "@type": "State", name: "Alabama" },
-      description:
-        "Pre-construction termite treatment for Alabama builders. Soil treatment, Sentricon bait systems, and combination approaches. WDO letters and paperwork handled.",
-      serviceType: "Pre-Construction Termite Treatment",
     },
     {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://envirocarellc.com/" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://envirocarellc.com/services" },
-        { "@type": "ListItem", position: 3, name: "Builder Pre-Treatment" },
-      ],
+      "@type": "Question",
+      name: "What paperwork does the builder receive?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We provide a treatment certificate and the Alabama Department of Agriculture WDO documentation required by most lenders and inspectors. Sentricon® installations also include a manufacturer-backed service agreement.",
+      },
     },
     {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What Alabama building code requires for termite pre-treatment?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Alabama requires a soil treatment or approved alternative (such as a Sentricon® baiting system) prior to pouring the slab or covering treated soil. EnviroCare handles the required documentation for inspectors and lenders.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do you provide the required paperwork for inspections and closing?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. We issue the NPCA-99-B form (soil treatment report) and can issue WDO letters (ADAI Form WDO-100) for closing. Builder packets, lender letters, and warranty documents are handled in-house.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How far in advance do you need to be scheduled?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "We typically need 48–72 hours notice for soil pre-treatment. For ongoing builder relationships we schedule around your pour date to keep projects moving.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do you work with production builders or only custom builds?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Both. We handle individual custom homes and high-volume production builders with recurring scheduling. Call to discuss your volume and we'll set up an account.",
-          },
-        },
-      ],
+      "@type": "Question",
+      name: "Can the homeowner continue Sentricon® service after closing?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Sentricon® installations transfer to the homeowner seamlessly. We contact them directly before their first renewal so there's no coverage gap.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you work with production builders on multiple lots?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We batch-schedule across active lots in the same subdivision to minimize your superintendent's coordination time. Call our office to set up a builder account.",
+      },
     },
   ],
 };
@@ -86,195 +86,206 @@ export default function BuilderPreTreatPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <main style={{ background: CREAM, minHeight: "100vh", color: INK, ...sans }}>
 
         {/* HERO */}
         <section
           style={{
-            background: `linear-gradient(135deg, ${DEEP} 0%, #0a5e28 100%)`,
+            background: `linear-gradient(135deg, ${DEEP} 0%, ${FOREST} 60%, ${BRAND_GREEN} 100%)`,
             color: "#fff",
-            padding: "72px 24px 56px",
+            padding: "80px 24px 64px",
             textAlign: "center",
           }}
         >
-          <div style={{ maxWidth: 760, margin: "0 auto" }}>
-            <p style={{ fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.7, marginBottom: 12 }}>
-              For Builders & Contractors
-            </p>
-            <h1 style={{ ...serif, fontSize: "clamp(30px, 5vw, 46px)", fontWeight: 700, margin: "0 0 16px", lineHeight: 1.2 }}>
-              Pre-Construction Termite Treatment
-            </h1>
-            <p style={{ fontSize: 18, opacity: 0.9, maxWidth: 580, margin: "0 auto 32px", lineHeight: 1.65 }}>
-              Code-compliant soil treatment and Sentricon® bait systems for Alabama builders. Paperwork handled. Projects keep moving.
-            </p>
-            <Link
-              href="tel:2059406360"
+          <div style={{ maxWidth: 920, margin: "0 auto" }}>
+            <div
               style={{
                 display: "inline-block",
                 background: GOLD,
-                color: "#000",
-                padding: "14px 32px",
-                borderRadius: 8,
+                color: INK,
+                padding: "6px 14px",
+                borderRadius: 6,
+                fontSize: 12,
                 fontWeight: 700,
-                fontSize: 16,
-                textDecoration: "none",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                marginBottom: 18,
               }}
             >
-              Talk to a Builder Rep → (205) 940-6360
-            </Link>
+              For Alabama Builders
+            </div>
+            <h1 style={{ ...serif, fontSize: "clamp(36px, 5.5vw, 52px)", fontWeight: 700, margin: "0 0 18px", lineHeight: 1.1 }}>
+              New Construction
+              <br />
+              <em style={{ color: GOLD, fontWeight: 500 }}>Termite Pre-Treatment</em>
+            </h1>
+            <p style={{ fontSize: 18, lineHeight: 1.6, opacity: 0.92, maxWidth: 720, margin: "0 auto 36px" }}>
+              Code-compliant pre-treat at the right point in the build. We coordinate around your schedule, deliver the paperwork
+              your inspector needs, and hand the homeowner a clean termite warranty at closing.
+            </p>
+            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+              <Link
+                href="tel:2059406360"
+                style={{
+                  display: "inline-block",
+                  background: GOLD,
+                  color: "#000",
+                  padding: "14px 32px",
+                  borderRadius: 8,
+                  fontWeight: 700,
+                  fontSize: 16,
+                  textDecoration: "none",
+                }}
+              >
+                Birmingham: (205) 940-6360
+              </Link>
+              <Link
+                href="tel:2569377676"
+                style={{
+                  display: "inline-block",
+                  background: "rgba(255,255,255,0.15)",
+                  border: "2px solid rgba(255,255,255,0.5)",
+                  color: "#fff",
+                  padding: "14px 32px",
+                  borderRadius: 8,
+                  fontWeight: 700,
+                  fontSize: 16,
+                  textDecoration: "none",
+                }}
+              >
+                Huntsville: (256) 937-7676
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* TREATMENT OPTIONS */}
-        <section style={{ padding: "72px 24px", maxWidth: 900, margin: "0 auto" }}>
-          <h2 style={{ ...serif, fontSize: 32, color: DEEP, textAlign: "center", marginBottom: 8 }}>
+        {/* 3 TREATMENT PATHS */}
+        <section style={{ padding: "72px 24px", maxWidth: 1020, margin: "0 auto" }}>
+          <h2 style={{ ...serif, fontSize: 32, color: DEEP, textAlign: "center", marginBottom: 10 }}>
             Three Treatment Paths
           </h2>
-          <p style={{ textAlign: "center", color: "#555", marginBottom: 48, fontSize: 16 }}>
-            We match the approach to the build — soil type, buyer preference, and lender requirements all factor in.
+          <p style={{ textAlign: "center", color: "#666", fontSize: 16, marginBottom: 52 }}>
+            We match the method to the site, budget, and buyer expectations.
           </p>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 28 }}>
             {[
               {
-                title: "Soil Pre-Treatment",
-                tag: "Most Common",
-                body: "Applied to the soil before the slab is poured. Creates a chemical barrier termites can't cross. Required by Alabama building code; we issue the NPCA-99-B form for your inspector.",
-                detail: "Fast turnaround — typically same week. Minimal schedule disruption.",
-                color: BRAND_GREEN,
+                title: "Soil Treatment",
+                badge: "Most Common",
+                badgeColor: BRAND_GREEN,
+                desc: "Liquid termiticide applied to the soil under and around the slab before it's poured. Fast, one-time application. Meets Alabama code. Best for production builds where speed matters.",
+                points: ["Applied at pre-slab stage", "Alabama code-compliant", "Paperwork issued same day", "Transferable to homeowner"],
               },
               {
-                title: "Sentricon® Bait System",
-                tag: "No-Drilling Option",
-                body: "Sentricon® Always Active™ bait stations installed around the perimeter. No soil injection, no tank trucks. Works 24/7 and provides up to $1M in repair coverage under EnviroCare's plan.",
-                detail: "Preferred for buyers who want ongoing monitoring. Annual renewal maintains coverage.",
-                color: DEEP,
+                title: "Sentricon® Always Active™",
+                badge: "Best Long-Term Value",
+                badgeColor: GOLD,
+                badgeTextColor: INK,
+                desc: "In-ground bait stations installed around the perimeter. No drilling, no tank trucks — bait is always active 24/7. Includes up to $1,000,000 repair coverage. Homeowner continues service at annual renewal.",
+                points: ["No drilling or soil injection", "Up to $1M repair coverage", "Transfers seamlessly to owner", "Annual renewal keeps coverage active"],
               },
               {
-                title: "Combination Plan",
-                tag: "Maximum Protection",
-                body: "Soil pre-treatment at construction plus Sentricon® post-close. The builder gets code compliance; the buyer gets lifetime protection with monitoring.",
-                detail: "Popular with premium builders marketing long-term warranty to buyers.",
-                color: "#0a5e28",
+                title: "Combination",
+                badge: "Premium Protection",
+                badgeColor: DEEP,
+                desc: "Soil treatment at pre-slab for immediate code compliance, followed by Sentricon® installation at framing or after. Two-layer protection for high-value construction or lots with known termite pressure.",
+                points: ["Code compliance at slab stage", "Sentricon® warranty at closing", "Up to $1M coverage", "Ideal for high-value homes"],
               },
-            ].map((plan) => (
+            ].map((path, i) => (
               <div
-                key={plan.title}
+                key={i}
                 style={{
                   background: "#fff",
-                  borderRadius: 12,
-                  padding: "32px 28px",
-                  boxShadow: "0 2px 16px rgba(0,0,0,0.08)",
-                  borderTop: `4px solid ${plan.color}`,
+                  borderRadius: 14,
+                  padding: "32px 26px",
+                  boxShadow: "0 3px 16px rgba(0,0,0,0.08)",
+                  borderTop: `5px solid ${path.badgeColor}`,
                   display: "flex",
                   flexDirection: "column",
                 }}
               >
-                <span
+                <div
                   style={{
                     display: "inline-block",
-                    background: plan.color,
-                    color: "#fff",
+                    background: path.badgeColor,
+                    color: path.badgeTextColor || "#fff",
+                    padding: "4px 12px",
+                    borderRadius: 4,
                     fontSize: 11,
                     fontWeight: 700,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
-                    padding: "4px 10px",
-                    borderRadius: 4,
-                    marginBottom: 16,
+                    marginBottom: 14,
                     alignSelf: "flex-start",
                   }}
                 >
-                  {plan.tag}
-                </span>
-                <h3 style={{ ...serif, fontSize: 22, color: DEEP, marginBottom: 12 }}>{plan.title}</h3>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#444", marginBottom: 12 }}>{plan.body}</p>
-                <p style={{ fontSize: 14, color: "#666", lineHeight: 1.6, fontStyle: "italic", marginTop: "auto" }}>{plan.detail}</p>
+                  {path.badge}
+                </div>
+                <h3 style={{ ...serif, fontSize: 22, color: DEEP, marginBottom: 12 }}>{path.title}</h3>
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: "#555", marginBottom: 20, flexGrow: 1 }}>{path.desc}</p>
+                <ul style={{ margin: 0, padding: "0 0 0 18px", color: "#444", fontSize: 14, lineHeight: 2 }}>
+                  {path.points.map((pt, j) => <li key={j}>{pt}</li>)}
+                </ul>
               </div>
             ))}
           </div>
         </section>
 
-        {/* PAPERWORK SECTION */}
-        <section style={{ background: DEEP, color: "#fff", padding: "56px 24px" }}>
-          <div style={{ maxWidth: 820, margin: "0 auto" }}>
-            <h2 style={{ ...serif, fontSize: 28, marginBottom: 16, textAlign: "center" }}>
-              The Paperwork — We Handle It
+        {/* TIMELINE */}
+        <section style={{ background: "#fff", padding: "56px 24px", borderTop: `1px solid rgba(14,142,64,0.1)`, borderBottom: `1px solid rgba(14,142,64,0.1)` }}>
+          <div style={{ maxWidth: 920, margin: "0 auto" }}>
+            <h2 style={{ ...serif, fontSize: 28, color: DEEP, margin: "0 0 36px", textAlign: "center" }}>
+              How the scheduling works
             </h2>
-            <p style={{ fontSize: 16, opacity: 0.88, textAlign: "center", lineHeight: 1.7, marginBottom: 40 }}>
-              Closing delays from missing termite documents are avoidable. We know what lenders, inspectors, and real estate attorneys need.
-            </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
               {[
-                { doc: "NPCA-99-B", desc: "Soil treatment certification for inspectors and code compliance" },
-                { doc: "WDO Letter", desc: "ADAI Form WDO-100 for VA, FHA, and conventional loan closings" },
-                { doc: "Builder Warranty", desc: "Ongoing protection plan documentation for buyer at closing" },
-                { doc: "Sentricon® Certificate", desc: "Bait system installation and monitoring confirmation" },
-              ].map((d) => (
-                <div
-                  key={d.doc}
-                  style={{
-                    background: "rgba(255,255,255,0.1)",
-                    borderRadius: 10,
-                    padding: "22px 20px",
-                    borderLeft: `3px solid ${GOLD}`,
-                  }}
-                >
-                  <p style={{ fontWeight: 700, fontSize: 16, margin: "0 0 8px", color: GOLD }}>{d.doc}</p>
-                  <p style={{ fontSize: 14, opacity: 0.85, margin: 0, lineHeight: 1.55 }}>{d.desc}</p>
+                { day: "Contract", text: "Call us when the lot closes or permit is pulled" },
+                { day: "Pre-Slab", text: "Soil treatment scheduled around your concrete pour" },
+                { day: "Framing", text: "Sentricon® stations installed if that's the path" },
+                { day: "Closing", text: "Certificate + warranty delivered to closing agent" },
+              ].map((s, i) => (
+                <div key={i} style={{ background: CREAM, padding: 20, borderRadius: 10, border: `1px solid rgba(14,142,64,0.15)`, textAlign: "center" }}>
+                  <div style={{ ...serif, fontSize: 13, color: GOLD, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, textTransform: "uppercase" }}>
+                    {s.day}
+                  </div>
+                  <p style={{ fontSize: 14, color: INK, fontWeight: 500, margin: 0, lineHeight: 1.5 }}>{s.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* TIMELINE */}
-        <section style={{ padding: "72px 24px", maxWidth: 760, margin: "0 auto" }}>
+        {/* WHY ENVIROCARE FOR BUILDERS */}
+        <section style={{ padding: "64px 24px", maxWidth: 860, margin: "0 auto" }}>
           <h2 style={{ ...serif, fontSize: 28, color: DEEP, textAlign: "center", marginBottom: 40 }}>
-            Typical Builder Timeline
+            Why builders choose EnviroCare
           </h2>
-          {[
-            { phase: "Pre-permit", action: "Call EnviroCare — we'll set up your builder account and confirm which treatment type meets your permit and lender requirements." },
-            { phase: "Pre-pour (48–72 hrs out)", action: "We schedule soil pre-treatment to align with your pour date. We issue the NPCA-99-B immediately after treatment." },
-            { phase: "Framing / close-out", action: "If adding Sentricon®, stations are installed around the perimeter post-frame. Certificate issued for closing packet." },
-            { phase: "Closing", action: "WDO letter (if required by lender) issued. Buyer receives warranty documentation and is set up in our system for annual renewal." },
-          ].map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                gap: 20,
-                marginBottom: 28,
-                alignItems: "flex-start",
-              }}
-            >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 }}>
+            {[
+              { title: "Family-owned since 1958", detail: "Three generations in Alabama. We've been doing pre-treats longer than most builders have been building." },
+              { title: "Sentricon® Certified Specialist", detail: "Not every company is certified. We are. That matters when the homeowner calls years later." },
+              { title: "Paperwork handled", detail: "Alabama ADAI documentation, treatment certificates, and warranty transfers — all included, no chasing." },
+              { title: "Three Alabama offices", detail: "Birmingham/Alabaster, Alex City/Lake Martin, and Huntsville. We cover most of the state without long-haul scheduling." },
+              { title: "Homeowner-ready handoff", detail: "We contact your buyer before their first renewal so there's no coverage gap between closing and ownership." },
+              { title: "WDO letters too", detail: "Need a WDO inspection letter for a resale or refinance? We do those as well — same company, same standards." },
+            ].map((c, i) => (
               <div
+                key={i}
                 style={{
-                  minWidth: 40,
-                  height: 40,
-                  borderRadius: "50%",
-                  background: BRAND_GREEN,
-                  color: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: 700,
-                  fontSize: 16,
-                  flexShrink: 0,
+                  background: "#fff",
+                  border: `1px solid rgba(14,142,64,0.18)`,
+                  borderRadius: 10,
+                  padding: 20,
                 }}
               >
-                {i + 1}
+                <div style={{ ...serif, fontSize: 17, color: DEEP, fontWeight: 700, marginBottom: 6 }}>{c.title}</div>
+                <p style={{ fontSize: 14, color: "#4b5563", margin: 0, lineHeight: 1.6 }}>{c.detail}</p>
               </div>
-              <div>
-                <p style={{ fontWeight: 700, color: DEEP, margin: "0 0 6px", fontSize: 16 }}>{item.phase}</p>
-                <p style={{ fontSize: 15, lineHeight: 1.65, color: "#444", margin: 0 }}>{item.action}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
 
         {/* FAQ */}
@@ -285,25 +296,28 @@ export default function BuilderPreTreatPage() {
             </h2>
             {[
               {
-                q: "What does Alabama building code require for termite pre-treatment?",
-                a: "Alabama requires a soil treatment or approved alternative — such as a Sentricon® baiting system — before pouring the slab or covering treated soil. EnviroCare handles the required documentation for inspectors and lenders.",
+                q: "When during construction does the pre-treatment happen?",
+                a: "Soil treatment happens after footings are poured and before the slab is placed — timing is critical. Sentricon® can be installed at or after framing. We coordinate directly with your super to hit the right window.",
               },
               {
-                q: "Do you provide the required paperwork for inspections and closing?",
-                a: "Yes. We issue the NPCA-99-B form for soil treatment and WDO letters (ADAI Form WDO-100) for closing. Builder packets, lender letters, and warranty documents are handled in-house.",
+                q: "What paperwork does the builder receive?",
+                a: "We provide a treatment certificate and the Alabama Department of Agriculture WDO documentation required by most lenders and inspectors. Sentricon® installations also include a manufacturer-backed service agreement.",
               },
               {
-                q: "How far in advance do you need to be scheduled?",
-                a: "We need 48–72 hours for soil pre-treatment. For ongoing builder relationships we coordinate around your pour date to keep projects on schedule.",
+                q: "Can the homeowner continue Sentricon® service after closing?",
+                a: "Yes. Sentricon® installations transfer to the homeowner seamlessly. We contact them directly before their first renewal so there's no coverage gap.",
               },
               {
-                q: "Do you work with production builders or only custom builds?",
-                a: "Both. We handle individual custom homes and high-volume production builders with recurring scheduling. Call to discuss your volume and we'll set up a builder account.",
+                q: "Do you work with production builders on multiple lots?",
+                a: "Yes. We batch-schedule across active lots in the same subdivision to minimize your superintendent's coordination time. Call our office to set up a builder account.",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                style={{ borderBottom: "1px solid rgba(14,142,64,0.15)", padding: "24px 0" }}
+                style={{
+                  borderBottom: "1px solid rgba(14,142,64,0.15)",
+                  padding: "24px 0",
+                }}
               >
                 <h3 style={{ ...serif, fontSize: 18, color: DEEP, marginBottom: 10 }}>{item.q}</h3>
                 <p style={{ fontSize: 15.5, lineHeight: 1.7, color: "#444", margin: 0 }}>{item.a}</p>
@@ -312,14 +326,22 @@ export default function BuilderPreTreatPage() {
           </div>
         </section>
 
-        {/* CTA / OFFICES */}
-        <section style={{ padding: "56px 24px", maxWidth: 860, margin: "0 auto" }}>
-          <h2 style={{ ...serif, fontSize: 24, color: DEEP, textAlign: "center", marginBottom: 8 }}>
-            Ready to set up a builder account?
+        {/* CROSS-LINK + OFFICE CONTACTS */}
+        <section style={{ padding: "48px 24px", background: DEEP, color: "#fff" }}>
+          <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+            <p style={{ fontSize: 15, opacity: 0.8, marginBottom: 12 }}>
+              Need a WDO letter for a resale or refinance?{" "}
+              <Link href="/services/wdo-letters" style={{ color: GOLD, textDecoration: "underline" }}>
+                See our WDO Inspection Letters page →
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        <section style={{ padding: "48px 24px", maxWidth: 860, margin: "0 auto" }}>
+          <h2 style={{ ...serif, fontSize: 24, color: DEEP, textAlign: "center", marginBottom: 32 }}>
+            Call Your Nearest Office
           </h2>
-          <p style={{ textAlign: "center", color: "#555", marginBottom: 32, fontSize: 16 }}>
-            Call the office closest to your job site. We'll get you set up and on the schedule.
-          </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
             {[
               { city: "Birmingham / Alabaster", phone: "(205) 940-6360", href: "tel:2059406360" },
@@ -344,11 +366,6 @@ export default function BuilderPreTreatPage() {
               </Link>
             ))}
           </div>
-          <p style={{ textAlign: "center", marginTop: 24 }}>
-            <Link href="/services/wdo-letters" style={{ color: BRAND_GREEN, fontWeight: 600 }}>
-              Need a WDO letter for a real estate closing? →
-            </Link>
-          </p>
         </section>
 
       </main>
