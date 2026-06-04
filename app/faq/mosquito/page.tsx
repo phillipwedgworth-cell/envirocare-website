@@ -21,11 +21,7 @@ const SCHEMA = {
       name: "When does mosquito season start in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-<<<<<<< HEAD
-        text: "Mosquito season in Alabama typically begins in late March to early April — when overnight temperatures stay consistently above 50°F. Activity peaks from May through August, then tapers in September and October. EnviroCare's season runs March through November with 21-day treatment cycles.",
-=======
         text: "Mosquito season in Alabama typically begins in late March to early April — when overnight temperatures stay consistently above 50°F. Activity peaks from May through August, then tapers in September and October. EnviroCare's season runs March through November with 30-day treatment cycles.",
->>>>>>> fix/prelaunch-batch
       },
     },
     {
@@ -33,11 +29,7 @@ const SCHEMA = {
       name: "How often do you treat for mosquitoes?",
       acceptedAnswer: {
         "@type": "Answer",
-<<<<<<< HEAD
-        text: "Every 21 days (roughly once every three weeks), March through November. That cycle matches the lifespan of adult mosquitoes and breaks the breeding cycle before the next generation explodes. Customers who start treatment in April consistently see lower pressure all season.",
-=======
         text: "Every 30 days, March through November. That cycle matches the lifespan of adult mosquitoes and breaks the breeding cycle before the next generation explodes. Customers who start treatment in April consistently see lower pressure all season.",
->>>>>>> fix/prelaunch-batch
       },
     },
     {
@@ -93,11 +85,7 @@ const FAQS = [
   },
   {
     q: "How often do you treat?",
-<<<<<<< HEAD
-    a: "Every 21 days, March through November. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
-=======
     a: "Every 30 days, March through November. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
->>>>>>> fix/prelaunch-batch
   },
   {
     q: "Is yard spray safe for kids and pets?",
@@ -355,11 +343,7 @@ export default function MosquitoFAQ() {
             }}
           >
             <strong>EnviroCare service season:</strong> March through November.
-<<<<<<< HEAD
-            21-day treatment cycle. Sign up in April for the best results — and
-=======
             30-day treatment cycle. Sign up in April for the best results — and
->>>>>>> fix/prelaunch-batch
             50% off your first application.
           </div>
         </div>

@@ -61,11 +61,7 @@ export default function Alabaster() {
             {[
               { n: "Local Office", sub: "2025 Butler Rd, Alabaster" },
               { n: "Since 1958", sub: "Trusted in Alabama" },
-<<<<<<< HEAD
-              { n: "4.9 Stars", sub: "Verified" },
-=======
               { n: "4.9 Stars", sub: "Verified Reviews" },
->>>>>>> fix/prelaunch-batch
               { n: "Same Day", sub: "Service Available" },
             ].map((t, i) => (
               <div key={i} className="text-center">
