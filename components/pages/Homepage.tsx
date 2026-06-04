@@ -53,7 +53,7 @@ function TopBanner() {
         <span className="ec-banner-text">Three generations of the Wedgworth family</span>
         <span className="ec-banner-dot">·</span>
         <span className="ec-banner-text">Sentricon® up to $1M coverage</span>
-        <a href="tel:2056495278" className="ec-banner-call">Call (205) 649-5278 →</a>
+        <a href="tel:2059406360" className="ec-banner-call">Call (205) 940-6360 →</a>
       </div>
     </div>
   );
@@ -169,7 +169,7 @@ function Hero() {
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 649-5278</span>
+              <span>📞</span><span>(205) 940-6360</span>
             </a>
           </div>
 
@@ -1070,7 +1070,7 @@ function BundleCTA() {
           <div className="ec-bundle-line">All Four Programs <span className="ec-bundle-price">$127/mo</span></div>
         </div>
         <div className="ec-bundle-ctas">
-          <a href="tel:2056495278" className="ec-cta-primary">Call (205) 649-5278</a>
+          <a href="tel:2059406360" className="ec-cta-primary">Call (205) 940-6360</a>
           <Link href="/quote" className="ec-cta-secondary-light">See Plans →</Link>
         </div>
       </div>
@@ -1094,7 +1094,7 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2056495278" className="ec-footer-phone">📞 <span>(205) 649-5278</span> — <em>Main Line</em></a>
+            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Main Line</em></a>
             <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
             <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
             <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>

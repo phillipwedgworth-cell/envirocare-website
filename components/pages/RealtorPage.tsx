@@ -35,7 +35,7 @@ export default function RealtorPage() {
 
       <div className="ann">
         🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
-        <a href="tel:2056495278">Call (205) 649-5278 →</a>
+        <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
       <nav>
@@ -51,8 +51,8 @@ export default function RealtorPage() {
             <li><a href="/contact">Contact</a></li>
           </ul>
           <div className="nav-right">
-            <a href="tel:2056495278" className="nav-phone">(205) 649-5278</a>
-            <a href="tel:2056495278" className="nav-cta">Get Free Quote</a>
+            <a href="tel:2059406360" className="nav-phone">(205) 940-6360</a>
+            <a href="tel:2059406360" className="nav-cta">Get Free Quote</a>
           </div>
         </div>
       </nav>
@@ -65,7 +65,7 @@ export default function RealtorPage() {
             Fast WDO inspection letters, lender-ready NPMA-33 form, accepted by every Alabama lender we\'ve worked with. Keep your closings on track — most letters delivered in 48 hours.
           </p>
           <div className="page-hero-cta">
-            <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>
+            <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/services/real-estate-wdo" className="btn-outline-white">Learn More →</a>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function RealtorPage() {
           <h3>Get A WDO Letter Started</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
-            <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>
+            <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="mailto:service@envirocarellc.com" className="btn-outline-white">Email Service Team →</a>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function RealtorPage() {
               <strong>EnviroCare Pest & Termite Services</strong>
               Family-owned and operated since 1958 — now in its third generation of the Wedgworth family. Serving Alabama from three offices.
               <br /><br />
-              <a href="tel:2056495278" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 649-5278 — Main Line</a><br />
+              <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360 — Main Line</a><br />
               <a href="tel:2059406360" className="footer-phone">📞 (205) 940-6360 — Birmingham</a><br />
               <a href="tel:2562346162" className="footer-phone">📞 (256) 234-6162 — Lake Martin / Alex City</a><br />
               <a href="tel:2569377676" className="footer-phone">📞 (256) 937-7676 — Huntsville</a>

@@ -131,7 +131,7 @@ export default function CityPage({ slug }: { slug: string }) {
 
       <div className="ann">
         🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
-        <a href="tel:2056495278">Call (205) 649-5278 →</a>
+        <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
       <nav>
@@ -257,7 +257,7 @@ export default function CityPage({ slug }: { slug: string }) {
               <strong>EnviroCare Pest & Termite Services</strong>
               Family-owned and operated since 1958 — now in its third generation of the Wedgworth family. Serving Alabama from three offices.
               <br /><br />
-              <a href="tel:2056495278" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 649-5278 — Main Line</a><br />
+              <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360 — Main Line</a><br />
               <a href="tel:2059406360" className="footer-phone">📞 (205) 940-6360 — Birmingham</a><br />
               <a href="tel:2562346162" className="footer-phone">📞 (256) 234-6162 — Lake Martin / Alex City</a><br />
               <a href="tel:2569377676" className="footer-phone">📞 (256) 937-7676 — Huntsville</a>

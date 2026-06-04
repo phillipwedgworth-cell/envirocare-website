@@ -18,7 +18,7 @@ export default function TermiteInspectionServicePage() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "telephone": "(205) 649-5278"
+            "telephone": "(205) 940-6360"
           },
           "areaServed": ["Huntsville, AL", "Madison, AL", "Birmingham, AL"],
           "price": {
@@ -56,8 +56,8 @@ export default function TermiteInspectionServicePage() {
             <button className="px-8 py-4 bg-white text-red-900 font-bold rounded-lg hover:bg-red-50 transition shadow-lg">
               Schedule Free Inspection
             </button>
-            <a href="tel:2056495278" className="px-8 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition">
-              Call (205) 649-5278
+            <a href="tel:2059406360" className="px-8 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition">
+              Call (205) 940-6360
             </a>
           </div>
 
@@ -403,7 +403,7 @@ export default function TermiteInspectionServicePage() {
             <button className="px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-red-50 transition">
               Schedule Free Inspection
             </button>
-            <a href="tel:2056495278" className="px-8 py-4 bg-red-700 text-white font-bold rounded-lg hover:bg-red-800 transition">
+            <a href="tel:2059406360" className="px-8 py-4 bg-red-700 text-white font-bold rounded-lg hover:bg-red-800 transition">
               Call Now
             </a>
           </div>

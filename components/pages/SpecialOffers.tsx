@@ -59,7 +59,7 @@ export default function SpecialOffers() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "telephone": "(205) 649-5278"
+            "telephone": "(205) 940-6360"
           },
           "itemListElement": [
             {"@type": "Offer", "name": "$50 OFF Initial Pest Control", "description": "New customers save $50 on first pest control treatment"},
@@ -79,7 +79,7 @@ export default function SpecialOffers() {
           No gimmicks. These are real savings for Alabama families — because 68 years of trust means something.
         </p>
         <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", ...sf }}>
-          Call to claim any offer: <strong style={{ color: GOLD }}>(205) 649-5278</strong>
+          Call to claim any offer: <strong style={{ color: GOLD }}>(205) 940-6360</strong>
         </p>
       </section>
 

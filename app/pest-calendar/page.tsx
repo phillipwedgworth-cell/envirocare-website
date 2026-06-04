@@ -2,7 +2,7 @@
 
 export const metadata = {
   title: 'Alabama Pest Calendar | What\'s Active This Month | EnviroCare',
-  description: 'Alabama pest activity by month. Termites in March, mosquitoes March–November, rodents in fall. What\'s in your yard right now? Free inspection. Call (205) 649-5278.',
+  description: 'Alabama pest activity by month. Termites in March, mosquitoes March–November, rodents in fall. What\'s in your yard right now? Free inspection. Call (205) 940-6360.',
 };
 
 export default function PestCalendarPage() {

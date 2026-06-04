@@ -18,7 +18,7 @@ export default function MosquitoControl() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "telephone": "(205) 649-5278",
+            "telephone": "(205) 940-6360",
             "foundingDate": "1958"
           },
           "areaServed": ["Birmingham, AL","Huntsville, AL","Lake Martin, AL","Alexander City, AL","Madison, AL","Hoover, AL"],
@@ -50,9 +50,9 @@ export default function MosquitoControl() {
               className="px-8 py-4 bg-teal-500 text-white font-bold rounded-xl hover:bg-teal-400 transition shadow-lg">
               Claim 50% Off First Treatment
             </button>
-            <a href="tel:2056495278"
+            <a href="tel:2059406360"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition border border-white/20">
-              <Phone className="w-5 h-5" /> (205) 649-5278
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 border-t border-white/10">
@@ -299,9 +299,9 @@ export default function MosquitoControl() {
               className="px-8 py-4 bg-white text-teal-900 font-bold rounded-xl hover:bg-teal-50 transition shadow-lg">
               Claim 50% Off Now
             </button>
-            <a href="tel:2056495278"
+            <a href="tel:2059406360"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-600 transition border border-teal-500">
-              <Phone className="w-5 h-5" /> (205) 649-5278
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
           <p className="text-teal-400 text-sm mt-6">3 Alabama offices · Licensed & insured · Founded 1958</p>

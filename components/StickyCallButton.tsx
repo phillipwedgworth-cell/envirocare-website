@@ -37,8 +37,8 @@ export default function StickyCallButton() {
     setExpanded(false);
   }
 
-  const displayPhone = office?.phoneDisplay || '(205) 649-5278';
-  const callHref = office?.phone || '2056495278';
+  const displayPhone = office?.phoneDisplay || '(205) 940-6360';
+  const callHref = office?.phone || '2059406360';
 
   return (
     <>

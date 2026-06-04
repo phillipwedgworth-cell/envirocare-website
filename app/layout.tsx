@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: '%s | EnviroCare Pest & Termite',
   },
   description:
-    'Family-owned Alabama pest & termite control since 1958. Three offices: Birmingham, Lake Martin, Huntsville. Sentricon® $1M coverage, bi-monthly pest control from $35/mo. Call (205) 649-5278.',
+    'Family-owned Alabama pest & termite control since 1958. Three offices: Birmingham, Lake Martin, Huntsville. Sentricon® $1M coverage, bi-monthly pest control from $35/mo. Call (205) 940-6360.',
   keywords: [
     'pest control alabama',
     'termite control birmingham',
@@ -217,7 +217,7 @@ const organizationJsonLd = {
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      telephone: '+1-205-649-5278',
+      telephone: '+1-205-940-6360',
       contactType: 'customer service',
       areaServed: 'US',
       availableLanguage: 'English',

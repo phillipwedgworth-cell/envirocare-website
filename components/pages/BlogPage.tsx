@@ -30,7 +30,7 @@ export default function BlogPage() {
 
       <div className="ann">
         🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
-        <a href="tel:2056495278">Call (205) 649-5278 →</a>
+        <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
       <nav>
@@ -40,8 +40,8 @@ export default function BlogPage() {
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
           <div className="nav-right">
-            <a href="tel:2056495278" className="nav-phone">(205) 649-5278</a>
-            <a href="tel:2056495278" className="nav-cta">Get Free Quote</a>
+            <a href="tel:2059406360" className="nav-phone">(205) 940-6360</a>
+            <a href="tel:2059406360" className="nav-cta">Get Free Quote</a>
           </div>
         </div>
       </nav>
@@ -52,7 +52,7 @@ export default function BlogPage() {
           <h1>Real Alabama<em>Pest Knowledge</em></h1>
           <p className="page-hero-sub">68 years of field experience, distilled into articles. Coming soon — seasonal pest guides, Sentricon® deep-dives, and Alabama-specific advice you won\'t find in big-box pest control marketing.</p>
           <div className="page-hero-cta">
-            <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>
+            <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/faq" className="btn-outline-white">See FAQ →</a>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function BlogPage() {
           <h3>Talk To A Pest Pro</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
-            <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>
+            <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/faq" className="btn-outline-white">See FAQ →</a>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function BlogPage() {
       <footer id="contact">
         <div className="footer-grid">
           <div><div className="footer-brand"><strong>EnviroCare Pest & Termite Services</strong>Family-owned and operated since 1958 — third generation of the Wedgworth family. Three offices in Alabama.<br /><br />
-          <a href="tel:2056495278" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 649-5278 — Main</a><br />
+          <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360 — Main</a><br />
           <a href="tel:2059406360" className="footer-phone">📞 (205) 940-6360 — Birmingham</a><br />
           <a href="tel:2562346162" className="footer-phone">📞 (256) 234-6162 — Lake Martin</a><br />
           <a href="tel:2569377676" className="footer-phone">📞 (256) 937-7676 — Huntsville</a></div></div>

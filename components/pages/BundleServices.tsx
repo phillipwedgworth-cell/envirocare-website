@@ -59,7 +59,7 @@ export default function BundleServices() {
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "EnviroCare Bundle Pest Control Plans",
-          "provider": { "@type": "LocalBusiness", "name": "EnviroCare Pest Control", "telephone": "(205) 649-5278" },
+          "provider": { "@type": "LocalBusiness", "name": "EnviroCare Pest Control", "telephone": "(205) 940-6360" },
           "description": "Bundle pest control, mosquito control, and termite protection into one simple monthly plan. Serving Birmingham, Huntsville, and Lake Martin, Alabama.",
           "areaServed": "Alabama"
         }
@@ -80,8 +80,8 @@ export default function BundleServices() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)} className="px-10 py-4 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-400 transition shadow-lg text-lg">Get Bundle Quote</button>
-            <a href="tel:2056495278" className="flex items-center justify-center gap-2 px-10 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition border border-white/20 text-lg">
-              <Phone className="w-5 h-5" /> (205) 649-5278
+            <a href="tel:2059406360" className="flex items-center justify-center gap-2 px-10 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition border border-white/20 text-lg">
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
         </div>
@@ -193,8 +193,8 @@ export default function BundleServices() {
           <p className="text-emerald-100 text-lg mb-8">Get a free quote for your Alabama home. We'll recommend the right bundle and you decide.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => setQuoteOpen(true)} className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">Get Free Bundle Quote</button>
-            <a href="tel:2056495278" className="flex items-center justify-center gap-2 px-8 py-4 bg-emerald-700 text-white font-bold rounded-xl hover:bg-emerald-600 transition border border-emerald-500">
-              <Phone className="w-5 h-5" /> (205) 649-5278
+            <a href="tel:2059406360" className="flex items-center justify-center gap-2 px-8 py-4 bg-emerald-700 text-white font-bold rounded-xl hover:bg-emerald-600 transition border border-emerald-500">
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
         </div>

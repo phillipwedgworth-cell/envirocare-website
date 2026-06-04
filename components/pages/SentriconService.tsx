@@ -26,7 +26,7 @@ export default function SentriconProtection() {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
             "description": "Certified Sentricon Specialist serving Alabama since 1958",
-            "telephone": "(205) 649-5278"
+            "telephone": "(205) 940-6360"
           },
           "description": "EnviroCare is a Certified Sentricon Specialist providing the #1 termite bait system in Alabama. Colony elimination, always-active protection, eco-friendly.",
           "areaServed": ["Birmingham, AL", "Huntsville, AL", "Lake Martin, AL", "Alexander City, AL"]
@@ -55,10 +55,10 @@ export default function SentriconProtection() {
                 style={{background:"#F5A800", color:"#1A1A1A"}}>
                 Get Free Termite Inspection
               </button>
-              <a href="tel:2056495278"
+              <a href="tel:2059406360"
                 className="flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-xl transition border text-base"
                 style={{background:"rgba(255,255,255,0.1)", borderColor:"rgba(255,255,255,0.2)"}}>
-                <Phone className="w-5 h-5" /> (205) 649-5278
+                <Phone className="w-5 h-5" /> (205) 940-6360
               </a>
             </div>
             {/* Key facts */}
@@ -356,10 +356,10 @@ export default function SentriconProtection() {
               style={{background:"#F5A800", color:"#1A1A1A"}}>
               Schedule Free Inspection
             </button>
-            <a href="tel:2056495278"
+            <a href="tel:2059406360"
               className="flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-xl transition border"
               style={{background:"rgba(255,255,255,0.1)", borderColor:"rgba(255,255,255,0.3)"}}>
-              <Phone className="w-5 h-5" /> (205) 649-5278
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
           <p className="text-green-300 text-sm mt-6">3 Alabama offices · Birmingham · Alexander City · Huntsville</p>

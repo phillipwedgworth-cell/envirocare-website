@@ -64,7 +64,7 @@ export default function ZipLookup({ variant = 'card' }: { variant?: 'card' | 'in
         {office && inArea === false && (
           <div className="zl-result zl-result-warn">
             <div className="zl-result-eyebrow">We may still be able to help</div>
-            <div className="zl-result-office">Try our main line: (205) 649-5278</div>
+            <div className="zl-result-office">Try our main line: (205) 940-6360</div>
             <div className="zl-result-addr">Or call our nearest office — {office.name}</div>
             <a href={`tel:${office.phone}`} className="zl-call-btn">
               📞 Call {office.phoneDisplay}

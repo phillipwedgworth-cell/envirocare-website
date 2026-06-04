@@ -77,7 +77,7 @@ export default function PricingCalculator() {
     if (z.startsWith("368") || z.startsWith("369")) return { name: "Lake Martin Office",  tel: "2562346162", display: "(256) 234-6162" };
     if (z.startsWith("36830") || z.startsWith("36801") || z.startsWith("36832") || z.startsWith("36802")) return { name: "Auburn Routing", tel: "3343323321", display: "(334) 332-3321" };
     if (z.startsWith("35"))                         return { name: "Birmingham Office",   tel: "2059406360", display: "(205) 940-6360" };
-    return { name: "EnviroCare Main Line", tel: "2056495278", display: "(205) 649-5278" };
+    return { name: "EnviroCare Main Line", tel: "2059406360", display: "(205) 940-6360" };
   }, [zip]);
 
   const showSummary = step === 4;

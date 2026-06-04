@@ -2,7 +2,7 @@ import ZipLookup from '@/components/ZipLookup';
 
 export const metadata = {
   title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
-  description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 649-5278.',
+  description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
 };
 
 export default function FindOfficePage() {

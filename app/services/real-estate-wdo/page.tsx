@@ -2,7 +2,7 @@ import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
   title: 'Alabama WDO Inspection Letters | EnviroCare Fast Turnaround',
-  description: 'Wood-destroying organism inspection letters for Alabama closings. Lender-ready format. Call (205) 649-5278.',
+  description: 'Wood-destroying organism inspection letters for Alabama closings. Lender-ready format. Call (205) 940-6360.',
 };
 
 export default function RealEstateWdoPage() {

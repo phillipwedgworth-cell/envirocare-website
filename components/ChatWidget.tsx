@@ -71,7 +71,7 @@ export default function ChatWidget() {
           ...history,
           {
             role: 'assistant',
-            content: 'Sorry, something went wrong. Please call us at (205) 649-5278.',
+            content: 'Sorry, something went wrong. Please call us at (205) 940-6360.',
           },
         ]);
       } finally {

@@ -110,7 +110,7 @@ OFFICES — route to the correct office by the customer's city or address:
 - Huntsville office · (256) 937-7676 · 7027 Old Madison Pike Ste 108, Huntsville AL 35806
   Areas: Huntsville, Madison, Athens, Decatur, Hartselle, Hampton Cove, North Alabama
 - Auburn/Opelika direct: (334) 332-3321
-- Main line (call or text, any area): (205) 649-5278
+- Main line (call or text, any area): (205) 940-6360
 
 SERVICES AND PRICING (exact numbers only — never invent or adjust):
 1. Pest Control: $35/mo ACH autopay, or $70 per bi-monthly visit. Fire ant INCLUDED. Flea perimeter INCLUDED. 30+ pests. Unlimited free re-service between visits.
@@ -187,7 +187,7 @@ export async function POST(req: NextRequest) {
         sendEscalationEmail(messages).catch(() => {});
       }
       if (!PHONE_RE.test(reply)) {
-        reply += "\n\nWant to talk to someone directly? Call **(205) 649-5278** (main line, any office) — or leave your name and number here and we'll call you.";
+        reply += "\n\nWant to talk to someone directly? Call **(205) 940-6360** (main line, any office) — or leave your name and number here and we'll call you.";
       }
     }
 

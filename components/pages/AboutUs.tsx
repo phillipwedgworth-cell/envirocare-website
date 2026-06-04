@@ -17,7 +17,7 @@ export default function AboutUs() {
           "foundingDate": "1958",
           "founder": { "@type": "Person", "name": "Phillip M. Wedgworth" },
           "description": "Family-owned Alabama pest control company founded in 1958 by Phillip M. Wedgworth in Alexander City. Now in its third generation, serving Birmingham, Huntsville, and Lake Martin.",
-          "telephone": "+12056495278",
+          "telephone": "+12059406360",
           "url": "https://envirocarellc.com/about-us",
           "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": "10" },
           "areaServed": "Alabama"
@@ -49,9 +49,9 @@ export default function AboutUs() {
                 className="px-8 py-4 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-400 transition shadow-lg">
                 Get Free Inspection
               </button>
-              <a href="tel:2056495278"
+              <a href="tel:2059406360"
                 className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition border border-white/20">
-                <Phone className="w-5 h-5" /> (205) 649-5278
+                <Phone className="w-5 h-5" /> (205) 940-6360
               </a>
             </div>
           </div>
@@ -297,9 +297,9 @@ export default function AboutUs() {
               className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">
               Get Free Inspection
             </button>
-            <a href="tel:2056495278"
+            <a href="tel:2059406360"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-emerald-700 text-white font-bold rounded-xl hover:bg-emerald-600 transition border border-emerald-500">
-              <Phone className="w-5 h-5" /> (205) 649-5278
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
         </div>

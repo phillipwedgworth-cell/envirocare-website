@@ -85,7 +85,7 @@ export default function ContactUs() {
       if (!res.ok) throw new Error("Form submission failed");
       setSubmitted(true);
     } catch {
-      setError("Something went wrong. Please call us directly at (205) 649-5278.");
+      setError("Something went wrong. Please call us directly at (205) 940-6360.");
     } finally {
       setSubmitting(false);
     }
@@ -103,7 +103,7 @@ export default function ContactUs() {
           "mainEntity": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "telephone": "(205) 649-5278",
+            "telephone": "(205) 940-6360",
             "openingHours": "Mo-Fr 07:00-18:00",
             "address": [
               {"@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007"},

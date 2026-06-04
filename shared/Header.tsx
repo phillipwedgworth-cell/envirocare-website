@@ -118,14 +118,14 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
               <a key={l} href={h} style={{ fontSize: 14, color: l === "Lake Martin" ? G : "#1f2a23", textDecoration: "none", fontWeight: l === "Lake Martin" ? 700 : 600 }}>{l}</a>
             ))}
             <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600 }}>Pay Bill</a>
-            <a href="tel:2056495278" style={{ fontSize: 13, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
-              <Phone size={14} /> (205) 649-5278
+            <a href="tel:2059406360" style={{ fontSize: 13, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <Phone size={14} /> (205) 940-6360
             </a>
             <a href="/quote" style={{ background: GOLD, color: DARK, borderRadius: 50, padding: "0.55rem 1.4rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40` }}>Get Free Quote</a>
           </nav>
 
           <div className="ec-mobile-only" style={{ alignItems: "center", gap: 8 }}>
-            <a href="tel:2056495278" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
+            <a href="tel:2059406360" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
             <button type="button" className="ec-burger" aria-label="Open menu" aria-expanded={menuOpen} aria-controls="ec-mobile-menu" onClick={() => setMenuOpen(true)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="13" x2="20" y2="13"/><line x1="4" y1="19" x2="14" y2="19"/></svg>
             </button>

@@ -28,7 +28,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🪵',
     metaTitle: 'Alabama Termite Swarm Season Guide | EnviroCare Since 1958',
-    metaDescription: 'Alabama termite swarm season peaks March–May. Spot the signs, protect your home with Sentricon® $1M coverage. Free inspection. Call (205) 649-5278.',
+    metaDescription: 'Alabama termite swarm season peaks March–May. Spot the signs, protect your home with Sentricon® $1M coverage. Free inspection. Call (205) 940-6360.',
     body: `
 <p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork — sometime between mid-March and late May, on the first warm humid afternoon after a soaking rain. Hundreds of winged insects boiling up out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
 
@@ -216,7 +216,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 4,
     heroEmoji: '🌻',
     metaTitle: 'Alabama Fire Ant Control | EnviroCare Yard Treatment',
-    metaDescription: 'Alabama fire ant control. Yard-wide elimination, not spot treatment. Critical for lake homes and barefoot families. Family-owned. Call (205) 649-5278.',
+    metaDescription: 'Alabama fire ant control. Yard-wide elimination, not spot treatment. Critical for lake homes and barefoot families. Family-owned. Call (205) 940-6360.',
     body: `
 <p class="lede">Fire ants did not exist in Alabama before 1940. They came up from South America through the Port of Mobile, and within 80 years they've colonized every county in the state. There are now more fire ants per acre in Alabama than there are people in the country.</p>
 
@@ -273,7 +273,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🏠',
     metaTitle: 'Alabama WDO Termite Letter Guide | EnviroCare Fast Turnaround',
-    metaDescription: 'Alabama WDO inspection letters for closings. Lender-ready format. 48-hour turnaround. Family-owned since 1958. Call (205) 649-5278.',
+    metaDescription: 'Alabama WDO inspection letters for closings. Lender-ready format. 48-hour turnaround. Family-owned since 1958. Call (205) 940-6360.',
     body: `
 <p class="lede">You're under contract on a home in Birmingham, Hoover, Madison, or anywhere in Alabama. Your lender's checklist includes a "WDO letter" or "termite letter" or "Form 99B." Your realtor says "no big deal, just get one." Here's what's actually involved.</p>
 
@@ -336,7 +336,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p>Or our main line, <strong>(205) 649-5278</strong>. Standard turnaround is 48 hours. Rush inspections are available when needed.</p>
+<p>Or our main line, <strong>(205) 940-6360</strong>. Standard turnaround is 48 hours. Rush inspections are available when needed.</p>
 `,
   },
 
@@ -742,7 +742,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 6,
     heroEmoji: '🪵',
     metaTitle: 'Termite Season 2026 Alabama: What Homeowners Need to Know | EnviroCare',
-    metaDescription: 'Termite season 2026 is underway across Alabama. Heavy winter rain and warm soil mean elevated swarm activity. Sentricon® $1M coverage. Free inspection. Call (205) 649-5278.',
+    metaDescription: 'Termite season 2026 is underway across Alabama. Heavy winter rain and warm soil mean elevated swarm activity. Sentricon® $1M coverage. Free inspection. Call (205) 940-6360.',
     body: `
 <p class="lede">By late April 2026, our technicians had already logged more termite swarm calls than we typically see through the end of May in a normal year. If you've seen wings on your windowsill or swarmers boiling out of a mulch bed, you're not alone — and you're not too late to protect your home.</p>
 
@@ -802,7 +802,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p>Or call our main line: <strong>(205) 649-5278</strong>. If you found swarmers this week, don't wait — inspections are typically available within 48 hours.</p>
+<p>Or call our main line: <strong>(205) 940-6360</strong>. If you found swarmers this week, don't wait — inspections are typically available within 48 hours.</p>
 
 <p><em>Kevin Wedgworth is the third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
 `,

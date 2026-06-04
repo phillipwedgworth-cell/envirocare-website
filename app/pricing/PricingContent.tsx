@@ -329,13 +329,13 @@ export default function PricingContent() {
             }}>
               Get Free Inspection →
             </button>
-            <a href="tel:2056495278" style={{
+            <a href="tel:2059406360" style={{
               background: "transparent", color: "#fff",
               border: "1px solid rgba(255,255,255,0.3)", borderRadius: 8,
               padding: "16px 24px", fontWeight: 600, fontSize: 15,
               textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8,
             }}>
-              📞 (205) 649-5278
+              📞 (205) 940-6360
             </a>
           </div>
         </div>

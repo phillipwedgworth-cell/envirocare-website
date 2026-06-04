@@ -30,7 +30,7 @@ export default function NotFound() {
 
       <div className="ann">
         🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family
-        <a href="tel:2056495278">Call (205) 649-5278 →</a>
+        <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
       <nav>
@@ -40,8 +40,8 @@ export default function NotFound() {
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/why-envirocare">Why EnviroCare</a></li><li><a href="/contact">Contact</a></li>
           </ul>
           <div className="nav-right">
-            <a href="tel:2056495278" className="nav-phone">(205) 649-5278</a>
-            <a href="tel:2056495278" className="nav-cta">Get Free Quote</a>
+            <a href="tel:2059406360" className="nav-phone">(205) 940-6360</a>
+            <a href="tel:2059406360" className="nav-cta">Get Free Quote</a>
           </div>
         </div>
       </nav>
@@ -51,7 +51,7 @@ export default function NotFound() {
           <div className="not-found-num">404</div>
           <h1 className="not-found-h">This Page<em>Got Away From Us</em></h1>
           <p className="not-found-p">
-            Sorry — the page you\'re looking for either moved or never existed. Try one of these popular pages, or call us at (205) 649-5278 and we\'ll help you find what you need.
+            Sorry — the page you\'re looking for either moved or never existed. Try one of these popular pages, or call us at (205) 940-6360 and we\'ll help you find what you need.
           </p>
           <div className="not-found-links">
             <a href="/" className="nf-link">
@@ -77,7 +77,7 @@ export default function NotFound() {
       <footer id="contact">
         <div className="footer-grid">
           <div><div className="footer-brand"><strong>EnviroCare Pest & Termite Services</strong>Family-owned since 1958.<br /><br />
-          <a href="tel:2056495278" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 649-5278</a></div></div>
+          <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360</a></div></div>
           <div><div className="footer-head">Services</div><ul className="footer-links">
             <li><a href="/services/pest-control">Pest Control</a></li><li><a href="/services/termite-control">Termite Control</a></li><li><a href="/services/mosquito-control">Mosquito Control</a></li><li><a href="/services/tick-control">Tick Control</a></li>
           </ul></div>

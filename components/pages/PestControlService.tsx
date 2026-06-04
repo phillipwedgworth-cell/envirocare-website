@@ -60,8 +60,8 @@ export default function PestControlService() {
             <a href="/quote" style={{ background: GOLD, color: DARK, padding: "15px 28px", borderRadius: 8, fontWeight: 800, fontSize: 15, textDecoration: "none", ...sf }}>
               Get a Free Inspection
             </a>
-            <a href="tel:2056495278" style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 8, padding: "15px 22px", fontWeight: 600, fontSize: 15, textDecoration: "none", ...sf }}>
-              <Phone size={16} /> (205) 649-5278
+            <a href="tel:2059406360" style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 8, padding: "15px 22px", fontWeight: 600, fontSize: 15, textDecoration: "none", ...sf }}>
+              <Phone size={16} /> (205) 940-6360
             </a>
           </div>
         </div>
@@ -200,8 +200,8 @@ export default function PestControlService() {
             <a href="/quote" style={{ background: GOLD, color: DARK, padding: "15px 30px", borderRadius: 8, fontWeight: 800, fontSize: 15, textDecoration: "none", ...sf }}>
               Get Free Inspection
             </a>
-            <a href="tel:2056495278" style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 8, padding: "15px 22px", fontWeight: 600, fontSize: 15, textDecoration: "none", ...sf }}>
-              <Phone size={16} /> (205) 649-5278
+            <a href="tel:2059406360" style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 8, padding: "15px 22px", fontWeight: 600, fontSize: 15, textDecoration: "none", ...sf }}>
+              <Phone size={16} /> (205) 940-6360
             </a>
           </div>
         </div>

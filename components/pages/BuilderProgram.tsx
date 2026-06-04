@@ -18,7 +18,7 @@ export default function BuilderProgram() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "telephone": "(205) 649-5278",
+            "telephone": "(205) 940-6360",
             "foundingDate": "1958"
           },
           "description": "EnviroCare partners with Alabama home builders for new construction pest pre-treatment, Sentricon installation, and homeowner protection plans. Serving Birmingham, Huntsville, and Lake Martin.",
@@ -48,10 +48,10 @@ export default function BuilderProgram() {
                 style={{background:"#F5A800", color:"#1A1A1A"}}>
                 Talk to Our Builder Team
               </button>
-              <a href="tel:2056495278"
+              <a href="tel:2059406360"
                 className="flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-xl transition border text-base"
                 style={{background:"rgba(255,255,255,0.1)", borderColor:"rgba(255,255,255,0.2)"}}>
-                <Phone className="w-5 h-5" /> (205) 649-5278
+                <Phone className="w-5 h-5" /> (205) 940-6360
               </a>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 border-t border-white/10">
@@ -380,10 +380,10 @@ export default function BuilderProgram() {
               style={{background:"#F5A800", color:"#1A1A1A"}}>
               Contact Builder Team
             </button>
-            <a href="tel:2056495278"
+            <a href="tel:2059406360"
               className="flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-xl transition border"
               style={{background:"rgba(255,255,255,0.1)", borderColor:"rgba(255,255,255,0.3)"}}>
-              <Phone className="w-5 h-5" /> (205) 649-5278
+              <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
         </div>

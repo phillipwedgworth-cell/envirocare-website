@@ -198,7 +198,7 @@ if (!service) {
 
       <div className="ann">
         🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
-        <a href="tel:2056495278">Call (205) 649-5278 →</a>
+        <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
       <nav>
@@ -214,11 +214,11 @@ if (!service) {
             <li><a href="/contact">Contact</a></li>
           </ul>
           <div className="nav-right">
-            <a href="tel:2056495278" className="nav-phone">
+            <a href="tel:2059406360" className="nav-phone">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.9 11.7a19.79 19.79 0 01-3.07-8.67A2 2 0 013.82 1h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-              (205) 649-5278
+              (205) 940-6360
             </a>
-            <a href="tel:2056495278" className="nav-cta">Get Free Quote</a>
+            <a href="tel:2059406360" className="nav-cta">Get Free Quote</a>
           </div>
         </div>
       </nav>
@@ -244,7 +244,7 @@ if (!service) {
             </div>
 
             <div className="city-cta-row">
-              <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>
+              <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
               <a href="/pricing" className="btn-outline-white">See Pricing →</a>
             </div>
           </div>
@@ -315,7 +315,7 @@ if (!service) {
           <h3>Get Your Free {service.shortName} Quote</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
-            <a href="tel:2056495278" className="btn-gold" style={{overflow:'visible'}}>Call (205) 649-5278</a>
+            <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/pricing" className="btn-outline-white">See All Plans →</a>
           </div>
         </div>
@@ -328,7 +328,7 @@ if (!service) {
               <strong>EnviroCare Pest & Termite Services</strong>
               Family-owned and operated since 1958 — now in its third generation of the Wedgworth family. Serving Alabama from three offices.
               <br /><br />
-              <a href="tel:2056495278" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 649-5278 — Main Line</a><br />
+              <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360 — Main Line</a><br />
               <a href="tel:2059406360" className="footer-phone">📞 (205) 940-6360 — Birmingham</a><br />
               <a href="tel:2562346162" className="footer-phone">📞 (256) 234-6162 — Lake Martin / Alex City</a><br />
               <a href="tel:2569377676" className="footer-phone">📞 (256) 937-7676 — Huntsville</a>

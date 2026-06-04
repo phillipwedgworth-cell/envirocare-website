@@ -151,8 +151,8 @@ export default function SeasonalPestCalendar() {
         </div>
 
         <div className="spc-cta">
-          <a href="tel:2056495278" className="spc-cta-btn">
-            📞 Schedule Service · (205) 649-5278
+          <a href="tel:2059406360" className="spc-cta-btn">
+            📞 Schedule Service · (205) 940-6360
           </a>
           <p className="spc-cta-note">
             Fast appointments available · Free inspection · Family-owned since 1958
