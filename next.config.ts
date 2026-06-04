@@ -33,6 +33,9 @@ const nextConfig: NextConfig = {
             },
 
             // ─── SHORT SERVICE ALIASES (existing) ───────────────────────────
+            { source: '/pricing', destination: '/quote', permanent: true },
+            { source: '/why-envirocare', destination: '/about-us', permanent: true },
+            { source: '/contact', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
             { source: '/services/mosquito', destination: '/services/mosquito-control', permanent: true },
             { source: '/services/pest', destination: '/services/pest-control', permanent: true },
