@@ -15,8 +15,8 @@
     }  ],
   "crons": [
     {
-      "path": "/api/proposer/run",
-      "schedule": "0 11 * * 1-5"
+      "path": "/api/orchestrator/run",
+      "schedule": "0 9 * * 1"
     }
   ]
 }
