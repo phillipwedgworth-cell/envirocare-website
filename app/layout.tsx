@@ -22,9 +22,17 @@
  * pixels, additional schemas, custom providers, etc.), preserve those.
  */
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
+
+// Mobile viewport — without this, phones render the desktop layout zoomed out,
+// causing element overlap, a cropped logo, and buttons running off-screen.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://envirocare-web.vercel.app'),
@@ -182,9 +190,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Font preconnects for Playfair Display + DM Sans */}
+        {/* Font preconnects + stylesheet for Playfair Display + DM Sans */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" />
 
         {/* LocalBusiness structured data — one per office */}
         <script

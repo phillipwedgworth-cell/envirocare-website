@@ -29,8 +29,8 @@
 
   --color-cream:    #FEFDF8;
 
-  --font-serif: 'Lora', Georgia, serif;
-  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
 }
 
 :root {
@@ -41,8 +41,8 @@
   --gold:         #F5A800;
   --gold-bright:  #FBC51A;
   --cream:        #FEFDF8;
-  --font-serif: 'Lora', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -130,3 +130,28 @@ body.ec-menu-locked { overflow: hidden; }
 
 .ec-menu-foot { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; align-items: center; gap: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; color: #5A7060; }
 .ec-menu-foot-dot { width: 8px; height: 8px; border-radius: 50%; background: #5CB85C; }
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE LAYOUT FIXES (June 2026)
+   Fixes: invisible overlay hijacking taps, header element overlap,
+   cropped logo, and the quote button running off-screen.
+   ══════════════════════════════════════════════════════════════ */
+
+/* 1) Nothing may cause horizontal scroll / push content off-screen. */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* 2) Closed mobile menu must NEVER intercept taps. visibility:hidden
+      already does this, but pointer-events is a hard belt-and-suspenders
+      guard so links underneath are always clickable when the menu is shut. */
+.ec-menu-overlay { pointer-events: none; }
+.ec-menu-overlay[data-open="true"] { pointer-events: auto; }
+
+/* 3) Sticky-header logo: full size on desktop, scaled down on phones so
+      the wide lockup can't crowd or overlap the phone/login/burger buttons. */
+.ec-header-logo { height: 50px; width: auto; }
+@media (max-width: 600px) {
+  .ec-header-logo { height: 40px; max-width: 58vw; }
+}
+@media (max-width: 380px) {
+  .ec-header-logo { height: 36px; max-width: 52vw; }
+}
