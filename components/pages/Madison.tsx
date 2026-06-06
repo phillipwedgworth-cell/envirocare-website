@@ -62,7 +62,7 @@ export default function Madison() {
             </a>
           </div>
           <div style={{ display: "flex", gap: 32, flexWrap: "wrap", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24 }}>
-            {[["Since 1958", "Family-owned"], ["4.9 Stars", "Verified"], ["Fast", "Scheduling"], ["FREE", "Termite Inspection"]].map(([n, l]) => (
+            {[["Since 1958", "Family-owned"], ["4.7 Stars", "Verified"], ["Fast", "Scheduling"], ["FREE", "Termite Inspection"]].map(([n, l]) => (
               <div key={n}><div style={{ fontSize: 18, fontWeight: 800, color: GOLD, ...sf }}>{n}</div><div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 3, ...sf }}>{l}</div></div>
             ))}
           </div>

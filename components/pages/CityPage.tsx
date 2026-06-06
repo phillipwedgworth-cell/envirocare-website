@@ -199,7 +199,7 @@ export default function CityPage({ slug }: { slug: string }) {
             <p className="city-hero-sub">{city.intro}</p>
             <div className="city-stats">
               <div className="city-stat"><div className="city-stat-n">{city.yearsServed}+</div><div className="city-stat-l">Years Serving AL</div></div>
-              <div className="city-stat"><div className="city-stat-n">4.9★</div><div className="city-stat-l">Google Rating</div></div>
+              <div className="city-stat"><div className="city-stat-n">4.7★</div><div className="city-stat-l">Google Rating</div></div>
               <div className="city-stat"><div className="city-stat-n">$1M</div><div className="city-stat-l">Sentricon® Coverage</div></div>
               <div className="city-stat"><div className="city-stat-n">30+</div><div className="city-stat-l">Pests Covered</div></div>
             </div>
@@ -217,7 +217,7 @@ export default function CityPage({ slug }: { slug: string }) {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9★ Google Rated</div>
+          <div className="ti"><div className="ti-chk">★</div>4.7★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>AL Pest Control Association</div>

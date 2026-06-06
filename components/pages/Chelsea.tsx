@@ -59,7 +59,7 @@ export default function Chelsea() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { n: "Since 1958", sub: "Family Owned" },
-              { n: "4.9 Stars", sub: "Verified Reviews" },
+              { n: "4.7 Stars", sub: "Verified Reviews" },
               { n: "Fast", sub: "Scheduling Available" },
               { n: "Family", sub: "Owned Since 1958" },
             ].map((t, i) => (
@@ -154,7 +154,7 @@ export default function Chelsea() {
                 <div className="space-y-2 text-sm text-slate-300">
                   <p>✓ Family-owned since 1958 — not a franchise</p>
                   <p>✓ Local Alabaster office serves Chelsea directly</p>
-                  <p>✓ 4.9★ Verified by Google</p>
+                  <p>✓ 4.7★ Verified by Google</p>
                   <p>✓ Low-impact products applied by licensed technicians</p>
                   <p>✓ Satisfaction guaranteed on every treatment</p>
                 </div>

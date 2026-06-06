@@ -175,7 +175,7 @@ function Hero() {
 
           <div className="ec-hero-stats">
             <div className="ec-stat"><div className="ec-stat-num">68+</div><div className="ec-stat-label">YEARS IN AL</div></div>
-            <div className="ec-stat"><div className="ec-stat-num">4.9★</div><div className="ec-stat-label">GOOGLE RATING</div></div>
+            <div className="ec-stat"><div className="ec-stat-num">4.7★</div><div className="ec-stat-label">GOOGLE RATING</div></div>
             <div className="ec-stat"><div className="ec-stat-num">$1M</div><div className="ec-stat-label">SENTRICON® COVERAGE</div></div>
           </div>
 
@@ -852,7 +852,7 @@ function Reviews() {
           <span className="ec-reviews-rating">
             <span className="ec-reviews-num">4.9</span>
             <span className="ec-reviews-stars">★★★★★</span>
-            <span className="ec-reviews-count">· 4.9★ Google</span>
+            <span className="ec-reviews-count">· 4.7★ Google</span>
           </span>
         </div>
         <div className="ec-section-eyebrow">CUSTOMER REVIEWS</div>
