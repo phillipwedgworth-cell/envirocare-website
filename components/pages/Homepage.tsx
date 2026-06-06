@@ -936,7 +936,7 @@ function Pricing() {
               title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
               tagline="All four programs — pest, termite, mosquito & tick — under one plan."
               price="127" unit="/mo" terms="ACH · everything in one invoice"
-              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Apr–Oct, every 30 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
+              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (Mar–Nov, every 30 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
               cta="Start Complete" href="/quote?plan=complete"
             />
           </div>
@@ -947,7 +947,7 @@ function Pricing() {
           <div className="ec-svc-price-grid ec-pricing-fade">
             <SvcPriceCard icon="🛡️" title="Pest Control" price="70" unit="/visit" note="Bi-monthly exterior treatment" bullets={['30+ common pests covered', 'Interior + perimeter', 'Unlimited free re-services']} href="/quote?service=pest" />
             <SvcPriceCard icon="🪵" title="Termite Inspection" price="0" unit="FREE" note="Full home · no obligation" bullets={['Sentricon® quote included', 'Same-week scheduling', '$1M coverage available']} href="/quote?service=termite" featured />
-            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Apr–Oct" bullets={['Applied according to label directions once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
+            <SvcPriceCard icon="🦟" title="Mosquito Application" price="79" unit="/app" note="30-day barrier · Mar–Nov" bullets={['Applied according to label directions once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
             <SvcPriceCard icon="🐾" title="Tick Treatment" price="69" unit="/treatment" note="Harborage-zone targeted" bullets={['Lone Star, Dog & Deer ticks', 'Yard-wide coverage', 'Free when bundled with mosquito']} href="/quote?service=tick" />
             <SvcPriceCard icon="🌻" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Applied per label directions']} href="/quote?service=fire-ant" />
             <SvcPriceCard icon="📋" title="WDO / Real Estate Letter" price="125" unit="/letter" note="Fast turnaround · lender-ready" bullets={['NPMA-33 format', 'Same-week scheduling', 'All three offices']} href="/quote?service=wdo" />

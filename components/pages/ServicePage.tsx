@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * ServicePage.tsx — Shared template for all 10 EnviroCare service pages
  * Generated May 16, 2026 — Stage 2 of v2 site-wide rebrand
@@ -11,6 +13,7 @@
  * Requires in /public: logo.png
  */
 
+import { useEffect } from 'react';
 import { getServiceBySlug, type Service } from '@/data/services';
 
 const SERVICE_ART_SVG: Record<string, string> = {
@@ -61,7 +64,7 @@ const SERVICE_ART_SVG: Record<string, string> = {
 </g>
 <g transform="translate(200,160)"><circle r="100" fill="none" stroke="#F5A800" stroke-width="3" opacity="0.85"/><line x1="-78" y1="-78" x2="78" y2="78" stroke="#F5A800" stroke-width="5" opacity="0.85"/></g>
 <g fill="#F5A800" opacity="0.7"><circle cx="60" cy="40" r="2"/><circle cx="340" cy="50" r="2"/><circle cx="380" cy="280" r="1.5"/></g>
-<text x="200" y="295" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff" opacity="0.5" text-anchor="middle">30-day BARRIER · APR–OCT</text>
+<text x="200" y="295" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff" opacity="0.5" text-anchor="middle">21-DAY BARRIER · APR–OCT</text>
 </svg>`,
   'tick': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(200,160)" opacity="0.92">
@@ -181,7 +184,28 @@ const SERVICE_ART_SVG: Record<string, string> = {
 export default function ServicePage({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
 
-if (!service) {
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const links = [
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
+    ];
+    const els: HTMLLinkElement[] = [];
+    links.forEach((cfg) => {
+      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
+      const el = document.createElement('link');
+      Object.entries(cfg).forEach(([k, v]) => {
+        if (k === 'crossOrigin') el.crossOrigin = v as string;
+        else el.setAttribute(k, v as string);
+      });
+      document.head.appendChild(el);
+      els.push(el);
+    });
+    return () => { els.forEach((el) => el.remove()); };
+  }, []);
+
+  if (!service) {
     return (
       <div style={{padding:'4rem',textAlign:'center',fontFamily:'DM Sans,sans-serif'}}>
         <h1>Service not found: {slug}</h1>
@@ -785,4 +809,3 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
   .svc-features{grid-template-columns:1fr}
 }
 `;
-

@@ -152,7 +152,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🦟',
     metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare Since 1958',
-    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, pet-safe. Reclaim your dock. Call (256) 234-6162.',
+    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, EPA-registered. Reclaim your dock. Call (256) 234-6162.',
     body: `
 <p class="lede">Lake Martin is paradise from March through November — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
@@ -427,7 +427,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Clear items away from baseboards in the kitchen and bathrooms. Pull appliances forward so we can treat behind them. These areas are prime harborage for roaches, ants, and silverfish — and if we can't reach them, neither can the treatment.</p>
 
 <h2>Secure Pets and Sensitive Items</h2>
-<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are family-safe once dry — about 30 minutes for interior work.</p>
+<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are EPA-registered once dry — about 30 minutes for interior work.</p>
 
 <h2>Trim Exterior Vegetation</h2>
 <p>Trim vegetation at least 12 inches from your home exterior. Overgrown landscaping touching your house creates bridges for pests to bypass our perimeter barrier.</p>

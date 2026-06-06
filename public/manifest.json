@@ -9,16 +9,5 @@
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
-  ],
-  "shortcuts": [
-    {
-      "name": "EnviroCare Ops",
-      "short_name": "Ops",
-      "description": "Internal operations dashboard",
-      "url": "/command-center?key=envirocare2026",
-      "icons": [
-        { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }
-      ]
-    }
   ]
 }

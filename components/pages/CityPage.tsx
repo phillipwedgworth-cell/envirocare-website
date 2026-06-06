@@ -15,7 +15,6 @@
 
 import { useEffect } from 'react';
 import { CITIES, getCityBySlug, type City } from '@/data/cities';
-import CityHeroArt from '@/components/CityHeroArt';
 
 const CITY_ART_SVG: Record<string, string> = {
   'vulcan': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +156,6 @@ export default function CityPage({ slug }: { slug: string }) {
       </nav>
 
       <section className="city-hero">
-        <CityHeroArt slug={slug} />
         <div className="city-hero-inner">
           <div>
             <div className="city-eyebrow"><span className="city-eyebrow-txt">Serving {city.county} County · Since 1958</span></div>
@@ -664,4 +662,3 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
   .city-art-box{aspect-ratio:16/9}
 }
 `;
-

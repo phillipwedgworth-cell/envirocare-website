@@ -18,7 +18,7 @@ const BUNDLES = [
     tagline: "Most popular — complete year-round coverage",
     includes: [
       "Monthly Pest Control",
-      "Monthly Mosquito Treatments (Apr–Oct)",
+      "Monthly Mosquito Treatments (Mar–Nov)",
       "Annual Termite Inspection + Monitoring",
       "Priority Scheduling",
       "Free Re-treatments Between Visits",

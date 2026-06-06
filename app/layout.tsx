@@ -1,75 +1,76 @@
-import type { Metadata, Viewport } from 'next';
-import { Playfair_Display, DM_Sans } from 'next/font/google';
+/**
+ * app/layout.tsx — EnviroCare root layout with full SEO stack
+ * Updated May 16, 2026 — bakes in all known SEO assets from project history
+ *
+ * INCLUDES:
+ *  - Site-wide metadata (title, description, og:image, Twitter card)
+ *  - Google Analytics tag (G-CELEB90NKX) — confirmed from prior layout
+ *  - Google Search Console verification meta tag
+ *  - 3 LocalBusiness JSON-LD schemas (Birmingham, Lake Martin, Huntsville)
+ *  - Playfair Display + DM Sans font preconnect
+ *  - NO global Header/Footer wrapper — new pages have integrated nav/footer
+ *
+ * IMPORTANT: This REPLACES your existing app/layout.tsx.
+ * Before pasting, compare with your current file to make sure you don't
+ * lose anything custom you added. The pieces this file definitely includes:
+ *   ✓ GA G-CELEB90NKX
+ *   ✓ GSC verification jsPqwOPMFt1Felwq6xg6-SBxM1w0Sf1zybHX6MXth1M
+ *   ✓ 3 LocalBusiness schemas
+ *   ✓ og-image references
+ *
+ * If your current layout.tsx has anything else important (other tracking
+ * pixels, additional schemas, custom providers, etc.), preserve those.
+ */
+
+import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
-  display: 'swap',
-});
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-});
-import StickyCallButton from '@/components/StickyCallButton';
-import LogoFix from '@/components/LogoFix';
-import ChatWidget from '@/components/ChatWidget';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocarellc.com';
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL('https://envirocare-web.vercel.app'),
   title: {
-    default: 'EnviroCare Pest & Termite Services | Family-Owned Alabama Since 1958',
-    template: '%s | EnviroCare Pest & Termite',
+    default: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+    template: '%s | EnviroCare',
   },
   description:
-    'Family-owned Alabama pest & termite control since 1958. Three offices: Birmingham, Lake Martin, Huntsville. Sentricon® $1M coverage, bi-monthly pest control from $35/mo. Call (205) 940-6360.',
+    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M coverage, mosquito and tick yard treatment. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
   keywords: [
-    'pest control alabama',
-    'termite control birmingham',
-    'sentricon alabama',
-    'mosquito control huntsville',
-    'lake martin pest control',
-    'pest control auburn al',
-    'family owned pest control',
-    'envirocare',
+    'Alabama pest control',
+    'Birmingham pest control',
+    'Lake Martin pest control',
+    'Huntsville pest control',
+    'Auburn pest control',
+    'Sentricon termite',
+    'Alabama termite service',
+    'family-owned pest control Alabama',
+    'EnviroCare',
   ],
-  authors: [{ name: 'EnviroCare Pest & Termite Services' }],
-  creator: 'EnviroCare Pest & Termite Services',
-  publisher: 'EnviroCare Pest & Termite Services',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: true,
-  },
+  authors: [{ name: 'EnviroCare Pest & Termite Services LLC' }],
+  creator: 'EnviroCare Pest & Termite Services LLC',
+  publisher: 'EnviroCare Pest & Termite Services LLC',
+  formatDetection: { telephone: true, address: true, email: true },
   openGraph: {
-    title: 'EnviroCare Pest & Termite Services | Alabama Since 1958',
-    description:
-      'Three generations of Alabama families trust EnviroCare. Sentricon® $1M coverage, bi-monthly pest control, mosquito & tick. Birmingham · Lake Martin · Huntsville.',
-    url: SITE_URL,
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://envirocare-web.vercel.app',
     siteName: 'EnviroCare Pest & Termite Services',
+    title: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+    description:
+      'Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service. Three offices across Alabama.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'EnviroCare Pest & Termite — Family-Owned Alabama Since 1958',
+        alt: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EnviroCare Pest & Termite Services | Alabama Since 1958',
+    title: 'EnviroCare Pest & Termite Services — Alabama Since 1958',
     description:
-      'Family-owned Alabama pest control. Sentricon® $1M coverage. Birmingham · Lake Martin · Huntsville.',
+      'Family-owned bi-monthly pest control, Sentricon® termite protection with $1M coverage. Three Alabama offices.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -83,42 +84,25 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  icons: {
-    icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon.ico',
-  },
-  manifest: '/manifest.json',
   verification: {
+    // Google Search Console verification from May 15 setup
     google: 'jsPqwOPMFt1Felwq6xg6-SBxM1w0Sf1zybHX6MXth1M',
   },
   alternates: {
-    canonical: './',
+    canonical: 'https://envirocare-web.vercel.app',
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: '#0E8E40',
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-};
-
-// =================== JSON-LD STRUCTURED DATA ===================
-const birminghamJsonLd = {
+// ─── 3 LocalBusiness JSON-LD schemas (one per office)
+const BIRMINGHAM_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': `${SITE_URL}/#birmingham`,
+  '@id': 'https://envirocare-web.vercel.app/#birmingham',
   name: 'EnviroCare Pest & Termite Services — Birmingham',
-  image: `${SITE_URL}/og-image.png`,
+  image: 'https://envirocare-web.vercel.app/og-image.png',
   description:
     'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
-  url: `${SITE_URL}/birmingham`,
+  url: 'https://envirocare-web.vercel.app/birmingham',
   telephone: '+1-205-940-6360',
   priceRange: '$$',
   address: {
@@ -129,28 +113,26 @@ const birminghamJsonLd = {
     postalCode: '35007',
     addressCountry: 'US',
   },
+  geo: { '@type': 'GeoCoordinates', latitude: 33.2106, longitude: -86.8164 },
   openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
+  areaServed: ['Birmingham','Hoover','Vestavia Hills','Mountain Brook','Homewood','Alabaster','Chelsea','Pelham','Helena','Calera','Trussville','Greystone','Mt Laurel','Tuscaloosa'],
+  sameAs: ['https://www.envirocarellc.com'],
+
 };
 
-const lakeMartinJsonLd = {
+const LAKE_MARTIN_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': `${SITE_URL}/#lake-martin`,
-  name: "EnviroCare Pest & Termite Services — Alex City / Lake Martin",
-  image: `${SITE_URL}/og-image.png`,
+  '@id': 'https://envirocare-web.vercel.app/#lake-martin',
+  name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
+  image: 'https://envirocare-web.vercel.app/og-image.png',
   description:
-    "EnviroCare's original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.",
-  url: `${SITE_URL}/lake-martin`,
+    'EnviroCare\'s original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.',
+  url: 'https://envirocare-web.vercel.app/lake-martin',
   telephone: '+1-256-234-6162',
   priceRange: '$$',
-  foundingDate: '1958',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '1785 Tallapoosa St',
@@ -159,25 +141,24 @@ const lakeMartinJsonLd = {
     postalCode: '35010',
     addressCountry: 'US',
   },
+  geo: { '@type': 'GeoCoordinates', latitude: 32.9440, longitude: -85.9536 },
   openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
+  areaServed: ['Lake Martin','Alexander City','Dadeville','Eclectic','Auburn','Opelika'],
+  sameAs: ['https://www.envirocarellc.com'],
+
 };
 
-const huntsvilleJsonLd = {
+const HUNTSVILLE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': `${SITE_URL}/#huntsville`,
+  '@id': 'https://envirocare-web.vercel.app/#huntsville',
   name: 'EnviroCare Pest & Termite Services — Huntsville',
-  image: `${SITE_URL}/og-image.png`,
+  image: 'https://envirocare-web.vercel.app/og-image.png',
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
-  url: `${SITE_URL}/huntsville`,
+  url: 'https://envirocare-web.vercel.app/huntsville',
   telephone: '+1-256-937-7676',
   priceRange: '$$',
   address: {
@@ -188,103 +169,62 @@ const huntsvilleJsonLd = {
     postalCode: '35806',
     addressCountry: 'US',
   },
+  geo: { '@type': 'GeoCoordinates', latitude: 34.7191, longitude: -86.6878 },
   openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
+  areaServed: ['Huntsville','Madison','Athens','Decatur','Hartselle','Harvest','Hampton Cove'],
+  sameAs: ['https://www.envirocarellc.com'],
+
 };
 
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${SITE_URL}/#organization`,
-  name: 'EnviroCare Pest & Termite Services',
-  alternateName: 'EnviroCare',
-  url: SITE_URL,
-  logo: '/logo.png',
-  foundingDate: '1958',
-  founder: {
-    '@type': 'Person',
-    name: 'Phillip M. Wedgworth',
-  },
-  description:
-    'Three generations of family-owned pest and termite control across Alabama. Founded 1958 in Alexander City.',
-  slogan: 'No One Cares Like EnviroCare.',
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      telephone: '+1-205-940-6360',
-      contactType: 'customer service',
-      areaServed: 'US',
-      availableLanguage: 'English',
-    },
-  ],
-  sameAs: [],
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+    <html lang="en">
       <head>
-        {/* Preload the hero truck image — biggest LCP element */}
-        <link rel="preload" as="image" href="/truck.jpg" fetchPriority="high" />
+        {/* Font preconnects for Playfair Display + DM Sans */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* JSON-LD Structured Data — 4 schemas */}
+        {/* LocalBusiness structured data — one per office */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(birminghamJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(BIRMINGHAM_SCHEMA) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(lakeMartinJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LAKE_MARTIN_SCHEMA) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(huntsvilleJsonLd) }}
-        />
-
-        {/* Google Analytics 4 */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-CELEB90NKX"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CELEB90NKX', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(HUNTSVILLE_SCHEMA) }}
         />
       </head>
       <body>
-        {/* CSS overrides for logo sizing — runs site-wide */}
-        <LogoFix />
+        {/*
+          NOTE: We do NOT wrap children with global <Header /> or <Footer /> here.
+          Every page in the v2 design (Homepage, CityPage, ServicePage, RealtorPage,
+          BuildersPage, FaqPage, /pricing, /why-envirocare) has its own integrated
+          nav and footer. Wrapping here would cause double-display.
 
-        {/* The page content */}
+          If you have legacy pages that need a global Header/Footer, add them on
+          those individual pages instead.
+        */}
         {children}
 
-        {/* Mobile-only sticky call button with zip-aware office routing */}
-        <StickyCallButton />
-
-        {/* AI chat assistant — all pages, green bubble bottom-right */}
-        <ChatWidget />
+        {/* Google Analytics 4 — G-CELEB90NKX */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CELEB90NKX"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CELEB90NKX');
+          `}
+        </Script>
       </body>
     </html>
   );

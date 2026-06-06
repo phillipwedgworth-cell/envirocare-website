@@ -560,4 +560,3 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 .faq-item[open] .faq-q::after{transform:rotate(45deg)}
 .faq-a{padding:0 1.4rem 1.4rem;font-size:14.5px;color:var(--ink-soft);line-height:1.7}
 `;
-

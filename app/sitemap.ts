@@ -10,13 +10,14 @@
 
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocarellc.com';
+// Update this when you flip DNS from envirocare-web.vercel.app → envirocarellc.com
+const BASE_URL = 'https://envirocare-web.vercel.app';
 
 // Cities served (from data/cities.ts — Stage 1)
 const CITY_SLUGS = [
   'birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
   'alabaster', 'chelsea', 'pelham', 'helena', 'calera',
-  'trussville', 'mt-laurel', 'tuscaloosa',
+  'trussville', 'greystone', 'mt-laurel', 'tuscaloosa',
   'lake-martin', 'alexander-city', 'dadeville', 'eclectic',
   'auburn', 'opelika',
   'huntsville', 'madison', 'athens', 'decatur', 'hartselle',
@@ -68,12 +69,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Location + service sub-pages (city-level SEO landing pages)
-  const locationServicePages: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/lake-martin/termite-control`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${BASE_URL}/alexander-city/mosquito-control`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${BASE_URL}/alexander-city/termite-control`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-  ];
-
-  return [...mainPages, ...servicePages, ...cityPages, ...locationServicePages];
+  return [...mainPages, ...servicePages, ...cityPages];
 }
