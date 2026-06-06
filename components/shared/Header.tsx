@@ -175,8 +175,8 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
 
           {/* LEFT: Logo — ~50px tall */}
-          <a href="/" style={{ display: "block", textDecoration: "none", flexShrink: 0 }} aria-label="EnviroCare home">
-            <img src="/logo.png" alt="EnviroCare Pest & Termite Services" style={{ height: 50, width: "auto", display: "block" }} />
+          <a href="/" style={{ display: "block", textDecoration: "none", minWidth: 0 }} aria-label="EnviroCare home">
+            <img className="ec-header-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" style={{ width: "auto", display: "block" }} />
           </a>
 
           {/* CENTER: Nav with dropdowns */}
