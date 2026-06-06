@@ -85,6 +85,37 @@ const CITY_ART_SVG: Record<string, string> = {
 </svg>`,
 };
 
+function buildCitySchema(city: City) {
+  const tel = city.directTel || city.officeTel;
+  const telFormatted = `+1-${tel.slice(0, 3)}-${tel.slice(3, 6)}-${tel.slice(6)}`;
+  const parts = city.officeAddress.split(', ');
+  const stateZip = parts[parts.length - 1];
+  const [addressRegion, postalCode] = stateZip.split(' ');
+  const addressLocality = parts[parts.length - 2];
+  const streetAddress = parts.slice(0, parts.length - 2).join(', ');
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'PestControlService',
+    '@id': `https://www.envirocarellc.com/${city.slug}`,
+    name: `EnviroCare Pest & Termite Services — ${city.name}`,
+    description: city.metaDescription,
+    url: `https://www.envirocarellc.com/${city.slug}`,
+    telephone: telFormatted,
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress,
+      addressLocality,
+      addressRegion,
+      postalCode,
+      addressCountry: 'US',
+    },
+    areaServed: { '@type': 'City', name: city.name, addressRegion: 'AL', addressCountry: 'US' },
+    openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' }],
+    sameAs: ['https://www.envirocarellc.com'],
+    image: 'https://www.envirocarellc.com/og-image.png',
+  };
+}
 
 export default function CityPage({ slug }: { slug: string }) {
   const city = getCityBySlug(slug);
@@ -127,6 +158,10 @@ export default function CityPage({ slug }: { slug: string }) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCitySchema(city)) }}
+      />
       <style dangerouslySetInnerHTML={{ __html: CITY_CSS }} />
 
       <div className="ann">
