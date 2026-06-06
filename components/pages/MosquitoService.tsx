@@ -132,7 +132,7 @@ export default function MosquitoControl() {
                   "Monthly treatments (7 visits)",
                   "Full barrier application",
                   "50% off first treatment",
-                  "Waterfront-safe products",
+                  "Waterfront-approved products",
                   "Re-treatment if needed",
                   "All property areas treated",
                 ],
@@ -269,7 +269,7 @@ export default function MosquitoControl() {
             {[
               { q: "When should I start mosquito treatments in Alabama?", a: "April. Not July. By the time mosquitoes are bothersome in June, they've been breeding for 8–10 weeks. Starting in April interrupts the breeding cycle before populations explode. The earlier you start, the less pressure you face all summer." },
               { q: "How long does each treatment last?", a: "Each professional barrier treatment provides 3–4 weeks of protection. This is why monthly treatments are the standard for effective control — you're maintaining continuous coverage rather than allowing populations to rebuild between visits." },
-              { q: "Are treatments safe for my kids and pets?", a: "Yes. Products return to safe after a 30-minute dry time. All EnviroCare mosquito products are EPA-approved and applied by licensed technicians. We'll tell you exactly what we used and when you and your family can return to the yard." },
+              { q: "Are treatments safe for my kids and pets?", a: "Yes. Products dry in about 30 minutes — after that, your family can return to the yard. All EnviroCare mosquito products are EPA-approved and applied by licensed technicians. We'll tell you exactly what we used and the re-entry time." },
               { q: "Do you treat near water (ponds, lake shorelines)?", a: "Yes — with specific products approved for near-water application. Our Lake Martin program uses waterfront-appropriate treatments with proper shoreline buffers to protect lake ecology while effectively treating your property." },
               { q: "What's the difference between your program and what I buy at the store?", a: "Professional-grade residual products applied by licensed technicians are categorically different from consumer products. The active ingredients, application methods, and coverage are all more effective. This isn't a marketing claim — it's why pest control is a licensed profession." },
               { q: "Do you treat the whole yard or specific areas?", a: "We focus on where mosquitoes actually rest and breed: vegetation, shrubs, tree lines, shaded areas, deck and porch undersides, and any standing water sources. Treating open lawn is far less effective than targeting resting sites. We treat smart, not just everywhere." },

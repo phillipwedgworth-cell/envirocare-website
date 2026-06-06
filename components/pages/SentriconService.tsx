@@ -189,7 +189,7 @@ export default function SentriconProtection() {
                     { feature: "Low chemical volume / safer near water", sentricon: "✅ Minimal chemicals", liquid: "⚠️ Large volume chemicals" },
                     { feature: "Always-active 24/7 protection", sentricon: "✅ Always active", liquid: "❌ Degrades over time" },
                     { feature: "Annual monitoring included", sentricon: "✅ Yes", liquid: "⚠️ Varies by company" },
-                    { feature: "Safe for pets and family", sentricon: "✅ Yes", liquid: "⚠️ Requires precautions" },
+                    { feature: "Targeted application — minimal exposure", sentricon: "✅ Yes", liquid: "⚠️ Requires precautions" },
                     { feature: "Effective at Lake Martin waterfront", sentricon: "✅ Ideal near water", liquid: "⚠️ Restrictions near water" },
                     { feature: "Used to protect the White House", sentricon: "✅ Yes", liquid: "❌ No" },
                   ].map((row, i) => (

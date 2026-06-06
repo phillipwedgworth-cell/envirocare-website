@@ -21,7 +21,7 @@ export default function Eclectic() {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "EnviroCare Pest Control - Eclectic, AL",
-          "description": "Professional mosquito, termite, and pest control in Eclectic, Alabama — the city with the most Lake Martin shoreline. Waterfront-safe treatments. Serving from our Alexander City office since 1958.",
+          "description": "Professional mosquito, termite, and pest control in Eclectic, Alabama — the city with the most Lake Martin shoreline. Waterfront-approved treatments. Serving from our Alexander City office since 1958.",
           "telephone": "+12562346162",
           "url": "https://envirocarellc.com/eclectic",
           "address": {
@@ -145,7 +145,7 @@ export default function Eclectic() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
             {[
-              { icon: "🦟", name: "Mosquito Control", primary: true, desc: "Our most-requested Lake Martin service. Monthly barrier treatments March–November. Waterfront-safe formulas, dock treatment included. 50% off your first application.", offer: "50% off first treatment" },
+              { icon: "🦟", name: "Mosquito Control", primary: true, desc: "Our most-requested Lake Martin service. Monthly barrier treatments March–November. Waterfront-approved formulas, dock treatment included. 50% off your first application.", offer: "50% off first treatment" },
               { icon: "🪲", name: "Termite Control", primary: false, desc: "Eclectic's moisture-rich waterfront environment is prime termite territory. Free inspection covers the home, crawlspace, dock, pier, and boathouse. Sentricon® system available.", offer: "Free inspection" },
               { icon: "🐜", name: "Pest Control", primary: false, desc: "Full perimeter pest control for Eclectic homes. Quarterly programs keep ants, spiders, roaches, and other pests out all season. Suited for waterfront properties.", offer: "$50 off first service" },
               { icon: "🔥", name: "Fire Ant Control", primary: false, desc: "Fire ants near Lake Martin shorelines are a serious hazard, especially for children and barefoot access. Colony elimination and perimeter barriers.", offer: null },
