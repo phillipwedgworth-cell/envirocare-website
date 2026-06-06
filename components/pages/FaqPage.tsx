@@ -127,7 +127,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">What does the $1M coverage actually cover?</summary>
-              <div className="faq-a">If subterranean termites cause damage to your home while you're on Sentricon® Always Active™ and we've been maintaining it, Corteva (the manufacturer) covers repair costs up to $1,000,000. This is a product-backed warranty, not just a local promise.</div>
+              <div className="faq-a">If subterranean termites cause damage to your home while you're on Sentricon® Always Active™ and we've been maintaining it, EnviroCare covers repair costs up to $1,000,000. That's our guarantee — three generations of Wedgworths standing behind your home.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Will Sentricon® mess up my landscaping?</summary>

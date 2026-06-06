@@ -79,7 +79,7 @@ export default function LakeMartin() {
                 { icon: "🏆", val: "Since 1958", label: "Serving Lake Martin" },
                 { icon: "⭐", val: "4.9 Stars", label: "Verified Reviews" },
                 { icon: "📍", val: "Local Office", label: "Alexander City" },
-                { icon: "🌿", val: "Eco-Safe", label: "Pet & kid friendly" },
+                { icon: "🌿", val: "Low-Impact", label: "Targeted treatments" },
               ].map((t, i) => (
                 <div key={i} className="text-center">
                   <div className="text-2xl mb-1">{t.icon}</div>
@@ -111,7 +111,7 @@ export default function LakeMartin() {
                 {[
                   "Mosquito treatments formulated for waterfront environments",
                   "Termite protection for pier and dock structures",
-                  "Eco-safe solutions that won't harm lake wildlife",
+                  "Products selected with lake wildlife in mind",
                   "Seasonal programs timed to Alabama's pest calendar",
                   "Fast scheduling from our Alexander City office",
                 ].map((item, i) => (

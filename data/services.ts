@@ -89,17 +89,17 @@ export const SERVICES: Service[] = [
     includes: [
       { title: 'Initial Installation', desc: 'Sentricon® bait stations placed around your home perimeter. No drilling, no mess, no disruption to landscaping.' },
       { title: 'Ongoing Monitoring', desc: 'Stations checked annually. Bait is always active — termites encountering it carry the lethal dose back to the colony.' },
-      { title: '$1M Damage Repair Coverage', desc: 'Backed by Corteva, the manufacturer of Sentricon®. If termites damage your home while protected, repairs are covered up to $1M.' },
+      { title: '$1M Damage Repair Coverage', desc: 'An EnviroCare guarantee. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1M.' },
       { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling.' },
     ],
     wedgePoints: [
       { lead: 'Sentricon® > liquid barriers', body: 'Liquid treatments require drilling concrete, retreating every 5–7 years, and have shrinking effectiveness as they break down. Sentricon® bait stations eliminate the entire colony, not just the perimeter.' },
-      { lead: '$1M is real coverage', body: 'Backed by Corteva (the actual product manufacturer), not a local promise. If termites damage your home while protected, you get fixed, not finger-pointed.' },
+      { lead: '$1M is real coverage', body: 'A real EnviroCare guarantee, not a vague promise. If termites damage your home while protected, you get fixed, not finger-pointed.' },
       { lead: 'No drilling means no damage', body: 'Liquid barrier installations drill every 12 inches through your slab, patio, driveway. Sentricon® stations go in the ground around the perimeter. No concrete touched.' },
     ],
     faqs: [
       { q: 'How is Sentricon® different from liquid termite treatments?', a: 'Liquid treatments create a chemical barrier in the soil around your foundation — they require drilling through concrete, work for 5–7 years before needing retreatment, and don\'t eliminate the colony. Sentricon® places bait stations in the ground that termites carry back to the colony, eliminating the whole population. No drilling required.' },
-      { q: 'What does the $1M coverage actually cover?', a: 'If subterranean termites cause damage to your home while you\'re on the Sentricon® Always Active™ system and we\'ve been maintaining it, Corteva (the manufacturer) covers repair costs up to $1,000,000. This is a product-backed warranty, not a local guarantee.' },
+      { q: 'What does the $1M coverage actually cover?', a: 'If subterranean termites cause damage to your home while you\'re on the Sentricon® Always Active™ system and we\'ve been maintaining it, EnviroCare covers repair costs up to $1,000,000. That is our guarantee.' },
       { q: 'Will Sentricon® mess up my landscaping?', a: 'No. Bait stations are small (about the size of a soda can) and installed flush with the ground around your home perimeter. No drilling, no concrete cuts, no torn-up flowerbeds.' },
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
@@ -213,7 +213,7 @@ export const SERVICES: Service[] = [
     ],
     wedgePoints: [
       { lead: 'Not just mound bait', body: 'Big-box mound bait kills visible mounds but new ones pop up. Yard-wide treatment hits foragers and queens.' },
-      { lead: 'Same-day for emergencies', body: 'Fire ant emergencies (kid stung, dog stung) get priority scheduling.' },
+      { lead: 'Priority for emergencies', body: 'Fire ant emergencies (kid stung, dog stung) get priority scheduling.' },
     ],
     faqs: [
       { q: 'How is this different from store-bought mound bait?', a: 'Store bait kills visible mounds but doesn\'t handle queens or foragers. New mounds appear in days. Our yard-wide treatment eliminates the colony network.' },
@@ -315,7 +315,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'How long does the inspection take?', a: 'About 45-60 minutes for an average home. We need access to attic, crawlspace if applicable, garage, and all exterior.' },
-      { q: 'How fast can I get the letter?', a: 'Same-day inspection turnaround happens often. Most letters are emailed within 48 hours.' },
+      { q: 'How fast can I get the letter?', a: 'Fast inspection turnaround. Most letters are emailed within 48 hours.' },
       { q: 'What if you find termites?', a: 'You get a treatment quote with the letter. You can either treat before closing or negotiate the cost with the buyer/seller.' },
       { q: 'Does my lender accept your letter?', a: 'Yes — NPMA-33 is the federal standard form accepted by VA, FHA, USDA, and all conventional Alabama lenders.' },
     ],

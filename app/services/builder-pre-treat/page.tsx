@@ -58,7 +58,7 @@ const faqLd = {
       name: "What paperwork does the builder receive?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We provide a treatment certificate and the Alabama Department of Agriculture WDO documentation required by most lenders and inspectors. Sentricon® installations also include a manufacturer-backed service agreement.",
+        text: "We provide a treatment certificate and the Alabama Department of Agriculture WDO documentation required by most lenders and inspectors. Sentricon® installations also include an EnviroCare service agreement.",
       },
     },
     {
@@ -177,7 +177,7 @@ export default function BuilderPreTreatPage() {
                 badge: "Most Common",
                 badgeColor: BRAND_GREEN,
                 desc: "Liquid termiticide applied to the soil under and around the slab before it's poured. Fast, one-time application. Meets Alabama code. Best for production builds where speed matters.",
-                points: ["Applied at pre-slab stage", "Alabama code-compliant", "Paperwork issued same day", "Transferable to homeowner"],
+                points: ["Applied at pre-slab stage", "Alabama code-compliant", "Paperwork issued promptly", "Transferable to homeowner"],
               },
               {
                 title: "Sentricon® Always Active™",
@@ -301,7 +301,7 @@ export default function BuilderPreTreatPage() {
               },
               {
                 q: "What paperwork does the builder receive?",
-                a: "We provide a treatment certificate and the Alabama Department of Agriculture WDO documentation required by most lenders and inspectors. Sentricon® installations also include a manufacturer-backed service agreement.",
+                a: "We provide a treatment certificate and the Alabama Department of Agriculture WDO documentation required by most lenders and inspectors. Sentricon® installations also include an EnviroCare service agreement.",
               },
               {
                 q: "Can the homeowner continue Sentricon® service after closing?",

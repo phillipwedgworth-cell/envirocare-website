@@ -29,7 +29,7 @@ const OFFERS = [
     cta: "Claim 50% Off",
     color: "#0d6b5e",
     label: "PEAK SEASON",
-    includes: ["Full yard barrier treatment", "Dock & pier treatment (lake homes)", "Eco-safe waterfront products", "Kids & pets safe (30 min dry)"],
+    includes: ["Full yard barrier treatment", "Dock & pier treatment (lake homes)", "Waterfront-approved products", "Dries in about 30 minutes"],
   },
   {
     headline: "FREE",

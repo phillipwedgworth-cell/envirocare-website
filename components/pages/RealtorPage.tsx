@@ -134,8 +134,8 @@ export default function RealtorPage() {
               <div className="wedge-body">We can email the letter direct to the loan officer if you give us the contact. Saves you a forward.</div>
             </div>
             <div className="wedge-card">
-              <div className="wedge-lead">Same-Day If Needed</div>
-              <div className="wedge-body">Closing tomorrow and the lender needs WDO? Call us — we\'ll prioritize same-day inspection when possible.</div>
+              <div className="wedge-lead">Fast Turnaround</div>
+              <div className="wedge-body">Closing tomorrow and the lender needs WDO? Call us — we\'ll prioritize your inspection when possible.</div>
             </div>
           </div>
         </div>

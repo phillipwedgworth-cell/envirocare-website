@@ -67,7 +67,7 @@ export default function SentriconProtection() {
                 { n: "#1", sub: "Termite bait system in America" },
                 { n: "24/7", sub: "Always-active protection" },
                 { n: "Colony", sub: "Elimination including queen" },
-                { n: "Eco-Safe", sub: "No trenching or drilling" },
+                { n: "Low-Impact", sub: "No trenching or drilling" },
               ].map((t, i) => (
                 <div key={i}>
                   <div className="text-2xl font-bold" style={{color:"#F5A800"}}>{t.n}</div>

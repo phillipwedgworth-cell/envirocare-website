@@ -62,7 +62,7 @@ export default function Alabaster() {
               { n: "Local Office", sub: "2025 Butler Rd, Alabaster" },
               { n: "Since 1958", sub: "Trusted in Alabama" },
               { n: "4.9 Stars", sub: "Verified Reviews" },
-              { n: "Same Day", sub: "Service Available" },
+              { n: "Fast", sub: "Scheduling Available" },
             ].map((t, i) => (
               <div key={i} className="text-center">
                 <div className="font-bold text-emerald-400 text-lg">{t.n}</div>
@@ -141,7 +141,7 @@ export default function Alabaster() {
                   { title: "Fastest response times", desc: "When your office is local, scheduling is typically within 48 hours." },
                   { title: "We know Alabaster's pest patterns", desc: "Alabaster's clay soil, drainage, and neighborhoods create specific pest pressures we understand." },
                   { title: "Family owned since 1958", desc: "Three generations. We treat your home like it's our own — because we live here too." },
-                  { title: "Licensed, insured, eco-safe", desc: "All Alabama-licensed technicians. Treatments safe for kids, pets, and the environment." },
+                  { title: "Licensed, insured, low-impact", desc: "All Alabama-licensed technicians. Treatments applied by Alabama-licensed technicians." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />

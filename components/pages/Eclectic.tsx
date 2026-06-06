@@ -64,7 +64,7 @@ export default function Eclectic() {
             </a>
           </div>
           <div style={{ display: "flex", gap: 32, flexWrap: "wrap", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24 }}>
-            {[["Most", "Lake Martin shoreline of any city"], ["Since 1958", "Serving Eclectic & Lake Martin"], ["Fast", "Scheduling"], ["Eco-Safe", "Waterfront-approved products"]].map(([n, l]) => (
+            {[["Most", "Lake Martin shoreline of any city"], ["Since 1958", "Serving Eclectic & Lake Martin"], ["Fast", "Scheduling"], ["Low-Impact", "Waterfront-approved products"]].map(([n, l]) => (
               <div key={n}>
                 <div style={{ fontSize: 18, fontWeight: 800, color: GOLD, ...sf }}>{n}</div>
                 <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 3, ...sf }}>{l}</div>
@@ -98,7 +98,7 @@ export default function Eclectic() {
                 "Waterfront mosquito treatments — lake-safe products only",
                 "Termite inspection includes docks, piers, and boathouses",
                 "Fire ant control for lakefront lawns and access paths",
-                "Eco-safe — EPA-approved for use near water bodies",
+                "EPA-approved for use near water bodies",
                 "Serving from Alexander City office — true local service",
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -147,7 +147,7 @@ export default function Eclectic() {
             {[
               { icon: "🦟", name: "Mosquito Control", primary: true, desc: "Our most-requested Lake Martin service. Monthly barrier treatments March–November. Waterfront-safe formulas, dock treatment included. 50% off your first application.", offer: "50% off first treatment" },
               { icon: "🪲", name: "Termite Control", primary: false, desc: "Eclectic's moisture-rich waterfront environment is prime termite territory. Free inspection covers the home, crawlspace, dock, pier, and boathouse. Sentricon® system available.", offer: "Free inspection" },
-              { icon: "🐜", name: "Pest Control", primary: false, desc: "Full perimeter pest control for Eclectic homes. Quarterly programs keep ants, spiders, roaches, and other pests out all season. Eco-safe for waterfront properties.", offer: "$50 off first service" },
+              { icon: "🐜", name: "Pest Control", primary: false, desc: "Full perimeter pest control for Eclectic homes. Quarterly programs keep ants, spiders, roaches, and other pests out all season. Suited for waterfront properties.", offer: "$50 off first service" },
               { icon: "🔥", name: "Fire Ant Control", primary: false, desc: "Fire ants near Lake Martin shorelines are a serious hazard, especially for children and barefoot access. Colony elimination and perimeter barriers.", offer: null },
               { icon: "🕷️", name: "Tick Control", primary: false, desc: "Wooded lakefront lots around Eclectic have heavy tick pressure. We treat vegetation, trails, and yard perimeters to protect your family and pets all season.", offer: null },
               { icon: "📦", name: "Bundle & Save", primary: false, desc: "Most Eclectic homeowners combine Pest + Mosquito + Termite. One simple monthly plan, maximum protection. Premium package available for waterfront properties.", offer: "Best value" },

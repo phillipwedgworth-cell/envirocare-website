@@ -60,8 +60,8 @@ export default function Chelsea() {
             {[
               { n: "Since 1958", sub: "Family Owned" },
               { n: "4.9 Stars", sub: "Verified Reviews" },
-              { n: "Same Day", sub: "Service Available" },
-              { n: "Eco-Safe", sub: "Kid & Pet Friendly" },
+              { n: "Fast", sub: "Scheduling Available" },
+              { n: "Family", sub: "Owned Since 1958" },
             ].map((t, i) => (
               <div key={i} className="text-center">
                 <div className="font-bold text-emerald-400 text-lg">{t.n}</div>
@@ -155,7 +155,7 @@ export default function Chelsea() {
                   <p>✓ Family-owned since 1958 — not a franchise</p>
                   <p>✓ Local Alabaster office serves Chelsea directly</p>
                   <p>✓ 4.9★ Verified by Google</p>
-                  <p>✓ Eco-safe: safe for your kids, pets, and yard</p>
+                  <p>✓ Low-impact products applied by licensed technicians</p>
                   <p>✓ Satisfaction guaranteed on every treatment</p>
                 </div>
               </div>

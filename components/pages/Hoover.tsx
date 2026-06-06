@@ -54,7 +54,7 @@ export default function MadisonLandingPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-emerald-50 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Protecting Hoover homes and businesses. Same-day service, eco-friendly solutions, 68+ years of expertise.
+            Protecting Hoover homes and businesses. Fast scheduling, proven solutions, 68+ years of expertise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

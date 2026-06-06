@@ -298,7 +298,7 @@ export default function PricingContent() {
             <FAQ q="What's the difference between $35/mo ACH and $70 bimonthly?" a="They're the same price ($35 × 2 months = $70). ACH (auto-draft from your bank) gets the lower monthly rate; bimonthly billing is for customers who prefer a paper bill or card." />
             <FAQ q="Why is termite $32/mo OR $380?" a="$32/mo is our ACH monthly rate. $380 is a one-time installation fee with annual renewals — preferred by some homeowners or builders. Both include the same Sentricon® system and warranty." />
             <FAQ q="What does Mosquito + Tick + Flea cover?" a="A 30-day yard barrier treatment from March through November. It targets mosquito breeding sites and adult populations, plus tick and flea pressure around the perimeter. Especially popular with dog owners and Lake Martin lakefront homes." />
-            <FAQ q="What's the Sentricon $1M warranty?" a="If termites cause structural damage to your home while you're on active Sentricon protection, the manufacturer (Corteva) covers repairs up to $1,000,000. Industry's strongest backing. The system is the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
+            <FAQ q="What's the Sentricon $1M warranty?" a="If termites cause structural damage to your home while you're on active Sentricon protection, EnviroCare covers repairs up to $1,000,000 — our guarantee. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
       </section>

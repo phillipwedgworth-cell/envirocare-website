@@ -59,7 +59,7 @@ export default function MosquitoControl() {
             {[
               { n: "3 Offices", sub: "Birmingham · Huntsville · Lake Martin" },
               { n: "Since 1958", sub: "Alabama's trusted experts" },
-              { n: "Eco-Safe", sub: "Kids & pets welcome back in 30 min" },
+              { n: "Low-Impact", sub: "Dries in about 30 minutes" },
               { n: "Monthly", sub: "Programs all season long" },
             ].map((t, i) => (
               <div key={i}>
@@ -205,7 +205,7 @@ export default function MosquitoControl() {
                   "EPA-approved waterfront-safe products only",
                   "Dock and pier structure treatment",
                   "Shoreline vegetation management",
-                  "Eco-safe — won't harm lake wildlife",
+                  "Selected with lake wildlife in mind",
                   "68+ years serving Lake Martin from Alexander City",
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3 items-start">

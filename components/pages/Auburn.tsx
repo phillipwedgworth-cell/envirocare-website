@@ -59,7 +59,7 @@ export default function Auburn() {
             {[
               { n: "Since 1958", sub: "Family-owned" },
               { n: "4.9 Stars", sub: "Verified Reviews" },
-              { n: "Eco-Safe", sub: "Kid & pet friendly" },
+              { n: "Family", sub: "Owned Since 1958" },
               { n: "Free", sub: "Termite inspection" },
             ].map((t, i) => (
               <div key={i} className="text-center">

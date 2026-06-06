@@ -21,7 +21,7 @@ const SCHEMA = {
       name: "What is the Sentricon $1 million termite warranty?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "If termites cause structural damage to your home while it's under active Sentricon® protection, the manufacturer (Corteva Agriscience) covers repair costs up to $1,000,000. The warranty is backed by Corteva — not just EnviroCare — and is the strongest manufacturer warranty in the termite control industry.",
+        text: "If termites cause structural damage to your home while it's under active Sentricon® protection, EnviroCare covers repair costs up to $1,000,000. That's our guarantee — backed by three generations protecting Alabama homes since 1958.",
       },
     },
     {
@@ -73,7 +73,7 @@ const ss = { fontFamily: "'Fraunces', 'Playfair Display', Georgia, serif" } as c
 const FAQS = [
   {
     q: "What is the Sentricon $1,000,000 termite warranty?",
-    a: "If termites cause structural damage to your home while it's under active Sentricon® Always Active protection, Corteva Agriscience (the manufacturer) covers repair costs up to $1,000,000. This is a manufacturer-backed warranty — not just an EnviroCare promise — and it's the strongest warranty in the residential termite control industry. No other termite treatment comes close.",
+    a: "If termites cause structural damage to your home while it's under active Sentricon® Always Active protection, EnviroCare covers repair costs up to $1,000,000. That's our guarantee, and it's among the strongest in residential termite control.",
   },
   {
     q: "What exactly does the warranty cover?",
@@ -113,7 +113,7 @@ const FAQS = [
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",
-    a: "EnviroCare is the only local, family-owned Sentricon Certified Specialist in central Alabama. Kevin Wedgworth's family has been protecting Alabama homes since 1958. National chains rotate technicians — you'll get a different person each visit. EnviroCare assigns the same tech to your property so they know your home's history. And the $1,000,000 warranty is the same regardless of who installs Sentricon — it's backed by Corteva, not the installer.",
+    a: "EnviroCare is the only local, family-owned Sentricon Certified Specialist in central Alabama. Kevin Wedgworth's family has been protecting Alabama homes since 1958. National chains rotate technicians — you'll get a different person each visit. EnviroCare assigns the same tech to your property so they know your home's history. And our $1,000,000 guarantee stands behind every Sentricon system we install and maintain.",
   },
 ];
 
@@ -260,7 +260,7 @@ export default function TermiteWarrantyFAQ() {
               {
                 n: "$1,000,000",
                 label: "Repair warranty",
-                note: "Backed by Corteva Agriscience — not just EnviroCare",
+                note: "Our guarantee — three generations behind it",
                 color: GOLD,
               },
               {

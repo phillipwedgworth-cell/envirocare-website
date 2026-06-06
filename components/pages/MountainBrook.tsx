@@ -179,7 +179,7 @@ export default function MadisonLandingPage() {
               },
               {
                 name: "Tick Control",
-                description: "Tick control for Mountain Brook's wooded estates and shaded lots. Pet-friendly application."
+                description: "Tick control for Mountain Brook's wooded estates and shaded lots. Targeted, professional application."
               },
               {
                 name: "Commercial Pest Control",

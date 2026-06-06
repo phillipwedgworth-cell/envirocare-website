@@ -17,7 +17,7 @@ const OFFICES = [
     tel: "2059406360",
     email: "service@envirocarellc.com",
     maps: "https://www.google.com/maps?cid=7378341068021381374",
-    hours: "Mon–Fri 7am–6pm · Sat 8am–3pm · Sun Closed",
+    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
     serves: "Birmingham · Hoover · Chelsea · Pelham · Alabaster · Vestavia Hills · Mountain Brook · Homewood · Helena · Calera",
     note: "Our Birmingham-area office is physically located in Alabaster — fastest response in Shelby County.",
     accent: G,
@@ -30,7 +30,7 @@ const OFFICES = [
     tel: "2562346162",
     email: "service@envirocarellc.com",
     maps: "https://www.google.com/maps?cid=12101127141767078247",
-    hours: "Mon–Fri 7am–6pm · Sat 8am–3pm · Sun Closed",
+    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
     serves: "Lake Martin · Alexander City · Dadeville · Eclectic · Auburn · Opelika · Wetumpka",
     note: "Our original office since 1958. The Wedgworth family's home base on Lake Martin.",
     accent: "#0d6b5e",
@@ -43,7 +43,7 @@ const OFFICES = [
     tel: "2569377676",
     email: "service@envirocarellc.com",
     maps: "https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8",
-    hours: "Mon–Fri 7am–6pm · Sat 8am–3pm · Sun Closed",
+    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
     serves: "Huntsville · Madison · Athens · Decatur · Hartselle · Hampton Cove · Harvest · North Alabama",
     note: "Serving North Alabama's fastest growing market — Huntsville, Madison County, and beyond.",
     accent: "#1a5276",
@@ -320,7 +320,7 @@ export default function ContactUs() {
           <h2 style={{ fontSize: 26, fontWeight: 400, color: DARK, marginBottom: 24, textAlign: "center" }}>Before You Call</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
-              ["What are your hours?", "Monday–Friday 7am–6pm. Emergency situations — call us, we'll do our best."],
+              ["What are your hours?", "Monday–Friday 8am–5pm, closed weekends. Emergency situations — call us, we'll do our best."],
               ["How quickly can you schedule service?", "Call your nearest office to check availability — most visits are within 48 hours."],
               ["Is the inspection really free?", "Yes. We inspect your property, give you a written assessment and quote, with no obligation to purchase."],
               ["Do you serve my city?", "We serve 30+ Alabama communities across 3 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],

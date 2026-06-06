@@ -41,7 +41,7 @@ export default function TickService() {
           <div style={{ maxWidth: 720 }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: `1px solid ${GOLD}55`, borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
               <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>
-                🕷️ Alabama Tick Control · Family & Pet Safe
+                Alabama Tick Control · Family-Owned Since 1958
               </span>
             </div>
             <h1 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px" }}>
