@@ -15,6 +15,7 @@
 
 import { useEffect } from 'react';
 import { CITIES, getCityBySlug, type City } from '@/data/cities';
+import CityDepth from '@/components/CityDepth';
 
 const CITY_ART_SVG: Record<string, string> = {
   'vulcan': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
@@ -235,6 +236,8 @@ export default function CityPage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      <CityDepth city={city} />
 
       <section className="office-cta">
         <div className="office-cta-inner">
