@@ -28,7 +28,7 @@ export default function SentriconProtection() {
             "description": "Certified Sentricon Specialist serving Alabama since 1958",
             "telephone": "(205) 940-6360"
           },
-          "description": "EnviroCare is a Certified Sentricon Specialist providing the #1 termite bait system in Alabama. Colony elimination, always-active protection, eco-friendly.",
+          "description": "EnviroCare is a Certified Sentricon Specialist providing the #1 termite bait system in Alabama. Colony elimination, always-active protection, low-impact application.",
           "areaServed": ["Birmingham, AL", "Huntsville, AL", "Lake Martin, AL", "Alexander City, AL"]
         }
       `}</script>
@@ -186,7 +186,7 @@ export default function SentriconProtection() {
                   {[
                     { feature: "Eliminates entire colony (including queen)", sentricon: "✅ Yes", liquid: "❌ No — repels only" },
                     { feature: "Requires trenching or drilling", sentricon: "✅ No disruption", liquid: "❌ Yes — major disruption" },
-                    { feature: "Eco-friendly / safe near water", sentricon: "✅ Minimal chemicals", liquid: "⚠️ Large volume chemicals" },
+                    { feature: "Low chemical volume / safer near water", sentricon: "✅ Minimal chemicals", liquid: "⚠️ Large volume chemicals" },
                     { feature: "Always-active 24/7 protection", sentricon: "✅ Always active", liquid: "❌ Degrades over time" },
                     { feature: "Annual monitoring included", sentricon: "✅ Yes", liquid: "⚠️ Varies by company" },
                     { feature: "Safe for pets and family", sentricon: "✅ Yes", liquid: "⚠️ Requires precautions" },

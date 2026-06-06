@@ -44,7 +44,7 @@ export default function Chelsea() {
             <span className="text-emerald-400">Trusted in Your Neighborhood</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
-            Chelsea families and businesses have trusted EnviroCare for generations. Licensed technicians, eco-friendly treatments, fast scheduling from our nearby Alabaster office.
+            Chelsea families and businesses have trusted EnviroCare for generations. Licensed technicians, low-impact treatments, fast scheduling from our nearby Alabaster office.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <button onClick={() => setQuoteOpen(true)}

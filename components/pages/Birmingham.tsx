@@ -54,7 +54,7 @@ export default function MadisonLandingPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-emerald-50 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Serving greater Birmingham since 1958. Licensed technicians, eco-friendly treatments, fast scheduling.
+            Serving greater Birmingham since 1958. Licensed technicians, low-impact treatments, fast scheduling.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -118,7 +118,7 @@ export default function MadisonLandingPage() {
             },
             {
               icon: "🌱",
-              title: "Eco-Friendly",
+              title: "Low-Impact",
               description: "EPA-registered treatments. We protect your family while eliminating pests."
             },
             {

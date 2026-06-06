@@ -118,7 +118,7 @@ export default function MadisonLandingPage() {
             },
             {
               icon: "🌱",
-              title: "Eco-Friendly",
+              title: "Low-Impact",
               description: "EPA-registered treatments. We protect your family while eliminating pests."
             },
             {

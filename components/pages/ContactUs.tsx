@@ -104,7 +104,7 @@ export default function ContactUs() {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
             "telephone": "(205) 940-6360",
-            "openingHours": "Mo-Fr 07:00-18:00",
+            "openingHours": "Mo-Fr 08:00-17:00",
             "address": [
               {"@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007"},
               {"@type": "PostalAddress", "streetAddress": "1785 Tallapoosa St", "addressLocality": "Alexander City", "addressRegion": "AL", "postalCode": "35010"},

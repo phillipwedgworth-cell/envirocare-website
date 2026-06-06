@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useState } from 'react';
 import { ChevronDown, MapPin, Phone, Star, Shield, Clock, Users } from 'lucide-react';
 
@@ -118,7 +118,7 @@ export default function MadisonLandingPage() {
             },
             {
               icon: "🌱",
-              title: "Eco-Friendly",
+              title: "Low-Impact",
               description: "EPA-registered treatments. We protect your family while eliminating pests."
             },
             {
