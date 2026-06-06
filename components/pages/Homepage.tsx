@@ -16,7 +16,7 @@ import { useState } from 'react';
  *
  * Photos referenced (already in repo /public/):
  *   /family-yard.jpg, /kevin-headshot.jpg, /ribbon-cutting-1.jpg,
- *   /ribbon-cutting-2.jpg, /truck.jpg, /lake-martin-aerial.jpg
+ *   /ribbon-cutting-2.jpg, /truck.webp, /lake-martin-aerial.jpg
  */
 
 export default function Homepage() {
@@ -192,7 +192,7 @@ function Hero() {
           {/* Real family photo — anchors the visual column */}
           <div className="ec-hero-photo-wrap">
             <img
-              src="/hero-family.jpg"
+              src="/hero-family.webp"
               alt="Alabama family relaxing in pest-free backyard"
               className="ec-hero-photo"
             />
@@ -1035,7 +1035,7 @@ function BundleCTA() {
     <section className="ec-bundle">
       <div className="ec-bundle-truck-wrap">
         <img
-          src="/truck.jpg"
+          src="/truck.webp"
           alt="EnviroCare green service truck with sunflower wrap"
           className="ec-bundle-truck"
           onError={(e) => {
