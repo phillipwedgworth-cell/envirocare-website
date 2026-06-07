@@ -22,7 +22,7 @@ export default function MosquitoControl() {
             "foundingDate": "1958"
           },
           "areaServed": ["Birmingham, AL","Huntsville, AL","Lake Martin, AL","Alexander City, AL","Madison, AL","Hoover, AL"],
-          "description": "Professional mosquito control for Alabama homes. Monthly yard treatments, waterfront-safe products, 50% off first application.",
+          "description": "Professional mosquito control for Alabama homes. Monthly yard treatments, waterfront-approved products, 50% off first application.",
           "offers": {
             "@type": "Offer",
             "description": "50% off first mosquito treatment",
@@ -202,7 +202,7 @@ export default function MosquitoControl() {
               </p>
               <div className="space-y-3">
                 {[
-                  "EPA-approved waterfront-safe products only",
+                  "EPA-approved waterfront-appropriate products only",
                   "Dock and pier structure treatment",
                   "Shoreline vegetation management",
                   "Selected with lake wildlife in mind",

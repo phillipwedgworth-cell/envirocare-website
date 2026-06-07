@@ -50,7 +50,7 @@ export default function Dadeville() {
             </a>
           </div>
           <div className="flex flex-wrap gap-6 text-sm">
-            {["Since 1958 at Lake Martin","Fast Scheduling from Alex City","Waterfront-Safe Products","FREE Termite Inspection"].map((t,i) => (
+            {["Since 1958 at Lake Martin","Fast Scheduling from Alex City","Waterfront-Approved Products","FREE Termite Inspection"].map((t,i) => (
               <span key={i} className="flex items-center gap-2 text-teal-200"><span className="text-teal-400">✓</span>{t}</span>
             ))}
           </div>
@@ -69,7 +69,7 @@ export default function Dadeville() {
             </p>
             <div className="space-y-2">
               {[
-                "Waterfront mosquito control (lake-safe products)",
+                "Waterfront mosquito control (waterfront-approved products)",
                 "Termite inspection including dock and pier structures",
                 "Fire ant control for yards and lake access areas",
                 "Fast scheduling from Alexander City office",
@@ -102,7 +102,7 @@ export default function Dadeville() {
           <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">Services in Dadeville & Eastern Lake Martin</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "🦟", name: "Mosquito Control", desc: "Monthly waterfront-safe mosquito treatments March–November. Essential for Dadeville's lake proximity.", highlight: true },
+              { icon: "🦟", name: "Mosquito Control", desc: "Monthly waterfront-approved mosquito treatments March–November. Essential for Dadeville's lake proximity.", highlight: true },
               { icon: "🪲", name: "Termite Control", desc: "Free inspection. Dadeville's lake soil creates ideal termite conditions. We inspect docks too.", highlight: false },
               { icon: "🐜", name: "Pest Control", desc: "Full perimeter pest control for Dadeville homes. Ants, roaches, spiders, crickets and more.", highlight: false },
               { icon: "🔥", name: "Fire Ant Control", desc: "Fire ants throughout Tallapoosa County lawns and waterfront areas. Colony elimination.", highlight: false },

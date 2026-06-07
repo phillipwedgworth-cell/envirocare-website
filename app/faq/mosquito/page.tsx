@@ -53,7 +53,7 @@ const SCHEMA = {
       name: "Do you treat Lake Martin waterfront properties?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. EnviroCare is the only pest control company with a dedicated Lake Martin office (Alexander City). We use waterfront-safe barrier products that meet Alabama Department of Environmental Management guidelines. Lakefront properties receive extra attention to dock areas, boat storage, and shoreline vegetation.",
+        text: "Yes. EnviroCare is the only pest control company with a dedicated Lake Martin office (Alexander City). We use waterfront-approved barrier products that meet Alabama Department of Environmental Management guidelines. Lakefront properties receive extra attention to dock areas, boat storage, and shoreline vegetation.",
       },
     },
     {

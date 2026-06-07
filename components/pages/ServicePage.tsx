@@ -280,7 +280,7 @@ export default function ServicePage({ slug }: { slug: string }) {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.7★ Google Rated</div>
+          <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>AL Pest Control Association</div>

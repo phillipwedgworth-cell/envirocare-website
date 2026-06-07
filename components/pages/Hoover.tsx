@@ -81,7 +81,7 @@ export default function MadisonLandingPage() {
             </div>
             <div>
               <div className="text-2xl mb-2">⭐</div>
-              <div className="font-semibold">4.9 Rating</div>
+              <div className="font-semibold">★★★★★ Google Reviews</div>
               <div className="text-emerald-100 text-xs">250+ Reviews</div>
             </div>
             <div>

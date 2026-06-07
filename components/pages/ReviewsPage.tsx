@@ -60,7 +60,7 @@ export default function ReviewsPage() {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>4.9 Average Rating</div>
+          <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Reviews</div>
           <div className="ti"><div className="ti-chk">✓</div>Verified Reviews</div>
           <div className="ti"><div className="ti-chk">✓</div>3 Office Locations</div>
           <div className="ti"><div className="ti-chk">✓</div>68 Years Family-Owned</div>
@@ -85,7 +85,7 @@ export default function ReviewsPage() {
 
           <div className="google-cta">
             <div className="google-cta-stars">★★★★★</div>
-            <div className="google-cta-num">4.9 / 5.0</div>
+            <div className="google-cta-num">Google Reviewed</div>
             <div className="google-cta-lbl">Across verified Google reviews</div>
             <div className="page-hero-cta" style={{justifyContent:'center'}}>
               <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read Real Reviews On Google →</a>

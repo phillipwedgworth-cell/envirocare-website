@@ -95,7 +95,7 @@ export default function Eclectic() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
-                "Waterfront mosquito treatments — lake-safe products only",
+                "Waterfront mosquito treatments — waterfront-approved products only",
                 "Termite inspection includes docks, piers, and boathouses",
                 "Fire ant control for lakefront lawns and access paths",
                 "EPA-approved for use near water bodies",

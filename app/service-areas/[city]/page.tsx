@@ -144,7 +144,7 @@ const CITIES: Record<string, CityData> = {
       "EnviroCare is the ONLY pest control company with a dedicated Lake Martin office. We understand waterfront properties — our products are selected for waterfront use near the lake, docks, and shoreline. We've protected Lake Martin homes and vacation properties for decades.",
     neighborhoods: ["Kowaliga", "Children's Harbor", "Willow Point", "Cove Marina area", "Dadeville", "Eclectic", "Wind Creek"],
     pestPressure:
-      "Lake Martin's waterfront properties face intense mosquito pressure from late March through November. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered waterfront-safe barrier products. Termites are also active in lakefront construction.",
+      "Lake Martin's waterfront properties face intense mosquito pressure from late March through November. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered waterfront-appropriate barrier products. Termites are also active in lakefront construction.",
     canonicalBase: "https://envirocarellc.com",
   },
 };
