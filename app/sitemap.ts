@@ -19,6 +19,7 @@ const CITY_SLUGS = [
   'alabaster', 'chelsea', 'pelham', 'helena', 'calera',
   'trussville', 'greystone', 'mt-laurel', 'tuscaloosa',
   'lake-martin', 'alexander-city', 'dadeville', 'eclectic',
+  'willow-point', 'the-ridge', 'stillwaters', 'the-heritage',
   'auburn', 'opelika',
   'huntsville', 'madison', 'athens', 'decatur', 'hartselle',
   'harvest', 'hampton-cove',

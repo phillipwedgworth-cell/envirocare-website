@@ -209,7 +209,11 @@ export default function CityPage({ slug }: { slug: string }) {
             </div>
           </div>
           <div className="city-art-box">
-            <div dangerouslySetInnerHTML={{ __html: svg }} />
+            {city.heroPhoto ? (
+              <img src={city.heroPhoto} alt={`EnviroCare pest and termite service in ${city.name}, Lake Martin, AL`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            ) : (
+              <div dangerouslySetInnerHTML={{ __html: svg }} />
+            )}
             <div className="city-art-name">{city.name}, AL</div>
           </div>
         </div>
