@@ -217,7 +217,7 @@ function Hero() {
             <div className="ec-card-stars">★★★★★</div>
             <div className="ec-card-google-num">Google Reviewed</div>
             <div className="ec-card-google-text">
-              <strong>Google Rating</strong>
+              <strong>Google Reviews</strong>
               <span>Verified Google reviews</span>
             </div>
           </div>
