@@ -11,6 +11,7 @@
 
 import { criticLoop } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
+import { createMessage } from "./lib/llm-with-logging.mjs";
 import {
   writeFinding,
   writeDiscussion,
@@ -315,13 +316,13 @@ async function workerDraft(feedback = null) {
   const messages = [{ role: "user", content: initial }];
 
   for (let turn = 0; turn < MAX_TURNS; turn++) {
-    const resp = await anthropic.messages.create({
+    const resp = await createMessage(anthropic, {
       model: WORKER_MODEL,
       max_tokens: 1500,
       system: WORKER_SYSTEM,
       tools,
       messages,
-    });
+    }, { agentName: AGENT_NAME, role: 'worker' });
     messages.push({ role: "assistant", content: resp.content });
 
     if (resp.stop_reason === "end_turn") {

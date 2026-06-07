@@ -16,6 +16,7 @@
 import { criticLoop } from "./lib/critic.mjs";
 import { readFindings, readDiscussions, writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
+import { createMessage } from "./lib/llm-with-logging.mjs";
 
 const AGENT_NAME = "proposer";
 const MODEL = "claude-sonnet-4-6"; // synthesis tier; critic is Opus
@@ -119,12 +120,12 @@ async function draft(feedback = null) {
 
   const user = `THIS CYCLE'S RAW FINDINGS (${rows.length}, deduped):\n${findingsBlock}\n\nCROSS-AGENT DISCUSSION COUNT: ${discussions.length}\n\nALREADY PROPOSED IN PRIOR CYCLES (do not repeat unless status changed):\n${priorBlock}\n${feedback ? `\nCRITIC FEEDBACK to address before emitting:\n${feedback}` : ""}`;
 
-  const resp = await anthropic.messages.create({
+  const resp = await createMessage(anthropic, {
     model: MODEL,
     max_tokens: 1600,
     system: SYSTEM,
     messages: [{ role: "user", content: user }],
-  });
+  }, { agentName: AGENT_NAME, role: 'worker' });
   return resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
 }
 

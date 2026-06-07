@@ -4,6 +4,8 @@
 // Hard rule: never change MAX_LOOPS above 3
 // Critic uses Opus 4 — sharpest rubric judgment, kills generic advice
 
+import { createMessage } from './llm-with-logging.mjs';
+
 let anthropic = null;
 if (process.env.ANTHROPIC_API_KEY) {
   try {
@@ -52,7 +54,7 @@ export async function criticLoop({ workerName, task, output, rubric, revise, onE
   for (let loop = 1; loop <= MAX_LOOPS; loop++) {
     console.log(`[critic] Loop ${loop}/${MAX_LOOPS} — reviewing ${workerName} output`);
 
-    const review = await anthropic.messages.create({
+    const review = await createMessage(anthropic, {
       model: CRITIC_MODEL,
       max_tokens: 500,
       system: CRITIC_SYSTEM,
@@ -76,7 +78,7 @@ SUGGESTIONS: (if FAIL — specific fixes only, no vague guidance)
 If PASS, write VERDICT: PASS and nothing else.`,
         },
       ],
-    });
+    }, { agentName: workerName, role: 'critic' });
 
     const reviewText = review.content.find(b => b.type === "text")?.text || "";
     // Defensive: if Anthropic returns no text block (e.g. an unexpected

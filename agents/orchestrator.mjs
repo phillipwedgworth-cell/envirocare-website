@@ -3,6 +3,7 @@
 // Sonnet synthesis across them, and emails one digest via Resend.
 
 import { logAgentRun, readFindings, readDiscussions } from "./lib/supabase.mjs";
+import { createMessage } from "./lib/llm-with-logging.mjs";
 
 // Static imports so Next.js bundler ships the agent files to the lambda.
 // Earlier we used dynamic await import("./brightlocal.mjs") with relative
@@ -156,12 +157,12 @@ CROSS-AGENT DISCUSSIONS (last 24h)
 ${discussionBlock || "[none]"}`;
 
   try {
-    const resp = await anthropic.messages.create({
+    const resp = await createMessage(anthropic, {
       model: ORCHESTRATOR_MODEL,
       max_tokens: 2500,
       system,
       messages: [{ role: "user", content: prompt }],
-    });
+    }, { agentName: 'orchestrator', role: 'worker' });
     const text = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
     return { brief: text, raw_outputs: outputs };
   } catch (e) {
