@@ -12,6 +12,7 @@
 import { criticLoop } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { getDailyTrend, getOpportunities } from "./lib/seo-history.mjs";
 import {
   writeFinding,
   writeDiscussion,
@@ -306,12 +307,13 @@ FINAL BRIEF FORMAT
 
 PROMPT VERSION: ${PROMPT_VERSION}`;
 
-async function workerDraft(feedback = null) {
+async function workerDraft(feedback = null, gscContext = '') {
   if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
 
-  const initial = feedback
+  const base = feedback
     ? `Run the weekly Monday SoLV brief again, addressing this critic feedback before emitting:\n\n${feedback}`
     : "Run the weekly Monday SoLV brief.";
+  const initial = gscContext ? `${base}\n\n${gscContext}\n\nInclude a one-line GSC organic note at the end of your brief (click delta + top opportunity).` : base;
 
   const messages = [{ role: "user", content: initial }];
 
@@ -351,9 +353,25 @@ async function workerDraft(feedback = null) {
 export async function run() {
   console.log(`[${AGENT_NAME}] Starting (prompt ${PROMPT_VERSION})`);
 
+  // Pull GSC organic trend for context (fire-and-forget on failure — SoLV brief runs regardless)
+  let gscContext = '';
+  try {
+    const [trend, opps] = await Promise.all([getDailyTrend(28), getOpportunities(5)]);
+    if (trend) {
+      const clickDelta = trend.clicks.now - trend.clicks.prev;
+      const posDelta = (trend.position.prev - trend.position.now).toFixed(1);
+      gscContext = `\nGSC ORGANIC TREND (last 28d vs prior 28d): clicks ${trend.clicks.now} (${clickDelta >= 0 ? '+' : ''}${clickDelta}), impressions ${trend.impressions.now} (${trend.impressions.now - trend.impressions.prev >= 0 ? '+' : ''}${trend.impressions.now - trend.impressions.prev}), avg position ${trend.position.now} (${Number(posDelta) >= 0 ? '+' : ''}${posDelta}).`;
+    }
+    if (opps?.length) {
+      gscContext += `\nTOP GSC OPPORTUNITIES (high impressions, low clicks): ${opps.map(o => `${o.page} — ${o.impressions} impr, ${o.clicks} clicks, pos ${o.position}`).join(' | ')}`;
+    }
+  } catch (e) {
+    console.warn(`[${AGENT_NAME}] seo-history fetch failed (non-fatal): ${e.message}`);
+  }
+
   let draft;
   try {
-    draft = await workerDraft();
+    draft = await workerDraft(null, gscContext);
   } catch (e) {
     console.error(`[${AGENT_NAME}] worker failed: ${e.message}`);
     await logAgentRun(AGENT_NAME, "error", e.message);
