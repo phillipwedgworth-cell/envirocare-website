@@ -19,8 +19,8 @@ const LABEL = `gsc-16mo-${new Date().toISOString().slice(0, 7)}`; // e.g. gsc-16
 const DOMAIN = 'envirocarellc.com';
 
 const url = process.env.SUPABASE_URL;
-const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!url || !key) { console.error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY'); process.exit(1); }
+const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
+if (!url || !key) { console.error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY (or SUPABASE_KEY)'); process.exit(1); }
 const db = createClient(url, key, { auth: { persistSession: false } });
 
 // helpers

@@ -14,8 +14,8 @@ const FILE = process.argv[2];
 if (!FILE) { console.error('Usage: node ingest-gads-campaigns.mjs <campaign-report.csv>'); process.exit(1); }
 
 const url = process.env.SUPABASE_URL;
-const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!url || !key) { console.error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY'); process.exit(1); }
+const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
+if (!url || !key) { console.error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY (or SUPABASE_KEY)'); process.exit(1); }
 const db = createClient(url, key, { auth: { persistSession: false } });
 
 const num = (v) => { const n = parseFloat(String(v ?? '').replace(/[,$%  ]/g, '')); return Number.isFinite(n) ? n : 0; };

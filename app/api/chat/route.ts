@@ -6,10 +6,25 @@
 //   FORMSPREE_LEAD_URL     https://formspree.io/f/xwvypjal   (optional — enables lead-email forwarding)
 
 import { NextRequest, NextResponse } from "next/server";
+import { kv } from "@vercel/kv";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
+}
+
+const PHONE_RE = /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/;
+const LOG_KEY = "chatbot:conversations";
+const LOG_CAP = 500;
+
+async function logConversation(entry: {
+  ts: string; turnCount: number; lastUserMsg: string;
+  botReply: string; capturedPhone: boolean; fullTranscript: Message[];
+}): Promise<void> {
+  try {
+    await kv.lpush(LOG_KEY, JSON.stringify(entry));
+    await kv.ltrim(LOG_KEY, 0, LOG_CAP - 1);
+  } catch { /* swallow — never break chat over logging */ }
 }
 
 const SYSTEM_PROMPT = `You are EnviroCare's website assistant. You work for EnviroCare Pest & Termite Services, a 3rd-generation family business founded in 1958 in Alexander City, Alabama. You sound like the best customer service rep at the company — warm, knowledgeable, and direct.
@@ -163,6 +178,18 @@ export async function POST(req: NextRequest) {
         }).catch((err) => console.error("Lead forward failed:", err));
       }
     }
+
+    // Log to Vercel KV for weekly review (fire-and-forget)
+    const turnCount = messages.length;
+    const lastUser = [...messages].reverse().find(m => m.role === "user")?.content ?? "";
+    logConversation({
+      ts: new Date().toISOString(),
+      turnCount,
+      lastUserMsg: lastUser.slice(0, 500),
+      botReply: assistantMessage.slice(0, 500),
+      capturedPhone: PHONE_RE.test(lastUser),
+      fullTranscript: messages.slice(-10),
+    }).catch(() => {});
 
     return NextResponse.json({ message: assistantMessage });
   } catch (error) {
