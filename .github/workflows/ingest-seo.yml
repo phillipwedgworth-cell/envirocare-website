@@ -1,0 +1,43 @@
+# .github/workflows/ingest-seo.yml
+# Simplest scheduler for the .mjs CLI ingests — runs weekly on GitHub's free
+# runners, commits the refreshed monitoring/ga4-latest.json back to the repo,
+# and writes GSC data into Supabase. No serverless refactor needed.
+#
+# Add these repo secrets (Settings → Secrets and variables → Actions):
+#   GOOGLE_SA_KEY_JSON, SUPABASE_URL, SUPABASE_KEY, GA4_PROPERTY_ID
+
+name: Ingest SEO (GSC + GA4)
+
+on:
+  schedule:
+    - cron: "20 11 * * 1"   # Mondays 11:20 UTC (~6:20am Central) — before the weekly review
+  workflow_dispatch: {}      # allow manual runs
+
+permissions:
+  contents: write            # to commit the refreshed ga4-latest.json
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci || npm install
+      - name: Run GSC + GA4 ingest
+        env:
+          GOOGLE_SA_KEY_JSON: ${{ secrets.GOOGLE_SA_KEY_JSON }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: |
+          node agents/ingest-gsc.mjs
+          node agents/ingest-ga4.mjs
+      - name: Commit refreshed GA4 snapshot
+        run: |
+          git config user.name "envirocare-bot"
+          git config user.email "bot@envirocarellc.com"
+          git add monitoring/ga4-latest.json monitoring/ga4-history.csv || true
+          git commit -m "chore(seo): weekly GA4 snapshot" || echo "no changes"
+          git push || echo "nothing to push"
