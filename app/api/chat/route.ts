@@ -19,7 +19,7 @@ const LOG_CAP = 500;
 
 async function logConversation(entry: {
   ts: string; turnCount: number; lastUserMsg: string;
-  botReply: string; capturedPhone: boolean; fullTranscript: Message[];
+  botReply: string; escalated: boolean; capturedPhone: boolean; fullTranscript: Message[];
 }): Promise<void> {
   try {
     await kv.lpush(LOG_KEY, JSON.stringify(entry));
@@ -180,16 +180,20 @@ export async function POST(req: NextRequest) {
     }
 
     // Log to Vercel KV for weekly review (fire-and-forget)
-    const turnCount = messages.length;
-    const lastUser = [...messages].reverse().find(m => m.role === "user")?.content ?? "";
-    logConversation({
-      ts: new Date().toISOString(),
-      turnCount,
-      lastUserMsg: lastUser.slice(0, 500),
-      botReply: assistantMessage.slice(0, 500),
-      capturedPhone: PHONE_RE.test(lastUser),
-      fullTranscript: messages.slice(-10),
-    }).catch(() => {});
+    {
+      const userTurns = (messages as Message[]).filter(m => m.role === "user");
+      const turnCount = userTurns.length;
+      const capturedPhone = PHONE_RE.test(userTurns[userTurns.length - 1]?.content ?? "");
+      logConversation({
+        ts: new Date().toISOString(),
+        turnCount,
+        lastUserMsg: (userTurns[userTurns.length - 1]?.content ?? "").slice(0, 500),
+        botReply: (assistantMessage ?? "").slice(0, 500),
+        escalated: turnCount >= 3 && !capturedPhone,
+        capturedPhone,
+        fullTranscript: (messages as Message[]).slice(-12),
+      }).catch(() => {});
+    }
 
     return NextResponse.json({ message: assistantMessage });
   } catch (error) {
