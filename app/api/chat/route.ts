@@ -26,8 +26,8 @@ PERSONALITY:
 COMPANY:
 - EnviroCare Pest & Termite Services, family-owned since 1958
 - Owner: Phillip Wedgworth (3rd generation Wedgworth family)
-- Main phone for any city: (205) 649-5278
-- Hours: Mon-Fri 7am-6pm, Sat 8am-3pm
+- Main phone for any city: (205) 940-6360
+- Hours: Mon-Fri 8am-5pm, closed weekends
 - Pay bill online: payenvirocare.key7app.com
 
 OFFICES & ROUTING (route customers to the right number based on their city):
@@ -129,14 +129,14 @@ export async function POST(req: NextRequest) {
       // Return 200 with a friendly fallback so the widget shows it
       return NextResponse.json({
         message:
-          "Sorry — I'm having a hiccup. Please call (205) 649-5278 and a real person will answer.",
+          "Sorry — I'm having a hiccup. Please call (205) 940-6360 and a real person will answer.",
       });
     }
 
     const data = await response.json();
     const assistantMessage: string =
       data.content?.[0]?.text ||
-      "Sorry — I had trouble with that one. Please call (205) 649-5278 and we'll help you directly.";
+      "Sorry — I had trouble with that one. Please call (205) 940-6360 and we'll help you directly.";
 
     // Lead capture: if the user's last message contains a phone number, forward
     // the whole conversation to Formspree so Phillip gets an email.
@@ -171,7 +171,7 @@ export async function POST(req: NextRequest) {
     console.error("Chat API error:", error);
     return NextResponse.json({
       message:
-        "Something went wrong on our end. Please call (205) 649-5278 and we'll help you right away.",
+        "Something went wrong on our end. Please call (205) 940-6360 and we'll help you right away.",
     });
   }
 }

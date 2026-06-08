@@ -3,35 +3,15 @@ import React, { useState } from 'react';
 import { ChevronDown, MapPin, Phone, Star, Shield, Clock, Users } from 'lucide-react';
 
 import Header from "@/components/shared/Header";
+import { getHuntsvilleSchema, SchemaScript } from '@/lib/schema';
+import HuntsvilleFAQ from '@/components/faq/HuntsvilleFAQ';
 export default function MadisonLandingPage() {
   const [chatOpen, setChatOpen] = useState(false);
   const [quoteStep, setQuoteStep] = useState(0);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Schema.org LocalBusiness JSON-LD */}
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "EnviroCare Pest Control - Huntsville, AL",
-          "image": "https://envirocarellc.com/logo.png",
-          "description": "Professional pest control, termite treatment, and mosquito control in Huntsville, AL",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Huntsville",
-            "addressRegion": "AL",
-            "postalCode": "35801"
-          },
-          "telephone": "+12569377676",
-          "url": "https://envirocarellc.com/huntsville",
-          "sameAs": [
-            "https://www.facebook.com/envirocare",
-            "https://www.google.com/maps/place/EnviroCare+Madison"
-          ],
-          "priceRange": "$$"
-        }
-      `}</script>
+      <SchemaScript schema={getHuntsvilleSchema()} />
 
       {/* HEADER / NAV */}
       <Header />
@@ -411,6 +391,8 @@ export default function MadisonLandingPage() {
           </div>
         </div>
       </footer>
+
+      <HuntsvilleFAQ />
 
       {/* CHAT MODAL (Placeholder) */}
       {chatOpen && (

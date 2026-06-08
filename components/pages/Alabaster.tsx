@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Phone, MapPin, Star, CheckCircle, ChevronDown } from "lucide-react";
 
 import Header from "@/components/shared/Header";
+import { getBirminghamSchema, SchemaScript } from '@/lib/schema';
+import AlabasterFAQ from '@/components/faq/AlabasterFAQ';
 export default function Alabaster() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -11,26 +13,7 @@ export default function Alabaster() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "EnviroCare Pest Control - Alabaster, AL",
-          "description": "Professional pest, termite, and mosquito control in Alabaster, Alabama. Our Birmingham-area office is located right here in Alabaster at 2025 Butler Rd.",
-          "telephone": "+12059406360",
-          "url": "https://envirocarellc.com/alabaster",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "2025 Butler Rd",
-            "addressLocality": "Alabaster",
-            "addressRegion": "AL",
-            "postalCode": "35007"
-          },
-          "areaServed": ["Alabaster, AL", "Pelham, AL", "Helena, AL", "Calera, AL", "Hoover, AL"],
-          ,
-          "foundingDate": "1958"
-        }
-      `}</script>
+      <SchemaScript schema={getBirminghamSchema()} />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 text-white py-20 md:py-28">
@@ -245,6 +228,8 @@ export default function Alabaster() {
           <p className="text-emerald-300 text-sm mt-6">2025 Butler Rd, Alabaster, AL 35007 · Licensed & Insured</p>
         </div>
       </section>
+
+      <AlabasterFAQ />
 
       {quoteOpen && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center p-4" onClick={() => setQuoteOpen(false)}>

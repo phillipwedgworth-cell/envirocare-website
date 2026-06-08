@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { getOrganizationSchema, SchemaScript } from '@/lib/schema';
 
 /**
  * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
@@ -22,6 +23,7 @@ import { useState } from 'react';
 export default function Homepage() {
   return (
     <main className="ec-main">
+      <SchemaScript schema={getOrganizationSchema()} />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <TopBanner />
       <Header />

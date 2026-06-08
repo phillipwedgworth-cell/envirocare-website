@@ -3,35 +3,15 @@ import React, { useState } from 'react';
 import { ChevronDown, MapPin, Phone, Star, Shield, Clock, Users } from 'lucide-react';
 
 import Header from "@/components/shared/Header";
+import { getAlexCitySchema, SchemaScript } from '@/lib/schema';
+import AlexCityFAQ from '@/components/faq/AlexCityFAQ';
 export default function MadisonLandingPage() {
   const [chatOpen, setChatOpen] = useState(false);
   const [quoteStep, setQuoteStep] = useState(0);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Schema.org LocalBusiness JSON-LD */}
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "EnviroCare Pest Control - Alexander City, AL",
-          "image": "https://envirocarellc.com/logo.png",
-          "description": "Professional pest control, termite treatment, and mosquito control in Alexander City, AL",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Alexander City",
-            "addressRegion": "AL",
-            "postalCode": "35010"
-          },
-          "telephone": "+12562346162",
-          "url": "https://envirocarellc.com/alexander-city",
-          "sameAs": [
-            "https://www.facebook.com/envirocare",
-            "https://www.google.com/maps/place/EnviroCare+Madison"
-          ],
-          "priceRange": "$$"
-        }
-      `}</script>
+      <SchemaScript schema={getAlexCitySchema()} />
 
       {/* HEADER / NAV */}
       <Header />
@@ -411,6 +391,8 @@ export default function MadisonLandingPage() {
           </div>
         </div>
       </footer>
+
+      <AlexCityFAQ />
 
       {/* CHAT MODAL (Placeholder) */}
       {chatOpen && (

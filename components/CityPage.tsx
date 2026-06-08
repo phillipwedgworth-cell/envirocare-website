@@ -345,7 +345,7 @@ export default function CityPage({ city }: { city: CityData }) {
                 letterSpacing: '0.12em', textTransform: 'uppercase',
                 color: 'var(--gold)', marginBottom: 16, fontWeight: 700
               }}>Call Us</h5>
-              <FooterLink href="tel:2056495278">📞 (205) 649-5278 — Main</FooterLink>
+              <FooterLink href="tel:2059406360">📞 (205) 940-6360 — Main</FooterLink>
               <FooterLink href="tel:2059406360">📞 (205) 940-6360 — Birmingham</FooterLink>
               <FooterLink href="tel:2562346162">📞 (256) 234-6162 — Lake Martin</FooterLink>
               <FooterLink href="tel:2569377676">📞 (256) 937-7676 — Huntsville</FooterLink>
