@@ -15,14 +15,13 @@ const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
 
 const NAV_LINKS: [string, string][] = [
   ["Services", "/services/pest-control"],
-  ["Lake Martin", "/lake-martin"],
   ["Pricing", "/quote"],
   ["About", "/about-us"],
+  ["Contact", "/contact-us"],
 ];
 
 const OVERLAY_LINKS: [string, string, boolean][] = [
   ["Services", "/services/pest-control", false],
-  ["Lake Martin", "/lake-martin", true],
   ["Pricing", "/quote", false],
   ["About", "/about-us", false],
   ["Specials", "/special-offers", false],
@@ -115,7 +114,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
           <nav className="ec-desktop-only" style={{ gap: 28, alignItems: "center", ...sf }}>
             {NAV_LINKS.map(([l, h]) => (
-              <a key={l} href={h} style={{ fontSize: 14, color: l === "Lake Martin" ? G : "#1f2a23", textDecoration: "none", fontWeight: l === "Lake Martin" ? 700 : 600 }}>{l}</a>
+              <a key={l} href={h} style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600 }}>{l}</a>
             ))}
             <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600 }}>Pay Bill</a>
             <a href="tel:2059406360" style={{ fontSize: 13, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
