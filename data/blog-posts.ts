@@ -850,6 +850,143 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 </ul>
 `,
   },
+
+  // ── Migrated from dead repo (envirocare-web) 2026-06-08 ──────────────────
+  {
+    slug: 'pest-control-cost-alabama',
+    title: 'How Much Does Pest Control Cost in Alabama? (2026 Pricing Guide)',
+    excerpt: 'Real 2026 numbers, no sales call required — what pest control actually costs in Alabama, what\'s included at each price point, and why the national chains hide their pricing.',
+    publishedAt: '2026-05-26',
+    author: 'Kevin Wedgworth',
+    category: 'Pricing',
+    readMinutes: 7,
+    heroEmoji: '💵',
+    metaTitle: 'How Much Does Pest Control Cost in Alabama? (2026 Pricing Guide) | EnviroCare',
+    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pricing: $35/mo Essential, $67/mo with termite monitoring, $127/mo Complete. No hidden fees, free termite inspections.',
+    body: `
+<p class="lede">Real numbers, no sales call required. Here's what pest control actually costs in Alabama in 2026 — what's included at each price point, why the national chains hide their pricing, and how to tell whether a monthly plan or a one-time treatment is the right call for your home.</p>
+
+<h2>The short answer</h2>
+<p>For a single-family home in Alabama, monthly pest control typically runs <strong>$35 to $127 per month</strong> in 2026. One-time treatments for a specific problem — a roach flare-up, a wasp nest, a fire ant mound — usually fall between $150 and $600 depending on the pest and the size of the home. Termite work is its own category: Sentricon® bait installations and liquid soil treatments for an average Alabama home run $1,200 to $2,500, while termite inspections are free at most reputable Alabama companies, including EnviroCare.</p>
+<p>That's the headline. The real answer depends on which pests you actually need controlled, how often, and whether the company comes back free if the pests come back — which is where the monthly plans earn their value in Alabama's climate.</p>
+
+<h2>EnviroCare's 2026 plan pricing</h2>
+<p>EnviroCare publishes its pricing because the family that's run the company since 1958 believes Alabama homeowners shouldn't have to schedule a sales visit just to learn what service costs. Three plans cover the great majority of homes from Birmingham to Huntsville to Lake Martin:</p>
+<ul>
+<li><strong>Essential — $35/mo:</strong> bi-monthly exterior pest control, 30+ pests, fire ant program and flea perimeter included, unlimited free re-service.</li>
+<li><strong>Foundation — $67/mo (most popular):</strong> Essential pest control plus Sentricon® termite monitoring with $1,000,000 damage coverage.</li>
+<li><strong>Complete — $127/mo:</strong> all four services — pest, termite, mosquito, and tick.</li>
+</ul>
+<p>Standalone mosquito control starts at <strong>$45/month</strong> seasonal. Termite inspections are always free. <a href="/pricing">See full pricing →</a></p>
+
+<h2>What actually changes the price</h2>
+<p>The published prices cover most single-family homes up to roughly 3,500 square feet. Square footage and outbuildings, crawl space access and condition, and initial vs. ongoing service are the three factors that move the number — and a reputable Alabama company discloses them before service starts, not after.</p>
+
+<h2>Why national chains hide their pricing</h2>
+<p>In-person sales convert better than published rates, and national chain pricing varies widely by ZIP code. For a family-owned operation that's worked Alabama since 1958, charging $35 a month and publishing it on the website is the simpler, honest approach.</p>
+
+<h2>Is pest control worth it in Alabama?</h2>
+<p>Alabama keeps pest pressure on twelve months a year. The math on the $35 Essential plan is $420 a year for bi-monthly exterior treatment plus unlimited free re-service — usually less than one big roach job in July. Catching a termite colony early is the difference between a $1,500 treatment and a $15,000 sill-plate replacement.</p>
+<p><strong>Want a real quote?</strong> <a href="/quote">Request a free quote</a> or call (205) 940-6360.</p>
+`,
+  },
+
+  {
+    slug: 'sugar-ants-in-house-alabama',
+    title: 'Sugar Ants in Your Alabama Home: Stop the June Invasion Before It Starts',
+    excerpt: 'Sugar ant invasions explode across Alabama every June. Here\'s how to identify the species in your kitchen, stop the trail the right way, and keep them out.',
+    publishedAt: '2026-06-01',
+    author: 'Kevin Wedgworth',
+    category: 'Ants',
+    readMinutes: 6,
+    heroEmoji: '🐜',
+    metaTitle: 'Sugar Ants in House (Alabama): Stop the June Invasion | EnviroCare',
+    metaDescription: 'Sugar ant invasions explode in Alabama every June. Identify the species in your kitchen, stop the trail, and keep them out — from EnviroCare, family-owned in Alabama since 1958.',
+    body: `
+<p class="lede">Every June, the calls start. You walk into the kitchen before coffee and there's a line of tiny brown ants marching from behind the toaster to a single drop of jelly. By Tuesday they've found the dog bowl. By Friday they're in the pantry.</p>
+<p>If you live in Alabama, this is sugar ant season — and we've been answering this call since 1958. Here's what they actually are, how to stop them, and when it's time to call a pro.</p>
+
+<h2>"Sugar ants" are usually one of three species</h2>
+<p>There isn't a single bug called the "sugar ant." It's a catch-all for small, dark ants that show up looking for anything sweet. In Alabama you're almost always dealing with <strong>odorous house ants</strong> (dark brown, smell like rotten coconut when crushed, nest inside wall voids), <strong>pavement ants</strong> (look for tiny dirt piles at driveway joints), or <strong>Argentine ants</strong> (light brown, fast-moving supercolonies — if they return the same day from a different door, this is what you have).</p>
+
+<h2>Why June is when they explode</h2>
+<p>Alabama humidity, warm overnights, and the first heavy summer rains push colonies to peak foraging in June. Spraying a visible trail kills the workers you see but scatters the colony. Two weeks later you've got three trails instead of one.</p>
+
+<h2>How to stop sugar ants the right way</h2>
+<ol>
+<li>Wipe surfaces with soap and water, then equal parts white vinegar and water to erase the scent trail.</li>
+<li>Place sweet liquid ant bait right on the active trail and leave it alone for 5–7 days. You'll see more ants in the first 48 hours — that's good, the workers are carrying it home to the colony.</li>
+<li>Once the trail goes quiet, seal the entry point with caulk.</li>
+<li>If they're back in under two weeks — call. That signals multiple colonies, an Argentine supercolony, or a nest inside a wall.</li>
+</ol>
+
+<h2>When to call EnviroCare</h2>
+<p>Try the bait approach first — it works for about 60% of one-off invasions. Call when the trail keeps returning from a different entry point, you're finding ants in more than one room, or you've baited correctly for 14 days and they're still coming.</p>
+<p>EnviroCare's bi-monthly pest control program puts a sustained perimeter barrier around the house with interior spot treatment on the first visit. <a href="/pricing">See pricing</a> or call (205) 940-6360.</p>
+`,
+  },
+
+  {
+    slug: 'mosquito-season-birmingham-al',
+    title: 'Mosquito Season in Alabama: When to Start Treatment for Best Results',
+    excerpt: 'Mosquito season in Alabama runs April through October. Starting in April — before the season builds — is the single biggest factor in having a usable yard all summer.',
+    publishedAt: '2026-03-01',
+    author: 'Kevin Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 7,
+    heroEmoji: '🦟',
+    metaTitle: 'Mosquito Season in Alabama: When to Start Treatment | EnviroCare',
+    metaDescription: 'Mosquito season in Alabama runs April through October. Starting treatment in April suppresses breeding populations before they explode. Learn when and how to protect your yard.',
+    body: `
+<p class="lede">Timing is everything in mosquito control. Starting in April — before the season builds — is the single biggest factor in having a usable yard all summer.</p>
+
+<h2>When does mosquito season start in Alabama?</h2>
+<p>Mosquito activity begins when daytime temperatures consistently reach 50°F — typically late March or early April around Birmingham and Huntsville. Peak season runs June through August. The season runs through October, with the first hard frost ending it in November. Lake Martin and central Alabama lakefront properties see some of the heaviest pressure in the state.</p>
+
+<h2>Why starting in April matters</h2>
+<p>The mosquito lifecycle runs about 21 days from egg to adult. Start in April and you knock back the early population before it produces two or three more generations. Start in June and you're fighting a population that's already several generations deep — chasing, not managing.</p>
+
+<h2>Professional treatment vs. DIY</h2>
+<p>Backyard foggers kill the adults in front of you right now, then offer no residual protection and don't touch harborage or breeding sites. Professional 21-day barrier treatments keep killing mosquitoes as they return to rest over the following weeks, and treating every 21 days hits the population right before the next generation reaches adulthood.</p>
+
+<h2>EnviroCare's mosquito program</h2>
+<p>Our program runs April through October, every 21 days. Treatments target vegetation, shrub beds, fence lines, wooded edges, and under-deck structures. Pets and kids can return to the yard once it's dry — typically 30 to 45 minutes. Pricing starts at $45/month. <a href="/quote">Request a free quote</a> or call (205) 940-6360.</p>
+`,
+  },
+
+  {
+    slug: 'how-to-identify-termites-alabama',
+    title: 'How to Identify Termites in Your Alabama Home',
+    excerpt: 'Knowing how to spot termites is the difference between a free inspection and a five-figure repair. Here are the signs every Alabama homeowner should recognize.',
+    publishedAt: '2026-05-19',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 7,
+    heroEmoji: '🔍',
+    metaTitle: 'How to Identify Termites in Your Alabama Home | EnviroCare',
+    metaDescription: 'How to identify termites in Alabama: mud tubes, hollow wood, discarded wings, and swarmers. How to tell termites from flying ants. Free inspection from EnviroCare.',
+    body: `
+<p class="lede">Knowing how to identify termites in your Alabama home is the difference between a free inspection and a five-figure repair. Here are the signs every homeowner should recognize — and what to do the moment you spot one.</p>
+
+<h2>Why termite identification matters in Alabama</h2>
+<p>Alabama sits in USDA Termite Infestation Probability Zone 2 — the second-highest pressure rating in the country. Eastern subterranean termites eat 24 hours a day, year-round, and a mature colony can consume roughly a pound of wood a week. Insurance won't help — standard Alabama homeowners policies explicitly exclude termite damage. Catching it early matters.</p>
+
+<h2>The four signs of termites</h2>
+<ul>
+<li><strong>Mud tubes</strong> — pencil-width dirt tunnels running up foundation walls and crawl-space framing.</li>
+<li><strong>Hollow or blistered wood</strong> — tap baseboards and door frames; termite-eaten wood sounds papery and hollow.</li>
+<li><strong>Discarded wings</strong> — small piles of identical translucent wings on windowsills after a swarm.</li>
+<li><strong>Swarmers</strong> — winged reproductives emerging on warm, humid spring afternoons, usually after rain (March–May across Alabama).</li>
+</ul>
+
+<h2>Termite swarmers vs. flying ants</h2>
+<p><strong>Termite swarmers</strong> have straight antennae, a thick waist with no pinch, and two pairs of wings the same length that detach easily. <strong>Flying ants</strong> have bent (elbowed) antennae, a sharply pinched waist, and front wings clearly larger than back — and the wings don't detach in normal handling.</p>
+
+<h2>What to do if you find signs</h2>
+<p>Don't spray, don't knock down the mud tubes, and don't vacuum up swarmers before someone trained can confirm what you have — disturbing the colony makes it relocate. Take photos, bag a sample, and call a licensed Alabama company for a free inspection.</p>
+<p>EnviroCare offers free termite inspections across central and north Alabama. If termites are present, we explain treatment options — Sentricon® bait stations and liquid soil treatments — with a written estimate. <a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
+`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
