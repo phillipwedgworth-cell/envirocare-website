@@ -114,10 +114,8 @@ export async function POST(req: NextRequest) {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        // Haiku 4.5 — fast, cheap, plenty smart for a defined-scope chatbot.
-        // Swap to "claude-sonnet-4-5" if you want richer responses.
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 350,
+        model: "claude-sonnet-4-6",
+        max_tokens: 400,
         system: SYSTEM_PROMPT,
         messages: messages.slice(-12),
       }),
