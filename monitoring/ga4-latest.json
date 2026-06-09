@@ -1,0 +1,103 @@
+{
+  "report": "envirocare-ga4-weekly",
+  "run_date": "2026-06-09",
+  "status": "ok",
+  "property": "G-CELEB90NKX",
+  "ga4_property_id": "313205131",
+  "site": "envirocarellc.com",
+  "data_source": "Google Analytics Data API (direct, no Supermetrics)",
+  "period": {
+    "startDate": "2026-06-02",
+    "endDate": "2026-06-08"
+  },
+  "prior_period": {
+    "startDate": "2026-05-26",
+    "endDate": "2026-06-01"
+  },
+  "totals": {
+    "sessions": 37,
+    "users": 13,
+    "engagedSessions": 29,
+    "conversions": 1
+  },
+  "totals_prior": {
+    "sessions": 22,
+    "users": 6,
+    "engagedSessions": 10,
+    "conversions": 0
+  },
+  "channels": [
+    {
+      "key": "Referral",
+      "value": 25
+    },
+    {
+      "key": "Direct",
+      "value": 12
+    }
+  ],
+  "landing_pages": [
+    {
+      "key": "/",
+      "value": 31
+    },
+    {
+      "key": "(not set)",
+      "value": 3
+    },
+    {
+      "key": "/api/orchestrator",
+      "value": 1
+    },
+    {
+      "key": "/lake-martin",
+      "value": 1
+    },
+    {
+      "key": "/services/pest-control",
+      "value": 1
+    }
+  ],
+  "devices": [
+    {
+      "key": "desktop",
+      "value": 33
+    },
+    {
+      "key": "mobile",
+      "value": 4
+    }
+  ],
+  "cities": [
+    {
+      "key": "Gulf Shores",
+      "value": 10
+    },
+    {
+      "key": "Orange Beach",
+      "value": 10
+    },
+    {
+      "key": "Birmingham",
+      "value": 8
+    },
+    {
+      "key": "Vestavia Hills",
+      "value": 8
+    },
+    {
+      "key": "Pensacola",
+      "value": 3
+    },
+    {
+      "key": "Albany",
+      "value": 1
+    }
+  ],
+  "conversion_events": [
+    {
+      "key": "ads_conversion_Contact_Us_1",
+      "value": 1
+    }
+  ]
+}
