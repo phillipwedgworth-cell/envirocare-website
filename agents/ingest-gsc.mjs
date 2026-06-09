@@ -17,12 +17,13 @@
 // script AND ingest-ga4.mjs. Generate it once — see seo-ingest/oauth-setup.md.
 //
 // ENV (server-side only):
-//   GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN
+//   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN
 //   SUPABASE_URL, SUPABASE_KEY  — existing Supabase service-role creds.
 //   GSC_SITE_URL                — optional, defaults to https://envirocarellc.com
 //
 // RUN:  node agents/ingest-gsc.mjs            (last 7 days)
 //       node agents/ingest-gsc.mjs --days 480 (backfill ~16 months, first run)
+//       node agents/ingest-gsc.mjs --ping      (token smoke-test only — no DB writes)
 //
 // INSTALL:  npm i googleapis @supabase/supabase-js
 // ─────────────────────────────────────────────────────────────────────────────
@@ -30,7 +31,7 @@
 import { google } from "googleapis";
 import { createClient } from "@supabase/supabase-js";
 
-const SITE_URL = process.env.GSC_SITE_URL || "https://envirocarellc.com";
+const SITE_URL = process.env.GSC_SITE_URL || "sc-domain:envirocarellc.com";
 const DOMAIN = "envirocarellc.com";
 const ROW_LIMIT = 25000;
 
@@ -54,11 +55,29 @@ function requireEnv(name) {
 
 function oauthClient() {
   const c = new google.auth.OAuth2(
-    requireEnv("GOOGLE_OAUTH_CLIENT_ID"),
-    requireEnv("GOOGLE_OAUTH_CLIENT_SECRET")
+    requireEnv("GOOGLE_CLIENT_ID"),
+    requireEnv("GOOGLE_CLIENT_SECRET")
   );
-  c.setCredentials({ refresh_token: requireEnv("GOOGLE_OAUTH_REFRESH_TOKEN") });
+  c.setCredentials({ refresh_token: requireEnv("GOOGLE_REFRESH_TOKEN") });
   return c;
+}
+
+async function ping() {
+  console.log("ping: exchanging refresh token…");
+  const auth = oauthClient();
+  const { credentials } = await auth.refreshAccessToken();
+  if (!credentials.access_token) throw new Error("No access_token returned");
+  console.log(`ping: token OK (expires ${new Date(credentials.expiry_date).toISOString()})`);
+
+  const sc = google.searchconsole({ version: "v1", auth });
+  const pingEnd = new Date(); pingEnd.setDate(pingEnd.getDate() - 3);
+  const pingStart = new Date(pingEnd);
+  const res = await sc.searchanalytics.query({
+    siteUrl: SITE_URL,
+    requestBody: { startDate: iso(pingStart), endDate: iso(pingEnd), dimensions: ["date"], rowLimit: 1, dataState: "final" },
+  });
+  const rows = res.data.rows || [];
+  console.log(JSON.stringify({ ok: true, ping: true, site: SITE_URL, sampleDate: rows[0]?.keys[0] ?? "(no data yet)", clicks: rows[0]?.clicks ?? 0 }, null, 2));
 }
 
 async function main() {
@@ -142,4 +161,5 @@ async function main() {
   }, null, 2));
 }
 
-main().catch((e) => { console.error("ingest-gsc failed:", e.message || e); process.exit(1); });
+const isPing = process.argv.includes("--ping");
+(isPing ? ping() : main()).catch((e) => { console.error("ingest-gsc failed:", e.message || e); process.exit(1); });

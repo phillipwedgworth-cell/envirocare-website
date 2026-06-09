@@ -14,7 +14,7 @@
 // Settings → "Property ID" (e.g. 123456789). Set it as GA4_PROPERTY_ID.
 //
 // ENV (server-side only):
-//   GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN
+//   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN
 //   GA4_PROPERTY_ID     — numeric property id (NOT the G- measurement id).
 //   SUPABASE_URL, SUPABASE_KEY  — only needed if GA4_WRITE_SUPABASE=1.
 //
@@ -46,10 +46,10 @@ function requireEnv(name) {
 
 function oauthClient() {
   const c = new google.auth.OAuth2(
-    requireEnv("GOOGLE_OAUTH_CLIENT_ID"),
-    requireEnv("GOOGLE_OAUTH_CLIENT_SECRET")
+    requireEnv("GOOGLE_CLIENT_ID"),
+    requireEnv("GOOGLE_CLIENT_SECRET")
   );
-  c.setCredentials({ refresh_token: requireEnv("GOOGLE_OAUTH_REFRESH_TOKEN") });
+  c.setCredentials({ refresh_token: requireEnv("GOOGLE_REFRESH_TOKEN") });
   return c;
 }
 
