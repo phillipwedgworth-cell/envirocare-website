@@ -5,13 +5,16 @@
 // + append monitoring/ga4-history.csv. Optional: also upserts a ga4_weekly row
 // to Supabase if GA4_WRITE_SUPABASE=1 (table SQL in ga4_weekly-schema.sql).
 //
+// AUTH: OAuth2 user credentials (same refresh token as ingest-gsc.mjs). We auth
+// AS phillipwedgworth@gmail.com, who has access to the GA4 property — no service
+// account needed. Generate the token once — see seo-ingest/oauth-setup.md.
+//
 // ⚠️ PROPERTY ID GOTCHA: the GA4 *measurement ID* (G-CELEB90NKX) does NOT work
-// with the Data API. You need the NUMERIC property ID — find it in GA4 →
-// Admin → Property Settings → "Property ID" (e.g. 123456789). Set it as
-// GA4_PROPERTY_ID.
+// with the Data API. You need the NUMERIC property ID — GA4 → Admin → Property
+// Settings → "Property ID" (e.g. 123456789). Set it as GA4_PROPERTY_ID.
 //
 // ENV (server-side only):
-//   GOOGLE_SA_KEY_JSON  — service-account JSON; SA email added as Viewer on the GA4 property.
+//   GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN
 //   GA4_PROPERTY_ID     — numeric property id (NOT the G- measurement id).
 //   SUPABASE_URL, SUPABASE_KEY  — only needed if GA4_WRITE_SUPABASE=1.
 //
@@ -41,14 +44,18 @@ function requireEnv(name) {
   return v;
 }
 
+function oauthClient() {
+  const c = new google.auth.OAuth2(
+    requireEnv("GOOGLE_OAUTH_CLIENT_ID"),
+    requireEnv("GOOGLE_OAUTH_CLIENT_SECRET")
+  );
+  c.setCredentials({ refresh_token: requireEnv("GOOGLE_OAUTH_REFRESH_TOKEN") });
+  return c;
+}
+
 async function main() {
   if (!PROPERTY_ID) { console.error("Missing GA4_PROPERTY_ID (numeric, NOT the G- measurement id)"); process.exit(1); }
-  const credentials = JSON.parse(requireEnv("GOOGLE_SA_KEY_JSON"));
-  const auth = new google.auth.GoogleAuth({
-    credentials,
-    scopes: ["https://www.googleapis.com/auth/analytics.readonly"],
-  });
-  const data = google.analyticsdata({ version: "v1beta", auth });
+  const data = google.analyticsdata({ version: "v1beta", auth: oauthClient() });
   const property = `properties/${PROPERTY_ID}`;
 
   async function runReport(body) {
@@ -66,8 +73,7 @@ async function main() {
       { name: "engagedSessions" }, { name: "conversions" },
     ],
   });
-  const pick = (i) => totalsReport.rows?.[0]?.metricValues?.[i]?.value;
-  // With 2 dateRanges, GA4 returns a dateRange dimension; map by it instead:
+  // With 2 dateRanges, GA4 returns a dateRange dimension; map rows by it.
   const totalsByRange = {};
   for (const row of totalsReport.rows || []) {
     const rangeName = row.dimensionValues?.[0]?.value || "date_range_0";

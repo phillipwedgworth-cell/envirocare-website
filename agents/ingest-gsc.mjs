@@ -10,10 +10,16 @@
 // seo-monitor.mjs + agents/lib/seo-history.mjs read these, so once this runs the
 // trend memory + weekly GSC report work again — no agent code changes needed.
 //
+// AUTH: OAuth2 user credentials (NOT a service account). GSC won't let you add a
+// service-account email to a consumer Gmail property via its UI, so we auth AS
+// you (phillipwedgworth@gmail.com), who already owns the property. One refresh
+// token (with both webmasters.readonly + analytics.readonly scopes) covers this
+// script AND ingest-ga4.mjs. Generate it once — see seo-ingest/oauth-setup.md.
+//
 // ENV (server-side only):
-//   GOOGLE_SA_KEY_JSON  — full service-account JSON key (one line). The SA email
-//                         must be added as a user on the GSC property.
+//   GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN
 //   SUPABASE_URL, SUPABASE_KEY  — existing Supabase service-role creds.
+//   GSC_SITE_URL                — optional, defaults to https://envirocarellc.com
 //
 // RUN:  node agents/ingest-gsc.mjs            (last 7 days)
 //       node agents/ingest-gsc.mjs --days 480 (backfill ~16 months, first run)
@@ -46,13 +52,17 @@ function requireEnv(name) {
   return v;
 }
 
+function oauthClient() {
+  const c = new google.auth.OAuth2(
+    requireEnv("GOOGLE_OAUTH_CLIENT_ID"),
+    requireEnv("GOOGLE_OAUTH_CLIENT_SECRET")
+  );
+  c.setCredentials({ refresh_token: requireEnv("GOOGLE_OAUTH_REFRESH_TOKEN") });
+  return c;
+}
+
 async function main() {
-  const credentials = JSON.parse(requireEnv("GOOGLE_SA_KEY_JSON"));
-  const auth = new google.auth.GoogleAuth({
-    credentials,
-    scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
-  });
-  const sc = google.searchconsole({ version: "v1", auth });
+  const sc = google.searchconsole({ version: "v1", auth: oauthClient() });
   const db = createClient(requireEnv("SUPABASE_URL"), requireEnv("SUPABASE_KEY"), {
     auth: { persistSession: false },
   });

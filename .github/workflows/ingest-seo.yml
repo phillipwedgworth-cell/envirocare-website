@@ -4,7 +4,9 @@
 # and writes GSC data into Supabase. No serverless refactor needed.
 #
 # Add these repo secrets (Settings → Secrets and variables → Actions):
-#   GOOGLE_SA_KEY_JSON, SUPABASE_URL, SUPABASE_KEY, GA4_PROPERTY_ID
+#   GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN,
+#   GA4_PROPERTY_ID, SUPABASE_URL, SUPABASE_KEY
+# (Refresh token = auth AS phillipwedgworth@gmail.com; see oauth-setup.md.)
 
 name: Ingest SEO (GSC + GA4)
 
@@ -27,10 +29,12 @@ jobs:
       - run: npm ci || npm install
       - name: Run GSC + GA4 ingest
         env:
-          GOOGLE_SA_KEY_JSON: ${{ secrets.GOOGLE_SA_KEY_JSON }}
+          GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_OAUTH_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: |
           node agents/ingest-gsc.mjs
           node agents/ingest-ga4.mjs
