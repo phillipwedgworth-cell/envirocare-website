@@ -106,7 +106,6 @@ function Header() {
 
         <nav className="ec-nav" aria-label="Main navigation">
           <Link href="/services/pest-control">Services</Link>
-          <Link href="/lake-martin"><em>Lake Martin</em></Link>
           <Link href="/quote">Pricing</Link>
           <Link href="/about-us">About</Link>
           <Link href="/contact-us">Contact</Link>
@@ -137,7 +136,6 @@ function Header() {
       {mobileOpen && (
         <div className="ec-mobile-menu">
           <Link href="/services/pest-control" onClick={() => setMobileOpen(false)}>Services</Link>
-          <Link href="/lake-martin" onClick={() => setMobileOpen(false)}>Lake Martin</Link>
           <Link href="/quote" onClick={() => setMobileOpen(false)}>Pricing</Link>
           <Link href="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact</Link>
@@ -158,17 +156,12 @@ function Header() {
 }
 
 /* ============================================================
-   HERO with floating info cards
+   HERO — panel-approved spec (2026-06-10): eyebrow, headline, sub,
+   2 CTAs, one trust row, clean photo. No cards, orbs, or strips.
    ============================================================ */
 function Hero() {
   return (
     <section className="ec-hero">
-      <div className="ec-hero-bg" aria-hidden="true">
-        <div className="ec-orb ec-orb-1"></div>
-        <div className="ec-orb ec-orb-2"></div>
-        <div className="ec-orb ec-orb-3"></div>
-      </div>
-
       <div className="ec-hero-inner">
         <div className="ec-hero-content">
           <div className="ec-eyebrow">
@@ -177,16 +170,14 @@ function Hero() {
           </div>
 
           <h1 className="ec-hero-h1">
-            Protecting Alabama Homes<br />
-            <em className="ec-h1-italic">Three Generations</em><br />
-            <span className="ec-h1-gold">Strong.</span>
+            Alabama Pest Control<br />
+            Since 1958.
           </h1>
 
           <p className="ec-hero-sub">
-            The Wedgworth family has kept Alabama homes pest-free for 68 years.
-            Termites, mosquitoes, ticks — handled with the care only a family
-            business delivers. Serving Birmingham, Huntsville, Auburn, and the
-            Lake Martin area.
+            Pest, termite, mosquito, and tick protection from a third-generation
+            Alabama company. We treat from the outside — you don&rsquo;t even
+            need to be home.
           </p>
 
           <div className="ec-hero-ctas">
@@ -198,23 +189,19 @@ function Hero() {
             </a>
           </div>
 
-          <div className="ec-hero-stats">
-            <div className="ec-stat"><div className="ec-stat-num">68+</div><div className="ec-stat-label">YEARS IN AL</div></div>
-            <div className="ec-stat"><div className="ec-stat-num">★★★★★</div><div className="ec-stat-label">GOOGLE RATING</div></div>
-            <div className="ec-stat"><div className="ec-stat-num">$1M</div><div className="ec-stat-label">SENTRICON® COVERAGE</div></div>
-          </div>
-
-          <div className="ec-hero-checks">
-            <span>✓ Licensed &amp; Insured</span>
-            <span>✓ Sentricon® Certified</span>
-            <span>✓ Fast Scheduling</span>
-            <span>✓ Family Owned Since 1958</span>
+          <div className="ec-hero-trust-row">
+            <span>★★★★★ Google Reviews</span>
+            <span aria-hidden="true">·</span>
+            <span>Sentricon® Certified</span>
+            <span aria-hidden="true">·</span>
+            <span>Up to $1M Coverage</span>
+            <span aria-hidden="true">·</span>
+            <span>Since 1958</span>
           </div>
         </div>
 
-        {/* Hero photo + floating info cards - desktop only */}
+        {/* Hero photo — clean, no overlay cards */}
         <div className="ec-hero-visual">
-          {/* Real family photo — anchors the visual column */}
           <div className="ec-hero-photo-wrap">
             <img
               src="/hero-family.webp"
@@ -223,61 +210,6 @@ function Hero() {
             />
             <div className="ec-hero-photo-tint" aria-hidden="true" />
           </div>
-
-          <div className="ec-floating-card ec-card-price">
-            <div className="ec-card-eyebrow">FREE INSPECTION</div>
-            <div className="ec-card-price-num">$0</div>
-          </div>
-
-          <div className="ec-floating-card ec-card-fast-schedule">
-            <div className="ec-card-icon-circle">⚡</div>
-            <div>
-              <div className="ec-card-title">Fast Scheduling</div>
-              <div className="ec-card-sub">Call before noon — check availability</div>
-              <div className="ec-card-tag">CALL FOR AVAILABILITY</div>
-            </div>
-          </div>
-
-          <div className="ec-floating-card ec-card-google">
-            <div className="ec-card-stars">★★★★★</div>
-            <div className="ec-card-google-num">Google Reviewed</div>
-            <div className="ec-card-google-text">
-              <strong>Google Reviews</strong>
-              <span>Verified Google reviews</span>
-            </div>
-          </div>
-
-          {/* Decorative sunflower */}
-          <div className="ec-hero-sunflower" aria-hidden="true">🌻</div>
-        </div>
-      </div>
-
-      {/* Pest type strip */}
-      <div className="ec-pest-strip" aria-hidden="true">
-        <div className="ec-pest-strip-inner">
-          <span>Cockroaches</span>
-          <span>·</span>
-          <span>Mosquitoes</span>
-          <span>·</span>
-          <span>Argentine Ants</span>
-          <span>·</span>
-          <span>Carpenter Ants</span>
-          <span>·</span>
-          <span>Spiders</span>
-          <span>·</span>
-          <span>Stink Bugs</span>
-          <span>·</span>
-          <span>Fleas &amp; Ticks</span>
-          <span>·</span>
-          <span>Pillbugs</span>
-          <span>·</span>
-          <span>Silverfish</span>
-          <span>·</span>
-          <span>Crickets</span>
-          <span>·</span>
-          <span>Fire Ants</span>
-          <span>·</span>
-          <span>Beetles</span>
         </div>
       </div>
     </section>
@@ -291,15 +223,11 @@ function TrustStrip() {
   return (
     <section className="ec-trust">
       <div className="ec-trust-inner">
-        <span className="ec-trust-item"><span className="ec-trust-icon">★</span><span><strong>★★★★★ Google Reviews</strong></span></span>
+        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Sentricon® Certified</span>
         <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Sentricon® Certified Specialist</span>
+        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Licensed &amp; Insured</span>
         <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Alabama Dept. of Ag. Licensed</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>AL Pest Control Association</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>3rd-Generation Wedgworth Family</span>
+        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>3rd-Gen Family Business</span>
       </div>
     </section>
   );
@@ -1400,19 +1328,6 @@ const HOMEPAGE_CSS = `
     padding: 64px 20px 0;
     overflow: hidden;
   }
-  .ec-hero-bg { position: absolute; inset: 0; pointer-events: none; }
-  .ec-orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(80px); opacity: 0.55;
-    animation: ec-float 8s ease-in-out infinite;
-  }
-  .ec-orb-1 { width: 320px; height: 320px; background: #0E8E40; top: -80px; left: -80px; }
-  .ec-orb-2 { width: 280px; height: 280px; background: #F5A800; top: 200px; right: -60px; animation-delay: -3s; }
-  .ec-orb-3 { width: 220px; height: 220px; background: #0A7935; bottom: -80px; left: 30%; animation-delay: -5s; }
-  @keyframes ec-float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(20px, -20px); }
-  }
   .ec-hero-inner {
     max-width: 1280px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr;
@@ -1432,8 +1347,6 @@ const HOMEPAGE_CSS = `
     font-size: clamp(40px, 7vw, 80px); font-weight: 700;
     line-height: 1.05; margin: 0 0 24px; color: #0E1A0F;
   }
-  .ec-h1-italic { font-style: italic; color: #0E8E40; font-weight: 400; }
-  .ec-h1-gold { color: #F5A800; }
   .ec-hero-sub {
     font-size: 18px; line-height: 1.6; color: #5A6660;
     max-width: 520px; margin: 0 0 32px;
@@ -1461,29 +1374,13 @@ const HOMEPAGE_CSS = `
     transition: all 0.15s;
   }
   .ec-cta-secondary:hover { background: #E8F5EE; }
-  .ec-hero-stats {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 12px 24px; margin-bottom: 24px; max-width: 520px;
+  .ec-hero-trust-row {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 10px; font-size: 13px; font-weight: 600; color: #5A6660;
   }
-  .ec-stat {
-    padding: 4px 0 4px 16px; border-left: 3px solid #0E8E40;
-  }
-  .ec-stat-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 28px; font-weight: 700; line-height: 1; color: #0E1A0F;
-  }
-  .ec-stat-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
-    color: #5A6660; margin-top: 2px;
-  }
-  .ec-hero-checks { display: flex; flex-wrap: wrap; gap: 6px; }
-  .ec-hero-checks span {
-    padding: 6px 12px; background: #fff;
-    border: 1px solid #E8E2D8; border-radius: 999px;
-    font-size: 12px; font-weight: 500; color: #5A6660;
-  }
+  .ec-hero-trust-row span:first-child { color: #0E1A0F; }
 
-  /* Floating cards - desktop only */
+  /* Hero photo column - desktop only */
   .ec-hero-visual {
     display: none;
     position: relative;
@@ -1511,100 +1408,9 @@ const HOMEPAGE_CSS = `
       rgba(14,26,15,0.22) 100%
     );
   }
-  .ec-floating-card {
-    position: absolute;
-    background: #fff;
-    border: 1px solid #E8E2D8;
-    border-radius: 16px;
-    padding: 18px 22px;
-    box-shadow: 0 12px 32px rgba(14,26,15,0.1);
-    display: flex; align-items: center; gap: 12px;
-    z-index: 2;
-  }
-  .ec-card-price {
-    top: 60%; left: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 22px 26px;
-  }
-  .ec-card-eyebrow {
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.08em; color: #5A6660;
-  }
-  .ec-card-price-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 44px; font-weight: 700; color: #0E1A0F;
-    line-height: 1;
-  }
-  .ec-card-fast-schedule {
-    top: 8%; right: 20px;
-  }
-  .ec-card-icon-circle {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: #E8F5EE; color: #0E8E40;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 18px;
-  }
-  .ec-card-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
-  .ec-card-sub { font-size: 12px; color: #5A6660; margin-bottom: 6px; }
-  .ec-card-tag {
-    display: inline-block; font-size: 10px; font-weight: 700;
-    color: #0E8E40; background: #E8F5EE;
-    padding: 3px 8px; border-radius: 999px; letter-spacing: 0.05em;
-  }
-  .ec-card-google {
-    top: 32%; left: 40%;
-    flex-direction: column; align-items: center;
-    padding: 14px 18px; gap: 4px;
-  }
-  .ec-card-stars { color: #F5A800; font-size: 14px; letter-spacing: 1px; }
-  .ec-card-google-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 28px; font-weight: 700; color: #0E1A0F; line-height: 1;
-  }
-  .ec-card-google-text {
-    display: flex; flex-direction: column; align-items: center;
-    font-size: 11px; color: #5A6660;
-  }
-  .ec-card-google-text strong { color: #0E1A0F; font-size: 12px; }
-
-  .ec-hero-sunflower {
-    position: absolute;
-    bottom: 0; right: 80px;
-    font-size: 200px;
-    opacity: 0.08;
-    pointer-events: none;
-    transform: rotate(-15deg);
-  }
-
   @media (min-width: 1024px) {
     .ec-hero-inner { grid-template-columns: 1fr 1fr; gap: 64px; }
     .ec-hero-visual { display: block; }
-  }
-
-  /* PEST STRIP */
-  .ec-pest-strip {
-    border-top: 1px solid #E8E2D8;
-    background: #fff;
-    padding: 12px 0;
-    overflow: hidden;
-    position: relative;
-  }
-  .ec-pest-strip-inner {
-    display: flex;
-    gap: 24px;
-    font-size: 13px;
-    color: #94A89A;
-    white-space: nowrap;
-    animation: ec-marquee 40s linear infinite;
-    padding-left: 100%;
-  }
-  @keyframes ec-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
-  .ec-pest-strip-inner span:nth-child(even) {
-    color: #F5A800; font-weight: 700;
   }
 
   /* TRUST STRIP */
