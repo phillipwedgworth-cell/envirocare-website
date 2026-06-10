@@ -32,7 +32,7 @@ export default function Auburn() {
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white py-20 md:py-28">
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(ellipse at 60% 30%, #059669 0%, transparent 55%)"}} />
+        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(ellipse at 60% 30%, #0A7935 0%, transparent 55%)"}} />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 bg-emerald-500/20 rounded-full border border-emerald-400/30">
             <MapPin className="w-4 h-4 text-emerald-300" />

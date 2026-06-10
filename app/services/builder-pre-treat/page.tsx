@@ -311,6 +311,10 @@ export default function BuilderPreTreatPage() {
                 q: "Do you work with production builders on multiple lots?",
                 a: "Yes. We batch-schedule across active lots in the same subdivision to minimize your superintendent's coordination time. Call our office to set up a builder account.",
               },
+              {
+                q: "Why does a new home need termite treatment at all?",
+                a: "Alabama has some of the heaviest subterranean termite pressure in the country, and a fresh slab on disturbed soil is a prime target. Pre-construction termite treatment plus the Sentricon® bait system gives the home two layers of termite control from day one — far cheaper than dealing with a termite infestation after drywall is up. Buyers also increasingly expect pest control protection to convey at closing.",
+              },
             ].map((item, i) => (
               <div
                 key={i}

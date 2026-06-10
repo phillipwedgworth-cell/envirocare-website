@@ -60,9 +60,10 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: 'What pests does this cover?', a: '30+ common Alabama pests including ants, roaches, spiders, silverfish, earwigs, pillbugs, stink bugs, centipedes, millipedes, crickets, and seasonal invaders. Termites are a separate program (Sentricon®). Mosquito and tick are seasonal add-ons.' },
       { q: 'How often do you come out?', a: 'Every 60 days (bi-monthly), six visits per year. If you see anything between visits, call us — re-services are free and unlimited.' },
-      { q: 'Are the products safe for kids and pets?', a: 'Yes. We use EPA-registered products applied per label, and recommend waiting until the application is dry (typically 30 minutes) before pets and kids return to treated areas.' },
+      { q: 'What about kids and pets during treatment?', a: 'We use EPA-registered products applied per label directions, and recommend waiting until the application is dry (typically 30 minutes) before pets and kids return to treated areas.' },
       { q: 'Is there a contract?', a: 'No long-term contract. Pay monthly on ACH or bi-monthly per visit. Cancel anytime.' },
       { q: 'What if I have a special event coming up?', a: 'Call ahead — we\'ll prioritize an exterior knockdown application before your event at no extra charge for active customers.' },
+      { q: 'How is EnviroCare different from other pest control companies?', a: 'Most pest control companies sell four visits a year and disappear between them. Our pest control service treats the perimeter every other month, checks rodent entry points, and handles an active infestation at no extra charge between visits. If you\'re comparing pest control in Birmingham, Huntsville, or Lake Martin, ask whether re-services are free — ours are.' },
     ],
   },
   {
@@ -104,6 +105,7 @@ export const SERVICES: Service[] = [
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
       { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters for refinancing and home sales. One included per year on active accounts; otherwise $75 standalone fee.' },
+      { q: 'What if I already have an active termite infestation?', a: 'Sentricon® handles an active infestation as well as prevention — the colony feeds on the bait and collapses from the inside. Unlike termite control services that only treat what you can see, colony elimination stops the damage at its source.' },
     ],
   },
   {
@@ -144,6 +146,7 @@ export const SERVICES: Service[] = [
       { q: 'Is the spray safe for my dog?', a: 'Yes once dry — typically 30 minutes. We use EPA-registered pyrethroids applied per label. Same active ingredients in flea/tick prevention products.' },
       { q: 'Will it kill my pollinators?', a: 'We avoid direct application to flowering plants and bee/butterfly habitat. Bee-safe practices are standard — we won\'t spray actively flowering plants.' },
       { q: 'Can I add tick and flea?', a: 'Yes. Our Outdoor Bundle ($60/mo) covers Mosquito + Tick + Flea on the same visits. Same techs, same products, broader protection.' },
+      { q: 'Can I bundle mosquito with my pest control service?', a: 'Yes — most customers run our mosquito control service alongside the bi-monthly pest program. Same technician, one invoice, and the perimeter of your home and the yard get covered on one coordinated schedule.' },
     ],
   },
   {
@@ -182,7 +185,8 @@ export const SERVICES: Service[] = [
       { q: 'Is tick control really needed in Alabama?', a: 'Yes. Lone Star ticks are aggressive and widespread. Rocky Mountain Spotted Fever and Alpha-Gal Syndrome (the red-meat allergy from tick bites) are real risks. Wooded and lake properties especially benefit.' },
       { q: 'Can I get tick service without mosquito?', a: 'Standalone tick service is available but most customers find the Outdoor Bundle (Mosquito + Tick + Flea at $60/mo) cheaper and simpler.' },
       { q: 'How quickly does it work?', a: 'You\'ll see fewer ticks within 24-48 hours after application. Full lifecycle disruption takes 30-60 days.' },
-      { q: 'Is it safe for my dog?', a: 'Yes once dry, typically 30 minutes. Many of the same active ingredients are in canine tick/flea collars and topical treatments at lower concentrations.' },
+      { q: 'When can my dog go back out after treatment?', a: 'Once the application dries, typically 30 minutes. Many of the same active ingredients are in canine tick/flea collars and topical treatments at lower concentrations.' },
+      { q: 'Do I need a separate exterminator for ticks?', a: 'No — our tick control service rides along with mosquito service or your existing pest control service. We focus on the wood lines, leaf litter, and shaded edges where ticks wait for a host. One EnviroCare technician covers tick control in Birmingham, Huntsville, and the Lake Martin area.' },
     ],
   },
 
@@ -218,6 +222,7 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: 'How is this different from store-bought mound bait?', a: 'Store bait kills visible mounds but doesn\'t handle queens or foragers. New mounds appear in days. Our yard-wide treatment eliminates the colony network.' },
       { q: 'When should I do this?', a: 'Spring (March-April) and fall (September-October) are best. Mounds reduce by 70-90% within 2 weeks.' },
+      { q: 'Why do fire ant mounds keep coming back?', a: 'The red imported fire ant builds a nest that runs far deeper than the visible mound, and the worker ants you see are a fraction of the colony. Kill the mound without reaching the queen and the colony simply relocates a few feet away. Yard-wide treatment reaches queens and worker ants alike — which matters when a single sting can put a kid or a dog at real risk.' },
     ],
   },
   {
@@ -250,6 +255,7 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: 'My dog is already on flea medication — why do I need yard treatment?', a: 'Vet medication kills fleas that bite your pet but doesn\'t address yard reservoirs. Combined yard + pet approach breaks the lifecycle.' },
       { q: 'Will this work without indoor treatment?', a: 'For most outdoor-origin flea problems, yes. If fleas are reproducing indoors, we coordinate indoor + outdoor protocols.' },
+      { q: 'Do you offer flea control in Birmingham, Huntsville, and Lake Martin?', a: 'Yes — all three offices run flea control services. If your flea pest problem traces back to wildlife or a rodent issue, your technician will flag it, since fleas ride in on hosts. Many customers fold flea service into an existing pest control service for one combined visit.' },
     ],
   },
   {
@@ -330,7 +336,7 @@ export const SERVICES: Service[] = [
     metaDescription: 'Crawlspace moisture control, vapor barriers, and targeted pest treatment. Family-owned. Call (205) 940-6360.',
     heroEyebrow: 'Foundation Care',
     heroTagline: 'Crawlspace Service',
-    heroSubhead: 'Moisture control, vapor barriers, and targeted treatments for the most vulnerable part of your home — where termites, rot, and moisture problems start.',
+    heroSubhead: 'Moisture control, vapor barriers, crawl space encapsulation, and targeted treatments for the most vulnerable part of your home — where humidity, termites, and rot problems start.',
     features: [
       'Moisture inspection',
       'Vapor barrier installation',
@@ -351,6 +357,8 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: 'How often should the crawlspace be checked?', a: 'Annually as part of a termite inspection. More often if you\'ve had moisture, pest, or rot issues.' },
       { q: 'Do I need a vapor barrier?', a: 'Most Alabama crawlspaces benefit from one. We inspect first and recommend based on your specific conditions.' },
+      { q: 'What\'s the difference between a vapor barrier and full crawl space encapsulation?', a: 'A vapor barrier covers the ground to block rising moisture. Full crawl space encapsulation seals the entire space — walls, vents, and floor — and usually pairs with a dehumidifier to hold humidity below the level where mold, rot, and termites thrive. We inspect first and tell you honestly which your home needs; plenty of Alabama crawl spaces do fine with a quality barrier.' },
+      { q: 'Will crawlspace work help my energy bills?', a: 'Often, yes. Damp crawl spaces ruin sub-floor insulation and push humid air up into the house, making your HVAC work harder. Controlling humidity protects the insulation you already have and keeps conditioned air where it belongs.' },
     ],
   },
   {
@@ -386,6 +394,7 @@ export const SERVICES: Service[] = [
       { q: 'Do you do food service?', a: 'Yes. We service restaurants, commercial kitchens, food production, and grocery across Alabama with full HACCP-compliant programs.' },
       { q: 'Can you handle multiple locations?', a: 'Yes. We service chains, franchises, and property management portfolios across our 3-office Alabama footprint.' },
       { q: 'What about after-hours service?', a: 'Most commercial accounts are after-hours by default. We have keys, alarm codes, and after-hours access protocols.' },
+      { q: 'How do your commercial pest control services compare to the national pest control companies?', a: 'National pest control companies route commercial accounts through call centers and rotating technicians. Our commercial pest control service assigns one tech who learns your facility, documents every visit, and gets ahead of an infestation before it threatens an inspection. If you\'re comparing commercial pest control in Birmingham, Huntsville, or the Lake Martin area, ask us for the reference list.' },
     ],
   },
 ];

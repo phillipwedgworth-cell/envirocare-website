@@ -24,6 +24,7 @@
 
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import ChatWidget from '../components/ChatWidget';
 import './globals.css';
 
 // Mobile viewport — without this, phones render the desktop layout zoomed out,
@@ -220,6 +221,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           those individual pages instead.
         */}
         {children}
+        <ChatWidget />
 
         {/* Google Analytics 4 — G-CELEB90NKX */}
         <Script

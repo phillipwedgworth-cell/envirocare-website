@@ -50,7 +50,7 @@ const faqLd = {
       name: "What is a WDO letter?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A WDO (wood-destroying organism) letter is the official Alabama termite inspection report required by most lenders for real estate closings. It documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
+        text: "A WDO (wood-destroying organism) letter — formally the Alabama Wood Infestation Report — is the official termite inspection document required by most lenders for real estate closings. Issued by a licensed pest control company, the wood infestation report documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
       },
     },
     {
@@ -287,7 +287,7 @@ export default function WDOLettersPage() {
             {[
               {
                 q: "What is a WDO letter?",
-                a: "A WDO (wood-destroying organism) letter is the official Alabama termite inspection report required by most lenders for real estate closings. It documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
+                a: "A WDO (wood-destroying organism) letter — formally the Alabama Wood Infestation Report — is the official termite inspection document required by most lenders for real estate closings. Issued by a licensed pest control company, the wood infestation report documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
               },
               {
                 q: "How fast can I get a WDO inspection?",

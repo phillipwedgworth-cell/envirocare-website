@@ -65,7 +65,7 @@ export default function Pelham() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "🐜", name: "Pest Control", desc: "Perimeter protection from ants, roaches, spiders, and all Pelham area pests. Quarterly programs with re-treatment guarantee.", highlight: false },
+              { icon: "🐜", name: "Pest Control", desc: "Perimeter protection from ants, roaches, spiders, and all Pelham area pests. Bi-monthly programs with re-treatment guarantee.", highlight: false },
               { icon: "🪲", name: "Termite Control", desc: "Free inspection for Pelham homeowners. Pelham's soil and humidity make termite protection essential.", highlight: true },
               { icon: "🦟", name: "Mosquito Control", desc: "Monthly treatments March–November. Pelham's greenways and wooded areas drive heavy mosquito pressure.", highlight: false },
               { icon: "🔥", name: "Fire Ant Control", desc: "Aggressive fire ant populations throughout Shelby County. Colony elimination, not just suppression.", highlight: false },

@@ -306,8 +306,8 @@ export default function SentriconProtection() {
                 a: "Termites must first find the bait stations, which depends on how actively they're foraging. Once they begin feeding, the active ingredient spreads through the colony. Most homeowners see colony elimination within 60–90 days, though this varies by colony size and termite pressure."
               },
               {
-                q: "Is Sentricon safe for my kids and pets?",
-                a: "Yes. The active ingredient in Sentricon (noviflumuron) targets a biological process unique to insects — it prevents molting. It does not affect humans, pets, or other mammals. The bait is contained within locked stations in the ground, making accidental exposure essentially impossible."
+                q: "What about kids and pets around the stations?",
+                a: "The active ingredient in Sentricon (noviflumuron) targets a biological process unique to insects — it prevents molting and does not affect humans, pets, or other mammals. The bait is contained within locked bait stations in the ground, so there's nothing exposed in your yard."
               },
               {
                 q: "Can Sentricon be used near Lake Martin's water?",
@@ -328,6 +328,10 @@ export default function SentriconProtection() {
               {
                 q: "Is Sentricon effective on existing infestations or just prevention?",
                 a: "Both. Sentricon is fully effective whether you have an active infestation or are protecting a termite-free home. For active infestations, we may add above-ground bait stations for faster access. Colony elimination occurs whether or not damage is visible."
+              },
+              {
+                q: "How does the Sentricon system compare to traditional termite control?",
+                a: "Traditional termite control means trenching and injecting liquid around the foundation — a chemical barrier that degrades over 5–7 years. The Sentricon system uses in-ground bait stations termites actively prefer over wood, eliminating the colony itself. It's the same reason many customers pair it with regular pest control: protection that's maintained, not re-applied."
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">

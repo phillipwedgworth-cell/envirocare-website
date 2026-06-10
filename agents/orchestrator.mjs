@@ -12,6 +12,7 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 // runtime. Each agent module exports { run }.
 import { run as runBrightlocal } from "./brightlocal.mjs";
 import { run as runSeoMonitor } from "./seo-monitor.mjs";
+import { run as runNeuronwriterQa } from "./neuronwriter-qa.mjs";
 import { run as runCfoAgent } from "./cfo-agent.mjs";
 import { run as runSiteReviewer } from "./site-reviewer.mjs";
 import { run as runProposer } from "./proposer.mjs";
@@ -21,10 +22,11 @@ const PROMPT_VERSION = "2026-05-28";
 
 // Order matters for digest readability but not correctness.
 const AGENT_REGISTRY = [
-  { name: "brightlocal",   run: runBrightlocal },
-  { name: "seo-monitor",   run: runSeoMonitor },
-  { name: "cfo-agent",     run: runCfoAgent },
-  { name: "site-reviewer", run: runSiteReviewer },
+  { name: "brightlocal",     run: runBrightlocal },
+  { name: "seo-monitor",     run: runSeoMonitor },
+  { name: "neuronwriter-qa", run: runNeuronwriterQa },  // content QA; skips gracefully if key absent
+  { name: "cfo-agent",       run: runCfoAgent },
+  { name: "site-reviewer",   run: runSiteReviewer },
 ];
 
 let anthropic = null;

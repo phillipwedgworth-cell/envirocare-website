@@ -12,22 +12,22 @@ import fs from "fs/promises";
 import path from "path";
 
 async function loadDotenv() {
-  try {
-    const raw = await fs.readFile(path.join(process.cwd(), ".env"), "utf8");
-    for (const line of raw.split("\n")) {
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith("#")) continue;
-      const eq = trimmed.indexOf("=");
-      if (eq < 0) continue;
-      const k = trimmed.slice(0, eq).trim();
-      const v = trimmed
-        .slice(eq + 1)
-        .trim()
-        .replace(/^["']|["']$/g, "");
-      if (!process.env[k]) process.env[k] = v;
+  // Try .env first, then .env.local (Next.js convention). Skip missing files silently.
+  for (const name of [".env", ".env.local"]) {
+    try {
+      const raw = await fs.readFile(path.join(process.cwd(), name), "utf8");
+      for (const line of raw.split("\n")) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith("#")) continue;
+        const eq = trimmed.indexOf("=");
+        if (eq < 0) continue;
+        const k = trimmed.slice(0, eq).trim();
+        const v = trimmed.slice(eq + 1).trim().replace(/^["']|["']$/g, "");
+        if (!process.env[k]) process.env[k] = v;
+      }
+    } catch {
+      // file absent — that's fine
     }
-  } catch {
-    // No .env file — rely on process env (Vercel injects directly).
   }
 }
 
@@ -36,6 +36,7 @@ const TARGETS = {
   brightlocal: "./brightlocal.mjs",
   "site-reviewer": "./site-reviewer.mjs",
   "cfo-agent": "./cfo-agent.mjs",
+  "neuronwriter-qa": "./neuronwriter-qa.mjs",
 };
 
 async function main() {

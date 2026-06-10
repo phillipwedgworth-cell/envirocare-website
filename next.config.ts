@@ -126,6 +126,37 @@ const nextConfig: NextConfig = {
             { source: '/site-map', destination: '/', permanent: true },
             { source: '/accessibility-statement', destination: '/', permanent: true },
             { source: '/photo-gallery/:slug*', destination: '/', permanent: true },
+
+            // ─── NAV / FOOTER BROKEN-LINK FIXES (2026-06-09) ───────────────
+            // Fixes the 6 broken hrefs found by the June 8 crawl that were not
+            // already covered above. /pricing and /why-envirocare already exist;
+            // /faq has a real page and is intentionally NOT redirected.
+            { source: '/services', destination: '/services/pest-control', permanent: true },
+            { source: '/realtor', destination: '/services/wdo-letters', permanent: true },
+            // FIXED 2026-06-10: was '/services/commercial' → '/commercial' (a 404 —
+            // the real page lives AT /services/commercial; the old rule shadowed it).
+            { source: '/commercial', destination: '/services/commercial', permanent: true },
+            { source: '/services/fire-ant-control', destination: '/services/fire-ant', permanent: true },
+            { source: '/services/rodent-control', destination: '/services/pest-control', permanent: true },
+            { source: '/services/real-estate-wdo', destination: '/services/wdo-letters', permanent: true },
+
+            // ─── BLOG: Scorpion year/month/post paths → /blog ───────────────
+            // Scorpion uses /blog/{year}/{month}/{slug}/ — new site uses /blog/{slug}.
+            // 5 wildcards cover all 89 legacy blog URLs (year archives, month archives, posts).
+            { source: '/blog/2022/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2023/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2024/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2025/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2026/:path*', destination: '/blog', permanent: true },
+
+            // ─── SCORPION SUB-CITY SERVICE PAGES ────────────────────────────
+            { source: '/where-we-service/birmingham-al-pest-control/insect-control', destination: '/services/pest-control', permanent: true },
+            { source: '/where-we-service/birmingham-al-pest-control/mouse-control', destination: '/services/pest-control', permanent: true },
+
+            // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
+            { source: '/bundle-services', destination: '/pricing', permanent: true },
+            { source: '/reviews', destination: '/', permanent: true },
+            { source: '/special-offers', destination: '/pricing', permanent: true },
                 ];
     },
 };

@@ -19,9 +19,9 @@ const PESTS: Array<{ icon: string; name: string; body: string }> = [
 ];
 
 const FAQS: Array<[string, string]> = [
-  ["How does your quarterly pest control work?", "Every 90 days a licensed technician treats your home's exterior perimeter, foundation, eaves, and entry points with a long-lasting barrier product. Interior treatment included if you're seeing pests inside. Between visits, if you ever see a pest — call us, we come back free."],
-  ["Is the treatment safe for kids and pets?", "Yes. We use EPA-registered products applied at proper rates. After exterior application dries (usually 30 minutes), kids and pets can be back outside. Interior products are placed in cracks and crevices, away from living areas."],
-  ["Will I be locked into a contract?", "No long-term contracts. You can cancel anytime. We earn your business every quarter, not lock you into a commitment."],
+  ["How does your bi-monthly pest control work?", "Every other month a licensed technician treats your home's exterior perimeter, foundation, eaves, and entry points with a long-lasting barrier product. Interior treatment included if you're seeing pests inside. Between visits, if you ever see a pest — call us, we come back free."],
+  ["What about kids and pets during treatment?", "We use EPA-registered products applied at proper rates. After exterior application dries (usually 30 minutes), kids and pets can be back outside. Interior products are placed in cracks and crevices, away from living areas."],
+  ["Will I be locked into a contract?", "No long-term contracts. You can cancel anytime. We earn your business every visit, not lock you into a commitment."],
   ["What's the difference between pest control and termite control?", "Pest control protects against ants, roaches, spiders, rodents, and most household pests. Termites are an entirely separate program — they require Sentricon® bait or liquid soil treatment because they live underground and travel through wood. Most customers add termite protection as a bundle."],
   ["How quickly can you get to my property?", "Often yes — call your nearest office. Birmingham, Lake Martin, and Huntsville offices all keep appointments available most weekdays."],
 ];
@@ -38,7 +38,7 @@ export default function PestControlService() {
         "name": "Pest Control",
         "provider": { "@type": "LocalBusiness", "name": "EnviroCare Pest Control" },
         "areaServed": { "@type": "State", "name": "Alabama" },
-        "description": "Quarterly residential and commercial pest control. Ants, roaches, spiders, rodents, crickets, beetles, bees, and more. Family-owned Alabama company since 1958.",
+        "description": "Bi-monthly residential and commercial pest control. Ants, roaches, spiders, rodents, crickets, beetles, bees, and more. Family-owned Alabama company since 1958.",
       }) }} />
 
       {/* HERO */}
@@ -50,11 +50,11 @@ export default function PestControlService() {
               🐜 Alabama Pest Control · Family Owned Since 1958
             </span>
           </div>
-          <h1 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px", maxWidth: 720 }}>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px", maxWidth: 720 }}>
             Pest Control That <em style={{ color: GOLD }}>Actually</em><br />Solves the Problem.
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.7, marginBottom: 28, ...sf, maxWidth: 580 }}>
-            Quarterly home protection from every common Alabama pest — ants, roaches, spiders, rodents, crickets, beetles, and more. One licensed technician. One thorough treatment. Re-visits free if pests come back.
+            Bi-monthly home protection from every common Alabama pest — ants, roaches, spiders, rodents, crickets, beetles, and more. One licensed technician. One thorough treatment. Re-visits free if pests come back.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a href="/quote" style={{ background: GOLD, color: DARK, padding: "15px 28px", borderRadius: 8, fontWeight: 800, fontSize: 15, textDecoration: "none", ...sf }}>
@@ -83,7 +83,7 @@ export default function PestControlService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               Pests We Eliminate
             </div>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
               Every Common Alabama Pest, Handled.
             </h2>
             <p style={{ fontSize: 15, color: "#6b7d70", maxWidth: 600, margin: "0 auto", ...sf, lineHeight: 1.7 }}>
@@ -108,9 +108,9 @@ export default function PestControlService() {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
-              How Our Quarterly Plan Works
+              How Our Bi-Monthly Plan Works
             </div>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>
               Four Visits a Year. Pests Gone, And Stay Gone.
             </h2>
           </div>
@@ -119,11 +119,11 @@ export default function PestControlService() {
             {[
               { n: "01", title: "Free Inspection", body: "Licensed tech walks your property and identifies activity, entry points, and risk areas. You get a written quote — no obligation." },
               { n: "02", title: "Initial Treatment", body: "Thorough exterior perimeter + interior knockdown if needed. Long-lasting barrier products applied where pests travel." },
-              { n: "03", title: "Quarterly Visits", body: "Every 90 days we re-treat the perimeter, refresh the barrier, and check for new activity." },
+              { n: "03", title: "Bi-Monthly Visits", body: "Every 60 days we re-treat the perimeter, refresh the barrier, and check for new activity." },
               { n: "04", title: "Free Re-Visits", body: "See a pest between treatments? Call us. We come back free until the problem is solved. That's the EnviroCare guarantee." },
             ].map((s) => (
               <div key={s.n} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 20px" }}>
-                <div style={{ fontFamily: "Georgia, serif", fontSize: 36, color: GOLD, fontWeight: 700, lineHeight: 1, marginBottom: 8 }}>{s.n}</div>
+                <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 36, color: GOLD, fontWeight: 700, lineHeight: 1, marginBottom: 8 }}>{s.n}</div>
                 <div style={{ fontWeight: 700, color: DARK, fontSize: 15, marginBottom: 6, ...sf }}>{s.title}</div>
                 <div style={{ fontSize: 13, color: "#5b6f60", lineHeight: 1.6, ...sf }}>{s.body}</div>
               </div>
@@ -136,7 +136,7 @@ export default function PestControlService() {
       <section style={{ padding: "64px 24px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>What's Included</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>What's Included</h2>
           </div>
           <div style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "28px 24px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 12 }}>
@@ -166,7 +166,7 @@ export default function PestControlService() {
       <section style={{ background: "#f7f8f4", padding: "64px 24px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>Common Questions</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>Common Questions</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {FAQS.map(([q, a], i) => {
@@ -190,7 +190,7 @@ export default function PestControlService() {
       <section style={{ background: `linear-gradient(160deg, ${G}, #0f4d26)`, padding: "72px 24px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 560, margin: "0 auto" }}>
           <Shield size={42} color={GOLD} style={{ margin: "0 auto 14px" }} />
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>
             Ready for a <em>Pest-Free</em> Home?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>

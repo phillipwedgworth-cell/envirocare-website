@@ -14,8 +14,11 @@
  */
 
 import { useEffect } from 'react';
-import { CITIES, getCityBySlug, type City } from '@/data/cities';
+import { getCityBySlug, type City } from '@/data/cities';
 import CityDepth from '@/components/CityDepth';
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
+import ScheduleRequest from '@/components/ScheduleRequest';
 
 const CITY_ART_SVG: Record<string, string> = {
   'vulcan': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
@@ -164,32 +167,7 @@ export default function CityPage({ slug }: { slug: string }) {
       />
       <style dangerouslySetInnerHTML={{ __html: CITY_CSS }} />
 
-      <div className="ann">
-        🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
-        <a href="tel:2059406360">Call (205) 940-6360 →</a>
-      </div>
-
-      <nav>
-        <div className="nav-inner">
-          <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
-          </div>
-          <ul className="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/why-envirocare">Why EnviroCare</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-          <div className="nav-right">
-            <a href={`tel:${tel}`} className="nav-phone">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.9 11.7a19.79 19.79 0 01-3.07-8.67A2 2 0 013.82 1h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-              {phone}
-            </a>
-            <a href={`tel:${tel}`} className="nav-cta">Get Free Quote</a>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       <section className="city-hero">
         <div className="city-hero-inner">
@@ -290,57 +268,21 @@ export default function CityPage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <footer id="contact">
-        <div className="footer-grid">
-          <div>
-            <div className="footer-brand">
-              <strong>EnviroCare Pest & Termite Services</strong>
-              Family-owned and operated since 1958 — now in its third generation of the Wedgworth family. Serving Alabama from three offices.
-              <br /><br />
-              <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360 — Main Line</a><br />
-              <a href="tel:2059406360" className="footer-phone">📞 (205) 940-6360 — Birmingham</a><br />
-              <a href="tel:2562346162" className="footer-phone">📞 (256) 234-6162 — Lake Martin / Alex City</a><br />
-              <a href="tel:2569377676" className="footer-phone">📞 (256) 937-7676 — Huntsville</a>
-            </div>
+      <section style={{ background: '#FEFDF8', padding: '64px clamp(20px,5vw,64px)' }}>
+        <div style={{ maxWidth: 1120, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 28 }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
+              Schedule Your First Visit
+            </h2>
+            <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: '#5b6f60', fontSize: 15.5 }}>
+              Protected from the outside in — most visits don&rsquo;t require you home.
+            </p>
           </div>
-          <div>
-            <div className="footer-head">Core Services</div>
-            <ul className="footer-links">
-              <li><a href="/services/pest-control">Pest Control</a></li>
-              <li><a href="/services/termite-control">Termite Control</a></li>
-              <li><a href="/services/mosquito-control">Mosquito Control</a></li>
-              <li><a href="/services/tick-control">Tick Control</a></li>
-              <li><a href="/pricing">Plans & Pricing</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="footer-head">Specialty</div>
-            <ul className="footer-links">
-              <li><a href="/services/fire-ant">Fire Ant Control</a></li>
-              <li><a href="/services/flea">Flea Control</a></li>
-              <li><a href="/builders">Builder Pre-Treat</a></li>
-              <li><a href="/realtor">Real Estate / WDO Letters</a></li>
-              <li><a href="/services/commercial">Commercial Service</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="footer-head">Service Areas</div>
-            <ul className="footer-links">
-              {CITIES.slice(0,6).map((c) => (
-                <li key={c.slug}><a href={`/${c.slug}`}>{c.name}, AL</a></li>
-              ))}
-            </ul>
-          </div>
+          <ScheduleRequest city={city.name} />
         </div>
-        <div className="footer-bottom">
-          <span>© 2026 EnviroCare Pest & Termite Services LLC. All rights reserved. Licensed in Alabama · Sentricon® Certified Specialist</span>
-          <div style={{display:'flex',gap:'1.5rem'}}>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
-            <a href="/sitemap.xml">Sitemap</a>
-          </div>
-        </div>
-      </footer>
+      </section>
+
+      <Footer />
     </>
   );
 }
@@ -371,7 +313,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .ann a:hover{text-decoration:underline}
 
 /* ─── NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-soft);padding:0 clamp(1.5rem,5vw,4rem)}
+.city-legacy-nav-unused{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-soft);padding:0 clamp(1.5rem,5vw,4rem)}
 .nav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:96px}
 .logo-wrap{width:300px;flex-shrink:0;animation:logoIn 1.4s cubic-bezier(.16,1,.3,1) both;transform-origin:left center}
 @keyframes logoIn{0%{transform:scale(1.4) translateX(4%);opacity:0;filter:blur(2px)}100%{transform:scale(1) translateX(0);opacity:1;filter:blur(0)}}
@@ -621,8 +563,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-
 .bundle-pill strong{color:var(--gold);font-weight:700}
 
 /* ─── FOOTER */
-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4.5rem clamp(1.5rem,5vw,4rem) 2rem;position:relative}
-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
+.city-legacy-footer-unused{background:var(--ink);color:rgba(255,255,255,.7);padding:4.5rem clamp(1.5rem,5vw,4rem) 2rem;position:relative}
+.city-legacy-footer-unused::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
 .footer-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.55)}
 .footer-brand strong{color:var(--white);display:block;margin-bottom:.6rem;font-size:1.05rem;font-family:"Playfair Display",serif}

@@ -13,12 +13,12 @@
 | Birmingham/Alabaster | 2025 Butler Rd, Alabaster AL 35007 | (205) 940-6360 | Greater Birmingham |
 | Lake Martin/Alex City | 1785 Tallapoosa St, Alexander City AL 35010 | (256) 234-6162 | Lake Martin, Auburn, East AL |
 | Huntsville | 7027 Old Madison Pike Ste 108, Huntsville AL 35806 | (256) 937-7676 | North Alabama |
-| Main line | — | (205) 649-5278 | All markets |
+| Main line | — | (205) 940-6360 | All markets |
 
 ## Core Services & Pricing
 - **Bi-monthly pest control**: $35/mo (starter), $67/mo (complete), $127/mo (premium)
 - **Termite (Sentricon®)**: $380 install + annual renewal, OR $32/mo
-- **Mosquito control**: $45/mo (April–October)
+- **Mosquito control**: $45/mo (March–November)
 - **Tick control**: $69/application or bundled
 - **Fire ant**: add-on to yard program
 - **WDO (real estate termite letter)**: $75 standalone; free for active customers
@@ -32,7 +32,7 @@
 5. **No contracts** — month-to-month, cancel anytime
 6. **Local humans answer the phone** — no call center routing
 7. **Same technician every visit** — customers know who is coming
-8. **Same-day availability** — call before noon, service that afternoon
+8. **Fast local scheduling** — local routing and three Alabama offices mean quick turnaround, often within 24–48 hours (never promise same-day)
 
 ## Customer Profile
 - Alabama homeowners, age 35–65

@@ -364,7 +364,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Millipedes migrate in mass after rain — sometimes hundreds crawling up foundations. Mosquitoes thrive because standing water is where they breed. A bottle cap of water produces hundreds of mosquitoes per week.</p>
 
 <h2>The Best Defense</h2>
-<p>Proactive perimeter treatment already in place before the storm is your best defense. Our quarterly service creates a treated zone that intercepts pests as they migrate. We offer free re-treatment between scheduled visits for exactly this situation.</p>
+<p>Proactive perimeter treatment already in place before the storm is your best defense. Our bi-monthly service creates a treated zone that intercepts pests as they migrate. We offer free re-treatment between scheduled visits for exactly this situation.</p>
 
 <p>Call your nearest EnviroCare office:</p>
 <ul>
@@ -474,7 +474,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Brown recluse are well-established in North Alabama. Older homes in downtown Huntsville with stone foundations and crawlspaces are particularly prone to infestations. If you're storing boxes in an attic or crawlspace, inspect carefully.</p>
 
 <h2>EnviroCare Huntsville</h2>
-<p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: quarterly pest control from $39/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
+<p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: bi-monthly pest control from $35/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
 
 <p><strong>7027 Old Madison Pike, Suite 108 · Huntsville, AL 35806</strong><br/>
 Free inspections. No setup fee. Fast scheduling available.</p>
@@ -515,7 +515,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <li>Wear gloves when working in storage areas, garages, or crawlspaces</li>
 </ul>
 
-<p>Professional quarterly treatment reduces the insect population that attracts recluse — fewer roaches and silverfish means less food for spiders. If you're finding brown recluse, a single female produces 150 eggs per year. Call EnviroCare for a free inspection:</p>
+<p>Professional bi-monthly treatment reduces the insect population that attracts recluse — fewer roaches and silverfish means less food for spiders. If you're finding brown recluse, a single female produces 150 eggs per year. Call EnviroCare for a free inspection:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -534,7 +534,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 4,
     heroEmoji: '🪳',
     metaTitle: 'Cockroach Control in Alabama: German, American & Smokybrown | EnviroCare',
-    metaDescription: 'Three cockroach species require three different treatment approaches in Alabama. German roaches inside, American and smokybrown outside. EnviroCare quarterly plan covers all.',
+    metaDescription: 'Three cockroach species require three different treatment approaches in Alabama. German roaches inside, American and smokybrown outside. EnviroCare bi-monthly plan covers all.',
     body: `
 <p class="lede">Alabama's heat and humidity make it cockroach paradise. German roaches infest kitchens, American roaches invade from outside, and smokybrown roaches fly in through attic vents. Each species requires a different treatment approach — and spraying the wrong place makes infestations worse.</p>
 
@@ -545,7 +545,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>Cockroaches spread E. coli, Salmonella, and trigger asthma — especially in children. Alabama's year-round warmth allows roaches to remain active every month, unlike northern states where cold provides a break.</p>
 
 <h2>How We Treat</h2>
-<p>We use gel bait in kitchens and bathrooms for German roaches — spraying drives them deeper into walls. Exterior perimeter spray creates a barrier against American and smokybrown roaches coming in from outside. Attic dust treatment addresses smokybrown roaches entering through roof vents. Quarterly service with unlimited free re-treatments keeps pressure on all species year-round.</p>
+<p>We use gel bait in kitchens and bathrooms for German roaches — spraying drives them deeper into walls. Exterior perimeter spray creates a barrier against American and smokybrown roaches coming in from outside. Attic dust treatment addresses smokybrown roaches entering through roof vents. Bi-monthly service with unlimited free re-treatments keeps pressure on all species year-round.</p>
 
 <h2>Common Questions</h2>
 
@@ -555,7 +555,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h3>Are palmetto bugs and cockroaches the same thing?</h3>
 <p>Yes. Palmetto bug is the common name for the American cockroach — large, reddish-brown, and capable of flying short distances. They're not a different species, just a regional nickname.</p>
 
-<p>Cockroach control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<p>Cockroach control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -574,7 +574,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 4,
     heroEmoji: '🕸️',
     metaTitle: 'Spider Control in Alabama: Black Widow, Brown Recluse & More | EnviroCare',
-    metaDescription: 'Alabama has black widows and brown recluse. Effective spider control starts with reducing their food supply, not just spraying webs. EnviroCare quarterly plan covers 30+ pests.',
+    metaDescription: 'Alabama has black widows and brown recluse. Effective spider control starts with reducing their food supply, not just spraying webs. EnviroCare bi-monthly plan covers 30+ pests.',
     body: `
 <p class="lede">Alabama is home to black widows and brown recluse — both medically significant. They thrive in garages, crawlspaces, storage areas, and woodpiles. But spraying webs treats the symptom, not the cause. EnviroCare reduces spider populations by eliminating the insects they feed on.</p>
 
@@ -597,7 +597,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h3>Are brown recluse common in Alabama?</h3>
 <p>Yes — more common than most people realize. Well established throughout the state, especially in undisturbed areas like attics, closets, and storage boxes.</p>
 
-<p>Spider control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<p>Spider control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -637,7 +637,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h3>Are carpenter ants as bad as termites?</h3>
 <p>They don't eat wood like termites, but they excavate galleries in moist or decayed wood. A mature colony can cause significant structural damage over years. Look for sawdust-like frass near baseboards as an early warning sign.</p>
 
-<p>Ant control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<p>Ant control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -678,9 +678,9 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>Bathrooms provide the moisture they need. Poor ventilation and dripping faucets create ideal habitat. Running your exhaust fan after every shower helps significantly.</p>
 
 <h3>How do I prevent silverfish?</h3>
-<p>Reduce indoor humidity, store items in sealed plastic bins rather than cardboard, fix plumbing leaks, and start professional quarterly treatment. Once established, they're very difficult to eliminate with over-the-counter products.</p>
+<p>Reduce indoor humidity, store items in sealed plastic bins rather than cardboard, fix plumbing leaks, and start professional bi-monthly treatment. Once established, they're very difficult to eliminate with over-the-counter products.</p>
 
-<p>Silverfish control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<p>Silverfish control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -723,7 +723,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h3>Are camel crickets dangerous?</h3>
 <p>They don't bite or chirp, but appear in large numbers and jump unpredictably when startled. They can damage stored fabrics. Their presence in large numbers also indicates excess moisture in the basement or crawlspace.</p>
 
-<p>Cricket control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<p>Cricket control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -818,7 +818,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 4,
     heroEmoji: '🐛',
     metaTitle: 'Centipede & Millipede Control in Alabama | EnviroCare Pest Services',
-    metaDescription: 'Millipedes migrate in hundreds after Alabama rain. Centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation. EnviroCare quarterly plan.',
+    metaDescription: 'Millipedes migrate in hundreds after Alabama rain. Centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation. EnviroCare bi-monthly plan.',
     body: `
 <p class="lede">Centipedes and millipedes are moisture-loving pests that invade Alabama homes after heavy rain. House centipedes are fast predators found in bathrooms year-round. Millipedes invade in mass migrations during wet weather — sometimes hundreds in a single day. Both indicate excess moisture around your foundation that needs to be addressed.</p>
 
@@ -842,7 +842,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h3>Does mulch attract them?</h3>
 <p>Yes. Keep mulch at least 6 inches from your foundation and no more than 2–3 inches deep. Deep mulch against the house creates ideal millipede habitat and bypasses your perimeter treatment.</p>
 
-<p>Centipede and millipede control is included in our quarterly plan — 30+ pests, starting at $39/month. Call today:</p>
+<p>Centipede and millipede control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>

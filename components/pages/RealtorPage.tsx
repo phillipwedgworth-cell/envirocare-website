@@ -1,4 +1,6 @@
 "use client";
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
 /**
  * /realtor — for realtors, brokerages, closing attorneys
@@ -33,29 +35,7 @@ export default function RealtorPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <div className="ann">
-        🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family · Sentricon® up to $1M coverage
-        <a href="tel:2059406360">Call (205) 940-6360 →</a>
-      </div>
-
-      <nav>
-        <div className="nav-inner">
-          <div className="logo-wrap">
-            <img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" />
-          </div>
-          <ul className="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/why-envirocare">Why EnviroCare</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-          <div className="nav-right">
-            <a href="tel:2059406360" className="nav-phone">(205) 940-6360</a>
-            <a href="tel:2059406360" className="nav-cta">Get Free Quote</a>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -153,59 +133,7 @@ export default function RealtorPage() {
         </div>
       </section>
 
-      <footer id="contact">
-        <div className="footer-grid">
-          <div>
-            <div className="footer-brand">
-              <strong>EnviroCare Pest & Termite Services</strong>
-              Family-owned and operated since 1958 — now in its third generation of the Wedgworth family. Serving Alabama from three offices.
-              <br /><br />
-              <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360 — Main Line</a><br />
-              <a href="tel:2059406360" className="footer-phone">📞 (205) 940-6360 — Birmingham</a><br />
-              <a href="tel:2562346162" className="footer-phone">📞 (256) 234-6162 — Lake Martin / Alex City</a><br />
-              <a href="tel:2569377676" className="footer-phone">📞 (256) 937-7676 — Huntsville</a>
-            </div>
-          </div>
-          <div>
-            <div className="footer-head">Core Services</div>
-            <ul className="footer-links">
-              <li><a href="/services/pest-control">Pest Control</a></li>
-              <li><a href="/services/termite-control">Termite Control</a></li>
-              <li><a href="/services/mosquito-control">Mosquito Control</a></li>
-              <li><a href="/services/tick-control">Tick Control</a></li>
-              <li><a href="/pricing">Plans & Pricing</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="footer-head">For Professionals</div>
-            <ul className="footer-links">
-              <li><a href="/realtor">For Realtors</a></li>
-              <li><a href="/builders">For Builders</a></li>
-              <li><a href="/services/real-estate-wdo">WDO Letters</a></li>
-              <li><a href="/services/commercial">Commercial Service</a></li>
-              <li><a href="/faq">FAQ</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="footer-head">Service Areas</div>
-            <ul className="footer-links">
-              <li><a href="/birmingham">Birmingham, AL</a></li>
-              <li><a href="/hoover">Hoover, AL</a></li>
-              <li><a href="/lake-martin">Lake Martin, AL</a></li>
-              <li><a href="/huntsville">Huntsville, AL</a></li>
-              <li><a href="/auburn">Auburn, AL</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 EnviroCare Pest & Termite Services LLC. All rights reserved. Licensed in Alabama · Sentricon® Certified Specialist</span>
-          <div style={{display:'flex',gap:'1.5rem'}}>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
-            <a href="/sitemap.xml">Sitemap</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
@@ -236,7 +164,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .ann a:hover{text-decoration:underline}
 
 /* ─── NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-soft);padding:0 clamp(1.5rem,5vw,4rem)}
+.legacy-nav-unused{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-soft);padding:0 clamp(1.5rem,5vw,4rem)}
 .nav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:96px}
 .logo-wrap{width:300px;flex-shrink:0;animation:logoIn 1.4s cubic-bezier(.16,1,.3,1) both;transform-origin:left center}
 @keyframes logoIn{0%{transform:scale(1.4) translateX(4%);opacity:0;filter:blur(2px)}100%{transform:scale(1) translateX(0);opacity:1;filter:blur(0)}}
@@ -486,8 +414,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-
 .bundle-pill strong{color:var(--gold);font-weight:700}
 
 /* ─── FOOTER */
-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4.5rem clamp(1.5rem,5vw,4rem) 2rem;position:relative}
-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
+.legacy-footer-unused{background:var(--ink);color:rgba(255,255,255,.7);padding:4.5rem clamp(1.5rem,5vw,4rem) 2rem;position:relative}
+.legacy-footer-unused::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
 .footer-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.55)}
 .footer-brand strong{color:var(--white);display:block;margin-bottom:.6rem;font-size:1.05rem;font-family:"Playfair Display",serif}

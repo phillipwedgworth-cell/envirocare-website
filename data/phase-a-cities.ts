@@ -90,7 +90,7 @@ export const phaseACities: Record<string, CityData> = {
       { q: "When do termites swarm in Mountain Brook?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older brick homes with crawlspaces are highest-risk. Sentricon® stations protect year-round, and our annual inspection catches early activity before damage occurs." },
       { q: "Is Sentricon® really better than liquid termite treatment?", a: "For Mountain Brook's older homes, yes. Sentricon® doesn't require drilling through hardwood floors or pumping liquid into established landscaping. The Always Active™ bait stations work continuously — and the system is backed by up to $1,000,000 in damage repair coverage." },
       { q: "When does mosquito season start in Mountain Brook?", a: "Mosquito pressure starts in March with the first warm rains and runs through November. Our 30-day yard barrier program covers the full season — that's up to 9 applications. Crestline and Cahaba Village homes near the creek corridor benefit most." },
-      { q: "Are your treatments safe for pets and kids?", a: "Yes — applications are pet- and kid-safe once dry (typically 30-60 minutes). Your technician will walk you through specific timing during the visit. Our Mountain Brook technicians live in the same neighborhoods you do; we use products we'd use around our own families." },
+      { q: "When can pets and kids go back outside after treatment?", a: "Kids and pets can return once applications dry (typically 30-60 minutes). Your technician will walk you through specific timing during the visit. Our Mountain Brook technicians live in the same neighborhoods you do; we use products we'd use around our own families." },
       { q: "Do you offer one-time service or only contracts?", a: "Both. Free termite inspection is no-obligation. Pest service can be one-time or ongoing. The bi-monthly plan ($35/mo ACH) is most popular because it includes unlimited free re-service if pests come back between visits — but there's no contract, cancel anytime." }
     ],
     reviews: [
@@ -133,10 +133,10 @@ export const phaseACities: Record<string, CityData> = {
     ],
     faqs: [
       { q: "Do you service inside the Greystone gates?", a: "Yes — we serve homes throughout Greystone Founders, Legacy, and Cove. Our technicians are familiar with the gate access protocols and HOA expectations. Just provide gate access info when scheduling and we handle the rest." },
-      { q: "Will mosquito treatments harm the golf course?", a: "No — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water). We don't treat common areas or the course itself. Treatments are pet- and kid-safe once dry (30-60 min)." },
+      { q: "Will mosquito treatments harm the golf course?", a: "No — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water). We don't treat common areas or the course itself. Kids and pets can return once treatments dry (30-60 min)." },
       { q: "I just moved to Greystone Legacy — when should I get a termite inspection?", a: "Sooner the better. Spring (Feb-May) is termite swarm season in Alabama. We do free, no-obligation inspections. If your builder included a termite warranty, we can also transfer Sentricon® coverage from a prior owner." },
       { q: "Is Sentricon® better than liquid termite treatment for Greystone homes?", a: "For Greystone, yes — most homes have crawlspaces and beautifully landscaped beds you don't want disturbed. Sentricon® stations install around the perimeter with zero drilling, zero trenching, and zero tank trucks in your driveway. Backed by up to $1,000,000 in damage repair." },
-      { q: "Are your treatments safe for pets?", a: "Yes — applications are pet-safe once dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
+      { q: "What about pets?", a: "Pets can return once applications dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
       { q: "Do I need separate pest control for fire ants?", a: "No — fire ant annual treatment is INCLUDED in your bi-monthly pest control plan. No separate contract, no separate fee. Flea program is included too." }
     ],
     reviews: [
@@ -180,9 +180,9 @@ export const phaseACities: Record<string, CityData> = {
     faqs: [
       { q: "Do you service townhomes and cottages, not just single-family?", a: "Yes — we service every property type in Mt Laurel including townhomes in The Village. Townhome pest control is straightforward; pricing is the same as single-family ($35/mo). For shared-wall pest issues we coordinate with neighbors so the treatment is comprehensive." },
       { q: "When do termites swarm in Mt Laurel?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older Founders Park homes with crawlspaces are highest-risk. Sentricon® stations protect year-round." },
-      { q: "Are your mosquito treatments safe around the community ponds?", a: "Yes — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water spots). We don't treat community ponds or common areas. Treatments are pet- and kid-safe once dry (30-60 min)." },
+      { q: "Do your mosquito treatments affect the community ponds?", a: "No — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water spots). We don't treat community ponds or common areas. Kids and pets can return once treatments dry (30-60 min)." },
       { q: "How often do you spray for mosquitos?", a: "Every 30 days during the season (March through November) — that's up to 9 applications per year. Mt Laurel's pond features and Double Oak Mountain proximity make the full seasonal program a strong fit." },
-      { q: "Are your treatments safe for pets?", a: "Yes — applications are pet-safe once dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
+      { q: "What about pets?", a: "Pets can return once applications dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
       { q: "Do I need separate fire ant control?", a: "No — fire ant annual treatment is INCLUDED in your bi-monthly pest control plan. No separate contract, no separate fee. Flea program is included too." }
     ],
     reviews: [
@@ -232,7 +232,7 @@ export const phaseACities: Record<string, CityData> = {
       { q: "When do termites swarm in Athens?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older downtown homes with crawlspaces are highest-risk. Sentricon® stations protect year-round." },
       { q: "Do you service East Limestone and Elkmont?", a: "Yes — we service all of Limestone County including East Limestone, Tanner, Mooresville, Elkmont, and Toney. Same Huntsville office, same technicians. New construction in East Limestone often needs termite pre-treat verification — call before drywall goes up." },
       { q: "How do you handle brown recluse?", a: "Brown recluse needs an integrated approach — perimeter spray, interior application in hot spots (closets, garages, basements), and sticky monitoring traps. Our bi-monthly pest program includes all three. Older Athens homes typically need 2-3 visits to break the population." },
-      { q: "Are your treatments safe for livestock and pets?", a: "Yes — applications are pet-safe once dry, typically 30-60 minutes. For Tanner and rural properties, we discuss livestock and barn access on the first visit. Our techs understand country properties." },
+      { q: "What about livestock and pets?", a: "Pets can return once applications dry, typically 30-60 minutes. For Tanner and rural properties, we discuss livestock and barn access on the first visit. Our techs understand country properties." },
       { q: "Do you offer one-time service or only contracts?", a: "Both. Free termite inspection is no-obligation. Pest service can be one-time or ongoing. The bi-monthly plan ($35/mo ACH) is most popular because it includes unlimited free re-service if pests come back between visits — and there's no contract, cancel anytime." }
     ],
     reviews: [
