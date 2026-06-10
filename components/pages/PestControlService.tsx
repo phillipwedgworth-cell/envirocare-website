@@ -50,7 +50,7 @@ export default function PestControlService() {
               🐜 Alabama Pest Control · Family Owned Since 1958
             </span>
           </div>
-          <h1 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px", maxWidth: 720 }}>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px", maxWidth: 720 }}>
             Pest Control That <em style={{ color: GOLD }}>Actually</em><br />Solves the Problem.
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.7, marginBottom: 28, ...sf, maxWidth: 580 }}>
@@ -83,7 +83,7 @@ export default function PestControlService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               Pests We Eliminate
             </div>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
               Every Common Alabama Pest, Handled.
             </h2>
             <p style={{ fontSize: 15, color: "#6b7d70", maxWidth: 600, margin: "0 auto", ...sf, lineHeight: 1.7 }}>
@@ -110,7 +110,7 @@ export default function PestControlService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               How Our Bi-Monthly Plan Works
             </div>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>
               Four Visits a Year. Pests Gone, And Stay Gone.
             </h2>
           </div>
@@ -123,7 +123,7 @@ export default function PestControlService() {
               { n: "04", title: "Free Re-Visits", body: "See a pest between treatments? Call us. We come back free until the problem is solved. That's the EnviroCare guarantee." },
             ].map((s) => (
               <div key={s.n} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 20px" }}>
-                <div style={{ fontFamily: "Georgia, serif", fontSize: 36, color: GOLD, fontWeight: 700, lineHeight: 1, marginBottom: 8 }}>{s.n}</div>
+                <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 36, color: GOLD, fontWeight: 700, lineHeight: 1, marginBottom: 8 }}>{s.n}</div>
                 <div style={{ fontWeight: 700, color: DARK, fontSize: 15, marginBottom: 6, ...sf }}>{s.title}</div>
                 <div style={{ fontSize: 13, color: "#5b6f60", lineHeight: 1.6, ...sf }}>{s.body}</div>
               </div>
@@ -136,7 +136,7 @@ export default function PestControlService() {
       <section style={{ padding: "64px 24px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>What's Included</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>What's Included</h2>
           </div>
           <div style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "28px 24px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 12 }}>
@@ -166,7 +166,7 @@ export default function PestControlService() {
       <section style={{ background: "#f7f8f4", padding: "64px 24px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>Common Questions</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>Common Questions</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {FAQS.map(([q, a], i) => {
@@ -190,7 +190,7 @@ export default function PestControlService() {
       <section style={{ background: `linear-gradient(160deg, ${G}, #0f4d26)`, padding: "72px 24px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 560, margin: "0 auto" }}>
           <Shield size={42} color={GOLD} style={{ margin: "0 auto 14px" }} />
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>
             Ready for a <em>Pest-Free</em> Home?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>

@@ -96,7 +96,7 @@ export default function PricingCalculator() {
               Free · No obligation · 60 seconds
             </span>
           </div>
-          <h1 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(26px, 6vw, 38px)", color: DARK, lineHeight: 1.15, margin: "0 0 8px" }}>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: "clamp(26px, 6vw, 38px)", color: DARK, lineHeight: 1.15, margin: "0 0 8px" }}>
             Get Your Pest Control Estimate
           </h1>
           <p style={{ fontSize: 14, color: "#5b6f60", lineHeight: 1.55, margin: 0 }}>
@@ -127,7 +127,7 @@ export default function PricingCalculator() {
           {/* STEP 1 — Service */}
           {step === 1 && (
             <div style={{ padding: "24px 20px" }}>
-              <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 22, color: DARK, marginBottom: 4 }}>What do you need?</h2>
+              <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 22, color: DARK, marginBottom: 4 }}>What do you need?</h2>
               <p style={{ fontSize: 13, color: "#6b7d70", marginBottom: 18 }}>Pick one — bundle gives you the best value.</p>
               <div style={{ display: "grid", gap: 10 }}>
                 {SERVICES.map(s => {
@@ -157,7 +157,7 @@ export default function PricingCalculator() {
           {/* STEP 2 — Home Size */}
           {step === 2 && (
             <div style={{ padding: "24px 20px" }}>
-              <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 22, color: DARK, marginBottom: 4 }}>How big is your home?</h2>
+              <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 22, color: DARK, marginBottom: 4 }}>How big is your home?</h2>
               <p style={{ fontSize: 13, color: "#6b7d70", marginBottom: 18 }}>This helps us give you a realistic price range.</p>
               <div style={{ display: "grid", gap: 8 }}>
                 {SIZES.map(s => {
@@ -199,7 +199,7 @@ export default function PricingCalculator() {
           {/* STEP 3 — Frequency */}
           {step === 3 && (
             <div style={{ padding: "24px 20px" }}>
-              <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 22, color: DARK, marginBottom: 4 }}>How often?</h2>
+              <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 22, color: DARK, marginBottom: 4 }}>How often?</h2>
               <p style={{ fontSize: 13, color: "#6b7d70", marginBottom: 18 }}>Bi-monthly is what most homes do. You can always switch.</p>
               <div style={{ display: "grid", gap: 8 }}>
                 {(service === "termite" ? [{ id: "onetime" as Frequency, label: "Annual Sentricon® Plan", desc: "Includes monitoring + bait" }] : FREQUENCIES).map(f => {
@@ -236,7 +236,7 @@ export default function PricingCalculator() {
             <div>
               <div style={{ background: `linear-gradient(160deg, ${DARK} 0%, #1a3a1f 100%)`, color: "#fff", padding: "28px 24px", textAlign: "center" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 10 }}>Your Estimated Range</div>
-                <div style={{ fontSize: "clamp(34px,8vw,46px)", fontWeight: 800, color: GOLD, lineHeight: 1, fontFamily: "Georgia, serif" }}>
+                <div style={{ fontSize: "clamp(34px,8vw,46px)", fontWeight: 800, color: GOLD, lineHeight: 1, fontFamily: "'Playfair Display', Georgia, serif" }}>
                   ${range.lo}<span style={{ color: "#fff" }}>–</span>${range.hi}
                   <span style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", fontFamily: "system-ui", fontWeight: 500, marginLeft: 4 }}>{range.unit}</span>
                 </div>

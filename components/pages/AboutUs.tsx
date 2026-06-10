@@ -31,7 +31,7 @@ export default function AboutUs() {
           style={{ backgroundImage: "url('/home-southern.jpg')", backgroundSize: "cover", backgroundPosition: "center 60%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/60 to-transparent" />
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(ellipse at 20% 50%, #059669 0%, transparent 60%)"}} />
+        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(ellipse at 20% 50%, #0A7935 0%, transparent 60%)"}} />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-emerald-500/20 rounded-full border border-emerald-400/30">
