@@ -1,3 +1,8 @@
+> ⚠️ **THIS IS THE ONLY LIVE REPO.**
+> Vercel project **`envirocare-web`** builds from **HERE** (`phillipwedgworth-cell/envirocare-website`).
+> Live URL: **https://envirocare-web.vercel.app**
+> The repo named `envirocare-web` has been renamed to `zz-ARCHIVED-envirocare-web-OLD` and **archived** — it is read-only and no longer builds. **Never push code there.**
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
