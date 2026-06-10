@@ -170,14 +170,16 @@ function Hero() {
           </div>
 
           <h1 className="ec-hero-h1">
-            Alabama Pest Control<br />
-            Since 1958.
+            Protecting Alabama Homes<br />
+            <em className="ec-h1-italic">Three Generations</em><br />
+            <span className="ec-h1-gold">Strong.</span>
           </h1>
 
           <p className="ec-hero-sub">
-            Pest, termite, mosquito, and tick protection from a third-generation
-            Alabama company. We treat from the outside — you don&rsquo;t even
-            need to be home.
+            One technician handles every service — pest, termite, mosquito,
+            tick — so you get expert quality every visit. One tech. One
+            invoice. We treat from the outside, so you don&rsquo;t even need
+            to be home.
           </p>
 
           <div className="ec-hero-ctas">
@@ -1347,6 +1349,8 @@ const HOMEPAGE_CSS = `
     font-size: clamp(40px, 7vw, 80px); font-weight: 700;
     line-height: 1.05; margin: 0 0 24px; color: #0E1A0F;
   }
+  .ec-h1-italic { font-style: italic; color: #0E8E40; font-weight: 400; }
+  .ec-h1-gold { color: #F5A800; }
   .ec-hero-sub {
     font-size: 18px; line-height: 1.6; color: #5A6660;
     max-width: 520px; margin: 0 0 32px;
