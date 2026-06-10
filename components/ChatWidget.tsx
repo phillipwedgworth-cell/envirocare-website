@@ -175,9 +175,9 @@ export default function ChatWidget() {
         maxWidth: "calc(100vw - 32px)",
         height: 540,
         maxHeight: "calc(100vh - 48px)",
-        borderRadius: 16,
+        borderRadius: 20,
         overflow: "hidden",
-        boxShadow: "0 8px 40px rgba(0,0,0,0.25)",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.2)",
         display: "flex",
         flexDirection: "column",
         zIndex: 9999,
@@ -215,8 +215,8 @@ export default function ChatWidget() {
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <img
             src="/logo-white.png"
-            alt=""
-            style={{ height: 30, width: "auto", display: "block" }}
+            alt="EnviroCare"
+            style={{ height: 28, width: "auto", display: "block" }}
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
           />
           <div>
@@ -232,7 +232,8 @@ export default function ChatWidget() {
             </div>
             <div
               style={{
-                color: "rgba(255,255,255,0.65)",
+                color: "#fff",
+                opacity: 0.7,
                 fontSize: 11,
                 marginTop: 2,
                 display: "flex",
@@ -296,12 +297,12 @@ export default function ChatWidget() {
                 maxWidth: "80%",
                 padding: "10px 14px",
                 borderRadius: 12,
-                fontSize: 15,
+                fontSize: 14,
                 lineHeight: 1.5,
                 whiteSpace: "pre-wrap",
                 ...(msg.role === "user"
                   ? {
-                      background: BRAND_GREEN,
+                      background: INK,
                       color: "#fff",
                       borderBottomRightRadius: 4,
                     }
@@ -355,7 +356,7 @@ export default function ChatWidget() {
                 padding: "6px 12px",
                 borderRadius: 20,
                 border: `1px solid ${BRAND_GREEN}`,
-                background: "transparent",
+                background: CREAM,
                 color: BRAND_GREEN,
                 fontSize: 12,
                 fontWeight: 600,
@@ -368,7 +369,7 @@ export default function ChatWidget() {
                 e.currentTarget.style.color = "#fff";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.background = CREAM;
                 e.currentTarget.style.color = BRAND_GREEN;
               }}
             >
@@ -382,10 +383,10 @@ export default function ChatWidget() {
       <div
         style={{
           padding: "12px 16px",
-          borderTop: "1px solid rgba(14,142,64,0.12)",
+          borderTop: "1px solid #E8E2D8",
           display: "flex",
           gap: 8,
-          background: "#fff",
+          background: CREAM,
           flexShrink: 0,
         }}
       >
@@ -400,11 +401,12 @@ export default function ChatWidget() {
             flex: 1,
             padding: "10px 14px",
             borderRadius: 8,
-            border: "1px solid rgba(14,142,64,0.18)",
+            border: "1px solid #E8E2D8",
             fontSize: 14,
             outline: "none",
             fontFamily: FONT_STACK,
             color: INK,
+            background: "#fff",
           }}
         />
         <button
