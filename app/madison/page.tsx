@@ -1,8 +1,8 @@
 import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
-  title: 'Madison Pest Control & Termite Service | EnviroCare Since 1958',
-  description: 'Madison, AL pest control. North Alabama family service. Sentricon® termite protection. Call (256) 937-7676.',
+  title: 'Pest Control Madison AL | Termite & Mosquito Service | EnviroCare Since 1958',
+  description: 'Pest control Madison AL — family-owned since 1958. Bi-monthly from $35/mo, Sentricon® $1M termite coverage, mosquito & tick yard treatment. Research Park · Town Madison. Call (256) 937-7676.',
 };
 
 export default function MadisonPage() {

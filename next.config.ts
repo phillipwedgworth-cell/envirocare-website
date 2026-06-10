@@ -137,6 +137,24 @@ const nextConfig: NextConfig = {
             { source: '/services/fire-ant-control', destination: '/services/fire-ant', permanent: true },
             { source: '/services/rodent-control', destination: '/services/pest-control', permanent: true },
             { source: '/services/real-estate-wdo', destination: '/services/wdo-letters', permanent: true },
+
+            // ─── BLOG: Scorpion year/month/post paths → /blog ───────────────
+            // Scorpion uses /blog/{year}/{month}/{slug}/ — new site uses /blog/{slug}.
+            // 5 wildcards cover all 89 legacy blog URLs (year archives, month archives, posts).
+            { source: '/blog/2022/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2023/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2024/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2025/:path*', destination: '/blog', permanent: true },
+            { source: '/blog/2026/:path*', destination: '/blog', permanent: true },
+
+            // ─── SCORPION SUB-CITY SERVICE PAGES ────────────────────────────
+            { source: '/where-we-service/birmingham-al-pest-control/insect-control', destination: '/services/pest-control', permanent: true },
+            { source: '/where-we-service/birmingham-al-pest-control/mouse-control', destination: '/services/pest-control', permanent: true },
+
+            // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
+            { source: '/bundle-services', destination: '/pricing', permanent: true },
+            { source: '/reviews', destination: '/', permanent: true },
+            { source: '/special-offers', destination: '/pricing', permanent: true },
                 ];
     },
 };

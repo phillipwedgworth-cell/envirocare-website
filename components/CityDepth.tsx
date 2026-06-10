@@ -27,12 +27,18 @@ const CITY_DEPTH_CSS = `
 .cd-faqlist summary::after{content:'+';font-size:24px;color:#0E8E40;transition:transform .2s;flex:0 0 auto}
 .cd-faqlist details[open] summary::after{transform:rotate(45deg)}
 .cd-faqlist details p{padding:0 1.4rem 1.2rem;color:#4b5563;font-size:.97rem;line-height:1.6;margin:0}
+.cd-review{padding:4rem clamp(1.5rem,5vw,4rem);background:linear-gradient(135deg,#F0FDF4 0%,#DCFCE7 100%);border-top:1px solid rgba(14,142,64,.12)}
+.cd-review-card{max-width:680px;background:#fff;border-radius:16px;border-left:4px solid #0E8E40;padding:2rem 2rem 1.5rem;box-shadow:0 4px 20px rgba(14,142,64,.1)}
+.cd-review-card p{font-size:1.08rem;line-height:1.7;color:#1E293B;margin:0 0 1rem;font-style:italic}
+.cd-review-card p::before{content:'\201C';font-size:2rem;color:#0E8E40;line-height:0;vertical-align:-.4rem;margin-right:.2rem}
+.cd-review-footer{font-size:.92rem;font-weight:600;color:#07642B}
 `;
 
 export default function CityDepth({ city }: { city: City }) {
   const hasPest = !!(city.pestContext && city.pestContext.length);
   const hasFaq = !!(city.faqs && city.faqs.length);
-  if (!hasPest && !hasFaq) return null;
+  const hasReview = !!(city.review);
+  if (!hasPest && !hasFaq && !hasReview) return null;
 
   return (
     <div className="cd-wrap">
@@ -61,21 +67,47 @@ export default function CityDepth({ city }: { city: City }) {
         </section>
       )}
 
-      {hasFaq && (
-        <section className="cd-faq">
+      {hasReview && (
+        <section className="cd-review">
           <div className="cd-inner">
-            <div className="cd-eyebrow">{city.name} FAQs</div>
-            <h2 className="cd-title">Answers for <em>{city.name} homeowners.</em></h2>
-            <div className="cd-faqlist">
-              {city.faqs!.map((f, i) => (
-                <details key={i}>
-                  <summary>{f.q}</summary>
-                  <p>{f.a}</p>
-                </details>
-              ))}
-            </div>
+            <div className="cd-eyebrow">{city.name} Customer</div>
+            <blockquote className="cd-review-card">
+              <p>{city.review!.text}</p>
+              <footer className="cd-review-footer">— {city.review!.name}, {city.review!.location}</footer>
+            </blockquote>
           </div>
         </section>
+      )}
+
+      {hasFaq && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: city.faqs!.map(f => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            }) }}
+          />
+          <section className="cd-faq">
+            <div className="cd-inner">
+              <div className="cd-eyebrow">{city.name} FAQs</div>
+              <h2 className="cd-title">Answers for <em>{city.name} homeowners.</em></h2>
+              <div className="cd-faqlist">
+                {city.faqs!.map((f, i) => (
+                  <details key={i}>
+                    <summary>{f.q}</summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
       )}
     </div>
   );
