@@ -26,10 +26,10 @@ interface Message {
 }
 
 const QUICK_ACTIONS = [
-  "Get a free quote",
-  "What's the pricing?",
-  "Termite inspection",
-  "Mosquito service",
+  "Pest control pricing",
+  "Free termite inspection",
+  "Mosquito season",
+  "Talk to a person",
 ];
 
 export default function ChatWidget() {
@@ -38,7 +38,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hey there! I'm Scout, EnviroCare's assistant. Ask me about pest, termite, or mosquito service — or tell me what's bugging you, drop your number, and we'll call you right back.",
+        "Hey there! 🌻 I'm the EnviroCare assistant — third-generation family business, helping Alabama homes since 1958. What pest problem can I help you with today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -115,39 +115,37 @@ export default function ChatWidget() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        aria-label="Open chat with EnviroCare"
+        aria-label="Chat with EnviroCare"
+        title="Chat with EnviroCare"
         style={{
           position: "fixed",
-          bottom: 24,
-          right: 24,
+          bottom: 16,
+          right: 16,
           width: 60,
           height: 60,
           borderRadius: "50%",
           background: BRAND_GREEN,
           border: "none",
           cursor: "pointer",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
+          boxShadow: "0 4px 18px rgba(14,26,15,0.28)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           zIndex: 9999,
-          transition: "transform 0.2s",
+          transition: "transform 0.2s, box-shadow 0.2s",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.06)";
+          e.currentTarget.style.boxShadow = `0 4px 18px rgba(14,26,15,0.28), 0 0 0 2px ${GOLD}`;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)";
+          e.currentTarget.style.boxShadow = "0 4px 18px rgba(14,26,15,0.28)";
+        }}
       >
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        </svg>
+        {/* Sunflower brand mark; the emoji renders everywhere — white chat
+            bubble underneath acts as the fallback shape on a green circle */}
+        <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">🌻</span>
         {/* Gold notification dot */}
         <span
           style={{
@@ -168,10 +166,11 @@ export default function ChatWidget() {
   // Chat window when open
   return (
     <div
+      className="ec-chat-panel"
       style={{
         position: "fixed",
-        bottom: 24,
-        right: 24,
+        bottom: 16,
+        right: 16,
         width: 380,
         maxWidth: "calc(100vw - 32px)",
         height: 540,
@@ -186,48 +185,72 @@ export default function ChatWidget() {
         background: CREAM,
       }}
     >
+      {/* Mobile: full-width sheet from the bottom */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `@media (max-width: 640px) {
+            .ec-chat-panel {
+              width: 100vw !important;
+              max-width: 100vw !important;
+              right: 0 !important;
+              bottom: 0 !important;
+              height: 82vh !important;
+              max-height: 88vh !important;
+              border-radius: 16px 16px 0 0 !important;
+            }
+          }`,
+        }}
+      />
       {/* Header */}
       <div
         style={{
-          background: `linear-gradient(135deg, ${INK} 0%, ${DEEP} 100%)`,
-          padding: "16px 20px",
+          background: INK,
+          padding: "14px 18px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           flexShrink: 0,
         }}
       >
-        <div>
-          <div
-            style={{
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: 15,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Scout · EnviroCare
-          </div>
-          <div
-            style={{
-              color: "rgba(255,255,255,0.6)",
-              fontSize: 11,
-              marginTop: 2,
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-            }}
-          >
-            <span
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <img
+            src="/logo-white.png"
+            alt=""
+            style={{ height: 30, width: "auto", display: "block" }}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+          />
+          <div>
+            <div
               style={{
-                width: 7,
-                height: 7,
-                borderRadius: "50%",
-                background: "#4ade80",
-                display: "inline-block",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: 15,
+                letterSpacing: "-0.01em",
               }}
-            />
-            Online now · Family-owned since 1958
+            >
+              EnviroCare
+            </div>
+            <div
+              style={{
+                color: "rgba(255,255,255,0.65)",
+                fontSize: 11,
+                marginTop: 2,
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+              }}
+            >
+              <span
+                style={{
+                  width: 7,
+                  height: 7,
+                  borderRadius: "50%",
+                  background: GOLD,
+                  display: "inline-block",
+                }}
+              />
+              Family-owned since 1958
+            </div>
           </div>
         </div>
         <button
@@ -256,6 +279,7 @@ export default function ChatWidget() {
           display: "flex",
           flexDirection: "column",
           gap: 12,
+          background: "#fff",
         }}
       >
         {messages.map((msg, i) => (
@@ -272,7 +296,7 @@ export default function ChatWidget() {
                 maxWidth: "80%",
                 padding: "10px 14px",
                 borderRadius: 12,
-                fontSize: 14,
+                fontSize: 15,
                 lineHeight: 1.5,
                 whiteSpace: "pre-wrap",
                 ...(msg.role === "user"
@@ -282,7 +306,8 @@ export default function ChatWidget() {
                       borderBottomRightRadius: 4,
                     }
                   : {
-                      background: "#f0f4f0",
+                      background: CREAM,
+                      border: "1px solid #E8E2D8",
                       color: INK,
                       borderBottomLeftRadius: 4,
                     }),
@@ -296,7 +321,8 @@ export default function ChatWidget() {
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
             <div
               style={{
-                background: "#f0f4f0",
+                background: CREAM,
+                border: "1px solid #E8E2D8",
                 padding: "10px 18px",
                 borderRadius: 12,
                 borderBottomLeftRadius: 4,
