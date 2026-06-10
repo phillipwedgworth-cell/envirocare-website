@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
+import BrandBand from "./BrandBand";
 
 // When the customer payment portal goes live, change this single value.
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
@@ -225,6 +226,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
         </div>
       </header>
+      <BrandBand />
     </>
   );
 }
