@@ -7,7 +7,7 @@ const BUNDLES = [
   {
     name: "Essential Bundle",
     tagline: "The smart start",
-    includes: ["Quarterly Pest Control", "1 Mosquito Treatment", "Annual Termite Inspection"],
+    includes: ["Bi-Monthly Pest Control", "1 Mosquito Treatment", "Annual Termite Inspection"],
     price: "Ask for quote",
     savings: "Save vs. individual",
     popular: false,

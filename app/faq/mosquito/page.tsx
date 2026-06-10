@@ -8,7 +8,7 @@ import Header from "@/components/shared/Header";
 export const metadata: Metadata = {
   title: "Mosquito Control FAQ Alabama | When Does Mosquito Season Start? | EnviroCare",
   description:
-    "Everything Alabama homeowners ask about mosquito season: when it starts, how long it lasts, whether yard spray is safe for kids and pets, and what $45/mo gets you. EnviroCare, family-owned since 1958.",
+    "Everything Alabama homeowners ask about mosquito season: when it starts, how long it lasts, when kids and pets can go back outside after treatment, and what $45/mo gets you. EnviroCare, family-owned since 1958.",
   alternates: { canonical: './' },
 };
 
@@ -34,10 +34,10 @@ const SCHEMA = {
     },
     {
       "@type": "Question",
-      name: "Is mosquito yard spray safe for kids and pets?",
+      name: "When can kids and pets go back outside after mosquito treatment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes — once dry. EnviroCare's products are professional-grade but formulated for residential use. Re-entry is typically 30–45 minutes after application. We do not spray vegetable gardens, blooming flowers, or open water. Your technician confirms the re-entry window before leaving.",
+        text: "Once the application is dry — typically 30–45 minutes. EnviroCare uses EPA-registered products applied according to label directions. We do not spray vegetable gardens, blooming flowers, or open water. Your technician confirms the re-entry window before leaving.",
       },
     },
     {
@@ -88,8 +88,8 @@ const FAQS = [
     a: "Every 30 days, March through November. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
   },
   {
-    q: "Is yard spray safe for kids and pets?",
-    a: "Yes, once dry — typically 30 to 45 minutes after application. We don't spray vegetable gardens, blooming flowers, or standing water your pets drink from. Your technician will walk you through the re-entry time before they leave. We've been treating Alabama family yards since 1958.",
+    q: "When can kids and pets go back in the yard?",
+    a: "Once the application is dry — typically 30 to 45 minutes. We don't spray vegetable gardens, blooming flowers, or standing water your pets drink from. Your technician will walk you through the re-entry time before they leave. We've been treating Alabama family yards since 1958.",
   },
   {
     q: "How much does mosquito control cost?",
@@ -215,8 +215,8 @@ export default function MosquitoFAQ() {
             }}
           >
             May through August is peak season. Here's what Alabama homeowners
-            ask us most — from when to start treatment to whether it's safe for
-            the dog.
+            ask us most — from when to start treatment to when the dog can go
+            back out in the yard.
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
             <a

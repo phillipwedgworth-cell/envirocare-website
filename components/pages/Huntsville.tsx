@@ -203,10 +203,10 @@ export default function MadisonLandingPage() {
               ]
             },
             {
-              name: "Quarterly Plan",
+              name: "Bi-Monthly Plan",
               price: "$59/month",
               features: [
-                "4 treatments/year",
+                "6 treatments/year",
                 "Seasonal pest coverage",
                 "Priority scheduling",
                 "Dedicated technician"

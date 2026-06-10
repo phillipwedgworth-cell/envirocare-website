@@ -19,9 +19,9 @@ const PESTS: Array<{ icon: string; name: string; body: string }> = [
 ];
 
 const FAQS: Array<[string, string]> = [
-  ["How does your quarterly pest control work?", "Every 90 days a licensed technician treats your home's exterior perimeter, foundation, eaves, and entry points with a long-lasting barrier product. Interior treatment included if you're seeing pests inside. Between visits, if you ever see a pest — call us, we come back free."],
-  ["Is the treatment safe for kids and pets?", "Yes. We use EPA-registered products applied at proper rates. After exterior application dries (usually 30 minutes), kids and pets can be back outside. Interior products are placed in cracks and crevices, away from living areas."],
-  ["Will I be locked into a contract?", "No long-term contracts. You can cancel anytime. We earn your business every quarter, not lock you into a commitment."],
+  ["How does your bi-monthly pest control work?", "Every other month a licensed technician treats your home's exterior perimeter, foundation, eaves, and entry points with a long-lasting barrier product. Interior treatment included if you're seeing pests inside. Between visits, if you ever see a pest — call us, we come back free."],
+  ["What about kids and pets during treatment?", "We use EPA-registered products applied at proper rates. After exterior application dries (usually 30 minutes), kids and pets can be back outside. Interior products are placed in cracks and crevices, away from living areas."],
+  ["Will I be locked into a contract?", "No long-term contracts. You can cancel anytime. We earn your business every visit, not lock you into a commitment."],
   ["What's the difference between pest control and termite control?", "Pest control protects against ants, roaches, spiders, rodents, and most household pests. Termites are an entirely separate program — they require Sentricon® bait or liquid soil treatment because they live underground and travel through wood. Most customers add termite protection as a bundle."],
   ["How quickly can you get to my property?", "Often yes — call your nearest office. Birmingham, Lake Martin, and Huntsville offices all keep appointments available most weekdays."],
 ];
@@ -38,7 +38,7 @@ export default function PestControlService() {
         "name": "Pest Control",
         "provider": { "@type": "LocalBusiness", "name": "EnviroCare Pest Control" },
         "areaServed": { "@type": "State", "name": "Alabama" },
-        "description": "Quarterly residential and commercial pest control. Ants, roaches, spiders, rodents, crickets, beetles, bees, and more. Family-owned Alabama company since 1958.",
+        "description": "Bi-monthly residential and commercial pest control. Ants, roaches, spiders, rodents, crickets, beetles, bees, and more. Family-owned Alabama company since 1958.",
       }) }} />
 
       {/* HERO */}
@@ -54,7 +54,7 @@ export default function PestControlService() {
             Pest Control That <em style={{ color: GOLD }}>Actually</em><br />Solves the Problem.
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.7, marginBottom: 28, ...sf, maxWidth: 580 }}>
-            Quarterly home protection from every common Alabama pest — ants, roaches, spiders, rodents, crickets, beetles, and more. One licensed technician. One thorough treatment. Re-visits free if pests come back.
+            Bi-monthly home protection from every common Alabama pest — ants, roaches, spiders, rodents, crickets, beetles, and more. One licensed technician. One thorough treatment. Re-visits free if pests come back.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a href="/quote" style={{ background: GOLD, color: DARK, padding: "15px 28px", borderRadius: 8, fontWeight: 800, fontSize: 15, textDecoration: "none", ...sf }}>
@@ -108,7 +108,7 @@ export default function PestControlService() {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
-              How Our Quarterly Plan Works
+              How Our Bi-Monthly Plan Works
             </div>
             <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>
               Four Visits a Year. Pests Gone, And Stay Gone.
@@ -119,7 +119,7 @@ export default function PestControlService() {
             {[
               { n: "01", title: "Free Inspection", body: "Licensed tech walks your property and identifies activity, entry points, and risk areas. You get a written quote — no obligation." },
               { n: "02", title: "Initial Treatment", body: "Thorough exterior perimeter + interior knockdown if needed. Long-lasting barrier products applied where pests travel." },
-              { n: "03", title: "Quarterly Visits", body: "Every 90 days we re-treat the perimeter, refresh the barrier, and check for new activity." },
+              { n: "03", title: "Bi-Monthly Visits", body: "Every 60 days we re-treat the perimeter, refresh the barrier, and check for new activity." },
               { n: "04", title: "Free Re-Visits", body: "See a pest between treatments? Call us. We come back free until the problem is solved. That's the EnviroCare guarantee." },
             ].map((s) => (
               <div key={s.n} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 20px" }}>

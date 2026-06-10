@@ -133,7 +133,9 @@ const nextConfig: NextConfig = {
             // /faq has a real page and is intentionally NOT redirected.
             { source: '/services', destination: '/services/pest-control', permanent: true },
             { source: '/realtor', destination: '/services/wdo-letters', permanent: true },
-            { source: '/services/commercial', destination: '/commercial', permanent: true },
+            // FIXED 2026-06-10: was '/services/commercial' → '/commercial' (a 404 —
+            // the real page lives AT /services/commercial; the old rule shadowed it).
+            { source: '/commercial', destination: '/services/commercial', permanent: true },
             { source: '/services/fire-ant-control', destination: '/services/fire-ant', permanent: true },
             { source: '/services/rodent-control', destination: '/services/pest-control', permanent: true },
             { source: '/services/real-estate-wdo', destination: '/services/wdo-letters', permanent: true },
