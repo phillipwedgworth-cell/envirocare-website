@@ -1,0 +1,18 @@
+{
+  "targets": [
+    { "page": "app/services/termite-control/page.tsx",  "keyword": "termite control birmingham al" },
+    { "page": "app/services/pest-control/page.tsx",     "keyword": "pest control birmingham al" },
+    { "page": "app/services/mosquito-control/page.tsx", "keyword": "mosquito control birmingham al" },
+    { "page": "app/services/sentricon/page.tsx",        "keyword": "sentricon termite system alabama" },
+    { "page": "app/services/fire-ant/page.tsx",         "keyword": "fire ant control alabama" },
+    { "page": "app/services/flea/page.tsx",             "keyword": "flea control birmingham al" },
+    { "page": "app/services/tick-control/page.tsx",     "keyword": "tick control birmingham al" },
+    { "page": "app/services/crawlspace/page.tsx",       "keyword": "crawl space encapsulation alabama" },
+    { "page": "app/services/commercial/page.tsx",       "keyword": "commercial pest control birmingham al" },
+    { "page": "app/services/wdo-letters/page.tsx",      "keyword": "wdo letter inspection alabama" },
+    { "page": "app/birmingham/page.tsx",                "keyword": "pest control birmingham al" },
+    { "page": "app/huntsville/page.tsx",                "keyword": "pest control huntsville al" },
+    { "page": "app/alexander-city/page.tsx",            "keyword": "pest control alexander city al" },
+    { "page": "app/lake-martin/page.tsx",               "keyword": "pest control lake martin al" }
+  ]
+}
