@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { getOrganizationSchema, SchemaScript } from '@/lib/schema';
+import ScheduleRequest from '@/components/ScheduleRequest';
 
 /**
  * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
@@ -36,9 +37,31 @@ export default function Homepage() {
       <Heritage />
       <Reviews />
       <Pricing />
+      <ScheduleVisit />
       <BundleCTA />
       <Footer />
     </main>
+  );
+}
+
+/* ============================================================
+   SCHEDULE YOUR FIRST VISIT — below pricing
+   ============================================================ */
+function ScheduleVisit() {
+  return (
+    <section style={{ background: '#FEFDF8', padding: '64px clamp(20px,5vw,64px)' }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
+            Schedule Your First Visit
+          </h2>
+          <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: '#5b6f60', fontSize: 15.5 }}>
+            Protected from the outside in — most visits don&rsquo;t require you home.
+          </p>
+        </div>
+        <ScheduleRequest />
+      </div>
+    </section>
   );
 }
 
