@@ -49,20 +49,27 @@ function loadTargets() {
   return JSON.parse(readFileSync(path, 'utf8')).targets;
 }
 
-// Strips JSX/TSX structure to extract visible text content for NeuronWriter scoring.
-function extractTextFromTsx(source) {
-  return source
-    .replace(/^import\s.+$/gm, '')                    // imports
-    .replace(/\/\*[\s\S]*?\*\//g, '')                  // block comments
-    .replace(/\/\/.*$/gm, '')                          // line comments
-    .replace(/<[A-Z][A-Za-z]*[^>]*\/?>/g, ' ')       // PascalCase component tags
-    .replace(/<\/[A-Z][A-Za-z]*>/g, ' ')
-    .replace(/<[a-z][^>]*\/?>/g, ' ')                 // HTML tags
-    .replace(/<\/[a-z]+>/g, ' ')
-    .replace(/\{[^{}]+\}/g, ' ')                      // JS expressions
-    .replace(/[a-zA-Z]+\s*=\s*"[^"]*"/g, ' ')        // JSX attribute values
-    .replace(/[a-zA-Z]+\s*=\s*\{[^}]*\}/g, ' ')
-    .replace(/[{}<>]/g, ' ')
+// Map a repo page path (app/services/termite-control/page.tsx) to its live URL.
+// Scoring the LIVE rendered HTML is the only accurate option — most page.tsx
+// files are thin wrappers around shared templates, so reading the source
+// produced "<100 chars" for 13 of 16 targets.
+const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocare-web.vercel.app';
+
+function pageToUrl(page) {
+  const route = page.replace(/^app\//, '/').replace(/\/page\.tsx$/, '').replace(/^\/$/, '');
+  return `${SITE_BASE}${route || '/'}`;
+}
+
+// Strip a rendered HTML document down to visible text.
+function extractTextFromHtml(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -70,27 +77,26 @@ function extractTextFromTsx(source) {
 // ─── WORK ──────────────────────────────────────────────────────────────────
 
 async function analyzeOnePage({ page, keyword }) {
-  const absPath = join(REPO_ROOT, page);
-  if (!existsSync(absPath)) {
-    console.warn(`[${AGENT_NAME}] skipping ${page} — file not found at ${absPath}`);
-    return { page, keyword, score: null, error: 'file not found' };
-  }
-
-  let source;
+  const url = pageToUrl(page);
+  let html;
   try {
-    source = readFileSync(absPath, 'utf8');
+    const resp = await fetch(url, { headers: { 'User-Agent': 'envirocare-neuronwriter-qa' } });
+    if (!resp.ok) return { page, keyword, score: null, error: `live fetch ${resp.status} for ${url}` };
+    html = await resp.text();
   } catch (err) {
-    return { page, keyword, score: null, error: `read error: ${err.message}` };
+    return { page, keyword, score: null, error: `live fetch failed: ${err.message}` };
   }
 
-  const content = extractTextFromTsx(source);
-  if (content.length < 100) {
+  const text = extractTextFromHtml(html);
+  if (text.length < 100) {
     return { page, keyword, score: null, error: 'extracted content too short (<100 chars)' };
   }
 
   console.log(`[${AGENT_NAME}] analyzing ${page} → "${keyword}"`);
   try {
-    const result = await analyzePageContent(keyword, content);
+    // Full HTML to evaluate-content (better score fidelity); stripped text
+    // for local term counting.
+    const result = await analyzePageContent(keyword, { html, text });
     return { page, keyword, ...result };
   } catch (err) {
     console.error(`[${AGENT_NAME}] NeuronWriter error for ${page}: ${err.message}`);
@@ -147,6 +153,7 @@ async function workerDraft(results, feedback = null) {
   if (!anthropic) throw new Error('ANTHROPIC_API_KEY missing');
 
   const today = new Date().toISOString().slice(0, 10);
+  const queriesUsed = results.filter(r => !r.error && r.queryId).length;
   const dataBlock = results.map(r => {
     if (r.error) return `### ${r.page}\nERROR: ${r.error}`;
     const status = r.score < 70 ? 'BELOW THRESHOLD' : r.score > 80 ? 'ABOVE BAND' : 'IN BAND (70-80)';
@@ -157,8 +164,8 @@ async function workerDraft(results, feedback = null) {
   }).join('\n\n');
 
   const prompt = feedback
-    ? `Today: ${today}\n\nRevise the report addressing this critic feedback:\n${feedback}\n\nRAW DATA:\n${dataBlock}`
-    : `Today: ${today}\n\nRAW DATA:\n${dataBlock}`;
+    ? `Today: ${today}\nQueries used this run: ${queriesUsed}\n\nRevise the report addressing this critic feedback:\n${feedback}\n\nRAW DATA:\n${dataBlock}`
+    : `Today: ${today}\nQueries used this run: ${queriesUsed}\n\nRAW DATA:\n${dataBlock}`;
 
   const resp = await createMessage(anthropic, {
     model: WORKER_MODEL,
@@ -206,6 +213,29 @@ async function writeReport(final, results) {
   );
 }
 
+// ─── RAW TABLE FALLBACK (no LLM required) ─────────────────────────────────
+
+function rawTableReport(results) {
+  const today = new Date().toISOString().slice(0, 10);
+  const queriesUsed = results.filter(r => !r.error && r.queryId).length;
+  const rows = results.map(r => {
+    if (r.error) return `| ${r.page.replace('app/', '')} | ${r.keyword} | ERR | ⚠️ ${String(r.error).slice(0, 60)} |`;
+    const band = r.score < 70 ? '🔴 BELOW' : r.score > 80 ? '🟡 ABOVE' : '✅ IN BAND';
+    const top5 = (r.missing ?? []).slice(0, 5).join(', ') || '—';
+    return `| ${r.page.replace('app/', '')} | ${r.keyword} | ${r.score}/100 ${band} | ${top5} |`;
+  });
+  return [
+    `# NeuronWriter QA Report — ${today}`,
+    `**Queries used this run: ${queriesUsed} of ~50 monthly**`,
+    '',
+    '| Page | Keyword | Score | Top 5 Missing Terms |',
+    '|---|---|---|---|',
+    ...rows,
+    '',
+    `Target band: 70–80. Pages below 70 flagged 🔴. Generated without LLM synthesis.`,
+  ].join('\n');
+}
+
 // ─── ENTRY POINT (orchestrator) ────────────────────────────────────────────
 
 export async function run() {
@@ -223,14 +253,13 @@ export async function run() {
   try {
     draft = await workerDraft(results);
   } catch (e) {
-    console.error(`[${AGENT_NAME}] synthesis failed: ${e.message}`);
-    await logAgentRun(AGENT_NAME, 'error', e.message).catch(() => {});
-    throw e;
+    console.warn(`[${AGENT_NAME}] LLM synthesis unavailable (${e.message}) — using raw table`);
+    draft = rawTableReport(results);
   }
 
-  const final = await criticLoop({
+  const final = anthropic ? await criticLoop({
     workerName: AGENT_NAME,
-    task: 'NeuronWriter content quality QA report for 14 EnviroCare service and city pages',
+    task: 'NeuronWriter content quality QA report for 16 EnviroCare service and city pages',
     output: draft,
     rubric,
     revise: fb => workerDraft(results, fb),
@@ -238,7 +267,7 @@ export async function run() {
       console.warn(`[${AGENT_NAME}] critic escalated — accepting best draft`);
       await logAgentRun(AGENT_NAME, 'escalated', out).catch(() => {});
     },
-  });
+  }) : draft;
 
   await writeReport(final, results).catch(e => console.error(`[${AGENT_NAME}] writeReport error: ${e.message}`));
   await appendWeeklyResult(results).catch(e => console.error(`[${AGENT_NAME}] Notion post error: ${e.message}`));

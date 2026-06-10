@@ -9,6 +9,10 @@ const NOTION_VERSION = '2022-06-28';
 const WEEKLY_PAGE_ID = '37b202ee-7a71-81d1-952d-da64def90de0';
 const WEEKLY_HEADING_TEXT = 'Weekly results log';
 
+// 48-hour test plan page — receives a copy of each QA run under "Test results log"
+const TEST_PLAN_PAGE_ID = '37b202ee-7a71-8132-a234-d3f88eacfeb3';
+const TEST_PLAN_HEADING_TEXT = 'Test results log';
+
 function notionHeaders() {
   const token = process.env.NOTION_TOKEN;
   if (!token) throw new Error('NOTION_TOKEN is not set');
@@ -57,18 +61,30 @@ function dividerBlock() {
   return { object: 'block', type: 'divider', divider: {} };
 }
 
-// Find the block ID of the "Weekly results log" heading_2 on the page.
+// Find the block ID of a named heading_2 on the page.
 // Returns null if not found (fallback: append at end of page).
-async function findWeeklyHeadingId(pageId) {
+async function findHeadingId(pageId, headingText) {
   try {
     const data = await notionGet(`/blocks/${pageId}/children?page_size=100`);
     for (const block of (data.results ?? [])) {
       const h2Text = block?.heading_2?.rich_text?.[0]?.text?.content ?? '';
-      if (h2Text.includes(WEEKLY_HEADING_TEXT)) return block.id;
+      if (h2Text.includes(headingText)) return block.id;
     }
     return null;
   } catch {
     return null;
+  }
+}
+
+async function postResultsToPage(pageId, headingText, blocks, label) {
+  try {
+    const headingId = await findHeadingId(pageId, headingText);
+    const targetId = headingId ?? pageId;
+    const body = headingId ? { children: blocks, after: headingId } : { children: blocks };
+    await notionPost(`/blocks/${targetId}/children`, body);
+    console.log(`[notion] posted QA run to ${label} (after ${headingId ? 'heading' : 'page end'})`);
+  } catch (err) {
+    console.error(`[notion] post to ${label} failed: ${err.message}`);
   }
 }
 
@@ -105,18 +121,6 @@ export async function appendWeeklyResult(results) {
     dividerBlock(),
   ];
 
-  try {
-    const headingId = await findWeeklyHeadingId(WEEKLY_PAGE_ID);
-
-    // Insert after the heading (newest-first) or at end of page as fallback.
-    const targetId = headingId ?? WEEKLY_PAGE_ID;
-    const body = headingId
-      ? { children: blocks, after: headingId }
-      : { children: blocks };
-
-    await notionPost(`/blocks/${targetId}/children`, body);
-    console.log(`[notion] posted ${results.length}-page QA run to Notion (after ${headingId ? 'heading' : 'page end'})`);
-  } catch (err) {
-    console.error(`[notion] appendWeeklyResult failed: ${err.message}`);
-  }
+  await postResultsToPage(WEEKLY_PAGE_ID, WEEKLY_HEADING_TEXT, blocks, 'NeuronWriter QA spec page');
+  await postResultsToPage(TEST_PLAN_PAGE_ID, TEST_PLAN_HEADING_TEXT, blocks, '48-hour test plan page');
 }
