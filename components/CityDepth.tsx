@@ -30,7 +30,7 @@ const CITY_DEPTH_CSS = `
 .cd-review{padding:4rem clamp(1.5rem,5vw,4rem);background:linear-gradient(135deg,#F0FDF4 0%,#DCFCE7 100%);border-top:1px solid rgba(14,142,64,.12)}
 .cd-review-card{max-width:680px;background:#fff;border-radius:16px;border-left:4px solid #0E8E40;padding:2rem 2rem 1.5rem;box-shadow:0 4px 20px rgba(14,142,64,.1)}
 .cd-review-card p{font-size:1.08rem;line-height:1.7;color:#1E293B;margin:0 0 1rem;font-style:italic}
-.cd-review-card p::before{content:'\201C';font-size:2rem;color:#0E8E40;line-height:0;vertical-align:-.4rem;margin-right:.2rem}
+.cd-review-card p::before{content:'“';font-size:2rem;color:#0E8E40;line-height:0;vertical-align:-.4rem;margin-right:.2rem}
 .cd-review-footer{font-size:.92rem;font-weight:600;color:#07642B}
 `;
 
