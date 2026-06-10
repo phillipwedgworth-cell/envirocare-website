@@ -126,6 +126,17 @@ const nextConfig: NextConfig = {
             { source: '/site-map', destination: '/', permanent: true },
             { source: '/accessibility-statement', destination: '/', permanent: true },
             { source: '/photo-gallery/:slug*', destination: '/', permanent: true },
+
+            // ─── NAV / FOOTER BROKEN-LINK FIXES (2026-06-09) ───────────────
+            // Fixes the 6 broken hrefs found by the June 8 crawl that were not
+            // already covered above. /pricing and /why-envirocare already exist;
+            // /faq has a real page and is intentionally NOT redirected.
+            { source: '/services', destination: '/services/pest-control', permanent: true },
+            { source: '/realtor', destination: '/services/wdo-letters', permanent: true },
+            { source: '/services/commercial', destination: '/commercial', permanent: true },
+            { source: '/services/fire-ant-control', destination: '/services/fire-ant', permanent: true },
+            { source: '/services/rodent-control', destination: '/services/pest-control', permanent: true },
+            { source: '/services/real-estate-wdo', destination: '/services/wdo-letters', permanent: true },
                 ];
     },
 };

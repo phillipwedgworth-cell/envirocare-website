@@ -206,7 +206,7 @@ function Hero() {
             <div className="ec-card-price-num">$0</div>
           </div>
 
-          <div className="ec-floating-card ec-card-same-day">
+          <div className="ec-floating-card ec-card-fast-schedule">
             <div className="ec-card-icon-circle">⚡</div>
             <div>
               <div className="ec-card-title">Fast Scheduling</div>
@@ -1513,7 +1513,7 @@ const HOMEPAGE_CSS = `
     font-size: 44px; font-weight: 700; color: #0E1A0F;
     line-height: 1;
   }
-  .ec-card-same-day {
+  .ec-card-fast-schedule {
     top: 8%; right: 20px;
   }
   .ec-card-icon-circle {
