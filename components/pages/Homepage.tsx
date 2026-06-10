@@ -1039,7 +1039,7 @@ function Footer() {
       <div className="ec-footer-inner">
         <div className="ec-footer-brand-col">
           <Link href="/" className="ec-footer-brand">
-            <Image src="/logo.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
+            <Image src="/logo-white.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
             Family-owned and operated since 1958 — now in its third generation
