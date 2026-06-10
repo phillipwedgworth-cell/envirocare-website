@@ -124,3 +124,37 @@ export async function appendWeeklyResult(results) {
   await postResultsToPage(WEEKLY_PAGE_ID, WEEKLY_HEADING_TEXT, blocks, 'NeuronWriter QA spec page');
   await postResultsToPage(TEST_PLAN_PAGE_ID, TEST_PLAN_HEADING_TEXT, blocks, '48-hour test plan page');
 }
+
+// ── Generic helpers for other agents ────────────────────────────────────────
+
+export function nHeading2(text) {
+  return { object: 'block', type: 'heading_2', heading_2: { rich_text: richText(text) } };
+}
+export function nHeading3(text) { return heading3Block(text); }
+export function nParagraph(text) {
+  return { object: 'block', type: 'paragraph', paragraph: { rich_text: richText(text) } };
+}
+export function nQuote(text) {
+  return { object: 'block', type: 'quote', quote: { rich_text: richText(text) } };
+}
+export function nBullet(text) { return bulletBlock(text); }
+export function nDivider() { return dividerBlock(); }
+
+// Append blocks to the top of a page (or after a named heading_2 when given).
+// Silently no-ops when NOTION_TOKEN is missing. Notion caps 100 blocks/call.
+export async function appendBlocksToPage(pageId, blocks, { headingText = null, label = 'page' } = {}) {
+  if (!process.env.NOTION_TOKEN) {
+    console.log('[notion] NOTION_TOKEN not set — skipping Notion post');
+    return false;
+  }
+  for (let i = 0; i < blocks.length; i += 90) {
+    const chunk = blocks.slice(i, i + 90);
+    if (headingText) {
+      await postResultsToPage(pageId, headingText, chunk, label);
+    } else {
+      await notionPost(`/blocks/${pageId}/children`, { children: chunk });
+      console.log(`[notion] appended ${chunk.length} block(s) to ${label}`);
+    }
+  }
+  return true;
+}

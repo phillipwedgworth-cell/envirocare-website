@@ -27,7 +27,7 @@ const BL_MCP = "https://mcp.brightlocal.com/mcp";
 const LOCATIONS = [
   { name: "Alabaster", id: 4068335, ct_report_id: 2418430, rm_report_id: 630345, target: 85 },
   { name: "Huntsville", id: 4068730, ct_report_id: 2419690, rm_report_id: 630846, target: 85 },
-  { name: "Alex City", id: 4068729, ct_report_id: null, rm_report_id: null, target: 85 }, // no CT/RM campaigns yet
+  { name: "Alex City", id: 4068729, ct_report_id: null, rm_report_id: 631866, target: 85 }, // RM campaign added 2026-06-10; CT still pending
 ];
 
 let anthropic = null;
@@ -45,7 +45,7 @@ if (process.env.ANTHROPIC_API_KEY) {
 // The trial API key works with BrightLocal's MCP server (mcp.brightlocal.com),
 // not the legacy REST API v4. We open a session per call (stateless for simplicity).
 
-async function blMcpCall(toolName, args) {
+export async function blMcpCall(toolName, args) {
   if (!BL_KEY) throw new Error("BRIGHTLOCAL_API_KEY is not set");
   const url = `${BL_MCP}?api-key=${encodeURIComponent(BL_KEY)}`;
   const hdrs = { "Content-Type": "application/json", "Accept": "application/json, text/event-stream" };

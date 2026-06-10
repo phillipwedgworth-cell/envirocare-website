@@ -11,6 +11,7 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 // silently weren't in the bundle and every agent reported "skipped" at
 // runtime. Each agent module exports { run }.
 import { run as runBrightlocal } from "./brightlocal.mjs";
+import { run as runReviewResponder } from "./review-responder.mjs";
 import { run as runSeoMonitor } from "./seo-monitor.mjs";
 import { run as runNeuronwriterQa } from "./neuronwriter-qa.mjs";
 import { run as runCfoAgent } from "./cfo-agent.mjs";
@@ -22,7 +23,8 @@ const PROMPT_VERSION = "2026-05-28";
 
 // Order matters for digest readability but not correctness.
 const AGENT_REGISTRY = [
-  { name: "brightlocal",     run: runBrightlocal },
+  { name: "brightlocal",      run: runBrightlocal },
+  { name: "review-responder", run: runReviewResponder },  // Mondays only; drafts to Notion Review Response Station
   { name: "seo-monitor",     run: runSeoMonitor },
   { name: "neuronwriter-qa", run: runNeuronwriterQa },  // content QA; skips gracefully if key absent
   { name: "cfo-agent",       run: runCfoAgent },
