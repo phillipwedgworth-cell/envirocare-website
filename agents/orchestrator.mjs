@@ -199,6 +199,9 @@ async function sendDigest(brief) {
     return { sent: false, reason: "resend_unavailable" };
   }
   const to = process.env.NOTIFY_EMAIL ?? "phillipwedgworth@gmail.com";
+  // Once envirocarellc.com verifies in Resend, set NOTIFY_FROM in Vercel to
+  // "EnviroCare Alerts <alerts@envirocarellc.com>" — until then the resend.dev
+  // shared domain keeps digests flowing.
   const from = process.env.NOTIFY_FROM ?? "onboarding@resend.dev";
   try {
     const today = new Date().toISOString().slice(0, 10);
