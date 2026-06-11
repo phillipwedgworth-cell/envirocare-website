@@ -32,13 +32,19 @@ const CITY_DEPTH_CSS = `
 .cd-review-card p{font-size:1.08rem;line-height:1.7;color:#1E293B;margin:0 0 1rem;font-style:italic}
 .cd-review-card p::before{content:'“';font-size:2rem;color:#0E8E40;line-height:0;vertical-align:-.4rem;margin-right:.2rem}
 .cd-review-footer{font-size:.92rem;font-weight:600;color:#07642B}
+.cd-nearby{padding:2.5rem clamp(1.5rem,5vw,4rem) 3rem;background:#fff;border-top:1px solid rgba(14,142,64,.12)}
+.cd-nearby-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0E8E40;font-weight:700;margin-bottom:12px}
+.cd-nearby-links{display:flex;flex-wrap:wrap;gap:10px}
+.cd-nearby-links a{display:inline-block;padding:8px 16px;border:1px solid rgba(14,142,64,.3);border-radius:999px;color:#07642B;font-weight:600;font-size:.92rem;text-decoration:none;background:#FEFDF8;transition:background .15s}
+.cd-nearby-links a:hover{background:#E8F5EE}
 `;
 
 export default function CityDepth({ city }: { city: City }) {
   const hasPest = !!(city.pestContext && city.pestContext.length);
   const hasFaq = !!(city.faqs && city.faqs.length);
   const hasReview = !!(city.review);
-  if (!hasPest && !hasFaq && !hasReview) return null;
+  const hasNearby = !!(city.nearby && city.nearby.length);
+  if (!hasPest && !hasFaq && !hasReview && !hasNearby) return null;
 
   return (
     <div className="cd-wrap">
@@ -108,6 +114,19 @@ export default function CityDepth({ city }: { city: City }) {
             </div>
           </section>
         </>
+      )}
+
+      {hasNearby && (
+        <section className="cd-nearby">
+          <div className="cd-inner">
+            <div className="cd-nearby-label">Also serving nearby</div>
+            <div className="cd-nearby-links">
+              {city.nearby!.map((n) => (
+                <a key={n.slug} href={`/${n.slug}`}>{n.name}</a>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
     </div>
   );
