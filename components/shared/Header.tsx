@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
@@ -16,6 +16,7 @@ const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
 
 const SERVICES_ITEMS: [string, string][] = [
   ["Pest Control", "/services/pest-control"],
+  ["Interior Pest Control", "/services/interior-pest-control"],
   ["Termite / Sentricon®", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito-control"],
   ["Tick Control", "/services/tick-control"],

@@ -873,7 +873,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h2>EnviroCare's 2026 plan pricing</h2>
 <p>EnviroCare publishes its pricing because the family that's run the company since 1958 believes Alabama homeowners shouldn't have to schedule a sales visit just to learn what service costs. Three plans cover the great majority of homes from Birmingham to Huntsville to Lake Martin:</p>
 <ul>
-<li><strong>Essential — $35/mo:</strong> bi-monthly exterior pest control, 30+ pests, fire ant program and flea perimeter included, unlimited free re-service.</li>
+<li><strong>Essential — $35/mo:</strong> bi-monthly exterior pest control, 30+ pests, unlimited free re-service.</li>
 <li><strong>Foundation — $67/mo (most popular):</strong> Essential pest control plus Sentricon® termite monitoring with $1,000,000 damage coverage.</li>
 <li><strong>Complete — $127/mo:</strong> all four services — pest, termite, mosquito, and tick.</li>
 </ul>

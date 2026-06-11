@@ -120,3 +120,10 @@ Root cause: three different nav/footer template generations coexist. Permanent f
 - Put "500+" review count on public pages — use real number or remove
 - Touch `node_modules/`, `.next/`, `package-lock.json`
 - Use data from site-reviewer runs before 2026-05-31 PM (was hitting wrong domain)
+
+## PRICING MODEL CORRECTION (locked 2026-06-11, per Phillip)
+- Fire ant: $150 minimum, priced per sq ft of covered area. STANDALONE, available to anyone. NOT included in the pest plan.
+- Tick: $150 minimum standalone (same model), OR via the $60/mo Outdoor Bundle (mosquito+tick+flea).
+- Interior + exterior quarterly plan: $98/quarter. Flea = +$30/quarter add-on REQUIRING the interior plan ($128/quarter total).
+- New page: /services/interior-pest-control. Fire-ant page rebuilt standalone (no longer ServicePage template).
+- NEVER write 'fire ant and flea included' anywhere. Locked copy: 'Starting at $150 - priced by the size of your yard.'

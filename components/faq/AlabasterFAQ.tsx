@@ -36,7 +36,7 @@ const ALABASTER_FAQS = [
   {
     question: 'How much does pest control cost in Alabaster, AL?',
     answer:
-      'EnviroCare\'s Essential pest control plan starts at $35/month with convenient ACH billing, or $70 billed bi-monthly. It covers 30+ pests including ants, roaches, spiders, fire ants, and fleas, with unlimited re-service visits. The Foundation bundle, which adds Sentricon termite protection, is $67/month. No annual contracts required. Call the Alabaster office at (205) 940-6360.',
+      'EnviroCare\'s Essential pest control plan starts at $35/month with convenient ACH billing, or $70 billed bi-monthly. It covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. The Foundation bundle, which adds Sentricon termite protection, is $67/month. No annual contracts required. Call the Alabaster office at (205) 940-6360.',
   },
   {
     question: 'Do I need termite protection in Alabaster or Shelby County?',

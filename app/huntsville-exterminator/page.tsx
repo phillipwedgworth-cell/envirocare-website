@@ -41,7 +41,7 @@ const c: ComboContent = {
     sub: "on ACH autopay · or $70 per visit",
     bullets: [
       "30+ Alabama pests covered",
-      "Fire ant & flea treatment included",
+      "Fire ant & tick treatment available from $150",
       "Interior service whenever needed",
       "Unlimited free re-services",
       "No contract — cancel anytime",

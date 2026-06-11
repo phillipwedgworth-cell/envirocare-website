@@ -50,7 +50,7 @@ export default function TermsPage() {
         <h2 style={{ ...serif, fontSize: 24, color: DEEP, marginTop: 36, marginBottom: 12 }}>1. Services We Provide</h2>
         <p>EnviroCare offers residential and commercial pest control services in Alabama, including:</p>
         <ul>
-          <li>Bi-monthly perimeter pest control (covers 30+ common household pests including fire ants and fleas)</li>
+          <li>Bi-monthly perimeter pest control (covers 30+ common household pests)</li>
           <li>Sentricon® Always Active™ termite baiting system (licensed by Corteva Agriscience)</li>
           <li>Mosquito yard barrier treatment (seasonal — March through November)</li>
           <li>Tick control</li>

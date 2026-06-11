@@ -16,7 +16,14 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
 
 ## Services & pricing (exact, current)
 - Bi-monthly pest control: $35/month on ACH autopay, or $70 per visit. Covers 30+ common
-  Alabama pests; fire ant and flea treatment included at no extra charge.
+  Alabama pests. Fire ant, flea, and tick are separately priced (below).
+- Fire ant treatment: $150 minimum, priced by the square footage of covered area —
+  available to anyone in the service area, no plan required. Whole-colony treatment.
+- Tick treatment: $150 minimum standalone (priced by yard size), or bundled with
+  mosquito in the Outdoor plan at $60/month.
+- Interior + exterior quarterly plan: $98/quarter (4 visits/year, inside and outside).
+  Flea treatment is an add-on to this plan: +$30/quarter ($128/quarter total) — flea
+  requires interior treatment.
 - Termite protection: Sentricon® Always Active™ bait system — $32/month, or $380 install
   plus annual renewal. No drilling, no tank trucks. Up to $1,000,000 in damage repair
   coverage. Free termite inspection.

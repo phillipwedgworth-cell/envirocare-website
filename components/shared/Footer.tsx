@@ -33,6 +33,7 @@ const SERVICES: [string, string][] = [
 
 const SPECIALTY: [string, string][] = [
   ["Fire Ant Control", "/services/fire-ant"],
+  ["Interior Pest Control", "/services/interior-pest-control"],
   ["Flea Control", "/services/flea"],
   ["Builder Pre-Treat", "/builders"],
   ["Real Estate / WDO Letters", "/realtor"],

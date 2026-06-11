@@ -51,7 +51,7 @@ const SERVICE_CATALOG = {
   name: 'Pest & Termite Control Services',
   itemListElement: [
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pest Control',
-      description: 'Monthly pest control covering 30+ pests — ants, roaches, spiders, silverfish, fire ants, fleas, and more. Includes unlimited re-service visits. Starting at $35/month.' } },
+      description: 'Monthly pest control covering 30+ pests — ants, roaches, spiders, silverfish, and more. Includes unlimited re-service visits. Starting at $35/month.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Termite Control',
       description: 'Sentricon® Always Active™ termite bait system. No drilling into your foundation. Up to $1 million in termite damage coverage. Starting at $32/month.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mosquito Control',
@@ -59,7 +59,7 @@ const SERVICE_CATALOG = {
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tick and Flea Control',
       description: 'Yard tick and flea treatments. Available as part of the Mosquito + Tick + Flea bundle at $60/month.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fire Ant Control',
-      description: 'Fire ant treatment included in all pest control plans at no extra charge.' } },
+      description: 'Whole-colony fire ant treatment starting at $150, priced by yard size — available to anyone in our Alabama service area.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Builder Pre-Treatment',
       description: 'Pre-construction termite soil treatment for new builds. Certified and warranted.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'WDO Real Estate Inspection',

@@ -19,8 +19,9 @@
 - **Bi-monthly pest control**: $35/mo (starter), $67/mo (complete), $127/mo (premium)
 - **Termite (Sentricon®)**: $380 install + annual renewal, OR $32/mo
 - **Mosquito control**: $45/mo (March–November)
-- **Tick control**: $69/application or bundled
-- **Fire ant**: add-on to yard program
+- **Tick control**: $150 minimum standalone (priced by yard size), or in the $60/mo Outdoor Bundle
+- **Fire ant**: $150 minimum, priced by sq ft of covered area — standalone, available to anyone (NOT included in pest plan)
+- **Interior + exterior quarterly plan**: $98/quarter; flea add-on +$30/quarter ($128 total — flea REQUIRES the interior plan)
 - **WDO (real estate termite letter)**: $75 standalone; free for active customers
 - **Outdoor Bundle (mosquito + tick + flea)**: $60/mo
 

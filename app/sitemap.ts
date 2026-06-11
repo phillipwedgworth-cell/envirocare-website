@@ -37,6 +37,7 @@ const COMBO_SLUGS = [
 // Service pages that exist as REAL routes (no redirect sources here)
 const SERVICE_SLUGS = [
   'pest-control',
+  'interior-pest-control',
   'termite-control',
   'sentricon',
   'mosquito-control',

@@ -119,7 +119,7 @@ export const phaseACities: Record<string, CityData> = {
     contextTitle: "A golf community has golf community problems.",
     contextLede: "Greystone's fairways stay irrigated through summer. That's great for the golf, less great for fire ants and mosquito breeding. Mature trees along Founders Drive mean carpenter ants and termite swarmers — and the lake-adjacent lots in Cove see mosquitoes through October. Generic pest control doesn't get the nuance.",
     pests: [
-      { emoji: "🐜", title: "Fire Ants", description: "Irrigated fairways + manicured lawns = perfect fire ant conditions. Included in your pest plan, not a separate add-on." },
+      { emoji: "🐜", title: "Fire Ants", description: "Irrigated fairways + manicured lawns = perfect fire ant conditions. Treatment available to anyone — starting at $150, priced by yard size." },
       { emoji: "🪵", title: "Subterranean Termites", description: "Swarming Feb-May. Greystone's wood-heavy construction + crawlspaces in older Founders homes = highest-risk profile." },
       { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Lake Cove + course water features = breeding pressure March through November." },
       { emoji: "🐾", title: "Lone Star Ticks", description: "Wooded golf course rough + deer presence on the property. Critical for families and dogs." }
@@ -137,7 +137,7 @@ export const phaseACities: Record<string, CityData> = {
       { q: "I just moved to Greystone Legacy — when should I get a termite inspection?", a: "Sooner the better. Spring (Feb-May) is termite swarm season in Alabama. We do free, no-obligation inspections. If your builder included a termite warranty, we can also transfer Sentricon® coverage from a prior owner." },
       { q: "Is Sentricon® better than liquid termite treatment for Greystone homes?", a: "For Greystone, yes — most homes have crawlspaces and beautifully landscaped beds you don't want disturbed. Sentricon® stations install around the perimeter with zero drilling, zero trenching, and zero tank trucks in your driveway. Backed by up to $1,000,000 in damage repair." },
       { q: "What about pets?", a: "Pets can return once applications dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
-      { q: "Do I need separate pest control for fire ants?", a: "No — fire ant annual treatment is INCLUDED in your bi-monthly pest control plan. No separate contract, no separate fee. Flea program is included too." }
+      { q: "Do I need separate pest control for fire ants?", a: "Fire ant treatment is a standalone service — starting at $150 and priced by the size of your yard, available to anyone. Flea treatment is an add-on to our interior plan; ask the office for details." }
     ],
     reviews: [
       { text: "Professional, schedules with us, always on time. Our Greystone home has been pest-free since they started.", by: "Sarah K., Greystone" },
@@ -183,7 +183,7 @@ export const phaseACities: Record<string, CityData> = {
       { q: "Do your mosquito treatments affect the community ponds?", a: "No — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water spots). We don't treat community ponds or common areas. Kids and pets can return once treatments dry (30-60 min)." },
       { q: "How often do you spray for mosquitos?", a: "Every 30 days during the season (March through November) — that's up to 9 applications per year. Mt Laurel's pond features and Double Oak Mountain proximity make the full seasonal program a strong fit." },
       { q: "What about pets?", a: "Pets can return once applications dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
-      { q: "Do I need separate fire ant control?", a: "No — fire ant annual treatment is INCLUDED in your bi-monthly pest control plan. No separate contract, no separate fee. Flea program is included too." }
+      { q: "Do I need separate fire ant control?", a: "Fire ant treatment is a standalone service — starting at $150 and priced by the size of your yard, available to anyone. Flea treatment is an add-on to our interior plan; ask the office for details." }
     ],
     reviews: [
       { text: "They handle pest, mosquito, and termite all in one. So much easier than juggling three companies.", by: "Beth A., Mt Laurel" },
@@ -228,7 +228,7 @@ export const phaseACities: Record<string, CityData> = {
     crossSellHeadlineEm: "Add bi-monthly pest for $35/mo.",
     crossSellBody: "Many of our Athens customers signed up for termite protection and didn't know we also handle 30+ household pests — interior, exterior, fire ants, fleas — all for $35/mo with unlimited free re-services. Same technician, same invoice, no second company.",
     faqs: [
-      { q: "I already have Sentricon termite — can I add pest control?", a: "Yes — and it's the most common ask we get from Athens customers. Add bi-monthly pest control for $35/mo. Same technician schedules the visit alongside your termite inspection. One invoice. Fire ant and flea programs are included." },
+      { q: "I already have Sentricon termite — can I add pest control?", a: "Yes — and it's the most common ask we get from Athens customers. Add bi-monthly pest control for $35/mo. Same technician schedules the visit alongside your termite inspection. One invoice. Fire ant treatment available from $150, priced by yard size." },
       { q: "When do termites swarm in Athens?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older downtown homes with crawlspaces are highest-risk. Sentricon® stations protect year-round." },
       { q: "Do you service East Limestone and Elkmont?", a: "Yes — we service all of Limestone County including East Limestone, Tanner, Mooresville, Elkmont, and Toney. Same Huntsville office, same technicians. New construction in East Limestone often needs termite pre-treat verification — call before drywall goes up." },
       { q: "How do you handle brown recluse?", a: "Brown recluse needs an integrated approach — perimeter spray, interior application in hot spots (closets, garages, basements), and sticky monitoring traps. Our bi-monthly pest program includes all three. Older Athens homes typically need 2-3 visits to break the population." },

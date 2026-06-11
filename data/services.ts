@@ -183,7 +183,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'Is tick control really needed in Alabama?', a: 'Yes. Lone Star ticks are aggressive and widespread. Rocky Mountain Spotted Fever and Alpha-Gal Syndrome (the red-meat allergy from tick bites) are real risks. Wooded and lake properties especially benefit.' },
-      { q: 'Can I get tick service without mosquito?', a: 'Standalone tick service is available but most customers find the Outdoor Bundle (Mosquito + Tick + Flea at $60/mo) cheaper and simpler.' },
+      { q: 'Can I get tick service without mosquito?', a: 'Yes — standalone tick treatment starts at $150, priced by the size of your yard. If you also want mosquito coverage, the Outdoor Bundle (Mosquito + Tick + Flea at $60/mo) is usually the simpler route.' },
       { q: 'How quickly does it work?', a: 'You\'ll see fewer ticks within 24-48 hours after application. Full lifecycle disruption takes 30-60 days.' },
       { q: 'When can my dog go back out after treatment?', a: 'Once the application dries, typically 30 minutes. Many of the same active ingredients are in canine tick/flea collars and topical treatments at lower concentrations.' },
       { q: 'Do I need a separate exterminator for ticks?', a: 'No — our tick control service rides along with mosquito service or your existing pest control service. We focus on the wood lines, leaf litter, and shaded edges where ticks wait for a host. One EnviroCare technician covers tick control in Birmingham, Huntsville, and the Lake Martin area.' },
@@ -198,7 +198,7 @@ export const SERVICES: Service[] = [
     category: 'specialty',
     serviceArt: 'fireant',
     metaTitle: 'Alabama Fire Ant Control | EnviroCare Yard Treatment',
-    metaDescription: 'Fire ant yard-wide elimination and mound treatment for Alabama homes. Critical for lake properties and barefoot families. Call (205) 940-6360.',
+    metaDescription: 'Whole-colony fire ant treatment from $150, priced by yard size — available to anyone in our Alabama service area. Call (205) 940-6360.',
     heroEyebrow: 'Critical For Lake Homes',
     heroTagline: 'Fire Ant Control',
     heroSubhead: 'Yard-wide elimination, not just spot mound treatment. Built for Alabama families who actually use their yards — kids, dogs, barefoot summer.',
@@ -232,7 +232,7 @@ export const SERVICES: Service[] = [
     category: 'specialty',
     serviceArt: 'flea',
     metaTitle: 'Alabama Flea Yard Treatment | EnviroCare Alabama',
-    metaDescription: 'Yard flea barrier treatments. Bundles with mosquito & tick service. Applied per label directions. Call (205) 940-6360.',
+    metaDescription: 'Flea treatment as a +$30/quarter add-on to our $98/quarter interior + exterior plan — fleas have to be treated inside, and this is the plan that does it. Call (205) 940-6360.',
     heroEyebrow: 'Bundles With Mosquito & Tick',
     heroTagline: 'Flea Yard Control',
     heroSubhead: 'Break the flea lifecycle in your yard. Bundled with mosquito and tick service ($60/mo) for one-tech, one-invoice simplicity.',
@@ -247,7 +247,7 @@ export const SERVICES: Service[] = [
     includes: [
       { title: 'Yard Barrier Application', desc: 'Targets adult fleas, larvae, and eggs in shaded outdoor harborage areas.' },
       { title: 'Indoor Treatment On Request', desc: 'If fleas made it inside, we coordinate with your vet on a combined indoor/outdoor protocol.' },
-      { title: 'Bundles With Mosquito/Tick', desc: 'Outdoor Bundle ($60/mo) covers all three on the same visits — Mosquito + Tick + Flea.' },
+      { title: 'Built On The Interior Plan', desc: 'Flea treatment requires our $98/quarter interior + exterior plan (+$30/quarter for flea, $128 total) — because the inside half of the lifecycle is where infestations live. See /services/interior-pest-control.' },
     ],
     wedgePoints: [
       { lead: 'Yard, not just pet', body: 'Vet treats the dog. We treat the yard so the dog stays clean.' },
