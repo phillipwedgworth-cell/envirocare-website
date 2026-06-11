@@ -24,6 +24,16 @@ const CITY_SLUGS = [
   'harvest', 'hampton-cove',
 ];
 
+// City×service combo pages (top-level routes)
+const COMBO_SLUGS = [
+  'birmingham-mosquito-control',
+  'huntsville-mosquito-control',
+  'birmingham-termite-control',
+  'huntsville-termite-control',
+  'birmingham-exterminator',
+  'huntsville-exterminator',
+];
+
 // Service pages that exist as REAL routes (no redirect sources here)
 const SERVICE_SLUGS = [
   'pest-control',
@@ -71,6 +81,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const comboPages: MetadataRoute.Sitemap = COMBO_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }));
+
   const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: now,
@@ -78,5 +95,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...mainPages, ...servicePages, ...cityPages, ...blogPages];
+  return [...mainPages, ...servicePages, ...comboPages, ...cityPages, ...blogPages];
 }
