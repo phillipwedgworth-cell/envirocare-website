@@ -2,11 +2,19 @@ import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/'],
-    },
+    rules: [
+      // Explicitly welcome AI crawlers — being cited in AI answers is part of
+      // the SEO strategy. Do not add blocks for these bots.
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/'],
+      },
+    ],
     sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocarellc.com'}/sitemap.xml`,
   };
 }
