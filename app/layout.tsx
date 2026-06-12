@@ -25,6 +25,11 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import ChatWidget from '../components/ChatWidget';
+import {
+  ENVIROCARE_ORGANIZATION_SCHEMA,
+  WEBSITE_SCHEMA,
+  SPEAKABLE_HOMEPAGE,
+} from '../lib/seo/organization-schema';
 import './globals.css';
 
 // Mobile viewport — without this, phones render the desktop layout zoomed out,
@@ -205,6 +210,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(HUNTSVILLE_SCHEMA) }}
+        />
+        {/* AEO master schemas — Organization (with sameAs for AI entity verification),
+            WebSite (publisher reference), and Speakable (voice assistant pickup).
+            These are the highest-leverage schemas for ChatGPT / Perplexity / Gemini
+            and Google AI Overview visibility. See lib/seo/organization-schema.ts. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ENVIROCARE_ORGANIZATION_SCHEMA) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SPEAKABLE_HOMEPAGE) }}
         />
       </head>
       <body>

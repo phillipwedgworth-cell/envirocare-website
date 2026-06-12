@@ -1,336 +1,409 @@
 "use client";
-import { useState } from "react";
-import { Phone, MapPin, Award, Users, Leaf, Heart } from "lucide-react";
 
 import Header from "@/components/shared/Header";
+import Link from "next/link";
+
+/**
+ * About Us — third generation EnviroCare story.
+ *
+ * Design system: locked brand CSS variables (matches Homepage.tsx exactly).
+ * - Playfair Display for headlines, DM Sans for body
+ * - Brand green #0E8E40, gold #F5A800, cream #FEFDF8
+ * - Same orb / wash / glass card vocabulary as the homepage hero
+ *
+ * AEO note: this page is the canonical source for the Wedgworth family story,
+ * founding date 1958, and the three-generation lineage. AI answer engines pull
+ * heavily from About pages when answering "tell me about <company>" queries.
+ */
 export default function AboutUs() {
-  const [quoteOpen, setQuoteOpen] = useState(false);
-
   return (
-    <div className="min-h-screen bg-white">
+    <div style={{ minHeight: "100vh", background: "var(--white,#fff)" }}>
       <Header />
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "EnviroCare Pest Control",
-          "foundingDate": "1958",
-          "founder": { "@type": "Person", "name": "Phillip M. Wedgworth" },
-          "description": "Family-owned Alabama pest control company founded in 1958 by Phillip M. Wedgworth in Alexander City. Now in its third generation, serving Birmingham, Huntsville, and Lake Martin.",
-          "telephone": "+12059406360",
-          "url": "https://envirocarellc.com/about-us",
-          "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": "10" },
-          "areaServed": "Alabama"
+
+      <style>{`
+        :root {
+          --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+          --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
+          --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7;
+          --white:#fff; --cream:#FEFDF8;
+          --ink:#0A1A0E; --ink-mid:#1E293B; --ink-soft:#475569;
+          --border:#BBF7D0; --border-soft:#D1FAE5;
+          --r:16px;
+          --sh-sm:0 2px 12px rgba(22,163,74,.09);
+          --sh-md:0 8px 32px rgba(22,163,74,.14);
         }
-      `}</script>
+        .ab-wrap { font-family:'DM Sans',system-ui,sans-serif; color:var(--ink); }
 
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-emerald-950 text-white py-20 md:py-28">
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{ backgroundImage: "url('/home-southern.jpg')", backgroundSize: "cover", backgroundPosition: "center 60%" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/60 to-transparent" />
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(ellipse at 20% 50%, #0A7935 0%, transparent 60%)"}} />
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-emerald-500/20 rounded-full border border-emerald-400/30">
-              <span className="text-emerald-300 font-semibold text-sm">Family-Owned · Alexander City, AL · Since 1958</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              No One Cares<br/>
-              <span className="text-emerald-400">Like EnviroCare</span>
-            </h1>
-            <p className="text-xl text-slate-300 leading-relaxed mb-8">
-              Three generations of the Wedgworth family. Three offices across Alabama. One promise that hasn't changed since 1958 — to protect Alabama homes like they're our own.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setQuoteOpen(true)}
-                className="px-8 py-4 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-400 transition shadow-lg">
-                Get Free Inspection
-              </button>
-              <a href="tel:2059406360"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition border border-white/20">
-                <Phone className="w-5 h-5" /> (205) 940-6360
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+        /* ── HERO ─────────────────────────────────────────────────────── */
+        .ab-hero { position:relative; overflow:hidden; padding:5rem clamp(1.5rem,5vw,4rem); background:var(--white); }
+        .ab-hero-wash { position:absolute; top:0; right:0; bottom:0; width:55%; background:linear-gradient(140deg,var(--green-xlt) 0%,var(--green-lt) 50%,#86EFAC 100%); clip-path:polygon(12% 0,100% 0,100% 100%,0 100%); z-index:0; pointer-events:none; }
+        .ab-orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+        .ab-orb-a { width:520px; height:520px; background:radial-gradient(circle,rgba(34,197,94,.18) 0%,transparent 70%); top:-100px; right:10%; }
+        .ab-orb-b { width:380px; height:380px; background:radial-gradient(circle,rgba(245,168,0,.12) 0%,transparent 70%); bottom:-50px; left:4%; }
+        .ab-hero-inner { position:relative; z-index:10; max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr; gap:4rem; align-items:center; }
+        .ab-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--green-lt); border:1px solid rgba(22,163,74,.3); border-radius:40px; padding:.4rem 1rem; margin-bottom:1.5rem; }
+        .ab-eyebrow-txt { font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--green-dk); }
+        .ab-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,4.6vw,4rem); font-weight:900; line-height:1.05; color:var(--ink); margin:0 0 1.2rem; letter-spacing:-.5px; }
+        .ab-hero h1 em { color:var(--green-dk); font-style:italic; display:block; }
+        .ab-hero-sub { font-size:1.1rem; line-height:1.75; color:var(--ink-soft); max-width:520px; margin-bottom:2rem; }
+        .ab-stats { display:flex; gap:2rem; flex-wrap:wrap; }
+        .ab-stat { border-left:3px solid var(--gold); padding-left:.9rem; }
+        .ab-stat-n { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--green-dk); line-height:1; }
+        .ab-stat-l { font-size:11px; color:var(--ink-soft); letter-spacing:.05em; margin-top:3px; text-transform:uppercase; font-weight:600; }
+        .ab-hero-card { position:relative; border-radius:24px; aspect-ratio:4/5; background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-darkest) 100%); box-shadow:0 30px 80px rgba(15,92,46,.28); overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:2rem; color:#fff; }
+        .ab-hero-card::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 20%,rgba(245,168,0,.18) 0%,transparent 55%),radial-gradient(circle at 80% 80%,rgba(34,197,94,.22) 0%,transparent 55%); }
+        .ab-hero-card-year { position:absolute; top:1.8rem; right:1.8rem; font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:900; color:var(--gold); letter-spacing:-.5px; }
+        .ab-hero-card-quote { position:relative; font-family:'Playfair Display',serif; font-style:italic; font-size:1.4rem; line-height:1.4; margin-bottom:1rem; }
+        .ab-hero-card-by { position:relative; font-size:.85rem; color:rgba(255,255,255,.7); letter-spacing:.05em; }
 
-      {/* OUR STORY */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-start">
+        /* ── TIMELINE ─────────────────────────────────────────────────── */
+        .ab-timeline { padding:5rem clamp(1.5rem,5vw,4rem); background:var(--cream); }
+        .ab-section-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--green-dk); background:var(--green-lt); border:1px solid rgba(22,163,74,.25); border-radius:40px; padding:.32rem .9rem; margin-bottom:1rem; }
+        .ab-section-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.6vw,3rem); font-weight:900; color:var(--ink); line-height:1.1; margin-bottom:.85rem; letter-spacing:-.4px; max-width:780px; }
+        .ab-section-title span { color:var(--green-dk); font-style:italic; }
+        .ab-section-sub { font-size:1.05rem; line-height:1.75; color:var(--ink-soft); max-width:680px; margin-bottom:3rem; }
+        .ab-tl-grid { max-width:1100px; margin:0 auto; position:relative; }
+        .ab-tl-grid::before { content:''; position:absolute; top:0; bottom:0; left:50%; width:2px; background:linear-gradient(180deg,var(--green) 0%,var(--gold) 100%); transform:translateX(-50%); }
+        .ab-tl-row { display:grid; grid-template-columns:1fr auto 1fr; gap:2rem; align-items:flex-start; margin-bottom:2.5rem; position:relative; }
+        .ab-tl-row.r .ab-tl-card { grid-column:3; }
+        .ab-tl-row.l .ab-tl-card { grid-column:1; text-align:right; }
+        .ab-tl-card { background:var(--white); border:1px solid var(--border-soft); border-radius:18px; padding:1.6rem 1.8rem; box-shadow:var(--sh-sm); transition:transform .25s,box-shadow .25s; }
+        .ab-tl-card:hover { transform:translateY(-3px); box-shadow:var(--sh-md); }
+        .ab-tl-year { grid-column:2; width:74px; height:74px; border-radius:50%; background:var(--white); border:3px solid var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:900; color:var(--green-dk); box-shadow:0 4px 14px rgba(245,168,0,.3); position:relative; z-index:2; }
+        .ab-tl-card h3 { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:var(--ink); margin:0 0 .5rem; }
+        .ab-tl-card p { font-size:.95rem; line-height:1.65; color:var(--ink-soft); margin:0; }
+
+        /* ── FAMILY / GENERATIONS ─────────────────────────────────────── */
+        .ab-fam { padding:5rem clamp(1.5rem,5vw,4rem); background:var(--white); }
+        .ab-fam-grid { max-width:1320px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .ab-fam-card { border-radius:22px; overflow:hidden; border:1px solid var(--border-soft); box-shadow:var(--sh-sm); background:var(--white); transition:all .3s cubic-bezier(.16,1,.3,1); }
+        .ab-fam-card:hover { transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--green); }
+        .ab-fam-art { height:160px; position:relative; display:flex; align-items:flex-end; padding:1.2rem; color:#fff; }
+        .ab-fam-art-1 { background:linear-gradient(160deg,#0A7935 0%,#07642B 60%,#062514 100%); }
+        .ab-fam-art-2 { background:linear-gradient(160deg,#15803D 0%,#0A7935 50%,#07642B 100%); }
+        .ab-fam-art-3 { background:linear-gradient(160deg,#16A34A 0%,#0E8E40 50%,#0A7935 100%); }
+        .ab-fam-gen { position:absolute; top:1.2rem; right:1.2rem; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); border-radius:30px; padding:.3rem .8rem; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; backdrop-filter:blur(4px); }
+        .ab-fam-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,.3); }
+        .ab-fam-body { padding:1.5rem 1.7rem 1.8rem; }
+        .ab-fam-role { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:.5rem; }
+        .ab-fam-bio { font-size:.92rem; line-height:1.65; color:var(--ink-mid); }
+
+        /* ── VALUES ───────────────────────────────────────────────────── */
+        .ab-values { padding:5rem clamp(1.5rem,5vw,4rem); background:linear-gradient(180deg,var(--green-deep) 0%,var(--green-darkest) 100%); color:#fff; position:relative; overflow:hidden; }
+        .ab-values::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E") repeat; }
+        .ab-values-inner { position:relative; z-index:2; max-width:1320px; margin:0 auto; }
+        .ab-values .ab-section-eyebrow { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2); color:#86EFAC; }
+        .ab-values .ab-section-title { color:#fff; }
+        .ab-values .ab-section-title span { color:var(--gold); }
+        .ab-values .ab-section-sub { color:rgba(255,255,255,.75); }
+        .ab-vgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; margin-top:2.5rem; }
+        .ab-vcard { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:1.6rem 1.5rem; backdrop-filter:blur(8px); transition:all .3s; }
+        .ab-vcard:hover { background:rgba(255,255,255,.09); transform:translateY(-4px); }
+        .ab-vcard-num { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:900; color:var(--gold); line-height:1; margin-bottom:.7rem; }
+        .ab-vcard h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin:0 0 .5rem; }
+        .ab-vcard p { font-size:.88rem; line-height:1.6; color:rgba(255,255,255,.78); margin:0; }
+
+        /* ── OFFICES ──────────────────────────────────────────────────── */
+        .ab-offices { padding:5rem clamp(1.5rem,5vw,4rem); background:var(--cream); }
+        .ab-off-grid { max-width:1320px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .ab-off-card { background:var(--white); border-radius:22px; border:1px solid var(--border-soft); box-shadow:var(--sh-sm); padding:2rem 1.8rem; transition:all .3s; }
+        .ab-off-card:hover { transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--green); }
+        .ab-off-tag { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:.5rem; }
+        .ab-off-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--ink); margin-bottom:.8rem; }
+        .ab-off-addr { font-size:.92rem; color:var(--ink-mid); line-height:1.6; margin-bottom:1rem; }
+        .ab-off-phone { display:inline-flex; align-items:center; gap:6px; font-size:1rem; font-weight:700; color:var(--green-dk); text-decoration:none; padding:.55rem 1.2rem; border-radius:50px; border:1.5px solid var(--green-dk); transition:all .2s; }
+        .ab-off-phone:hover { background:var(--green-dk); color:#fff; }
+
+        /* ── CTA ──────────────────────────────────────────────────────── */
+        .ab-cta { padding:4rem clamp(1.5rem,5vw,4rem); background:linear-gradient(135deg,var(--green) 0%,var(--green-dk) 50%,var(--green-deep) 100%); text-align:center; position:relative; overflow:hidden; }
+        .ab-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 50%,rgba(245,168,0,.14) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(134,239,172,.12) 0%,transparent 50%); }
+        .ab-cta-inner { position:relative; z-index:2; max-width:760px; margin:0 auto; }
+        .ab-cta h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:700; color:#fff; margin:0 0 .6rem; letter-spacing:-.3px; }
+        .ab-cta p { color:rgba(255,255,255,.85); margin-bottom:1.8rem; font-size:1.05rem; }
+        .ab-cta-row { display:flex; justify-content:center; gap:.9rem; flex-wrap:wrap; }
+        .ab-btn-gold { background:var(--gold); color:var(--ink); border:none; border-radius:50px; padding:.95rem 2.1rem; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:transform .25s,box-shadow .25s; box-shadow:0 4px 18px rgba(234,179,8,.4); }
+        .ab-btn-gold:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(234,179,8,.55); }
+        .ab-btn-outline { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.5); border-radius:50px; padding:.85rem 1.8rem; font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:600; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:all .25s; }
+        .ab-btn-outline:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.85); }
+
+        @media (max-width:1000px) {
+          .ab-hero-inner { grid-template-columns:1fr; }
+          .ab-hero-card { aspect-ratio:16/9; }
+          .ab-fam-grid, .ab-off-grid { grid-template-columns:1fr; }
+          .ab-vgrid { grid-template-columns:repeat(2,1fr); }
+          .ab-tl-grid::before { left:32px; }
+          .ab-tl-row { grid-template-columns:auto 1fr; gap:1.2rem; }
+          .ab-tl-row .ab-tl-year { grid-column:1; width:64px; height:64px; }
+          .ab-tl-row .ab-tl-card { grid-column:2 !important; text-align:left !important; }
+        }
+        @media (max-width:600px) {
+          .ab-vgrid { grid-template-columns:1fr; }
+        }
+      `}</style>
+
+      <div className="ab-wrap">
+        {/* HERO */}
+        <section className="ab-hero">
+          <div className="ab-hero-wash" />
+          <div className="ab-orb ab-orb-a" />
+          <div className="ab-orb ab-orb-b" />
+          <div className="ab-hero-inner">
             <div>
-              <p className="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-3">Our Story</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Started at Lake Martin.<br/>Built Across Alabama.</h2>
-
-              <div className="space-y-6 text-slate-700 leading-relaxed">
-                <p className="text-lg">
-                  In 1958, Phillip M. Wedgworth started EnviroCare with a single goal: to protect the homes and families of the Alexander City and Lake Martin community he called home.
-                </p>
-                <p>
-                  The Lake Martin area was growing. New families were building homes along 880 miles of shoreline. And with Alabama's warm, humid climate came pests — termites threatening foundations, mosquitoes making evenings unbearable, fire ants turning yards into hazards.
-                </p>
-                <p>
-                  Phillip believed in doing things right. Not the fastest way. Not the cheapest way. The right way. That meant showing up on time, treating customers with respect, using effective products safely, and standing behind every job.
-                </p>
-                <p>
-                  That philosophy worked. Customers trusted EnviroCare. They referred their neighbors. They came back year after year.
-                </p>
-                <p>
-                  Over the decades, that trust grew into something larger. EnviroCare expanded — first within the Lake Martin area, then to Birmingham, then to Huntsville. Today, three generations of the Wedgworth family serve customers across Alabama from three offices.
-                </p>
-                <p className="font-semibold text-slate-900">
-                  The company is bigger. The territory is larger. But the philosophy hasn't changed. No one cares like EnviroCare.
-                </p>
+              <div className="ab-eyebrow">
+                <span className="ab-eyebrow-txt">Family-Owned · Alexander City · Since 1958</span>
               </div>
-            </div>
-
-            {/* Timeline */}
-            <div>
-              <h3 className="font-bold text-slate-900 mb-8 text-lg">Three Generations of Protecting Alabama</h3>
-              <div className="space-y-1">
-                {[
-                  { year: "1958", title: "The Founding", desc: "Phillip M. Wedgworth started EnviroCare in Alexander City with one truck and one belief: that Alabama families deserved a pest control company that actually answered the phone and stood behind the work." },
-                  { year: "1960s–70s", title: "Growing with Lake Martin", desc: "As Lake Martin grows, so does EnviroCare. Expanded service to Dadeville, Eclectic, and surrounding communities." },
-                  { year: "1980s", title: "Second Generation", desc: "His son Phillip L. Wedgworth took over leadership, growing the business across Alabama and building the reputation EnviroCare carries today. Phillip L. retired in the 2010s after decades of service." },
-                  { year: "1990s–2000s", title: "Birmingham Expansion", desc: "EnviroCare opens the Birmingham-area office (Alabaster) to serve greater Birmingham, Hoover, Shelby County, and beyond." },
-                  { year: "2020s", title: "Third Generation", desc: "His grandson Kevin Wedgworth now runs EnviroCare. Same family. Same answer to your pest problem." },
-                  { year: "2022", title: "Huntsville Opens", desc: "EnviroCare opened its Huntsville office, bringing three generations of Alabama pest control expertise to North Alabama — now serving Madison, Athens, Decatur, and beyond." },
-                  { year: "Today", title: "Still Family. Still Local.", desc: "EnviroCare serves Alabama from three offices — Birmingham, Lake Martin, and Huntsville — and remains 100% family-owned." },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="w-3 h-3 rounded-full bg-emerald-500 flex-shrink-0 mt-1.5" />
-                      {i < 6 && <div className="w-0.5 bg-emerald-200 flex-1 my-1" />}
-                    </div>
-                    <div className="pb-6">
-                      <span className="text-xs font-bold text-emerald-600 uppercase tracking-wide">{item.year}</span>
-                      <h4 className="font-bold text-slate-900 mt-0.5 mb-1">{item.title}</h4>
-                      <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section className="py-16 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What We Stand For</h2>
-            <p className="text-lg text-slate-600">The values this family built. The values we still live by.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: <Heart className="w-8 h-8"/>, title: "Family First", desc: "We're a family business serving families. We treat your home with the same care we'd want for our own." },
-              { icon: <Users className="w-8 h-8"/>, title: "True Local", desc: "No national call centers. No distant dispatchers. Your call goes to a local office with a technician who knows your community." },
-              { icon: <Leaf className="w-8 h-8"/>, title: "Eco-Responsible", desc: "Effective pest control doesn't have to harm the environment. We use products that protect your home without harming Alabama's ecology." },
-              { icon: <Award className="w-8 h-8"/>, title: "Done Right", desc: "We'd rather spend extra time doing a job properly than cut corners. Every treatment is backed by our satisfaction guarantee." },
-            ].map((v, i) => (
-              <div key={i} className="p-6 bg-white rounded-xl border border-slate-200 text-center">
-                <div className="text-emerald-600 flex justify-center mb-4">{v.icon}</div>
-                <h3 className="font-bold text-slate-900 mb-3">{v.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3 OFFICES */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Three Offices. One Standard.</h2>
-            <p className="text-lg text-slate-600">Each office is staffed by local technicians who know their community</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Alexander City / Lake Martin",
-                address: "1785 Tallapoosa St, Alexander City, AL 35010",
-                phone: "(256) 234-6162",
-                tel: "2562346162",
-                maps: "https://www.google.com/maps?cid=12101127141767078247",
-                note: "Our original office. Home base since 1958. Serving the Lake Martin community longer than anyone.",
-                badge: "Est. 1958 · Original Office",
-                color: "emerald",
-              },
-              {
-                name: "Birmingham Office",
-                address: "2025 Butler Rd, Alabaster, AL 35007",
-                phone: "(205) 940-6360",
-                tel: "2059406360",
-                maps: "https://www.google.com/maps?cid=7378341068021381374",
-                note: "Serving greater Birmingham, Hoover, Chelsea, Pelham, Alabaster, Vestavia Hills, Mountain Brook, and Shelby County.",
-                badge: "Birmingham Metro",
-                color: "blue",
-              },
-              {
-                name: "Huntsville Office",
-                address: "7027 Old Madison Pike, Suite 108, Huntsville, AL 35806",
-                phone: "(256) 937-7676",
-                tel: "2569377676",
-                maps: "https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8",
-                note: "Serving Huntsville, Madison, Athens, Decatur, Hartselle, and all of North Alabama.",
-                badge: "North Alabama",
-                color: "violet",
-              },
-            ].map((o, i) => {
-              const colors = {
-                emerald: "border-emerald-500",
-                blue: "border-blue-500",
-                violet: "border-violet-500",
-              };
-              const badgeColors = {
-                emerald: "bg-emerald-100 text-emerald-800",
-                blue: "bg-blue-100 text-blue-800",
-                violet: "bg-violet-100 text-violet-800",
-              };
-              return (
-                <div key={i} className={`p-6 bg-white rounded-xl border-2 ${(colors as Record<string, string>)[o.color]} shadow-sm`}>
-                  <span className={`inline-block mb-3 px-3 py-1 text-xs font-bold rounded-full ${(badgeColors as Record<string, string>)[o.color]}`}>{o.badge}</span>
-                  <h3 className="font-bold text-slate-900 mb-3">{o.name}</h3>
-                  <a href={o.maps} target="_blank" rel="noreferrer"
-                    className="flex items-start gap-2 text-sm text-slate-500 hover:text-emerald-600 transition mb-3">
-                    <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />{o.address}
-                  </a>
-                  <a href={`tel:${o.tel}`} className="flex items-center gap-2 text-emerald-600 font-bold mb-4 hover:text-emerald-700 transition">
-                    <Phone className="w-4 h-4" />{o.phone}
-                  </a>
-                  <p className="text-sm text-slate-600 leading-relaxed">{o.note}</p>
+              <h1 itemProp="speakable">
+                Three Generations.<em>One Promise.</em>
+              </h1>
+              <p className="ab-hero-sub">
+                EnviroCare is the Wedgworth family. Founded in Alexander City in 1958 by Phillip M. Wedgworth,
+                now in its third generation across Birmingham, Huntsville, and Lake Martin — protecting Alabama
+                homes the way we'd protect our own.
+              </p>
+              <div className="ab-stats">
+                <div className="ab-stat">
+                  <div className="ab-stat-n">68+</div>
+                  <div className="ab-stat-l">Years in business</div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* KEVIN SECTION */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src="/kevin-headshot.jpg"
-                alt="Kevin Wedgworth - EnviroCare Operations"
-                className="w-full h-auto object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+                <div className="ab-stat">
+                  <div className="ab-stat-n">3</div>
+                  <div className="ab-stat-l">Generations of Wedgworths</div>
+                </div>
+                <div className="ab-stat">
+                  <div className="ab-stat-n">3</div>
+                  <div className="ab-stat-l">Alabama offices</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-3">Leadership</p>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Meet Kevin Wedgworth</h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                Kevin leads EnviroCare's day-to-day operations, carrying forward the family mission his grandfather started in Alexander City in 1958.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                With deep roots in Alabama and a hands-on approach to every market EnviroCare serves, Kevin ensures that what made this company great — showing up, doing it right, standing behind the work — stays true across all three offices and every community we protect.
-              </p>
-              <div className="flex flex-col gap-2 text-sm text-slate-600">
-                <div className="flex items-center gap-3"><span className="text-emerald-600 font-bold">✓</span>Third-generation family leadership</div>
-                <div className="flex items-center gap-3"><span className="text-emerald-600 font-bold">✓</span>Oversees all 3 Alabama offices</div>
-                <div className="flex items-center gap-3"><span className="text-emerald-600 font-bold">✓</span>Alabama-licensed pest control operator</div>
+            <div className="ab-hero-card">
+              <div className="ab-hero-card-year">1958</div>
+              <div className="ab-hero-card-quote">
+                "Do the job right. Show up when you said you would. Stand behind every visit."
+              </div>
+              <div className="ab-hero-card-by">— Phillip M. Wedgworth, founder</div>
+            </div>
+          </div>
+        </section>
+
+        {/* TIMELINE */}
+        <section className="ab-timeline">
+          <div style={{ maxWidth: 1320, margin: "0 auto", textAlign: "center" }}>
+            <div className="ab-section-eyebrow">Our Story</div>
+            <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
+              From Lake Martin to <span>all of Alabama</span>
+            </h2>
+            <p className="ab-section-sub" style={{ margin: "0 auto 3rem" }}>
+              Six decades of one family doing this work, one home at a time.
+            </p>
+          </div>
+          <div className="ab-tl-grid">
+            <div className="ab-tl-row l">
+              <div className="ab-tl-card">
+                <h3>Founded in Alexander City</h3>
+                <p>
+                  Phillip M. Wedgworth starts EnviroCare to protect the homes and families of the Lake Martin
+                  community. The original office at 1785 Tallapoosa Street is still our Alex City location today.
+                </p>
+              </div>
+              <div className="ab-tl-year">1958</div>
+            </div>
+            <div className="ab-tl-row r">
+              <div className="ab-tl-year">1980s</div>
+              <div className="ab-tl-card">
+                <h3>Second generation takes over</h3>
+                <p>
+                  The Wedgworth children grow up in the business. The second generation expands service across
+                  East Alabama and earns the trust of Russell Lands and Lake Martin's major commercial properties.
+                </p>
+              </div>
+            </div>
+            <div className="ab-tl-row l">
+              <div className="ab-tl-card">
+                <h3>Sentricon® certification</h3>
+                <p>
+                  EnviroCare becomes a Sentricon® Certified Specialist — one of fewer than 1% of pest companies
+                  authorized to install the in-ground bait system, with no-drilling termite protection and up to
+                  $1M in EnviroCare-backed damage coverage.
+                </p>
+              </div>
+              <div className="ab-tl-year">2000s</div>
+            </div>
+            <div className="ab-tl-row r">
+              <div className="ab-tl-year">2015</div>
+              <div className="ab-tl-card">
+                <h3>Birmingham office opens</h3>
+                <p>
+                  The third generation — Phillip, Kevin, and Lex Wedgworth — opens the Alabaster office at
+                  2025 Butler Road, serving Birmingham, Hoover, Vestavia Hills, Mountain Brook, and the wider
+                  metro area.
+                </p>
+              </div>
+            </div>
+            <div className="ab-tl-row l">
+              <div className="ab-tl-card">
+                <h3>Huntsville office opens</h3>
+                <p>
+                  Expansion north to Huntsville and Madison County. The Old Madison Pike office covers Research
+                  Park, Hampton Cove, Madison, Athens, Decatur, and the Tennessee Valley.
+                </p>
+              </div>
+              <div className="ab-tl-year">2020</div>
+            </div>
+            <div className="ab-tl-row r">
+              <div className="ab-tl-year">Today</div>
+              <div className="ab-tl-card">
+                <h3>Three offices, one family</h3>
+                <p>
+                  Bi-monthly pest control, Sentricon® termite protection, and seasonal mosquito and tick service
+                  across Alabama. Still family-owned. Still no long-term contracts. Still the same promise.
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* RIBBON CUTTING */}
-      <section className="py-12 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-2">Growing in Alabama's Communities</h2>
-            <p className="text-slate-600">Our office openings bring the community together — because that's who we serve</p>
+        {/* FAMILY / GENERATIONS */}
+        <section className="ab-fam">
+          <div style={{ maxWidth: 1320, margin: "0 auto", textAlign: "center" }}>
+            <div className="ab-section-eyebrow">The Wedgworth Family</div>
+            <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
+              <span>Third generation</span> running the family business
+            </h2>
+            <p className="ab-section-sub" style={{ margin: "0 auto" }}>
+              When you call EnviroCare, you reach a Wedgworth — not a call center.
+            </p>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-lg">
-            <img
-              src="/ribbon-cutting-1.jpg"
-              alt="EnviroCare office ribbon cutting ceremony with community members"
-              className="w-full h-auto object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <p className="text-center text-sm text-slate-500 mt-4">EnviroCare office opening — supported by the local community we've served for generations</p>
-        </div>
-      </section>
-
-      {/* CERTIFICATIONS */}
-      <section className="py-16 px-6 bg-slate-900 text-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-4">Licensed, Certified & Trusted</h2>
-            <p className="text-slate-400">Every technician. Every treatment. Every time.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {[
-              { badge: "APCA Member", desc: "Alabama Pest Control Association" },
-              { badge: "Sentricon Certified", desc: "Termite bait system specialists" },
-              { badge: "GBAHB Member", desc: "Greater Birmingham home builders" },
-              { badge: "Alabama Licensed", desc: "All technicians state-certified" },
-            ].map((c, i) => (
-              <div key={i} className="p-6 bg-slate-800 rounded-xl border border-slate-700">
-                <div className="text-emerald-400 font-bold mb-2">{c.badge}</div>
-                <div className="text-slate-400 text-sm">{c.desc}</div>
+          <div className="ab-fam-grid">
+            <div className="ab-fam-card">
+              <div className="ab-fam-art ab-fam-art-1">
+                <div className="ab-fam-gen">First Generation</div>
+                <div className="ab-fam-name">Phillip M. Wedgworth</div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-6 bg-emerald-800 text-white text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4">68 Years of Caring. Ready to Help You.</h2>
-          <p className="text-emerald-100 text-lg mb-8">Free inspection from your local EnviroCare office. No obligation, no pressure.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => setQuoteOpen(true)}
-              className="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition shadow-lg">
-              Get Free Inspection
-            </button>
-            <a href="tel:2059406360"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-emerald-700 text-white font-bold rounded-xl hover:bg-emerald-600 transition border border-emerald-500">
-              <Phone className="w-5 h-5" /> (205) 940-6360
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {quoteOpen && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center p-4" onClick={() => setQuoteOpen(false)}>
-          <div className="bg-white rounded-2xl w-full sm:w-[440px] overflow-hidden shadow-2xl" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-            <div className="bg-emerald-700 text-white p-5 flex justify-between items-start">
-              <div><h3 className="font-bold text-xl">Free Pest Inspection</h3><p className="text-emerald-200 text-sm mt-1">Select your location</p></div>
-              <button onClick={() => setQuoteOpen(false)} className="text-3xl leading-none text-emerald-300 hover:text-white mt-[-4px]">×</button>
+              <div className="ab-fam-body">
+                <div className="ab-fam-role">Founder · 1958</div>
+                <p className="ab-fam-bio">
+                  Started EnviroCare in Alexander City with a single goal: protect Lake Martin homes. Set the
+                  standard the next two generations have carried forward.
+                </p>
+              </div>
             </div>
-            <div className="p-6 space-y-3">
-              {[
-                { label: "Birmingham / Hoover / Chelsea / Pelham", phone: "(205) 940-6360", tel: "2059406360" },
-                { label: "Lake Martin / Alexander City / Auburn", phone: "(256) 234-6162", tel: "2562346162" },
-                { label: "Huntsville / Madison / Athens / Decatur", phone: "(256) 937-7676", tel: "2569377676" },
-              ].map((o, i) => (
-                <a key={i} href={`tel:${o.tel}`}
-                  className="flex justify-between items-center w-full p-4 border-2 border-slate-200 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition group">
-                  <div>
-                    <div className="text-sm font-medium text-slate-700">{o.label}</div>
-                    <div className="text-emerald-600 font-bold mt-0.5">{o.phone}</div>
-                  </div>
-                  <Phone className="w-5 h-5 text-slate-400 group-hover:text-emerald-600 transition" />
-                </a>
-              ))}
+            <div className="ab-fam-card">
+              <div className="ab-fam-art ab-fam-art-2">
+                <div className="ab-fam-gen">Second Generation</div>
+                <div className="ab-fam-name">The Wedgworth Family</div>
+              </div>
+              <div className="ab-fam-body">
+                <div className="ab-fam-role">Stewards · 1980s–2010s</div>
+                <p className="ab-fam-bio">
+                  Grew the original Alex City operation into a regional company, built the Russell Lands and
+                  Lake Martin commercial relationships, and earned Sentricon® Certified Specialist status.
+                </p>
+              </div>
+            </div>
+            <div className="ab-fam-card">
+              <div className="ab-fam-art ab-fam-art-3">
+                <div className="ab-fam-gen">Third Generation</div>
+                <div className="ab-fam-name">Phillip, Kevin &amp; Lex</div>
+              </div>
+              <div className="ab-fam-body">
+                <div className="ab-fam-role">Owners · Today</div>
+                <p className="ab-fam-bio">
+                  Phillip, Kevin, and Lex Wedgworth run the company today — three Alabama offices, the same
+                  family standard, and the same answer when something goes wrong: we come back until it's right.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        </section>
+
+        {/* VALUES — what we believe */}
+        <section className="ab-values">
+          <div className="ab-values-inner">
+            <div style={{ textAlign: "center" }}>
+              <div className="ab-section-eyebrow">What We Believe</div>
+              <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
+                The <span>EnviroCare</span> standard
+              </h2>
+              <p className="ab-section-sub" style={{ margin: "0 auto 1rem" }}>
+                Four things that haven't changed since 1958.
+              </p>
+            </div>
+            <div className="ab-vgrid">
+              <div className="ab-vcard">
+                <div className="ab-vcard-num">01</div>
+                <h3>No long-term contracts</h3>
+                <p>Pest control is month-to-month on ACH. Cancel anytime. We'd rather earn the next visit than lock you in.</p>
+              </div>
+              <div className="ab-vcard">
+                <div className="ab-vcard-num">02</div>
+                <h3>EPA-registered, label-directed</h3>
+                <p>We use only EPA-registered products applied strictly to label directions. Your technician will advise re-entry timing.</p>
+              </div>
+              <div className="ab-vcard">
+                <div className="ab-vcard-num">03</div>
+                <h3>A real Wedgworth answers</h3>
+                <p>Three Alabama offices, three direct phone numbers, three Wedgworths. No 1-800 call center between you and the family.</p>
+              </div>
+              <div className="ab-vcard">
+                <div className="ab-vcard-num">04</div>
+                <h3>We come back until it's right</h3>
+                <p>Unlimited free re-services between scheduled visits — no per-trip fees, no quibbling. If something's still there, we come back.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* OFFICES */}
+        <section className="ab-offices">
+          <div style={{ maxWidth: 1320, margin: "0 auto", textAlign: "center" }}>
+            <div className="ab-section-eyebrow">Three Alabama Offices</div>
+            <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
+              Find your <span>local Wedgworth</span>
+            </h2>
+            <p className="ab-section-sub" style={{ margin: "0 auto" }}>
+              Each office has its own technicians, its own phone, and its own neighborhood knowledge.
+            </p>
+          </div>
+          <div className="ab-off-grid">
+            <div className="ab-off-card">
+              <div className="ab-off-tag">Main · Birmingham Metro</div>
+              <div className="ab-off-name">Birmingham / Alabaster</div>
+              <div className="ab-off-addr">
+                2025 Butler Road<br />Alabaster, AL 35007
+              </div>
+              <a href="tel:2059406360" className="ab-off-phone">(205) 940-6360</a>
+            </div>
+            <div className="ab-off-card">
+              <div className="ab-off-tag">Original · 1958</div>
+              <div className="ab-off-name">Lake Martin / Alex City</div>
+              <div className="ab-off-addr">
+                1785 Tallapoosa Street<br />Alexander City, AL 35010
+              </div>
+              <a href="tel:2562346162" className="ab-off-phone">(256) 234-6162</a>
+            </div>
+            <div className="ab-off-card">
+              <div className="ab-off-tag">North Alabama</div>
+              <div className="ab-off-name">Huntsville / Madison</div>
+              <div className="ab-off-addr">
+                7027 Old Madison Pike, Ste 108<br />Huntsville, AL 35806
+              </div>
+              <a href="tel:2569377676" className="ab-off-phone">(256) 937-7676</a>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="ab-cta">
+          <div className="ab-cta-inner">
+            <h2>Ready to meet the family?</h2>
+            <p>Free inspection, no long-term contract, and a real Wedgworth on the other end of the phone.</p>
+            <div className="ab-cta-row">
+              <Link href="/quote" className="ab-btn-gold">Get a Free Quote →</Link>
+              <a href="tel:2059406360" className="ab-btn-outline">Call (205) 940-6360</a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
