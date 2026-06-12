@@ -1,0 +1,150 @@
+{
+  "_comment": "Sources AEO-Watch polls on every run. Edit freely — JSON only. Each source has a type (rss/changelog/scrape) and a relevance tag set used for filtering. Tags map to EnviroCare's current concerns.",
+  "_tags": [
+    "schema",
+    "aeo",
+    "seo",
+    "ai-search",
+    "nextjs",
+    "vercel",
+    "pest-control",
+    "alabama",
+    "google-ads",
+    "brightlocal",
+    "fieldster",
+    "sentricon"
+  ],
+  "sources": [
+    {
+      "id": "google-search-central",
+      "name": "Google Search Central Blog",
+      "url": "https://developers.google.com/search/blog/rss",
+      "type": "rss",
+      "tags": ["seo", "schema", "ai-search"],
+      "priority": "high"
+    },
+    {
+      "id": "schema-org-blog",
+      "name": "Schema.org Blog",
+      "url": "https://blog.schema.org/feeds/posts/default",
+      "type": "rss",
+      "tags": ["schema", "aeo"],
+      "priority": "high"
+    },
+    {
+      "id": "nextjs-blog",
+      "name": "Next.js Blog",
+      "url": "https://nextjs.org/feed.xml",
+      "type": "rss",
+      "tags": ["nextjs"],
+      "priority": "med"
+    },
+    {
+      "id": "vercel-changelog",
+      "name": "Vercel Changelog",
+      "url": "https://vercel.com/changelog/feed.xml",
+      "type": "rss",
+      "tags": ["vercel"],
+      "priority": "med"
+    },
+    {
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "type": "scrape",
+      "selector": "article a[href*='/news/']",
+      "tags": ["ai-search"],
+      "priority": "high"
+    },
+    {
+      "id": "openai-blog",
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/blog/rss.xml",
+      "type": "rss",
+      "tags": ["ai-search"],
+      "priority": "med"
+    },
+    {
+      "id": "perplexity-blog",
+      "name": "Perplexity Blog",
+      "url": "https://www.perplexity.ai/hub/blog",
+      "type": "scrape",
+      "selector": "a[href*='/hub/blog/']",
+      "tags": ["ai-search"],
+      "priority": "med"
+    },
+    {
+      "id": "llms-txt-spec",
+      "name": "llms.txt Spec Repo",
+      "url": "https://api.github.com/repos/AnswerDotAI/llms-txt/commits?per_page=10",
+      "type": "github-commits",
+      "tags": ["aeo"],
+      "priority": "med"
+    },
+    {
+      "id": "search-engine-journal-aeo",
+      "name": "Search Engine Journal — AEO/GEO tag",
+      "url": "https://www.searchenginejournal.com/category/seo/feed/",
+      "type": "rss",
+      "tags": ["aeo", "seo", "ai-search"],
+      "priority": "low",
+      "keywordFilter": ["AEO", "GEO", "generative", "answer engine", "AI Overview", "ChatGPT", "Perplexity", "Gemini", "schema", "llms.txt"]
+    },
+    {
+      "id": "brightlocal-blog",
+      "name": "BrightLocal Blog",
+      "url": "https://www.brightlocal.com/learn/feed/",
+      "type": "rss",
+      "tags": ["brightlocal", "seo"],
+      "priority": "low"
+    },
+    {
+      "id": "corteva-sentricon",
+      "name": "Corteva / Sentricon Product Updates",
+      "url": "https://www.sentricon.com/news/",
+      "type": "scrape",
+      "selector": "article a, .news-item a",
+      "tags": ["sentricon", "pest-control"],
+      "priority": "med"
+    },
+    {
+      "id": "al-dept-ag",
+      "name": "Alabama Dept of Agriculture & Industries — News",
+      "url": "https://agi.alabama.gov/news/",
+      "type": "scrape",
+      "selector": "a[href*='/news/']",
+      "tags": ["alabama", "pest-control"],
+      "priority": "low"
+    }
+  ],
+  "envirocare_keywords": [
+    "Sentricon",
+    "termite",
+    "pest control",
+    "WDO",
+    "mosquito",
+    "tick",
+    "fire ant",
+    "Alabama",
+    "Birmingham",
+    "Huntsville",
+    "Lake Martin",
+    "EnviroCare",
+    "schema.org",
+    "JSON-LD",
+    "AEO",
+    "GEO",
+    "AI Overview",
+    "ChatGPT search",
+    "Perplexity",
+    "Gemini",
+    "Speakable",
+    "FAQ schema",
+    "llms.txt",
+    "canonical",
+    "Next.js 15",
+    "Vercel"
+  ],
+  "_panel_threshold": "Items scoring >=2 against keywords go to the 3-model panel. <2 = log only.",
+  "_run_cadence": "Daily 7am CT via GitHub Actions cron. Manual trigger anytime via workflow_dispatch."
+}

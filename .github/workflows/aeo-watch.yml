@@ -1,0 +1,32 @@
+name: AEO-Watch
+
+# Daily at 7am CT (12:00 UTC during CDT, 13:00 UTC during CST).
+# Using 12:00 UTC — runs at 7am during summer, 6am during winter. Close enough.
+# Manual trigger always available via the Actions tab.
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run AEO-Watch
+        env:
+          ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY:       ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY:       ${{ secrets.OPENAI_API_KEY }}
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          NOTION_TOKEN:         ${{ secrets.NOTION_TOKEN }}
+          NOTION_APPROVALS_DB_ID: ${{ secrets.NOTION_APPROVALS_DB_ID }}
+          RESEND_API_KEY:       ${{ secrets.RESEND_API_KEY }}
+          ALERT_EMAIL:          ${{ secrets.ALERT_EMAIL }}
+          NOTIFY_FROM:          alerts@envirocarellc.com
+        run: node agents/aeo-watch.mjs
