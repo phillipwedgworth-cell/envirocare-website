@@ -13,7 +13,8 @@
 // Exits 1 (CLI) or returns failCount > 0 when any page scores below 70.
 // Target band: 70-80. Do not optimize toward 100.
 
-import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import targetsData from './neuronwriter-targets.json' with { type: 'json' };
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { analyzePageContent } from './lib/neuronwriter.mjs';
@@ -44,9 +45,10 @@ if (process.env.ANTHROPIC_API_KEY) {
 
 // ─── CONTEXT_READ ──────────────────────────────────────────────────────────
 
+// Static JSON import so Next.js bundles the targets into the lambda
+// (readFileSync + __dirname pointed at /vercel/path0/... which isn't traced).
 function loadTargets() {
-  const path = join(__dirname, 'neuronwriter-targets.json');
-  return JSON.parse(readFileSync(path, 'utf8')).targets;
+  return targetsData.targets;
 }
 
 // Map a repo page path (app/services/termite-control/page.tsx) to its live URL.
@@ -239,6 +241,14 @@ function rawTableReport(results) {
 // ─── ENTRY POINT (orchestrator) ────────────────────────────────────────────
 
 export async function run() {
+  // Weekly gate: each batch run consumes ~16 of 75 monthly NeuronWriter
+  // analyses; the orchestrator cron fires DAILY. Mondays only in automation.
+  const isMondayRun = new Date().getUTCDay() === 1;
+  const viaCli = process.argv[1] && process.argv[1].includes('neuronwriter-qa');
+  if (!isMondayRun && !viaCli && process.env.FORCE_NEURONWRITER !== '1') {
+    console.log('[neuronwriter-qa] not Monday - skipping batch (FORCE_NEURONWRITER=1 to override)');
+    return { skipped: true, reason: 'weekly agent — runs Mondays (quota protection)' };
+  }
   if (!process.env.NEURONWRITER_API_KEY) {
     console.log(`[${AGENT_NAME}] key not set — skipping`);
     return { skipped: true, reason: 'NEURONWRITER_API_KEY not set' };
