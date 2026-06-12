@@ -20,9 +20,13 @@ const CITY_SLUGS = [
   'lake-martin', 'alexander-city', 'dadeville', 'eclectic',
   'willow-point', 'the-ridge', 'stillwaters', 'the-heritage',
   'auburn', 'opelika',
-  'huntsville', 'madison', 'athens', 'decatur', 'hartselle',
+  'huntsville', 'athens', 'decatur', 'hartselle',
   'harvest', 'hampton-cove',
 ];
+
+// Cities that live under /service-areas/* (deep pages with self-canonicals).
+// /madison 301s here — see next.config.ts redirects.
+const SERVICE_AREA_SLUGS = ['madison'];
 
 // City×service combo pages (top-level routes)
 const COMBO_SLUGS = [
@@ -82,6 +86,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const serviceAreaPages: MetadataRoute.Sitemap = SERVICE_AREA_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/service-areas/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   const comboPages: MetadataRoute.Sitemap = COMBO_SLUGS.map((slug) => ({
     url: `${BASE_URL}/${slug}`,
     lastModified: now,
@@ -96,5 +107,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...mainPages, ...servicePages, ...comboPages, ...cityPages, ...blogPages];
+  return [...mainPages, ...servicePages, ...comboPages, ...cityPages, ...serviceAreaPages, ...blogPages];
 }

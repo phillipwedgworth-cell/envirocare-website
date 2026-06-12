@@ -1102,7 +1102,7 @@ function Footer() {
           <div className="ec-footer-areas-group">
             <div className="ec-footer-areas-label">North Alabama</div>
             <Link href="/huntsville">Huntsville</Link>
-            <Link href="/madison">Madison</Link>
+            <Link href="/service-areas/madison">Madison</Link>
             <Link href="/athens">Athens</Link>
             <Link href="/decatur">Decatur</Link>
             <Link href="/hartselle">Hartselle</Link>

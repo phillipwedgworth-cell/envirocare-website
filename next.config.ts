@@ -77,7 +77,7 @@ const nextConfig: NextConfig = {
 
             // ─── SCORPION CITY URLS (Huntsville region) ─────────────────────
             { source: '/where-we-service/huntsville-al-pest-control', destination: '/huntsville', permanent: true },
-            { source: '/where-we-service/madison-al-pest-control', destination: '/madison', permanent: true },
+            { source: '/where-we-service/madison-al-pest-control', destination: '/service-areas/madison', permanent: true },
             { source: '/where-we-service/athens-al-pest-control', destination: '/athens', permanent: true },
             { source: '/where-we-service/decatur-al-pest-control', destination: '/decatur', permanent: true },
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },
@@ -152,6 +152,9 @@ const nextConfig: NextConfig = {
             // ─── SCORPION SUB-CITY SERVICE PAGES ────────────────────────────
             { source: '/where-we-service/birmingham-al-pest-control/insect-control', destination: '/services/pest-control', permanent: true },
             { source: '/where-we-service/birmingham-al-pest-control/mouse-control', destination: '/services/pest-control', permanent: true },
+
+            // ─── CITY PAGES MIGRATED TO /service-areas/* ────────────────────
+            { source: '/madison', destination: '/service-areas/madison', permanent: true },
 
             // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
             { source: '/bundle-services', destination: '/pricing', permanent: true },
