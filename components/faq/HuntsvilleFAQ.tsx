@@ -37,7 +37,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'How do I get rid of mosquitoes in Huntsville, Alabama?',
     answer:
-      'Mosquito pressure in Huntsville is significant due to the Tennessee River valley, Aldridge Creek greenways, and numerous subdivisions with wooded lots and standing water. EnviroCare provides monthly yard barrier spray treatments March through November that kill and repel mosquitoes on contact and at breeding sites. Their Mosquito + Tick + Flea bundle is $60/month. Call the Huntsville office at (256) 937-7676 to schedule a free yard assessment.',
+      'Mosquito pressure in Huntsville is significant due to the Tennessee River valley, Aldridge Creek greenways, and numerous subdivisions with wooded lots and standing water. EnviroCare provides monthly yard barrier spray treatments March through November that kill and repel mosquitoes on contact and at breeding sites. Their Mosquito + Tick bundle (chiggers covered) is $49/month; flea is an interior-plan add-on. Call the Huntsville office at (256) 937-7676 to schedule a free yard assessment.',
   },
   {
     question: 'Do I need termite protection in Huntsville, Alabama?',

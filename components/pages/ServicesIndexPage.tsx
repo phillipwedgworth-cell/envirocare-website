@@ -70,7 +70,7 @@ export default function ServicesIndexPage() {
             <div className="svc-card feat">
               <div className="svc-card-tag">Most Insurance</div>
               <div className="svc-card-name">Termite Control</div>
-              <div className="svc-card-price">$32/mo · or $380 install + renewal</div>
+              <div className="svc-card-price">$32/mo · or $325 install + $380/yr renewal</div>
               <div className="svc-card-desc">Sentricon® Always Active™ bait stations. Up to $1,000,000 termite damage repair coverage. No drilling, no concrete cuts.</div>
               <a href="/services/termite-control" className="svc-card-link">Learn more →</a>
             </div>
@@ -84,7 +84,7 @@ export default function ServicesIndexPage() {
             <div className="svc-card">
               <div className="svc-card-tag">Bundles with Mosquito</div>
               <div className="svc-card-name">Tick Control</div>
-              <div className="svc-card-price">Included in $60/mo Outdoor Bundle</div>
+              <div className="svc-card-price">From $150 · or Outdoor Pro $49/mo</div>
               <div className="svc-card-desc">Targeted yard treatments for Lone Star, Dog, and Deer ticks. Critical for wooded lots and lake homes.</div>
               <a href="/services/tick-control" className="svc-card-link">Learn more →</a>
             </div>
@@ -108,7 +108,7 @@ export default function ServicesIndexPage() {
             <div className="svc-card">
               <div className="svc-card-tag">Pet Households</div>
               <div className="svc-card-name">Flea Control</div>
-              <div className="svc-card-desc">Yard barrier breaking the flea lifecycle. Bundles with mosquito and tick in the $60/mo Outdoor Bundle.</div>
+              <div className="svc-card-desc">Interior + yard flea program — +$30/quarter add-on to the $98/quarter interior plan.</div>
               <a href="/services/flea" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">

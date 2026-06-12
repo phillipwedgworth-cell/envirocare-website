@@ -43,7 +43,7 @@ const c: ComboContent = {
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick & flea coverage available bundled ($60/mo)",
+      "Tick + chigger coverage available in Outdoor Pro ($49/mo)",
       "50% off your first application",
     ],
   },
@@ -62,7 +62,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I bundle mosquito with pest control?",
-      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Outdoor Bundle adds tick and flea coverage at $60/mo.",
+      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Outdoor Pro plan adds tick + chigger coverage at $49/mo.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },

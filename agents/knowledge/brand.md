@@ -16,14 +16,14 @@
 | Main line | — | (205) 940-6360 | All markets |
 
 ## Core Services & Pricing
-- **Bi-monthly pest control**: $35/mo (starter), $67/mo (complete), $127/mo (premium)
-- **Termite (Sentricon®)**: $380 install + annual renewal, OR $32/mo
+- **Bi-monthly pest control**: $35/mo (starter), $67/mo (complete), $116/mo (premium)
+- **Termite (Sentricon®)**: $325 install (incl. year-1) + $380/yr renewal, OR $32/mo
 - **Mosquito control**: $45/mo (March–November)
-- **Tick control**: $150 minimum standalone (priced by yard size), or in the $60/mo Outdoor Bundle
+- **Tick control**: $150 minimum standalone (priced by yard size), or in the $49/mo Outdoor Pro plan
 - **Fire ant**: $150 minimum, priced by sq ft of covered area — standalone, available to anyone (NOT included in pest plan)
 - **Interior + exterior quarterly plan**: $98/quarter; flea add-on +$30/quarter ($128 total — flea REQUIRES the interior plan)
 - **WDO (real estate termite letter)**: $75 standalone; free for active customers
-- **Outdoor Bundle (mosquito + tick + flea)**: $60/mo
+- **Outdoor Pro (mosquito + tick, chiggers covered)**: $49/mo — $65/treatment x 9 treatments billed evenly
 
 ## Strongest Differentiators (in order of impact)
 1. **Sentricon® Certified Specialist** — $1,000,000 damage repair warranty from Corteva

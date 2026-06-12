@@ -85,7 +85,7 @@ SERVICES & REAL PRICING (be confident — these are the actual numbers):
    - Unlimited free re-service between visits if pests come back
 
 2. SENTRICON® TERMITE PROTECTION
-   - $32/mo OR $380 install + annual renewal
+   - $32/mo OR $325 install (includes year-1 guarantee) + $380/yr renewal
    - Always Active bait stations — no drilling, no liquid chemicals around the house
    - Eliminates the entire colony, not just the workers
    - Up to $1,000,000 in damage repair coverage
@@ -108,7 +108,7 @@ LANGUAGE RULES (legal — never break these):
 
 5. TICK CONTROL
    - Standalone: $150 minimum, priced by yard size (same model as fire ant)
-   - OR bundled with mosquito in the Outdoor Pro plan ($60/mo for mosquito + tick + flea) — both facts are true
+   - OR with mosquito it is +$20/treatment ($65 total) — the Outdoor Pro plan, $49/mo billed evenly — both facts are true
 
 6. INTERIOR + EXTERIOR QUARTERLY PLAN
    - $98/quarter — inside and outside treatment, 4 visits/year
@@ -118,8 +118,8 @@ LANGUAGE RULES (legal — never break these):
 PLANS PAGE TIERS (these are convenience packages, NOT discounts — never promise "bundle savings"):
 - Essential — $35/mo — Pest Control only
 - Foundation — $67/mo — Pest + Termite — MOST POPULAR
-- Outdoor Pro — $60/mo — Mosquito + Tick + Flea (seasonal)
-- Complete — $127/mo — All four services
+- Outdoor Pro — $49/mo — Mosquito + Tick with chigger coverage (9 treatments Mar—Nov; $65/treatment billed evenly across 12 months)
+- Complete — $116/mo — All four services
 
 When asked about bundles, say: "Our plans aren't discounts — same prices either way. They just simplify things: one invoice, one tech, one schedule."
 

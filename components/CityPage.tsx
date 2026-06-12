@@ -186,7 +186,7 @@ export default function CityPage({ city }: { city: CityData }) {
             <ServiceCard ribbon="Most Popular" icon="🛡️" title="Pest Control" price="$35" priceUnit="/mo ACH · or $70 bi-monthly"
               desc={`Year-round defense against 30+ ${city.name} pests. Bi-monthly perimeter service.`}
               bullets={["Interior + exterior perimeter", "Unlimited free re-services", "Fire ant treatment from $150", "Interior plan $98/quarter"]} />
-            <ServiceCard ribbon="$1M Coverage" icon="🪵" title="Termite (Sentricon®)" price="$32" priceUnit="/mo · or $380 install + annual"
+            <ServiceCard ribbon="$1M Coverage" icon="🪵" title="Termite (Sentricon®)" price="$32" priceUnit="/mo · or $325 install + $380/yr renewal"
               desc="Sentricon® Always Active™ stations. No drilling, no tank trucks. Up to $1M damage warranty."
               bullets={["Free full-home inspection", "Annual inspection included", "Crawlspace + pier coverage", "Continuous monitoring"]} />
             <ServiceCard ribbon="Mar – Nov" icon="🦟" title="Mosquito Control" price="$45" priceUnit="/mo · seasonal"
@@ -394,7 +394,7 @@ export default function CityPage({ city }: { city: CityData }) {
         "telephone": `+1${city.tel}`,
         "email": "service@envirocarellc.com",
         "openingHours": "Mo-Fr 08:00-17:00",
-        "priceRange": "$35-$127/mo",
+        "priceRange": "$35-$116/mo",
         "areaServed": [
           { "@type": "City", "name": city.name },
           ...city.neighborhoods.map(n => ({ "@type": "Neighborhood", "name": n.name }))

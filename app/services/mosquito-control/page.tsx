@@ -1,7 +1,7 @@
 import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
-  title: 'Alabama Mosquito Yard Treatment | EnviroCare 21-Day Service',
+  title: 'Alabama Mosquito Yard Treatment | EnviroCare 30-Day Service',
   description: 'Mosquito barrier yard service every 30 days, March–November. Family-owned, Applied per label directions. Call (205) 940-6360.',
 };
 

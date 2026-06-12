@@ -85,15 +85,15 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>
-              <div className="faq-a">Sentricon® Always Active™ is $32/mo, OR $380 install + annual renewal. Includes up to $1,000,000 in termite damage repair coverage, annual inspection, and one WDO letter per year.</div>
+              <div className="faq-a">Sentricon® Always Active™ is $32/mo, OR $325 install (incl. year-1) + $380/yr renewal. Includes up to $1,000,000 in termite damage repair coverage, annual inspection, and one WDO letter per year.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you bundle services?</summary>
-              <div className="faq-a">Yes — convenience bundling. You get one tech and one invoice for combined services like Pest + Termite (Foundation plan at $67/mo) or Mosquito + Tick + Flea (Outdoor Bundle at $60/mo). We don't discount bundles — we keep individual prices low instead.</div>
+              <div className="faq-a">Yes — convenience bundling. You get one tech and one invoice for combined services like Pest + Termite (Foundation plan at $67/mo) or Mosquito + Tick (Outdoor Pro at $49/mo). We don't discount bundles — we keep individual prices low instead.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Is there a setup fee?</summary>
-              <div className="faq-a">Pest control: no setup fee. Sentricon® termite: $380 install if you choose the install + annual renewal option, no install fee if you go with monthly billing.</div>
+              <div className="faq-a">Pest control: no setup fee. Sentricon® termite: $325 install (includes year-1 guarantee) if you choose the install + renewal option, no install fee if you go with monthly billing.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you offer one-time treatments?</summary>
@@ -149,7 +149,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you treat for ticks?</summary>
-              <div className="faq-a">Yes. Tick control is included in our Outdoor Bundle ($60/mo) along with mosquito and flea. Critical for wooded properties, lake homes, and families with dogs.</div>
+              <div className="faq-a">Yes. Tick control comes with mosquito in the Outdoor Pro plan ($49/mo) — chiggers covered too. Standalone tick treatment starts at $150. Critical for wooded properties, lake homes, and families with dogs.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">What about pollinators like bees and butterflies?</summary>

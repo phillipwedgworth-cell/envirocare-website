@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -264,7 +264,7 @@ function CoreServices() {
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
             description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['Up to 12 seasonal applications', 'Applied according to label directions once dry', '50% off first application']}
+            bullets={['9 treatments per season (March—November)', 'Applied according to label directions once dry', '50% off first application']}
             href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER"
           />
           <ServiceCard
@@ -868,72 +868,65 @@ function Pricing() {
           >Monthly Plan</button>
         </div>
 
-        {/* ── Monthly Plan cards ── */}
-        {mode === 'monthly' && (
-          <div className="ec-pricing-grid ec-pricing-fade">
-            <PriceCard
-              title="Essential" tags={['Pest']}
-              tagline="Year-round pest control for the everyday Alabama home."
-              price="35" unit="/mo" terms="ACH · or $70 bi-monthly"
-              bullets={['Bi-monthly exterior treatment', '30+ common pests covered', 'Unlimited free re-services', 'Same-week scheduling', 'EPA-registered products applied according to label directions']}
-              cta="Start Essential" href="/quote?plan=essential"
-            />
-            <PriceCard
-              title="Foundation" tags={['Pest', 'Termite']}
-              tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
-              price="67" unit="/mo" terms="ACH · one invoice, one tech"
-              bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
-              cta="Start Foundation" href="/quote?plan=foundation"
-              badge="MOST POPULAR" featured
-            />
-            <PriceCard
-              title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
-              tagline="All four programs — pest, termite, mosquito & tick — under one plan."
-              price="127" unit="/mo" terms="ACH · everything in one invoice"
-              bullets={['Everything in Foundation, plus:', 'Mosquito barrier (March–November, every 30 days)', 'Tick yard treatments included', 'Flea yard treatment included', 'Dedicated account technician', 'Priority same-week response']}
-              cta="Start Complete" href="/quote?plan=complete"
-            />
-          </div>
-        )}
+        {/* ── Plan cards — same four in both states; price lines swap (Jun 11 spec) ── */}
+        <div className="ec-pricing-grid ec-pricing-fade" key={mode}>
+          <PriceCard
+            title="Essential" tags={['Pest']}
+            tagline="Year-round pest control for the everyday Alabama home."
+            price={mode === 'monthly' ? '35' : '70'}
+            unit={mode === 'monthly' ? '/mo' : '/visit'}
+            terms={mode === 'monthly' ? 'ACH autopay · cancel anytime' : 'bi-monthly · or $108 quarterly'}
+            bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests covered', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
+            cta="Start Essential" href="/quote?plan=essential"
+            finePrint="$150 initial — ask about our $99 new-customer rate"
+          />
+          <PriceCard
+            title="Foundation" tags={['Pest', 'Termite']}
+            tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
+            price={mode === 'monthly' ? '67' : ''}
+            unit={mode === 'monthly' ? '/mo' : ''}
+            priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® $325 install' : undefined}
+            terms={mode === 'monthly' ? 'exactly what pest + termite cost separately — one tech, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
+            bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
+            cta="Start Foundation" href="/quote?plan=foundation"
+            badge="MOST POPULAR" featured
+          />
+          <PriceCard
+            title="Outdoor Pro" tags={['Mosquito', 'Tick']}
+            tagline="The biting-pest program — built for lake lots, wooded yards, and porch season."
+            price={mode === 'monthly' ? '49' : '65'}
+            unit={mode === 'monthly' ? '/mo' : '/treatment'}
+            terms={mode === 'monthly' ? '$65/treatment × 9 treatments, billed evenly across 12 months' : '9 treatments · every 30 days · March–November'}
+            bullets={['Mosquito barrier reduction program', 'Tick + chigger coverage — built for lake & wooded lots', 'Free re-treatment between visits if biting pests return', '$0 initial fee']}
+            cta="Start Outdoor Pro" href="/quote?plan=outdoor"
+          />
+          <PriceCard
+            title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
+            tagline="All four programs — pest, termite, mosquito & tick — under one plan."
+            price={mode === 'monthly' ? '116' : ''}
+            unit={mode === 'monthly' ? '/mo' : ''}
+            priceLine={mode === 'perservice' ? 'Pest $70/visit + Termite $325/$380yr + Outdoor $65/treatment' : undefined}
+            terms={mode === 'monthly' ? 'exact standalone math: $35 + $32 + $49. Zero bundle markup.' : 'every service at its standalone price'}
+            bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'One technician learns your property', 'Priority same-week response']}
+            cta="Start Complete" href="/quote?plan=complete"
+          />
+        </div>
 
-        {/* ── Per Service cards ── */}
-        {mode === 'perservice' && (
-          <div className="ec-svc-price-grid ec-pricing-fade">
-            <SvcPriceCard icon="🛡️" title="Pest Control" price="70" unit="/visit" note="Bi-monthly exterior treatment" bullets={['30+ common pests covered', 'Interior + perimeter', 'Unlimited free re-services']} href="/quote?service=pest" />
-            <SvcPriceCard icon="🪵" title="Termite Inspection" price="0" unit="FREE" note="Full home · no obligation" bullets={['Sentricon® quote included', 'Same-week scheduling', '$1M coverage available']} href="/quote?service=termite" featured />
-            <SvcPriceCard icon="🦟" title="Mosquito Application" price="45" unit="/app" note="30-day barrier · March–November" bullets={['Applied according to label directions once dry', 'Up to 12 seasonal apps', '50% off first application']} href="/quote?service=mosquito" />
-            <SvcPriceCard icon="🐾" title="Tick Treatment" price="69" unit="/treatment" note="Harborage-zone targeted" bullets={['Lone Star, Dog & Deer ticks', 'Yard-wide coverage', 'Free when bundled with mosquito']} href="/quote?service=tick" />
-            <SvcPriceCard icon="🐜" title="Fire Ant Control" price="69" unit="/treatment" note="Yard-wide elimination" bullets={['Mound + broadcast treatment', 'Critical for lake homes', 'Applied per label directions']} href="/quote?service=fire-ant" />
-            <SvcPriceCard icon="📋" title="WDO / Real Estate Letter" price="125" unit="/letter" note="Fast turnaround · lender-ready" bullets={['NPMA-33 format', 'Same-week scheduling', 'All three offices']} href="/quote?service=wdo" />
-          </div>
-        )}
-
-        <div className="ec-offers">
-          <div className="ec-offer">
-            <div className="ec-offer-icon">🏷️</div>
-            <div className="ec-offer-title">$50 Off Initial Service</div>
-            <div className="ec-offer-desc">New full-service program customers. Mention when calling.</div>
-          </div>
-          <div className="ec-offer">
-            <div className="ec-offer-icon">✦</div>
-            <div className="ec-offer-title">50% Off First Mosquito App</div>
-            <div className="ec-offer-desc">New mosquito program customers. Mention when calling.</div>
-          </div>
-          <div className="ec-offer">
-            <div className="ec-offer-icon">🔍</div>
-            <div className="ec-offer-title">Free Termite Inspection</div>
-            <div className="ec-offer-desc">No obligation. Schedule today at any AL office.</div>
-          </div>
+        {/* ── Initial-fee trust strip (Jun 11 spec) ── */}
+        <div className="ec-price-trust-strip">
+          <strong>Many companies charge $100–$250 just to get started.</strong> Your only
+          initial fee here is pest control — $150, often $99. Mosquito, tick &amp; fire ant
+          carry $0 initial fees.
         </div>
       </div>
     </section>
   );
 }
 
-function PriceCard({ title, tags, tagline, price, unit, terms, bullets, cta, href, badge, featured }: {
+function PriceCard({ title, tags, tagline, price, unit, terms, bullets, cta, href, badge, featured, priceLine, finePrint }: {
   title: string; tags: string[]; tagline: string; price: string; unit: string;
   terms: string; bullets: string[]; cta: string; href: string;
-  badge?: string; featured?: boolean;
+  badge?: string; featured?: boolean; priceLine?: string; finePrint?: string;
 }) {
   return (
     <div className={`ec-price-card ${featured ? 'ec-price-featured' : ''}`}>
@@ -943,11 +936,15 @@ function PriceCard({ title, tags, tagline, price, unit, terms, bullets, cta, hre
         {tags.map((t) => <span key={t} className="ec-price-tag">{t}</span>)}
       </div>
       <p className="ec-price-tagline">{tagline}</p>
-      <div className="ec-price-row">
-        <span className="ec-price-dollar">$</span>
-        <span className="ec-price-num">{price}</span>
-        <span className="ec-price-unit">{unit}</span>
-      </div>
+      {priceLine ? (
+        <div className="ec-price-row ec-price-composite">{priceLine}</div>
+      ) : (
+        <div className="ec-price-row">
+          <span className="ec-price-dollar">$</span>
+          <span className="ec-price-num">{price}</span>
+          <span className="ec-price-unit">{unit}</span>
+        </div>
+      )}
       <div className="ec-price-terms">{terms}</div>
       <ul className="ec-price-bullets">
         {bullets.map((b) => <li key={b}><span className="ec-check">✓</span> {b}</li>)}
@@ -955,6 +952,7 @@ function PriceCard({ title, tags, tagline, price, unit, terms, bullets, cta, hre
       <Link href={href} className={`ec-price-cta ${featured ? 'ec-price-cta-featured' : ''}`}>
         {cta}
       </Link>
+      {finePrint && <div className="ec-price-fineprint"><em>{finePrint}</em></div>}
     </div>
   );
 }
@@ -1020,8 +1018,8 @@ function BundleCTA() {
         </p>
         <div className="ec-bundle-prices">
           <div className="ec-bundle-line">Pest + Termite <span className="ec-bundle-price">$67/mo</span></div>
-          <div className="ec-bundle-line">Outdoor Bundle (Mosquito + Tick + Flea) <span className="ec-bundle-price">$60/mo</span></div>
-          <div className="ec-bundle-line">All Four Programs <span className="ec-bundle-price">$127/mo</span></div>
+          <div className="ec-bundle-line">Mosquito + Tick (covers chiggers) <span className="ec-bundle-price">$49/mo</span></div>
+          <div className="ec-bundle-line">All Four Programs <span className="ec-bundle-price">$116/mo</span></div>
         </div>
         <div className="ec-bundle-ctas">
           <a href="tel:2059406360" className="ec-cta-primary">Call (205) 940-6360</a>
@@ -1956,7 +1954,8 @@ const HOMEPAGE_CSS = `
     display: grid; grid-template-columns: 1fr; gap: 20px;
   }
   @media (min-width: 1024px) {
-    .ec-pricing-grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
+    .ec-pricing-grid { grid-template-columns: repeat(2, 1fr); align-items: start; } }
+  @media (min-width: 1200px) { .ec-pricing-grid { grid-template-columns: repeat(4, 1fr); align-items: start; }
   }
   .ec-price-card {
     background: #fff; border: 1px solid #E8E2D8;
@@ -2128,6 +2127,9 @@ const HOMEPAGE_CSS = `
   }
   .ec-svc-price-cta:hover { background: #E8F5EE; }
 
+  .ec-price-composite { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #0E1A0F; line-height: 1.45; min-height: 58px; display: flex; align-items: center; }
+  .ec-price-fineprint { margin-top: 10px; font-size: 12px; color: #5A6660; text-align: center; }
+  .ec-price-trust-strip { margin-top: 28px; background: #fff; border: 1px solid #F5A800; border-radius: 12px; padding: 14px 20px; font-size: 14px; color: #3D4F44; text-align: center; line-height: 1.6; }
   .ec-offers {
     display: grid; grid-template-columns: 1fr;
     gap: 12px; margin-top: 40px;

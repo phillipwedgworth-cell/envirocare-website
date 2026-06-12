@@ -20,18 +20,18 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
 - Fire ant treatment: $150 minimum, priced by the square footage of covered area —
   available to anyone in the service area, no plan required. Whole-colony treatment.
 - Tick treatment: $150 minimum standalone (priced by yard size), or bundled with
-  mosquito in the Outdoor plan at $60/month.
+  mosquito at +$20/treatment ($65 total) — the Outdoor Pro plan, $49/month.
 - Interior + exterior quarterly plan: $98/quarter (4 visits/year, inside and outside).
   Flea treatment is an add-on to this plan: +$30/quarter ($128/quarter total) — flea
   requires interior treatment.
-- Termite protection: Sentricon® Always Active™ bait system — $32/month, or $380 install
-  plus annual renewal. No drilling, no tank trucks. Up to $1,000,000 in damage repair
+- Termite protection: Sentricon® Always Active™ bait system — $32/month, or $325 install (includes year-1)
+  plus $380 annual renewal. No drilling, no tank trucks. Up to $1,000,000 in damage repair
   coverage. Free termite inspection.
 - Mosquito yard barrier: $45/month, March through November, re-applied every 30 days.
   Suited to waterfront properties (Lake Martin) — products approved for waterfront use.
-- Outdoor bundle (mosquito + tick + flea): $60/month.
+- Outdoor Pro (mosquito + tick, chigger coverage): $49/month — $65/treatment x 9 treatments billed evenly. Flea is an interior-plan add-on.
 - Plans: Essential $35/mo (pest) · Foundation $67/mo (pest + termite, most popular) ·
-  Outdoor Pro $60/mo · Complete $127/mo. Plans are conveniences, not discounts.
+  Outdoor Pro $49/mo · Complete $116/mo. Plans are conveniences, not discounts.
 - WDO letters (Alabama Wood Infestation Report): $75 standalone; one free per year for
   active termite customers. Builder pre-treats and commercial IPM/HACCP programs available.
 - Not offered: bed bug treatment, wildlife removal, lawn care.

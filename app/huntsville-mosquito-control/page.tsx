@@ -43,7 +43,7 @@ const c: ComboContent = {
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick & flea coverage available bundled ($60/mo)",
+      "Tick + chigger coverage available in Outdoor Pro ($49/mo)",
       "50% off your first application",
     ],
   },

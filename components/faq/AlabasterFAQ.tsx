@@ -46,7 +46,7 @@ const ALABASTER_FAQS = [
   {
     question: 'How does EnviroCare control mosquitoes in Shelby County?',
     answer:
-      'EnviroCare provides a monthly mosquito barrier service from March through November. Technicians target breeding sites and resting foliage around your yard to knock down adult mosquitoes and interrupt their life cycle. The yard barrier is $45/month, and the Mosquito + Tick + Flea bundle is $60/month — keeping outdoor spaces usable through the Alabama summer. Call (205) 940-6360.',
+      'EnviroCare provides a monthly mosquito barrier service from March through November. Technicians target breeding sites and resting foliage around your yard to knock down adult mosquitoes and interrupt their life cycle. The yard barrier is $45/month, and the Mosquito + Tick bundle (chiggers covered) is $49/month; flea is an interior-plan add-on — keeping outdoor spaces usable through the Alabama summer. Call (205) 940-6360.',
   },
   {
     question: 'Is EnviroCare a local business or a national franchise?',

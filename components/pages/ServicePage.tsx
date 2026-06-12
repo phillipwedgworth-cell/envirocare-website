@@ -66,7 +66,7 @@ const SERVICE_ART_SVG: Record<string, string> = {
 </g>
 <g transform="translate(200,160)"><circle r="100" fill="none" stroke="#F5A800" stroke-width="3" opacity="0.85"/><line x1="-78" y1="-78" x2="78" y2="78" stroke="#F5A800" stroke-width="5" opacity="0.85"/></g>
 <g fill="#F5A800" opacity="0.7"><circle cx="60" cy="40" r="2"/><circle cx="340" cy="50" r="2"/><circle cx="380" cy="280" r="1.5"/></g>
-<text x="200" y="295" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff" opacity="0.5" text-anchor="middle">21-DAY BARRIER · APR–OCT</text>
+<text x="200" y="295" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff" opacity="0.5" text-anchor="middle">30-DAY BARRIER · MAR–NOV</text>
 </svg>`,
   'tick': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(200,160)" opacity="0.92">

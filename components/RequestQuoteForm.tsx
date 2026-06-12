@@ -6,7 +6,7 @@ import { officeForZip } from '@/data/zip-to-office';
 const PLANS = [
   'Essential — $35/mo (pest only)',
   'Foundation — $67/mo (pest + termite)',
-  'Complete — $127/mo (pest + termite + mosquito + tick)',
+  'Complete — $116/mo (pest + termite + mosquito + tick)',
   'Not sure yet',
 ];
 

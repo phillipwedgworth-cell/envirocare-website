@@ -89,7 +89,7 @@ const FAQS = [
   },
   {
     q: "How much does Sentricon cost at EnviroCare?",
-    a: "Two options: $32/month with no installation fee (ACH auto-draft), or a one-time $380 installation fee with annual renewal pricing. Both include the same Sentricon Always Active system and the full $1,000,000 warranty. The monthly option is most popular because there's nothing upfront — you're covered from day one.",
+    a: "Two options: $32/month with no installation fee (ACH auto-draft), or a one-time $325 installation fee (includes the year-1 guarantee) with $380 annual renewal. Both include the same Sentricon Always Active system and the full $1,000,000 warranty. The monthly option is most popular because there's nothing upfront — you're covered from day one.",
   },
   {
     q: "Is drilling required to install Sentricon?",
