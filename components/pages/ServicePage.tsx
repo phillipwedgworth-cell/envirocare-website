@@ -246,7 +246,7 @@ export default function ServicePage({ slug }: { slug: string }) {
 
             <div className="city-cta-row">
               <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-              <a href="/pricing" className="btn-outline-white">See Pricing →</a>
+              <a href="/quote" className="btn-outline-white">See Pricing →</a>
             </div>
           </div>
           <div className="svc-art-box">
@@ -317,7 +317,7 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/pricing" className="btn-outline-white">See All Plans →</a>
+            <a href="/quote" className="btn-outline-white">See All Plans →</a>
           </div>
         </div>
       </section>

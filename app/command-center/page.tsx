@@ -8,6 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/command-center' },
   title: 'EnviroCare Ops',
   description: 'Internal operations dashboard',
   robots: { index: false, follow: false },

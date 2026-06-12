@@ -97,9 +97,6 @@ export const metadata: Metadata = {
     // Google Search Console verification from May 15 setup
     google: 'jsPqwOPMFt1Felwq6xg6-SBxM1w0Sf1zybHX6MXth1M',
   },
-  alternates: {
-    canonical: 'https://envirocare-web.vercel.app',
-  },
 };
 
 // ─── 3 LocalBusiness JSON-LD schemas (one per office)

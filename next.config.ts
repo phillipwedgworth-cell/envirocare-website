@@ -157,9 +157,9 @@ const nextConfig: NextConfig = {
             { source: '/madison', destination: '/service-areas/madison', permanent: true },
 
             // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
-            { source: '/bundle-services', destination: '/pricing', permanent: true },
+            { source: '/bundle-services', destination: '/quote', permanent: true },
             { source: '/reviews', destination: '/', permanent: true },
-            { source: '/special-offers', destination: '/pricing', permanent: true },
+            { source: '/special-offers', destination: '/quote', permanent: true },
                 ];
     },
 };

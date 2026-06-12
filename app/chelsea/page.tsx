@@ -1,6 +1,7 @@
 import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
+  alternates: { canonical: '/chelsea' },
   title: 'Chelsea Pest Control & Termite Service | EnviroCare Since 1958',
   description: 'Chelsea, AL pest control. Family-owned bi-monthly service. Sentricon® termite protection. Call (205) 940-6360.',
 };

@@ -1,6 +1,7 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/pay' },
   title: "Pay Your Bill",
   description: "Make a payment on your EnviroCare Pest Control account. Online payment portal coming soon — call your local office to pay by phone.",
   robots: { index: false, follow: true },

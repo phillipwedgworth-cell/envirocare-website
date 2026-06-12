@@ -41,7 +41,7 @@ export default function FaqPage() {
           </p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/pricing" className="btn-outline-white">See Pricing →</a>
+            <a href="/quote" className="btn-outline-white">See Pricing →</a>
           </div>
         </div>
       </section>

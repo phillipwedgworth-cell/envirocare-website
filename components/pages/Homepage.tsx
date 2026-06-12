@@ -72,12 +72,11 @@ function TopBanner() {
   return (
     <div className="ec-banner">
       <div className="ec-banner-inner">
-        <span className="ec-banner-sun">🌻</span>
-        <span className="ec-banner-gold">Family-owned since 1958</span>
-        <span className="ec-banner-dot">·</span>
-        <span className="ec-banner-text">Three generations of the Wedgworth family</span>
-        <span className="ec-banner-dot">·</span>
-        <span className="ec-banner-text">Sentricon® up to $1M coverage</span>
+        <div className="ec-banner-rotator" aria-live="off">
+          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Three generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
+          <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
+        </div>
         <a href="tel:2059406360" className="ec-banner-call">Call (205) 940-6360 →</a>
       </div>
     </div>
@@ -1059,7 +1058,7 @@ function Footer() {
           <Link href="/services/termite-control">Termite Control</Link>
           <Link href="/services/mosquito-control">Mosquito Control</Link>
           <Link href="/services/tick-control">Tick Control</Link>
-          <Link href="/bundle-services">Bundle &amp; Save</Link>
+          <Link href="/quote?plan=complete">Complete Plan</Link>
         </div>
 
         <div className="ec-footer-col">
@@ -1159,8 +1158,42 @@ const HOMEPAGE_CSS = `
   }
   .ec-banner-sun { font-size: 14px; }
   .ec-banner-gold { color: #F5A800; font-weight: 600; }
-  .ec-banner-dot { opacity: 0.5; }
-  .ec-banner-text { opacity: 0.92; }
+  .ec-banner-rotator {
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .ec-banner-msg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    animation: ec-banner-cycle 15s infinite;
+  }
+  .ec-banner-msg:nth-child(2) { animation-delay: 5s; }
+  .ec-banner-msg:nth-child(3) { animation-delay: 10s; }
+  @keyframes ec-banner-cycle {
+    0% { opacity: 0; transform: translateY(8px); }
+    4% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(0); }
+    34% { opacity: 0; transform: translateY(-8px); }
+    100% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ec-banner-msg { animation: none; }
+    .ec-banner-msg:first-child { opacity: 1; position: static; }
+    .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
+  }
+  @media (max-width: 720px) {
+    .ec-banner-rotator { width: 100%; }
+    .ec-banner-msg { font-size: 12px; }
+  }
   .ec-banner-call {
     margin-left: 12px;
     background: #F5A800;
@@ -1170,11 +1203,7 @@ const HOMEPAGE_CSS = `
     font-weight: 700;
     font-size: 12px;
   }
-  @media (max-width: 720px) {
-    .ec-banner-text:nth-of-type(2),
-    .ec-banner-dot:nth-of-type(3),
-    .ec-banner-dot:nth-of-type(4) { display: none; }
-  }
+
 
   /* HEADER - LOGO IMAGE ONLY */
   .ec-header {

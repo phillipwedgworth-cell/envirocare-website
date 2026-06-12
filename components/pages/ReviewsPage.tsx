@@ -87,7 +87,7 @@ export default function ReviewsPage() {
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/pricing" className="btn-outline-white">See Pricing →</a>
+            <a href="/quote" className="btn-outline-white">See Pricing →</a>
           </div>
         </div>
       </section>
