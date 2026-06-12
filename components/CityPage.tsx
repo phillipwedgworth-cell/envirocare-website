@@ -387,10 +387,10 @@ export default function CityPage({ city }: { city: CityData }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": `https://envirocare-web.vercel.app/${city.slug}`,
+        "@id": `https://www.envirocarellc.com/${city.slug}`,
         "name": `EnviroCare Pest & Termite Services — ${city.name}`,
         "description": city.metaDescription,
-        "url": `https://envirocare-web.vercel.app/${city.slug}`,
+        "url": `https://www.envirocarellc.com/${city.slug}`,
         "telephone": `+1${city.tel}`,
         "email": "service@envirocarellc.com",
         "openingHours": "Mo-Fr 08:00-17:00",

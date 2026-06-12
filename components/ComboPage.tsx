@@ -30,7 +30,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
       name: c.schemaName,
       telephone: c.office.phone,
       address: { "@type": "PostalAddress", streetAddress: c.office.address, addressRegion: "AL", addressCountry: "US" },
-      url: `https://envirocare-web.vercel.app${c.canonicalPath}`,
+      url: `https://www.envirocarellc.com${c.canonicalPath}`,
       parentOrganization: { "@type": "Organization", name: "EnviroCare Pest & Termite Services", foundingDate: "1958" },
     },
     {

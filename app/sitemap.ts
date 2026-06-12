@@ -9,8 +9,8 @@
 import type { MetadataRoute } from 'next';
 import { BLOG_POSTS } from '@/data/blog-posts';
 
-// Update this when you flip DNS from envirocare-web.vercel.app → envirocarellc.com
-const BASE_URL = 'https://envirocare-web.vercel.app';
+// Update this when you flip DNS from envirocarellc.com (flipped)
+const BASE_URL = 'https://www.envirocarellc.com';
 
 // Cities served (from data/cities.ts)
 const CITY_SLUGS = [

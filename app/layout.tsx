@@ -36,7 +36,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://envirocare-web.vercel.app'),
+  metadataBase: new URL('https://www.envirocarellc.com'),
   title: {
     default: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
     template: '%s | EnviroCare',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://envirocare-web.vercel.app',
+    url: 'https://www.envirocarellc.com',
     siteName: 'EnviroCare Pest & Termite Services',
     title: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
     description:
@@ -103,12 +103,12 @@ export const metadata: Metadata = {
 const BIRMINGHAM_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocare-web.vercel.app/#birmingham',
+  '@id': 'https://www.envirocarellc.com/#birmingham',
   name: 'EnviroCare Pest & Termite Services — Birmingham',
-  image: 'https://envirocare-web.vercel.app/og-image.png',
+  image: 'https://www.envirocarellc.com/og-image.png',
   description:
     'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
-  url: 'https://envirocare-web.vercel.app/birmingham',
+  url: 'https://www.envirocarellc.com/birmingham',
   telephone: '+1-205-940-6360',
   priceRange: '$$',
   address: {
@@ -131,12 +131,12 @@ const BIRMINGHAM_SCHEMA = {
 const LAKE_MARTIN_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocare-web.vercel.app/#lake-martin',
+  '@id': 'https://www.envirocarellc.com/#lake-martin',
   name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
-  image: 'https://envirocare-web.vercel.app/og-image.png',
+  image: 'https://www.envirocarellc.com/og-image.png',
   description:
     'EnviroCare\'s original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.',
-  url: 'https://envirocare-web.vercel.app/lake-martin',
+  url: 'https://www.envirocarellc.com/lake-martin',
   telephone: '+1-256-234-6162',
   priceRange: '$$',
   address: {
@@ -159,12 +159,12 @@ const LAKE_MARTIN_SCHEMA = {
 const HUNTSVILLE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'PestControlService',
-  '@id': 'https://envirocare-web.vercel.app/#huntsville',
+  '@id': 'https://www.envirocarellc.com/#huntsville',
   name: 'EnviroCare Pest & Termite Services — Huntsville',
-  image: 'https://envirocare-web.vercel.app/og-image.png',
+  image: 'https://www.envirocarellc.com/og-image.png',
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
-  url: 'https://envirocare-web.vercel.app/huntsville',
+  url: 'https://www.envirocarellc.com/huntsville',
   telephone: '+1-256-937-7676',
   priceRange: '$$',
   address: {
