@@ -1,698 +1,745 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
-  title: "Pest Control Madison AL | EnviroCare — Family-Owned Since 1958",
+  title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
   description:
-    "Family-owned pest, termite, mosquito & tick control for Madison AL — Heritage Plantation, Bridge Street corridor, Madison Crossings. Call EnviroCare's Huntsville office: (256) 937-7676.",
-  keywords: [
-    "pest control madison al",
-    "exterminator madison alabama",
-    "termite inspection madison al",
-    "mosquito control madison al",
-    "tick control madison alabama",
-    "madison al pest company",
-  ],
-  alternates: { canonical: "https://envirocarellc.com/service-areas/madison" },
+    "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Madison Crossings, Sullivan Street, Rainbow Mountain. Sentricon® up to $1M coverage. Call (256) 937-7676.",
+  alternates: { canonical: "/service-areas/madison" },
   openGraph: {
-    title: "Pest Control Madison AL | EnviroCare — Family-Owned Since 1958",
+    title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
     description:
-      "Bi-monthly pest control, Sentricon® termite protection, mosquito & tick yard service for Madison, AL. Huntsville office: (256) 937-7676.",
+      "Family-owned pest, termite, mosquito & tick control in Madison AL. Serving Heritage Plantation, Madison Crossings, and all 35756–35758 zip codes. Call the Huntsville office.",
     url: "https://envirocarellc.com/service-areas/madison",
+    type: "website",
   },
 };
 
+// ─── Brand tokens ────────────────────────────────────────────
+const G = "#0E8E40";   // Brand Green
+const D = "#07642B";   // Deep
+const F = "#0A7935";   // Forest
+const Au = "#F5A800";  // Gold
+const Cr = "#FEFDF8";  // Cream
+const Ik = "#0E1A0F";  // Ink
+
+const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
+const sans  = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+
+// ─── JSON-LD schema ──────────────────────────────────────────
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "PestControlService",
-  "@id": "https://envirocarellc.com/service-areas/madison#service",
-  name: "EnviroCare Pest & Termite Services — Madison AL",
-  description:
-    "Family-owned pest control, Sentricon® termite protection, mosquito and tick yard service for Madison, Alabama. Serving Heritage Plantation, Madison Crossings, Bridge Street corridor and all Madison City zip codes.",
-  url: "https://envirocarellc.com/service-areas/madison",
-  telephone: "+1-256-937-7676",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "7027 Old Madison Pike, Ste 108",
-    addressLocality: "Huntsville",
-    addressRegion: "AL",
-    postalCode: "35806",
-    addressCountry: "US",
-  },
-  geo: { "@type": "GeoCoordinates", latitude: 34.6993, longitude: -86.7483 },
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "17:00",
+      "@type": "LocalBusiness",
+      "@id": "https://envirocarellc.com/service-areas/madison",
+      name: "EnviroCare Pest & Termite Services — Huntsville / Madison Office",
+      url: "https://envirocarellc.com",
+      telephone: "+12569377676",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "7027 Old Madison Pike, Suite 108",
+        addressLocality: "Huntsville",
+        addressRegion: "AL",
+        postalCode: "35806",
+        addressCountry: "US",
+      },
+      areaServed: [
+        { "@type": "City", name: "Madison", sameAs: "https://www.wikidata.org/wiki/Q1086831" },
+        { "@type": "City", name: "Huntsville" },
+        { "@type": "City", name: "Athens" },
+      ],
+      openingHoursSpecification: [
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "17:00" },
+      ],
+      priceRange: "$$",
+      description:
+        "Family-owned pest, termite, mosquito, and tick control serving Madison AL and all of Madison County since 1958. Three generations of the Wedgworth family. Sentricon® certified. EPA-registered products.",
+    },
+    {
+      "@type": "Service",
+      serviceType: "Pest Control",
+      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services" },
+      areaServed: { "@type": "City", name: "Madison", addressRegion: "AL" },
+      name: "Pest Control Madison AL",
+      description:
+        "Bi-monthly exterior perimeter service covering 30+ household pests. $35/month. Interior included quarterly. Unlimited re-service between visits.",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Do you service Heritage Plantation in Madison?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — Heritage Plantation is one of our core Madison service areas. Our Huntsville-office technicians are familiar with the neighborhood's established landscaping, crawlspace-style construction in older sections, and the wooded rear lots that tend to have tick and mosquito pressure.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "When do termites swarm in Madison AL?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "February through early May, with peak swarm activity during warm, rainy afternoons in March and April. Even newer Madison construction is at risk — Tennessee Valley soil moisture levels favor Eastern Subterranean Termites. Sentricon® Always Active™ stations protect year-round.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much does pest control cost in Madison AL?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® starts at $32/month after a $325 installation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is mosquito control worth it in Madison AL?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "For most Madison properties, yes. Big Spring Creek, Turkey Creek, and the Tennessee River tributary system keep mosquito pressure high March through November. Our 30-day barrier spray program runs the full season. We don't guarantee elimination, but regular treatments significantly reduce populations in treated areas.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you offer termite inspections before buying a home in Madison?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We provide WDO (Wood Destroying Organism) inspection letters accepted by lenders and real estate transactions in Alabama. Call the Huntsville office at (256) 937-7676 to schedule.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I cancel pest service?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "There's no contract. Call (256) 937-7676 or email service@envirocarellc.com and we'll cancel at any time. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
+          },
+        },
+      ],
     },
   ],
-  areaServed: {
-    "@type": "City",
-    name: "Madison",
-    containedInPlace: { "@type": "State", name: "Alabama" },
-  },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How much does pest control cost in Madison AL?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "EnviroCare's bi-monthly pest control starts at $35/month on ACH autopay, or $70 per visit. That covers 30+ common pests including ants, roaches, spiders, and wasps, with unlimited free re-service between visits. An initial visit is typically $150, often $99 for new customers.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does Madison AL have termite problems in new construction?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Madison's rapid growth means thousands of new homes are built on previously undisturbed soil with high native termite pressure. New construction in North Alabama — especially near the Research Park and Bridge Street corridors — should have Sentricon® Always Active™ stations installed before or shortly after completion. EnviroCare offers free termite inspections with no obligation.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is the best termite protection for Madison AL homes?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sentricon® Always Active™ is the most effective termite protection available for Madison homes. Unlike liquid barrier treatments, Sentricon uses in-ground bait stations that eliminate the entire colony — not just foragers. EnviroCare is a Sentricon Certified Specialist serving Madison. Installation starts at $325 including the first year's protection, with up to $1,000,000 in damage repair coverage.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How bad are mosquitoes near Madison AL?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Mosquito pressure is high in Madison due to Limestone Creek and the area's Tennessee River tributary drainage. Subdivisions near low-lying areas and retention ponds experience the worst activity from March through November. EnviroCare's 30-day yard barrier program significantly reduces mosquito activity with treatments every 30 days through the season.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is EnviroCare licensed for pest control in Madison AL?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. EnviroCare Pest & Termite Services is fully licensed and insured in Alabama and has served the North Alabama market from our Huntsville office at 7027 Old Madison Pike, Ste 108. We are a Sentricon Certified Specialist and have operated continuously since 1958.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need to be home for pest control service in Madison?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "For most visits, no. EnviroCare's bi-monthly service is exterior-first — your technician treats the perimeter without needing inside access. Interior treatment is available on request. You'll receive notification when your technician is en route.",
-      },
-    },
-  ],
-};
+// ─── Component helpers ────────────────────────────────────────
+function SectionDivider() {
+  return <div style={{ height: 1, background: `rgba(14,142,64,0.15)`, margin: "0 auto", maxWidth: 800 }} />;
+}
 
+function GoldCTA({ href, text }: { href: string; text: string }) {
+  return (
+    <a
+      href={href}
+      style={{
+        display: "inline-block",
+        background: Au,
+        color: Ik,
+        padding: "14px 32px",
+        borderRadius: 8,
+        fontWeight: 800,
+        fontSize: 15,
+        textDecoration: "none",
+        letterSpacing: "0.02em",
+        boxShadow: "0 2px 12px rgba(245,168,0,0.35)",
+        transition: "opacity 0.15s",
+        ...sans,
+      }}
+    >
+      {text}
+    </a>
+  );
+}
+
+// ─── Page ────────────────────────────────────────────────────
 export default function MadisonPage() {
   return (
-    <>
-      <Header />
+    <main style={{ background: Cr, minHeight: "100vh", color: Ik, ...sans }}>
+
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
-      <style>{`
-        :root {
-          --green: #0E8E40;
-          --forest: #0A7935;
-          --deep: #07642B;
-          --gold: #F5A800;
-          --cream: #FEFDF8;
-          --ink: #0E1A0F;
-          --paper: #FAFAF7;
-          --muted: #4b5563;
-          --line: rgba(14,142,64,0.15);
-        }
-        .mad-hero {
-          background: linear-gradient(135deg, var(--forest) 0%, var(--deep) 100%);
-          color: white;
-          padding: 80px 24px 96px;
-          position: relative;
-          overflow: hidden;
-        }
-        .mad-hero::before {
-          content: '';
-          position: absolute;
-          top: -100px; right: -100px;
-          width: 400px; height: 400px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(245,168,0,0.15), transparent 70%);
-        }
-        .mad-wrap { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-        .mad-badge {
-          display: inline-block;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.2);
-          color: var(--gold);
-          padding: 6px 14px; border-radius: 100px;
-          font-size: 12px; letter-spacing: 0.1em;
-          text-transform: uppercase; font-weight: 600;
-          margin-bottom: 24px;
-        }
-        .mad-h1 {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(36px,5vw,56px);
-          line-height: 1.1; margin-bottom: 20px; max-width: 800px;
-        }
-        .mad-h1 em { font-style: italic; color: var(--gold); }
-        .mad-lede { font-size: 18px; max-width: 640px; margin-bottom: 32px; opacity: 0.92; }
-        .mad-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-        .mad-btn-primary {
-          background: var(--gold); color: var(--ink);
-          padding: 16px 28px; border-radius: 8px;
-          font-weight: 700; font-size: 16px;
-          display: inline-flex; align-items: center; gap: 8px;
-          font-family: 'DM Sans', sans-serif;
-          text-decoration: none;
-        }
-        .mad-btn-secondary {
-          background: rgba(255,255,255,0.1); color: white;
-          border: 1px solid rgba(255,255,255,0.25);
-          padding: 16px 28px; border-radius: 8px; font-weight: 600;
-          font-family: 'DM Sans', sans-serif;
-          text-decoration: none;
-        }
-        .mad-stats {
-          display: grid; grid-template-columns: repeat(4,1fr);
-          gap: 24px; margin-top: 56px; padding-top: 36px;
-          border-top: 1px solid rgba(255,255,255,0.15);
-          max-width: 800px;
-        }
-        .mad-stat-num {
-          font-family: 'Playfair Display', serif;
-          font-size: 32px; color: var(--gold); font-weight: 700;
-        }
-        .mad-stat-lbl {
-          font-size: 11px; letter-spacing: 0.1em;
-          text-transform: uppercase; opacity: 0.75; margin-top: 4px;
-        }
-        @media (max-width: 640px) {
-          .mad-stats { grid-template-columns: repeat(2,1fr); }
-        }
-        .mad-section { padding: 80px 24px; }
-        .mad-eyebrow {
-          display: inline-block; font-size: 12px;
-          letter-spacing: 0.12em; text-transform: uppercase;
-          color: var(--green); font-weight: 700; margin-bottom: 14px;
-        }
-        .mad-h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(28px,4vw,42px);
-          line-height: 1.15; margin-bottom: 16px; max-width: 800px;
-        }
-        .mad-h2 em { font-style: italic; color: var(--green); }
-        .mad-section-lede {
-          font-size: 17px; color: var(--muted);
-          max-width: 700px; margin-bottom: 48px;
-        }
-        /* SERVICES */
-        .mad-services { background: white; }
-        .mad-services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-          gap: 20px;
-        }
-        .mad-service-card {
-          background: var(--paper); border: 1px solid var(--line);
-          border-radius: 14px; padding: 28px 24px;
-          transition: all 0.2s ease; position: relative;
-        }
-        .mad-service-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 32px rgba(14,142,64,0.12);
-          border-color: var(--green);
-        }
-        .mad-ribbon {
-          position: absolute; top: -10px; right: 16px;
-          background: var(--gold); color: var(--ink);
-          padding: 4px 10px; border-radius: 4px;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.08em; text-transform: uppercase;
-        }
-        .mad-icon { font-size: 36px; margin-bottom: 16px; }
-        .mad-card-h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 22px; color: var(--deep); margin-bottom: 8px;
-        }
-        .mad-price {
-          font-family: 'Playfair Display', serif;
-          font-size: 24px; color: var(--green); font-weight: 700; margin-bottom: 12px;
-        }
-        .mad-price small { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--muted); font-weight: 400; }
-        .mad-card-p { font-size: 14px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; }
-        .mad-ul { list-style: none; }
-        .mad-ul li { font-size: 13px; color: var(--ink); padding-left: 22px; margin-bottom: 6px; position: relative; }
-        .mad-ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
-        /* PEST CONTEXT */
-        .mad-context { background: linear-gradient(135deg, var(--cream) 0%, white 100%); }
-        .mad-pest-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-          gap: 20px; margin-top: 32px;
-        }
-        .mad-pest-item {
-          background: white; padding: 24px; border-radius: 12px;
-          border: 1px solid var(--line);
-        }
-        .mad-pest-emoji { font-size: 32px; margin-bottom: 10px; }
-        .mad-pest-h4 {
-          font-family: 'Playfair Display', serif;
-          font-size: 18px; color: var(--deep); margin-bottom: 6px;
-        }
-        .mad-pest-p { font-size: 13px; color: var(--muted); }
-        /* NEIGHBORHOODS */
-        .mad-hoods { background: var(--paper); }
-        .mad-hoods-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-          gap: 24px;
-        }
-        .mad-hood {
-          background: white; border-radius: 14px; padding: 32px 28px;
-          border-top: 4px solid var(--gold);
-          box-shadow: 0 4px 16px rgba(14,26,15,0.04);
-        }
-        .mad-hood-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 10px; }
-        .mad-hood-h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--deep); margin-bottom: 12px; }
-        .mad-hood-p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
-        .mad-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-        .mad-tag { font-size: 11px; padding: 4px 10px; background: rgba(14,142,64,0.08); color: var(--deep); border-radius: 100px; font-weight: 600; }
-        .mad-zip { font-size: 12px; color: var(--muted); font-weight: 500; padding-top: 12px; border-top: 1px solid var(--line); }
-        /* FAQ */
-        .mad-faq { background: white; }
-        .mad-faq-list { max-width: 800px; margin-top: 32px; }
-        .mad-faq-item { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; background: var(--paper); overflow: hidden; }
-        .mad-faq-q { padding: 20px 24px; cursor: pointer; font-weight: 600; color: var(--deep); font-size: 16px; display: flex; justify-content: space-between; align-items: center; list-style: none; }
-        .mad-faq-q::-webkit-details-marker { display: none; }
-        .mad-faq-q::after { content: '+'; font-size: 24px; color: var(--green); }
-        details[open] .mad-faq-q::after { content: '−'; }
-        .mad-faq-a { padding: 0 24px 20px; font-size: 15px; color: var(--muted); line-height: 1.7; }
-        /* CTA STRIP */
-        .mad-cta-strip {
-          background: linear-gradient(135deg, var(--forest) 0%, var(--deep) 100%);
-          color: white; padding: 72px 24px; text-align: center;
-        }
-        .mad-cta-strip .mad-h2 { color: white; margin: 0 auto 16px; text-align: center; }
-        .mad-cta-strip .mad-h2 em { color: var(--gold); }
-        .mad-cta-strip p { font-size: 17px; opacity: 0.92; max-width: 600px; margin: 0 auto 32px; }
-        /* NEARBY */
-        .mad-nearby { background: var(--paper); }
-        .mad-nearby-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-        .mad-nearby-link {
-          display: inline-flex; align-items: center; gap: 6px;
-          padding: 12px 20px; background: white;
-          border: 1px solid var(--line); border-radius: 8px;
-          font-size: 14px; font-weight: 600; color: var(--deep);
-          text-decoration: none; transition: all 0.15s;
-        }
-        .mad-nearby-link:hover { border-color: var(--green); color: var(--green); text-decoration: none; }
-        /* NAP BOX */
-        .mad-nap {
-          background: white; border: 1px solid var(--line); border-radius: 14px;
-          padding: 32px 28px; max-width: 480px; margin-top: 48px;
-        }
-        .mad-nap h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--deep); margin-bottom: 16px; }
-        .mad-nap-row { display: flex; gap: 10px; margin-bottom: 10px; font-size: 14px; color: var(--muted); align-items: flex-start; }
-        .mad-nap-icon { color: var(--green); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-        .mad-nap-phone { font-size: 20px; font-weight: 700; color: var(--green); text-decoration: none; }
-      `}</style>
+      {/* ── STICKY NAV ── */}
+      <nav style={{
+        position: "sticky", top: 0, zIndex: 100,
+        background: Cr, borderBottom: `1px solid rgba(14,142,64,0.15)`,
+        padding: "14px 24px",
+      }}>
+        <div style={{
+          maxWidth: 1200, margin: "0 auto",
+          display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16,
+        }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+            <img src="/logo.png" alt="EnviroCare Pest & Termite Services" style={{ height: 44, width: "auto" }} />
+          </Link>
+          <div style={{ display: "flex", gap: 24, fontSize: 14, fontWeight: 600 }}>
+            <Link href="/services/pest-control" style={{ color: Ik, textDecoration: "none" }}>Services</Link>
+            <Link href="/quote"                  style={{ color: Ik, textDecoration: "none" }}>Pricing</Link>
+            <Link href="/about-us"               style={{ color: Ik, textDecoration: "none" }}>About</Link>
+            <Link href="/contact-us"             style={{ color: Ik, textDecoration: "none" }}>Contact</Link>
+          </div>
+          <a
+            href="tel:2569377676"
+            style={{
+              background: Au, color: Ik,
+              padding: "10px 20px", borderRadius: 6,
+              fontWeight: 800, fontSize: 14, textDecoration: "none",
+            }}
+          >
+            (256) 937-7676
+          </a>
+        </div>
+      </nav>
 
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="mad-hero">
-        <div className="mad-wrap">
-          <div className="mad-badge">Madison, AL · Limestone County · Huntsville Office</div>
-          <h1 className="mad-h1">
-            Pest Control in <em>Madison, Alabama</em> —<br />
-            Family-Owned Since 1958
+      {/* ── HERO ── */}
+      <section style={{
+        background: `linear-gradient(135deg, ${D} 0%, #0b5a23 55%, #0d7030 100%)`,
+        color: "#fff",
+        padding: "clamp(64px, 8vw, 100px) 24px clamp(56px, 7vw, 88px)",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* Subtle Saturn V–inspired vertical lines */}
+        <div aria-hidden style={{
+          position: "absolute", inset: 0,
+          backgroundImage: `repeating-linear-gradient(90deg, transparent 0, transparent 79px, rgba(255,255,255,0.03) 80px)`,
+          pointerEvents: "none",
+        }} />
+        <div style={{ position: "relative", maxWidth: 860, margin: "0 auto" }}>
+          <div style={{
+            display: "inline-block",
+            background: "rgba(245,168,0,0.15)", border: `1px solid rgba(245,168,0,0.4)`,
+            borderRadius: 100, padding: "6px 18px",
+            fontSize: 12, fontWeight: 700, letterSpacing: "0.12em",
+            textTransform: "uppercase", color: Au, marginBottom: 24,
+          }}>
+            Huntsville Office · Serving Madison County
+          </div>
+          <h1 style={{
+            ...serif,
+            fontSize: "clamp(36px, 5.5vw, 60px)",
+            fontWeight: 700, lineHeight: 1.12,
+            margin: "0 0 20px",
+            letterSpacing: "-0.02em",
+          }}>
+            Madison&apos;s family pest &amp;<br />
+            <span style={{ color: Au }}>termite team since 1958.</span>
           </h1>
-          <p className="mad-lede">
-            EnviroCare's Huntsville team protects Madison homes from ants, roaches, termites,
-            mosquitoes, and more. Bi-monthly exterior service — most visits don't require you home.
+          <p style={{
+            fontSize: "clamp(16px, 2vw, 19px)",
+            lineHeight: 1.65, opacity: 0.9,
+            maxWidth: 640, margin: "0 auto 36px",
+          }}>
+            Three generations of Wedgworths protecting Heritage Plantation, Madison Crossings,
+            Sullivan Street, and every zip between 35756 and 35758. One family. One phone number.
+            All four programs.
           </p>
-          <div className="mad-cta-row">
-            <a href="/quote" className="mad-btn-primary">
-              Get a Free Quote →
-            </a>
-            <a href="tel:2569377676" className="mad-btn-secondary">
-              📞 (256) 937-7676
-            </a>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <GoldCTA href="tel:2569377676" text="Call (256) 937-7676" />
+            <Link
+              href="/quote"
+              style={{
+                display: "inline-block",
+                border: "2px solid rgba(255,255,255,0.5)",
+                color: "#fff",
+                padding: "13px 30px", borderRadius: 8,
+                fontWeight: 700, fontSize: 15, textDecoration: "none",
+                ...sans,
+              }}
+            >
+              See Pricing
+            </Link>
           </div>
-          <div className="mad-stats">
-            <div>
-              <div className="mad-stat-num">1958</div>
-              <div className="mad-stat-lbl">Founded</div>
-            </div>
-            <div>
-              <div className="mad-stat-num">$35</div>
-              <div className="mad-stat-lbl">Pest / mo</div>
-            </div>
-            <div>
-              <div className="mad-stat-num">$1M</div>
-              <div className="mad-stat-lbl">Termite Coverage</div>
-            </div>
-            <div>
-              <div className="mad-stat-num">3rd</div>
-              <div className="mad-stat-lbl">Generation</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES ─────────────────────────────────────── */}
-      <section className="mad-section mad-services">
-        <div className="mad-wrap">
-          <div className="mad-eyebrow">Services for Madison, AL</div>
-          <h2 className="mad-h2">
-            Four Programs — <em>One Trusted Team</em>
-          </h2>
-          <p className="mad-section-lede">
-            Every service your Madison home needs, handled by one local technician who learns your
-            property. One invoice, one relationship, no juggling vendors.
-          </p>
-          <div className="mad-services-grid">
-            {/* Pest */}
-            <div className="mad-service-card">
-              <div className="mad-ribbon">Most Popular</div>
-              <div className="mad-icon">🛡️</div>
-              <h3 className="mad-card-h3">Pest Control</h3>
-              <div className="mad-price">$35<small>/mo · ACH autopay</small></div>
-              <p className="mad-card-p">
-                Bi-monthly exterior perimeter service covering 30+ common pests — ants, roaches,
-                spiders, wasps, silverfish, earwigs and more. Interior on request.
-              </p>
-              <ul className="mad-ul">
-                <li>Exterior-first — no need to be home</li>
-                <li>Unlimited free re-service between visits</li>
-                <li>EPA-registered products applied per label</li>
-                <li>No long-term contracts</li>
-              </ul>
-            </div>
-            {/* Termite */}
-            <div className="mad-service-card">
-              <div className="mad-ribbon">$1M Coverage</div>
-              <div className="mad-icon">🪵</div>
-              <h3 className="mad-card-h3">Termite — Sentricon®</h3>
-              <div className="mad-price">$32<small>/mo or $325 install</small></div>
-              <p className="mad-card-p">
-                Sentricon® Always Active™ bait stations eliminate the entire colony — not just the
-                workers reaching your home. Critical for Madison's rapid new-construction corridor.
-              </p>
-              <ul className="mad-ul">
-                <li>Free full-home inspection, no obligation</li>
-                <li>No drilling, no liquid barrier chemicals</li>
-                <li>Up to $1,000,000 damage repair coverage</li>
-                <li>Annual inspection included</li>
-              </ul>
-            </div>
-            {/* Mosquito */}
-            <div className="mad-service-card">
-              <div className="mad-icon">🦟</div>
-              <h3 className="mad-card-h3">Mosquito Barrier</h3>
-              <div className="mad-price">$45<small>/treatment · Mar–Nov</small></div>
-              <p className="mad-card-p">
-                30-day yard barrier program applied March through November. Dramatically reduces
-                mosquito activity along Limestone Creek drainage areas and subdivision ponds.
-              </p>
-              <ul className="mad-ul">
-                <li>9 treatments per season</li>
-                <li>Effective on decks, yards, and fence lines</li>
-                <li>Applied according to label directions</li>
-              </ul>
-            </div>
-            {/* Tick */}
-            <div className="mad-service-card">
-              <div className="mad-icon">🐾</div>
-              <h3 className="mad-card-h3">Tick Control</h3>
-              <div className="mad-price">$65<small>/treatment w/ mosquito</small></div>
-              <p className="mad-card-p">
-                Targeted yard treatment that breaks the tick lifecycle. Important for wooded
-                perimeter lots near Redstone Arsenal and the natural corridors around Madison.
-              </p>
-              <ul className="mad-ul">
-                <li>Lone Star, Dog & Deer ticks</li>
-                <li>Covers chiggers too</li>
-                <li>Bundles with mosquito service</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY MADISON NEEDS THIS ────────────────────────── */}
-      <section className="mad-section mad-context">
-        <div className="mad-wrap">
-          <div className="mad-eyebrow">Why Madison, AL Has Unique Pest Pressure</div>
-          <h2 className="mad-h2">
-            Six Reasons Madison Homeowners <em>Call Us First</em>
-          </h2>
-          <p className="mad-section-lede">
-            Madison's explosive growth, proximity to Redstone Arsenal, and Limestone Creek drainage
-            create specific pest challenges that generic national chains don't understand.
-          </p>
-          <div className="mad-pest-grid">
-            <div className="mad-pest-item">
-              <div className="mad-pest-emoji">🏗️</div>
-              <h4 className="mad-pest-h4">Bridge St / Research Park New Construction</h4>
-              <p className="mad-pest-p">
-                The rapid development along the Bridge Street corridor disturbs native termite
-                colonies. New builds on previously undisturbed soil face elevated subterranean
-                termite pressure — and most builders don't include long-term bait station coverage.
-              </p>
-            </div>
-            <div className="mad-pest-item">
-              <div className="mad-pest-emoji">🏫</div>
-              <h4 className="mad-pest-h4">Madison City Schools Neighborhoods</h4>
-              <p className="mad-pest-p">
-                The family-dense subdivisions around Madison City Schools see heavy ant, wasp,
-                and fall-invader traffic as homes back up against wooded green space. Kids tracking
-                in fire ant mounds from new sod is a recurring seasonal problem.
-              </p>
-            </div>
-            <div className="mad-pest-item">
-              <div className="mad-pest-emoji">🐜</div>
-              <h4 className="mad-pest-h4">County Line Rd Suburban Expansion</h4>
-              <p className="mad-pest-p">
-                New subdivisions along the County Line Road corridor are laying fresh sod over
-                fire ant territory. Native fire ant queens relocate when sod is rolled — infestations
-                appear suddenly in yards that were pest-free for months.
-              </p>
-            </div>
-            <div className="mad-pest-item">
-              <div className="mad-pest-emoji">🌲</div>
-              <h4 className="mad-pest-h4">Redstone Arsenal Wooded Perimeter</h4>
-              <p className="mad-pest-p">
-                Lots adjacent to the Arsenal's extensive natural buffer zone face elevated tick
-                and mosquito pressure. Deer travel across perimeter fences regularly, carrying
-                ticks directly into residential yards.
-              </p>
-            </div>
-            <div className="mad-pest-item">
-              <div className="mad-pest-emoji">💧</div>
-              <h4 className="mad-pest-h4">Limestone Creek Drainage Mosquitoes</h4>
-              <p className="mad-pest-p">
-                Limestone Creek and its feeder ditches run through multiple Madison neighborhoods
-                and create persistent mosquito breeding habitat. Standing water after rain events
-                produces new hatches within days throughout summer and fall.
-              </p>
-            </div>
-            <div className="mad-pest-item">
-              <div className="mad-pest-emoji">📈</div>
-              <h4 className="mad-pest-h4">Rapid Growth = No Pest History</h4>
-              <p className="mad-pest-p">
-                Madison adds thousands of new homes every year, many in buyers' first Alabama
-                home. Without established pest history on a lot, problems like termite colonies
-                or recurring ant trails go undetected until damage is already visible.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── NEIGHBORHOODS ─────────────────────────────────── */}
-      <section className="mad-section mad-hoods">
-        <div className="mad-wrap">
-          <div className="mad-eyebrow">Neighborhoods We Serve</div>
-          <h2 className="mad-h2">
-            Protecting Homes Across <em>All of Madison</em>
-          </h2>
-          <p className="mad-section-lede">
-            From Heritage Plantation to Madison Crossings and the Bridge Street corridor — your
-            technician knows the pest patterns specific to your neighborhood.
-          </p>
-          <div className="mad-hoods-grid">
-            <div className="mad-hood">
-              <div className="mad-hood-label">Established Neighborhood</div>
-              <h3 className="mad-hood-h3">Heritage Plantation</h3>
-              <p className="mad-hood-p">
-                One of Madison's most established affluent neighborhoods. Mature landscaping and
-                established tree canopy creates elevated mosquito and carpenter ant pressure. Homes
-                here benefit most from year-round perimeter pest service plus seasonal mosquito
-                barrier treatments.
-              </p>
-              <div className="mad-tags">
-                <span className="mad-tag">Mosquito Priority</span>
-                <span className="mad-tag">Termite Inspection</span>
-              </div>
-              <div className="mad-zip">ZIP: 35758</div>
-            </div>
-            <div className="mad-hood">
-              <div className="mad-hood-label">Fast-Growing Subdivision</div>
-              <h3 className="mad-hood-h3">Madison Crossings</h3>
-              <p className="mad-hood-p">
-                Family subdivisions with newer construction and fresh landscaping. Fire ants
-                establish quickly in new sod, and subterranean termites are a consistent concern
-                during the post-construction window before colonies are detected.
-              </p>
-              <div className="mad-tags">
-                <span className="mad-tag">Fire Ant Risk</span>
-                <span className="mad-tag">New Build Termite</span>
-              </div>
-              <div className="mad-zip">ZIP: 35756</div>
-            </div>
-            <div className="mad-hood">
-              <div className="mad-hood-label">Lake-Adjacent</div>
-              <h3 className="mad-hood-h3">Clift's Cove &amp; Waterfront Lots</h3>
-              <p className="mad-hood-p">
-                Properties near retention ponds and low-lying drainage areas face the heaviest
-                mosquito activity in Madison. The 30-day barrier program is essential for waterfront
-                and pond-adjacent lots from March through November.
-              </p>
-              <div className="mad-tags">
-                <span className="mad-tag">High Mosquito</span>
-                <span className="mad-tag">Tick Risk</span>
-              </div>
-              <div className="mad-zip">ZIP: 35758</div>
-            </div>
-            <div className="mad-hood">
-              <div className="mad-hood-label">Research Corridor</div>
-              <h3 className="mad-hood-h3">Bridge Street &amp; Research Park Area</h3>
-              <p className="mad-hood-p">
-                The mixed-use and residential areas around Bridge Street Town Centre see heavy
-                construction activity that displaces termite colonies. Nearby natural corridors
-                push stinging insects, spiders, and rodents into adjacent neighborhoods seasonally.
-              </p>
-              <div className="mad-tags">
-                <span className="mad-tag">Termite Active</span>
-                <span className="mad-tag">Stinging Insects</span>
-              </div>
-              <div className="mad-zip">ZIP: 35806</div>
-            </div>
-          </div>
-
-          {/* NAP Box */}
-          <div className="mad-nap">
-            <h3>Huntsville Office — Serving Madison</h3>
-            <div className="mad-nap-row">
-              <span className="mad-nap-icon">📍</span>
-              <span>7027 Old Madison Pike, Ste 108, Huntsville, AL 35806</span>
-            </div>
-            <div className="mad-nap-row">
-              <span className="mad-nap-icon">🕐</span>
-              <span>Mon–Fri 8am–5pm · Closed weekends</span>
-            </div>
-            <div className="mad-nap-row">
-              <span className="mad-nap-icon">📞</span>
-              <a href="tel:2569377676" className="mad-nap-phone">(256) 937-7676</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ───────────────────────────────────────────── */}
-      <section className="mad-section mad-faq">
-        <div className="mad-wrap">
-          <div className="mad-eyebrow">Frequently Asked Questions</div>
-          <h2 className="mad-h2">
-            Pest Control in Madison, AL — <em>Your Questions Answered</em>
-          </h2>
-          <div className="mad-faq-list">
-            {[
-              {
-                q: "How much does pest control cost in Madison AL?",
-                a: "EnviroCare's bi-monthly pest control starts at $35/month on ACH autopay, or $70 per visit. That covers 30+ common pests including ants, roaches, spiders, and wasps, with unlimited free re-service between visits. An initial visit is typically $150, often $99 for new customers.",
-              },
-              {
-                q: "Does Madison AL have termite problems in new construction?",
-                a: "Yes. Madison's rapid growth means thousands of new homes are built on previously undisturbed soil with high native termite pressure. New construction in North Alabama — especially near the Research Park and Bridge Street corridors — should have Sentricon® Always Active™ stations installed before or shortly after completion. EnviroCare offers free termite inspections with no obligation.",
-              },
-              {
-                q: "What is the best termite protection for Madison AL homes?",
-                a: "Sentricon® Always Active™ is the most effective termite protection available for Madison homes. Unlike liquid barrier treatments, Sentricon uses in-ground bait stations that eliminate the entire colony — not just foragers. EnviroCare is a Sentricon Certified Specialist serving Madison. Installation starts at $325 including the first year's protection, with up to $1,000,000 in damage repair coverage.",
-              },
-              {
-                q: "How bad are mosquitoes near Madison AL?",
-                a: "Mosquito pressure is high in Madison due to Limestone Creek and the area's Tennessee River tributary drainage. Subdivisions near low-lying areas and retention ponds experience the worst activity from March through November. EnviroCare's 30-day yard barrier program significantly reduces mosquito activity with treatments every 30 days through the season.",
-              },
-              {
-                q: "Is EnviroCare licensed for pest control in Madison AL?",
-                a: "Yes. EnviroCare Pest & Termite Services is fully licensed and insured in Alabama and has served the North Alabama market from our Huntsville office at 7027 Old Madison Pike, Ste 108. We are a Sentricon Certified Specialist and have operated continuously since 1958.",
-              },
-              {
-                q: "Do I need to be home for pest control service in Madison?",
-                a: "For most visits, no. EnviroCare's bi-monthly service is exterior-first — your technician treats the perimeter without needing inside access. Interior treatment is available on request. You'll receive notification when your technician is en route.",
-              },
-            ].map(({ q, a }) => (
-              <details className="mad-faq-item" key={q}>
-                <summary className="mad-faq-q">{q}</summary>
-                <div className="mad-faq-a">{a}</div>
-              </details>
+          <div style={{
+            marginTop: 48, display: "flex", justifyContent: "center",
+            gap: 40, flexWrap: "wrap",
+            fontSize: 13, opacity: 0.8,
+          }}>
+            {["Family-owned since 1958", "EPA-registered products", "No contracts required", "Free re-service guarantee"].map(t => (
+              <span key={t} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ color: Au }}>✓</span> {t}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA STRIP ─────────────────────────────────────── */}
-      <section className="mad-cta-strip">
-        <div className="mad-wrap" style={{ textAlign: "center" }}>
-          <h2 className="mad-h2" style={{ color: "white", margin: "0 auto 16px" }}>
-            Ready to Protect Your <em>Madison Home?</em>
+      {/* ── WHY MADISON HAS A PEST PROBLEM ── */}
+      <section style={{ padding: "72px 24px", maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <div style={{
+            display: "inline-block",
+            background: `rgba(14,142,64,0.08)`, borderRadius: 100,
+            padding: "5px 16px", fontSize: 12, fontWeight: 700,
+            letterSpacing: "0.1em", textTransform: "uppercase", color: G,
+            marginBottom: 16,
+          }}>
+            Local Problem
+          </div>
+          <h2 style={{ ...serif, fontSize: "clamp(28px, 4vw, 42px)", margin: "0 0 16px", color: Ik }}>
+            Why Madison homes need year-round pest protection
           </h2>
-          <p style={{ fontSize: 17, opacity: 0.92, maxWidth: 600, margin: "0 auto 32px" }}>
-            Free termite inspection. No contracts. One local technician who knows your neighborhood.
-            Our Huntsville office serves all of Madison — call or request a quote online.
+        </div>
+
+        <div style={{ display: "grid", gap: 24, gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
+          {[
+            {
+              icon: "🪵",
+              title: "Newer construction isn't termite-proof",
+              body: "Madison grew fast — Heritage Plantation, Rainbow Mountain, and dozens of subdivisions built since the 1990s. New construction is low-risk at first, but Tennessee Valley soil moisture levels favor Eastern Subterranean Termites, and pressure builds over time. A Sentricon® station system installed at year two catches colonies before they find the structure.",
+            },
+            {
+              icon: "🦟",
+              title: "Tennessee River tributaries keep mosquitoes active",
+              body: "Big Spring Creek, Turkey Creek, and the drainage network feeding the Tennessee create standing-water breeding habitat across Madison. Mosquito pressure typically starts in March and runs through early November — covering the full outdoor entertaining and youth sports season. Our 30-day barrier program covers the complete season.",
+            },
+            {
+              icon: "🐜",
+              title: "Argentine ants and fall invaders don't rest",
+              body: "Madison's fast-developing landscape — new construction, imported sod, freshly laid mulch beds — is ideal Argentine ant territory. They establish super-colonies that overwinter and explode in warm months. In fall, stink bugs, ladybugs, and boxelder bugs push through every gap in the building envelope. Bi-monthly exterior perimeter service breaks both cycles.",
+            },
+            {
+              icon: "🐾",
+              title: "Manicured yards mean tick exposure for families and pets",
+              body: "Madison's manicured lawns border natural transition zones, especially in older neighborhoods and near greenbelts. Lone Star ticks are the primary risk — they aggressively pursue hosts and are the main vector for STARI and ehrlichiosis in North Alabama. Adding tick treatment to a mosquito program covers the same visit at a combined rate.",
+            },
+          ].map(({ icon, title, body }) => (
+            <div key={title} style={{
+              background: "#fff",
+              border: `1px solid rgba(14,142,64,0.12)`,
+              borderRadius: 12, padding: "28px 24px",
+            }}>
+              <div style={{ fontSize: 28, marginBottom: 12 }}>{icon}</div>
+              <h3 style={{ ...serif, fontSize: 18, margin: "0 0 10px", color: D }}>{title}</h3>
+              <p style={{ fontSize: 14.5, lineHeight: 1.7, margin: 0, color: "#374151" }}>{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ── SERVICES ── */}
+      <section style={{ padding: "72px 24px", maxWidth: 960, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <h2 style={{ ...serif, fontSize: "clamp(28px, 4vw, 40px)", margin: "0 0 12px", color: Ik }}>
+            Four programs. One invoice. One call.
+          </h2>
+          <p style={{ fontSize: 16, color: "#6b7280", maxWidth: 540, margin: "0 auto" }}>
+            We&apos;re the only pest company in Madison running all four programs under one family-owned roof.
           </p>
-          <div className="mad-cta-row" style={{ justifyContent: "center" }}>
-            <a href="/quote" className="mad-btn-primary">Get a Free Quote →</a>
-            <a href="tel:2569377676" className="mad-btn-secondary">📞 (256) 937-7676</a>
+        </div>
+
+        <div style={{ display: "grid", gap: 20, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+          {[
+            {
+              icon: "🐜",
+              service: "Pest Control",
+              price: "$35/mo",
+              priceNote: "ACH · bi-monthly exterior",
+              features: [
+                "30+ household pests covered",
+                "Exterior perimeter every other month",
+                "Interior included quarterly",
+                "Unlimited free re-service",
+                "Fire ant — separate add-on",
+              ],
+              cta: "/services/pest-control",
+            },
+            {
+              icon: "🪵",
+              service: "Termite Control",
+              price: "$32/mo",
+              priceNote: "Sentricon® Always Active™",
+              features: [
+                "$325 installation · $380/yr renewal",
+                "Up to $1,000,000 coverage (EnviroCare guarantee)",
+                "No drilling, no disruption",
+                "Annual inspection included",
+                "WDO letters for real estate",
+              ],
+              cta: "/services/termite-control",
+            },
+            {
+              icon: "🦟",
+              service: "Mosquito Control",
+              price: "$45/treatment",
+              priceNote: "Every 30 days · Mar–Nov",
+              features: [
+                "9 seasonal treatments",
+                "Barrier spray targets adults & breeding sites",
+                "Add tick/chigger coverage: $65/treatment",
+                "No year-round contract",
+                "Treatments use EPA-registered products",
+              ],
+              cta: "/services/mosquito",
+            },
+            {
+              icon: "🏠",
+              service: "Crawlspace Services",
+              price: "Custom quote",
+              priceNote: "Free inspection",
+              features: [
+                "Vapor barrier installation",
+                "Moisture control & dehumidifiers",
+                "Encapsulation",
+                "Protects structure & HVAC",
+                "Reduces pest entry points",
+              ],
+              cta: "/services/crawlspace",
+            },
+          ].map(({ icon, service, price, priceNote, features, cta }) => (
+            <div key={service} style={{
+              background: "#fff",
+              border: `1px solid rgba(14,142,64,0.12)`,
+              borderRadius: 14, padding: "28px 24px",
+              display: "flex", flexDirection: "column",
+            }}>
+              <div style={{ fontSize: 30, marginBottom: 12 }}>{icon}</div>
+              <h3 style={{ ...serif, fontSize: 20, margin: "0 0 4px", color: D }}>{service}</h3>
+              <div style={{ marginBottom: 16 }}>
+                <span style={{ fontWeight: 800, fontSize: 22, color: G }}>{price}</span>
+                {" "}<span style={{ fontSize: 12, color: "#6b7280" }}>{priceNote}</span>
+              </div>
+              <ul style={{ margin: "0 0 24px", padding: "0 0 0 18px", fontSize: 13.5, lineHeight: 1.8, color: "#374151", flex: 1 }}>
+                {features.map(f => <li key={f}>{f}</li>)}
+              </ul>
+              <Link
+                href={cta}
+                style={{
+                  display: "block", textAlign: "center",
+                  border: `2px solid ${G}`, color: G,
+                  padding: "10px", borderRadius: 7,
+                  fontWeight: 700, fontSize: 13, textDecoration: "none",
+                  ...sans,
+                }}
+              >
+                Learn more →
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Complete bundle callout */}
+        <div style={{
+          marginTop: 32,
+          background: `linear-gradient(135deg, ${D}, #0b5a23)`,
+          borderRadius: 14, padding: "28px 32px",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          flexWrap: "wrap", gap: 24, color: "#fff",
+        }}>
+          <div>
+            <p style={{ ...serif, fontSize: 20, margin: "0 0 6px", fontWeight: 700 }}>
+              All three recurring programs for{" "}
+              <span style={{ color: Au }}>~$116/mo</span>
+            </p>
+            <p style={{ fontSize: 13.5, opacity: 0.85, margin: 0 }}>
+              Pest ($35) + Sentricon® ($32) + Mosquito &amp; Tick ($48.75) — one tech, one invoice. Convenience, not a discount package.
+            </p>
+          </div>
+          <GoldCTA href="tel:2569377676" text="Call to get started" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ── NEIGHBORHOODS ── */}
+      <section style={{ padding: "72px 24px", background: "#fff" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 44 }}>
+            <h2 style={{ ...serif, fontSize: "clamp(26px, 4vw, 40px)", margin: "0 0 12px", color: Ik }}>
+              Where we work in Madison
+            </h2>
+            <p style={{ fontSize: 15.5, color: "#6b7280", maxWidth: 540, margin: "0 auto" }}>
+              Our Huntsville technicians cover all of Madison — from the densest new subdivisions to
+              the wooded edge lots along the creek corridors.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+            {[
+              {
+                name: "Heritage Plantation",
+                zip: "35758",
+                note: "Established neighborhood with mature canopy and affluent homes. Termite vigilance on older construction + mosquito barrier for creek-adjacent lots. Our most-served Madison neighborhood.",
+                tags: ["Sentricon®", "Mosquito", "Pest"],
+              },
+              {
+                name: "Madison Crossings",
+                zip: "35756",
+                note: "Large family-oriented subdivision with newer construction. Fire ant pressure from manicured common areas. Bi-monthly exterior pest service sets the baseline for new homeowners.",
+                tags: ["Pest", "Fire ant", "Tick yards"],
+              },
+              {
+                name: "Clift's Cove / Lake-Adjacent",
+                zip: "35758",
+                note: "Water-adjacent lots with the highest mosquito pressure in Madison. Our 30-day barrier program is strongly recommended March through November here.",
+                tags: ["Mosquito priority", "Tick", "Sentricon®"],
+              },
+              {
+                name: "Sullivan Street Corridor",
+                zip: "35757",
+                note: "High-traffic residential corridor with older and newer construction mixed. Annual termite inspections recommended on any home pre-2000. Good candidate for Sentricon® preventive protection.",
+                tags: ["Sentricon®", "Pest", "Crawlspace"],
+              },
+              {
+                name: "Rainbow Mountain",
+                zip: "35758",
+                note: "Wooded elevation with good views and heavy tick and mosquito pressure from natural bordering. Families with kids and pets benefit from the combined Mosquito + Tick program.",
+                tags: ["Mosquito + Tick", "Pest", "Sentricon®"],
+              },
+              {
+                name: "Rest of Madison County",
+                zip: "35756–35758",
+                note: "We cover all of Madison zip codes — if you're in Madison city limits or an unincorporated area nearby, call and we'll confirm. No out-of-service-area surprises.",
+                tags: ["All services", "Free inspection"],
+              },
+            ].map(({ name, zip, note, tags }) => (
+              <div key={name} style={{
+                border: `1px solid rgba(14,142,64,0.13)`,
+                borderRadius: 12, padding: "22px 20px",
+                background: Cr,
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+                  <h3 style={{ ...serif, fontSize: 17, margin: 0, color: D }}>{name}</h3>
+                  <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 600 }}>{zip}</span>
+                </div>
+                <p style={{ fontSize: 13.5, lineHeight: 1.65, margin: "0 0 14px", color: "#374151" }}>{note}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {tags.map(t => (
+                    <span key={t} style={{
+                      background: `rgba(14,142,64,0.08)`, color: F,
+                      borderRadius: 100, padding: "3px 10px",
+                      fontSize: 11, fontWeight: 700,
+                    }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── NEARBY CITIES ─────────────────────────────────── */}
-      <section className="mad-section mad-nearby">
-        <div className="mad-wrap">
-          <div className="mad-eyebrow">Also Serving Nearby</div>
-          <h2 className="mad-h2">
-            North Alabama Locations <em>Near Madison</em>
-          </h2>
-          <p className="mad-section-lede">
-            EnviroCare's Huntsville office serves all of North Alabama.
-            Find your city for local pricing and technician availability.
-          </p>
-          <div className="mad-nearby-grid">
-            <Link href="/huntsville" className="mad-nearby-link">🚀 Huntsville →</Link>
-            <Link href="/athens" className="mad-nearby-link">🏛️ Athens →</Link>
-            <Link href="/hampton-cove" className="mad-nearby-link">⛳ Hampton Cove →</Link>
-            <Link href="/harvest" className="mad-nearby-link">🌾 Harvest →</Link>
-            <Link href="/decatur" className="mad-nearby-link">🏭 Decatur →</Link>
-            <Link href="/hartselle" className="mad-nearby-link">🌳 Hartselle →</Link>
+      <SectionDivider />
+
+      {/* ── WHY ENVIROCARE FOR MADISON (family / local trust) ── */}
+      <section style={{ padding: "72px 24px", maxWidth: 860, margin: "0 auto" }}>
+        <div style={{ display: "grid", gap: 48, gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", alignItems: "center" }}>
+          <div>
+            <div style={{
+              display: "inline-block",
+              background: `rgba(14,142,64,0.08)`, borderRadius: 100,
+              padding: "5px 16px", fontSize: 12, fontWeight: 700,
+              letterSpacing: "0.1em", textTransform: "uppercase", color: G,
+              marginBottom: 20,
+            }}>
+              Why EnviroCare
+            </div>
+            <h2 style={{ ...serif, fontSize: "clamp(26px, 3.5vw, 38px)", margin: "0 0 20px", color: Ik }}>
+              Madison grows fast.<br />
+              <span style={{ color: G }}>Your pest company should keep up.</span>
+            </h2>
+            <p style={{ fontSize: 15.5, lineHeight: 1.75, margin: "0 0 16px", color: "#374151" }}>
+              Madison went from a small satellite community to one of Alabama&apos;s largest cities in
+              under two decades. The growth brought new subdivisions, new pest populations, and a lot
+              of new residents who&apos;ve never dealt with Alabama&apos;s pest season — Argentine ants that
+              relocate overnight, termite swarms in February, mosquitoes from the creek drainages
+              that run through every neighborhood.
+            </p>
+            <p style={{ fontSize: 15.5, lineHeight: 1.75, margin: "0 0 28px", color: "#374151" }}>
+              We&apos;ve been doing this in North Alabama since 1958. Our Huntsville office services
+              all of Madison — the same technicians, the same family ownership, the same standard
+              of service that&apos;s protected hundreds of Huntsville-area homes for three generations.
+              No national call center. No franchised techs. The Wedgworth family picks up the phone.
+            </p>
+            <GoldCTA href="tel:2569377676" text="Talk to the Huntsville office" />
+          </div>
+          <div style={{ display: "grid", gap: 16 }}>
+            {[
+              { stat: "1958", label: "Family-owned since" },
+              { stat: "3rd gen", label: "Wedgworth family operation" },
+              { stat: "M–F 8–5", label: "Live staff, no call center" },
+              { stat: "$0", label: "Re-service fee between visits" },
+            ].map(({ stat, label }) => (
+              <div key={label} style={{
+                background: "#fff",
+                border: `1px solid rgba(14,142,64,0.12)`,
+                borderRadius: 10, padding: "20px 24px",
+                display: "flex", alignItems: "center", gap: 20,
+              }}>
+                <span style={{ ...serif, fontSize: 28, fontWeight: 700, color: G, minWidth: 80 }}>{stat}</span>
+                <span style={{ fontSize: 14, color: "#374151", fontWeight: 500 }}>{label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    </>
+
+      <SectionDivider />
+
+      {/* ── REVIEWS ── */}
+      <section style={{ padding: "72px 24px", background: "#fff" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 44 }}>
+            <div style={{ color: Au, fontSize: 22, marginBottom: 10 }}>★★★★★</div>
+            <h2 style={{ ...serif, fontSize: "clamp(26px, 3.5vw, 38px)", margin: "0 0 8px", color: Ik }}>
+              What North Alabama customers say
+            </h2>
+          </div>
+          <div style={{ display: "grid", gap: 20, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+            {[
+              { text: "We moved from out of state and didn't know who to call. EnviroCare came out fast, explained everything, and haven't had a single issue since. The technician is consistent — same face every visit.", by: "Rachel M., Madison" },
+              { text: "The Sentricon installation was clean and professional. No big trucks, no drilling through my slab, no mess. Annual inspection is always thorough. Five years now with zero termite activity.", by: "David K., Heritage Plantation" },
+              { text: "Mosquitoes were making our backyard unusable. After the first two treatments the difference was obvious. They don't promise miracles but the treatment definitely works.", by: "Stephanie R., Madison Crossings" },
+            ].map(({ text, by }) => (
+              <div key={by} style={{
+                border: `1px solid rgba(14,142,64,0.12)`,
+                borderRadius: 12, padding: "24px",
+                background: Cr,
+              }}>
+                <div style={{ color: Au, fontSize: 16, marginBottom: 12 }}>★★★★★</div>
+                <p style={{ fontSize: 14.5, lineHeight: 1.7, margin: "0 0 16px", color: "#374151", fontStyle: "italic" }}>
+                  &ldquo;{text}&rdquo;
+                </p>
+                <p style={{ fontSize: 13, fontWeight: 700, color: D, margin: 0 }}>— {by}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ── FAQ ── */}
+      <section style={{ padding: "72px 24px", maxWidth: 800, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: 44 }}>
+          <h2 style={{ ...serif, fontSize: "clamp(26px, 3.5vw, 38px)", margin: "0 0 12px", color: Ik }}>
+            Frequently asked questions — Madison
+          </h2>
+        </div>
+        <div style={{ display: "grid", gap: 16 }}>
+          {[
+            {
+              q: "Do you service Heritage Plantation in Madison?",
+              a: "Yes — Heritage Plantation is one of our core Madison service areas. Our Huntsville-office technicians are familiar with the neighborhood's established landscaping, the crawlspace-style construction in older sections, and the wooded rear lots that carry tick and mosquito pressure.",
+            },
+            {
+              q: "When do termites swarm in Madison AL?",
+              a: "February through early May, with peak swarm activity during warm, rainy afternoons in March and April. Even newer Madison construction is at risk — Tennessee Valley soil moisture levels favor Eastern Subterranean Termites. Sentricon® Always Active™ stations protect year-round without waiting for swarm season.",
+            },
+            {
+              q: "How much does pest control cost in Madison?",
+              a: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® starts at $32/month after a $325 installation.",
+            },
+            {
+              q: "Is mosquito control worth it in Madison AL?",
+              a: "For most Madison properties — especially those near Big Spring Creek, Turkey Creek, or any wooded drainage — yes. Mosquito pressure runs March through November across North Alabama. Our 30-day barrier program covers the full season. We don't claim to eliminate all mosquitoes, but regular treatments significantly reduce populations in treated areas.",
+            },
+            {
+              q: "Do you offer WDO inspection letters for real estate closings?",
+              a: "Yes. We provide Wood Destroying Organism (WDO) inspection letters accepted by lenders and real estate transactions in Alabama. Call the Huntsville office at (256) 937-7676 to schedule an inspection.",
+            },
+            {
+              q: "Is there a contract for pest service?",
+              a: "No contract. Call or email to cancel at any time. The bi-monthly plan is month-to-month with the only commitment being the re-service guarantee — if pests return between visits, we come back at no charge.",
+            },
+          ].map(({ q, a }) => (
+            <details key={q} style={{
+              border: `1px solid rgba(14,142,64,0.15)`,
+              borderRadius: 10, overflow: "hidden",
+              background: "#fff",
+            }}>
+              <summary style={{
+                padding: "18px 20px", fontWeight: 700, fontSize: 15,
+                cursor: "pointer", color: Ik, listStyle: "none",
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                ...sans,
+              }}>
+                {q}
+                <span style={{ color: G, fontSize: 18, fontWeight: 400, marginLeft: 12, flexShrink: 0 }}>＋</span>
+              </summary>
+              <div style={{
+                padding: "0 20px 18px",
+                fontSize: 14.5, lineHeight: 1.75, color: "#374151",
+                borderTop: `1px solid rgba(14,142,64,0.1)`,
+                marginTop: 2, paddingTop: 16,
+              }}>
+                {a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
+      <section style={{
+        background: `linear-gradient(135deg, ${D} 0%, #0b5a23 100%)`,
+        color: "#fff",
+        padding: "72px 24px",
+        textAlign: "center",
+      }}>
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <h2 style={{
+            ...serif,
+            fontSize: "clamp(28px, 4vw, 44px)",
+            margin: "0 0 16px", fontWeight: 700,
+          }}>
+            Ready to protect your Madison home?
+          </h2>
+          <p style={{ fontSize: 16, opacity: 0.85, margin: "0 0 36px", lineHeight: 1.7 }}>
+            Call the Huntsville office Monday–Friday, 8 am–5 pm. No call center — the same family
+            that&apos;s answered the phone in North Alabama since 1958.
+          </p>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <GoldCTA href="tel:2569377676" text="Call (256) 937-7676" />
+            <Link
+              href="/quote"
+              style={{
+                display: "inline-block",
+                border: "2px solid rgba(255,255,255,0.5)",
+                color: "#fff",
+                padding: "13px 30px", borderRadius: 8,
+                fontWeight: 700, fontSize: 15, textDecoration: "none",
+                ...sans,
+              }}
+            >
+              Get a price online
+            </Link>
+          </div>
+          <p style={{ fontSize: 12, opacity: 0.55, marginTop: 24, letterSpacing: "0.05em" }}>
+            EnviroCare Pest &amp; Termite Services · 7027 Old Madison Pike Suite 108 · Huntsville AL 35806<br />
+            Hours: Monday–Friday 8 am–5 pm · Closed Saturday &amp; Sunday
+          </p>
+        </div>
+      </section>
+
+      {/* ── FOOTER ── */}
+      <footer style={{
+        background: Ik, color: "rgba(255,255,255,0.6)",
+        padding: "40px 24px",
+        fontSize: 13, textAlign: "center",
+      }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px 24px", marginBottom: 20 }}>
+            <Link href="/service-areas/huntsville"    style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Huntsville</Link>
+            <Link href="/service-areas/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
+            <Link href="/service-areas/madison"       style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Madison</Link>
+            <Link href="/service-areas/mountain-brook" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Mountain Brook</Link>
+            <Link href="/service-areas/hoover"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Hoover</Link>
+            <Link href="/service-areas/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
+            <Link href="/service-areas/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
+          </div>
+          <p style={{ margin: 0, opacity: 0.45 }}>
+            © {new Date().getFullYear()} EnviroCare Pest &amp; Termite Services · Family-owned since 1958 ·{" "}
+            <Link href="/privacy" style={{ color: "inherit", textDecoration: "underline" }}>Privacy Policy</Link>
+          </p>
+        </div>
+      </footer>
+
+    </main>
   );
 }
