@@ -20,8 +20,7 @@ jobs:
       - name: Run AEO-Watch
         env:
           ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
-          # GOOGLE_API_KEY is the existing AI Studio (Gemini) repo secret — run-crew.yml uses the same one
-          GEMINI_API_KEY:       ${{ secrets.GOOGLE_API_KEY }}
+          GEMINI_API_KEY:       ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY:       ${{ secrets.OPENAI_API_KEY }}
           SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
           # SUPABASE_KEY is the existing service-role repo secret
