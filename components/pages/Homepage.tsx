@@ -828,7 +828,7 @@ function Pricing() {
             price={mode === 'monthly' ? '49' : '65'}
             unit={mode === 'monthly' ? '/mo' : '/treatment'}
             terms={mode === 'monthly' ? '$65/treatment × 9 treatments, billed evenly across 12 months' : '9 treatments · every 30 days · March–November'}
-            bullets={['Mosquito barrier reduction program', 'Tick + chigger coverage — built for lake & wooded lots', 'Free re-treatment between visits if biting pests return', '$0 initial fee']}
+            bullets={['Mosquito barrier reduction program', 'Tick + chigger coverage — built for lake & wooded lots', 'Free re-treatment between visits', '$0 initial fee']}
             cta="Start Outdoor Pro" href="/quote?plan=outdoor"
           />
           <PriceCard
