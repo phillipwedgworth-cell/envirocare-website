@@ -214,7 +214,7 @@ async function main() {
   }
 
   // ───── NOTIFY: one digest email per run if anything shipped ─────
-  if (shipList.length) await emailDigest(shipList);
+  if (shipList.length) await emailDigest({ agent: 'aeo-watch', findings: shipList });
 
   await endRun(runId, {
     sourcesChecked: config.sources.length,

@@ -19,8 +19,6 @@ jobs:
           node-version: '20'
       - name: Run AEO-Watch
         env:
-          # NOTION_TOKEN should come from the repository secret `NOTION_TOKEN`.
-          # Do NOT commit literal tokens to the repo.
           ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY:       ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY:       ${{ secrets.OPENAI_API_KEY }}
@@ -29,6 +27,8 @@ jobs:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
           NOTION_TOKEN:         ${{ secrets.NOTION_TOKEN }}
           NOTION_APPROVALS_DB_ID: ${{ secrets.NOTION_APPROVALS_DB_ID }}
+          # Unified Agent Command Center DB (notifier.mjs reads this) — see docs/NOTION-AGENT-COMMAND-CENTER-SETUP.md
+          NOTION_AGENT_DB_ID:   ${{ secrets.NOTION_AGENT_DB_ID }}
           RESEND_API_KEY:       ${{ secrets.RESEND_API_KEY }}
           ALERT_EMAIL:          ${{ secrets.ALERT_EMAIL }}
           NOTIFY_FROM:          alerts@envirocarellc.com

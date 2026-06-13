@@ -1,0 +1,28 @@
+name: Daily Rollup
+
+# Runs at 8am CT (13:00 UTC during CDT) — AFTER AEO-Watch's 7am run,
+# so it captures the latest agent activity in the rollup.
+on:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run Daily Rollup
+        env:
+          SUPABASE_URL:           ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY:   ${{ secrets.SUPABASE_KEY }}
+          NOTION_TOKEN:           ${{ secrets.NOTION_TOKEN }}
+          NOTION_AGENT_DB_ID:     ${{ secrets.NOTION_AGENT_DB_ID }}
+          RESEND_API_KEY:         ${{ secrets.RESEND_API_KEY }}
+          ALERT_EMAIL:            ${{ secrets.ALERT_EMAIL }}
+          NOTIFY_FROM:            ${{ secrets.NOTIFY_FROM }}
+        run: node agents/daily-rollup.mjs
