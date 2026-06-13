@@ -26,7 +26,7 @@ const CITY_SLUGS = [
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).
 // /madison 301s here — see next.config.ts redirects.
-const SERVICE_AREA_SLUGS = ['madison'];
+const SERVICE_AREA_SLUGS = ['madison', 'fultondale', 'redstone-arsenal'];
 
 // City×service combo pages (top-level routes)
 const COMBO_SLUGS = [
