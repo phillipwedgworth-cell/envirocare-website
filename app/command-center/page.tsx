@@ -1,690 +1,466 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/command-center/page.tsx
+// Commit: feat(command-center): full cockpit — local SEO, reviews, GSC, GA4, ads, agents, brief, integrations, cron
+// Push: main
+// ─────────────────────────────────────
 /**
- * app/command-center/page.tsx
- * Private ops dashboard — gate: ?key=envirocare2026
- * Reads: agent_runs, agent_findings, envirocare_seo
+ * EnviroCare Command Center — single-pane-of-glass ops cockpit.
+ * Gate: /command-center?key=envirocare2026
+ * Server component. Reads every Supabase feed the agents + ingests populate:
+ *   agent_runs · agent_findings · envirocare_seo · gsc_daily · ga4_weekly
+ *   gads_campaigns · cfo_snapshots · morning_brief
+ * Empty sections show how to populate them. No client JS.
  */
-
 import { createClient } from '@supabase/supabase-js';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   alternates: { canonical: '/command-center' },
-  title: 'EnviroCare Ops',
-  description: 'Internal operations dashboard',
+  title: 'EnviroCare Command Center',
+  description: 'Internal operations cockpit',
   robots: { index: false, follow: false },
 };
 
+const GATE = 'envirocare2026';
+
 // ── types ─────────────────────────────────────────────────────────────────────
+interface AgentRun { agent_name: string; status: string; output: string | null; created_at: string; }
+interface Finding { id?: number; agent_name: string; category: string; severity: string; page_url?: string | null; finding: string; run_date: string; }
+interface SeoRow { location: string; solv: number | null; arp: number | null; review_count: number | null; keyword: string | null; snapshot_date: string; }
+interface GscDay { date: string; clicks: number; impressions: number; ctr: number; position: number; }
+interface Ga4Row { period_end: string; sessions: number; users: number; engaged_sessions: number; conversions: number; }
+interface GadsRow { campaign: string; cost: number; clicks: number; impressions: number; conversions: number; cost_per_conv: number; snapshot_label: string; snapshot_date: string; }
+interface CfoRow { snapshot_date: string; metrics: Record<string, unknown>; note: string | null; }
+interface BriefRow { brief_date: string; content: string; }
 
-interface AgentRun {
-  agent_name: string;
-  status: string;
-  output: string;
-  created_at: string;
+// ── helpers ─────────────────────────────────────────────────────────────────
+const num = (v: unknown) => (v == null || isNaN(Number(v)) ? 0 : Number(v));
+const fmt = (n: number) => Math.round(n).toLocaleString('en-US');
+const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+const pct1 = (n: number) => `${n.toFixed(1)}%`;
+
+function timeAgo(s?: string) {
+  if (!s) return '—';
+  const d = new Date(s).getTime();
+  if (isNaN(d)) return '—';
+  const m = Math.floor((Date.now() - d) / 60000);
+  if (m < 1) return 'just now';
+  if (m < 60) return `${m}m ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h}h ago`;
+  return `${Math.floor(h / 24)}d ago`;
 }
 
-interface AgentFinding {
-  id?: number;
-  agent_name: string;
-  category: string;
-  severity: string;
-  page_url?: string;
-  finding: string;
-  run_date: string;
+function firstPerKey<T>(rows: T[], key: (r: T) => string): Map<string, T> {
+  const m = new Map<string, T>();
+  for (const r of rows) { const k = key(r); if (!m.has(k)) m.set(k, r); }
+  return m;
 }
 
-interface SeoRow {
-  location: string;
-  solv: number | null;
-  arp: number | null;
-  review_count: number | null;
-  keyword: string | null;
-  snapshot_date: string;
+function Spark({ values, w = 132, h = 34, color = '#0E8E40' }: { values: number[]; w?: number; h?: number; color?: string }) {
+  if (values.length < 2) return null;
+  const max = Math.max(...values, 1), min = Math.min(...values, 0), span = max - min || 1;
+  const pts = values.map((v, i) => `${((i / (values.length - 1)) * w).toFixed(1)},${(h - ((v - min) / span) * (h - 4) - 2).toFixed(1)}`).join(' ');
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ display: 'block' }} aria-hidden="true">
+      <polyline points={pts} fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+    </svg>
+  );
 }
 
-// ── data fetching ─────────────────────────────────────────────────────────────
+function sevColor(s: string) {
+  if (s === 'critical') return '#C0392B';
+  if (s === 'warning') return '#B8860B';
+  return '#0E8E40';
+}
+function statusColor(s: string) {
+  if (s === 'ok') return '#0E8E40';
+  if (s === 'escalated') return '#B8860B';
+  if (s === 'error') return '#C0392B';
+  return '#9aa39b';
+}
 
-async function fetchData() {
+// ── data ──────────────────────────────────────────────────────────────────────
+async function fetchAll() {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_KEY;
   if (!url || !key) return null;
-
   const sb = createClient(url, key);
+  const grab = <T,>(p: PromiseLike<{ data: T[] | null }>): Promise<T[]> =>
+    Promise.resolve(p).then((r) => (r.data ?? []) as T[]).catch(() => [] as T[]);
 
-  const [runsRes, findingsRes, seoRes] = await Promise.all([
-    sb
-      .from('agent_runs')
-      .select('agent_name, status, output, created_at')
-      .order('created_at', { ascending: false })
-      .limit(60),
-    sb
-      .from('agent_findings')
-      .select('id, agent_name, category, severity, page_url, finding, run_date')
-      .order('run_date', { ascending: false })
-      .limit(100),
-    sb
-      .from('envirocare_seo')
-      .select('location, solv, arp, review_count, keyword, snapshot_date')
-      .order('snapshot_date', { ascending: false })
-      .limit(40),
+  const [runs, findings, seo, gsc, ga4, gads, cfo, brief] = await Promise.all([
+    grab<AgentRun>(sb.from('agent_runs').select('agent_name,status,output,created_at').order('created_at', { ascending: false }).limit(80)),
+    grab<Finding>(sb.from('agent_findings').select('id,agent_name,category,severity,page_url,finding,run_date').order('run_date', { ascending: false }).limit(120)),
+    grab<SeoRow>(sb.from('envirocare_seo').select('location,solv,arp,review_count,keyword,snapshot_date').order('snapshot_date', { ascending: false }).limit(80)),
+    grab<GscDay>(sb.from('gsc_daily').select('date,clicks,impressions,ctr,position').order('date', { ascending: false }).limit(45)),
+    grab<Ga4Row>(sb.from('ga4_weekly').select('period_end,sessions,users,engaged_sessions,conversions').order('period_end', { ascending: false }).limit(12)),
+    grab<GadsRow>(sb.from('gads_campaigns').select('campaign,cost,clicks,impressions,conversions,cost_per_conv,snapshot_label,snapshot_date').order('snapshot_date', { ascending: false }).limit(60)),
+    grab<CfoRow>(sb.from('cfo_snapshots').select('snapshot_date,metrics,note').order('snapshot_date', { ascending: false }).limit(1)),
+    grab<BriefRow>(sb.from('morning_brief').select('brief_date,content').order('brief_date', { ascending: false }).limit(1)),
   ]);
-
-  return {
-    runs: (runsRes.data ?? []) as AgentRun[],
-    findings: (findingsRes.data ?? []) as AgentFinding[],
-    seo: (seoRes.data ?? []) as SeoRow[],
-    errors: [runsRes.error, findingsRes.error, seoRes.error]
-      .filter(Boolean)
-      .map((e) => e!.message),
-  };
+  return { runs, findings, seo, gsc, ga4, gads, cfo, brief };
 }
 
-// ── helpers ───────────────────────────────────────────────────────────────────
-
-function relativeTime(iso: string): string {
-  const diff = Date.now() - new Date(iso).getTime();
-  const mins = Math.floor(diff / 60000);
-  if (mins < 60) return `${mins}m ago`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs}h ago`;
-  const days = Math.floor(hrs / 24);
-  if (days < 7) return `${days}d ago`;
-  return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-}
-
-function latestPerAgent(runs: AgentRun[]): AgentRun[] {
-  const map: Record<string, AgentRun> = {};
-  for (const r of runs) if (!map[r.agent_name]) map[r.agent_name] = r;
-  return Object.values(map);
-}
-
-function latestPerLocation(seo: SeoRow[]): SeoRow[] {
-  const map: Record<string, SeoRow> = {};
-  for (const r of seo) if (!map[r.location]) map[r.location] = r;
-  return Object.values(map);
-}
-
-function reviewHistory(seo: SeoRow[]): Record<string, { date: string; count: number }[]> {
-  const out: Record<string, { date: string; count: number }[]> = {};
-  for (const r of [...seo].reverse()) {
-    if (r.review_count == null) continue;
-    if (!out[r.location]) out[r.location] = [];
-    out[r.location].push({ date: r.snapshot_date, count: r.review_count });
-  }
-  return out;
-}
-
-function sevColor(sev: string): string {
-  if (sev === 'critical') return '#ef4444';
-  if (sev === 'high') return '#f97316';
-  if (sev === 'medium') return '#eab308';
-  if (sev === 'low') return '#3b82f6';
-  return '#6b7280';
-}
-
-function statusColor(s: string) {
-  return s === 'success' || s === 'ok' ? '#22c55e' : s === 'error' ? '#ef4444' : '#eab308';
-}
-
-// ── constants ─────────────────────────────────────────────────────────────────
-
-const KNOWN_LOCATIONS = ['Alabaster', 'Huntsville', 'Alex City'];
-
-const SOLV_TARGETS: Record<string, number> = {
-  Alabaster: 65,
-  'Alex City': 50,
-  Huntsville: 35,
-  Auburn: 55,
-};
-
-const EXTERNAL_LINKS = [
-  {
-    group: 'SEO & Local',
-    links: [
-      { label: 'Local Falcon', href: 'https://app.localfalcon.com', icon: '🦅' },
-      { label: 'BrightLocal', href: 'https://dashboard.brightlocal.com', icon: '📍' },
-      { label: 'Search Console', href: 'https://search.google.com/search-console', icon: '🔍' },
-      { label: 'Google Analytics', href: 'https://analytics.google.com/analytics/web/#/p/G-CELEB90NKX', icon: '📈' },
-      { label: 'Google Business', href: 'https://business.google.com', icon: '📌' },
-    ],
-  },
-  {
-    group: 'Infrastructure',
-    links: [
-      { label: 'Vercel', href: 'https://vercel.com/phillipwedgworth-cell/envirocare-website', icon: '▲' },
-      { label: 'Supabase', href: 'https://supabase.com/dashboard', icon: '🗄️' },
-      { label: 'GitHub', href: 'https://github.com/phillipwedgworth-cell/envirocare-website', icon: '🐙' },
-      { label: 'Resend', href: 'https://resend.com/emails', icon: '✉️' },
-    ],
-  },
-  {
-    group: 'Site Pages',
-    links: [
-      { label: 'Home', href: '/', icon: '🏠' },
-      { label: 'Pricing', href: '/pricing', icon: '💰' },
-      { label: 'Blog', href: '/blog', icon: '📝' },
-      { label: 'Services', href: '/services', icon: '🐛' },
-      { label: 'Contact', href: '/contact-us', icon: '📞' },
-      { label: 'Birmingham', href: '/birmingham', icon: '🏙️' },
-      { label: 'Huntsville', href: '/huntsville', icon: '🚀' },
-      { label: 'Lake Martin', href: '/lake-martin', icon: '⛵' },
-    ],
-  },
-];
-
-// ── CSS ── (scoped to #cc-root; also hides site widgets that don't belong on ops)
-const CSS = `
-/* Hide customer-facing widgets on the ops page */
-.cw-bubble, .sc-wrap { display: none !important; }
-
-#cc-root {
-  background: #0a0f1a;
-  color: #e2e8f0;
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  min-height: 100vh;
-}
-#cc-root *, #cc-root *::before, #cc-root *::after { box-sizing: border-box; }
-#cc-root a { color: inherit; text-decoration: none; }
-.cc-hdr {
-  background: linear-gradient(135deg, #0E8E40 0%, #065f29 100%);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.cc-hdr-title { font-size: 18px; font-weight: 700; color: #fff; }
-.cc-hdr-sub { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 1px; }
-.cc-hdr-pill {
-  margin-left: auto;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  font-size: 11px;
-  padding: 3px 9px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-.cc-hdr-refresh {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  background: rgba(255,255,255,0.15);
-  color: #fff !important;
-  border-radius: 7px;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.cc-body { max-width: 1280px; margin: 0 auto; padding: 20px 16px 80px; }
-.cc-sect {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: #475569;
-  margin: 28px 0 10px;
-}
-.cc-grid2 { display: grid; gap: 12px; grid-template-columns: 1fr; }
-.cc-grid3 { display: grid; gap: 12px; grid-template-columns: 1fr; }
-@media(min-width: 640px)  { .cc-grid2 { grid-template-columns: 1fr 1fr; } }
-@media(min-width: 640px)  { .cc-grid3 { grid-template-columns: 1fr 1fr; } }
-@media(min-width: 1000px) { .cc-grid3 { grid-template-columns: 1fr 1fr 1fr; } }
-.cc-span { grid-column: 1 / -1; }
-.cc-card {
-  background: #131d2e;
-  border: 1px solid #1e2e45;
-  border-radius: 12px;
-  padding: 14px 16px;
-}
-.cc-card-lbl {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: #4a5e78;
-  margin-bottom: 10px;
-}
-.cc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
-.cc-agent-status { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
-.cc-agent-name { font-weight: 600; font-size: 13px; color: #f1f5f9; text-transform: capitalize; }
-.cc-agent-meta { font-size: 11px; color: #4a5e78; }
-.cc-agent-snippet {
-  font-size: 11px; color: #364960; margin-top: 5px; line-height: 1.35;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-}
-.cc-badge {
-  display: inline-flex; align-items: center;
-  background: #0a0f1a; color: #64748b;
-  font-size: 10px; font-weight: 600;
-  padding: 2px 7px; border-radius: 999px;
-  white-space: nowrap; margin-top: 6px;
-}
-.cc-solv-big { font-size: 32px; font-weight: 700; line-height: 1; }
-.cc-solv-green { color: #0E8E40; }
-.cc-solv-yellow { color: #eab308; }
-.cc-solv-red { color: #ef4444; }
-.cc-solv-gray { color: #4a5e78; }
-.cc-solv-target { font-size: 11px; color: #4a5e78; margin-top: 2px; }
-.cc-solv-row { display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
-.cc-solv-stat { display: flex; flex-direction: column; }
-.cc-solv-stat-val { font-size: 15px; font-weight: 600; color: #94a3b8; }
-.cc-solv-stat-lbl { font-size: 10px; color: #4a5e78; text-transform: uppercase; letter-spacing: .06em; }
-.cc-rev-big { font-size: 28px; font-weight: 700; color: #f1f5f9; line-height: 1; }
-.cc-rev-pos { font-size: 12px; color: #22c55e; font-weight: 600; }
-.cc-rev-neu { font-size: 12px; color: #64748b; }
-.cc-rev-loc { font-size: 11px; color: #4a5e78; margin-top: 2px; }
-.cc-sev-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
-.cc-sev-chip {
-  display: flex; align-items: center; gap: 4px;
-  background: #0a0f1a; border-radius: 999px;
-  padding: 3px 10px; font-size: 11px; font-weight: 600;
-}
-.cc-sev-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
-.cc-fr { padding: 9px 0; border-top: 1px solid #0f172a; }
-.cc-fr-head { display: flex; align-items: center; gap: 6px; }
-.cc-fr-agent { font-size: 9px; color: #334155; text-transform: uppercase; letter-spacing: .06em; }
-.cc-fr-time { margin-left: auto; font-size: 9px; color: #1e293b; }
-.cc-fr-text { font-size: 12px; color: #94a3b8; margin-top: 3px; line-height: 1.4; }
-.cc-fr-url { font-size: 10px; color: #334155; margin-top: 2px; }
-.cc-fr-url a { color: #475569 !important; }
-.cc-ext-group { margin-bottom: 18px; }
-.cc-ext-group:last-child { margin-bottom: 0; }
-.cc-ext-grp-name {
-  font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .08em;
-  color: #2d4056; margin-bottom: 8px;
-}
-.cc-ext-links { display: flex; flex-wrap: wrap; gap: 6px; }
-.cc-ext-link {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 6px 12px;
-  background: #0a0f1a; color: #64748b !important;
-  border: 1px solid #1a2840; border-radius: 7px;
-  font-size: 12px; font-weight: 500; white-space: nowrap;
-}
-.cc-ext-link:hover { background: #0E8E40 !important; color: #fff !important; border-color: #0E8E40; }
-.cc-empty { color: #2d4056; font-size: 12px; padding: 8px 0; }
-.cc-err {
-  margin-top: 14px; padding: 9px 14px;
-  background: #1c0a0a; border: 1px solid #7f1d1d;
-  border-radius: 8px; color: #fca5a5; font-size: 11px;
-}
-.cc-no-sb {
-  margin-top: 32px; padding: 48px 24px;
-  background: #131d2e; border: 1px solid #1e2e45;
-  border-radius: 12px; text-align: center; color: #4a5e78;
-}
-/* ── attention banner ── */
-.cc-alert {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  padding: 12px 16px;
-  background: #1c0f06;
-  border: 1px solid #7c2d12;
-  border-radius: 10px;
-  margin-bottom: 4px;
-}
-.cc-alert-label {
-  font-size: 12px; font-weight: 700;
-  color: #fb923c; text-transform: uppercase; letter-spacing: .07em;
-  white-space: nowrap;
-}
-.cc-alert-items { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
-.cc-alert-chip {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: #0a0f1a; border: 1px solid #292524;
-  padding: 3px 10px; border-radius: 999px;
-  font-size: 11px; color: #d4a17a; line-height: 1.4;
-}
-.cc-ok-banner {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 16px;
-  background: #061a0e; border: 1px solid #14532d;
-  border-radius: 10px; margin-bottom: 4px;
-  font-size: 12px; font-weight: 600; color: #4ade80;
-}
-/* ── summary stat row ── */
-.cc-stat-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 4px;
-}
-@media(min-width: 480px)  { .cc-stat-row { grid-template-columns: repeat(4, 1fr); } }
-.cc-stat-tile {
-  background: #131d2e; border: 1px solid #1e2e45;
-  border-radius: 10px; padding: 12px 14px;
-  display: flex; flex-direction: column; gap: 2px;
-}
-.cc-stat-tile-val { font-size: 22px; font-weight: 700; color: #f1f5f9; line-height: 1; }
-.cc-stat-tile-lbl { font-size: 10px; color: #4a5e78; text-transform: uppercase; letter-spacing: .07em; }
-`;
-
-// ── page ──────────────────────────────────────────────────────────────────────
-
-export default async function CommandCenter({
-  searchParams,
-}: {
-  searchParams: Promise<{ key?: string }>;
-}) {
-  const { key } = await searchParams;
-
-  // ── gate ──
-  if (key !== 'envirocare2026') {
-    return (
-      <div style={{
-        margin: 0, minHeight: '100vh', display: 'flex',
-        alignItems: 'center', justifyContent: 'center',
-        background: '#0a0f1a', fontFamily: 'system-ui,sans-serif',
-      }}>
-        <div style={{ textAlign: 'center', color: '#64748b' }}>
-          <div style={{ fontSize: 44, marginBottom: 14 }}>🔒</div>
-          <p style={{ fontSize: 17, color: '#94a3b8' }}>Access restricted</p>
-          <p style={{ fontSize: 12, marginTop: 6 }}>Append ?key=envirocare2026 to the URL.</p>
-        </div>
-      </div>
-    );
-  }
-
-  const data = await fetchData();
-
-  const agents     = data ? latestPerAgent(data.runs) : [];
-  const seoLatest  = data ? latestPerLocation(data.seo) : [];
-  const revHist    = data ? reviewHistory(data.seo) : {};
-  const findings   = data?.findings ?? [];
-  const recent30   = findings.slice(0, 30);
-
-  const findingCount = findings.reduce<Record<string, number>>((acc, f) => {
-    acc[f.agent_name] = (acc[f.agent_name] || 0) + 1;
-    return acc;
-  }, {});
-
-  const sevCount = { critical: 0, high: 0, medium: 0, low: 0, info: 0 };
-  for (const f of findings) {
-    if      (f.severity === 'critical') sevCount.critical++;
-    else if (f.severity === 'high')     sevCount.high++;
-    else if (f.severity === 'medium')   sevCount.medium++;
-    else if (f.severity === 'low')      sevCount.low++;
-    else                                sevCount.info++;
-  }
-
-  const dateStr = new Date().toLocaleDateString('en-US', {
-    weekday: 'short', month: 'short', day: 'numeric', year: 'numeric',
-  });
-
+// ── small UI atoms ────────────────────────────────────────────────────────────
+function Kpi({ label, value, sub, accent }: { label: string; value: string; sub?: React.ReactNode; accent?: string }) {
   return (
-    <div id="cc-root">
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
-
-      {/* ── HEADER ── */}
-      <div className="cc-hdr">
-        <span style={{ fontSize: 26, lineHeight: 1 }}>🌻</span>
-        <div>
-          <div className="cc-hdr-title">EnviroCare Ops</div>
-          <div className="cc-hdr-sub">{dateStr}</div>
-        </div>
-        <div className="cc-hdr-pill">
-          {data ? '🟢 Supabase live' : '🔴 offline'}
-        </div>
-        <a href="/command-center?key=envirocare2026" className="cc-hdr-refresh">
-          ↻ Refresh
-        </a>
-      </div>
-
-      <div className="cc-body">
-
-        {/* ── NO SUPABASE ── */}
-        {!data && (
-          <div className="cc-no-sb">
-            <div style={{ fontSize: 32, marginBottom: 12 }}>⚠️</div>
-            <p style={{ fontSize: 15, color: '#64748b', marginBottom: 6 }}>Supabase not connected</p>
-            <p style={{ fontSize: 12 }}>Set SUPABASE_URL and SUPABASE_KEY in Vercel env vars.</p>
-          </div>
-        )}
-
-        {data && (
-          <>
-            {/* ── SUMMARY STATS ── */}
-            <div className="cc-stat-row" style={{ marginTop: 16 }}>
-              <div className="cc-stat-tile">
-                <div className="cc-stat-tile-val">{agents.length}</div>
-                <div className="cc-stat-tile-lbl">Agents Running</div>
-              </div>
-              <div className="cc-stat-tile">
-                <div className="cc-stat-tile-val" style={{ color: sevCount.critical > 0 ? '#ef4444' : sevCount.high > 0 ? '#f97316' : '#22c55e' }}>
-                  {sevCount.critical + sevCount.high}
-                </div>
-                <div className="cc-stat-tile-lbl">Critical / High</div>
-              </div>
-              <div className="cc-stat-tile">
-                <div className="cc-stat-tile-val">{findings.length}</div>
-                <div className="cc-stat-tile-lbl">Total Findings</div>
-              </div>
-              <div className="cc-stat-tile">
-                <div className="cc-stat-tile-val" style={{ color: seoLatest.some(r => r.solv != null) ? '#0E8E40' : '#4a5e78' }}>
-                  {seoLatest.filter(r => r.solv != null).length}/{KNOWN_LOCATIONS.length}
-                </div>
-                <div className="cc-stat-tile-lbl">Locations w/ SoLV</div>
-              </div>
-            </div>
-
-            {/* ── ATTENTION BANNER ── */}
-            {(sevCount.critical > 0 || sevCount.high > 0) ? (
-              <div className="cc-alert">
-                <span className="cc-alert-label">⚠ Needs Attention</span>
-                <div className="cc-alert-items">
-                  {findings
-                    .filter(f => f.severity === 'critical' || f.severity === 'high')
-                    .slice(0, 5)
-                    .map((f, i) => (
-                      <span key={i} className="cc-alert-chip">
-                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: sevColor(f.severity), display: 'inline-block', flexShrink: 0 }} />
-                        {f.finding.slice(0, 60)}{f.finding.length > 60 ? '…' : ''}
-                      </span>
-                    ))}
-                </div>
-              </div>
-            ) : (
-              <div className="cc-ok-banner">
-                ✓ No critical or high-severity findings
-              </div>
-            )}
-
-            {/* ── AGENT STATUS ── */}
-            <div className="cc-sect">Agent Status</div>
-            <div className="cc-grid3">
-              {agents.length === 0 && (
-                <div className="cc-card cc-span">
-                  <p className="cc-empty">No agent runs recorded yet.</p>
-                </div>
-              )}
-              {agents.map((a) => (
-                <div key={a.agent_name} className="cc-card">
-                  <div className="cc-card-lbl">{a.agent_name}</div>
-                  <div className="cc-agent-status">
-                    <span className="cc-dot" style={{ background: statusColor(a.status) }} />
-                    <span className="cc-agent-name">{a.status}</span>
-                  </div>
-                  <div className="cc-agent-meta">
-                    {relativeTime(a.created_at)} · {new Date(a.created_at).toLocaleDateString()}
-                  </div>
-                  <div className="cc-agent-snippet">
-                    {a.output?.replace(/^[•\d.\-]\s*/gm, '').trim().slice(0, 150)}
-                  </div>
-                  {!!findingCount[a.agent_name] && (
-                    <div className="cc-badge">{findingCount[a.agent_name]} findings</div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* ── SoLV METRICS ── */}
-            <div className="cc-sect">SoLV Metrics</div>
-            <div className="cc-grid3">
-              {seoLatest.length === 0 && (
-                <div className="cc-card cc-span">
-                  <p className="cc-empty">No envirocare_seo data yet. Run the SEO monitor agent and confirm LOCAL_FALCON_API_KEY is set.</p>
-                </div>
-              )}
-              {seoLatest.map((row) => {
-                const target = SOLV_TARGETS[row.location] ?? 50;
-                const pct    = row.solv ?? 0;
-                const cls    = row.solv == null
-                  ? 'cc-solv-gray'
-                  : pct >= target
-                    ? 'cc-solv-green'
-                    : pct >= target * 0.7
-                      ? 'cc-solv-yellow'
-                      : 'cc-solv-red';
-                return (
-                  <div key={row.location} className="cc-card">
-                    <div className="cc-card-lbl">{row.location}</div>
-                    <div className={`cc-solv-big ${cls}`}>
-                      {row.solv != null ? `${row.solv}%` : '—'}
-                    </div>
-                    <div className="cc-solv-target">
-                      Target {target}% ·{' '}
-                      {row.solv != null
-                        ? row.solv >= target ? '✅ on target' : '⚠️ below target'
-                        : 'no data'} · {relativeTime(row.snapshot_date)}
-                    </div>
-                    <div className="cc-solv-row">
-                      {row.arp != null && (
-                        <div className="cc-solv-stat">
-                          <span className="cc-solv-stat-val">{row.arp}</span>
-                          <span className="cc-solv-stat-lbl">ARP</span>
-                        </div>
-                      )}
-                      {row.review_count != null && (
-                        <div className="cc-solv-stat">
-                          <span className="cc-solv-stat-val">{row.review_count}</span>
-                          <span className="cc-solv-stat-lbl">Reviews</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-              {KNOWN_LOCATIONS
-                .filter((loc) => !seoLatest.some((r) => r.location === loc))
-                .map((loc) => (
-                  <div key={loc} className="cc-card" style={{ opacity: 0.4 }}>
-                    <div className="cc-card-lbl">{loc}</div>
-                    <div className="cc-solv-big cc-solv-gray">—</div>
-                    <div className="cc-solv-target">No data</div>
-                  </div>
-                ))}
-            </div>
-
-            {/* ── REVIEW TRACKER ── */}
-            <div className="cc-sect">Review Count Tracker</div>
-            <div className="cc-grid3">
-              {seoLatest.filter((r) => r.review_count != null).length === 0 && (
-                <div className="cc-card cc-span">
-                  <p className="cc-empty">Review counts populate once the SEO monitor agent runs with live Local Falcon data.</p>
-                </div>
-              )}
-              {seoLatest
-                .filter((r) => r.review_count != null)
-                .map((row) => {
-                  const hist  = revHist[row.location] ?? [];
-                  const prev  = hist.length >= 2 ? hist[hist.length - 2].count : null;
-                  const curr  = row.review_count!;
-                  const delta = prev != null ? curr - prev : null;
-                  return (
-                    <div key={row.location} className="cc-card">
-                      <div className="cc-card-lbl">{row.location} — Reviews</div>
-                      <div className="cc-rev-big">{curr.toLocaleString()}</div>
-                      <div style={{ marginTop: 4 }}>
-                        {delta != null && delta > 0  && <span className="cc-rev-pos">+{delta} since last run</span>}
-                        {delta != null && delta === 0 && <span className="cc-rev-neu">No change</span>}
-                        {delta == null                && <span className="cc-rev-neu">First snapshot</span>}
-                      </div>
-                      <div className="cc-rev-loc">{relativeTime(row.snapshot_date)}</div>
-                    </div>
-                  );
-                })}
-            </div>
-
-            {/* ── AGENT FINDINGS ── */}
-            <div className="cc-sect">Agent Findings</div>
-            <div className="cc-card">
-              <div className="cc-sev-bar">
-                {(
-                  [
-                    ['critical', sevCount.critical],
-                    ['high',     sevCount.high],
-                    ['medium',   sevCount.medium],
-                    ['low',      sevCount.low],
-                    ['info',     sevCount.info],
-                  ] as [string, number][]
-                ).map(([sev, cnt]) => (
-                  <div key={sev} className="cc-sev-chip">
-                    <span className="cc-sev-dot" style={{ background: sevColor(sev) }} />
-                    <span style={{ color: sevColor(sev) }}>{cnt}</span>
-                    <span style={{ color: '#334155', fontWeight: 400, textTransform: 'capitalize' }}>&nbsp;{sev}</span>
-                  </div>
-                ))}
-                <div className="cc-sev-chip" style={{ marginLeft: 'auto' }}>
-                  <span style={{ color: '#4a5e78' }}>Total&nbsp;</span>
-                  <span style={{ color: '#94a3b8' }}>{findings.length}</span>
-                </div>
-              </div>
-
-              {recent30.length === 0 && <p className="cc-empty">No findings yet.</p>}
-              {recent30.map((f, i) => (
-                <div key={f.id ?? i} className="cc-fr">
-                  <div className="cc-fr-head">
-                    <span className="cc-sev-dot" style={{ background: sevColor(f.severity) }} />
-                    <span className="cc-fr-agent">{f.agent_name} · {f.category}</span>
-                    <span className="cc-fr-time">{relativeTime(f.run_date)}</span>
-                  </div>
-                  <div className="cc-fr-text">{f.finding}</div>
-                  {f.page_url && (
-                    <div className="cc-fr-url">
-                      <a href={f.page_url} target="_blank" rel="noopener">{f.page_url}</a>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* ── EXTERNAL DASHBOARDS ── */}
-            <div className="cc-sect">External Dashboards</div>
-            <div className="cc-card">
-              {EXTERNAL_LINKS.map((g) => (
-                <div key={g.group} className="cc-ext-group">
-                  <div className="cc-ext-grp-name">{g.group}</div>
-                  <div className="cc-ext-links">
-                    {g.links.map((l) => (
-                      <a
-                        key={l.href}
-                        href={l.href}
-                        className="cc-ext-link"
-                        target={l.href.startsWith('/') ? '_self' : '_blank'}
-                        rel="noopener"
-                      >
-                        <span>{l.icon}</span>{l.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {data.errors.length > 0 && (
-              <div className="cc-err">
-                <strong>DB errors: </strong>{data.errors.join(' · ')}
-              </div>
-            )}
-          </>
-        )}
-      </div>
+    <div className="cc-kpi">
+      <div className="cc-kpi-label">{label}</div>
+      <div className="cc-kpi-val" style={accent ? { color: accent } : undefined}>{value}</div>
+      {sub && <div className="cc-kpi-sub">{sub}</div>}
     </div>
   );
 }
+function Panel({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
+  return (
+    <section className="cc-panel">
+      <div className="cc-panel-head"><h2>{title}</h2>{hint && <span className="cc-panel-hint">{hint}</span>}</div>
+      {children}
+    </section>
+  );
+}
+function Empty({ children }: { children: React.ReactNode }) {
+  return <p className="cc-empty">{children}</p>;
+}
+
+// ── page ────────────────────────────────────────────────────────────────────
+export default async function CommandCenter({ searchParams }: { searchParams: Promise<{ key?: string }> }) {
+  const sp = await searchParams;
+  if (sp?.key !== GATE) {
+    return (
+      <main className="cc-locked">
+        <style dangerouslySetInnerHTML={{ __html: CC_CSS }} />
+        <div className="cc-lock-card">
+          <div className="cc-lock-sun">🌻</div>
+          <h1>EnviroCare Command Center</h1>
+          <p>Private. Append <code>?key=…</code> to your link to view.</p>
+        </div>
+      </main>
+    );
+  }
+
+  const data = await fetchAll();
+  const now = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+
+  if (!data) {
+    return (
+      <main className="cc-locked">
+        <style dangerouslySetInnerHTML={{ __html: CC_CSS }} />
+        <div className="cc-lock-card">
+          <h1>Command Center</h1>
+          <p>Supabase not configured (SUPABASE_URL / SUPABASE_KEY missing in this environment).</p>
+        </div>
+      </main>
+    );
+  }
+
+  const { runs, findings, seo, gsc, ga4, gads, cfo, brief } = data;
+
+  // local SEO — latest row per market
+  const MARKETS = ['Alabaster', 'Alex City', 'Huntsville'];
+  const latestSeo = firstPerKey(seo, (r) => r.location);
+  const totalReviews = MARKETS.reduce((s, m) => s + num(latestSeo.get(m)?.review_count), 0);
+  const solvVals = MARKETS.map((m) => num(latestSeo.get(m)?.solv)).filter((v) => v > 0);
+  const avgSolv = solvVals.length ? solvVals.reduce((a, b) => a + b, 0) / solvVals.length : 0;
+
+  // GSC
+  const gscChrono = [...gsc].reverse();
+  const gscLatest = gsc[0];
+  const gscClicks30 = gsc.reduce((s, d) => s + num(d.clicks), 0);
+
+  // GA4
+  const ga4Chrono = [...ga4].reverse();
+  const ga4Latest = ga4[0];
+
+  // Google Ads — latest snapshot
+  const latestLabel = gads[0]?.snapshot_label;
+  const adRows = gads.filter((g) => g.snapshot_label === latestLabel);
+  const adCost = adRows.reduce((s, g) => s + num(g.cost), 0);
+  const adConv = adRows.reduce((s, g) => s + num(g.conversions), 0);
+  const topAds = [...adRows].sort((a, b) => num(b.cost) - num(a.cost)).slice(0, 5);
+
+  // agents
+  const latestRun = firstPerKey(runs, (r) => r.agent_name);
+  const agentNames = ['brightlocal', 'review-responder', 'seo-monitor', 'neuronwriter-qa', 'cfo-agent', 'site-reviewer', 'proposer', 'orchestrator'];
+  const sevCount = { critical: 0, warning: 0, info: 0 };
+  for (const f of findings) {
+    if (f.severity === 'critical') sevCount.critical++;
+    else if (f.severity === 'warning') sevCount.warning++;
+    else sevCount.info++;
+  }
+  const openCritical = sevCount.critical;
+
+  const integrations: [string, boolean][] = [
+    ['Supabase', !!process.env.SUPABASE_URL],
+    ['Anthropic', !!process.env.ANTHROPIC_API_KEY],
+    ['Local Falcon', !!process.env.LOCAL_FALCON_API_KEY],
+    ['Email (Resend)', !!process.env.RESEND_API_KEY],
+    ['Cron secret', !!process.env.CRON_SECRET],
+    ['NeuronWriter', !!process.env.NEURONWRITER_API_KEY],
+    ['GA4', !!process.env.GA4_PROPERTY_ID],
+  ];
+
+  const crons: [string, string][] = [
+    ['BrightLocal — NAP / citation watch', '4×/day · 9p·3a·9a·3p CT'],
+    ['Site health / integrity', '4×/day · 12a·6a·12p·6p CT'],
+    ['SEO rank monitor', 'midday + daily digest'],
+    ['Full digest email (all agents)', 'daily · 4a CT'],
+  ];
+
+  return (
+    <main className="cc">
+      <style dangerouslySetInnerHTML={{ __html: CC_CSS }} />
+
+      <header className="cc-top">
+        <div>
+          <div className="cc-eyebrow">🌻 ENVIROCARE · OPS COCKPIT</div>
+          <h1>Command Center</h1>
+        </div>
+        <div className="cc-updated">Updated {now}</div>
+      </header>
+
+      {/* KPI ROW */}
+      <div className="cc-kpis">
+        <Kpi label="Avg Share of Voice" value={avgSolv ? pct1(avgSolv) : '—'} accent="#0E8E40"
+          sub={solvVals.length ? `${solvVals.length} markets` : 'run SEO monitor'} />
+        <Kpi label="Total Reviews" value={totalReviews ? fmt(totalReviews) : '—'} accent="#F5A800"
+          sub={totalReviews ? 'across 3 markets' : 'from Local Falcon'} />
+        <Kpi label="Organic Clicks (45d)" value={gscClicks30 ? fmt(gscClicks30) : '—'}
+          sub={gscLatest ? <Spark values={gscChrono.map((d) => num(d.clicks))} /> : 'ingest GSC'} />
+        <Kpi label="Sessions (wk)" value={ga4Latest ? fmt(num(ga4Latest.sessions)) : '—'}
+          sub={ga4Latest ? <Spark values={ga4Chrono.map((d) => num(d.sessions))} color="#0A7935" /> : 'ingest GA4'} />
+        <Kpi label="Ad Spend" value={adRows.length ? money(adCost) : '—'}
+          sub={adRows.length ? `${fmt(adConv)} conv` : 'import GAds'} />
+        <Kpi label="Open Critical" value={fmt(openCritical)} accent={openCritical ? '#C0392B' : '#0E8E40'}
+          sub={openCritical ? 'needs attention' : 'all clear'} />
+      </div>
+
+      <div className="cc-grid">
+        {/* LOCAL SEARCH */}
+        <Panel title="Local Search" hint="Local Falcon">
+          {latestSeo.size === 0 ? (
+            <Empty>No ranking snapshots yet. Run the SEO monitor (needs <code>LOCAL_FALCON_API_KEY</code>).</Empty>
+          ) : (
+            <div className="cc-markets">
+              {MARKETS.map((m) => {
+                const r = latestSeo.get(m);
+                const solv = num(r?.solv);
+                return (
+                  <div key={m} className="cc-market">
+                    <div className="cc-market-name">{m}</div>
+                    <div className="cc-market-solv" style={{ color: solv >= 50 ? '#0E8E40' : solv >= 25 ? '#B8860B' : '#C0392B' }}>
+                      {r?.solv != null ? pct1(solv) : '—'}
+                    </div>
+                    <div className="cc-market-meta">
+                      <span>ARP {r?.arp != null ? num(r.arp).toFixed(1) : '—'}</span>
+                      <span>{r?.review_count != null ? fmt(num(r.review_count)) : '—'} reviews</span>
+                    </div>
+                    <div className="cc-market-date">{r?.snapshot_date ?? ''}</div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </Panel>
+
+        {/* TRAFFIC & SEARCH */}
+        <Panel title="Traffic & Search" hint="GA4 · GSC">
+          {!gscLatest && !ga4Latest ? (
+            <Empty>No traffic data yet. Run the GA4 / GSC ingests (<code>ingest-ga4.mjs</code>, <code>ingest-gsc.mjs</code>).</Empty>
+          ) : (
+            <div className="cc-ts">
+              {gscLatest && (
+                <div className="cc-ts-row">
+                  <div><div className="cc-ts-num">{fmt(num(gscLatest.clicks))}</div><div className="cc-ts-lbl">clicks / day</div></div>
+                  <div><div className="cc-ts-num">{fmt(num(gscLatest.impressions))}</div><div className="cc-ts-lbl">impressions</div></div>
+                  <div><div className="cc-ts-num">{num(gscLatest.position).toFixed(1)}</div><div className="cc-ts-lbl">avg position</div></div>
+                  <Spark values={gscChrono.map((d) => num(d.clicks))} w={120} />
+                </div>
+              )}
+              {ga4Latest && (
+                <div className="cc-ts-row">
+                  <div><div className="cc-ts-num">{fmt(num(ga4Latest.sessions))}</div><div className="cc-ts-lbl">sessions / wk</div></div>
+                  <div><div className="cc-ts-num">{fmt(num(ga4Latest.users))}</div><div className="cc-ts-lbl">users</div></div>
+                  <div><div className="cc-ts-num">{fmt(num(ga4Latest.conversions))}</div><div className="cc-ts-lbl">conversions</div></div>
+                  <Spark values={ga4Chrono.map((d) => num(d.sessions))} w={120} color="#0A7935" />
+                </div>
+              )}
+            </div>
+          )}
+        </Panel>
+
+        {/* GOOGLE ADS */}
+        <Panel title="Google Ads" hint={latestLabel ? String(latestLabel) : 'paid'}>
+          {adRows.length === 0 ? (
+            <Empty>No campaign data. Import a GAds report (<code>ingest-gads-campaigns.mjs</code>).</Empty>
+          ) : (
+            <>
+              <div className="cc-ad-totals">
+                <span><strong>{money(adCost)}</strong> spend</span>
+                <span><strong>{fmt(adConv)}</strong> conv</span>
+                <span><strong>{adConv ? money(adCost / adConv) : '—'}</strong> / conv</span>
+              </div>
+              <table className="cc-table">
+                <tbody>
+                  {topAds.map((a) => (
+                    <tr key={a.campaign}>
+                      <td className="cc-td-name">{a.campaign}</td>
+                      <td>{money(num(a.cost))}</td>
+                      <td>{fmt(num(a.conversions))} conv</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
+        </Panel>
+
+        {/* AGENTS */}
+        <Panel title="Agents" hint="last run">
+          <div className="cc-sev">
+            <span className="cc-sev-chip" style={{ background: '#FCEBEB', color: '#C0392B' }}>{sevCount.critical} critical</span>
+            <span className="cc-sev-chip" style={{ background: '#FBF3DF', color: '#8a6400' }}>{sevCount.warning} warning</span>
+            <span className="cc-sev-chip" style={{ background: '#EAF3DE', color: '#3B6D11' }}>{sevCount.info} info</span>
+          </div>
+          <div className="cc-agents">
+            {agentNames.map((n) => {
+              const r = latestRun.get(n);
+              return (
+                <div key={n} className="cc-agent">
+                  <span className="cc-dot" style={{ background: r ? statusColor(r.status) : '#cfd6cf' }} />
+                  <span className="cc-agent-name">{n}</span>
+                  <span className="cc-agent-when">{r ? timeAgo(r.created_at) : 'never run'}</span>
+                </div>
+              );
+            })}
+          </div>
+        </Panel>
+
+        {/* RECENT FINDINGS */}
+        <Panel title="Recent Findings" hint={`${findings.length} total`}>
+          {findings.length === 0 ? (
+            <Empty>No findings yet — agents post here as they run.</Empty>
+          ) : (
+            <ul className="cc-findings">
+              {findings.slice(0, 12).map((f, i) => (
+                <li key={f.id ?? i}>
+                  <span className="cc-fdot" style={{ background: sevColor(f.severity) }} />
+                  <div>
+                    <div className="cc-f-text">{f.finding}</div>
+                    <div className="cc-f-meta">{f.agent_name} · {f.category} · {timeAgo(f.run_date)}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Panel>
+
+        {/* DAILY BRIEF */}
+        <Panel title="Latest Digest" hint={brief[0]?.brief_date ?? ''}>
+          {brief.length === 0 ? (
+            <Empty>No digest archived yet — the orchestrator writes one each morning.</Empty>
+          ) : (
+            <p className="cc-brief">{brief[0].content.slice(0, 420)}{brief[0].content.length > 420 ? '…' : ''}</p>
+          )}
+        </Panel>
+
+        {/* INTEGRATIONS */}
+        <Panel title="Integrations" hint="configured keys">
+          <div className="cc-integrations">
+            {integrations.map(([n, ok]) => (
+              <div key={n} className="cc-int">
+                <span className="cc-dot" style={{ background: ok ? '#0E8E40' : '#cfd6cf' }} />
+                <span>{n}</span>
+                <span className="cc-int-state">{ok ? 'on' : 'off'}</span>
+              </div>
+            ))}
+          </div>
+          {cfo[0]?.note && <p className="cc-cfo-note">CFO: {cfo[0].note}</p>}
+        </Panel>
+
+        {/* SCHEDULE */}
+        <Panel title="Monitoring Schedule" hint="live crons">
+          <ul className="cc-cron">
+            {crons.map(([n, when]) => (
+              <li key={n}><span className="cc-cron-name">{n}</span><span className="cc-cron-when">{when}</span></li>
+            ))}
+          </ul>
+        </Panel>
+      </div>
+
+      <footer className="cc-foot">EnviroCare · No One Cares Like EnviroCare · private ops cockpit</footer>
+    </main>
+  );
+}
+
+const CC_CSS = `
+.cc { font-family: 'DM Sans', system-ui, -apple-system, sans-serif; background: #F5F1E8; color: #0E1A0F; min-height: 100vh; padding: 20px clamp(14px,3vw,32px) 60px; }
+.cc h1, .cc h2 { font-family: 'Playfair Display', Georgia, serif; }
+.cc-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto 18px; }
+.cc-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #0E8E40; }
+.cc-top h1 { margin: 2px 0 0; font-size: clamp(1.6rem,3vw,2.2rem); color: #07642B; }
+.cc-updated { font-size: 12px; color: #5A6660; }
+.cc-kpis { max-width: 1280px; margin: 0 auto 18px; display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 700px) { .cc-kpis { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1080px) { .cc-kpis { grid-template-columns: repeat(6, 1fr); } }
+.cc-kpi { background: #fff; border: 1px solid #E6DECB; border-radius: 14px; padding: 14px 16px; box-shadow: 0 1px 0 rgba(14,26,15,0.03); }
+.cc-kpi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; color: #6b766b; text-transform: uppercase; }
+.cc-kpi-val { font-family: 'Playfair Display', Georgia, serif; font-size: 1.9rem; font-weight: 700; line-height: 1.1; margin: 4px 0 2px; }
+.cc-kpi-sub { font-size: 12px; color: #5A6660; }
+.cc-grid { max-width: 1280px; margin: 0 auto; display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .cc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1140px) { .cc-grid { grid-template-columns: repeat(3, 1fr); } }
+.cc-panel { background: #fff; border: 1px solid #E6DECB; border-radius: 16px; padding: 16px 18px; box-shadow: 0 1px 0 rgba(14,26,15,0.03); }
+.cc-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #F0EAD9; padding-bottom: 8px; }
+.cc-panel-head h2 { font-size: 1.05rem; margin: 0; color: #0E1A0F; }
+.cc-panel-hint { font-size: 11px; color: #94a08f; font-weight: 600; letter-spacing: 0.04em; }
+.cc-empty { font-size: 13px; color: #7a857a; margin: 6px 0; line-height: 1.5; }
+.cc-empty code { background: #F0EAD9; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+.cc-markets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cc-market { background: #FBF8F0; border: 1px solid #EFE8D6; border-radius: 10px; padding: 10px 8px; text-align: center; }
+.cc-market-name { font-size: 11px; font-weight: 700; color: #5A6660; }
+.cc-market-solv { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2px 0; }
+.cc-market-meta { display: flex; flex-direction: column; gap: 1px; font-size: 11px; color: #6b766b; }
+.cc-market-date { font-size: 10px; color: #aab2a8; margin-top: 4px; }
+.cc-ts { display: flex; flex-direction: column; gap: 14px; }
+.cc-ts-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cc-ts-num { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #07642B; }
+.cc-ts-lbl { font-size: 11px; color: #6b766b; }
+.cc-ad-totals { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: #5A6660; margin-bottom: 10px; }
+.cc-ad-totals strong { color: #0E1A0F; }
+.cc-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.cc-table td { padding: 6px 4px; border-top: 1px solid #F2ECDD; }
+.cc-td-name { font-weight: 600; color: #0E1A0F; }
+.cc-table td:not(.cc-td-name) { text-align: right; color: #5A6660; white-space: nowrap; }
+.cc-sev { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.cc-sev-chip { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+.cc-agents { display: flex; flex-direction: column; gap: 6px; }
+.cc-agent { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.cc-agent-name { font-weight: 600; flex: 1; }
+.cc-agent-when { font-size: 11px; color: #94a08f; }
+.cc-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.cc-findings { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.cc-findings li { display: flex; gap: 9px; align-items: flex-start; }
+.cc-fdot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.cc-f-text { font-size: 13px; line-height: 1.4; color: #1A2620; }
+.cc-f-meta { font-size: 11px; color: #94a08f; margin-top: 1px; }
+.cc-brief { font-size: 13px; line-height: 1.55; color: #3a463a; white-space: pre-wrap; margin: 0; }
+.cc-integrations { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+.cc-int { display: flex; align-items: center; gap: 7px; font-size: 12.5px; }
+.cc-int-state { margin-left: auto; font-size: 11px; color: #94a08f; }
+.cc-cfo-note { font-size: 12px; color: #5A6660; margin: 10px 0 0; }
+.cc-cron { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cc-cron li { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; align-items: baseline; }
+.cc-cron-name { color: #1A2620; }
+.cc-cron-when { color: #0E8E40; font-weight: 600; white-space: nowrap; }
+.cc-foot { max-width: 1280px; margin: 24px auto 0; text-align: center; font-size: 11px; color: #94a08f; }
+.cc-locked { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F5F1E8; font-family: 'DM Sans', system-ui, sans-serif; padding: 20px; }
+.cc-lock-card { background: #fff; border: 1px solid #E6DECB; border-radius: 16px; padding: 36px 32px; text-align: center; max-width: 380px; }
+.cc-lock-sun { font-size: 28px; }
+.cc-lock-card h1 { font-family: 'Playfair Display', serif; color: #07642B; margin: 8px 0; font-size: 1.4rem; }
+.cc-lock-card p { font-size: 13px; color: #5A6660; }
+.cc-lock-card code { background: #F0EAD9; padding: 1px 6px; border-radius: 4px; }
+`;
