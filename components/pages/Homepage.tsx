@@ -5,8 +5,16 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { getOrganizationSchema, SchemaScript } from '@/lib/schema';
 import ScheduleRequest from '@/components/ScheduleRequest';
+import StickyCallButton from '@/components/StickyCallButton';
 
 /**
+ * ─── CLAUDE CODE: DEPLOY THIS FILE ───
+ * Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+ * Path: components/pages/Homepage.tsx
+ * Commit: refactor(home): merge offices+areas into one clickable section, cut dup trust strip, add Lake Martin band, mobile sticky Call+Quote bar, fix tick/flea copy
+ * Push: main
+ * ─────────────────────────────────────
+ *
  * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
  *
  * Changes from v4:
@@ -29,17 +37,17 @@ export default function Homepage() {
       <TopBanner />
       <Header />
       <Hero />
-      <TrustStrip />
       <CoreServices />
       <SpecialtyServices />
       <ThreeOffices />
-      <ServiceAreas />
+      <LakeMartinBand />
       <Heritage />
       <Reviews />
       <Pricing />
       <ScheduleVisit />
       <BundleCTA />
       <Footer />
+      <StickyCallButton />
     </main>
   );
 }
@@ -220,19 +228,7 @@ function Hero() {
 /* ============================================================
    TRUST STRIP
    ============================================================ */
-function TrustStrip() {
-  return (
-    <section className="ec-trust">
-      <div className="ec-trust-inner">
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Sentricon® Certified</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>Licensed &amp; Insured</span>
-        <span className="ec-trust-divider"></span>
-        <span className="ec-trust-item"><span className="ec-trust-icon">✓</span>3rd-Gen Family Business</span>
-      </div>
-    </section>
-  );
-}
+/* TrustStrip removed Jun 13 — duplicate of hero trust row + banner */
 
 /* ============================================================
    CORE SERVICES
@@ -269,7 +265,7 @@ function CoreServices() {
           <ServiceCard
             badge="TARGETED TICK CONTROL" title="Tick Control"
             description="Targeted yard treatments to break the tick lifecycle. Critical for waterfront and wooded properties."
-            bullets={['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Bundled free with mosquito']}
+            bullets={['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Add to mosquito for +$20 per round']}
             href="/services/tick-control" cornerIcon="🐾"
           />
         </div>
@@ -305,7 +301,7 @@ function ServiceCard({ badge, title, description, bullets, href, cornerIcon, fea
 function SpecialtyServices() {
   const specialty = [
     { icon: '🐜', title: 'Fire Ant Control', desc: 'Yard-wide elimination & mound treatment. Critical for lake homes and barefoot families.', tag: 'ADD-ON', href: '/services/fire-ant' },
-    { icon: '🪲', title: 'Flea Control', desc: 'Yard barrier treatments to break the flea lifecycle. Bundles seamlessly with mosquito & tick service.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
+    { icon: '🪲', title: 'Flea Control', desc: 'Interior flea treatment that targets the lifecycle indoors. An add-on to your quarterly pest program.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
     { icon: '🏠', title: 'Builder Pre-Treat', desc: 'Pre-construction termite treatment for new builds. The right time to start Sentricon® protection.', tag: 'NEW CONSTRUCTION', href: '/services/builder-pre-treat' },
     { icon: '📋', title: 'Real Estate / WDO Letters', desc: 'Wood-destroying organism inspection letters for closings. Fast turnaround, lender-ready format.', tag: 'CLOSINGS', href: '/services/wdo-letters' },
     { icon: '🏗️', title: 'Crawlspace Service', desc: 'Moisture control, vapor barriers & targeted treatments for the most vulnerable part of your home.', tag: 'FOUNDATION CARE', href: '/services/crawlspace' },
@@ -339,80 +335,6 @@ function SpecialtyServices() {
    THREE OFFICES with CUSTOM SVG ART
    ============================================================ */
 function ThreeOffices() {
-  return (
-    <section className="ec-offices">
-      <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">THREE ALABAMA OFFICES</div>
-        <h2 className="ec-section-h2">Local Technicians, <em>Statewide Reach</em></h2>
-        <p className="ec-section-sub">
-          Three offices across Alabama — Birmingham, Lake Martin, and Huntsville.
-          Your technician is always a neighbor, never dispatched out of state.
-        </p>
-
-        <div className="ec-offices-grid">
-          {/* BIRMINGHAM - Vulcan Statue */}
-          <OfficeCard
-            art={<VulcanSVG />}
-            city="Birmingham"
-            label="BIRMINGHAM OFFICE"
-            address="2025 Butler Rd, Alabaster, AL 35007"
-            areas="Birmingham · Hoover · Chelsea · Pelham · Alabaster · Vestavia Hills · Mountain Brook · Homewood · Helena · Calera"
-            phone="(205) 940-6360"
-            phoneHref="tel:2059406360"
-            link="/birmingham"
-          />
-          {/* LAKE MARTIN - Real Aerial Photo (replaces SVG) */}
-          <OfficeCard
-            art={<LakeMartinPhoto />}
-            city="Alex City / Lake Martin"
-            label="ALEXANDER CITY — EST. 1958"
-            address="1785 Tallapoosa St, Alexander City, AL 35010"
-            areas="Lake Martin · Alexander City · Dadeville · Eclectic · Auburn · Opelika · Wetumpka"
-            phone="(256) 234-6162"
-            phoneHref="tel:2562346162"
-            link="/lake-martin"
-            featured
-          />
-          {/* HUNTSVILLE - Saturn V Rocket */}
-          <OfficeCard
-            art={<SaturnVSVG />}
-            city="Huntsville"
-            label="HUNTSVILLE OFFICE"
-            address="7027 Old Madison Pike, Ste 108, Huntsville, AL 35806"
-            areas="Huntsville · Madison · Athens · Decatur · Hartselle · Hampton Cove · Harvest · North Alabama"
-            phone="(256) 937-7676"
-            phoneHref="tel:2569377676"
-            link="/huntsville"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OfficeCard({ art, city, label, address, areas, phone, phoneHref, link, featured }: {
-  art: React.ReactNode; city: string; label: string; address: string;
-  areas: string; phone: string; phoneHref: string; link: string; featured?: boolean;
-}) {
-  return (
-    <div className={`ec-office-card ${featured ? 'ec-office-featured' : ''}`}>
-      <div className="ec-office-art">{art}</div>
-      <h3 className="ec-office-city">{city}</h3>
-      <div className="ec-office-label">{label}</div>
-      <div className="ec-office-addr">{address}</div>
-      <div className="ec-office-areas">{areas}</div>
-      <a href={phoneHref} className="ec-office-phone">
-        <span>📞</span> {phone}
-      </a>
-      <Link href={link} className="ec-office-link">View {city} →</Link>
-    </div>
-  );
-}
-
-/* ============================================================
-   ALL 27 SERVICE AREAS - grouped by office, fully linked
-   ============================================================ */
-function ServiceAreas() {
   const birmingham = [
     { name: 'Birmingham', slug: 'birmingham' },
     { name: 'Hoover', slug: 'hoover' },
@@ -428,7 +350,6 @@ function ServiceAreas() {
     { name: 'Mt Laurel', slug: 'mt-laurel' },
     { name: 'Tuscaloosa', slug: 'tuscaloosa' },
   ];
-
   const lakeMartin = [
     { name: 'Alexander City', slug: 'alexander-city' },
     { name: 'Lake Martin', slug: 'lake-martin' },
@@ -437,7 +358,6 @@ function ServiceAreas() {
     { name: 'Auburn', slug: 'auburn' },
     { name: 'Opelika', slug: 'opelika' },
   ];
-
   const huntsville = [
     { name: 'Huntsville', slug: 'huntsville' },
     { name: 'Madison', slug: 'madison' },
@@ -449,88 +369,97 @@ function ServiceAreas() {
   ];
 
   return (
-    <section className="ec-areas">
+    <section className="ec-offices">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">ALL SERVICE AREAS</div>
-        <h2 className="ec-section-h2">
-          27 Cities Across <em>Alabama</em>
-        </h2>
+        <div className="ec-section-eyebrow">THREE OFFICES · ACROSS ALABAMA</div>
+        <h2 className="ec-section-h2">Find Your <em>Local EnviroCare Team</em></h2>
         <p className="ec-section-sub">
-          Whether you&apos;re in downtown Birmingham, on the lake in Dadeville, or
-          near Bridge Street in Huntsville — we have a local technician for you.
-          Tap your city for local pricing and fast scheduling.
+          Birmingham, Alex City / Lake Martin, and Huntsville. Your technician is always
+          a neighbor, never dispatched out of state. Tap your city for local pricing and scheduling.
         </p>
 
-        <div className="ec-areas-grid">
-          {/* Birmingham column */}
-          <div className="ec-areas-col">
-            <div className="ec-areas-head">
-              <span className="ec-areas-icon">🏙️</span>
-              <div>
-                <div className="ec-areas-office">BIRMINGHAM OFFICE</div>
-                <a href="tel:2059406360" className="ec-areas-phone">(205) 940-6360</a>
-              </div>
-            </div>
-            <div className="ec-areas-cities">
-              {birmingham.map((c) => (
-                <Link key={c.slug} href={`/${c.slug}`} className="ec-areas-city">
-                  {c.name} <span className="ec-areas-arrow">→</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Lake Martin column */}
-          <div className="ec-areas-col ec-areas-featured">
-            <div className="ec-areas-head">
-              <span className="ec-areas-icon">🏞️</span>
-              <div>
-                <div className="ec-areas-office">ALEX CITY / LAKE MARTIN · EST. 1958</div>
-                <a href="tel:2562346162" className="ec-areas-phone">(256) 234-6162</a>
-              </div>
-            </div>
-            <div className="ec-areas-cities">
-              {lakeMartin.map((c) => (
-                <Link key={c.slug} href={`/${c.slug}`} className="ec-areas-city">
-                  {c.name} <span className="ec-areas-arrow">→</span>
-                </Link>
-              ))}
-            </div>
-            <div className="ec-areas-auburn-note">
-              <span className="ec-areas-auburn-icon">📞</span>
-              Auburn direct line: <a href="tel:3343323321"><strong>(334) 332-3321</strong></a>
-            </div>
-          </div>
-
-          {/* Huntsville column */}
-          <div className="ec-areas-col">
-            <div className="ec-areas-head">
-              <span className="ec-areas-icon">🚀</span>
-              <div>
-                <div className="ec-areas-office">HUNTSVILLE OFFICE</div>
-                <a href="tel:2569377676" className="ec-areas-phone">(256) 937-7676</a>
-              </div>
-            </div>
-            <div className="ec-areas-cities">
-              {huntsville.map((c) => (
-                <Link key={c.slug} href={`/${c.slug}`} className="ec-areas-city">
-                  {c.name} <span className="ec-areas-arrow">→</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+        <div className="ec-offices-grid">
+          {/* BIRMINGHAM - Vulcan Statue */}
+          <OfficeCard
+            art={<VulcanSVG />}
+            city="Birmingham"
+            label="BIRMINGHAM OFFICE"
+            address="2025 Butler Rd, Alabaster, AL 35007"
+            cities={birmingham}
+            phone="(205) 940-6360"
+            phoneHref="tel:2059406360"
+            link="/birmingham"
+          />
+          {/* LAKE MARTIN - Real Aerial Photo, featured */}
+          <OfficeCard
+            art={<LakeMartinPhoto />}
+            city="Alex City / Lake Martin"
+            label="ALEXANDER CITY — EST. 1958"
+            address="1785 Tallapoosa St, Alexander City, AL 35010"
+            cities={lakeMartin}
+            phone="(256) 234-6162"
+            phoneHref="tel:2562346162"
+            link="/lake-martin"
+            featured
+            auburnNote
+          />
+          {/* HUNTSVILLE - Saturn V Rocket */}
+          <OfficeCard
+            art={<SaturnVSVG />}
+            city="Huntsville"
+            label="HUNTSVILLE OFFICE"
+            address="7027 Old Madison Pike, Ste 108, Huntsville, AL 35806"
+            cities={huntsville}
+            phone="(256) 937-7676"
+            phoneHref="tel:2569377676"
+            link="/huntsville"
+          />
         </div>
 
         <div className="ec-areas-cta">
           <p>Don&apos;t see your city? Type your zip to find your local office:</p>
-          <Link href="/find-office" className="ec-cta-primary">
-            Find My Office →
-          </Link>
+          <Link href="/find-office" className="ec-cta-primary">Find My Office →</Link>
         </div>
       </div>
     </section>
   );
 }
+
+function OfficeCard({ art, city, label, address, cities, phone, phoneHref, link, featured, auburnNote }: {
+  art: React.ReactNode; city: string; label: string; address: string;
+  cities: { name: string; slug: string }[]; phone: string; phoneHref: string;
+  link: string; featured?: boolean; auburnNote?: boolean;
+}) {
+  return (
+    <div className={`ec-office-card ${featured ? 'ec-office-featured' : ''}`}>
+      <div className="ec-office-art">{art}</div>
+      <h3 className="ec-office-city">{city}</h3>
+      <div className="ec-office-label">{label}</div>
+      <div className="ec-office-addr">{address}</div>
+      <div className="ec-office-cities">
+        {cities.map((c) => (
+          <Link key={c.slug} href={`/${c.slug}`} className="ec-office-city-link">
+            {c.name}<span className="ec-office-city-arrow"> →</span>
+          </Link>
+        ))}
+      </div>
+      {auburnNote && (
+        <div className="ec-office-auburn">
+          📞 Auburn direct line: <a href="tel:3343323321"><strong>(334) 332-3321</strong></a>
+        </div>
+      )}
+      <a href={phoneHref} className="ec-office-phone">
+        <span>📞</span> {phone}
+      </a>
+      <Link href={link} className="ec-office-link">View {city} →</Link>
+    </div>
+  );
+}
+
+/* ============================================================
+   ALL 27 SERVICE AREAS - grouped by office, fully linked
+   ============================================================ */
+/* ServiceAreas removed Jun 13 — merged into ThreeOffices (clickable city links live there now) */
 
 /* ============================================================
    CUSTOM SVG ART for each office
@@ -981,6 +910,41 @@ function SvcPriceCard({ icon, title, price, unit, note, bullets, href, featured 
 /* ============================================================
    BUNDLE CTA - with truck image
    ============================================================ */
+function LakeMartinBand() {
+  return (
+    <section className="ec-lake">
+      <div className="ec-lake-inner">
+        <div className="ec-lake-photo-wrap">
+          <img
+            src="/lake-martin-sunset.webp"
+            alt="Sunset over Lake Martin, Alabama"
+            className="ec-lake-photo"
+            onError={(e) => {
+              const t = e.target as HTMLImageElement;
+              t.src = '/lake-martin-aerial.jpg';
+            }}
+          />
+        </div>
+        <div className="ec-lake-content">
+          <div className="ec-lake-eyebrow">ALEX CITY / LAKE MARTIN · EST. 1958</div>
+          <h2 className="ec-lake-h2">Lake-home protection, handled <em>while you&rsquo;re away</em></h2>
+          <p className="ec-lake-text">
+            Second homes and weekend places run on a different rhythm. We service from the
+            outside on a schedule built around the lake — so the house is covered before you
+            arrive, not after the bugs do.
+          </p>
+          <ul className="ec-lake-benefits">
+            <li><span className="ec-lake-check">✓</span> Pre-arrival exterior service — protected before your weekend</li>
+            <li><span className="ec-lake-check">✓</span> Dock, boathouse &amp; waterfront pests, plus mosquito &amp; tick for the deck</li>
+            <li><span className="ec-lake-check">✓</span> One familiar local team out of our Alexander City office</li>
+          </ul>
+          <Link href="/lake-martin" className="ec-lake-cta">Explore Lake Martin service →</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function BundleCTA() {
   return (
     <section className="ec-bundle">
@@ -1013,13 +977,8 @@ function BundleCTA() {
           🌻 One Invoice. One Tech. <em>One Trusted Team.</em>
         </h3>
         <p className="ec-bundle-sub">
-          Combine Pest + Termite + Mosquito + Tick on a single plan. Same competitive pricing as standalone — just simpler to manage.
+          Pest, termite, mosquito and tick handled by one familiar local team — same prices as standalone, just simpler to manage.
         </p>
-        <div className="ec-bundle-prices">
-          <div className="ec-bundle-line">Pest + Termite <span className="ec-bundle-price">$67/mo</span></div>
-          <div className="ec-bundle-line">Mosquito + Tick (covers chiggers) <span className="ec-bundle-price">$49/mo</span></div>
-          <div className="ec-bundle-line">All Four Programs <span className="ec-bundle-price">$116/mo</span></div>
-        </div>
         <div className="ec-bundle-ctas">
           <a href="tel:2059406360" className="ec-cta-primary">Call (205) 940-6360</a>
           <Link href="/quote" className="ec-cta-secondary-light">See Plans →</Link>
@@ -1651,6 +1610,71 @@ const HOMEPAGE_CSS = `
   }
   .ec-office-link {
     display: block; font-size: 13px; font-weight: 600; color: #F5A800 !important;
+  }
+  .ec-office-cities {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+    margin: 4px 0 16px;
+  }
+  .ec-office-city-link {
+    display: inline-flex; align-items: center;
+    font-size: 12.5px; font-weight: 600; color: #1A2620 !important;
+    background: #F1F5F0; border: 1px solid #E2EAE2;
+    padding: 6px 10px; border-radius: 8px; min-height: 32px;
+    text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .ec-office-city-link:hover {
+    background: #0E8E40; color: #fff !important; border-color: #0E8E40;
+  }
+  .ec-office-city-arrow { opacity: 0.45; margin-left: 1px; }
+  .ec-office-auburn {
+    font-size: 12.5px; color: #5A6660; margin: 0 0 14px; line-height: 1.4;
+  }
+  .ec-office-auburn a { color: #0E8E40 !important; }
+
+  /* LAKE MARTIN FEATURE BAND — secondary to hero, restrained */
+  .ec-lake { background: #07642B; overflow: hidden; }
+  .ec-lake-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr;
+  }
+  .ec-lake-photo-wrap {
+    position: relative; min-height: 220px; max-height: 300px; overflow: hidden;
+  }
+  .ec-lake-photo {
+    width: 100%; height: 100%; min-height: 220px;
+    object-fit: cover; display: block;
+  }
+  .ec-lake-content {
+    padding: 36px clamp(20px,5vw,56px); color: #FEFDF8; align-self: center;
+  }
+  .ec-lake-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    color: #F5A800; margin-bottom: 10px;
+  }
+  .ec-lake-h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem,3.2vw,2.1rem); font-weight: 600; line-height: 1.15;
+    margin: 0 0 12px; color: #FEFDF8;
+  }
+  .ec-lake-h2 em { color: #F5A800; font-style: italic; }
+  .ec-lake-text {
+    font-size: 15px; line-height: 1.6; color: #D8E8DC; margin: 0 0 16px; max-width: 46ch;
+  }
+  .ec-lake-benefits { list-style: none; margin: 0 0 20px; padding: 0; }
+  .ec-lake-benefits li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 14px; color: #EAF3EC; margin-bottom: 8px; line-height: 1.45;
+  }
+  .ec-lake-check { color: #F5A800; font-weight: 700; flex-shrink: 0; }
+  .ec-lake-cta {
+    display: inline-block; background: #F5A800; color: #0E1A0F !important;
+    font-weight: 700; font-size: 14px; padding: 12px 22px; border-radius: 999px;
+    text-decoration: none; transition: background 0.15s, transform 0.15s;
+  }
+  .ec-lake-cta:hover { background: #FFB81F; transform: translateY(-1px); }
+  @media (min-width: 900px) {
+    .ec-lake-inner { grid-template-columns: 1.05fr 1fr; }
+    .ec-lake-photo-wrap { max-height: none; }
   }
 
   /* SERVICE AREAS - all 27 cities */
@@ -2364,4 +2388,7 @@ const HOMEPAGE_CSS = `
   .ec-footer-bottom-links { display: flex; gap: 16px; }
   .ec-footer-bottom-links a { color: rgba(255,255,255,0.5); }
   .ec-footer-bottom-links a:hover { color: #fff; }
+  @media (max-width: 899px) {
+    .ec-main { padding-bottom: 80px; }
+  }
 `;
