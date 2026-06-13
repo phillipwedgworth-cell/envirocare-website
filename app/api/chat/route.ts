@@ -20,6 +20,7 @@ const LOG_CAP = 500;
 async function logConversation(entry: {
   ts: string; turnCount: number; lastUserMsg: string;
   botReply: string; escalated: boolean; capturedPhone: boolean; fullTranscript: Message[];
+  cacheRead?: number; cacheWrite?: number;
 }): Promise<void> {
   try {
     await kv.lpush(LOG_KEY, JSON.stringify(entry));
@@ -164,11 +165,38 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Messages required" }, { status: 400 });
     }
 
+    // Guard against runaway cost / abuse: cap individual message length (~2k tokens).
+    for (const m of messages as Message[]) {
+      if (typeof m?.content === "string" && m.content.length > 8000) {
+        return NextResponse.json({
+          message:
+            "That message is a bit long for me to handle here — mind shortening it? Or call (205) 940-6360 and we'll help you directly.",
+        });
+      }
+    }
+
     const today = new Date().toLocaleDateString("en-US", {
       weekday: "long", month: "long", day: "numeric", year: "numeric",
       timeZone: "America/Chicago",
     });
-    const systemPrompt = `TODAY: ${today} (Central Time).\n\n${SYSTEM_PROMPT}`;
+
+    // PROMPT CACHING — the single biggest cost lever for a public chat widget.
+    // The system prompt is identical for every visitor and dwarfs the short user
+    // messages, yet it would otherwise be re-billed at full price on every turn.
+    // We split it into a tiny dynamic date block + the large STATIC instruction
+    // block, and mark the static block cache_control: ephemeral. It's written to
+    // cache once, then re-read at 0.1x input price on every subsequent message —
+    // shared across all visitors. (The date changes daily, so the prefix re-writes
+    // ~once a day; thousands of cache reads per write.) Watch cache token counts
+    // in the Vercel function logs to confirm it's hitting.
+    const systemBlocks = [
+      { type: "text", text: `TODAY: ${today} (Central Time).\n\n` },
+      { type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } },
+    ];
+
+    // Don't let a stuck upstream call hang the serverless function.
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30_000);
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -177,13 +205,15 @@ export async function POST(req: NextRequest) {
         "x-api-key": process.env.ANTHROPIC_API_KEY || "",
         "anthropic-version": "2023-06-01",
       },
+      signal: controller.signal,
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
         max_tokens: 400,
-        system: systemPrompt,
+        system: systemBlocks,
         messages: messages.slice(-12),
       }),
     });
+    clearTimeout(timeout);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -199,6 +229,17 @@ export async function POST(req: NextRequest) {
     const assistantMessage: string =
       data.content?.[0]?.text ||
       "Sorry — I had trouble with that one. Please call (205) 940-6360 and we'll help you directly.";
+
+    // Cache visibility — confirm caching is hitting (Vercel → Logs).
+    // read = re-used at 0.1x · write = cached this turn at 1.25x.
+    const usage = data.usage ?? {};
+    const cacheRead = usage.cache_read_input_tokens ?? 0;
+    const cacheWrite = usage.cache_creation_input_tokens ?? 0;
+    if (cacheRead || cacheWrite) {
+      console.log(
+        `[chat] cache read=${cacheRead} write=${cacheWrite} input=${usage.input_tokens ?? 0} output=${usage.output_tokens ?? 0}`,
+      );
+    }
 
     // Lead capture: if the user's last message contains a phone number, forward
     // the whole conversation to Formspree so Phillip gets an email.
@@ -241,6 +282,8 @@ export async function POST(req: NextRequest) {
         escalated: turnCount >= 3 && !capturedPhone,
         capturedPhone,
         fullTranscript: (messages as Message[]).slice(-12),
+        cacheRead,
+        cacheWrite,
       }).catch(() => {});
     }
 
