@@ -19,6 +19,8 @@ jobs:
           node-version: '20'
       - name: Run AEO-Watch
         env:
+          # NOTION_TOKEN should come from the repository secret `NOTION_TOKEN`.
+          # Do NOT commit literal tokens to the repo.
           ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY:       ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY:       ${{ secrets.OPENAI_API_KEY }}
