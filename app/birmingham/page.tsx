@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® $1M termite coverage. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 940-6360.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
+    images: ["/og/og-birmingham.png"],
     title: "Pest Control Birmingham AL | EnviroCare — Family-Owned Since 1958",
     description:
       "Birmingham's family-owned pest control and termite service. Three generations of Wedgworths, three Alabama offices, no long-term contracts.",

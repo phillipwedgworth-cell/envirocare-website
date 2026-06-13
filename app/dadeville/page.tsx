@@ -2,6 +2,7 @@ import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
   alternates: { canonical: '/dadeville' },
+  openGraph: { images: ['/og/og-dadeville.png'] },
   title: 'Dadeville Pest Control & Termite Service | EnviroCare Since 1958',
   description: 'Dadeville pest control. Lake Martin-area family service. Sentricon® termite protection. Call (256) 234-6162.',
 };

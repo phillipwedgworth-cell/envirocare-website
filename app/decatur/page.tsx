@@ -2,6 +2,7 @@ import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
   alternates: { canonical: '/decatur' },
+  openGraph: { images: ['/og/og-decatur.png'] },
   title: 'Decatur Pest Control & Termite Service | EnviroCare Since 1958',
   description: 'Decatur, AL pest control. River City family service. Sentricon® termite protection. Call (256) 937-7676.',
 };
