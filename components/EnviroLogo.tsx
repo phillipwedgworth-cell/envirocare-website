@@ -1,10 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/EnviroLogo.tsx
-// Commit: feat(logo): add colorMode prop for white-on-dark and green-on-light variants
-// Push: main
-// ─────────────────────────────────────
-
 // components/EnviroLogo.tsx
 // ============================================================================
 // SINGLE SOURCE OF TRUTH FOR THE ENVIROCARE LOGO

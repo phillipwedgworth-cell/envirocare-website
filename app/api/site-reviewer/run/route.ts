@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/api/site-reviewer/run/route.ts
-// Commit: chore(crons): scheduled 4x/day (site health) + CRON_SECRET auth
-// Push: main
-// ─────────────────────────
 import { NextRequest, NextResponse } from "next/server";
 import { run as runSiteReviewer } from "@/agents/site-reviewer.mjs";
 

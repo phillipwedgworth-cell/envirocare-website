@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/command-center/page.tsx
-// Commit: feat(command-center): full cockpit — local SEO, reviews, GSC, GA4, ads, agents, brief, integrations, cron
-// Push: main
-// ─────────────────────────────────────
 /**
  * EnviroCare Command Center — single-pane-of-glass ops cockpit.
  * Gate: /command-center?key=envirocare2026

@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: src/lib/schema.ts
-// Commit: refactor(schema): split Organization (homepage) from LocalBusiness (city pages); remove self-serving ratings
-// Push: main
-// ─────────────────────────────────────
 //
 // CHANGES IN THIS VERSION (v2, June 8 2026):
 //  • REMOVED hard-coded aggregateRating/reviewCount from all LocalBusiness blocks.

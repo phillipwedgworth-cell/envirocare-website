@@ -1,10 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: docs/PRICING-SECTION-COPY-SPEC.md
-// Commit: docs: pricing section copy spec — per-treatment/monthly toggle, Jun 11 model
-// Push: main
-// ─────────────────────────────────────
-
 # Pricing Section Copy Spec — "Per Service ⇄ Monthly" Toggle
 *Claude's panel vote, Jun 11 2026. Apply to the live pricing section (homepage + /quote). Pull real component from GitHub first — do not edit stale mockups.*
 

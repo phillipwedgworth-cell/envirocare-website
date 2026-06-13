@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/shared/ChatWidget.tsx
-// Commit: feat(chat): Scout branding + corrected main phone
-// Push: main
-// ─────────────────────────────────────
 // components/shared/ChatWidget.tsx
 // Floating chat widget for EnviroCare. Add <ChatWidget /> to app/layout.tsx inside <body>.
 

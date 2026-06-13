@@ -8,12 +8,6 @@ import ScheduleRequest from '@/components/ScheduleRequest';
 import StickyCallButton from '@/components/StickyCallButton';
 
 /**
- * ─── CLAUDE CODE: DEPLOY THIS FILE ───
- * Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
- * Path: components/pages/Homepage.tsx
- * Commit: refactor(home): merge offices+areas into one clickable section, cut dup trust strip, add Lake Martin band, mobile sticky Call+Quote bar, fix tick/flea copy
- * Push: main
- * ─────────────────────────────────────
  *
  * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
  *

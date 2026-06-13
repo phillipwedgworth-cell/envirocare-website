@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/api/orchestrator/run/route.ts
-// Commit: chore(crons): daily digest cron + CRON_SECRET auth
-// Push: main
-// ─────────────────────────
 import { NextRequest, NextResponse } from "next/server";
 import { run as runOrchestrator } from "@/agents/orchestrator.mjs";
 

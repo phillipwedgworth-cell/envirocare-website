@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: src/components/faq/HuntsvilleFAQ.tsx
-// Commit: feat(faq): add AI-optimized FAQ block for Huntsville city page
-// Push: main
-// ─────────────────────────────────────
 //
 // USAGE: Import and drop anywhere in the Huntsville city page.
 //   import HuntsvilleFAQ from '@/components/faq/HuntsvilleFAQ';

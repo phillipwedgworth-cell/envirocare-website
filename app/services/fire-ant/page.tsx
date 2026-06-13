@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/services/fire-ant/page.tsx
-// Commit: fix: fire ant page — $150 min pricing, open to all customers, compliant language, mobile-first
-// Push: main
-// ─────────────────────────────────────
 //
 // WHAT CHANGED (Jun 11, 2026 — per Phillip):
 // 1. PRICING: Fire ant is a PRICED SERVICE — $150 minimum, priced per sq ft

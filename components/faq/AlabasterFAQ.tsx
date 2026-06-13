@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: src/components/faq/AlabasterFAQ.tsx
-// Commit: feat(faq): add AI-optimized FAQ block for Alabaster/Birmingham city page
-// Push: main
-// ─────────────────────────────────────
 //
 // USAGE: Import and drop into the Alabaster/Birmingham city page.
 //   import AlabasterFAQ from '@/components/faq/AlabasterFAQ';

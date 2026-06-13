@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/services/interior-pest-control/page.tsx
-// Commit: feat: interior + exterior quarterly service page — $98/qtr, flea add-on $128/qtr
-// Push: main
-// ─────────────────────────────────────
 //
 // ⚠️ PHILLIP CONFIRM BEFORE DEPLOY (one assumption made):
 // Interpreted as: Quarterly INSIDE + OUTSIDE plan = $98/quarter (4 visits/yr,

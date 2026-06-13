@@ -1,12 +1,6 @@
 'use client';
 
 /**
- * ─── CLAUDE CODE: DEPLOY THIS FILE ───
- * Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
- * Path: components/StickyCallButton.tsx
- * Commit: feat(mobile): two-button sticky Call+Quote bar (safe-area + chat clearance + focus-hide)
- * Push: main
- * ─────────────────────────────────────
  *
  * Mobile-only fixed bottom action bar: Call + Get Quote.
  * Hidden >=900px (desktop has header phones). Reserves the bottom-right

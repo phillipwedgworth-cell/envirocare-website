@@ -1,12 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/ScheduleRequest.tsx  (NEW FILE — replaces any earlier version)
-// Commit: feat: ScheduleRequest v2 — new-vs-current customer logic, 24h lead for new service, 2-hr ranges for current customers
-// Push: main
-// Wire-up: import ScheduleRequest from "@/components/ScheduleRequest"; render on Homepage, /quote, CityPage.
-// Tuning knobs: LEAD_HOURS_NEW (24 = "after lunch → next afternoon"; 30 pushes after-lunch requests 2 days out)
-//               LEAD_HOURS_CURRENT (3 = same-day possible for current customers if slots remain)
-// ─────────────────────────────────────
 "use client";
 
 import { useMemo, useState } from "react";

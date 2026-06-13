@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/api/quote/route.ts
-// Commit: feat(quote): add email fallback + Fieldster push scaffold
-// Push: main
-// ─────────────────────────────────────
 //
 // What this file does:
 // 1. Receives quote/contact form submissions from the website

@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: src/components/faq/AlexCityFAQ.tsx
-// Commit: feat(faq): add AI-optimized FAQ block for Alexander City city page
-// Push: main
-// ─────────────────────────────────────
 //
 // USAGE: Import and drop anywhere in the Alexander City city page.
 //   import AlexCityFAQ from '@/components/faq/AlexCityFAQ';

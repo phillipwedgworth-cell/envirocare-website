@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/api/brightlocal/run/route.ts
-// Commit: chore(crons): scheduled 4x/day (NAP watch) + CRON_SECRET auth
-// Push: main
-// ─────────────────────────
 import { NextRequest, NextResponse } from "next/server";
 import { run as runBrightLocalAgent } from "@/agents/brightlocal.mjs";
 

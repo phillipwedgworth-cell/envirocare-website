@@ -1,9 +1,3 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/CityDepth.tsx   (NEW FILE)
-// Commit: feat(cities): CityDepth section — local pest-context + FAQ (renders only when data present)
-// Push: main
-// ─────────────────────────────────────
 import { type City } from '@/data/cities';
 
 const CITY_DEPTH_CSS = `
