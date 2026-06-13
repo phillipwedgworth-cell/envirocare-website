@@ -82,7 +82,7 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/decatur-al-pest-control', destination: '/decatur', permanent: true },
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },
 
-            // Tuscaloosa — page exists; CONFIRM you actually service it
+            // Tuscaloosa — serviced from Birmingham office (confirmed 2026-06-12)
             { source: '/where-we-service/tuscaloosa-al-pest-control', destination: '/tuscaloosa', permanent: true },
             // Service-area hub
             { source: '/where-we-service', destination: '/', permanent: true },
