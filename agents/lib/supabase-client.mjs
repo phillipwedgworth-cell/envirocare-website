@@ -29,7 +29,9 @@ export async function startRun() {
   const r = await fetch(`${BASE}/agent_runs`, {
     method: 'POST',
     headers: headers(),
-    body: JSON.stringify([{ agent: AGENT_NAME, status: 'running', started_at: new Date().toISOString() }]),
+    // `agent` is the column AEO-Watch reads/writes; `agent_name` is the legacy
+    // NOT NULL column from the shared base schema — populate both.
+    body: JSON.stringify([{ agent: AGENT_NAME, agent_name: AGENT_NAME, status: 'running', started_at: new Date().toISOString() }]),
   });
   if (!r.ok) throw new Error(`startRun ${r.status}: ${await r.text()}`);
   const [row] = await r.json();
@@ -76,6 +78,10 @@ export async function upsertFinding({ dedupKey, source, title, url, summary, tag
     body: JSON.stringify([
       {
         agent: AGENT_NAME,
+        // Legacy NOT NULL columns from the shared base schema:
+        agent_name: AGENT_NAME,
+        category: 'seo',
+        finding: title || summary || dedupKey,
         dedup_key: dedupKey,
         source,
         title,
@@ -105,6 +111,9 @@ export async function recordPanel(findingId, panelResult) {
     body: JSON.stringify([
       {
         agent: AGENT_NAME,
+        // Legacy NOT NULL columns from the shared base schema:
+        agent_name: AGENT_NAME,
+        message: `panel verdict: ${panelResult.consensus}${panelResult.split ? ' (split)' : ''}`,
         finding_id: findingId,
         votes: panelResult.votes,
         tally: panelResult.tally,
