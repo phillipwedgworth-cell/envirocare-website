@@ -22,6 +22,9 @@ const CITY_SLUGS = [
   'auburn', 'opelika',
   'huntsville', 'athens', 'decatur', 'hartselle',
   'harvest', 'hampton-cove',
+  // Premium-tier neighborhood pages (Jun 2026)
+  'liberty-park', 'highland-lakes', 'indian-springs',
+  'eagle-point', 'brook-highland', 'meadow-brook',
 ];
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).

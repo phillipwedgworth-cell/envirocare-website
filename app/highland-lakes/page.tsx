@@ -1,0 +1,243 @@
+import type { Metadata } from "next";
+import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
+
+export const metadata: Metadata = {
+  title: "Pest Control Highland Lakes 35242 | Sentricon® Termite | EnviroCare — Since 1958",
+  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage, no long-term contracts. Call (205) 940-6360.",
+  alternates: { canonical: "/highland-lakes" },
+  openGraph: {
+    title: "Pest Control Highland Lakes 35242 | Sentricon® Termite | EnviroCare — Since 1958",
+    description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage, no long-term contracts. Call (205) 940-6360.",
+    url: "https://www.envirocarellc.com/highland-lakes",
+    type: "website",
+  },
+};
+
+const cfg: NeighborhoodConfig = {
+  "name": "Highland Lakes",
+  "parentCity": "Birmingham",
+  "zipCodes": "35242",
+  "heroTagline": "Highland Lakes' family-owned pest, termite, and mosquito service",
+  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and Outdoor Pro mosquito + tick yard treatment for every Highland Lakes home — gate access, wooded lots, and lakefront acreage included.",
+  "pressureHeadline": "Highland Lakes' lakefront homes and wooded acreage make this one of the highest-pressure mosquito and tick areas in the Birmingham metro.",
+  "pressureSubhead": "The six programs we run most often on Highland Lakes properties.",
+  "pressureCards": [
+    {
+      "emoji": "💧",
+      "title": "Lakefront mosquito pressure",
+      "body": "Lake-adjacent properties have the worst mosquito pressure in 35242 — standing water harborage, vegetation along the shoreline, and shaded boathouse / dock structures. The 30-day yard barrier ($45/treatment) targets resting zones; lakefront homes typically see a noticeable drop within the first two cycles."
+    },
+    {
+      "emoji": "🐾",
+      "title": "Ticks across the back acreage",
+      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Outdoor Pro plan ($65/treatment) is the right call here — bundles mosquito + tick + chigger for $48.75/month equivalent over the 9-month season."
+    },
+    {
+      "emoji": "🪵",
+      "title": "Sentricon® on substantial homes",
+      "body": "Highland Lakes homes are substantial — finished basements, walkout foundations, extensive masonry. Sentricon® Always Active™ in-ground bait stations protect without drilling into any of it. $325 install, $32/mo renewal, up to $1M in EnviroCare-backed damage coverage on qualifying homes."
+    },
+    {
+      "emoji": "🐀",
+      "title": "Field-edge rodent pressure",
+      "body": "Lots backing up to wooded common areas or undeveloped acreage get seasonal rodent migration — typically fall as temperatures drop. Exterior bait station programs (added to a standard pest plan) keep the perimeter monitored without interior exposure."
+    },
+    {
+      "emoji": "🐜",
+      "title": "Carpenter ants tracing moisture",
+      "body": "Older Highland Lakes homes with deep eaves, wood siding details, or moisture-prone areas (downspout terminations, irrigation overlap) attract carpenter ants. Bi-monthly perimeter service ($35/mo) handles the ant family along with 30+ other Alabama pests."
+    },
+    {
+      "emoji": "🦂",
+      "title": "Brown recluse in basements",
+      "body": "Walkout basements, finished lower levels, storage rooms, and garages in Highland Lakes homes are exactly the dark undisturbed harborage brown recluse colonizes. Targeted interior service hits the actual hiding zones, not just open floor space."
+    }
+  ],
+  "landmarksLabel": "Areas of Highland Lakes We Serve",
+  "landmarks": [
+    "Highland Lakes Boulevard",
+    "Highland Lakes Trail",
+    "Highland Lakes Cove",
+    "Highland Lakes Drive",
+    "Highland Lakes Way",
+    "Eagle Point adjacent",
+    "Brook Highland adjacent",
+    "Meadow Brook adjacent",
+    "Highway 280 corridor",
+    "Cahaba Heights nearby",
+    "Greystone nearby"
+  ],
+  "faqs": [
+    {
+      "q": "How is pest pressure different in Highland Lakes than in the rest of 35242?",
+      "a": "Two things make Highland Lakes higher pressure: lake proximity (mosquitoes and the moisture chain that feeds them) and wooded perimeter / common areas (ticks, chiggers, and seasonal rodent migration). Most Highland Lakes homes do best on the Outdoor Pro mosquito + tick plan rather than mosquito-only."
+    },
+    {
+      "q": "Can you service homes with gate access?",
+      "a": "Yes. Our Birmingham office is familiar with the Highland Lakes gate procedures. Your technician will work with the gate process the same way trash service, lawn service, and other regular vendors do."
+    },
+    {
+      "q": "Do you treat the lakefront yard differently?",
+      "a": "Yes. Lake-adjacent treatments focus on harborage zones away from the water itself — shrub bases, tree lines, mulched beds, gutters, and shaded back-of-house areas. We use only EPA-registered products and apply them according to label directions, including any aquatic-buffer language on the labels."
+    },
+    {
+      "q": "How does the Sentricon® warranty work on a Highland Lakes home?",
+      "a": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
+    },
+    {
+      "q": "Is there a long-term contract?",
+      "a": "No. Pest control is month-to-month on ACH and you can cancel anytime."
+    }
+  ],
+  "nearby": [
+    [
+      "Mountain Brook",
+      "/mountain-brook"
+    ],
+    [
+      "Vestavia Hills",
+      "/vestavia-hills"
+    ],
+    [
+      "Hoover",
+      "/hoover"
+    ],
+    [
+      "Homewood",
+      "/homewood"
+    ],
+    [
+      "Pelham",
+      "/pelham"
+    ],
+    [
+      "Alabaster",
+      "/alabaster"
+    ],
+    [
+      "Chelsea",
+      "/chelsea"
+    ],
+    [
+      "Birmingham",
+      "/birmingham"
+    ]
+  ],
+  "office": {
+    "name": "Birmingham",
+    "phone": "(205) 940-6360",
+    "phoneE164": "+12059406360",
+    "address": "2025 Butler Road · Alabaster, AL 35007"
+  }
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.envirocarellc.com/highland-lakes",
+      "name": "EnviroCare Pest & Termite Services — Highland Lakes",
+      "url": "https://www.envirocarellc.com",
+      "telephone": "+12059406360",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2025 Butler Road",
+        "addressLocality": "Alabaster",
+        "addressRegion": "AL",
+        "postalCode": "35007",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Highland Lakes, AL (Birmingham)"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "$",
+      "description": "Family-owned pest, termite, mosquito and tick service for Highland Lakes, Birmingham. Sentricon® Certified Specialist. EPA-registered products applied to label directions. Wedgworth family, third generation since 1958."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Pest Control",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "EnviroCare Pest & Termite Services"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Highland Lakes, AL"
+      },
+      "name": "Pest Control Highland Lakes",
+      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for Highland Lakes homes."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is pest pressure different in Highland Lakes than in the rest of 35242?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two things make Highland Lakes higher pressure: lake proximity (mosquitoes and the moisture chain that feeds them) and wooded perimeter / common areas (ticks, chiggers, and seasonal rodent migration). Most Highland Lakes homes do best on the Outdoor Pro mosquito + tick plan rather than mosquito-only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you service homes with gate access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our Birmingham office is familiar with the Highland Lakes gate procedures. Your technician will work with the gate process the same way trash service, lawn service, and other regular vendors do."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you treat the lakefront yard differently?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Lake-adjacent treatments focus on harborage zones away from the water itself — shrub bases, tree lines, mulched beds, gutters, and shaded back-of-house areas. We use only EPA-registered products and apply them according to label directions, including any aquatic-buffer language on the labels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Sentricon® warranty work on a Highland Lakes home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a long-term contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Pest control is month-to-month on ACH and you can cancel anytime."
+          }
+        }
+      ]
+    }
+  ]
+};
+
+export default function Page() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <NeighborhoodPage cfg={cfg} />
+    </>
+  );
+}
