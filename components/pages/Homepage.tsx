@@ -212,10 +212,13 @@ function Hero() {
         {/* Hero photo — clean, no overlay cards */}
         <div className="ec-hero-visual">
           <div className="ec-hero-photo-wrap">
-            <img
+            <Image
               src="/hero-family.webp"
               alt="Alabama family relaxing in pest-free backyard"
+              fill
+              sizes="(min-width: 1024px) 45vw, 1px"
               className="ec-hero-photo"
+              style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
             />
             <div className="ec-hero-photo-tint" aria-hidden="true" />
           </div>
@@ -511,7 +514,7 @@ function VulcanSVG() {
 function LakeMartinPhoto() {
   return (
     <div className="ec-photo-art">
-      <img
+      <img loading="lazy" decoding="async"
         src="/lake-martin-aerial.jpg"
         alt="Aerial view of Lake Martin, Alabama"
         className="ec-photo-art-img"
@@ -662,7 +665,7 @@ function Heritage() {
           <div className="ec-heritage-photos">
             {/* Kevin Wedgworth photo - polaroid style */}
             <div className="ec-photo-frame ec-photo-kevin">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/kevin.jpg"
                 alt="Kevin Wedgworth, third-generation owner"
                 className="ec-photo-img"
@@ -679,7 +682,7 @@ function Heritage() {
 
             {/* Ribbon cutting photos */}
             <div className="ec-photo-frame ec-photo-ribbon-1">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/ribbon-cutting-1.jpg"
                 alt="Birmingham office ribbon cutting"
                 className="ec-photo-img"
@@ -695,7 +698,7 @@ function Heritage() {
             </div>
 
             <div className="ec-photo-frame ec-photo-ribbon-2">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/ribbon-cutting-2.jpg"
                 alt="Huntsville office ribbon cutting"
                 className="ec-photo-img"
@@ -915,7 +918,7 @@ function LakeMartinBand() {
     <section className="ec-lake">
       <div className="ec-lake-inner">
         <div className="ec-lake-photo-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             src="/lake-martin-sunset.webp"
             alt="Sunset over Lake Martin, Alabama"
             className="ec-lake-photo"
@@ -949,7 +952,7 @@ function BundleCTA() {
   return (
     <section className="ec-bundle">
       <div className="ec-bundle-truck-wrap">
-        <img
+        <img loading="lazy" decoding="async"
           src="/truck.webp"
           alt="EnviroCare green service truck with sunflower wrap"
           className="ec-bundle-truck"
@@ -1152,6 +1155,9 @@ const HOMEPAGE_CSS = `
   @media (max-width: 720px) {
     .ec-banner-rotator { width: 100%; }
     .ec-banner-msg { font-size: 12px; }
+    .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+    .ec-hero-ctas .ec-cta-primary,
+    .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
   }
   .ec-banner-call {
     margin-left: 12px;
@@ -1619,7 +1625,7 @@ const HOMEPAGE_CSS = `
     display: inline-flex; align-items: center;
     font-size: 12.5px; font-weight: 600; color: #1A2620 !important;
     background: #F1F5F0; border: 1px solid #E2EAE2;
-    padding: 6px 10px; border-radius: 8px; min-height: 32px;
+    padding: 7px 11px; border-radius: 8px; min-height: 36px;
     text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
   .ec-office-city-link:hover {
