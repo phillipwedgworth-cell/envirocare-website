@@ -101,7 +101,7 @@ async function fetchAll() {
 // ── small UI atoms ────────────────────────────────────────────────────────────
 function Kpi({ label, value, sub, accent }: { label: string; value: string; sub?: React.ReactNode; accent?: string }) {
   return (
-    <div className="cc-kpi">
+    <div className="cc-kpi" style={accent ? { borderLeft: `4px solid ${accent}` } : undefined}>
       <div className="cc-kpi-label">{label}</div>
       <div className="cc-kpi-val" style={accent ? { color: accent } : undefined}>{value}</div>
       {sub && <div className="cc-kpi-sub">{sub}</div>}
@@ -151,7 +151,10 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
     );
   }
 
-  const { runs, findings, seo, gsc, ga4, gads, cfo, brief } = data;
+  const { runs, seo, gsc, ga4, gads, cfo, brief } = data;
+  // Compliance guard: never surface banned recommendations in the cockpit
+  const BANNED = /(safe for pets|pet[- ]?safe|kid[- ]?safe|safe for kids|non[- ]?toxic|eco[- ]?safe|same[- ]?day|100% satisfaction|satisfaction guarantee|guarantee[ds]? elimination)/i;
+  const findings = data.findings.filter((f) => !BANNED.test(f.finding || ''));
 
   // local SEO — latest row per market
   const MARKETS = ['Alabaster', 'Alex City', 'Huntsville'];
@@ -245,8 +248,10 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
                 return (
                   <div key={m} className="cc-market">
                     <div className="cc-market-name">{m}</div>
-                    <div className="cc-market-solv" style={{ color: solv >= 50 ? '#0E8E40' : solv >= 25 ? '#B8860B' : '#C0392B' }}>
-                      {r?.solv != null ? pct1(solv) : '—'}
+                    <div className="cc-ring" style={{ background: `conic-gradient(${solv >= 50 ? '#1FAE5A' : solv >= 25 ? '#F5A800' : '#E05B4B'} ${Math.min(solv, 100) * 3.6}deg, rgba(255,255,255,0.10) 0deg)` }}>
+                      <div className="cc-ring-in" style={{ color: solv >= 50 ? '#1FAE5A' : solv >= 25 ? '#F5A800' : '#E05B4B' }}>
+                        {r?.solv != null ? pct1(solv) : '—'}
+                      </div>
                     </div>
                     <div className="cc-market-meta">
                       <span>ARP {r?.arp != null ? num(r.arp).toFixed(1) : '—'}</span>
@@ -322,11 +327,14 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
           <div className="cc-agents">
             {agentNames.map((n) => {
               const r = latestRun.get(n);
+              const col = r ? statusColor(r.status) : '#9aa39b';
+              const chip = !r ? 'never' : r.status === 'ok' ? '✓ green' : r.status === 'error' ? '✗ failed' : '⚠ stale';
               return (
                 <div key={n} className="cc-agent">
-                  <span className="cc-dot" style={{ background: r ? statusColor(r.status) : '#cfd6cf' }} />
+                  <span className="cc-dot" style={{ background: col, boxShadow: r && r.status === 'ok' ? `0 0 0 3px ${col}33` : undefined }} />
                   <span className="cc-agent-name">{n}</span>
                   <span className="cc-agent-when">{r ? timeAgo(r.created_at) : 'never run'}</span>
+                  <span className="cc-agent-chip" style={{ color: col, borderColor: `${col}66` }}>{chip}</span>
                 </div>
               );
             })}
@@ -340,8 +348,7 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
           ) : (
             <ul className="cc-findings">
               {findings.slice(0, 12).map((f, i) => (
-                <li key={f.id ?? i}>
-                  <span className="cc-fdot" style={{ background: sevColor(f.severity) }} />
+                <li key={f.id ?? i} style={{ borderLeft: `3px solid ${sevColor(f.severity)}` }}>
                   <div>
                     <div className="cc-f-text">{f.finding}</div>
                     <div className="cc-f-meta">{f.agent_name} · {f.category} · {timeAgo(f.run_date)}</div>
@@ -365,11 +372,7 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
         <Panel title="Integrations" hint="configured keys">
           <div className="cc-integrations">
             {integrations.map(([n, ok]) => (
-              <div key={n} className="cc-int">
-                <span className="cc-dot" style={{ background: ok ? '#0E8E40' : '#cfd6cf' }} />
-                <span>{n}</span>
-                <span className="cc-int-state">{ok ? 'on' : 'off'}</span>
-              </div>
+              <span key={n} className={`cc-pill ${ok ? 'cc-pill-on' : 'cc-pill-off'}`}>{n}</span>
             ))}
           </div>
           {cfo[0]?.note && <p className="cc-cfo-note">CFO: {cfo[0].note}</p>}
@@ -391,34 +394,35 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
 }
 
 const CC_CSS = `
-.cc { font-family: 'DM Sans', system-ui, -apple-system, sans-serif; background: #F5F1E8; color: #0E1A0F; min-height: 100vh; padding: 20px clamp(14px,3vw,32px) 60px; }
+.cc { font-family: 'DM Sans', system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, #07642B 0%, #0E1A0F 100%); background-attachment: fixed; color: #EAF1EA; min-height: 100vh; padding: 0 0 60px; }
 .cc h1, .cc h2 { font-family: 'Playfair Display', Georgia, serif; }
-.cc-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto 18px; }
-.cc-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #0E8E40; }
-.cc-top h1 { margin: 2px 0 0; font-size: clamp(1.6rem,3vw,2.2rem); color: #07642B; }
-.cc-updated { font-size: 12px; color: #5A6660; }
-.cc-kpis { max-width: 1280px; margin: 0 auto 18px; display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+.cc-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 16px clamp(14px,3vw,32px); background: rgba(0,0,0,0.28); border-bottom: 1px solid rgba(245,168,0,0.25); margin-bottom: 20px; }
+.cc-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #F5A800; }
+.cc-top h1 { margin: 2px 0 0; font-size: clamp(1.6rem,3vw,2.2rem); color: #fff; }
+.cc-updated { font-size: 12px; color: #9fb3a3; }
+.cc-kpis { max-width: 1280px; margin: 0 auto 18px; padding: 0 clamp(14px,3vw,32px); display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 700px) { .cc-kpis { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1080px) { .cc-kpis { grid-template-columns: repeat(6, 1fr); } }
-.cc-kpi { background: #fff; border: 1px solid #E6DECB; border-radius: 14px; padding: 14px 16px; box-shadow: 0 1px 0 rgba(14,26,15,0.03); }
+.cc-kpi { background: #fff; border-left: 4px solid #0E8E40; border-radius: 14px; padding: 14px 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.28); }
 .cc-kpi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; color: #6b766b; text-transform: uppercase; }
-.cc-kpi-val { font-family: 'Playfair Display', Georgia, serif; font-size: 1.9rem; font-weight: 700; line-height: 1.1; margin: 4px 0 2px; }
+.cc-kpi-val { font-family: 'Playfair Display', Georgia, serif; font-size: 1.9rem; font-weight: 700; line-height: 1.1; margin: 4px 0 2px; color: #0E1A0F; }
 .cc-kpi-sub { font-size: 12px; color: #5A6660; }
-.cc-grid { max-width: 1280px; margin: 0 auto; display: grid; gap: 14px; grid-template-columns: 1fr; }
+.cc-grid { max-width: 1280px; margin: 0 auto; padding: 0 clamp(14px,3vw,32px); display: grid; gap: 14px; grid-template-columns: 1fr; }
 @media (min-width: 760px) { .cc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1140px) { .cc-grid { grid-template-columns: repeat(3, 1fr); } }
-.cc-panel { background: #fff; border: 1px solid #E6DECB; border-radius: 16px; padding: 16px 18px; box-shadow: 0 1px 0 rgba(14,26,15,0.03); }
-.cc-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #F0EAD9; padding-bottom: 8px; }
-.cc-panel-head h2 { font-size: 1.05rem; margin: 0; color: #0E1A0F; }
+.cc-panel { background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.28); color: #0E1A0F; }
+.cc-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #EEF1EC; padding-bottom: 8px; }
+.cc-panel-head h2 { font-size: 1.05rem; margin: 0; color: #07642B; }
 .cc-panel-hint { font-size: 11px; color: #94a08f; font-weight: 600; letter-spacing: 0.04em; }
 .cc-empty { font-size: 13px; color: #7a857a; margin: 6px 0; line-height: 1.5; }
 .cc-empty code { background: #F0EAD9; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
 .cc-markets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.cc-market { background: #FBF8F0; border: 1px solid #EFE8D6; border-radius: 10px; padding: 10px 8px; text-align: center; }
-.cc-market-name { font-size: 11px; font-weight: 700; color: #5A6660; }
-.cc-market-solv { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2px 0; }
-.cc-market-meta { display: flex; flex-direction: column; gap: 1px; font-size: 11px; color: #6b766b; }
-.cc-market-date { font-size: 10px; color: #aab2a8; margin-top: 4px; }
+.cc-market { background: #0E1A0F; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 8px; text-align: center; color: #EAF1EA; }
+.cc-market-name { font-size: 11px; font-weight: 700; color: #9fb3a3; }
+.cc-ring { width: 70px; height: 70px; border-radius: 50%; margin: 8px auto; display: flex; align-items: center; justify-content: center; }
+.cc-ring-in { width: 56px; height: 56px; border-radius: 50%; background: #0E1A0F; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; }
+.cc-market-meta { display: flex; flex-direction: column; gap: 1px; font-size: 11px; color: #9fb3a3; }
+.cc-market-date { font-size: 10px; color: #6f7d71; margin-top: 4px; }
 .cc-ts { display: flex; flex-direction: column; gap: 14px; }
 .cc-ts-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .cc-ts-num { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #07642B; }
@@ -431,28 +435,29 @@ const CC_CSS = `
 .cc-table td:not(.cc-td-name) { text-align: right; color: #5A6660; white-space: nowrap; }
 .cc-sev { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
 .cc-sev-chip { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
-.cc-agents { display: flex; flex-direction: column; gap: 6px; }
-.cc-agent { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.cc-agents { display: flex; flex-direction: column; gap: 7px; }
+.cc-agent { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #0E1A0F; }
 .cc-agent-name { font-weight: 600; flex: 1; }
 .cc-agent-when { font-size: 11px; color: #94a08f; }
+.cc-agent-chip { font-size: 10px; font-weight: 700; padding: 2px 8px; border: 1px solid; border-radius: 999px; white-space: nowrap; }
 .cc-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 .cc-findings { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
-.cc-findings li { display: flex; gap: 9px; align-items: flex-start; }
-.cc-fdot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.cc-findings li { padding: 5px 0 5px 12px; }
 .cc-f-text { font-size: 13px; line-height: 1.4; color: #1A2620; }
 .cc-f-meta { font-size: 11px; color: #94a08f; margin-top: 1px; }
 .cc-brief { font-size: 13px; line-height: 1.55; color: #3a463a; white-space: pre-wrap; margin: 0; }
-.cc-integrations { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
-.cc-int { display: flex; align-items: center; gap: 7px; font-size: 12.5px; }
-.cc-int-state { margin-left: auto; font-size: 11px; color: #94a08f; }
+.cc-integrations { display: flex; flex-wrap: wrap; gap: 7px; }
+.cc-pill { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+.cc-pill-on { background: #0E8E40; color: #fff; }
+.cc-pill-off { background: transparent; color: #94a08f; border: 1px solid #cfd6cf; }
 .cc-cfo-note { font-size: 12px; color: #5A6660; margin: 10px 0 0; }
 .cc-cron { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .cc-cron li { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; align-items: baseline; }
 .cc-cron-name { color: #1A2620; }
 .cc-cron-when { color: #0E8E40; font-weight: 600; white-space: nowrap; }
-.cc-foot { max-width: 1280px; margin: 24px auto 0; text-align: center; font-size: 11px; color: #94a08f; }
-.cc-locked { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F5F1E8; font-family: 'DM Sans', system-ui, sans-serif; padding: 20px; }
-.cc-lock-card { background: #fff; border: 1px solid #E6DECB; border-radius: 16px; padding: 36px 32px; text-align: center; max-width: 380px; }
+.cc-foot { max-width: 1280px; margin: 24px auto 0; text-align: center; font-size: 11px; color: #6f7d71; }
+.cc-locked { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #07642B 0%, #0E1A0F 100%); font-family: 'DM Sans', system-ui, sans-serif; padding: 20px; }
+.cc-lock-card { background: #fff; border-radius: 16px; padding: 36px 32px; text-align: center; max-width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
 .cc-lock-sun { font-size: 28px; }
 .cc-lock-card h1 { font-family: 'Playfair Display', serif; color: #07642B; margin: 8px 0; font-size: 1.4rem; }
 .cc-lock-card p { font-size: 13px; color: #5A6660; }
