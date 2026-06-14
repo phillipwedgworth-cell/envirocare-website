@@ -24,7 +24,6 @@ const SERVICES_ITEMS: [string, string][] = [
   ["Flea Control", "/services/flea"],
   ["Builder Pre-Treat", "/services/builder"],
   ["Real Estate / WDO", "/services/real-estate-wdo"],
-  ["Crawlspace Service", "/services/crawlspace"],
   ["Commercial Service", "/services/commercial"],
 ];
 

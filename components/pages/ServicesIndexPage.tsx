@@ -124,12 +124,6 @@ export default function ServicesIndexPage() {
               <a href="/services/real-estate-wdo" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
-              <div className="svc-card-tag">Foundation Care</div>
-              <div className="svc-card-name">Crawlspace Service</div>
-              <div className="svc-card-desc">Moisture control, vapor barrier installation, targeted pest treatment. Catches termite issues early.</div>
-              <a href="/services/crawlspace" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
               <div className="svc-card-tag">Business</div>
               <div className="svc-card-name">Commercial Service</div>
               <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
