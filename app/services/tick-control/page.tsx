@@ -2,8 +2,8 @@ import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
   alternates: { canonical: '/services/tick-control' },
-  title: 'Alabama Tick Yard Treatment | EnviroCare Lone Star & Deer Ticks',
-  description: 'Targeted tick yard treatment for Alabama properties. Bundles with mosquito service. Family-owned. Call (205) 940-6360.',
+  title: 'Tick Control Birmingham AL | Yard Treatment | EnviroCare',
+  description: 'Tick control in Birmingham, AL — seasonal yard treatment for Lone Star, deer, and dog ticks. Combined with mosquito service. Call (205) 940-6360.',
 };
 
 export default function TickControlPage() {

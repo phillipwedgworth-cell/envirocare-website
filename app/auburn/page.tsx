@@ -3,8 +3,8 @@ import CityPage from '@/components/pages/CityPage';
 export const metadata = {
   alternates: { canonical: '/auburn' },
   openGraph: { images: ['/og/og-auburn.png'] },
-  title: 'Auburn Pest Control & Termite Service | EnviroCare Family-Owned',
-  description: 'Auburn, AL pest control. Lee County family service. Sentricon® $1M termite coverage. Call (334) 332-3321.',
+  title: 'Pest Control Auburn AL | Termite & Mosquito | EnviroCare',
+  description: 'Auburn pest control — bi-monthly service, Sentricon termite protection, mosquito treatment. Serving Auburn and Opelika. Call (334) 332-3321.',
 };
 
 export default function AuburnPage() {

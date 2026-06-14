@@ -2,8 +2,8 @@ import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
   alternates: { canonical: '/services/flea' },
-  title: 'Alabama Flea Yard Treatment | EnviroCare Alabama',
-  description: 'Yard flea barrier treatments. Bundles with mosquito & tick service. Applied per label directions. Call (205) 940-6360.',
+  title: 'Flea Control Birmingham AL | Interior Treatment | EnviroCare',
+  description: 'Interior flea control in Birmingham, AL — targets the flea lifecycle indoors. Add-on to quarterly pest service, +$30/qtr. Call (205) 940-6360.',
 };
 
 export default function FleaPage() {

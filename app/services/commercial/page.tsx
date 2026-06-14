@@ -2,8 +2,8 @@ import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
   alternates: { canonical: '/services/commercial' },
-  title: 'Alabama Commercial Pest Control | EnviroCare IPM & HACCP',
-  description: 'Commercial pest control for restaurants, offices, warehouses. Discrete scheduling, full compliance documentation. Call (205) 940-6360.',
+  title: 'Commercial Pest Control Birmingham & Huntsville AL | EnviroCare',
+  description: 'Commercial pest control in Birmingham and Huntsville, AL — restaurants, offices, warehouses. Documented service, inspection-ready. Call (205) 940-6360.',
 };
 
 export default function CommercialPage() {
