@@ -32,12 +32,12 @@ export default function Homepage() {
       <Header />
       <Hero />
       <CoreServices />
+      <Pricing />
       <SpecialtyServices />
       <ThreeOffices />
       <LakeMartinBand />
       <Heritage />
       <Reviews />
-      <Pricing />
       <ScheduleVisit />
       <BundleCTA />
       <Footer />
@@ -245,25 +245,25 @@ function CoreServices() {
             badge="MOST POPULAR" title="Pest Control"
             description="Year-round defense against ants, roaches, spiders & 30+ pests. Bi-monthly service keeps homes pest-free."
             bullets={['Interior + exterior perimeter', 'Unlimited free re-treatments', '$50 off initial service']}
-            href="/services/pest-control" cornerIcon="🛡️" featured
+            href="/services/pest-control" cornerIcon="🛡️" featured price="$35/mo" priceLabel="STARTS AT"
           />
           <ServiceCard
             badge="SENTRICON® CERTIFIED" title="Termite Control"
             description="Sentricon® Always Active™ system. Continuous protection backed by up to $1M damage warranty."
             bullets={['Free full-home inspection', 'Annual inspection included', 'Crawlspace + dock + pier']}
-            href="/services/termite-control" cornerIcon="🪵" highlight="$1M COVERAGE"
+            href="/services/termite-control" cornerIcon="🪵" highlight="$1M COVERAGE" price="$32/mo" priceLabel="STARTS AT"
           />
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
             description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['9 treatments per season (March—November)', 'Applied according to label directions once dry', '50% off first application']}
-            href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER"
+            bullets={['9 treatments per season (March—November)', 'EPA-registered products applied per label directions', '50% off first application']}
+            href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER" price="≈$34/mo" priceLabel="SPREAD OVER 12 MO"
           />
           <ServiceCard
             badge="TARGETED TICK CONTROL" title="Tick Control"
             description="Targeted yard treatments to break the tick lifecycle. Critical for waterfront and wooded properties."
             bullets={['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Add to mosquito for +$20 per round']}
-            href="/services/tick-control" cornerIcon="🐾"
+            href="/services/tick-control" cornerIcon="🐾" price="+$20" priceLabel="PER ROUND ADD-ON"
           />
         </div>
       </div>
@@ -271,15 +271,23 @@ function CoreServices() {
   );
 }
 
-function ServiceCard({ badge, title, description, bullets, href, cornerIcon, featured, highlight }: {
+function ServiceCard({ badge, title, description, bullets, href, cornerIcon, featured, highlight, price, priceLabel }: {
   badge: string; title: string; description: string; bullets: string[];
   href: string; cornerIcon: string; featured?: boolean; highlight?: string;
+  price?: string; priceLabel?: string;
 }) {
   return (
     <Link href={href} className={`ec-service-card ${featured ? 'ec-service-featured' : ''}`}>
       <div className="ec-service-icon-wrap">
         <span className="ec-service-icon">{cornerIcon}</span>
-        {highlight && <span className="ec-service-highlight">{highlight}</span>}
+        {price ? (
+          <span className="ec-service-pricechip">
+            <span className="ec-service-priceamt">{price}</span>
+            {priceLabel && <span className="ec-service-pricelab">{priceLabel}</span>}
+          </span>
+        ) : highlight ? (
+          <span className="ec-service-highlight">{highlight}</span>
+        ) : null}
       </div>
       <div className="ec-service-badge">{badge}</div>
       <h3 className="ec-service-title">{title}</h3>
@@ -287,7 +295,7 @@ function ServiceCard({ badge, title, description, bullets, href, cornerIcon, fea
       <ul className="ec-service-bullets">
         {bullets.map((b) => <li key={b}><span className="ec-check">✓</span> {b}</li>)}
       </ul>
-      <span className="ec-service-arrow">Learn more →</span>
+      <span className="ec-service-arrow">See plan →</span>
     </Link>
   );
 }
@@ -810,7 +818,7 @@ function Pricing() {
             price={mode === 'monthly' ? '67' : ''}
             unit={mode === 'monthly' ? '/mo' : ''}
             priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® $325 install' : undefined}
-            terms={mode === 'monthly' ? 'exactly what pest + termite cost separately — one tech, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
+            terms={mode === 'monthly' ? 'Pest + Sentricon® termite — one technician, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
             bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
             cta="Start Foundation" href="/quote?plan=foundation"
             badge="MOST POPULAR" featured
@@ -830,8 +838,8 @@ function Pricing() {
             price={mode === 'monthly' ? '116' : ''}
             unit={mode === 'monthly' ? '/mo' : ''}
             priceLine={mode === 'perservice' ? 'Pest $70/visit + Termite $325/$380yr + Outdoor $65/treatment' : undefined}
-            terms={mode === 'monthly' ? 'exact standalone math: $35 + $32 + $49. Zero bundle markup.' : 'every service at its standalone price'}
-            bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'One technician learns your property', 'Priority same-week response']}
+            terms={mode === 'monthly' ? 'Everything we do, under one plan and one technician.' : 'every service at its standalone price'}
+            bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'One technician learns your property', 'Priority scheduling & re-service support']}
             cta="Start Complete" href="/quote?plan=complete"
           />
         </div>
@@ -1472,6 +1480,17 @@ const HOMEPAGE_CSS = `
     font-size: 10px; font-weight: 700; color: #F5A800;
     background: #FFF8E7; padding: 4px 10px;
     border-radius: 999px; letter-spacing: 0.06em;
+  }
+  .ec-service-pricechip {
+    display: flex; flex-direction: column; align-items: flex-end; text-align: right;
+  }
+  .ec-service-priceamt {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700; color: #0E8E40; font-size: 22px; line-height: 1; white-space: nowrap;
+  }
+  .ec-service-pricelab {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+    color: #F5A800; margin-top: 3px; white-space: nowrap;
   }
   .ec-service-badge {
     font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
