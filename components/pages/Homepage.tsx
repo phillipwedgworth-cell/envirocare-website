@@ -301,7 +301,6 @@ function SpecialtyServices() {
     { icon: '🪲', title: 'Flea Control', desc: 'Interior flea treatment that targets the lifecycle indoors. An add-on to your quarterly pest program.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
     { icon: '🏠', title: 'Builder Pre-Treat', desc: 'Pre-construction termite treatment for new builds. The right time to start Sentricon® protection.', tag: 'NEW CONSTRUCTION', href: '/services/builder-pre-treat' },
     { icon: '📋', title: 'Real Estate / WDO Letters', desc: 'Wood-destroying organism inspection letters for closings. Fast turnaround, lender-ready format.', tag: 'CLOSINGS', href: '/services/wdo-letters' },
-    { icon: '🏗️', title: 'Crawlspace Service', desc: 'Moisture control, vapor barriers & targeted treatments for the most vulnerable part of your home.', tag: 'FOUNDATION CARE', href: '/services/crawlspace' },
     { icon: '🏢', title: 'Commercial Service', desc: 'Restaurants, offices, warehouses. Discrete scheduling & full compliance documentation.', tag: 'IPM & HACCP', href: '/services/commercial' },
   ];
 
@@ -1023,7 +1022,6 @@ function Footer() {
           <Link href="/services/flea">Flea Control</Link>
           <Link href="/services/builder-pre-treat">Builder Pre-Treat</Link>
           <Link href="/services/wdo-letters">Real Estate / WDO Letters</Link>
-          <Link href="/services/crawlspace">Crawlspace Service</Link>
           <Link href="/services/commercial">Commercial Service</Link>
         </div>
 
