@@ -802,16 +802,6 @@ function Pricing() {
         {/* ── Plan cards — same four in both states; price lines swap (Jun 11 spec) ── */}
         <div className="ec-pricing-grid ec-pricing-fade" key={mode}>
           <PriceCard
-            title="Essential" tags={['Pest']}
-            tagline="Year-round pest control for the everyday Alabama home."
-            price={mode === 'monthly' ? '35' : '70'}
-            unit={mode === 'monthly' ? '/mo' : '/visit'}
-            terms={mode === 'monthly' ? 'ACH autopay · cancel anytime' : 'bi-monthly · or $108 quarterly'}
-            bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests covered', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
-            cta="Start Essential" href="/quote?plan=essential"
-            finePrint="$150 initial — ask about our $99 new-customer rate"
-          />
-          <PriceCard
             title="Foundation" tags={['Pest', 'Termite']}
             tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
             price={mode === 'monthly' ? '67' : ''}
@@ -819,8 +809,18 @@ function Pricing() {
             priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® $325 install' : undefined}
             terms={mode === 'monthly' ? 'Pest + Sentricon® termite — a specialist for each, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
             bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
-            cta="Start Foundation" href="/quote?plan=foundation"
+            cta="Choose Foundation" href="/quote?plan=foundation"
             badge="MOST POPULAR" featured
+          />
+          <PriceCard
+            title="Essential" tags={['Pest']}
+            tagline="Year-round pest control for the everyday Alabama home."
+            price={mode === 'monthly' ? '35' : '70'}
+            unit={mode === 'monthly' ? '/mo' : '/visit'}
+            terms={mode === 'monthly' ? 'ACH autopay · cancel anytime' : 'bi-monthly · or $108 quarterly'}
+            bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests covered', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
+            cta="Choose Essential" href="/quote?plan=essential"
+            finePrint="$150 initial — ask about our $99 new-customer rate"
           />
           <PriceCard
             title="Outdoor Pro" tags={['Mosquito', 'Tick']}
@@ -829,7 +829,7 @@ function Pricing() {
             unit={mode === 'monthly' ? '/mo' : '/treatment'}
             terms={mode === 'monthly' ? '$65/treatment × 9 treatments, billed evenly across 12 months' : '9 treatments · every 30 days · March–November'}
             bullets={['Mosquito barrier reduction program', 'Tick + chigger coverage — built for lake & wooded lots', 'Free re-treatment between visits', '$0 initial fee']}
-            cta="Start Outdoor Pro" href="/quote?plan=outdoor"
+            cta="Choose Outdoor Pro" href="/quote?plan=outdoor"
           />
           <PriceCard
             title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
@@ -839,7 +839,7 @@ function Pricing() {
             priceLine={mode === 'perservice' ? 'Pest $70/visit + Termite $325/$380yr + Outdoor $65/treatment' : undefined}
             terms={mode === 'monthly' ? 'Everything we do, under one plan — a specialist for each service.' : 'every service at its standalone price'}
             bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'A specialist for each service, not a generalist', 'Priority scheduling & re-service support']}
-            cta="Start Complete" href="/quote?plan=complete"
+            cta="Choose Complete" href="/quote?plan=complete"
           />
         </div>
 
