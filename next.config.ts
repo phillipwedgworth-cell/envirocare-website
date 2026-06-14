@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
             { source: '/contact', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
+            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13
             { source: '/services/mosquito', destination: '/services/mosquito-control', permanent: true },
             { source: '/services/pest', destination: '/services/pest-control', permanent: true },
             { source: '/services/rodent', destination: '/services/pest-control', permanent: true },

@@ -54,7 +54,6 @@ const SERVICE_SLUGS = [
   'builder',
   'builder-pre-treat',
   'wdo-letters',
-  'crawlspace',
   'commercial',
 ];
 
