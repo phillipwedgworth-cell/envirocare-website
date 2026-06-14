@@ -6,6 +6,14 @@ import Footer from "@/components/shared/Footer";
  * ServicePage.tsx — Shared template for all 10 EnviroCare service pages
  * Generated May 16, 2026 — Stage 2 of v2 site-wide rebrand
  *
+ * ─── CLAUDE CODE: DEPLOY THIS FILE ───
+ * Repo:   phillipwedgworth-cell/envirocare-website (PUBLIC)
+ * Path:   components/pages/ServicePage.tsx
+ * Commit: feat(service-page): render optional "Pests We Treat" section + styles
+ * Push:   main
+ * NOTE:   "use client" MUST stay line 1 — do not move the deploy header above it.
+ * ─────────────────────────────────────
+ *
  * Usage:
  *   import ServicePage from '@/components/pages/ServicePage';
  *   export default function PestControlPage() { return <ServicePage slug="pest-control" />; }
@@ -279,6 +287,34 @@ export default function ServicePage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {service.pestsFeatured && service.pestsFeatured.length > 0 && (
+        <section className="pests">
+          <div className="container">
+            <div className="section-eyebrow">30+ Pests Covered</div>
+            <h2 className="section-title">Pests We <span>Treat</span></h2>
+            <p className="pests-intro">Your bi-monthly plan covers 30+ common Alabama pests — including the specific invaders Birmingham and Lake Martin homeowners search for most. Fire ants, fleas, ticks, and mosquitoes are handled by their own dedicated programs.</p>
+            <div className="pests-grid">
+              {service.pestsFeatured.map((p, i) => (
+                <div key={i} className="pest-card">
+                  <div className="pest-name">{p.name}</div>
+                  <div className="pest-desc">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+            {service.pestsMore && service.pestsMore.length > 0 && (
+              <>
+                <div className="pests-more-label">Plus dozens more we treat at no extra charge:</div>
+                <div className="pest-chips">
+                  {service.pestsMore.map((p, i) => (
+                    <span key={i} className="pest-chip">{p}</span>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="wedge">
         <div className="container">
@@ -727,6 +763,19 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .faq-q::after{content:"+";font-size:1.6rem;color:var(--gold);font-weight:900;flex-shrink:0;transition:transform .25s}
 .faq-item[open] .faq-q::after{transform:rotate(45deg)}
 .faq-a{padding:0 1.4rem 1.4rem;font-size:14.5px;color:var(--ink-soft);line-height:1.7}
+
+/* ─── PESTS WE TREAT */
+.pests{padding:5rem clamp(1.5rem,5vw,4rem);background:#fff}
+.pests .container{max-width:1180px}
+.pests-intro{font-size:1.02rem;line-height:1.7;color:var(--ink-soft);max-width:760px;margin:.4rem 0 0}
+.pests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin:2.4rem 0 0}
+.pest-card{background:linear-gradient(135deg,var(--green-xlt) 0%,#fff 100%);border:1px solid var(--border);border-radius:16px;padding:1.4rem 1.4rem;transition:transform .25s,box-shadow .25s}
+.pest-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.pest-name{font-family:"Playfair Display",serif;font-size:1.18rem;font-weight:700;color:var(--green-dk);margin-bottom:.5rem}
+.pest-desc{font-size:14px;color:var(--ink-soft);line-height:1.6}
+.pests-more-label{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--green-dk);margin:2.4rem 0 1rem}
+.pest-chips{display:flex;flex-wrap:wrap;gap:.55rem}
+.pest-chip{background:var(--green-lt);border:1px solid rgba(22,163,74,.22);border-radius:50px;padding:.45rem 1rem;font-size:13px;font-weight:600;color:var(--green-deep)}
 
 @media(max-width:1000px){
   .svc-hero-inner{grid-template-columns:1fr}

@@ -3,6 +3,16 @@
 // ChatGPT, Perplexity, Gemini, and Google's AI Overviews. The `sameAs`
 // array is how AI systems verify entity identity across the web.
 //
+// Jun 14, 2026 — added "Wedgworth Pest Control" to alternateName so search
+// engines + AI treat the legacy family name as the same entity as EnviroCare.
+//
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: lib/seo/organization-schema.ts
+// Commit: feat(seo): add Wedgworth Pest Control as alternateName on Organization schema
+// Push: main
+// ─────────────────────────────────────
+//
 // To add new social profiles: just add the URL to SAME_AS below.
 export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
@@ -10,7 +20,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   '@id': 'https://www.envirocarellc.com/#organization',
   name: 'EnviroCare Pest & Termite Services',
   legalName: 'EnviroCare Pest & Termite Services LLC',
-  alternateName: ['EnviroCare', 'EnviroCare Pest Control', 'EnviroCare Termite'],
+  alternateName: ['EnviroCare', 'EnviroCare Pest Control', 'EnviroCare Termite', 'Wedgworth Pest Control', 'Wedgworth Pest & Termite', "Wedgworth's Pest Control"],
   url: 'https://www.envirocarellc.com',
   logo: {
     '@type': 'ImageObject',
@@ -20,7 +30,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   },
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    "Family-owned, third-generation Alabama pest control and termite company founded in 1958 in Alexander City by Phillip M. Wedgworth. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M repair coverage, and mosquito and tick yard treatment across Alabama from three offices: Birmingham/Alabaster, Lake Martin/Alex City, and Huntsville.",
+    "Family-owned, third-generation Alabama pest control and termite company founded in 1958 in Alexander City by Phillip M. Wedgworth. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M repair coverage, and mosquito and tick yard treatment across Alabama from three offices: Birmingham/Alabaster, Lake Martin/Alex City, and Huntsville. Around Lake Martin and Alexander City, EnviroCare is the Wedgworth family business that locals have long known as Wedgworth Pest Control.",
   foundingDate: '1958',
   foundingLocation: {
     '@type': 'Place',
