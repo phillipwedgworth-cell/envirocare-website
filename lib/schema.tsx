@@ -18,8 +18,8 @@ import React from 'react';
 
 // ─── Shared constants ────────────────────────────────────────────────────────
 const BRAND_NAME = 'EnviroCare Pest & Termite Services';
-const BRAND_URL  = 'https://envirocarellc.com';
-const LOGO_URL   = 'https://envirocarellc.com/logo.png';
+const BRAND_URL  = 'https://www.envirocarellc.com';
+const LOGO_URL   = 'https://www.envirocarellc.com/logo.png';
 const EMAIL      = 'service@envirocarellc.com';
 const FOUNDING   = '1958';
 const PRICE_RANGE = '$$';
@@ -118,7 +118,7 @@ export function getBirminghamSchema() {
     openingHoursSpecification: HOURS,
     description:
       'Family-owned Alabama pest control since 1958. Serving Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Alabaster, Pelham, Chelsea, Helena, and surrounding communities. Sentricon-certified termite specialist with $1M damage coverage.',
-    areaServed: ['Birmingham','Hoover','Vestavia Hills','Mountain Brook','Homewood','Alabaster','Chelsea','Pelham','Helena','Calera','Trussville','Greystone','Mt Laurel','Tuscaloosa'].map((c) => ({ '@type': 'City', name: c })),
+    areaServed: ['Birmingham','Hoover','Vestavia Hills','Mountain Brook','Homewood','Alabaster','Chelsea','Pelham','Helena','Calera','Trussville','Greystone','Mt Laurel'].map((c) => ({ '@type': 'City', name: c })),
     hasOfferCatalog: SERVICE_CATALOG,
     sameAs: SAME_AS,
     // aggregateRating intentionally omitted — see header note.

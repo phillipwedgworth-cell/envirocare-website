@@ -352,7 +352,6 @@ function ThreeOffices() {
     { name: 'Calera', slug: 'calera' },
     { name: 'Trussville', slug: 'trussville' },
     { name: 'Mt Laurel', slug: 'mt-laurel' },
-    { name: 'Tuscaloosa', slug: 'tuscaloosa' },
   ];
   const lakeMartin = [
     { name: 'Alexander City', slug: 'alexander-city' },
@@ -1048,7 +1047,6 @@ function Footer() {
             <Link href="/calera">Calera</Link>
             <Link href="/trussville">Trussville</Link>
             <Link href="/mt-laurel">Mt Laurel</Link>
-            <Link href="/tuscaloosa">Tuscaloosa</Link>
           </div>
           <div className="ec-footer-areas-group">
             <div className="ec-footer-areas-label">Lake Martin / Alex City</div>

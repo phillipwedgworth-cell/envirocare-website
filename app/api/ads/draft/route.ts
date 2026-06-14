@@ -68,7 +68,7 @@ export async function POST(request: Request) {
   const reviewer = process.env.NOTIFY_EMAIL;
   const resendKey = process.env.RESEND_API_KEY;
   const fromAddress = process.env.RESEND_FROM || process.env.NOTIFY_FROM || "onboarding@resend.dev";
-  const reviewUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://envirocarellc.com'}/ads/${id}`;
+  const reviewUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.envirocarellc.com'}/ads/${id}`;
 
   if (resendKey && reviewer) {
     const resend = new Resend(resendKey);

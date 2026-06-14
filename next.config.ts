@@ -83,8 +83,9 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/decatur-al-pest-control', destination: '/decatur', permanent: true },
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },
 
-            // Tuscaloosa — serviced from Birmingham office (confirmed 2026-06-12)
-            { source: '/where-we-service/tuscaloosa-al-pest-control', destination: '/tuscaloosa', permanent: true },
+            // Tuscaloosa — NOT serviced (confirmed Jun 14); redirect to Birmingham
+            { source: '/where-we-service/tuscaloosa-al-pest-control', destination: '/birmingham', permanent: true },
+            { source: '/tuscaloosa', destination: '/birmingham', permanent: true },
             // Service-area hub
             { source: '/where-we-service', destination: '/', permanent: true },
 

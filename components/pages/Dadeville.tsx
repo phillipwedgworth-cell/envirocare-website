@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { Phone, MapPin, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -17,7 +17,7 @@ export default function Dadeville() {
           "name": "EnviroCare Pest Control - Dadeville, AL",
           "description": "Professional mosquito, termite, and pest control in Dadeville, Alabama and the eastern Lake Martin shoreline. Serving Dadeville from our Alexander City office since 1958.",
           "telephone": "+12562346162",
-          "url": "https://envirocarellc.com/dadeville",
+          "url": "https://www.envirocarellc.com/dadeville",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "1785 Tallapoosa St",

@@ -115,13 +115,7 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '35242': 'birmingham',
   // Mt Laurel
   '35114': 'birmingham',
-  // Tuscaloosa metro
-  '35401': 'birmingham', '35402': 'birmingham', '35403': 'birmingham', '35404': 'birmingham',
-  '35405': 'birmingham', '35406': 'birmingham', '35407': 'birmingham', '35470': 'birmingham',
-  '35473': 'birmingham', '35475': 'birmingham', '35476': 'birmingham', '35480': 'birmingham',
-  '35482': 'birmingham', '35486': 'birmingham', '35487': 'birmingham',
-  // Northport
-  '35473': 'birmingham', '35476': 'birmingham',
+  // (Tuscaloosa metro removed Jun 14 — not serviced)
 
   // ===== LAKE MARTIN / ALEX CITY =====
   // Alexander City

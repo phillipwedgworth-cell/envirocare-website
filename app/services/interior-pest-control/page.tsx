@@ -105,8 +105,8 @@ export default function InteriorPestControlPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://envirocarellc.com/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://envirocarellc.com/services" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.envirocarellc.com/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.envirocarellc.com/services" },
       { "@type": "ListItem", position: 3, name: "Interior + Exterior Pest Control" },
     ],
   };

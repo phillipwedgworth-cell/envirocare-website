@@ -35,9 +35,9 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://envirocarellc.com/" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://envirocarellc.com/services" },
-    { "@type": "ListItem", position: 3, name: "WDO Inspection Letters", item: "https://envirocarellc.com/services/wdo-letters" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.envirocarellc.com/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.envirocarellc.com/services" },
+    { "@type": "ListItem", position: 3, name: "WDO Inspection Letters", item: "https://www.envirocarellc.com/services/wdo-letters" },
   ],
 };
 

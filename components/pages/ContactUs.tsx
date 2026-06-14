@@ -99,7 +99,7 @@ export default function ContactUs() {
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "name": "Contact EnviroCare Pest Control",
-          "url": "https://envirocarellc.com/contact-us",
+          "url": "https://www.envirocarellc.com/contact-us",
           "mainEntity": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",

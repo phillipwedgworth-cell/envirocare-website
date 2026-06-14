@@ -36,7 +36,7 @@ export default function Madison() {
         "name": "EnviroCare Pest Control - Madison, AL",
         "description": "Professional pest, termite, and mosquito control in Madison, Alabama. Serving from our Huntsville office. Family-owned since 1958.",
         "telephone": "+12569377676",
-        "url": "https://envirocarellc.com/madison",
+        "url": "https://www.envirocarellc.com/madison",
         "address": { "@type": "PostalAddress", "addressLocality": "Madison", "addressRegion": "AL", "postalCode": "35758" },
         "areaServed": "Madison, AL",
         

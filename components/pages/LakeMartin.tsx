@@ -21,9 +21,9 @@ export default function LakeMartin() {
           "@type": "LocalBusiness",
           "name": "EnviroCare Pest Control - Lake Martin, AL",
           "description": "Professional mosquito, termite, and pest control for Lake Martin waterfront homes and communities. Serving Lake Martin since 1958 from our Alexander City office.",
-          "image": "https://envirocarellc.com/logo.png",
+          "image": "https://www.envirocarellc.com/logo.png",
           "telephone": "+12562346162",
-          "url": "https://envirocarellc.com/lake-martin",
+          "url": "https://www.envirocarellc.com/lake-martin",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "1785 Tallapoosa St",

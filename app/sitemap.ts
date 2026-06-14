@@ -16,7 +16,7 @@ const BASE_URL = 'https://www.envirocarellc.com';
 const CITY_SLUGS = [
   'birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
   'alabaster', 'chelsea', 'pelham', 'helena', 'calera',
-  'trussville', 'greystone', 'mt-laurel', 'tuscaloosa',
+  'trussville', 'greystone', 'mt-laurel',
   'lake-martin', 'alexander-city', 'dadeville', 'eclectic',
   'willow-point', 'the-ridge', 'stillwaters', 'the-heritage',
   'auburn', 'opelika',

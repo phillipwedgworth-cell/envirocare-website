@@ -55,7 +55,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["Vestavia Hills", "Mountain Brook", "Homewood", "Hoover", "Forest Park", "Crestwood", "Trussville"],
     pestPressure:
       "Heavy mosquito and termite pressure. Red clay soil along Red Mountain is prime subterranean termite habitat. Mosquito season runs March–November with peak activity in July–August.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
   hoover: {
     name: "Hoover",
@@ -70,7 +70,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["Riverchase", "Bluff Park", "Ross Bridge", "Trace Crossings", "Greystone"],
     pestPressure:
       "High termite risk in newer construction (2000s–2020s build). Mosquitoes are active March–November around Moss Rock Preserve and Patton Creek areas. Ant pressure is elevated in landscaped HOA neighborhoods.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
   "vestavia-hills": {
     name: "Vestavia Hills",
@@ -85,7 +85,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["Vestavia Country Club", "Liberty Park", "Cahaba Heights", "Dolly Ridge", "Wald Valley"],
     pestPressure:
       "Among the highest termite pressure in metro Birmingham. Older homes (1950s–1970s) with crawl spaces have elevated subterranean termite risk. Mosquito pressure is significant in wooded cul-de-sacs from May–September.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
   "mountain-brook": {
     name: "Mountain Brook",
@@ -100,7 +100,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["English Village", "Crestline", "Mountain Brook Village", "Lane Park", "Forest Highlands"],
     pestPressure:
       "Very high mosquito pressure in wooded neighborhoods near Shades Creek. Termite pressure elevated in older construction. Many Mountain Brook homes have mature landscaping that supports mosquito harborage.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
   huntsville: {
     name: "Huntsville",
@@ -115,7 +115,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["Madison", "Hampton Cove", "Jones Valley", "Meridianville", "Harvest", "Redstone Arsenal area"],
     pestPressure:
       "Mosquito season is strong May–September around the Tennessee River and Monte Sano. Fire ants are a major issue in new construction areas near Limestone County line. Termites are active throughout — Cook's dominance here means many homes are unprotected.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
   auburn: {
     name: "Auburn",
@@ -130,7 +130,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["Auburn University area", "Opelika", "Tiger Town", "Donahue Ridge", "Wrights Mill Road area"],
     pestPressure:
       "High ant and roach pressure in rental housing and high-density areas near campus. Mosquito season March–November. Fire ant pressure in new development along US-280 corridor.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
   "lake-martin": {
     name: "Lake Martin",
@@ -145,7 +145,7 @@ const CITIES: Record<string, CityData> = {
     neighborhoods: ["Kowaliga", "Children's Harbor", "Willow Point", "Cove Marina area", "Dadeville", "Eclectic", "Wind Creek"],
     pestPressure:
       "Lake Martin's waterfront properties face intense mosquito pressure from late March through November. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered waterfront-appropriate barrier products. Termites are also active in lakefront construction.",
-    canonicalBase: "https://envirocarellc.com",
+    canonicalBase: "https://www.envirocarellc.com",
   },
 };
 

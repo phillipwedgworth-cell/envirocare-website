@@ -17,7 +17,7 @@ export default function Pelham() {
           "name": "EnviroCare Pest Control - Pelham, AL",
           "description": "Professional pest, termite, and mosquito control serving Pelham, Alabama. Local Birmingham-area office at 2025 Butler Rd, Alabaster. Family-owned since 1958.",
           "telephone": "+12059406360",
-          "url": "https://envirocarellc.com/pelham",
+          "url": "https://www.envirocarellc.com/pelham",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "2025 Butler Rd",

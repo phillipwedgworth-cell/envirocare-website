@@ -17,7 +17,7 @@ export default function Auburn() {
           "name": "EnviroCare Pest Control - Auburn, AL",
           "description": "Professional pest, termite, and mosquito control in Auburn, Alabama. Serving Auburn from our Alexander City office. Licensed technicians, family-owned since 1958.",
           "telephone": "+13343323321",
-          "url": "https://envirocarellc.com/auburn",
+          "url": "https://www.envirocarellc.com/auburn",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "1785 Tallapoosa St",

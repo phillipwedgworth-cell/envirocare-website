@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
     description:
       "Family-owned pest, termite, mosquito & tick control in Madison AL. Serving Heritage Plantation, Madison Crossings, and all 35756–35758 zip codes. Call the Huntsville office.",
-    url: "https://envirocarellc.com/service-areas/madison",
+    url: "https://www.envirocarellc.com/service-areas/madison",
     type: "website",
   },
 };
@@ -33,9 +33,9 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://envirocarellc.com/service-areas/madison",
+      "@id": "https://www.envirocarellc.com/service-areas/madison",
       name: "EnviroCare Pest & Termite Services — Huntsville / Madison Office",
-      url: "https://envirocarellc.com",
+      url: "https://www.envirocarellc.com",
       telephone: "+12569377676",
       address: {
         "@type": "PostalAddress",

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState } from 'react';
 import { ChevronDown, MapPin, Phone, Star, Shield, Clock, Users } from 'lucide-react';
 
@@ -15,7 +15,7 @@ export default function MadisonLandingPage() {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "EnviroCare Pest Control - Hartselle, AL",
-          "image": "https://envirocarellc.com/logo.png",
+          "image": "https://www.envirocarellc.com/logo.png",
           "description": "Professional pest control, termite treatment, and mosquito control in Hartselle, AL",
           "address": {
             "@type": "PostalAddress",
@@ -24,7 +24,7 @@ export default function MadisonLandingPage() {
             "postalCode": "35640"
           },
           "telephone": "+12569377676",
-          "url": "https://envirocarellc.com/hartselle",
+          "url": "https://www.envirocarellc.com/hartselle",
           "sameAs": [
             "https://www.facebook.com/envirocare",
             "https://www.google.com/maps/place/EnviroCare+Madison"

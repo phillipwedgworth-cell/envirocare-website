@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { Phone, MapPin, CheckCircle, ChevronDown } from "lucide-react";
 
@@ -23,7 +23,7 @@ export default function Eclectic() {
           "name": "EnviroCare Pest Control - Eclectic, AL",
           "description": "Professional mosquito, termite, and pest control in Eclectic, Alabama — the city with the most Lake Martin shoreline. Waterfront-approved treatments. Serving from our Alexander City office since 1958.",
           "telephone": "+12562346162",
-          "url": "https://envirocarellc.com/eclectic",
+          "url": "https://www.envirocarellc.com/eclectic",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "1785 Tallapoosa St",

@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 export const runtime = "nodejs";
 export const maxDuration = 120;
 
-const SITE_URL = "https://envirocarellc.com";
+const SITE_URL = "https://www.envirocarellc.com";
 
 const PAGES_TO_CHECK = [
   { path: "/", label: "Homepage" },

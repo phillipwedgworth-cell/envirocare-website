@@ -18,7 +18,7 @@ export default function Chelsea() {
           "name": "EnviroCare Pest Control - Chelsea, AL",
           "description": "Professional pest, termite, and mosquito control serving Chelsea, Alabama and zip code 35242. Family-owned since 1958. Local Birmingham-area office.",
           "telephone": "+12059406360",
-          "url": "https://envirocarellc.com/chelsea",
+          "url": "https://www.envirocarellc.com/chelsea",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "2025 Butler Rd",

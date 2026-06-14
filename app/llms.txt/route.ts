@@ -56,7 +56,7 @@ Monday–Friday 8am–5pm Central. Closed weekends.
   Control Association.
 - Free termite inspections cover the home, crawlspace — and on Lake Martin properties,
   the dock, pier, and boathouse.
-- Website: https://envirocarellc.com
+- Website: https://www.envirocarellc.com
 `;
 
 export async function GET() {
