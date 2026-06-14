@@ -1,12 +1,68 @@
-import CityPage from '@/components/pages/CityPage';
+import type { Metadata } from "next";
+import Link from "next/link";
+import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
-export const metadata = {
-  alternates: { canonical: '/trussville' },
-  openGraph: { images: ['/og/og-trussville.png'] },
-  title: 'Trussville Pest Control & Termite Service | EnviroCare Since 1958',
-  description: 'Trussville pest control. Cahaba River-area family service. Sentricon® $1M coverage. Call (205) 940-6360.',
+export const metadata: Metadata = {
+  title: "Pest Control Trussville AL | Termite, Mosquito & Tick — Since 1958",
+  description:
+    "Pest control, Sentricon® termite, mosquito & tick service in Trussville AL — Cahaba Project, Trussville Springs, Carrington, Stockton. Bi-monthly from $35/mo, no-drill termite with $1M coverage. Call (205) 940-6360.",
+  alternates: { canonical: "/trussville" },
+  openGraph: {
+    images: ["/og/og-trussville.png"],
+    title: "Pest Control Trussville AL | EnviroCare — Since 1958",
+    description:
+      "Family-owned pest, termite, mosquito & tick service across Trussville. No-drill Sentricon® with up to $1M EnviroCare coverage.",
+    url: "https://www.envirocarellc.com/trussville",
+    type: "website",
+  },
+};
+
+const G = "#0E8E40";
+
+const config: DeepCityConfig = {
+  name: "Trussville",
+  slug: "trussville",
+  badge: "Trussville · Jefferson & St. Clair County · Since 1958",
+  zip: "35173",
+  neighborhoods: ["Cahaba Project", "Trussville Springs", "Carrington", "Stockton", "Glendale Farms"],
+  heroIntro:
+    "Year-round pest and termite defense for Trussville homes — the historic Cahaba Project, Trussville Springs, Carrington, and Stockton. No-drill Sentricon®, seasonal mosquito and tick service, family-owned and dispatched from our Birmingham office.",
+  summary:
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+  whyHeadline: "The Cahaba River and Trussville's mature tree canopy bring termites, ants, and mosquito pressure to yards year-round.",
+  whySub: "The patterns we treat most across Trussville's historic and new neighborhoods.",
+  pressureCards: [
+    { emoji: "🪵", title: "Termites along the Cahaba", body: "The Cahaba River corridor keeps Trussville's soil damp — exactly the moisture Eastern subterranean termites move through to reach foundations. Sentricon® protects without drilling, up to $1M in coverage." },
+    { emoji: "🏛️", title: "Termites in the historic Cahaba Project", body: "The 1930s Cahaba Project homes sit on older foundations that termites work toward. Sentricon® bait stations protect without drilling into original masonry — critical for historic structures." },
+    { emoji: "🦟", title: "Mosquitoes off the river", body: "The Cahaba and its backwaters feed mosquito pressure March through November. The 30-day yard barrier keeps riverside and canopy yards usable through the season." },
+    { emoji: "🐜", title: "Carpenter ants in the canopy", body: "Trussville's mature tree canopy harbors carpenter ants that move into fascia, soffit, and trim. Bi-monthly exterior service covers the whole nuisance-ant family." },
+    { emoji: "🐾", title: "Ticks on wooded lots", body: "Carrington, Stockton, and wooded riverside lots carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🔥", title: "Fire ants in newer subdivisions", body: "Trussville Springs and newer graded lots draw fire ants into fresh sod. Whole-yard fire ant treatment is available, priced separately by yard size." },
+  ],
+  services: [
+    { title: "Termite Treatment in Trussville", body: (<>The Cahaba corridor keeps Trussville soil damp and subterranean termites active year-round. EnviroCare protects with the{" "}<Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link> — no drilling, ideal for the historic Cahaba Project homes. Installation is $325 (first-year guarantee included); renewal is $380/year, or $32/month, up to $1,000,000 in coverage.{" "}<Link href="/services/wdo-letters" style={{ color: G, fontWeight: 600 }}>WDO termite letters</Link> for home sales available.</>) },
+    { title: "Mosquito Control in Trussville", body: (<>The Cahaba River and its backwaters keep mosquito pressure up spring into fall.{" "}<Link href="/services/mosquito-control" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
+    { title: "Tick Control in Trussville", body: (<>Wooded lots in Carrington and Stockton and along the river put ticks close to families and pets. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with habitat.</>) },
+    { title: "Ant Control in Trussville", body: (<>Carpenter and odorous house ants come off the tree canopy. The bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> in newer subdivisions are priced separately by treated area.</>) },
+    { title: "Commercial Pest Control in Trussville", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Trussville — downtown shops, offices, and restaurants — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
+  ],
+  faqs: [
+    { q: "How much is termite treatment in Trussville?", a: "EnviroCare termite protection in Trussville is $325 to install (first-year guarantee included) and $380 per year to renew, or $32 per month. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "Do you treat the historic Cahaba Project homes?", a: "Yes — historic homes get Sentricon® termite protection with no drilling into original masonry, plus the bi-monthly perimeter program. The full-home termite inspection is free." },
+    { q: "Is there mosquito control in Trussville?", a: "Yes. EnviroCare treats Trussville yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
+    { q: "What does bi-monthly pest control cover in Trussville?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
+    { q: "Do you serve the Cahaba Project, Trussville Springs, and Carrington?", a: "Yes — all of Trussville. Call (205) 940-6360 and we'll confirm your address is on our route." },
+  ],
+  siblings: [
+    ["Birmingham", "/birmingham"],
+    ["Mountain Brook", "/mountain-brook"],
+    ["Hoover", "/hoover"],
+    ["Vestavia Hills", "/vestavia-hills"],
+    ["Termite Control", "/services/termite-control"],
+    ["Mosquito Control", "/services/mosquito-control"],
+  ],
 };
 
 export default function TrussvillePage() {
-  return <CityPage slug="trussville" />;
+  return <DeepCityPage config={config} />;
 }

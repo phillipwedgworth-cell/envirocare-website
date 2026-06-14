@@ -1,12 +1,68 @@
-import CityPage from '@/components/pages/CityPage';
+import type { Metadata } from "next";
+import Link from "next/link";
+import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
-export const metadata = {
-  alternates: { canonical: '/hoover' },
-  openGraph: { images: ['/og/og-hoover.png'] },
-  title: 'Hoover Pest Control & Termite Service | EnviroCare Since 1958',
-  description: 'Hoover, AL family-owned pest control. Sentricon® $1M coverage. Mosquito & tick yard service. Call (205) 940-6360.',
+export const metadata: Metadata = {
+  title: "Pest Control Hoover AL | Termite, Mosquito, Tick & Commercial — Since 1958",
+  description:
+    "Pest control, Sentricon® termite, mosquito, tick & commercial service in Hoover AL — Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, Ross Bridge. Bi-monthly from $35/mo. Call (205) 940-6360.",
+  alternates: { canonical: "/hoover" },
+  openGraph: {
+    images: ["/og/og-hoover.png"],
+    title: "Pest Control Hoover AL | EnviroCare — Since 1958",
+    description:
+      "Family-owned pest, termite, mosquito, tick & commercial service across Hoover. No-drill Sentricon® with up to $1M EnviroCare coverage.",
+    url: "https://www.envirocarellc.com/hoover",
+    type: "website",
+  },
+};
+
+const G = "#0E8E40";
+
+const config: DeepCityConfig = {
+  name: "Hoover",
+  slug: "hoover",
+  badge: "Hoover · Jefferson & Shelby County · Since 1958",
+  zip: "35244",
+  neighborhoods: ["Riverchase", "Bluff Park", "Trace Crossings", "Inverness", "Lake Cyrus", "Ross Bridge"],
+  heroIntro:
+    "Pest, termite, mosquito, tick, and commercial service across Hoover — Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. No-drill Sentricon®, seasonal yard programs, and documented commercial service for the Galleria corridor.",
+  summary:
+    "EnviroCare provides pest control, termite protection, mosquito, tick, and commercial pest service in Hoover, Alabama, including Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+  whyHeadline: "Tree-lined neighborhoods, lake lots, and steady new construction keep Hoover's pest pressure high year-round.",
+  whySub: "The patterns we treat most across Hoover's homes and businesses.",
+  pressureCards: [
+    { emoji: "🪵", title: "Termites across established Hoover", body: "From Riverchase to Bluff Park, Hoover's settled homes and damp Shelby-Jefferson clay give Eastern subterranean termites the moisture and access they look for. Sentricon® protects without drilling, with up to $1M EnviroCare coverage." },
+    { emoji: "🐜", title: "Carpenter ants in the tree canopy", body: "Hoover's mature tree-lined streets harbor carpenter ants that move into fascia, soffit, and trim. Bi-monthly exterior service keeps the whole ant family outside." },
+    { emoji: "🦟", title: "Mosquitoes off the lakes & creeks", body: "Lake Cyrus, Patton Creek, and the Riverchase ponds hold the standing water mosquitoes breed in. The 30-day yard barrier treats March through November." },
+    { emoji: "🐾", title: "Ticks on wooded lots", body: "Bluff Park, Inverness, and Ross Bridge lots backing up to woods carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🔥", title: "Fire ants in new construction", body: "Trace Crossings and newer Hoover sections sit on graded red clay that fire ants colonize aggressively. Whole-yard fire ant treatment is priced separately by yard size." },
+    { emoji: "🏢", title: "Commercial pressure on the Galleria corridor", body: "Restaurants, retail, and offices around the Riverchase Galleria need documented, inspection-ready service. We build commercial schedules around your hours and foot traffic." },
+  ],
+  services: [
+    { title: "Commercial Pest Control in Hoover", body: (<>The Galleria corridor and Hoover's office and restaurant base need documented, inspection-ready pest programs.{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>Commercial pest control</Link> runs on schedules built around your hours and foot traffic, adjusted seasonally. Call (205)&nbsp;940-6360 for a commercial walkthrough.</>) },
+    { title: "Termite Treatment in Hoover", body: (<>Hoover's settled homes and damp clay make subterranean termites a year-round concern. EnviroCare protects with the{" "}<Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link> — no drilling. Installation is $325 (first-year guarantee included); renewal is $380/year, or $32/month, with coverage up to $1,000,000.{" "}<Link href="/services/wdo-letters" style={{ color: G, fontWeight: 600 }}>WDO termite letters</Link> for home sales available.</>) },
+    { title: "Tick Control in Hoover", body: (<>Wooded lots in Bluff Park, Inverness, and Ross Bridge put ticks close to families and pets. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with habitat.</>) },
+    { title: "Mosquito Control in Hoover", body: (<>Lake Cyrus, Patton Creek, and Riverchase ponds keep mosquito pressure up spring into fall.{" "}<Link href="/services/mosquito-control" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
+    { title: "Ant & Pest Control in Hoover", body: (<>Carpenter, odorous house, and Argentine ants are common across Hoover. The bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> in new-construction yards are priced separately by treated area.</>) },
+  ],
+  faqs: [
+    { q: "How much is pest control in Hoover?", a: "EnviroCare's bi-monthly plan is $35 per month on ACH (or $70 per visit) and covers 30+ common pests including ants, spiders, roaches, and rodents, with unlimited free re-service between visits. No long-term contract." },
+    { q: "Who does commercial pest control in Hoover?", a: "EnviroCare provides commercial pest control across Hoover — restaurants, retail, and offices on the Galleria corridor — with documented, inspection-ready service built around your hours. Call (205) 940-6360." },
+    { q: "How much is termite treatment in Hoover?", a: "Termite protection is $325 to install (first-year guarantee included) and $380 per year to renew, or $32 per month. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "Do you treat ticks in Hoover?", a: "Yes — the mosquito-plus-tick program adds tick and chigger coverage for $65 per treatment (about $48.75/month across the season), targeting the wooded lots in Bluff Park, Inverness, and Ross Bridge." },
+    { q: "Do you serve Riverchase, Trace Crossings, and Lake Cyrus?", a: "Yes — all of Hoover, including Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. Call (205) 940-6360 to confirm your address." },
+  ],
+  siblings: [
+    ["Greystone", "/greystone"],
+    ["Vestavia Hills", "/vestavia-hills"],
+    ["Mountain Brook", "/mountain-brook"],
+    ["Birmingham", "/birmingham"],
+    ["Commercial", "/services/commercial"],
+    ["Termite Control", "/services/termite-control"],
+  ],
 };
 
 export default function HooverPage() {
-  return <CityPage slug="hoover" />;
+  return <DeepCityPage config={config} />;
 }
