@@ -244,7 +244,7 @@ function CoreServices() {
           <ServiceCard
             badge="MOST POPULAR" title="Pest Control"
             description="Year-round defense against ants, roaches, spiders & 30+ pests. Bi-monthly service keeps homes pest-free."
-            bullets={['Interior + exterior perimeter', 'Unlimited free re-treatments', '$50 off initial service']}
+            bullets={['Interior + exterior perimeter', 'Unlimited free re-treatments', 'No long-term contract']}
             href="/services/pest-control" cornerIcon="🛡️" featured price="$35/mo" priceLabel="STARTS AT"
           />
           <ServiceCard
@@ -256,7 +256,7 @@ function CoreServices() {
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
             description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['9 treatments per season (March—November)', 'EPA-registered products applied per label directions', '50% off first application']}
+            bullets={['9 treatments per season (March—November)', 'EPA-registered products applied per label directions', 'Covers decks, docks & patios']}
             href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER" price="≈$34/mo" priceLabel="SPREAD OVER 12 MO"
           />
           <ServiceCard
