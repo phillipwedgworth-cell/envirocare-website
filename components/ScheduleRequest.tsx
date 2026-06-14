@@ -159,7 +159,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   return (
     <div style={wrap}>
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
-        <h3 style={{ ...display, fontSize: 24, margin: 0 }}>Pick a service window</h3>
+        <h3 style={{ ...display, fontSize: 24, margin: 0 }}>Request a preferred service window</h3>
         <span style={{ ...body, fontSize: 13, color: "#5b6f60" }}>Confirmed by a real person — call or text</span>
       </div>
 

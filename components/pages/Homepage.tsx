@@ -177,10 +177,10 @@ function Hero() {
           </h1>
 
           <p className="ec-hero-sub">
-            One technician handles every service — pest, termite, mosquito,
-            tick — so you get expert quality every visit. One tech. One
-            invoice. We treat from the outside, so you don&rsquo;t even need
-            to be home.
+            A trained specialist for every service — pest, termite, mosquito and
+            tick — so you get expert quality on every visit, not one generalist
+            stretched thin. One company. One invoice. We treat from the outside,
+            so you don&rsquo;t even need to be home.
           </p>
 
           <div className="ec-hero-ctas">
@@ -316,9 +316,9 @@ function SpecialtyServices() {
     <section className="ec-specialty">
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">SPECIALTY & ADD-ON SERVICES</div>
-        <h2 className="ec-section-h2">Built for <em>Alabama Properties</em></h2>
+        <h2 className="ec-section-h2">More Ways We <em>Can Help</em></h2>
         <p className="ec-section-sub">
-          Add any of these to your core service — one invoice, one technician, no juggling vendors.
+          Add any of these to your core service — one invoice, one company, no juggling vendors.
         </p>
         <div className="ec-specialty-grid">
           {specialty.map((s) => (
@@ -378,8 +378,7 @@ function ThreeOffices() {
         <div className="ec-section-eyebrow">THREE OFFICES · ACROSS ALABAMA</div>
         <h2 className="ec-section-h2">Find Your <em>Local EnviroCare Team</em></h2>
         <p className="ec-section-sub">
-          Birmingham, Alex City / Lake Martin, and Huntsville. Your technician is always
-          a neighbor, never dispatched out of state. Tap your city for local pricing and scheduling.
+          Birmingham, Alex City / Lake Martin, and Huntsville. Served by a local EnviroCare team — never dispatched out of state. Tap your city for local pricing and scheduling.
         </p>
 
         <div className="ec-offices-grid">
@@ -396,7 +395,7 @@ function ThreeOffices() {
           />
           {/* LAKE MARTIN - Real Aerial Photo, featured */}
           <OfficeCard
-            art={<LakeMartinPhoto />}
+            art={<LakeSVG />}
             city="Alex City / Lake Martin"
             label="ALEXANDER CITY — EST. 1958"
             address="1785 Tallapoosa St, Alexander City, AL 35010"
@@ -818,7 +817,7 @@ function Pricing() {
             price={mode === 'monthly' ? '67' : ''}
             unit={mode === 'monthly' ? '/mo' : ''}
             priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® $325 install' : undefined}
-            terms={mode === 'monthly' ? 'Pest + Sentricon® termite — one technician, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
+            terms={mode === 'monthly' ? 'Pest + Sentricon® termite — a specialist for each, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
             bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
             cta="Start Foundation" href="/quote?plan=foundation"
             badge="MOST POPULAR" featured
@@ -838,8 +837,8 @@ function Pricing() {
             price={mode === 'monthly' ? '116' : ''}
             unit={mode === 'monthly' ? '/mo' : ''}
             priceLine={mode === 'perservice' ? 'Pest $70/visit + Termite $325/$380yr + Outdoor $65/treatment' : undefined}
-            terms={mode === 'monthly' ? 'Everything we do, under one plan and one technician.' : 'every service at its standalone price'}
-            bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'One technician learns your property', 'Priority scheduling & re-service support']}
+            terms={mode === 'monthly' ? 'Everything we do, under one plan — a specialist for each service.' : 'every service at its standalone price'}
+            bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'A specialist for each service, not a generalist', 'Priority scheduling & re-service support']}
             cta="Start Complete" href="/quote?plan=complete"
           />
         </div>
@@ -1491,6 +1490,9 @@ const HOMEPAGE_CSS = `
   .ec-service-pricelab {
     font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
     color: #F5A800; margin-top: 3px; white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .ec-office-cities a, .ec-service-arrow, .ec-lake-cta { min-height: 44px; display: inline-flex; align-items: center; }
   }
   .ec-service-badge {
     font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
