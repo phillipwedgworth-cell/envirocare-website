@@ -88,7 +88,7 @@ SERVICES & REAL PRICING (be confident — these are the actual numbers):
 1. BI-MONTHLY PEST CONTROL (every 2 months — not quarterly)
    - Exterior-first: treat the perimeter so pests never get inside; customer doesn't need to be home for most visits.
    - $35/mo on ACH autopay, OR $70 per bi-monthly visit
-   - 30+ common pests covered: ants, roaches, spiders, silverfish, earwigs, centipedes, millipedes, crickets, wasps, hornets, etc.
+   - 30+ common pests covered: ants, roaches, spiders, silverfish, earwigs, centipedes, millipedes, crickets, wasps, hornets, mice and rats (rodents), etc.
    - Fire ant, flea, and tick are NOT included — they are separately priced services (see below)
    - Interior + exterior treatment
    - Unlimited free re-service between visits if pests come back

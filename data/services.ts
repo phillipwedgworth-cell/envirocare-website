@@ -61,7 +61,7 @@ export const SERVICES: Service[] = [
       { lead: 'Same-week scheduling', body: 'Most calls scheduled inside 5 business days. Emergencies same- or next-day.' },
     ],
     faqs: [
-      { q: 'What pests does this cover?', a: '30+ common Alabama pests including ants, roaches, spiders, scorpions, silverfish, earwigs, pillbugs, stink bugs, centipedes, millipedes, crickets, and seasonal invaders. Termites are a separate program (Sentricon®). Mosquito and tick are seasonal add-ons.' },
+      { q: 'What pests does this cover?', a: '30+ common Alabama pests including ants, roaches, spiders, scorpions, silverfish, earwigs, pillbugs, stink bugs, centipedes, millipedes, crickets, mice and rats, and seasonal invaders. Termites are a separate program (Sentricon®). Mosquito and tick are seasonal add-ons.' },
       { q: 'How often do you come out?', a: 'Every 60 days (bi-monthly), six visits per year. If you see anything between visits, call us — re-services are free and unlimited.' },
       { q: 'What about kids and pets during treatment?', a: 'We use EPA-registered products applied per label directions, and recommend waiting until the application is dry (typically 30 minutes) before pets and kids return to treated areas.' },
       { q: 'Is there a contract?', a: 'No long-term contract. Pay monthly on ACH or bi-monthly per visit. Cancel anytime.' },
@@ -83,6 +83,7 @@ export const SERVICES: Service[] = [
       'Pillbugs (roly-polies)','Stink bugs','Boxelder bugs','Ground beetles',
       'Asian lady beetles','Pantry weevils',
       'House flies','Fruit flies','Gnats',
+      'House mice','Roof rats','Norway rats',
     ],
   },
   {
