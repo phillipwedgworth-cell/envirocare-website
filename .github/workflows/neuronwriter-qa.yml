@@ -1,0 +1,52 @@
+name: NeuronWriter QA
+
+on:
+  schedule:
+    - cron: '0 13 * * 1'   # Every Monday 13:00 UTC = 7am CT
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Run even if not Monday (bypass weekly gate)'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: read
+
+jobs:
+  neuronwriter-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts
+
+      - name: Run NeuronWriter QA
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT: envirocarellc.com
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_AGENT_DB_ID: ${{ secrets.NOTION_AGENT_DB_ID }}
+          FORCE_NEURONWRITER: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
+        run: node agents/neuronwriter-qa.mjs --all
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neuronwriter-report
+          path: agents/reports/neuronwriter-*.md
+          retention-days: 30
+          if-no-files-found: ignore
