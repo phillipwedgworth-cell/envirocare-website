@@ -6,12 +6,6 @@
 // Jun 14, 2026 — added "Wedgworth Pest Control" to alternateName so search
 // engines + AI treat the legacy family name as the same entity as EnviroCare.
 //
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: lib/seo/organization-schema.ts
-// Commit: feat(seo): add Wedgworth Pest Control as alternateName on Organization schema
-// Push: main
-// ─────────────────────────────────────
 //
 // To add new social profiles: just add the URL to SAME_AS below.
 export const ENVIROCARE_ORGANIZATION_SCHEMA = {
@@ -30,7 +24,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   },
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    "Family-owned, third-generation Alabama pest control and termite company founded in 1958 in Alexander City by Phillip M. Wedgworth. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M repair coverage, and mosquito and tick yard treatment across Alabama from three offices: Birmingham/Alabaster, Lake Martin/Alex City, and Huntsville. Around Lake Martin and Alexander City, EnviroCare is the Wedgworth family business that locals have long known as Wedgworth Pest Control.",
+    "Family-owned, fourth-generation Alabama pest control and termite company founded in 1958 in Alexander City, originally as Wedgworth Pest Control. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M repair coverage, and mosquito and tick yard treatment across Alabama from three offices: Birmingham/Alabaster, Lake Martin/Alex City, and Huntsville. Around Lake Martin and Alexander City, EnviroCare is the Wedgworth family business that locals have long known as Wedgworth Pest Control.",
   foundingDate: '1958',
   foundingLocation: {
     '@type': 'Place',
@@ -41,13 +35,12 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
     '@type': 'Person',
     name: 'Phillip M. Wedgworth',
     jobTitle: 'Founder',
-    description: 'Founded EnviroCare in 1958 in Alexander City, Alabama. First of three generations of the Wedgworth family to lead the company.',
+    description: 'Started the family pest control business in 1958 in Alexander City, Alabama, originally as Wedgworth Pest Control. First of four generations of the Wedgworth family in the business.',
   },
-  // Current ownership — third generation
+  // Current ownership — Wedgworth family
   employee: [
-    { '@type': 'Person', name: 'Phillip Wedgworth', jobTitle: 'Owner / Operator' },
-    { '@type': 'Person', name: 'Kevin Wedgworth', jobTitle: 'Co-Owner' },
-    { '@type': 'Person', name: 'Lex Wedgworth', jobTitle: 'Co-Owner' },
+    { '@type': 'Person', name: 'Kevin Wedgworth', jobTitle: 'Owner' },
+    { '@type': 'Person', name: 'William Lex Wedgworth', description: 'Fourth-generation member of the Wedgworth family, working in the business since 2024.' },
   ],
   knowsAbout: [
     'Pest Control', 'Termite Control', 'Sentricon Termite Baiting', 'Mosquito Control', 'Tick Control',

@@ -6,7 +6,6 @@ import Footer from "@/components/shared/Footer";
  * ServicePage.tsx — Shared template for all 10 EnviroCare service pages
  * Generated May 16, 2026 — Stage 2 of v2 site-wide rebrand
  *
- * ─── CLAUDE CODE: DEPLOY THIS FILE ───
  * Repo:   phillipwedgworth-cell/envirocare-website (PUBLIC)
  * Path:   components/pages/ServicePage.tsx
  * Commit: feat(service-page): render optional "Pests We Treat" section + styles
@@ -269,7 +268,7 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>AL Pest Control Association</div>
-          <div className="ti"><div className="ti-chk">✓</div>3rd-Generation Wedgworth Family</div>
+          <div className="ti"><div className="ti-chk">✓</div>4th-Generation Wedgworth Family</div>
         </div>
       </div>
 
@@ -293,7 +292,7 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="container">
             <div className="section-eyebrow">30+ Pests Covered</div>
             <h2 className="section-title">Pests We <span>Treat</span></h2>
-            <p className="pests-intro">Your bi-monthly plan covers 30+ common Alabama pests — including the specific invaders Birmingham and Lake Martin homeowners search for most. Fire ants, fleas, ticks, and mosquitoes are handled by their own dedicated programs.</p>
+            <p className="pests-intro">Your bi-monthly plan covers 30+ common Alabama pests — including the specific invaders Birmingham and Lake Martin homeowners search for most. Fire ants, fleas, and our mosquito and tick yard service are handled by separate programs.</p>
             <div className="pests-grid">
               {service.pestsFeatured.map((p, i) => (
                 <div key={i} className="pest-card">
@@ -304,7 +303,7 @@ export default function ServicePage({ slug }: { slug: string }) {
             </div>
             {service.pestsMore && service.pestsMore.length > 0 && (
               <>
-                <div className="pests-more-label">Plus dozens more we treat at no extra charge:</div>
+                <div className="pests-more-label">Plus many more we treat at no extra charge:</div>
                 <div className="pest-chips">
                   {service.pestsMore.map((p, i) => (
                     <span key={i} className="pest-chip">{p}</span>

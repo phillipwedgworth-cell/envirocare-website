@@ -203,7 +203,7 @@ export default function CityPage({ slug }: { slug: string }) {
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
           <div className="ti"><div className="ti-chk">✓</div>AL Pest Control Association</div>
-          <div className="ti"><div className="ti-chk">✓</div>3rd-Generation Wedgworth Family</div>
+          <div className="ti"><div className="ti-chk">✓</div>4th-Generation Wedgworth Family</div>
         </div>
       </div>
 

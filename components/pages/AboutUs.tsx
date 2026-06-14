@@ -4,7 +4,7 @@ import Header from "@/components/shared/Header";
 import Link from "next/link";
 
 /**
- * About Us — third generation EnviroCare story.
+ * About Us — four-generation EnviroCare story.
  *
  * Design system: locked brand CSS variables (matches Homepage.tsx exactly).
  * - Playfair Display for headlines, DM Sans for body
@@ -12,7 +12,7 @@ import Link from "next/link";
  * - Same orb / wash / glass card vocabulary as the homepage hero
  *
  * AEO note: this page is the canonical source for the Wedgworth family story,
- * founding date 1958, and the three-generation lineage. AI answer engines pull
+ * founding date 1958, and the four-generation lineage. AI answer engines pull
  * heavily from About pages when answering "tell me about <company>" queries.
  */
 export default function AboutUs() {
@@ -75,13 +75,14 @@ export default function AboutUs() {
 
         /* ── FAMILY / GENERATIONS ─────────────────────────────────────── */
         .ab-fam { padding:5rem clamp(1.5rem,5vw,4rem); background:var(--white); }
-        .ab-fam-grid { max-width:1320px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .ab-fam-grid { max-width:1320px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:1.5rem; }
         .ab-fam-card { border-radius:22px; overflow:hidden; border:1px solid var(--border-soft); box-shadow:var(--sh-sm); background:var(--white); transition:all .3s cubic-bezier(.16,1,.3,1); }
         .ab-fam-card:hover { transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--green); }
         .ab-fam-art { height:160px; position:relative; display:flex; align-items:flex-end; padding:1.2rem; color:#fff; }
         .ab-fam-art-1 { background:linear-gradient(160deg,#0A7935 0%,#07642B 60%,#062514 100%); }
         .ab-fam-art-2 { background:linear-gradient(160deg,#15803D 0%,#0A7935 50%,#07642B 100%); }
         .ab-fam-art-3 { background:linear-gradient(160deg,#16A34A 0%,#0E8E40 50%,#0A7935 100%); }
+        .ab-fam-art-4 { background:linear-gradient(160deg,#1FB457 0%,#16A34A 50%,#0E8E40 100%); }
         .ab-fam-gen { position:absolute; top:1.2rem; right:1.2rem; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); border-radius:30px; padding:.3rem .8rem; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; backdrop-filter:blur(4px); }
         .ab-fam-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,.3); }
         .ab-fam-body { padding:1.5rem 1.7rem 1.8rem; }
@@ -153,11 +154,11 @@ export default function AboutUs() {
                 <span className="ab-eyebrow-txt">Family-Owned · Alexander City · Since 1958</span>
               </div>
               <h1 itemProp="speakable">
-                Three Generations.<em>One Promise.</em>
+                Four Generations.<em>One Promise.</em>
               </h1>
               <p className="ab-hero-sub">
-                EnviroCare is the Wedgworth family. Founded in Alexander City in 1958 by Phillip M. Wedgworth,
-                now in its third generation across Birmingham, Huntsville, and Lake Martin — protecting Alabama
+                EnviroCare is the Wedgworth family. Founded in Alexander City in 1958 as Wedgworth Pest Control,
+                now four generations on across Birmingham, Huntsville, and Lake Martin — protecting Alabama
                 homes the way we'd protect our own.
               </p>
               <div className="ab-stats">
@@ -166,7 +167,7 @@ export default function AboutUs() {
                   <div className="ab-stat-l">Years in business</div>
                 </div>
                 <div className="ab-stat">
-                  <div className="ab-stat-n">3</div>
+                  <div className="ab-stat-n">4</div>
                   <div className="ab-stat-l">Generations of Wedgworths</div>
                 </div>
                 <div className="ab-stat">
@@ -199,20 +200,20 @@ export default function AboutUs() {
           <div className="ab-tl-grid">
             <div className="ab-tl-row l">
               <div className="ab-tl-card">
-                <h3>Founded in Alexander City</h3>
+                <h3>Founded as Wedgworth Pest Control</h3>
                 <p>
-                  Phillip M. Wedgworth starts EnviroCare to protect the homes and families of the Lake Martin
+                  Phillip M. Wedgworth starts the family business — Wedgworth Pest Control — to protect the homes and families of the Lake Martin
                   community. The original office at 1785 Tallapoosa Street is still our Alex City location today.
                 </p>
               </div>
               <div className="ab-tl-year">1958</div>
             </div>
             <div className="ab-tl-row r">
-              <div className="ab-tl-year">1980s</div>
+              <div className="ab-tl-year">1980</div>
               <div className="ab-tl-card">
                 <h3>Second generation takes over</h3>
                 <p>
-                  The Wedgworth children grow up in the business. The second generation expands service across
+                  Phillip L. Wedgworth takes over the family business. The second generation expands service across
                   East Alabama and earns the trust of Russell Lands and Lake Martin's major commercial properties.
                 </p>
               </div>
@@ -229,17 +230,29 @@ export default function AboutUs() {
               <div className="ab-tl-year">2000s</div>
             </div>
             <div className="ab-tl-row r">
-              <div className="ab-tl-year">2015</div>
+              <div className="ab-tl-year">2002</div>
               <div className="ab-tl-card">
                 <h3>Birmingham office opens</h3>
                 <p>
-                  The third generation — Phillip, Kevin, and Lex Wedgworth — opens the Alabaster office at
-                  2025 Butler Road, serving Birmingham, Hoover, Vestavia Hills, Mountain Brook, and the wider
+                  Kevin Wedgworth opens the Alabaster office at
+                  2025 Butler Road, expanding the family business into Birmingham, Hoover, Vestavia Hills, Mountain Brook, and the wider
                   metro area.
                 </p>
               </div>
             </div>
             <div className="ab-tl-row l">
+              <div className="ab-tl-card">
+                <h3>Kevin takes the helm</h3>
+                <p>
+                  Kevin Wedgworth takes over the family business and runs EnviroCare across three Alabama
+                  offices. The fourth generation, William Lex Wedgworth, joined the business in 2024 —
+                  learning the trade the same way every Wedgworth before him has.
+                </p>
+              </div>
+              <div className="ab-tl-year">2016</div>
+            </div>
+
+            <div className="ab-tl-row r">
               <div className="ab-tl-card">
                 <h3>Huntsville office opens</h3>
                 <p>
@@ -249,7 +262,7 @@ export default function AboutUs() {
               </div>
               <div className="ab-tl-year">2020</div>
             </div>
-            <div className="ab-tl-row r">
+            <div className="ab-tl-row l">
               <div className="ab-tl-year">Today</div>
               <div className="ab-tl-card">
                 <h3>Three offices, one family</h3>
@@ -267,7 +280,7 @@ export default function AboutUs() {
           <div style={{ maxWidth: 1320, margin: "0 auto", textAlign: "center" }}>
             <div className="ab-section-eyebrow">The Wedgworth Family</div>
             <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
-              <span>Third generation</span> running the family business
+              <span>Four generations</span> of the family business
             </h2>
             <p className="ab-section-sub" style={{ margin: "0 auto" }}>
               When you call EnviroCare, you reach a Wedgworth — not a call center.
@@ -282,34 +295,46 @@ export default function AboutUs() {
               <div className="ab-fam-body">
                 <div className="ab-fam-role">Founder · 1958</div>
                 <p className="ab-fam-bio">
-                  Started EnviroCare in Alexander City with a single goal: protect Lake Martin homes. Set the
-                  standard the next two generations have carried forward.
+                  Started the family business in Alexander City as Wedgworth Pest Control, with one goal — protect Lake Martin homes — and set the
+                  standard the generations after him carried forward.
                 </p>
               </div>
             </div>
             <div className="ab-fam-card">
               <div className="ab-fam-art ab-fam-art-2">
                 <div className="ab-fam-gen">Second Generation</div>
-                <div className="ab-fam-name">The Wedgworth Family</div>
+                <div className="ab-fam-name">Phillip L. Wedgworth</div>
               </div>
               <div className="ab-fam-body">
-                <div className="ab-fam-role">Stewards · 1980s–2010s</div>
+                <div className="ab-fam-role">Owner · 1980</div>
                 <p className="ab-fam-bio">
-                  Grew the original Alex City operation into a regional company, built the Russell Lands and
-                  Lake Martin commercial relationships, and earned Sentricon® Certified Specialist status.
+                  Took over in 1980 and grew the original Alex City operation into a regional company — building the Russell Lands and
+                  Lake Martin commercial relationships and earning Sentricon® Certified Specialist status.
                 </p>
               </div>
             </div>
             <div className="ab-fam-card">
               <div className="ab-fam-art ab-fam-art-3">
                 <div className="ab-fam-gen">Third Generation</div>
-                <div className="ab-fam-name">Phillip, Kevin &amp; Lex</div>
+                <div className="ab-fam-name">Kevin Wedgworth</div>
               </div>
               <div className="ab-fam-body">
-                <div className="ab-fam-role">Owners · Today</div>
+                <div className="ab-fam-role">Owner · Today</div>
                 <p className="ab-fam-bio">
-                  Phillip, Kevin, and Lex Wedgworth run the company today — three Alabama offices, the same
-                  family standard, and the same answer when something goes wrong: we come back until it's right.
+                  Kevin opened the Birmingham office in 2002 and took the helm in 2016. He runs EnviroCare today across three Alabama offices, and the answer when something goes wrong hasn't changed: we come back until it's right.
+                </p>
+              </div>
+            </div>
+            <div className="ab-fam-card">
+              <div className="ab-fam-art ab-fam-art-4">
+                <div className="ab-fam-gen">Fourth Generation</div>
+                <div className="ab-fam-name">William Lex Wedgworth</div>
+              </div>
+              <div className="ab-fam-body">
+                <div className="ab-fam-role">In the business · Since 2024</div>
+                <p className="ab-fam-bio">
+                  The fourth generation of Wedgworths in the business — learning the trade hands-on and
+                  carrying the family name into EnviroCare’s next chapter.
                 </p>
               </div>
             </div>
