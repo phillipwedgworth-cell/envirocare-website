@@ -1,4 +1,4 @@
-﻿// app/pricing/PricingContent.tsx — "use client" interactive pricing page
+// app/pricing/PricingContent.tsx — "use client" interactive pricing page
 // Metadata is exported from app/pricing/page.tsx (server component)
 
 "use client";
@@ -60,13 +60,13 @@ const TIERS: Tier[] = [
   },
   {
     name: "Outdoor Pro",
-    tagline: "Mosquito + Tick + Flea",
-    price: 60,
+    tagline: "Mosquito + Tick",
+    price: 49,
     altPrice: "March–November · seasonal yard protection",
     features: [
       "30-day yard barrier treatment",
       "Mosquito breeding sites targeted",
-      "Tick & flea protection for pets",
+      "Tick protection — covers chiggers",
       "Family backyard ready",
       "Lake Martin specialty",
     ],
@@ -75,8 +75,8 @@ const TIERS: Tier[] = [
   {
     name: "Complete",
     tagline: "Everything",
-    price: 127,
-    altPrice: "Pest + Termite + Mosquito/Tick/Flea",
+    price: 116,
+    altPrice: "Pest + Termite + Mosquito/Tick",
     features: [
       "Everything in Foundation",
       "Plus full Outdoor Pro package",
@@ -92,32 +92,32 @@ const COMPARE_ROWS = [
   {
     plan: "Pest only",
     you: "$35/mo · no contract",
-    waynes: "~$69/mo (only in bundle)",
-    cooks: "~$37/mo · 15-mo contract",
+    chain: "~$69/mo (only in bundle)",
+    budget: "~$37/mo · 15-mo contract",
   },
   {
     plan: "Pest + Termite",
     you: "$67/mo · $0 down",
-    waynes: "$69/mo · $129 down",
-    cooks: "~$70/mo · 15-mo contract",
+    chain: "$69/mo · $129 down",
+    budget: "~$70/mo · 15-mo contract",
   },
   {
-    plan: "Pest + Termite + Mosquito",
-    you: "$112/mo · $0 down",
-    waynes: "$99/mo · $99 down",
-    cooks: "Not bundled",
+    plan: "Pest + Termite + Mosquito/Tick",
+    you: "$116/mo · $0 down",
+    chain: "$99/mo · $99 down",
+    budget: "Not bundled",
   },
   {
     plan: "Initial service fee",
-    you: "$0",
-    waynes: "$99–$249",
-    cooks: "$159",
+    you: "$0 outdoor · $99 pest",
+    chain: "$99–$249",
+    budget: "$159",
   },
   {
     plan: "Contract length",
     you: "None — cancel anytime",
-    waynes: "None stated",
-    cooks: "15 months minimum",
+    chain: "None stated",
+    budget: "15 months minimum",
   },
 ];
 
@@ -165,7 +165,7 @@ export default function PricingContent() {
             maxWidth: 620,
             margin: "0 auto",
           }}>
-            Real monthly rates, on the page, no calculator games. Pick what your home needs — pay for that. <strong style={{ color: GOLD }}>No contract. No initial fee.</strong>
+            Real monthly rates, on the page, no calculator games. Pick what your home needs — pay for that. <strong style={{ color: GOLD }}>No contract. No surprises.</strong>
           </p>
         </div>
       </section>
@@ -185,12 +185,12 @@ export default function PricingContent() {
             fontFamily: "'Fraunces', Georgia, serif",
             fontSize: 22, fontWeight: 500, lineHeight: 1.4, color: INK,
           }}>
-            Waynes starts at <span style={{ color: GOLD_DARK, fontWeight: 600 }}>$69/mo</span> + $99–249 initial.
-            Cook's: <span style={{ color: GOLD_DARK, fontWeight: 600 }}>$37/mo</span> + 15-month contract.<br />
-            <em style={{ color: FOREST, fontStyle: "italic" }}>EnviroCare starts at $35/mo. No contract. No initial fee.</em>
+            A big national chain starts around <span style={{ color: GOLD_DARK, fontWeight: 600 }}>$69/mo</span> plus a $99–249 setup fee.
+            A budget competitor runs <span style={{ color: GOLD_DARK, fontWeight: 600 }}>$37/mo</span> — but on a 15-month contract.<br />
+            <em style={{ color: FOREST, fontStyle: "italic" }}>EnviroCare starts at $35/mo, no contract — and $0 to start on mosquito, tick &amp; fire ant.</em>
           </div>
           <div style={{ fontSize: 13, color: GREY, marginTop: 8 }}>
-            Verified May 2026 from competitors' published rates &amp; This Old House review
+            Based on published market rates, May 2026
           </div>
         </div>
       </section>
@@ -218,7 +218,7 @@ export default function PricingContent() {
             borderTop: `1px solid ${LINE}`,
           }}>
             <TrustItem icon="✓" title="No contract required" text="Cancel anytime. We earn your business every visit." />
-            <TrustItem icon="$" title="No initial service fee" text="Waynes charges $99–249 upfront. We don't." />
+            <TrustItem icon="$" title="Honest start-up pricing" text="$0 to start on mosquito, tick &amp; fire ant. Pest control's start-up visit is $99 on the new-customer promo." />
             <TrustItem icon="↻" title="Unlimited re-service" text="Bugs come back between visits? So do we. Free." />
           </div>
         </div>
@@ -248,8 +248,8 @@ export default function PricingContent() {
                   <tr>
                     <th style={cellHead}>Plan type</th>
                     <th style={cellHead}>EnviroCare</th>
-                    <th style={cellHead}>Waynes</th>
-                    <th style={cellHead}>Cook's</th>
+                    <th style={cellHead}>National chain</th>
+                    <th style={cellHead}>Budget competitor</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -257,8 +257,8 @@ export default function PricingContent() {
                     <tr key={row.plan}>
                       <td style={{ ...cell, fontWeight: 600 }}>{row.plan}</td>
                       <td style={{ ...cell, background: "rgba(245,168,0,0.08)", fontWeight: 700, color: FOREST }}>{row.you}</td>
-                      <td style={cell}>{row.waynes}</td>
-                      <td style={cell}>{row.cooks}</td>
+                      <td style={cell}>{row.chain}</td>
+                      <td style={cell}>{row.budget}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -292,12 +292,12 @@ export default function PricingContent() {
             </h2>
           </div>
           <div>
-            <FAQ q="Is there a contract?" a="No. EnviroCare is month-to-month. Cancel anytime — we earn your business every visit. (For comparison, Cook's requires a 15-month minimum contract.)" />
-            <FAQ q="Is there an initial service fee?" a="No. We don't charge a setup, initial visit, or activation fee. You pay the monthly rate from day one. (Waynes typically charges $99–$249 upfront.)" />
+            <FAQ q="Is there a contract?" a="No. EnviroCare is month-to-month. Cancel anytime — we earn your business every visit. (For comparison, some competitors require a 15-month minimum contract.)" />
+            <FAQ q="Is there an initial service fee?" a="It depends on the service. Mosquito, tick, and fire ant have no setup fee — you start at the regular rate. Pest control has a one-time start-up visit (currently $99 on the new-customer promo). Termite is a one-time $325 install, or $32/mo with no install fee. No hidden or recurring fees beyond that." />
             <FAQ q="Why is the bundle not discounted?" a="Bundling with us is a convenience play, not a discount play. One invoice, one technician, one schedule. We chose to keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
             <FAQ q="What's the difference between $35/mo ACH and $70 bimonthly?" a="They're the same price ($35 × 2 months = $70). ACH (auto-draft from your bank) gets the lower monthly rate; bimonthly billing is for customers who prefer a paper bill or card." />
-            <FAQ q="Why is termite $32/mo OR $380?" a="$32/mo is our ACH monthly rate. $380 is a one-time installation fee with annual renewals — preferred by some homeowners or builders. Both include the same Sentricon® system and warranty." />
-            <FAQ q="What does Mosquito + Tick + Flea cover?" a="A 30-day yard barrier treatment from March through November. It targets mosquito breeding sites and adult populations, plus tick and flea pressure around the perimeter. Especially popular with dog owners and Lake Martin lakefront homes." />
+            <FAQ q="Why is termite $32/mo OR a one-time install?" a="$32/mo is our ACH monthly rate. The alternative is a one-time $325 installation that includes the first-year guarantee, then $380/yr to renew — preferred by some homeowners or builders. Both include the same Sentricon® system and warranty." />
+            <FAQ q="What does Mosquito + Tick cover?" a="A 30-day yard barrier from March through November. It targets mosquito breeding sites and adult populations, plus tick pressure — including the chiggers that come with wooded lots — around the perimeter. Especially popular with dog owners and Lake Martin lakefront homes. (Flea is a separate interior add-on.)" />
             <FAQ q="What's the Sentricon $1M warranty?" a="If termites cause structural damage to your home while you're on active Sentricon protection, EnviroCare covers repairs up to $1,000,000 — our guarantee. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
