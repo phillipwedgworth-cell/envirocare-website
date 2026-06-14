@@ -16,7 +16,7 @@ permissions:
 jobs:
   neuronwriter-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20   # NeuronWriter new-query analysis is ~2.5 min/batch; 15 pages @ concurrency 3 ≈ 13 min
 
     steps:
       - name: Checkout
