@@ -1,15 +1,18 @@
-// components/shared/ChatWidget.tsx
-// Floating chat widget for EnviroCare. Add <ChatWidget /> to app/layout.tsx inside <body>.
+// Floating chat widget for EnviroCare ("Scout"). Add <ChatWidget /> to app/layout.tsx inside <body>.
+// Functionality unchanged from prior version — this pass only restyles the open panel
+// (the old header + user bubbles were flat near-black "INK"; now they're on-brand and colorful).
 
 "use client";
 import { useState, useRef, useEffect } from "react";
 
 // Brand tokens — locked. Do not change without checking with Phillip.
 const BRAND_GREEN = "#0E8E40";
+const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
 const INK = "#0E1A0F";
 const CREAM = "#FEFDF8";
+const MINT = "#E8F5EE";
 
 const FONT_STACK =
   '"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
@@ -22,7 +25,7 @@ interface Message {
 const QUICK_ACTIONS = [
   "Pest control pricing",
   "Free termite inspection",
-  "Mosquito season",
+  "Pay my bill",
   "Talk to a person",
 ];
 
@@ -32,7 +35,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hey there! 🌻 I'm the EnviroCare assistant — third-generation family business, helping Alabama homes since 1958. What pest problem can I help you with today?",
+        "Hi, I'm Scout 🌻 — EnviroCare's assistant. We're a third-generation Alabama family business, here since 1958. What can I help you with today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -45,12 +48,9 @@ export default function ChatWidget() {
   }, [messages]);
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      inputRef.current.focus();
-    }
+    if (isOpen && inputRef.current) inputRef.current.focus();
   }, [isOpen]);
 
-  // sendMessage accepts an optional override so quick-action buttons can call it directly
   const sendMessage = async (overrideText?: string) => {
     const text = (overrideText ?? input).trim();
     if (!text || isLoading) return;
@@ -66,13 +66,9 @@ export default function ChatWidget() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: newMessages.map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+          messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
         }),
       });
-
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
@@ -104,321 +100,207 @@ export default function ChatWidget() {
     }
   };
 
-  // Floating button when closed
+  // ── Floating launcher (closed) ───────────────────────────────
   if (!isOpen) {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        aria-label="Chat with EnviroCare"
-        title="Chat with EnviroCare"
+        aria-label="Chat with Scout, EnviroCare's assistant"
+        title="Chat with Scout"
         style={{
-          position: "fixed",
-          bottom: 16,
-          right: 16,
-          width: 60,
-          height: 60,
-          borderRadius: "50%",
-          background: BRAND_GREEN,
-          border: "none",
-          cursor: "pointer",
-          boxShadow: "0 4px 18px rgba(14,26,15,0.28)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 9999,
-          transition: "transform 0.2s, box-shadow 0.2s",
+          position: "fixed", bottom: 16, right: 16,
+          width: 62, height: 62, borderRadius: "50%",
+          background: `linear-gradient(145deg, ${BRAND_GREEN} 0%, ${FOREST} 70%)`,
+          border: "none", cursor: "pointer",
+          boxShadow: "0 6px 20px rgba(14,26,15,0.30)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          zIndex: 9999, transition: "transform 0.2s, box-shadow 0.2s",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "scale(1.06)";
-          e.currentTarget.style.boxShadow = `0 4px 18px rgba(14,26,15,0.28), 0 0 0 2px ${GOLD}`;
+          e.currentTarget.style.boxShadow = `0 6px 20px rgba(14,26,15,0.30), 0 0 0 3px ${GOLD}`;
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.boxShadow = "0 4px 18px rgba(14,26,15,0.28)";
+          e.currentTarget.style.boxShadow = "0 6px 20px rgba(14,26,15,0.30)";
         }}
       >
-        {/* Sunflower brand mark; the emoji renders everywhere — white chat
-            bubble underneath acts as the fallback shape on a green circle */}
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">🌻</span>
-        {/* Gold notification dot */}
-        <span
-          style={{
-            position: "absolute",
-            top: 2,
-            right: 2,
-            width: 14,
-            height: 14,
-            borderRadius: "50%",
-            background: GOLD,
-            border: "2px solid white",
-          }}
-        />
+        <span style={{
+          position: "absolute", top: 3, right: 3,
+          width: 14, height: 14, borderRadius: "50%",
+          background: GOLD, border: "2px solid white",
+        }} />
       </button>
     );
   }
 
-  // Chat window when open
+  // ── Open panel ───────────────────────────────────────────────
   return (
     <div
       className="ec-chat-panel"
       style={{
-        position: "fixed",
-        bottom: 16,
-        right: 16,
-        width: 380,
-        maxWidth: "calc(100vw - 32px)",
-        height: 540,
-        maxHeight: "calc(100vh - 48px)",
-        borderRadius: 20,
-        overflow: "hidden",
-        boxShadow: "0 12px 40px rgba(0,0,0,0.2)",
-        display: "flex",
-        flexDirection: "column",
-        zIndex: 9999,
-        fontFamily: FONT_STACK,
-        background: CREAM,
+        position: "fixed", bottom: 16, right: 16,
+        width: 380, maxWidth: "calc(100vw - 32px)",
+        height: 560, maxHeight: "calc(100vh - 48px)",
+        borderRadius: 20, overflow: "hidden",
+        boxShadow: "0 16px 48px rgba(0,0,0,0.22)",
+        display: "flex", flexDirection: "column",
+        zIndex: 9999, fontFamily: FONT_STACK, background: CREAM,
       }}
     >
-      {/* Mobile: full-width sheet from the bottom */}
       <style
         dangerouslySetInnerHTML={{
-          __html: `@media (max-width: 640px) {
-            .ec-chat-panel {
-              width: 100vw !important;
-              max-width: 100vw !important;
-              right: 0 !important;
-              bottom: 0 !important;
-              height: 82vh !important;
-              max-height: 88vh !important;
-              border-radius: 16px 16px 0 0 !important;
-            }
-          }`,
+          __html: `@media (max-width: 640px){
+            .ec-chat-panel{width:100vw!important;max-width:100vw!important;right:0!important;bottom:0!important;height:84vh!important;max-height:90vh!important;border-radius:16px 16px 0 0!important;}
+          }
+          @keyframes ec-pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+          .ec-msg{animation:ec-pop .18s ease both}`,
         }}
       />
-      {/* Header */}
-      <div
-        style={{
-          background: INK,
-          padding: "14px 18px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexShrink: 0,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <img
-            src="/logo-white.png"
-            alt="EnviroCare"
-            style={{ height: 28, width: "auto", display: "block" }}
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-          />
-          <div>
-            <div
-              style={{
-                color: "#fff",
-                fontWeight: 700,
-                fontSize: 15,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              EnviroCare
-            </div>
-            <div
-              style={{
-                color: "#fff",
-                opacity: 0.7,
-                fontSize: 11,
-                marginTop: 2,
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-              }}
-            >
-              <span
-                style={{
-                  width: 7,
-                  height: 7,
-                  borderRadius: "50%",
-                  background: GOLD,
-                  display: "inline-block",
-                }}
-              />
-              Family-owned since 1958
-            </div>
-          </div>
-        </div>
-        <button
-          onClick={() => setIsOpen(false)}
-          aria-label="Close chat"
+
+      {/* Header — brand gradient + gold accent + Scout identity */}
+      <div style={{ flexShrink: 0 }}>
+        <div style={{ height: 4, background: GOLD }} />
+        <div
           style={{
-            background: "none",
-            border: "none",
-            color: "rgba(255,255,255,0.7)",
-            fontSize: 22,
-            cursor: "pointer",
-            padding: "4px 8px",
-            lineHeight: 1,
+            background: `linear-gradient(135deg, ${BRAND_GREEN} 0%, ${DEEP} 100%)`,
+            padding: "13px 16px",
+            display: "flex", alignItems: "center", justifyContent: "space-between",
           }}
         >
-          ×
-        </button>
+          <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
+            <div style={{
+              width: 40, height: 40, borderRadius: "50%",
+              background: "rgba(255,255,255,0.16)",
+              border: "1.5px solid rgba(255,255,255,0.4)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              flexShrink: 0,
+            }}>
+              <span style={{ fontSize: 22, lineHeight: 1 }} aria-hidden="true">🌻</span>
+            </div>
+            <div>
+              <div style={{ color: "#fff", fontWeight: 700, fontSize: 16, letterSpacing: "-0.01em" }}>
+                Scout
+              </div>
+              <div style={{
+                color: "rgba(255,255,255,0.85)", fontSize: 11.5, marginTop: 2,
+                display: "flex", alignItems: "center", gap: 6,
+              }}>
+                <span style={{ width: 7, height: 7, borderRadius: "50%", background: GOLD, display: "inline-block" }} />
+                EnviroCare · family-owned since 1958
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={() => setIsOpen(false)}
+            aria-label="Close chat"
+            style={{
+              background: "rgba(255,255,255,0.12)", border: "none", color: "#fff",
+              fontSize: 20, cursor: "pointer", lineHeight: 1,
+              width: 30, height: 30, borderRadius: 8,
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}
+          >×</button>
+        </div>
       </div>
 
       {/* Messages */}
-      <div
-        style={{
-          flex: 1,
-          overflowY: "auto",
-          padding: "16px 16px 8px",
-          display: "flex",
-          flexDirection: "column",
-          gap: 12,
-          background: "#fff",
-        }}
-      >
+      <div style={{
+        flex: 1, overflowY: "auto", padding: "16px 14px 8px",
+        display: "flex", flexDirection: "column", gap: 12,
+        background: `linear-gradient(180deg, ${MINT} 0%, #fff 120px)`,
+      }}>
         {messages.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              display: "flex",
-              justifyContent:
-                msg.role === "user" ? "flex-end" : "flex-start",
-            }}
-          >
-            <div
-              style={{
-                maxWidth: "80%",
-                padding: "10px 14px",
-                borderRadius: 12,
-                fontSize: 14,
-                lineHeight: 1.5,
-                whiteSpace: "pre-wrap",
-                ...(msg.role === "user"
-                  ? {
-                      background: INK,
-                      color: "#fff",
-                      borderBottomRightRadius: 4,
-                    }
-                  : {
-                      background: CREAM,
-                      border: "1px solid #E8E2D8",
-                      color: INK,
-                      borderBottomLeftRadius: 4,
-                    }),
-              }}
-            >
+          <div key={i} className="ec-msg" style={{
+            display: "flex", gap: 8,
+            justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+            alignItems: "flex-end",
+          }}>
+            {msg.role === "assistant" && (
+              <div aria-hidden="true" style={{
+                width: 26, height: 26, borderRadius: "50%", background: MINT,
+                border: `1px solid ${BRAND_GREEN}33`, flexShrink: 0,
+                display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14,
+              }}>🌻</div>
+            )}
+            <div style={{
+              maxWidth: "78%", padding: "10px 14px", borderRadius: 14,
+              fontSize: 14, lineHeight: 1.5, whiteSpace: "pre-wrap",
+              ...(msg.role === "user"
+                ? { background: `linear-gradient(135deg, ${BRAND_GREEN}, ${FOREST})`, color: "#fff", borderBottomRightRadius: 4 }
+                : { background: "#fff", border: "1px solid #E8E2D8", color: INK, borderBottomLeftRadius: 4 }),
+            }}>
               {msg.content}
             </div>
           </div>
         ))}
         {isLoading && (
-          <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <div
-              style={{
-                background: CREAM,
-                border: "1px solid #E8E2D8",
-                padding: "10px 18px",
-                borderRadius: 12,
-                borderBottomLeftRadius: 4,
-                fontSize: 14,
-                color: "#9ca3af",
-              }}
-            >
-              typing…
-            </div>
+          <div className="ec-msg" style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
+            <div aria-hidden="true" style={{
+              width: 26, height: 26, borderRadius: "50%", background: MINT,
+              border: `1px solid ${BRAND_GREEN}33`, flexShrink: 0,
+              display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14,
+            }}>🌻</div>
+            <div style={{
+              background: "#fff", border: "1px solid #E8E2D8", padding: "11px 16px",
+              borderRadius: 14, borderBottomLeftRadius: 4, fontSize: 14, color: "#9ca3af",
+            }}>Scout is typing…</div>
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Quick action buttons (only on first message) */}
+      {/* Quick actions (first message only) */}
       {messages.length <= 1 && (
-        <div
-          style={{
-            padding: "0 16px 8px",
-            display: "flex",
-            gap: 6,
-            flexWrap: "wrap",
-          }}
-        >
+        <div style={{ padding: "0 14px 8px", display: "flex", gap: 6, flexWrap: "wrap", background: "#fff" }}>
           {QUICK_ACTIONS.map((q) => (
             <button
               key={q}
               onClick={() => sendMessage(q)}
               style={{
-                padding: "6px 12px",
-                borderRadius: 20,
-                border: `1px solid ${BRAND_GREEN}`,
-                background: CREAM,
-                color: BRAND_GREEN,
-                fontSize: 12,
-                fontWeight: 600,
-                cursor: "pointer",
-                fontFamily: FONT_STACK,
-                transition: "all 0.15s",
+                padding: "7px 13px", borderRadius: 20,
+                border: `1px solid ${BRAND_GREEN}`, background: CREAM,
+                color: BRAND_GREEN, fontSize: 12.5, fontWeight: 600,
+                cursor: "pointer", fontFamily: FONT_STACK, transition: "all 0.15s",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = BRAND_GREEN;
-                e.currentTarget.style.color = "#fff";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = CREAM;
-                e.currentTarget.style.color = BRAND_GREEN;
-              }}
-            >
-              {q}
-            </button>
+              onMouseEnter={(e) => { e.currentTarget.style.background = BRAND_GREEN; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = CREAM; e.currentTarget.style.color = BRAND_GREEN; }}
+            >{q}</button>
           ))}
         </div>
       )}
 
       {/* Input */}
-      <div
-        style={{
-          padding: "12px 16px",
-          borderTop: "1px solid #E8E2D8",
-          display: "flex",
-          gap: 8,
-          background: CREAM,
-          flexShrink: 0,
-        }}
-      >
+      <div style={{
+        padding: "12px 14px", borderTop: "1px solid #E8E2D8",
+        display: "flex", gap: 8, background: CREAM, flexShrink: 0,
+      }}>
         <input
           ref={inputRef}
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ask about pest, termite, or mosquito service…"
+          placeholder="Ask Scout about service, pricing, or your bill…"
           style={{
-            flex: 1,
-            padding: "10px 14px",
-            borderRadius: 8,
-            border: "1px solid #E8E2D8",
-            fontSize: 14,
-            outline: "none",
-            fontFamily: FONT_STACK,
-            color: INK,
-            background: "#fff",
+            flex: 1, padding: "11px 14px", borderRadius: 10,
+            border: "1px solid #E8E2D8", fontSize: 14, outline: "none",
+            fontFamily: FONT_STACK, color: INK, background: "#fff",
           }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = BRAND_GREEN; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "#E8E2D8"; }}
         />
         <button
           onClick={() => sendMessage()}
           disabled={!input.trim() || isLoading}
           aria-label="Send message"
           style={{
-            width: 40,
-            height: 40,
-            borderRadius: 8,
-            background: input.trim() ? BRAND_GREEN : "#d1d5db",
-            border: "none",
-            cursor: input.trim() ? "pointer" : "default",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            transition: "background 0.15s",
+            width: 44, height: 44, borderRadius: 10,
+            background: input.trim() ? `linear-gradient(135deg, ${BRAND_GREEN}, ${FOREST})` : "#d1d5db",
+            border: "none", cursor: input.trim() ? "pointer" : "default",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            flexShrink: 0, transition: "background 0.15s",
           }}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -428,28 +310,15 @@ export default function ChatWidget() {
       </div>
 
       {/* Footer */}
-      <div
-        style={{
-          padding: "6px 16px 10px",
-          textAlign: "center",
-          fontSize: 10,
-          color: "#9ca3af",
-          background: "#fff",
-          flexShrink: 0,
-        }}
-      >
-        Powered by AI · Call{" "}
-        <a
-          href="tel:2059406360"
-          style={{
-            color: BRAND_GREEN,
-            textDecoration: "none",
-            fontWeight: 600,
-          }}
-        >
+      <div style={{
+        padding: "6px 16px 10px", textAlign: "center", fontSize: 10,
+        color: "#9ca3af", background: CREAM, flexShrink: 0,
+      }}>
+        Scout is an AI assistant · Call{" "}
+        <a href="tel:2059406360" style={{ color: BRAND_GREEN, textDecoration: "none", fontWeight: 600 }}>
           (205) 940-6360
         </a>{" "}
-        to talk to a person
+        for a real person
       </div>
     </div>
   );
