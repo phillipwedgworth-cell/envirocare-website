@@ -51,7 +51,7 @@ const SERVICE_CATALOG = {
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mosquito Control',
       description: 'Seasonal yard barrier treatment March through November. Reduces mosquitoes at breeding sites and on contact. Starting at $45 per visit, billed per service.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tick and Flea Control',
-      description: 'Yard tick treatment with chigger coverage. From $150 standalone, or with mosquito in the Outdoor Pro plan at $49/month.' } },
+      description: 'Yard tick treatment with chigger coverage. Offered with mosquito as Mosquito + Tick at $65 per visit (March through November). Tick is not sold standalone.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fire Ant Control',
       description: 'Whole-colony fire ant treatment starting at $150, priced by yard size — available to anyone in our Alabama service area.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Builder Pre-Treatment',

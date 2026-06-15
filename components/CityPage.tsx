@@ -394,7 +394,7 @@ export default function CityPage({ city }: { city: CityData }) {
         "telephone": `+1${city.tel}`,
         "email": "service@envirocarellc.com",
         "openingHours": "Mo-Fr 08:00-17:00",
-        "priceRange": "$35-$116/mo",
+        "priceRange": "$35-$69/mo",
         "areaServed": [
           { "@type": "City", "name": city.name },
           ...city.neighborhoods.map(n => ({ "@type": "Neighborhood", "name": n.name }))

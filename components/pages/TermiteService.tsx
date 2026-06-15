@@ -21,12 +21,10 @@ export default function TermiteInspectionServicePage() {
             "telephone": "(205) 940-6360"
           },
           "areaServed": ["Huntsville, AL", "Madison, AL", "Birmingham, AL"],
-          "price": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "USD",
-            "price": "32"
-          },
-          "priceRange": "$32/mo"
+          "offers": {
+            "@type": "Offer",
+            "description": "Sentricon® termite protection. Pricing is determined after a free on-site WDO inspection, as Alabama requires."
+          }
         }
       `}</script>
 
