@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
             },
 
             // ─── SHORT SERVICE ALIASES (existing) ───────────────────────────
-            { source: '/pricing', destination: '/quote', permanent: true },
+            // NOTE: /pricing is a REAL page now (app/pricing/*) — do NOT redirect it.
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
             { source: '/contact', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },

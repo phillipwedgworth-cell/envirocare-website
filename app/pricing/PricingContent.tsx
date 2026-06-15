@@ -1,5 +1,16 @@
 // app/pricing/PricingContent.tsx — "use client" interactive pricing page
-// Metadata is exported from app/pricing/page.tsx (server component)
+// Metadata + JSON-LD are exported from app/pricing/page.tsx (server component).
+//
+// JOB 4 pricing model (June 15 2026):
+//   ACH MONTHLY (monthly price ONLY when pest anchors the plan):
+//     Pest + Mosquito  From $69/mo · $79 startup · tick +$20/visit
+//     Pest + Termite   From $35/mo + Termite Quote · $229 startup
+//     Complete         From $69/mo + Termite Quote · $229 startup · tick +$20/visit
+//   BASE / À LA CARTE:
+//     Pest only        From $35/mo · $99 startup
+//     Mosquito alone   $45/visit × 9 (no monthly — no pest anchor)
+//     Mosquito + Tick  $65/visit × 9 (no monthly — no pest anchor)
+//   RULES: termite is NEVER a flat number; mosquito/tick without pest = per-service only.
 
 "use client";
 
@@ -18,113 +29,147 @@ const GREY = "#6B7569";
 const LINE = "rgba(14,26,15,0.12)";
 
 // ---------- DATA ----------
-type Tier = {
+type Plan = {
   name: string;
   tagline: string;
-  price: number;          // monthly with ACH
-  altPrice: string;       // explanation of alt
+  priceLabel: string;     // big headline price, e.g. "From $69/mo" or "$45/visit × 9"
+  startup: string;        // e.g. "$79 startup" or "No monthly — per service"
+  note?: string;          // e.g. "Add tick: +$20/visit" or "Sentricon® priced after free WDO inspection"
   features: string[];
   cta: string;
   featured?: boolean;
 };
 
-const TIERS: Tier[] = [
+// Monthly ACH plans — pest anchors every one, so a monthly rate is shown.
+const MONTHLY_PLANS: Plan[] = [
   {
-    name: "Essential",
-    tagline: "Pest Control",
-    price: 35,
-    altPrice: "or $70 bimonthly · billed every other month",
+    name: "Pest + Mosquito",
+    tagline: "Bimonthly pest + seasonal mosquito",
+    priceLabel: "From $69/mo",
+    startup: "$79 startup",
+    note: "Add tick: +$20/visit",
     features: [
-      "Bi-monthly perimeter treatment",
-      "30+ household pests covered",
-      "Unlimited free re-service",
-      "Applied according to label directions once dry",
-      "Schedule service",
+      "Bimonthly perimeter pest treatment",
+      "Seasonal mosquito (March–November)",
+      "Unlimited free pest re-service",
+      "Tick add-on available (+$20/visit)",
+      "No contract — cancel anytime",
     ],
-    cta: "Start Essential",
-  },
-  {
-    name: "Foundation",
-    tagline: "Pest + Termite Protection",
-    price: 67,
-    altPrice: "Pest ($35) + Termite ($32) bundled · one invoice",
-    features: [
-      "Everything in Essential",
-      "Sentricon® Always Active stations",
-      "Up to $1,000,000 repair warranty",
-      "No drilling — no holes in your slab",
-      "Annual termite inspection included",
-    ],
-    cta: "Start Foundation",
-    featured: true,
-  },
-  {
-    name: "Outdoor Pro",
-    tagline: "Mosquito + Tick",
-    price: 49,
-    altPrice: "March–November · seasonal yard protection",
-    features: [
-      "30-day yard barrier treatment",
-      "Mosquito breeding sites targeted",
-      "Tick protection — covers chiggers",
-      "Family backyard ready",
-      "Lake Martin specialty",
-    ],
-    cta: "Start Outdoor Pro",
+    cta: "Get my quote",
   },
   {
     name: "Complete",
-    tagline: "Everything",
-    price: 116,
-    altPrice: "Pest + Termite + Mosquito/Tick",
+    tagline: "Pest + Termite + Mosquito",
+    priceLabel: "From $69/mo + Termite Quote",
+    startup: "$229 startup",
+    note: "Sentricon® priced after free WDO inspection · add tick +$20/visit",
     features: [
-      "Everything in Foundation",
-      "Plus full Outdoor Pro package",
-      "One invoice, one tech, one call",
-      "Maximum coverage, simplest billing",
-      "The Wedgworth guarantee",
+      "Everything in Pest + Mosquito",
+      "Sentricon® Always Active™ termite protection",
+      "Up to $1,000,000 EnviroCare repair coverage",
+      "One technician, one invoice",
+      "Termite quote after your free WDO inspection",
     ],
-    cta: "Start Complete",
+    cta: "Get my quote",
+    featured: true,
+  },
+  {
+    name: "Pest + Termite",
+    tagline: "Bimonthly pest + Sentricon®",
+    priceLabel: "From $35/mo + Termite Quote",
+    startup: "$229 startup",
+    note: "Pest base + Sentricon® priced after free WDO inspection",
+    features: [
+      "Bimonthly perimeter pest treatment",
+      "Sentricon® Always Active™ termite protection",
+      "Up to $1,000,000 EnviroCare repair coverage",
+      "No drilling — in-ground bait stations",
+      "Termite quote after your free WDO inspection",
+    ],
+    cta: "Get my quote",
   },
 ];
 
+// Base / à la carte — mosquito & tick without a pest plan are per-service only (no monthly).
+const ALACARTE_PLANS: Plan[] = [
+  {
+    name: "Pest Only",
+    tagline: "Bimonthly perimeter pest control",
+    priceLabel: "From $35/mo",
+    startup: "$99 startup",
+    note: "ACH · cancel anytime",
+    features: [
+      "Bimonthly perimeter treatment",
+      "30+ common Alabama pests, incl. mice & rats",
+      "Unlimited free re-service between visits",
+      "Applied per label directions once dry",
+      "No contract",
+    ],
+    cta: "Get my quote",
+  },
+  {
+    name: "Mosquito",
+    tagline: "Seasonal yard treatment",
+    priceLabel: "$45/visit × 9",
+    startup: "No monthly — per service",
+    note: "March–November",
+    features: [
+      "30-day yard barrier treatment",
+      "Breeding sites + adult mosquitoes targeted",
+      "9 rounds, March through November",
+      "Charged at each service (no autopay required)",
+    ],
+    cta: "Get my quote",
+  },
+  {
+    name: "Mosquito + Tick",
+    tagline: "Seasonal yard treatment",
+    priceLabel: "$65/visit × 9",
+    startup: "No monthly — per service",
+    note: "March–November · tick rides with mosquito",
+    features: [
+      "Everything in Mosquito",
+      "Tick coverage — also covers chiggers",
+      "Popular for wooded + lakefront lots",
+      "9 rounds, March through November",
+    ],
+    cta: "Get my quote",
+  },
+];
+
+// Plan-comparison table (AEO / featured-snippet play). Termite = quote, never a flat number.
 const COMPARE_ROWS = [
-  {
-    plan: "Pest only",
-    you: "$35/mo · no contract",
-    chain: "~$69/mo (only in bundle)",
-    budget: "~$37/mo · 15-mo contract",
-  },
-  {
-    plan: "Pest + Termite",
-    you: "$67/mo · $0 down",
-    chain: "$69/mo · $129 down",
-    budget: "~$70/mo · 15-mo contract",
-  },
-  {
-    plan: "Pest + Termite + Mosquito/Tick",
-    you: "$116/mo · $0 down",
-    chain: "$99/mo · $99 down",
-    budget: "Not bundled",
-  },
-  {
-    plan: "Initial service fee",
-    you: "$0 outdoor · $99 pest",
-    chain: "$99–$249",
-    budget: "$159",
-  },
-  {
-    plan: "Contract length",
-    you: "None — cancel anytime",
-    chain: "None stated",
-    budget: "15 months minimum",
-  },
+  { plan: "Pest Only", startup: "$99", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
+  { plan: "Pest + Mosquito", startup: "$79", monthly: "From $69/mo", perVisit: "Tick +$20/visit", included: "Pest plan + seasonal mosquito (Mar–Nov)" },
+  { plan: "Pest + Termite", startup: "$229", monthly: "From $35/mo + termite quote", perVisit: "—", included: "Pest plan + Sentricon® (quoted after free WDO inspection)" },
+  { plan: "Complete", startup: "$229", monthly: "From $69/mo + termite quote", perVisit: "Tick +$20/visit", included: "Pest + mosquito + Sentricon® termite" },
+  { plan: "Mosquito (alone)", startup: "—", monthly: "—", perVisit: "$45/visit × 9", included: "Seasonal yard barrier, Mar–Nov (no monthly)" },
+  { plan: "Mosquito + Tick (alone)", startup: "—", monthly: "—", perVisit: "$65/visit × 9", included: "Seasonal yard barrier + tick, Mar–Nov (no monthly)" },
+];
+
+// Coverage table — what's in scope vs out. Carpenter bees: existing customers only.
+const TREAT = [
+  "Ants (incl. fire ants)",
+  "Cockroaches",
+  "Spiders (incl. brown recluse)",
+  "Mice & rats (within a pest plan)",
+  "Silverfish, crickets, millipedes, centipedes",
+  "Mosquitoes (seasonal)",
+  "Ticks (with mosquito service)",
+  "Termites — Sentricon® (quoted after free WDO inspection)",
+  "Fleas (interior add-on)",
+  "Carpenter bees (existing customers only)",
+];
+const DONT_TREAT = [
+  "Bed bugs",
+  "Wildlife (raccoons, squirrels, bats)",
+  "Standalone rodent / trapping jobs",
+  "Earwigs",
+  "General bee & wasp removal",
 ];
 
 // ---------- COMPONENT ----------
 export default function PricingContent() {
-  const [billingMode, setBillingMode] = useState<"monthly" | "bimonthly">("monthly");
-
   return (
     <main style={{ background: CREAM, color: INK, minHeight: "100vh", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
 
@@ -133,202 +178,167 @@ export default function PricingContent() {
         background: `radial-gradient(circle at 80% 20%, rgba(245,168,0,0.1), transparent 50%), linear-gradient(160deg, ${INK} 0%, ${DEEP} 100%)`,
         color: "#fff",
         padding: "80px 36px 64px",
-        textAlign: "center"
+        textAlign: "center",
       }}>
         <div style={{ maxWidth: 880, margin: "0 auto" }}>
           <div style={{
             display: "inline-block",
             fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: GOLD,
-            border: `1px solid ${GOLD}`,
-            borderRadius: 4,
-            padding: "4px 12px",
-            marginBottom: 18,
+            textTransform: "uppercase", color: GOLD,
+            border: `1px solid ${GOLD}`, borderRadius: 4,
+            padding: "4px 12px", marginBottom: 18,
           }}>
             Plans &amp; Pricing
           </div>
           <h1 style={{
             fontFamily: "'Fraunces', Georgia, serif",
-            fontSize: "clamp(40px, 5.5vw, 64px)",
-            fontWeight: 400,
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-            marginBottom: 18,
+            fontSize: "clamp(40px, 5.5vw, 64px)", fontWeight: 400,
+            lineHeight: 1.05, letterSpacing: "-0.02em", marginBottom: 18,
           }}>
             Honest pricing, <em style={{ color: GOLD, fontWeight: 500 }}>no surprises.</em>
           </h1>
-          <p style={{
-            fontSize: 17,
-            color: "rgba(255,255,255,0.72)",
-            lineHeight: 1.6,
-            maxWidth: 620,
-            margin: "0 auto",
-          }}>
-            Real monthly rates, on the page, no calculator games. Pick what your home needs — pay for that. <strong style={{ color: GOLD }}>No contract. No surprises.</strong>
+          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.6, maxWidth: 640, margin: "0 auto" }}>
+            Real &ldquo;from&rdquo; rates, on the page. Pest control is bimonthly with no contract.
+            Termite is quoted after a <strong style={{ color: GOLD }}>free on-site WDO inspection</strong> — Alabama requires it.
           </p>
         </div>
       </section>
 
-      {/* COMPETITOR PRICING BANNER */}
-      <section style={{ padding: "48px 36px 0" }}>
-        <div style={{
-          maxWidth: 760,
-          margin: "0 auto",
-          background: "linear-gradient(135deg, rgba(14,142,64,0.05), rgba(245,168,0,0.08))",
-          border: `1px solid ${LINE}`,
-          borderRadius: 8,
-          padding: "22px 28px",
-          textAlign: "center",
-        }}>
-          <div style={{
-            fontFamily: "'Fraunces', Georgia, serif",
-            fontSize: 22, fontWeight: 500, lineHeight: 1.4, color: INK,
-          }}>
-            A big national chain starts around <span style={{ color: GOLD_DARK, fontWeight: 600 }}>$69/mo</span> plus a $99–249 setup fee.
-            A budget competitor runs <span style={{ color: GOLD_DARK, fontWeight: 600 }}>$37/mo</span> — but on a 15-month contract.<br />
-            <em style={{ color: FOREST, fontStyle: "italic" }}>EnviroCare starts at $35/mo, no contract — and $0 to start on mosquito, tick &amp; fire ant.</em>
-          </div>
-          <div style={{ fontSize: 13, color: GREY, marginTop: 8 }}>
-            Based on published market rates, May 2026
-          </div>
-        </div>
-      </section>
-
-      {/* TIER GRID */}
-      <section style={{ padding: "48px 36px 80px" }}>
-        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: 18,
-          }}>
-            {TIERS.map((tier) => (
-              <TierCard key={tier.name} tier={tier} />
-            ))}
-          </div>
-
-          {/* TRUST STRIP */}
-          <div style={{
-            marginTop: 40,
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: 20,
-            paddingTop: 36,
-            borderTop: `1px solid ${LINE}`,
-          }}>
-            <TrustItem icon="✓" title="No contract required" text="Cancel anytime. We earn your business every visit." />
-            <TrustItem icon="$" title="Honest start-up pricing" text="$0 to start on mosquito, tick &amp; fire ant. Pest control's start-up visit is $99 on the new-customer promo." />
-            <TrustItem icon="↻" title="Unlimited re-service" text="Bugs come back between visits? So do we. Free." />
-          </div>
-        </div>
-      </section>
-
-      {/* HEAD-TO-HEAD TABLE */}
-      <section style={{ padding: "0 36px 100px" }}>
-        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-          <div style={{
-            background: PAPER,
-            borderRadius: 12,
-            padding: 36,
-          }}>
-            <h2 style={{
-              fontFamily: "'Fraunces', Georgia, serif",
-              fontSize: 26, fontWeight: 500, marginBottom: 6,
-              letterSpacing: "-0.01em",
-            }}>
-              Side-by-side: monthly cost vs. the big two
-            </h2>
-            <p style={{ fontSize: 14, color: GREY, marginBottom: 24 }}>
-              Apples-to-apples, what an Alabama homeowner actually pays.
-            </p>
-            <div style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, minWidth: 600 }}>
-                <thead>
-                  <tr>
-                    <th style={cellHead}>Plan type</th>
-                    <th style={cellHead}>EnviroCare</th>
-                    <th style={cellHead}>National chain</th>
-                    <th style={cellHead}>Budget competitor</th>
+      {/* PLAN-COMPARISON TABLE (above the cards) */}
+      <section style={{ padding: "56px 36px 0" }}>
+        <div style={{ maxWidth: 1080, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 26, fontWeight: 500, marginBottom: 6, letterSpacing: "-0.01em" }}>
+            Compare every plan at a glance
+          </h2>
+          <p style={{ fontSize: 14, color: GREY, marginBottom: 20 }}>
+            &ldquo;From&rdquo; rates for standard property sizes. Termite is quoted after a free WDO inspection — see the note below.
+          </p>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, minWidth: 720 }}>
+              <thead>
+                <tr>
+                  <th style={cellHead}>Plan</th>
+                  <th style={cellHead}>Startup</th>
+                  <th style={cellHead}>Monthly (ACH)</th>
+                  <th style={cellHead}>Per-service</th>
+                  <th style={cellHead}>What&rsquo;s included</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARE_ROWS.map((r) => (
+                  <tr key={r.plan}>
+                    <td style={{ ...cell, fontWeight: 700, color: FOREST }}>{r.plan}</td>
+                    <td style={cell}>{r.startup}</td>
+                    <td style={cell}>{r.monthly}</td>
+                    <td style={cell}>{r.perVisit}</td>
+                    <td style={{ ...cell, color: GREY }}>{r.included}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {COMPARE_ROWS.map((row) => (
-                    <tr key={row.plan}>
-                      <td style={{ ...cell, fontWeight: 600 }}>{row.plan}</td>
-                      <td style={{ ...cell, background: "rgba(245,168,0,0.08)", fontWeight: 700, color: FOREST }}>{row.you}</td>
-                      <td style={cell}>{row.chain}</td>
-                      <td style={cell}>{row.budget}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* MONTHLY PLANS */}
+      <section style={{ padding: "48px 36px 0" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+          <GroupLabel text="Monthly plans · ACH autopay" sub="Pest anchors the plan, so you get a low monthly rate." />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18, marginTop: 22 }}>
+            {MONTHLY_PLANS.map((p) => <PlanCard key={p.name} plan={p} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* À LA CARTE */}
+      <section style={{ padding: "44px 36px 0" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+          <GroupLabel text="À la carte" sub="Mosquito and tick without a pest plan are billed per service — no monthly." />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18, marginTop: 22 }}>
+            {ALACARTE_PLANS.map((p) => <PlanCard key={p.name} plan={p} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST DISCLAIMER */}
+      <section style={{ padding: "44px 36px 0" }}>
+        <div style={{
+          maxWidth: 900, margin: "0 auto",
+          background: "linear-gradient(135deg, rgba(14,142,64,0.05), rgba(245,168,0,0.08))",
+          border: `1px solid ${LINE}`, borderRadius: 10, padding: "24px 28px",
+        }}>
+          <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 17, fontWeight: 600, color: INK, marginBottom: 8 }}>
+            Pricing Transparency
+          </div>
+          <p style={{ fontSize: 14.5, color: "rgba(14,26,15,0.78)", lineHeight: 1.65, margin: 0 }}>
+            Published &ldquo;From&rdquo; rates are based on standard property sizes with straightforward monthly billing.
+            Pest control is bimonthly (treatment every other month) with zero hidden cancellation fees. Alabama regulates
+            termite treatment, so an on-site WDO inspection is required before we provide your exact Sentricon® quote —
+            based on linear footage and foundation type. That inspection is always free.
+          </p>
+        </div>
+      </section>
+
+      {/* COVERAGE TABLE */}
+      <section style={{ padding: "56px 36px 0" }}>
+        <div style={{ maxWidth: 980, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 26, fontWeight: 500, marginBottom: 6, letterSpacing: "-0.01em" }}>
+            Pests we treat &mdash; and what we don&rsquo;t
+          </h2>
+          <p style={{ fontSize: 14, color: GREY, marginBottom: 22 }}>
+            Straight answers so you know before you call.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
+            <CoverageCard title="We treat" items={TREAT} positive />
+            <CoverageCard title="We don't treat" items={DONT_TREAT} />
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: "0 36px 120px" }}>
+      <section style={{ padding: "64px 36px 120px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <div style={{
-              display: "inline-block",
-              fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: FOREST,
-              border: `1px solid ${FOREST}`,
-              borderRadius: 4,
-              padding: "4px 12px",
-              marginBottom: 14,
+              display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
+              textTransform: "uppercase", color: FOREST, border: `1px solid ${FOREST}`,
+              borderRadius: 4, padding: "4px 12px", marginBottom: 14,
             }}>
               Pricing FAQ
             </div>
-            <h2 style={{
-              fontFamily: "'Fraunces', Georgia, serif",
-              fontSize: 36, fontWeight: 400, letterSpacing: "-0.01em",
-            }}>
+            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 36, fontWeight: 400, letterSpacing: "-0.01em" }}>
               The questions we get most.
             </h2>
           </div>
           <div>
-            <FAQ q="Is there a contract?" a="No. EnviroCare is month-to-month. Cancel anytime — we earn your business every visit. (For comparison, some competitors require a 15-month minimum contract.)" />
-            <FAQ q="Is there an initial service fee?" a="It depends on the service. Mosquito, tick, and fire ant have no setup fee — you start at the regular rate. Pest control has a one-time start-up visit (currently $99 on the new-customer promo). Termite is a one-time $325 install, or $32/mo with no install fee. No hidden or recurring fees beyond that." />
-            <FAQ q="Why is the bundle not discounted?" a="Bundling with us is a convenience play, not a discount play. One invoice, one technician, one schedule. We chose to keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
-            <FAQ q="What's the difference between $35/mo ACH and $70 bimonthly?" a="They're the same price ($35 × 2 months = $70). ACH (auto-draft from your bank) gets the lower monthly rate; bimonthly billing is for customers who prefer a paper bill or card." />
-            <FAQ q="Why is termite $32/mo OR a one-time install?" a="$32/mo is our ACH monthly rate. The alternative is a one-time $325 installation that includes the first-year guarantee, then $380/yr to renew — preferred by some homeowners or builders. Both include the same Sentricon® system and warranty." />
-            <FAQ q="What does Mosquito + Tick cover?" a="A 30-day yard barrier from March through November. It targets mosquito breeding sites and adult populations, plus tick pressure — including the chiggers that come with wooded lots — around the perimeter. Especially popular with dog owners and Lake Martin lakefront homes. (Flea is a separate interior add-on.)" />
-            <FAQ q="What's the Sentricon $1M warranty?" a="If termites cause structural damage to your home while you're on active Sentricon protection, EnviroCare covers repairs up to $1,000,000 — our guarantee. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
+            <FAQ q="Is there a contract?" a="No. Pest plans are month-to-month on ACH autopay — cancel anytime, with zero hidden cancellation fees." />
+            <FAQ q="Why isn't there a flat termite price?" a="Alabama regulates termite treatment, so we have to do an on-site WDO (wood-destroying organism) inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free, and there's no obligation." />
+            <FAQ q="What are the startup fees?" a="Pest Only is $99 to start. Pest + Mosquito is $79. The bundles that include termite (Pest + Termite and Complete) are $229 to start. Mosquito and tick booked on their own have no startup — they're billed per service." />
+            <FAQ q="Can I get mosquito or tick without a pest plan?" a="Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, nine rounds from March through November, charged at each service. Tick is only offered alongside mosquito on the same visit, not on its own." />
+            <FAQ q="Is the bundle a discount?" a="No — bundling is a convenience play, not a discount. One technician, one invoice, one schedule. We keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
+            <FAQ q="What does Mosquito + Tick cover?" a="A 30-day yard barrier from March through November targeting mosquito breeding sites and adult populations, plus tick pressure — including the chiggers that come with wooded and lakefront lots. (Flea is a separate interior add-on.)" />
+            <FAQ q="What's the Sentricon $1M coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — our guarantee. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section style={{
-        background: `linear-gradient(160deg, ${GREEN} 0%, ${DEEP} 100%)`,
-        padding: "80px 36px",
-        textAlign: "center",
-        color: "#fff",
-      }}>
+      <section style={{ background: `linear-gradient(160deg, ${GREEN} 0%, ${DEEP} 100%)`, padding: "80px 36px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
           <div style={{ fontSize: 48, color: GOLD, marginBottom: 16, fontFamily: "'Fraunces', serif" }}>🌻</div>
-          <h2 style={{
-            fontFamily: "'Fraunces', Georgia, serif",
-            fontSize: "clamp(32px, 4.5vw, 48px)",
-            fontWeight: 400, lineHeight: 1.1, marginBottom: 14,
-          }}>
-            Pick a plan. <em style={{ color: GOLD, fontStyle: "italic" }}>Get started in 2 minutes.</em>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(32px, 4.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 14 }}>
+            Get your free quote. <em style={{ color: GOLD, fontStyle: "italic" }}>We&rsquo;ll call you back.</em>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
-            Free inspection. No salesman pressure. The Wedgworth family guarantee.
+            No obligation. No hidden fees. The Wedgworth family guarantee.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <button style={{
+            <a href="/quote" style={{
               background: GOLD, color: INK, border: "none", borderRadius: 8,
-              padding: "16px 32px", fontWeight: 800, fontSize: 15, cursor: "pointer",
+              padding: "16px 32px", fontWeight: 800, fontSize: 15, textDecoration: "none",
             }}>
-              Get Free Inspection →
-            </button>
+              Get my free quote →
+            </a>
             <a href="tel:2059406360" style={{
               background: "transparent", color: "#fff",
               border: "1px solid rgba(255,255,255,0.3)", borderRadius: 8,
@@ -344,135 +354,99 @@ export default function PricingContent() {
   );
 }
 
-// ---------- TIER CARD ----------
-function TierCard({ tier }: { tier: Tier }) {
-  const isFeatured = tier.featured;
+// ---------- GROUP LABEL ----------
+function GroupLabel({ text, sub }: { text: string; sub: string }) {
   return (
-    <div style={{
-      background: isFeatured ? `linear-gradient(180deg, ${INK} 0%, #1a2a1c 100%)` : "#fff",
-      color: isFeatured ? "#fff" : INK,
-      border: isFeatured ? "none" : `1px solid ${LINE}`,
-      borderRadius: 12,
-      padding: "32px 26px",
-      position: "relative",
-      transform: isFeatured ? "scale(1.04)" : "none",
-      boxShadow: isFeatured ? "0 20px 50px rgba(14,26,15,0.15)" : "none",
-      display: "flex",
-      flexDirection: "column",
-    }}>
-      {isFeatured && (
-        <div style={{
-          position: "absolute",
-          top: -12, left: "50%",
-          transform: "translateX(-50%)",
-          background: GOLD, color: INK,
-          fontSize: 10, fontWeight: 800,
-          letterSpacing: "0.12em",
-          padding: "5px 14px",
-          borderRadius: 4,
-          textTransform: "uppercase",
-        }}>
-          Most Popular
-        </div>
-      )}
-      <div style={{
-        fontFamily: "'Fraunces', Georgia, serif",
-        fontSize: 22, fontWeight: 500,
-        letterSpacing: "-0.01em", marginBottom: 4,
-      }}>
-        {tier.name}
-      </div>
-      <div style={{
-        fontSize: 12,
-        color: isFeatured ? GOLD : GREY,
-        marginBottom: 22, fontWeight: 500,
-      }}>
-        {tier.tagline}
-      </div>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 6 }}>
-        <span style={{
-          fontFamily: "'Fraunces', Georgia, serif",
-          fontSize: 24, color: isFeatured ? "rgba(255,255,255,0.6)" : "rgba(14,26,15,0.6)",
-          fontWeight: 500,
-        }}>
-          $
-        </span>
-        <span style={{
-          fontFamily: "'Fraunces', Georgia, serif",
-          fontSize: 56, fontWeight: 600,
-          color: isFeatured ? GOLD : FOREST,
-          letterSpacing: "-0.03em", lineHeight: 1,
-        }}>
-          {tier.price}
-        </span>
-        <span style={{
-          fontSize: 14, color: isFeatured ? "rgba(255,255,255,0.5)" : GREY,
-          fontWeight: 500, marginLeft: 4,
-        }}>
-          /mo · ACH
-        </span>
-      </div>
-      <div style={{
-        fontSize: 12,
-        color: isFeatured ? "rgba(255,255,255,0.5)" : GREY,
-        marginBottom: 22, paddingBottom: 22,
-        borderBottom: isFeatured ? "1px solid rgba(255,255,255,0.1)" : `1px solid ${LINE}`,
-      }}>
-        {tier.altPrice}
-      </div>
-      <ul style={{ listStyle: "none", marginBottom: 28, padding: 0, flexGrow: 1 }}>
-        {tier.features.map((f, i) => (
-          <li key={i} style={{
-            fontSize: 13,
-            color: isFeatured ? "rgba(255,255,255,0.85)" : "rgba(14,26,15,0.78)",
-            padding: "7px 0",
-            display: "flex", gap: 10,
-            lineHeight: 1.5,
-          }}>
-            <span style={{ color: isFeatured ? GOLD : FOREST, fontWeight: 800, flexShrink: 0 }}>✓</span>
-            {f}
-          </li>
-        ))}
-      </ul>
-      <button style={{
-        background: isFeatured ? GOLD : FOREST,
-        color: isFeatured ? INK : "#fff",
-        border: "none", borderRadius: 7,
-        padding: 13, fontWeight: 700, fontSize: 14,
-        cursor: "pointer", width: "100%",
-        fontFamily: "'DM Sans', system-ui, sans-serif",
-      }}>
-        {tier.cta}
-      </button>
+    <div>
+      <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 24, fontWeight: 500, letterSpacing: "-0.01em", margin: 0 }}>{text}</h2>
+      <p style={{ fontSize: 13.5, color: GREY, margin: "4px 0 0" }}>{sub}</p>
     </div>
   );
 }
 
-// ---------- TRUST ITEM ----------
-function TrustItem({ icon, title, text }: { icon: string; title: string; text: string }) {
+// ---------- PLAN CARD ----------
+function PlanCard({ plan }: { plan: Plan }) {
+  const f = plan.featured;
   return (
-    <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-      <div style={{
-        width: 36, height: 36,
-        background: "rgba(14,142,64,0.08)",
-        borderRadius: "50%",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        color: FOREST, fontSize: 16, fontWeight: 700,
-        flexShrink: 0,
-      }}>
-        {icon}
-      </div>
-      <div>
+    <div style={{
+      background: f ? `linear-gradient(180deg, ${INK} 0%, #1a2a1c 100%)` : "#fff",
+      color: f ? "#fff" : INK,
+      border: f ? "none" : `1px solid ${LINE}`,
+      borderRadius: 12, padding: "30px 26px", position: "relative",
+      transform: f ? "scale(1.03)" : "none",
+      boxShadow: f ? "0 20px 50px rgba(14,26,15,0.15)" : "none",
+      display: "flex", flexDirection: "column",
+    }}>
+      {f && (
         <div style={{
-          fontFamily: "'Fraunces', Georgia, serif",
-          fontSize: 15, fontWeight: 500, color: INK, marginBottom: 2,
+          position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
+          background: GOLD, color: INK, fontSize: 10, fontWeight: 800, letterSpacing: "0.12em",
+          padding: "5px 14px", borderRadius: 4, textTransform: "uppercase", whiteSpace: "nowrap",
         }}>
-          {title}
+          Most Popular
         </div>
-        <div style={{ fontSize: 12, color: GREY, lineHeight: 1.5 }}>
-          {text}
-        </div>
+      )}
+      <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 22, fontWeight: 500, letterSpacing: "-0.01em", marginBottom: 4 }}>
+        {plan.name}
       </div>
+      <div style={{ fontSize: 12, color: f ? GOLD : GREY, marginBottom: 18, fontWeight: 500 }}>
+        {plan.tagline}
+      </div>
+      <div style={{
+        fontFamily: "'Fraunces', Georgia, serif", fontSize: 28, fontWeight: 600,
+        color: f ? GOLD : FOREST, letterSpacing: "-0.02em", lineHeight: 1.15,
+      }}>
+        {plan.priceLabel}
+      </div>
+      <div style={{ fontSize: 12.5, color: f ? "rgba(255,255,255,0.6)" : GREY, marginTop: 4, fontWeight: 600 }}>
+        {plan.startup}
+      </div>
+      <div style={{
+        fontSize: 12, color: f ? "rgba(255,255,255,0.5)" : GREY,
+        marginTop: 10, marginBottom: 18, paddingBottom: 18,
+        borderBottom: f ? "1px solid rgba(255,255,255,0.1)" : `1px solid ${LINE}`,
+        minHeight: 18,
+      }}>
+        {plan.note}
+      </div>
+      <ul style={{ listStyle: "none", marginBottom: 24, padding: 0, flexGrow: 1 }}>
+        {plan.features.map((ft, i) => (
+          <li key={i} style={{
+            fontSize: 13, color: f ? "rgba(255,255,255,0.85)" : "rgba(14,26,15,0.78)",
+            padding: "7px 0", display: "flex", gap: 10, lineHeight: 1.5,
+          }}>
+            <span style={{ color: f ? GOLD : FOREST, fontWeight: 800, flexShrink: 0 }}>✓</span>
+            {ft}
+          </li>
+        ))}
+      </ul>
+      <a href="/quote" style={{
+        background: f ? GOLD : FOREST, color: f ? INK : "#fff",
+        border: "none", borderRadius: 7, padding: 13, fontWeight: 700, fontSize: 14,
+        textAlign: "center", textDecoration: "none", width: "100%",
+        fontFamily: "'DM Sans', system-ui, sans-serif",
+      }}>
+        {plan.cta}
+      </a>
+    </div>
+  );
+}
+
+// ---------- COVERAGE CARD ----------
+function CoverageCard({ title, items, positive }: { title: string; items: string[]; positive?: boolean }) {
+  return (
+    <div style={{ background: positive ? "#fff" : PAPER, border: `1px solid ${LINE}`, borderRadius: 12, padding: "26px 24px" }}>
+      <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 19, fontWeight: 500, marginBottom: 16, color: positive ? FOREST : INK }}>
+        {title}
+      </div>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        {items.map((it, i) => (
+          <li key={i} style={{ fontSize: 13.5, color: "rgba(14,26,15,0.78)", padding: "8px 0", display: "flex", gap: 10, lineHeight: 1.5, borderTop: i ? `1px solid ${LINE}` : "none" }}>
+            <span style={{ color: positive ? FOREST : "#B23B2E", fontWeight: 800, flexShrink: 0 }}>{positive ? "✓" : "✕"}</span>
+            {it}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -481,40 +455,23 @@ function TrustItem({ icon, title, text }: { icon: string; title: string; text: s
 function FAQ({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{
-      borderBottom: `1px solid ${LINE}`,
-      padding: "20px 0",
-    }}>
+    <div style={{ borderBottom: `1px solid ${LINE}`, padding: "20px 0" }}>
       <button
         onClick={() => setOpen(!open)}
         style={{
-          width: "100%", textAlign: "left",
-          background: "none", border: "none",
-          cursor: "pointer", padding: 0,
-          display: "flex", justifyContent: "space-between", alignItems: "center",
-          gap: 20,
-          fontFamily: "'DM Sans', system-ui, sans-serif",
+          width: "100%", textAlign: "left", background: "none", border: "none",
+          cursor: "pointer", padding: 0, display: "flex", justifyContent: "space-between",
+          alignItems: "center", gap: 20, fontFamily: "'DM Sans', system-ui, sans-serif",
         }}>
-        <span style={{
-          fontFamily: "'Fraunces', Georgia, serif",
-          fontSize: 18, fontWeight: 500, color: INK,
-          letterSpacing: "-0.005em",
-        }}>
+        <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontWeight: 500, color: INK, letterSpacing: "-0.005em" }}>
           {q}
         </span>
-        <span style={{
-          color: FOREST, fontSize: 20, fontWeight: 700, flexShrink: 0,
-          transform: open ? "rotate(45deg)" : "none",
-          transition: "transform 0.2s",
-        }}>
+        <span style={{ color: FOREST, fontSize: 20, fontWeight: 700, flexShrink: 0, transform: open ? "rotate(45deg)" : "none", transition: "transform 0.2s" }}>
           +
         </span>
       </button>
       {open && (
-        <div style={{
-          marginTop: 14, paddingRight: 30,
-          fontSize: 15, color: "rgba(14,26,15,0.7)", lineHeight: 1.7,
-        }}>
+        <div style={{ marginTop: 14, paddingRight: 30, fontSize: 15, color: "rgba(14,26,15,0.7)", lineHeight: 1.7 }}>
           {a}
         </div>
       )}
@@ -524,19 +481,9 @@ function FAQ({ q, a }: { q: string; a: string }) {
 
 // ---------- TABLE CELLS ----------
 const cellHead: React.CSSProperties = {
-  background: INK,
-  color: GOLD,
-  textAlign: "left",
-  padding: "14px 16px",
-  fontFamily: "'Fraunces', Georgia, serif",
-  fontWeight: 500,
-  fontSize: 14,
+  background: INK, color: GOLD, textAlign: "left", padding: "14px 16px",
+  fontFamily: "'Fraunces', Georgia, serif", fontWeight: 500, fontSize: 14,
 };
-
 const cell: React.CSSProperties = {
-  padding: "14px 16px",
-  borderBottom: `1px solid ${LINE}`,
-  background: "#fff",
-  fontSize: 14,
+  padding: "14px 16px", borderBottom: `1px solid ${LINE}`, background: "#fff", fontSize: 14,
 };
-
