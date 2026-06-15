@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.envirocarellc.com'),
   title: {
     default: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
-    template: '%s | EnviroCare',
+    template: '%s',
   },
   description:
     'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M coverage, mosquito and tick yard treatment. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',

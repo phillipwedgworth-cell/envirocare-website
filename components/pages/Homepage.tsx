@@ -654,7 +654,7 @@ function Heritage() {
             </blockquote>
             <div className="ec-heritage-stats">
               <div className="ec-h-stat"><div className="ec-h-stat-num">1958</div><div className="ec-h-stat-label">FOUNDED</div></div>
-              <div className="ec-h-stat"><div className="ec-h-stat-num">3</div><div className="ec-h-stat-label">GENERATIONS</div></div>
+              <div className="ec-h-stat"><div className="ec-h-stat-num">4</div><div className="ec-h-stat-label">GENERATIONS</div></div>
               <div className="ec-h-stat"><div className="ec-h-stat-num">100%</div><div className="ec-h-stat-label">FAMILY OWNED</div></div>
             </div>
           </div>

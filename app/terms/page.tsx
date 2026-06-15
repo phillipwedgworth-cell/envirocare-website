@@ -57,7 +57,7 @@ export default function TermsPage() {
           <li>Pre-construction termite treatment and WDO inspection letters for real estate transactions</li>
         </ul>
         <p>
-          We do not offer bed bug treatment, wildlife removal, rodent control, bat exclusion, lawn care, or standalone wasp and bee
+          We do not offer bed bug treatment, wildlife removal, bat exclusion, lawn care, or standalone wasp and bee
           removal as general services. Carpenter bee treatment is available as an add-on for existing customers only.
         </p>
 
@@ -82,7 +82,7 @@ export default function TermsPage() {
           charge, subject to the following conditions:
         </p>
         <ul>
-          <li>The re-service request must be for a pest included in the plan (not bed bugs, wildlife, rodents, or other excluded pests)</li>
+          <li>The re-service request must be for a pest included in the plan (not bed bugs, wildlife, or other excluded pests)</li>
           <li>The customer's account must be current (no outstanding balance)</li>
           <li>Access to the property must be available during our normal service hours (Monday–Friday, 8 a.m.–5 p.m.)</li>
         </ul>
