@@ -28,6 +28,8 @@ interface Ga4Row { period_end: string; sessions: number; users: number; engaged_
 interface GadsRow { campaign: string; cost: number; clicks: number; impressions: number; conversions: number; cost_per_conv: number; snapshot_label: string; snapshot_date: string; }
 interface CfoRow { snapshot_date: string; metrics: Record<string, unknown>; note: string | null; }
 interface BriefRow { brief_date: string; content: string; }
+interface SeoMetric { location: string; keyword: string; campaign_key: string; arp: number | null; atrp: number | null; solv: number | null; run_date: string; }
+interface SeoDigest { run_date: string; summary_text: string; rows_json: unknown; created_at: string; }
 
 // ── helpers ─────────────────────────────────────────────────────────────────
 const num = (v: unknown) => (v == null || isNaN(Number(v)) ? 0 : Number(v));
@@ -75,6 +77,18 @@ function statusColor(s: string) {
   if (s === 'error') return '#FF6B57';
   return '#7E8E82';
 }
+// SoLV cell color: >=70 green, 30-69 amber, <30 red, 0/null red ("not visible")
+function solvColor(v: number | null) {
+  if (v == null || v === 0) return '#E05B4B';
+  if (v >= 70) return '#1FAE5A';
+  if (v >= 30) return '#F5A800';
+  return '#E05B4B';
+}
+const fmtDate = (iso?: string | null) => {
+  if (!iso) return '';
+  const p = String(iso).split('-').map(Number);
+  return p[0] ? `${p[1]}/${p[2]}/${p[0]}` : String(iso);
+};
 
 // ── data ──────────────────────────────────────────────────────────────────────
 async function fetchAll() {
@@ -85,7 +99,7 @@ async function fetchAll() {
   const grab = <T,>(p: PromiseLike<{ data: T[] | null }>): Promise<T[]> =>
     Promise.resolve(p).then((r) => (r.data ?? []) as T[]).catch(() => [] as T[]);
 
-  const [runs, findings, seo, gsc, ga4, gads, cfo, brief] = await Promise.all([
+  const [runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests] = await Promise.all([
     grab<AgentRun>(sb.from('agent_runs').select('agent_name,status,output,created_at').order('created_at', { ascending: false }).limit(80)),
     grab<Finding>(sb.from('agent_findings').select('id,agent_name,category,severity,page_url,finding,run_date').order('run_date', { ascending: false }).limit(120)),
     grab<SeoRow>(sb.from('envirocare_seo').select('location,solv,arp,review_count,keyword,snapshot_date').order('snapshot_date', { ascending: false }).limit(80)),
@@ -94,8 +108,10 @@ async function fetchAll() {
     grab<GadsRow>(sb.from('gads_campaigns').select('campaign,cost,clicks,impressions,conversions,cost_per_conv,snapshot_label,snapshot_date').order('snapshot_date', { ascending: false }).limit(60)),
     grab<CfoRow>(sb.from('cfo_snapshots').select('snapshot_date,metrics,note').order('snapshot_date', { ascending: false }).limit(1)),
     grab<BriefRow>(sb.from('morning_brief').select('brief_date,content').order('brief_date', { ascending: false }).limit(1)),
+    grab<SeoMetric>(sb.from('seo_metrics').select('location,keyword,campaign_key,arp,atrp,solv,run_date').order('run_date', { ascending: false }).limit(300)),
+    grab<SeoDigest>(sb.from('seo_digests').select('run_date,summary_text,rows_json,created_at').order('run_date', { ascending: false }).order('created_at', { ascending: false }).limit(12)),
   ]);
-  return { runs, findings, seo, gsc, ga4, gads, cfo, brief };
+  return { runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests };
 }
 
 // ── small UI atoms ────────────────────────────────────────────────────────────
@@ -108,9 +124,9 @@ function Kpi({ label, value, sub, accent }: { label: string; value: string; sub?
     </div>
   );
 }
-function Panel({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
+function Panel({ title, hint, wide, children }: { title: string; hint?: string; wide?: boolean; children: React.ReactNode }) {
   return (
-    <section className="cc-panel">
+    <section className={`cc-panel${wide ? ' cc-panel-wide' : ''}`}>
       <div className="cc-panel-head"><h2>{title}</h2>{hint && <span className="cc-panel-hint">{hint}</span>}</div>
       {children}
     </section>
@@ -151,7 +167,18 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
     );
   }
 
-  const { runs, seo, gsc, ga4, gads, cfo, brief } = data;
+  const { runs, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests } = data;
+
+  // Ranking Snapshots — newest run_date, grouped by location (Local Falcon campaigns)
+  const snapRunDate = seoMetrics[0]?.run_date ?? null;
+  const snapRows = snapRunDate ? seoMetrics.filter((r) => r.run_date === snapRunDate) : [];
+  const SNAP_ORDER = ['Huntsville', 'Birmingham/Alabaster', 'Lake Martin/Alex City'];
+  const snapLocs = Array.from(new Set(snapRows.map((r) => r.location)))
+    .sort((a, b) => (SNAP_ORDER.indexOf(a) + 1 || 99) - (SNAP_ORDER.indexOf(b) + 1 || 99));
+  const snapByLoc = snapLocs.map((loc) => ({
+    loc,
+    rows: snapRows.filter((r) => r.location === loc).sort((a, b) => (b.solv ?? 0) - (a.solv ?? 0)),
+  }));
   // Compliance guard: never surface banned recommendations in the cockpit
   const BANNED = /(safe for pets|pet[- ]?safe|kid[- ]?safe|safe for kids|non[- ]?toxic|eco[- ]?safe|same[- ]?day|100% satisfaction|satisfaction guarantee|guarantee[ds]? elimination)/i;
   const findings = data.findings.filter((f) => !BANNED.test(f.finding || ''));
@@ -261,6 +288,59 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
                   </div>
                 );
               })}
+            </div>
+          )}
+        </Panel>
+
+        {/* RANKING SNAPSHOTS */}
+        <Panel title="Ranking Snapshots" hint={snapRunDate ? `Snapshot: ${fmtDate(snapRunDate)}` : 'Local Falcon'} wide>
+          {snapByLoc.length === 0 ? (
+            <Empty>No snapshots yet. Run the SEO monitor (<code>POST /api/seo-monitor/run</code> with <code>Bearer CRON_SECRET</code>; needs <code>LOCAL_FALCON_API_KEY</code>) after creating the <code>seo_metrics</code> table.</Empty>
+          ) : (
+            <div className="cc-snap">
+              {snapByLoc.map((g) => (
+                <div key={g.loc} className="cc-snap-group">
+                  <div className="cc-snap-loc">{g.loc}</div>
+                  <table className="cc-table cc-snap-table">
+                    <tbody>
+                      {g.rows.map((r) => {
+                        const c = solvColor(r.solv);
+                        const noVis = r.solv == null || r.solv === 0;
+                        return (
+                          <tr key={r.keyword}>
+                            <td className="cc-td-name">{r.keyword}</td>
+                            <td>{r.arp != null ? Number(r.arp).toFixed(1) : '—'}</td>
+                            <td style={{ color: c, fontWeight: 700, whiteSpace: 'nowrap' }}>
+                              {noVis ? 'not visible' : `${Math.round(Number(r.solv))}%`}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
+            </div>
+          )}
+        </Panel>
+
+        {/* WEEKLY DIGESTS */}
+        <Panel title="Weekly Digests" hint={seoDigests[0] ? fmtDate(seoDigests[0].run_date) : 'SEO'}>
+          {seoDigests.length === 0 ? (
+            <Empty>No digests yet — the weekly SEO monitor writes one each Monday.</Empty>
+          ) : (
+            <div className="cc-digests">
+              <pre className="cc-digest-latest">{seoDigests[0].summary_text}</pre>
+              {seoDigests.length > 1 && (
+                <div className="cc-digest-prior">
+                  {seoDigests.slice(1).map((d, i) => (
+                    <details key={i} className="cc-digest-item">
+                      <summary>{fmtDate(d.run_date)}</summary>
+                      <pre>{d.summary_text}</pre>
+                    </details>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </Panel>
@@ -464,6 +544,18 @@ const CC_CSS = `
 .cc-cron li { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; align-items: baseline; }
 .cc-cron-name { color: #D7E4D9; }
 .cc-cron-when { color: #F5A800; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.cc-panel-wide { grid-column: 1 / -1; }
+.cc-snap { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .cc-snap { grid-template-columns: repeat(3, 1fr); } }
+.cc-snap-loc { font-size: 11px; font-weight: 700; color: #9FB3A3; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; border-bottom: 1px solid rgba(245,168,0,0.16); padding-bottom: 4px; }
+.cc-snap-table td { font-size: 12px; padding: 6px 4px; }
+.cc-snap-table td:first-child { white-space: normal; }
+.cc-digests { display: flex; flex-direction: column; gap: 10px; }
+.cc-digest-latest { font-size: 12.5px; line-height: 1.55; color: #C3D4C7; white-space: pre-wrap; background: rgba(255,255,255,0.02); border-radius: 8px; padding: 10px 12px; margin: 0; font-family: 'DM Sans', system-ui, sans-serif; }
+.cc-digest-prior { display: flex; flex-direction: column; gap: 3px; }
+.cc-digest-item summary { cursor: pointer; font-size: 12px; color: #F5A800; font-weight: 600; padding: 4px 0; font-variant-numeric: tabular-nums; }
+.cc-digest-item pre { font-size: 12px; line-height: 1.5; color: #C3D4C7; white-space: pre-wrap; margin: 4px 0 8px; padding-left: 10px; border-left: 2px solid rgba(245,168,0,0.3); font-family: 'DM Sans', system-ui, sans-serif; }
 
 .cc-foot { max-width: 1280px; margin: 24px auto 0; text-align: center; font-size: 11px; color: #6f7d71; }
 
