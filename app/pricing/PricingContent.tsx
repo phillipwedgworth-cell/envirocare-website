@@ -40,13 +40,13 @@ type Plan = {
   featured?: boolean;
 };
 
-// Monthly ACH plans — pest anchors every one, so a monthly rate is shown.
+// Monthly ACH plans — pest anchors every one (ACH/monthly requires a year-round anchor).
 const MONTHLY_PLANS: Plan[] = [
   {
     name: "Pest + Mosquito",
-    tagline: "Bimonthly pest + seasonal mosquito",
+    tagline: "Bimonthly pest + seasonal mosquito — most popular",
     priceLabel: "From $69/mo",
-    startup: "$79 startup",
+    startup: "$99 startup · ACH autopay",
     note: "Add tick: +$20/visit",
     features: [
       "Bimonthly perimeter pest treatment",
@@ -56,48 +56,29 @@ const MONTHLY_PLANS: Plan[] = [
       "No contract — cancel anytime",
     ],
     cta: "Get my quote",
+    featured: true,
   },
   {
     name: "Complete",
-    tagline: "Pest + Termite + Mosquito",
-    priceLabel: "From $69/mo + Termite Quote",
-    startup: "$229 startup",
-    note: "Sentricon® priced after free WDO inspection · add tick +$20/visit",
+    tagline: "Pest + Termite + Mosquito — best value",
+    priceLabel: "From ~$100/mo",
+    startup: "$229 startup · ACH autopay",
+    note: "+ Sentricon® termite, priced at inspection · add tick +$20/visit",
     features: [
       "Everything in Pest + Mosquito",
       "Sentricon® Always Active™ termite protection",
       "Up to $1,000,000 EnviroCare repair coverage",
       "One technician, one invoice",
-      "Termite quote after your free WDO inspection",
-    ],
-    cta: "Get my quote",
-    featured: true,
-  },
-  {
-    name: "Pest + Termite",
-    tagline: "Bimonthly pest + Sentricon®",
-    priceLabel: "From $35/mo + Termite Quote",
-    startup: "$229 startup",
-    note: "Pest base + Sentricon® priced after free WDO inspection",
-    features: [
-      "Bimonthly perimeter pest treatment",
-      "Sentricon® Always Active™ termite protection",
-      "Up to $1,000,000 EnviroCare repair coverage",
-      "No drilling — in-ground bait stations",
-      "Termite quote after your free WDO inspection",
+      "Termite service & price provided upon inspection & approval",
     ],
     cta: "Get my quote",
   },
-];
-
-// Base / à la carte — mosquito & tick without a pest plan are per-service only (no monthly).
-const ALACARTE_PLANS: Plan[] = [
   {
-    name: "Pest Only",
+    name: "Pest",
     tagline: "Bimonthly perimeter pest control",
     priceLabel: "From $35/mo",
-    startup: "$99 startup",
-    note: "ACH · cancel anytime",
+    startup: "$79 startup · ACH · cancel anytime",
+    note: "Add mosquito for $20 more at startup",
     features: [
       "Bimonthly perimeter treatment",
       "30+ common Alabama pests, incl. mice & rats",
@@ -107,17 +88,21 @@ const ALACARTE_PLANS: Plan[] = [
     ],
     cta: "Get my quote",
   },
+];
+
+// Per-service & inspection-priced — mosquito/tick alone are per-visit (no monthly without a pest anchor).
+const ALACARTE_PLANS: Plan[] = [
   {
     name: "Mosquito",
     tagline: "Seasonal yard treatment",
     priceLabel: "$45/visit × 9",
-    startup: "No monthly — per service",
-    note: "March–November",
+    startup: "Per service — or $34/mo with a pest plan",
+    note: "March–November · monthly only when bundled with pest",
     features: [
       "30-day yard barrier treatment",
       "Breeding sites + adult mosquitoes targeted",
       "9 rounds, March through November",
-      "Charged at each service (no autopay required)",
+      "$34/mo rate available only with a pest plan",
     ],
     cta: "Get my quote",
   },
@@ -125,8 +110,8 @@ const ALACARTE_PLANS: Plan[] = [
     name: "Mosquito + Tick",
     tagline: "Seasonal yard treatment",
     priceLabel: "$65/visit × 9",
-    startup: "No monthly — per service",
-    note: "March–November · tick rides with mosquito",
+    startup: "Per service",
+    note: "March–November · tick rides with mosquito only",
     features: [
       "Everything in Mosquito",
       "Tick coverage — also covers chiggers",
@@ -135,16 +120,30 @@ const ALACARTE_PLANS: Plan[] = [
     ],
     cta: "Get my quote",
   },
+  {
+    name: "Termite",
+    tagline: "Sentricon® Always Active™",
+    priceLabel: "Free inspection",
+    startup: "Priced upon inspection & approval",
+    note: "Alabama requires an on-site WDO inspection first",
+    features: [
+      "Sentricon® Always Active™ bait stations",
+      "Up to $1,000,000 EnviroCare repair coverage",
+      "No drilling — in-ground stations",
+      "Service & price provided upon inspection & approval",
+    ],
+    cta: "Book free inspection",
+  },
 ];
 
 // Plan-comparison table (AEO / featured-snippet play). Termite = quote, never a flat number.
 const COMPARE_ROWS = [
-  { plan: "Pest Only", startup: "$99", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
-  { plan: "Pest + Mosquito", startup: "$79", monthly: "From $69/mo", perVisit: "Tick +$20/visit", included: "Pest plan + seasonal mosquito (Mar–Nov)" },
-  { plan: "Pest + Termite", startup: "$229", monthly: "From $35/mo + termite quote", perVisit: "—", included: "Pest plan + Sentricon® (quoted after free WDO inspection)" },
-  { plan: "Complete", startup: "$229", monthly: "From $69/mo + termite quote", perVisit: "Tick +$20/visit", included: "Pest + mosquito + Sentricon® termite" },
-  { plan: "Mosquito (alone)", startup: "—", monthly: "—", perVisit: "$45/visit × 9", included: "Seasonal yard barrier, Mar–Nov (no monthly)" },
-  { plan: "Mosquito + Tick (alone)", startup: "—", monthly: "—", perVisit: "$65/visit × 9", included: "Seasonal yard barrier + tick, Mar–Nov (no monthly)" },
+  { plan: "Pest", startup: "$79", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
+  { plan: "Pest + Mosquito", startup: "$99", monthly: "From $69/mo", perVisit: "Tick +$20/visit", included: "Pest plan + seasonal mosquito (Mar–Nov)" },
+  { plan: "Complete", startup: "$229", monthly: "From ~$100/mo", perVisit: "Tick +$20/visit", included: "Pest + mosquito + Sentricon® termite (priced at inspection)" },
+  { plan: "Mosquito (alone)", startup: "—", monthly: "$34/mo with pest", perVisit: "$45/visit × 9", included: "Seasonal yard barrier, Mar–Nov (monthly only when bundled with pest)" },
+  { plan: "Mosquito + Tick (alone)", startup: "—", monthly: "—", perVisit: "$65/visit × 9", included: "Seasonal + tick (rides with mosquito), Mar–Nov" },
+  { plan: "Termite", startup: "Free inspection", monthly: "—", perVisit: "—", included: "Sentricon® — service & price provided upon inspection & approval" },
 ];
 
 // Coverage table — what's in scope vs out. Carpenter bees: existing customers only.
@@ -313,8 +312,8 @@ export default function PricingContent() {
           <div>
             <FAQ q="Is there a contract?" a="No. Pest plans are month-to-month on ACH autopay — cancel anytime, with zero hidden cancellation fees." />
             <FAQ q="Why isn't there a flat termite price?" a="Alabama regulates termite treatment, so we have to do an on-site WDO (wood-destroying organism) inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free, and there's no obligation." />
-            <FAQ q="What are the startup fees?" a="Pest Only is $99 to start. Pest + Mosquito is $79. The bundles that include termite (Pest + Termite and Complete) are $229 to start. Mosquito and tick booked on their own have no startup — they're billed per service." />
-            <FAQ q="Can I get mosquito or tick without a pest plan?" a="Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, nine rounds from March through November, charged at each service. Tick is only offered alongside mosquito on the same visit, not on its own." />
+            <FAQ q="What are the startup fees?" a="Pest is $79 to start. Pest + Mosquito is $99. The Complete bundle (which includes termite) is $229 to start. Mosquito and tick booked on their own have no startup — they're billed per service." />
+            <FAQ q="Can I get mosquito or tick without a pest plan?" a="Yes — on its own, mosquito is $45 per visit and mosquito + tick is $65 per visit, nine rounds March through November, charged at each service. The $34/mo mosquito rate is only available bundled with a pest plan, since monthly autopay needs a year-round anchor. Tick is only offered alongside mosquito, never on its own." />
             <FAQ q="Is the bundle a discount?" a="No — bundling is a convenience play, not a discount. One technician, one invoice, one schedule. We keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
             <FAQ q="What does Mosquito + Tick cover?" a="A 30-day yard barrier from March through November targeting mosquito breeding sites and adult populations, plus tick pressure — including the chiggers that come with wooded and lakefront lots. (Flea is a separate interior add-on.)" />
             <FAQ q="What's the Sentricon $1M coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — our guarantee. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />

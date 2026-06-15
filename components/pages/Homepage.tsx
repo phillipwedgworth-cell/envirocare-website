@@ -806,7 +806,7 @@ function Pricing() {
             terms={mode === 'monthly' ? 'From $35/mo · ACH autopay · cancel anytime' : 'bimonthly · per visit'}
             bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests, incl. mice & rats', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
             cta="Choose Pest" href="/quote?plan=pest"
-            finePrint="$99 startup · no contract"
+            finePrint="$79 startup · no contract"
           />
           <PriceCard
             title="Pest + Mosquito" tags={['Pest', 'Mosquito']}
@@ -817,36 +817,36 @@ function Pricing() {
             terms={mode === 'monthly' ? 'From $69/mo · add tick +$20/visit' : 'mosquito 9 visits Mar–Nov · add tick +$20/visit'}
             bullets={['Bimonthly perimeter pest control', 'Seasonal mosquito (March–November)', 'Add tick: +$20/visit', 'Unlimited free pest re-service']}
             cta="Choose Pest + Mosquito" href="/quote?plan=pest-mosquito"
-            finePrint="$79 startup · no contract"
+            finePrint="$99 startup · no contract"
+            badge="MOST POPULAR" featured
           />
           <PriceCard
-            title="Pest + Termite" tags={['Pest', 'Termite']}
-            tagline="Bimonthly pest control + Sentricon® termite protection."
-            price={mode === 'monthly' ? '35' : ''}
-            unit={mode === 'monthly' ? '/mo' : ''}
-            priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® quoted after free WDO inspection' : undefined}
-            terms={mode === 'monthly' ? 'From $35/mo pest + Sentricon® termite, quoted after free WDO inspection' : 'termite quoted after free WDO inspection'}
-            bullets={['Everything in Pest, plus:', 'Sentricon® Always Active™ system', '$1M damage repair coverage', 'No drilling — in-ground bait stations', 'Termite quote after free WDO inspection']}
-            cta="Choose Pest + Termite" href="/quote?plan=pest-termite"
-            finePrint="$229 startup"
+            title="Termite" tags={['Termite']}
+            tagline="Sentricon® Always Active™ — Alabama's regulated termite protection."
+            price=""
+            unit=""
+            priceLine="Free inspection — price upon approval"
+            terms="Alabama requires an on-site WDO inspection before we quote; the inspection is free"
+            bullets={['Sentricon® Always Active™ bait stations', '$1M damage repair coverage', 'No drilling — in-ground stations', 'Service & price provided upon inspection & approval']}
+            cta="Book free inspection" href="/quote?plan=termite"
           />
           <PriceCard
             title="Complete" tags={['Pest', 'Termite', 'Mosquito']}
             tagline="Pest, termite and mosquito — one plan, one local team."
-            price={mode === 'monthly' ? '69' : ''}
+            price={mode === 'monthly' ? '100' : ''}
             unit={mode === 'monthly' ? '/mo' : ''}
-            priceLine={mode === 'perservice' ? 'Pest $70/visit + Mosquito $45/visit + Sentricon® quoted after free WDO inspection' : undefined}
-            terms={mode === 'monthly' ? 'From $69/mo + Sentricon® termite quoted after free WDO inspection · add tick +$20/visit' : 'termite quoted after free WDO inspection'}
-            bullets={['Everything in Pest + Mosquito', 'Sentricon® Always Active™ termite protection', '$1M damage repair coverage', 'A specialist for each service', 'Termite quote after free WDO inspection']}
+            priceLine={mode === 'perservice' ? 'Pest $70/visit + Mosquito $45/visit + Sentricon® priced at inspection' : undefined}
+            terms={mode === 'monthly' ? 'From ~$100/mo incl. Sentricon® termite (priced upon inspection & approval) · add tick +$20/visit' : 'termite priced upon inspection & approval'}
+            bullets={['Everything in Pest + Mosquito', 'Sentricon® Always Active™ termite protection', '$1M damage repair coverage', 'A specialist for each service', 'Termite priced upon inspection & approval']}
             cta="Choose Complete" href="/quote?plan=complete"
-            badge="MOST POPULAR" featured
+            badge="BEST VALUE"
           />
         </div>
 
         {/* ── Initial-fee trust strip (Jun 11 spec) ── */}
         <div className="ec-price-trust-strip">
-          <strong>Honest, published startup fees.</strong> Pest control is $99 to start,
-          Pest&nbsp;+&nbsp;Mosquito is $79, and termite bundles are $229. Mosquito and tick
+          <strong>Honest, published startup fees.</strong> Pest is $79 to start,
+          Pest&nbsp;+&nbsp;Mosquito is $99, and the Complete bundle is $229. Mosquito and tick
           booked on their own have no startup — they&rsquo;re billed per visit.
         </div>
       </div>

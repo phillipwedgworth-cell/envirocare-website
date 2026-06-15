@@ -18,12 +18,11 @@
 ## Core Services & Pricing (locked model — June 2026)
 RULE: termite is NEVER a flat number to customers — always "quoted after a free WDO inspection."
 Mosquito/tick without a pest plan are PER-VISIT only (no monthly). Tick rides with mosquito only.
-- **Pest only**: From $35/mo (bimonthly) · $99 startup · ACH · cancel anytime
-- **Pest + Mosquito**: From $69/mo · $79 startup · add tick +$20/visit
-- **Pest + Termite**: From $35/mo + termite quote · $229 startup (Sentricon® quoted after free WDO inspection)
-- **Complete (Pest + Termite + Mosquito)**: From $69/mo + termite quote · $229 startup · add tick +$20/visit
-- **Mosquito alone**: $45/visit × 9 (Mar–Nov) — per service, no monthly
-- **Mosquito + Tick**: $65/visit × 9 (Mar–Nov) — per service, no monthly
+- **Pest only**: From $35/mo (bimonthly) · $79 startup · ACH · cancel anytime
+- **Pest + Mosquito**: From $69/mo · $99 startup · add tick +$20/visit — LEAD/most popular
+- **Complete (Pest + Termite + Mosquito)**: From ~$100/mo · $229 startup · termite priced upon inspection & approval · add tick +$20/visit — best value
+- **Mosquito**: $45/visit × 9 (Mar–Nov) alone; $34/mo ONLY when bundled with a pest plan (monthly needs a year-round anchor)
+- **Mosquito + Tick**: $65/visit × 9 (Mar–Nov) — tick rides with mosquito only, never standalone
 - **Termite (Sentricon®)**: NO flat price — quoted after a free on-site WDO inspection (Alabama requires it). Up to $1M repair coverage. (Internal only: $325 install incl. year-1 + $380/yr renewal — never quote as a monthly.)
 - **Fire ant**: $150 minimum, priced by sq ft — standalone, available to anyone (NOT in the pest plan)
 - **WDO (real estate termite letter)**: $75 standalone; one free/yr for active customers

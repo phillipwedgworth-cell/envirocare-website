@@ -53,7 +53,7 @@ const FAQ_SCHEMA = {
   mainEntity: [
     { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "No. Pest plans are month-to-month on ACH autopay — cancel anytime, with zero hidden cancellation fees." } },
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
-    { "@type": "Question", name: "What are the startup fees?", acceptedAnswer: { "@type": "Answer", text: "Pest Only is $99, Pest + Mosquito is $79, and the termite bundles (Pest + Termite and Complete) are $229. Mosquito and tick booked alone have no startup — they're billed per service." } },
+    { "@type": "Question", name: "What are the startup fees?", acceptedAnswer: { "@type": "Answer", text: "Pest is $79, Pest + Mosquito is $99, and the Complete bundle (which includes termite) is $229. Mosquito and tick booked alone have no startup — they're billed per service." } },
     { "@type": "Question", name: "Can I get mosquito or tick without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, nine rounds March through November, charged at each service. Tick is only offered alongside mosquito." } },
     { "@type": "Question", name: "What's the Sentricon $1M coverage?", acceptedAnswer: { "@type": "Answer", text: "If termites cause structural damage while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — our guarantee." } },
   ],

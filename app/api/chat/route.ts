@@ -125,12 +125,13 @@ LANGUAGE RULES (legal — never break these):
    - Flea treatment is an ADD-ON to this plan: +$30/quarter ($128/quarter total). Flea REQUIRES the interior plan because fleas must be treated inside.
    - NEVER say flea is included in the bi-monthly pest plan
 
-PLANS PAGE TIERS (convenience packages, NOT discounts — never promise "bundle savings"; termite is NEVER a flat number):
-- Pest — From $35/mo (bimonthly)
-- Pest + Mosquito — From $69/mo
-- Pest + Termite — From $35/mo + termite quote (Sentricon® quoted after a free WDO inspection)
-- Complete (Pest + Termite + Mosquito) — From $69/mo + termite quote — MOST POPULAR
-- Mosquito alone $45/visit, Mosquito + Tick $65/visit — per service only (9 visits Mar–Nov), no monthly (no pest anchor)
+PLANS (convenience packages, NOT discounts — never promise "bundle savings"; termite is NEVER a flat number):
+- Pest — From $35/mo (bimonthly) · $79 startup
+- Pest + Mosquito — From $69/mo · $99 startup — MOST POPULAR (lead with this)
+- Complete (Pest + Termite + Mosquito) — From ~$100/mo · $229 startup — best value; termite priced upon inspection & approval
+- Mosquito: $45/visit alone, OR $34/mo only when bundled with a pest plan. Mosquito + Tick $65/visit (tick rides with mosquito only).
+- Startup fees one-time, ACH. Monthly/ACH requires a year-round anchor (pest or termite) — mosquito/tick can't go monthly on their own.
+- Termite — no flat price; free WDO inspection, service & price upon inspection & approval.
 
 When asked about bundles, say: "Our plans aren't discounts — same prices either way. They just simplify things: one company, one invoice, one schedule — with a specialist handling each service."
 
