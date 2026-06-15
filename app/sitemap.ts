@@ -70,6 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/faq/mosquito`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
     { url: `${BASE_URL}/faq/termite-warranty`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
     { url: `${BASE_URL}/contact-us`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
+    { url: `${BASE_URL}/reviews`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${BASE_URL}/find-office`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
   ];

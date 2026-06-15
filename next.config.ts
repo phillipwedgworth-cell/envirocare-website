@@ -18,17 +18,33 @@ const nextConfig: NextConfig = {
     // ──────────────────────────────────────────────────────────────────────
     async redirects() {
           return [
-            // ─── HOST-LEVEL: old domain → canonical domain ──────────────────
+            // ─── HOST-LEVEL: enforce canonical https://www.envirocarellc.com ─
+            // NOTE: the CURRENT live host (envirocare-web.vercel.app) is intentionally
+            // NOT redirected — www does not resolve until the DNS flip, so redirecting
+            // the live host pre-flip would take the site down. Apex + the stray alias
+            // are safe: apex serves the old site until flip, the alias is unused.
+            {
+                      source: '/:path*',
+                      has: [{ type: 'host', value: 'envirocarellc.com' }],
+                      destination: 'https://www.envirocarellc.com/:path*',
+                      permanent: true,
+            },
+            {
+                      source: '/:path*',
+                      has: [{ type: 'host', value: 'envirocare-website.vercel.app' }],
+                      destination: 'https://www.envirocarellc.com/:path*',
+                      permanent: true,
+            },
             {
                       source: '/:path*',
                       has: [{ type: 'host', value: 'envirocarepestservices.com' }],
-                      destination: 'https://envirocarellc.com/:path*',
+                      destination: 'https://www.envirocarellc.com/:path*',
                       permanent: true,
             },
             {
                       source: '/:path*',
                       has: [{ type: 'host', value: 'www.envirocarepestservices.com' }],
-                      destination: 'https://envirocarellc.com/:path*',
+                      destination: 'https://www.envirocarellc.com/:path*',
                       permanent: true,
             },
 
@@ -160,7 +176,7 @@ const nextConfig: NextConfig = {
 
             // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
             { source: '/bundle-services', destination: '/quote', permanent: true },
-            { source: '/reviews', destination: '/', permanent: true },
+            // NOTE: /reviews is a REAL page now (app/reviews/page.tsx) — do NOT redirect it.
             { source: '/special-offers', destination: '/quote', permanent: true },
                 ];
     },
