@@ -31,6 +31,7 @@ jobs:
         run: npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts
 
       - name: Run NeuronWriter QA
+        continue-on-error: true   # NW analysis / Anthropic synthesis can fail (cap, plan limits); don't red the run — scores still upload via the artifact step
         env:
           NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
           NEURONWRITER_PROJECT: 9d0bec3a70f4743c   # envirocarellc.com project ID (not the domain)
