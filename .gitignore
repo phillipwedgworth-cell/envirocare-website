@@ -9,3 +9,6 @@ node_modules
 supabase/.temp/
 tsconfig.tsbuildinfo
 .next/
+
+# NeuronWriter / audit script output (regenerated, not source)
+audit-results/
