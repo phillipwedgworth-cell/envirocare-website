@@ -116,7 +116,7 @@ export default function ReviewsPage() {
           </div>
           <p className="rv-intro">
             These reviews are pulled from Google. Not curated. Not filtered.
-            Three generations of the Wedgworth family — and the technicians we&apos;ve trained over 68 years — have earned every one.
+            Four generations of the Wedgworth family — and the technicians we&apos;ve trained over 68 years — have earned every one.
           </p>
         </div>
       </section>
@@ -151,7 +151,7 @@ export default function ReviewsPage() {
         <div className="rv-cta-inner">
           <h2 className="rv-cta-title">Are You An EnviroCare Customer?</h2>
           <p className="rv-cta-sub">
-            Leave us a Google review — three generations of the Wedgworth family deeply appreciate it.
+            Leave us a Google review — four generations of the Wedgworth family deeply appreciate it.
           </p>
           <a
             href="https://g.page/r/CTQU4M3w5dQHEAg/review"

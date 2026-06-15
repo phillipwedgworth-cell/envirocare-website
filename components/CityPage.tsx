@@ -332,7 +332,7 @@ export default function CityPage({ city }: { city: CityData }) {
             <div>
               <Image src="/logo.png" alt="EnviroCare" width={200} height={56} style={{ height: 'auto', maxWidth: 200, marginBottom: 16, filter: 'brightness(1.5)' }} />
               <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>
-                Family-owned and operated since 1958 — three generations of the Wedgworth family.
+                Family-owned and operated since 1958 — four generations of the Wedgworth family.
                 Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
               </p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, marginTop: 16 }}>

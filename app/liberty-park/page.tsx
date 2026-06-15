@@ -170,7 +170,7 @@ const jsonLd = {
         }
       ],
       "priceRange": "$",
-      "description": "Family-owned pest, termite, mosquito and tick service for Liberty Park, Vestavia Hills. Sentricon® Certified Specialist. EPA-registered products applied to label directions. Wedgworth family, third generation since 1958."
+      "description": "Family-owned pest, termite, mosquito and tick service for Liberty Park, Vestavia Hills. Sentricon® Certified Specialist. EPA-registered products applied to label directions. Wedgworth family, fourth generation since 1958."
     },
     {
       "@type": "Service",

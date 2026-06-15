@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { getOrganizationSchema, SchemaScript } from '@/lib/schema';
 import ScheduleRequest from '@/components/ScheduleRequest';
 import StickyCallButton from '@/components/StickyCallButton';
 
@@ -26,7 +25,6 @@ import StickyCallButton from '@/components/StickyCallButton';
 export default function Homepage() {
   return (
     <main className="ec-main">
-      <SchemaScript schema={getOrganizationSchema()} />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <TopBanner />
       <Header />
@@ -75,7 +73,7 @@ function TopBanner() {
     <div className="ec-banner">
       <div className="ec-banner-inner">
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Three generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
         </div>
@@ -172,7 +170,7 @@ function Hero() {
 
           <h1 className="ec-hero-h1">
             Protecting Alabama Homes<br />
-            <em className="ec-h1-italic">Three Generations</em><br />
+            <em className="ec-h1-italic">Four Generations</em><br />
             <span className="ec-h1-gold">Strong.</span>
           </h1>
 
@@ -635,7 +633,7 @@ function Heritage() {
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">OUR STORY</div>
         <h2 className="ec-section-h2">
-          Three Generations. <em>One Family.</em> One Promise.
+          Four Generations. <em>One Family.</em> One Promise.
         </h2>
 
         <div className="ec-heritage-grid">
@@ -1002,7 +1000,7 @@ function Footer() {
             <Image src="/logo-white.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
-            Family-owned and operated since 1958 — now in its third generation
+            Family-owned and operated since 1958 — now in its fourth generation
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">

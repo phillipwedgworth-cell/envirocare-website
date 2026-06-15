@@ -123,7 +123,7 @@ export default function Alabaster() {
                   { title: "Our office is in Alabaster", desc: "2025 Butler Rd. Not a regional dispatch center — our local team is right here." },
                   { title: "Fastest response times", desc: "When your office is local, scheduling is typically within 48 hours." },
                   { title: "We know Alabaster's pest patterns", desc: "Alabaster's clay soil, drainage, and neighborhoods create specific pest pressures we understand." },
-                  { title: "Family owned since 1958", desc: "Three generations. We treat your home like it's our own — because we live here too." },
+                  { title: "Family owned since 1958", desc: "Four generations. We treat your home like it's our own — because we live here too." },
                   { title: "Licensed, insured, low-impact", desc: "All Alabama-licensed technicians. Treatments applied by Alabama-licensed technicians." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">

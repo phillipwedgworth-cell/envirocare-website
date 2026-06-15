@@ -55,7 +55,7 @@ const jsonLd = {
       ],
       priceRange: "$$",
       description:
-        "Family-owned pest, termite, mosquito, and tick control serving Madison AL and all of Madison County since 1958. Three generations of the Wedgworth family. Sentricon® certified. EPA-registered products.",
+        "Family-owned pest, termite, mosquito, and tick control serving Madison AL and all of Madison County since 1958. Four generations of the Wedgworth family. Sentricon® certified. EPA-registered products.",
     },
     {
       "@type": "Service",
@@ -235,7 +235,7 @@ export default function MadisonPage() {
             lineHeight: 1.65, opacity: 0.9,
             maxWidth: 640, margin: "0 auto 36px",
           }}>
-            Three generations of Wedgworths protecting Heritage Plantation, Madison Crossings,
+            Four generations of Wedgworths protecting Heritage Plantation, Madison Crossings,
             Sullivan Street, and every zip between 35756 and 35758. One family. One phone number.
             All four programs.
           </p>
@@ -554,7 +554,7 @@ export default function MadisonPage() {
             <p style={{ fontSize: 15.5, lineHeight: 1.75, margin: "0 0 28px", color: "#374151" }}>
               We&apos;ve been doing this in North Alabama since 1958. Our Huntsville office services
               all of Madison — the same technicians, the same family ownership, the same standard
-              of service that&apos;s protected hundreds of Huntsville-area homes for three generations.
+              of service that&apos;s protected hundreds of Huntsville-area homes for four generations.
               No national call center. No franchised techs. The Wedgworth family picks up the phone.
             </p>
             <GoldCTA href="tel:2569377676" text="Talk to the Huntsville office" />

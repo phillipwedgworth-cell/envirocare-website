@@ -14,7 +14,7 @@ const c: ComboContent = {
   h1Accent: "Protect the House, Not Just Treat It.",
   intro: [
     "Birmingham is one of the heaviest subterranean termite markets in America: a city of pre-1980 homes standing on moist red clay, in a climate that never gets cold enough to slow a colony down. Eastern subterranean termites cause more damage in Alabama each year than fire and storms combined — and homeowner's insurance doesn't cover a dollar of it.",
-    "EnviroCare has protected Birmingham homes since 1958 — three generations of the Wedgworth family, Sentricon® Certified Specialists, with up to $1,000,000 in damage repair coverage standing behind the work.",
+    "EnviroCare has protected Birmingham homes since 1958 — four generations of the Wedgworth family, Sentricon® Certified Specialists, with up to $1,000,000 in damage repair coverage standing behind the work.",
   ],
   anglesHeading: "Why Birmingham homes are termite targets",
   localAngles: [

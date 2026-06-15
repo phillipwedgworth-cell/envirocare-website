@@ -149,7 +149,7 @@ export default function RedstoneArsenalPage() {
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 620, marginBottom: "2.2rem" }}>
               Commercial pest service for the businesses that support Redstone Arsenal — Cummings Research
               Park offices, contractor facilities, hotels, restaurants, and retail along Highway 20 and
-              Martin Road. Three generations of Wedgworth-family service out of our Huntsville office.
+              Martin Road. Four generations of Wedgworth-family service out of our Huntsville office.
             </p>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
               <a href="tel:2569377676" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>

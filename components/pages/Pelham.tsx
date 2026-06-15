@@ -90,7 +90,7 @@ export default function Pelham() {
             <div className="space-y-4">
               {[
                 { t: "Office in Alabaster — 5 minutes away", d: "Faster response than any company dispatching from Birmingham proper." },
-                { t: "Family-owned since 1958", d: "Three generations of the Wedgworth family. We treat your home like our own." },
+                { t: "Family-owned since 1958", d: "Four generations of the Wedgworth family. We treat your home like our own." },
                 { t: "★★★★★ Google Rated", d: "Consistent 5-star service across the Birmingham metro for decades." },
                 { t: "Licensed & insured in Alabama", d: "Every technician state-certified. EPA-registered treatments applied per label." },
                 { t: "Satisfaction guaranteed", d: "Pests return between visits? So do we — at no charge." },

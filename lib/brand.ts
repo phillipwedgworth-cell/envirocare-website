@@ -12,7 +12,7 @@ export const displayFont = "'Playfair Display', Georgia, serif";
 export const bodyFont = "'DM Sans', system-ui, -apple-system, sans-serif";
 
 export const TAGLINE = "No One Cares Like EnviroCare";
-export const HERITAGE = "Family-owned since 1958 · Third generation";
+export const HERITAGE = "Family-owned since 1958 · Fourth generation";
 
 const brand = {
   GREEN,

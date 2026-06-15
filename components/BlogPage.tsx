@@ -18,7 +18,7 @@ export default function BlogPage() {
             Alabama Pest Control, <em>Honestly Explained.</em>
           </h1>
           <p className="bp-sub">
-            Three generations of the Wedgworth family treating Alabama homes. The notes below are
+            Four generations of the Wedgworth family treating Alabama homes. The notes below are
             written by Kevin — what we actually see, what works, what doesn&apos;t, and why.
           </p>
         </div>

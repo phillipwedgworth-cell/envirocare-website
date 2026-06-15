@@ -117,7 +117,7 @@ const FAQS = [
   },
   {
     q: "How is EnviroCare different from national mosquito companies?",
-    a: "We're family-owned and local — third generation, founded 1958. Kevin Wedgworth and his team service the same neighborhoods his grandfather started in. You get the same tech on every visit, a direct phone number (not a call center), and genuine accountability. We don't subcontract.",
+    a: "We're family-owned and local — fourth generation, founded 1958. Kevin Wedgworth and his team service the same neighborhoods his grandfather started in. You get the same tech on every visit, a direct phone number (not a call center), and genuine accountability. We don't subcontract.",
   },
 ];
 

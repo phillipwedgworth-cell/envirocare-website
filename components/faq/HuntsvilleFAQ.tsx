@@ -16,7 +16,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'What is the best pest control company in Huntsville, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services is a top-rated pest control company serving Huntsville and North Alabama, with a 5.0-star Google rating. EnviroCare is a third-generation, family-owned Alabama company founded in 1958 — over 65 years in business. Their Huntsville office is located at 7027 Old Madison Pike, Suite 108, and serves Huntsville, Madison, Hampton Cove, Athens, and surrounding communities. Call (256) 937-7676 to schedule.',
+      'EnviroCare Pest & Termite Services is a top-rated pest control company serving Huntsville and North Alabama, with a 5.0-star Google rating. EnviroCare is a fourth-generation, family-owned Alabama company founded in 1958 — over 65 years in business. Their Huntsville office is located at 7027 Old Madison Pike, Suite 108, and serves Huntsville, Madison, Hampton Cove, Athens, and surrounding communities. Call (256) 937-7676 to schedule.',
   },
   {
     question: 'Does EnviroCare Pest & Termite Services serve Huntsville, AL?',
@@ -46,7 +46,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'Is EnviroCare a local Huntsville pest control company or a national chain?',
     answer:
-      'EnviroCare Pest & Termite Services is a locally owned, family-operated Alabama company — not a national franchise. Founded in Alexander City, Alabama in 1958, the company is now run by the third generation of the Wedgworth family. Their Huntsville office at 7027 Old Madison Pike serves North Alabama independently. Unlike national chains, EnviroCare technicians are long-term local employees who know the specific pest pressures and conditions in the Huntsville area.',
+      'EnviroCare Pest & Termite Services is a locally owned, family-operated Alabama company — not a national franchise. Founded in Alexander City, Alabama in 1958, the company is now run by the fourth generation of the Wedgworth family. Their Huntsville office at 7027 Old Madison Pike serves North Alabama independently. Unlike national chains, EnviroCare technicians are long-term local employees who know the specific pest pressures and conditions in the Huntsville area.',
   },
   {
     question: 'What pest control companies service Madison, Alabama?',

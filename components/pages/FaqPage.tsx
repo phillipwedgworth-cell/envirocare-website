@@ -53,7 +53,7 @@ export default function FaqPage() {
           <div className="faq-list-wide">
             <details className="faq-item">
               <summary className="faq-q">Are you really family-owned since 1958?</summary>
-              <div className="faq-a">Yes. The Wedgworth family started EnviroCare in 1958 in Alexander City, Alabama. We're now in our third generation. Phillip Wedgworth is the current owner; his father and grandfather built the business before him.</div>
+              <div className="faq-a">Yes. The Wedgworth family started EnviroCare in 1958 in Alexander City, Alabama. We're now in our fourth generation. Kevin Wedgworth is the current owner; his father and grandfather built the business before him, and the fourth generation of the family works in the business today.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How many offices do you have?</summary>
@@ -113,7 +113,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">What does the $1M coverage actually cover?</summary>
-              <div className="faq-a">If subterranean termites cause damage to your home while you're on Sentricon® Always Active™ and we've been maintaining it, EnviroCare covers repair costs up to $1,000,000. That's our guarantee — three generations of Wedgworths standing behind your home.</div>
+              <div className="faq-a">If subterranean termites cause damage to your home while you're on Sentricon® Always Active™ and we've been maintaining it, EnviroCare covers repair costs up to $1,000,000. That's our guarantee — four generations of Wedgworths standing behind your home.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Will Sentricon® mess up my landscaping?</summary>

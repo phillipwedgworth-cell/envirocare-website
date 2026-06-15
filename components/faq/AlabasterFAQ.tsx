@@ -45,7 +45,7 @@ const ALABASTER_FAQS = [
   {
     question: 'Is EnviroCare a local business or a national franchise?',
     answer:
-      'EnviroCare is a 100% locally owned Alabama business — not a national franchise. Founded in Alexander City, Alabama in 1958 and now run by the third generation of the Wedgworth family — Phillip, Kevin, and Lex — the company independently operates offices in Alabaster, Alexander City, and Huntsville. When you hire EnviroCare, you work directly with Alabama business owners, not an out-of-state corporate chain.',
+      'EnviroCare is a 100% locally owned Alabama business — not a national franchise. Founded in Alexander City, Alabama in 1958 and now run by the fourth generation of the Wedgworth family — Phillip, Kevin, and Lex — the company independently operates offices in Alabaster, Alexander City, and Huntsville. When you hire EnviroCare, you work directly with Alabama business owners, not an out-of-state corporate chain.',
   },
 ];
 

@@ -265,7 +265,7 @@ export default function BuilderPreTreatPage() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 }}>
             {[
-              { title: "Family-owned since 1958", detail: "Three generations in Alabama. We've been doing pre-treats longer than most builders have been building." },
+              { title: "Family-owned since 1958", detail: "Four generations in Alabama. We've been doing pre-treats longer than most builders have been building." },
               { title: "Sentricon® Certified Specialist", detail: "Not every company is certified. We are. That matters when the homeowner calls years later." },
               { title: "Paperwork handled", detail: "Alabama ADAI documentation, treatment certificates, and warranty transfers — all included, no chasing." },
               { title: "Three Alabama offices", detail: "Birmingham/Alabaster, Alex City/Lake Martin, and Huntsville. We cover most of the state without long-haul scheduling." },

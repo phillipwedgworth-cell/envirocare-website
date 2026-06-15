@@ -54,7 +54,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What we recommend</h2>
 
-<p>We've been treating Alabama termites since 1958. For three generations, the company my grandfather started has tried every method the industry has thrown at homeowners — chlordane (banned), Dursban (banned), liquid soil barriers, foaming agents, baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
+<p>We've been treating Alabama termites since 1958. For four generations, the company my grandfather started has tried every method the industry has thrown at homeowners — chlordane (banned), Dursban (banned), liquid soil barriers, foaming agents, baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
 
 <p>It's a bait station system. We install monitoring stations every 10–15 feet around your foundation. When termites find the stations (they always do — they're constantly foraging), they take the bait back to the colony, and the entire colony collapses. No drilling into your slab. No tank trucks. No chemicals injected into the soil under your kids' play area.</p>
 
@@ -131,7 +131,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What we actually do</h2>
 
-<p>EnviroCare has been a Sentricon® Certified Specialist since the system was approved for residential use. Three generations of my family have treated termites in this state — my grandfather started the company in 1958 with a single truck and a chlordane sprayer. We've used every method the industry has thrown at us, and Sentricon is what we recommend now.</p>
+<p>EnviroCare has been a Sentricon® Certified Specialist since the system was approved for residential use. Four generations of my family have treated termites in this state — my grandfather started the company in 1958 with a single truck and a chlordane sprayer. We've used every method the industry has thrown at us, and Sentricon is what we recommend now.</p>
 
 <p>Free inspection. Call the office nearest you:</p>
 <ul>

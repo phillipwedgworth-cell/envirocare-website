@@ -14,7 +14,7 @@ const c: ComboContent = {
   h1Accent: "Here's What We Do Differently.",
   intro: [
     "When people search for an exterminator, they usually have a problem right now — roaches in the kitchen, ants in the bathroom, a spider situation in the garage. We handle that. A licensed technician treats the active problem on the first visit, interior and exterior, and free re-visits stand behind it until it's gone.",
-    "But here's the difference between an exterminator and EnviroCare: an exterminator comes back every time something gets in. We treat your home from the outside, every other month, so pests stop getting in at all. Three generations of the Wedgworth family have refined that exterior-first approach across Birmingham since 1958.",
+    "But here's the difference between an exterminator and EnviroCare: an exterminator comes back every time something gets in. We treat your home from the outside, every other month, so pests stop getting in at all. Four generations of the Wedgworth family have refined that exterior-first approach across Birmingham since 1958.",
   ],
   anglesHeading: "Exterminator visit vs. the EnviroCare program",
   localAngles: [

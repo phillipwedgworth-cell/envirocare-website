@@ -29,7 +29,7 @@ export default function NotFound() {
       <style dangerouslySetInnerHTML={{ __html: NF_CSS }} />
 
       <div className="ann">
-        🌻 <strong>Family-owned since 1958</strong> · Three generations of the Wedgworth family
+        🌻 <strong>Family-owned since 1958</strong> · Four generations of the Wedgworth family
         <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 

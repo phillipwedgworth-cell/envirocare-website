@@ -5,7 +5,7 @@
 const LLMS_TXT = `# EnviroCare Pest & Termite Services
 
 > Family-owned Alabama pest control company, founded 1958 in Alexander City — now in its
-> third generation of the Wedgworth family. Tagline: "No One Cares Like EnviroCare."
+> fourth generation of the Wedgworth family. Tagline: "No One Cares Like EnviroCare."
 
 ## Service model
 - Exterior-first protection: the home perimeter is treated every other month (bi-monthly,

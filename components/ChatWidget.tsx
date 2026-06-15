@@ -35,7 +35,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hi, I'm Scout 🌻 — EnviroCare's assistant. We're a third-generation Alabama family business, here since 1958. What can I help you with today?",
+        "Hi, I'm Scout 🌻 — EnviroCare's assistant. We're a fourth-generation Alabama family business, here since 1958. What can I help you with today?",
     },
   ]);
   const [input, setInput] = useState("");

@@ -65,7 +65,7 @@ const jsonLd = {
       ],
       priceRange: "$$",
       description:
-        "Family-owned mosquito, pest, termite, and tick control serving Fultondale AL and Jefferson County since 1958. Three generations of the Wedgworth family. Sentricon® certified. EPA-registered products applied to label directions.",
+        "Family-owned mosquito, pest, termite, and tick control serving Fultondale AL and Jefferson County since 1958. Four generations of the Wedgworth family. Sentricon® certified. EPA-registered products applied to label directions.",
     },
     {
       "@type": "Service",

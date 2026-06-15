@@ -36,7 +36,7 @@ export default function ReviewsPage() {
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">What Alabama Says About Us</span></div>
           <h1>Five-Star<em>Google Reviews</em></h1>
-          <p className="page-hero-sub">68 years. Three generations of the Wedgworth family. Thousands of Alabama homes treated. Here\'s what our customers say — verified on Google.</p>
+          <p className="page-hero-sub">68 years. Four generations of the Wedgworth family. Thousands of Alabama homes treated. Here\'s what our customers say — verified on Google.</p>
           <div className="page-hero-cta">
             <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read All Google Reviews →</a>
             <a href="tel:2059406360" className="btn-outline-white">Call (205) 940-6360</a>
@@ -62,7 +62,7 @@ export default function ReviewsPage() {
 
           <div className="rev-grid">
             <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"The same technician comes every visit. He knows my dog, my gate code, and exactly where the ants come in. That continuity is everything."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Tech Continuity</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Three generations of family. You can feel it in how the team treats you — not a corporate script, just real people who care."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Family-Owned Touch</span></div></div>
+            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Four generations of family. You can feel it in how the team treats you — not a corporate script, just real people who care."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Family-Owned Touch</span></div></div>
             <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Called Monday, scheduled Wednesday, problem gone by Friday. No three-week waitlist like the franchise places."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Week Scheduling</span></div></div>
             <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Sentricon stations installed in 90 minutes — no drilling, no concrete cuts, no torn-up flowerbeds. That sold us."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Sentricon® Install</span></div></div>
             <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"When I called about a wasp nest between visits, they came the next day. Free. No upcharge. That\'s service the big companies don\'t do anymore."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Free Re-Service</span></div></div>

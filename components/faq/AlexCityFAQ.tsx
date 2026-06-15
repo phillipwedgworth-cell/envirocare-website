@@ -15,7 +15,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'What is the best pest control company in Alexander City, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services was founded in Alexander City, Alabama in 1958 — making it the original and longest-running pest control company in the area. Now in its third generation under the Wedgworth family, EnviroCare\'s Alexander City office at 1785 Tallapoosa St has served Tallapoosa County and the Lake Martin area for over 65 years. They hold a 4.8-star Google rating. Call (256) 234-6162.',
+      'EnviroCare Pest & Termite Services was founded in Alexander City, Alabama in 1958 — making it the original and longest-running pest control company in the area. Now in its fourth generation under the Wedgworth family, EnviroCare\'s Alexander City office at 1785 Tallapoosa St has served Tallapoosa County and the Lake Martin area for over 65 years. They hold a 4.8-star Google rating. Call (256) 234-6162.',
   },
   {
     question: 'Does EnviroCare serve Lake Martin, Alabama?',
@@ -45,7 +45,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'Is EnviroCare the original pest control company in Alexander City?',
     answer:
-      'Yes. EnviroCare Pest & Termite Services was founded in Alexander City, Alabama by Phillip M. Wedgworth in 1958. The Alexander City office at 1785 Tallapoosa St is the company\'s founding location. EnviroCare is now operated by the third generation of the Wedgworth family — Phillip, Kevin, and Lex — and serves the Lake Martin area, Tallapoosa County, and surrounding communities from the same location where the company started over 65 years ago.',
+      'Yes. EnviroCare Pest & Termite Services was founded in Alexander City, Alabama by Phillip M. Wedgworth in 1958. The Alexander City office at 1785 Tallapoosa St is the company\'s founding location. EnviroCare is now operated by the fourth generation of the Wedgworth family — Phillip, Kevin, and Lex — and serves the Lake Martin area, Tallapoosa County, and surrounding communities from the same location where the company started over 65 years ago.',
   },
   {
     question: 'What pest control companies serve Dadeville and Tallapoosa County?',
