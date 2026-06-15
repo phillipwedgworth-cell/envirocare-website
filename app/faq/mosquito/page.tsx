@@ -45,7 +45,7 @@ const SCHEMA = {
       name: "How much does mosquito control cost in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare's mosquito program is $45/month, March through November. There's no setup fee and no annual contract. Adding mosquito control to an existing pest or termite plan is $45/month on top of your current plan. Mosquito + Tick (chiggers covered) is $49/month; flea is an interior-plan add-on.",
+        text: "EnviroCare's mosquito program is $45 per visit, March through November (9 visits, billed per service — no monthly). There's no setup fee and no annual contract. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
       },
     },
     {
@@ -93,7 +93,7 @@ const FAQS = [
   },
   {
     q: "How much does mosquito control cost?",
-    a: "$45/month, March through November. No setup fee, no contract, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $49/month; flea is an interior-plan add-on.",
+    a: "$45 per visit, March through November (9 visits, billed per service — no monthly). No setup fee, no contract, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
   },
   {
     q: "Do you serve Lake Martin waterfront homes?",
