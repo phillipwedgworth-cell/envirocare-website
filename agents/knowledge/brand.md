@@ -15,15 +15,18 @@
 | Huntsville | 7027 Old Madison Pike Ste 108, Huntsville AL 35806 | (256) 937-7676 | North Alabama |
 | Main line | — | (205) 940-6360 | All markets |
 
-## Core Services & Pricing
-- **Bi-monthly pest control**: $35/mo (starter), $67/mo (complete), $116/mo (premium)
-- **Termite (Sentricon®)**: $325 install (incl. year-1) + $380/yr renewal, OR $32/mo
-- **Mosquito control**: $45/mo (March–November)
-- **Tick control**: $150 minimum standalone (priced by yard size), or in the $49/mo Outdoor Pro plan
-- **Fire ant**: $150 minimum, priced by sq ft of covered area — standalone, available to anyone (NOT included in pest plan)
-- **Interior + exterior quarterly plan**: $98/quarter; flea add-on +$30/quarter ($128 total — flea REQUIRES the interior plan)
-- **WDO (real estate termite letter)**: $75 standalone; free for active customers
-- **Outdoor Pro (mosquito + tick, chiggers covered)**: $49/mo — $65/treatment x 9 treatments billed evenly
+## Core Services & Pricing (locked model — June 2026)
+RULE: termite is NEVER a flat number to customers — always "quoted after a free WDO inspection."
+Mosquito/tick without a pest plan are PER-VISIT only (no monthly). Tick rides with mosquito only.
+- **Pest only**: From $35/mo (bimonthly) · $99 startup · ACH · cancel anytime
+- **Pest + Mosquito**: From $69/mo · $79 startup · add tick +$20/visit
+- **Pest + Termite**: From $35/mo + termite quote · $229 startup (Sentricon® quoted after free WDO inspection)
+- **Complete (Pest + Termite + Mosquito)**: From $69/mo + termite quote · $229 startup · add tick +$20/visit
+- **Mosquito alone**: $45/visit × 9 (Mar–Nov) — per service, no monthly
+- **Mosquito + Tick**: $65/visit × 9 (Mar–Nov) — per service, no monthly
+- **Termite (Sentricon®)**: NO flat price — quoted after a free on-site WDO inspection (Alabama requires it). Up to $1M repair coverage. (Internal only: $325 install incl. year-1 + $380/yr renewal — never quote as a monthly.)
+- **Fire ant**: $150 minimum, priced by sq ft — standalone, available to anyone (NOT in the pest plan)
+- **WDO (real estate termite letter)**: $75 standalone; one free/yr for active customers
 
 ## Strongest Differentiators (in order of impact)
 1. **Sentricon® Certified Specialist** — $1,000,000 damage repair warranty from Corteva

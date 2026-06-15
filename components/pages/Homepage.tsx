@@ -241,27 +241,27 @@ function CoreServices() {
         <div className="ec-services-grid">
           <ServiceCard
             badge="MOST POPULAR" title="Pest Control"
-            description="Year-round defense against ants, roaches, spiders & 30+ pests. Bi-monthly service keeps homes pest-free."
-            bullets={['Interior + exterior perimeter', 'Unlimited free re-treatments', 'No long-term contract']}
-            href="/services/pest-control" cornerIcon="🛡️" featured price="$35/mo" priceLabel="STARTS AT"
-          />
-          <ServiceCard
-            badge="SENTRICON® CERTIFIED" title="Termite Control"
-            description="Sentricon® Always Active™ system. Continuous protection backed by up to $1M damage warranty."
-            bullets={['Free full-home inspection', 'Annual inspection included', 'Crawlspace + dock + pier']}
-            href="/services/termite-control" cornerIcon="🪵" highlight="$1M COVERAGE" price="$32/mo" priceLabel="STARTS AT"
+            description="Bimonthly exterior defense against ants, roaches, spiders & 30+ Alabama pests — including mice & rats."
+            bullets={['Bimonthly service • no hidden fees', 'Unlimited free re-service', 'No long-term contract']}
+            href="/services/pest-control" cornerIcon="🛡️" featured price="From $35/mo" priceLabel="BIMONTHLY"
           />
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
             description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['9 treatments per season (March—November)', 'EPA-registered products applied per label directions', 'Covers decks, docks & patios']}
-            href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER" price="≈$34/mo" priceLabel="SPREAD OVER 12 MO"
+            bullets={['9 treatments per season (March—November)', 'Per service — no monthly', 'EPA-registered products applied per label directions']}
+            href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER" price="$45/visit × 9" priceLabel="SEASONAL · MAR–NOV"
           />
           <ServiceCard
-            badge="TARGETED TICK CONTROL" title="Tick Control"
-            description="Targeted yard treatments to break the tick lifecycle. Critical for waterfront and wooded properties."
-            bullets={['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Add to mosquito for +$20 per round']}
-            href="/services/tick-control" cornerIcon="🐾" price="+$20" priceLabel="PER ROUND ADD-ON"
+            badge="BEST VALUE" title="Pest + Mosquito"
+            description="Bimonthly pest control plus seasonal mosquito — one plan, one local team."
+            bullets={['Bimonthly pest + seasonal mosquito', 'Add tick: +$20/visit', 'No long-term contract']}
+            href="/quote" cornerIcon="🌿" price="From $69/mo" priceLabel="BIMONTHLY + SEASONAL"
+          />
+          <ServiceCard
+            badge="SENTRICON® CERTIFIED" title="Termite Control"
+            description="Sentricon® Always Active™ system, backed by up to $1M damage coverage. Quote provided after your free WDO inspection & approval."
+            bullets={['Free full-home WDO inspection', 'No drilling — in-ground stations', 'Up to $1M repair coverage']}
+            href="/services/termite-control" cornerIcon="🪵" highlight="$1M COVERAGE" price="Free Inspection" priceLabel="REQUIRED BEFORE QUOTE"
           />
         </div>
       </div>
@@ -799,52 +799,55 @@ function Pricing() {
         {/* ── Plan cards — same four in both states; price lines swap (Jun 11 spec) ── */}
         <div className="ec-pricing-grid ec-pricing-fade" key={mode}>
           <PriceCard
-            title="Foundation" tags={['Pest', 'Termite']}
-            tagline="Pest control + Sentricon® termite protection. The right baseline for any Alabama home."
-            price={mode === 'monthly' ? '67' : ''}
-            unit={mode === 'monthly' ? '/mo' : ''}
-            priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® $325 install' : undefined}
-            terms={mode === 'monthly' ? 'Pest + Sentricon® termite — a specialist for each, one invoice' : 'install includes year-1 guarantee · $380/yr renewal'}
-            bullets={['Everything in Essential, plus:', 'Sentricon® Always Active™ system', 'Annual termite inspection', '$1M damage repair coverage', 'WDO inspection letter (1/yr)', 'No drilling, no tank trucks']}
-            cta="Choose Foundation" href="/quote?plan=foundation"
-            badge="MOST POPULAR" featured
-          />
-          <PriceCard
-            title="Essential" tags={['Pest']}
-            tagline="Year-round pest control for the everyday Alabama home."
+            title="Pest" tags={['Pest']}
+            tagline="Year-round bimonthly pest control for the everyday Alabama home."
             price={mode === 'monthly' ? '35' : '70'}
             unit={mode === 'monthly' ? '/mo' : '/visit'}
-            terms={mode === 'monthly' ? 'ACH autopay · cancel anytime' : 'bi-monthly · or $108 quarterly'}
-            bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests covered', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
-            cta="Choose Essential" href="/quote?plan=essential"
-            finePrint="$150 initial — ask about our $99 new-customer rate"
+            terms={mode === 'monthly' ? 'From $35/mo · ACH autopay · cancel anytime' : 'bimonthly · per visit'}
+            bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests, incl. mice & rats', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
+            cta="Choose Pest" href="/quote?plan=pest"
+            finePrint="$99 startup · no contract"
           />
           <PriceCard
-            title="Outdoor Pro" tags={['Mosquito', 'Tick']}
-            tagline="The biting-pest program — built for lake lots, wooded yards, and porch season."
-            price={mode === 'monthly' ? '49' : '65'}
-            unit={mode === 'monthly' ? '/mo' : '/treatment'}
-            terms={mode === 'monthly' ? '$65/treatment × 9 treatments, billed evenly across 12 months' : '9 treatments · every 30 days · March–November'}
-            bullets={['Mosquito barrier reduction program', 'Tick + chigger coverage — built for lake & wooded lots', 'Free re-treatment between visits', '$0 initial fee']}
-            cta="Choose Outdoor Pro" href="/quote?plan=outdoor"
-          />
-          <PriceCard
-            title="Complete" tags={['Pest', 'Termite', 'Mosquito', 'Tick']}
-            tagline="All four programs — pest, termite, mosquito & tick — under one plan."
-            price={mode === 'monthly' ? '116' : ''}
+            title="Pest + Mosquito" tags={['Pest', 'Mosquito']}
+            tagline="Bimonthly pest plus seasonal mosquito — one plan, one local team."
+            price={mode === 'monthly' ? '69' : ''}
             unit={mode === 'monthly' ? '/mo' : ''}
-            priceLine={mode === 'perservice' ? 'Pest $70/visit + Termite $325/$380yr + Outdoor $65/treatment' : undefined}
-            terms={mode === 'monthly' ? 'Everything we do, under one plan — a specialist for each service.' : 'every service at its standalone price'}
-            bullets={['Everything in Foundation', 'Mosquito + tick + chigger program (9 treatments Mar–Nov)', 'A specialist for each service, not a generalist', 'Priority scheduling & re-service support']}
+            priceLine={mode === 'perservice' ? 'Pest $70/visit + Mosquito $45/visit' : undefined}
+            terms={mode === 'monthly' ? 'From $69/mo · add tick +$20/visit' : 'mosquito 9 visits Mar–Nov · add tick +$20/visit'}
+            bullets={['Bimonthly perimeter pest control', 'Seasonal mosquito (March–November)', 'Add tick: +$20/visit', 'Unlimited free pest re-service']}
+            cta="Choose Pest + Mosquito" href="/quote?plan=pest-mosquito"
+            finePrint="$79 startup · no contract"
+          />
+          <PriceCard
+            title="Pest + Termite" tags={['Pest', 'Termite']}
+            tagline="Bimonthly pest control + Sentricon® termite protection."
+            price={mode === 'monthly' ? '35' : ''}
+            unit={mode === 'monthly' ? '/mo' : ''}
+            priceLine={mode === 'perservice' ? 'Pest $70/visit + Sentricon® quoted after free WDO inspection' : undefined}
+            terms={mode === 'monthly' ? 'From $35/mo pest + Sentricon® termite, quoted after free WDO inspection' : 'termite quoted after free WDO inspection'}
+            bullets={['Everything in Pest, plus:', 'Sentricon® Always Active™ system', '$1M damage repair coverage', 'No drilling — in-ground bait stations', 'Termite quote after free WDO inspection']}
+            cta="Choose Pest + Termite" href="/quote?plan=pest-termite"
+            finePrint="$229 startup"
+          />
+          <PriceCard
+            title="Complete" tags={['Pest', 'Termite', 'Mosquito']}
+            tagline="Pest, termite and mosquito — one plan, one local team."
+            price={mode === 'monthly' ? '69' : ''}
+            unit={mode === 'monthly' ? '/mo' : ''}
+            priceLine={mode === 'perservice' ? 'Pest $70/visit + Mosquito $45/visit + Sentricon® quoted after free WDO inspection' : undefined}
+            terms={mode === 'monthly' ? 'From $69/mo + Sentricon® termite quoted after free WDO inspection · add tick +$20/visit' : 'termite quoted after free WDO inspection'}
+            bullets={['Everything in Pest + Mosquito', 'Sentricon® Always Active™ termite protection', '$1M damage repair coverage', 'A specialist for each service', 'Termite quote after free WDO inspection']}
             cta="Choose Complete" href="/quote?plan=complete"
+            badge="MOST POPULAR" featured
           />
         </div>
 
         {/* ── Initial-fee trust strip (Jun 11 spec) ── */}
         <div className="ec-price-trust-strip">
-          <strong>Many companies charge $100–$250 just to get started.</strong> Your only
-          initial fee here is pest control — $150, often $99. Mosquito, tick &amp; fire ant
-          carry $0 initial fees.
+          <strong>Honest, published startup fees.</strong> Pest control is $99 to start,
+          Pest&nbsp;+&nbsp;Mosquito is $79, and termite bundles are $229. Mosquito and tick
+          booked on their own have no startup — they&rsquo;re billed per visit.
         </div>
       </div>
     </section>

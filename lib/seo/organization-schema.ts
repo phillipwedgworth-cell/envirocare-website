@@ -70,9 +70,9 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
         itemOffered: { '@type': 'Service', name: 'Bi-Monthly Exterior Pest Control', description: 'Bi-monthly perimeter exterior treatment covering 30+ common Alabama pests with unlimited free re-services between scheduled visits.' },
       },
       {
-        '@type': 'Offer', name: 'Sentricon® Termite Protection', price: '32', priceCurrency: 'USD',
-        priceSpecification: { '@type': 'UnitPriceSpecification', price: '32', priceCurrency: 'USD', unitText: 'per month' },
-        itemOffered: { '@type': 'Service', name: 'Sentricon® Always Active™ Termite Baiting', description: 'In-ground bait station termite protection, no drilling required. $325 installation includes first-year guarantee, then $380/yr or $32/mo renewal. Qualifying homes carry up to $1M in EnviroCare damage coverage.' },
+        // Termite carries NO flat price — Alabama requires an on-site WDO inspection first.
+        '@type': 'Offer', name: 'Sentricon® Termite Protection',
+        itemOffered: { '@type': 'Service', name: 'Sentricon® Always Active™ Termite Baiting', description: 'In-ground bait station termite protection, no drilling required. Pricing is determined after a free on-site WDO inspection, as Alabama requires (based on linear footage and foundation type). Qualifying homes carry up to $1M in EnviroCare damage coverage.' },
       },
       {
         '@type': 'Offer', name: 'Mosquito Yard Barrier', price: '45', priceCurrency: 'USD',
