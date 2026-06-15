@@ -127,7 +127,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Sentricon takes longer to work the first time. If you have active termites in the wall today, the stations will reduce that colony — but it can take 90 days for full elimination. During that time, the population in your wall is still feeding. We treat that gap with a targeted liquid spot-treatment to the active area while the bait stations do the long-term work.</p>
 
-<p>Sentricon is also slightly more expensive in year one. Our pricing: $325 installation (includes year one) plus $380 annual renewal, or $32/month spread across the year. Liquid is typically a single up-front $1,200–$2,000 charge for a five-year warranty. After year five, most homeowners renew Sentricon and walk away from liquid because the soil treatment has degraded.</p>
+<p>Sentricon is also slightly more expensive in year one. Our Sentricon® pricing is set after a free WDO inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Liquid is typically a single up-front $1,200–$2,000 charge for a five-year warranty. After year five, most homeowners renew Sentricon and walk away from liquid because the soil treatment has degraded.</p>
 
 <h2>What we actually do</h2>
 
@@ -176,7 +176,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>March through November. 9 treatments per season. $45/month, or add tick (chiggers covered) in the Outdoor Pro plan at $49/month.</p>
+<p>March through November. 9 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visitnth.</p>
 
 <h2>What we DON'T recommend</h2>
 
@@ -200,7 +200,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Tick and flea bundle</h2>
 
-<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $49/month, March through November.</p>
+<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65/visitnth, March through November.</p>
 
 <p>Call our Alex City / Lake Martin office: <strong>(256) 234-6162</strong>.</p>
 `,
@@ -862,22 +862,22 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 7,
     heroEmoji: '💵',
     metaTitle: 'How Much Does Pest Control Cost in Alabama? (2026 Pricing Guide) | EnviroCare',
-    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pricing: $35/mo Essential, $67/mo with termite monitoring, $116/mo Complete. No hidden fees, free termite inspections.',
+    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pricing: pest from $35/mo, pest + mosquito from $69/mo, Complete from ~$100/mo. No hidden fees, free termite inspections.',
     body: `
 <p class="lede">Real numbers, no sales call required. Here's what pest control actually costs in Alabama in 2026 — what's included at each price point, why the national chains hide their pricing, and how to tell whether a monthly plan or a one-time treatment is the right call for your home.</p>
 
 <h2>The short answer</h2>
-<p>For a single-family home in Alabama, monthly pest control typically runs <strong>$35 to $116 per month</strong> in 2026. One-time treatments for a specific problem — a roach flare-up, a wasp nest, a fire ant mound — usually fall between $150 and $600 depending on the pest and the size of the home. Termite work is its own category: Sentricon® bait installations and liquid soil treatments for an average Alabama home run $1,200 to $2,500, while termite inspections are free at most reputable Alabama companies, including EnviroCare.</p>
+<p>For a single-family home in Alabama, monthly pest control typically runs <strong>$35 to about $100 per month</strong> in 2026. One-time treatments for a specific problem — a roach flare-up, a wasp nest, a fire ant mound — usually fall between $150 and $600 depending on the pest and the size of the home. Termite work is its own category: Sentricon® bait installations and liquid soil treatments for an average Alabama home run $1,200 to $2,500, while termite inspections are free at most reputable Alabama companies, including EnviroCare.</p>
 <p>That's the headline. The real answer depends on which pests you actually need controlled, how often, and whether the company comes back free if the pests come back — which is where the monthly plans earn their value in Alabama's climate.</p>
 
 <h2>EnviroCare's 2026 plan pricing</h2>
 <p>EnviroCare publishes its pricing because the family that's run the company since 1958 believes Alabama homeowners shouldn't have to schedule a sales visit just to learn what service costs. Three plans cover the great majority of homes from Birmingham to Huntsville to Lake Martin:</p>
 <ul>
-<li><strong>Essential — $35/mo:</strong> bi-monthly exterior pest control, 30+ pests, unlimited free re-service.</li>
-<li><strong>Foundation — $67/mo (most popular):</strong> Essential pest control plus Sentricon® termite monitoring with $1,000,000 damage coverage.</li>
-<li><strong>Complete — $116/mo:</strong> all four services — pest, termite, mosquito, and tick.</li>
+<li><strong>Pest — from $35/mo:</strong> bi-monthly exterior pest control, 30+ pests, unlimited free re-service.</li>
+<li><strong>Pest + Mosquito — from $69/mo (most popular):</strong> bi-monthly pest plus seasonal mosquito control.</li>
+<li><strong>Complete — from ~$100/mo:</strong> pest, termite, and mosquito together — Sentricon® termite priced after a free WDO inspection, with up to $1,000,000 damage coverage.</li>
 </ul>
-<p>Standalone mosquito control starts at <strong>$45/month</strong> seasonal. Termite inspections are always free. <a href="/pricing">See full pricing →</a></p>
+<p>Standalone mosquito control starts at <strong>$45/visit</strong> seasonal. Termite inspections are always free. <a href="/pricing">See full pricing →</a></p>
 
 <h2>What actually changes the price</h2>
 <p>The published prices cover most single-family homes up to roughly 3,500 square feet. Square footage and outbuildings, crawl space access and condition, and initial vs. ongoing service are the three factors that move the number — and a reputable Alabama company discloses them before service starts, not after.</p>
@@ -886,7 +886,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>In-person sales convert better than published rates, and national chain pricing varies widely by ZIP code. For a family-owned operation that's worked Alabama since 1958, charging $35 a month and publishing it on the website is the simpler, honest approach.</p>
 
 <h2>Is pest control worth it in Alabama?</h2>
-<p>Alabama keeps pest pressure on twelve months a year. The math on the $35 Essential plan is $420 a year for bi-monthly exterior treatment plus unlimited free re-service — usually less than one big roach job in July. Catching a termite colony early is the difference between a $1,500 treatment and a $15,000 sill-plate replacement.</p>
+<p>Alabama keeps pest pressure on twelve months a year. The math on the $35 pest plan is $420 a year for bi-monthly exterior treatment plus unlimited free re-service — usually less than one big roach job in July. Catching a termite colony early is the difference between a $1,500 treatment and a $15,000 sill-plate replacement.</p>
 <p><strong>Want a real quote?</strong> <a href="/quote">Request a free quote</a> or call (205) 940-6360.</p>
 `,
   },
@@ -950,7 +950,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>Backyard foggers kill the adults in front of you right now, then offer no residual protection and don't touch harborage or breeding sites. Professional 30-day barrier treatments keep killing mosquitoes as they return to rest over the following weeks, and treating every 21 days hits the population right before the next generation reaches adulthood.</p>
 
 <h2>EnviroCare's mosquito program</h2>
-<p>Our program runs April through October, every 21 days. Treatments target vegetation, shrub beds, fence lines, wooded edges, and under-deck structures. Pets and kids can return to the yard once it's dry — typically 30 to 45 minutes. Pricing starts at $45/month. <a href="/quote">Request a free quote</a> or call (205) 940-6360.</p>
+<p>Our program runs April through October, every 21 days. Treatments target vegetation, shrub beds, fence lines, wooded edges, and under-deck structures. Pets and kids can return to the yard once it's dry — typically 30 to 45 minutes. Pricing starts at $45/visit. <a href="/quote">Request a free quote</a> or call (205) 940-6360.</p>
 `,
   },
 

@@ -18,7 +18,7 @@ const cfg: NeighborhoodConfig = {
   "parentCity": "Hoover",
   "zipCodes": "35242",
   "heroTagline": "Eagle Point's family-owned pest, termite, and mosquito service",
-  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and seasonal Outdoor Pro mosquito + tick treatment for every Eagle Point home — including the wooded perimeter lots and the lakeside section.",
+  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and seasonal Mosquito + Tick mosquito + tick treatment for every Eagle Point home — including the wooded perimeter lots and the lakeside section.",
   "pressureHeadline": "Eagle Point's lake, wooded common areas, and golf-adjacent lots make for serious year-round pest pressure.",
   "pressureSubhead": "The six programs we run most on Eagle Point properties.",
   "pressureCards": [
@@ -30,7 +30,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks on wooded perimeter lots",
-      "body": "Eagle Point properties backing up to wooded common areas carry Lone Star and American dog ticks. The Outdoor Pro plan ($65/treatment) bundles mosquito + tick + chigger — the actual biting trio you deal with from May through October."
+      "body": "Eagle Point properties backing up to wooded common areas carry Lone Star and American dog ticks. The Mosquito + Tick plan ($65/treatment) bundles mosquito + tick + chigger — the actual biting trio you deal with from May through October."
     },
     {
       "emoji": "🪵",

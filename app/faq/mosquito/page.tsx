@@ -8,7 +8,7 @@ import Header from "@/components/shared/Header";
 export const metadata: Metadata = {
   title: "Mosquito Control FAQ Alabama | When Does Mosquito Season Start? | EnviroCare",
   description:
-    "Everything Alabama homeowners ask about mosquito season: when it starts, how long it lasts, when kids and pets can go back outside after treatment, and what $45/mo gets you. EnviroCare, family-owned since 1958.",
+    "Everything Alabama homeowners ask about mosquito season: when it starts, how long it lasts, when kids and pets can go back outside after treatment, and what $45/visit gets you. EnviroCare, family-owned since 1958.",
   alternates: { canonical: './' },
 };
 
@@ -113,7 +113,7 @@ const FAQS = [
   },
   {
     q: "Can I start mid-season in June or July?",
-    a: "Absolutely. We take new customers any time during the season. Starting mid-season means you'll still get three to four treatments in that year. The $45/month rate is the same regardless of when you start. Mid-season sign-ups get the same 50% off their first treatment.",
+    a: "Absolutely. We take new customers any time during the season. Starting mid-season means you'll still get three to four treatments in that year. The $45/visit rate is the same regardless of when you start.",
   },
   {
     q: "How is EnviroCare different from national mosquito companies?",
@@ -415,7 +415,7 @@ export default function MosquitoFAQ() {
             }}
           >
             {[
-              { n: "$45/mo", label: "March–November" },
+              { n: "$45/visit", label: "March–November" },
               { n: "21 days", label: "Treatment cycle" },
               { n: "Free", label: "Re-service guarantee" },
               { n: "Since 1958", label: "Family-owned Alabama" },

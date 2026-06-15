@@ -171,7 +171,7 @@ export default function MountainBrookPage() {
               <Card emoji="🕷️" title="Spiders & black widows" body="Stone foundations, detached garages, and screened porches across English Village and Mountain Brook Village are prime harborage for black widows and brown recluses. We treat the zones they actually nest in." />
               <Card emoji="🦟" title="Mosquitoes off Shades Creek" body="Shades Creek runs through Mountain Brook and creates the shaded, moist conditions mosquitoes breed in from March through November. The 30-day yard barrier keeps outdoor entertaining usable through the season." />
               <Card emoji="🪲" title="Fall invaders off the ridgeline" body="Asian lady beetles, stink bugs, and boxelder bugs migrate off the Shades Valley ridgelines every October. Bi-monthly exterior treatments seal entry points before they move in." />
-              <Card emoji="🐾" title="Ticks on wooded estate lots" body="Mature tree cover and proximity to Shades Mountain bring Lone Star and dog ticks into yards. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." />
+              <Card emoji="🐾" title="Ticks on wooded estate lots" body="Mature tree cover and proximity to Shades Mountain bring Lone Star and dog ticks into yards. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." />
             </div>
           </div>
         </section>
@@ -245,7 +245,7 @@ export default function MountainBrookPage() {
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="$32" unit="/month" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare coverage", "$325 install · $380/yr renewal"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/treatment" features={["30-day yard barrier", "March – November (9 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
-            <Plan name="Outdoor Pro" price="$65" unit="/treatment" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded estate lots", "March – November"]} />
+            <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded estate lots", "March – November"]} />
           </div>
         </section>
 

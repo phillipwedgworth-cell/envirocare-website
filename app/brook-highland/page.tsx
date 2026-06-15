@@ -18,7 +18,7 @@ const cfg: NeighborhoodConfig = {
   "parentCity": "Hoover",
   "zipCodes": "35242",
   "heroTagline": "Brook Highland's family-owned pest, termite, and mosquito service",
-  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and seasonal Outdoor Pro mosquito + tick treatment for every Brook Highland home — from the original sections to the newer custom areas.",
+  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and seasonal Mosquito + Tick mosquito + tick treatment for every Brook Highland home — from the original sections to the newer custom areas.",
   "pressureHeadline": "Brook Highland's mix of mature wooded sections and newer custom lots creates a year-round pest pressure spectrum.",
   "pressureSubhead": "The six programs we run most on Brook Highland properties.",
   "pressureCards": [
@@ -30,7 +30,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks on the wooded common areas",
-      "body": "Brook Highland's wooded common areas and walking trails carry Lone Star and American dog ticks plus chiggers. Outdoor Pro plan ($65/treatment) bundles mosquito + tick + chigger and is the right plan for most Brook Highland yards."
+      "body": "Brook Highland's wooded common areas and walking trails carry Lone Star and American dog ticks plus chiggers. Mosquito + Tick plan ($65/treatment) bundles mosquito + tick + chigger and is the right plan for most Brook Highland yards."
     },
     {
       "emoji": "🪵",
@@ -77,8 +77,8 @@ const cfg: NeighborhoodConfig = {
       "a": "No. Bait stations are roughly two-inch diameter, sit flush with the soil, and tuck into bed lines or perimeter turf. They are nearly invisible. Zero drilling into foundations, hardscape, or finished surfaces."
     },
     {
-      "q": "How does the Outdoor Pro plan differ from mosquito-only?",
-      "a": "Outdoor Pro is $65 per treatment and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
+      "q": "How does the Mosquito + Tick plan differ from mosquito-only?",
+      "a": "Mosquito + Tick is $65 per treatment and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
     },
     {
       "q": "What's the response time for a same-week call?",
@@ -206,10 +206,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          "name": "How does the Outdoor Pro plan differ from mosquito-only?",
+          "name": "How does the Mosquito + Tick plan differ from mosquito-only?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Outdoor Pro is $65 per treatment and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
+            "text": "Mosquito + Tick is $65 per treatment and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
           }
         },
         {

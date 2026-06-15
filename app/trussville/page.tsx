@@ -36,7 +36,7 @@ const config: DeepCityConfig = {
     { emoji: "🏛️", title: "Termites in the historic Cahaba Project", body: "The 1930s Cahaba Project homes sit on older foundations that termites work toward. Sentricon® bait stations protect without drilling into original masonry — critical for historic structures." },
     { emoji: "🦟", title: "Mosquitoes off the river", body: "The Cahaba and its backwaters feed mosquito pressure March through November. The 30-day yard barrier keeps riverside and canopy yards usable through the season." },
     { emoji: "🐜", title: "Carpenter ants in the canopy", body: "Trussville's mature tree canopy harbors carpenter ants that move into fascia, soffit, and trim. Bi-monthly exterior service covers the whole nuisance-ant family." },
-    { emoji: "🐾", title: "Ticks on wooded lots", body: "Carrington, Stockton, and wooded riverside lots carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🐾", title: "Ticks on wooded lots", body: "Carrington, Stockton, and wooded riverside lots carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." },
     { emoji: "🔥", title: "Fire ants in newer subdivisions", body: "Trussville Springs and newer graded lots draw fire ants into fresh sod. Whole-yard fire ant treatment is available, priced separately by yard size." },
   ],
   services: [

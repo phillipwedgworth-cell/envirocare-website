@@ -35,7 +35,7 @@ const config: DeepCityConfig = {
   pressureCards: [
     { emoji: "🪵", title: "Termites in established homes", body: "Greystone's mature neighborhoods and settled foundations are exactly what subterranean termites work toward. EnviroCare protects with Sentricon® — no drilling — up to $1,000,000 in coverage under its own guarantee." },
     { emoji: "🦟", title: "Mosquitoes off the course & ponds", body: "Golf-course corridors, ponds, and wooded lots hold the standing water and shade mosquitoes breed in. The 30-day yard barrier treats March through November." },
-    { emoji: "🐾", title: "Ticks on the wooded edges", body: "The mature tree line and wooded stretches between fairways and homes carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🐾", title: "Ticks on the wooded edges", body: "The mature tree line and wooded stretches between fairways and homes carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." },
     { emoji: "🐜", title: "Carpenter ants in the canopy", body: "Greystone's landscaped, wooded lots send carpenter and odorous house ants into fascia and trim. Bi-monthly exterior service covers the whole nuisance-ant family." },
     { emoji: "🔥", title: "Fire ants on manicured turf", body: "Fairway-edge lawns and graded lots are prime fire-ant ground. Whole-yard fire ant treatment is available, priced separately by yard size." },
     { emoji: "🕷️", title: "Spiders & the everyday 30+", body: "Established homes, stone foundations, and detached structures harbor spiders and seasonal invaders — all covered under the bi-monthly perimeter program with unlimited re-service." },

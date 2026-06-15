@@ -18,7 +18,7 @@ const cfg: NeighborhoodConfig = {
   "parentCity": "Birmingham",
   "zipCodes": "35242",
   "heroTagline": "Highland Lakes' family-owned pest, termite, and mosquito service",
-  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and Outdoor Pro mosquito + tick yard treatment for every Highland Lakes home — gate access, wooded lots, and lakefront acreage included.",
+  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and Mosquito + Tick mosquito + tick yard treatment for every Highland Lakes home — gate access, wooded lots, and lakefront acreage included.",
   "pressureHeadline": "Highland Lakes' lakefront homes and wooded acreage make this one of the highest-pressure mosquito and tick areas in the Birmingham metro.",
   "pressureSubhead": "The six programs we run most often on Highland Lakes properties.",
   "pressureCards": [
@@ -30,7 +30,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks across the back acreage",
-      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Outdoor Pro plan ($65/treatment) is the right call here — bundles mosquito + tick + chigger for $48.75/month equivalent over the 9-month season."
+      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Mosquito + Tick plan ($65/treatment) is the right call here — bundles mosquito + tick + chigger for $48.75/month equivalent over the 9-month season."
     },
     {
       "emoji": "🪵",
@@ -70,7 +70,7 @@ const cfg: NeighborhoodConfig = {
   "faqs": [
     {
       "q": "How is pest pressure different in Highland Lakes than in the rest of 35242?",
-      "a": "Two things make Highland Lakes higher pressure: lake proximity (mosquitoes and the moisture chain that feeds them) and wooded perimeter / common areas (ticks, chiggers, and seasonal rodent migration). Most Highland Lakes homes do best on the Outdoor Pro mosquito + tick plan rather than mosquito-only."
+      "a": "Two things make Highland Lakes higher pressure: lake proximity (mosquitoes and the moisture chain that feeds them) and wooded perimeter / common areas (ticks, chiggers, and seasonal rodent migration). Most Highland Lakes homes do best on the Mosquito + Tick mosquito + tick plan rather than mosquito-only."
     },
     {
       "q": "Can you service homes with gate access?",
@@ -193,7 +193,7 @@ const jsonLd = {
           "name": "How is pest pressure different in Highland Lakes than in the rest of 35242?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Two things make Highland Lakes higher pressure: lake proximity (mosquitoes and the moisture chain that feeds them) and wooded perimeter / common areas (ticks, chiggers, and seasonal rodent migration). Most Highland Lakes homes do best on the Outdoor Pro mosquito + tick plan rather than mosquito-only."
+            "text": "Two things make Highland Lakes higher pressure: lake proximity (mosquitoes and the moisture chain that feeds them) and wooded perimeter / common areas (ticks, chiggers, and seasonal rodent migration). Most Highland Lakes homes do best on the Mosquito + Tick mosquito + tick plan rather than mosquito-only."
           }
         },
         {

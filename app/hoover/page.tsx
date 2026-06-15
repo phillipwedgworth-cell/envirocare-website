@@ -35,7 +35,7 @@ const config: DeepCityConfig = {
     { emoji: "🪵", title: "Termites across established Hoover", body: "From Riverchase to Bluff Park, Hoover's settled homes and damp Shelby-Jefferson clay give Eastern subterranean termites the moisture and access they look for. Sentricon® protects without drilling, with up to $1M EnviroCare coverage." },
     { emoji: "🐜", title: "Carpenter ants in the tree canopy", body: "Hoover's mature tree-lined streets harbor carpenter ants that move into fascia, soffit, and trim. Bi-monthly exterior service keeps the whole ant family outside." },
     { emoji: "🦟", title: "Mosquitoes off the lakes & creeks", body: "Lake Cyrus, Patton Creek, and the Riverchase ponds hold the standing water mosquitoes breed in. The 30-day yard barrier treats March through November." },
-    { emoji: "🐾", title: "Ticks on wooded lots", body: "Bluff Park, Inverness, and Ross Bridge lots backing up to woods carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🐾", title: "Ticks on wooded lots", body: "Bluff Park, Inverness, and Ross Bridge lots backing up to woods carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." },
     { emoji: "🔥", title: "Fire ants in new construction", body: "Trace Crossings and newer Hoover sections sit on graded red clay that fire ants colonize aggressively. Whole-yard fire ant treatment is priced separately by yard size." },
     { emoji: "🏢", title: "Commercial pressure on the Galleria corridor", body: "Restaurants, retail, and offices around the Riverchase Galleria need documented, inspection-ready service. We build commercial schedules around your hours and foot traffic." },
   ],

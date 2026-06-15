@@ -32,7 +32,7 @@ const config: DeepCityConfig = {
   whyHeadline: "Mt Laurel's preserved woodland and foothill setting puts mosquitoes, ticks, and termites right against the property line.",
   whySub: "The patterns we treat most across Mt Laurel Village and Dunnavant Valley.",
   pressureCards: [
-    { emoji: "🐾", title: "Ticks straight off the woods", body: "Mt Laurel's preserved woodland and foothill setting bring deer, ticks, and heavy tick pressure right to the property line. We treat the wooded edges and transition zones where ticks quest — bundled with mosquito in the Outdoor Pro plan." },
+    { emoji: "🐾", title: "Ticks straight off the woods", body: "Mt Laurel's preserved woodland and foothill setting bring deer, ticks, and heavy tick pressure right to the property line. We treat the wooded edges and transition zones where ticks quest — bundled with mosquito in the Mosquito + Tick plan." },
     { emoji: "🦟", title: "Mosquitoes in Dunnavant Valley", body: "Shaded valley lots and creek drainage keep mosquito pressure high March through November. The 30-day yard barrier keeps trails, porches, and play areas usable through the season." },
     { emoji: "🪵", title: "Termites in moist, wooded soil", body: "The shaded, damp soil around Mt Laurel keeps Eastern subterranean termites active. Sentricon® protects without drilling, with up to $1,000,000 in coverage under EnviroCare's own guarantee." },
     { emoji: "🐜", title: "Carpenter ants from the tree line", body: "Wooded lots send carpenter and odorous house ants into fascia, soffit, and trim. Bi-monthly exterior service covers the whole nuisance-ant family year-round." },
@@ -47,7 +47,7 @@ const config: DeepCityConfig = {
   ],
   faqs: [
     { q: "How much is termite treatment in Mt Laurel?", a: "EnviroCare termite protection in Mt Laurel is $325 to install (first-year guarantee included) and $380 per year to renew, or $32 per month. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
-    { q: "Do you treat ticks and mosquitoes in Mt Laurel?", a: "Yes — the Outdoor Pro mosquito + tick program runs every 30 days, March through November, for $65 per treatment (about $48.75/month), built for Mt Laurel's wooded, woodland-edge lots." },
+    { q: "Do you treat ticks and mosquitoes in Mt Laurel?", a: "Yes — the Mosquito + Tick mosquito + tick program runs every 30 days, March through November, for $65 per treatment (about $48.75/month), built for Mt Laurel's wooded, woodland-edge lots." },
     { q: "What does bi-monthly pest control cover in Mt Laurel?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Do you serve Mt Laurel Village and Dunnavant Valley?", a: "Yes — all of Mt Laurel. Call (205) 940-6360 and we'll confirm your address is on our route." },
     { q: "Is there a long-term contract?", a: "No. Pest control is month-to-month on ACH and you can cancel anytime. We'd rather earn the next visit than lock you in." },

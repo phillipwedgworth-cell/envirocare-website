@@ -35,7 +35,7 @@ const config: DeepCityConfig = {
     { emoji: "🏗️", title: "Termites in new construction", body: "Fresh foundations on graded Shelby clay sit on disturbed soil that subterranean termites move through fast. Starting Sentricon® at or near build locks in protection before damage starts — no drilling, up to $1M coverage." },
     { emoji: "🪵", title: "Termites in established homes", body: "Chelsea Park and older Foothills homes on damp clay give Eastern subterranean termites the moisture and access they look for. Sentricon® bait stations protect without drilling." },
     { emoji: "🦟", title: "Mosquitoes off the creeks", body: "Wooded lots and creek drainage across Chelsea hold the standing water mosquitoes breed in March through November. The 30-day yard barrier keeps yards usable through the season." },
-    { emoji: "🐾", title: "Ticks on wooded foothill lots", body: "Chelsea's foothill tree line and Westover's wooded lots carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🐾", title: "Ticks on wooded foothill lots", body: "Chelsea's foothill tree line and Westover's wooded lots carry Lone Star and dog ticks. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." },
     { emoji: "🔥", title: "Fire ants in fresh sod", body: "New lawns laid over graded red clay arrive with fire-ant colonies aboard. Whole-yard fire ant treatment is available, priced separately by yard size." },
     { emoji: "🐜", title: "The everyday 30+", body: "Carpenter ants, spiders, roaches, and seasonal invaders come in from the surrounding woods — all covered under the bi-monthly perimeter program with unlimited re-service." },
   ],

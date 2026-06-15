@@ -113,7 +113,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
         </div>
       </section>
 
-      {/* PRICING (compact — these pages convert on Sentricon + Outdoor Pro) */}
+      {/* PRICING (compact — these pages convert on Sentricon + Mosquito + Tick) */}
       <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
           <div style={{ display: "inline-block", fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: G, fontWeight: 700, marginBottom: 14 }}>{cfg.name} Pricing</div>
@@ -125,7 +125,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
           <Plan name="Sentricon® Termite" price="$32" unit="/month" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter"]} featured />
           <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter","30+ Alabama pests","Unlimited re-services","Interior on request"]} />
-          <Plan name="Outdoor Pro" price="$65" unit="/treatment" features={["Mosquito + tick + chigger","30-day yard barrier","Mar–Nov (9 visits)","Best for wooded lots"]} />
+          <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger","30-day yard barrier","Mar–Nov (9 visits)","Best for wooded lots"]} />
           <Plan name="Mosquito Only" price="$45" unit="/treatment" features={["30-day yard barrier","Mar–Nov","Add tick anytime","Big-yard friendly"]} />
         </div>
       </section>

@@ -172,7 +172,7 @@ const SERVICES = [
     slug: "mosquito",
     icon: "🌿",
     title: "Mosquito Control",
-    price: "$45/mo",
+    price: "$45/visit",
     alt: "March–November season",
     desc: "30-day barrier spray. Eliminates adult mosquitoes, targets breeding sites. 50% off first application for new customers.",
     href: "/services/mosquito-control",
@@ -181,7 +181,7 @@ const SERVICES = [
     slug: "tick",
     icon: "🐕",
     title: "Tick & Flea Control",
-    price: "Outdoor Pro $49/mo",
+    price: "Mosquito + Tick $65/visit",
     alt: "with mosquito control",
     desc: "Full yard perimeter treatment for ticks, fleas, and mosquitoes. Ideal for dog owners and families with outdoor kids.",
     href: "/services/tick-control",
@@ -644,7 +644,7 @@ export default async function ServiceAreaPage({
             },
             {
               q: `What is the price for pest control in ${data.name}?`,
-              a: `Pest control starts at $35/month (ACH auto-draft) or $70 billed every other month. Termite protection with Sentricon is $32/month with no installation fee. Mosquito control is $45/month March through November. Bundled plans (Pest + Termite = $67/month; Everything = $116/month) are available.`,
+              a: `Pest control starts at $35/month (ACH auto-draft) or $70 billed every other month. Termite protection with Sentricon is $32/month with no installation fee. Mosquito control is $45/visit March through November. Bundled plans (Pest + Termite = $67/month; Everything = $116/month) are available.`,
             },
           ].map((item, i) => (
             <div

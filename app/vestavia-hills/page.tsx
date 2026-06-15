@@ -37,7 +37,7 @@ const config: DeepCityConfig = {
     { emoji: "🐜", title: "Ant control across the ridge", body: "Odorous house, carpenter, and Argentine ants are among the most common calls in Vestavia. The bi-monthly program covers the whole nuisance-ant family; fire ants on disturbed Liberty Park clay are treated separately by yard size." },
     { emoji: "🕷️", title: "Spiders on wooded lots", body: "Vestavia's tree line and undeveloped green corridors bring brown recluse and black widows into garages and crawlspaces. We treat the harborage zones at the foundation and in wall voids." },
     { emoji: "🪲", title: "Fall invaders off Rocky Ridge", body: "The ridge above Rocky Ridge and Vestavia East funnels Asian lady beetles, stink bugs, and boxelder bugs onto south-facing walls every October. Bi-monthly exterior service seals the most common entry points." },
-    { emoji: "🐾", title: "Ticks in the greenways", body: "The wooded lots and greenways in Cahaba Heights carry Lone Star and American dog ticks. Tick and chigger coverage bundles with mosquito in the Outdoor Pro plan." },
+    { emoji: "🐾", title: "Ticks in the greenways", body: "The wooded lots and greenways in Cahaba Heights carry Lone Star and American dog ticks. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." },
   ],
   services: [
     {

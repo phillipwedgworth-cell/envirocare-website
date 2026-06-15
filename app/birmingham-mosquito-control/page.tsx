@@ -4,7 +4,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Birmingham — Cahaba River and Village Creek humidity make the metro a breeding ground. 30-day yard barrier, March–November, $45/mo. Call (205) 940-6360.",
+    "Mosquito control in Birmingham — Cahaba River and Village Creek humidity make the metro a breeding ground. 30-day yard barrier, March–November, $45/visit. Call (205) 940-6360.",
   alternates: { canonical: "./" },
 };
 
@@ -37,13 +37,13 @@ const c: ComboContent = {
   ],
   price: {
     label: "Birmingham Mosquito Program",
-    amount: "$45/mo",
+    amount: "$45/visit",
     sub: "March through November · every 30 days",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick + chigger coverage available in Outdoor Pro ($49/mo)",
+      "Tick + chigger coverage available in Mosquito + Tick ($65/visit)",
       "50% off your first application",
     ],
   },
@@ -62,7 +62,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I bundle mosquito with pest control?",
-      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Outdoor Pro plan adds tick + chigger coverage at $49/mo.",
+      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Mosquito + Tick plan adds tick + chigger coverage at $65/visit.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },

@@ -18,7 +18,7 @@ const cfg: NeighborhoodConfig = {
   "parentCity": "Hoover",
   "zipCodes": "35242",
   "heroTagline": "Meadow Brook's family-owned pest, termite, and mosquito service",
-  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and seasonal Outdoor Pro mosquito + tick treatment for every Meadow Brook home along Highway 280 and the surrounding sections.",
+  "heroIntro": "Bi-monthly perimeter service, no-drilling Sentricon® termite protection, and seasonal Mosquito + Tick mosquito + tick treatment for every Meadow Brook home along Highway 280 and the surrounding sections.",
   "pressureHeadline": "Meadow Brook's established neighborhoods and significant tree canopy drive consistent year-round pest pressure.",
   "pressureSubhead": "The six programs we run most on Meadow Brook properties.",
   "pressureCards": [
@@ -30,7 +30,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks across the older Meadow Brook lots",
-      "body": "Larger established Meadow Brook lots with substantial vegetation carry Lone Star and American dog ticks plus chiggers. Outdoor Pro plan ($65/treatment) bundles all three plus mosquito — the right plan for most yards here."
+      "body": "Larger established Meadow Brook lots with substantial vegetation carry Lone Star and American dog ticks plus chiggers. Mosquito + Tick plan ($65/treatment) bundles all three plus mosquito — the right plan for most yards here."
     },
     {
       "emoji": "🪵",

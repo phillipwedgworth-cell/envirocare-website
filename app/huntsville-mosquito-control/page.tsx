@@ -4,7 +4,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Huntsville AL | Tennessee Valley Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Huntsville — Beaverdam Creek, Hampton Cove water features, and Tennessee Valley humidity. 30-day barrier March–November, $45/mo. Call (256) 937-7676.",
+    "Mosquito control in Huntsville — Beaverdam Creek, Hampton Cove water features, and Tennessee Valley humidity. 30-day barrier March–November, $45/visit. Call (256) 937-7676.",
   alternates: { canonical: "./" },
 };
 
@@ -37,13 +37,13 @@ const c: ComboContent = {
   ],
   price: {
     label: "Huntsville Mosquito Program",
-    amount: "$45/mo",
+    amount: "$45/visit",
     sub: "March through November · every 30 days",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick + chigger coverage available in Outdoor Pro ($49/mo)",
+      "Tick + chigger coverage available in Mosquito + Tick ($65/visit)",
       "50% off your first application",
     ],
   },

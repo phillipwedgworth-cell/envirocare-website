@@ -77,14 +77,14 @@ export default function ServicesIndexPage() {
             <div className="svc-card">
               <div className="svc-card-tag">March – November</div>
               <div className="svc-card-name">Mosquito Control</div>
-              <div className="svc-card-price">$45/mo · seasonal</div>
+              <div className="svc-card-price">$45/visit · seasonal</div>
               <div className="svc-card-desc">30-day yard barrier March through November. Pet- and EPA-registered once dry. Make your patio livable again.</div>
               <a href="/services/mosquito-control" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-card-tag">Bundles with Mosquito</div>
               <div className="svc-card-name">Tick Control</div>
-              <div className="svc-card-price">From $150 · or Outdoor Pro $49/mo</div>
+              <div className="svc-card-price">From $150 · or Mosquito + Tick $65/visit</div>
               <div className="svc-card-desc">Targeted yard treatments for Lone Star, Dog, and Deer ticks. Critical for wooded lots and lake homes.</div>
               <a href="/services/tick-control" className="svc-card-link">Learn more →</a>
             </div>

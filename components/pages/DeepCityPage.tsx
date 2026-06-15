@@ -13,7 +13,7 @@ import type { ReactNode } from "react";
  *
  * Compliance is the caller's responsibility in the copy, but the standard
  * pricing/office details (Birmingham metro) live here: $35 pest / $32 Sentricon
- * / $45 mosquito / $65 Outdoor Pro, office 2025 Butler Road Alabaster,
+ * / $45 mosquito / $65 Mosquito + Tick, office 2025 Butler Road Alabaster,
  * (205) 940-6360. No discount language, mosquito/tick hedged, Sentricon $1M =
  * EnviroCare's own guarantee.
  */
@@ -185,7 +185,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="$32" unit="/month" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare coverage", "$325 install · $380/yr renewal"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/treatment" features={["30-day yard barrier", "March – November (9 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
-            <Plan name="Outdoor Pro" price="$65" unit="/treatment" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – November"]} />
+            <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – November"]} />
           </div>
         </section>
 
