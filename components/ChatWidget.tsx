@@ -103,6 +103,11 @@ export default function ChatWidget() {
   // ── Floating launcher (closed) ───────────────────────────────
   if (!isOpen) {
     return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes ec-scout-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.75);opacity:0}100%{transform:scale(1.75);opacity:0}}
+          @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
+        `}} />
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Chat with Scout, EnviroCare's assistant"
@@ -125,13 +130,19 @@ export default function ChatWidget() {
           e.currentTarget.style.boxShadow = "0 6px 20px rgba(14,26,15,0.30)";
         }}
       >
-        <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">🌻</span>
+        <span className="ec-scout-ring" aria-hidden="true" style={{
+          position: "absolute", inset: 0, borderRadius: "50%",
+          background: BRAND_GREEN, zIndex: 0, pointerEvents: "none",
+          animation: "ec-scout-pulse 2.2s ease-out infinite",
+        }} />
+        <img src="/icon-512.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%", position: "relative", zIndex: 2 }} />
         <span style={{
           position: "absolute", top: 3, right: 3,
           width: 14, height: 14, borderRadius: "50%",
-          background: GOLD, border: "2px solid white",
+          background: GOLD, border: "2px solid white", zIndex: 3,
         }} />
       </button>
+      </>
     );
   }
 
@@ -177,7 +188,7 @@ export default function ChatWidget() {
               display: "flex", alignItems: "center", justifyContent: "center",
               flexShrink: 0,
             }}>
-              <span style={{ fontSize: 22, lineHeight: 1 }} aria-hidden="true">🌻</span>
+              <img src="/icon-512.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
             </div>
             <div>
               <div style={{ color: "#fff", fontWeight: 700, fontSize: 16, letterSpacing: "-0.01em" }}>
@@ -222,7 +233,7 @@ export default function ChatWidget() {
                 width: 26, height: 26, borderRadius: "50%", background: MINT,
                 border: `1px solid ${BRAND_GREEN}33`, flexShrink: 0,
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14,
-              }}>🌻</div>
+              }}><img src="/icon-512.png" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} /></div>
             )}
             <div style={{
               maxWidth: "78%", padding: "10px 14px", borderRadius: 14,
@@ -241,7 +252,7 @@ export default function ChatWidget() {
               width: 26, height: 26, borderRadius: "50%", background: MINT,
               border: `1px solid ${BRAND_GREEN}33`, flexShrink: 0,
               display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14,
-            }}>🌻</div>
+            }}><img src="/icon-512.png" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} /></div>
             <div style={{
               background: "#fff", border: "1px solid #E8E2D8", padding: "11px 16px",
               borderRadius: 14, borderBottomLeftRadius: 4, fontSize: 14, color: "#9ca3af",
