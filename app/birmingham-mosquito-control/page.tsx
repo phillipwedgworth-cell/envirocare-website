@@ -44,7 +44,7 @@ const c: ComboContent = {
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
       "Tick + chigger coverage available in Mosquito + Tick ($65/visit)",
-      "50% off your first application",
+      "Unlimited free re-treatment between visits",
     ],
   },
   faqs: [

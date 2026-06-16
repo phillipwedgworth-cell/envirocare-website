@@ -343,8 +343,7 @@ export default function MosquitoFAQ() {
             }}
           >
             <strong>EnviroCare service season:</strong> March through November.
-            30-day treatment cycle. Sign up in April for the best results — and
-            50% off your first application.
+            30-day treatment cycle. Sign up in April for the best results.
           </div>
         </div>
       </section>

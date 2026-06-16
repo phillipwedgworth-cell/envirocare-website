@@ -261,11 +261,9 @@ export default function PricingCalculator() {
                 </div>
 
                 <div style={{ background: "rgba(245,168,0,0.08)", border: `1px solid ${GOLD}33`, borderRadius: 10, padding: "12px 14px", marginBottom: 16 }}>
-                  <div style={{ fontSize: 11, color: "#7a5200", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>Available offers</div>
+                  <div style={{ fontSize: 11, color: "#7a5200", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>Why EnviroCare</div>
                   <div style={{ fontSize: 13, color: DARK, lineHeight: 1.55 }}>
-                    {service === "pest" || service === "bundle" ? "✓ $50 off your initial pest service · " : ""}
-                    {service === "mosquito" || service === "bundle" ? "✓ 50% off first mosquito treatment · " : ""}
-                    {service === "termite" || service === "bundle" ? "✓ FREE termite inspection" : ""}
+                    ✓ Free quote · no hidden fees · free termite inspection
                   </div>
                 </div>
 
