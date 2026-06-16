@@ -1,6 +1,7 @@
 "use client";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
 
 /**
  * ServicePage.tsx — Shared template for all 10 EnviroCare service pages
@@ -225,8 +226,32 @@ export default function ServicePage({ slug }: { slug: string }) {
 
   const svg = SERVICE_ART_SVG[service.serviceArt] || SERVICE_ART_SVG['pest'];
 
+  // Service-specific JSON-LD. Template pages previously emitted only the sitewide
+  // LocalBusiness/Organization (layout.tsx). Service + FAQPage here gives every
+  // template service page rich-result + local-pack eligibility.
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${service.name} — Alabama`,
+    serviceType: service.name,
+    url: `https://www.envirocarellc.com/services/${service.slug}`,
+    description: service.metaDescription,
+    provider: {
+      '@type': 'Organization',
+      name: 'EnviroCare Pest & Termite Services',
+      telephone: '+1-205-940-6360',
+      url: 'https://www.envirocarellc.com',
+    },
+    areaServed: { '@type': 'State', name: 'Alabama' },
+  };
+  const faqSchema = service.faqs && service.faqs.length
+    ? getFAQSchema(service.faqs.map((f) => ({ question: f.q, answer: f.a })))
+    : null;
+  const serviceSchemas: object[] = faqSchema ? [serviceSchema, faqSchema] : [serviceSchema];
+
   return (
     <>
+      <MultiSchemaScript schemas={serviceSchemas} />
       <style dangerouslySetInnerHTML={{ __html: SERVICE_CSS }} />
 
       <Header />
