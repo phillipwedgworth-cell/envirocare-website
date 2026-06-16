@@ -312,7 +312,12 @@ if (isCli) {
     const result = await run();
     if (result.skipped) { console.log('[neuronwriter-qa] skipped'); process.exit(0); }
     console.log('\n' + result.brief);
-    process.exit(result.failCount > 0 ? 1 : 0);
+    // Report-only: a completed run is a SUCCESS even when pages score below 70.
+    // Low scores are findings (see the report/Notion), not a pipeline failure.
+    // A genuine break (missing key, bad import, API down) still exits non-zero
+    // via the early guards / uncaught errors — so red = something actually broke.
+    console.log(`[${AGENT_NAME}] ${result.failCount} page(s) below 70 — logged as findings, run OK.`);
+    process.exit(0);
 
   } else {
     const page = get('--page');

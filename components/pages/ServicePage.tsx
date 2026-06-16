@@ -272,6 +272,16 @@ export default function ServicePage({ slug }: { slug: string }) {
         </div>
       </div>
 
+      {service.intro && service.intro.length > 0 && (
+        <section className="svc-intro">
+          <div className="container">
+            {service.intro.map((para, i) => (
+              <p key={i} className="svc-intro-p">{para}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="includes">
         <div className="container">
           <div className="section-eyebrow">What's Included</div>
@@ -738,6 +748,11 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .svc-art-box svg{position:absolute;inset:0;width:100%;height:100%}
 
 /* ─── INCLUDES */
+.svc-intro{padding:4.5rem clamp(1.5rem,5vw,4rem) 1rem;background:#fff}
+.svc-intro .container{max-width:880px}
+.svc-intro-p{font-size:1.07rem;line-height:1.85;color:var(--ink-soft);margin:0 0 1.25rem}
+.svc-intro-p:first-child{font-size:1.18rem;color:var(--ink);font-weight:500}
+.svc-intro-p strong{color:var(--green-deep);font-weight:700}
 .includes{padding:5rem clamp(1.5rem,5vw,4rem);background:var(--cream)}
 .includes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;max-width:1180px;margin:2.4rem auto 0}
 .include-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.5rem;transition:transform .25s,box-shadow .25s}

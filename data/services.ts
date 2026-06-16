@@ -22,6 +22,7 @@ export type Service = {
   includes: { title: string; desc: string }[];
   wedgePoints: { lead: string; body: string }[];   // differentiation vs competitors
   faqs: { q: string; a: string }[];
+  intro?: string[];                                   // long-form SEO body copy (rendered after hero)
   pestsFeatured?: { name: string; desc: string }[];   // named + described pests (SEO topical relevance)
   pestsMore?: string[];                                // additional covered pests (chip list)
 };
@@ -46,8 +47,8 @@ export const SERVICES: Service[] = [
       '30+ common pests covered',
       'Unlimited free re-services',
       'Same-week scheduling',
-      'Family- & EPA-registered applications',
-      '$1M coverage when bundled with termite',
+      'EPA-registered, applied per label',
+      '$1M coverage available with Sentricon® termite',
     ],
     includes: [
       { title: 'Perimeter Treatment', desc: 'Targeted application around the foundation, door frames, and entry points where pests enter.' },
@@ -58,7 +59,7 @@ export const SERVICES: Service[] = [
     wedgePoints: [
       { lead: 'No contracts', body: 'Cancel anytime. We earn your business every visit, not lock you in.' },
       { lead: 'Local technician', body: 'Same tech every visit when possible. They know your home, your dog\'s name, your gate code.' },
-      { lead: 'Same-week scheduling', body: 'Most calls scheduled inside 5 business days. Emergencies same- or next-day.' },
+      { lead: 'Same-week scheduling', body: 'Most calls scheduled inside 5 business days, with urgent issues prioritized.' },
     ],
     faqs: [
       { q: 'What pests does this cover?', a: '30+ common Alabama pests including ants, roaches, spiders, scorpions, silverfish, earwigs, pillbugs, stink bugs, centipedes, millipedes, crickets, mice and rats, and seasonal invaders. Termites are a separate program (Sentricon®). Mosquito and tick are seasonal add-ons.' },
@@ -67,6 +68,11 @@ export const SERVICES: Service[] = [
       { q: 'Is there a contract?', a: 'No long-term contract. Pay monthly on ACH or bi-monthly per visit. Cancel anytime.' },
       { q: 'What if I have a special event coming up?', a: 'Call ahead — we\'ll prioritize an exterior knockdown application before your event at no extra charge for active customers.' },
       { q: 'How is EnviroCare different from other pest control companies?', a: 'Most pest control companies sell four visits a year and disappear between them. Our pest control service treats the perimeter every other month, checks rodent entry points, and handles an active infestation at no extra charge between visits. If you\'re comparing pest control in Birmingham, Huntsville, or Lake Martin, ask whether re-services are free — ours are.' },
+    ],
+    intro: [
+      'EnviroCare has provided pest control in Birmingham and across central Alabama since 1958. Our bi-monthly pest control service treats the perimeter of your home every other month — the points where ants, roaches, spiders, and rodents actually get inside — so problems are stopped at the foundation instead of after they reach your kitchen. Unlike the four-visits-a-year plans most pest control companies sell, every plan includes unlimited free re-services: if an infestation flares up between scheduled visits, we come back at no extra charge.',
+      'Each visit covers more than 30 common Alabama pests. A technician treats the foundation and entry points, knocks down spider webbing along eaves and corners, and checks the gaps where mice and rats push their way in. Interior service is always available on request between visits — just call. Treatments use EPA-registered products applied per label directions, and we recommend letting an application dry, typically about 30 minutes, before pets and children return to treated areas.',
+      'Whether you are dealing with an active infestation now or simply want year-round protection, our local technicians know Alabama homes and the seasonal pressure that comes with our climate. There is no long-term contract — we earn your business at every visit.',
     ],
     pestsFeatured: [
       { name: 'Millipede Control', desc: 'Slow, many-legged invaders that pour indoors by the dozen after heavy Alabama rain — along garages, baseboards, and foundation lines. Our perimeter barrier stops them at the door.' },
@@ -126,6 +132,11 @@ export const SERVICES: Service[] = [
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
       { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters for refinancing and home sales. One included per year on active accounts; otherwise $75 standalone fee.' },
       { q: 'What if I already have an active termite infestation?', a: 'Sentricon® handles an active infestation as well as prevention — the colony feeds on the bait and collapses from the inside. Unlike termite control services that only treat what you can see, colony elimination stops the damage at its source.' },
+    ],
+    intro: [
+      'For termite control in Alabama, EnviroCare installs the Sentricon® Always Active™ bait system — a method that eliminates the entire subterranean termite colony rather than only treating the soil you can see. Most liquid termite control services create a chemical barrier that requires drilling through your slab, patio, and driveway, then loses strength and needs retreatment every five to seven years. Sentricon® stations sit in the ground around your home perimeter, so there is no drilling, no concrete cutting, and no tank trucks in the yard.',
+      'Termites cause damage quietly, and an active infestation can go unnoticed until it reaches structural wood. With Sentricon®, foraging termites carry the bait back to the colony, collapsing it from the inside — which stops both an existing infestation and future ones. Every protected home includes annual monitoring and one Wood-Destroying Organism (WDO) inspection letter per year, the document lenders require for refinancing or selling.',
+      'Behind it stands an EnviroCare guarantee: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection. That coverage is backed by EnviroCare directly. Installation takes most homes one to two hours, and you do not need to be an existing pest control customer to start.',
     ],
   },
   {
