@@ -107,7 +107,8 @@ export default function AboutUs() {
         /* ── OFFICES ──────────────────────────────────────────────────── */
         .ab-offices { padding:5rem clamp(1.5rem,5vw,4rem); background:var(--cream); }
         .ab-off-grid { max-width:1320px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-        .ab-off-card { background:var(--white); border-radius:22px; border:1px solid var(--border-soft); box-shadow:var(--sh-sm); padding:2rem 1.8rem; transition:all .3s; }
+        .ab-off-card { background:var(--white); border-radius:22px; border:1px solid var(--border-soft); box-shadow:var(--sh-sm); padding:2rem 1.8rem; transition:all .3s; overflow:hidden; }
+        .ab-off-img { width:calc(100% + 3.6rem); height:150px; object-fit:cover; display:block; margin:-2rem -1.8rem 1.4rem; }
         .ab-off-card:hover { transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--green); }
         .ab-off-tag { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-dk); margin-bottom:.5rem; }
         .ab-off-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--ink); margin-bottom:.8rem; }
@@ -383,15 +384,15 @@ export default function AboutUs() {
           <div style={{ maxWidth: 1320, margin: "0 auto", textAlign: "center" }}>
             <div className="ab-section-eyebrow">Three Alabama Offices</div>
             <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
-              Find your <span>local Wedgworth</span>
+              Four Generations, <span>Right Down the Road</span>
             </h2>
             <p className="ab-section-sub" style={{ margin: "0 auto" }}>
-              Each office has its own technicians, its own phone, and its own neighborhood knowledge.
+              Three Alabama offices — each with its own local phone, a familiar local team, and the neighborhoods they know best. You reach people here, not a national call center.
             </p>
           </div>
           <div className="ab-off-grid">
             <div className="ab-off-card">
-              <div className="ab-off-tag">Main · Birmingham Metro</div>
+              <img className="ab-off-img" src="/truck.webp" alt="EnviroCare service truck in the Birmingham metro" /><div className="ab-off-tag">Main · Birmingham Metro</div>
               <div className="ab-off-name">Birmingham / Alabaster</div>
               <div className="ab-off-addr">
                 2025 Butler Road<br />Alabaster, AL 35007
@@ -399,7 +400,7 @@ export default function AboutUs() {
               <a href="tel:2059406360" className="ab-off-phone">(205) 940-6360</a>
             </div>
             <div className="ab-off-card">
-              <div className="ab-off-tag">Original · 1958</div>
+              <img className="ab-off-img" src="/lake-martin-sunset.webp" alt="Lake Martin at sunset, served by EnviroCareʼs original 1958 office" /><div className="ab-off-tag">Original · 1958</div>
               <div className="ab-off-name">Lake Martin / Alex City</div>
               <div className="ab-off-addr">
                 1785 Tallapoosa Street<br />Alexander City, AL 35010
@@ -407,7 +408,7 @@ export default function AboutUs() {
               <a href="tel:2562346162" className="ab-off-phone">(256) 234-6162</a>
             </div>
             <div className="ab-off-card">
-              <div className="ab-off-tag">North Alabama</div>
+              <img className="ab-off-img" src="/huntsville-saturn-v.webp" alt="Huntsville, Alabama, served by EnviroCareʼs North Alabama office" /><div className="ab-off-tag">North Alabama</div>
               <div className="ab-off-name">Huntsville / Madison</div>
               <div className="ab-off-addr">
                 7027 Old Madison Pike, Ste 108<br />Huntsville, AL 35806
