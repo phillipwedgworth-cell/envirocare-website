@@ -141,6 +141,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'mosquito-control',
+    intro: [
+      'Alabama\'s warm, humid climate gives mosquitoes one of the longest seasons in the country, which is why our mosquito control runs as a yard barrier treatment roughly every 30 days from March through November — the stretch when they are actively breeding and biting. A technician treats the shaded, sheltered spots where adult mosquitoes rest during the day: under decks and eaves, inside dense shrubs, along fence lines, and at the edges of standing water. Knocking that resting population down is what makes a patio usable again into the evening.',
+      'Mosquito pressure depends on weather, nearby water, and how much vegetation surrounds a property, so no yard treatment makes a property mosquito-free — but a consistent every-30-day program through the season keeps numbers far lower than in untreated yards nearby. Because a barrier application naturally breaks down over a few weeks, each visit is timed to re-treat before the previous one wears off.',
+    ],
     name: 'Mosquito Control',
     shortName: 'Mosquito',
     category: 'core',
@@ -181,6 +185,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'tick-control',
+    intro: [
+      'Ticks do not fly or jump — they wait in tall grass, leaf litter, and the brushy edges where lawn meets woods, then latch onto whatever brushes past. That makes wooded lots, waterfront properties around Lake Martin, and homes with kids or dogs in the yard the highest-pressure cases. Our tick control targets those harborage zones and the leaf-litter layer where the lifecycle plays out, working to break the cycle rather than only treating open lawn.',
+      'Tick service pairs with our mosquito program as a combined seasonal yard treatment, and the same applications also suppress chiggers, another warm-weather biter common in Alabama brush and grass. As with any outdoor pest, results depend on surrounding habitat and wildlife pressure, so consistent seasonal visits matter more than any single treatment.',
+    ],
     name: 'Tick Control',
     shortName: 'Tick',
     category: 'core',
@@ -257,6 +265,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'flea',
+    intro: [
+      'Fleas are an indoor-and-outdoor problem, which is why treating only the yard rarely solves them. Adult fleas live on a host, but eggs, larvae, and pupae drop off into carpet, pet bedding, baseboards, and shaded soil — so a population keeps re-seeding itself from both sides of the door. Our flea treatment covers the interior harborage points and the outdoor areas pets frequent, which is what actually interrupts the flea life cycle.',
+      'Because reaching the indoor stages requires inside access, flea service is structured as an add-on to our interior-and-exterior pest plan. Pairing it with consistent yard treatment and the pet\'s own veterinary flea control is what keeps an infestation from rebuilding.',
+    ],
     name: 'Flea Control',
     shortName: 'Flea',
     category: 'specialty',
@@ -290,6 +302,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'builder',
+    intro: [
+      'Pre-construction termite treatment is the most cost-effective protection a new home ever gets, because it is applied before the slab and framing close everything in. EnviroCare works with Alabama builders to treat soil and foundation areas during construction, establishing protection at the stage when full coverage is still physically possible. Handled at this phase, it gets ahead of the subterranean termite pressure every Alabama structure eventually faces.',
+      'We coordinate around the build schedule and provide the treatment documentation that lenders and inspectors look for. For a builder, that means one less callback risk and a protected home to hand the buyer at closing.',
+    ],
     name: 'Builder Pre-Treat',
     shortName: 'Builder',
     category: 'specialty',
@@ -323,6 +339,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'real-estate-wdo',
+    intro: [
+      'A WDO letter — the official Wood-Destroying Organism inspection report — is the document lenders and buyers require before most Alabama home sales and refinances can close. It records whether there is visible evidence of termites or other wood-destroying organisms, any prior treatment, and any conditions conducive to infestation. A clean, properly completed report keeps a closing on schedule; a missing or late one can stall it.',
+      'EnviroCare performs the inspection and issues the WDO letter on the timeline real estate transactions actually run on. Termite-protection customers receive one inspection letter per year as part of their coverage, and standalone inspections are available for any property heading to closing.',
+    ],
     name: 'Real Estate / WDO Letters',
     shortName: 'WDO',
     category: 'specialty',
@@ -393,6 +413,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'commercial',
+    intro: [
+      'Commercial pest control carries requirements a home never does: documentation auditors expect to see, scheduling that does not disrupt customers or staff, and treatment plans built around food safety. EnviroCare services restaurants, offices, warehouses, and multi-unit properties across Alabama with discreet visits, full service records, and an Integrated Pest Management (IPM) approach that leans on exclusion and monitoring rather than routine spraying.',
+      'For food-related facilities, our service records support HACCP and health-inspection needs, and visit frequency is set to a property\'s risk level instead of a one-size schedule. The goal is a defensible pest program a manager can hand an inspector — not just a technician who shows up.',
+    ],
     name: 'Commercial Service',
     shortName: 'Commercial',
     category: 'specialty',
