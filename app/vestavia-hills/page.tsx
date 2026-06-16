@@ -45,7 +45,7 @@ const config: DeepCityConfig = {
       body: (
         <>
           Vestavia&apos;s clay soil and Cahaba-watershed moisture make subterranean termites a year-round concern. EnviroCare protects with the{" "}
-          <Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link> — installed around the home with no drilling into your foundation or slab. Installation is $325 (first-year guarantee included); renewal is $380/year, or $32/month. Coverage runs up to $1,000,000, backed by EnviroCare&apos;s own guarantee.{" "}
+          <Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link> — installed around the home with no drilling into your foundation or slab. Sentricon® is priced after a free on-site WDO inspection. Coverage runs up to $1,000,000, backed by EnviroCare&apos;s own guarantee.{" "}
           <Link href="/services/wdo-letters" style={{ color: G, fontWeight: 600 }}>Termite-letter (WDO) inspections</Link> for Vestavia home sales are available for closings.
         </>
       ),
@@ -88,7 +88,7 @@ const config: DeepCityConfig = {
     },
   ],
   faqs: [
-    { q: "How much is termite treatment in Vestavia Hills?", a: "EnviroCare termite protection in Vestavia Hills is $325 to install (first-year guarantee included) and $380 per year to renew, or $32 per month. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "How much is termite treatment in Vestavia Hills?", a: "EnviroCare termite protection in Vestavia Hills is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Is there mosquito control in Vestavia Hills?", a: "Yes. EnviroCare treats Vestavia yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month spread over the year. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "Do you do tick control in Vestavia Hills?", a: "Yes — the mosquito-plus-tick program adds tick and chigger coverage for $65 per treatment (about $48.75/month across the season). It targets the wooded edges and Cahaba Heights greenways where ticks wait for hosts." },
     { q: "What does bi-monthly pest control cover in Vestavia Hills?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },

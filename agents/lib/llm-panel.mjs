@@ -19,7 +19,7 @@
  * keyword-filtering BEFORE calling the panel (see aeo-watch.mjs).
  */
 
-const CLAUDE_MODEL = 'claude-opus-4-7';        // current production-quality reasoning model
+const CLAUDE_MODEL = 'claude-opus-4-8';        // current production-quality reasoning model
 const GEMINI_MODEL = 'gemini-2.5-pro';         // Google's flagship — strong on factual recall
 const OPENAI_MODEL = 'gpt-5';                  // OpenAI's flagship reasoning model
 

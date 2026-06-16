@@ -90,7 +90,7 @@ const jsonLd = {
           name: "How much does pest control cost in Madison AL?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® starts at $32/month after a $325 installation.",
+            text: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® is priced after a free on-site WDO inspection.",
           },
         },
         {
@@ -354,10 +354,10 @@ export default function MadisonPage() {
             {
               icon: "🪵",
               service: "Termite Control",
-              price: "$32/mo",
+              price: "Quote",
               priceNote: "Sentricon® Always Active™",
               features: [
-                "$325 installation · $380/yr renewal",
+                "Priced after a free WDO inspection",
                 "Up to $1,000,000 coverage (EnviroCare guarantee)",
                 "No drilling, no disruption",
                 "Annual inspection included",
@@ -436,10 +436,10 @@ export default function MadisonPage() {
           <div>
             <p style={{ ...serif, fontSize: 20, margin: "0 0 6px", fontWeight: 700 }}>
               All three recurring programs for{" "}
-              <span style={{ color: Au }}>~$116/mo</span>
+              <span style={{ color: Au }}>~$100/mo</span>
             </p>
             <p style={{ fontSize: 13.5, opacity: 0.85, margin: 0 }}>
-              Pest ($35) + Sentricon® ($32) + Mosquito &amp; Tick ($48.75) — one tech, one invoice. Convenience, not a discount package.
+              Pest ($35) + Mosquito ($34) + Sentricon® termite (priced at your free WDO inspection) — one tech, one invoice. Convenience, not a discount package.
             </p>
           </div>
           <GoldCTA href="tel:2569377676" text="Call to get started" />
@@ -634,7 +634,7 @@ export default function MadisonPage() {
             },
             {
               q: "How much does pest control cost in Madison?",
-              a: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® starts at $32/month after a $325 installation.",
+              a: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® is priced after a free on-site WDO inspection.",
             },
             {
               q: "Is mosquito control worth it in Madison AL?",

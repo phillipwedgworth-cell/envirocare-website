@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { officeForZip } from '@/data/zip-to-office';
 
 const PLANS = [
-  'Essential — $35/mo (pest only)',
-  'Foundation — $67/mo (pest + termite)',
-  'Complete — $116/mo (pest + termite + mosquito + tick)',
+  'Pest — from $35/mo',
+  'Pest + Mosquito — from $69/mo',
+  'Complete — pest + termite + mosquito (from ~$100/mo)',
+  'Termite — free inspection (Sentricon®)',
   'Not sure yet',
 ];
 

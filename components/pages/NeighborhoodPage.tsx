@@ -123,7 +123,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
           <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked pricing. Month-to-month on ACH. Cancel anytime.</p>
         </div>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
-          <Plan name="Sentricon® Termite" price="$32" unit="/month" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter"]} featured />
+          <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter"]} featured />
           <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter","30+ Alabama pests","Unlimited re-services","Interior on request"]} />
           <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger","30-day yard barrier","Mar–Nov (9 visits)","Best for wooded lots"]} />
           <Plan name="Mosquito Only" price="$45" unit="/treatment" features={["30-day yard barrier","Mar–Nov","Add tick anytime","Big-yard friendly"]} />

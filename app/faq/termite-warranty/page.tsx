@@ -37,7 +37,7 @@ const SCHEMA = {
       name: "How much does Sentricon cost at EnviroCare?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare offers two Sentricon pricing structures: $32/month (ACH auto-draft) with no installation fee, or a $380 one-time installation fee with annual renewal pricing. Both options include the same Sentricon Always Active system and the full $1,000,000 warranty. The $32/month option is most popular with new customers.",
+        text: "EnviroCare prices Sentricon® after a free on-site WDO inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon Always Active system and the full $1,000,000 warranty, and the inspection is always free with no obligation.",
       },
     },
     {
@@ -89,7 +89,7 @@ const FAQS = [
   },
   {
     q: "How much does Sentricon cost at EnviroCare?",
-    a: "Two options: $32/month with no installation fee (ACH auto-draft), or a one-time $325 installation fee (includes the year-1 guarantee) with $380 annual renewal. Both include the same Sentricon Always Active system and the full $1,000,000 warranty. The monthly option is most popular because there's nothing upfront — you're covered from day one.",
+    a: "Sentricon® is priced after a free on-site WDO inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon Always Active system and the full $1,000,000 warranty. The inspection is free with no obligation.",
   },
   {
     q: "Is drilling required to install Sentricon?",
@@ -109,7 +109,7 @@ const FAQS = [
   },
   {
     q: "Can I add Sentricon to my existing pest control plan?",
-    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan. Our Foundation Plan ($67/month) bundles pest control ($35/month) and Sentricon ($32/month) on one invoice — same technician, one schedule. Call any of our three Alabama offices to add termite protection.",
+    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free WDO inspection, with the same technician on one schedule. Call any of our three Alabama offices to add termite protection.",
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",
@@ -270,7 +270,7 @@ export default function TermiteWarrantyFAQ() {
                 color: G,
               },
               {
-                n: "$32/mo",
+                n: "Quote",
                 label: "Starting price",
                 note: "No setup fee, no initial charge, no annual contract",
                 color: G,
@@ -527,7 +527,7 @@ export default function TermiteWarrantyFAQ() {
           >
             $1,000,000 Termite Protection.{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>
-              Starting at $32/mo.
+              Priced after a free WDO inspection.
             </em>
           </h2>
           <p

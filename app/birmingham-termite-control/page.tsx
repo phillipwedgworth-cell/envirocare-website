@@ -37,8 +37,8 @@ const c: ComboContent = {
   ],
   price: {
     label: "Sentricon® Protection — Birmingham",
-    amount: "$32/mo",
-    sub: "or $325 install (incl. year-1) + $380/yr renewal",
+    amount: "Free inspection",
+    sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
       "Up to $1,000,000 damage repair coverage",

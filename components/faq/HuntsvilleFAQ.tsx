@@ -26,7 +26,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'How much does pest control cost in Huntsville, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services offers pest control in Huntsville starting at $35/month for their Essential plan, which covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. Their Foundation bundle (pest control + Sentricon termite protection) is $67/month. Mosquito yard barrier treatments start at $45/visit and run March through November. No annual contracts required.',
+      'EnviroCare Pest & Termite Services offers pest control in Huntsville starting at $35/month for bi-monthly service, which covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. Adding Sentricon® termite protection is priced at a free WDO inspection. Mosquito yard barrier treatments start at $45/visit and run March through November. No annual contracts required.',
   },
   {
     question: 'How do I get rid of mosquitoes in Huntsville, Alabama?',
@@ -36,7 +36,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'Do I need termite protection in Huntsville, Alabama?',
     answer:
-      'Yes — termites are a serious and often invisible threat throughout Madison County and North Alabama. Eastern Subterranean Termites are the most destructive and common species in the Huntsville area. EnviroCare offers Sentricon® Always Active™ termite protection — the same system used at the White House — with up to $1 million in termite damage coverage and no drilling required. Their termite plan starts at $32/month. Call (256) 937-7676.',
+      'Yes — termites are a serious and often invisible threat throughout Madison County and North Alabama. Eastern Subterranean Termites are the most destructive and common species in the Huntsville area. EnviroCare offers Sentricon® Always Active™ termite protection — the same system used at the White House — with up to $1 million in termite damage coverage and no drilling required. Termite pricing is set after a free WDO inspection. Call (256) 937-7676.',
   },
   {
     question: 'What pests are common in Huntsville, Alabama?',

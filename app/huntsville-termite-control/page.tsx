@@ -37,8 +37,8 @@ const c: ComboContent = {
   ],
   price: {
     label: "Sentricon® Protection — Huntsville",
-    amount: "$32/mo",
-    sub: "or $325 install (incl. year-1) + $380/yr renewal",
+    amount: "Free inspection",
+    sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
       "Up to $1,000,000 damage repair coverage",
@@ -50,7 +50,7 @@ const c: ComboContent = {
   faqs: [
     {
       q: "My Huntsville home is brand new — do I really need termite protection?",
-      a: "New construction is the highest-risk window, not the lowest. The build disturbed the soil and removed competing food sources, and a slab gives no warning before damage starts. Sentricon® from day one locks in protection for $32/month.",
+      a: "New construction is the highest-risk window, not the lowest. The build disturbed the soil and removed competing food sources, and a slab gives no warning before damage starts. Sentricon® from day one locks in protection — priced after a free WDO inspection.",
     },
     {
       q: "Didn't the builder already treat for termites?",

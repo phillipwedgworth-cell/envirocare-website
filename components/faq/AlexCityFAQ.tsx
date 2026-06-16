@@ -25,7 +25,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'How much does pest control cost in Alexander City, AL?',
     answer:
-      'EnviroCare\'s Essential pest control plan starts at $35/month and covers 30+ pests — ants, roaches, spiders, fire ants, and fleas — with unlimited re-service. Their Foundation bundle (pest + Sentricon termite) is $67/month. Mosquito yard barrier treatments run $45/visit, March through November. No annual contract required. Call the Alexander City office at (256) 234-6162.',
+      'EnviroCare\'s bi-monthly pest control starts at $35/month and covers 30+ pests — ants, roaches, spiders, fire ants, and fleas — with unlimited re-service. Adding Sentricon® termite protection is priced at a free WDO inspection. Mosquito yard barrier treatments run $45/visit, March through November. No annual contract required. Call the Alexander City office at (256) 234-6162.',
   },
   {
     question: 'How do I get rid of mosquitoes at Lake Martin, Alabama?',
@@ -35,7 +35,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'Do I need termite protection at my Lake Martin lake house?',
     answer:
-      'Yes — termite risk at Lake Martin is high. Tallapoosa County\'s sandy-loam soils, high moisture levels from the lake, and the abundance of older wooden structures create ideal conditions for Eastern Subterranean Termites. Pier-and-beam foundations common in lakefront cabins are especially vulnerable. EnviroCare\'s Sentricon® Always Active™ system requires no drilling, protects the full perimeter, and includes up to $1 million in termite damage coverage. Starting at $32/month. Call (256) 234-6162.',
+      'Yes — termite risk at Lake Martin is high. Tallapoosa County\'s sandy-loam soils, high moisture levels from the lake, and the abundance of older wooden structures create ideal conditions for Eastern Subterranean Termites. Pier-and-beam foundations common in lakefront cabins are especially vulnerable. EnviroCare\'s Sentricon® Always Active™ system requires no drilling, protects the full perimeter, and includes up to $1 million in termite damage coverage. Pricing is set after a free WDO inspection. Call (256) 234-6162.',
   },
   {
     question: 'What pests are common near Lake Martin and Alexander City?',

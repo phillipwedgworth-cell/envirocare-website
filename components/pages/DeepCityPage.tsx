@@ -12,7 +12,7 @@ import type { ReactNode } from "react";
  * / FAQ / speakable schema.
  *
  * Compliance is the caller's responsibility in the copy, but the standard
- * pricing/office details (Birmingham metro) live here: $35 pest / $32 Sentricon
+ * pricing/office details (Birmingham metro) live here: $35 pest / Sentricon priced at inspection
  * / $45 mosquito / $65 Mosquito + Tick, office 2025 Butler Road Alabaster,
  * (205) 940-6360. No discount language, mosquito/tick hedged, Sentricon $1M =
  * EnviroCare's own guarantee.
@@ -80,7 +80,7 @@ function buildJsonLd(c: DeepCityConfig) {
           name: `Pest & Termite Services in ${c.name}`,
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "32", description: "Sentricon baiting, no drilling, EnviroCare guarantee up to $1,000,000. $32/month or $325 install + $380/yr." },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting, no drilling, EnviroCare guarantee up to $1,000,000. Priced after a free WDO inspection." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "45", description: "Nine seasonal treatments, March–November, ~$33.75/month." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage, ~$48.75/month." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Pest Control", areaServed: `${c.name}, AL` } },
@@ -183,7 +183,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />
-            <Plan name="Sentricon® Termite" price="$32" unit="/month" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare coverage", "$325 install · $380/yr renewal"]} featured />
+            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare coverage", "Priced after a free WDO inspection"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/treatment" features={["30-day yard barrier", "March – November (9 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – November"]} />
           </div>

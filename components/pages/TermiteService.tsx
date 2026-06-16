@@ -323,8 +323,8 @@ export default function TermiteInspectionServicePage() {
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Treatment Cost</h3>
             <div className="mb-6">
               <p className="text-slate-600 mb-2">Sentricon® Always Active™:</p>
-              <p className="text-3xl font-bold text-red-600">$32/mo</p>
-              <p className="text-sm text-slate-600 mt-2">Annual renewal after install. Free inspection — exact quote after assessment.</p>
+              <p className="text-3xl font-bold text-red-600">Free inspection</p>
+              <p className="text-sm text-slate-600 mt-2">Price provided after your free WDO inspection &amp; approval.</p>
             </div>
             <p className="text-slate-600 text-sm">
               After inspection, we'll provide exact quote. No hidden fees. Satisfaction guaranteed.
