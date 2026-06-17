@@ -145,7 +145,7 @@ SPECIALIST TECHNICIANS (a real strength — lead with it when service quality or
 - Still simple for the customer: one company, one invoice, one schedule — just the right specialist for each part.
 
 DIFFERENTIATORS (the family story is the lead):
-- 3rd-generation Wedgworth family business, founded 1958
+- Fourth-generation Wedgworth family business, founded 1958
 - Local Alabama company — not a national franchise
 - No long-term contracts — cancel anytime, no penalties
 - Unlimited free re-service between visits

@@ -49,7 +49,7 @@ export default function ServicesIndexPage() {
           <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Dept. of Ag. Licensed</div>
-          <div className="ti"><div className="ti-chk">✓</div>3rd-Generation Wedgworth Family</div>
+          <div className="ti"><div className="ti-chk">✓</div>Fourth-Generation Wedgworth Family</div>
         </div>
       </div>
 
