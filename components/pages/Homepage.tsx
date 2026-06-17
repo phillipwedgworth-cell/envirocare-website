@@ -240,7 +240,7 @@ function CoreServices() {
         </p>
         <div className="ec-services-grid">
           <ServiceCard
-            badge="MOST POPULAR" title="Pest Control"
+            title="Pest Control"
             description="Bimonthly exterior defense against ants, roaches, spiders & 30+ Alabama pests — including mice & rats."
             bullets={['Bimonthly service • no hidden fees', 'Unlimited free re-service', 'No long-term contract']}
             href="/services/pest-control" cornerIcon="🛡️" featured price="From $35/mo" priceLabel="BIMONTHLY"
@@ -252,7 +252,7 @@ function CoreServices() {
             href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER" price="$45/visit × 9" priceLabel="SEASONAL · MAR–NOV"
           />
           <ServiceCard
-            badge="BEST VALUE" title="Pest + Mosquito"
+            badge="MOST POPULAR" title="Pest + Mosquito"
             description="Bimonthly pest control plus seasonal mosquito — one plan, one local team."
             bullets={['Bimonthly pest + seasonal mosquito', 'Add tick: +$20/visit', 'No long-term contract']}
             href="/quote" cornerIcon="🌿" price="From $69/mo" priceLabel="BIMONTHLY + SEASONAL"
@@ -270,7 +270,7 @@ function CoreServices() {
 }
 
 function ServiceCard({ badge, title, description, bullets, href, cornerIcon, featured, highlight, price, priceLabel }: {
-  badge: string; title: string; description: string; bullets: string[];
+  badge?: string; title: string; description: string; bullets: string[];
   href: string; cornerIcon: string; featured?: boolean; highlight?: string;
   price?: string; priceLabel?: string;
 }) {
@@ -287,7 +287,7 @@ function ServiceCard({ badge, title, description, bullets, href, cornerIcon, fea
           <span className="ec-service-highlight">{highlight}</span>
         ) : null}
       </div>
-      <div className="ec-service-badge">{badge}</div>
+      {badge && <div className="ec-service-badge">{badge}</div>}
       <h3 className="ec-service-title">{title}</h3>
       <p className="ec-service-desc">{description}</p>
       <ul className="ec-service-bullets">
@@ -1009,7 +1009,7 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Main Line</em></a>
+            {/* TODO: confirm Main Line number — was a duplicate of Birmingham (205) 940-6360 */}
             <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
             <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
             <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
