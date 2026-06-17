@@ -243,7 +243,7 @@ function CoreServices() {
             title="Pest Control"
             description="Bimonthly exterior defense against ants, roaches, spiders & 30+ Alabama pests — including mice & rats."
             bullets={['Bimonthly service • no hidden fees', 'Unlimited free re-service', 'No long-term contract']}
-            href="/services/pest-control" cornerIcon="🛡️" featured price="From $35/mo" priceLabel="BIMONTHLY"
+            href="/services/pest-control" cornerIcon="🛡️" price="From $35/mo" priceLabel="BIMONTHLY"
           />
           <ServiceCard
             badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
@@ -255,7 +255,7 @@ function CoreServices() {
             badge="MOST POPULAR" title="Pest + Mosquito"
             description="Bimonthly pest control plus seasonal mosquito — one plan, one local team."
             bullets={['Bimonthly pest + seasonal mosquito', 'Add tick: +$20/visit', 'No long-term contract']}
-            href="/quote" cornerIcon="🌿" price="From $69/mo" priceLabel="BIMONTHLY + SEASONAL"
+            href="/quote" cornerIcon="🌿" featured price="From $69/mo" priceLabel="BIMONTHLY + SEASONAL"
           />
           <ServiceCard
             badge="SENTRICON® CERTIFIED" title="Termite Control"
