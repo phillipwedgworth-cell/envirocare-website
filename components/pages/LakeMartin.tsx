@@ -299,7 +299,7 @@ export default function LakeMartin() {
 
           {/* Bundle callout */}
           <div className="mt-10 p-8 bg-[#07642B] text-white rounded-2xl text-center">
-            <h3 className="text-2xl font-bold mb-3">Bundle & Save — Most Popular at Lake Martin</h3>
+            <h3 className="text-2xl font-bold mb-3">Bundle Your Services — Most Popular at Lake Martin</h3>
             <p className="text-[#F3F1E9] mb-6 text-lg">
               Combine Pest Control + Mosquito + Termite into one easy monthly plan.<br/>
               Most Lake Martin homeowners bundle. It's the smartest way to protect a waterfront property.

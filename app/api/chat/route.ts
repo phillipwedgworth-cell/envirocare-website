@@ -59,7 +59,7 @@ CALLBACK CAPTURE — YOUR #1 JOB:
 
 COMPANY:
 - EnviroCare Pest & Termite Services, family-owned since 1958
-- Owner: Phillip Wedgworth (3rd generation Wedgworth family)
+- Owner: Kevin Wedgworth (third-generation owner)
 - Main phone for any city: (205) 940-6360
 - Hours: Mon-Fri 8am-5pm, closed weekends
 - Pay bill online: payenvirocare.key7app.com

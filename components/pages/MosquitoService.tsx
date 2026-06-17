@@ -153,7 +153,7 @@ export default function MosquitoControl() {
                 cta: "Book One-Time Treatment",
               },
               {
-                name: "Bundle & Save",
+                name: "Bundle Your Services",
                 price: "Best value",
                 tag: "Maximum protection",
                 highlight: false,
