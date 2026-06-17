@@ -21,7 +21,7 @@ async function getAnthropic() {
   try {
     const mod: any = await import("@anthropic-ai/sdk");
     const Anthropic = mod.default ?? mod;
-    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 0 });
     return anthropic;
   } catch (e: any) {
     console.error(`[llm-panel] failed to load @anthropic-ai/sdk: ${e.message}`);

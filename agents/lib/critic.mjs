@@ -11,14 +11,16 @@ if (process.env.ANTHROPIC_API_KEY) {
   try {
     const mod = await import("@anthropic-ai/sdk");
     const Anthropic = mod.default ?? mod;
-    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 0 });
   } catch (e) {
     console.error(`[critic] failed to import @anthropic-ai/sdk: ${e.message}`);
     anthropic = null;
   }
 }
 const MAX_LOOPS = 3;
-const CRITIC_MODEL = "claude-opus-4-8";
+// Default to Haiku to keep spend low; override via CRITIC_MODEL env (e.g. opus
+// for a one-off deep review). A low Anthropic cap will catch any Opus creep fast.
+const CRITIC_MODEL = process.env.CRITIC_MODEL || "claude-haiku-4-5-20251001";
 const CRITIC_TEMPERATURE = 0.4;
 
 const CRITIC_SYSTEM = `You are the Chief Strategy Officer reviewing AI-generated recommendations for EnviroCare Pest Control.

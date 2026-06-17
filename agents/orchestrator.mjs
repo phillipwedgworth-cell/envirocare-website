@@ -39,7 +39,7 @@ if (!process.env.ANTHROPIC_API_KEY) {
   try {
     const mod = await import("@anthropic-ai/sdk");
     const Anthropic = mod.default ?? mod;
-    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 0 });
   } catch (e) {
     anthropicInitError = `@anthropic-ai/sdk failed to load: ${e.message}`;
     console.error(`[orchestrator] ${anthropicInitError}`);
