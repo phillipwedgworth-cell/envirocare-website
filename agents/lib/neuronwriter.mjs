@@ -7,6 +7,8 @@
 // POST-only, project-scoped). The previous /neuron-api/v1/queries paths were
 // hypothetical and 404'd on every call.
 
+import { stateGet, stateSet } from './kv.mjs';
+
 const BASE = 'https://app.neuronwriter.com/neuron-api/0.5';
 
 function apiHeaders() {
@@ -92,12 +94,30 @@ export async function analyzePageContent(keyword, content, opts = {}) {
   const html = typeof content === 'string' ? content : content.html;
   const text = typeof content === 'string' ? content : (content.text ?? content.html);
 
-  const q = await createQuery(keyword, opts);
-  const queryId = q.query ?? q.query_id ?? q.id;
-  if (!queryId) throw new Error(`NeuronWriter: new-query returned no query id: ${JSON.stringify(q).slice(0, 200)}`);
+  // Reuse a persisted query per (project, keyword) instead of minting a brand-new
+  // query row every run. A fresh new-query that later fails to poll/score is left
+  // behind as an orphaned empty shell on NeuronWriter — the cause of the ~67 dead
+  // queries. Caching the id keeps it to one reusable query per keyword.
+  const proj = opts.project ?? process.env.NEURONWRITER_PROJECT;
+  const cacheKey = proj ? `neuronwriter:query:${proj}:${keyword}` : null;
 
-  process.stdout.write(`[neuronwriter] Query ${queryId} created, waiting for analysis`);
-  const queryData = await pollUntilReady(queryId);
+  let queryId = cacheKey ? await stateGet(cacheKey) : null;
+  if (!queryId) {
+    const q = await createQuery(keyword, opts);
+    queryId = q.query ?? q.query_id ?? q.id;
+    if (!queryId) throw new Error(`NeuronWriter: new-query returned no query id: ${JSON.stringify(q).slice(0, 200)}`);
+    if (cacheKey) await stateSet(cacheKey, queryId);
+  }
+
+  process.stdout.write(`[neuronwriter] Query ${queryId} (reused if cached), waiting for analysis`);
+  let queryData;
+  try {
+    queryData = await pollUntilReady(queryId);
+  } catch (e) {
+    // Drop a dead/expired id so the next run recreates rather than reusing a bad one.
+    if (cacheKey) await stateSet(cacheKey, null);
+    throw e;
+  }
   process.stdout.write(' done\n');
 
   const scored = await scoreContent(queryId, html);

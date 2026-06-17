@@ -20,7 +20,7 @@
  * the others are approximate — verify against the provider's pricing page.
  */
 
-const CLAUDE_MODEL = 'claude-opus-4-8';        // current production-quality reasoning model
+const CLAUDE_MODEL = process.env.PANEL_CLAUDE_MODEL || 'claude-haiku-4-5-20251001';  // Haiku default keeps panel spend low; override via PANEL_CLAUDE_MODEL
 const GEMINI_MODEL = 'gemini-2.5-pro';         // Google's flagship — strong on factual recall
 const OPENAI_MODEL = 'gpt-5';                  // OpenAI's flagship reasoning model
 
@@ -42,6 +42,14 @@ SKIP = noise, ignore.
 HOLD = unsure, needs human eyes but not urgent.`;
 
 async function askClaude(prompt) {
+  // output_config.effort is an Opus 4.x-only knob; Haiku/Sonnet reject it (400).
+  // Only attach it for an Opus model so the Haiku default stays a valid request.
+  const body = {
+    model: CLAUDE_MODEL,
+    max_tokens: 400,
+    messages: [{ role: 'user', content: `${prompt}\n\n${VERDICT_SCHEMA_REMINDER}` }],
+  };
+  if (/opus/i.test(CLAUDE_MODEL)) body.output_config = { effort: 'low' };
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -49,15 +57,7 @@ async function askClaude(prompt) {
       'x-api-key': process.env.ANTHROPIC_API_KEY,
       'anthropic-version': '2023-06-01',
     },
-    body: JSON.stringify({
-      model: CLAUDE_MODEL,
-      max_tokens: 400,
-      // A SHIP/SKIP/HOLD verdict is a simple classification — low effort keeps
-      // it fast and cheap. (Note: Opus 4.8 rejects temperature/top_p, so unlike
-      // Gemini/OpenAI there is no sampling knob to set here.)
-      output_config: { effort: 'low' },
-      messages: [{ role: 'user', content: `${prompt}\n\n${VERDICT_SCHEMA_REMINDER}` }],
-    }),
+    body: JSON.stringify(body),
   });
   if (!r.ok) throw new Error(`Claude ${r.status}: ${await r.text()}`);
   const j = await r.json();
