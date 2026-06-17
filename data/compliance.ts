@@ -16,6 +16,13 @@ export interface BannedTerm {
   pattern: string;
   reason: string;
   approvedInstead: string;
+  /** Optional: if the SAME line also matches this regex, the hit is suppressed
+   *  (e.g. founder ≠ owner — a history reference to Phillip M. Wedgworth). */
+  notIf?: string;
+  /** Where the rule applies. 'content' (default) = static copy in app/components/data.
+   *  'chat' = the chatbot prompt/output only (app/api/chat). Use 'chat' for
+   *  AI-tell / stylistic rules so they never flag ordinary site punctuation. */
+  scope?: 'content' | 'chat';
 }
 
 export const BANNED_PATTERNS: BannedTerm[] = [
@@ -28,12 +35,19 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: 'same[\\s-]?day',        reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   { pattern: 'there today',           reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   { pattern: 'available now',         reason: 'availability claim', approvedInstead: 'prompt scheduling' },
-  { pattern: 'same technician',       reason: 'staffing promise',   approvedInstead: 'a familiar local team whenever possible' },
+  // "same technician" alone is fine ("real people, same technician on your route"); only a
+  // PROMISE of it is a staffing claim. Require an every-time/guaranteed qualifier nearby.
+  { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // Dead Scorpion tracking number — must never appear.
   { pattern: '649[\\s-]?5278',        reason: 'dead tracking number', approvedInstead: 'the correct office line from data/offices.ts' },
-  // "third generation" — wrong; company is fourth-generation.
-  { pattern: 'third[\\s-]?generation', reason: 'wrong generation', approvedInstead: 'fourth-generation (see data/business.ts)' },
+  // GENERATION — company is FOURTH-generation; Kevin is the THIRD-generation OWNER.
+  // Allowed (never flagged): "fourth/4th-generation" and "third/3rd-generation owner".
+  // Flag only company-level third-gen: "(3rd|third)-generation [Wedgworth] family/business/company".
+  { pattern: '(third|3rd)[ -]generation\\s+(wedgworth\\s+)?(family|business|company)', reason: 'wrong generation (company is fourth)', approvedInstead: 'fourth-generation Wedgworth family (see data/business.ts)' },
+  // OWNERSHIP — owner is Kevin Wedgworth (gen 3). Flag an "owner" claim naming anyone else.
+  // notIf excludes founder/history references (Phillip M. Wedgworth is the gen-1 FOUNDER, not owner).
+  { pattern: '\\bowner\\b[^.\\n]*\\b(phillip|lex|william)\\b', notIf: '(Phillip M\\.|founder|founded)', reason: 'wrong owner', approvedInstead: 'Kevin Wedgworth (owner, gen 3); Phillip M. Wedgworth is the founder (gen 1)' },
 ];
 
 /** Hard rules that need human judgment (auditor flags as WARN, not auto-block). */
