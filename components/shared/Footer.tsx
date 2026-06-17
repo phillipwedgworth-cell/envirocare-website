@@ -45,7 +45,7 @@ const AREAS: [string, string][] = [
   ["Huntsville, AL", "/huntsville"],
   ["Lake Martin / Alex City", "/lake-martin"],
   ["Hoover, AL", "/hoover"],
-  ["Madison, AL", "/madison"],
+  ["Madison, AL", "/service-areas/madison"],
   ["Auburn, AL", "/auburn"],
 ];
 

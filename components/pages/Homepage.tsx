@@ -304,7 +304,7 @@ function ServiceCard({ badge, title, description, bullets, href, cornerIcon, fea
 function SpecialtyServices() {
   const specialty = [
     { icon: '🐜', title: 'Fire Ant Control', desc: 'Yard-wide elimination & mound treatment. Critical for lake homes and barefoot families.', tag: 'ADD-ON', href: '/services/fire-ant' },
-    { icon: '🪲', title: 'Flea Control', desc: 'Interior flea treatment that targets the lifecycle indoors. An add-on to your quarterly pest program.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
+    { icon: '🪲', title: 'Flea Control', desc: 'Interior flea treatment that targets the lifecycle indoors. An add-on to your bimonthly pest program.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
     { icon: '🏠', title: 'Builder Pre-Treat', desc: 'Pre-construction termite treatment for new builds. The right time to start Sentricon® protection.', tag: 'NEW CONSTRUCTION', href: '/services/builder-pre-treat' },
     { icon: '📋', title: 'Real Estate / WDO Letters', desc: 'Wood-destroying organism inspection letters for closings. Fast turnaround, lender-ready format.', tag: 'CLOSINGS', href: '/services/wdo-letters' },
     { icon: '🏢', title: 'Commercial Service', desc: 'Restaurants, offices, warehouses. Discrete scheduling & full compliance documentation.', tag: 'IPM & HACCP', href: '/services/commercial' },
@@ -645,8 +645,10 @@ function Heritage() {
               behind the work.
             </p>
             <p>
-              Sixty-eight years later, his grandson{' '}
-              <strong>Kevin Wedgworth</strong> runs the company.
+              Sixty-eight years later, the same family still runs it. Phillip M.
+              passed it to his son Phillip L., then to his grandson{' '}
+              <strong>Kevin Wedgworth</strong>, who leads the company today — with
+              the fourth generation, William Lex Wedgworth, now on the team.
               Three Alabama offices. Same family. Same answer to your pest problem.
             </p>
             <blockquote className="ec-heritage-quote">
