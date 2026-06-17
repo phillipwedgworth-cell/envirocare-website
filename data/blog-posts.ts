@@ -907,7 +907,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>If you live in Alabama, this is sugar ant season — and we've been answering this call since 1958. Here's what they actually are, how to stop them, and when it's time to call a pro.</p>
 
 <h2>"Sugar ants" are usually one of three species</h2>
-<p>There isn't a single bug called the "sugar ant." It's a catch-all for small, dark ants that show up looking for anything sweet. In Alabama you're almost always dealing with <strong>odorous house ants</strong> (dark brown, smell like rotten coconut when crushed, nest inside wall voids), <strong>pavement ants</strong> (look for tiny dirt piles at driveway joints), or <strong>Argentine ants</strong> (light brown, fast-moving supercolonies — if they return the same day from a different door, this is what you have).</p>
+<p>There isn't a single bug called the "sugar ant." It's a catch-all for small, dark ants that show up looking for anything sweet. In Alabama you're almost always dealing with <strong>odorous house ants</strong> (dark brown, smell like rotten coconut when crushed, nest inside wall voids), <strong>pavement ants</strong> (look for tiny dirt piles at driveway joints), or <strong>Argentine ants</strong> (light brown, fast-moving supercolonies — if they return that day from a different door, this is what you have).</p>
 
 <h2>Why June is when they explode</h2>
 <p>Alabama humidity, warm overnights, and the first heavy summer rains push colonies to peak foraging in June. Spraying a visible trail kills the workers you see but scatters the colony. Two weeks later you've got three trails instead of one.</p>

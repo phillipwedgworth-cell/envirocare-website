@@ -72,7 +72,7 @@ export default function BundleServices() {
             Most Popular Choice for Alabama Homeowners
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Bundle & Save —<br/>
+            Bundle Your Services —<br/>
             <span className="text-emerald-400">Complete Protection. One Simple Plan.</span>
           </h1>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">

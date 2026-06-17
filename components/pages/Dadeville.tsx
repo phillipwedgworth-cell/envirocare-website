@@ -107,7 +107,7 @@ export default function Dadeville() {
               { icon: "🐜", name: "Pest Control", desc: "Full perimeter pest control for Dadeville homes. Ants, roaches, spiders, crickets and more.", highlight: false },
               { icon: "🔥", name: "Fire Ant Control", desc: "Fire ants throughout Tallapoosa County lawns and waterfront areas. Colony elimination.", highlight: false },
               { icon: "🕷️", name: "Tick Control", desc: "Waterfront and wooded properties need tick protection. Yard treatments bundled free with mosquito service.", highlight: false },
-              { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite combined. Most popular for Lake Martin area homeowners.", highlight: false },
+              { icon: "📦", name: "Bundle Your Services", desc: "Pest + Mosquito + Termite combined. Most popular for Lake Martin area homeowners.", highlight: false },
             ].map((s, i) => (
               <div key={i} className={`p-6 rounded-xl border transition ${s.highlight ? "border-teal-500 bg-teal-50 shadow-md" : "border-slate-200 hover:border-teal-300 hover:shadow-sm"}`}>
                 {s.highlight && <span className="inline-block mb-3 px-3 py-1 bg-teal-600 text-white text-xs font-bold rounded-full">50% OFF FIRST TREATMENT</span>}

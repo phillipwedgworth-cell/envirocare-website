@@ -96,7 +96,7 @@ export default function Chelsea() {
               { icon: "🦟", name: "Mosquito Control", desc: "Shelby County summers are prime mosquito season. Monthly yard treatments protect your family all season long.", href: "/services/mosquito-control" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Fire ants are a real hazard in Chelsea's growing neighborhoods. Colony elimination and lasting perimeter protection.", href: "/services/fire-ant-control" },
               { icon: "🕷️", name: "Tick Control", desc: "Chelsea's wooded areas and greenways mean tick pressure. Yard treatments break the tick lifecycle around your home.", href: "/services/tick-control" },
-              { icon: "📦", name: "Bundle & Save", desc: "Most popular: Pest + Mosquito + Termite in one simple monthly plan. Maximum protection, easy payment.", href: "/bundle-services" },
+              { icon: "📦", name: "Bundle Your Services", desc: "Most popular: Pest + Mosquito + Termite in one simple monthly plan. Maximum protection, easy payment.", href: "/bundle-services" },
             ].map((s, i) => (
               <div key={i} className={`p-6 rounded-xl border transition ${s.highlight ? "border-emerald-500 bg-emerald-50 shadow-md" : "border-slate-200 hover:border-emerald-300 hover:shadow-md"}`}>
                 {s.highlight && <span className="inline-block mb-3 px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full">FREE INSPECTION</span>}

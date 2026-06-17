@@ -40,7 +40,10 @@ const isChatFile = (rel) => norm(rel).startsWith('app/api/chat/');
 // Lines containing any of these are skipped (product names + rule-restating comments).
 const ALLOWLIST = ['SameDay AI', 'Compliance:', 'approvedInstead', 'no "safe', 'BANNED', 'banned',
   // chatbot system-prompt prohibitions restate banned phrases on purpose ("NEVER say pet-safe")
-  'NEVER say', 'NEVER promise'];
+  'NEVER say', 'NEVER promise',
+  // customer testimonials (rev-quote) are customer speech, not company claims; the
+  // ScheduleRequest constant comment explicitly states "NO same-day"
+  'rev-quote', 'NO same-day'];
 // Pure comment lines never ship to users — skip them so rules don't match code comments.
 const isCommentLine = (t) => t.startsWith('//') || t.startsWith('*') || t.startsWith('/*');
 

@@ -14,7 +14,7 @@ const SERVICES = [
   { icon: "🦟", name: "Mosquito Control", desc: "Monthly yard treatments March–November. 50% off first treatment.", highlight: false },
   { icon: "🕷️", name: "Tick Control", desc: "Safe protection for family and pets all season long.", highlight: false },
   { icon: "🔥", name: "Fire Ant Control", desc: "Colony elimination and lasting perimeter protection.", highlight: false },
-  { icon: "📦", name: "Bundle & Save", desc: "Pest + Mosquito + Termite combined. Madison's most popular plan.", highlight: false },
+  { icon: "📦", name: "Bundle Your Services", desc: "Pest + Mosquito + Termite combined. Madison's most popular plan.", highlight: false },
 ];
 
 const REVIEWS = [
