@@ -60,6 +60,20 @@ async function listTargetPages() {
   return { pages: TARGET_PAGES };
 }
 
+// Strip a rendered HTML document down to visible text.
+function extractVisibleText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 async function fetchPage({ url }) {
   try {
     const r = await fetch(url, {
@@ -67,7 +81,16 @@ async function fetchPage({ url }) {
     });
     if (!r.ok) return { error: `HTTP ${r.status}` };
     const html = await r.text();
-    return { url, status: r.status, html: html.slice(0, 40000) };
+    // Parse SEO signals + extract cleaned visible text server-side so the worker
+    // receives usable content. Returning the raw 40k HTML was pointless: stripHeavy
+    // deleted it before the worker ever saw it (the "metadata only" bug), and the
+    // worker then had no HTML to feed the old extract_seo_signals step.
+    return {
+      url,
+      status: r.status,
+      seo: parseSeoSignals(html),
+      text: extractVisibleText(html).slice(0, 6000),
+    };
   } catch (e) {
     return { error: e.message };
   }
@@ -154,11 +177,6 @@ function parseSeoSignals(html) {
   };
 }
 
-async function extractSeoSignals({ html }) {
-  if (!html) return { error: "No HTML provided" };
-  return parseSeoSignals(html);
-}
-
 async function readLastReview({ url }) {
   const prior = await stateGet(`${AGENT_NAME}:page:${url}`);
   return prior ?? { date: null, summary: null };
@@ -183,7 +201,8 @@ const tools = [
   },
   {
     name: "fetch_page",
-    description: "Fetch raw HTML for a URL (truncated to 40k chars).",
+    description:
+      "Fetch a URL and return its parsed SEO signals (title, meta description, H1/H2 counts, JSON-LD @types, canonical, OG tags) plus the cleaned visible page text (~6k chars) for content review.",
     input_schema: {
       type: "object",
       properties: { url: { type: "string" } },
@@ -201,16 +220,6 @@ const tools = [
         strategy: { type: "string", enum: ["mobile", "desktop"] },
       },
       required: ["url"],
-    },
-  },
-  {
-    name: "extract_seo_signals",
-    description:
-      "Parse SEO signals from HTML you previously fetched. Returns title, meta description, H1/H2 counts, JSON-LD @types, canonical, OG tags.",
-    input_schema: {
-      type: "object",
-      properties: { html: { type: "string" } },
-      required: ["html"],
     },
   },
   {
@@ -240,10 +249,6 @@ const tools = [
 function stripHeavy(result) {
   if (!result || typeof result !== "object") return result;
   const out = { ...result };
-  if (out.html) {
-    out.html_size = out.html.length;
-    delete out.html;
-  }
   if (out._screenshot_b64) {
     out._screenshot_b64 = "[stored separately for panel]";
   }
@@ -267,8 +272,6 @@ async function callTool(name, input, screenshotStore) {
       }
       return result;
     }
-    case "extract_seo_signals":
-      return await extractSeoSignals(input);
     case "read_last_review":
       return await readLastReview(input);
     case "read_peer_findings":
@@ -288,7 +291,7 @@ Gather raw data — do NOT write analysis. The multi-model panel will analyze af
 APPROACH (you choose order)
 1. read_peer_findings to see what BrightLocal/CFO/other agents have reported recently.
 2. list_target_pages.
-3. For each target page: run_pagespeed (mobile), then fetch_page, then extract_seo_signals on the HTML.
+3. For each target page: run_pagespeed (mobile), then fetch_page (which returns SEO signals + cleaned page text).
 4. Stop once you've covered every target page.
 
 OUTPUT — your FINAL message MUST be the JSON object and NOTHING else.
@@ -299,8 +302,9 @@ OUTPUT — your FINAL message MUST be the JSON object and NOTHING else.
     {
       "url": "...",
       "label": "...",
-      "pagespeed": { ... full result },
-      "seo": { ... full result }
+      "pagespeed": { ... full run_pagespeed result },
+      "seo": { ... the seo object from fetch_page },
+      "content_excerpt": "first ~1500 chars of fetch_page's text — actual page copy for the brand/copy lens"
     }
   ],
   "peer_findings_summary": "1-2 sentence summary of what other agents have flagged that's relevant to this review"
