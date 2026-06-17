@@ -3,7 +3,7 @@
  * Generated May 18, 2026
  *
  * Three offices serve different regions of Alabama:
- * - Birmingham (BIR): Jefferson, Shelby, St. Clair, Walker, Blount, Tuscaloosa
+ * - Birmingham (BIR): Jefferson, Shelby, St. Clair, Walker, Blount
  * - Lake Martin / Alex City (LKM): Tallapoosa, Elmore, Coosa, Lee (Auburn), Chambers, Russell
  * - Huntsville (HSV): Madison, Limestone, Morgan, Marshall, Jackson
  */
@@ -63,7 +63,7 @@ export const OFFICES: Record<OfficeId, Office> = {
  * Covers all Alabama zips in EnviroCare's three service regions.
  *
  * BIRMINGHAM METRO (35xxx): Jefferson, Shelby, St. Clair, Walker, Blount counties
- *   + Tuscaloosa (35401-35487)
+ *   (Tuscaloosa 35401-35487 removed Jun 14 — not serviced)
  *
  * LAKE MARTIN / ALEX CITY (35010-36870 region):
  *   Tallapoosa, Elmore, Coosa, Lee (Auburn/Opelika), Chambers, Russell, Macon
@@ -90,31 +90,26 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '35288': 'birmingham', '35290': 'birmingham', '35291': 'birmingham', '35292': 'birmingham',
   '35293': 'birmingham', '35294': 'birmingham', '35295': 'birmingham', '35296': 'birmingham',
   '35297': 'birmingham', '35298': 'birmingham', '35299': 'birmingham',
-  // Hoover
-  '35226': 'birmingham', '35244': 'birmingham',
-  // Vestavia Hills, Mountain Brook, Homewood
-  '35213': 'birmingham', '35216': 'birmingham', '35223': 'birmingham', '35243': 'birmingham',
-  '35209': 'birmingham',
+  // Hoover (35226, 35244) — covered under Birmingham proper above
+  // Vestavia Hills, Mountain Brook, Homewood (35209/35213/35216/35223/35243) — covered above
   // Alabaster (HQ), Pelham, Helena, Calera
   '35007': 'birmingham', '35114': 'birmingham', '35124': 'birmingham', '35080': 'birmingham',
   '35040': 'birmingham',
   // Chelsea
   '35043': 'birmingham',
   // Trussville, Clay, Pinson
-  '35173': 'birmingham', '35126': 'birmingham', '35094': 'birmingham',
+  '35173': 'birmingham', '35126': 'birmingham',
   // Leeds, Moody, Springville (St. Clair)
   '35094': 'birmingham', '35004': 'birmingham', '35146': 'birmingham',
-  // Gardendale, Fultondale, Center Point
-  '35071': 'birmingham', '35068': 'birmingham', '35215': 'birmingham',
+  // Gardendale, Fultondale, Center Point (35215 covered above)
+  '35071': 'birmingham', '35068': 'birmingham',
   // Bessemer, Hueytown, Pleasant Grove
   '35020': 'birmingham', '35021': 'birmingham', '35022': 'birmingham', '35023': 'birmingham',
   '35127': 'birmingham',
   // McCalla
   '35111': 'birmingham',
-  // Greystone (within Hoover area)
-  '35242': 'birmingham',
-  // Mt Laurel
-  '35114': 'birmingham',
+  // Greystone (35242) — covered above
+  // Mt Laurel (35114) — covered above
   // (Tuscaloosa metro removed Jun 14 — not serviced)
 
   // ===== LAKE MARTIN / ALEX CITY =====
@@ -148,8 +143,8 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '36026': 'lake-martin',
   // Jacksons Gap
   '36861': 'lake-martin',
-  // New Site
-  '35033': 'lake-martin', '35020': 'birmingham', // (collision intentional — 35020 stays BIR)
+  // New Site (35020 Bessemer stays birmingham, listed above)
+  '35033': 'lake-martin',
   // Roanoke (Randolph)
   '36274': 'lake-martin',
   // LaFayette (Chambers)
@@ -179,8 +174,7 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '35601': 'huntsville', '35602': 'huntsville', '35603': 'huntsville', '35609': 'huntsville',
   // Hartselle
   '35640': 'huntsville',
-  // Priceville
-  '35603': 'huntsville',
+  // Priceville (35603) — covered under Decatur above
   // Somerville
   '35670': 'huntsville',
   // Falkville
