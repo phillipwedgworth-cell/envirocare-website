@@ -291,7 +291,9 @@ APPROACH (you choose order)
 3. For each target page: run_pagespeed (mobile), then fetch_page, then extract_seo_signals on the HTML.
 4. Stop once you've covered every target page.
 
-OUTPUT (final message, JSON only — no prose, no markdown fences)
+OUTPUT — your FINAL message MUST be the JSON object and NOTHING else.
+- No preamble, no reasoning, no "Let me compile the data…", no commentary before or after.
+- No markdown code fences. The message must start with { and end with }.
 {
   "pages": [
     {
@@ -305,6 +307,28 @@ OUTPUT (final message, JSON only — no prose, no markdown fences)
 }
 
 PROMPT VERSION: ${PROMPT_VERSION}`;
+
+// Parse the worker's final message into JSON, tolerating stray markdown fences
+// or a chatty preamble ("Let me compile the data…") before the object. Strip
+// fences first, then fall back to slicing the outermost { … } so one narrated
+// run can't drop all page data.
+function parseWorkerJson(text) {
+  const cleaned = text
+    .replace(/^```json\s*/i, "")
+    .replace(/^```\s*/i, "")
+    .replace(/\s*```$/i, "")
+    .trim();
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    const first = cleaned.indexOf("{");
+    const last = cleaned.lastIndexOf("}");
+    if (first !== -1 && last > first) {
+      return JSON.parse(cleaned.slice(first, last + 1)); // may throw — caller handles
+    }
+    throw new Error("no JSON object found in worker output");
+  }
+}
 
 async function gatherData() {
   if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
@@ -324,14 +348,9 @@ async function gatherData() {
 
     if (resp.stop_reason === "end_turn") {
       const text = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
-      const cleaned = text
-        .replace(/^```json\s*/i, "")
-        .replace(/^```\s*/i, "")
-        .replace(/\s*```$/i, "")
-        .trim();
       let data;
       try {
-        data = JSON.parse(cleaned);
+        data = parseWorkerJson(text);
       } catch (e) {
         // Worker returned text that isn't valid JSON. Log so we don't
         // silently lose page data — pages: [] makes the rest of the
