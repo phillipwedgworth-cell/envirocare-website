@@ -10,5 +10,12 @@ supabase/.temp/
 tsconfig.tsbuildinfo
 .next/
 
+# Credential keys — NEVER commit (public repo). Targeted so package.json/tsconfig.json stay tracked.
+gen-lang-client-*.json
+*service-account*.json
+*-credentials.json
+*.pem
+*.key
+
 # NeuronWriter / audit script output (regenerated, not source)
 audit-results/
