@@ -300,9 +300,24 @@ export default function ServicePage({ slug }: { slug: string }) {
       {service.intro && service.intro.length > 0 && (
         <section className="svc-intro">
           <div className="container">
+            {service.priceAnchor && <p className="svc-price-anchor">{service.priceAnchor}</p>}
             {service.intro.map((para, i) => (
               <p key={i} className="svc-intro-p">{para}</p>
             ))}
+          </div>
+        </section>
+      )}
+
+      {service.signs && service.signs.items.length > 0 && (
+        <section className="svc-signs">
+          <div className="container">
+            <h2 className="section-title">{service.signs.heading.split(' ').slice(0, -1).join(' ')} <span>{service.signs.heading.split(' ').slice(-1)}</span></h2>
+            <ul className="svc-signs-list">
+              {service.signs.items.map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
+            </ul>
+            <p className="svc-signs-cta"><a href="/quote">{service.signs.cta}</a></p>
           </div>
         </section>
       )}
@@ -778,6 +793,15 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .svc-intro-p{font-size:1.07rem;line-height:1.85;color:var(--ink-soft);margin:0 0 1.25rem}
 .svc-intro-p:first-child{font-size:1.18rem;color:var(--ink);font-weight:500}
 .svc-intro-p strong{color:var(--green-deep);font-weight:700}
+.svc-price-anchor{font-size:1.05rem;line-height:1.7;color:var(--green-deep);font-weight:700;background:var(--cream);border-left:4px solid #F5A800;padding:.9rem 1.1rem;border-radius:8px;margin:0 0 1.75rem}
+.svc-signs{padding:1rem clamp(1.5rem,5vw,4rem) 4.5rem;background:#fff}
+.svc-signs .container{max-width:880px}
+.svc-signs-list{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:.75rem}
+.svc-signs-list li{position:relative;padding:.85rem 1rem .85rem 2.6rem;background:var(--cream);border-radius:10px;font-size:1.02rem;line-height:1.5;color:var(--ink)}
+.svc-signs-list li::before{content:"⚠";position:absolute;left:1rem;top:.85rem;color:#F5A800}
+.svc-signs-cta{margin:1.6rem 0 0;font-size:1.1rem;font-weight:700}
+.svc-signs-cta a{color:var(--green-deep);text-decoration:none}
+.svc-signs-cta a:hover{text-decoration:underline}
 .includes{padding:5rem clamp(1.5rem,5vw,4rem);background:var(--cream)}
 .includes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;max-width:1180px;margin:2.4rem auto 0}
 .include-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.5rem;transition:transform .25s,box-shadow .25s}

@@ -25,6 +25,8 @@ export type Service = {
   intro?: string[];                                   // long-form SEO body copy (rendered after hero)
   pestsFeatured?: { name: string; desc: string }[];   // named + described pests (SEO topical relevance)
   pestsMore?: string[];                                // additional covered pests (chip list)
+  priceAnchor?: string;                                // optional soft price-anchor line (rendered atop intro)
+  signs?: { heading: string; items: string[]; cta: string };  // optional "warning signs" SEO section
 };
 
 export const SERVICES: Service[] = [
@@ -117,7 +119,7 @@ export const SERVICES: Service[] = [
       { title: 'Initial Installation', desc: 'Sentricon® bait stations placed around your home perimeter. No drilling, no mess, no disruption to landscaping.' },
       { title: 'Ongoing Monitoring', desc: 'Stations checked annually. Bait is always active — termites encountering it carry the lethal dose back to the colony.' },
       { title: '$1M Damage Repair Coverage', desc: 'An EnviroCare guarantee. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1M.' },
-      { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling.' },
+      { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling. Standalone WDO letters (also called a termite letter) are $75.' },
     ],
     wedgePoints: [
       { lead: 'Sentricon® > liquid barriers', body: 'Liquid treatments require drilling concrete, retreating every 5–7 years, and have shrinking effectiveness as they break down. Sentricon® bait stations eliminate the entire colony, not just the perimeter.' },
@@ -130,14 +132,28 @@ export const SERVICES: Service[] = [
       { q: 'Will Sentricon® mess up my landscaping?', a: 'No. Bait stations are small (about the size of a soda can) and installed flush with the ground around your home perimeter. No drilling, no concrete cuts, no torn-up flowerbeds.' },
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
-      { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters for refinancing and home sales. One included per year on active accounts; otherwise $75 standalone fee.' },
+      { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters — sometimes called a termite letter or termite bond — for refinancing and home sales. One included per year on active accounts; otherwise a $75 standalone fee.' },
       { q: 'What if I already have an active termite infestation?', a: 'Sentricon® handles an active infestation as well as prevention — the colony feeds on the bait and collapses from the inside. Unlike termite control services that only treat what you can see, colony elimination stops the damage at its source.' },
     ],
     intro: [
-      'For termite control in Alabama, EnviroCare installs the Sentricon® Always Active™ bait system — a method that eliminates the entire subterranean termite colony rather than only treating the soil you can see. Most liquid termite control services create a chemical barrier that requires drilling through your slab, patio, and driveway, then loses strength and needs retreatment every five to seven years. Sentricon® stations sit in the ground around your home perimeter, so there is no drilling, no concrete cutting, and no tank trucks in the yard.',
+      'For termite control across Birmingham, Lake Martin, and Huntsville, EnviroCare installs the Sentricon® Always Active™ bait system — a method that eliminates the entire subterranean termite colony rather than only treating the soil you can see. Most liquid termite control services create a chemical barrier that requires drilling through your slab, patio, and driveway, then loses strength and needs retreatment every five to seven years. Sentricon® stations sit in the ground around your home perimeter, so there is no drilling, no concrete cutting, and no tank trucks in the yard.',
       'Termites cause damage quietly, and an active infestation can go unnoticed until it reaches structural wood. With Sentricon®, foraging termites carry the bait back to the colony, collapsing it from the inside — which stops both an existing infestation and future ones. Every protected home includes annual monitoring and one Wood-Destroying Organism (WDO) inspection letter per year, the document lenders require for refinancing or selling.',
-      'Behind it stands an EnviroCare guarantee: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection. That coverage is backed by EnviroCare directly. Installation takes most homes one to two hours, and you do not need to be an existing pest control customer to start.',
+      'Behind it stands an EnviroCare guarantee: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection. That coverage is backed by EnviroCare directly. Installation takes most homes one to two hours, and from Hoover to Madison to Auburn, you do not need to be an existing pest control customer to start.',
     ],
+    // TODO: Phillip confirm starting price, then uncomment this soft anchor (renders atop the intro):
+    // priceAnchor: 'Most Alabama homes start around $[X]/year for full Sentricon® protection — your exact quote comes after the free inspection.',
+    signs: {
+      heading: 'Signs You Have Termites',
+      items: [
+        'Mud tubes on foundation walls or in crawl spaces',
+        'Termite swarmers (winged termites) or discarded wings near windows during spring swarming season',
+        'Hollow-sounding or blistered wood, floors, or trim',
+        'Tight-fitting doors or windows from warped wood',
+        'Faint clicking sounds inside walls',
+        'Frass (termite droppings) near wood — looks like fine sawdust or pellets',
+      ],
+      cta: 'Seeing any of these? Book a free WDO inspection →',
+    },
   },
   {
     slug: 'mosquito-control',
