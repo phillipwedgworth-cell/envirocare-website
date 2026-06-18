@@ -208,6 +208,8 @@ function Hero() {
               src="/hero-family.webp"
               alt="Alabama family relaxing in pest-free backyard"
               fill
+              priority
+              fetchPriority="high"
               sizes="(min-width: 1024px) 45vw, 1px"
               className="ec-hero-photo"
               style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
