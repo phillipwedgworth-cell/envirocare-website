@@ -2,8 +2,8 @@ import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
   alternates: { canonical: '/services/builder' },
-  title: 'Alabama Builder Pre-Treat Termite Service | EnviroCare',
-  description: 'Pre-construction termite treatment for new Alabama homes. Sentricon® install at the right time. Call (205) 940-6360.',
+  title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
+  description: 'Pre-construction termite soil treatment for Alabama builders — protection before the slab is poured. Coordinated to your build schedule. (205) 940-6360.',
 };
 
 export default function BuilderPage() {
