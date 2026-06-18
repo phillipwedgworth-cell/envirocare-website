@@ -14,9 +14,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Fire Ant Control Alabama | Yard-Wide Treatment | EnviroCare",
+  title: "Fire Ant Control in Alabama | Colony Elimination | EnviroCare",
   description:
-    "Fire ant control across Alabama — yard-wide mound treatment priced per area. EPA-registered products. Residential and commercial. Call (205) 940-6360.",
+    "Fire ant treatment that reaches the queen, not just the mound. Starts at $150, priced per sq ft. Open to all. Birmingham & across Alabama. (205) 940-6360.",
   alternates: { canonical: "/services/fire-ant" },
   openGraph: {
     title: "Fire Ant Control | EnviroCare",
