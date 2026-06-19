@@ -61,20 +61,23 @@ const STICKY_CSS = `
   flex: 1;
   display: flex; align-items: center; gap: 10px;
   background: #0E8E40; color: #fff !important; text-decoration: none;
-  padding: 10px 16px; border-radius: 999px; min-height: 52px;
-  box-shadow: 0 8px 24px rgba(14,26,15,0.22), 0 2px 6px rgba(14,26,15,0.10);
+  padding: 12px 18px; border-radius: 999px; min-height: 56px;
+  box-shadow: 0 8px 24px rgba(14,26,15,0.25), 0 2px 6px rgba(14,26,15,0.12);
+  transition: transform 0.1s;
 }
-.sc-icon { font-size: 20px; flex-shrink: 0; }
-.sc-text { display: flex; flex-direction: column; line-height: 1.1; }
+.sc-call:active { transform: translateY(1px); }
+.sc-icon { font-size: 22px; flex-shrink: 0; }
+.sc-text { display: flex; flex-direction: column; line-height: 1.15; }
 .sc-label { font-size: 11px; opacity: 0.9; font-weight: 500; }
-.sc-num { font-size: 16px; font-weight: 700; }
+.sc-num { font-size: 17px; font-weight: 700; letter-spacing: 0.01em; }
 .sc-quote {
   display: flex; align-items: center; justify-content: center;
   background: #F5A800; color: #0E1A0F !important; text-decoration: none;
-  padding: 0 18px; border-radius: 999px; min-height: 52px;
+  padding: 0 20px; border-radius: 999px; min-height: 56px;
   font-weight: 700; font-size: 14px; flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(14,26,15,0.18);
+  box-shadow: 0 8px 24px rgba(14,26,15,0.20);
+  transition: transform 0.1s;
 }
-.sc-call:active, .sc-quote:active { transform: translateY(1px); }
+.sc-quote:active { transform: translateY(1px); }
 @media (min-width: 900px) { .sc-wrap { display: none; } }
 `;

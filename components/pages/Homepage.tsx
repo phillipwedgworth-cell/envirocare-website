@@ -738,7 +738,7 @@ function Reviews() {
           <span className="ec-reviews-g">Verified by Google</span>
           <span className="ec-reviews-rating">
             <span className="ec-reviews-stars">★★★★★</span>
-            <span className="ec-reviews-count">· ★★★★★ Google</span>
+            <span className="ec-reviews-count">· 4.9★ Google</span>
           </span>
         </div>
         <div className="ec-section-eyebrow">CUSTOMER REVIEWS</div>
@@ -919,32 +919,15 @@ function SvcPriceCard({ icon, title, price, unit, note, bullets, href, featured 
    ============================================================ */
 function LakeMartinBand() {
   return (
-    <section className="ec-lake">
-      <div className="ec-lake-inner">
-        <div className="ec-lake-photo-wrap">
-          <img loading="lazy" decoding="async"
-            src="/lake-martin-sunset.webp"
-            alt="Sunset over Lake Martin, Alabama"
-            className="ec-lake-photo"
-            onError={(e) => {
-              const t = e.target as HTMLImageElement;
-              t.src = '/lake-martin-aerial.jpg';
-            }}
-          />
-        </div>
-        <div className="ec-lake-content">
+    <section className="ec-lake ec-lake-compact">
+      <div className="ec-lake-inner ec-lake-compact-inner">
+        <div className="ec-lake-content ec-lake-compact-content">
           <div className="ec-lake-eyebrow">ALEX CITY / LAKE MARTIN · EST. 1958</div>
           <h2 className="ec-lake-h2">Lake-home protection, handled <em>while you&rsquo;re away</em></h2>
           <p className="ec-lake-text">
-            Second homes and weekend places run on a different rhythm. We service from the
-            outside on a schedule built around the lake — so the house is covered before you
-            arrive, not after the bugs do.
+            Second homes run on a different rhythm. We service from the outside before you
+            arrive — pest, termite, mosquito and dock coverage, all from our Alexander City office.
           </p>
-          <ul className="ec-lake-benefits">
-            <li><span className="ec-lake-check">✓</span> Pre-arrival exterior service — protected before your weekend</li>
-            <li><span className="ec-lake-check">✓</span> Dock, boathouse &amp; waterfront pests, plus mosquito &amp; tick for the deck</li>
-            <li><span className="ec-lake-check">✓</span> One familiar local team out of our Alexander City office</li>
-          </ul>
           <Link href="/lake-martin" className="ec-lake-cta">Explore Lake Martin service →</Link>
         </div>
       </div>
@@ -981,10 +964,10 @@ function BundleCTA() {
         <div className="ec-bundle-divider"></div>
 
         <h3 className="ec-bundle-h3">
-          🌻 One Invoice. One Tech. <em>One Trusted Team.</em>
+          🌻 One Invoice. One Company. <em>One Trusted Team.</em>
         </h3>
         <p className="ec-bundle-sub">
-          Pest, termite, mosquito and tick handled by one familiar local team — same prices as standalone, just simpler to manage.
+          Pest, termite, mosquito and tick — a dedicated specialist handles each service. One company, one invoice, nothing to juggle.
         </p>
         <div className="ec-bundle-ctas">
           <a href="tel:2059406360" className="ec-cta-primary">Call (205) 940-6360</a>
@@ -1011,7 +994,6 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            {/* TODO: confirm Main Line number — was a duplicate of Birmingham (205) 940-6360 */}
             <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
             <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
             <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
@@ -1165,10 +1147,21 @@ const HOMEPAGE_CSS = `
     margin-left: 12px;
     background: #F5A800;
     color: #0E1A0F !important;
-    padding: 4px 12px;
+    padding: 7px 16px;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(245,168,0,0.3);
+    transition: background 0.15s, transform 0.15s;
+    text-decoration: none;
+  }
+  .ec-banner-call:hover {
+    background: #FFB81F;
+    transform: translateY(-1px);
   }
 
 
@@ -1273,9 +1266,15 @@ const HOMEPAGE_CSS = `
   .ec-header-pay:hover { color: #0E8E40 !important; border-color: #0E8E40; }
   .ec-header-phone {
     display: inline-flex; align-items: center; gap: 6px;
-    padding: 9px 16px; border-radius: 999px;
+    padding: 10px 18px; border-radius: 999px;
     border: 1.5px solid #0E8E40; color: #0E8E40 !important;
-    font-weight: 700; font-size: 14px;
+    font-weight: 700; font-size: 15px;
+    transition: all 0.15s;
+    min-height: 42px;
+  }
+  .ec-header-phone:hover {
+    background: #E8F5EE;
+    border-color: #0A7935;
   }
   .ec-phone-icon { font-size: 13px; }
   .ec-header-quote {
@@ -1625,10 +1624,16 @@ const HOMEPAGE_CSS = `
     margin-bottom: 20px; line-height: 1.5;
   }
   .ec-office-phone {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 10px 18px; border: 1.5px solid #0E8E40;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border: 1.5px solid #0E8E40;
     color: #0E8E40 !important; border-radius: 999px;
-    font-weight: 700; font-size: 14px; margin-bottom: 10px;
+    font-weight: 700; font-size: 15px; margin-bottom: 10px;
+    min-height: 48px;
+    transition: all 0.15s;
+  }
+  .ec-office-phone:hover {
+    background: #E8F5EE;
+    border-color: #0A7935;
   }
   .ec-office-link {
     display: block; font-size: 13px; font-weight: 600; color: #F5A800 !important;
@@ -1697,6 +1702,29 @@ const HOMEPAGE_CSS = `
   @media (min-width: 900px) {
     .ec-lake-inner { grid-template-columns: 1.05fr 1fr; }
     .ec-lake-photo-wrap { max-height: none; }
+  }
+
+  /* Compact Lake Martin strip — no photo, tighter padding */
+  .ec-lake-compact .ec-lake-compact-inner {
+    display: block;
+  }
+  .ec-lake-compact .ec-lake-compact-content {
+    padding: 28px clamp(20px,5vw,56px);
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .ec-lake-compact .ec-lake-h2 {
+    font-size: clamp(1.25rem,2.5vw,1.6rem);
+    margin-bottom: 8px;
+  }
+  .ec-lake-compact .ec-lake-text {
+    font-size: 14px;
+    margin: 0 auto 14px;
+    max-width: 52ch;
+  }
+  .ec-lake-compact .ec-lake-eyebrow {
+    margin-bottom: 6px;
   }
 
   /* SERVICE AREAS - all 27 cities */
