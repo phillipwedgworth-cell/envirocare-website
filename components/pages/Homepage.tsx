@@ -33,10 +33,10 @@ export default function Homepage() {
       <Pricing />
       <SpecialtyServices />
       <ThreeOffices />
-      <LakeMartinBand />
       <Heritage />
       <Reviews />
       <ScheduleVisit />
+      <LakeMartinBand />
       <BundleCTA />
       <Footer />
       <StickyCallButton />
@@ -919,16 +919,24 @@ function SvcPriceCard({ icon, title, price, unit, note, bullets, href, featured 
    ============================================================ */
 function LakeMartinBand() {
   return (
-    <section className="ec-lake ec-lake-compact">
-      <div className="ec-lake-inner ec-lake-compact-inner">
-        <div className="ec-lake-content ec-lake-compact-content">
-          <div className="ec-lake-eyebrow">ALEX CITY / LAKE MARTIN · EST. 1958</div>
-          <h2 className="ec-lake-h2">Lake-home protection, handled <em>while you&rsquo;re away</em></h2>
-          <p className="ec-lake-text">
+    <section className="ec-lake" style={{ position: 'relative', overflow: 'hidden' }}>
+      <img
+        src="/lake-martin-sunset.webp"
+        alt="Dock at sunset on Lake Martin, Alabama"
+        loading="lazy"
+        decoding="async"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(14,26,15,0.88) 0%, rgba(14,26,15,0.62) 52%, rgba(14,26,15,0.2) 100%)' }} />
+      <div style={{ position: 'relative', maxWidth: 1180, margin: '0 auto', padding: 'clamp(3rem,7vw,5.5rem) clamp(1.5rem,5vw,4rem)', color: '#fff' }}>
+        <div style={{ maxWidth: 580 }}>
+          <div style={{ color: '#F5A800', fontWeight: 700, letterSpacing: '0.1em', fontSize: 13, marginBottom: 12 }}>ALEX CITY / LAKE MARTIN · EST. 1958</div>
+          <h2 style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: 'clamp(1.9rem,4vw,2.7rem)', lineHeight: 1.14, margin: '0 0 1rem' }}>Lake-home protection, handled <em>while you&rsquo;re away</em></h2>
+          <p style={{ fontSize: '1.06rem', lineHeight: 1.7, opacity: 0.94, margin: '0 0 1.6rem' }}>
             Second homes run on a different rhythm. We service from the outside before you
             arrive — pest, termite, mosquito and dock coverage, all from our Alexander City office.
           </p>
-          <Link href="/lake-martin" className="ec-lake-cta">Explore Lake Martin service →</Link>
+          <Link href="/lake-martin" style={{ display: 'inline-block', background: '#F5A800', color: '#0E1A0F', fontWeight: 700, padding: '0.85rem 1.6rem', borderRadius: 10, textDecoration: 'none' }}>Explore Lake Martin service →</Link>
         </div>
       </div>
     </section>
