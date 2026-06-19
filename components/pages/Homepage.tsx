@@ -1,25 +1,28 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/Homepage.tsx
+// Commit: feat: consolidate homepage — Option B layout, compact pricing, no contract language
+// Push: main
+// ─────────────────────────────────────
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import ScheduleRequest from '@/components/ScheduleRequest';
 import StickyCallButton from '@/components/StickyCallButton';
 
 /**
+ * EnviroCare Homepage v6 — Consolidated Option B (Jun 19, 2026)
  *
- * EnviroCare Homepage v5 — Logo zoom + bigger size + footer parity (May 18, 2026)
- *
- * Changes from v4:
- * 1. Logo entrance animation: 2x → 1x scale over 1.2s on first page load (once per session)
- * 2. Logo larger overall: 64px desktop, 52px mobile (was 48/40)
- * 3. Logo also pulses gently when scrolled into view at bottom
- * 4. Footer SERVICE AREAS expanded from 6 to all 27 cities (parity with homepage section)
- * 5. Mobile + reduced-motion safety: animation skipped if user prefers reduced motion
- *
- * Photos referenced (already in repo /public/):
- *   /family-yard.jpg, /kevin-headshot.jpg, /ribbon-cutting-1.jpg,
- *   /ribbon-cutting-2.jpg, /truck.webp, /lake-martin-aerial.jpg
+ * Changes from v5:
+ * 1. Merged CoreServices + Pricing into one ConsolidatedPricing section (compact expandable list)
+ * 2. Section order: Hero → Pricing → Reviews → FindOffice → Heritage → Footer (Option B)
+ * 3. Removed: ScheduleVisit (off homepage), BundleCTA, LakeMartinBand, SpecialtyServices
+ * 4. ThreeOffices replaced with FindYourOffice zip finder
+ * 5. "No contract" language removed sitewide per owner direction
+ * 6. Hero copy: "interior and exterior coverage" replaces "we treat from the outside"
+ * 7. Pricing: $99 initial, tick as +$20 add-on, termite "as low as $325" subject to inspection
+ * 8. Complete tier corrected to ~$116/mo
  */
 
 export default function Homepage() {
@@ -29,38 +32,13 @@ export default function Homepage() {
       <TopBanner />
       <Header />
       <Hero />
-      <CoreServices />
-      <Pricing />
-      <SpecialtyServices />
-      <ThreeOffices />
-      <Heritage />
+      <ConsolidatedPricing />
       <Reviews />
-      <ScheduleVisit />
-      <BundleCTA />
+      <FindYourOffice />
+      <Heritage />
       <Footer />
       <StickyCallButton />
     </main>
-  );
-}
-
-/* ============================================================
-   SCHEDULE YOUR FIRST VISIT — below pricing
-   ============================================================ */
-function ScheduleVisit() {
-  return (
-    <section style={{ background: '#FEFDF8', padding: '64px clamp(20px,5vw,64px)' }}>
-      <div style={{ maxWidth: 1120, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
-            Schedule Your First Visit
-          </h2>
-          <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: '#5b6f60', fontSize: 15.5 }}>
-            Protected from the outside in — most visits don&rsquo;t require you home.
-          </p>
-        </div>
-        <ScheduleRequest />
-      </div>
-    </section>
   );
 }
 
@@ -83,7 +61,7 @@ function TopBanner() {
 }
 
 /* ============================================================
-   HEADER - LOGO IMAGE ONLY (no duplicate wordmark text!)
+   HEADER
    ============================================================ */
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -154,8 +132,7 @@ function Header() {
 }
 
 /* ============================================================
-   HERO — panel-approved spec (2026-06-10): eyebrow, headline, sub,
-   2 CTAs, one trust row, clean photo. No cards, orbs, or strips.
+   HERO
    ============================================================ */
 function Hero() {
   return (
@@ -175,9 +152,8 @@ function Hero() {
 
           <p className="ec-hero-sub">
             A trained specialist for every service — pest, termite, mosquito and
-            tick — so you get expert quality on every visit, not one generalist
-            stretched thin. One company. One invoice. We treat from the outside,
-            so you don&rsquo;t even need to be home.
+            tick — so you get expert quality on every visit. One company. One
+            invoice. Interior and exterior coverage, scheduled around your life.
           </p>
 
           <div className="ec-hero-ctas">
@@ -200,7 +176,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Hero photo — clean, no overlay cards */}
         <div className="ec-hero-visual">
           <div className="ec-hero-photo-wrap">
             <Image
@@ -222,497 +197,148 @@ function Hero() {
 }
 
 /* ============================================================
-   TRUST STRIP
+   CONSOLIDATED PRICING — compact expandable list with toggle
+   Replaces: CoreServices + Pricing + SpecialtyServices
    ============================================================ */
-/* TrustStrip removed Jun 13 — duplicate of hero trust row + banner */
-
-/* ============================================================
-   CORE SERVICES
-   ============================================================ */
-function CoreServices() {
-  return (
-    <section className="ec-services">
-      <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">OUR CORE SERVICES</div>
-        <h2 className="ec-section-h2">Four Pillars of <em>Total Protection</em></h2>
-        <p className="ec-section-sub">
-          Every Alabama home needs these four. We&apos;ve perfected each over 68 years
-          across Birmingham, Lake Martin and Huntsville.
-        </p>
-        <div className="ec-services-grid">
-          <ServiceCard
-            title="Pest Control"
-            description="Bimonthly exterior defense against ants, roaches, spiders & 30+ Alabama pests — including mice & rats."
-            bullets={['Bimonthly service • no hidden fees', 'Unlimited free re-service', 'No long-term contract']}
-            href="/services/pest-control" cornerIcon="🛡️" price="From $35/mo" priceLabel="BIMONTHLY"
-          />
-          <ServiceCard
-            badge="LAKE MARTIN SPECIALTY" title="Mosquito Control"
-            description="30-day yard barrier March–November. Reclaim your deck, dock and outdoor living spaces all season."
-            bullets={['9 treatments per season (March—November)', 'Per service — no monthly', 'EPA-registered products applied per label directions']}
-            href="/services/mosquito-control" cornerIcon="🦟" highlight="30-DAY BARRIER" price="$45/visit × 9" priceLabel="SEASONAL · MAR–NOV"
-          />
-          <ServiceCard
-            badge="MOST POPULAR" title="Pest + Mosquito"
-            description="Bimonthly pest control plus seasonal mosquito — one plan, one local team."
-            bullets={['Bimonthly pest + seasonal mosquito', 'Add tick: +$20/visit', 'No long-term contract']}
-            href="/quote" cornerIcon="🌿" featured price="From $69/mo" priceLabel="BIMONTHLY + SEASONAL"
-          />
-          <ServiceCard
-            badge="SENTRICON® CERTIFIED" title="Termite Control"
-            description="Sentricon® Always Active™ system, backed by up to $1M damage coverage. Quote provided after your free WDO inspection & approval."
-            bullets={['Free full-home WDO inspection', 'No drilling — in-ground stations', 'Up to $1M repair coverage']}
-            href="/services/termite-control" cornerIcon="🪵" highlight="$1M COVERAGE" price="Free Inspection" priceLabel="REQUIRED BEFORE QUOTE"
-          />
-        </div>
-      </div>
-    </section>
-  );
+interface PlanItem {
+  icon: string;
+  name: string;
+  badge?: string;
+  divider?: boolean;
+  popular?: boolean;
 }
 
-function ServiceCard({ badge, title, description, bullets, href, cornerIcon, featured, highlight, price, priceLabel }: {
-  badge?: string; title: string; description: string; bullets: string[];
-  href: string; cornerIcon: string; featured?: boolean; highlight?: string;
-  price?: string; priceLabel?: string;
-}) {
-  return (
-    <Link href={href} className={`ec-service-card ${featured ? 'ec-service-featured' : ''}`}>
-      <div className="ec-service-icon-wrap">
-        <span className="ec-service-icon">{cornerIcon}</span>
-        {price ? (
-          <span className="ec-service-pricechip">
-            <span className="ec-service-priceamt">{price}</span>
-            {priceLabel && <span className="ec-service-pricelab">{priceLabel}</span>}
-          </span>
-        ) : highlight ? (
-          <span className="ec-service-highlight">{highlight}</span>
-        ) : null}
-      </div>
-      {badge && <div className="ec-service-badge">{badge}</div>}
-      <h3 className="ec-service-title">{title}</h3>
-      <p className="ec-service-desc">{description}</p>
-      <ul className="ec-service-bullets">
-        {bullets.map((b) => <li key={b}><span className="ec-check">✓</span> {b}</li>)}
-      </ul>
-      <span className="ec-service-arrow">See plan →</span>
-    </Link>
-  );
-}
+const PLAN_META: PlanItem[] = [
+  { icon: '🛡️', name: 'Pest Control' },
+  { icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true },
+  { icon: '🪵', name: 'Termite — Sentricon®', badge: 'INSPECTION REQUIRED', divider: true },
+  { icon: '🏠', name: 'Complete', badge: 'ALL-IN-ONE' },
+];
 
-/* ============================================================
-   SPECIALTY
-   ============================================================ */
-function SpecialtyServices() {
-  const specialty = [
-    { icon: '🐜', title: 'Fire Ant Control', desc: 'Yard-wide elimination & mound treatment. Critical for lake homes and barefoot families.', tag: 'ADD-ON', href: '/services/fire-ant' },
-    { icon: '🪲', title: 'Flea Control', desc: 'Interior flea treatment that targets the lifecycle indoors. An add-on to your bimonthly pest program.', tag: 'TARGETED FLEA CONTROL', href: '/services/flea' },
-    { icon: '🏠', title: 'Builder Pre-Treat', desc: 'Pre-construction termite treatment for new builds. The right time to start Sentricon® protection.', tag: 'NEW CONSTRUCTION', href: '/services/builder-pre-treat' },
-    { icon: '📋', title: 'Real Estate / WDO Letters', desc: 'Wood-destroying organism inspection letters for closings. Fast turnaround, lender-ready format.', tag: 'CLOSINGS', href: '/services/wdo-letters' },
-    { icon: '🏢', title: 'Commercial Service', desc: 'Restaurants, offices, warehouses. Discrete scheduling & full compliance documentation.', tag: 'IPM & HACCP', href: '/services/commercial' },
-  ];
+const PLAN_DATA = {
+  perservice: [
+    { price: '$70/visit bimonthly', terms: '$99 initial service fee',
+      bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service', 'EPA-registered products, label directions'],
+      addon: null, cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$99 initial' },
+    { price: '$70/visit + $45/visit', terms: '9 mosquito treatments March–November',
+      bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
+      addon: 'Add tick to any mosquito visit: +$20/treatment', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
+    { price: 'As low as $325 to start', terms: 'Subject to inspection · free WDO inspection included',
+      bullets: ['Sentricon® Always Active™ stations', 'Up to $1M damage repair coverage', 'No drilling — in-ground system', 'Annual renewal priced at inspection'],
+      addon: null, cta: 'Book Free Inspection', ctaCls: 'ec-cp-cta-gold', fine: null },
+    { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite priced upon inspection & approval',
+      bullets: ['Everything in Pest + Mosquito', 'Sentricon® termite protection', '$1M damage repair coverage', 'One company, one invoice'],
+      addon: 'Add tick to mosquito visits: +$20/treatment', cta: 'Choose Complete', ctaCls: 'ec-cp-cta-dark', fine: '$229 initial · termite at inspection' },
+  ],
+  monthly: [
+    { price: '$35/mo ACH', terms: '$99 initial · ACH autopay',
+      bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service', 'EPA-registered products, label directions'],
+      addon: null, cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$99 initial' },
+    { price: '$69/mo ACH', terms: '$35 pest + ~$34 mosquito spread monthly',
+      bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
+      addon: 'Add tick: +$20/treatment or roll into ACH (~$49/mo for mosquito+tick)', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
+    { price: 'As low as $32/mo', terms: '$325 install (yr-1 guarantee) · $380/yr renewal or $32/mo · subject to inspection',
+      bullets: ['Sentricon® Always Active™ stations', 'Up to $1M damage repair coverage', 'No drilling — in-ground system', 'Annual renewal priced at inspection'],
+      addon: null, cta: 'Book Free Inspection', ctaCls: 'ec-cp-cta-gold', fine: null },
+    { price: '~$116/mo ACH', terms: 'Pest $35 + Termite ~$32 + Mosquito+Tick ~$49',
+      bullets: ['Everything in Pest + Mosquito + Tick', 'Sentricon® termite protection', '$1M damage repair coverage', 'One company, one invoice'],
+      addon: null, cta: 'Choose Complete', ctaCls: 'ec-cp-cta-dark', fine: '$229 initial · termite at inspection' },
+  ],
+};
+
+function ConsolidatedPricing() {
+  const [mode, setMode] = useState<'perservice' | 'monthly'>('perservice');
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  const toggle = () => setMode(m => m === 'perservice' ? 'monthly' : 'perservice');
+  const items = PLAN_DATA[mode];
 
   return (
-    <section className="ec-specialty">
+    <section className="ec-cp">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">SPECIALTY & ADD-ON SERVICES</div>
-        <h2 className="ec-section-h2">More Ways We <em>Can Help</em></h2>
+        <div className="ec-section-eyebrow">SERVICES &amp; PRICING</div>
+        <h2 className="ec-section-h2">Alabama Protection, <em>Clearly Priced</em></h2>
         <p className="ec-section-sub">
-          Add any of these to your core service — one invoice, one company, no juggling vendors.
-        </p>
-        <div className="ec-specialty-grid">
-          {specialty.map((s) => (
-            <Link key={s.title} href={s.href} className="ec-specialty-card">
-              <span className="ec-specialty-icon">{s.icon}</span>
-              <h3 className="ec-specialty-title">{s.title}</h3>
-              <p className="ec-specialty-desc">{s.desc}</p>
-              <span className="ec-specialty-tag">{s.tag}</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================
-   THREE OFFICES with CUSTOM SVG ART
-   ============================================================ */
-function ThreeOffices() {
-  const birmingham = [
-    { name: 'Birmingham', slug: 'birmingham' },
-    { name: 'Hoover', slug: 'hoover' },
-    { name: 'Vestavia Hills', slug: 'vestavia-hills' },
-    { name: 'Mountain Brook', slug: 'mountain-brook' },
-    { name: 'Homewood', slug: 'homewood' },
-    { name: 'Alabaster', slug: 'alabaster' },
-    { name: 'Chelsea', slug: 'chelsea' },
-    { name: 'Pelham', slug: 'pelham' },
-    { name: 'Helena', slug: 'helena' },
-    { name: 'Calera', slug: 'calera' },
-    { name: 'Trussville', slug: 'trussville' },
-    { name: 'Mt Laurel', slug: 'mt-laurel' },
-  ];
-  const lakeMartin = [
-    { name: 'Alexander City', slug: 'alexander-city' },
-    { name: 'Lake Martin', slug: 'lake-martin' },
-    { name: 'Dadeville', slug: 'dadeville' },
-    { name: 'Eclectic', slug: 'eclectic' },
-    { name: 'Auburn', slug: 'auburn' },
-    { name: 'Opelika', slug: 'opelika' },
-  ];
-  const huntsville = [
-    { name: 'Huntsville', slug: 'huntsville' },
-    { name: 'Madison', slug: 'madison' },
-    { name: 'Athens', slug: 'athens' },
-    { name: 'Decatur', slug: 'decatur' },
-    { name: 'Hartselle', slug: 'hartselle' },
-    { name: 'Harvest', slug: 'harvest' },
-    { name: 'Hampton Cove', slug: 'hampton-cove' },
-  ];
-
-  return (
-    <section className="ec-offices">
-      <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">THREE OFFICES · ACROSS ALABAMA</div>
-        <h2 className="ec-section-h2">Find Your <em>Local EnviroCare Team</em></h2>
-        <p className="ec-section-sub">
-          Birmingham, Alex City / Lake Martin, and Huntsville. Served by a local EnviroCare team — never dispatched out of state. Tap your city for local pricing and scheduling.
+          No hidden fees. Every service backed by a trained specialist. Tap any service for details.
         </p>
 
-        <div className="ec-offices-grid">
-          {/* BIRMINGHAM - Vulcan Statue */}
-          <OfficeCard
-            art={<VulcanSVG />}
-            city="Birmingham"
-            label="BIRMINGHAM OFFICE"
-            address="2025 Butler Rd, Alabaster, AL 35007"
-            cities={birmingham}
-            phone="(205) 940-6360"
-            phoneHref="tel:2059406360"
-            link="/birmingham"
-          />
-          {/* LAKE MARTIN - Real Aerial Photo, featured */}
-          <OfficeCard
-            art={<img src="/lake-martin-sunset.webp" alt="Dock at sunset on Lake Martin, Alabama" loading="lazy" decoding="async" style={{ width: '100%', aspectRatio: '120 / 100', objectFit: 'cover', display: 'block' }} />}
-            city="Alex City / Lake Martin"
-            label="ALEXANDER CITY — EST. 1958"
-            address="1785 Tallapoosa St, Alexander City, AL 35010"
-            cities={lakeMartin}
-            phone="(256) 234-6162"
-            phoneHref="tel:2562346162"
-            link="/lake-martin"
-            featured
-            auburnNote
-          />
-          {/* HUNTSVILLE - Saturn V Rocket */}
-          <OfficeCard
-            art={<SaturnVSVG />}
-            city="Huntsville"
-            label="HUNTSVILLE OFFICE"
-            address="7027 Old Madison Pike, Ste 108, Huntsville, AL 35806"
-            cities={huntsville}
-            phone="(256) 937-7676"
-            phoneHref="tel:2569377676"
-            link="/huntsville"
-          />
-        </div>
-
-        <div className="ec-areas-cta">
-          <p>Don&apos;t see your city? Type your zip to find your local office:</p>
-          <Link href="/find-office" className="ec-cta-primary">Find My Office →</Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OfficeCard({ art, city, label, address, cities, phone, phoneHref, link, featured, auburnNote }: {
-  art: React.ReactNode; city: string; label: string; address: string;
-  cities: { name: string; slug: string }[]; phone: string; phoneHref: string;
-  link: string; featured?: boolean; auburnNote?: boolean;
-}) {
-  return (
-    <div className={`ec-office-card ${featured ? 'ec-office-featured' : ''}`}>
-      <div className="ec-office-art">{art}</div>
-      <h3 className="ec-office-city">{city}</h3>
-      <div className="ec-office-label">{label}</div>
-      <div className="ec-office-addr">{address}</div>
-      <div className="ec-office-cities">
-        {cities.map((c) => (
-          <Link key={c.slug} href={`/${c.slug}`} className="ec-office-city-link">
-            {c.name}<span className="ec-office-city-arrow"> →</span>
-          </Link>
-        ))}
-      </div>
-      {auburnNote && (
-        <div className="ec-office-auburn">
-          📞 Auburn direct line: <a href="tel:3343323321"><strong>(334) 332-3321</strong></a>
-        </div>
-      )}
-      <a href={phoneHref} className="ec-office-phone">
-        <span>📞</span> {phone}
-      </a>
-      <Link href={link} className="ec-office-link">View {city} →</Link>
-    </div>
-  );
-}
-
-/* ============================================================
-   ALL 27 SERVICE AREAS - grouped by office, fully linked
-   ============================================================ */
-/* ServiceAreas removed Jun 13 — merged into ThreeOffices (clickable city links live there now) */
-
-/* ============================================================
-   CUSTOM SVG ART for each office
-   ============================================================ */
-function VulcanSVG() {
-  return (
-    <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" className="ec-svg-art">
-      {/* Sky */}
-      <rect width="120" height="100" fill="url(#vulcanSky)" />
-      <defs>
-        <linearGradient id="vulcanSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#E8F5EE" />
-          <stop offset="1" stopColor="#FEFDF8" />
-        </linearGradient>
-      </defs>
-
-      {/* Red mountain (Red Mountain, AL) */}
-      <path d="M 0 80 L 30 50 L 50 65 L 70 40 L 95 55 L 120 70 L 120 100 L 0 100 Z"
-        fill="#0A7935" opacity="0.3" />
-      <path d="M 0 85 L 25 65 L 50 75 L 75 60 L 100 70 L 120 80 L 120 100 L 0 100 Z"
-        fill="#0E8E40" opacity="0.5" />
-
-      {/* Vulcan pedestal */}
-      <rect x="55" y="55" width="10" height="30" fill="#5A6660" />
-      <rect x="52" y="82" width="16" height="6" fill="#0E1A0F" />
-
-      {/* Vulcan body */}
-      <circle cx="60" cy="48" r="4" fill="#5A6660" />
-      <rect x="56" y="50" width="8" height="10" fill="#5A6660" />
-
-      {/* Vulcan's raised arm + spear */}
-      <line x1="60" y1="52" x2="60" y2="38" stroke="#5A6660" strokeWidth="2" strokeLinecap="round" />
-      {/* The famous gold torch/spear tip */}
-      <circle cx="60" cy="34" r="3" fill="#F5A800" />
-      <circle cx="60" cy="32" r="2" fill="#FFE082" opacity="0.9" />
-
-      {/* City skyline silhouettes */}
-      <rect x="10" y="70" width="6" height="20" fill="#0E1A0F" opacity="0.7" />
-      <rect x="18" y="74" width="5" height="16" fill="#0E1A0F" opacity="0.7" />
-      <rect x="25" y="68" width="4" height="22" fill="#0E1A0F" opacity="0.7" />
-      <rect x="85" y="70" width="5" height="20" fill="#0E1A0F" opacity="0.7" />
-      <rect x="92" y="65" width="4" height="25" fill="#0E1A0F" opacity="0.7" />
-      <rect x="98" y="72" width="6" height="18" fill="#0E1A0F" opacity="0.7" />
-      <rect x="106" y="68" width="4" height="22" fill="#0E1A0F" opacity="0.7" />
-    </svg>
-  );
-}
-
-function LakeMartinPhoto() {
-  return (
-    <div className="ec-photo-art">
-      <img loading="lazy" decoding="async"
-        src="/lake-martin-aerial.jpg"
-        alt="Aerial view of Lake Martin, Alabama"
-        className="ec-photo-art-img"
-      />
-      <div className="ec-photo-art-overlay"></div>
-      <div className="ec-photo-art-badge">EST. 1958</div>
-    </div>
-  );
-}
-
-function LakeSVG() {
-  return (
-    <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" className="ec-svg-art">
-      {/* Sky */}
-      <rect width="120" height="60" fill="url(#lakeSky)" />
-      <defs>
-        <linearGradient id="lakeSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#FFE082" />
-          <stop offset="1" stopColor="#FEFDF8" />
-        </linearGradient>
-        <linearGradient id="lakeWater" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#0E8E40" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#0A7935" stopOpacity="0.9" />
-        </linearGradient>
-      </defs>
-
-      {/* Sun */}
-      <circle cx="90" cy="25" r="10" fill="#F5A800" opacity="0.85" />
-      <circle cx="90" cy="25" r="13" fill="#F5A800" opacity="0.3" />
-
-      {/* Distant tree line */}
-      <path d="M 0 55 Q 15 48 25 52 Q 40 44 55 50 Q 70 42 85 48 Q 100 45 120 50 L 120 60 L 0 60 Z"
-        fill="#0A7935" opacity="0.4" />
-
-      {/* Water */}
-      <rect x="0" y="60" width="120" height="40" fill="url(#lakeWater)" />
-
-      {/* Water ripples */}
-      <line x1="10" y1="72" x2="30" y2="72" stroke="#fff" strokeWidth="1" opacity="0.4" />
-      <line x1="50" y1="78" x2="75" y2="78" stroke="#fff" strokeWidth="1" opacity="0.4" />
-      <line x1="85" y1="85" x2="115" y2="85" stroke="#fff" strokeWidth="1" opacity="0.4" />
-      <line x1="20" y1="90" x2="50" y2="90" stroke="#fff" strokeWidth="1" opacity="0.3" />
-
-      {/* Dock */}
-      <rect x="55" y="58" width="40" height="3" fill="#7A5C3A" />
-      <line x1="60" y1="61" x2="60" y2="68" stroke="#5A4226" strokeWidth="2" />
-      <line x1="70" y1="61" x2="70" y2="68" stroke="#5A4226" strokeWidth="2" />
-      <line x1="80" y1="61" x2="80" y2="68" stroke="#5A4226" strokeWidth="2" />
-      <line x1="90" y1="61" x2="90" y2="68" stroke="#5A4226" strokeWidth="2" />
-
-      {/* Sailboat */}
-      <path d="M 25 55 L 25 38 L 38 55 Z" fill="#FFE082" />
-      <line x1="25" y1="38" x2="25" y2="56" stroke="#0E1A0F" strokeWidth="1.5" />
-      <path d="M 18 56 L 32 56 L 30 60 L 20 60 Z" fill="#5A4226" />
-    </svg>
-  );
-}
-
-function SaturnVSVG() {
-  return (
-    <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" className="ec-svg-art">
-      {/* Sky gradient - launch dawn */}
-      <rect width="120" height="100" fill="url(#rocketSky)" />
-      <defs>
-        <linearGradient id="rocketSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#1A2620" />
-          <stop offset="0.5" stopColor="#0E8E40" stopOpacity="0.3" />
-          <stop offset="1" stopColor="#FFE082" stopOpacity="0.6" />
-        </linearGradient>
-        <linearGradient id="flames" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#F5A800" />
-          <stop offset="0.5" stopColor="#FF6B00" />
-          <stop offset="1" stopColor="#FFE082" stopOpacity="0.3" />
-        </linearGradient>
-      </defs>
-
-      {/* Stars */}
-      <circle cx="20" cy="15" r="0.8" fill="#fff" />
-      <circle cx="105" cy="10" r="0.8" fill="#fff" />
-      <circle cx="35" cy="8" r="0.6" fill="#fff" />
-      <circle cx="95" cy="25" r="0.6" fill="#fff" />
-      <circle cx="15" cy="30" r="0.6" fill="#fff" />
-
-      {/* Ground */}
-      <rect x="0" y="92" width="120" height="8" fill="#0E1A0F" />
-
-      {/* Rocket body */}
-      <rect x="56" y="30" width="8" height="55" fill="#FEFDF8" />
-      <rect x="56" y="30" width="8" height="3" fill="#DC2626" />
-      <rect x="56" y="45" width="8" height="2" fill="#0E1A0F" />
-      <rect x="56" y="60" width="8" height="2" fill="#0E1A0F" />
-
-      {/* Rocket cone */}
-      <path d="M 56 30 L 60 18 L 64 30 Z" fill="#FEFDF8" />
-      <path d="M 60 18 L 60 12" stroke="#DC2626" strokeWidth="1" />
-
-      {/* Fins */}
-      <path d="M 56 75 L 50 88 L 56 85 Z" fill="#DC2626" />
-      <path d="M 64 75 L 70 88 L 64 85 Z" fill="#DC2626" />
-
-      {/* US flag on side */}
-      <rect x="57" y="50" width="3" height="2" fill="#fff" />
-      <rect x="57" y="50" width="1" height="1" fill="#1E3A8A" />
-      <text x="58" y="58" fontSize="3" fill="#0E1A0F" fontFamily="Arial">USA</text>
-
-      {/* Flames */}
-      <path d="M 56 85 L 53 100 L 60 95 L 67 100 L 64 85 Z" fill="url(#flames)" opacity="0.9" />
-      <ellipse cx="60" cy="93" rx="3" ry="6" fill="#fff" opacity="0.6" />
-    </svg>
-  );
-}
-
-/* ============================================================
-   HERITAGE - Kevin photo + ribbon cutting photos
-   ============================================================ */
-function Heritage() {
-  return (
-    <section className="ec-heritage">
-      <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">OUR STORY</div>
-        <h2 className="ec-section-h2">
-          Four Generations. <em>One Family.</em> One Promise.
-        </h2>
-
-        <div className="ec-heritage-grid">
-          <div className="ec-heritage-text">
-            <p>
-              In <strong>1958, Phillip M. Wedgworth</strong> started EnviroCare
-              with one truck and one belief — that families deserved an Alabama
-              pest control company that actually answers the phone and stands
-              behind the work.
-            </p>
-            <p>
-              Sixty-eight years later, the same family still runs it. Phillip M.
-              passed it to his son Phillip L., then to his grandson{' '}
-              <strong>Kevin Wedgworth</strong>, who leads the company today — with
-              the fourth generation, William Lex Wedgworth, now on the team.
-              Three Alabama offices. Same family. Same answer to your pest problem.
-            </p>
-            <blockquote className="ec-heritage-quote">
-              &ldquo;No One Cares Like EnviroCare.&rdquo;
-            </blockquote>
-            <div className="ec-heritage-stats">
-              <div className="ec-h-stat"><div className="ec-h-stat-num">1958</div><div className="ec-h-stat-label">FOUNDED</div></div>
-              <div className="ec-h-stat"><div className="ec-h-stat-num">4</div><div className="ec-h-stat-label">GENERATIONS</div></div>
-              <div className="ec-h-stat"><div className="ec-h-stat-num">100%</div><div className="ec-h-stat-label">FAMILY OWNED</div></div>
-            </div>
+        {/* Toggle */}
+        <div className="ec-cp-toggle-wrap">
+          <span
+            className={`ec-cp-toggle-label ${mode === 'perservice' ? 'ec-cp-active' : ''}`}
+            onClick={() => setMode('perservice')}
+          >Per Service</span>
+          <div
+            className={`ec-cp-toggle-bar ${mode === 'monthly' ? 'ec-cp-bar-on' : ''}`}
+            onClick={toggle}
+          >
+            <div className={`ec-cp-toggle-dot ${mode === 'monthly' ? 'ec-cp-dot-right' : ''}`} />
           </div>
+          <span
+            className={`ec-cp-toggle-label ${mode === 'monthly' ? 'ec-cp-active' : ''}`}
+            onClick={() => setMode('monthly')}
+          >Monthly ACH</span>
+        </div>
+        <p className="ec-cp-toggle-note">
+          {mode === 'perservice'
+            ? 'Pay each visit as it happens.'
+            : 'Equal monthly ACH drafts. Not financing.'}
+        </p>
 
-          <div className="ec-heritage-photos">
-            {/* Kevin Wedgworth photo - polaroid style */}
-            <div className="ec-photo-frame ec-photo-kevin">
-              <img loading="lazy" decoding="async"
-                src="/kevin.jpg"
-                alt="Kevin Wedgworth, third-generation owner"
-                className="ec-photo-img"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/kevin-headshot.jpg';
-                }}
-              />
-              <div className="ec-photo-caption">
-                <strong>Kevin Wedgworth</strong>
-                <span>3rd-Generation Owner</span>
-              </div>
-            </div>
+        {/* Cards */}
+        <div className="ec-cp-list">
+          {PLAN_META.map((meta, i) => {
+            const d = items[i];
+            const isOpen = openIdx === i;
+            return (
+              <div key={meta.name}>
+                {meta.divider && (
+                  <div className="ec-cp-divider">
+                    <span>ADD TERMITE PROTECTION</span>
+                  </div>
+                )}
+                <div
+                  className={`ec-cp-item ${meta.popular ? 'ec-cp-pop' : ''} ${isOpen ? 'ec-cp-open' : ''}`}
+                  onClick={() => setOpenIdx(isOpen ? null : i)}
+                >
+                  <div className="ec-cp-item-top">
+                    <div className="ec-cp-dot">{meta.icon}</div>
+                    <div className="ec-cp-item-info">
+                      <div className="ec-cp-item-name">
+                        {meta.name}
+                        {meta.badge && <span className="ec-cp-badge">{meta.badge}</span>}
+                      </div>
+                      <div className="ec-cp-item-price">{d.price}</div>
+                    </div>
+                    <span className="ec-cp-arrow">▼</span>
+                  </div>
 
-            {/* Ribbon cutting photos */}
-            <div className="ec-photo-frame ec-photo-ribbon-1">
-              <img loading="lazy" decoding="async"
-                src="/ribbon-cutting-1.jpg"
-                alt="Birmingham office ribbon cutting"
-                className="ec-photo-img"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement?.classList.add('ec-photo-fallback');
-                }}
-              />
-              <div className="ec-photo-caption ec-caption-small">
-                <strong>Birmingham Office Opening</strong>
+                  {isOpen && (
+                    <div className="ec-cp-detail" onClick={e => e.stopPropagation()}>
+                      <div className="ec-cp-terms">{d.terms}</div>
+                      <ul className="ec-cp-bullets">
+                        {d.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
+                      </ul>
+                      {d.addon && (
+                        <div className="ec-cp-addon">{d.addon}</div>
+                      )}
+                      <Link href="/quote" className={`ec-cp-cta ${d.ctaCls}`}>{d.cta}</Link>
+                      {d.fine && <div className="ec-cp-fine"><em>{d.fine}</em></div>}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            );
+          })}
+        </div>
 
-            <div className="ec-photo-frame ec-photo-ribbon-2">
-              <img loading="lazy" decoding="async"
-                src="/ribbon-cutting-2.jpg"
-                alt="Huntsville office ribbon cutting"
-                className="ec-photo-img"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement?.classList.add('ec-photo-fallback');
-                }}
-              />
-              <div className="ec-photo-caption ec-caption-small">
-                <strong>Huntsville Office Opening</strong>
-              </div>
-            </div>
-          </div>
+        <div className="ec-cp-strip">
+          <strong>$99 initial service fee</strong> for new pest customers.
+          Mosquito and tick have no startup.
+        </div>
+        <div className="ec-cp-assurance">We never charge twice for the same coverage.</div>
+        <div className="ec-cp-faq">
+          Already have termite coverage? We&rsquo;ll verify your protection before recommending anything.
         </div>
       </div>
     </section>
@@ -770,215 +396,149 @@ function Reviews() {
 }
 
 /* ============================================================
-   PRICING — with Per Service / Monthly Plan toggle
+   FIND YOUR OFFICE — zip finder replaces 3 office cards
    ============================================================ */
-function Pricing() {
-  const [mode, setMode] = useState<'monthly' | 'perservice'>('monthly');
+function FindYourOffice() {
+  const [zip, setZip] = useState('');
+  const [result, setResult] = useState<string | null>(null);
+
+  const offices = [
+    { name: 'Birmingham / Alabaster', phone: '(205) 940-6360', phoneHref: 'tel:2059406360',
+      zips: ['35004','35007','35022','35023','35040','35041','35042','35043','35051','35060','35061','35062','35064','35068','35071','35073','35078','35080','35085','35094','35111','35114','35115','35116','35117','35118','35119','35120','35124','35126','35127','35128','35130','35131','35133','35135','35139','35142','35143','35144','35146','35147','35148','35150','35160','35173','35176','35180','35185','35186','35188','35201','35202','35203','35204','35205','35206','35207','35208','35209','35210','35211','35212','35213','35214','35215','35216','35217','35218','35219','35220','35221','35222','35223','35224','35225','35226','35228','35229','35231','35232','35233','35234','35235','35236','35237','35238','35242','35243','35244','35246','35249','35253','35254','35255','35259','35260','35261','35263','35266','35277','35278','35279','35280','35281','35282','35283','35285','35287','35288','35289','35290','35291','35292','35293','35294','35295','35296','35297','35298'] },
+    { name: 'Alexander City / Lake Martin', phone: '(256) 234-6162', phoneHref: 'tel:2562346162',
+      zips: ['35010','35072','35089','35096','36003','36008','36064','36067','36075','36078','36080','36830','36832'] },
+    { name: 'Huntsville', phone: '(256) 937-7676', phoneHref: 'tel:2569377676',
+      zips: ['35601','35602','35603','35611','35613','35614','35620','35630','35631','35640','35649','35670','35671','35672','35673','35674','35739','35741','35748','35749','35750','35751','35752','35755','35756','35757','35758','35759','35760','35761','35762','35763','35764','35765','35766','35768','35769','35771','35772','35773','35774','35775','35776','35801','35802','35803','35804','35805','35806','35807','35808','35809','35810','35811','35812','35813','35814','35815','35816','35824','35893','35894','35895','35896','35897','35898','35899'] },
+  ];
+
+  const findOffice = () => {
+    const z = zip.trim();
+    if (!z || z.length < 5) { setResult('Please enter a 5-digit ZIP code.'); return; }
+    const match = offices.find(o => o.zips.includes(z));
+    if (match) {
+      setResult(`Your office: ${match.name} — ${match.phone}`);
+    } else {
+      setResult('We may serve your area! Call (205) 940-6360 to check.');
+    }
+  };
 
   return (
-    <section className="ec-pricing">
+    <section className="ec-findoffice">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">PLANS & PRICING</div>
-        <h2 className="ec-section-h2">Pick Your <em>Protection Plan</em></h2>
+        <div className="ec-section-eyebrow">THREE OFFICES ACROSS ALABAMA</div>
+        <h2 className="ec-section-h2">Find <em>Your Office</em></h2>
         <p className="ec-section-sub">
-          Honest, straightforward pricing. No contracts, no hidden fees — pay monthly on ACH, cancel anytime.
+          Birmingham/Alabaster · Alexander City/Lake Martin · Huntsville
         </p>
-
-        {/* ── Toggle ── */}
-        <div className="ec-price-toggle-wrap">
-          <button
-            className={`ec-price-toggle-btn ${mode === 'perservice' ? 'ec-toggle-active' : ''}`}
-            onClick={() => setMode('perservice')}
-          >Per Service</button>
-          <div className="ec-price-toggle-track" onClick={() => setMode(mode === 'monthly' ? 'perservice' : 'monthly')} role="switch" aria-checked={mode === 'monthly'}>
-            <div className={`ec-price-toggle-pill ${mode === 'monthly' ? 'ec-pill-right' : 'ec-pill-left'}`} />
-          </div>
-          <button
-            className={`ec-price-toggle-btn ${mode === 'monthly' ? 'ec-toggle-active' : ''}`}
-            onClick={() => setMode('monthly')}
-          >Monthly Plan</button>
+        <div className="ec-fo-box">
+          <input
+            type="text"
+            className="ec-fo-input"
+            placeholder="Enter ZIP code"
+            maxLength={5}
+            value={zip}
+            onChange={e => { setZip(e.target.value.replace(/\D/g, '')); setResult(null); }}
+            onKeyDown={e => e.key === 'Enter' && findOffice()}
+          />
+          <button className="ec-fo-btn" onClick={findOffice}>Find Office →</button>
         </div>
-
-        {/* ── Plan cards — same four in both states; price lines swap (Jun 11 spec) ── */}
-        <div className="ec-pricing-grid ec-pricing-fade" key={mode}>
-          <PriceCard
-            title="Pest" tags={['Pest']}
-            tagline="Year-round bimonthly pest control for the everyday Alabama home."
-            price={mode === 'monthly' ? '35' : '70'}
-            unit={mode === 'monthly' ? '/mo' : '/visit'}
-            terms={mode === 'monthly' ? 'From $35/mo · ACH autopay · cancel anytime' : 'bimonthly · per visit'}
-            bullets={['Exterior-first treatment — you don’t need to be home', '30+ common pests, incl. mice & rats', 'Unlimited free re-services', 'EPA-registered products applied per label directions']}
-            cta="Choose Pest" href="/quote?plan=pest"
-            finePrint="$79 startup · no contract"
-          />
-          <PriceCard
-            title="Pest + Mosquito" tags={['Pest', 'Mosquito']}
-            tagline="Bimonthly pest plus seasonal mosquito — one plan, one local team."
-            price={mode === 'monthly' ? '69' : ''}
-            unit={mode === 'monthly' ? '/mo' : ''}
-            priceLine={mode === 'perservice' ? 'Pest $70/visit + Mosquito $45/visit' : undefined}
-            terms={mode === 'monthly' ? 'From $69/mo · add tick +$20/visit' : 'mosquito 9 visits Mar–Nov · add tick +$20/visit'}
-            bullets={['Bimonthly perimeter pest control', 'Seasonal mosquito (March–November)', 'Add tick: +$20/visit', 'Unlimited free pest re-service']}
-            cta="Choose Pest + Mosquito" href="/quote?plan=pest-mosquito"
-            finePrint="$99 startup · no contract"
-            badge="MOST POPULAR" featured
-          />
-          <PriceCard
-            title="Termite" tags={['Termite']}
-            tagline="Sentricon® Always Active™ — Alabama's regulated termite protection."
-            price=""
-            unit=""
-            priceLine="Free inspection — price upon approval"
-            terms="Alabama requires an on-site WDO inspection before we quote; the inspection is free"
-            bullets={['Sentricon® Always Active™ bait stations', '$1M damage repair coverage', 'No drilling — in-ground stations', 'Service & price provided upon inspection & approval']}
-            cta="Book free inspection" href="/quote?plan=termite"
-          />
-          <PriceCard
-            title="Complete" tags={['Pest', 'Termite', 'Mosquito']}
-            tagline="Pest, termite and mosquito — one plan, one local team."
-            price={mode === 'monthly' ? '100' : ''}
-            unit={mode === 'monthly' ? '/mo' : ''}
-            priceLine={mode === 'perservice' ? 'Pest $70/visit + Mosquito $45/visit + Sentricon® priced at inspection' : undefined}
-            terms={mode === 'monthly' ? 'From ~$100/mo incl. Sentricon® termite (priced upon inspection & approval) · add tick +$20/visit' : 'termite priced upon inspection & approval'}
-            bullets={['Everything in Pest + Mosquito', 'Sentricon® Always Active™ termite protection', '$1M damage repair coverage', 'A specialist for each service', 'Termite priced upon inspection & approval']}
-            cta="Choose Complete" href="/quote?plan=complete"
-            badge="BEST VALUE"
-          />
-        </div>
-
-        {/* ── Initial-fee trust strip (Jun 11 spec) ── */}
-        <div className="ec-price-trust-strip">
-          <strong>Honest, published startup fees.</strong> Pest is $79 to start,
-          Pest&nbsp;+&nbsp;Mosquito is $99, and the Complete bundle is $229. Mosquito and tick
-          booked on their own have no startup — they&rsquo;re billed per visit.
+        {result && <div className="ec-fo-result">{result}</div>}
+        <div className="ec-fo-phones">
+          <a href="tel:2059406360">📞 (205) 940-6360 — Birmingham</a>
+          <a href="tel:2562346162">📞 (256) 234-6162 — Lake Martin</a>
+          <a href="tel:2569377676">📞 (256) 937-7676 — Huntsville</a>
         </div>
       </div>
     </section>
-  );
-}
-
-function PriceCard({ title, tags, tagline, price, unit, terms, bullets, cta, href, badge, featured, priceLine, finePrint }: {
-  title: string; tags: string[]; tagline: string; price: string; unit: string;
-  terms: string; bullets: string[]; cta: string; href: string;
-  badge?: string; featured?: boolean; priceLine?: string; finePrint?: string;
-}) {
-  return (
-    <div className={`ec-price-card ${featured ? 'ec-price-featured' : ''}`}>
-      {badge && <div className="ec-price-badge">{badge}</div>}
-      <h3 className="ec-price-title">{title}</h3>
-      <div className="ec-price-tags">
-        {tags.map((t) => <span key={t} className="ec-price-tag">{t}</span>)}
-      </div>
-      <p className="ec-price-tagline">{tagline}</p>
-      {priceLine ? (
-        <div className="ec-price-row ec-price-composite">{priceLine}</div>
-      ) : (
-        <div className="ec-price-row">
-          <span className="ec-price-dollar">$</span>
-          <span className="ec-price-num">{price}</span>
-          <span className="ec-price-unit">{unit}</span>
-        </div>
-      )}
-      <div className="ec-price-terms">{terms}</div>
-      <ul className="ec-price-bullets">
-        {bullets.map((b) => <li key={b}><span className="ec-check">✓</span> {b}</li>)}
-      </ul>
-      <Link href={href} className={`ec-price-cta ${featured ? 'ec-price-cta-featured' : ''}`}>
-        {cta}
-      </Link>
-      {finePrint && <div className="ec-price-fineprint"><em>{finePrint}</em></div>}
-    </div>
-  );
-}
-
-function SvcPriceCard({ icon, title, price, unit, note, bullets, href, featured }: {
-  icon: string; title: string; price: string; unit: string; note: string;
-  bullets: string[]; href: string; featured?: boolean;
-}) {
-  return (
-    <div className={`ec-svc-price-card ${featured ? 'ec-svc-price-featured' : ''}`}>
-      <div className="ec-svc-price-icon">{icon}</div>
-      <h3 className="ec-svc-price-title">{title}</h3>
-      <div className="ec-svc-price-row">
-        {price !== '0' && <span className="ec-svc-price-dollar">$</span>}
-        <span className="ec-svc-price-num">{price === '0' ? 'FREE' : price}</span>
-        {price !== '0' && <span className="ec-svc-price-unit">{unit}</span>}
-      </div>
-      <div className="ec-svc-price-note">{note}</div>
-      <ul className="ec-svc-price-bullets">
-        {bullets.map((b) => <li key={b}><span className="ec-check">✓</span> {b}</li>)}
-      </ul>
-      <Link href={href} className="ec-svc-price-cta">Get Quote →</Link>
-    </div>
   );
 }
 
 /* ============================================================
-   BUNDLE CTA - with truck image
+   HERITAGE
    ============================================================ */
-function LakeMartinBand() {
+function Heritage() {
   return (
-    <section className="ec-lake" style={{ position: 'relative', overflow: 'hidden' }}>
-      <img
-        src="/lake-martin-sunset.webp"
-        alt="Dock at sunset on Lake Martin, Alabama"
-        loading="lazy"
-        decoding="async"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-      />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(14,26,15,0.88) 0%, rgba(14,26,15,0.62) 52%, rgba(14,26,15,0.2) 100%)' }} />
-      <div style={{ position: 'relative', maxWidth: 1180, margin: '0 auto', padding: 'clamp(3rem,7vw,5.5rem) clamp(1.5rem,5vw,4rem)', color: '#fff' }}>
-        <div style={{ maxWidth: 580 }}>
-          <div style={{ color: '#F5A800', fontWeight: 700, letterSpacing: '0.1em', fontSize: 13, marginBottom: 12 }}>ALEX CITY / LAKE MARTIN · EST. 1958</div>
-          <h2 style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: 'clamp(1.9rem,4vw,2.7rem)', lineHeight: 1.14, margin: '0 0 1rem' }}>Lake-home protection, handled <em>while you&rsquo;re away</em></h2>
-          <p style={{ fontSize: '1.06rem', lineHeight: 1.7, opacity: 0.94, margin: '0 0 1.6rem' }}>
-            Second homes run on a different rhythm. We service from the outside before you
-            arrive — pest, termite, mosquito and dock coverage, all from our Alexander City office.
-          </p>
-          <Link href="/lake-martin" style={{ display: 'inline-block', background: '#F5A800', color: '#0E1A0F', fontWeight: 700, padding: '0.85rem 1.6rem', borderRadius: 10, textDecoration: 'none' }}>Explore Lake Martin service →</Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function BundleCTA() {
-  return (
-    <section className="ec-bundle">
-      <div className="ec-bundle-truck-wrap">
-        <img loading="lazy" decoding="async"
-          src="/truck.webp"
-          alt="EnviroCare green service truck with sunflower wrap"
-          className="ec-bundle-truck"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-          }}
-        />
-        <div className="ec-bundle-truck-overlay"></div>
-      </div>
-
-      <div className="ec-section-inner ec-bundle-inner">
-        <div className="ec-bundle-truck-eyebrow">You&apos;ll Recognize Us</div>
-        <h2 className="ec-bundle-h2">
-          The green truck <em>with the sunflower.</em>
+    <section className="ec-heritage">
+      <div className="ec-section-inner">
+        <div className="ec-section-eyebrow">OUR STORY</div>
+        <h2 className="ec-section-h2">
+          Four Generations. <em>One Family.</em> One Promise.
         </h2>
-        <p className="ec-bundle-truck-text">
-          When you see it in your neighborhood, you know EnviroCare is protecting a home nearby.
-          A familiar face across Alabama for over 68 years.
-        </p>
 
-        <div className="ec-bundle-divider"></div>
+        <div className="ec-heritage-grid">
+          <div className="ec-heritage-text">
+            <p>
+              In <strong>1958, Phillip M. Wedgworth</strong> started EnviroCare
+              with one truck and one belief — that families deserved an Alabama
+              pest control company that actually answers the phone and stands
+              behind the work.
+            </p>
+            <p>
+              Sixty-eight years later, the same family still runs it. Phillip M.
+              passed it to his son Phillip L., then to his grandson{' '}
+              <strong>Kevin Wedgworth</strong>, who leads the company today — with
+              the fourth generation, William Lex Wedgworth, now on the team.
+              Three Alabama offices. Same family. Same answer to your pest problem.
+            </p>
+            <blockquote className="ec-heritage-quote">
+              &ldquo;No One Cares Like EnviroCare.&rdquo;
+            </blockquote>
+            <div className="ec-heritage-stats">
+              <div className="ec-h-stat"><div className="ec-h-stat-num">1958</div><div className="ec-h-stat-label">FOUNDED</div></div>
+              <div className="ec-h-stat"><div className="ec-h-stat-num">4</div><div className="ec-h-stat-label">GENERATIONS</div></div>
+              <div className="ec-h-stat"><div className="ec-h-stat-num">100%</div><div className="ec-h-stat-label">FAMILY OWNED</div></div>
+            </div>
+          </div>
 
-        <h3 className="ec-bundle-h3">
-          🌻 One Invoice. One Company. <em>One Trusted Team.</em>
-        </h3>
-        <p className="ec-bundle-sub">
-          Pest, termite, mosquito and tick — a dedicated specialist handles each service. One company, one invoice, nothing to juggle.
-        </p>
-        <div className="ec-bundle-ctas">
-          <a href="tel:2059406360" className="ec-cta-primary">Call (205) 940-6360</a>
-          <Link href="/quote" className="ec-cta-secondary-light">See Plans →</Link>
+          <div className="ec-heritage-photos">
+            <div className="ec-photo-frame ec-photo-kevin">
+              <img loading="lazy" decoding="async"
+                src="/kevin.jpg"
+                alt="Kevin Wedgworth, third-generation owner"
+                className="ec-photo-img"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/kevin-headshot.jpg';
+                }}
+              />
+              <div className="ec-photo-caption">
+                <strong>Kevin Wedgworth</strong>
+                <span>3rd-Generation Owner</span>
+              </div>
+            </div>
+
+            <div className="ec-photo-frame ec-photo-ribbon-1">
+              <img loading="lazy" decoding="async"
+                src="/ribbon-cutting-1.jpg"
+                alt="Birmingham office ribbon cutting"
+                className="ec-photo-img"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement?.classList.add('ec-photo-fallback');
+                }}
+              />
+              <div className="ec-photo-caption ec-caption-small">
+                <strong>Birmingham Office Opening</strong>
+              </div>
+            </div>
+
+            <div className="ec-photo-frame ec-photo-ribbon-2">
+              <img loading="lazy" decoding="async"
+                src="/ribbon-cutting-2.jpg"
+                alt="Huntsville office ribbon cutting"
+                className="ec-photo-img"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement?.classList.add('ec-photo-fallback');
+                }}
+              />
+              <div className="ec-photo-caption ec-caption-small">
+                <strong>Huntsville Office Opening</strong>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1079,7 +639,7 @@ function Footer() {
 }
 
 /* ============================================================
-   STYLES
+   STYLES — existing CSS preserved + new consolidated pricing CSS
    ============================================================ */
 const HOMEPAGE_CSS = `
   .ec-main {
@@ -2447,5 +2007,292 @@ const HOMEPAGE_CSS = `
   .ec-footer-bottom-links a:hover { color: #fff; }
   @media (max-width: 899px) {
     .ec-main { padding-bottom: 80px; }
+  }
+
+  /* ============================================================
+     CONSOLIDATED PRICING — compact expandable list
+     ============================================================ */
+  .ec-cp {
+    padding: 64px 20px;
+    background: #fff;
+  }
+  .ec-cp-toggle-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .ec-cp-toggle-label {
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #9aa89c;
+    user-select: none;
+    transition: color 0.2s;
+  }
+  .ec-cp-active { color: #0E1A0F; }
+  .ec-cp-toggle-bar {
+    width: 52px;
+    height: 28px;
+    background: #cdd5ce;
+    border-radius: 14px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .ec-cp-bar-on { background: #2d6a3e; }
+  .ec-cp-toggle-dot {
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  .ec-cp-dot-right { transform: translateX(24px); }
+  .ec-cp-toggle-note {
+    text-align: center;
+    font-size: 12.5px;
+    color: #5b6f60;
+    margin-bottom: 28px;
+    font-style: italic;
+    min-height: 18px;
+  }
+
+  .ec-cp-list {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .ec-cp-item {
+    background: #fff;
+    border: 1.5px solid #e4e7e4;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .ec-cp-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .ec-cp-pop { border-color: #2d6a3e; box-shadow: 0 2px 12px rgba(45,106,62,0.1); }
+  .ec-cp-item-top {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    gap: 14px;
+  }
+  .ec-cp-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    background: #2d6a3e;
+  }
+  .ec-cp-pop .ec-cp-dot { background: #0E1A0F; }
+  .ec-cp-item-info { flex: 1; }
+  .ec-cp-item-name { font-weight: 700; font-size: 15px; color: #1a2e1c; }
+  .ec-cp-item-price { font-size: 13px; color: #2d6a3e; font-weight: 600; }
+  .ec-cp-arrow {
+    font-size: 18px;
+    color: #5b6f60;
+    transition: transform 0.25s;
+  }
+  .ec-cp-open .ec-cp-arrow { transform: rotate(180deg); }
+
+  .ec-cp-badge {
+    font-size: 9px;
+    font-weight: 700;
+    background: #F5A800;
+    color: #0E1A0F;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.04em;
+  }
+
+  .ec-cp-detail {
+    padding: 0 18px 18px;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+  }
+  .ec-cp-terms {
+    font-size: 11.5px;
+    color: #8a9a8c;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .ec-cp-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+  }
+  .ec-cp-bullets li {
+    font-size: 12.5px;
+    padding: 3px 0;
+    color: #3a5040;
+    display: flex;
+    gap: 7px;
+  }
+  .ec-cp-chk {
+    color: #2d6a3e;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .ec-cp-addon {
+    margin: 8px 0 12px;
+    padding: 9px 12px;
+    background: #f0f7f1;
+    border: 1.5px dashed #2d6a3e;
+    border-radius: 9px;
+    font-size: 12.5px;
+    color: #1a2e1c;
+  }
+
+  .ec-cp-cta {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .ec-cp-cta-outline { border: 1.5px solid #2d6a3e; color: #2d6a3e; background: #fff; }
+  .ec-cp-cta-outline:hover { background: #f0f7f1; }
+  .ec-cp-cta-green { background: #2d6a3e; color: #fff; }
+  .ec-cp-cta-green:hover { background: #245832; }
+  .ec-cp-cta-gold { background: #F5A800; color: #0E1A0F; }
+  .ec-cp-cta-gold:hover { background: #e09e00; }
+  .ec-cp-cta-dark { background: #0E1A0F; color: #fff; }
+  .ec-cp-cta-dark:hover { background: #060d06; }
+
+  .ec-cp-fine {
+    text-align: center;
+    font-size: 11px;
+    color: #8a9a8c;
+    margin-top: 6px;
+  }
+
+  .ec-cp-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 6px 0;
+  }
+  .ec-cp-divider::before,
+  .ec-cp-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #d4ddd6;
+  }
+  .ec-cp-divider span {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2d6a3e;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .ec-cp-strip {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: #5b6f60;
+    line-height: 1.55;
+    padding: 14px 16px;
+    background: #FEFDF8;
+    border-radius: 10px;
+  }
+  .ec-cp-strip strong { color: #1a2e1c; }
+  .ec-cp-assurance {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: #2d6a3e;
+    font-weight: 600;
+  }
+  .ec-cp-faq {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #5b6f60;
+    font-style: italic;
+  }
+
+  /* ============================================================
+     FIND YOUR OFFICE — zip finder
+     ============================================================ */
+  .ec-findoffice {
+    padding: 56px 20px;
+    background: #FEFDF8;
+  }
+  .ec-fo-box {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .ec-fo-input {
+    padding: 14px 20px;
+    border: 1.5px solid #e4e7e4;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 180px;
+    text-align: center;
+    font-family: inherit;
+  }
+  .ec-fo-input:focus {
+    outline: none;
+    border-color: #2d6a3e;
+    box-shadow: 0 0 0 3px rgba(45,106,62,0.1);
+  }
+  .ec-fo-btn {
+    padding: 14px 24px;
+    border-radius: 10px;
+    background: #2d6a3e;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .ec-fo-btn:hover { background: #245832; }
+  .ec-fo-result {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d6a3e;
+    margin-bottom: 16px;
+  }
+  .ec-fo-phones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  .ec-fo-phones a {
+    font-size: 13.5px;
+    color: #5b6f60;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .ec-fo-phones a:hover { color: #2d6a3e; }
+  @media (max-width: 480px) {
+    .ec-fo-box { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .ec-fo-btn { margin-left: 0; width: 180px; }
   }
 `;
