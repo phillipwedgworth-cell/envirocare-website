@@ -36,7 +36,6 @@ export default function Homepage() {
       <Heritage />
       <Reviews />
       <ScheduleVisit />
-      <LakeMartinBand />
       <BundleCTA />
       <Footer />
       <StickyCallButton />
@@ -394,7 +393,7 @@ function ThreeOffices() {
           />
           {/* LAKE MARTIN - Real Aerial Photo, featured */}
           <OfficeCard
-            art={<LakeSVG />}
+            art={<img src="/lake-martin-sunset.webp" alt="Dock at sunset on Lake Martin, Alabama" loading="lazy" decoding="async" style={{ width: '100%', aspectRatio: '120 / 100', objectFit: 'cover', display: 'block' }} />}
             city="Alex City / Lake Martin"
             label="ALEXANDER CITY — EST. 1958"
             address="1785 Tallapoosa St, Alexander City, AL 35010"
