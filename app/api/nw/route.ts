@@ -46,7 +46,9 @@ async function callNW(path: string, method: string, payload: unknown, apiKey: st
 }
 
 export async function GET(req: NextRequest) {
-  const apiKey = process.env.NEURONWRITER_API_KEY;
+  // Strip a leading BOM (U+FEFF) + surrounding whitespace — a BOM in the Vercel
+  // env value would otherwise corrupt the X-API-KEY header and 401 every call.
+  const apiKey = process.env.NEURONWRITER_API_KEY?.replace(/^\uFEFF/, "").trim();
   const q = req.nextUrl.searchParams.get("q");
 
   // Health check — no q
@@ -84,7 +86,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const apiKey = process.env.NEURONWRITER_API_KEY;
+  // Strip a leading BOM (U+FEFF) + surrounding whitespace — a BOM in the Vercel
+  // env value would otherwise corrupt the X-API-KEY header and 401 every call.
+  const apiKey = process.env.NEURONWRITER_API_KEY?.replace(/^\uFEFF/, "").trim();
   if (!apiKey) {
     return NextResponse.json({ error: "NEURONWRITER_API_KEY not set" }, { status: 500 });
   }
