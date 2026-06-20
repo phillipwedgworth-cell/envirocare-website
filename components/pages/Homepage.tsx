@@ -33,6 +33,7 @@ export default function Homepage() {
       <Header />
       <Hero />
       <ConsolidatedPricing />
+      <ServiceLinks />
       <Reviews />
       <FindYourOffice />
       <Heritage />
@@ -398,6 +399,41 @@ function Reviews() {
 /* ============================================================
    FIND YOUR OFFICE — zip finder replaces 3 office cards
    ============================================================ */
+function ServiceLinks() {
+  const services = [
+    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️' },
+    { name: 'Termite Control', slug: 'termite-control', icon: '🪵' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟' },
+    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜' },
+    { name: 'Flea Control', slug: 'flea', icon: '🪲' },
+    { name: 'Commercial', slug: 'commercial', icon: '🏢' },
+    { name: 'Real Estate / WDO', slug: 'real-estate-wdo', icon: '📋' },
+  ];
+  return (
+    <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
+      <div className="ec-section-inner">
+        <div className="ec-section-eyebrow">EXPLORE OUR SERVICES</div>
+        <h2 className="ec-section-h2">Every Service, <em>One Local Team</em></h2>
+        <p className="ec-section-sub">Tap a service for coverage, pricing, and what&rsquo;s included.</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(165px, 1fr))', gap: 14, marginTop: '2rem' }}>
+          {services.map(s => (
+            <Link
+              key={s.slug}
+              href={`/services/${s.slug}`}
+              style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.2)', borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58 }}
+            >
+              <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
+              <span style={{ flex: 1 }}>{s.name}</span>
+              <span style={{ color: '#0E8E40', fontWeight: 700 }} aria-hidden="true">→</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FindYourOffice() {
   const [zip, setZip] = useState('');
   const [result, setResult] = useState<string | null>(null);
