@@ -238,7 +238,7 @@ const PLAN_DATA = {
     { price: '$69/mo ACH', terms: '$35 pest + ~$34 mosquito spread monthly',
       bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
       addon: 'Add tick: +$20/treatment or roll into ACH (~$49/mo for mosquito+tick)', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
-    { price: 'As low as $32/mo', terms: '$325 install (yr-1 guarantee) · $380/yr renewal or $32/mo · subject to inspection',
+    { price: 'As low as $32/mo', terms: '$325 install (first-year coverage incl.) · $380/yr renewal or $32/mo · subject to inspection',
       bullets: ['Sentricon® Always Active™ stations', 'Up to $1M damage repair coverage', 'No drilling — in-ground system', 'Annual renewal priced at inspection'],
       addon: null, cta: 'Book Free Inspection', ctaCls: 'ec-cp-cta-gold', fine: null },
     { price: '~$116/mo ACH', terms: 'Pest $35 + Termite ~$32 + Mosquito+Tick ~$49',
@@ -530,7 +530,7 @@ function Heritage() {
             <div className="ec-photo-frame ec-photo-kevin">
               <img loading="lazy" decoding="async"
                 src="/kevin.jpg"
-                alt="Kevin Wedgworth, third-generation owner"
+                alt="Kevin Wedgworth, owner of EnviroCare Pest & Termite Services"
                 className="ec-photo-img"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -539,7 +539,7 @@ function Heritage() {
               />
               <div className="ec-photo-caption">
                 <strong>Kevin Wedgworth</strong>
-                <span>3rd-Generation Owner</span>
+                <span>Owner &amp; Operator</span>
               </div>
             </div>
 
