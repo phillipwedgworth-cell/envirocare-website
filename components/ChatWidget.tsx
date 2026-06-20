@@ -2,6 +2,12 @@
 // Functionality unchanged from prior version — this pass only restyles the open panel
 // (the old header + user bubbles were flat near-black "INK"; now they're on-brand and colorful).
 
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/ChatWidget.tsx
+// Commit: feat: fire Meta Pixel Lead event on chat phone capture
+// Push: main
+// ─────────────────────────────────────
 "use client";
 import { useState, useRef, useEffect } from "react";
 
@@ -54,6 +60,21 @@ export default function ChatWidget() {
   const sendMessage = async (overrideText?: string) => {
     const text = (overrideText ?? input).trim();
     if (!text || isLoading) return;
+
+    // Fire Meta Pixel Lead event when user shares a phone number
+    const phonePattern = /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/;
+    if (phonePattern.test(text) && typeof window !== 'undefined') {
+      if ((window as any).fbq) {
+        (window as any).fbq('track', 'Lead', { content_name: 'Chat Callback Request' });
+      }
+      if ((window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          event_category: 'chat',
+          event_label: 'phone_shared',
+          value: 1,
+        });
+      }
+    }
 
     const userMessage: Message = { role: "user", content: text };
     const newMessages = [...messages, userMessage];
@@ -109,7 +130,12 @@ export default function ChatWidget() {
           @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
         `}} />
       <button
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setIsOpen(true);
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'chat_open', { event_category: 'engagement' });
+          }
+        }}
         aria-label="Chat with Scout, EnviroCare's assistant"
         title="Chat with Scout"
         style={{

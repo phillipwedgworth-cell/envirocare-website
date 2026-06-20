@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/layout.tsx
+// Commit: feat: add Meta Pixel + GA4 enhanced event tracking (phone clicks, chat leads, CTA auto-track)
+// Push: main
+// ─────────────────────────────────────
 /**
  * app/layout.tsx — EnviroCare root layout with full SEO stack
  * Updated May 16, 2026 — bakes in all known SEO assets from project history
@@ -252,8 +258,75 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-CELEB90NKX');
+
+            // ── EnviroCare event helpers (used by components + inline listeners) ──
+            window.ecTrack = function(eventName, params) {
+              gtag('event', eventName, params || {});
+              if (window.fbq) fbq('trackCustom', eventName, params || {});
+            };
+
+            // Auto-track phone link clicks (tel: links)
+            document.addEventListener('click', function(e) {
+              var link = e.target.closest('a[href^="tel:"]');
+              if (link) {
+                var phone = link.href.replace('tel:', '');
+                gtag('event', 'phone_click', {
+                  event_category: 'engagement',
+                  event_label: phone,
+                  value: 1
+                });
+                if (window.fbq) fbq('track', 'Contact', { content_name: phone });
+              }
+            });
+
+            // Auto-track email link clicks
+            document.addEventListener('click', function(e) {
+              var link = e.target.closest('a[href^="mailto:"]');
+              if (link) {
+                gtag('event', 'email_click', {
+                  event_category: 'engagement',
+                  event_label: link.href.replace('mailto:', '')
+                });
+              }
+            });
+
+            // Auto-track CTA button clicks (buttons/links with data-track attribute)
+            document.addEventListener('click', function(e) {
+              var el = e.target.closest('[data-track]');
+              if (el) {
+                gtag('event', el.getAttribute('data-track'), {
+                  event_category: 'cta',
+                  event_label: el.textContent.trim().substring(0, 50)
+                });
+              }
+            });
           `}
         </Script>
+
+        {/* Meta Pixel — envirocare main page (ID: 1945518562226719) */}
+        <Script id="fb-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1945518562226719');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=1945518562226719&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
       </body>
     </html>
   );
