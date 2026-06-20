@@ -67,6 +67,11 @@ export default function RequestQuoteForm() {
       }
       setRoutedOffice(data.office || '');
       setStatus('success');
+      // Conversion: GA4 generate_lead + Meta Pixel Lead (standard event)
+      if (typeof window !== 'undefined') {
+        (window as any).gtag?.('event', 'generate_lead', { method: 'quote_form', office: data.office || '' });
+        (window as any).fbq?.('track', 'Lead', { content_name: 'Quote Form' });
+      }
     } catch {
       setErrorMsg('Network error. Please call us at (205) 940-6360.');
       setStatus('error');

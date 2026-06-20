@@ -84,6 +84,11 @@ export default function ContactUs() {
       });
       if (!res.ok) throw new Error("Form submission failed");
       setSubmitted(true);
+      // Conversion: GA4 generate_lead + Meta Pixel Lead (standard event)
+      if (typeof window !== 'undefined') {
+        (window as any).gtag?.('event', 'generate_lead', { method: 'contact_form' });
+        (window as any).fbq?.('track', 'Lead', { content_name: 'Contact Form' });
+      }
     } catch {
       setError("Something went wrong. Please call us directly at (205) 940-6360.");
     } finally {
