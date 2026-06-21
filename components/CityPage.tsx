@@ -107,7 +107,7 @@ export default function CityPage({ city }: { city: CityData }) {
             <Stat num="68+" lbl="Years in AL" />
             <Stat num="4.9★" lbl="Google Rating" />
             <Stat num="$1M" lbl="Sentricon® Coverage" />
-            <Stat num="3 Gen" lbl="Family Owned" />
+            <Stat num="4 Gen" lbl="Family Owned" />
           </div>
           <style jsx>{`
             @media (max-width: 640px) {
