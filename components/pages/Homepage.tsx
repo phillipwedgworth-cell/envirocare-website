@@ -590,7 +590,7 @@ function Footer() {
       <div className="ec-footer-inner">
         <div className="ec-footer-brand-col">
           <Link href="/" className="ec-footer-brand">
-            <Image src="/logo-white.png" alt="EnviroCare" width={180} height={48} className="ec-footer-logo" />
+            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={280} height={72} className="ec-footer-logo" />
           </Link>
           <p className="ec-footer-tag">
             Family-owned and operated since 1958 — now in its fourth generation
@@ -1961,7 +1961,10 @@ const HOMEPAGE_CSS = `
   .ec-footer-brand { display: inline-block; margin-bottom: 16px; }
   .ec-footer-logo {
     height: 44px !important; width: auto !important;
-    object-fit: contain; filter: brightness(1.1);
+    object-fit: contain;
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 10px;
   }
   .ec-footer-tag {
     font-size: 14px; line-height: 1.6;

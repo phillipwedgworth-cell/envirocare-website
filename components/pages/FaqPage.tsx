@@ -190,7 +190,7 @@ export default function FaqPage() {
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/contact" className="btn-outline-white">Send A Message →</a>
+            <a href="/contact-us" className="btn-outline-white">Send A Message →</a>
           </div>
         </div>
       </section>
