@@ -37,6 +37,7 @@ jobs:
           NEURONWRITER_PROJECT: 9d0bec3a70f4743c   # envirocarellc.com project ID (not the domain)
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}   # lib reads SUPABASE_KEY — without this, QA run-logging silently no-ops
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_AGENT_DB_ID: ${{ secrets.NOTION_AGENT_DB_ID }}

@@ -1,0 +1,63 @@
+# ─── CLAUDE CODE: DEPLOY THIS FILE ───
+# Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+# Path: .github/workflows/neuronwriter-optimize.yml
+# Commit: ci: weekly NeuronWriter optimize agent that opens a PR with rewrites
+# Push: main
+# ─────────────────────────────────────
+name: NeuronWriter Optimize
+
+on:
+  schedule:
+    - cron: '0 13 * * 2'   # Every Tuesday 13:00 UTC = 7am CT (day after QA)
+  workflow_dispatch: {}      # also run on demand from the Actions tab
+
+permissions:
+  contents: write          # needed to push the draft branch
+  pull-requests: write     # needed to open the PR
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts
+
+      - name: Generate optimized drafts
+        continue-on-error: true   # NW / Anthropic can fail (cap, plan); never red the run
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT: 9d0bec3a70f4743c
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NEXT_PUBLIC_SITE_URL: https://envirocare-web.vercel.app
+        run: node agents/neuronwriter-optimize.mjs --all
+
+      - name: Open pull request with drafts
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: nw-optimize/auto-drafts
+          base: main
+          add-paths: agents/reports/optimized/**
+          commit-message: "content(nw): weekly optimize drafts (REVIEW — do not auto-merge)"
+          title: "NeuronWriter optimize drafts — review before publishing"
+          body: |
+            Automated weekly NeuronWriter optimization run.
+
+            Each file in `agents/reports/optimized/` is a rewritten draft for a page
+            currently scoring below 70. Compliance rules are hardcoded in the agent,
+            but **review every draft** — this PR exists so nothing ships to the live
+            site without your approval (pricing / phone / legal copy is your locked gate).
+
+            See `_SUMMARY.md` for the score table. Merge what looks right; Claude Code
+            drops approved copy into the matching template. Next Monday's QA confirms scores.
+          labels: |
+            content-review
+            do-not-auto-merge
