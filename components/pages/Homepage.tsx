@@ -218,9 +218,9 @@ const PLAN_META: PlanItem[] = [
 
 const PLAN_DATA = {
   perservice: [
-    { price: '$70/visit bimonthly', terms: '$99 initial service fee',
+    { price: '$70/visit bimonthly', terms: '$79 initial service fee',
       bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service', 'EPA-registered products, label directions'],
-      addon: null, cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$99 initial' },
+      addon: null, cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial' },
     { price: '$70/visit + $45/visit', terms: '9 mosquito treatments March–November',
       bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
       addon: 'Add tick to any mosquito visit: +$20/treatment', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
@@ -232,9 +232,9 @@ const PLAN_DATA = {
       addon: 'Add tick to mosquito visits: +$20/treatment', cta: 'Choose Complete', ctaCls: 'ec-cp-cta-dark', fine: '$229 initial · termite at inspection' },
   ],
   monthly: [
-    { price: '$35/mo ACH', terms: '$99 initial · ACH autopay',
+    { price: '$35/mo ACH', terms: '$79 initial · ACH autopay',
       bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service', 'EPA-registered products, label directions'],
-      addon: null, cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$99 initial' },
+      addon: null, cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial' },
     { price: '$69/mo ACH', terms: '$35 pest + ~$34 mosquito spread monthly',
       bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
       addon: 'Add tick: +$20/treatment or roll into ACH (~$49/mo for mosquito+tick)', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
