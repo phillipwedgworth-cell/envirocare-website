@@ -1,0 +1,10 @@
+{
+  "_note": "Maps a NeuronWriter query KEYWORD to the HTML draft the narrator pushes. Match is case-insensitive. Add one entry per query as content gets written. The agent only pushes queries listed here that also have the file present.",
+  "pages": [
+    {
+      "keyword": "pre-construction pest treatment alabama",
+      "file": "pre-construction-pest-treatment-alabama.html",
+      "title": "Pre-Construction Pest & Termite Treatment in Alabama | EnviroCare"
+    }
+  ]
+}

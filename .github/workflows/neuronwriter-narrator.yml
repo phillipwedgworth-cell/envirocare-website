@@ -1,0 +1,40 @@
+# ─── CLAUDE CODE: DEPLOY THIS FILE ───
+# Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+# Path: .github/workflows/neuronwriter-narrator.yml
+# Commit: feat(agent): neuron narrator full auto-fill (write + push, scores in NeuronWriter)
+# Push: main
+# ─────────────────────────────────────
+#
+# WHAT HAPPENS:
+#   One run. The agent writes a compliant draft for every query and pushes it
+#   into the NeuronWriter editor. Each draft then shows its ranking/score IN
+#   NeuronWriter. You open NeuronWriter, look at the scores, and decide what to
+#   use on the site. No gate, no writing from you.
+#
+# Runs on the button, or every Monday. Uses NEURONWRITER_API_KEY +
+# ANTHROPIC_API_KEY (already GitHub secrets). Nothing to set up.
+
+name: Neuron Narrator
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 * * 1"   # Mondays 13:00 UTC (optional)
+
+jobs:
+  fill:
+    name: Write + push every draft into NeuronWriter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Auto-write compliant drafts and push to editors
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT: 9d0bec3a70f4743c
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_FROM: ${{ secrets.NOTIFY_FROM }}
+        run: node agents/neuronwriter-narrator.mjs fill
