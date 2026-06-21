@@ -99,9 +99,10 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/decatur-al-pest-control', destination: '/decatur', permanent: true },
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },
 
-            // Tuscaloosa — NOT serviced (confirmed Jun 14); redirect to Birmingham
+            // Tuscaloosa — NOT serviced (confirmed Jun 14).
+            // Legacy Scorpion URL keeps its redirect to capture residual impressions;
+            // bare /tuscaloosa now 404s (no source page) so we don't surface a city we don't serve.
             { source: '/where-we-service/tuscaloosa-al-pest-control', destination: '/birmingham', permanent: true },
-            { source: '/tuscaloosa', destination: '/birmingham', permanent: true },
             // Service-area hub
             { source: '/where-we-service', destination: '/', permanent: true },
 
