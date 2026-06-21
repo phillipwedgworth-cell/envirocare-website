@@ -3,6 +3,10 @@
 // Built May 20, 2026 from real customer data + GSC analysis.
 // No customer counts shown publicly (Phillip's rule).
 
+// Priority city pages (8 highest-opportunity slugs from the GSC keyword map)
+// are authored in ./priority-cities.ts and merged into phaseACities below.
+import { priorityCities } from "./priority-cities";
+
 export type CityNeighborhood = {
   name: string;
   zip: string;
@@ -54,7 +58,7 @@ export type CityData = {
   footerServingCities: string[];
 };
 
-export const phaseACities: Record<string, CityData> = {
+const phaseACitiesBase: Record<string, CityData> = {
 
   // ====================================================================
   "mountain-brook": {
@@ -244,4 +248,10 @@ export const phaseACities: Record<string, CityData> = {
     footerServingCities: ["Athens", "East Limestone", "Tanner", "Mooresville", "Elkmont", "Toney", "Hazel Green", "Huntsville"]
   }
 
+};
+
+// Merge: priority GSC pages override on slug collision (none today — all 8 are new).
+export const phaseACities: Record<string, CityData> = {
+  ...phaseACitiesBase,
+  ...priorityCities,
 };
