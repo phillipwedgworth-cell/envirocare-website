@@ -1,19 +1,18 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/neuronwriter-narrator.mjs
-// Commit: feat(agent): narrator auto-writes compliant drafts and pushes to NeuronWriter
+// Commit: feat(agent): narrator auto-writes, scores, retries low drafts, ranks ready-to-ship
 // Push: main
 // ─────────────────────────────────────
 //
-// THE NEURON NARRATOR (streamlined)
-// ─────────────────────────────────
-//   node agents/neuronwriter-narrator.mjs score  -> lists EVERY query + current score (you SEE).
-//   node agents/neuronwriter-narrator.mjs fill    -> for EVERY query: uses a hand-written draft if
-//                                                   one exists, otherwise WRITES one itself (Claude,
-//                                                   compliance-locked), then pushes it into the editor.
-//                                                   Runs only after your approval tap.
+// THE NEURON NARRATOR (fully automatic, rating-aware)
+//   fill  -> for EVERY query: use a hand-written draft if present, else WRITE one
+//            (Claude, compliance-locked), push it, read its score. If an auto draft
+//            scores below the floor, rewrite it ONCE to lift it. Then rank everything
+//            by score and report a "ready to ship" queue (best first).
+//   score -> just list every query + its current score.
 //
-// No ChatGPT. Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY -- both already GitHub secrets.
+// No ChatGPT. Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets).
 
 const API_BASE = "https://app.neuronwriter.com/neuron-api/0.5/writer";
 const PROJECT  = process.env.NEURONWRITER_PROJECT || "9d0bec3a70f4743c";
@@ -21,6 +20,10 @@ const KEY      = process.env.NEURONWRITER_API_KEY;
 
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const MODEL = process.env.NARRATOR_MODEL || "claude-sonnet-4-6";
+
+const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // ready-to-ship line
+const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" mark
+const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
 const RESEND_KEY  = process.env.RESEND_API_KEY || "";
 const NOTIFY_TO   = process.env.NOTIFY_EMAIL || "";
@@ -33,6 +36,7 @@ import { COMPLIANCE_SYSTEM, userPrompt } from "./lib/compliance.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dir, "neuronwriter-content");
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
 if (!KEY) { console.error("FATAL: NEURONWRITER_API_KEY not set."); process.exit(1); }
 
@@ -74,6 +78,10 @@ function pickTerms(o) {
 }
 const norm = (s) => String(s||"").toLowerCase().replace(/\s+/g," ").trim();
 
+async function readScore(id) {
+  try { return pickScore(await nw("get-content", { query: id })); } catch { return null; }
+}
+
 function loadManifest() {
   const p = join(CONTENT_DIR, "manifest.json");
   if (!existsSync(p)) return {};
@@ -84,20 +92,18 @@ function loadManifest() {
 }
 
 // -- Claude writer (compliance-locked) ----------------------------------------
-async function writeDraft(keyword, terms) {
+async function writeDraft(keyword, terms, lift = false) {
   if (!ANTHROPIC_KEY) throw new Error("ANTHROPIC_API_KEY not set -- cannot auto-write.");
+  let prompt = userPrompt(keyword, terms);
+  if (lift) prompt += `\n\nThis is a revision to improve SEO coverage. Work in MORE of the related terms `
+    + `naturally and add depth (a richer FAQ, a short locally-specific section), while keeping every `
+    + `compliance rule. Do not keyword-stuff. Aim for the 70-80 coverage range.`;
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: {
-      "x-api-key": ANTHROPIC_KEY,
-      "anthropic-version": "2023-06-01",
-      "content-type": "application/json",
-    },
+    headers: { "x-api-key": ANTHROPIC_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 2200,
-      system: COMPLIANCE_SYSTEM,
-      messages: [{ role: "user", content: userPrompt(keyword, terms) }],
+      model: MODEL, max_tokens: 2400, system: COMPLIANCE_SYSTEM,
+      messages: [{ role: "user", content: prompt }],
     }),
   });
   const j = await res.json();
@@ -105,6 +111,13 @@ async function writeDraft(keyword, terms) {
   const html = (j.content || []).filter(b => b.type === "text").map(b => b.text).join("\n").trim();
   if (!html) throw new Error("empty draft from model");
   return html;
+}
+
+async function pushAndScore(id, html, title) {
+  const resp = await nw("import-content", { project: PROJECT, query: id, html, title });
+  let sc = pickScore(resp);
+  if (sc === null) { await sleep(2500); sc = await readScore(id); } // let NW recompute
+  return sc;
 }
 
 // -- notify + summary ---------------------------------------------------------
@@ -131,29 +144,21 @@ async function listQueries() {
 
 // -- SCORE: show every query + score ------------------------------------------
 async function runScore() {
-  const manifest = loadManifest();
   const queries = await listQueries();
   if (!queries.length) { toSummary("## Neuron Narrator -- no queries in project\n"); return; }
-
   const rows = [];
   for (const q of queries) {
     const id = q.query || q.id, keyword = q.keyword || "";
-    let score = null;
-    try { score = pickScore(await nw("get-content", { query: id })); } catch {}
-    rows.push({ keyword, score, tags: Array.isArray(q.tags) ? q.tags.join(", ") : "",
-                handWritten: !!manifest[norm(keyword)] });
+    rows.push({ keyword, score: await readScore(id) });
   }
   rows.sort((a,b) => (a.score ?? -1) - (b.score ?? -1));
-
-  let md = "## Neuron Narrator -- query scores\n\n| Keyword | Score | Status |\n|---|---|---|\n";
-  for (const r of rows) md += `| ${r.keyword} | ${r.score===null?"-- (empty)":r.score+"%"} | ${r.tags||"--"} |\n`;
-  md += `\n**${rows.length} queries.** Approve the **fill** step and the agent writes + pushes a `;
-  md += `compliant draft into every empty editor (hand-written drafts take priority).\n`;
-  toSummary(md);
-  await email("Neuron Narrator -- scores", md.replace(/\n/g,"<br>"));
+  let md = "## Neuron Narrator -- query scores\n\n| Keyword | Score |\n|---|---|\n";
+  for (const r of rows) md += `| ${r.keyword} | ${r.score===null?"-- (empty)":r.score+"%"} |\n`;
+  md += `\n**${rows.length} queries.**\n`;
+  toSummary(md); await email("Neuron Narrator -- scores", md.replace(/\n/g,"<br>"));
 }
 
-// -- FILL: write (or use) a draft for every query, then push ------------------
+// -- FILL: write/use draft for every query, push, score, lift-if-low, rank ----
 async function runFill() {
   const manifest = loadManifest();
   const queries = await listQueries();
@@ -161,37 +166,51 @@ async function runFill() {
 
   for (const q of queries) {
     const id = q.query || q.id, keyword = q.keyword || "";
-    if (!keyword) { continue; }
+    if (!keyword) continue;
     try {
-      let html, title, source;
       const hand = manifest[norm(keyword)];
       const handFile = hand ? join(CONTENT_DIR, hand.file) : null;
+      let score, source;
 
       if (hand && handFile && existsSync(handFile)) {
-        html = readFileSync(handFile, "utf8");
-        title = hand.title || keyword;
+        const html = readFileSync(handFile, "utf8");
+        score = await pushAndScore(id, html, hand.title || keyword);
         source = "hand-written";
       } else {
         let terms = [];
         try { terms = pickTerms(await nw("get-query", { query: id })); } catch {}
-        html = await writeDraft(keyword, terms);
-        title = `${keyword} | EnviroCare`;
+        let html = await writeDraft(keyword, terms);
+        score = await pushAndScore(id, html, `${keyword} | EnviroCare`);
         source = "auto-written";
+        // rating-aware: one rewrite if it came in below the floor
+        if (score !== null && score < SCORE_FLOOR) {
+          const html2 = await writeDraft(keyword, terms, true);
+          const score2 = await pushAndScore(id, html2, `${keyword} | EnviroCare`);
+          if (score2 !== null && score2 >= score) { score = score2; source = "auto-written (lifted)"; }
+        }
       }
-
-      const resp = await nw("import-content", { project: PROJECT, query: id, html, title });
-      const sc = pickScore(resp);
-      results.push({ keyword, status: `${source} -> pushed${sc!==null?` (${sc}%)`:""}` });
+      results.push({ keyword, score, source });
     } catch (e) {
-      results.push({ keyword, status: `ERROR -- ${e.message}` });
+      results.push({ keyword, score: null, source: `ERROR -- ${e.message}` });
     }
+    await sleep(SLEEP_MS);
   }
 
-  let md = "## Neuron Narrator -- fill results\n\n| Keyword | Result |\n|---|---|\n";
-  for (const r of results) md += `| ${r.keyword} | ${r.status} |\n`;
-  md += `\n${results.length} editors filled. Open NeuronWriter to review the drafts and their scores.\n`;
-  toSummary(md);
-  await email("Neuron Narrator -- filled", md.replace(/\n/g,"<br>"));
+  const rank = [...results].sort((a,b) => (b.score ?? -1) - (a.score ?? -1));
+  const ready = rank.filter(r => (r.score ?? -1) >= SCORE_FLOOR);
+  const work  = rank.filter(r => (r.score ?? -1) <  SCORE_FLOOR);
+
+  let md = `## Neuron Narrator -- filled ${results.length} editors\n\n`;
+  md += `**Ready to ship (score >= ${SCORE_FLOOR}%) -- publish these first, best at top:**\n\n`;
+  md += `| # | Keyword | Score | Source |\n|---|---|---|---|\n`;
+  ready.forEach((r,i) => md += `| ${i+1} | ${r.keyword} | ${r.score}%${r.score>=SHIP_GOOD?" 💪":""} | ${r.source} |\n`);
+  if (!ready.length) md += `| — | (none cleared the floor yet) | | |\n`;
+  if (work.length) {
+    md += `\n**Still light (below ${SCORE_FLOOR}%) -- left as drafts to revisit:**\n\n| Keyword | Score |\n|---|---|\n`;
+    work.forEach(r => md += `| ${r.keyword} | ${r.score===null?"err":r.score+"%"} |\n`);
+  }
+  md += `\nAll drafts are in NeuronWriter now. Publish to the live site best-first, a few a week, via pull requests.\n`;
+  toSummary(md); await email("Neuron Narrator -- ready-to-ship queue", md.replace(/\n/g,"<br>"));
 }
 
 // -- main ---------------------------------------------------------------------

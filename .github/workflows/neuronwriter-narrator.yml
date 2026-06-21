@@ -1,25 +1,30 @@
 # ─── CLAUDE CODE: DEPLOY THIS FILE ───
 # Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 # Path: .github/workflows/neuronwriter-narrator.yml
-# Commit: feat(agent): neuron narrator full auto-fill (write + push, scores in NeuronWriter)
+# Commit: feat(agent): neuron narrator auto-runs on upload (write + push, scores in NeuronWriter)
 # Push: main
 # ─────────────────────────────────────
 #
-# WHAT HAPPENS:
-#   One run. The agent writes a compliant draft for every query and pushes it
-#   into the NeuronWriter editor. Each draft then shows its ranking/score IN
-#   NeuronWriter. You open NeuronWriter, look at the scores, and decide what to
-#   use on the site. No gate, no writing from you.
+# RUNS BY ITSELF the moment these files are committed to main. Also runs on the
+# button and every Monday. The agent writes a compliant draft for every query,
+# pushes it into the NeuronWriter editor, and each draft shows its score IN
+# NeuronWriter. You just open NeuronWriter and look at the rankings.
 #
-# Runs on the button, or every Monday. Uses NEURONWRITER_API_KEY +
-# ANTHROPIC_API_KEY (already GitHub secrets). Nothing to set up.
+# Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets). No setup.
 
 name: Neuron Narrator
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "agents/neuronwriter-narrator.mjs"
+      - "agents/lib/compliance.mjs"
+      - "agents/neuronwriter-content/**"
+      - ".github/workflows/neuronwriter-narrator.yml"
   schedule:
-    - cron: "0 13 * * 1"   # Mondays 13:00 UTC (optional)
+    - cron: "0 13 * * 1"   # Mondays 13:00 UTC
 
 jobs:
   fill:
