@@ -504,17 +504,18 @@ function Heritage() {
         <div className="ec-heritage-grid">
           <div className="ec-heritage-text">
             <p>
-              In <strong>1958, Phillip M. Wedgworth</strong> started EnviroCare
-              with one truck and one belief — that families deserved an Alabama
-              pest control company that actually answers the phone and stands
-              behind the work.
+              <strong>1958</strong> — Founded as Wedgworth Pest Control in Alexander City, on Lake Martin.
             </p>
             <p>
-              Sixty-eight years later, the same family still runs it. Phillip M.
-              passed it to his son Phillip L., then to his grandson{' '}
-              <strong>Kevin Wedgworth</strong>, who leads the company today — with
-              the fourth generation, William Lex Wedgworth, now on the team.
-              Three Alabama offices. Same family. Same answer to your pest problem.
+              <strong>1980</strong> — Second generation takes the reins.
+            </p>
+            <p>
+              <strong>2002</strong> — Kevin Wedgworth expands into Birmingham. Many Lake Martin customers
+              kept lake houses but lived in Birmingham, Hoover, Vestavia Hills and Mountain Brook, and asked
+              us to protect their homes there too.
+            </p>
+            <p>
+              <strong>Today</strong> — Fourth generation runs EnviroCare across Central &amp; North Alabama.
             </p>
             <blockquote className="ec-heritage-quote">
               &ldquo;No One Cares Like EnviroCare.&rdquo;

@@ -203,8 +203,8 @@ export default function AboutUs() {
               <div className="ab-tl-card">
                 <h3>Founded as Wedgworth Pest Control</h3>
                 <p>
-                  Phillip M. Wedgworth starts the family business — Wedgworth Pest Control — to protect the homes and families of the Lake Martin
-                  community. The original office at 1785 Tallapoosa Street is still our Alex City location today.
+                  Phillip M. Wedgworth starts the family business — Wedgworth Pest Control — in Alexander City, on Lake Martin,
+                  to protect the homes and families of the lake community. Our original Alex City location still anchors the company today.
                 </p>
               </div>
               <div className="ab-tl-year">1958</div>
@@ -233,11 +233,10 @@ export default function AboutUs() {
             <div className="ab-tl-row r">
               <div className="ab-tl-year">2002</div>
               <div className="ab-tl-card">
-                <h3>Birmingham office opens</h3>
+                <h3>Kevin Wedgworth expands into Birmingham</h3>
                 <p>
-                  Kevin Wedgworth opens the Alabaster office at
-                  2025 Butler Road, expanding the family business into Birmingham, Hoover, Vestavia Hills, Mountain Brook, and the wider
-                  metro area.
+                  Many Lake Martin customers kept lake houses but lived in Birmingham, Hoover, Vestavia Hills, and Mountain Brook —
+                  and asked us to protect their homes there too. Kevin Wedgworth opens a Birmingham-area office to serve them.
                 </p>
               </div>
             </div>
