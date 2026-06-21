@@ -21,8 +21,8 @@ import StickyCallButton from '@/components/StickyCallButton';
  * 4. ThreeOffices replaced with FindYourOffice zip finder
  * 5. "No contract" language removed sitewide per owner direction
  * 6. Hero copy: "interior and exterior coverage" replaces "we treat from the outside"
- * 7. Pricing: $99 initial, tick as +$20 add-on, termite "as low as $325" subject to inspection
- * 8. Complete tier corrected to ~$116/mo
+ * 7. Pricing: Pest $79 initial, tick as +$20 add-on, termite priced at free WDO inspection (no flat $/mo)
+ * 8. Complete tier ~$100/mo (matches data/pricing.ts and city pages)
  */
 
 export default function Homepage() {
@@ -224,7 +224,7 @@ const PLAN_DATA = {
     { price: '$70/visit + $45/visit', terms: '9 mosquito treatments March–November',
       bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
       addon: 'Add tick to any mosquito visit: +$20/treatment', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
-    { price: 'As low as $325 to start', terms: 'Subject to inspection · free WDO inspection included',
+    { price: 'Priced at inspection', terms: 'Free WDO inspection included · subject to inspection',
       bullets: ['Sentricon® Always Active™ stations', 'Up to $1M damage repair coverage', 'No drilling — in-ground system', 'Annual renewal priced at inspection'],
       addon: null, cta: 'Book Free Inspection', ctaCls: 'ec-cp-cta-gold', fine: null },
     { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite priced upon inspection & approval',
@@ -238,10 +238,10 @@ const PLAN_DATA = {
     { price: '$69/mo ACH', terms: '$35 pest + ~$34 mosquito spread monthly',
       bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
       addon: 'Add tick: +$20/treatment or roll into ACH (~$49/mo for mosquito+tick)', cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial' },
-    { price: 'As low as $32/mo', terms: '$325 install (first-year coverage incl.) · $380/yr renewal or $32/mo · subject to inspection',
+    { price: 'Priced at inspection', terms: 'Quoted after your free WDO inspection · subject to inspection',
       bullets: ['Sentricon® Always Active™ stations', 'Up to $1M damage repair coverage', 'No drilling — in-ground system', 'Annual renewal priced at inspection'],
       addon: null, cta: 'Book Free Inspection', ctaCls: 'ec-cp-cta-gold', fine: null },
-    { price: '~$116/mo ACH', terms: 'Pest $35 + Termite ~$32 + Mosquito+Tick ~$49',
+    { price: '~$100/mo ACH', terms: 'Pest + Mosquito+Tick on ACH · Sentricon® termite priced at inspection',
       bullets: ['Everything in Pest + Mosquito + Tick', 'Sentricon® termite protection', '$1M damage repair coverage', 'One company, one invoice'],
       addon: null, cta: 'Choose Complete', ctaCls: 'ec-cp-cta-dark', fine: '$229 initial · termite at inspection' },
   ],
@@ -334,7 +334,7 @@ function ConsolidatedPricing() {
         </div>
 
         <div className="ec-cp-strip">
-          <strong>$99 initial service fee</strong> for new pest customers.
+          <strong>$79 initial service fee</strong> for new pest customers.
           Mosquito and tick have no startup.
         </div>
         <div className="ec-cp-assurance">We never charge twice for the same coverage.</div>
