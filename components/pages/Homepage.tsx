@@ -32,7 +32,7 @@ import StickyCallButton from '@/components/StickyCallButton';
  * Changes from v5:
  * 1. Merged CoreServices + Pricing into one ConsolidatedPricing section (compact expandable list)
  * 2. Section order: Hero → Pricing → Reviews → FindOffice → Heritage → Footer (Option B)
- * 3. Restored: LakeMartinBand, TruckBanner, SpecialtyServices (Jun 22)
+ * 3. Restored: TruckBanner, SpecialtyServices (Jun 22) — LakeMartinBand removed (locked: no Lake Martin on homepage)
  * 4. ThreeOffices replaced with FindYourOffice zip finder
  * 5. "No contract" language removed sitewide per owner direction
  * 6. Hero copy: "interior and exterior coverage" replaces "we treat from the outside"
@@ -52,7 +52,6 @@ export default function Homepage() {
       <SpecialtyServices />
       <TruckBanner />
       <Reviews />
-      <LakeMartinBand />
       <FindYourOffice />
       <Heritage />
       <Footer />
@@ -604,47 +603,6 @@ function Heritage() {
 /* ============================================================
    FOOTER
    ============================================================ */
-
-/* ============================================================
-   LAKE MARTIN BAND — restored Jun 22
-   ============================================================ */
-function LakeMartinBand() {
-  return (
-    <section className="ec-lake">
-      <div className="ec-lake-inner">
-        <div className="ec-lake-photo-wrap">
-          <img
-            src="/lake-martin-aerial.jpg"
-            alt="Aerial view of Lake Martin, Alabama"
-            className="ec-lake-photo"
-            loading="lazy"
-          />
-        </div>
-        <div className="ec-lake-content">
-          <div className="ec-lake-eyebrow">LAKE MARTIN &amp; ALEX CITY</div>
-          <h2 className="ec-lake-h2">
-            Where EnviroCare <em>Started</em>
-          </h2>
-          <p className="ec-lake-text">
-            Our original 1958 office in Alexander City still serves Lake Martin
-            and East Alabama. We know the lake houses, the docks, the seasonal
-            pest pressure that comes with waterfront living.
-          </p>
-          <ul className="ec-lake-benefits">
-            <li><span className="ec-lake-check">✓</span>Pre-arrival service for lake houses</li>
-            <li><span className="ec-lake-check">✓</span>Dock &amp; boathouse pest treatment</li>
-            <li><span className="ec-lake-check">✓</span>Seasonal mosquito yard barrier</li>
-            <li><span className="ec-lake-check">✓</span>Sentricon® termite protection</li>
-          </ul>
-          <Link href="/lake-martin" className="ec-lake-cta">
-            Lake Martin Services →
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 
 /* ============================================================
    TRUCK BANNER — restored Jun 22 (no "bundle" language)
