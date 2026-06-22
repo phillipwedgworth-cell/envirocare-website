@@ -1,3 +1,10 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/services.ts
+// Commit: fix(compliance): remove banned terms from service copy — 'guarantee' on $1M coverage, 'Bundle' wording, 'same tech' promise, 'safe' in FAQs
+// Push: main
+// ───────────────────────────────────
+
 // data/services.ts — EnviroCare service catalog
 // May 16, 2026 — Stage 2 of v2 site-wide rebrand
 // Jun 14, 2026 — added pestsFeatured/pestsMore to pest-control (rank-protection for 301'd pest-library keywords)
@@ -58,7 +65,7 @@ export const SERVICES: Service[] = [
     ],
     wedgePoints: [
       { lead: 'No contracts', body: 'Cancel anytime. We earn your business every visit, not lock you in.' },
-      { lead: 'Local technician', body: 'Same tech every visit when possible. They know your home, your dog\'s name, your gate code.' },
+      { lead: 'Local technician', body: 'A local technician who gets to know your home — your dog\'s name, your gate code — visit after visit when scheduling allows.' },
       { lead: 'Same-week scheduling', body: 'Most calls scheduled inside 5 business days, with urgent issues prioritized.' },
     ],
     faqs: [
@@ -116,17 +123,17 @@ export const SERVICES: Service[] = [
     includes: [
       { title: 'Initial Installation', desc: 'Sentricon® bait stations placed around your home perimeter. No drilling, no mess, no disruption to landscaping.' },
       { title: 'Ongoing Monitoring', desc: 'Stations checked annually. Bait is always active — termites encountering it carry the lethal dose back to the colony.' },
-      { title: '$1M Damage Repair Coverage', desc: 'An EnviroCare guarantee. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1M.' },
+      { title: '$1M Damage Repair Coverage', desc: 'Backed by EnviroCare directly. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1M.' },
       { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling.' },
     ],
     wedgePoints: [
       { lead: 'Sentricon® > liquid barriers', body: 'Liquid treatments require drilling concrete, retreating every 5–7 years, and have shrinking effectiveness as they break down. Sentricon® bait stations eliminate the entire colony, not just the perimeter.' },
-      { lead: '$1M is real coverage', body: 'A real EnviroCare guarantee, not a vague promise. If termites damage your home while protected, you get fixed, not finger-pointed.' },
+      { lead: '$1M is real coverage', body: 'Real EnviroCare-backed coverage, not a vague promise. If termites damage your home while protected, you get fixed, not finger-pointed.' },
       { lead: 'No drilling means no damage', body: 'Liquid barrier installations drill every 12 inches through your slab, patio, driveway. Sentricon® stations go in the ground around the perimeter. No concrete touched.' },
     ],
     faqs: [
       { q: 'How is Sentricon® different from liquid termite treatments?', a: 'Liquid treatments create a chemical barrier in the soil around your foundation — they require drilling through concrete, work for 5–7 years before needing retreatment, and don\'t eliminate the colony. Sentricon® places bait stations in the ground that termites carry back to the colony, eliminating the whole population. No drilling required.' },
-      { q: 'What does the $1M coverage actually cover?', a: 'If subterranean termites cause damage to your home while you\'re on the Sentricon® Always Active™ system and we\'ve been maintaining it, EnviroCare covers repair costs up to $1,000,000. That is our guarantee.' },
+      { q: 'What does the $1M coverage actually cover?', a: 'If subterranean termites cause damage to your home while you\'re on the Sentricon® Always Active™ system and we\'ve been maintaining it, EnviroCare covers repair costs up to $1,000,000. That coverage is backed by EnviroCare directly.' },
       { q: 'Will Sentricon® mess up my landscaping?', a: 'No. Bait stations are small (about the size of a soda can) and installed flush with the ground around your home perimeter. No drilling, no concrete cuts, no torn-up flowerbeds.' },
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
@@ -136,7 +143,7 @@ export const SERVICES: Service[] = [
     intro: [
       'For termite control in Alabama, EnviroCare installs the Sentricon® Always Active™ bait system — a method that eliminates the entire subterranean termite colony rather than only treating the soil you can see. Most liquid termite control services create a chemical barrier that requires drilling through your slab, patio, and driveway, then loses strength and needs retreatment every five to seven years. Sentricon® stations sit in the ground around your home perimeter, so there is no drilling, no concrete cutting, and no tank trucks in the yard.',
       'Termites cause damage quietly, and an active infestation can go unnoticed until it reaches structural wood. With Sentricon®, foraging termites carry the bait back to the colony, collapsing it from the inside — which stops both an existing infestation and future ones. Every protected home includes annual monitoring and one Wood-Destroying Organism (WDO) inspection letter per year, the document lenders require for refinancing or selling.',
-      'Behind it stands an EnviroCare guarantee: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection. That coverage is backed by EnviroCare directly. Installation takes most homes one to two hours, and you do not need to be an existing pest control customer to start.',
+      'Behind it stands EnviroCare-backed coverage: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection. That coverage is backed by EnviroCare directly. Installation takes most homes one to two hours, and you do not need to be an existing pest control customer to start.',
       'Alabama\'s humidity, mild winters, and clay-heavy soil make it one of the most active subterranean termite regions in the country. A single colony can number in the hundreds of thousands and forage silently through floor joists, sills, and framing for years before any sign shows. By the time you notice mud tubes, hollow-sounding wood, or discarded wings on a windowsill, the damage is often already done — which is why protection has to be continuous rather than a one-time treatment you hope holds.',
       'Watch for the early warning signs of termites: mud tubes running up your foundation, piers, or crawlspace walls; wood that sounds hollow when tapped or paint that looks rippled or bubbled; discarded wings near windows and doors after a spring swarm; doors or windows that suddenly stick from subtle warping; and frass or visible galleries in damaged wood. If you spot any of these, schedule a free WDO inspection — early action is the difference between a monitoring plan and a repair bill.',
     ],
@@ -176,7 +183,7 @@ export const SERVICES: Service[] = [
     ],
     wedgePoints: [
       { lead: 'Built for Alabama', body: 'Our mosquito season runs March through November, not the generic "warm months." We schedule accordingly.' },
-      { lead: 'Bundles with tick', body: 'Same application handles ticks — and chiggers — as Mosquito + Tick ($65/visit). Fewer trips, same results.' },
+      { lead: 'Pairs with tick control', body: 'The same visit can handle ticks — and chiggers — as Mosquito + Tick ($65/visit). One trip, one invoice.' },
       { lead: 'No surprise charges', body: 'Flat monthly rate covers all season applications. Free re-treatments if mosquitoes return between visits.' },
     ],
     faqs: [
@@ -185,7 +192,7 @@ export const SERVICES: Service[] = [
       { q: 'How much does mosquito control cost?', a: 'The mosquito program is about $45 per treatment, which we spread to roughly $33.75/month across the season. The mosquito + tick option (which also covers chiggers) is about $65 per treatment, or roughly $48.75/month.' },
       { q: 'Does the tick add-on cover fleas?', a: 'No. The mosquito + tick option covers ticks and chiggers around the yard. Fleas are handled as a separate interior-access service.' },
       { q: 'What can I do to help reduce mosquitoes?', a: 'Empty standing water weekly — saucers under potted plants, birdbaths, kids\' toys, clogged gutters, and any container that collects rain. Removing those breeding sites makes every treatment more effective.' },
-      { q: 'Is it safe around my pets and kids?', a: 'We apply only EPA-registered products and follow the label directions for every treatment. Your technician will explain any simple, label-directed steps to follow on treatment day.' },
+      { q: 'What about my pets and kids on treatment day?', a: 'We apply only EPA-registered products and follow the label directions for every treatment. Your technician will explain any simple, label-directed steps to follow on treatment day.' },
     ],
   },
   {
@@ -211,7 +218,7 @@ export const SERVICES: Service[] = [
       'Lone Star, Dog & Deer ticks',
       'Harborage-zone targeting',
       'Applied according to label directions once dry',
-      'Bundles with mosquito service',
+      'Runs with your mosquito visit',
       'Free re-treatment if needed',
       'Lyme & RMSF risk reduction',
     ],
@@ -222,7 +229,7 @@ export const SERVICES: Service[] = [
       { title: 'EPA-Registered', desc: 'Same EPA-registered products applied per label directions.' },
     ],
     wedgePoints: [
-      { lead: 'Bundles save complexity', body: 'No separate vendor for ticks — your mosquito tech handles it on the same visit.' },
+      { lead: 'One visit, one invoice', body: 'No separate vendor for ticks — your mosquito technician handles it on the same visit.' },
       { lead: 'Built for AL tick pressure', body: 'Lone Star tick (most common in Alabama) is aggressive and bites humans. Our treatment is built for the AL species mix.' },
       { lead: 'Real disease prevention', body: 'Lyme is rare in AL but Rocky Mountain Spotted Fever, Ehrlichiosis, and Alpha-Gal Syndrome (red meat allergy from tick bite) are real risks here.' },
     ],
@@ -232,7 +239,7 @@ export const SERVICES: Service[] = [
       { q: 'Does the tick service cover fleas?', a: 'No. The mosquito + tick yard program covers ticks and chiggers. Fleas are handled separately as an interior-access service.' },
       { q: 'Can you guarantee I won\'t have any ticks?', a: 'No honest company can — wildlife and neighboring properties reintroduce ticks constantly. Our program significantly reduces tick pressure around your yard so it\'s much safer to use.' },
       { q: 'What can I do to reduce ticks myself?', a: 'Keep grass short, clear leaf litter and tall weeds at the yard edges, put a mulch or gravel barrier between the lawn and the woods, and keep pets on a vet-recommended tick preventive.' },
-      { q: 'Is tick treatment safe around pets and kids?', a: 'We use only EPA-registered products applied according to label directions, and your technician will explain any simple steps to follow on treatment day.' },
+      { q: 'What about pets and kids with tick treatment?', a: 'We use only EPA-registered products applied according to label directions, and your technician will explain any simple steps to follow on treatment day.' },
     ],
   },
 
@@ -252,7 +259,7 @@ export const SERVICES: Service[] = [
       'Yard-wide elimination',
       'Single application coverage',
       'Applied per label directions',
-      'Bundles with pest control',
+      'Pairs with pest control',
       'Especially critical for lake homes',
       'Same-week scheduling',
     ],
@@ -270,7 +277,7 @@ export const SERVICES: Service[] = [
       { q: 'How much does fire ant control cost?', a: 'It starts at a $150 minimum and is then priced by the square footage of the area treated. Your technician measures the area and gives you the number up front.' },
       { q: 'Do I have to be on a pest plan to get fire ant control?', a: 'No. Fire ant control is a standalone service available to anyone — you don\'t need a recurring plan.' },
       { q: 'Why do my fire ant mounds keep coming back?', a: 'Because DIY methods rarely reach the queen. As long as she\'s alive, the colony just relocates and rebuilds, often only a few feet from the old mound.' },
-      { q: 'Is fire ant treatment safe around pets and kids?', a: 'We use only EPA-registered products and follow the label directions for every application. Your technician will explain any simple, label-directed steps to follow on the day of service.' },
+      { q: 'What about pets and kids with fire ant treatment?', a: 'We use only EPA-registered products and follow the label directions for every application. Your technician will explain any simple, label-directed steps to follow on the day of service.' },
     ],
     intro: [
       'Imported fire ants are one of the most aggravating pests in the Alabama yard. They build dome-shaped mounds across lawns, and the moment a mound is disturbed they swarm out and sting — painful, often in clusters, and a real problem for kids, pets, and anyone working in the yard. EnviroCare provides targeted fire ant control that goes after the colony, not just the mound you can see, across Birmingham, Huntsville, Lake Martin, and Auburn.',
@@ -317,7 +324,7 @@ export const SERVICES: Service[] = [
       { q: 'Do you have to come inside to treat for fleas?', a: 'Yes. Fleas develop indoors, so flea service requires access to the home — it isn\'t something an exterior-only treatment can solve.' },
       { q: 'How much does flea control cost?', a: 'Flea treatment is an interior add-on to our quarterly interior service: $98/quarter for the base service plus $30/quarter for fleas, for $128/quarter total.' },
       { q: 'What should I do before the flea treatment?', a: 'Vacuum thoroughly, wash pet bedding in hot water, clear clutter off the floors, and have your pets treated by your vet around the same time.' },
-      { q: 'Is flea treatment safe around pets and kids?', a: 'We apply only EPA-registered products and follow label directions for every treatment. Your technician will give you clear instructions to follow before and after service.' },
+      { q: 'What about pets and kids with flea treatment?', a: 'We apply only EPA-registered products and follow label directions for every treatment. Your technician will give you clear instructions to follow before and after service.' },
     ],
   },
   {
@@ -479,7 +486,7 @@ export const SERVICES: Service[] = [
       { q: 'Will service disrupt my customers or operations?', a: 'No. We schedule around your hours and our technicians work discreetly, so service doesn\'t interfere with customers or staff.' },
       { q: 'Do you provide documentation for health inspections?', a: 'Yes. We keep service records and pest activity logs to support health inspections, audits, and compliance requirements.' },
       { q: 'What types of businesses do you service?', a: 'Restaurants and food service, retail, offices, warehouses, medical and assisted-living facilities, and property management / multi-family communities, among others.' },
-      { q: 'Are the products safe to use around customers and staff?', a: 'We use only EPA-registered products applied according to label directions, and we schedule and apply them with your customers and employees in mind.' },
+      { q: 'What about your products around customers and staff?', a: 'We use only EPA-registered products applied according to label directions, and we schedule and apply them with your customers and employees in mind.' },
     ],
   },
 ];

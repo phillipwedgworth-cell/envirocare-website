@@ -1,5 +1,12 @@
 "use client";
 
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/CityPage.tsx
+// Commit: fix(compliance): replace 'Bundles with mosquito service' with convenience wording
+// Push: main
+// ───────────────────────────────────
+
 /**
  * CityPage.tsx — Shared template for all 28 EnviroCare city pages
  * Generated May 16, 2026 — Stage 1 of v2 site-wide rebrand
@@ -235,7 +242,7 @@ export default function CityPage({ slug }: { slug: string }) {
                 <a href="/services/mosquito-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-4"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Tick Control</div><div className="prog-desc">Targeted yard treatments to break the tick lifecycle. Critical for wooded properties.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>Lone Star, Dog & Deer ticks</li><li><span className="prog-chk">✓</span>Harborage-zone targeting</li><li><span className="prog-chk">✓</span>Bundles with mosquito service</li></ul>
+                <ul className="prog-features"><li><span className="prog-chk">✓</span>Lone Star, Dog & Deer ticks</li><li><span className="prog-chk">✓</span>Harborage-zone targeting</li><li><span className="prog-chk">✓</span>Runs with your mosquito visit</li></ul>
                 <a href="/services/tick-control" className="prog-link">Learn more →</a></div></div>
           </div>
         </div>

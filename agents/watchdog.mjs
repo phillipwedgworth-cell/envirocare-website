@@ -17,7 +17,7 @@
 import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { sendEmail } from './lib/notify.mjs';
 
-const HEALTHY = new Set(['ok', 'success', 'pass', 'passed', 'green', 'completed', 'done']);
+const HEALTHY = new Set(['ok', 'success', 'pass', 'passed', 'green', 'complete', 'completed', 'done']);
 const DIGEST_DAY = 1;                 // Monday (UTC)
 const DAILY_USD_BUDGET = Number(process.env.DAILY_USD_BUDGET || 5);   // soft AI-spend cap
 const DEPLOY_ANOMALY   = Number(process.env.DEPLOY_ANOMALY   || 12);  // deploys/24h = runaway

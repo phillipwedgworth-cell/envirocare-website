@@ -1,6 +1,14 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: components/pages/Homepage.tsx
+// Commit: feat(homepage): per-service accent colors + tighter section spacing
+// Push: main
+// ─────────────────────────────────────
+
+
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/Homepage.tsx
 // Commit: feat: consolidate homepage — Option B layout, compact pricing, no contract language
 // Push: main
 // ─────────────────────────────────────
@@ -207,13 +215,14 @@ interface PlanItem {
   badge?: string;
   divider?: boolean;
   popular?: boolean;
+  dotColor?: string;
 }
 
 const PLAN_META: PlanItem[] = [
-  { icon: '🛡️', name: 'Pest Control' },
-  { icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true },
-  { icon: '🪵', name: 'Termite — Sentricon®', badge: 'INSPECTION REQUIRED', divider: true },
-  { icon: '🏠', name: 'Complete', badge: 'ALL-IN-ONE' },
+  { icon: '🛡️', name: 'Pest Control', dotColor: '#0E8E40' },
+  { icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490' },
+  { icon: '🪵', name: 'Termite — Sentricon®', badge: 'INSPECTION REQUIRED', divider: true, dotColor: '#F5A800' },
+  { icon: '🏠', name: 'Complete', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F' },
 ];
 
 const PLAN_DATA = {
@@ -303,7 +312,7 @@ function ConsolidatedPricing() {
                   onClick={() => setOpenIdx(isOpen ? null : i)}
                 >
                   <div className="ec-cp-item-top">
-                    <div className="ec-cp-dot">{meta.icon}</div>
+                    <div className="ec-cp-dot" style={meta.dotColor ? { background: meta.dotColor } : undefined}>{meta.icon}</div>
                     <div className="ec-cp-item-info">
                       <div className="ec-cp-item-name">
                         {meta.name}
@@ -401,14 +410,14 @@ function Reviews() {
    ============================================================ */
 function ServiceLinks() {
   const services = [
-    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️' },
-    { name: 'Termite Control', slug: 'termite-control', icon: '🪵' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟' },
-    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜' },
-    { name: 'Flea Control', slug: 'flea', icon: '🪲' },
-    { name: 'Commercial', slug: 'commercial', icon: '🏢' },
-    { name: 'Real Estate / WDO', slug: 'real-estate-wdo', icon: '📋' },
+    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0E8E40' },
+    { name: 'Termite Control', slug: 'termite-control', icon: '🪵', accent: '#F5A800' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟', accent: '#0E7490' },
+    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️', accent: '#07642B' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜', accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: '🪲', accent: '#7D5BA6' },
+    { name: 'Commercial', slug: 'commercial', icon: '🏢', accent: '#0E1A0F' },
+    { name: 'Real Estate / WDO', slug: 'real-estate-wdo', icon: '📋', accent: '#0A7935' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
@@ -421,7 +430,7 @@ function ServiceLinks() {
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.2)', borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58 }}
+              style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.15)', borderLeft: `4px solid ${s.accent}`, borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58, transition: 'box-shadow 0.2s, transform 0.15s' }}
             >
               <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
               <span style={{ flex: 1 }}>{s.name}</span>
@@ -1037,7 +1046,7 @@ const HOMEPAGE_CSS = `
   /* SECTION SHARED */
   .ec-section-inner {
     max-width: 1280px; margin: 0 auto;
-    padding: 80px 20px;
+    padding: clamp(48px, 8vw, 72px) 20px;
   }
   .ec-section-eyebrow {
     display: inline-block; font-size: 12px; font-weight: 700;
