@@ -1,39 +1,43 @@
 {
   "report": "envirocare-ga4-weekly",
-  "run_date": "2026-06-09",
+  "run_date": "2026-06-22",
   "status": "ok",
   "property": "G-CELEB90NKX",
   "ga4_property_id": "313205131",
   "site": "envirocarellc.com",
   "data_source": "Google Analytics Data API (direct, no Supermetrics)",
   "period": {
-    "startDate": "2026-06-02",
-    "endDate": "2026-06-08"
+    "startDate": "2026-06-15",
+    "endDate": "2026-06-21"
   },
   "prior_period": {
-    "startDate": "2026-05-26",
-    "endDate": "2026-06-01"
+    "startDate": "2026-06-08",
+    "endDate": "2026-06-14"
   },
   "totals": {
-    "sessions": 37,
+    "sessions": 54,
     "users": 13,
-    "engagedSessions": 29,
-    "conversions": 1
+    "engagedSessions": 35,
+    "conversions": 2
   },
   "totals_prior": {
-    "sessions": 22,
-    "users": 6,
-    "engagedSessions": 10,
-    "conversions": 0
+    "sessions": 59,
+    "users": 13,
+    "engagedSessions": 31,
+    "conversions": 1
   },
   "channels": [
     {
       "key": "Referral",
-      "value": 25
+      "value": 41
     },
     {
       "key": "Direct",
       "value": 12
+    },
+    {
+      "key": "Organic Social",
+      "value": 1
     }
   ],
   "landing_pages": [
@@ -43,61 +47,61 @@
     },
     {
       "key": "(not set)",
-      "value": 3
+      "value": 11
     },
     {
-      "key": "/api/orchestrator",
+      "key": "/command-center?key=envirocare2026",
+      "value": 8
+    },
+    {
+      "key": "/ give me input thought. i dont likedouble  coverage of pricing.  should be shoreter on frone for cell phoen. 70 bimontly325 initial with with 1 year coverat for termite , ad mosuito 45 9 treatmemts,  and tick 20 exra with mostiuito, , want monthly with ach and and perservice and monlty with acyh option like hae gie me a visusl with sken and jsut idea and help tell clause competitior waynes pest control. look at innoviative atlanta or floridea company like mccall for feedback.",
       "value": 1
     },
     {
-      "key": "/lake-martin",
+      "key": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEefzKN1PTWaJtafyvvwS5II7aY5A_uC_1OvJ-OxpyGidoXTyQ-Qnrz58PUvyQ_aem_NKtS3LKRRjudQLJqAkO8ag",
       "value": 1
     },
     {
       "key": "/services/pest-control",
+      "value": 1
+    },
+    {
+      "key": "/services/termite-control",
       "value": 1
     }
   ],
   "devices": [
     {
       "key": "desktop",
-      "value": 33
+      "value": 53
     },
     {
       "key": "mobile",
-      "value": 4
+      "value": 1
     }
   ],
   "cities": [
     {
-      "key": "Gulf Shores",
-      "value": 10
-    },
-    {
-      "key": "Orange Beach",
-      "value": 10
+      "key": "Vestavia Hills",
+      "value": 32
     },
     {
       "key": "Birmingham",
-      "value": 8
+      "value": 14
     },
     {
-      "key": "Vestavia Hills",
-      "value": 8
+      "key": "Garden City",
+      "value": 7
     },
     {
-      "key": "Pensacola",
-      "value": 3
-    },
-    {
-      "key": "Albany",
+      "key": "Forest City",
       "value": 1
     }
   ],
   "conversion_events": [
     {
       "key": "ads_conversion_Contact_Us_1",
-      "value": 1
+      "value": 2
     }
   ]
 }
