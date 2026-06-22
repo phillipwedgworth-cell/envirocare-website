@@ -11,8 +11,11 @@
 export async function sendEmail(subject, text) {
   const key  = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_FROM;
-  const to   = process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL;
-  if (!key || !from || !to) {
+  // Supports a comma-separated list so one alert can reach multiple inboxes
+  // (e.g. service@envirocarellc.com,phillipwedgworth@gmail.com).
+  const to   = (process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL || '')
+    .split(',').map(s => s.trim()).filter(Boolean);
+  if (!key || !from || !to.length) {
     console.warn('[notify] missing RESEND_API_KEY / NOTIFY_FROM / ALERT_EMAIL — email skipped');
     return false;
   }

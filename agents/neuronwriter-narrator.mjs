@@ -26,7 +26,7 @@ const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" 
 const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
 const RESEND_KEY  = process.env.RESEND_API_KEY || "";
-const NOTIFY_TO   = process.env.NOTIFY_EMAIL || "";
+const NOTIFY_TO   = (process.env.NOTIFY_EMAIL || "").split(",").map(s => s.trim()).filter(Boolean);
 const NOTIFY_FROM = process.env.NOTIFY_FROM || "EnviroCare Narrator <onboarding@resend.dev>";
 
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
@@ -122,7 +122,7 @@ async function pushAndScore(id, html, title) {
 
 // -- notify + summary ---------------------------------------------------------
 async function email(subject, html) {
-  if (!RESEND_KEY || !NOTIFY_TO) return;
+  if (!RESEND_KEY || !NOTIFY_TO.length) return;
   try {
     await fetch("https://api.resend.com/emails", {
       method: "POST",
