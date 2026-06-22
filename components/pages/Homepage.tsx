@@ -1,6 +1,13 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: components/pages/Homepage.tsx
+// Commit: feat(homepage): restore Lake Martin band, truck banner, specialty services sections
+// Push: main
+// ─────────────────────────────────────
+
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/Homepage.tsx
 // Commit: feat(homepage): per-service accent colors + tighter section spacing
 // Push: main
 // ─────────────────────────────────────
@@ -25,7 +32,7 @@ import StickyCallButton from '@/components/StickyCallButton';
  * Changes from v5:
  * 1. Merged CoreServices + Pricing into one ConsolidatedPricing section (compact expandable list)
  * 2. Section order: Hero → Pricing → Reviews → FindOffice → Heritage → Footer (Option B)
- * 3. Removed: ScheduleVisit (off homepage), BundleCTA, LakeMartinBand, SpecialtyServices
+ * 3. Restored: LakeMartinBand, TruckBanner, SpecialtyServices (Jun 22)
  * 4. ThreeOffices replaced with FindYourOffice zip finder
  * 5. "No contract" language removed sitewide per owner direction
  * 6. Hero copy: "interior and exterior coverage" replaces "we treat from the outside"
@@ -42,7 +49,10 @@ export default function Homepage() {
       <Hero />
       <ConsolidatedPricing />
       <ServiceLinks />
+      <SpecialtyServices />
+      <TruckBanner />
       <Reviews />
+      <LakeMartinBand />
       <FindYourOffice />
       <Heritage />
       <Footer />
@@ -594,6 +604,143 @@ function Heritage() {
 /* ============================================================
    FOOTER
    ============================================================ */
+
+/* ============================================================
+   LAKE MARTIN BAND — restored Jun 22
+   ============================================================ */
+function LakeMartinBand() {
+  return (
+    <section className="ec-lake">
+      <div className="ec-lake-inner">
+        <div className="ec-lake-photo-wrap">
+          <img
+            src="/lake-martin-aerial.jpg"
+            alt="Aerial view of Lake Martin, Alabama"
+            className="ec-lake-photo"
+            loading="lazy"
+          />
+        </div>
+        <div className="ec-lake-content">
+          <div className="ec-lake-eyebrow">LAKE MARTIN &amp; ALEX CITY</div>
+          <h2 className="ec-lake-h2">
+            Where EnviroCare <em>Started</em>
+          </h2>
+          <p className="ec-lake-text">
+            Our original 1958 office in Alexander City still serves Lake Martin
+            and East Alabama. We know the lake houses, the docks, the seasonal
+            pest pressure that comes with waterfront living.
+          </p>
+          <ul className="ec-lake-benefits">
+            <li><span className="ec-lake-check">✓</span>Pre-arrival service for lake houses</li>
+            <li><span className="ec-lake-check">✓</span>Dock &amp; boathouse pest treatment</li>
+            <li><span className="ec-lake-check">✓</span>Seasonal mosquito yard barrier</li>
+            <li><span className="ec-lake-check">✓</span>Sentricon® termite protection</li>
+          </ul>
+          <Link href="/lake-martin" className="ec-lake-cta">
+            Lake Martin Services →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* ============================================================
+   TRUCK BANNER — restored Jun 22 (no "bundle" language)
+   ============================================================ */
+function TruckBanner() {
+  return (
+    <section className="ec-bundle">
+      <div className="ec-bundle-truck-wrap">
+        <img
+          src="/truck-lifestyle.webp"
+          alt="EnviroCare service truck"
+          className="ec-bundle-truck"
+          loading="lazy"
+        />
+        <div className="ec-bundle-truck-overlay" />
+      </div>
+      <div className="ec-bundle-inner" style={{ padding: '0 20px 48px' }}>
+        <div className="ec-bundle-truck-eyebrow">ONE COMPANY · ONE INVOICE</div>
+        <h2 className="ec-bundle-h2">
+          Every Service, <em>One Local Team</em>
+        </h2>
+        <p className="ec-bundle-truck-text">
+          Pest, termite, mosquito, and tick — handled by trained specialists who
+          know your property. One company, one invoice, one relationship.
+        </p>
+        <div className="ec-bundle-divider" />
+        <h3 className="ec-bundle-h3">
+          Convenience, <em>Not Complexity</em>
+        </h3>
+        <p className="ec-bundle-sub">
+          Add services as you need them. Each one is a trained specialist doing
+          expert-level work — not a generalist rushing through a checklist.
+        </p>
+        <div className="ec-bundle-prices">
+          <div className="ec-bundle-line">
+            <span>🛡️ Bi-Monthly Pest Control</span>
+            <span className="ec-bundle-price">$35/mo ACH</span>
+          </div>
+          <div className="ec-bundle-line">
+            <span>🦟 Mosquito Yard Barrier</span>
+            <span className="ec-bundle-price">$45/visit</span>
+          </div>
+          <div className="ec-bundle-line">
+            <span>🪵 Sentricon® Termite</span>
+            <span className="ec-bundle-price">Priced at inspection</span>
+          </div>
+        </div>
+        <div className="ec-bundle-ctas">
+          <Link href="/quote" className="ec-cta-primary" style={{ background: '#F5A800', color: '#0E1A0F' }}>
+            Get a Free Quote →
+          </Link>
+          <a href="tel:2059406360" className="ec-cta-secondary-light">
+            📞 (205) 940-6360
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* ============================================================
+   SPECIALTY SERVICES — restored Jun 22
+   ============================================================ */
+function SpecialtyServices() {
+  const items = [
+    { icon: '🏗️', name: 'Builder Pre-Treat', slug: 'builder',
+      desc: 'New construction termite pre-treatment. We work with your builder\'s timeline and provide the documentation lenders require.' },
+    { icon: '📋', name: 'Real Estate / WDO', slug: 'real-estate-wdo',
+      desc: 'Wood-Destroying Organism inspection letters for closings, refinancing, and VA/FHA loans. Fast turnaround, lender-ready reports.' },
+    { icon: '🏢', name: 'Commercial Service', slug: 'commercial',
+      desc: 'Restaurants, offices, warehouses, and multi-family. Scheduled around your business hours with documentation for inspectors.' },
+  ];
+  return (
+    <section className="ec-specialty">
+      <div className="ec-section-inner">
+        <div className="ec-section-eyebrow">SPECIALTY SERVICES</div>
+        <h2 className="ec-section-h2">Builders, Realtors &amp; <em>Commercial</em></h2>
+        <p className="ec-section-sub">
+          Not every job is a residential subscription. These services are priced per project.
+        </p>
+        <div className="ec-specialty-grid">
+          {items.map(s => (
+            <Link key={s.slug} href={`/services/${s.slug}`} className="ec-specialty-card">
+              <span className="ec-specialty-icon">{s.icon}</span>
+              <h3 className="ec-specialty-title">{s.name}</h3>
+              <p className="ec-specialty-desc">{s.desc}</p>
+              <span className="ec-specialty-tag">LEARN MORE →</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="ec-footer">
