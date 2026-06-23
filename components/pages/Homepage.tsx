@@ -214,16 +214,25 @@ export default function Homepage() {
 /* ============================================================
    TOP BANNER
    ============================================================ */
+/* Opens the Scout AI assistant, optionally pre-loading a quote prompt.
+   Falls back to the /quote page when JS is unavailable (href is preserved). */
+function openScout(message?: string) {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('ec:open-scout', { detail: { message } }));
+  }
+}
+const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
+
 function TopBanner() {
   return (
     <div className="ec-banner">
       <div className="ec-banner-inner">
+        <Flower2 size={14} className="ec-banner-sun" aria-hidden="true" />
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><Flower2 size={14} className="ec-banner-sun" aria-hidden="true" /> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
         </div>
-        <a href="tel:2059406360" className="ec-banner-call">Call (205) 940-6360 →</a>
       </div>
     </div>
   );
@@ -267,7 +276,11 @@ function Header() {
             <Phone size={14} className="ec-phone-icon" aria-hidden="true" />
             <span>(205) 940-6360</span>
           </a>
-          <Link href="/quote" className="ec-header-quote">Get Free Quote</Link>
+          <Link
+            href="/quote"
+            className="ec-header-quote"
+            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+          >Get Free Quote</Link>
         </div>
 
         <button
@@ -293,7 +306,11 @@ function Header() {
             onClick={() => setMobileOpen(false)}
           >Pay Bill</a>
           <a href="tel:2059406360" onClick={() => setMobileOpen(false)} className="ec-mobile-phone"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
-          <Link href="/quote" className="ec-mobile-cta" onClick={() => setMobileOpen(false)}>
+          <Link
+            href="/quote"
+            className="ec-mobile-cta"
+            onClick={(e) => { e.preventDefault(); setMobileOpen(false); openScout(QUOTE_PROMPT); }}
+          >
             Get Free Quote →
           </Link>
         </div>
@@ -332,7 +349,11 @@ function Hero() {
           </p>
 
           <div className="ec-hero-ctas">
-            <Link href="/quote" className="ec-cta-primary">
+            <Link
+              href="/quote"
+              className="ec-cta-primary"
+              onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+            >
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
@@ -866,7 +887,12 @@ function TruckBanner() {
           expert-level work — not a generalist rushing through a checklist.
         </p>
         <div className="ec-bundle-ctas">
-          <Link href="/quote" className="ec-cta-primary" style={{ background: '#F5A800', color: '#0E1A0F' }}>
+          <Link
+            href="/quote"
+            className="ec-cta-primary"
+            style={{ background: '#F5A800', color: '#0E1A0F' }}
+            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+          >
             Get a Free Quote →
           </Link>
           <a href="tel:2059406360" className="ec-cta-secondary-light">
@@ -896,6 +922,13 @@ function Footer() {
             <a href="tel:2562346162" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
             <a href="tel:2569377676" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 937-7676</span> — <em>Huntsville</em></a>
           </div>
+          <Link
+            href="/quote"
+            className="ec-footer-cta"
+            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+          >
+            Get an instant quote <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
 
         <div className="ec-footer-col">
@@ -924,21 +957,11 @@ function Footer() {
             <Link href="/hoover">Hoover</Link>
             <Link href="/vestavia-hills">Vestavia Hills</Link>
             <Link href="/mountain-brook">Mountain Brook</Link>
-            <Link href="/homewood">Homewood</Link>
-            <Link href="/alabaster">Alabaster</Link>
-            <Link href="/chelsea">Chelsea</Link>
-            <Link href="/pelham">Pelham</Link>
-            <Link href="/helena">Helena</Link>
-            <Link href="/calera">Calera</Link>
-            <Link href="/trussville">Trussville</Link>
-            <Link href="/mt-laurel">Mt Laurel</Link>
           </div>
           <div className="ec-footer-areas-group">
             <div className="ec-footer-areas-label">Lake Martin / Alex City</div>
             <Link href="/alexander-city">Alexander City</Link>
             <Link href="/lake-martin">Lake Martin</Link>
-            <Link href="/dadeville">Dadeville</Link>
-            <Link href="/eclectic">Eclectic</Link>
             <Link href="/auburn">Auburn</Link>
             <Link href="/opelika">Opelika</Link>
           </div>
@@ -946,13 +969,10 @@ function Footer() {
             <div className="ec-footer-areas-label">North Alabama</div>
             <Link href="/huntsville">Huntsville</Link>
             <Link href="/service-areas/madison">Madison</Link>
-            <Link href="/athens">Athens</Link>
             <Link href="/decatur">Decatur</Link>
-            <Link href="/hartselle">Hartselle</Link>
-            <Link href="/harvest">Harvest</Link>
-            <Link href="/hampton-cove">Hampton Cove</Link>
+            <Link href="/athens">Athens</Link>
           </div>
-          <Link href="/find-office" className="ec-footer-find">Find My Office →</Link>
+          <Link href="/find-office" className="ec-footer-find">View all service areas →</Link>
         </div>
       </div>
 
@@ -998,9 +1018,10 @@ const HOMEPAGE_CSS = `
   .ec-banner {
     background: linear-gradient(90deg, #0A7935 0%, #0E8E40 50%, #0A7935 100%);
     color: #fff;
-    padding: 8px 16px;
+    padding: 9px 16px;
     font-size: 13px;
     overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
   }
   .ec-banner-inner {
     max-width: 1280px;
@@ -1009,16 +1030,16 @@ const HOMEPAGE_CSS = `
     align-items: center;
     gap: 8px;
     justify-content: center;
-    flex-wrap: wrap;
   }
-  .ec-banner-sun { font-size: 14px; }
+  .ec-banner-sun { flex: none; color: #F5A800; }
   .ec-banner-gold { color: #F5A800; font-weight: 600; }
   .ec-banner-rotator {
     position: relative;
     height: 20px;
     overflow: hidden;
-    flex: 0 1 auto;
-    min-width: 0;
+    flex: 1 1 auto;
+    max-width: 620px;
+    text-align: center;
   }
   .ec-banner-msg {
     position: absolute;
@@ -1052,26 +1073,7 @@ const HOMEPAGE_CSS = `
     .ec-hero-ctas .ec-cta-primary,
     .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
   }
-  .ec-banner-call {
-    margin-left: 12px;
-    background: #F5A800;
-    color: #0E1A0F !important;
-    padding: 7px 16px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-    min-height: 36px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 8px rgba(245,168,0,0.3);
-    transition: background 0.15s, transform 0.15s;
-    text-decoration: none;
-  }
-  .ec-banner-call:hover {
-    background: #FFB81F;
-    transform: translateY(-1px);
-  }
+
 
 
   /* HEADER - LOGO IMAGE ONLY */
@@ -2262,6 +2264,16 @@ const HOMEPAGE_CSS = `
     color: rgba(255,255,255,0.6);
     font-style: normal; font-weight: 400;
   }
+  .ec-footer-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 20px;
+    padding: 11px 20px;
+    background: #F5A800; color: #0E1A0F !important;
+    border-radius: 999px;
+    font-size: 15px; font-weight: 700;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .ec-footer-cta:hover { background: #FFB81F; transform: translateY(-1px); }
   .ec-footer-col h4 {
     font-size: 12px; font-weight: 700;
     letter-spacing: 0.1em; color: #F5A800;

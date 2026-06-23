@@ -46,6 +46,7 @@ export default function ChatWidget() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pending, setPending] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -56,6 +57,30 @@ export default function ChatWidget() {
   useEffect(() => {
     if (isOpen && inputRef.current) inputRef.current.focus();
   }, [isOpen]);
+
+  // Allow any "Get a Quote" button on the site to open Scout via a custom event
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { message?: string } | undefined;
+      setIsOpen(true);
+      if (detail?.message) setPending(detail.message);
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "chat_open", { event_category: "engagement", event_label: "quote_cta" });
+      }
+    };
+    window.addEventListener("ec:open-scout", handler as EventListener);
+    return () => window.removeEventListener("ec:open-scout", handler as EventListener);
+  }, []);
+
+  // Once opened with a pending prompt, send it automatically
+  useEffect(() => {
+    if (isOpen && pending && !isLoading) {
+      const msg = pending;
+      setPending(null);
+      sendMessage(msg);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, pending]);
 
   const sendMessage = async (overrideText?: string) => {
     const text = (overrideText ?? input).trim();
@@ -128,7 +153,26 @@ export default function ChatWidget() {
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes ec-scout-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.75);opacity:0}100%{transform:scale(1.75);opacity:0}}
           @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
+          @media (max-width: 600px){.ec-scout-label{display:none!important}}
         `}} />
+      <button
+        className="ec-scout-label"
+        onClick={() => {
+          setIsOpen(true);
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'chat_open', { event_category: 'engagement', event_label: 'label' });
+          }
+        }}
+        style={{
+          position: "fixed", bottom: 30, right: 88,
+          background: "#fff", color: FOREST,
+          border: `1px solid ${BRAND_GREEN}`,
+          borderRadius: 999, padding: "9px 16px",
+          fontSize: 14, fontWeight: 700, cursor: "pointer",
+          boxShadow: "0 6px 20px rgba(14,26,15,0.18)",
+          zIndex: 9998, whiteSpace: "nowrap",
+        }}
+      >Get an instant quote</button>
       <button
         onClick={() => {
           setIsOpen(true);
