@@ -942,7 +942,6 @@ function Footer() {
           <Link href="/services/termite-control">Termite Control</Link>
           <Link href="/services/mosquito-control">Mosquito Control</Link>
           <Link href="/services/tick-control">Tick Control</Link>
-          <Link href="/quote?plan=complete">Complete Plan</Link>
         </div>
 
         <div className="ec-footer-col">
@@ -1324,12 +1323,12 @@ const HOMEPAGE_CSS = `
   /* SECTION SHARED */
   .ec-section-inner {
     max-width: 1280px; margin: 0 auto;
-    padding: clamp(48px, 8vw, 72px) 20px;
+    padding: clamp(40px, 6vw, 60px) 20px;
   }
   .ec-section-eyebrow {
-    display: inline-block; font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em; color: #0E8E40;
-    padding: 6px 14px; background: #E8F5EE; border-radius: 999px;
+    display: inline-block; font-size: 13px; font-weight: 800;
+    letter-spacing: 0.08em; color: #07642B;
+    padding: 7px 16px; background: #D7EFE0; border-radius: 999px;
     margin-bottom: 16px;
   }
   .ec-section-h2 {
@@ -1340,7 +1339,7 @@ const HOMEPAGE_CSS = `
   .ec-section-h2 em { font-style: italic; color: #0E8E40; font-weight: 600; }
   .ec-section-sub {
     font-size: 18px; color: #5A6660; max-width: 680px;
-    margin: 0 0 48px; line-height: 1.55;
+    margin: 0 0 36px; line-height: 1.55;
   }
 
   /* CORE SERVICES */
@@ -2083,7 +2082,7 @@ const HOMEPAGE_CSS = `
 
   /* BUNDLE CTA + TRUCK */
   .ec-bundle {
-    background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+    background: #0E1A0F;
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -2101,9 +2100,9 @@ const HOMEPAGE_CSS = `
   .ec-bundle-truck-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(180deg,
-      rgba(14,26,15,0.0) 0%,
-      rgba(14,26,15,0.4) 70%,
-      rgba(14,142,64,1) 100%);
+      rgba(14,26,15,0.15) 0%,
+      rgba(14,26,15,0.6) 55%,
+      rgba(14,26,15,0.96) 100%);
   }
   .ec-bundle-inner {
     text-align: center;
@@ -2289,7 +2288,7 @@ const HOMEPAGE_CSS = `
      CONSOLIDATED PRICING — compact expandable list
      ============================================================ */
   .ec-cp {
-    padding: 64px 20px;
+    padding: clamp(40px, 6vw, 56px) 20px;
     background: #fff;
   }
   .ec-cp-toggle-wrap {
