@@ -49,9 +49,9 @@ export default function NotFound() {
       <section className="not-found-hero">
         <div>
           <div className="not-found-num">404</div>
-          <h1 className="not-found-h">This Page<em>Got Away From Us</em></h1>
+          <h1 className="not-found-h">This Page <em>Got Away From Us</em></h1>
           <p className="not-found-p">
-            Sorry — the page you\'re looking for either moved or never existed. Try one of these popular pages, or call us at (205) 940-6360 and we\'ll help you find what you need.
+            Sorry — the page you&rsquo;re looking for either moved or never existed. Try one of these popular pages, or call us at (205) 940-6360 and we&rsquo;ll help you find what you need.
           </p>
           <div className="not-found-links">
             <a href="/" className="nf-link">
