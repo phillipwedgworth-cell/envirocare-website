@@ -422,7 +422,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$79 initial',
   },
   {
-    key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
+    key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E8E40',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
     monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
@@ -652,14 +652,14 @@ function Reviews() {
 function ServiceLinks() {
   const services = [
     { name: 'Pest Control', slug: 'pest-control', icon: 'pest', accent: '#0E8E40' },
-    { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#F5A800' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E7490' },
-    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#07642B' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#DC4A1A' },
-    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#7D5BA6' },
+    { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#A66A00' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E8E40' },
+    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#0A7935' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#0E8E40' },
+    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#0A7935' },
     { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
-    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0A7935' },
-    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#92400E' },
+    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0E1A0F' },
+    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#0E1A0F' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
