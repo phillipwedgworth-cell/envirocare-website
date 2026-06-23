@@ -1060,8 +1060,18 @@ const HOMEPAGE_CSS = `
     .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
   }
   @media (max-width: 720px) {
-    .ec-banner-rotator { width: 100%; }
-    .ec-banner-msg { font-size: 12px; }
+    .ec-banner { padding: 7px 12px; }
+    .ec-banner-inner { gap: 6px; }
+    .ec-banner-rotator { width: 100%; height: 32px; max-width: none; }
+    .ec-banner-msg {
+      display: block;
+      white-space: normal;
+      text-align: center;
+      font-size: 11.5px;
+      line-height: 1.25;
+      padding: 0 2px;
+    }
+    .ec-banner-msg .ec-banner-gold { display: inline; }
     .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
     .ec-hero-ctas .ec-cta-primary,
     .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
