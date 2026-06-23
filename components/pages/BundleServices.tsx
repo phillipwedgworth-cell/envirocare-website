@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, CheckCircle, Star } from "lucide-react";
+import { Phone, CheckCircle, Star, DollarSign, ShieldCheck, Home } from "lucide-react";
 
 import Header from "@/components/shared/Header";
 const BUNDLES = [
@@ -96,12 +96,12 @@ export default function BundleServices() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "💰", title: "Better Value", desc: "Bundled services cost less than booking each individually. You get full coverage for a lower combined rate — and one invoice." },
-              { icon: "🔒", title: "No Gaps in Protection", desc: "Pests don't take months off. A bundle plan ensures continuous year-round coverage without remembering to rebook each season." },
-              { icon: "📞", title: "One Point of Contact", desc: "One technician who knows your property. One call when you need something. No juggling multiple companies or schedules." },
+              { icon: <DollarSign size={36} />, title: "Better Value", desc: "Bundled services cost less than booking each individually. You get full coverage for a lower combined rate — and one invoice." },
+              { icon: <ShieldCheck size={36} />, title: "No Gaps in Protection", desc: "Pests don't take months off. A bundle plan ensures continuous year-round coverage without remembering to rebook each season." },
+              { icon: <Phone size={36} />, title: "One Point of Contact", desc: "One technician who knows your property. One call when you need something. No juggling multiple companies or schedules." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-xl p-6 border border-emerald-100 text-center shadow-sm">
-                <div className="text-5xl mb-4">{item.icon}</div>
+                <div className="mb-4 flex justify-center text-emerald-600">{item.icon}</div>
                 <h3 className="font-bold text-slate-900 mb-3">{item.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
@@ -156,7 +156,7 @@ export default function BundleServices() {
       {/* LAKE MARTIN NOTE */}
       <section className="py-12 px-6 bg-teal-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-3">🏠 Lake Martin Homeowners — Bundle Is Essential</h3>
+          <h3 className="text-2xl font-bold mb-3 flex items-center justify-center gap-2"><Home size={24} /> Lake Martin Homeowners — Bundle Is Essential</h3>
           <p className="text-teal-100 leading-relaxed mb-6">
             Waterfront properties at Lake Martin face year-round pest pressure from three directions simultaneously: mosquitoes from the lake, termites from the moisture-rich soil, and general pests through the wood-heavy construction. Our Premium Bundle was built for exactly this scenario.
           </p>

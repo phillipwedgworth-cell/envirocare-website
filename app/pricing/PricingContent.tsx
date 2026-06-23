@@ -14,7 +14,8 @@
 
 "use client";
 
-import { useState } from "react";
+  import { useState } from "react";
+import PestIcon from "@/components/shared/PestIcon";
 
 // ---------- BRAND TOKENS ----------
 const GREEN = "#0E8E40";
@@ -344,7 +345,7 @@ export default function PricingContent() {
               padding: "16px 24px", fontWeight: 600, fontSize: 15,
               textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8,
             }}>
-              📞 (205) 940-6360
+              <PestIcon name="phone" size={16} /> (205) 940-6360
             </a>
           </div>
         </div>

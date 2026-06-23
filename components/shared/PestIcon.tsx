@@ -3,7 +3,7 @@
 // Replaces emoji-as-icons (🪵 🐜 🦟 🕷️ 🐾 🔥 📞 …) with consistent, brand-colored
 // vector glyphs. All icons inherit `color` via currentColor.
 
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactElement } from "react";
 
 export type PestIconName =
   | "pest"      // general shield / pest control
@@ -28,7 +28,8 @@ export const EMOJI_TO_ICON: Record<string, PestIconName> = {
   "🪵": "termite",
   "🐜": "ant",
   "🦟": "mosquito",
-  "🕷️": "spider", "🕷": "spider",
+  "🕷️": "spider", "🕷": "spider", "🦂": "spider",
+  "📋": "check", "📄": "check", "📝": "check",
   "🐾": "tick", "🪰": "tick",
   "🔥": "fireant",
   "🐭": "rodent", "🐀": "rodent",
@@ -36,7 +37,7 @@ export const EMOJI_TO_ICON: Record<string, PestIconName> = {
   "🐝": "wasp", "🐞": "wasp",
   "📞": "phone", "☎️": "phone", "☎": "phone",
   "✅": "check", "✓": "check",
-  "🌿": "leaf", "🌻": "leaf",
+  "🌿": "leaf", "🌻": "leaf", "🍂": "leaf", "🍁": "leaf", "🍄": "leaf",
   "🏠": "home", "🏡": "home",
   "🏢": "building", "🏛️": "building", "🏛": "building", "🏗️": "building", "🏗": "building",
 };
@@ -60,7 +61,7 @@ export const ICON_COLOR: Record<PestIconName, string> = {
   building: "#0A7935",
 };
 
-const PATHS: Record<PestIconName, JSX.Element> = {
+const PATHS: Record<PestIconName, ReactElement> = {
   pest: (
     <>
       <path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z" />

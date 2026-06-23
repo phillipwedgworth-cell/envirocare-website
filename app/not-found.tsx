@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import PestIcon from "@/components/shared/PestIcon";
 
 export default function NotFound() {
   useEffect(() => {
@@ -77,7 +78,7 @@ export default function NotFound() {
       <footer id="contact">
         <div className="footer-grid">
           <div><div className="footer-brand"><strong>EnviroCare Pest & Termite Services</strong>Family-owned since 1958.<br /><br />
-          <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360</a></div></div>
+          <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700,display:'inline-flex',alignItems:'center',gap:8}}><PestIcon name="phone" size={16} /> (205) 940-6360</a></div></div>
           <div><div className="footer-head">Services</div><ul className="footer-links">
             <li><a href="/services/pest-control">Pest Control</a></li><li><a href="/services/termite-control">Termite Control</a></li><li><a href="/services/mosquito-control">Mosquito Control</a></li><li><a href="/services/tick-control">Tick Control</a></li>
           </ul></div>

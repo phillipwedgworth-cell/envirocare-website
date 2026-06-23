@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import { Phone, Clock, CheckCircle } from "lucide-react";
+import { Phone, Clock, CheckCircle, Calendar, Truck, Tag } from "lucide-react";
 
 import Header from "@/components/shared/Header";
+import PestIcon, { resolveIconName } from "@/components/shared/PestIcon";
 const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
@@ -71,7 +72,7 @@ export default function SpecialOffers() {
 
       {/* HERO */}
       <section style={{ background: `linear-gradient(160deg, ${DARK}, ${G})`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
-        <div style={{ fontSize: 48, marginBottom: 16 }}>🌻</div>
+        <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><Tag size={44} color={GOLD} /></div>
         <h1 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, lineHeight: 1.15, marginBottom: 12 }}>
           Current <em style={{ color: GOLD }}>Special Offers</em>
         </h1>
@@ -95,7 +96,7 @@ export default function SpecialOffers() {
                     {offer.label}
                   </div>
                 )}
-                <div style={{ fontSize: 40, marginBottom: 10 }}>{offer.icon}</div>
+                <div style={{ marginBottom: 10 }}><PestIcon name={resolveIconName(offer.icon)} size={36} style={{ color: "#fff" }} /></div>
                 <div style={{ fontSize: 48, fontWeight: 900, lineHeight: 1, ...sf, letterSpacing: "-2px" }}>{offer.headline}</div>
                 <div style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginTop: 4, fontFamily: "'Playfair Display', Georgia, serif" }}>{offer.subline}</div>
               </div>
@@ -137,8 +138,8 @@ export default function SpecialOffers() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {[
               { step: "1", icon: <Phone size={22} />, title: "Call Your Local Office", desc: "Tell us which offer you'd like and mention it at time of booking" },
-              { step: "2", icon: "📅", title: "Schedule Your Visit", desc: "We'll confirm a time that works — usually within 48 hours" },
-              { step: "3", icon: "🌻", title: "We Show Up", desc: "Licensed EnviroCare technician arrives, inspects, and does the job right" },
+              { step: "2", icon: <Calendar size={22} />, title: "Schedule Your Visit", desc: "We'll confirm a time that works — usually within 48 hours" },
+              { step: "3", icon: <Truck size={22} />, title: "We Show Up", desc: "Licensed EnviroCare technician arrives, inspects, and does the job right" },
               { step: "4", icon: <CheckCircle size={22} />, title: "Offer Applied", desc: "Your discount is applied automatically. No coupons, no hassle" },
             ].map((s, i) => (
               <div key={i} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.1)", borderRadius: 14, padding: "24px 20px" }}>
