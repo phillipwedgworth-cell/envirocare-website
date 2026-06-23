@@ -728,12 +728,12 @@ export default function MadisonPage() {
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px 24px", marginBottom: 20 }}>
             <Link href="/service-areas/huntsville"    style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Huntsville</Link>
-            <Link href="/service-areas/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
+            <Link href="/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
             <Link href="/service-areas/madison"       style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Madison</Link>
             <Link href="/service-areas/mountain-brook" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Mountain Brook</Link>
             <Link href="/service-areas/hoover"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Hoover</Link>
-            <Link href="/service-areas/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
-            <Link href="/service-areas/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
+            <Link href="/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
+            <Link href="/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
           </div>
           <p style={{ margin: 0, opacity: 0.45 }}>
             © {new Date().getFullYear()} EnviroCare Pest &amp; Termite Services · Family-owned since 1958 ·{" "}
