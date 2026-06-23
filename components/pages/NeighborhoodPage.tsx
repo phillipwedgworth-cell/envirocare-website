@@ -14,6 +14,7 @@
  */
 
 import Link from "next/link";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export type NeighborhoodConfig = {
   // Page identity
@@ -104,7 +105,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.1rem" }}>
             {cfg.pressureCards.map((c, i) => (
               <div key={i} style={{ background: "#fff", padding: "1.5rem", borderRadius: 14, border: `1px solid ${G}26` }}>
-                <div style={{ fontSize: 30, marginBottom: ".5rem" }} aria-hidden>{c.emoji}</div>
+                <div style={{ marginBottom: ".75rem" }}><EmojiIcon glyph={c.emoji} /></div>
                 <h3 style={{ ...serif, fontSize: "1.15rem", color: D, margin: "0 0 .4rem", fontWeight: 700 }}>{c.title}</h3>
                 <p style={{ fontSize: ".92rem", color: "#4b5563", lineHeight: 1.55, margin: 0 }}>{c.body}</p>
               </div>
