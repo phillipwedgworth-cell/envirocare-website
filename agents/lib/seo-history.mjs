@@ -8,14 +8,22 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-const db = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY,
-  { auth: { persistSession: false } }
-);
+// Lazy, guarded client. Creating the client at module scope crashes the
+// Next.js production build during "Collecting page data" (env vars are
+// runtime-only). Instantiate on first use and no-op when env is missing.
+let _db;
+function getDb() {
+  if (_db !== undefined) return _db;
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
+  _db = url && key ? createClient(url, key, { auth: { persistSession: false } }) : null;
+  return _db;
+}
 
 // Most recent stored query snapshot label (so we compare against the right baseline).
 export async function getLatestSnapshotLabel() {
+  const db = getDb();
+  if (!db) return null;
   const { data } = await db
     .from('seo_snapshots')
     .select('label, date_end')
@@ -27,6 +35,8 @@ export async function getLatestSnapshotLabel() {
 
 // The opportunity list (high impressions, low clicks) — what to write/fix next.
 export async function getOpportunities(limit = 10) {
+  const db = getDb();
+  if (!db) return [];
   const { data, error } = await db
     .from('gsc_opportunities')
     .select('*')
@@ -37,6 +47,8 @@ export async function getOpportunities(limit = 10) {
 
 // Daily trend: compare the last `days` to the prior `days`. Returns deltas.
 export async function getDailyTrend(days = 28) {
+  const db = getDb();
+  if (!db) return null;
   const { data } = await db
     .from('gsc_daily')
     .select('date, clicks, impressions, position')
@@ -58,6 +70,8 @@ export async function getDailyTrend(days = 28) {
 // stored snapshot. Returns the biggest movers — this is the "what changed" the
 // Monday Brief leads with.
 export async function getQueryDeltas(freshQueries = [], topN = 8) {
+  const db = getDb();
+  if (!db) return { note: 'Supabase not configured — no snapshot history available.' };
   const label = await getLatestSnapshotLabel();
   if (!label) return { note: 'No prior snapshot yet — first run establishes the baseline.' };
   const { data: prior } = await db

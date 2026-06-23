@@ -24,6 +24,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { preload } from 'react-dom';
 import StickyCallButton from '@/components/StickyCallButton';
 
 /**
@@ -123,6 +124,10 @@ function LocalBusinessJsonLd() {
 }
 
 export default function Homepage() {
+  // Hero is a CSS background-image, which the preload scanner can't discover
+  // early. Preload it with high priority so it stops gating LCP.
+  preload('/family-yard.jpg', { as: 'image', fetchPriority: 'high' });
+
   return (
     <main className="ec-main">
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
