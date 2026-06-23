@@ -422,7 +422,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$79 initial',
   },
   {
-    key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E8E40',
+    key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
     monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
@@ -430,7 +430,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {
-    key: 'termite', icon: 'termite', name: 'Termite / Sentricon®', dotColor: '#A66A00',
+    key: 'termite', icon: 'termite', name: 'Termite / Sentricon®', dotColor: '#C77A00',
     perservice: { price: 'After free inspection', terms: 'Sentricon® bait system · priced to your home' },
     monthly: { price: 'After free inspection', terms: 'Annual renewal · priced to your home' },
     bullets: ['Sentricon® Always Active bait system', 'Up to $1M termite damage repair coverage', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
@@ -652,14 +652,14 @@ function Reviews() {
 function ServiceLinks() {
   const services = [
     { name: 'Pest Control', slug: 'pest-control', icon: 'pest', accent: '#0E8E40' },
-    { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#A66A00' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E8E40' },
-    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#0A7935' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#0E8E40' },
-    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#0A7935' },
+    { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#C77A00' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E7490' },
+    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#9A5B2E' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#3F6184' },
     { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
-    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0E1A0F' },
-    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#0E1A0F' },
+    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0A7935' },
+    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#1D5E8C' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
@@ -2174,8 +2174,10 @@ const HOMEPAGE_CSS = `
 
   /* FOOTER */
   .ec-footer {
-    background: #0E1A0F; color: #fff;
-    padding: 60px 20px 32px;
+    background: #F2F6EF;
+    color: #3a4a40;
+    padding: 56px 20px 32px;
+    border-top: 4px solid #0E8E40;
   }
   .ec-footer-inner {
     max-width: 1280px; margin: 0 auto;
@@ -2186,25 +2188,22 @@ const HOMEPAGE_CSS = `
   }
   .ec-footer-brand { display: inline-block; margin-bottom: 16px; }
   .ec-footer-logo {
-    height: 44px !important; width: auto !important;
+    height: 48px !important; width: auto !important;
     object-fit: contain;
-    background: #fff;
-    padding: 8px 14px;
-    border-radius: 10px;
   }
   .ec-footer-tag {
     font-size: 14px; line-height: 1.6;
-    color: rgba(255,255,255,0.7); margin: 0 0 20px;
+    color: #5a6b60; margin: 0 0 20px;
   }
   .ec-footer-phones {
     display: flex; flex-direction: column; gap: 6px;
   }
   .ec-footer-phone {
-    color: #F5A800 !important;
-    font-size: 14px; font-weight: 600;
+    color: #0A7935 !important;
+    font-size: 14px; font-weight: 700;
   }
   .ec-footer-phone em {
-    color: rgba(255,255,255,0.6);
+    color: #7a887e;
     font-style: normal; font-weight: 400;
   }
   .ec-footer-cta {
@@ -2218,16 +2217,16 @@ const HOMEPAGE_CSS = `
   }
   .ec-footer-cta:hover { background: #FFB81F; transform: translateY(-1px); }
   .ec-footer-col h4 {
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em; color: #F5A800;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.08em; color: #07642B;
     margin: 0 0 16px;
   }
   .ec-footer-col a {
     display: block; padding: 4px 0;
-    font-size: 14px; color: rgba(255,255,255,0.7);
+    font-size: 14px; color: #4a5750;
     transition: color 0.15s;
   }
-  .ec-footer-col a:hover { color: #fff; }
+  .ec-footer-col a:hover { color: #0E8E40; }
 
   /* Expanded footer service areas - 3 grouped columns */
   .ec-footer-col-areas { grid-column: span 1; }
@@ -2243,10 +2242,10 @@ const HOMEPAGE_CSS = `
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.55);
+    color: #8a978c;
     text-transform: uppercase;
     margin-bottom: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid #d6e2d8;
     padding-bottom: 4px;
   }
   .ec-footer-areas-group a {
@@ -2257,29 +2256,29 @@ const HOMEPAGE_CSS = `
     display: inline-block !important;
     margin-top: 12px;
     padding: 8px 14px !important;
-    background: rgba(245,168,0,0.15);
-    border: 1px solid #F5A800;
+    background: #fff;
+    border: 1.5px solid #0E8E40;
     border-radius: 999px;
-    color: #F5A800 !important;
+    color: #0A7935 !important;
     font-size: 13px !important;
     font-weight: 700;
     transition: all 0.15s;
   }
   .ec-footer-find:hover {
-    background: #F5A800;
-    color: #0E1A0F !important;
+    background: #0E8E40;
+    color: #fff !important;
   }
   .ec-footer-bottom {
     max-width: 1280px; margin: 40px auto 0;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #d6e2d8;
     display: flex; flex-wrap: wrap; gap: 16px;
     justify-content: space-between;
-    font-size: 12px; color: rgba(255,255,255,0.5);
+    font-size: 12px; color: #7a887e;
   }
   .ec-footer-bottom-links { display: flex; gap: 16px; }
-  .ec-footer-bottom-links a { color: rgba(255,255,255,0.5); }
-  .ec-footer-bottom-links a:hover { color: #fff; }
+  .ec-footer-bottom-links a { color: #7a887e; }
+  .ec-footer-bottom-links a:hover { color: #0E8E40; }
   @media (max-width: 899px) {
     .ec-main { padding-bottom: 80px; }
   }
