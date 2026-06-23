@@ -3,6 +3,7 @@
 // tagline + heritage line. Server component, no interactivity.
 
 import { GREEN, GOLD, CREAM, INK, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
+import PestIcon from "@/components/shared/PestIcon";
 
 export default function BrandBand() {
   return (
@@ -26,7 +27,7 @@ export default function BrandBand() {
           textAlign: "center",
         }}
       >
-        <span aria-hidden="true" style={{ fontSize: 18, lineHeight: 1 }}>🌻</span>
+        <span aria-hidden="true" style={{ display: "inline-flex", color: GREEN, lineHeight: 1 }}><PestIcon name="leaf" size={18} /></span>
         <span
           style={{
             fontFamily: displayFont,
