@@ -1,30 +1,99 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/pages/Homepage.tsx
-// Commit: feat(homepage): restore Lake Martin band, truck banner, specialty services sections
-// Push: main
-// ─────────────────────────────────────
-
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/pages/Homepage.tsx
-// Commit: feat(homepage): per-service accent colors + tighter section spacing
-// Push: main
-// ─────────────────────────────────────
-
-
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/pages/Homepage.tsx
-// Commit: feat: consolidate homepage — Option B layout, compact pricing, no contract language
-// Push: main
-// ─────────────────────────────────────
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import type { ComponentType, SVGProps } from 'react';
+import {
+  Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
+  Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
+} from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
+
+/* ============================================================
+   ICONS — professional line icons (lucide) + custom insects
+   ============================================================ */
+type IconProps = SVGProps<SVGSVGElement> & { size?: number };
+
+// Mosquito — lucide has no mosquito, so this is a custom line icon
+function MosquitoIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 12l7-8" />
+      <path d="M12 12L5 4" />
+      <path d="M12 12c-2.5 1-4 2.8-4 4.5" />
+      <path d="M12 12c2.5 1 4 2.8 4 4.5" />
+      <path d="M12 12v6" />
+      <ellipse cx="7.5" cy="8" rx="3.5" ry="1.8" transform="rotate(-30 7.5 8)" />
+      <ellipse cx="16.5" cy="8" rx="3.5" ry="1.8" transform="rotate(30 16.5 8)" />
+      <path d="M12 18l-1 2" />
+    </svg>
+  );
+}
+
+// Tick — custom line icon (rounded body + legs)
+function TickIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <ellipse cx="12" cy="13" rx="5" ry="6" />
+      <circle cx="12" cy="5.5" r="2" />
+      <path d="M7 10L3.5 8" />
+      <path d="M7 13H3" />
+      <path d="M7 16l-3.5 2" />
+      <path d="M17 10l3.5-2" />
+      <path d="M17 13h4" />
+      <path d="M17 16l3.5 2" />
+    </svg>
+  );
+}
+
+// Flea — custom line icon (humped jumping insect)
+function FleaIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14 6c-4 0-7 3.5-7 8 0 2.2 1.3 4 3.5 4s3.5-1.4 3.5-3.5" />
+      <circle cx="15" cy="5" r="1.6" />
+      <path d="M7 14l-3 1" />
+      <path d="M8 17l-3 2.5" />
+      <path d="M16 5l3-1.5" />
+      <path d="M16 8l3.5-1" />
+    </svg>
+  );
+}
+
+const SERVICE_ICONS: Record<string, ComponentType<IconProps>> = {
+  pest: Bug,
+  termite: ShieldCheck,
+  mosquito: MosquitoIcon,
+  tick: TickIcon,
+  fireant: Flame,
+  flea: FleaIcon,
+  commercial: Building2,
+  wdo: FileText,
+  builder: HardHat,
+  pestmosquito: Leaf,
+  complete: House,
+  initial: Rocket,
+};
+
+function ServiceIcon({ name, size, ...props }: IconProps & { name: string }) {
+  const Cmp = SERVICE_ICONS[name] || Bug;
+  return <Cmp size={size} {...props} />;
+}
+
+// Row of 5 filled rating stars
+function Stars({ size = 14 }: { size?: number }) {
+  return (
+    <span className="ec-stars" aria-hidden="true">
+      {[0, 1, 2, 3, 4].map(i => (
+        <Star key={i} size={size} fill="currentColor" stroke="none" />
+      ))}
+    </span>
+  );
+}
 
 /**
  * EnviroCare Homepage v6 — Consolidated Option B (Jun 19, 2026)
@@ -150,7 +219,7 @@ function TopBanner() {
     <div className="ec-banner">
       <div className="ec-banner-inner">
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><Flower2 size={14} className="ec-banner-sun" aria-hidden="true" /> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
         </div>
@@ -195,7 +264,7 @@ function Header() {
             className="ec-header-pay"
           >Pay Bill</a>
           <a href="tel:2059406360" className="ec-header-phone">
-            <span className="ec-phone-icon">📞</span>
+            <Phone size={14} className="ec-phone-icon" aria-hidden="true" />
             <span>(205) 940-6360</span>
           </a>
           <Link href="/quote" className="ec-header-quote">Get Free Quote</Link>
@@ -208,7 +277,7 @@ function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           aria-controls="ec-mobile-menu"
-        >{mobileOpen ? '×' : '☰'}</button>
+        >{mobileOpen ? <X size={26} /> : <Menu size={26} />}</button>
       </div>
 
       {mobileOpen && (
@@ -223,7 +292,7 @@ function Header() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
           >Pay Bill</a>
-          <a href="tel:2059406360" onClick={() => setMobileOpen(false)}>📞 (205) 940-6360</a>
+          <a href="tel:2059406360" onClick={() => setMobileOpen(false)} className="ec-mobile-phone"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
           <Link href="/quote" className="ec-mobile-cta" onClick={() => setMobileOpen(false)}>
             Get Free Quote →
           </Link>
@@ -267,12 +336,12 @@ function Hero() {
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360</span>
+              <Phone size={18} aria-hidden="true" /><span>(205) 940-6360</span>
             </a>
           </div>
 
           <div className="ec-hero-trust-row">
-            <span>★★★★★ Google Reviews</span>
+            <span className="ec-trust-stars"><Stars size={13} /> Google Reviews</span>
             <span aria-hidden="true">·</span>
             <span>Sentricon® Certified</span>
             <span aria-hidden="true">·</span>
@@ -326,14 +395,14 @@ interface RecurringPlan {
 // Termite is intentionally NOT a recurring base plan (see Block B / Complete).
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: '🛡️', name: 'Pest Control', dotColor: '#0E8E40',
+    key: 'pest', icon: 'pest', name: 'Pest Control', dotColor: '#0E8E40',
     perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
     cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial',
   },
   {
-    key: 'pest-mosquito', icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
+    key: 'pest-mosquito', icon: 'pestmosquito', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
     perservice: { price: '$70/visit + $45/visit (mosquito)', terms: 'Mosquito treatments March–November' },
     monthly: { price: 'From $69/mo ACH', terms: 'Pest + seasonal mosquito on one monthly draft' },
     bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
@@ -341,7 +410,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial',
   },
   {
-    key: 'mosquito', icon: '🦟', name: 'Mosquito', dotColor: '#0E7490',
+    key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
     monthly: { price: '$34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
@@ -349,7 +418,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-green', fine: 'No startup fee',
   },
   {
-    key: 'complete', icon: '🏠', name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
+    key: 'complete', icon: 'complete', name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
     perservice: { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite confirmed after inspection & approval' },
     monthly: { price: 'From ~$100/mo ACH', terms: 'Pest + mosquito on ACH · Sentricon® termite priced at inspection' },
     bullets: ['Everything in Pest + Mosquito', 'Sentricon® termite protection', 'Up to $1M termite damage repair coverage', 'One company, one invoice'],
@@ -360,15 +429,15 @@ const RECURRING_PLANS: RecurringPlan[] = [
 // Block B — non-recurring / inspection-triggered. No fixed termite $/mo (locked).
 interface OneTimeItem { icon: string; name: string; price: string; desc: string; href: string; }
 const ONETIME_ITEMS: OneTimeItem[] = [
-  { icon: '🚀', name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
+  { icon: 'initial', name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
     desc: 'One-time startup for new recurring pest customers — the first thorough interior and exterior treatment.' },
-  { icon: '🪵', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
+  { icon: 'termite', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
     desc: 'Sentricon® termite protection is confirmed after inspection. Includes a free WDO inspection; pricing is quoted after.' },
-  { icon: '📋', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
+  { icon: 'wdo', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
     desc: 'Wood-Destroying Organism letters for closings and refinancing. Priced per inspection, with lender-ready turnaround.' },
-  { icon: '🏗️', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
+  { icon: 'builder', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
     desc: 'New-construction termite pre-treatment, scheduled around your builder’s timeline.' },
-  { icon: '🐜', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
+  { icon: 'fireant', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
     desc: 'Targeted add-ons to a recurring plan. Tick is +$20/treatment on mosquito visits.' },
 ];
 
@@ -433,7 +502,9 @@ function ConsolidatedPricing() {
                   aria-controls={panelId}
                   onClick={() => setOpenKey(isOpen ? null : plan.key)}
                 >
-                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}>{plan.icon}</span>
+                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}>
+                    <ServiceIcon name={plan.icon} size={22} color="#fff" aria-hidden="true" />
+                  </span>
                   <span className="ec-cp-item-info">
                     <span className="ec-cp-item-name">
                       {plan.name}
@@ -441,14 +512,14 @@ function ConsolidatedPricing() {
                     </span>
                     <span className="ec-cp-item-price">{d.price}</span>
                   </span>
-                  <span className="ec-cp-arrow" aria-hidden="true">▼</span>
+                  <span className="ec-cp-arrow" aria-hidden="true"><ChevronDown size={18} /></span>
                 </button>
 
                 {isOpen && (
                   <div id={panelId} className="ec-cp-detail">
                     <div className="ec-cp-terms">{d.terms}</div>
                     <ul className="ec-cp-bullets">
-                      {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
+                      {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk"><Check size={14} /></span>{b}</li>)}
                     </ul>
                     {plan.addon && <div className="ec-cp-addon">{plan.addon}</div>}
                     <Link href="/quote" className={`ec-cp-cta ${plan.ctaCls}`}>{plan.cta}</Link>
@@ -468,7 +539,7 @@ function ConsolidatedPricing() {
         <div className="ec-cp-onetime">
           {ONETIME_ITEMS.map(item => (
             <Link key={item.name} href={item.href} className="ec-cp-ot-card">
-              <span className="ec-cp-ot-icon" aria-hidden="true">{item.icon}</span>
+              <span className="ec-cp-ot-icon" aria-hidden="true"><ServiceIcon name={item.icon} size={22} /></span>
               <span className="ec-cp-ot-body">
                 <span className="ec-cp-ot-name">{item.name}</span>
                 <span className="ec-cp-ot-desc">{item.desc}</span>
@@ -508,7 +579,7 @@ function Reviews() {
         <div className="ec-reviews-badge">
           <span className="ec-reviews-g">Verified by Google</span>
           <span className="ec-reviews-rating">
-            <span className="ec-reviews-stars">★★★★★</span>
+            <span className="ec-reviews-stars"><Stars size={15} /></span>
             <span className="ec-reviews-count">· 4.7★ Google</span>
           </span>
         </div>
@@ -522,7 +593,7 @@ function Reviews() {
           {reviews.map((r) => (
             <div key={r.name} className="ec-review-card">
               <span className="ec-review-quote">&ldquo;</span>
-              <div className="ec-review-stars">★★★★★</div>
+              <div className="ec-review-stars"><Stars size={15} /></div>
               <p className="ec-review-text">{r.text}</p>
               <div className="ec-review-author">
                 <div className="ec-review-avatar">{r.name.charAt(0)}</div>
@@ -546,15 +617,15 @@ function Reviews() {
    ============================================================ */
 function ServiceLinks() {
   const services = [
-    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0E8E40' },
-    { name: 'Termite Control', slug: 'termite-control', icon: '🪵', accent: '#F5A800' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟', accent: '#0E7490' },
-    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️', accent: '#07642B' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜', accent: '#DC4A1A' },
-    { name: 'Flea Control', slug: 'flea', icon: '🪲', accent: '#7D5BA6' },
-    { name: 'Commercial', slug: 'commercial', icon: '🏢', accent: '#0E1A0F' },
-    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: '📋', accent: '#0A7935' },
-    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: '🏗️', accent: '#92400E' },
+    { name: 'Pest Control', slug: 'pest-control', icon: 'pest', accent: '#0E8E40' },
+    { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#F5A800' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E7490' },
+    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#07642B' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#7D5BA6' },
+    { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
+    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0A7935' },
+    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#92400E' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
@@ -569,9 +640,11 @@ function ServiceLinks() {
               href={`/services/${s.slug}`}
               style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.15)', borderLeft: `4px solid ${s.accent}`, borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58, transition: 'box-shadow 0.2s, transform 0.15s' }}
             >
-              <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
+              <span style={{ display: 'inline-flex', lineHeight: 1 }} aria-hidden="true">
+                <ServiceIcon name={s.icon} size={24} color={s.accent} />
+              </span>
               <span style={{ flex: 1 }}>{s.name}</span>
-              <span style={{ color: '#0E8E40', fontWeight: 700 }} aria-hidden="true">→</span>
+              <ArrowRight size={18} color="#0E8E40" aria-hidden="true" />
             </Link>
           ))}
         </div>
@@ -643,9 +716,9 @@ function FindYourOffice() {
         </div>
         {result && <div className="ec-fo-result">{result}</div>}
         <div className="ec-fo-phones">
-          <a href="tel:2059406360">📞 (205) 940-6360 — Birmingham</a>
-          <a href="tel:2562346162">📞 (256) 234-6162 — Alex City / Lake Martin</a>
-          <a href="tel:2569377676">📞 (256) 937-7676 — Huntsville</a>
+          <a href="tel:2059406360"><Phone size={15} aria-hidden="true" /> (205) 940-6360 — Birmingham</a>
+          <a href="tel:2562346162"><Phone size={15} aria-hidden="true" /> (256) 234-6162 — Alex City / Lake Martin</a>
+          <a href="tel:2569377676"><Phone size={15} aria-hidden="true" /> (256) 937-7676 — Huntsville</a>
         </div>
         <div className="ec-fo-areas">
           <div className="ec-fo-areas-label">Popular service areas</div>
@@ -797,7 +870,7 @@ function TruckBanner() {
             Get a Free Quote →
           </Link>
           <a href="tel:2059406360" className="ec-cta-secondary-light">
-            📞 (205) 940-6360
+            <Phone size={18} aria-hidden="true" /> (205) 940-6360
           </a>
         </div>
       </div>
@@ -819,9 +892,9 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
-            <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
-            <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
+            <a href="tel:2059406360" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(205) 940-6360</span> — <em>Birmingham</em></a>
+            <a href="tel:2562346162" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
+            <a href="tel:2569377676" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 937-7676</span> — <em>Huntsville</em></a>
           </div>
         </div>
 
@@ -909,6 +982,17 @@ const HOMEPAGE_CSS = `
   }
   .ec-main * { box-sizing: border-box; }
   .ec-main a { color: inherit; text-decoration: none; }
+
+  /* ICON ALIGNMENT — keep line icons centered with adjacent text */
+  .ec-stars { display: inline-flex; align-items: center; gap: 1px; color: #F5A800; vertical-align: middle; }
+  .ec-trust-stars { display: inline-flex; align-items: center; gap: 6px; }
+  .ec-banner-sun { vertical-align: -2px; color: #F5A800; }
+  .ec-header-phone, .ec-footer-phone, .ec-mobile-phone { display: inline-flex; align-items: center; gap: 6px; }
+  .ec-fo-phones a { display: inline-flex; align-items: center; gap: 7px; }
+  .ec-cta-secondary, .ec-cta-secondary-light { display: inline-flex; align-items: center; gap: 8px; }
+  .ec-cp-dot svg, .ec-cp-ot-icon svg { display: block; }
+  .ec-cp-arrow { display: inline-flex; align-items: center; }
+  .ec-cp-chk { display: inline-flex; align-items: center; }
 
   /* TOP BANNER */
   .ec-banner {
