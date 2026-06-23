@@ -34,7 +34,7 @@ const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 
 export default function FireAntPage() {
-  const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, serif" };
+  const serif: React.CSSProperties = { fontFamily: "var(--font-serif)" };
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -112,7 +112,7 @@ export default function FireAntPage() {
   };
 
   return (
-    <main style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: INK, background: "#fff" }}>
+    <main style={{ fontFamily: "var(--font-sans)", color: INK, background: "#fff" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />

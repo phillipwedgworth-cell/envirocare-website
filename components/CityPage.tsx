@@ -22,14 +22,14 @@ export default function CityPage({ city }: { city: CityData }) {
           --line: rgba(14, 142, 64, 0.15);
         }
         body {
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--font-sans);
           color: var(--ink);
           background: var(--cream);
           line-height: 1.6;
           margin: 0;
         }
         h1, h2, h3, h4 {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-serif);
           font-weight: 700;
           letter-spacing: -0.02em;
         }
@@ -252,7 +252,7 @@ export default function CityPage({ city }: { city: CityData }) {
       }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
           <div style={{
-            fontFamily: "'Playfair Display', serif", fontSize: 56,
+            fontFamily: "var(--font-serif)", fontSize: 56,
             color: 'var(--gold)', fontWeight: 700, lineHeight: 1
           }}>4.9</div>
           <div style={{ color: 'var(--gold)', fontSize: 22, margin: '8px 0' }}>★ ★ ★ ★ ★</div>
@@ -341,7 +341,7 @@ export default function CityPage({ city }: { city: CityData }) {
             </div>
             <div>
               <h5 style={{
-                fontFamily: "'DM Sans', sans-serif", fontSize: 12,
+                fontFamily: "var(--font-sans)", fontSize: 12,
                 letterSpacing: '0.12em', textTransform: 'uppercase',
                 color: 'var(--gold)', marginBottom: 16, fontWeight: 700
               }}>Call Us</h5>
@@ -352,7 +352,7 @@ export default function CityPage({ city }: { city: CityData }) {
             </div>
             <div>
               <h5 style={{
-                fontFamily: "'DM Sans', sans-serif", fontSize: 12,
+                fontFamily: "var(--font-sans)", fontSize: 12,
                 letterSpacing: '0.12em', textTransform: 'uppercase',
                 color: 'var(--gold)', marginBottom: 16, fontWeight: 700
               }}>{city.office} Office</h5>
@@ -360,7 +360,7 @@ export default function CityPage({ city }: { city: CityData }) {
               {city.office === 'Huntsville' && <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Serving North Alabama<br />Mon-Fri 8am-5pm</p>}
               {city.office === 'Lake Martin' && <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Alexander City<br />Mon-Fri 8am-5pm</p>}
               <h5 style={{
-                fontFamily: "'DM Sans', sans-serif", fontSize: 12,
+                fontFamily: "var(--font-sans)", fontSize: 12,
                 letterSpacing: '0.12em', textTransform: 'uppercase',
                 color: 'var(--gold)', marginTop: 20, marginBottom: 16, fontWeight: 700
               }}>Serving</h5>
@@ -424,7 +424,7 @@ function Stat({ num, lbl }: { num: string; lbl: string }) {
   return (
     <div>
       <div style={{
-        fontFamily: "'Playfair Display', serif", fontSize: 32,
+        fontFamily: "var(--font-serif)", fontSize: 32,
         color: 'var(--gold)', fontWeight: 700
       }}>{num}</div>
       <div style={{
@@ -467,11 +467,11 @@ function ServiceCard({
       <div style={{ fontSize: 36, marginBottom: 16 }}>{icon}</div>
       <h3 style={{ fontSize: 22, color: 'var(--deep)', marginBottom: 8, marginTop: 0 }}>{title}</h3>
       <div style={{
-        fontFamily: "'Playfair Display', serif", fontSize: 24,
+        fontFamily: "var(--font-serif)", fontSize: 24,
         color: 'var(--green)', fontWeight: 700, marginBottom: 12
       }}>
         {price}<small style={{
-          fontFamily: "'DM Sans', sans-serif", fontSize: 13,
+          fontFamily: "var(--font-sans)", fontSize: 13,
           color: 'var(--muted)', fontWeight: 400
         }}>{priceUnit}</small>
       </div>

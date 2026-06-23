@@ -290,7 +290,7 @@ const RQ_CSS = `
   min-height: 100vh;
   background: #F7F6F1;
   padding: 48px 16px 80px;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 .rq-card {
   max-width: 680px;
@@ -309,7 +309,7 @@ const RQ_CSS = `
   margin-bottom: 8px;
 }
 .rq-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #0E1A0F;
@@ -401,7 +401,7 @@ const RQ_CSS = `
   margin: 0 auto 20px;
 }
 .rq-success-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 700;
   color: #0E1A0F;

@@ -28,7 +28,7 @@ export default function Madison() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",

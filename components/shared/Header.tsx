@@ -12,7 +12,7 @@ const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 
-const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
+const sf = { fontFamily: "var(--font-sans)" };
 
 const SERVICES_ITEMS: [string, string][] = [
   ["Pest Control", "/services/pest-control"],

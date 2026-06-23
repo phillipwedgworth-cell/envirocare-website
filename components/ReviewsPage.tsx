@@ -174,7 +174,7 @@ export default function ReviewsPage() {
 
 const REV_CSS = `
 .rv-main {
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: #FEFDF8;
   color: #0E1A0F;
   min-height: 100vh;
@@ -194,7 +194,7 @@ const REV_CSS = `
   margin-bottom: 16px;
 }
 .rv-h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(36px, 5.5vw, 60px);
   font-weight: 700;
   margin: 0 0 32px;
@@ -215,7 +215,7 @@ const REV_CSS = `
 .rv-stars { color: #F5A800; font-size: 24px; letter-spacing: 2px; }
 .rv-stats { text-align: left; }
 .rv-avg {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 28px;
   font-weight: 700;
   line-height: 1;
@@ -305,7 +305,7 @@ const REV_CSS = `
 }
 .rv-cta-inner { max-width: 720px; margin: 0 auto; }
 .rv-cta-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
   margin: 0 0 12px;

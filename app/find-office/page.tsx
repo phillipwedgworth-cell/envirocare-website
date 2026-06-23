@@ -12,7 +12,7 @@ export default function FindOfficePage() {
       minHeight: '100vh',
       background: 'linear-gradient(180deg, #E8F5EE 0%, #FEFDF8 100%)',
       padding: '80px 24px',
-      fontFamily: "'DM Sans', system-ui, sans-serif",
+      fontFamily: "var(--font-sans)",
     }}>
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', marginBottom: 48 }}>
         <div style={{
@@ -22,7 +22,7 @@ export default function FindOfficePage() {
           🌻 Three Alabama Offices · Family-Owned Since 1958
         </div>
         <h1 style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 'clamp(36px, 5vw, 56px)',
           fontWeight: 700, margin: '0 0 16px', lineHeight: 1.1,
           color: '#0E1A0F',
@@ -86,7 +86,7 @@ const officeLabel = {
   color: '#0E8E40',
 };
 const officePhone = {
-  fontFamily: "'Playfair Display', Georgia, serif",
+  fontFamily: "var(--font-serif)",
   fontSize: 22,
   fontWeight: 700,
 };

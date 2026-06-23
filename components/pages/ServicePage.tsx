@@ -23,7 +23,6 @@ import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
  * Requires in /public: logo.png
  */
 
-import { useEffect } from 'react';
 import { getServiceBySlug, type Service } from '@/data/services';
 
 const SERVICE_ART_SVG: Record<string, string> = {
@@ -194,26 +193,6 @@ const SERVICE_ART_SVG: Record<string, string> = {
 export default function ServicePage({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
 
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const links = [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
-    ];
-    const els: HTMLLinkElement[] = [];
-    links.forEach((cfg) => {
-      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
-      const el = document.createElement('link');
-      Object.entries(cfg).forEach(([k, v]) => {
-        if (k === 'crossOrigin') el.crossOrigin = v as string;
-        else el.setAttribute(k, v as string);
-      });
-      document.head.appendChild(el);
-      els.push(el);
-    });
-    return () => { els.forEach((el) => el.remove()); };
-  }, []);
 
   if (!service) {
     return (

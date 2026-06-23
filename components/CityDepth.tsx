@@ -1,18 +1,18 @@
 import { type City } from '@/data/cities';
 
 const CITY_DEPTH_CSS = `
-.cd-wrap{font-family:'DM Sans',system-ui,sans-serif;color:#0E1A0F}
+.cd-wrap{font-family:var(--font-sans);color:#0E1A0F}
 .cd-pest{padding:5rem clamp(1.5rem,5vw,4rem);background:linear-gradient(135deg,#FEFDF8 0%,#fff 100%)}
 .cd-faq{padding:5rem clamp(1.5rem,5vw,4rem);background:#fff;border-top:1px solid rgba(14,142,64,.12)}
 .cd-inner{max-width:1100px;margin:0 auto}
 .cd-eyebrow{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0E8E40;font-weight:700;margin-bottom:14px}
-.cd-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.12;color:#0E1A0F;margin:0 0 .5rem;max-width:820px}
+.cd-title{font-family:var(--font-serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.12;color:#0E1A0F;margin:0 0 .5rem;max-width:820px}
 .cd-title em{font-style:italic;color:#0A7935}
 .cd-sub{font-size:1.05rem;color:#4b5563;max-width:720px;margin:0 0 2.2rem}
 .cd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem}
 .cd-item{background:#fff;padding:1.5rem;border-radius:14px;border:1px solid rgba(14,142,64,.15)}
 .cd-item .cd-emoji{font-size:30px;margin-bottom:.5rem}
-.cd-item h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#07642B;margin:0 0 .4rem;font-weight:700}
+.cd-item h3{font-family:var(--font-serif);font-size:1.15rem;color:#07642B;margin:0 0 .4rem;font-weight:700}
 .cd-item p{font-size:.92rem;color:#4b5563;line-height:1.55;margin:0}
 .cd-faqlist{max-width:840px;margin-top:.5rem}
 .cd-faqlist details{border:1px solid rgba(14,142,64,.15);border-radius:10px;margin-bottom:12px;background:#FAFAF7;overflow:hidden}

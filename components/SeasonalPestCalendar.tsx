@@ -167,7 +167,7 @@ const PEST_CAL_CSS = `
 .spc-section {
   padding: 80px 24px;
   background: linear-gradient(180deg, #FEFDF8 0%, #F5F1E8 100%);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 .spc-inner {
   max-width: 1100px;
@@ -183,7 +183,7 @@ const PEST_CAL_CSS = `
   margin-bottom: 12px;
 }
 .spc-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(32px, 4.5vw, 48px);
   font-weight: 700;
   color: #0E1A0F;
@@ -219,7 +219,7 @@ const PEST_CAL_CSS = `
   border: none;
   background: transparent;
   border-radius: 8px;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 600;
   color: #5A6660;
@@ -279,7 +279,7 @@ const PEST_CAL_CSS = `
 .spc-pill-medium { background: #DCFCE7; color: #0A7935; }
 .spc-pill-low { background: #F1F5F2; color: #5A6660; }
 .spc-name {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 700;
   color: #0E1A0F;

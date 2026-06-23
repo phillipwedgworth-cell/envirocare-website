@@ -170,7 +170,7 @@ const DONT_TREAT = [
 // ---------- COMPONENT ----------
 export default function PricingContent() {
   return (
-    <main style={{ background: CREAM, color: INK, minHeight: "100vh", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <main style={{ background: CREAM, color: INK, minHeight: "100vh", fontFamily: "var(--font-sans)" }}>
 
       {/* HERO */}
       <section style={{
@@ -423,7 +423,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         background: f ? GOLD : FOREST, color: f ? INK : "#fff",
         border: "none", borderRadius: 7, padding: 13, fontWeight: 700, fontSize: 14,
         textAlign: "center", textDecoration: "none", width: "100%",
-        fontFamily: "'DM Sans', system-ui, sans-serif",
+        fontFamily: "var(--font-sans)",
       }}>
         {plan.cta}
       </a>
@@ -460,7 +460,7 @@ function FAQ({ q, a }: { q: string; a: string }) {
         style={{
           width: "100%", textAlign: "left", background: "none", border: "none",
           cursor: "pointer", padding: 0, display: "flex", justifyContent: "space-between",
-          alignItems: "center", gap: 20, fontFamily: "'DM Sans', system-ui, sans-serif",
+          alignItems: "center", gap: 20, fontFamily: "var(--font-sans)",
         }}>
         <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontWeight: 500, color: INK, letterSpacing: "-0.005em" }}>
           {q}

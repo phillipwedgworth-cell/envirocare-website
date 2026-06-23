@@ -139,7 +139,7 @@ const ZIP_LOOKUP_CSS = `
   padding: 32px;
   max-width: 520px;
   margin: 0 auto;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 .zl-eyebrow {
   font-size: 13px;
@@ -150,7 +150,7 @@ const ZIP_LOOKUP_CSS = `
   margin-bottom: 8px;
 }
 .zl-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 28px;
   font-weight: 700;
   color: #0E1A0F;
@@ -172,7 +172,7 @@ const ZIP_LOOKUP_CSS = `
   flex: 1;
   padding: 14px 16px;
   font-size: 16px;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   border: 2px solid #E8E2D8;
   border-radius: 10px;
   background: #fff;
@@ -187,7 +187,7 @@ const ZIP_LOOKUP_CSS = `
   padding: 14px 20px;
   font-size: 15px;
   font-weight: 600;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: #0E8E40;
   color: #fff;
   border: none;
@@ -222,7 +222,7 @@ const ZIP_LOOKUP_CSS = `
 }
 .zl-result-warn .zl-result-eyebrow { color: #B07A00; }
 .zl-result-office {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 20px;
   font-weight: 700;
   color: #0E1A0F;
@@ -257,7 +257,7 @@ const ZIP_LOOKUP_CSS = `
 .zl-button-compact { padding: 10px 14px; font-size: 14px; }
 .zl-call-compact { padding: 10px 14px; font-size: 14px; text-align: center; }
 .zl-inline {
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 .zl-inline-result {
   margin-top: 12px;

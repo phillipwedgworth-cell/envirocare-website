@@ -24,8 +24,8 @@ const Au = "#F5A800";  // Gold
 const Cr = "#FEFDF8";  // Cream
 const Ik = "#0E1A0F";  // Ink
 
-const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-const sans  = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+const serif = { fontFamily: "var(--font-serif)" } as const;
+const sans  = { fontFamily: "var(--font-sans)" } as const;
 
 // ─── JSON-LD schema ──────────────────────────────────────────
 const jsonLd = {

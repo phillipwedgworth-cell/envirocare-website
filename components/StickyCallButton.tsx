@@ -53,7 +53,7 @@ const STICKY_CSS = `
   z-index: 9998;
   display: flex;
   gap: 8px;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .sc-hidden { transform: translateY(180%); opacity: 0; pointer-events: none; }

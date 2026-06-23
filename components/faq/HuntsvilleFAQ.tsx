@@ -61,7 +61,7 @@ export default function HuntsvilleFAQ() {
       <SchemaScript schema={getFAQSchema(HUNTSVILLE_FAQS)} />
       <div style={{ maxWidth: 820, margin: '0 auto' }}>
         <h2 style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 'clamp(24px, 3vw, 34px)',
           color: 'var(--ink)',
           marginBottom: 8,
@@ -92,7 +92,7 @@ export default function HuntsvilleFAQ() {
           flexWrap: 'wrap',
         }}>
           <div>
-            <p style={{ margin: 0, fontWeight: 700, fontSize: 18, fontFamily: "'Playfair Display', serif" }}>
+            <p style={{ margin: 0, fontWeight: 700, fontSize: 18, fontFamily: "var(--font-serif)" }}>
               Ready to protect your Huntsville home?
             </p>
             <p style={{ margin: '6px 0 0', fontSize: 14, opacity: 0.85 }}>
@@ -134,7 +134,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         gap: 16,
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-sans)",
       }}>
         <span>{question}</span>
         <span style={{ color: 'var(--green)', flexShrink: 0, fontSize: 20, lineHeight: 1 }}>+</span>

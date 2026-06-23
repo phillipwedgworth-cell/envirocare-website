@@ -44,7 +44,7 @@ export default function TickService() {
                 Alabama Tick Control · Family-Owned Since 1958
               </span>
             </div>
-            <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px" }}>
+            <h1 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px" }}>
               Take Your Yard <em style={{ color: GOLD }}>Back</em><br />from Ticks.
             </h1>
             <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.7, marginBottom: 28, ...sf, maxWidth: 580 }}>
@@ -69,7 +69,7 @@ export default function TickService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               Why Tick Control Matters
             </div>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
               Alabama Ticks Carry More Than an Itch.
             </h2>
             <p style={{ fontSize: 15, color: "#6b7d70", maxWidth: 680, margin: "0 auto", ...sf, lineHeight: 1.7 }}>
@@ -101,7 +101,7 @@ export default function TickService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               Our 4-Step Tick Program
             </div>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: 32, color: DARK, marginBottom: 8 }}>
               Targeted Treatment, Not Blanket Spraying.
             </h2>
             <p style={{ fontSize: 15, color: "#6b7d70", ...sf }}>
@@ -117,7 +117,7 @@ export default function TickService() {
               { n: "04", title: "Year-Round Monitoring", body: "Off-season check-ins for hot zones (creeks, woods, trail edges). Winter doesn't stop Alabama ticks completely." },
             ].map((s) => (
               <div key={s.n} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 20px", position: "relative" }}>
-                <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 36, color: GOLD, fontWeight: 700, lineHeight: 1, marginBottom: 8 }}>{s.n}</div>
+                <div style={{ fontFamily: "var(--font-serif)", fontSize: 36, color: GOLD, fontWeight: 700, lineHeight: 1, marginBottom: 8 }}>{s.n}</div>
                 <div style={{ fontWeight: 700, color: DARK, fontSize: 15, marginBottom: 6, ...sf }}>{s.title}</div>
                 <div style={{ fontSize: 13, color: "#5b6f60", lineHeight: 1.6, ...sf }}>{s.body}</div>
               </div>
@@ -133,7 +133,7 @@ export default function TickService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               Who Needs Tick Control
             </div>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK, marginBottom: 18, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: 30, color: DARK, marginBottom: 18, lineHeight: 1.2 }}>
               If You Live in Alabama, You Probably Do.
             </h2>
             <div style={{ display: "grid", gap: 10 }}>
@@ -165,7 +165,7 @@ export default function TickService() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>
               Common Questions
             </div>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: 30, color: DARK }}>Tick Control FAQ</h2>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: 30, color: DARK }}>Tick Control FAQ</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {FAQS.map(([q, a], i) => {
@@ -193,7 +193,7 @@ export default function TickService() {
       <section style={{ background: `linear-gradient(160deg, ${G}, #0f4d26)`, padding: "72px 24px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 560, margin: "0 auto" }}>
           <div style={{ fontSize: 44, marginBottom: 14 }}>🌻</div>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>
+          <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 34, fontWeight: 400, lineHeight: 1.2, marginBottom: 12 }}>
             Stop Pulling Ticks Off<br /><em>Your Family.</em>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, ...sf, lineHeight: 1.7, marginBottom: 28 }}>

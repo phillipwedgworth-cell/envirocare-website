@@ -8,9 +8,9 @@ export default function LakeMartin() {
   const [quoteOpen, setQuoteOpen] = useState(false);
 
   return (
-    <div className="lm-page min-h-screen bg-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <div className="lm-page min-h-screen bg-white" style={{ fontFamily: "var(--font-sans)" }}>
       <style dangerouslySetInnerHTML={{ __html: `
-        .lm-page h1, .lm-page h2, .lm-page h3 { font-family: 'Playfair Display', Georgia, serif; }
+        .lm-page h1, .lm-page h2, .lm-page h3 { font-family: var(--font-serif); }
       ` }} />
       <Header />
 

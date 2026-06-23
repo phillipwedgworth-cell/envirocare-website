@@ -950,7 +950,7 @@ function Footer() {
    ============================================================ */
 const HOMEPAGE_CSS = `
   .ec-main {
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     color: #0E1A0F;
     background: #FEFDF8;
     min-height: 100vh;
@@ -1187,7 +1187,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-eyebrow-dot { color: #F5A800; font-size: 8px; }
   .ec-hero-h1 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(40px, 7vw, 80px); font-weight: 700;
     line-height: 1.05; margin: 0 0 24px; color: #0E1A0F;
   }
@@ -1291,7 +1291,7 @@ const HOMEPAGE_CSS = `
     margin-bottom: 16px;
   }
   .ec-section-h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(34px, 5vw, 56px); font-weight: 700;
     line-height: 1.1; margin: 0 0 16px; color: #0E1A0F;
   }
@@ -1335,7 +1335,7 @@ const HOMEPAGE_CSS = `
     display: flex; flex-direction: column; align-items: flex-end; text-align: right;
   }
   .ec-service-priceamt {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-weight: 700; color: #0E8E40; font-size: 22px; line-height: 1; white-space: nowrap;
   }
   .ec-service-pricelab {
@@ -1350,7 +1350,7 @@ const HOMEPAGE_CSS = `
     color: #0E8E40; margin-bottom: 10px;
   }
   .ec-service-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 24px; font-weight: 700; margin: 0 0 10px; color: #0E1A0F;
   }
   .ec-service-desc {
@@ -1385,7 +1385,7 @@ const HOMEPAGE_CSS = `
     font-size: 32px; display: block; margin-bottom: 12px;
   }
   .ec-specialty-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 20px; font-weight: 700; margin: 0 0 8px; color: #0E1A0F;
   }
   .ec-specialty-desc {
@@ -1457,7 +1457,7 @@ const HOMEPAGE_CSS = `
     box-shadow: 0 2px 8px rgba(14,26,15,0.15);
   }
   .ec-office-city {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 28px; font-weight: 700; margin: 0 0 6px; color: #0E1A0F;
   }
   .ec-office-label {
@@ -1528,7 +1528,7 @@ const HOMEPAGE_CSS = `
     color: #F5A800; margin-bottom: 10px;
   }
   .ec-lake-h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(1.5rem,3.2vw,2.1rem); font-weight: 600; line-height: 1.15;
     margin: 0 0 12px; color: #FEFDF8;
   }
@@ -1624,7 +1624,7 @@ const HOMEPAGE_CSS = `
     color: #0E1A0F !important;
     font-weight: 700;
     font-size: 16px;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
   }
   .ec-areas-cities {
     display: grid;
@@ -1700,7 +1700,7 @@ const HOMEPAGE_CSS = `
     color: #1A2620; margin: 0 0 20px;
   }
   .ec-heritage-quote {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 26px; font-style: italic; color: #0E1A0F;
     border-left: 4px solid #F5A800; padding-left: 20px;
     margin: 32px 0; font-weight: 700;
@@ -1709,7 +1709,7 @@ const HOMEPAGE_CSS = `
     display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap;
   }
   .ec-h-stat-num {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 36px; font-weight: 700; color: #0E8E40; line-height: 1;
   }
   .ec-h-stat-label {
@@ -1853,7 +1853,7 @@ const HOMEPAGE_CSS = `
   .ec-reviews-g { font-size: 12px; color: #5A6660; }
   .ec-reviews-rating { display: inline-flex; align-items: center; gap: 8px; }
   .ec-reviews-num {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 22px; font-weight: 700; color: #0E1A0F;
   }
   .ec-reviews-stars { color: #F5A800; font-size: 14px; letter-spacing: 1px; }
@@ -1871,7 +1871,7 @@ const HOMEPAGE_CSS = `
   .ec-review-card:hover { transform: translateY(-2px); }
   .ec-review-quote {
     position: absolute; top: 8px; right: 16px;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 60px; color: #F5A800; opacity: 0.3; line-height: 1;
   }
   .ec-review-stars {
@@ -1930,7 +1930,7 @@ const HOMEPAGE_CSS = `
     border-radius: 999px; white-space: nowrap;
   }
   .ec-price-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 28px; font-weight: 700;
     margin: 0 0 8px; color: #0E1A0F;
   }
@@ -1949,11 +1949,11 @@ const HOMEPAGE_CSS = `
     gap: 4px; margin-bottom: 4px;
   }
   .ec-price-dollar {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 24px; color: #0E8E40; font-weight: 700;
   }
   .ec-price-num {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 64px; font-weight: 700;
     color: #0E8E40; line-height: 1;
   }
@@ -1991,7 +1991,7 @@ const HOMEPAGE_CSS = `
     background: none; border: none; cursor: pointer;
     font-size: 15px; font-weight: 600;
     color: #94A89A; padding: 6px 4px;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: var(--font-sans);
     transition: color 0.2s;
   }
   .ec-price-toggle-btn.ec-toggle-active { color: #0E8E40; }
@@ -2041,7 +2041,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-svc-price-icon { font-size: 32px; margin-bottom: 10px; }
   .ec-svc-price-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 20px; font-weight: 700;
     color: #0E1A0F; margin: 0 0 10px;
   }
@@ -2050,11 +2050,11 @@ const HOMEPAGE_CSS = `
     gap: 3px; margin-bottom: 4px;
   }
   .ec-svc-price-dollar {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 18px; font-weight: 700; color: #0E8E40;
   }
   .ec-svc-price-num {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 42px; font-weight: 700;
     color: #0E8E40; line-height: 1;
   }
@@ -2079,7 +2079,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-svc-price-cta:hover { background: #E8F5EE; }
 
-  .ec-price-composite { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #0E1A0F; line-height: 1.45; min-height: 58px; display: flex; align-items: center; }
+  .ec-price-composite { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: #0E1A0F; line-height: 1.45; min-height: 58px; display: flex; align-items: center; }
   .ec-price-fineprint { margin-top: 10px; font-size: 12px; color: #5A6660; text-align: center; }
   .ec-price-trust-strip { margin-top: 28px; background: #fff; border: 1px solid #F5A800; border-radius: 12px; padding: 14px 20px; font-size: 14px; color: #3D4F44; text-align: center; line-height: 1.6; }
   .ec-offers {
@@ -2094,7 +2094,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-offer-icon { font-size: 24px; margin-bottom: 8px; }
   .ec-offer-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 18px; font-weight: 700;
     color: #0E1A0F; margin-bottom: 4px;
   }
@@ -2135,7 +2135,7 @@ const HOMEPAGE_CSS = `
     margin-bottom: 12px;
   }
   .ec-bundle-h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(28px, 4.5vw, 44px);
     font-weight: 700; line-height: 1.15;
     margin: 0 0 16px;
@@ -2151,7 +2151,7 @@ const HOMEPAGE_CSS = `
     margin: 32px auto;
   }
   .ec-bundle-h3 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(24px, 4vw, 36px);
     font-weight: 700; line-height: 1.15;
     margin: 0 0 12px;
@@ -2604,7 +2604,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-cp-item-name { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
   .ec-cp-block-title {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(20px, 3vw, 26px); font-weight: 700;
     color: #0E1A0F; text-align: center; margin: 8px 0 18px;
   }

@@ -14,7 +14,7 @@ export default function Eclectic() {
   const [quoteOpen, setQuoteOpen] = useState(false);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
       <Header />
       <script type="application/ld+json">{`
         {

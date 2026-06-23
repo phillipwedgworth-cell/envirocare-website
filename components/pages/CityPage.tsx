@@ -20,7 +20,6 @@
  * Requires in /public: logo.png, truck.jpg
  */
 
-import { useEffect } from 'react';
 import { getCityBySlug, type City } from '@/data/cities';
 import CityDepth from '@/components/CityDepth';
 import Header from '@/components/shared/Header';
@@ -131,26 +130,6 @@ export default function CityPage({ slug }: { slug: string }) {
   const city = getCityBySlug(slug);
 
   // Load Google Fonts once on mount
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const links = [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
-    ];
-    const els: HTMLLinkElement[] = [];
-    links.forEach((cfg) => {
-      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
-      const el = document.createElement('link');
-      Object.entries(cfg).forEach(([k, v]) => {
-        if (k === 'crossOrigin') el.crossOrigin = v as string;
-        else el.setAttribute(k, v as string);
-      });
-      document.head.appendChild(el);
-      els.push(el);
-    });
-    return () => { els.forEach((el) => el.remove()); };
-  }, []);
 
   if (!city) {
     return (
@@ -278,10 +257,10 @@ export default function CityPage({ slug }: { slug: string }) {
       <section style={{ background: '#FEFDF8', padding: '64px clamp(20px,5vw,64px)' }}>
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
               Schedule Your First Visit
             </h2>
-            <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: '#5b6f60', fontSize: 15.5 }}>
+            <p style={{ fontFamily: "var(--font-sans)", color: '#5b6f60', fontSize: 15.5 }}>
               Protected from the outside in — most visits don&rsquo;t require you home.
             </p>
           </div>

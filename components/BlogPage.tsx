@@ -80,7 +80,7 @@ export default function BlogPage() {
 
 const BLOG_CSS = `
 .bp-main {
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: #FEFDF8;
   color: #0E1A0F;
   min-height: 100vh;
@@ -103,7 +103,7 @@ const BLOG_CSS = `
   margin-bottom: 16px;
 }
 .bp-h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(36px, 5.5vw, 60px);
   font-weight: 700;
   margin: 0 0 20px;
@@ -173,7 +173,7 @@ const BLOG_CSS = `
   color: #94A89A;
 }
 .bp-card-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
@@ -212,7 +212,7 @@ const BLOG_CSS = `
   text-align: center;
 }
 .bp-cta-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
   margin: 0 0 12px;

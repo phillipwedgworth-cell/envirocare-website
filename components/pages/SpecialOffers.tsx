@@ -48,7 +48,7 @@ export default function SpecialOffers() {
   const [claiming, setClaiming] = useState<number | null>(null);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
       <Header />
 
       <script type="application/ld+json">{`
@@ -97,7 +97,7 @@ export default function SpecialOffers() {
                 )}
                 <div style={{ fontSize: 40, marginBottom: 10 }}>{offer.icon}</div>
                 <div style={{ fontSize: 48, fontWeight: 900, lineHeight: 1, ...sf, letterSpacing: "-2px" }}>{offer.headline}</div>
-                <div style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginTop: 4, fontFamily: "'Playfair Display', Georgia, serif" }}>{offer.subline}</div>
+                <div style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginTop: 4, fontFamily: "var(--font-serif)" }}>{offer.subline}</div>
               </div>
 
               {/* Body */}
@@ -183,7 +183,7 @@ export default function SpecialOffers() {
           <div onClick={(e: React.MouseEvent) => e.stopPropagation()} style={{ background: "#FEFDF8", borderRadius: 16, width: "100%", maxWidth: 420, overflow: "hidden", boxShadow: "0 30px 80px rgba(0,0,0,0.4)" }}>
             <div style={{ background: OFFERS[claiming].color, color: "#fff", padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>
-                <div style={{ fontWeight: 700, fontSize: 18, fontFamily: "'Playfair Display', Georgia, serif" }}>Claim: {OFFERS[claiming].headline} {OFFERS[claiming].subline}</div>
+                <div style={{ fontWeight: 700, fontSize: 18, fontFamily: "var(--font-serif)" }}>Claim: {OFFERS[claiming].headline} {OFFERS[claiming].subline}</div>
                 <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 12, marginTop: 4, ...sf }}>Select your location to call</div>
               </div>
               <button onClick={() => setClaiming(null)} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.55)", fontSize: 26, cursor: "pointer", lineHeight: 1 }}>×</button>
