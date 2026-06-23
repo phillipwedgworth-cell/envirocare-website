@@ -194,6 +194,15 @@ function LocalBusinessJsonLd() {
 export default function Homepage() {
   return (
     <main className="ec-main">
+      {/* Preload the hero LCP background so the browser fetches it immediately
+          instead of waiting for CSS to parse — improves mobile LCP. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/family-yard.jpg"
+        // @ts-expect-error fetchPriority is a valid DOM attr not yet in React's link types
+        fetchpriority="high"
+      />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <LocalBusinessJsonLd />
       <TopBanner />
