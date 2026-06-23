@@ -333,9 +333,8 @@ function Hero() {
           </div>
 
           <h1 className="ec-hero-h1">
-            Protecting Alabama Homes<br />
-            <em className="ec-h1-italic">Four Generations</em><br />
-            <span className="ec-h1-gold">Strong.</span>
+            Protecting Alabama Homes,<br />
+            <em className="ec-h1-italic">Four Generations</em> <span className="ec-h1-gold">Strong.</span>
           </h1>
 
           <p className="ec-hero-keyword">
@@ -886,19 +885,11 @@ function TruckBanner() {
       <div className="ec-bundle-inner" style={{ padding: '0 20px 48px' }}>
         <div className="ec-bundle-truck-eyebrow">ONE COMPANY · ONE INVOICE</div>
         <h2 className="ec-bundle-h2">
-          Every Service, <em>One Local Team</em>
+          Ready to Protect <em>Your Home?</em>
         </h2>
         <p className="ec-bundle-truck-text">
           Pest, termite, mosquito, and tick — handled by trained specialists who
-          know your property. One company, one invoice, one relationship.
-        </p>
-        <div className="ec-bundle-divider" />
-        <h3 className="ec-bundle-h3">
-          Convenience, <em>Not Complexity</em>
-        </h3>
-        <p className="ec-bundle-sub">
-          Add services as you need them. Each one is a trained specialist doing
-          expert-level work — not a generalist rushing through a checklist.
+          know your property. Get a free quote in minutes or call your local office.
         </p>
         <div className="ec-bundle-ctas">
           <Link
@@ -1768,23 +1759,29 @@ const HOMEPAGE_CSS = `
     color: #5A6660; margin-top: 4px;
   }
 
-  /* PHOTOS */
+  /* PHOTOS — clean balanced grid */
   .ec-heritage-photos {
-    position: relative;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "kevin ribbon1"
+      "kevin ribbon2";
+    gap: 16px;
   }
   .ec-photo-frame {
-    position: absolute;
+    position: relative;
     background: #fff;
-    padding: 12px 12px 40px;
-    box-shadow: 0 12px 30px rgba(14,26,15,0.15);
-    transition: transform 0.3s;
+    padding: 10px 10px 38px;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(14,26,15,0.14);
+    transition: transform 0.25s, box-shadow 0.25s;
     overflow: hidden;
   }
-  .ec-photo-frame:hover { transform: scale(1.02); }
+  .ec-photo-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 38px rgba(14,26,15,0.2);
+  }
   .ec-photo-img {
     width: 100%;
     height: 100%;
@@ -1793,7 +1790,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-photo-caption {
     position: absolute;
-    bottom: 6px;
+    bottom: 8px;
     left: 12px;
     right: 12px;
     display: flex;
@@ -1809,88 +1806,21 @@ const HOMEPAGE_CSS = `
     font-size: 11px;
     color: #5A6660;
   }
-  .ec-caption-small strong { font-size: 11px; }
+  .ec-caption-small strong { font-size: 12px; }
 
-  .ec-photo-kevin {
-    width: 260px;
-    height: 340px;
-    left: 0;
-    top: 40px;
-    transform: rotate(-3deg);
-    z-index: 2;
-  }
-  .ec-photo-ribbon-1 {
-    width: 220px;
-    height: 160px;
-    right: 0;
-    top: 0;
-    transform: rotate(4deg);
-    z-index: 1;
-  }
-  .ec-photo-ribbon-2 {
-    width: 220px;
-    height: 160px;
-    right: 20px;
-    bottom: 0;
-    transform: rotate(-2deg);
-    z-index: 1;
-  }
+  .ec-photo-kevin { grid-area: kevin; }
+  .ec-photo-ribbon-1 { grid-area: ribbon1; aspect-ratio: 4 / 3; }
+  .ec-photo-ribbon-2 { grid-area: ribbon2; aspect-ratio: 4 / 3; }
 
-  /* Fallback styling if photos missing */
-  .ec-photo-fallback {
-    background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-  }
-  .ec-photo-fallback::before {
-    content: '🌻';
-    font-size: 60px;
-    margin-bottom: 12px;
-  }
-  .ec-photo-fallback .ec-photo-caption {
-    position: static;
-    color: #fff;
-    text-align: center;
-    margin-top: 12px;
-  }
-  .ec-photo-fallback .ec-photo-caption strong { color: #fff; }
-  .ec-photo-fallback .ec-photo-caption span { color: rgba(255,255,255,0.85); }
-
-  @media (max-width: 1023px) {
-    .ec-heritage-photos {
-      min-height: 360px;
-    }
-    .ec-photo-kevin {
-      width: 200px; height: 260px;
-      left: 50%;
-      transform: translateX(-60%) rotate(-3deg);
-    }
-    .ec-photo-ribbon-1 {
-      width: 170px; height: 120px;
-      right: 0; top: 20px;
-    }
-    .ec-photo-ribbon-2 {
-      width: 170px; height: 120px;
-      left: 0; bottom: 0;
-    }
-  }
   @media (max-width: 640px) {
     .ec-heritage-photos {
-      min-height: 320px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "kevin kevin"
+        "ribbon1 ribbon2";
     }
-    .ec-photo-kevin {
-      width: 160px; height: 210px;
-    }
-    .ec-photo-ribbon-1 {
-      width: 140px; height: 100px;
-    }
-    .ec-photo-ribbon-2 {
-      width: 140px; height: 100px;
-    }
+    .ec-photo-kevin { aspect-ratio: 16 / 10; }
   }
 
   /* REVIEWS */
