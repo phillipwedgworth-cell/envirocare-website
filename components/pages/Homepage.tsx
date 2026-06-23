@@ -133,7 +133,6 @@ export default function Homepage() {
       <ConsolidatedPricing />
       <Reviews />
       <ServiceLinks />
-      <SpecialtyServices />
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
@@ -555,13 +554,14 @@ function ServiceLinks() {
     { name: 'Flea Control', slug: 'flea', icon: '🪲', accent: '#7D5BA6' },
     { name: 'Commercial', slug: 'commercial', icon: '🏢', accent: '#0E1A0F' },
     { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: '📋', accent: '#0A7935' },
+    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: '🏗️', accent: '#92400E' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">EXPLORE OUR SERVICES</div>
         <h2 className="ec-section-h2">Every Service, <em>One Local Team</em></h2>
-        <p className="ec-section-sub">Tap a service for coverage, pricing, and what&rsquo;s included.</p>
+        <p className="ec-section-sub">Residential, commercial, and real-estate/builder services — tap any one for coverage, pricing, and what&rsquo;s included.</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(165px, 1fr))', gap: 14, marginTop: '2rem' }}>
           {services.map(s => (
             <Link
@@ -792,20 +792,6 @@ function TruckBanner() {
           Add services as you need them. Each one is a trained specialist doing
           expert-level work — not a generalist rushing through a checklist.
         </p>
-        <div className="ec-bundle-prices">
-          <div className="ec-bundle-line">
-            <span>🛡️ Bi-Monthly Pest Control</span>
-            <span className="ec-bundle-price">$35/mo ACH</span>
-          </div>
-          <div className="ec-bundle-line">
-            <span>🦟 Mosquito Yard Barrier</span>
-            <span className="ec-bundle-price">$45/visit</span>
-          </div>
-          <div className="ec-bundle-line">
-            <span>🪵 Sentricon® Termite</span>
-            <span className="ec-bundle-price">Priced at inspection</span>
-          </div>
-        </div>
         <div className="ec-bundle-ctas">
           <Link href="/quote" className="ec-cta-primary" style={{ background: '#F5A800', color: '#0E1A0F' }}>
             Get a Free Quote →
@@ -819,41 +805,6 @@ function TruckBanner() {
   );
 }
 
-
-/* ============================================================
-   SPECIALTY SERVICES — restored Jun 22
-   ============================================================ */
-function SpecialtyServices() {
-  const items = [
-    { icon: '🏗️', name: 'Builder Pre-Treat', slug: 'builder-pre-treat',
-      desc: 'New construction termite pre-treatment. We work with your builder\'s timeline and provide the documentation lenders require.' },
-    { icon: '📋', name: 'Real Estate / WDO', slug: 'wdo-letters',
-      desc: 'Wood-Destroying Organism inspection letters for closings, refinancing, and VA/FHA loans. Fast turnaround, lender-ready reports.' },
-    { icon: '🏢', name: 'Commercial Service', slug: 'commercial',
-      desc: 'Restaurants, offices, warehouses, and multi-family. Scheduled around your business hours with documentation for inspectors.' },
-  ];
-  return (
-    <section className="ec-specialty">
-      <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">SPECIALTY SERVICES</div>
-        <h2 className="ec-section-h2">Builders, Realtors &amp; <em>Commercial</em></h2>
-        <p className="ec-section-sub">
-          Not every job is a residential subscription. These services are priced per project.
-        </p>
-        <div className="ec-specialty-grid">
-          {items.map(s => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="ec-specialty-card">
-              <span className="ec-specialty-icon">{s.icon}</span>
-              <h3 className="ec-specialty-title">{s.name}</h3>
-              <p className="ec-specialty-desc">{s.desc}</p>
-              <span className="ec-specialty-tag">LEARN MORE →</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Footer() {
   return (
