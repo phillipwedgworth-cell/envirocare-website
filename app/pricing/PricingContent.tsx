@@ -325,7 +325,7 @@ export default function PricingContent() {
       {/* FINAL CTA */}
       <section style={{ background: `linear-gradient(160deg, ${GREEN} 0%, ${DEEP} 100%)`, padding: "80px 36px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <div style={{ fontSize: 48, color: GOLD, marginBottom: 16, fontFamily: "'Fraunces', serif" }}>🌻</div>
+          <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><PestIcon name="leaf" size={44} style={{ color: GOLD }} /></div>
           <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(32px, 4.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 14 }}>
             Get your free quote. <em style={{ color: GOLD, fontStyle: "italic" }}>We&rsquo;ll call you back.</em>
           </h2>

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, MapPin, Clock, Mail, ChevronDown } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle2 } from "lucide-react";
 
 import Header from "@/components/shared/Header";
 const G = "#0E8E40";
@@ -309,7 +309,7 @@ export default function ContactUs() {
             </form>
           ) : (
             <div style={{ background: "#fff", border: `2px solid ${G}`, borderRadius: 16, padding: "52px 32px", textAlign: "center" }}>
-              <div style={{ fontSize: 52, marginBottom: 16 }}>🌻</div>
+              <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><CheckCircle2 size={52} color={G} strokeWidth={1.75} /></div>
               <h3 style={{ fontSize: 24, fontWeight: 400, color: DARK, marginBottom: 10 }}>Thank You, {form.name}!</h3>
               <p style={{ fontSize: 15, color: "#6b7280", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> within 2 hours.</p>
               <p style={{ fontSize: 14, color: "#9ca3af", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>

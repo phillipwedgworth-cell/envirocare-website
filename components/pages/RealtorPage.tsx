@@ -40,7 +40,7 @@ export default function RealtorPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">For Realtors & Closing Attorneys</span></div>
-          <h1>Your Closing\'s Best<em>Termite Partner</em></h1>
+          <h1>Your Closing&rsquo;s Best <em>Termite Partner</em></h1>
           <p className="page-hero-sub">
             Fast WDO inspection letters, lender-ready NPMA-33 form, accepted by every Alabama lender we\'ve worked with. Keep your closings on track — most letters delivered in 48 hours.
           </p>

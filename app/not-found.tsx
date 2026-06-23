@@ -30,7 +30,7 @@ export default function NotFound() {
       <style dangerouslySetInnerHTML={{ __html: NF_CSS }} />
 
       <div className="ann">
-        🌻 <strong>Family-owned since 1958</strong> · Four generations of the Wedgworth family
+        <span style={{ display: 'inline-flex', verticalAlign: 'middle', marginRight: 6, color: '#0E8E40' }}><PestIcon name="leaf" size={15} /></span><strong>Family-owned since 1958</strong> · Four generations of the Wedgworth family
         <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
