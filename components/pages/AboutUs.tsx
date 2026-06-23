@@ -215,7 +215,7 @@ export default function AboutUs() {
                 <h3>Second generation takes over</h3>
                 <p>
                   Phillip L. Wedgworth takes over the family business. The second generation expands service across
-                  East Alabama and earns the trust of Russell Lands and Lake Martin's major commercial properties.
+                  East Alabama and earns the trust of Russell Lands and the surrounding residential lake properties.
                 </p>
               </div>
             </div>
@@ -308,8 +308,8 @@ export default function AboutUs() {
               <div className="ab-fam-body">
                 <div className="ab-fam-role">Owner · 1980</div>
                 <p className="ab-fam-bio">
-                  Took over in 1980 and grew the original Alex City operation into a regional company — building the Russell Lands and
-                  Lake Martin commercial relationships and earning Sentricon® Certified Specialist status.
+                  Took over in 1980 and grew the original Alex City operation into a regional company — building relationships across
+                  Russell Lands and the surrounding residential lake properties, and earning Sentricon® Certified Specialist status.
                 </p>
               </div>
             </div>
