@@ -50,6 +50,7 @@ function PhoneIcon() {
 }
 
 const SERVICES: [string, string][] = [
+  ["All Services", "/services"],
   ["Pest Control", "/services/pest-control"],
   ["Termite Control", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito-control"],
@@ -64,6 +65,7 @@ const SPECIALTY: [string, string][] = [
   ["Builder Pre-Treat", "/builders"],
   ["Real Estate / WDO Letters", "/realtor"],
   ["Commercial Service", "/services/commercial"],
+  ["Special Offers", "/special-offers"],
 ];
 
 const AREAS: [string, string][] = [

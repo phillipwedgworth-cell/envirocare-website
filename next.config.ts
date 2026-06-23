@@ -150,8 +150,8 @@ const nextConfig: NextConfig = {
             // Fixes the 6 broken hrefs found by the June 8 crawl that were not
             // already covered above. /pricing and /why-envirocare already exist;
             // /faq has a real page and is intentionally NOT redirected.
-            { source: '/services', destination: '/services/pest-control', permanent: true },
-            { source: '/realtor', destination: '/services/wdo-letters', permanent: true },
+            // UN-SHADOWED per SHADOWED-PAGES-RECOMMENDATION.md: /services (services hub)
+            // and /realtor (B2B referral page) are now live, reachable pages — not redirected.
             // FIXED 2026-06-10: was '/services/commercial' → '/commercial' (a 404 —
             // the real page lives AT /services/commercial; the old rule shadowed it).
             { source: '/commercial', destination: '/services/commercial', permanent: true },
@@ -176,9 +176,11 @@ const nextConfig: NextConfig = {
             { source: '/madison', destination: '/service-areas/madison', permanent: true },
 
             // NOTE: /reviews is a REAL page now (app/reviews/page.tsx) — do NOT redirect it.
-            // NOTE: /bundle-services and /special-offers are REAL, reachable landing
-            // pages (un-shadowed). They keep prominent CTAs to /quote, but rank and
-            // convert on their own URLs — so they are intentionally NOT redirected.
+            // NOTE: /special-offers is a REAL, reachable landing page (un-shadowed) — it has
+            // its own claim-offer modal + phone CTAs and ranks/converts on its own URL.
+            // /bundle-services stays redirected to /quote (overlaps the estimator flow) per
+            // SHADOWED-PAGES-RECOMMENDATION.md — revive only if it becomes a real info page.
+            { source: '/bundle-services', destination: '/quote', permanent: true },
                 ];
     },
 };
