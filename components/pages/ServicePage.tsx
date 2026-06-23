@@ -821,4 +821,9 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
   .svc-art-box{aspect-ratio:16/9}
   .svc-features{grid-template-columns:1fr}
 }
+@media(max-width:560px){
+  .svc-price-card{flex-wrap:wrap;gap:.2rem .6rem;padding:.9rem 1.2rem}
+  .svc-price-card .price{font-size:1.6rem;white-space:nowrap}
+  .svc-price-card .price-sub{flex-basis:100%}
+}
 `;
