@@ -48,10 +48,10 @@ export default function Homepage() {
       <Header />
       <Hero />
       <ConsolidatedPricing />
+      <Reviews />
       <ServiceLinks />
       <SpecialtyServices />
       <TruckBanner />
-      <Reviews />
       <FindYourOffice />
       <Heritage />
       <Footer />
@@ -124,11 +124,12 @@ function Header() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
+          aria-controls="ec-mobile-menu"
         >{mobileOpen ? '×' : '☰'}</button>
       </div>
 
       {mobileOpen && (
-        <div className="ec-mobile-menu">
+        <div className="ec-mobile-menu" id="ec-mobile-menu">
           <Link href="/services/pest-control" onClick={() => setMobileOpen(false)}>Services</Link>
           <Link href="/quote" onClick={() => setMobileOpen(false)}>Pricing</Link>
           <Link href="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
@@ -222,16 +223,16 @@ interface PlanItem {
   icon: string;
   name: string;
   badge?: string;
-  divider?: boolean;
   popular?: boolean;
+  group: 'recurring' | 'onetime';
   dotColor?: string;
 }
 
 const PLAN_META: PlanItem[] = [
-  { icon: '🛡️', name: 'Pest Control', dotColor: '#0E8E40' },
-  { icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490' },
-  { icon: '🪵', name: 'Termite — Sentricon®', badge: 'INSPECTION REQUIRED', divider: true, dotColor: '#F5A800' },
-  { icon: '🏠', name: 'Complete', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F' },
+  { icon: '🛡️', name: 'Pest Control', group: 'recurring', dotColor: '#0E8E40' },
+  { icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, group: 'recurring', dotColor: '#0E7490' },
+  { icon: '🪵', name: 'Termite — Sentricon®', badge: 'SUBJECT TO INSPECTION', group: 'onetime', dotColor: '#F5A800' },
+  { icon: '🏠', name: 'Complete', badge: 'ALL-IN-ONE', group: 'recurring', dotColor: '#0E1A0F' },
 ];
 
 const PLAN_DATA = {
@@ -272,6 +273,55 @@ function ConsolidatedPricing() {
   const toggle = () => setMode(m => m === 'perservice' ? 'monthly' : 'perservice');
   const items = PLAN_DATA[mode];
 
+  const renderItem = (meta: PlanItem, i: number) => {
+    const d = items[i];
+    const isOpen = openIdx === i;
+    const panelId = `ec-cp-panel-${i}`;
+    const triggerId = `ec-cp-trigger-${i}`;
+    return (
+      <div
+        key={meta.name}
+        className={`ec-cp-item ${meta.popular ? 'ec-cp-pop' : ''} ${isOpen ? 'ec-cp-open' : ''}`}
+      >
+        <button
+          type="button"
+          id={triggerId}
+          className="ec-cp-item-top"
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={() => setOpenIdx(isOpen ? null : i)}
+        >
+          <span className="ec-cp-dot" style={meta.dotColor ? { background: meta.dotColor } : undefined} aria-hidden="true">{meta.icon}</span>
+          <span className="ec-cp-item-info">
+            <span className="ec-cp-item-name">
+              {meta.name}
+              {meta.badge && <span className="ec-cp-badge">{meta.badge}</span>}
+            </span>
+            <span className="ec-cp-item-price">{d.price}</span>
+          </span>
+          <span className="ec-cp-arrow" aria-hidden="true">▼</span>
+        </button>
+
+        {isOpen && (
+          <div className="ec-cp-detail" id={panelId} role="region" aria-labelledby={triggerId}>
+            <div className="ec-cp-terms">{d.terms}</div>
+            <ul className="ec-cp-bullets">
+              {d.bullets.map(b => <li key={b}><span className="ec-cp-chk" aria-hidden="true">✓</span>{b}</li>)}
+            </ul>
+            {d.addon && (
+              <div className="ec-cp-addon">{d.addon}</div>
+            )}
+            <Link href="/quote" className={`ec-cp-cta ${d.ctaCls}`}>{d.cta}</Link>
+            {d.fine && <div className="ec-cp-fine"><em>{d.fine}</em></div>}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const recurring = PLAN_META.map((m, i) => ({ m, i })).filter(x => x.m.group === 'recurring');
+  const onetime = PLAN_META.map((m, i) => ({ m, i })).filter(x => x.m.group === 'onetime');
+
   return (
     <section className="ec-cp">
       <div className="ec-section-inner">
@@ -281,74 +331,55 @@ function ConsolidatedPricing() {
           No hidden fees. Every service backed by a trained specialist. Tap any service for details.
         </p>
 
-        {/* Toggle */}
-        <div className="ec-cp-toggle-wrap">
-          <span
-            className={`ec-cp-toggle-label ${mode === 'perservice' ? 'ec-cp-active' : ''}`}
-            onClick={() => setMode('perservice')}
-          >Per Service</span>
-          <div
-            className={`ec-cp-toggle-bar ${mode === 'monthly' ? 'ec-cp-bar-on' : ''}`}
-            onClick={toggle}
-          >
-            <div className={`ec-cp-toggle-dot ${mode === 'monthly' ? 'ec-cp-dot-right' : ''}`} />
+        {/* ── BLOCK 1: RECURRING PLANS ── */}
+        <div className="ec-cp-block ec-cp-block-recurring">
+          <div className="ec-cp-block-head">
+            <span className="ec-cp-block-label">Recurring Plans</span>
+            <span className="ec-cp-block-note">Ongoing protection · cancel anytime</span>
           </div>
-          <span
-            className={`ec-cp-toggle-label ${mode === 'monthly' ? 'ec-cp-active' : ''}`}
-            onClick={() => setMode('monthly')}
-          >Monthly ACH</span>
+
+          {/* Toggle */}
+          <div className="ec-cp-toggle-wrap">
+            <span
+              className={`ec-cp-toggle-label ${mode === 'perservice' ? 'ec-cp-active' : ''}`}
+              onClick={() => setMode('perservice')}
+            >Per Service</span>
+            <div
+              className={`ec-cp-toggle-bar ${mode === 'monthly' ? 'ec-cp-bar-on' : ''}`}
+              onClick={toggle}
+            >
+              <div className={`ec-cp-toggle-dot ${mode === 'monthly' ? 'ec-cp-dot-right' : ''}`} />
+            </div>
+            <span
+              className={`ec-cp-toggle-label ${mode === 'monthly' ? 'ec-cp-active' : ''}`}
+              onClick={() => setMode('monthly')}
+            >Monthly ACH</span>
+          </div>
+          <p className="ec-cp-toggle-note">
+            {mode === 'perservice'
+              ? 'Pay each visit as it happens.'
+              : 'Equal monthly ACH drafts. Not financing.'}
+          </p>
+
+          <div className="ec-cp-list">
+            {recurring.map(({ m, i }) => renderItem(m, i))}
+          </div>
         </div>
-        <p className="ec-cp-toggle-note">
-          {mode === 'perservice'
-            ? 'Pay each visit as it happens.'
-            : 'Equal monthly ACH drafts. Not financing.'}
-        </p>
 
-        {/* Cards */}
-        <div className="ec-cp-list">
-          {PLAN_META.map((meta, i) => {
-            const d = items[i];
-            const isOpen = openIdx === i;
-            return (
-              <div key={meta.name}>
-                {meta.divider && (
-                  <div className="ec-cp-divider">
-                    <span>ADD TERMITE PROTECTION</span>
-                  </div>
-                )}
-                <div
-                  className={`ec-cp-item ${meta.popular ? 'ec-cp-pop' : ''} ${isOpen ? 'ec-cp-open' : ''}`}
-                  onClick={() => setOpenIdx(isOpen ? null : i)}
-                >
-                  <div className="ec-cp-item-top">
-                    <div className="ec-cp-dot" style={meta.dotColor ? { background: meta.dotColor } : undefined}>{meta.icon}</div>
-                    <div className="ec-cp-item-info">
-                      <div className="ec-cp-item-name">
-                        {meta.name}
-                        {meta.badge && <span className="ec-cp-badge">{meta.badge}</span>}
-                      </div>
-                      <div className="ec-cp-item-price">{d.price}</div>
-                    </div>
-                    <span className="ec-cp-arrow">▼</span>
-                  </div>
+        {/* ── BLOCK 2: ONE-TIME & INSPECTION-BASED ── */}
+        <div className="ec-cp-block ec-cp-block-onetime">
+          <div className="ec-cp-block-head">
+            <span className="ec-cp-block-label">One-Time &amp; Inspection-Based</span>
+            <span className="ec-cp-block-note">Not a recurring plan · priced after inspection</span>
+          </div>
+          <p className="ec-cp-block-intro">
+            Termite protection is <strong>quoted only after a free WDO inspection</strong> — it is never
+            bundled into the recurring plan price above.
+          </p>
 
-                  {isOpen && (
-                    <div className="ec-cp-detail" onClick={e => e.stopPropagation()}>
-                      <div className="ec-cp-terms">{d.terms}</div>
-                      <ul className="ec-cp-bullets">
-                        {d.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
-                      </ul>
-                      {d.addon && (
-                        <div className="ec-cp-addon">{d.addon}</div>
-                      )}
-                      <Link href="/quote" className={`ec-cp-cta ${d.ctaCls}`}>{d.cta}</Link>
-                      {d.fine && <div className="ec-cp-fine"><em>{d.fine}</em></div>}
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+          <div className="ec-cp-list">
+            {onetime.map(({ m, i }) => renderItem(m, i))}
+          </div>
         </div>
 
         <div className="ec-cp-strip">
@@ -502,6 +533,50 @@ function FindYourOffice() {
           <a href="tel:2562346162">📞 (256) 234-6162 — Lake Martin</a>
           <a href="tel:2569377676">📞 (256) 937-7676 — Huntsville</a>
         </div>
+
+        {/* Crawlable city links — kept in markup so search engines can index
+            every service area even though the ZIP finder is JS-driven. */}
+        <nav className="ec-fo-cities" aria-label="Service areas by office">
+          <div className="ec-fo-cities-group">
+            <h3 className="ec-fo-cities-label">Birmingham Metro</h3>
+            <div className="ec-fo-cities-links">
+              <Link href="/birmingham">Birmingham</Link>
+              <Link href="/hoover">Hoover</Link>
+              <Link href="/vestavia-hills">Vestavia Hills</Link>
+              <Link href="/mountain-brook">Mountain Brook</Link>
+              <Link href="/homewood">Homewood</Link>
+              <Link href="/alabaster">Alabaster</Link>
+              <Link href="/chelsea">Chelsea</Link>
+              <Link href="/pelham">Pelham</Link>
+              <Link href="/helena">Helena</Link>
+              <Link href="/calera">Calera</Link>
+              <Link href="/trussville">Trussville</Link>
+            </div>
+          </div>
+          <div className="ec-fo-cities-group">
+            <h3 className="ec-fo-cities-label">Lake Martin / Alex City</h3>
+            <div className="ec-fo-cities-links">
+              <Link href="/alexander-city">Alexander City</Link>
+              <Link href="/lake-martin">Lake Martin</Link>
+              <Link href="/dadeville">Dadeville</Link>
+              <Link href="/eclectic">Eclectic</Link>
+              <Link href="/auburn">Auburn</Link>
+              <Link href="/opelika">Opelika</Link>
+            </div>
+          </div>
+          <div className="ec-fo-cities-group">
+            <h3 className="ec-fo-cities-label">North Alabama</h3>
+            <div className="ec-fo-cities-links">
+              <Link href="/huntsville">Huntsville</Link>
+              <Link href="/service-areas/madison">Madison</Link>
+              <Link href="/athens">Athens</Link>
+              <Link href="/decatur">Decatur</Link>
+              <Link href="/hartselle">Hartselle</Link>
+              <Link href="/harvest">Harvest</Link>
+              <Link href="/hampton-cove">Hampton Cove</Link>
+            </div>
+          </div>
+        </nav>
       </div>
     </section>
   );
@@ -511,6 +586,10 @@ function FindYourOffice() {
    HERITAGE
    ============================================================ */
 function Heritage() {
+  const [kevinSrc, setKevinSrc] = useState('/kevin.jpg');
+  const [ribbon1Failed, setRibbon1Failed] = useState(false);
+  const [ribbon2Failed, setRibbon2Failed] = useState(false);
+
   return (
     <section className="ec-heritage">
       <div className="ec-section-inner">
@@ -547,48 +626,59 @@ function Heritage() {
 
           <div className="ec-heritage-photos">
             <div className="ec-photo-frame ec-photo-kevin">
-              <img loading="lazy" decoding="async"
-                src="/kevin.jpg"
-                alt="Kevin Wedgworth, owner of EnviroCare Pest & Termite Services"
-                className="ec-photo-img"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/kevin-headshot.jpg';
-                }}
-              />
+              <div className="ec-photo-img-wrap">
+                <Image
+                  src={kevinSrc}
+                  alt="Kevin Wedgworth, owner of EnviroCare Pest & Termite Services"
+                  fill
+                  loading="lazy"
+                  sizes="260px"
+                  className="ec-photo-img"
+                  style={{ objectFit: 'cover' }}
+                  onError={() => setKevinSrc('/kevin-headshot.jpg')}
+                />
+              </div>
               <div className="ec-photo-caption">
                 <strong>Kevin Wedgworth</strong>
                 <span>Owner &amp; Operator</span>
               </div>
             </div>
 
-            <div className="ec-photo-frame ec-photo-ribbon-1">
-              <img loading="lazy" decoding="async"
-                src="/ribbon-cutting-1.jpg"
-                alt="Birmingham office ribbon cutting"
-                className="ec-photo-img"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement?.classList.add('ec-photo-fallback');
-                }}
-              />
+            <div className={`ec-photo-frame ec-photo-ribbon-1 ${ribbon1Failed ? 'ec-photo-fallback' : ''}`}>
+              {!ribbon1Failed && (
+                <div className="ec-photo-img-wrap">
+                  <Image
+                    src="/ribbon-cutting-1.jpg"
+                    alt="Birmingham office ribbon cutting"
+                    fill
+                    loading="lazy"
+                    sizes="220px"
+                    className="ec-photo-img"
+                    style={{ objectFit: 'cover' }}
+                    onError={() => setRibbon1Failed(true)}
+                  />
+                </div>
+              )}
               <div className="ec-photo-caption ec-caption-small">
                 <strong>Birmingham Office Opening</strong>
               </div>
             </div>
 
-            <div className="ec-photo-frame ec-photo-ribbon-2">
-              <img loading="lazy" decoding="async"
-                src="/ribbon-cutting-2.jpg"
-                alt="Huntsville office ribbon cutting"
-                className="ec-photo-img"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement?.classList.add('ec-photo-fallback');
-                }}
-              />
+            <div className={`ec-photo-frame ec-photo-ribbon-2 ${ribbon2Failed ? 'ec-photo-fallback' : ''}`}>
+              {!ribbon2Failed && (
+                <div className="ec-photo-img-wrap">
+                  <Image
+                    src="/ribbon-cutting-2.jpg"
+                    alt="Huntsville office ribbon cutting"
+                    fill
+                    loading="lazy"
+                    sizes="220px"
+                    className="ec-photo-img"
+                    style={{ objectFit: 'cover' }}
+                    onError={() => setRibbon2Failed(true)}
+                  />
+                </div>
+              )}
               <div className="ec-photo-caption ec-caption-small">
                 <strong>Huntsville Office Opening</strong>
               </div>
@@ -915,24 +1005,16 @@ const HOMEPAGE_CSS = `
     max-width: 240px !important;
     object-fit: contain !important;
     display: block !important;
-    /* Zoom-in entrance animation: 1.6x → 1x over 1.2s */
-    animation: ec-logo-zoom 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    /* Gentle fade-in entrance — no scale, lighter for LCP/Performance */
+    animation: ec-logo-fade 0.6s ease-out both;
     transform-origin: left center;
   }
-  @keyframes ec-logo-zoom {
+  @keyframes ec-logo-fade {
     0% {
-      transform: scale(1.6);
       opacity: 0;
-      filter: blur(2px);
-    }
-    50% {
-      opacity: 1;
-      filter: blur(1px);
     }
     100% {
-      transform: scale(1);
       opacity: 1;
-      filter: blur(0);
     }
   }
   /* Skip animation for users who prefer reduced motion */
@@ -948,19 +1030,6 @@ const HOMEPAGE_CSS = `
     .ec-brand-logo {
       height: 52px !important;
       max-width: 200px !important;
-    }
-    /* Smaller zoom on mobile so it doesn't feel jarring */
-    @keyframes ec-logo-zoom {
-      0% {
-        transform: scale(1.6);
-        opacity: 0;
-        filter: blur(2px);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-        filter: blur(0);
-      }
     }
   }
 
@@ -1603,9 +1672,15 @@ const HOMEPAGE_CSS = `
     overflow: hidden;
   }
   .ec-photo-frame:hover { transform: scale(1.02); }
+  .ec-photo-img-wrap {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 40px;
+    overflow: hidden;
+  }
   .ec-photo-img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     display: block;
   }
@@ -2217,6 +2292,51 @@ const HOMEPAGE_CSS = `
     min-height: 18px;
   }
 
+  .ec-cp-block {
+    max-width: 520px;
+    margin: 0 auto 36px;
+    padding: 22px 20px 24px;
+    border-radius: 18px;
+    border: 1.5px solid #e4e7e4;
+    background: #fff;
+  }
+  .ec-cp-block-recurring {
+    background: #f6faf6;
+    border-color: #d4e4d6;
+  }
+  .ec-cp-block-onetime {
+    background: #fffaf0;
+    border-color: #f0dba8;
+  }
+  .ec-cp-block-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-bottom: 14px;
+  }
+  .ec-cp-block-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0E1A0F;
+  }
+  .ec-cp-block-note {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #5b6f60;
+    text-transform: uppercase;
+  }
+  .ec-cp-block-intro {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #3a5040;
+    margin: 0 0 16px;
+  }
+  .ec-cp-block-intro strong { color: #b8860b; }
+
   .ec-cp-list {
     max-width: 480px;
     margin: 0 auto;
@@ -2237,6 +2357,18 @@ const HOMEPAGE_CSS = `
     align-items: center;
     padding: 16px 18px;
     gap: 14px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+  }
+  .ec-cp-item-top:focus-visible {
+    outline: 2px solid #2d6a3e;
+    outline-offset: -2px;
+    border-radius: 12px;
   }
   .ec-cp-dot {
     width: 44px;
@@ -2250,9 +2382,9 @@ const HOMEPAGE_CSS = `
     background: #2d6a3e;
   }
   .ec-cp-pop .ec-cp-dot { background: #0E1A0F; }
-  .ec-cp-item-info { flex: 1; }
-  .ec-cp-item-name { font-weight: 700; font-size: 15px; color: #1a2e1c; }
-  .ec-cp-item-price { font-size: 13px; color: #2d6a3e; font-weight: 600; }
+  .ec-cp-item-info { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; }
+  .ec-cp-item-name { font-weight: 700; font-size: 15px; color: #1a2e1c; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+  .ec-cp-item-price { font-size: 13px; color: #2d6a3e; font-weight: 600; display: block; }
   .ec-cp-arrow {
     font-size: 18px;
     color: #5b6f60;
@@ -2445,8 +2577,42 @@ const HOMEPAGE_CSS = `
     align-items: center;
   }
   .ec-fo-phones a:hover { color: #2d6a3e; }
+
+  .ec-fo-cities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 28px;
+    max-width: 760px;
+    margin: 32px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(14,142,64,0.15);
+    text-align: left;
+  }
+  .ec-fo-cities-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2d6a3e;
+    margin: 0 0 8px;
+  }
+  .ec-fo-cities-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ec-fo-cities-links a {
+    font-size: 13.5px;
+    color: #3a5040;
+    text-decoration: none;
+    min-height: 30px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .ec-fo-cities-links a:hover { color: #2d6a3e; text-decoration: underline; }
+
   @media (max-width: 480px) {
     .ec-fo-box { display: flex; flex-direction: column; align-items: center; gap: 10px; }
     .ec-fo-btn { margin-left: 0; width: 180px; }
   }
-`;
+  `;
