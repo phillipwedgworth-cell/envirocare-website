@@ -175,10 +175,10 @@ const nextConfig: NextConfig = {
             // ─── CITY PAGES MIGRATED TO /service-areas/* ────────────────────
             { source: '/madison', destination: '/service-areas/madison', permanent: true },
 
-            // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
-            { source: '/bundle-services', destination: '/quote', permanent: true },
             // NOTE: /reviews is a REAL page now (app/reviews/page.tsx) — do NOT redirect it.
-            { source: '/special-offers', destination: '/quote', permanent: true },
+            // NOTE: /bundle-services and /special-offers are REAL, reachable landing
+            // pages (un-shadowed). They keep prominent CTAs to /quote, but rank and
+            // convert on their own URLs — so they are intentionally NOT redirected.
                 ];
     },
 };
