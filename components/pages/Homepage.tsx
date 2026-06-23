@@ -871,18 +871,7 @@ function Heritage() {
 function TruckBanner() {
   return (
     <section className="ec-bundle">
-      <div className="ec-bundle-truck-wrap">
-        <Image
-          src="/truck-lifestyle.webp"
-          alt="EnviroCare service truck"
-          fill
-          sizes="100vw"
-          className="ec-bundle-truck"
-          style={{ objectFit: 'cover' }}
-        />
-        <div className="ec-bundle-truck-overlay" />
-      </div>
-      <div className="ec-bundle-inner" style={{ padding: '0 20px 48px' }}>
+      <div className="ec-bundle-inner" style={{ padding: '0 20px' }}>
         <div className="ec-bundle-truck-eyebrow">ONE COMPANY · ONE INVOICE</div>
         <h2 className="ec-bundle-h2">
           Ready to Protect <em>Your Home?</em>
@@ -2080,38 +2069,22 @@ const HOMEPAGE_CSS = `
   }
   .ec-offer-desc { font-size: 13px; color: #5A6660; }
 
-  /* BUNDLE CTA + TRUCK */
+  /* CLOSING CTA BAND */
   .ec-bundle {
-    background: #0E1A0F;
+    background: linear-gradient(160deg, #0E8E40 0%, #0A7935 55%, #07642B 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
   }
-  .ec-bundle-truck-wrap {
-    position: relative;
-    height: 280px;
-    overflow: hidden;
-  }
-  .ec-bundle-truck {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .ec-bundle-truck-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg,
-      rgba(14,26,15,0.15) 0%,
-      rgba(14,26,15,0.6) 55%,
-      rgba(14,26,15,0.96) 100%);
-  }
   .ec-bundle-inner {
     text-align: center;
-    padding-top: 40px;
+    padding-top: clamp(48px, 7vw, 72px);
+    padding-bottom: clamp(48px, 7vw, 72px);
   }
   .ec-bundle-truck-eyebrow {
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #F5A800;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #FFD37A;
     margin-bottom: 12px;
   }
   .ec-bundle-h2 {
