@@ -266,6 +266,13 @@ const PLAN_DATA = {
   ],
 };
 
+const CTA_CLASSES: Record<string, string> = {
+  'ec-cp-cta-outline': 'border border-[#0A7935] bg-white text-[#0A7935] hover:bg-[#0A7935]/5',
+  'ec-cp-cta-green': 'bg-[#0E8E40] text-white hover:bg-[#0A7935]',
+  'ec-cp-cta-gold': 'bg-[#F5A800] text-[#0E1A0F] hover:bg-[#e09e00]',
+  'ec-cp-cta-dark': 'bg-[#0E1A0F] text-white hover:bg-black',
+};
+
 function ConsolidatedPricing() {
   const [mode, setMode] = useState<'perservice' | 'monthly'>('perservice');
   const [openIdx, setOpenIdx] = useState<number | null>(null);
@@ -278,41 +285,54 @@ function ConsolidatedPricing() {
     const isOpen = openIdx === i;
     const panelId = `ec-cp-panel-${i}`;
     const triggerId = `ec-cp-trigger-${i}`;
+    const wide = meta.badge === 'ALL-IN-ONE' || meta.group === 'onetime';
     return (
       <div
         key={meta.name}
-        className={`ec-cp-item ${meta.popular ? 'ec-cp-pop' : ''} ${isOpen ? 'ec-cp-open' : ''}`}
+        className={`flex flex-col overflow-hidden rounded-2xl border bg-white transition-shadow hover:shadow-lg ${
+          meta.popular ? 'border-[#0E8E40] shadow-[0_2px_12px_rgba(14,142,64,0.12)]' : 'border-[#e4e7e4]'
+        } ${wide ? 'col-span-2' : ''}`}
       >
         <button
           type="button"
           id={triggerId}
-          className="ec-cp-item-top"
           aria-expanded={isOpen}
           aria-controls={panelId}
           onClick={() => setOpenIdx(isOpen ? null : i)}
+          className="flex w-full flex-col gap-2 p-4 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#0E8E40]"
         >
-          <span className="ec-cp-dot" style={meta.dotColor ? { background: meta.dotColor } : undefined} aria-hidden="true">{meta.icon}</span>
-          <span className="ec-cp-item-info">
-            <span className="ec-cp-item-name">
-              {meta.name}
-              {meta.badge && <span className="ec-cp-badge">{meta.badge}</span>}
-            </span>
-            <span className="ec-cp-item-price">{d.price}</span>
+          <div className="flex w-full items-center justify-between">
+            <span
+              aria-hidden="true"
+              className={`flex h-11 w-11 items-center justify-center rounded-xl text-xl ${meta.popular ? 'bg-[#0E1A0F]' : ''}`}
+              style={meta.dotColor ? { background: meta.dotColor } : undefined}
+            >{meta.icon}</span>
+            <span aria-hidden="true" className={`text-lg text-[#5b6f60] transition-transform ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+          </div>
+          <span className="flex flex-wrap items-center gap-1.5 text-[15px] font-bold leading-tight text-[#1a2e1c]">
+            {meta.name}
+            {meta.badge && (
+              <span className="rounded-full bg-[#F5A800] px-2 py-0.5 text-[9px] font-bold tracking-wide text-[#0E1A0F]">{meta.badge}</span>
+            )}
           </span>
-          <span className="ec-cp-arrow" aria-hidden="true">▼</span>
+          <span className="text-[13px] font-semibold text-[#0A7935]">{d.price}</span>
         </button>
 
         {isOpen && (
-          <div className="ec-cp-detail" id={panelId} role="region" aria-labelledby={triggerId}>
-            <div className="ec-cp-terms">{d.terms}</div>
-            <ul className="ec-cp-bullets">
-              {d.bullets.map(b => <li key={b}><span className="ec-cp-chk" aria-hidden="true">✓</span>{b}</li>)}
+          <div id={panelId} role="region" aria-labelledby={triggerId} className="border-t border-[#eee] px-4 pb-4 pt-3.5">
+            <div className="mb-2.5 text-[11.5px] leading-snug text-[#8a9a8c]">{d.terms}</div>
+            <ul className="mb-2.5 list-none p-0">
+              {d.bullets.map(b => (
+                <li key={b} className="flex gap-2 py-0.5 text-[12.5px] text-[#3a5040]">
+                  <span aria-hidden="true" className="shrink-0 font-bold text-[#0E8E40]">✓</span>{b}
+                </li>
+              ))}
             </ul>
             {d.addon && (
-              <div className="ec-cp-addon">{d.addon}</div>
+              <div className="my-2 rounded-lg border border-dashed border-[#0E8E40] bg-[#f0f7f1] px-3 py-2 text-[12.5px] text-[#1a2e1c]">{d.addon}</div>
             )}
-            <Link href="/quote" className={`ec-cp-cta ${d.ctaCls}`}>{d.cta}</Link>
-            {d.fine && <div className="ec-cp-fine"><em>{d.fine}</em></div>}
+            <Link href="/quote" className={`block rounded-[10px] py-3 text-center text-[13.5px] font-bold transition-colors ${CTA_CLASSES[d.ctaCls] ?? ''}`}>{d.cta}</Link>
+            {d.fine && <div className="mt-1.5 text-center text-[11px] italic text-[#8a9a8c]">{d.fine}</div>}
           </div>
         )}
       </div>
@@ -323,7 +343,7 @@ function ConsolidatedPricing() {
   const onetime = PLAN_META.map((m, i) => ({ m, i })).filter(x => x.m.group === 'onetime');
 
   return (
-    <section className="ec-cp">
+    <section className="bg-white px-5 py-16">
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">SERVICES &amp; PRICING</div>
         <h2 className="ec-section-h2">Alabama Protection, <em>Clearly Priced</em></h2>
@@ -332,62 +352,68 @@ function ConsolidatedPricing() {
         </p>
 
         {/* ── BLOCK 1: RECURRING PLANS ── */}
-        <div className="ec-cp-block ec-cp-block-recurring">
-          <div className="ec-cp-block-head">
-            <span className="ec-cp-block-label">Recurring Plans</span>
-            <span className="ec-cp-block-note">Ongoing protection · cancel anytime</span>
+        <div className="mx-auto mb-9 max-w-[520px] rounded-3xl border border-[#d4e4d6] bg-[#f6faf6] p-5">
+          <div className="mb-3.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <span className="font-serif text-xl font-bold text-[#0E1A0F]">Recurring Plans</span>
+            <span className="text-[11.5px] font-semibold uppercase tracking-wide text-[#5b6f60]">Ongoing protection · billed per visit or monthly</span>
           </div>
 
-          {/* Toggle */}
-          <div className="ec-cp-toggle-wrap">
-            <span
-              className={`ec-cp-toggle-label ${mode === 'perservice' ? 'ec-cp-active' : ''}`}
+          {/* Billing toggle */}
+          <div className="mb-2 flex items-center justify-center gap-3">
+            <button
+              type="button"
               onClick={() => setMode('perservice')}
-            >Per Service</span>
-            <div
-              className={`ec-cp-toggle-bar ${mode === 'monthly' ? 'ec-cp-bar-on' : ''}`}
+              className={`text-sm font-semibold transition-colors ${mode === 'perservice' ? 'text-[#0E1A0F]' : 'text-[#9aa89c]'}`}
+            >Per Service</button>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={mode === 'monthly'}
+              aria-label="Switch between per-service and monthly ACH billing"
               onClick={toggle}
+              className={`relative h-7 w-[52px] rounded-full transition-colors ${mode === 'monthly' ? 'bg-[#0E8E40]' : 'bg-[#cdd5ce]'}`}
             >
-              <div className={`ec-cp-toggle-dot ${mode === 'monthly' ? 'ec-cp-dot-right' : ''}`} />
-            </div>
-            <span
-              className={`ec-cp-toggle-label ${mode === 'monthly' ? 'ec-cp-active' : ''}`}
+              <span className={`absolute left-[3px] top-[3px] h-[22px] w-[22px] rounded-full bg-white shadow transition-transform ${mode === 'monthly' ? 'translate-x-6' : ''}`} />
+            </button>
+            <button
+              type="button"
               onClick={() => setMode('monthly')}
-            >Monthly ACH</span>
+              className={`text-sm font-semibold transition-colors ${mode === 'monthly' ? 'text-[#0E1A0F]' : 'text-[#9aa89c]'}`}
+            >Monthly ACH</button>
           </div>
-          <p className="ec-cp-toggle-note">
+          <p className="mb-7 min-h-[18px] text-center text-[12.5px] italic text-[#5b6f60]">
             {mode === 'perservice'
               ? 'Pay each visit as it happens.'
               : 'Equal monthly ACH drafts. Not financing.'}
           </p>
 
-          <div className="ec-cp-list">
+          <div className="grid grid-cols-2 items-start gap-3">
             {recurring.map(({ m, i }) => renderItem(m, i))}
           </div>
         </div>
 
         {/* ── BLOCK 2: ONE-TIME & INSPECTION-BASED ── */}
-        <div className="ec-cp-block ec-cp-block-onetime">
-          <div className="ec-cp-block-head">
-            <span className="ec-cp-block-label">One-Time &amp; Inspection-Based</span>
-            <span className="ec-cp-block-note">Not a recurring plan · priced after inspection</span>
+        <div className="mx-auto mb-9 max-w-[520px] rounded-3xl border border-[#f0dba8] bg-[#fffaf0] p-5">
+          <div className="mb-3.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <span className="font-serif text-xl font-bold text-[#0E1A0F]">One-Time &amp; Inspection-Based</span>
+            <span className="text-[11.5px] font-semibold uppercase tracking-wide text-[#5b6f60]">Not a recurring plan · priced after inspection</span>
           </div>
-          <p className="ec-cp-block-intro">
-            Termite protection is <strong>quoted only after a free WDO inspection</strong> — it is never
+          <p className="mb-4 text-[13px] leading-relaxed text-[#3a5040]">
+            Termite protection is <strong className="text-[#b8860b]">quoted only after a free WDO inspection</strong> — it is never
             bundled into the recurring plan price above.
           </p>
 
-          <div className="ec-cp-list">
+          <div className="grid grid-cols-2 items-start gap-3">
             {onetime.map(({ m, i }) => renderItem(m, i))}
           </div>
         </div>
 
-        <div className="ec-cp-strip">
-          <strong>$79 initial service fee</strong> for new pest customers.
+        <div className="mx-auto mt-6 max-w-[520px] rounded-[10px] bg-[#FEFDF8] px-4 py-3.5 text-center text-[13px] leading-relaxed text-[#5b6f60]">
+          <strong className="text-[#1a2e1c]">$79 initial service fee</strong> for new pest customers.
           Mosquito and tick have no startup.
         </div>
-        <div className="ec-cp-assurance">We never charge twice for the same coverage.</div>
-        <div className="ec-cp-faq">
+        <div className="mt-3 text-center text-[12.5px] font-semibold text-[#0E8E40]">We never charge twice for the same coverage.</div>
+        <div className="mt-2 text-center text-[12px] italic text-[#5b6f60]">
           Already have termite coverage? We&rsquo;ll verify your protection before recommending anything.
         </div>
       </div>
@@ -2238,283 +2264,7 @@ const HOMEPAGE_CSS = `
     .ec-main { padding-bottom: 80px; }
   }
 
-  /* ============================================================
-     CONSOLIDATED PRICING — compact expandable list
-     ============================================================ */
-  .ec-cp {
-    padding: 64px 20px;
-    background: #fff;
-  }
-  .ec-cp-toggle-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-  .ec-cp-toggle-label {
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    color: #9aa89c;
-    user-select: none;
-    transition: color 0.2s;
-  }
-  .ec-cp-active { color: #0E1A0F; }
-  .ec-cp-toggle-bar {
-    width: 52px;
-    height: 28px;
-    background: #cdd5ce;
-    border-radius: 14px;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .ec-cp-bar-on { background: #2d6a3e; }
-  .ec-cp-toggle-dot {
-    width: 22px;
-    height: 22px;
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  }
-  .ec-cp-dot-right { transform: translateX(24px); }
-  .ec-cp-toggle-note {
-    text-align: center;
-    font-size: 12.5px;
-    color: #5b6f60;
-    margin-bottom: 28px;
-    font-style: italic;
-    min-height: 18px;
-  }
-
-  .ec-cp-block {
-    max-width: 520px;
-    margin: 0 auto 36px;
-    padding: 22px 20px 24px;
-    border-radius: 18px;
-    border: 1.5px solid #e4e7e4;
-    background: #fff;
-  }
-  .ec-cp-block-recurring {
-    background: #f6faf6;
-    border-color: #d4e4d6;
-  }
-  .ec-cp-block-onetime {
-    background: #fffaf0;
-    border-color: #f0dba8;
-  }
-  .ec-cp-block-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 4px 12px;
-    margin-bottom: 14px;
-  }
-  .ec-cp-block-label {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #0E1A0F;
-  }
-  .ec-cp-block-note {
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: #5b6f60;
-    text-transform: uppercase;
-  }
-  .ec-cp-block-intro {
-    font-size: 13px;
-    line-height: 1.55;
-    color: #3a5040;
-    margin: 0 0 16px;
-  }
-  .ec-cp-block-intro strong { color: #b8860b; }
-
-  .ec-cp-list {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .ec-cp-item {
-    background: #fff;
-    border: 1.5px solid #e4e7e4;
-    border-radius: 14px;
-    margin-bottom: 14px;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
-    cursor: pointer;
-  }
-  .ec-cp-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-  .ec-cp-pop { border-color: #2d6a3e; box-shadow: 0 2px 12px rgba(45,106,62,0.1); }
-  .ec-cp-item-top {
-    display: flex;
-    align-items: center;
-    padding: 16px 18px;
-    gap: 14px;
-    width: 100%;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    text-align: left;
-    font: inherit;
-    color: inherit;
-  }
-  .ec-cp-item-top:focus-visible {
-    outline: 2px solid #2d6a3e;
-    outline-offset: -2px;
-    border-radius: 12px;
-  }
-  .ec-cp-dot {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-    background: #2d6a3e;
-  }
-  .ec-cp-pop .ec-cp-dot { background: #0E1A0F; }
-  .ec-cp-item-info { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; }
-  .ec-cp-item-name { font-weight: 700; font-size: 15px; color: #1a2e1c; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
-  .ec-cp-item-price { font-size: 13px; color: #2d6a3e; font-weight: 600; display: block; }
-  .ec-cp-arrow {
-    font-size: 18px;
-    color: #5b6f60;
-    transition: transform 0.25s;
-  }
-  .ec-cp-open .ec-cp-arrow { transform: rotate(180deg); }
-
-  .ec-cp-badge {
-    font-size: 9px;
-    font-weight: 700;
-    background: #F5A800;
-    color: #0E1A0F;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-left: 6px;
-    vertical-align: middle;
-    letter-spacing: 0.04em;
-  }
-
-  .ec-cp-detail {
-    padding: 0 18px 18px;
-    border-top: 1px solid #eee;
-    padding-top: 14px;
-  }
-  .ec-cp-terms {
-    font-size: 11.5px;
-    color: #8a9a8c;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  .ec-cp-bullets {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 10px;
-  }
-  .ec-cp-bullets li {
-    font-size: 12.5px;
-    padding: 3px 0;
-    color: #3a5040;
-    display: flex;
-    gap: 7px;
-  }
-  .ec-cp-chk {
-    color: #2d6a3e;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .ec-cp-addon {
-    margin: 8px 0 12px;
-    padding: 9px 12px;
-    background: #f0f7f1;
-    border: 1.5px dashed #2d6a3e;
-    border-radius: 9px;
-    font-size: 12.5px;
-    color: #1a2e1c;
-  }
-
-  .ec-cp-cta {
-    display: block;
-    text-align: center;
-    padding: 13px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 13.5px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .ec-cp-cta-outline { border: 1.5px solid #2d6a3e; color: #2d6a3e; background: #fff; }
-  .ec-cp-cta-outline:hover { background: #f0f7f1; }
-  .ec-cp-cta-green { background: #2d6a3e; color: #fff; }
-  .ec-cp-cta-green:hover { background: #245832; }
-  .ec-cp-cta-gold { background: #F5A800; color: #0E1A0F; }
-  .ec-cp-cta-gold:hover { background: #e09e00; }
-  .ec-cp-cta-dark { background: #0E1A0F; color: #fff; }
-  .ec-cp-cta-dark:hover { background: #060d06; }
-
-  .ec-cp-fine {
-    text-align: center;
-    font-size: 11px;
-    color: #8a9a8c;
-    margin-top: 6px;
-  }
-
-  .ec-cp-divider {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 6px 0;
-  }
-  .ec-cp-divider::before,
-  .ec-cp-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #d4ddd6;
-  }
-  .ec-cp-divider span {
-    font-size: 11px;
-    font-weight: 700;
-    color: #2d6a3e;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-  }
-
-  .ec-cp-strip {
-    margin-top: 24px;
-    text-align: center;
-    font-size: 13px;
-    color: #5b6f60;
-    line-height: 1.55;
-    padding: 14px 16px;
-    background: #FEFDF8;
-    border-radius: 10px;
-  }
-  .ec-cp-strip strong { color: #1a2e1c; }
-  .ec-cp-assurance {
-    text-align: center;
-    margin-top: 12px;
-    font-size: 12.5px;
-    color: #2d6a3e;
-    font-weight: 600;
-  }
-  .ec-cp-faq {
-    text-align: center;
-    margin-top: 8px;
-    font-size: 12px;
-    color: #5b6f60;
-    font-style: italic;
-  }
+  /* CONSOLIDATED PRICING is now styled with Tailwind utilities in JSX. */
 
   /* ============================================================
      FIND YOUR OFFICE — zip finder
