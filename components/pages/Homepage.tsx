@@ -416,50 +416,42 @@ interface RecurringPlan {
 // Termite is intentionally NOT a recurring base plan (see Block B / Complete).
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: 'pest', name: 'Pest Control', dotColor: '#0E8E40',
+    key: 'pest', icon: 'pest', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
     perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
-    cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial',
-  },
-  {
-    key: 'pest-mosquito', icon: 'pestmosquito', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
-    perservice: { price: '$70/visit + $45/visit (mosquito)', terms: 'Mosquito treatments March–November' },
-    monthly: { price: 'From $69/mo ACH', terms: 'Pest + seasonal mosquito on one monthly draft' },
-    bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
-    addon: 'Add tick to any mosquito visit: +$20/treatment',
-    cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial',
+    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$79 initial',
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
-    monthly: { price: '$34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
+    monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
-    addon: 'Add tick: +$20/treatment',
-    cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-green', fine: 'No startup fee',
+    addon: 'Add tick control to any visit: +$20/treatment',
+    cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {
-    key: 'complete', icon: 'complete', name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
-    perservice: { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite confirmed after inspection & approval' },
-    monthly: { price: 'From ~$100/mo ACH', terms: 'Pest + mosquito on ACH · Sentricon® termite priced at inspection' },
-    bullets: ['Everything in Pest + Mosquito', 'Sentricon® termite protection', 'Up to $1M termite damage repair coverage', 'One company, one invoice'],
-    cta: 'Choose Complete', ctaCls: 'ec-cp-cta-dark', fine: '$229 initial · termite confirmed after inspection',
+    key: 'termite', icon: 'termite', name: 'Termite / Sentricon®', dotColor: '#A66A00',
+    perservice: { price: 'After free inspection', terms: 'Sentricon® bait system · priced to your home' },
+    monthly: { price: 'After free inspection', terms: 'Annual renewal · priced to your home' },
+    bullets: ['Sentricon® Always Active bait system', 'Up to $1M termite damage repair coverage', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
+    cta: 'Get Free Termite Inspection', ctaCls: 'ec-cp-cta-outline', fine: 'Priced after inspection',
   },
 ];
 
-// Block B — non-recurring / inspection-triggered. No fixed termite $/mo (locked).
-interface OneTimeItem { icon: string; name: string; price: string; desc: string; href: string; }
-const ONETIME_ITEMS: OneTimeItem[] = [
-  { icon: 'initial', name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
-    desc: 'One-time startup for new recurring pest customers — the first thorough interior and exterior treatment.' },
-  { icon: 'termite', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
-    desc: 'Sentricon® termite protection is confirmed after inspection. Includes a free WDO inspection; pricing is quoted after.' },
-  { icon: 'wdo', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
-    desc: 'Wood-Destroying Organism letters for closings and refinancing. Priced per inspection, with lender-ready turnaround.' },
-  { icon: 'builder', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
-    desc: 'New-construction termite pre-treatment, scheduled around your builder’s timeline.' },
-  { icon: 'fireant', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
-    desc: 'Targeted add-ons to a recurring plan. Tick is +$20/treatment on mosquito visits.' },
+// Ancillary residential add-ons (paired with a recurring plan)
+interface AncillaryItem { icon: string; name: string; href: string; }
+const RESIDENTIAL_ADDONS: AncillaryItem[] = [
+  { icon: 'tick', name: 'Tick Control', href: '/services/tick-control' },
+  { icon: 'fireant', name: 'Fire Ant', href: '/services/fire-ant' },
+  { icon: 'flea', name: 'Flea Control', href: '/services/flea' },
+];
+
+// Business, realtor & builder services — separate audience, dedicated pages
+const BUSINESS_SERVICES: AncillaryItem[] = [
+  { icon: 'commercial', name: 'Commercial Pest Control', href: '/services/commercial' },
+  { icon: 'wdo', name: 'Real Estate / WDO Letters', href: '/services/wdo-letters' },
+  { icon: 'builder', name: 'Builder Pre-Treatment', href: '/services/builder-pre-treat' },
 ];
 
 function ConsolidatedPricing() {
@@ -543,7 +535,11 @@ function ConsolidatedPricing() {
                       {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk"><Check size={14} /></span>{b}</li>)}
                     </ul>
                     {plan.addon && <div className="ec-cp-addon">{plan.addon}</div>}
-                    <Link href="/quote" className={`ec-cp-cta ${plan.ctaCls}`}>{plan.cta}</Link>
+                    <Link
+                      href="/quote"
+                      className={`ec-cp-cta ${plan.ctaCls}`}
+                      onClick={(e) => { e.preventDefault(); openScout(`I'm interested in your ${plan.name} service. Can you give me a quote?`); }}
+                    >{plan.cta}</Link>
                     {plan.fine && <div className="ec-cp-fine"><em>{plan.fine}</em></div>}
                   </div>
                 )}
@@ -552,31 +548,49 @@ function ConsolidatedPricing() {
           })}
         </div>
 
-        {/* ---------- Block B: One-Time / Inspection-Based Services ---------- */}
-        <h3 className="ec-cp-block-title ec-cp-block-title-2">One-Time &amp; Inspection-Based Services</h3>
-        <p className="ec-cp-block-sub">
-          Not a subscription — these are priced per project or after an inspection. Termite protection is subject to inspection.
-        </p>
-        <div className="ec-cp-onetime">
-          {ONETIME_ITEMS.map(item => (
-            <Link key={item.name} href={item.href} className="ec-cp-ot-card">
-              <span className="ec-cp-ot-icon" aria-hidden="true"><ServiceIcon name={item.icon} size={22} /></span>
-              <span className="ec-cp-ot-body">
-                <span className="ec-cp-ot-name">{item.name}</span>
-                <span className="ec-cp-ot-desc">{item.desc}</span>
-              </span>
-              <span className="ec-cp-ot-price">{item.price}</span>
-            </Link>
-          ))}
+        {/* Bundle & save callout */}
+        <div className="ec-cp-bundle">
+          <div className="ec-cp-bundle-text">
+            <span className="ec-cp-bundle-tag">BUNDLE &amp; SAVE</span>
+            <strong>Pest + Mosquito on one monthly draft — from $69/mo</strong>
+            <span className="ec-cp-bundle-sub">Year-round pest control plus seasonal mosquito, one invoice. Add tick for +$20/treatment.</span>
+          </div>
+          <Link
+            href="/quote"
+            className="ec-cp-bundle-cta"
+            onClick={(e) => { e.preventDefault(); openScout('I want to bundle Pest + Mosquito. Can you give me a quote?'); }}
+          >
+            Get bundle pricing <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+
+        {/* Residential add-ons */}
+        <div className="ec-cp-also">
+          <span className="ec-cp-also-label">Add to any plan</span>
+          <div className="ec-cp-also-links">
+            {RESIDENTIAL_ADDONS.map(item => (
+              <Link key={item.name} href={item.href} className="ec-cp-chip">
+                <ServiceIcon name={item.icon} size={16} aria-hidden="true" /> {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Business / realtor / builder */}
+        <div className="ec-cp-also">
+          <span className="ec-cp-also-label">For businesses, realtors &amp; builders</span>
+          <div className="ec-cp-also-links">
+            {BUSINESS_SERVICES.map(item => (
+              <Link key={item.name} href={item.href} className="ec-cp-chip">
+                <ServiceIcon name={item.icon} size={16} aria-hidden="true" /> {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="ec-cp-strip">
           <strong>$79 initial service fee</strong> for new pest customers.
-          Mosquito and tick have no startup.
-        </div>
-        <div className="ec-cp-assurance">We never charge twice for the same coverage.</div>
-        <div className="ec-cp-faq">
-          Already have termite coverage? We&rsquo;ll verify your protection before recommending anything.
+          Mosquito and tick have no startup. <em>We never charge twice for the same coverage.</em>
         </div>
       </div>
     </section>
@@ -2536,6 +2550,61 @@ const HOMEPAGE_CSS = `
     white-space: nowrap;
   }
 
+  /* Bundle & save callout */
+  .ec-cp-bundle {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 18px 22px;
+    background: #0E1A0F;
+    border-radius: 14px;
+    color: #fff;
+  }
+  .ec-cp-bundle-text { display: flex; flex-direction: column; gap: 4px; }
+  .ec-cp-bundle-tag {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    color: #F5A800;
+  }
+  .ec-cp-bundle-text strong { font-size: 17px; font-weight: 700; }
+  .ec-cp-bundle-sub { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  .ec-cp-bundle-cta {
+    display: inline-flex; align-items: center; gap: 7px;
+    flex: none;
+    padding: 11px 20px;
+    background: #F5A800; color: #0E1A0F !important;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .ec-cp-bundle-cta:hover { background: #FFB81F; transform: translateY(-1px); }
+
+  /* Compact "also available" link rows */
+  .ec-cp-also {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ec-cp-also-label {
+    font-size: 12.5px; font-weight: 700; color: #5b6f60;
+    flex: none;
+  }
+  .ec-cp-also-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ec-cp-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 13px;
+    background: #fff;
+    border: 1px solid #d9e4dc;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 600; color: #1a2e1c;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .ec-cp-chip:hover { border-color: #0E8E40; background: #F2FBF5; }
+
   .ec-cp-strip {
     margin-top: 24px;
     text-align: center;
@@ -2547,6 +2616,7 @@ const HOMEPAGE_CSS = `
     border-radius: 10px;
   }
   .ec-cp-strip strong { color: #1a2e1c; }
+  .ec-cp-strip em { font-style: normal; color: #2d6a3e; font-weight: 600; }
   .ec-cp-assurance {
     text-align: center;
     margin-top: 12px;
