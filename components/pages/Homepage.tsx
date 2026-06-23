@@ -429,12 +429,12 @@ function ServiceLinks() {
     { name: 'Real Estate / WDO', slug: 'real-estate-wdo', icon: '📋', accent: '#0A7935' },
   ];
   return (
-    <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
+    <section className="ec-services-links" style={{ padding: 0, background: '#FEFDF8' }}>
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">EXPLORE OUR SERVICES</div>
         <h2 className="ec-section-h2">Every Service, <em>One Local Team</em></h2>
         <p className="ec-section-sub">Tap a service for coverage, pricing, and what&rsquo;s included.</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(165px, 1fr))', gap: 14, marginTop: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(165px, 1fr))', gap: 14 }}>
           {services.map(s => (
             <Link
               key={s.slug}
@@ -2167,7 +2167,7 @@ const HOMEPAGE_CSS = `
      CONSOLIDATED PRICING — compact expandable list
      ============================================================ */
   .ec-cp {
-    padding: 64px 20px;
+    padding: 0;
     background: #fff;
   }
   .ec-cp-toggle-wrap {
@@ -2388,7 +2388,7 @@ const HOMEPAGE_CSS = `
      FIND YOUR OFFICE — zip finder
      ============================================================ */
   .ec-findoffice {
-    padding: 56px 20px;
+    padding: 0;
     background: #FEFDF8;
   }
   .ec-fo-box {
