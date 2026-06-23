@@ -15,6 +15,7 @@ const DARK = "#0E1A0F";
 const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
 
 const SERVICES_ITEMS: [string, string][] = [
+  ["All Services", "/services"],
   ["Pest Control", "/services/pest-control"],
   ["Interior Pest Control", "/services/interior-pest-control"],
   ["Termite / Sentricon®", "/services/termite-control"],
@@ -23,7 +24,7 @@ const SERVICES_ITEMS: [string, string][] = [
   ["Fire Ant Control", "/services/fire-ant"],
   ["Flea Control", "/services/flea"],
   ["Builder Pre-Treat", "/services/builder"],
-  ["Real Estate / WDO", "/services/real-estate-wdo"],
+  ["Real Estate / WDO", "/services/wdo-letters"],
   ["Commercial Service", "/services/commercial"],
 ];
 
@@ -34,7 +35,7 @@ const AREAS_ITEMS: [string, string, string][] = [
 ];
 
 const OVERLAY_LINKS: [string, string, boolean][] = [
-  ["Services", "/services/pest-control", false],
+  ["Services", "/services", false],
   ["Service Areas", "/find-office", false],
   ["Pricing", "/quote", false],
   ["About", "/about-us", false],
