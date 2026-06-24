@@ -14,10 +14,10 @@ export default function QuotePage() {
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
-              Schedule Your First Visit
+              Request a Visit
             </h2>
             <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: '#5b6f60', fontSize: '15.5px', margin: 0 }}>
-              Protected from the outside in — most visits don&rsquo;t require you home.
+              Tell us what works best and our office will call to set it up — most visits don&rsquo;t require you home.
             </p>
           </div>
           <ScheduleRequest />

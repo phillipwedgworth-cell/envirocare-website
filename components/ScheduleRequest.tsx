@@ -161,8 +161,8 @@ export default function ScheduleRequest({ city }: { city?: string }) {
             Got it, {name.split(" ")[0]} — request received.
           </h3>
           <p style={{ ...body, maxWidth: 470, margin: "0 auto 6px" }}>
-            Requested: <strong>{activeDate.dow}, {activeDate.mon} {activeDate.day} — {activeWin.hours}</strong>.
-            A member of our team will call or text <strong>{phone}</strong> to confirm this window or offer the closest fit.
+            You told us <strong>{activeDate.dow}, {activeDate.mon} {activeDate.day} — {activeWin.hours}</strong> works best.
+            A member of our team will call or text <strong>{phone}</strong> to lock in a visit that fits your schedule.
           </p>
           <p style={{ ...body, fontSize: 13.5, color: "#5b6f60", maxWidth: 470, margin: "0 auto" }}>
             Most visits are exterior-only, so you don&rsquo;t need to be home. Need us sooner? Call{" "}
@@ -176,11 +176,14 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   return (
     <div style={wrap}>
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
-        <h3 style={{ ...display, fontSize: 24, margin: 0 }}>Request a preferred service window</h3>
-        <span style={{ ...body, fontSize: 13, color: "#5b6f60" }}>Confirmed by a real person — call or text</span>
+        <h3 style={{ ...display, fontSize: 24, margin: 0 }}>Tell us when works best</h3>
+        <span style={{ ...body, fontSize: 13, color: "#5b6f60" }}>Our office calls to set it up — nothing is booked yet</span>
       </div>
 
       {/* Day strip */}
+      <p style={{ ...body, fontSize: 13.5, fontWeight: 600, color: INK, margin: "0 0 8px" }}>
+        Pick a day that&rsquo;s convenient <span style={{ color: "#8a948c", fontWeight: 400 }}>(we&rsquo;ll work around you)</span>
+      </p>
       <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 6, marginBottom: 14 }}>
         {availableDays.map((d) => {
           const on = d.iso === activeDate?.iso;
@@ -252,7 +255,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         background: valid ? G : "#C9D4CC", color: "#fff", fontWeight: 700, fontSize: 16,
         cursor: valid ? "pointer" : "not-allowed", fontFamily: bodyFont, transition: "background 0.15s",
       }}>
-        {state === "sending" ? "Sending…" : "Request this window"}
+        {state === "sending" ? "Sending…" : "Send my request — office will call"}
       </button>
 
       {state === "error" && (
@@ -261,7 +264,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         </p>
       )}
       <p style={{ ...body, fontSize: 12, color: "#8a948c", marginTop: 10, textAlign: "center" }}>
-        Requested windows are held pending confirmation by our office · Mon–Fri 8–5
+        This just tells us your preference — our office confirms the actual visit · Mon–Fri 8–5
       </p>
     </div>
   );
