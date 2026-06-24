@@ -204,43 +204,43 @@ export default function MadisonLandingPage() {
       {/* PRICING / PLANS SECTION */}
       <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
-          Flexible Plans for Madison
+          Flexible Plans for Vestavia Hills
         </h2>
         <p className="text-center text-slate-600 mb-16 text-lg">
-          One-time treatments or year-round protection
+          Simple monthly plans — ACH autopay, no contract, cancel anytime
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              name: "One-Time Service",
-              price: "Starting at $199",
+              name: "Pest Control",
+              price: "From $35/mo",
               features: [
-                "Single pest treatment",
-                "Licensed technician",
-                "30-day guarantee",
-                "Follow-up included"
+                "$79 startup · ACH · no contract",
+                "Bimonthly perimeter pest control",
+                "30+ Alabama pests, incl. mice & rats",
+                "Unlimited free re-service between visits"
               ]
             },
             {
-              name: "Bi-Monthly Plan",
-              price: "$59/month",
+              name: "Pest + Mosquito",
+              price: "From $69/mo",
               features: [
-                "6 treatments/year",
-                "Seasonal pest coverage",
-                "Priority scheduling",
-                "Dedicated technician"
+                "$99 startup · ACH autopay",
+                "Everything in Pest Control",
+                "Seasonal mosquito (March–November)",
+                "Add tick coverage +$20/visit"
               ],
               popular: true
             },
             {
-              name: "Year-Round Protection",
-              price: "$79/month",
+              name: "Complete",
+              price: "From ~$100/mo",
               features: [
-                "12 treatments/year",
-                "Pest-free guarantee",
-                "Emergency callouts",
-                "Account manager"
+                "$229 startup · best value",
+                "Pest + mosquito + Sentricon® termite",
+                "Up to $1,000,000 repair coverage",
+                "Termite priced at free WDO inspection"
               ]
             }
           ].map((plan, idx) => (
