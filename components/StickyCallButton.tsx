@@ -48,7 +48,9 @@ const STICKY_CSS = `
 .sc-wrap {
   position: fixed;
   left: 12px;
-  right: 76px;
+  /* Reserve the bottom-right corner for the 62px chat launcher (right:16px)
+     plus a 12px gap so the Get Quote pill never touches the chat bubble. */
+  right: 90px;
   bottom: calc(10px + env(safe-area-inset-bottom, 0px));
   z-index: 9998;
   display: flex;

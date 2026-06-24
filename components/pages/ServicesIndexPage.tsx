@@ -120,7 +120,7 @@ export default function ServicesIndexPage() {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Not Sure Where To Start?</div>
+          <div className="section-eyebrow">Not Sure Where To Start?</div>
           <h3>Call A Real Person</h3>
           <div className="office-cta-addr">We\'ll help you figure out what your home actually needs — no upsell pressure.</div>
           <div className="office-cta-row">

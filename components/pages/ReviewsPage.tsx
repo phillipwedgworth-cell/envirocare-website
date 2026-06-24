@@ -61,7 +61,7 @@ export default function ReviewsPage() {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Try Us Yourself</div>
+          <div className="section-eyebrow">Try Us Yourself</div>
           <h3>Join Happy Alabama Homes</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">

@@ -101,7 +101,7 @@ export default function BuildersPage() {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Ready To Partner?</div>
+          <div className="section-eyebrow">Ready To Partner?</div>
           <h3>Get Builder Pricing</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn — All Alabama markets</div>
           <div className="office-cta-row">

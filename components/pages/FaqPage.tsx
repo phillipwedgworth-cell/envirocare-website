@@ -164,7 +164,7 @@ export default function FaqPage() {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Still Have Questions?</div>
+          <div className="section-eyebrow">Still Have Questions?</div>
           <h3>Call A Real Person</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">

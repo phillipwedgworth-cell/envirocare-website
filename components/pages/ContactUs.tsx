@@ -127,7 +127,7 @@ export default function ContactUs() {
         <h1 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, lineHeight: 1.15, marginBottom: 14 }}>
           Talk to Your <em style={{ color: GOLD }}>Local</em> Office
         </h1>
-        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.65)", maxWidth: 480, margin: "0 auto 28px", lineHeight: 1.7, ...sf }}>
+        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.92)", maxWidth: 480, margin: "0 auto 28px", lineHeight: 1.7, ...sf }}>
           Three Alabama offices. Real people who answer the phone. Same family since 1958.
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
@@ -161,13 +161,13 @@ export default function ContactUs() {
             <div style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.15)", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
               <div style={{ background: OFFICES[selected].accent, color: "#fff", padding: "18px 22px" }}>
                 <div style={{ fontWeight: 700, fontSize: 17 }}>{OFFICES[selected].name}</div>
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", marginTop: 4, ...sf }}>{OFFICES[selected].note}</div>
+                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.92)", marginTop: 4, ...sf }}>{OFFICES[selected].note}</div>
               </div>
               <div style={{ padding: "22px" }}>
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "flex-start" }}>
                   <MapPin size={16} color={G} style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 2 }}>Address</div>
+                    <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Address</div>
                     <div style={{ fontWeight: 600, color: "#111827", fontSize: 14, ...sf }}>{OFFICES[selected].address}<br />{OFFICES[selected].city}</div>
                     <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: G, ...sf, fontWeight: 600, marginTop: 4, display: "inline-block" }}>Get Directions →</a>
                   </div>
@@ -175,20 +175,20 @@ export default function ContactUs() {
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "center" }}>
                   <Phone size={16} color={G} style={{ flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 2 }}>Phone</div>
+                    <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Phone</div>
                     <a href={`tel:${OFFICES[selected].tel}`} style={{ fontWeight: 800, fontSize: 20, color: G, textDecoration: "none", ...sf }}>{OFFICES[selected].phone}</a>
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "center" }}>
                   <Clock size={16} color={G} style={{ flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 2 }}>Hours</div>
+                    <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Hours</div>
                     <div style={{ fontSize: 13, color: "#374151", ...sf }}>{OFFICES[selected].hours}</div>
                   </div>
                 </div>
                 <div style={{ borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: 14, marginTop: 4 }}>
-                  <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>Service Area</div>
-                  <div style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.7, ...sf }}>{OFFICES[selected].serves}</div>
+                  <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>Service Area</div>
+                  <div style={{ fontSize: 12, color: "#4b5563", lineHeight: 1.7, ...sf }}>{OFFICES[selected].serves}</div>
                 </div>
                 <a href={`tel:${OFFICES[selected].tel}`} style={{ display: "block", width: "100%", marginTop: 16, padding: "13px", background: G, color: "#fff", border: "none", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", ...sf, textAlign: "center", textDecoration: "none" }}>
                   Call This Office
@@ -213,7 +213,7 @@ export default function ContactUs() {
                 <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "10px 20px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
                   Open in Google Maps
                 </a>
-                <div style={{ marginTop: 16, fontSize: 11, color: "#6b7280", ...sf }}>Replace with Google Maps embed before launch</div>
+                <div style={{ marginTop: 16, fontSize: 11, color: "#4b5563", ...sf }}>Replace with Google Maps embed before launch</div>
               </div>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function ContactUs() {
             <div style={{ marginBottom: 24 }}>
               <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Request Service</div>
               <h2 style={{ fontSize: 30, fontWeight: 400, color: DARK, marginBottom: 8 }}>Get Your Free Inspection</h2>
-              <p style={{ fontSize: 15, color: "#6b7280", ...sf }}>We'll call you back within 2 hours during business hours.</p>
+              <p style={{ fontSize: 15, color: "#4b5563", ...sf }}>We'll call you back within 2 hours during business hours.</p>
             </div>
 
           {!submitted ? (
@@ -303,7 +303,7 @@ export default function ContactUs() {
                 {submitting ? "Sending..." : "Request Free Inspection →"}
               </button>
               {error && <p style={{ textAlign: "center", fontSize: 13, color: "#b91c1c", marginTop: 12, ...sf }}>{error}</p>}
-              <p style={{ textAlign: "center", fontSize: 12, color: "#9ca3af", marginTop: 12, ...sf }}>
+              <p style={{ textAlign: "center", fontSize: 12, color: "#4b5563", marginTop: 12, ...sf }}>
                 We'll call within 2 hours · No obligation · No pressure
               </p>
             </form>
@@ -311,8 +311,8 @@ export default function ContactUs() {
             <div style={{ background: "#fff", border: `2px solid ${G}`, borderRadius: 16, padding: "52px 32px", textAlign: "center" }}>
               <div style={{ fontSize: 52, marginBottom: 16 }}>🌻</div>
               <h3 style={{ fontSize: 24, fontWeight: 400, color: DARK, marginBottom: 10 }}>Thank You, {form.name}!</h3>
-              <p style={{ fontSize: 15, color: "#6b7280", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> within 2 hours.</p>
-              <p style={{ fontSize: 14, color: "#9ca3af", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>
+              <p style={{ fontSize: 15, color: "#4b5563", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> within 2 hours.</p>
+              <p style={{ fontSize: 14, color: "#4b5563", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>
             </div>
           )}
           </div>
@@ -332,7 +332,7 @@ export default function ContactUs() {
             ].map(([q, a], i) => (
               <div key={i} style={{ background: "#f7f8f4", border: "1px solid rgba(27,122,60,0.1)", borderRadius: 10, padding: "16px 20px" }}>
                 <div style={{ fontWeight: 700, fontSize: 14, color: DARK, ...sf, marginBottom: 6 }}>{q}</div>
-                <div style={{ fontSize: 13, color: "#6b7280", ...sf, lineHeight: 1.6 }}>{a}</div>
+                <div style={{ fontSize: 13, color: "#4b5563", ...sf, lineHeight: 1.6 }}>{a}</div>
               </div>
             ))}
           </div>

@@ -244,7 +244,7 @@ export default function CityPage({ slug }: { slug: string }) {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Your Local Office</div>
+          <div className="section-eyebrow">Your Local Office</div>
           <h3>{city.officeName}</h3>
           <div className="office-cta-addr">{city.officeAddress}</div>
           <div className="office-cta-row">

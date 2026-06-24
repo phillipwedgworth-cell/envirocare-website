@@ -214,7 +214,13 @@ function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           aria-controls="ec-mobile-menu"
-        >{mobileOpen ? '×' : '☰'}</button>
+        >
+          {mobileOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="13" x2="20" y2="13" /><line x1="4" y1="19" x2="14" y2="19" /></svg>
+          )}
+        </button>
       </div>
 
       {mobileOpen && (
@@ -1142,7 +1148,8 @@ const HOMEPAGE_CSS = `
   .ec-mobile-toggle {
     background: transparent; border: 1px solid #E8E2D8;
     border-radius: 8px; width: 40px; height: 40px;
-    font-size: 22px; color: #0E1A0F; cursor: pointer;
+    color: #0E1A0F; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
   }
   .ec-mobile-menu {
     display: flex; flex-direction: column; gap: 4px;
