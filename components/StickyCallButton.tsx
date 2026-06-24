@@ -32,7 +32,11 @@ export default function StickyCallButton() {
       <style dangerouslySetInnerHTML={{ __html: STICKY_CSS }} />
       <div className={`sc-wrap${hidden ? ' sc-hidden' : ''}`}>
         <a href="tel:2059406360" className="sc-call">
-          <span className="sc-icon">📞</span>
+          <span className="sc-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+          </span>
           <span className="sc-text">
             <span className="sc-label">Call EnviroCare</span>
             <span className="sc-num">(205) 940-6360</span>
@@ -59,22 +63,23 @@ const STICKY_CSS = `
 .sc-hidden { transform: translateY(180%); opacity: 0; pointer-events: none; }
 .sc-call {
   flex: 1;
+  min-width: 0;
   display: flex; align-items: center; gap: 10px;
   background: #0E8E40; color: #fff !important; text-decoration: none;
-  padding: 12px 18px; border-radius: 999px; min-height: 56px;
+  padding: 10px 16px; border-radius: 999px; min-height: 54px;
   box-shadow: 0 8px 24px rgba(14,26,15,0.25), 0 2px 6px rgba(14,26,15,0.12);
   transition: transform 0.1s;
 }
 .sc-call:active { transform: translateY(1px); }
-.sc-icon { font-size: 22px; flex-shrink: 0; }
-.sc-text { display: flex; flex-direction: column; line-height: 1.15; }
-.sc-label { font-size: 11px; opacity: 0.9; font-weight: 500; }
-.sc-num { font-size: 17px; font-weight: 700; letter-spacing: 0.01em; }
+.sc-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sc-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.sc-label { font-size: 11px; opacity: 0.9; font-weight: 500; white-space: nowrap; }
+.sc-num { font-size: 17px; font-weight: 700; letter-spacing: 0.01em; white-space: nowrap; }
 .sc-quote {
   display: flex; align-items: center; justify-content: center;
   background: #F5A800; color: #0E1A0F !important; text-decoration: none;
-  padding: 0 20px; border-radius: 999px; min-height: 56px;
-  font-weight: 700; font-size: 14px; flex-shrink: 0;
+  padding: 0 18px; border-radius: 999px; min-height: 54px;
+  font-weight: 700; font-size: 14px; flex-shrink: 0; white-space: nowrap;
   box-shadow: 0 8px 24px rgba(14,26,15,0.20);
   transition: transform 0.1s;
 }
