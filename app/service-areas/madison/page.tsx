@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 // ─── Brand tokens ────────────────────────────────────────────
-const G = "#0E8E40";   // Brand Green
+const G = "#0A7935";   // Brand Green
 const D = "#07642B";   // Deep
 const F = "#0A7935";   // Forest
 const Au = "#F5A800";  // Gold

@@ -144,7 +144,7 @@ const ZIP_LOOKUP_CSS = `
 .zl-eyebrow {
   font-size: 13px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 8px;
@@ -181,14 +181,14 @@ const ZIP_LOOKUP_CSS = `
 }
 .zl-input:focus {
   outline: none;
-  border-color: #0E8E40;
+  border-color: #0A7935;
 }
 .zl-button {
   padding: 14px 20px;
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-sans);
-  background: #0E8E40;
+  background: #0A7935;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -206,7 +206,7 @@ const ZIP_LOOKUP_CSS = `
 }
 .zl-result-success {
   background: linear-gradient(135deg, #E8F5EE 0%, #FEFDF8 100%);
-  border: 1px solid #0E8E40;
+  border: 1px solid #0A7935;
 }
 .zl-result-warn {
   background: #FFF8E7;
@@ -215,7 +215,7 @@ const ZIP_LOOKUP_CSS = `
 .zl-result-eyebrow {
   font-size: 12px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 6px;
@@ -265,7 +265,7 @@ const ZIP_LOOKUP_CSS = `
   color: #0E1A0F;
 }
 .zl-inline-result a {
-  color: #0E8E40;
+  color: #0A7935;
   font-weight: 600;
   text-decoration: none;
 }

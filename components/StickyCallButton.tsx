@@ -60,7 +60,7 @@ const STICKY_CSS = `
 .sc-call {
   flex: 1;
   display: flex; align-items: center; gap: 10px;
-  background: #0E8E40; color: #fff !important; text-decoration: none;
+  background: #0A7935; color: #fff !important; text-decoration: none;
   padding: 12px 18px; border-radius: 999px; min-height: 56px;
   box-shadow: 0 8px 24px rgba(14,26,15,0.25), 0 2px 6px rgba(14,26,15,0.12);
   transition: transform 0.1s;

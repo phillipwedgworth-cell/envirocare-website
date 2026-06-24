@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const GOLD = "#F5A800";
 const INK = "#0E1A0F";
 const CREAM = "#FEFDF8";

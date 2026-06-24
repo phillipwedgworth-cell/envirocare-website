@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const D = "#07642B";
 const F = "#0A7935";
 const Au = "#F5A800";

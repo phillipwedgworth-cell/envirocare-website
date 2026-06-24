@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Phone, MapPin, CheckCircle, ChevronDown } from "lucide-react";
 
 import Header from "@/components/shared/Header";
-const G = "#0E8E40";
+const G = "#0A7935";
 const TEAL = "#0d6b5e";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";

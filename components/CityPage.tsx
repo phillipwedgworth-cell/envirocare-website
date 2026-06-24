@@ -11,7 +11,7 @@ export default function CityPage({ city }: { city: CityData }) {
     <>
       <style jsx global>{`
         :root {
-          --green: #0E8E40;
+          --green: #0A7935;
           --forest: #0A7935;
           --deep: #07642B;
           --gold: #F5A800;

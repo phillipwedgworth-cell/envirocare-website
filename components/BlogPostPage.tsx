@@ -77,7 +77,7 @@ const POST_CSS = `
 .bpp-back {
   display: inline-block;
   font-size: 14px;
-  color: #0E8E40;
+  color: #0A7935;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 32px;
@@ -95,7 +95,7 @@ const POST_CSS = `
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #0E8E40;
+  color: #0A7935;
   background: #E8F5EE;
   padding: 6px 14px;
   border-radius: 999px;
@@ -173,12 +173,12 @@ const POST_CSS = `
 .bpp-body strong { color: #0E1A0F; }
 .bpp-body em { font-style: italic; }
 .bpp-body a {
-  color: #0E8E40;
+  color: #0A7935;
   font-weight: 600;
 }
 .bpp-cta-section {
   padding: 80px 24px;
-  background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+  background: linear-gradient(135deg, #0A7935 0%, #0A7935 100%);
   color: #fff;
 }
 .bpp-cta-inner {

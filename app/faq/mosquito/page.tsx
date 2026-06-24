@@ -67,7 +67,7 @@ const SCHEMA = {
   ],
 };
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const GT = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";

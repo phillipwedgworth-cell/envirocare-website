@@ -188,7 +188,7 @@ const REV_CSS = `
 .rv-eyebrow {
   font-size: 13px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 16px;
@@ -200,7 +200,7 @@ const REV_CSS = `
   margin: 0 0 32px;
   line-height: 1.1;
 }
-.rv-h1 em { font-style: italic; color: #0E8E40; }
+.rv-h1 em { font-style: italic; color: #0A7935; }
 .rv-badge {
   display: inline-flex;
   align-items: center;
@@ -271,7 +271,7 @@ const REV_CSS = `
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0E8E40, #0A7935);
+  background: linear-gradient(135deg, #0A7935, #0A7935);
   color: #fff;
   display: flex;
   align-items: center;
@@ -290,7 +290,7 @@ const REV_CSS = `
 .rv-svc {
   font-size: 11px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   background: #E8F5EE;
   padding: 3px 8px;
   border-radius: 6px;

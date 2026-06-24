@@ -44,7 +44,7 @@ export default function LakeMartin() {
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0A7935] via-[#07642B] to-[#0E1A0F] text-white">
-        <div className="absolute inset-0 opacity-20" style={{backgroundImage: "radial-gradient(circle at 70% 30%, #0E8E40 0%, transparent 60%), radial-gradient(circle at 20% 80%, #07642B 0%, transparent 50%)"}}></div>
+        <div className="absolute inset-0 opacity-20" style={{backgroundImage: "radial-gradient(circle at 70% 30%, #0A7935 0%, transparent 60%), radial-gradient(circle at 20% 80%, #07642B 0%, transparent 50%)"}}></div>
 
         <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-32">
           <div className="max-w-3xl">
@@ -70,7 +70,7 @@ export default function LakeMartin() {
                 Get Free Inspection
               </button>
               <a href="tel:2562346162"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-[#0E8E40] text-white font-bold rounded-lg hover:bg-[#0A7935] transition text-base">
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-[#0A7935] text-white font-bold rounded-lg hover:bg-[#0A7935] transition text-base">
                 <Phone className="w-5 h-5" />
                 (256) 234-6162
               </a>
@@ -102,7 +102,7 @@ export default function LakeMartin() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0E1A0F] mb-6">
                 Lake Martin Homes Need<br/>
-                <span className="text-[#0E8E40]">Different Pest Control</span>
+                <span className="text-[#0A7935]">Different Pest Control</span>
               </h2>
               <p className="text-lg text-[#3D4F44] mb-6 leading-relaxed">
                 880 miles of shoreline. Warm Alabama summers. Water everywhere. Lake Martin is paradise — and paradise for mosquitoes, termites, and pests too. Standard pest control doesn't cut it here.
@@ -119,7 +119,7 @@ export default function LakeMartin() {
                   "Fast scheduling from our Alexander City office",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#0E8E40] flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-[#0A7935] flex-shrink-0 mt-0.5" />
                     <span className="text-[#3D4F44]">{item}</span>
                   </div>
                 ))}
@@ -201,10 +201,10 @@ export default function LakeMartin() {
               },
             ].map((c, i) => {
               const colors = {
-                teal: "border-[#0E8E40] bg-[#FEFDF8]",
+                teal: "border-[#0A7935] bg-[#FEFDF8]",
                 blue: "border-blue-400 bg-blue-50",
                 amber: "border-amber-400 bg-amber-50",
-                green: "border-[#0E8E40] bg-[#FEFDF8]",
+                green: "border-[#0A7935] bg-[#FEFDF8]",
               };
               const badgeColors = {
                 teal: "bg-[#F3F1E9] text-[#07642B]",
@@ -275,20 +275,20 @@ export default function LakeMartin() {
                 highlight: false,
               },
             ].map((s, i) => (
-              <div key={i} className={`p-8 rounded-xl border ${s.highlight ? "border-[#0E8E40] bg-[#FEFDF8] shadow-lg" : "border-[#E8E2D8] bg-white"}`}>
+              <div key={i} className={`p-8 rounded-xl border ${s.highlight ? "border-[#0A7935] bg-[#FEFDF8] shadow-lg" : "border-[#E8E2D8] bg-white"}`}>
                 {s.highlight && (
-                  <span className="inline-block mb-3 px-3 py-1 bg-[#0E8E40] text-white text-xs font-bold rounded-full">
+                  <span className="inline-block mb-3 px-3 py-1 bg-[#0A7935] text-white text-xs font-bold rounded-full">
                     MOST POPULAR FOR LAKE HOMES
                   </span>
                 )}
                 <div className="text-4xl mb-3">{s.icon}</div>
                 <h3 className="text-xl font-bold text-[#0E1A0F] mb-1">{s.name}</h3>
-                <p className="text-sm font-medium text-[#0E8E40] mb-3">{s.tagline}</p>
+                <p className="text-sm font-medium text-[#0A7935] mb-3">{s.tagline}</p>
                 <p className="text-[#5A6660] mb-5 leading-relaxed">{s.description}</p>
                 <a href={s.href}
                   className={`inline-block px-5 py-2 rounded-lg text-sm font-bold transition ${
                     s.highlight
-                      ? "bg-[#0E8E40] text-white hover:bg-[#0A7935]"
+                      ? "bg-[#0A7935] text-white hover:bg-[#0A7935]"
                       : "bg-[#F3F1E9] text-[#0E1A0F] hover:bg-[#E8E2D8]"
                   }`}>
                   {s.cta} →
@@ -415,7 +415,7 @@ export default function LakeMartin() {
               Get Free Inspection
             </button>
             <a href="tel:2562346162"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-[#0E8E40] text-white font-bold rounded-lg hover:bg-[#0A7935] transition border border-[#0E8E40]">
+              className="flex items-center justify-center gap-2 px-8 py-4 bg-[#0A7935] text-white font-bold rounded-lg hover:bg-[#0A7935] transition border border-[#0A7935]">
               <Phone className="w-5 h-5" />
               Call (256) 234-6162
             </a>
@@ -439,7 +439,7 @@ export default function LakeMartin() {
               <p className="text-[#3D4F44] font-medium mb-2">What do you need help with?</p>
               {["Mosquito Control", "Termite Inspection", "General Pest Control", "Fire Ants", "Bundle Package", "Not sure — just inspect"].map(opt => (
                 <button key={opt}
-                  className="w-full text-left px-4 py-3 border border-[#E8E2D8] rounded-lg hover:border-[#0E8E40] hover:bg-[#FEFDF8] transition text-[#3D4F44] text-sm font-medium">
+                  className="w-full text-left px-4 py-3 border border-[#E8E2D8] rounded-lg hover:border-[#0A7935] hover:bg-[#FEFDF8] transition text-[#3D4F44] text-sm font-medium">
                   {opt}
                 </button>
               ))}

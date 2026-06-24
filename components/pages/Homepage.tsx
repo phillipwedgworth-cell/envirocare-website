@@ -332,7 +332,7 @@ interface RecurringPlan {
 // Termite is intentionally NOT a recurring base plan (see Block B / Complete).
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: '🛡️', name: 'Pest Control', dotColor: '#0E8E40',
+    key: 'pest', icon: '🛡️', name: 'Pest Control', dotColor: '#0A7935',
     perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
@@ -552,7 +552,7 @@ function Reviews() {
    ============================================================ */
 function ServiceLinks() {
   const services = [
-    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0E8E40' },
+    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0A7935' },
     { name: 'Termite Control', slug: 'termite-control', icon: '🪵', accent: '#F5A800' },
     { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟', accent: '#0E7490' },
     { name: 'Tick Control', slug: 'tick-control', icon: '🕷️', accent: '#07642B' },
@@ -576,7 +576,7 @@ function ServiceLinks() {
             >
               <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
               <span style={{ flex: 1 }}>{s.name}</span>
-              <span style={{ color: '#0E8E40', fontWeight: 700 }} aria-hidden="true">→</span>
+              <span style={{ color: '#0A7935', fontWeight: 700 }} aria-hidden="true">→</span>
             </Link>
           ))}
         </div>
@@ -966,7 +966,7 @@ const HOMEPAGE_CSS = `
 
   /* TOP BANNER */
   .ec-banner {
-    background: linear-gradient(90deg, #0A7935 0%, #0E8E40 50%, #0A7935 100%);
+    background: linear-gradient(90deg, #0A7935 0%, #0A7935 50%, #0A7935 100%);
     color: #fff;
     padding: 8px 16px;
     font-size: 13px;
@@ -1107,8 +1107,8 @@ const HOMEPAGE_CSS = `
     font-weight: 500;
   }
   .ec-nav a { color: #1A2620; transition: color 0.15s; }
-  .ec-nav a:hover { color: #0E8E40; }
-  .ec-nav em { font-style: italic; color: #0E8E40; }
+  .ec-nav a:hover { color: #0A7935; }
+  .ec-nav em { font-style: italic; color: #0A7935; }
 
   .ec-header-cta { display: none; align-items: center; gap: 10px; }
   .ec-header-pay {
@@ -1117,11 +1117,11 @@ const HOMEPAGE_CSS = `
     border-radius: 999px; border: 1px solid #E8E2D8;
     transition: all 0.15s;
   }
-  .ec-header-pay:hover { color: #0E8E40 !important; border-color: #0E8E40; }
+  .ec-header-pay:hover { color: #0A7935 !important; border-color: #0A7935; }
   .ec-header-phone {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 10px 18px; border-radius: 999px;
-    border: 1.5px solid #0E8E40; color: #0A7935 !important; /* darker forest green meets WCAG AA on white */
+    border: 1.5px solid #0A7935; color: #0A7935 !important; /* darker forest green meets WCAG AA on white */
     font-weight: 700; font-size: 15px;
     transition: all 0.15s;
     min-height: 42px;
@@ -1186,8 +1186,8 @@ const HOMEPAGE_CSS = `
   .ec-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 14px; background: rgba(255,255,255,0.7);
-    border: 1px solid #0E8E40; border-radius: 999px;
-    font-size: 11px; font-weight: 700; color: #0E8E40;
+    border: 1px solid #0A7935; border-radius: 999px;
+    font-size: 11px; font-weight: 700; color: #0A7935;
     letter-spacing: 0.08em; margin-bottom: 24px;
   }
   .ec-eyebrow-dot { color: #F5A800; font-size: 8px; }
@@ -1196,7 +1196,7 @@ const HOMEPAGE_CSS = `
     font-size: clamp(40px, 7vw, 80px); font-weight: 700;
     line-height: 1.05; margin: 0 0 24px; color: #0E1A0F;
   }
-  .ec-h1-italic { font-style: italic; color: #0E8E40; font-weight: 400; }
+  .ec-h1-italic { font-style: italic; color: #0A7935; font-weight: 400; }
   .ec-h1-gold { color: #F5A800; }
   .ec-hero-sub {
     font-size: 18px; line-height: 1.6; color: #5A6660;
@@ -1220,7 +1220,7 @@ const HOMEPAGE_CSS = `
   .ec-cta-secondary {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 16px 28px; background: transparent;
-    color: #0E8E40 !important; border: 2px solid #0E8E40;
+    color: #0A7935 !important; border: 2px solid #0A7935;
     border-radius: 999px; font-weight: 700; font-size: 16px;
     transition: all 0.15s;
   }
@@ -1300,7 +1300,7 @@ const HOMEPAGE_CSS = `
     font-size: clamp(34px, 5vw, 56px); font-weight: 700;
     line-height: 1.1; margin: 0 0 16px; color: #0E1A0F;
   }
-  .ec-section-h2 em { font-style: italic; color: #0E8E40; font-weight: 600; }
+  .ec-section-h2 em { font-style: italic; color: #0A7935; font-weight: 600; }
   .ec-section-sub {
     font-size: 18px; color: #5A6660; max-width: 680px;
     margin: 0 0 48px; line-height: 1.55;
@@ -1321,7 +1321,7 @@ const HOMEPAGE_CSS = `
   .ec-service-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 28px rgba(14,26,15,0.1);
-    border-color: #0E8E40;
+    border-color: #0A7935;
   }
   .ec-service-featured {
     border-color: #F5A800; background: #fff;
@@ -1341,7 +1341,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-service-priceamt {
     font-family: var(--font-serif);
-    font-weight: 700; color: #0E8E40; font-size: 22px; line-height: 1; white-space: nowrap;
+    font-weight: 700; color: #0A7935; font-size: 22px; line-height: 1; white-space: nowrap;
   }
   .ec-service-pricelab {
     font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
@@ -1352,7 +1352,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-service-badge {
     font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-    color: #0E8E40; margin-bottom: 10px;
+    color: #0A7935; margin-bottom: 10px;
   }
   .ec-service-title {
     font-family: var(--font-serif);
@@ -1367,7 +1367,7 @@ const HOMEPAGE_CSS = `
     font-size: 13px; color: #1A2620;
   }
   .ec-service-bullets li { padding: 4px 0; line-height: 1.4; }
-  .ec-check { color: #0E8E40; font-weight: 700; }
+  .ec-check { color: #0A7935; font-weight: 700; }
   .ec-service-arrow {
     color: #F5A800; font-weight: 700; font-size: 14px; margin-top: auto;
   }
@@ -1384,7 +1384,7 @@ const HOMEPAGE_CSS = `
   .ec-specialty-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(14,26,15,0.06);
-    border-color: #0E8E40;
+    border-color: #0A7935;
   }
   .ec-specialty-icon {
     font-size: 32px; display: block; margin-bottom: 12px;
@@ -1398,7 +1398,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-specialty-tag {
     display: inline-block; font-size: 11px; font-weight: 700;
-    color: #0E8E40; letter-spacing: 0.06em;
+    color: #0A7935; letter-spacing: 0.06em; /* darker green meets WCAG AA on white (was #0A7935 at 4.23:1) */
   }
 
   /* OFFICES */
@@ -1467,7 +1467,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-office-label {
     font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-    color: #0E8E40; margin-bottom: 12px;
+    color: #0A7935; margin-bottom: 12px;
   }
   .ec-office-addr {
     font-size: 14px; color: #1A2620;
@@ -1479,8 +1479,8 @@ const HOMEPAGE_CSS = `
   }
   .ec-office-phone {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 20px; border: 1.5px solid #0E8E40;
-    color: #0E8E40 !important; border-radius: 999px;
+    padding: 12px 20px; border: 1.5px solid #0A7935;
+    color: #0A7935 !important; border-radius: 999px;
     font-weight: 700; font-size: 15px; margin-bottom: 10px;
     min-height: 48px;
     transition: all 0.15s;
@@ -1504,13 +1504,13 @@ const HOMEPAGE_CSS = `
     text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
   .ec-office-city-link:hover {
-    background: #0E8E40; color: #fff !important; border-color: #0E8E40;
+    background: #0A7935; color: #fff !important; border-color: #0A7935;
   }
   .ec-office-city-arrow { opacity: 0.45; margin-left: 1px; }
   .ec-office-auburn {
     font-size: 12.5px; color: #5A6660; margin: 0 0 14px; line-height: 1.4;
   }
-  .ec-office-auburn a { color: #0E8E40 !important; }
+  .ec-office-auburn a { color: #0A7935 !important; }
 
   /* LAKE MARTIN FEATURE BAND — secondary to hero, restrained */
   .ec-lake { background: #07642B; overflow: hidden; }
@@ -1602,7 +1602,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-areas-col:hover {
     box-shadow: 0 8px 20px rgba(14,26,15,0.06);
-    border-color: #0E8E40;
+    border-color: #0A7935;
   }
   .ec-areas-featured {
     background: linear-gradient(180deg, #FFF8E7 0%, #fff 30%);
@@ -1622,7 +1622,7 @@ const HOMEPAGE_CSS = `
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: #0E8E40;
+    color: #0A7935;
     margin-bottom: 4px;
   }
   .ec-areas-phone {
@@ -1650,8 +1650,8 @@ const HOMEPAGE_CSS = `
   }
   .ec-areas-city:hover {
     background: #E8F5EE;
-    color: #0E8E40 !important;
-    border-color: #0E8E40;
+    color: #0A7935 !important;
+    border-color: #0A7935;
     transform: translateX(2px);
   }
   .ec-areas-arrow {
@@ -1674,7 +1674,7 @@ const HOMEPAGE_CSS = `
     gap: 8px;
   }
   .ec-areas-auburn-note a {
-    color: #0E8E40 !important;
+    color: #0A7935 !important;
     text-decoration: none;
   }
   .ec-areas-auburn-note a:hover { text-decoration: underline; }
@@ -1715,7 +1715,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-h-stat-num {
     font-family: var(--font-serif);
-    font-size: 36px; font-weight: 700; color: #0E8E40; line-height: 1;
+    font-size: 36px; font-weight: 700; color: #0A7935; line-height: 1;
   }
   .ec-h-stat-label {
     font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
@@ -1792,7 +1792,7 @@ const HOMEPAGE_CSS = `
 
   /* Fallback styling if photos missing */
   .ec-photo-fallback {
-    background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+    background: linear-gradient(135deg, #0A7935 0%, #0A7935 100%);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -1893,7 +1893,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-review-avatar {
     width: 36px; height: 36px; border-radius: 50%;
-    background: linear-gradient(135deg, #0E8E40, #0A7935);
+    background: linear-gradient(135deg, #0A7935, #0A7935);
     color: #fff; display: inline-flex;
     align-items: center; justify-content: center;
     font-weight: 700; font-size: 15px;
@@ -1920,7 +1920,7 @@ const HOMEPAGE_CSS = `
     position: relative; display: flex; flex-direction: column;
   }
   .ec-price-featured {
-    border: 2px solid #0E8E40;
+    border: 2px solid #0A7935;
     background: linear-gradient(180deg, #E8F5EE 0%, #fff 30%);
     box-shadow: 0 12px 32px rgba(14,142,64,0.12);
   }
@@ -1942,7 +1942,7 @@ const HOMEPAGE_CSS = `
   .ec-price-tags { display: flex; gap: 6px; margin-bottom: 12px; }
   .ec-price-tag {
     font-size: 11px; font-weight: 700;
-    color: #0E8E40; background: #E8F5EE;
+    color: #0A7935; background: #E8F5EE;
     padding: 4px 10px; border-radius: 999px;
   }
   .ec-price-tagline {
@@ -1955,12 +1955,12 @@ const HOMEPAGE_CSS = `
   }
   .ec-price-dollar {
     font-family: var(--font-serif);
-    font-size: 24px; color: #0E8E40; font-weight: 700;
+    font-size: 24px; color: #0A7935; font-weight: 700;
   }
   .ec-price-num {
     font-family: var(--font-serif);
     font-size: 64px; font-weight: 700;
-    color: #0E8E40; line-height: 1;
+    color: #0A7935; line-height: 1;
   }
   .ec-price-unit { font-size: 18px; color: #5A6660; font-weight: 500; }
   .ec-price-terms {
@@ -1975,15 +1975,15 @@ const HOMEPAGE_CSS = `
   }
   .ec-price-cta {
     display: block; padding: 14px;
-    background: #FEFDF8; border: 1.5px solid #0E8E40;
-    color: #0E8E40 !important; border-radius: 999px;
+    background: #FEFDF8; border: 1.5px solid #0A7935;
+    color: #0A7935 !important; border-radius: 999px;
     font-weight: 700; text-align: center;
     transition: all 0.15s;
   }
   .ec-price-cta:hover { background: #E8F5EE; }
   .ec-price-cta-featured {
-    background: #0E8E40; color: #fff !important;
-    border-color: #0E8E40;
+    background: #0A7935; color: #fff !important;
+    border-color: #0A7935;
   }
   .ec-price-cta-featured:hover { background: #0A7935; }
 
@@ -1999,10 +1999,10 @@ const HOMEPAGE_CSS = `
     font-family: var(--font-sans);
     transition: color 0.2s;
   }
-  .ec-price-toggle-btn.ec-toggle-active { color: #0E8E40; }
+  .ec-price-toggle-btn.ec-toggle-active { color: #0A7935; }
   .ec-price-toggle-track {
     width: 64px; height: 32px;
-    background: #E8F5EE; border: 2px solid #0E8E40;
+    background: #E8F5EE; border: 2px solid #0A7935;
     border-radius: 999px; position: relative;
     cursor: pointer; flex-shrink: 0;
     transition: background 0.2s;
@@ -2010,7 +2010,7 @@ const HOMEPAGE_CSS = `
   .ec-price-toggle-pill {
     position: absolute; top: 3px;
     width: 22px; height: 22px;
-    background: #0E8E40; border-radius: 50%;
+    background: #0A7935; border-radius: 50%;
     transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .ec-pill-left  { left: 3px; }
@@ -2036,7 +2036,7 @@ const HOMEPAGE_CSS = `
     transition: all 0.2s;
   }
   .ec-svc-price-card:hover {
-    border-color: #0E8E40;
+    border-color: #0A7935;
     box-shadow: 0 8px 24px rgba(14,142,64,0.1);
     transform: translateY(-2px);
   }
@@ -2056,12 +2056,12 @@ const HOMEPAGE_CSS = `
   }
   .ec-svc-price-dollar {
     font-family: var(--font-serif);
-    font-size: 18px; font-weight: 700; color: #0E8E40;
+    font-size: 18px; font-weight: 700; color: #0A7935;
   }
   .ec-svc-price-num {
     font-family: var(--font-serif);
     font-size: 42px; font-weight: 700;
-    color: #0E8E40; line-height: 1;
+    color: #0A7935; line-height: 1;
   }
   .ec-svc-price-unit { font-size: 14px; color: #5A6660; font-weight: 500; }
   .ec-svc-price-note {
@@ -2077,8 +2077,8 @@ const HOMEPAGE_CSS = `
   }
   .ec-svc-price-cta {
     display: block; padding: 11px;
-    background: #FEFDF8; border: 1.5px solid #0E8E40;
-    color: #0E8E40 !important; border-radius: 999px;
+    background: #FEFDF8; border: 1.5px solid #0A7935;
+    color: #0A7935 !important; border-radius: 999px;
     font-weight: 700; font-size: 14px; text-align: center;
     transition: all 0.15s; margin-top: auto;
   }
@@ -2107,7 +2107,7 @@ const HOMEPAGE_CSS = `
 
   /* BUNDLE CTA + TRUCK */
   .ec-bundle {
-    background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+    background: linear-gradient(135deg, #0A7935 0%, #0A7935 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -2590,7 +2590,7 @@ const HOMEPAGE_CSS = `
   .ec-hero-keyword {
     font-size: clamp(15px, 2.2vw, 19px);
     font-weight: 600;
-    color: #0E8E40;
+    color: #0A7935;
     margin: -8px 0 20px;
     letter-spacing: 0.01em;
   }
@@ -2657,5 +2657,5 @@ const HOMEPAGE_CSS = `
     display: inline-flex; align-items: center;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
-  .ec-fo-area-link:hover { background: #0E8E40; color: #fff !important; border-color: #0E8E40; }
+  .ec-fo-area-link:hover { background: #0A7935; color: #fff !important; border-color: #0A7935; }
 `;

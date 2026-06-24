@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Phone, MapPin, Clock, Mail, ChevronDown } from "lucide-react";
 
 import Header from "@/components/shared/Header";
-const G = "#0E8E40";
+const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
@@ -120,7 +120,7 @@ export default function ContactUs() {
       `}</script>
 
       {/* HERO */}
-      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0E8E40)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
+      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0A7935)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: "1px solid rgba(245,168,0,0.3)", borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
           <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>Free Inspection · Fast Scheduling</span>
         </div>
@@ -278,7 +278,7 @@ export default function ContactUs() {
               </div>
               <div style={{ marginBottom: 16 }}>
                 <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Service Needed *</label>
-                <select required value={form.service} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, service: e.target.value })}
+                <select required aria-label="Service Needed" value={form.service} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, service: e.target.value })}
                   style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", background: "#fff" }}>
                   <option value="">Select a service...</option>
                   <option>Pest Control</option>

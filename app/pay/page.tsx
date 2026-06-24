@@ -21,7 +21,7 @@ export default function PayPage() {
           <img src="/logo.png" alt="EnviroCare" width={260} height={100} style={{ width: 240, height: "auto" }} />
         </a>
 
-        <div style={{ display: "inline-block", border: "1.5px solid #0E8E40", borderRadius: 6, padding: "5px 16px", marginBottom: 18, fontSize: 12, letterSpacing: "0.14em", color: "#0E8E40", fontFamily: "var(--font-sans)", fontWeight: 800, textTransform: "uppercase" }}>
+        <div style={{ display: "inline-block", border: "1.5px solid #0A7935", borderRadius: 6, padding: "5px 16px", marginBottom: 18, fontSize: 12, letterSpacing: "0.14em", color: "#0A7935", fontFamily: "var(--font-sans)", fontWeight: 800, textTransform: "uppercase" }}>
           Customer Portal
         </div>
 
@@ -36,7 +36,7 @@ export default function PayPage() {
           {OFFICES.map(o => (
             <a key={o.tel} href={`tel:${o.tel}`} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", border: "1px solid rgba(14,142,64,0.18)", borderRadius: 14, padding: "1rem 1.2rem", textDecoration: "none", fontFamily: "var(--font-sans)" }}>
               <span style={{ color: "#0E1A0F", fontWeight: 600, fontSize: "0.98rem" }}>{o.name}</span>
-              <span style={{ color: "#0E8E40", fontWeight: 700, fontSize: "1.05rem" }}>{o.phone}</span>
+              <span style={{ color: "#0A7935", fontWeight: 700, fontSize: "1.05rem" }}>{o.phone}</span>
             </a>
           ))}
         </div>

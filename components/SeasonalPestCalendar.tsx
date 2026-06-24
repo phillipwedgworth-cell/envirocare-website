@@ -176,7 +176,7 @@ const PEST_CAL_CSS = `
 .spc-eyebrow {
   font-size: 13px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-align: center;
@@ -193,7 +193,7 @@ const PEST_CAL_CSS = `
 }
 .spc-title em {
   font-style: italic;
-  color: #0E8E40;
+  color: #0A7935;
 }
 .spc-sub {
   text-align: center;
@@ -232,7 +232,7 @@ const PEST_CAL_CSS = `
   color: #0E1A0F;
 }
 .spc-month-btn.active {
-  background: #0E8E40;
+  background: #0A7935;
   color: #fff;
 }
 .spc-month-full { display: none; }
@@ -255,7 +255,7 @@ const PEST_CAL_CSS = `
 }
 .spc-peak { border-color: #DC2626; }
 .spc-high { border-color: #F5A800; }
-.spc-medium { border-color: #0E8E40; }
+.spc-medium { border-color: #0A7935; }
 .spc-low { border-color: #94A89A; }
 .spc-card-head {
   display: flex;

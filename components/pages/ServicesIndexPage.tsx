@@ -139,7 +139,7 @@ const PAGE_CSS = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* REAL ENVIROCARE BRAND — vibrant mint, not generic emerald */
-  --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+  --green:#0A7935; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
   --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
   --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7; --gold-deep:#A16207;
   --white:#fff; --cream:#FFFDF8;

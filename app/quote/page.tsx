@@ -35,7 +35,7 @@ export default function QuotePage() {
         Need help choosing?{' '}
         <a
           href="/request-quote"
-          style={{ color: '#0E8E40', textDecoration: 'underline', fontWeight: 600 }}
+          style={{ color: '#0A7935', textDecoration: 'underline', fontWeight: 600 }}
         >
           Request a personal quote →
         </a>

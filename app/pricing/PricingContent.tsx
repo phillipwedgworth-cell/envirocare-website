@@ -17,7 +17,7 @@
 import { useState } from "react";
 
 // ---------- BRAND TOKENS ----------
-const GREEN = "#0E8E40";
+const GREEN = "#0A7935";
 const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";

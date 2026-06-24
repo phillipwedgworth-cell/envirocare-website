@@ -27,7 +27,7 @@ export default function BuilderProgram() {
       `}</script>
 
       {/* HERO */}
-      <section className="relative overflow-hidden text-white py-20 md:py-28" style={{background:"linear-gradient(135deg, #0f2d1a 0%, #0E8E40 60%, #0f4d26 100%)"}}>
+      <section className="relative overflow-hidden text-white py-20 md:py-28" style={{background:"linear-gradient(135deg, #0f2d1a 0%, #0A7935 60%, #0f4d26 100%)"}}>
         <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(circle at 20% 80%, #F5A800 0%, transparent 50%)"}} />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
@@ -76,7 +76,7 @@ export default function BuilderProgram() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="font-semibold text-sm uppercase tracking-wider mb-3" style={{color:"#0E8E40"}}>More Than a Vendor</p>
+              <p className="font-semibold text-sm uppercase tracking-wider mb-3" style={{color:"#0A7935"}}>More Than a Vendor</p>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                 We Go Beyond the Service Call
               </h2>
@@ -99,7 +99,7 @@ export default function BuilderProgram() {
                   "Priority service for builder partner homeowners",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color:"#0E8E40"}} />
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color:"#0A7935"}} />
                     <span className="text-slate-700 text-sm">{item}</span>
                   </div>
                 ))}
@@ -120,7 +120,7 @@ export default function BuilderProgram() {
                   {/* STOCK PHOTO NOTE: Replace with real EnviroCare new construction pre-treat photo */}
                 </div>
               </div>
-              <div className="p-6 rounded-2xl border-2 text-white" style={{background:"#0E8E40", borderColor:"#F5A800"}}>
+              <div className="p-6 rounded-2xl border-2 text-white" style={{background:"#0A7935", borderColor:"#F5A800"}}>
                 <p className="font-bold text-yellow-300 text-sm uppercase tracking-wide mb-3">Why Builders Choose EnviroCare</p>
                 <div className="space-y-3">
                   {[
@@ -195,8 +195,8 @@ export default function BuilderProgram() {
               },
             ].map((service, i) => (
               <div key={i} className={`p-6 rounded-xl border-2 transition ${service.highlight ? "text-white" : "bg-white border-slate-200 hover:border-green-300 hover:shadow-md"}`}
-                style={service.highlight ? {background:"#0E8E40", borderColor:"#F5A800"} : {}}>
-                <div className="mb-4" style={{color: service.highlight ? "#F5A800" : "#0E8E40"}}>{service.icon}</div>
+                style={service.highlight ? {background:"#0A7935", borderColor:"#F5A800"} : {}}>
+                <div className="mb-4" style={{color: service.highlight ? "#F5A800" : "#0A7935"}}>{service.icon}</div>
                 <span className={`inline-block mb-3 px-2 py-0.5 text-xs font-bold rounded uppercase tracking-wide ${service.highlight ? "text-green-800" : "text-green-700"}`}
                   style={{background: service.highlight ? "#F5A800" : "#d1fae5"}}>
                   {service.phase}
@@ -248,7 +248,7 @@ export default function BuilderProgram() {
             ].map((market, i) => {
               const colors = {
                 blue: { border: "#3b82f6", badge: "#eff6ff", badgeText: "#1e40af" },
-                green: { border: "#0E8E40", badge: "#f0fdf4", badgeText: "#166534" },
+                green: { border: "#0A7935", badge: "#f0fdf4", badgeText: "#166534" },
                 teal: { border: "#0d9488", badge: "#f0fdfa", badgeText: "#115e59" },
               }[market.color as 'blue' | 'green' | 'teal']!;
               return (
@@ -368,7 +368,7 @@ export default function BuilderProgram() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 text-white text-center" style={{background:"linear-gradient(135deg, #0E8E40, #0f4d26)"}}>
+      <section className="py-20 px-6 text-white text-center" style={{background:"linear-gradient(135deg, #0A7935, #0f4d26)"}}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Let's Talk Builder Partnership</h2>
           <p className="text-green-100 text-lg mb-8">
@@ -392,7 +392,7 @@ export default function BuilderProgram() {
       {contactOpen && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center p-4" onClick={() => setContactOpen(false)}>
           <div className="bg-white rounded-2xl w-full sm:w-[440px] overflow-hidden shadow-2xl" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-            <div className="text-white p-5 flex justify-between items-start" style={{background:"#0E8E40"}}>
+            <div className="text-white p-5 flex justify-between items-start" style={{background:"#0A7935"}}>
               <div><h3 className="font-bold text-xl">Builder Program Inquiry</h3><p className="text-green-200 text-sm mt-1">Talk to your local office directly</p></div>
               <button onClick={() => setContactOpen(false)} className="text-3xl leading-none text-green-300 hover:text-white mt-[-4px]">×</button>
             </div>
@@ -406,7 +406,7 @@ export default function BuilderProgram() {
                   className="flex justify-between items-center w-full p-4 border-2 border-slate-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition group">
                   <div>
                     <div className="text-sm font-medium text-slate-700">{o.label}</div>
-                    <div className="font-bold mt-0.5" style={{color:"#0E8E40"}}>{o.phone}</div>
+                    <div className="font-bold mt-0.5" style={{color:"#0A7935"}}>{o.phone}</div>
                   </div>
                   <Phone className="w-5 h-5 text-slate-400 group-hover:text-green-600 transition" />
                 </a>

@@ -8,7 +8,7 @@ import Link from "next/link";
  *
  * Design system: locked brand CSS variables (matches Homepage.tsx exactly).
  * - Playfair Display for headlines, DM Sans for body
- * - Brand green #0E8E40, gold #F5A800, cream #FEFDF8
+ * - Brand green #0A7935, gold #F5A800, cream #FEFDF8
  * - Same orb / wash / glass card vocabulary as the homepage hero
  *
  * AEO note: this page is the canonical source for the Wedgworth family story,
@@ -22,7 +22,7 @@ export default function AboutUs() {
 
       <style>{`
         :root {
-          --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+          --green:#0A7935; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
           --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
           --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7;
           --white:#fff; --cream:#FEFDF8;
@@ -81,8 +81,8 @@ export default function AboutUs() {
         .ab-fam-art { height:160px; position:relative; display:flex; align-items:flex-end; padding:1.2rem; color:#fff; }
         .ab-fam-art-1 { background:linear-gradient(160deg,#0A7935 0%,#07642B 60%,#062514 100%); }
         .ab-fam-art-2 { background:linear-gradient(160deg,#15803D 0%,#0A7935 50%,#07642B 100%); }
-        .ab-fam-art-3 { background:linear-gradient(160deg,#16A34A 0%,#0E8E40 50%,#0A7935 100%); }
-        .ab-fam-art-4 { background:linear-gradient(160deg,#1FB457 0%,#16A34A 50%,#0E8E40 100%); }
+        .ab-fam-art-3 { background:linear-gradient(160deg,#16A34A 0%,#0A7935 50%,#0A7935 100%); }
+        .ab-fam-art-4 { background:linear-gradient(160deg,#1FB457 0%,#16A34A 50%,#0A7935 100%); }
         .ab-fam-gen { position:absolute; top:1.2rem; right:1.2rem; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); border-radius:30px; padding:.3rem .8rem; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; backdrop-filter:blur(4px); }
         .ab-fam-name { font-family:var(--font-serif); font-size:1.4rem; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,.3); }
         .ab-fam-body { padding:1.5rem 1.7rem 1.8rem; }

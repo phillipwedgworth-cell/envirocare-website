@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const BRAND_GREEN = "#0E8E40";
+const BRAND_GREEN = "#0A7935";
 const DEEP = "#07642B";
 const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";

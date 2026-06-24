@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import { Phone, Check, ChevronRight, Home, Bug, Shield } from "lucide-react";
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const G_BRIGHT = "#2EAA61";
 const GOLD = "#F5A800";
 const GOLD_BRIGHT = "#FBC51A";

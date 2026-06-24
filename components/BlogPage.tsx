@@ -97,7 +97,7 @@ const BLOG_CSS = `
 .bp-eyebrow {
   font-size: 13px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 16px;
@@ -111,7 +111,7 @@ const BLOG_CSS = `
 }
 .bp-h1 em {
   font-style: italic;
-  color: #0E8E40;
+  color: #0A7935;
 }
 .bp-sub {
   font-size: 18px;
@@ -163,7 +163,7 @@ const BLOG_CSS = `
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #0E8E40;
+  color: #0A7935;
   background: #E8F5EE;
   padding: 4px 10px;
   border-radius: 999px;
@@ -203,7 +203,7 @@ const BLOG_CSS = `
 }
 .bp-cta-section {
   padding: 80px 24px;
-  background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+  background: linear-gradient(135deg, #0A7935 0%, #0A7935 100%);
   color: #fff;
 }
 .bp-cta-inner {
