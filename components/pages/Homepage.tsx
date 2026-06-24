@@ -758,46 +758,14 @@ function Heritage() {
                   src="/kevin.jpg"
                   alt="Kevin Wedgworth, owner of EnviroCare Pest & Termite Services"
                   fill
-                  sizes="(min-width: 1024px) 260px, 200px"
+                  sizes="(min-width: 1024px) 320px, 240px"
                   className="ec-photo-img"
                   style={{ objectFit: 'cover' }}
                 />
               </span>
               <div className="ec-photo-caption">
                 <strong>Kevin Wedgworth</strong>
-                <span>Owner &amp; Operator</span>
-              </div>
-            </div>
-
-            <div className="ec-photo-frame ec-photo-ribbon-1">
-              <span className="ec-photo-imgwrap">
-                <Image
-                  src="/ribbon-cutting-1.jpg"
-                  alt="EnviroCare Birmingham office ribbon cutting"
-                  fill
-                  sizes="170px"
-                  className="ec-photo-img"
-                  style={{ objectFit: 'cover' }}
-                />
-              </span>
-              <div className="ec-photo-caption ec-caption-small">
-                <strong>Birmingham Office Opening</strong>
-              </div>
-            </div>
-
-            <div className="ec-photo-frame ec-photo-ribbon-2">
-              <span className="ec-photo-imgwrap">
-                <Image
-                  src="/ribbon-cutting-2.jpg"
-                  alt="EnviroCare Huntsville office ribbon cutting"
-                  fill
-                  sizes="170px"
-                  className="ec-photo-img"
-                  style={{ objectFit: 'cover' }}
-                />
-              </span>
-              <div className="ec-photo-caption ec-caption-small">
-                <strong>Huntsville Office Opening</strong>
+                <span>Owner &amp; Operator · 4th Generation</span>
               </div>
             </div>
           </div>
@@ -1712,15 +1680,14 @@ const HOMEPAGE_CSS = `
   /* PHOTOS */
   .ec-heritage-photos {
     position: relative;
-    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .ec-photo-frame {
-    position: absolute;
+    position: relative;
     background: #fff;
-    padding: 12px 12px 40px;
+    padding: 12px 12px 44px;
     box-shadow: 0 12px 30px rgba(14,26,15,0.15);
     transition: transform 0.3s;
     overflow: hidden;
@@ -1760,28 +1727,11 @@ const HOMEPAGE_CSS = `
   .ec-heritage-link:hover { border-color: #0E8E40; }
 
   .ec-photo-kevin {
-    width: 260px;
-    height: 340px;
-    left: 0;
-    top: 40px;
-    transform: rotate(-3deg);
-    z-index: 2;
-  }
-  .ec-photo-ribbon-1 {
-    width: 220px;
-    height: 160px;
-    right: 0;
-    top: 0;
-    transform: rotate(4deg);
-    z-index: 1;
-  }
-  .ec-photo-ribbon-2 {
-    width: 220px;
-    height: 160px;
-    right: 20px;
-    bottom: 0;
+    width: 300px;
+    max-width: 100%;
+    height: 380px;
     transform: rotate(-2deg);
-    z-index: 1;
+    z-index: 2;
   }
 
   /* Fallback styling if photos missing */

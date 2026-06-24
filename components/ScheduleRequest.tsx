@@ -7,24 +7,13 @@ const GOLD = "#F5A800";
 const INK = "#0E1A0F";
 const CREAM = "#FEFDF8";
 
-const LEAD_HOURS_NEW = 24;          // new service: earliest window start ≥ 24h out (after-lunch request → next afternoon)
-const CURRENT_DAY1_MIN_HOUR = 11;   // current customers: NO same-day; next day earliest, windows starting 11 AM or later on day 1
+const LEAD_HOURS_NEW = 24; // earliest window start ≥ 24h out
 
-// New customers: broad 3-hour windows (route-planning room)
+// Broad 3-hour arrival windows (route-planning room for the crew)
 const WINDOWS_NEW = [
   { id: "morning", label: "Morning", hours: "8–11 AM", startHour: 8 },
   { id: "midday", label: "Midday", hours: "11 AM–2 PM", startHour: 11 },
   { id: "afternoon", label: "Afternoon", hours: "2–5 PM", startHour: 14 },
-];
-
-// Current customers: tighter 2-hour arrival ranges
-const WINDOWS_CURRENT = [
-  { id: "w810", label: "8–10 AM", hours: "8–10 AM", startHour: 8 },
-  { id: "w1012", label: "10–12", hours: "10 AM–12 PM", startHour: 10 },
-  { id: "w111", label: "11–1 PM", hours: "11 AM–1 PM", startHour: 11 },
-  { id: "w122", label: "12–2 PM", hours: "12–2 PM", startHour: 12 },
-  { id: "w24", label: "2–4 PM", hours: "2–4 PM", startHour: 14 },
-  { id: "w35", label: "3–5 PM", hours: "3–5 PM", startHour: 15 },
 ];
 
 // Multi-select services. `key` matches the ?service= value passed from the
@@ -83,33 +72,24 @@ function windowStart(day: Day, startHour: number) {
 }
 
 export default function ScheduleRequest({ city }: { city?: string }) {
-  const [customerType, setCustomerType] = useState<"new" | "current">("new");
-  const isCurrent = customerType === "current";
-  const windows = isCurrent ? WINDOWS_CURRENT : WINDOWS_NEW;
+  const windows = WINDOWS_NEW;
 
-  // Never same-day for anyone — day strip starts tomorrow
-  const days = useMemo(() => upcomingWeekdays(8, false), [isCurrent]);
-  const now = useMemo(() => new Date(), [customerType]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Never same-day — day strip starts tomorrow
+  const days = useMemo(() => upcomingWeekdays(8, false), []);
+  const now = useMemo(() => new Date(), []);
 
-  // Window rule:
-  //  - New customers: window start must be ≥ LEAD_HOURS_NEW from now
-  //  - Current customers: next day OK, but on the FIRST offered day only windows starting 11 AM+
-  const windowOK = (d: Day, startHour: number, isFirstDay: boolean) => {
-    if (isCurrent) {
-      return !isFirstDay || startHour >= CURRENT_DAY1_MIN_HOUR;
-    }
-    return windowStart(d, startHour).getTime() - now.getTime() >= LEAD_HOURS_NEW * 3600_000;
-  };
+  // Window must start at least LEAD_HOURS_NEW from now
+  const windowOK = (d: Day, startHour: number) =>
+    windowStart(d, startHour).getTime() - now.getTime() >= LEAD_HOURS_NEW * 3600_000;
 
-  const availableDays = days.filter((d, i) =>
-    windows.some((w) => windowOK(d, w.startHour, i === 0))
+  const availableDays = days.filter((d) =>
+    windows.some((w) => windowOK(d, w.startHour))
   );
 
   const [date, setDate] = useState("");
   const activeDate = availableDays.find((d) => d.iso === date) ?? availableDays[0];
-  const firstDayIso = days[0]?.iso;
   const availableWindows = windows.filter(
-    (w) => activeDate && windowOK(activeDate, w.startHour, activeDate.iso === firstDayIso)
+    (w) => activeDate && windowOK(activeDate, w.startHour)
   );
 
   const [win, setWin] = useState("");
@@ -145,7 +125,6 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     const [firstName, ...rest] = name.trim().split(/\s+/);
     const lastName = rest.join(" ");
     const notes = [
-      `${isCurrent ? "Current customer" : "New customer"}`,
       `Preferred: ${activeDate.dow} ${activeDate.mon} ${activeDate.day} — ${activeWin.hours}`,
       city ? `Page city: ${city}` : "",
       `Submitted from: ${typeof window !== "undefined" ? window.location.pathname : ""}`,
@@ -201,28 +180,6 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         <span style={{ ...body, fontSize: 13, color: "#5b6f60" }}>Confirmed by a real person — call or text</span>
       </div>
 
-      {/* Customer type */}
-      <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-        {([["new", "I\u2019m a new customer"], ["current", "I\u2019m a current customer"]] as const).map(([id, label]) => {
-          const on = customerType === id;
-          return (
-            <button key={id} onClick={() => { setCustomerType(id); setDate(""); setWin(""); }} aria-pressed={on} style={{
-              ...chip, flex: 1, padding: "11px 12px", fontWeight: 600, fontSize: 14,
-              background: on ? INK : "#fff", color: on ? "#fff" : INK, borderColor: on ? INK : "#E4E0D4",
-            }}>
-              {label}
-            </button>
-          );
-        })}
-      </div>
-
-      {isCurrent && (
-        <p style={{ ...body, fontSize: 13, color: G, fontWeight: 600, margin: "0 0 12px" }}>
-          Welcome back — current customers get tighter 2-hour windows, starting as soon as tomorrow.
-          Need us sooner? Call <a href="tel:2059406360" style={{ color: G, fontWeight: 700 }}>(205) 940-6360</a>.
-        </p>
-      )}
-
       {/* Day strip */}
       <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 6, marginBottom: 14 }}>
         {availableDays.map((d) => {
@@ -246,12 +203,12 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           const on = w.id === activeWin?.id;
           return (
             <button key={w.id} onClick={() => setWin(w.id)} aria-pressed={on} style={{
-              ...chip, flex: isCurrent ? "1 1 100px" : "1 1 140px", flexDirection: "column", gap: 2, padding: "12px 10px",
+              ...chip, flex: "1 1 140px", flexDirection: "column", gap: 2, padding: "12px 10px",
               background: on ? GOLD : "#fff", borderColor: on ? GOLD : "#E4E0D4", color: INK,
               boxShadow: on ? "0 2px 10px rgba(245,168,0,0.35)" : "none",
             }}>
               <span style={{ fontWeight: 700, fontSize: 14 }}>{w.label}</span>
-              {!isCurrent && <span style={{ fontSize: 12.5, opacity: 0.75 }}>{w.hours}</span>}
+              <span style={{ fontSize: 12.5, opacity: 0.75 }}>{w.hours}</span>
             </button>
           );
         })}
