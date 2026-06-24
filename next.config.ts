@@ -150,7 +150,9 @@ const nextConfig: NextConfig = {
             // Fixes the 6 broken hrefs found by the June 8 crawl that were not
             // already covered above. /pricing and /why-envirocare already exist;
             // /faq has a real page and is intentionally NOT redirected.
-            { source: '/services', destination: '/services/pest-control', permanent: true },
+            // NOTE (2026-06-24): /services now serves a real services overview
+            // page (ServicesIndexPage) — like Orkin/Terminix/Waynes — so it is
+            // intentionally NOT redirected to /services/pest-control.
             { source: '/realtor', destination: '/services/wdo-letters', permanent: true },
             // FIXED 2026-06-10: was '/services/commercial' → '/commercial' (a 404 —
             // the real page lives AT /services/commercial; the old rule shadowed it).
