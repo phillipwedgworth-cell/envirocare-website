@@ -209,7 +209,17 @@ function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           aria-controls="ec-mobile-menu"
-        >{mobileOpen ? '×' : '☰'}</button>
+        >
+          {mobileOpen ? (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          ) : (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          )}
+        </button>
       </div>
 
       {mobileOpen && (
@@ -1134,10 +1144,12 @@ const HOMEPAGE_CSS = `
   .ec-header-quote:hover { background: #1A2620; }
 
   .ec-mobile-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
     background: transparent; border: 1px solid #E8E2D8;
-    border-radius: 8px; width: 40px; height: 40px;
-    font-size: 22px; color: #0E1A0F; cursor: pointer;
+    border-radius: 8px; width: 44px; height: 44px;
+    color: #0E1A0F; cursor: pointer; transition: border-color 0.15s, background 0.15s;
   }
+  .ec-mobile-toggle:hover { border-color: #0E8E40; background: #F1F5F2; }
   .ec-mobile-menu {
     display: flex; flex-direction: column; gap: 4px;
     padding: 12px 20px 20px;
