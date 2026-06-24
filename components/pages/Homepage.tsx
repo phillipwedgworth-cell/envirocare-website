@@ -248,19 +248,21 @@ function Hero() {
           </div>
 
           <h1 className="ec-hero-h1">
-            Protecting Alabama Homes<br />
-            <em className="ec-h1-italic">Four Generations</em><br />
-            <span className="ec-h1-gold">Strong.</span>
+            Protecting Alabama Homes{' '}
+            <span className="ec-h1-gold">Since 1958</span>
           </h1>
+
+          <p className="ec-hero-emphasis">
+            <em className="ec-h1-italic">Four Generations Strong.</em>
+          </p>
 
           <p className="ec-hero-keyword">
             Alabama pest, termite &amp; mosquito control — trusted since 1958.
           </p>
 
           <p className="ec-hero-sub">
-            A trained specialist for every service — pest, termite, mosquito and
-            tick — so you get expert quality on every visit. One company. One
-            invoice. Interior and exterior coverage, scheduled around your life.
+            Pest, termite and mosquito protection from one trusted Alabama
+            company — with trained specialists for every service.
           </p>
 
           <div className="ec-hero-ctas">
@@ -1011,9 +1013,21 @@ const HOMEPAGE_CSS = `
     .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
   }
   @media (max-width: 720px) {
-    .ec-banner-rotator { width: 100%; }
-    .ec-banner-msg { font-size: 12px; }
-    .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+    /* Thinner, less dominant trust banner */
+    .ec-banner { padding: 5px 14px; font-size: 11.5px; }
+    .ec-banner-rotator { width: 100%; height: 18px; }
+    .ec-banner-msg { font-size: 11.5px; }
+
+    /* Tighter, more premium hero with breathing room */
+    .ec-hero { padding-top: 28px; }
+    .ec-hero-inner { gap: 28px; padding-bottom: 104px; }
+    .ec-eyebrow { margin-bottom: 14px; }
+    .ec-hero-h1 { font-size: clamp(32px, 8.5vw, 44px); line-height: 1.08; margin-bottom: 10px; }
+    .ec-hero-emphasis { font-size: 20px; margin: 0 0 14px; }
+    .ec-hero-keyword { display: none; }
+    .ec-hero-sub { font-size: 16px; margin-bottom: 22px; }
+
+    .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 24px; }
     .ec-hero-ctas .ec-cta-primary,
     .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
   }
@@ -1036,6 +1050,10 @@ const HOMEPAGE_CSS = `
   .ec-banner-call:hover {
     background: #FFB81F;
     transform: translateY(-1px);
+  }
+  /* One call pattern only on mobile: drop the top call pill, keep sticky bar */
+  @media (max-width: 720px) {
+    .ec-banner-call { display: none; }
   }
 
 
@@ -1086,13 +1104,15 @@ const HOMEPAGE_CSS = `
     }
   }
   @media (max-width: 480px) {
+    .ec-header-inner { padding: 8px 16px; }
     .ec-brand {
-      max-height: 60px;
+      max-height: 48px;
     }
     .ec-brand-logo {
-      height: 52px !important;
-      max-width: 200px !important;
+      height: 44px !important;
+      max-width: 168px !important;
     }
+    .ec-mobile-toggle { width: 38px; height: 38px; font-size: 20px; }
   }
 
   .ec-nav {
@@ -1193,6 +1213,11 @@ const HOMEPAGE_CSS = `
   }
   .ec-h1-italic { font-style: italic; color: #0E8E40; font-weight: 400; }
   .ec-h1-gold { color: #F5A800; }
+  .ec-hero-emphasis {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(20px, 3vw, 28px);
+    margin: -8px 0 20px;
+  }
   .ec-hero-sub {
     font-size: 18px; line-height: 1.6; color: #5A6660;
     max-width: 520px; margin: 0 0 32px;
