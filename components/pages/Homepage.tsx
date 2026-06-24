@@ -1121,7 +1121,7 @@ const HOMEPAGE_CSS = `
   .ec-header-phone {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 10px 18px; border-radius: 999px;
-    border: 1.5px solid #0E8E40; color: #0E8E40 !important;
+    border: 1.5px solid #0E8E40; color: #0A7935 !important; /* darker forest green meets WCAG AA on white */
     font-weight: 700; font-size: 15px;
     transition: all 0.15s;
     min-height: 42px;
@@ -1291,7 +1291,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-section-eyebrow {
     display: inline-block; font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em; color: #0E8E40;
+    letter-spacing: 0.1em; color: #07642B; /* deep green meets WCAG AA on mint */
     padding: 6px 14px; background: #E8F5EE; border-radius: 999px;
     margin-bottom: 16px;
   }
@@ -1902,7 +1902,7 @@ const HOMEPAGE_CSS = `
   .ec-review-city { font-size: 12px; color: #5A6660; }
   .ec-reviews-link {
     display: inline-block; margin-top: 32px;
-    font-size: 15px; font-weight: 700; color: #F5A800 !important;
+    font-size: 15px; font-weight: 700; color: #0A7935 !important; /* gold failed AA on white (2:1); on-brand green reads as a link */
   }
 
   /* PRICING */
@@ -2317,7 +2317,7 @@ const HOMEPAGE_CSS = `
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    color: #9aa89c;
+    color: #5b6a5d; /* darkened from #9aa89c to meet WCAG AA on white */
     user-select: none;
     transition: color 0.2s;
   }

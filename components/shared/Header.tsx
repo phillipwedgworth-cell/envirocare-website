@@ -206,7 +206,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
           {/* RIGHT: Phone | Customer Login | Get Free Quote */}
           <div className="ec-desktop-only" style={{ alignItems: "center", gap: 0, ...sf }}>
-            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
+            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: "#0A7935", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
               <Phone size={14} /> (205) 940-6360
             </a>
             {divider}

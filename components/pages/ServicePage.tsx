@@ -361,7 +361,7 @@ export default function ServicePage({ slug }: { slug: string }) {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Ready To Start?</div>
+          <div className="section-eyebrow">Ready To Start?</div>
           <h3>Get Your Free {service.shortName} Quote</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
