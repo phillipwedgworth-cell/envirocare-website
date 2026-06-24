@@ -1020,7 +1020,7 @@ const HOMEPAGE_CSS = `
 
     /* Tighter, more premium hero with breathing room */
     .ec-hero { padding-top: 28px; }
-    .ec-hero-inner { gap: 28px; padding-bottom: 104px; }
+    .ec-hero-inner { gap: 28px; padding-bottom: 150px; }
     .ec-eyebrow { margin-bottom: 14px; }
     .ec-hero-h1 { font-size: clamp(32px, 8.5vw, 44px); line-height: 1.08; margin-bottom: 10px; }
     .ec-hero-emphasis { font-size: 20px; margin: 0 0 14px; }
