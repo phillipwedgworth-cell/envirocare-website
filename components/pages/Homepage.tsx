@@ -1080,7 +1080,7 @@ const HOMEPAGE_CSS = `
     max-width: 240px !important;
     object-fit: contain !important;
     display: block !important;
-    /* Subtle opacity fade-in only �� no scale/zoom, protects above-the-fold LCP */
+    /* Subtle opacity fade-in only ��� no scale/zoom, protects above-the-fold LCP */
     animation: ec-logo-fade 400ms ease-out both;
   }
   @keyframes ec-logo-fade {
@@ -2675,7 +2675,12 @@ const HOMEPAGE_CSS = `
 
     /* Tighter, more premium first screen */
     .ec-hero { padding-top: 36px; }
-    .ec-hero-inner { gap: 0; padding-bottom: 40px; }
+    .ec-hero-inner { gap: 0; padding-bottom: 16px; }
+
+    /* Tighten oversized section padding on mobile so there are no large
+       empty bands between sections (hero→pricing, around the truck banner, etc.) */
+    .ec-section-inner { padding-top: 40px; padding-bottom: 40px; }
+    .ec-cp { padding: 36px 20px; }
     .ec-eyebrow { margin-bottom: 16px; }
     .ec-hero-h1 { font-size: clamp(34px, 8.5vw, 46px); line-height: 1.08; margin: 0 0 16px; }
     .ec-hero-keyword { font-size: 14px; margin: -4px 0 14px; }
