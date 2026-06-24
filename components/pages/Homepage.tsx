@@ -371,26 +371,78 @@ const RECURRING_PLANS: RecurringPlan[] = [
   },
 ];
 
-/* Clean line icons for plans & add-ons (replaces emoji). */
+/* Recognizable, distinguishable insect & service icons (replaces emoji). */
 function SvcIcon({ name }: { name: string }) {
-  const p = { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
+  const p = { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
   switch (name) {
+    // PEST — cockroach/general crawling bug: oval body, antennae, 6 legs
     case 'shield':
-      return <svg {...p}><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg>;
+    case 'roach':
+      return (
+        <svg {...p}>
+          <ellipse cx="12" cy="13" rx="4.5" ry="6.5" />
+          <path d="M12 6.5V13" />
+          <path d="M9.5 4.5L11 7M14.5 4.5L13 7" />
+          <path d="M7.5 9.5L4.5 8M16.5 9.5l3-1.5" />
+          <path d="M7.2 13H4M16.8 13H20" />
+          <path d="M7.5 16.5L4.5 18.5M16.5 16.5l3 2" />
+        </svg>
+      );
+    // MOSQUITO — slim body, two wings, long proboscis, dangling legs
     case 'mosquito':
-      return <svg {...p}><path d="M12 8v9" /><path d="M12 8c0-2 1.6-3.5 3.6-3.5M12 8c0-2-1.6-3.5-3.6-3.5" /><path d="M5 11l7 2 7-2M5 15l7 1 7-1" /></svg>;
-    case 'home':
-      return <svg {...p}><path d="M4 11l8-6 8 6" /><path d="M6 10v9h12v-9" /><path d="M10 19v-5h4v5" /></svg>;
+      return (
+        <svg {...p}>
+          <path d="M11 7l3.5 8" />
+          <path d="M11 7L6 3" />
+          <ellipse cx="9.5" cy="9" rx="3.5" ry="2" transform="rotate(28 9.5 9)" />
+          <ellipse cx="14" cy="9.5" rx="3.5" ry="2" transform="rotate(28 14 9.5)" />
+          <path d="M13.2 13l3 4M14 15l3.5 1.5M12.5 14l1 4" />
+        </svg>
+      );
+    // TICK — round engorged body, small head, short legs each side
+    case 'tick':
+      return (
+        <svg {...p}>
+          <circle cx="12" cy="13" r="5" />
+          <path d="M12 8c0-1.6 .9-2.4 0-2.4S12 6.4 12 8" />
+          <path d="M7.5 10L4.5 8.5M7 13H4M7.5 16l-3 1.5" />
+          <path d="M16.5 10l3-1.5M17 13h3M16.5 16l3 1.5" />
+        </svg>
+      );
+    // ANT — fire ant: 3 body segments, antennae, 6 legs
+    case 'ant':
+    case 'bug':
+      return (
+        <svg {...p}>
+          <circle cx="12" cy="5.5" r="2" />
+          <circle cx="12" cy="10.5" r="2.2" />
+          <ellipse cx="12" cy="16.5" rx="2.8" ry="3.5" />
+          <path d="M11 4L9.5 2.5M13 4l1.5-1.5" />
+          <path d="M10 9.5L6 8M14 9.5l4-1.5M10 11l-4 2M14 11l4 2" />
+        </svg>
+      );
+    // FLEA — humped body, big jumping hind leg
+    case 'flea':
+      return (
+        <svg {...p}>
+          <path d="M9 16c0-5 2-9 5.5-9 2 0 3 1.5 3 3.5 0 4-3 6.5-6 6.5" />
+          <path d="M9 16h7" />
+          <path d="M14.5 7L13 4.5" />
+          <path d="M15 15l3 3M11 16l1.5 3" />
+        </svg>
+      );
+    // TERMITE — wood log with grain (damage protection)
     case 'wood':
-      return <svg {...p}><rect x="3" y="6" width="18" height="12" rx="2" /><path d="M7 6v12M12 6v12M17 6v12" /></svg>;
+      return <svg {...p}><rect x="3" y="6" width="18" height="12" rx="2" /><ellipse cx="7" cy="12" rx="1.3" ry="3" /><path d="M12 6v12M17 6v12" /></svg>;
+    // COMPLETE — shield with check (full protection package)
+    case 'home':
+      return <svg {...p}><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg>;
     case 'doc':
       return <svg {...p}><path d="M7 3h7l4 4v14H7z" /><path d="M14 3v4h4" /><path d="M10 13h6M10 16h6" /></svg>;
     case 'builder':
       return <svg {...p}><path d="M3 21h18" /><path d="M6 21V8l6-4 6 4v13" /><path d="M10 21v-5h4v5" /></svg>;
     case 'commercial':
       return <svg {...p}><path d="M3 21h18" /><rect x="5" y="3" width="14" height="18" rx="1" /><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" /></svg>;
-    case 'bug':
-      return <svg {...p}><path d="M12 8a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0v-3a4 4 0 0 1 4-4z" /><path d="M12 4v4M5 9l3 2M19 9l-3 2M4 15h4M16 15h4M6 20l3-2M18 20l-3-2" /></svg>;
     default:
       return <svg {...p}><circle cx="12" cy="12" r="8" /></svg>;
   }
@@ -476,7 +528,7 @@ function ConsolidatedPricing() {
                       {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
                     </ul>
                     {plan.addon && <div className="ec-cp-addon">{plan.addon}</div>}
-                    <Link href="/quote" className="ec-cp-cta" style={{ background: plan.accent, color: plan.accentText, border: 'none' }}>{plan.cta}</Link>
+                    <Link href={`/quote?service=${plan.key}`} className="ec-cp-cta" style={{ background: plan.accent, color: plan.accentText, border: 'none' }}>{plan.cta}</Link>
                     {plan.fine && <div className="ec-cp-fine"><em>{plan.fine}</em></div>}
                   </div>
                 )}
@@ -556,9 +608,9 @@ function ServiceLinks() {
     { name: 'Pest Control', slug: 'pest-control', icon: 'shield', accent: '#C62828' },
     { name: 'Termite Control', slug: 'termite-control', icon: 'wood', accent: '#E0A100' },
     { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#E2711D' },
-    { name: 'Tick Control', slug: 'tick-control', icon: 'bug', accent: '#07642B' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'bug', accent: '#DC4A1A' },
-    { name: 'Flea Control', slug: 'flea', icon: 'bug', accent: '#0E7490' },
+    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#07642B' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'ant', accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#0E7490' },
     { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
     { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'doc', accent: '#0A7935' },
   ];

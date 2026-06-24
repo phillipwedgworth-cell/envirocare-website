@@ -132,7 +132,8 @@ async function pushToFieldster(lead: Lead): Promise<{ ok: boolean; id?: string; 
 // EMAIL FALLBACK — always runs, regardless of Fieldster status
 // ============================================================
 async function emailLead(lead: Lead, office: Office, fieldsterStatus: string) {
-  const notifyTo = process.env.NOTIFY_EMAIL || "service@envirocarellc.com";
+  // Always notify both the owner and the service inbox.
+  const notifyTo = ["phillipwedgworth@gmail.com", "service@envirocarellc.com"];
   const notifyFrom = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
 
   const subject = `New lead: ${lead.firstName} ${lead.lastName} → ${office.name}`;

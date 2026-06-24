@@ -6,7 +6,6 @@ const G = "#0E8E40";
 const GOLD = "#F5A800";
 const INK = "#0E1A0F";
 const CREAM = "#FEFDF8";
-const FORMSPREE = "https://formspree.io/f/xwvypjal";
 
 const LEAD_HOURS_NEW = 24;          // new service: earliest window start ≥ 24h out (after-lunch request → next afternoon)
 const CURRENT_DAY1_MIN_HOUR = 11;   // current customers: NO same-day; next day earliest, windows starting 11 AM or later on day 1
@@ -28,14 +27,32 @@ const WINDOWS_CURRENT = [
   { id: "w35", label: "3–5 PM", hours: "3–5 PM", startHour: 15 },
 ];
 
-const SERVICES = [
-  "Pest Control (bi-monthly)",
-  "Termite — Sentricon®",
-  "Mosquito Yard Barrier",
-  "Tick Treatment",
-  "Re-service (current customer)",
-  "Not sure — free inspection",
+// Multi-select services. `key` matches the ?service= value passed from the
+// pricing cards so we can pre-check what the visitor clicked.
+const SERVICES: { key: string; label: string }[] = [
+  { key: "pest", label: "Pest Control" },
+  { key: "termite", label: "Termite (Sentricon®)" },
+  { key: "mosquito", label: "Mosquito Yard Barrier" },
+  { key: "tick", label: "Tick Treatment" },
+  { key: "complete", label: "Complete (all of the above)" },
+  { key: "other", label: "Not sure — free inspection" },
 ];
+
+// A plan key from the pricing cards maps to one or more service keys to pre-check.
+const PRESELECT: Record<string, string[]> = {
+  pest: ["pest"],
+  termite: ["termite"],
+  mosquito: ["mosquito"],
+  tick: ["tick"],
+  complete: ["pest", "termite", "mosquito"],
+};
+
+function readServiceParam(): string[] {
+  if (typeof window === "undefined") return [];
+  const v = new URLSearchParams(window.location.search).get("service");
+  if (!v) return [];
+  return PRESELECT[v] ?? (SERVICES.some((s) => s.key === v) ? [v] : []);
+}
 
 type Day = { iso: string; dow: string; day: number; mon: string; date: Date };
 
@@ -98,35 +115,56 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [win, setWin] = useState("");
   const activeWin = availableWindows.find((w) => w.id === win) ?? availableWindows[0];
 
-  const [service, setService] = useState(SERVICES[0]);
+  const [services, setServices] = useState<string[]>(() => readServiceParam());
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [zip, setZip] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
+  const toggleService = (key: string) =>
+    setServices((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
+
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   const valid =
-    name.trim().length > 1 && /\d{3}.*\d{3}.*\d{4}/.test(phone) && /^\d{5}$/.test(zip.trim()) && !!activeDate && !!activeWin;
+    name.trim().length > 1 &&
+    emailOk &&
+    /\d{3}.*\d{3}.*\d{4}/.test(phone) &&
+    /^\d{5}$/.test(zip.trim()) &&
+    services.length > 0 &&
+    !!activeDate &&
+    !!activeWin;
 
   async function submit() {
     if (!valid || state === "sending") return;
     setState("sending");
+
+    const serviceLabels = services
+      .map((k) => SERVICES.find((s) => s.key === k)?.label ?? k)
+      .join(", ");
+    const [firstName, ...rest] = name.trim().split(/\s+/);
+    const lastName = rest.join(" ");
+    const notes = [
+      `${isCurrent ? "Current customer" : "New customer"}`,
+      `Preferred: ${activeDate.dow} ${activeDate.mon} ${activeDate.day} — ${activeWin.hours}`,
+      city ? `Page city: ${city}` : "",
+      `Submitted from: ${typeof window !== "undefined" ? window.location.pathname : ""}`,
+    ]
+      .filter(Boolean)
+      .join(" · ");
+
     try {
-      const res = await fetch(FORMSPREE, {
+      const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `📅 ${isCurrent ? "CURRENT CUSTOMER" : "NEW"} Schedule Request — ${activeDate.dow} ${activeDate.mon} ${activeDate.day}, ${activeWin.hours}`,
-          requestType: "Schedule Request",
-          customerType: isCurrent ? "Current customer" : "New customer",
-          preferredDate: activeDate.iso,
-          preferredWindow: activeWin.hours,
-          service,
-          name: name.trim(),
+          firstName,
+          lastName,
           phone: phone.trim(),
+          email: email.trim(),
           zip: zip.trim(),
-          page: typeof window !== "undefined" ? window.location.pathname : "",
-          city: city ?? "",
-          submittedAt: new Date().toISOString(),
+          serviceType: serviceLabels,
+          notes,
         }),
       });
       setState(res.ok ? "done" : "error");
@@ -219,12 +257,35 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         })}
       </div>
 
+      {/* Services — choose any combination */}
+      <p style={{ ...body, fontSize: 13.5, fontWeight: 600, color: INK, margin: "4px 0 8px" }}>
+        Which services are you interested in? <span style={{ color: "#8a948c", fontWeight: 400 }}>(choose any)</span>
+      </p>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
+        {SERVICES.map((s) => {
+          const on = services.includes(s.key);
+          return (
+            <button
+              key={s.key}
+              type="button"
+              onClick={() => toggleService(s.key)}
+              aria-pressed={on}
+              style={{
+                ...chip, padding: "9px 14px", fontSize: 13.5, fontWeight: 600,
+                background: on ? G : "#fff", color: on ? "#fff" : INK,
+                borderColor: on ? G : "#E4E0D4",
+              }}
+            >
+              {on ? "✓ " : ""}{s.label}
+            </button>
+          );
+        })}
+      </div>
+
       {/* Details */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
-        <select value={service} onChange={(e) => setService(e.target.value)} aria-label="Service needed" style={{ ...field, gridColumn: "1 / -1" }}>
-          {SERVICES.map((s) => <option key={s}>{s}</option>)}
-        </select>
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" aria-label="Name" style={field} />
+        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" style={field} />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" style={field} />
         <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" inputMode="tel" aria-label="Phone" style={field} />
         <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" style={field} />
       </div>
