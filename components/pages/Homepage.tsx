@@ -135,7 +135,6 @@ export default function Homepage() {
       <ServiceLinks />
       <SpecialtyServices />
       <FindYourOffice />
-      <TruckBanner />
       <Heritage />
       <Footer />
       <StickyCallButton />
@@ -386,6 +385,8 @@ function SvcIcon({ name }: { name: string }) {
       return <svg {...p}><path d="M7 3h7l4 4v14H7z" /><path d="M14 3v4h4" /><path d="M10 13h6M10 16h6" /></svg>;
     case 'builder':
       return <svg {...p}><path d="M3 21h18" /><path d="M6 21V8l6-4 6 4v13" /><path d="M10 21v-5h4v5" /></svg>;
+    case 'commercial':
+      return <svg {...p}><path d="M3 21h18" /><rect x="5" y="3" width="14" height="18" rx="1" /><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" /></svg>;
     case 'bug':
       return <svg {...p}><path d="M12 8a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0v-3a4 4 0 0 1 4-4z" /><path d="M12 4v4M5 9l3 2M19 9l-3 2M4 15h4M16 15h4M6 20l3-2M18 20l-3-2" /></svg>;
     default:
@@ -678,18 +679,10 @@ function Heritage() {
         <div className="ec-heritage-grid">
           <div className="ec-heritage-text">
             <p>
-              <strong>1958</strong> — Founded as Wedgworth Pest Control in Alexander City, on Lake Martin.
-            </p>
-            <p>
-              <strong>1980</strong> — Second generation takes the reins.
-            </p>
-            <p>
-              <strong>2002</strong> — Kevin Wedgworth expands into Birmingham. Many Lake Martin customers
-              kept lake houses but lived in Birmingham, Hoover, Vestavia Hills and Mountain Brook, and asked
-              us to protect their homes there too.
-            </p>
-            <p>
-              <strong>Today</strong> — Fourth generation runs EnviroCare across Central &amp; North Alabama.
+              EnviroCare started in 1958 as Wedgworth Pest Control on Lake Martin.
+              Four generations later, the same family still runs it &mdash; now
+              protecting homes across Central &amp; North Alabama from offices in
+              Birmingham, Lake Martin, and Huntsville.
             </p>
             <blockquote className="ec-heritage-quote">
               &ldquo;No One Cares Like EnviroCare.&rdquo;
@@ -699,6 +692,7 @@ function Heritage() {
               <div className="ec-h-stat"><div className="ec-h-stat-num">4</div><div className="ec-h-stat-label">GENERATIONS</div></div>
               <div className="ec-h-stat"><div className="ec-h-stat-num">100%</div><div className="ec-h-stat-label">FAMILY OWNED</div></div>
             </div>
+            <Link href="/about-us" className="ec-heritage-link">Read our full story →</Link>
           </div>
 
           <div className="ec-heritage-photos">
@@ -758,81 +752,15 @@ function Heritage() {
 }
 
 /* ============================================================
-   FOOTER
-   ============================================================ */
-
-/* ============================================================
-   TRUCK BANNER — restored Jun 22 (no "bundle" language)
-   ============================================================ */
-function TruckBanner() {
-  return (
-    <section className="ec-bundle">
-      <div className="ec-bundle-truck-wrap">
-        <Image
-          src="/truck-lifestyle.webp"
-          alt="EnviroCare service truck"
-          fill
-          sizes="100vw"
-          className="ec-bundle-truck"
-          style={{ objectFit: 'cover' }}
-        />
-        <div className="ec-bundle-truck-overlay" />
-      </div>
-      <div className="ec-bundle-inner" style={{ padding: '0 20px 48px' }}>
-        <div className="ec-bundle-truck-eyebrow">ONE COMPANY · ONE INVOICE</div>
-        <h2 className="ec-bundle-h2">
-          Every Service, <em>One Local Team</em>
-        </h2>
-        <p className="ec-bundle-truck-text">
-          Pest, termite, mosquito, and tick — handled by trained specialists who
-          know your property. One company, one invoice, one relationship.
-        </p>
-        <div className="ec-bundle-divider" />
-        <h3 className="ec-bundle-h3">
-          Convenience, <em>Not Complexity</em>
-        </h3>
-        <p className="ec-bundle-sub">
-          Add services as you need them. Each one is a trained specialist doing
-          expert-level work — not a generalist rushing through a checklist.
-        </p>
-        <div className="ec-bundle-prices">
-          <div className="ec-bundle-line">
-            <span>🛡️ Bi-Monthly Pest Control</span>
-            <span className="ec-bundle-price">$35/mo ACH</span>
-          </div>
-          <div className="ec-bundle-line">
-            <span>🦟 Mosquito Yard Barrier</span>
-            <span className="ec-bundle-price">$45/visit</span>
-          </div>
-          <div className="ec-bundle-line">
-            <span>🪵 Sentricon® Termite</span>
-            <span className="ec-bundle-price">Priced at inspection</span>
-          </div>
-        </div>
-        <div className="ec-bundle-ctas">
-          <Link href="/quote" className="ec-cta-primary" style={{ background: '#F5A800', color: '#0E1A0F' }}>
-            Get a Free Quote →
-          </Link>
-          <a href="tel:2059406360" className="ec-cta-secondary-light">
-            📞 (205) 940-6360
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
-/* ============================================================
    SPECIALTY SERVICES — restored Jun 22
    ============================================================ */
 function SpecialtyServices() {
   const items = [
-    { icon: '🏗️', name: 'Builder Pre-Treat', slug: 'builder-pre-treat',
+    { icon: 'builder', name: 'Builder Pre-Treat', slug: 'builder-pre-treat',
       desc: 'New construction termite pre-treatment. We work with your builder\'s timeline and provide the documentation lenders require.' },
-    { icon: '📋', name: 'Real Estate / WDO', slug: 'wdo-letters',
+    { icon: 'doc', name: 'Real Estate / WDO', slug: 'wdo-letters',
       desc: 'Wood-Destroying Organism inspection letters for closings, refinancing, and VA/FHA loans. Fast turnaround, lender-ready reports.' },
-    { icon: '🏢', name: 'Commercial Service', slug: 'commercial',
+    { icon: 'commercial', name: 'Commercial Service', slug: 'commercial',
       desc: 'Restaurants, offices, warehouses, and multi-family. Scheduled around your business hours with documentation for inspectors.' },
   ];
   return (
@@ -846,7 +774,7 @@ function SpecialtyServices() {
         <div className="ec-specialty-grid">
           {items.map(s => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="ec-specialty-card">
-              <span className="ec-specialty-icon">{s.icon}</span>
+              <span className="ec-specialty-icon"><SvcIcon name={s.icon} /></span>
               <h3 className="ec-specialty-title">{s.name}</h3>
               <p className="ec-specialty-desc">{s.desc}</p>
               <span className="ec-specialty-tag">LEARN MORE →</span>
@@ -871,9 +799,9 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
-            <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
-            <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
+            <a href="tel:2059406360" className="ec-footer-phone"><span>(205) 940-6360</span> <em>Birmingham</em></a>
+            <a href="tel:2562346162" className="ec-footer-phone"><span>(256) 234-6162</span> <em>Lake Martin / Alex City</em></a>
+            <a href="tel:2569377676" className="ec-footer-phone"><span>(256) 937-7676</span> <em>Huntsville</em></a>
           </div>
         </div>
 
@@ -1386,9 +1314,12 @@ const HOMEPAGE_CSS = `
     box-shadow: 0 8px 20px rgba(14,26,15,0.06);
     border-color: #0E8E40;
   }
-  .ec-specialty-icon {
-    font-size: 32px; display: block; margin-bottom: 12px;
+.ec-specialty-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; margin-bottom: 14px;
+  border-radius: 12px; background: #F1F5F2; color: #0E8E40;
   }
+  .ec-specialty-icon svg { width: 24px; height: 24px; }
   .ec-specialty-title {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 20px; font-weight: 700; margin: 0 0 8px; color: #0E1A0F;
@@ -1764,6 +1695,13 @@ const HOMEPAGE_CSS = `
     color: #5A6660;
   }
   .ec-caption-small strong { font-size: 11px; }
+
+  .ec-heritage-link {
+    display: inline-block; margin-top: 20px;
+    color: #0E8E40; font-weight: 700; font-size: 15px;
+    border-bottom: 2px solid transparent; transition: border-color 0.15s;
+  }
+  .ec-heritage-link:hover { border-color: #0E8E40; }
 
   .ec-photo-kevin {
     width: 260px;
@@ -2199,7 +2137,8 @@ const HOMEPAGE_CSS = `
 
   /* FOOTER */
   .ec-footer {
-    background: #0E1A0F; color: #fff;
+    background: #F4F0E6; color: #3A4A3E;
+    border-top: 1px solid #E4DECB;
     padding: 60px 20px 32px;
   }
   .ec-footer-inner {
@@ -2211,38 +2150,36 @@ const HOMEPAGE_CSS = `
   }
   .ec-footer-brand { display: inline-block; margin-bottom: 16px; }
   .ec-footer-logo {
-    height: 44px !important; width: auto !important;
+    height: 48px !important; width: auto !important;
     object-fit: contain;
-    background: #fff;
-    padding: 8px 14px;
-    border-radius: 10px;
   }
   .ec-footer-tag {
     font-size: 14px; line-height: 1.6;
-    color: rgba(255,255,255,0.7); margin: 0 0 20px;
+    color: #5A6660; margin: 0 0 20px;
   }
   .ec-footer-phones {
-    display: flex; flex-direction: column; gap: 6px;
+    display: flex; flex-direction: column; gap: 8px;
   }
   .ec-footer-phone {
-    color: #F5A800 !important;
-    font-size: 14px; font-weight: 600;
+    color: #0E8E40 !important;
+    font-size: 15px; font-weight: 700;
   }
   .ec-footer-phone em {
-    color: rgba(255,255,255,0.6);
-    font-style: normal; font-weight: 400;
+    color: #5A6660;
+    font-style: normal; font-weight: 400; font-size: 13px;
+    margin-left: 6px;
   }
   .ec-footer-col h4 {
     font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em; color: #F5A800;
+    letter-spacing: 0.1em; color: #14331E;
     margin: 0 0 16px;
   }
   .ec-footer-col a {
     display: block; padding: 4px 0;
-    font-size: 14px; color: rgba(255,255,255,0.7);
+    font-size: 14px; color: #5A6660;
     transition: color 0.15s;
   }
-  .ec-footer-col a:hover { color: #fff; }
+  .ec-footer-col a:hover { color: #0E8E40; }
 
   /* Expanded footer service areas - 3 grouped columns */
   .ec-footer-col-areas { grid-column: span 1; }
@@ -2258,10 +2195,10 @@ const HOMEPAGE_CSS = `
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.55);
+    color: #8A9A8C;
     text-transform: uppercase;
     margin-bottom: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid #E4DECB;
     padding-bottom: 4px;
   }
   .ec-footer-areas-group a {
@@ -2271,30 +2208,31 @@ const HOMEPAGE_CSS = `
   .ec-footer-find {
     display: inline-block !important;
     margin-top: 12px;
-    padding: 8px 14px !important;
-    background: rgba(245,168,0,0.15);
-    border: 1px solid #F5A800;
+    padding: 9px 16px !important;
+    background: #0E8E40;
+    border: 1px solid #0E8E40;
     border-radius: 999px;
-    color: #F5A800 !important;
+    color: #ffffff !important;
     font-size: 13px !important;
     font-weight: 700;
     transition: all 0.15s;
   }
   .ec-footer-find:hover {
-    background: #F5A800;
-    color: #0E1A0F !important;
+    background: #0B7333;
+    border-color: #0B7333;
+    color: #ffffff !important;
   }
   .ec-footer-bottom {
     max-width: 1280px; margin: 40px auto 0;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #E4DECB;
     display: flex; flex-wrap: wrap; gap: 16px;
     justify-content: space-between;
-    font-size: 12px; color: rgba(255,255,255,0.5);
+    font-size: 12px; color: #8A9A8C;
   }
   .ec-footer-bottom-links { display: flex; gap: 16px; }
-  .ec-footer-bottom-links a { color: rgba(255,255,255,0.5); }
-  .ec-footer-bottom-links a:hover { color: #fff; }
+  .ec-footer-bottom-links a { color: #8A9A8C; }
+  .ec-footer-bottom-links a:hover { color: #0E8E40; }
   @media (max-width: 899px) {
     .ec-main { padding-bottom: 80px; }
   }
