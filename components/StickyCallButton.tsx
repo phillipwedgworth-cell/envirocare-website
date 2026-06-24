@@ -2,11 +2,12 @@
 
 /**
  *
- * Mobile-only fixed bottom action bar: Call + Get Quote.
- * Hidden >=900px (desktop has header phones). Reserves the bottom-right
- * corner so it never overlaps the chat launcher, respects the iOS bottom
- * safe area, and slides out of the way while a form field is focused so
- * it can never cover an input.
+ * Mobile-only fixed bottom action bar: a single full-width Call button.
+ * Quote lives in the hero + pricing CTAs, so the persistent bar handles the
+ * one thing those don't — tap to call. Hidden >=900px (desktop has header
+ * phones). Respects the iOS bottom safe area and slides out of the way while
+ * a form field is focused so it can never cover an input. The chat launcher
+ * sits above this bar (see ChatWidget), so they never overlap.
  */
 
 import { useEffect, useState } from 'react';
@@ -38,11 +39,10 @@ export default function StickyCallButton() {
             </svg>
           </span>
           <span className="sc-text">
-            <span className="sc-label">Call EnviroCare</span>
+            <span className="sc-label">Tap to call EnviroCare — free quote</span>
             <span className="sc-num">(205) 940-6360</span>
           </span>
         </a>
-        <a href="/quote" className="sc-quote">Get Quote</a>
       </div>
     </>
   );
@@ -52,11 +52,10 @@ const STICKY_CSS = `
 .sc-wrap {
   position: fixed;
   left: 12px;
-  right: 76px;
+  right: 12px;
   bottom: calc(10px + env(safe-area-inset-bottom, 0px));
   z-index: 9998;
   display: flex;
-  gap: 8px;
   font-family: 'DM Sans', system-ui, sans-serif;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -64,9 +63,9 @@ const STICKY_CSS = `
 .sc-call {
   flex: 1;
   min-width: 0;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
   background: #0E8E40; color: #fff !important; text-decoration: none;
-  padding: 10px 16px; border-radius: 999px; min-height: 54px;
+  padding: 10px 20px; border-radius: 999px; min-height: 56px;
   box-shadow: 0 8px 24px rgba(14,26,15,0.25), 0 2px 6px rgba(14,26,15,0.12);
   transition: transform 0.1s;
 }
@@ -74,15 +73,6 @@ const STICKY_CSS = `
 .sc-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .sc-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
 .sc-label { font-size: 11px; opacity: 0.9; font-weight: 500; white-space: nowrap; }
-.sc-num { font-size: 17px; font-weight: 700; letter-spacing: 0.01em; white-space: nowrap; }
-.sc-quote {
-  display: flex; align-items: center; justify-content: center;
-  background: #F5A800; color: #0E1A0F !important; text-decoration: none;
-  padding: 0 18px; border-radius: 999px; min-height: 54px;
-  font-weight: 700; font-size: 14px; flex-shrink: 0; white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(14,26,15,0.20);
-  transition: transform 0.1s;
-}
-.sc-quote:active { transform: translateY(1px); }
+.sc-num { font-size: 18px; font-weight: 700; letter-spacing: 0.01em; white-space: nowrap; }
 @media (min-width: 900px) { .sc-wrap { display: none; } }
 `;
