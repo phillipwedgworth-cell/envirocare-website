@@ -258,9 +258,8 @@ function Hero() {
           </p>
 
           <p className="ec-hero-sub">
-            A trained specialist for every service — pest, termite, mosquito and
-            tick — so you get expert quality on every visit. One company. One
-            invoice. Interior and exterior coverage, scheduled around your life.
+            Pest, termite &amp; mosquito protection from one trusted Alabama
+            company — with trained specialists for every service.
           </p>
 
           <div className="ec-hero-ctas">
@@ -2653,4 +2652,26 @@ const HOMEPAGE_CSS = `
     transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
   .ec-fo-area-link:hover { background: #0E8E40; color: #fff !important; border-color: #0E8E40; }
+
+  /* ── Mobile hero cleanup (added, last so it wins the cascade) ──
+     Goals: less clutter above the headline, a single call pattern on
+     mobile (the sticky bottom bar), and room so that bar never covers
+     hero copy. Desktop is untouched. */
+  @media (max-width: 720px) {
+    /* Drop the duplicate call pill in the top banner — calling lives in the sticky bar */
+    .ec-banner-call { display: none; }
+
+    /* Tighter, more premium first screen */
+    .ec-hero { padding-top: 36px; }
+    .ec-hero-inner { gap: 28px; padding-bottom: 104px; }
+    .ec-eyebrow { margin-bottom: 16px; }
+    .ec-hero-h1 { font-size: clamp(34px, 8.5vw, 46px); line-height: 1.08; margin: 0 0 16px; }
+    .ec-hero-keyword { font-size: 14px; margin: -4px 0 14px; }
+    .ec-hero-sub { font-size: 16px; line-height: 1.55; margin: 0 0 22px; }
+    .ec-hero-ctas { margin-bottom: 24px; }
+
+    /* Single primary CTA on mobile; secondary call button is redundant with sticky bar */
+    .ec-hero-ctas .ec-cta-secondary { display: none; }
+    .ec-hero-ctas .ec-cta-primary { width: 100%; justify-content: center; }
+  }
 `;
