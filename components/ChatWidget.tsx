@@ -128,8 +128,11 @@ export default function ChatWidget() {
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes ec-scout-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.75);opacity:0}100%{transform:scale(1.75);opacity:0}}
           @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
+          /* Lift launcher above the fixed mobile action bar so they don't overlap */
+          @media (max-width: 899px){.ec-scout-launcher{bottom:calc(86px + env(safe-area-inset-bottom,0px))!important;width:54px!important;height:54px!important;}}
         `}} />
       <button
+        className="ec-scout-launcher"
         onClick={() => {
           setIsOpen(true);
           if (typeof window !== 'undefined' && (window as any).gtag) {

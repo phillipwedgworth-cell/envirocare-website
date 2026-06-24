@@ -332,34 +332,26 @@ interface RecurringPlan {
   fine?: string;
 }
 
-// Block A — ongoing/recurring protection. Numbers from data/pricing.ts (locked).
-// Termite is intentionally NOT a recurring base plan (see Block B / Complete).
+// Block A — core recurring protection, built as 3 tiers that each add to the last.
+// Tier 1 Pest (bimonthly) → Tier 2 adds Mosquito (tick +$20 add-on) → Tier 3 adds Termite.
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: '🛡️', name: 'Pest Control', dotColor: '#0E8E40',
-    perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
+    key: 'pest', icon: 'shield', name: 'Pest Control', dotColor: '#0E8E40',
+    perservice: { price: '$70/visit · bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
-    bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
-    cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial',
+    bullets: ['Bimonthly interior & exterior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label'],
+    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial',
   },
   {
-    key: 'pest-mosquito', icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
-    perservice: { price: '$70/visit + $45/visit (mosquito)', terms: 'Mosquito treatments March–November' },
+    key: 'pest-mosquito', icon: 'mosquito', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
+    perservice: { price: '$70/visit pest + $45/visit mosquito', terms: 'Bimonthly pest · seasonal mosquito (Mar–Nov)' },
     monthly: { price: 'From $69/mo ACH', terms: 'Pest + seasonal mosquito on one monthly draft' },
-    bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
+    bullets: ['Everything in Pest Control', 'Seasonal mosquito yard barrier (Mar–Nov)', 'Add tick protection for +$20/treatment', 'One company, one invoice'],
     addon: 'Add tick to any mosquito visit: +$20/treatment',
     cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial',
   },
   {
-    key: 'mosquito', icon: '🦟', name: 'Mosquito', dotColor: '#0E7490',
-    perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
-    monthly: { price: '$34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
-    bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
-    addon: 'Add tick: +$20/treatment',
-    cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-green', fine: 'No startup fee',
-  },
-  {
-    key: 'complete', icon: '🏠', name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
+    key: 'complete', icon: 'home', name: 'Complete Protection', badge: 'BEST VALUE', dotColor: '#0E1A0F',
     perservice: { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite confirmed after inspection & approval' },
     monthly: { price: 'From ~$100/mo ACH', terms: 'Pest + mosquito on ACH · Sentricon® termite priced at inspection' },
     bullets: ['Everything in Pest + Mosquito', 'Sentricon® termite protection', 'Up to $1M termite damage repair coverage', 'One company, one invoice'],
@@ -367,20 +359,41 @@ const RECURRING_PLANS: RecurringPlan[] = [
   },
 ];
 
-// Block B — non-recurring / inspection-triggered. No fixed termite $/mo (locked).
+// Block B — add-ons & inspection-based services. Not subscriptions.
 interface OneTimeItem { icon: string; name: string; price: string; desc: string; href: string; }
 const ONETIME_ITEMS: OneTimeItem[] = [
-  { icon: '🚀', name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
-    desc: 'One-time startup for new recurring pest customers — the first thorough interior and exterior treatment.' },
-  { icon: '🪵', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
-    desc: 'Sentricon® termite protection is confirmed after inspection. Includes a free WDO inspection; pricing is quoted after.' },
-  { icon: '📋', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
-    desc: 'Wood-Destroying Organism letters for closings and refinancing. Priced per inspection, with lender-ready turnaround.' },
-  { icon: '🏗️', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
+  { icon: 'wood', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
+    desc: 'Sentricon® termite protection, confirmed after a free WDO inspection. Also included in Complete Protection.' },
+  { icon: 'doc', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
+    desc: 'Wood-Destroying Organism letters for closings and refinancing, with lender-ready turnaround.' },
+  { icon: 'builder', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
     desc: 'New-construction termite pre-treatment, scheduled around your builder’s timeline.' },
-  { icon: '🐜', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
+  { icon: 'bug', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
     desc: 'Targeted add-ons to a recurring plan. Tick is +$20/treatment on mosquito visits.' },
 ];
+
+/* Clean line icons for plans & add-ons (replaces emoji). */
+function SvcIcon({ name }: { name: string }) {
+  const p = { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
+  switch (name) {
+    case 'shield':
+      return <svg {...p}><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg>;
+    case 'mosquito':
+      return <svg {...p}><path d="M12 8v9" /><path d="M12 8c0-2 1.6-3.5 3.6-3.5M12 8c0-2-1.6-3.5-3.6-3.5" /><path d="M5 11l7 2 7-2M5 15l7 1 7-1" /></svg>;
+    case 'home':
+      return <svg {...p}><path d="M4 11l8-6 8 6" /><path d="M6 10v9h12v-9" /><path d="M10 19v-5h4v5" /></svg>;
+    case 'wood':
+      return <svg {...p}><rect x="3" y="6" width="18" height="12" rx="2" /><path d="M7 6v12M12 6v12M17 6v12" /></svg>;
+    case 'doc':
+      return <svg {...p}><path d="M7 3h7l4 4v14H7z" /><path d="M14 3v4h4" /><path d="M10 13h6M10 16h6" /></svg>;
+    case 'builder':
+      return <svg {...p}><path d="M3 21h18" /><path d="M6 21V8l6-4 6 4v13" /><path d="M10 21v-5h4v5" /></svg>;
+    case 'bug':
+      return <svg {...p}><path d="M12 8a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0v-3a4 4 0 0 1 4-4z" /><path d="M12 4v4M5 9l3 2M19 9l-3 2M4 15h4M16 15h4M6 20l3-2M18 20l-3-2" /></svg>;
+    default:
+      return <svg {...p}><circle cx="12" cy="12" r="8" /></svg>;
+  }
+}
 
 function ConsolidatedPricing() {
   const [mode, setMode] = useState<'perservice' | 'monthly'>('perservice');
@@ -443,7 +456,7 @@ function ConsolidatedPricing() {
                   aria-controls={panelId}
                   onClick={() => setOpenKey(isOpen ? null : plan.key)}
                 >
-                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}>{plan.icon}</span>
+                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}><SvcIcon name={plan.icon} /></span>
                   <span className="ec-cp-item-info">
                     <span className="ec-cp-item-name">
                       {plan.name}
@@ -478,12 +491,14 @@ function ConsolidatedPricing() {
         <div className="ec-cp-onetime">
           {ONETIME_ITEMS.map(item => (
             <Link key={item.name} href={item.href} className="ec-cp-ot-card">
-              <span className="ec-cp-ot-icon" aria-hidden="true">{item.icon}</span>
+              <span className="ec-cp-ot-icon" aria-hidden="true"><SvcIcon name={item.icon} /></span>
               <span className="ec-cp-ot-body">
-                <span className="ec-cp-ot-name">{item.name}</span>
+                <span className="ec-cp-ot-head">
+                  <span className="ec-cp-ot-name">{item.name}</span>
+                  <span className="ec-cp-ot-price">{item.price}</span>
+                </span>
                 <span className="ec-cp-ot-desc">{item.desc}</span>
               </span>
-              <span className="ec-cp-ot-price">{item.price}</span>
             </Link>
           ))}
         </div>
@@ -1080,7 +1095,7 @@ const HOMEPAGE_CSS = `
     max-width: 240px !important;
     object-fit: contain !important;
     display: block !important;
-    /* Subtle opacity fade-in only ��� no scale/zoom, protects above-the-fold LCP */
+    /* Subtle opacity fade-in only ���� no scale/zoom, protects above-the-fold LCP */
     animation: ec-logo-fade 400ms ease-out both;
   }
   @keyframes ec-logo-fade {
@@ -2390,6 +2405,7 @@ const HOMEPAGE_CSS = `
     font-size: 22px;
     flex-shrink: 0;
     background: #2d6a3e;
+    color: #fff;
   }
   .ec-cp-pop .ec-cp-dot { background: #0E1A0F; }
   .ec-cp-item-info { flex: 1; }
@@ -2633,13 +2649,14 @@ const HOMEPAGE_CSS = `
     padding: 14px 16px; transition: box-shadow 0.2s, border-color 0.2s;
   }
   .ec-cp-ot-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: #2d6a3e; }
-  .ec-cp-ot-icon { font-size: 22px; line-height: 1.2; flex-shrink: 0; }
-  .ec-cp-ot-body { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+  .ec-cp-ot-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: #F1F5F2; color: #0E8E40; flex-shrink: 0; }
+  .ec-cp-ot-body { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+  .ec-cp-ot-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
   .ec-cp-ot-name { font-weight: 700; font-size: 15px; color: #1a2e1c; }
   .ec-cp-ot-desc { font-size: 12.5px; color: #5b6f60; line-height: 1.45; }
   .ec-cp-ot-price {
-    font-size: 12.5px; font-weight: 700; color: #2d6a3e;
-    white-space: nowrap; flex-shrink: 0; align-self: center; text-align: right;
+    font-size: 12px; font-weight: 700; color: #2d6a3e;
+    white-space: nowrap; flex-shrink: 0; text-align: right;
   }
 
   /* ── Heritage photo wrapper for next/image fill (added) ── */
