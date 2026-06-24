@@ -108,6 +108,12 @@ export default function ServicesIndexPage() {
               <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
               <a href="/services/commercial" className="svc-card-link">Learn more →</a>
             </div>
+            <div className="svc-card">
+              <div className="svc-card-tag">Foundation &amp; Moisture</div>
+              <div className="svc-card-name">Crawlspace Service</div>
+              <div className="svc-card-desc">Moisture control, vapor barriers &amp; encapsulation that stop Alabama humidity, termites, mold and musty odors at the source. Free inspection.</div>
+              <a href="/services/crawlspace" className="svc-card-link">Learn more →</a>
+            </div>
           </div>
         </div>
       </section>
