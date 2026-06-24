@@ -196,10 +196,8 @@ function Header() {
             className="ec-header-pay"
           >Pay Bill</a>
           <a href="tel:2059406360" className="ec-header-phone">
-            <span className="ec-phone-icon">📞</span>
             <span>(205) 940-6360</span>
           </a>
-          <Link href="/quote" className="ec-header-quote">Get Free Quote</Link>
         </div>
 
         <button
@@ -323,6 +321,8 @@ interface RecurringPlan {
   badge?: string;
   popular?: boolean;
   dotColor: string;
+  accent: string;
+  accentText: string;
   perservice: { price: string; terms: string };
   monthly: { price: string; terms: string };
   bullets: string[];
@@ -336,21 +336,24 @@ interface RecurringPlan {
 // option) → Complete package that bundles all three.
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: 'shield', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
+    key: 'pest', icon: 'shield', name: 'Pest Control', badge: 'MOST POPULAR', popular: true,
+    accent: '#C62828', accentText: '#ffffff', dotColor: '#C62828',
     perservice: { price: '$70/visit · bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
     bullets: ['Bimonthly interior & exterior treatment', 'Covers 30+ pests, including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label'],
     cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$79 initial',
   },
   {
-    key: 'termite', icon: 'wood', name: 'Termite Control', badge: 'MOST INSURANCE', dotColor: '#9A6B2F',
+    key: 'termite', icon: 'wood', name: 'Termite Control', badge: 'MOST INSURANCE',
+    accent: '#E0A100', accentText: '#1a1400', dotColor: '#E0A100',
     perservice: { price: 'Priced after free inspection', terms: 'Sentricon® Always Active™ · annual renewal' },
     monthly: { price: 'Quoted after inspection', terms: 'Annual renewal keeps your $1M coverage active' },
     bullets: ['Sentricon® bait-station system', 'Up to $1M termite damage repair coverage', 'Free WDO inspection included', 'No drilling, no concrete cuts'],
     cta: 'Get Free Termite Inspection', ctaCls: 'ec-cp-cta-outline', fine: 'Free inspection · no obligation',
   },
   {
-    key: 'mosquito', icon: 'mosquito', name: 'Mosquito Control', dotColor: '#0E7490',
+    key: 'mosquito', icon: 'mosquito', name: 'Mosquito Control',
+    accent: '#E2711D', accentText: '#ffffff', dotColor: '#E2711D',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service March–November' },
     monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito barrier on one draft' },
     bullets: ['30-day yard barrier (March–November)', 'Targets adult mosquitoes & harborage areas', 'Add tick protection: +$20 per application', 'Free re-treatment between scheduled visits'],
@@ -358,7 +361,8 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {
-    key: 'complete', icon: 'home', name: 'Complete Protection', badge: 'BEST VALUE', dotColor: '#0E1A0F',
+    key: 'complete', icon: 'home', name: 'Complete Protection', badge: 'BEST VALUE',
+    accent: '#0E8E40', accentText: '#ffffff', dotColor: '#0E8E40',
     perservice: { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite confirmed after inspection & approval' },
     monthly: { price: 'From ~$100/mo ACH', terms: 'Pest + mosquito on ACH · Sentricon® termite priced at inspection' },
     bullets: ['Everything in Pest Control', 'Seasonal mosquito (add tick +$20/application)', 'Sentricon® termite + up to $1M coverage', 'One company, one invoice'],
@@ -399,11 +403,11 @@ function ConsolidatedPricing() {
         <div className="ec-section-eyebrow">SERVICES &amp; PRICING</div>
         <h2 className="ec-section-h2">Alabama Protection, <em>Clearly Priced</em></h2>
         <p className="ec-section-sub">
-          No hidden fees, no forced bundles. Pick pest, termite, or mosquito on its own &mdash; or get the Complete package and let us handle all three.
+          Mix and match any way you like &mdash; one service, two, or all three. Pick just what you need, add the tick program to mosquito for +$20 per application, or choose Complete and let us handle everything on one invoice.
         </p>
 
         {/* ---------- Core Protection Plans ---------- */}
-        <h3 className="ec-cp-block-title">Choose Your Protection</h3>
+        <h3 className="ec-cp-block-title">Build Your Own Protection</h3>
 
         {/* Billing display toggle */}
         <div className="ec-cp-toggle-wrap" role="group" aria-label="Billing display">
@@ -442,6 +446,7 @@ function ConsolidatedPricing() {
               <div
                 key={plan.key}
                 className={`ec-cp-item ${plan.popular ? 'ec-cp-pop' : ''} ${isOpen ? 'ec-cp-open' : ''}`}
+                style={{ borderLeft: `4px solid ${plan.accent}` }}
               >
                 <button
                   type="button"
@@ -454,7 +459,7 @@ function ConsolidatedPricing() {
                   <span className="ec-cp-item-info">
                     <span className="ec-cp-item-name">
                       {plan.name}
-                      {plan.badge && <span className="ec-cp-badge">{plan.badge}</span>}
+                      {plan.badge && <span className="ec-cp-badge" style={{ background: plan.accent, color: plan.accentText }}>{plan.badge}</span>}
                     </span>
                     <span className="ec-cp-item-price">{d.price}</span>
                   </span>
@@ -468,7 +473,7 @@ function ConsolidatedPricing() {
                       {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
                     </ul>
                     {plan.addon && <div className="ec-cp-addon">{plan.addon}</div>}
-                    <Link href="/quote" className={`ec-cp-cta ${plan.ctaCls}`}>{plan.cta}</Link>
+                    <Link href="/quote" className="ec-cp-cta" style={{ background: plan.accent, color: plan.accentText, border: 'none' }}>{plan.cta}</Link>
                     {plan.fine && <div className="ec-cp-fine"><em>{plan.fine}</em></div>}
                   </div>
                 )}
