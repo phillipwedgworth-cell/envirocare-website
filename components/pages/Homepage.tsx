@@ -150,11 +150,10 @@ function TopBanner() {
     <div className="ec-banner">
       <div className="ec-banner-inner">
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
         </div>
-        <a href="tel:2059406360" className="ec-banner-call">Call (205) 940-6360 →</a>
       </div>
     </div>
   );
@@ -231,7 +230,7 @@ function Header() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
           >Pay Bill</a>
-          <a href="tel:2059406360" onClick={() => setMobileOpen(false)}>📞 (205) 940-6360</a>
+            <a href="tel:2059406360" onClick={() => setMobileOpen(false)}>Call (205) 940-6360</a>
           <Link href="/quote" className="ec-mobile-cta" onClick={() => setMobileOpen(false)}>
             Get Free Quote →
           </Link>
@@ -274,7 +273,10 @@ function Hero() {
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
+              <span>(205) 940-6360</span>
             </a>
           </div>
 
@@ -551,14 +553,14 @@ function Reviews() {
    ============================================================ */
 function ServiceLinks() {
   const services = [
-    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0E8E40' },
-    { name: 'Termite Control', slug: 'termite-control', icon: '🪵', accent: '#F5A800' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟', accent: '#0E7490' },
-    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️', accent: '#07642B' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜', accent: '#DC4A1A' },
-    { name: 'Flea Control', slug: 'flea', icon: '🪲', accent: '#7D5BA6' },
-    { name: 'Commercial', slug: 'commercial', icon: '🏢', accent: '#0E1A0F' },
-    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: '📋', accent: '#0A7935' },
+    { name: 'Pest Control', slug: 'pest-control', icon: 'shield', accent: '#C62828' },
+    { name: 'Termite Control', slug: 'termite-control', icon: 'wood', accent: '#E0A100' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#E2711D' },
+    { name: 'Tick Control', slug: 'tick-control', icon: 'bug', accent: '#07642B' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'bug', accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: 'bug', accent: '#0E7490' },
+    { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
+    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'doc', accent: '#0A7935' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
@@ -573,7 +575,9 @@ function ServiceLinks() {
               href={`/services/${s.slug}`}
               style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.15)', borderLeft: `4px solid ${s.accent}`, borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58, transition: 'box-shadow 0.2s, transform 0.15s' }}
             >
-              <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
+              <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: 10, background: `${s.accent}14`, color: s.accent, flexShrink: 0 }}>
+                <SvcIcon name={s.icon} />
+              </span>
               <span style={{ flex: 1 }}>{s.name}</span>
               <span style={{ color: '#0E8E40', fontWeight: 700 }} aria-hidden="true">→</span>
             </Link>
@@ -647,9 +651,9 @@ function FindYourOffice() {
         </div>
         {result && <div className="ec-fo-result">{result}</div>}
         <div className="ec-fo-phones">
-          <a href="tel:2059406360">📞 (205) 940-6360 — Birmingham</a>
-          <a href="tel:2562346162">📞 (256) 234-6162 — Alex City / Lake Martin</a>
-          <a href="tel:2569377676">📞 (256) 937-7676 — Huntsville</a>
+            <a href="tel:2059406360">(205) 940-6360 — Birmingham</a>
+            <a href="tel:2562346162">(256) 234-6162 — Alex City / Lake Martin</a>
+            <a href="tel:2569377676">(256) 937-7676 — Huntsville</a>
         </div>
         <div className="ec-fo-areas">
           <div className="ec-fo-areas-label">Popular service areas</div>
