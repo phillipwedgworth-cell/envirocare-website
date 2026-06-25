@@ -20,6 +20,11 @@ type IconKey =
   | "cricket"
   | "beetle"
   | "earwig"
+  | "rodent"
+  | "wasp"
+  | "leaf"
+  | "fungus"
+  | "home"
   | "commercial"
   | "builder"
   | "complete"
@@ -34,12 +39,18 @@ const EMOJI_MAP: Record<string, IconKey> = {
   "🐾": "tick",
   "🕷️": "spider",
   "🕷": "spider",
+  "🦂": "spider",
   "🐜": "ant",
   "🔥": "ant",
   "🪲": "beetle",
   "🐞": "beetle",
   "🦗": "cricket",
-  "🦂": "earwig",
+  "🐀": "rodent",
+  "🐭": "rodent",
+  "🐝": "wasp",
+  "🐝️": "wasp",
+  "🍂": "leaf",
+  "🍁": "leaf",
   "🏢": "commercial",
   "🏛️": "commercial",
   "🏛": "commercial",
@@ -60,6 +71,9 @@ const ACCENT: Record<IconKey, string> = {
   cricket: "#3F7A3F",
   beetle: "#B0451F",
   earwig: "#8A6D2F",
+  rodent: "#6B6B6B",
+  wasp: "#C98A00",
+  leaf: "#B0451F",
   commercial: "#0E1A0F",
   builder: "#5A6660",
   complete: "#0E8E40",
@@ -182,6 +196,34 @@ function Glyph({ name }: { name: IconKey }) {
           <rect x="3" y="6" width="18" height="12" rx="2" />
           <ellipse cx="7" cy="12" rx="1.3" ry="3" />
           <path d="M12 6v12M17 6v12" />
+        </svg>
+      );
+    case "rodent":
+      return (
+        <svg {...p}>
+          <ellipse cx="10" cy="14" rx="5.5" ry="4" />
+          <circle cx="16" cy="11" r="2.5" />
+          <circle cx="15.5" cy="8.5" r="1.6" />
+          <circle cx="18" cy="9" r="1.6" />
+          <path d="M5 15c-2 0-3 1-3 2.5" />
+          <path d="M17.2 12.4h.01" />
+        </svg>
+      );
+    case "wasp":
+      return (
+        <svg {...p}>
+          <ellipse cx="12" cy="15" rx="2.6" ry="4" />
+          <path d="M9.6 13.5h4.8M9.6 16.5h4.8" />
+          <circle cx="12" cy="8.5" r="2" />
+          <path d="M11 7L9.5 4.5M13 7l1.5-2.5" />
+          <path d="M10 11l-4-1M14 11l4-1" />
+        </svg>
+      );
+    case "leaf":
+      return (
+        <svg {...p}>
+          <path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z" />
+          <path d="M5 19c4-6 8-8 12-9" />
         </svg>
       );
     case "complete":
