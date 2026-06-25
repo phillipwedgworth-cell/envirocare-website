@@ -79,7 +79,7 @@ export default function NotFound() {
           <div><div className="footer-brand"><strong>EnviroCare Pest & Termite Services</strong>Family-owned since 1958.<br /><br />
           <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360</a></div></div>
           <div><div className="footer-head">Services</div><ul className="footer-links">
-            <li><a href="/services/pest-control">Pest Control</a></li><li><a href="/services/termite-control">Termite Control</a></li><li><a href="/services/mosquito-control">Mosquito Control</a></li><li><a href="/services/tick-control">Tick Control</a></li>
+            <li><a href="/services/pest-control">Pest Control</a></li><li><a href="/services/termite-control">Termite Control</a></li><li><a href="/services/mosquito">Mosquito Control</a></li><li><a href="/services/tick-control">Tick Control</a></li>
           </ul></div>
           <div><div className="footer-head">Pro</div><ul className="footer-links">
             <li><a href="/realtor">For Realtors</a></li><li><a href="/builders">For Builders</a></li><li><a href="/faq">FAQ</a></li>

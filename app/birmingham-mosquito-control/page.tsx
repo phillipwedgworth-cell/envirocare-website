@@ -67,7 +67,7 @@ const c: ComboContent = {
   ],
   office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
-  servicePage: { name: "Mosquito Control Service", href: "/services/mosquito-control" },
+  servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Birmingham, AL",
   canonicalPath: "/birmingham-mosquito-control",
 };

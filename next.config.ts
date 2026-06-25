@@ -54,11 +54,11 @@ const nextConfig: NextConfig = {
             { source: '/contact', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
             { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13
-            { source: '/services/mosquito', destination: '/services/mosquito-control', permanent: true },
+            { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25
             { source: '/services/pest', destination: '/services/pest-control', permanent: true },
             { source: '/services/rodent', destination: '/services/pest-control', permanent: true },
             { source: '/termite', destination: '/services/termite-control', permanent: true },
-            { source: '/mosquito', destination: '/services/mosquito-control', permanent: true },
+            { source: '/mosquito', destination: '/services/mosquito', permanent: true },
             { source: '/pest-control', destination: '/services/pest-control', permanent: true },
             { source: '/sentricon', destination: '/services/sentricon', permanent: true },
             { source: '/pay', destination: 'https://payenvirocare.key7app.com', permanent: false },
@@ -110,7 +110,7 @@ const nextConfig: NextConfig = {
             { source: '/termite-control', destination: '/services/termite-control', permanent: true },
             { source: '/home-pest-control', destination: '/services/pest-control', permanent: true },
             { source: '/commercial-pest-control', destination: '/services/commercial', permanent: true },
-            { source: '/mosquito-and-tick-control', destination: '/services/mosquito-control', permanent: true },
+            { source: '/mosquito-and-tick-control', destination: '/services/mosquito', permanent: true },
             { source: '/fire-ant-control', destination: '/services/fire-ant', permanent: true },
 
             // ─── RODENT (no dedicated page → pest-control) ──────────────────
@@ -132,13 +132,13 @@ const nextConfig: NextConfig = {
             { source: '/pest-library/cockroaches', destination: '/services/pest-control', permanent: true },
             { source: '/pest-library/crickets', destination: '/services/pest-control', permanent: true },
             { source: '/pest-library/millipedes', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/mosquitoes', destination: '/services/mosquito-control', permanent: true },
+            { source: '/pest-library/mosquitoes', destination: '/services/mosquito', permanent: true },
             { source: '/pest-library/pill-bugs', destination: '/services/pest-control', permanent: true },
             { source: '/pest-library/silverfish', destination: '/services/pest-control', permanent: true },
             { source: '/pest-library/sow-bugs', destination: '/services/pest-control', permanent: true },
             { source: '/pest-library/spiders', destination: '/services/pest-control', permanent: true },
             { source: '/pest-library/termites', destination: '/services/termite-control', permanent: true },
-            { source: '/pest-library/ticks', destination: '/services/mosquito-control', permanent: true },
+            { source: '/pest-library/ticks', destination: '/services/mosquito', permanent: true },
 
             // ─── CORE / MISC ────────────────────────────────────────────────
             // NOTE: /faq is a REAL page now — intentionally NOT redirected.

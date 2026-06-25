@@ -244,7 +244,7 @@ export default function LakeMartin() {
                 tagline: "The #1 complaint at every lake house",
                 description: "Our Lake Martin mosquito program is engineered for waterfront. We treat your yard, shoreline, and surrounding vegetation on a recurring schedule throughout mosquito season (March–November). 50% off your first treatment.",
                 cta: "50% off first treatment",
-                href: "/services/mosquito-control",
+                href: "/services/mosquito",
                 highlight: true,
               },
               {

@@ -55,7 +55,7 @@ const config: DeepCityConfig = {
       body: (
         <>
           The creek corridors through Cahaba Heights and Vestavia East hold mosquito pressure spring into fall.{" "}
-          <Link href="/services/mosquito-control" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month spread over the year. Treatments target resting and breeding areas; we never guarantee elimination, but most homeowners see a clear difference in how usable the yard becomes.
+          <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month spread over the year. Treatments target resting and breeding areas; we never guarantee elimination, but most homeowners see a clear difference in how usable the yard becomes.
         </>
       ),
     },
@@ -101,7 +101,7 @@ const config: DeepCityConfig = {
     ["Hoover", "/hoover"],
     ["Birmingham", "/birmingham"],
     ["Termite Control", "/services/termite-control"],
-    ["Mosquito Control", "/services/mosquito-control"],
+    ["Mosquito Control", "/services/mosquito"],
   ],
 };
 

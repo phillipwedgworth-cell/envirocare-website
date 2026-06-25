@@ -79,7 +79,7 @@ export default function ServicesIndexPage() {
               <div className="svc-card-name">Mosquito Control</div>
               <div className="svc-card-price">$45/visit · seasonal</div>
               <div className="svc-card-desc">30-day yard barrier March through November. Pet- and EPA-registered once dry. Make your patio livable again.</div>
-              <a href="/services/mosquito-control" className="svc-card-link">Learn more →</a>
+              <a href="/services/mosquito" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-card-tag">Bundles with Mosquito</div>

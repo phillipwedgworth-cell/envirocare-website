@@ -878,7 +878,7 @@ function Footer() {
           <h4 className="ec-footer-h4">CORE SERVICES</h4>
           <Link href="/services/pest-control">Pest Control</Link>
           <Link href="/services/termite-control">Termite Control</Link>
-          <Link href="/services/mosquito-control">Mosquito Control</Link>
+          <Link href="/services/mosquito">Mosquito Control</Link>
           <Link href="/services/tick-control">Tick Control</Link>
           <Link href="/quote?plan=complete">Complete Plan</Link>
         </div>

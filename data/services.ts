@@ -10,7 +10,7 @@
 // Jun 14, 2026 — added pestsFeatured/pestsMore to pest-control (rank-protection for 301'd pest-library keywords)
 // Real services only — NO bed bug, NO wildlife, NO bee/wasp removal
 
-export type ServiceArt = 'pest' | 'termite' | 'mosquito' | 'tick' | 'fireant' | 'flea' | 'builder' | 'wdo' | 'crawlspace' | 'commercial';
+export type ServiceArt = 'pest' | 'termite' | 'mosquito' | 'tick' | 'fireant' | 'flea' | 'builder' | 'wdo' | 'commercial';
 
 export type Service = {
   slug: string;
@@ -48,12 +48,12 @@ export const SERVICES: Service[] = [
     metaDescription: 'Bi-monthly pest control that re-treats before the barrier wears off. Ants, roaches, spiders & more across Birmingham & Alabama. From ~$35/mo. (205) 940-6360.',
     heroEyebrow: 'Year-Round Pest Defense',
     heroTagline: 'Bi-Monthly Pest Control',
-    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, no contracts, family-owned since 1958.',
+    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, no long-term contract, family-owned since 1958.',
     features: [
       'Bi-monthly exterior treatment',
       '30+ common pests covered',
       'Re-service between visits',
-      'Same-week scheduling',
+      'Familiar local team, prioritized scheduling',
       'EPA-registered, applied per label',
       'Sentricon® termite protection available',
     ],
@@ -66,7 +66,7 @@ export const SERVICES: Service[] = [
     wedgePoints: [
       { lead: 'No contracts', body: 'Cancel anytime. We earn your business every visit, not lock you in.' },
       { lead: 'Local technician', body: 'A local technician who gets to know your home — your dog\'s name, your gate code — visit after visit when scheduling allows.' },
-      { lead: 'Same-week scheduling', body: 'Most calls scheduled inside 5 business days, with urgent issues prioritized.' },
+      { lead: 'Familiar local team', body: 'A local crew that knows your area, with urgent issues prioritized.' },
     ],
     faqs: [
       { q: 'Why bi-monthly instead of quarterly?', a: 'Exterior barrier products typically wear down after about 60 days. A quarterly (90-day) plan leaves roughly a month each cycle with no active barrier — which is when pests return. Bi-monthly re-treats every 60 days, right as the previous application wears off, so there\'s no gap.' },
@@ -149,7 +149,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'mosquito-control',
+    slug: 'mosquito',
     intro: [
       'From late spring through fall, mosquitoes are the reason a lot of Alabama families stop using their own backyard. Our warm, humid weather and frequent rain create exactly the standing water mosquitoes need to breed, so even a tidy yard can turn into a hatching ground. EnviroCare\'s seasonal mosquito program is built to push the population way down so you can get your evenings back — across Birmingham, Huntsville, Lake Martin, and Auburn.',
       'Mosquitoes don\'t need much: a bottle cap of standing water is enough to breed, and our climate keeps the cycle going roughly March through November. They rest during the heat of the day in shaded, humid spots — under decks, in dense shrubs, along fence lines, and in tall grass — then come out for you at dusk. Our service targets both the adult mosquitoes resting in those harborage areas and the breeding sites where the next generation is developing.',
@@ -167,7 +167,7 @@ export const SERVICES: Service[] = [
     metaDescription: 'Seasonal mosquito control (Mar–Nov) that significantly reduces yard mosquitoes. ~$33.75/mo. Add tick & chigger coverage. Call (205) 940-6360.',
     heroEyebrow: 'Take Back Your Yard',
     heroTagline: 'Mosquito Barrier Treatment',
-    heroSubhead: '30-day yard barrier treatments March through November. Make your patio livable, your evenings outdoor again, your kids safer from West Nile and EEE.',
+    heroSubhead: '30-day yard barrier treatments March through November. Make your patio livable and your evenings outdoor again.',
     features: [
       '30-day refresh cycle',
       'March through November coverage',
@@ -220,7 +220,7 @@ export const SERVICES: Service[] = [
       'Applied according to label directions once dry',
       'Runs with your mosquito visit',
       'Free re-treatment if needed',
-      'Lyme & RMSF risk reduction',
+      'Reduces tick pressure around the yard',
     ],
     includes: [
       { title: 'Targeted Harborage Treatment', desc: 'Tick-favored areas — leaf litter, woodpiles, fence lines, tall grass margins — get focused applications.' },
@@ -231,7 +231,7 @@ export const SERVICES: Service[] = [
     wedgePoints: [
       { lead: 'One visit, one invoice', body: 'No separate vendor for ticks — your mosquito technician handles it on the same visit.' },
       { lead: 'Built for AL tick pressure', body: 'Lone Star tick (most common in Alabama) is aggressive and bites humans. Our treatment is built for the AL species mix.' },
-      { lead: 'Real disease prevention', body: 'Lyme is rare in AL but Rocky Mountain Spotted Fever, Ehrlichiosis, and Alpha-Gal Syndrome (red meat allergy from tick bite) are real risks here.' },
+      { lead: 'Lower tick pressure where you live', body: 'Ticks are a real nuisance on wooded and waterfront Alabama lots. Our program targets the harborage zones where they concentrate so your yard is far more comfortable to use.' },
     ],
     faqs: [
       { q: 'When is tick season in Alabama?', a: 'Ticks are most active from spring through fall, overlapping mosquito season. Our combined program runs about nine treatments from March through November to cover that window.' },
@@ -261,7 +261,7 @@ export const SERVICES: Service[] = [
       'Applied per label directions',
       'Pairs with pest control',
       'Especially critical for lake homes',
-      'Same-week scheduling',
+      'Familiar local team, prioritized scheduling',
     ],
     includes: [
       { title: 'Yard-Wide Granular Application', desc: 'Treats the whole yard, not just visible mounds. Eliminates the foragers and queens you don\'t see.' },
@@ -309,12 +309,12 @@ export const SERVICES: Service[] = [
       'Applied according to label directions once dry',
       'Add-on to interior pest plan ($128/qtr)',
       'Requires inside access',
-      'Same-week scheduling',
+      'Familiar local team, prioritized scheduling',
     ],
     includes: [
       { title: 'Interior Treatment', desc: 'Targets the eggs, larvae, and pupae in carpet, along baseboards, and in pet bedding — where most of the flea population actually lives.' },
       { title: 'Life-Cycle Disruption', desc: 'Knocks down adult fleas and interrupts the cycle so the next generation doesn\'t mature and re-infest.' },
-      { title: 'Built On The Interior Plan', desc: 'Flea treatment is a +$30/quarter add-on to our $98/quarter interior service ($128/quarter total) — because the inside stages are where infestations live. Best paired with your vet\'s pet treatment. See /services/interior-pest-control.' },
+      { title: 'Built On The Interior Plan', desc: 'Flea treatment is a +$30/quarter add-on to our $98/quarter interior service ($128/quarter total) — because the inside stages are where infestations live. Best paired with your vet\'s pet treatment.' },
     ],
     wedgePoints: [
       { lead: 'Home, not just pet', body: 'Your vet treats the dog. We treat the home — carpet, baseboards, bedding — so the environment stops re-infesting the pet.' },
@@ -409,41 +409,6 @@ export const SERVICES: Service[] = [
       { q: 'How fast can I get the report?', a: 'We know WDO inspections are tied to closing dates, so we schedule around your timeline. Call us with your closing date and we\'ll work to it.' },
       { q: 'What happens if the inspection finds termites?', a: 'You\'re already working with a full-service termite company. We can treat and protect the home — including with our Sentricon® termite system — so a finding doesn\'t have to derail your closing.' },
       { q: 'How much does a WDO inspection cost?', a: 'Call us for current WDO inspection pricing and to get on the schedule for your closing date.' },
-    ],
-  },
-  {
-    slug: 'crawlspace',
-    name: 'Crawlspace Service',
-    shortName: 'Crawlspace',
-    category: 'specialty',
-    serviceArt: 'crawlspace',
-    metaTitle: 'Alabama Crawlspace Pest & Moisture Service | EnviroCare',
-    metaDescription: 'Crawlspace moisture control, vapor barriers, and targeted pest treatment. Family-owned. Call (205) 940-6360.',
-    heroEyebrow: 'Foundation Care',
-    heroTagline: 'Crawlspace Service',
-    heroSubhead: 'Moisture control, vapor barriers, crawl space encapsulation, and targeted treatments for the most vulnerable part of your home — where humidity, termites, and rot problems start.',
-    features: [
-      'Moisture inspection',
-      'Vapor barrier installation',
-      'Targeted pest treatment',
-      'Termite vulnerability check',
-      'Mold/rot identification',
-      'Pier & beam protection',
-    ],
-    includes: [
-      { title: 'Full Crawlspace Inspection', desc: 'Trained tech evaluates moisture levels, vapor barrier condition, pest entry points, and structural pest evidence.' },
-      { title: 'Vapor Barrier Install/Repair', desc: '6-mil reinforced polyethylene barrier to control ground moisture and reduce pest harborage.' },
-      { title: 'Targeted Pest Treatment', desc: 'Crawlspace-appropriate products that handle camel crickets, spiders, roaches, and rodents without disturbing the rest of your home.' },
-    ],
-    wedgePoints: [
-      { lead: 'Most pest problems start here', body: '60% of Alabama pest entry happens through the crawlspace. Stop them before they get to your living space.' },
-      { lead: 'Catches termite issues early', body: 'Crawlspace inspection often catches subterranean termite tubes before they reach framing — saving thousands in damage.' },
-    ],
-    faqs: [
-      { q: 'How often should the crawlspace be checked?', a: 'Annually as part of a termite inspection. More often if you\'ve had moisture, pest, or rot issues.' },
-      { q: 'Do I need a vapor barrier?', a: 'Most Alabama crawlspaces benefit from one. We inspect first and recommend based on your specific conditions.' },
-      { q: 'What\'s the difference between a vapor barrier and full crawl space encapsulation?', a: 'A vapor barrier covers the ground to block rising moisture. Full crawl space encapsulation seals the entire space — walls, vents, and floor — and usually pairs with a dehumidifier to hold humidity below the level where mold, rot, and termites thrive. We inspect first and tell you honestly which your home needs; plenty of Alabama crawl spaces do fine with a quality barrier.' },
-      { q: 'Will crawlspace work help my energy bills?', a: 'Often, yes. Damp crawl spaces ruin sub-floor insulation and push humid air up into the house, making your HVAC work harder. Controlling humidity protects the insulation you already have and keeps conditioned air where it belongs.' },
     ],
   },
   {

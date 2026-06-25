@@ -26,7 +26,7 @@ const LINK: React.CSSProperties = {
 const SERVICES: [string, string][] = [
   ["Pest Control", "/services/pest-control"],
   ["Termite Control", "/services/termite-control"],
-  ["Mosquito Control", "/services/mosquito-control"],
+  ["Mosquito Control", "/services/mosquito"],
   ["Tick Control", "/services/tick-control"],
   ["Plans & Pricing", "/quote"],
 ];

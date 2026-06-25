@@ -175,7 +175,7 @@ const SERVICES = [
     price: "$45/visit",
     alt: "March–November season",
     desc: "30-day barrier spray. Eliminates adult mosquitoes, targets breeding sites. 50% off first application for new customers.",
-    href: "/services/mosquito-control",
+    href: "/services/mosquito",
   },
   {
     slug: "tick",

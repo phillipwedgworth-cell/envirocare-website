@@ -239,7 +239,7 @@ export default function CityPage({ slug }: { slug: string }) {
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">30-day yard barrier March–November. Make your outdoor space livable again.</div>
                 <ul className="prog-features"><li><span className="prog-chk">✓</span>March–November coverage</li><li><span className="prog-chk">✓</span>30-day refresh</li><li><span className="prog-chk">✓</span>Applied according to label directions once dry</li></ul>
-                <a href="/services/mosquito-control" className="prog-link">Learn more →</a></div></div>
+                <a href="/services/mosquito" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-4"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Tick Control</div><div className="prog-desc">Targeted yard treatments to break the tick lifecycle. Critical for wooded properties.</div>
                 <ul className="prog-features"><li><span className="prog-chk">✓</span>Lone Star, Dog & Deer ticks</li><li><span className="prog-chk">✓</span>Harborage-zone targeting</li><li><span className="prog-chk">✓</span>Runs with your mosquito visit</li></ul>

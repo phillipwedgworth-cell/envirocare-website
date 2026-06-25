@@ -67,7 +67,7 @@ const c: ComboContent = {
   ],
   office: { name: "Huntsville Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },
   cityHub: { name: "Huntsville Pest Control", href: "/huntsville" },
-  servicePage: { name: "Mosquito Control Service", href: "/services/mosquito-control" },
+  servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Huntsville, AL",
   canonicalPath: "/huntsville-mosquito-control",
 };

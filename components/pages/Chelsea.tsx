@@ -93,7 +93,7 @@ export default function Chelsea() {
             {[
               { icon: "🐜", name: "Pest Control", desc: "Perimeter protection from ants, roaches, spiders, and all common Chelsea pests. Bi-monthly or monthly programs.", href: "/services/pest-control" },
               { icon: "🪲", name: "Termite Control", desc: "Chelsea's newer construction isn't immune. We inspect, treat, and protect with industry-leading termite solutions.", href: "/services/termite-control", highlight: true },
-              { icon: "🦟", name: "Mosquito Control", desc: "Shelby County summers are prime mosquito season. Monthly yard treatments protect your family all season long.", href: "/services/mosquito-control" },
+              { icon: "🦟", name: "Mosquito Control", desc: "Shelby County summers are prime mosquito season. Monthly yard treatments protect your family all season long.", href: "/services/mosquito" },
               { icon: "🔥", name: "Fire Ant Control", desc: "Fire ants are a real hazard in Chelsea's growing neighborhoods. Colony elimination and lasting perimeter protection.", href: "/services/fire-ant-control" },
               { icon: "🕷️", name: "Tick Control", desc: "Chelsea's wooded areas and greenways mean tick pressure. Yard treatments break the tick lifecycle around your home.", href: "/services/tick-control" },
               { icon: "📦", name: "Bundle Your Services", desc: "Most popular: Pest + Mosquito + Termite in one simple monthly plan. Maximum protection, easy payment.", href: "/bundle-services" },

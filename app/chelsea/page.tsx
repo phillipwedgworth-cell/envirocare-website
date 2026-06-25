@@ -41,7 +41,7 @@ const config: DeepCityConfig = {
   ],
   services: [
     { title: "Termite Treatment & Pre-Treat in Chelsea", body: (<>Chelsea&apos;s mix of new builds and established homes makes subterranean termites a year-round concern. EnviroCare protects with the{" "}<Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link> — including new-construction pre-treat — with no drilling. Sentricon® is priced after a free on-site WDO inspection — up to $1,000,000 in coverage.{" "}<Link href="/services/wdo-letters" style={{ color: G, fontWeight: 600 }}>WDO termite letters</Link> for home sales available.</>) },
-    { title: "Mosquito Control in Chelsea", body: (<>Wooded lots and creek drainage hold mosquito pressure spring into fall.{" "}<Link href="/services/mosquito-control" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
+    { title: "Mosquito Control in Chelsea", body: (<>Wooded lots and creek drainage hold mosquito pressure spring into fall.{" "}<Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
     { title: "Tick Control in Chelsea", body: (<>Foothill tree lines and Westover's wooded lots put ticks close to families and pets. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with habitat.</>) },
     { title: "Ant & Fire Ant Control in Chelsea", body: (<>Carpenter and odorous house ants come in from the woods; the bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> in fresh sod are priced separately by treated area.</>) },
     { title: "Commercial Pest Control in Chelsea", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Chelsea — shops, offices, and restaurants along the Highway 280 corridor — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
@@ -59,7 +59,7 @@ const config: DeepCityConfig = {
     ["Hoover", "/hoover"],
     ["Birmingham", "/birmingham"],
     ["Termite Control", "/services/termite-control"],
-    ["Mosquito Control", "/services/mosquito-control"],
+    ["Mosquito Control", "/services/mosquito"],
   ],
 };
 

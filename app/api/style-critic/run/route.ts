@@ -10,7 +10,7 @@ const PAGES_TO_CHECK = [
   { path: "/", label: "Homepage" },
   { path: "/services/termite-control", label: "Termite page" },
   { path: "/services/pest-control", label: "Pest page" },
-  { path: "/services/mosquito-control", label: "Mosquito page" },
+  { path: "/services/mosquito", label: "Mosquito page" },
   { path: "/huntsville", label: "Huntsville city page" },
   { path: "/birmingham", label: "Birmingham city page" },
 ];

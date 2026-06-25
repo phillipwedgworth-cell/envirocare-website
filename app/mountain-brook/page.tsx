@@ -196,7 +196,7 @@ export default function MountainBrookPage() {
 
             <Sub title="Mosquito Control in Mountain Brook">
               Shaded, wooded lots along the Shades Creek corridor hold mosquito pressure from spring into fall.{" "}
-              <Link href="/services/mosquito-control" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link>{" "}
+              <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link>{" "}
               treats every 30 days, March through November — nine treatments at $45 each, spread evenly at about
               $33.75/month over the year. Treatments target resting and breeding areas around the property and
               typically reduce activity noticeably within the season. We never guarantee elimination, but most
@@ -264,7 +264,7 @@ export default function MountainBrookPage() {
                 ["Chelsea", "/chelsea"],
                 ["Birmingham", "/birmingham"],
                 ["Termite Control", "/services/termite-control"],
-                ["Mosquito Control", "/services/mosquito-control"],
+                ["Mosquito Control", "/services/mosquito"],
               ].map(([n, h]) => (
                 <Link key={h} href={h} style={{ background: "#fff", border: `1.5px solid ${G}26`, borderRadius: 12, padding: ".85rem 1rem", fontSize: 14, fontWeight: 600, color: D, textAlign: "center", textDecoration: "none" }}>{n}</Link>
               ))}

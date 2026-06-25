@@ -41,7 +41,7 @@ const config: DeepCityConfig = {
   ],
   services: [
     { title: "Termite Treatment in Homewood", body: (<>Homewood&apos;s historic bungalows make subterranean termites a year-round concern. EnviroCare protects with the{" "}<Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link> — no drilling into your foundation or slab. Sentricon® is priced after a free on-site WDO inspection — with coverage up to $1,000,000 backed by EnviroCare&apos;s own guarantee.{" "}<Link href="/services/wdo-letters" style={{ color: G, fontWeight: 600 }}>Termite-letter (WDO) inspections</Link> for Homewood home sales are available for closings.</>) },
-    { title: "Mosquito Control in Homewood", body: (<>The Shades Creek corridor holds mosquito pressure spring into fall.{" "}<Link href="/services/mosquito-control" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month over the year. We never guarantee elimination, but most homeowners see a clear difference in how usable the yard becomes.</>) },
+    { title: "Mosquito Control in Homewood", body: (<>The Shades Creek corridor holds mosquito pressure spring into fall.{" "}<Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month over the year. We never guarantee elimination, but most homeowners see a clear difference in how usable the yard becomes.</>) },
     { title: "Tick Control in Homewood", body: (<>Yards along the Shades Creek greenway put ticks close to families and pets. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with yard conditions.</>) },
     { title: "Ant Control in Homewood", body: (<>Carpenter, odorous house, and pavement ants are among Homewood&apos;s most common calls. The bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge. All products are EPA-registered and applied per label directions.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> are priced separately by treated area.</>) },
     { title: "Commercial Pest Control in Homewood", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Homewood — the 18th Street and SoHo restaurants, retail, and offices — on schedules built around your hours and foot traffic, documented for health-inspection readiness. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
@@ -59,7 +59,7 @@ const config: DeepCityConfig = {
     ["Hoover", "/hoover"],
     ["Birmingham", "/birmingham"],
     ["Termite Control", "/services/termite-control"],
-    ["Mosquito Control", "/services/mosquito-control"],
+    ["Mosquito Control", "/services/mosquito"],
   ],
 };
 

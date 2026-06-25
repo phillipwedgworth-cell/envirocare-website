@@ -18,7 +18,7 @@ const SERVICES_ITEMS: [string, string][] = [
   ["Pest Control", "/services/pest-control"],
   ["Interior Pest Control", "/services/interior-pest-control"],
   ["Termite / Sentricon®", "/services/termite-control"],
-  ["Mosquito Control", "/services/mosquito-control"],
+  ["Mosquito Control", "/services/mosquito"],
   ["Tick Control", "/services/tick-control"],
   ["Fire Ant Control", "/services/fire-ant"],
   ["Flea Control", "/services/flea"],
