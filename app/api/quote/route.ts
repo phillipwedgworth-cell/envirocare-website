@@ -132,7 +132,13 @@ async function pushToFieldster(lead: Lead): Promise<{ ok: boolean; id?: string; 
 // EMAIL FALLBACK — always runs, regardless of Fieldster status
 // ============================================================
 async function emailLead(lead: Lead, office: Office, fieldsterStatus: string) {
-  const notifyTo = process.env.NOTIFY_EMAIL || "service@envirocarellc.com";
+  // Every website lead goes to BOTH Phillip and the service inbox. These are
+  // hardcoded as the floor so the lead reaches them no matter what NOTIFY_EMAIL
+  // happens to be set to in Vercel; NOTIFY_EMAIL (comma-separated) can ADD more.
+  const baseRecipients = ["phillipwedgworth@gmail.com", "service@envirocarellc.com"];
+  const envRecipients = (process.env.NOTIFY_EMAIL || "")
+    .split(",").map((s) => s.trim()).filter(Boolean);
+  const notifyTo = Array.from(new Set([...baseRecipients, ...envRecipients]));
   const notifyFrom = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
 
   const subject = `New lead: ${lead.firstName} ${lead.lastName} → ${office.name}`;

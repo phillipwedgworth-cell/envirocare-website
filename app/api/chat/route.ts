@@ -255,31 +255,83 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Lead capture: if the user's last message contains a phone number, forward
-    // the whole conversation to Formspree so Phillip gets an email.
+    // Lead capture: if the user's last message contains a phone number, alert
+    // the team. Two independent paths, both fire-and-forget so neither blocks
+    // the user's reply:
+    //   (1) Direct Resend email to Phillip + service — always formatted, never
+    //       depends on the external Formspree/SMS chain.
+    //   (2) Formspree forward (legacy) — kept for the existing SMS hook, but now
+    //       sends the field names (name/phone/email/message) the downstream
+    //       template references, so the text stops showing raw {{placeholders}}.
     const lastUserMsg: Message | undefined = messages[messages.length - 1];
-    if (
-      lastUserMsg?.role === "user" &&
-      typeof lastUserMsg.content === "string" &&
-      process.env.FORMSPREE_LEAD_URL
-    ) {
+    if (lastUserMsg?.role === "user" && typeof lastUserMsg.content === "string") {
       const phoneRegex = /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/;
       const phoneMatch = lastUserMsg.content.match(phoneRegex);
       if (phoneMatch) {
-        // Fire-and-forget — don't block the user's response
-        fetch(process.env.FORMSPREE_LEAD_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            _subject: "📞 CHAT CALLBACK REQUESTED — call this customer back",
-            phone: phoneMatch[0],
-            conversation: (messages as Message[])
-              .map((m) => `${m.role.toUpperCase()}: ${m.content}`)
-              .join("\n\n"),
-            assistantReply: assistantMessage,
-            capturedAt: new Date().toISOString(),
-          }),
-        }).catch((err) => console.error("Lead forward failed:", err));
+        const transcript = (messages as Message[])
+          .map((m) => `${m.role.toUpperCase()}: ${m.content}`)
+          .join("\n\n");
+
+        // Best-effort structured fields pulled from the whole conversation so the
+        // downstream template ({{name}} {{phone}} {{email}} {{message}}) fills in.
+        const convText = (messages as Message[])
+          .filter((m) => m.role === "user")
+          .map((m) => m.content)
+          .join("\n");
+        const emailMatch = convText.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/);
+        const phone = phoneMatch[0];
+        const email = emailMatch?.[0] || "";
+        // Name: best-effort. Look for "I'm X" / "this is X" / "name is X";
+        // otherwise fall back to a label so the text is never a raw placeholder.
+        const nameMatch = convText.match(/\b(?:i['’]?m|this is|name['’]?s|name is|it['’]?s)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/);
+        const name = nameMatch?.[1] || "Website chat lead";
+        const message =
+          (lastUserMsg.content || "").slice(0, 400) ||
+          "Callback requested via website chat";
+
+        // (1) Direct email — Phillip + service (floor), plus any NOTIFY_EMAIL extras.
+        if (process.env.RESEND_API_KEY) {
+          const baseRecipients = ["phillipwedgworth@gmail.com", "service@envirocarellc.com"];
+          const envRecipients = (process.env.NOTIFY_EMAIL || "")
+            .split(",").map((s) => s.trim()).filter(Boolean);
+          const to = Array.from(new Set([...baseRecipients, ...envRecipients]));
+          const from = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
+          fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              from,
+              to,
+              subject: `📞 CHAT CALLBACK — ${name} ${phone} — call this customer back`,
+              text:
+                `Scout captured a callback request from the website chat.\n\n` +
+                `Name:  ${name}\nPhone: ${phone}\nEmail: ${email || "(not provided)"}\n` +
+                `Captured: ${new Date().toISOString()}\n\n--- Conversation ---\n${transcript}`,
+            }),
+          }).catch((err) => console.error("Lead email failed:", err));
+        }
+
+        // (2) Formspree forward (legacy/optional) — only if configured.
+        if (process.env.FORMSPREE_LEAD_URL) {
+          fetch(process.env.FORMSPREE_LEAD_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              _subject: "📞 CHAT CALLBACK REQUESTED — call this customer back",
+              // Field names aligned to the downstream {{placeholders}}:
+              name,
+              phone,
+              email,
+              message,
+              conversation: transcript,
+              assistantReply: assistantMessage,
+              capturedAt: new Date().toISOString(),
+            }),
+          }).catch((err) => console.error("Lead forward failed:", err));
+        }
       }
     }
 
