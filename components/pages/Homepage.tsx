@@ -2242,6 +2242,10 @@ const HOMEPAGE_CSS = `
     font-size: 14px; font-weight: 600;
   }
   .ec-footer-phone svg { vertical-align: -2px; }
+  .ec-svc-link:hover {
+    box-shadow: 0 8px 22px rgba(14,26,15,0.10);
+    transform: translateY(-2px);
+  }
   .ec-footer-phone em {
     color: rgba(255,255,255,0.6);
     font-style: normal; font-weight: 400;
