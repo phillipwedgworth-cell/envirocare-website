@@ -25,6 +25,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { preload } from 'react-dom';
+import {
+  Phone, ChevronDown, Check, ShieldCheck, Leaf, Droplets, House,
+  Rocket, TreePine, FileCheck, Hammer, Bug, Flame, Building2,
+  type LucideIcon,
+} from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
 
 /**
@@ -156,7 +161,7 @@ function TopBanner() {
     <div className="ec-banner">
       <div className="ec-banner-inner">
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
         </div>
@@ -201,7 +206,7 @@ function Header() {
             className="ec-header-pay"
           >Pay Bill</a>
           <a href="tel:2059406360" className="ec-header-phone">
-            <span className="ec-phone-icon">📞</span>
+            <Phone className="ec-phone-icon" size={14} strokeWidth={2.4} aria-hidden="true" />
             <span>(205) 940-6360</span>
           </a>
           <Link href="/quote" className="ec-header-quote">Get Free Quote</Link>
@@ -235,7 +240,7 @@ function Header() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
           >Pay Bill</a>
-          <a href="tel:2059406360" onClick={() => setMobileOpen(false)}>📞 (205) 940-6360</a>
+          <a href="tel:2059406360" onClick={() => setMobileOpen(false)} style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Phone size={16} strokeWidth={2.2} aria-hidden="true" />(205) 940-6360</a>
           <Link href="/quote" className="ec-mobile-cta" onClick={() => setMobileOpen(false)}>
             Get Free Quote →
           </Link>
@@ -279,7 +284,7 @@ function Hero() {
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360</span>
+              <Phone size={17} strokeWidth={2.2} aria-hidden="true" /><span>(205) 940-6360</span>
             </a>
           </div>
 
@@ -320,7 +325,7 @@ function Hero() {
    ============================================================ */
 interface RecurringPlan {
   key: string;
-  icon: string;
+  icon: LucideIcon;
   name: string;
   badge?: string;
   popular?: boolean;
@@ -338,14 +343,14 @@ interface RecurringPlan {
 // Termite is intentionally NOT a recurring base plan (see Block B / Complete).
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: '🛡️', name: 'Pest Control', dotColor: '#0A7935',
+    key: 'pest', icon: ShieldCheck, name: 'Pest Control', dotColor: '#0A7935',
     perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
     cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial',
   },
   {
-    key: 'pest-mosquito', icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
+    key: 'pest-mosquito', icon: Leaf, name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
     perservice: { price: '$70/visit + $45/visit (mosquito)', terms: 'Mosquito treatments March–November' },
     monthly: { price: 'From $69/mo ACH', terms: 'Pest + seasonal mosquito on one monthly draft' },
     bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
@@ -353,7 +358,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial',
   },
   {
-    key: 'mosquito', icon: '🦟', name: 'Mosquito', dotColor: '#0E7490',
+    key: 'mosquito', icon: Droplets, name: 'Mosquito', dotColor: '#0E7490',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
     monthly: { price: '$34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
@@ -361,7 +366,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-green', fine: 'No startup fee',
   },
   {
-    key: 'complete', icon: '🏠', name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
+    key: 'complete', icon: House, name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
     perservice: { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite confirmed after inspection & approval' },
     monthly: { price: 'From ~$100/mo ACH', terms: 'Pest + mosquito on ACH · Sentricon® termite priced at inspection' },
     bullets: ['Everything in Pest + Mosquito', 'Sentricon® termite protection', 'Up to $1M termite damage repair coverage', 'One company, one invoice'],
@@ -370,17 +375,17 @@ const RECURRING_PLANS: RecurringPlan[] = [
 ];
 
 // Block B — non-recurring / inspection-triggered. No fixed termite $/mo (locked).
-interface OneTimeItem { icon: string; name: string; price: string; desc: string; href: string; }
+interface OneTimeItem { icon: LucideIcon; name: string; price: string; desc: string; href: string; }
 const ONETIME_ITEMS: OneTimeItem[] = [
-  { icon: '🚀', name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
+  { icon: Rocket, name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
     desc: 'One-time startup for new recurring pest customers — the first thorough interior and exterior treatment.' },
-  { icon: '🪵', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
+  { icon: TreePine, name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
     desc: 'Sentricon® termite protection is confirmed after inspection. Includes a free WDO inspection; pricing is quoted after.' },
-  { icon: '📋', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
+  { icon: FileCheck, name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
     desc: 'Wood-Destroying Organism letters for closings and refinancing. Priced per inspection, with lender-ready turnaround.' },
-  { icon: '🏗️', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
+  { icon: Hammer, name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
     desc: 'New-construction termite pre-treatment, scheduled around your builder’s timeline.' },
-  { icon: '🐜', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
+  { icon: Bug, name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
     desc: 'Targeted add-ons to a recurring plan. Tick is +$20/treatment on mosquito visits.' },
 ];
 
@@ -445,7 +450,7 @@ function ConsolidatedPricing() {
                   aria-controls={panelId}
                   onClick={() => setOpenKey(isOpen ? null : plan.key)}
                 >
-                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}>{plan.icon}</span>
+                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}><plan.icon size={22} strokeWidth={2} color="#fff" aria-hidden="true" /></span>
                   <span className="ec-cp-item-info">
                     <span className="ec-cp-item-name">
                       {plan.name}
@@ -453,14 +458,14 @@ function ConsolidatedPricing() {
                     </span>
                     <span className="ec-cp-item-price">{d.price}</span>
                   </span>
-                  <span className="ec-cp-arrow" aria-hidden="true">▼</span>
+                  <ChevronDown className="ec-cp-arrow" size={18} aria-hidden="true" />
                 </button>
 
                 {isOpen && (
                   <div id={panelId} className="ec-cp-detail">
                     <div className="ec-cp-terms">{d.terms}</div>
                     <ul className="ec-cp-bullets">
-                      {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
+                      {plan.bullets.map(b => <li key={b}><Check className="ec-cp-chk" size={15} strokeWidth={2.6} aria-hidden="true" />{b}</li>)}
                     </ul>
                     {plan.addon && <div className="ec-cp-addon">{plan.addon}</div>}
                     <Link href="/quote" className={`ec-cp-cta ${plan.ctaCls}`}>{plan.cta}</Link>
@@ -480,7 +485,7 @@ function ConsolidatedPricing() {
         <div className="ec-cp-onetime">
           {ONETIME_ITEMS.map(item => (
             <Link key={item.name} href={item.href} className="ec-cp-ot-card">
-              <span className="ec-cp-ot-icon" aria-hidden="true">{item.icon}</span>
+              <span className="ec-cp-ot-icon" aria-hidden="true"><item.icon size={22} strokeWidth={2} color="#0A7935" /></span>
               <span className="ec-cp-ot-body">
                 <span className="ec-cp-ot-name">{item.name}</span>
                 <span className="ec-cp-ot-desc">{item.desc}</span>
@@ -558,14 +563,14 @@ function Reviews() {
    ============================================================ */
 function ServiceLinks() {
   const services = [
-    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0A7935' },
-    { name: 'Termite Control', slug: 'termite-control', icon: '🪵', accent: '#F5A800' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟', accent: '#0E7490' },
-    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️', accent: '#07642B' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜', accent: '#DC4A1A' },
-    { name: 'Flea Control', slug: 'flea', icon: '🪲', accent: '#7D5BA6' },
-    { name: 'Commercial', slug: 'commercial', icon: '🏢', accent: '#0E1A0F' },
-    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: '📋', accent: '#0A7935' },
+    { name: 'Pest Control', slug: 'pest-control', icon: ShieldCheck, accent: '#0A7935' },
+    { name: 'Termite Control', slug: 'termite-control', icon: TreePine, accent: '#F5A800' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: Droplets, accent: '#0E7490' },
+    { name: 'Tick Control', slug: 'tick-control', icon: Bug, accent: '#07642B' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: Flame, accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: Bug, accent: '#7D5BA6' },
+    { name: 'Commercial', slug: 'commercial', icon: Building2, accent: '#0E1A0F' },
+    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: FileCheck, accent: '#0A7935' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
@@ -578,9 +583,10 @@ function ServiceLinks() {
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}
+              className="ec-svc-link"
               style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.15)', borderLeft: `4px solid ${s.accent}`, borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58, transition: 'box-shadow 0.2s, transform 0.15s' }}
             >
-              <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
+              <span style={{ display: 'inline-flex', lineHeight: 1 }} aria-hidden="true"><s.icon size={22} strokeWidth={2} color={s.accent} /></span>
               <span style={{ flex: 1 }}>{s.name}</span>
               <span style={{ color: '#0A7935', fontWeight: 700 }} aria-hidden="true">→</span>
             </Link>
@@ -654,9 +660,9 @@ function FindYourOffice() {
         </div>
         {result && <div className="ec-fo-result">{result}</div>}
         <div className="ec-fo-phones">
-          <a href="tel:2059406360">📞 (205) 940-6360 — Birmingham</a>
-          <a href="tel:2562346162">📞 (256) 234-6162 — Alex City / Lake Martin</a>
-          <a href="tel:2569377676">📞 (256) 937-7676 — Huntsville</a>
+          <a href="tel:2059406360"><Phone size={14} strokeWidth={2.2} aria-hidden="true" style={{ marginRight: 7 }} />(205) 940-6360 — Birmingham</a>
+          <a href="tel:2562346162"><Phone size={14} strokeWidth={2.2} aria-hidden="true" style={{ marginRight: 7 }} />(256) 234-6162 — Alex City / Lake Martin</a>
+          <a href="tel:2569377676"><Phone size={14} strokeWidth={2.2} aria-hidden="true" style={{ marginRight: 7 }} />(256) 937-7676 — Huntsville</a>
         </div>
         <div className="ec-fo-areas">
           <div className="ec-fo-areas-label">Popular service areas</div>
@@ -805,15 +811,15 @@ function TruckBanner() {
         </p>
         <div className="ec-bundle-prices">
           <div className="ec-bundle-line">
-            <span>🛡️ Bi-Monthly Pest Control</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 9 }}><ShieldCheck size={18} strokeWidth={2} aria-hidden="true" />Bi-Monthly Pest Control</span>
             <span className="ec-bundle-price">$35/mo ACH</span>
           </div>
           <div className="ec-bundle-line">
-            <span>🦟 Mosquito Yard Barrier</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 9 }}><Droplets size={18} strokeWidth={2} aria-hidden="true" />Mosquito Yard Barrier</span>
             <span className="ec-bundle-price">$45/visit</span>
           </div>
           <div className="ec-bundle-line">
-            <span>🪵 Sentricon® Termite</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 9 }}><TreePine size={18} strokeWidth={2} aria-hidden="true" />Sentricon® Termite</span>
             <span className="ec-bundle-price">Priced at inspection</span>
           </div>
         </div>
@@ -822,7 +828,7 @@ function TruckBanner() {
             Get a Free Quote →
           </Link>
           <a href="tel:2059406360" className="ec-cta-secondary-light">
-            📞 (205) 940-6360
+            <Phone size={17} strokeWidth={2.2} aria-hidden="true" /> (205) 940-6360
           </a>
         </div>
       </div>
@@ -836,11 +842,11 @@ function TruckBanner() {
    ============================================================ */
 function SpecialtyServices() {
   const items = [
-    { icon: '🏗️', name: 'Builder Pre-Treat', slug: 'builder-pre-treat',
+    { icon: Hammer, name: 'Builder Pre-Treat', slug: 'builder-pre-treat',
       desc: 'New construction termite pre-treatment. We work with your builder\'s timeline and provide the documentation lenders require.' },
-    { icon: '📋', name: 'Real Estate / WDO', slug: 'wdo-letters',
+    { icon: FileCheck, name: 'Real Estate / WDO', slug: 'wdo-letters',
       desc: 'Wood-Destroying Organism inspection letters for closings, refinancing, and VA/FHA loans. Fast turnaround, lender-ready reports.' },
-    { icon: '🏢', name: 'Commercial Service', slug: 'commercial',
+    { icon: Building2, name: 'Commercial Service', slug: 'commercial',
       desc: 'Restaurants, offices, warehouses, and multi-family. Scheduled around your business hours with documentation for inspectors.' },
   ];
   return (
@@ -854,7 +860,7 @@ function SpecialtyServices() {
         <div className="ec-specialty-grid">
           {items.map(s => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="ec-specialty-card">
-              <span className="ec-specialty-icon">{s.icon}</span>
+              <span className="ec-specialty-icon" aria-hidden="true"><s.icon size={30} strokeWidth={1.9} color="#0A7935" /></span>
               <h3 className="ec-specialty-title">{s.name}</h3>
               <p className="ec-specialty-desc">{s.desc}</p>
               <span className="ec-specialty-tag">LEARN MORE →</span>
@@ -879,9 +885,9 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
-            <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
-            <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
+            <a href="tel:2059406360" className="ec-footer-phone"><Phone size={14} strokeWidth={2.2} aria-hidden="true" /> <span>(205) 940-6360</span> — <em>Birmingham</em></a>
+            <a href="tel:2562346162" className="ec-footer-phone"><Phone size={14} strokeWidth={2.2} aria-hidden="true" /> <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
+            <a href="tel:2569377676" className="ec-footer-phone"><Phone size={14} strokeWidth={2.2} aria-hidden="true" /> <span>(256) 937-7676</span> — <em>Huntsville</em></a>
           </div>
         </div>
 
@@ -2235,6 +2241,7 @@ const HOMEPAGE_CSS = `
     color: #F5A800 !important;
     font-size: 14px; font-weight: 600;
   }
+  .ec-footer-phone svg { vertical-align: -2px; }
   .ec-footer-phone em {
     color: rgba(255,255,255,0.6);
     font-style: normal; font-weight: 400;
@@ -2440,8 +2447,8 @@ const HOMEPAGE_CSS = `
   }
   .ec-cp-chk {
     color: #2d6a3e;
-    font-weight: 700;
     flex-shrink: 0;
+    margin-top: 1px;
   }
 
   .ec-cp-addon {
