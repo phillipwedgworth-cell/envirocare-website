@@ -122,7 +122,7 @@ export default function ServicesIndexPage() {
         <div className="office-cta-inner">
           <div className="section-eyebrow">Not Sure Where To Start?</div>
           <h3>Call A Real Person</h3>
-          <div className="office-cta-addr">We\'ll help you figure out what your home actually needs — no upsell pressure.</div>
+          <div className="office-cta-addr">We&apos;ll help you figure out what your home actually needs — no upsell pressure.</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/quote" className="btn-outline-white">See Pricing →</a>

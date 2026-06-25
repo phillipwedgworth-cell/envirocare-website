@@ -16,7 +16,7 @@ export default function FaqPage() {
           <div className="city-eyebrow"><span className="city-eyebrow-txt">Frequently Asked Questions</span></div>
           <h1>Real Answers To<em>Real Questions</em></h1>
           <p className="page-hero-sub">
-            68 years of customer questions, organized. If you don\'t see your question here, call us at (205) 940-6360 — a real person answers.
+            68 years of customer questions, organized. If you don&apos;t see your question here, call us at (205) 940-6360 — a real person answers.
           </p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>

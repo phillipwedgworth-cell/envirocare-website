@@ -100,7 +100,7 @@ export default function PricingCalculator() {
             Get Your Pest Control Estimate
           </h1>
           <p style={{ fontSize: 14, color: "#5b6f60", lineHeight: 1.55, margin: 0 }}>
-            Three quick questions and we'll show you a transparent price range — no email required.
+            Three quick questions and we&rsquo;ll show you a transparent price range — no email required.
           </p>
         </div>
 
