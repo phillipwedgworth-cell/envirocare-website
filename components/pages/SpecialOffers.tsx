@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, Clock, CheckCircle } from "lucide-react";
+import { Phone, Clock, CheckCircle, Bug, Droplets, TreePine, Calendar, Truck, BadgePercent, type LucideIcon } from "lucide-react";
 
 import Header from "@/components/shared/Header";
 const G = "#0A7935";
@@ -12,7 +12,7 @@ const OFFERS = [
   {
     headline: "$50 OFF",
     subline: "Initial Pest Control",
-    icon: "🐜",
+    icon: Bug as LucideIcon,
     description: "New customers get $50 off your first pest control treatment. Full perimeter protection, licensed technician, and our satisfaction guarantee — $50 less.",
     terms: "Valid for new customers only. Applies to initial general pest control service. Must mention offer at time of booking.",
     cta: "Claim $50 Off",
@@ -23,7 +23,7 @@ const OFFERS = [
   {
     headline: "50% OFF",
     subline: "First Mosquito Application",
-    icon: "🦟",
+    icon: Droplets as LucideIcon,
     description: "Half off your first professional mosquito treatment. Peak season is here — protect your yard before it gets bad. Monthly programs keep you protected all season.",
     terms: "Valid for new mosquito program enrollments. 50% discount applied to first application only. Monthly program continues at regular rate.",
     cta: "Claim 50% Off",
@@ -34,7 +34,7 @@ const OFFERS = [
   {
     headline: "FREE",
     subline: "Termite Inspection",
-    icon: "🪲",
+    icon: TreePine as LucideIcon,
     description: "No charge, no obligation termite inspection for Alabama homeowners. We'll assess your property, check all structures, and give you a written report — at no cost.",
     terms: "Free inspection offered to all Alabama homeowners. No purchase required. Valid at all 3 EnviroCare locations.",
     cta: "Schedule Free Inspection",
@@ -71,7 +71,7 @@ export default function SpecialOffers() {
 
       {/* HERO */}
       <section style={{ background: `linear-gradient(160deg, ${DARK}, ${G})`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
-        <div style={{ fontSize: 48, marginBottom: 16 }}>🌻</div>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}><BadgePercent size={48} color={GOLD} strokeWidth={1.8} aria-hidden="true" /></div>
         <h1 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, lineHeight: 1.15, marginBottom: 12 }}>
           Current <em style={{ color: GOLD }}>Special Offers</em>
         </h1>
@@ -95,7 +95,7 @@ export default function SpecialOffers() {
                     {offer.label}
                   </div>
                 )}
-                <div style={{ fontSize: 40, marginBottom: 10 }}>{offer.icon}</div>
+                <div style={{ marginBottom: 10 }}><offer.icon size={38} color="#fff" strokeWidth={1.9} aria-hidden="true" /></div>
                 <div style={{ fontSize: 48, fontWeight: 900, lineHeight: 1, ...sf, letterSpacing: "-2px" }}>{offer.headline}</div>
                 <div style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginTop: 4, fontFamily: "var(--font-serif)" }}>{offer.subline}</div>
               </div>
@@ -137,15 +137,13 @@ export default function SpecialOffers() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {[
               { step: "1", icon: <Phone size={22} />, title: "Call Your Local Office", desc: "Tell us which offer you'd like and mention it at time of booking" },
-              { step: "2", icon: "📅", title: "Schedule Your Visit", desc: "We'll confirm a time that works — usually within 48 hours" },
-              { step: "3", icon: "🌻", title: "We Show Up", desc: "Licensed EnviroCare technician arrives, inspects, and does the job right" },
+              { step: "2", icon: <Calendar size={22} />, title: "Schedule Your Visit", desc: "We'll confirm a time that works — usually within 48 hours" },
+              { step: "3", icon: <Truck size={22} />, title: "We Show Up", desc: "Licensed EnviroCare technician arrives, inspects, and does the job right" },
               { step: "4", icon: <CheckCircle size={22} />, title: "Offer Applied", desc: "Your discount is applied automatically. No coupons, no hassle" },
             ].map((s, i) => (
               <div key={i} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.1)", borderRadius: 14, padding: "24px 20px" }}>
                 <div style={{ width: 36, height: 36, background: G, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", fontSize: 16, fontWeight: 800, color: "#fff", ...sf }}>{s.step}</div>
-                <div style={{ fontSize: 22, marginBottom: 8, ...(typeof s.icon === "string" ? {} : {}) }}>
-                  {typeof s.icon === "string" ? s.icon : <div style={{ color: G, display: "flex", justifyContent: "center" }}>{s.icon}</div>}
-                </div>
+                <div style={{ color: G, display: "flex", justifyContent: "center", marginBottom: 8 }}>{s.icon}</div>
                 <div style={{ fontWeight: 700, fontSize: 14, color: DARK, ...sf, marginBottom: 6 }}>{s.title}</div>
                 <div style={{ fontSize: 12, color: "#6b7280", ...sf, lineHeight: 1.6 }}>{s.desc}</div>
               </div>

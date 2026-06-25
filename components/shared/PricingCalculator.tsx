@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
-import { Phone, Check, ChevronRight, Home, Bug, Shield } from "lucide-react";
+import { Phone, Check, ChevronRight, Home, Bug, Shield, Sparkles, TreePine, Droplets, Flame, Leaf, type LucideIcon } from "lucide-react";
 
 const G = "#0A7935";
 const G_BRIGHT = "#2EAA61";
@@ -14,12 +14,12 @@ type Service = "pest" | "termite" | "mosquito-tick" | "mosquito" | "bundle";
 type Frequency = "bimonthly" | "monthly" | "onetime";
 type Size = "sm" | "md" | "lg" | "xl";
 
-const SERVICES: Array<{ id: Service; label: string; icon: string; sub: string }> = [
-  { id: "bundle",         label: "Bundle (Best Value)",      icon: "🌻", sub: "Pest + Termite + Mosquito/Tick" },
-  { id: "pest",           label: "Bi-Monthly Pest Control",  icon: "🐜", sub: "Ants, roaches, spiders, rodents" },
-  { id: "termite",        label: "Termite Protection",       icon: "🪲", sub: "Sentricon® system" },
-  { id: "mosquito-tick",  label: "Mosquito + Tick Combo",    icon: "🦟", sub: "Both threats, one visit" },
-  { id: "mosquito",       label: "Mosquito Only",            icon: "🦟", sub: "Yard treatment season" },
+const SERVICES: Array<{ id: Service; label: string; icon: LucideIcon; sub: string }> = [
+  { id: "bundle",         label: "Bundle (Best Value)",      icon: Sparkles, sub: "Pest + Termite + Mosquito/Tick" },
+  { id: "pest",           label: "Bi-Monthly Pest Control",  icon: Bug, sub: "Ants, roaches, spiders, rodents" },
+  { id: "termite",        label: "Termite Protection",       icon: TreePine, sub: "Sentricon® system" },
+  { id: "mosquito-tick",  label: "Mosquito + Tick Combo",    icon: Droplets, sub: "Both threats, one visit" },
+  { id: "mosquito",       label: "Mosquito Only",            icon: Droplets, sub: "Yard treatment season" },
 ];
 
 const SIZES: Array<{ id: Size; label: string; desc: string }> = [
@@ -91,7 +91,7 @@ export default function PricingCalculator() {
         {/* HEADER */}
         <div style={{ textAlign: "center", marginBottom: 24 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.12)", border: `1px solid ${GOLD}33`, borderRadius: 999, padding: "5px 14px", marginBottom: 14 }}>
-            <span style={{ fontSize: 14 }}>🌻</span>
+            <Sparkles size={14} color={GOLD} aria-hidden="true" />
             <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.08em", textTransform: "uppercase" }}>
               Free · No obligation · 60 seconds
             </span>
@@ -141,7 +141,7 @@ export default function PricingCalculator() {
                         borderRadius: 12, cursor: "pointer", textAlign: "left", width: "100%",
                         transition: "all 0.15s",
                       }}>
-                      <span style={{ fontSize: 28 }}>{s.icon}</span>
+                      <span style={{ display: "flex", flexShrink: 0 }}><s.icon size={26} strokeWidth={1.9} color={sel ? G : "#5b6f60"} aria-hidden="true" /></span>
                       <span style={{ flex: 1 }}>
                         <span style={{ display: "block", fontWeight: 700, color: DARK, fontSize: 15 }}>{s.label}</span>
                         <span style={{ display: "block", fontSize: 12, color: "#6b7d70", marginTop: 2 }}>{s.sub}</span>
@@ -187,7 +187,7 @@ export default function PricingCalculator() {
                   <label style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 12px", border: "1px solid rgba(14,142,64,0.15)", borderRadius: 10, cursor: "pointer", background: fireants ? "rgba(14,142,64,0.06)" : "#fff" }}>
                     <input type="checkbox" checked={fireants} onChange={(e) => setFireants(e.target.checked)} style={{ accentColor: G, width: 18, height: 18 }} />
                     <span style={{ flex: 1 }}>
-                      <span style={{ display: "block", fontWeight: 600, color: DARK, fontSize: 14 }}>🔥 Fire Ant Control</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: 6, fontWeight: 600, color: DARK, fontSize: 14 }}><Flame size={15} color="#d4541e" aria-hidden="true" /> Fire Ant Control</span>
                       <span style={{ display: "block", fontSize: 11, color: "#6b7d70" }}>Colony elimination, season-long</span>
                     </span>
                   </label>
@@ -311,7 +311,8 @@ export default function PricingCalculator() {
 
         {/* TRUST */}
         <div style={{ marginTop: 26, textAlign: "center", fontSize: 11, color: "#6b7d70", lineHeight: 1.7 }}>
-          🌻 The Wedgworth Family · Alabama Pest Control Since 1958<br />
+          <Leaf size={12} color={G} aria-hidden="true" style={{ display: "inline", verticalAlign: "-2px", marginRight: 4 }} />
+          The Wedgworth Family · Alabama Pest Control Since 1958<br />
           Birmingham · Lake Martin · Huntsville · Auburn
         </div>
       </div>

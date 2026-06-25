@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, CheckCircle, ChevronDown, Shield, Award } from "lucide-react";
+import { Phone, CheckCircle, ChevronDown, Shield, Award, Lightbulb, Check, X, TriangleAlert } from "lucide-react";
 
 import Header from "@/components/shared/Header";
 /* ── BRAND COLORS (confirmed from logo)
@@ -159,7 +159,7 @@ export default function SentriconProtection() {
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
                   <p className="text-slate-600 leading-relaxed mb-4">{item.description}</p>
                   <div className="flex items-start gap-2 p-3 rounded-lg" style={{background:"#f0fdf4", border:"1px solid #bbf7d0"}}>
-                    <span style={{color:"#0A7935"}} className="font-bold mt-0.5 flex-shrink-0">💡</span>
+                    <Lightbulb size={18} style={{color:"#0A7935"}} className="mt-0.5 flex-shrink-0" aria-hidden="true" />
                     <p className="text-sm" style={{color:"#166534"}}>{item.tip}</p>
                   </div>
                 </div>
@@ -184,21 +184,32 @@ export default function SentriconProtection() {
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Eliminates entire colony (including queen)", sentricon: "✅ Yes", liquid: "❌ No — repels only" },
-                    { feature: "Requires trenching or drilling", sentricon: "✅ No disruption", liquid: "❌ Yes — major disruption" },
-                    { feature: "Low chemical volume / safer near water", sentricon: "✅ Minimal chemicals", liquid: "⚠️ Large volume chemicals" },
-                    { feature: "Always-active 24/7 protection", sentricon: "✅ Always active", liquid: "❌ Degrades over time" },
-                    { feature: "Annual monitoring included", sentricon: "✅ Yes", liquid: "⚠️ Varies by company" },
-                    { feature: "Targeted application — minimal exposure", sentricon: "✅ Yes", liquid: "⚠️ Requires precautions" },
-                    { feature: "Effective at Lake Martin waterfront", sentricon: "✅ Ideal near water", liquid: "⚠️ Restrictions near water" },
-                    { feature: "Used to protect the White House", sentricon: "✅ Yes", liquid: "❌ No" },
-                  ].map((row, i) => (
+                    { feature: "Eliminates entire colony (including queen)", sentricon: "Yes", sStatus: "yes", liquid: "No — repels only", lStatus: "no" },
+                    { feature: "Requires trenching or drilling", sentricon: "No disruption", sStatus: "yes", liquid: "Yes — major disruption", lStatus: "no" },
+                    { feature: "Low chemical volume / safer near water", sentricon: "Minimal chemicals", sStatus: "yes", liquid: "Large volume chemicals", lStatus: "warn" },
+                    { feature: "Always-active 24/7 protection", sentricon: "Always active", sStatus: "yes", liquid: "Degrades over time", lStatus: "no" },
+                    { feature: "Annual monitoring included", sentricon: "Yes", sStatus: "yes", liquid: "Varies by company", lStatus: "warn" },
+                    { feature: "Targeted application — minimal exposure", sentricon: "Yes", sStatus: "yes", liquid: "Requires precautions", lStatus: "warn" },
+                    { feature: "Effective at Lake Martin waterfront", sentricon: "Ideal near water", sStatus: "yes", liquid: "Restrictions near water", lStatus: "warn" },
+                    { feature: "Used to protect the White House", sentricon: "Yes", sStatus: "yes", liquid: "No", lStatus: "no" },
+                  ].map((row, i) => {
+                    const renderStatus = (status: string, text: string, isSentricon: boolean) => {
+                      const Icon = status === "yes" ? Check : status === "no" ? X : TriangleAlert;
+                      const color = status === "yes" ? "#0A7935" : status === "no" ? "#b91c1c" : "#b45309";
+                      return (
+                        <span className="inline-flex items-center justify-center gap-1.5">
+                          <Icon size={16} strokeWidth={2.6} style={{ color }} className="flex-shrink-0" aria-hidden="true" />
+                          <span style={isSentricon ? { color: "#0A7935" } : undefined}>{text}</span>
+                        </span>
+                      );
+                    };
+                    return (
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
                       <td className="p-4 text-slate-700 font-medium">{row.feature}</td>
-                      <td className="p-4 text-center font-semibold text-sm" style={{color:"#0A7935"}}>{row.sentricon}</td>
-                      <td className="p-4 text-center text-slate-500 text-sm">{row.liquid}</td>
+                      <td className="p-4 text-center font-semibold text-sm">{renderStatus(row.sStatus, row.sentricon, true)}</td>
+                      <td className="p-4 text-center text-slate-500 text-sm">{renderStatus(row.lStatus, row.liquid, false)}</td>
                     </tr>
-                  ))}
+                  );})}
                 </tbody>
               </table>
             </div>

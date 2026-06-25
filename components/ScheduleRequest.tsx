@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { CheckCircle } from "lucide-react";
 
 const G = "#0A7935";
 const GOLD = "#F5A800";
@@ -139,7 +140,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     return (
       <div style={wrap}>
         <div style={{ textAlign: "center", padding: "12px 0" }}>
-          <div style={{ fontSize: 40, marginBottom: 10 }}>🌻</div>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}><CheckCircle size={44} color={G} strokeWidth={1.8} aria-hidden="true" /></div>
           <h3 style={{ ...display, fontSize: 26, margin: "0 0 10px" }}>
             Got it, {name.split(" ")[0]} — request received.
           </h3>
