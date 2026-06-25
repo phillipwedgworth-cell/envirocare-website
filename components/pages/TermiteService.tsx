@@ -69,7 +69,7 @@ export default function TermiteInspectionServicePage() {
               <div className="font-semibold">Licensed Experts</div>
             </div>
             <div>
-              <div className="text-2xl mb-2">🛡️</div>
+              <div className="text-2xl mb-2">✓</div>
               <div className="font-semibold">Guaranteed Results</div>
             </div>
           </div>

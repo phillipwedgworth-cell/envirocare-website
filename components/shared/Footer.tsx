@@ -63,7 +63,7 @@ export default function Footer() {
       >
         <div>
           <div style={{ fontFamily: displayFont, color: "#fff", fontSize: 18, fontWeight: 600, marginBottom: 6 }}>
-            🌻 EnviroCare Pest &amp; Termite Services
+            EnviroCare Pest &amp; Termite Services
           </div>
           <div style={{ fontFamily: displayFont, fontStyle: "italic", color: GOLD, fontSize: 14, marginBottom: 10 }}>
             {TAGLINE}

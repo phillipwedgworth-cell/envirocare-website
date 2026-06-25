@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Phone, Check, Shield, ChevronDown } from "lucide-react";
 
 import Header from "@/components/shared/Header";
+import PestIcon from "@/components/shared/PestIcon";
 const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
@@ -47,7 +48,7 @@ export default function PestControlService() {
         <div style={{ position: "relative", maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: `1px solid ${GOLD}55`, borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
             <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>
-              🐜 Alabama Pest Control · Family Owned Since 1958
+              Alabama Pest Control · Family Owned Since 1958
             </span>
           </div>
           <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 400, fontSize: "clamp(34px,6vw,58px)", lineHeight: 1.1, margin: "0 0 18px", maxWidth: 720 }}>
@@ -94,7 +95,7 @@ export default function PestControlService() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14 }}>
             {PESTS.map((p) => (
               <div key={p.name} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 20px" }}>
-                <div style={{ fontSize: 32, marginBottom: 10 }}>{p.icon}</div>
+                <PestIcon name={p.icon} size={48} style={{ marginBottom: 12 }} />
                 <div style={{ fontWeight: 700, color: DARK, fontSize: 15, marginBottom: 6, ...sf }}>{p.name}</div>
                 <div style={{ fontSize: 13, color: "#5b6f60", lineHeight: 1.6, ...sf }}>{p.body}</div>
               </div>

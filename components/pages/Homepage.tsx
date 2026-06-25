@@ -675,19 +675,19 @@ function FindYourOffice() {
     if (!z || z.length < 5) { setResult('Please enter a 5-digit ZIP code.'); return; }
     const match = offices.find(o => o.zips.includes(z));
     if (match) {
-      setResult(`Your office: ${match.name} — ${match.phone}`);
+      setResult('Yes — we service your area! Request a visit or call (205) 940-6360.');
     } else {
-      setResult('We may serve your area! Call (205) 940-6360 to check.');
+      setResult('We may still serve your area — call (205) 940-6360 to check.');
     }
   };
 
   return (
     <section className="ec-findoffice">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">THREE OFFICES ACROSS ALABAMA</div>
-        <h2 className="ec-section-h2">Find <em>Your Office</em></h2>
+        <div className="ec-section-eyebrow">SERVING CENTRAL &amp; NORTH ALABAMA</div>
+        <h2 className="ec-section-h2">Do We Serve <em>Your Area?</em></h2>
         <p className="ec-section-sub">
-          Birmingham/Alabaster · Alexander City/Lake Martin · Huntsville
+          One local team covering the Birmingham metro, Lake Martin, Huntsville, and everywhere in between.
         </p>
         <div className="ec-fo-box">
           <input
@@ -699,13 +699,11 @@ function FindYourOffice() {
             onChange={e => { setZip(e.target.value.replace(/\D/g, '')); setResult(null); }}
             onKeyDown={e => e.key === 'Enter' && findOffice()}
           />
-          <button className="ec-fo-btn" onClick={findOffice}>Find Office →</button>
+          <button className="ec-fo-btn" onClick={findOffice}>Check ZIP →</button>
         </div>
         {result && <div className="ec-fo-result">{result}</div>}
         <div className="ec-fo-phones">
-            <a href="tel:2059406360">(205) 940-6360 — Birmingham</a>
-            <a href="tel:2562346162">(256) 234-6162 — Alex City / Lake Martin</a>
-            <a href="tel:2569377676">(256) 937-7676 — Huntsville</a>
+            <a href="tel:2059406360">Call us: (205) 940-6360</a>
         </div>
         <div className="ec-fo-areas">
           <div className="ec-fo-areas-label">Popular service areas</div>

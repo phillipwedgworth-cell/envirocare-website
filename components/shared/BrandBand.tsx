@@ -26,7 +26,6 @@ export default function BrandBand() {
           textAlign: "center",
         }}
       >
-        <span aria-hidden="true" style={{ fontSize: 18, lineHeight: 1 }}>🌻</span>
         <span
           style={{
             fontFamily: displayFont,

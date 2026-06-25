@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Phone, Clock, CheckCircle } from "lucide-react";
 
 import Header from "@/components/shared/Header";
+import PestIcon from "@/components/shared/PestIcon";
 const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
@@ -95,7 +96,7 @@ export default function SpecialOffers() {
                     {offer.label}
                   </div>
                 )}
-                <div style={{ fontSize: 40, marginBottom: 10 }}>{offer.icon}</div>
+                <PestIcon name={offer.icon} size={52} style={{ marginBottom: 12, background: "rgba(255,255,255,0.16)", color: "#fff" }} />
                 <div style={{ fontSize: 48, fontWeight: 900, lineHeight: 1, ...sf, letterSpacing: "-2px" }}>{offer.headline}</div>
                 <div style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginTop: 4, fontFamily: "'Playfair Display', Georgia, serif" }}>{offer.subline}</div>
               </div>
