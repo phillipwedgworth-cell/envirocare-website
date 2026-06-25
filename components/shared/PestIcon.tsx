@@ -51,6 +51,9 @@ const EMOJI_MAP: Record<string, IconKey> = {
   "🐝️": "wasp",
   "🍂": "leaf",
   "🍁": "leaf",
+  "🍄": "fungus",
+  "🏠": "home",
+  "🏡": "home",
   "🏢": "commercial",
   "🏛️": "commercial",
   "🏛": "commercial",
@@ -74,6 +77,8 @@ const ACCENT: Record<IconKey, string> = {
   rodent: "#6B6B6B",
   wasp: "#C98A00",
   leaf: "#B0451F",
+  fungus: "#8A6D2F",
+  home: "#0E8E40",
   commercial: "#0E1A0F",
   builder: "#5A6660",
   complete: "#0E8E40",
@@ -224,6 +229,21 @@ function Glyph({ name }: { name: IconKey }) {
         <svg {...p}>
           <path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z" />
           <path d="M5 19c4-6 8-8 12-9" />
+        </svg>
+      );
+    case "fungus":
+      return (
+        <svg {...p}>
+          <path d="M4 11a8 8 0 0 1 16 0z" />
+          <path d="M10 11v6a2 2 0 0 0 4 0v-6" />
+        </svg>
+      );
+    case "home":
+      return (
+        <svg {...p}>
+          <path d="M4 11l8-6 8 6" />
+          <path d="M6 10v9h12v-9" />
+          <path d="M10 19v-5h4v5" />
         </svg>
       );
     case "complete":

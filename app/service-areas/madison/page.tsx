@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PestIcon from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
@@ -314,7 +315,7 @@ export default function MadisonPage() {
               border: `1px solid rgba(14,142,64,0.12)`,
               borderRadius: 12, padding: "28px 24px",
             }}>
-              <div style={{ fontSize: 28, marginBottom: 12 }}>{icon}</div>
+              <PestIcon name={icon} size={48} style={{ marginBottom: 12 }} />
               <h3 style={{ ...serif, fontSize: 18, margin: "0 0 10px", color: D }}>{title}</h3>
               <p style={{ fontSize: 14.5, lineHeight: 1.7, margin: 0, color: "#374151" }}>{body}</p>
             </div>
@@ -400,7 +401,7 @@ export default function MadisonPage() {
               borderRadius: 14, padding: "28px 24px",
               display: "flex", flexDirection: "column",
             }}>
-              <div style={{ fontSize: 30, marginBottom: 12 }}>{icon}</div>
+              <PestIcon name={icon} size={52} style={{ marginBottom: 12 }} />
               <h3 style={{ ...serif, fontSize: 20, margin: "0 0 4px", color: D }}>{service}</h3>
               <div style={{ marginBottom: 16 }}>
                 <span style={{ fontWeight: 800, fontSize: 22, color: G }}>{price}</span>
