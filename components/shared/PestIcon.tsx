@@ -1,323 +1,235 @@
-import type { CSSProperties } from "react";
+// components/shared/PestIcon.tsx
+// Shared inline-SVG icon set used across city / neighborhood / service pages.
+// Replaces emoji-as-icons (🪵 🐜 🦟 🕷️ 🐾 🔥 📞 …) with consistent, brand-colored
+// vector glyphs. All icons inherit `color` via currentColor.
 
-/**
- * Shared insect / service icon set used across city and service templates.
- * Replaces emoji so the whole site matches the homepage icon system.
- *
- * Accepts either a semantic key ("pest", "termite", ...) OR a legacy emoji
- * (🪵, 🦟, ...) so existing page configs keep working without edits.
- */
+import type { CSSProperties, ReactElement } from "react";
 
-type IconKey =
-  | "pest"
-  | "termite"
-  | "mosquito"
-  | "tick"
-  | "ant"
-  | "flea"
-  | "roach"
-  | "spider"
-  | "cricket"
-  | "beetle"
-  | "earwig"
-  | "rodent"
-  | "wasp"
-  | "leaf"
-  | "fungus"
-  | "home"
-  | "commercial"
-  | "builder"
-  | "complete"
-  | "doc";
+export type PestIconName =
+  | "pest"      // general shield / pest control
+  | "termite"   // wood / termite
+  | "ant"       // carpenter & sugar ants
+  | "mosquito"  // mosquito
+  | "spider"    // spiders / brown recluse
+  | "tick"      // ticks / fleas (paw-adjacent)
+  | "fireant"   // fire ants
+  | "rodent"    // mice / rats
+  | "roach"     // cockroaches
+  | "wasp"      // wasps / hornets
+  | "phone"     // telephone
+  | "check"     // checkmark
+  | "leaf"      // eco / outdoor
+  | "home"      // residential
+  | "building"; // commercial
 
-const EMOJI_MAP: Record<string, IconKey> = {
-  "🛡️": "pest",
-  "🛡": "pest",
-  "🪳": "roach",
+// Map legacy emoji to icon names so migrations are mechanical and consistent.
+export const EMOJI_TO_ICON: Record<string, PestIconName> = {
+  "🛡️": "pest", "🛡": "pest", "🐛": "pest", "🪲": "roach",
   "🪵": "termite",
-  "🦟": "mosquito",
-  "🐾": "tick",
-  "🕷️": "spider",
-  "🕷": "spider",
-  "🦂": "spider",
   "🐜": "ant",
-  "🔥": "ant",
-  "🪲": "beetle",
-  "🐞": "beetle",
-  "🦗": "cricket",
-  "🐀": "rodent",
-  "🐭": "rodent",
-  "🐝": "wasp",
-  "🐝️": "wasp",
-  "🍂": "leaf",
-  "🍁": "leaf",
-  "🍄": "fungus",
-  "🏠": "home",
-  "🏡": "home",
-  "🏢": "commercial",
-  "🏛️": "commercial",
-  "🏛": "commercial",
-  "🏗️": "builder",
-  "🏗": "builder",
-  "📋": "doc",
+  "🦟": "mosquito",
+  "🕷️": "spider", "🕷": "spider", "🦂": "spider",
+  "📋": "check", "📄": "check", "📝": "check",
+  "🐾": "tick", "🪰": "tick",
+  "🔥": "fireant",
+  "🐭": "rodent", "🐀": "rodent",
+  "🪳": "roach",
+  "🐝": "wasp", "🐞": "wasp",
+  "📞": "phone", "☎️": "phone", "☎": "phone",
+  "✅": "check", "✓": "check",
+  "🌿": "leaf", "🌻": "leaf", "🍂": "leaf", "🍁": "leaf", "🍄": "leaf",
+  "🏠": "home", "🏡": "home",
+  "🏢": "building", "🏛️": "building", "🏛": "building", "🏗️": "building", "🏗": "building",
 };
 
-const ACCENT: Record<IconKey, string> = {
-  pest: "#C62828",
-  termite: "#E0A100",
-  mosquito: "#E2711D",
-  tick: "#07642B",
-  ant: "#DC4A1A",
-  flea: "#0E7490",
-  roach: "#8A4B2F",
-  spider: "#3A3A3A",
-  cricket: "#3F7A3F",
-  beetle: "#B0451F",
-  earwig: "#8A6D2F",
-  rodent: "#6B6B6B",
-  wasp: "#C98A00",
-  leaf: "#B0451F",
-  fungus: "#8A6D2F",
-  home: "#0E8E40",
-  commercial: "#0E1A0F",
-  builder: "#5A6660",
-  complete: "#0E8E40",
-  doc: "#0A7935",
+// Brand-cohesive, per-pest accent colors (match the homepage service grid).
+export const ICON_COLOR: Record<PestIconName, string> = {
+  pest: "#0E8E40",
+  termite: "#C77A00",
+  ant: "#0E8E40",
+  mosquito: "#0E7490",
+  spider: "#3F6184",
+  tick: "#9A5B2E",
+  fireant: "#DC4A1A",
+  rodent: "#6B4F3A",
+  roach: "#7A5A2E",
+  wasp: "#C77A00",
+  phone: "#0E8E40",
+  check: "#0E8E40",
+  leaf: "#0E8E40",
+  home: "#0A7935",
+  building: "#0A7935",
 };
 
-function resolveKey(name: string): IconKey {
-  if ((name as IconKey) in ACCENT) return name as IconKey;
-  return EMOJI_MAP[name] ?? "pest";
-}
+const PATHS: Record<PestIconName, ReactElement> = {
+  pest: (
+    <>
+      <path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z" />
+      <path d="M9.2 11.8l1.9 1.9 3.7-3.9" />
+    </>
+  ),
+  termite: (
+    <>
+      <ellipse cx="12" cy="12" rx="3.4" ry="6.2" />
+      <path d="M12 5.8V3.2M8.8 8.2L6.4 6.6M15.2 8.2l2.4-1.6M8.4 12H5.6M15.6 12h2.8M8.8 15.8l-2.4 1.6M15.2 15.8l2.4 1.6" />
+    </>
+  ),
+  ant: (
+    <>
+      <circle cx="12" cy="5.5" r="2" />
+      <circle cx="12" cy="11.5" r="2.4" />
+      <circle cx="12" cy="18" r="2.6" />
+      <path d="M10.4 10.2L6.5 8M13.6 10.2L17.5 8M10 16.6l-4-1.4M14 16.6l4-1.4M11 4l-1.6-1.4M13 4l1.6-1.4" />
+    </>
+  ),
+  mosquito: (
+    <>
+      <circle cx="12" cy="9" r="2.2" />
+      <path d="M12 11.2V21M12 21l-2.4-1.8M12 21l2.4-1.8" />
+      <path d="M10.4 7.4C7 5 4 5.4 3 6.6M13.6 7.4C17 5 20 5.4 21 6.6" />
+      <path d="M10.6 9.2C8 9 5.4 9.8 4 11M13.4 9.2C16 9 18.6 9.8 20 11" />
+    </>
+  ),
+  spider: (
+    <>
+      <circle cx="12" cy="12" r="2.6" />
+      <path d="M9.6 10.6L5 8.4M9.4 12.6L4.6 13.4M9.8 14.4L6 17.6M14.4 10.6L19 8.4M14.6 12.6L19.4 13.4M14.2 14.4L18 17.6M11 9.6L9.6 5.6M13 9.6l1.4-4" />
+    </>
+  ),
+  tick: (
+    <>
+      <ellipse cx="12" cy="13" rx="4" ry="4.6" />
+      <circle cx="12" cy="7.4" r="1.8" />
+      <path d="M8.6 11L5.8 9.6M8.2 14l-2.8 1M15.4 11l2.8-1.4M15.8 14l2.8 1" />
+    </>
+  ),
+  fireant: (
+    <>
+      <path d="M12 3c1.8 2 1.8 3.6.6 5 1.8 1 2.4 3 1.2 4.8C16 13 17 15 16 17.4c1.4-.4 2.4-1.6 2.4-1.6M12 3c-1.8 2-1.8 3.6-.6 5-1.8 1-2.4 3-1.2 4.8C8 13 7 15 8 17.4c-1.4-.4-2.4-1.6-2.4-1.6" />
+      <path d="M12 8.2v9.6" />
+    </>
+  ),
+  rodent: (
+    <>
+      <circle cx="9" cy="13" r="4" />
+      <circle cx="6.4" cy="9.4" r="1.8" />
+      <circle cx="12" cy="9.4" r="1.8" />
+      <path d="M12.8 14.5c3 .3 5.5-.4 6.8-2.2M18 12.4c1.2-.3 1.8-1.2 1.6-2.2" />
+      <circle cx="8.4" cy="12.6" r="0.6" fill="currentColor" stroke="none" />
+    </>
+  ),
+  roach: (
+    <>
+      <ellipse cx="12" cy="13" rx="3.6" ry="5" />
+      <path d="M12 8V4.6M10.4 5.2L8.8 3.4M13.6 5.2l1.6-1.8" />
+      <path d="M9 11L5.6 9.4M9 14l-3.6 1M15 11l3.4-1.6M15 14l3.6 1" />
+    </>
+  ),
+  wasp: (
+    <>
+      <ellipse cx="12" cy="14" rx="2.6" ry="4" />
+      <circle cx="12" cy="7.6" r="2" />
+      <path d="M12 18v2.4M9.6 6.2C7 5 5 5.4 4 6.6M14.4 6.2C17 5 19 5.4 20 6.6" />
+      <path d="M10 12.5h4M10 15h4" />
+    </>
+  ),
+  phone: (
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+  ),
+  check: <path d="M20 6L9 17l-5-5" />,
+  leaf: (
+    <>
+      <path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 8-4 12-9 12z" />
+      <path d="M4 20c4-4 6-7 7-11" />
+    </>
+  ),
+  home: (
+    <>
+      <path d="M3 11l9-8 9 8" />
+      <path d="M5 9.5V21h14V9.5" />
+      <path d="M9.5 21v-6h5v6" />
+    </>
+  ),
+  building: (
+    <>
+      <rect x="5" y="3" width="14" height="18" rx="1" />
+      <path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" />
+    </>
+  ),
+};
 
-function Glyph({ name }: { name: IconKey }) {
-  const p = {
-    width: 24,
-    height: 24,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.7,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true,
-  };
-  switch (name) {
-    case "pest":
-      return (
-        <svg {...p}>
-          <ellipse cx="12" cy="13" rx="4.5" ry="6.5" />
-          <path d="M12 6.5V13" />
-          <path d="M9.5 4.5L11 7M14.5 4.5L13 7" />
-          <path d="M7.5 9.5L4.5 8M16.5 9.5l3-1.5" />
-          <path d="M7.2 13H4M16.8 13H20" />
-          <path d="M7.5 16.5L4.5 18.5M16.5 16.5l3 2" />
-        </svg>
-      );
-    case "mosquito":
-      return (
-        <svg {...p}>
-          <path d="M11 7l3.5 8" />
-          <path d="M11 7L6 3" />
-          <ellipse cx="9.5" cy="9" rx="3.5" ry="2" transform="rotate(28 9.5 9)" />
-          <ellipse cx="14" cy="9.5" rx="3.5" ry="2" transform="rotate(28 14 9.5)" />
-          <path d="M13.2 13l3 4M14 15l3.5 1.5M12.5 14l1 4" />
-        </svg>
-      );
-    case "tick":
-      return (
-        <svg {...p}>
-          <circle cx="12" cy="13" r="5" />
-          <path d="M12 8c0-1.6 .9-2.4 0-2.4S12 6.4 12 8" />
-          <path d="M7.5 10L4.5 8.5M7 13H4M7.5 16l-3 1.5" />
-          <path d="M16.5 10l3-1.5M17 13h3M16.5 16l3 1.5" />
-        </svg>
-      );
-    case "ant":
-      return (
-        <svg {...p}>
-          <circle cx="12" cy="5.5" r="2" />
-          <circle cx="12" cy="10.5" r="2.2" />
-          <ellipse cx="12" cy="16.5" rx="2.8" ry="3.5" />
-          <path d="M11 4L9.5 2.5M13 4l1.5-1.5" />
-          <path d="M10 9.5L6 8M14 9.5l4-1.5M10 11l-4 2M14 11l4 2" />
-        </svg>
-      );
-    case "flea":
-      return (
-        <svg {...p}>
-          <path d="M9 16c0-5 2-9 5.5-9 2 0 3 1.5 3 3.5 0 4-3 6.5-6 6.5" />
-          <path d="M9 16h7" />
-          <path d="M14.5 7L13 4.5" />
-          <path d="M15 15l3 3M11 16l1.5 3" />
-        </svg>
-      );
-    case "roach":
-      return (
-        <svg {...p}>
-          <ellipse cx="12" cy="13" rx="5" ry="7" />
-          <path d="M9 4.5L7 2M15 4.5l2-2.5" />
-          <path d="M7 11L4 10M17 11l3-1M6.5 14H4M17.5 14H20M7 17l-2.5 1.5M17 17l2.5 1.5" />
-        </svg>
-      );
-    case "spider":
-      return (
-        <svg {...p}>
-          <circle cx="12" cy="13" r="3.5" />
-          <circle cx="12" cy="8" r="1.6" />
-          <path d="M9 11L4 8M9 13H4M9 15l-4 3" />
-          <path d="M15 11l5-3M15 13h5M15 15l4 3" />
-        </svg>
-      );
-    case "cricket":
-      return (
-        <svg {...p}>
-          <path d="M7 14c0-4 2.5-7 6-7s5 2 5 5-2 5-5 5H7z" />
-          <path d="M9.5 7L7 3.5M11 7L9 3" />
-          <path d="M16 12l3 5M9 16l-3 4" />
-        </svg>
-      );
-    case "beetle":
-      return (
-        <svg {...p}>
-          <ellipse cx="12" cy="13" rx="5" ry="6.5" />
-          <path d="M12 6.5V19.5" />
-          <circle cx="12" cy="5" r="1.6" />
-          <path d="M7 11L4 9.5M7 15l-3 1.5M17 11l3-1.5M17 15l3 1.5" />
-        </svg>
-      );
-    case "earwig":
-      return (
-        <svg {...p}>
-          <ellipse cx="11" cy="11" rx="3.5" ry="5.5" />
-          <path d="M11 16.5c0 2 1 3.5 2.5 4.5M11 16.5c0 2-1 3.5-2.5 4.5" />
-          <path d="M9 3.5L8 1.5M13 3.5l1-2" />
-          <path d="M7.5 9L4.5 8M7.5 13l-3 1" />
-        </svg>
-      );
-    case "termite":
-      return (
-        <svg {...p}>
-          <rect x="3" y="6" width="18" height="12" rx="2" />
-          <ellipse cx="7" cy="12" rx="1.3" ry="3" />
-          <path d="M12 6v12M17 6v12" />
-        </svg>
-      );
-    case "rodent":
-      return (
-        <svg {...p}>
-          <ellipse cx="10" cy="14" rx="5.5" ry="4" />
-          <circle cx="16" cy="11" r="2.5" />
-          <circle cx="15.5" cy="8.5" r="1.6" />
-          <circle cx="18" cy="9" r="1.6" />
-          <path d="M5 15c-2 0-3 1-3 2.5" />
-          <path d="M17.2 12.4h.01" />
-        </svg>
-      );
-    case "wasp":
-      return (
-        <svg {...p}>
-          <ellipse cx="12" cy="15" rx="2.6" ry="4" />
-          <path d="M9.6 13.5h4.8M9.6 16.5h4.8" />
-          <circle cx="12" cy="8.5" r="2" />
-          <path d="M11 7L9.5 4.5M13 7l1.5-2.5" />
-          <path d="M10 11l-4-1M14 11l4-1" />
-        </svg>
-      );
-    case "leaf":
-      return (
-        <svg {...p}>
-          <path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z" />
-          <path d="M5 19c4-6 8-8 12-9" />
-        </svg>
-      );
-    case "fungus":
-      return (
-        <svg {...p}>
-          <path d="M4 11a8 8 0 0 1 16 0z" />
-          <path d="M10 11v6a2 2 0 0 0 4 0v-6" />
-        </svg>
-      );
-    case "home":
-      return (
-        <svg {...p}>
-          <path d="M4 11l8-6 8 6" />
-          <path d="M6 10v9h12v-9" />
-          <path d="M10 19v-5h4v5" />
-        </svg>
-      );
-    case "complete":
-      return (
-        <svg {...p}>
-          <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
-          <path d="M9 12l2 2 4-4" />
-        </svg>
-      );
-    case "doc":
-      return (
-        <svg {...p}>
-          <path d="M7 3h7l4 4v14H7z" />
-          <path d="M14 3v4h4" />
-          <path d="M10 13h6M10 16h6" />
-        </svg>
-      );
-    case "builder":
-      return (
-        <svg {...p}>
-          <path d="M3 21h18" />
-          <path d="M6 21V8l6-4 6 4v13" />
-          <path d="M10 21v-5h4v5" />
-        </svg>
-      );
-    case "commercial":
-      return (
-        <svg {...p}>
-          <path d="M3 21h18" />
-          <rect x="5" y="3" width="14" height="18" rx="1" />
-          <path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01" />
-        </svg>
-      );
-    default:
-      return (
-        <svg {...p}>
-          <circle cx="12" cy="12" r="8" />
-        </svg>
-      );
-  }
-}
-
-/**
- * Renders a colored, rounded tile containing the icon for the given
- * service/pest. `size` controls the tile dimensions.
- */
 export default function PestIcon({
   name,
-  size = 48,
+  size = 28,
+  strokeWidth = 1.7,
+  className,
   style,
+  title,
 }: {
-  name: string;
+  name: PestIconName;
   size?: number;
+  strokeWidth?: number;
+  className?: string;
   style?: CSSProperties;
+  title?: string;
 }) {
-  const key = resolveKey(name);
-  const accent = ACCENT[key];
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      style={style}
+      role={title ? "img" : undefined}
+      aria-hidden={title ? undefined : true}
+      aria-label={title}
+    >
+      {title ? <title>{title}</title> : null}
+      {PATHS[name]}
+    </svg>
+  );
+}
+
+// Convenience helper: resolve an emoji or icon-name string to a PestIconName.
+export function resolveIconName(input: string): PestIconName {
+  if (input in EMOJI_TO_ICON) return EMOJI_TO_ICON[input];
+  if (PATHS[input as PestIconName]) return input as PestIconName;
+  return "pest";
+}
+
+// Drop-in replacement for rendering a legacy emoji glyph as a branded SVG tile.
+// Used by the city/neighborhood page migration: `{emoji}` -> `<EmojiIcon glyph={emoji} />`.
+export function EmojiIcon({
+  glyph,
+  size = 26,
+  tile = true,
+}: {
+  glyph: string;
+  size?: number;
+  tile?: boolean;
+}) {
+  const name = resolveIconName(glyph);
+  const color = ICON_COLOR[name];
+  if (!tile) return <PestIcon name={name} size={size} style={{ color }} />;
   return (
     <span
-      aria-hidden="true"
       style={{
+        width: size + 22,
+        height: size + 22,
+        borderRadius: 12,
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        width: size,
-        height: size,
-        borderRadius: size * 0.25,
-        background: `${accent}14`,
-        color: accent,
-        flexShrink: 0,
-        ...style,
+        background: `${color}14`,
+        color,
       }}
     >
-      <Glyph name={key} />
+      <PestIcon name={name} size={size} />
     </span>
   );
 }
