@@ -47,6 +47,7 @@ const AREAS: [string, string][] = [
   ["Hoover, AL", "/hoover"],
   ["Madison, AL", "/service-areas/madison"],
   ["Auburn, AL", "/auburn"],
+  ["All Service Areas →", "/service-areas"],
 ];
 
 export default function Footer() {

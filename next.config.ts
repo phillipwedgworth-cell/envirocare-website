@@ -180,6 +180,11 @@ const nextConfig: NextConfig = {
             { source: '/bundle-services', destination: '/quote', permanent: true },
             // NOTE: /reviews is a REAL page now (app/reviews/page.tsx) — do NOT redirect it.
             { source: '/special-offers', destination: '/quote', permanent: true },
+            { source: '/mosquito-control', destination: '/services/mosquito', permanent: true },
+            { source: '/privacy-policy', destination: '/privacy', permanent: true },
+            { source: '/request-appointment', destination: '/quote', permanent: true },
+            { source: '/coupons', destination: '/quote', permanent: true },
+            { source: '/coupons/:path*', destination: '/quote', permanent: true },
                 ];
     },
 };

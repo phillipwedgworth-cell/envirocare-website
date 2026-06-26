@@ -1,0 +1,23 @@
+name: Morning Brief
+# Fills the command center's Morning Brief panel: turns the proposer's ranked
+# SHIP findings into a daily plain-English "what to decide today". Advises only.
+# Runs after Daily Rollup (13:00 UTC) so it sees the freshest agent activity.
+on:
+  schedule:
+    - cron: '30 13 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: '22' }
+      - run: npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts
+      - name: Run Morning Brief
+        env:
+          ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node agents/morning-brief.mjs
