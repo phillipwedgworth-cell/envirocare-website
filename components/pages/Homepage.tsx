@@ -671,7 +671,7 @@ function ServiceLinks() {
     { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#1D5E8C' },
   ];
   return (
-    <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
+    <section className="ec-services-links" style={{ padding: 0, background: '#FEFDF8' }}>
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">EXPLORE OUR SERVICES</div>
         <h2 className="ec-section-h2">Every Service, <em>One Local Team</em></h2>
@@ -2556,7 +2556,7 @@ const HOMEPAGE_CSS = `
      FIND YOUR OFFICE — zip finder
      ============================================================ */
   .ec-findoffice {
-    padding: 56px 20px;
+    padding: 0;
     background: #FEFDF8;
   }
   .ec-fo-box {
