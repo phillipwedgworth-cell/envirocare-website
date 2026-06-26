@@ -1,40 +1,54 @@
-# ─── CLAUDE CODE: DEPLOY THIS FILE ───
+# CLAUDE CODE: DEPLOY THIS FILE
 # Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-# Path: .github/workflows/neuronwriter-narrator.yml
-# Commit: feat(agent): neuron narrator auto-runs on upload (write + push, scores in NeuronWriter)
-# Push: main
-# ─────────────────────────────────────
+# Path: .github/workflows/neuronwriter-narrator.yml  | Push: main
 #
-# RUNS BY ITSELF the moment these files are committed to main. Also runs on the
-# button and every Monday. The agent writes a compliant draft for every query,
-# pushes it into the NeuronWriter editor, and each draft shows its score IN
-# NeuronWriter. You just open NeuronWriter and look at the rankings.
+# CADENCE (Jun 25, 2026):
+#   - push to agents/neuronwriter-content/** or narrator code -> FILL now (today's run)
+#   - daily 13:00 UTC  -> SCORE (read every query score, email ranking; no tokens, no quota)
+#   - Monday 14:00 UTC -> FILL (write/push/lift drafts)
+#   - manual button    -> input "mode" (fill or score), defaults to fill
 #
-# Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets). No setup.
+# FILL writes a compliant draft for every EXISTING NeuronWriter query, pushes it, reads the
+# score, rewrites once if below floor. It does NOT create new queries, so it never hits the
+# monthly new-query quota. New-city queries must be created in NeuronWriter first; their drafts
+# are already staged in agents/neuronwriter-content/.
+# NOTE: writes INTO NeuronWriter for scoring only. Does NOT publish to the live website.
+#
+# Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets).
 
 name: Neuron Narrator
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "fill or score"
+        default: "fill"
+        required: false
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "agents/neuronwriter-narrator.mjs"
       - "agents/lib/compliance.mjs"
       - "agents/neuronwriter-content/**"
       - ".github/workflows/neuronwriter-narrator.yml"
   schedule:
-    - cron: "0 13 * * 1"   # Mondays 13:00 UTC
+    - cron: "0 13 * * *"
+    - cron: "0 14 * * 1"
 
 jobs:
-  fill:
-    name: Write + push every draft into NeuronWriter
+  narrator:
+    name: Neuron Narrator
     runs-on: ubuntu-latest
+    env:
+      MODE: "${{ (github.event_name == 'schedule' && github.event.schedule == '0 13 * * *') && 'score' || (github.event_name == 'workflow_dispatch' && inputs.mode) || 'fill' }}"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: "20" }
-      - name: Auto-write compliant drafts and push to editors
+        with:
+          node-version: "20"
+      - name: Run narrator
         env:
           NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
           NEURONWRITER_PROJECT: 9d0bec3a70f4743c
@@ -42,4 +56,4 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
           NOTIFY_FROM: ${{ secrets.NOTIFY_FROM }}
-        run: node agents/neuronwriter-narrator.mjs fill
+        run: node agents/neuronwriter-narrator.mjs "$MODE"

@@ -25,6 +25,8 @@ const CITY_SLUGS = [
   // Premium-tier neighborhood pages (Jun 2026)
   'liberty-park', 'highland-lakes', 'indian-springs',
   'eagle-point', 'brook-highland', 'meadow-brook',
+  // New market pages (Jun 25, 2026) — competitor/radius expansion
+  'bessemer', 'mccalla', 'gardendale', 'meridianville', 'sylacauga',
 ];
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).
