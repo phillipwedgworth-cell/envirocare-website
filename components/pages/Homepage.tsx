@@ -9,6 +9,7 @@ import {
   Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
 } from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
+import Footer from '@/components/shared/Footer';
 
 /* ============================================================
    ICONS — professional line icons (lucide) + custom insects
@@ -911,88 +912,6 @@ function TruckBanner() {
 }
 
 
-function Footer() {
-  return (
-    <footer className="ec-footer">
-      <div className="ec-footer-inner">
-        <div className="ec-footer-brand-col">
-          <Link href="/" className="ec-footer-brand">
-            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={280} height={72} className="ec-footer-logo" />
-          </Link>
-          <p className="ec-footer-tag">
-            Family-owned and operated since 1958 — now in its fourth generation
-            of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
-          </p>
-          <div className="ec-footer-phones">
-            <a href="tel:2059406360" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(205) 940-6360</span> — <em>Birmingham</em></a>
-            <a href="tel:2562346162" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
-            <a href="tel:2569377676" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 937-7676</span> — <em>Huntsville</em></a>
-          </div>
-          <Link
-            href="/quote"
-            className="ec-footer-cta"
-            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
-          >
-            Get an instant quote <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-        </div>
-
-        <div className="ec-footer-col">
-          <h4 className="ec-footer-h4">CORE SERVICES</h4>
-          <Link href="/services/pest-control">Pest Control</Link>
-          <Link href="/services/termite-control">Termite Control</Link>
-          <Link href="/services/mosquito">Mosquito Control</Link>
-          <Link href="/services/tick-control">Tick Control</Link>
-        </div>
-
-        <div className="ec-footer-col">
-          <h4 className="ec-footer-h4">SPECIALTY</h4>
-          <Link href="/services/fire-ant">Fire Ant Control</Link>
-          <Link href="/services/flea">Flea Control</Link>
-          <Link href="/services/builder-pre-treat">Builder Pre-Treat</Link>
-          <Link href="/services/wdo-letters">Real Estate / WDO Letters</Link>
-          <Link href="/services/commercial">Commercial Service</Link>
-        </div>
-
-        <div className="ec-footer-col ec-footer-col-areas">
-          <h4 className="ec-footer-h4">SERVICE AREAS</h4>
-          <div className="ec-footer-areas-group">
-            <div className="ec-footer-areas-label">Birmingham Metro</div>
-            <Link href="/birmingham">Birmingham</Link>
-            <Link href="/hoover">Hoover</Link>
-            <Link href="/vestavia-hills">Vestavia Hills</Link>
-            <Link href="/mountain-brook">Mountain Brook</Link>
-          </div>
-          <div className="ec-footer-areas-group">
-            <div className="ec-footer-areas-label">Lake Martin / Alex City</div>
-            <Link href="/alexander-city">Alexander City</Link>
-            <Link href="/lake-martin">Lake Martin</Link>
-            <Link href="/auburn">Auburn</Link>
-            <Link href="/opelika">Opelika</Link>
-          </div>
-          <div className="ec-footer-areas-group">
-            <div className="ec-footer-areas-label">North Alabama</div>
-            <Link href="/huntsville">Huntsville</Link>
-            <Link href="/service-areas/madison">Madison</Link>
-            <Link href="/decatur">Decatur</Link>
-            <Link href="/athens">Athens</Link>
-          </div>
-          <Link href="/find-office" className="ec-footer-find">View all service areas →</Link>
-        </div>
-      </div>
-
-      <div className="ec-footer-bottom">
-        <span>© 2026 EnviroCare Pest &amp; Termite Services LLC. All rights reserved.</span>
-        <span>Licensed in Alabama · Sentricon® Certified Specialist</span>
-        <div className="ec-footer-bottom-links">
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Service</Link>
-          <Link href="/sitemap.xml">Sitemap</Link>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 /* ============================================================
    STYLES — existing CSS preserved + new consolidated pricing CSS
