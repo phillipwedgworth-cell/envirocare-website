@@ -157,7 +157,7 @@ export default function ContactUs() {
           </div>
 
           {/* Selected office detail */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, maxWidth: 860, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32, maxWidth: 860, margin: "0 auto" }}>
             <div style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.15)", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
               <div style={{ background: OFFICES[selected].accent, color: "#fff", padding: "18px 22px" }}>
                 <div style={{ fontWeight: 700, fontSize: 17 }}>{OFFICES[selected].name}</div>
@@ -196,33 +196,33 @@ export default function ContactUs() {
               </div>
             </div>
 
-            {/* Map placeholder — use real Google Maps embed */}
-            <div style={{ background: "#e8f5e9", borderRadius: 16, overflow: "hidden", position: "relative", minHeight: 360, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {/* 
-                DEVELOPER NOTE: Replace this div with:
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=..." 
-                  width="100%" height="100%" style={{border:0}} 
-                  allowFullScreen loading="lazy"
-                />
-                Get embed URL from: maps.google.com → Share → Embed
-              */}
-              <div style={{ textAlign: "center", padding: 32 }}>
-                <MapPin size={40} color={G} style={{ marginBottom: 12 }} />
-                <div style={{ fontSize: 14, color: G, fontWeight: 600, ...sf, marginBottom: 8 }}>{OFFICES[selected].address}<br />{OFFICES[selected].city}</div>
-                <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "10px 20px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
-                  Open in Google Maps
-                </a>
-                <div style={{ marginTop: 16, fontSize: 11, color: "#4b5563", ...sf }}>Replace with Google Maps embed before launch</div>
-              </div>
-            </div>
+                {/* Live Google Maps embed (keyless q/output=embed form) */}
+                <div style={{ background: "#e8f5e9", borderRadius: 16, overflow: "hidden", position: "relative", minHeight: 360, display: "flex", flexDirection: "column" }}>
+                  <iframe
+                    title={`Map of ${OFFICES[selected].name} — ${OFFICES[selected].address}, ${OFFICES[selected].city}`}
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(`${OFFICES[selected].address}, ${OFFICES[selected].city}`)}&z=14&output=embed`}
+                    style={{ border: 0, width: "100%", flex: 1, minHeight: 300 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "14px 18px", background: "#fff", borderTop: "1px solid #e2e8e4" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <MapPin size={18} color={G} style={{ flexShrink: 0 }} aria-hidden="true" />
+                      <span style={{ fontSize: 13, color: G, fontWeight: 600, ...sf }}>{OFFICES[selected].address}, {OFFICES[selected].city}</span>
+                    </div>
+                    <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "9px 18px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
+                      Open in Google Maps
+                    </a>
+                  </div>
+                </div>
           </div>
         </div>
       </section>
 
       {/* CONTACT FORM */}
       <section style={{ background: "#f7f8f4", padding: "64px 40px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1.3fr)", gap: 36, alignItems: "start" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 36, alignItems: "start" }}>
 
           {/* Left — what to expect */}
           <div>
@@ -248,7 +248,7 @@ export default function ContactUs() {
 
           {!submitted ? (
             <form onSubmit={handleSubmit} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 16, padding: "36px 32px", boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your Name *</label>
                   <input required value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, name: e.target.value })}
@@ -262,7 +262,7 @@ export default function ContactUs() {
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
                   <input type="email" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, email: e.target.value })}
