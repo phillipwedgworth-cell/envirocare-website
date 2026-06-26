@@ -23,7 +23,6 @@ import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
  * Requires in /public: logo.png
  */
 
-import { useEffect } from 'react';
 import { getServiceBySlug, type Service } from '@/data/services';
 
 const SERVICE_ART_SVG: Record<string, string> = {
@@ -194,26 +193,6 @@ const SERVICE_ART_SVG: Record<string, string> = {
 export default function ServicePage({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
 
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const links = [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
-    ];
-    const els: HTMLLinkElement[] = [];
-    links.forEach((cfg) => {
-      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
-      const el = document.createElement('link');
-      Object.entries(cfg).forEach(([k, v]) => {
-        if (k === 'crossOrigin') el.crossOrigin = v as string;
-        else el.setAttribute(k, v as string);
-      });
-      document.head.appendChild(el);
-      els.push(el);
-    });
-    return () => { els.forEach((el) => el.remove()); };
-  }, []);
 
   if (!service) {
     return (
@@ -382,7 +361,7 @@ export default function ServicePage({ slug }: { slug: string }) {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Ready To Start?</div>
+          <div className="section-eyebrow">Ready To Start?</div>
           <h3>Get Your Free {service.shortName} Quote</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
           <div className="office-cta-row">
@@ -401,7 +380,7 @@ const SERVICE_CSS = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* REAL ENVIROCARE BRAND — vibrant mint, not generic emerald */
-  --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+  --green:#0A7935; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
   --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
   --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7; --gold-deep:#A16207;
   --white:#fff; --cream:#FFFDF8;
@@ -820,5 +799,10 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
   .svc-hero-inner{grid-template-columns:1fr}
   .svc-art-box{aspect-ratio:16/9}
   .svc-features{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .svc-price-card{flex-wrap:wrap;gap:.2rem .6rem;padding:.9rem 1.2rem}
+  .svc-price-card .price{font-size:1.6rem;white-space:nowrap}
+  .svc-price-card .price-sub{flex-basis:100%}
 }
 `;

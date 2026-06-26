@@ -53,8 +53,8 @@ const nextConfig: NextConfig = {
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
             { source: '/contact', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
-            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13
-            { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25
+            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13 (compliance scrub) — PENDING Phillip's call on next-steps revival
+            { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25 (only /services/mosquito page exists)
             { source: '/services/pest', destination: '/services/pest-control', permanent: true },
             { source: '/services/rodent', destination: '/services/pest-control', permanent: true },
             { source: '/termite', destination: '/services/termite-control', permanent: true },
@@ -151,8 +151,9 @@ const nextConfig: NextConfig = {
             // Fixes the 6 broken hrefs found by the June 8 crawl that were not
             // already covered above. /pricing and /why-envirocare already exist;
             // /faq has a real page and is intentionally NOT redirected.
-            { source: '/services', destination: '/services/pest-control', permanent: true },
-            { source: '/realtor', destination: '/services/wdo-letters', permanent: true },
+            // UN-SHADOWED per SHADOWED-PAGES-RECOMMENDATION.md: /services (real services
+            // overview page, ServicesIndexPage — like Orkin/Terminix/Waynes) and /realtor
+            // (B2B referral page, app/realtor) are now live, reachable pages — not redirected.
             // FIXED 2026-06-10: was '/services/commercial' → '/commercial' (a 404 —
             // the real page lives AT /services/commercial; the old rule shadowed it).
             { source: '/commercial', destination: '/services/commercial', permanent: true },
@@ -176,10 +177,13 @@ const nextConfig: NextConfig = {
             // ─── CITY PAGES MIGRATED TO /service-areas/* ────────────────────
             { source: '/madison', destination: '/service-areas/madison', permanent: true },
 
-            // ─── OTHER SCORPION PAGES WITHOUT REDIRECTS ─────────────────────
-            { source: '/bundle-services', destination: '/quote', permanent: true },
             // NOTE: /reviews is a REAL page now (app/reviews/page.tsx) — do NOT redirect it.
-            { source: '/special-offers', destination: '/quote', permanent: true },
+            // NOTE: /special-offers is a REAL, reachable landing page (un-shadowed per
+            // SHADOWED-PAGES-RECOMMENDATION.md) — its own claim-offer modal + phone CTAs,
+            // ranks/converts on its own URL — so it is intentionally NOT redirected.
+            // /bundle-services stays redirected to /quote (overlaps the estimator flow).
+            { source: '/bundle-services', destination: '/quote', permanent: true },
+            // ─── LAUNCH redirect-gap fixes (2026-06-26) — DO NOT DROP ───────
             { source: '/mosquito-control', destination: '/services/mosquito', permanent: true },
             { source: '/privacy-policy', destination: '/privacy', permanent: true },
             { source: '/request-appointment', destination: '/quote', permanent: true },

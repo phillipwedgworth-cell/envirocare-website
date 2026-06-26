@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
   title: "WDO Inspection Letters in Alabama | Real Estate Termite Reports | EnviroCare",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const BRAND_GREEN = "#0E8E40";
+const BRAND_GREEN = "#0A7935";
 const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
@@ -89,8 +90,8 @@ const faqLd = {
 };
 
 export default function WDOLettersPage() {
-  const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, serif" };
-  const sans: React.CSSProperties = { fontFamily: "'DM Sans', system-ui, sans-serif" };
+  const serif: React.CSSProperties = { fontFamily: "var(--font-serif)" };
+  const sans: React.CSSProperties = { fontFamily: "var(--font-sans)" };
 
   return (
     <>
@@ -206,7 +207,7 @@ export default function WDOLettersPage() {
                   textAlign: "center",
                 }}
               >
-                <div style={{ fontSize: 28, marginBottom: 8 }}>{item.icon}</div>
+                <div style={{ marginBottom: 8, display: "flex", justifyContent: "center" }}><EmojiIcon glyph={item.icon} /></div>
                 <p style={{ fontSize: 14, fontWeight: 600, color: DEEP, margin: 0 }}>{item.label}</p>
               </div>
             ))}

@@ -8,13 +8,14 @@ import BrandBand from "./BrandBand";
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
 export const PAYMENT_PORTAL_URL = "/pay";
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 
-const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
+const sf = { fontFamily: "var(--font-sans)" };
 
 const SERVICES_ITEMS: [string, string][] = [
+  ["All Services", "/services"],
   ["Pest Control", "/services/pest-control"],
   ["Interior Pest Control", "/services/interior-pest-control"],
   ["Termite / Sentricon®", "/services/termite-control"],
@@ -23,7 +24,7 @@ const SERVICES_ITEMS: [string, string][] = [
   ["Fire Ant Control", "/services/fire-ant"],
   ["Flea Control", "/services/flea"],
   ["Builder Pre-Treat", "/services/builder"],
-  ["Real Estate / WDO", "/services/real-estate-wdo"],
+  ["Real Estate / WDO", "/services/wdo-letters"],
   ["Commercial Service", "/services/commercial"],
 ];
 
@@ -34,7 +35,7 @@ const AREAS_ITEMS: [string, string, string][] = [
 ];
 
 const OVERLAY_LINKS: [string, string, boolean][] = [
-  ["Services", "/services/pest-control", false],
+  ["Services", "/services", false],
   ["Service Areas", "/find-office", false],
   ["Pricing", "/quote", false],
   ["About", "/about-us", false],
@@ -206,7 +207,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
           {/* RIGHT: Phone | Customer Login | Get Free Quote */}
           <div className="ec-desktop-only" style={{ alignItems: "center", gap: 0, ...sf }}>
-            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
+            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: "#0A7935", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
               <Phone size={14} /> (205) 940-6360
             </a>
             {divider}

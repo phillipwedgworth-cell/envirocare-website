@@ -14,10 +14,11 @@
 
 "use client";
 
-import { useState } from "react";
+  import { useState } from "react";
+import PestIcon from "@/components/shared/PestIcon";
 
 // ---------- BRAND TOKENS ----------
-const GREEN = "#0E8E40";
+const GREEN = "#0A7935";
 const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
@@ -170,7 +171,7 @@ const DONT_TREAT = [
 // ---------- COMPONENT ----------
 export default function PricingContent() {
   return (
-    <main style={{ background: CREAM, color: INK, minHeight: "100vh", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <main style={{ background: CREAM, color: INK, minHeight: "100vh", fontFamily: "var(--font-sans)" }}>
 
       {/* HERO */}
       <section style={{
@@ -324,7 +325,7 @@ export default function PricingContent() {
       {/* FINAL CTA */}
       <section style={{ background: `linear-gradient(160deg, ${GREEN} 0%, ${DEEP} 100%)`, padding: "80px 36px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <div style={{ fontSize: 48, color: GOLD, marginBottom: 16, fontFamily: "'Fraunces', serif" }}>🌻</div>
+          <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><PestIcon name="leaf" size={44} style={{ color: GOLD }} /></div>
           <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(32px, 4.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 14 }}>
             Get your free quote. <em style={{ color: GOLD, fontStyle: "italic" }}>We&rsquo;ll call you back.</em>
           </h2>
@@ -344,7 +345,7 @@ export default function PricingContent() {
               padding: "16px 24px", fontWeight: 600, fontSize: 15,
               textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8,
             }}>
-              📞 (205) 940-6360
+              <PestIcon name="phone" size={16} /> (205) 940-6360
             </a>
           </div>
         </div>
@@ -423,7 +424,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         background: f ? GOLD : FOREST, color: f ? INK : "#fff",
         border: "none", borderRadius: 7, padding: 13, fontWeight: 700, fontSize: 14,
         textAlign: "center", textDecoration: "none", width: "100%",
-        fontFamily: "'DM Sans', system-ui, sans-serif",
+        fontFamily: "var(--font-sans)",
       }}>
         {plan.cta}
       </a>
@@ -460,7 +461,7 @@ function FAQ({ q, a }: { q: string; a: string }) {
         style={{
           width: "100%", textAlign: "left", background: "none", border: "none",
           cursor: "pointer", padding: 0, display: "flex", justifyContent: "space-between",
-          alignItems: "center", gap: 20, fontFamily: "'DM Sans', system-ui, sans-serif",
+          alignItems: "center", gap: 20, fontFamily: "var(--font-sans)",
         }}>
         <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontWeight: 500, color: INK, letterSpacing: "-0.005em" }}>
           {q}

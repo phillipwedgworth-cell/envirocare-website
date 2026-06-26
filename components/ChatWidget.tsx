@@ -12,7 +12,7 @@
 import { useState, useRef, useEffect } from "react";
 
 // Brand tokens — locked. Do not change without checking with Phillip.
-const BRAND_GREEN = "#0E8E40";
+const BRAND_GREEN = "#0A7935";
 const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
@@ -46,6 +46,7 @@ export default function ChatWidget() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pending, setPending] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -56,6 +57,30 @@ export default function ChatWidget() {
   useEffect(() => {
     if (isOpen && inputRef.current) inputRef.current.focus();
   }, [isOpen]);
+
+  // Allow any "Get a Quote" button on the site to open Scout via a custom event
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { message?: string } | undefined;
+      setIsOpen(true);
+      if (detail?.message) setPending(detail.message);
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "chat_open", { event_category: "engagement", event_label: "quote_cta" });
+      }
+    };
+    window.addEventListener("ec:open-scout", handler as EventListener);
+    return () => window.removeEventListener("ec:open-scout", handler as EventListener);
+  }, []);
+
+  // Once opened with a pending prompt, send it automatically
+  useEffect(() => {
+    if (isOpen && pending && !isLoading) {
+      const msg = pending;
+      setPending(null);
+      sendMessage(msg);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, pending]);
 
   const sendMessage = async (overrideText?: string) => {
     const text = (overrideText ?? input).trim();
@@ -128,7 +153,26 @@ export default function ChatWidget() {
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes ec-scout-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.75);opacity:0}100%{transform:scale(1.75);opacity:0}}
           @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
+          @media (max-width: 600px){.ec-scout-label{display:none!important}}
         `}} />
+      <button
+        className="ec-scout-label"
+        onClick={() => {
+          setIsOpen(true);
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'chat_open', { event_category: 'engagement', event_label: 'label' });
+          }
+        }}
+        style={{
+          position: "fixed", bottom: 30, right: 88,
+          background: "#fff", color: FOREST,
+          border: `1px solid ${BRAND_GREEN}`,
+          borderRadius: 999, padding: "9px 16px",
+          fontSize: 14, fontWeight: 700, cursor: "pointer",
+          boxShadow: "0 6px 20px rgba(14,26,15,0.18)",
+          zIndex: 9998, whiteSpace: "nowrap",
+        }}
+      >Get an instant quote</button>
       <button
         onClick={() => {
           setIsOpen(true);
@@ -161,7 +205,9 @@ export default function ChatWidget() {
           background: BRAND_GREEN, zIndex: 0, pointerEvents: "none",
           animation: "ec-scout-pulse 2.2s ease-out infinite",
         }} />
-        <img src="/icon-512.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%", position: "relative", zIndex: 2 }} />
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ position: "relative", zIndex: 2 }}>
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
         <span style={{
           position: "absolute", top: 3, right: 3,
           width: 14, height: 14, borderRadius: "50%",
@@ -214,7 +260,9 @@ export default function ChatWidget() {
               display: "flex", alignItems: "center", justifyContent: "center",
               flexShrink: 0,
             }}>
-              <img src="/icon-512.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
             </div>
             <div>
               <div style={{ color: "#fff", fontWeight: 700, fontSize: 16, letterSpacing: "-0.01em" }}>

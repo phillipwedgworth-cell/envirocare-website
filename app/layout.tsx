@@ -30,7 +30,26 @@
 
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidget from '../components/ChatWidget';
+
+// Self-hosted via next/font — removes the render-blocking Google Fonts
+// stylesheet, applies font-display: swap, and preloads only what we use.
+// This is the biggest lever on mobile LCP.
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-playfair',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-dm-sans',
+});
 import {
   ENVIROCARE_ORGANIZATION_SCHEMA,
   WEBSITE_SCHEMA,
@@ -197,12 +216,10 @@ const HUNTSVILLE_SCHEMA = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <head>
-        {/* Font preconnects + stylesheet for Playfair Display + DM Sans */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" />
+        {/* Fonts are now self-hosted via next/font (see top of file) —
+            no external Google Fonts stylesheet needed. */}
 
         {/* LocalBusiness structured data — one per office */}
         <script

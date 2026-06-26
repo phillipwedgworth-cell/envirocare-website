@@ -14,6 +14,7 @@
  */
 
 import Link from "next/link";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export type NeighborhoodConfig = {
   // Page identity
@@ -44,15 +45,15 @@ export type NeighborhoodConfig = {
 };
 
 // ─── Brand tokens (matched to Madison/Fultondale/Birmingham) ──────
-const G = "#0E8E40";
+const G = "#0A7935";
 const D = "#07642B";
 const F = "#0A7935";
 const Au = "#F5A800";
 const Cr = "#FEFDF8";
 const Ik = "#0E1A0F";
 
-const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-const sans = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+const serif = { fontFamily: "var(--font-serif)" } as const;
+const sans = { fontFamily: "var(--font-sans)" } as const;
 
 export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
   const parentLine = cfg.parentCity ? `${cfg.parentCity} · ${cfg.zipCodes}` : cfg.zipCodes;
@@ -104,7 +105,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.1rem" }}>
             {cfg.pressureCards.map((c, i) => (
               <div key={i} style={{ background: "#fff", padding: "1.5rem", borderRadius: 14, border: `1px solid ${G}26` }}>
-                <div style={{ fontSize: 30, marginBottom: ".5rem" }} aria-hidden>{c.emoji}</div>
+                <div style={{ marginBottom: ".75rem" }}><EmojiIcon glyph={c.emoji} /></div>
                 <h3 style={{ ...serif, fontSize: "1.15rem", color: D, margin: "0 0 .4rem", fontWeight: 700 }}>{c.title}</h3>
                 <p style={{ fontSize: ".92rem", color: "#4b5563", lineHeight: 1.55, margin: 0 }}>{c.body}</p>
               </div>

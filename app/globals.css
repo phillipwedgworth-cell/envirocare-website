@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* EnviroCare brand: bright kelly green from the logo + sunflower gold.
-   Logo greens read brighter than #0E8E40 — bumped to #0E8E40 (kelly green).
+   Logo greens read brighter than #0A7935 — bumped to #0A7935 (kelly green).
    Tailwind's emerald palette is remapped so all emerald-* classes pick up brand. */
 @theme {
   --color-emerald-50:  #E8F7EE;
@@ -9,7 +9,7 @@
   --color-emerald-200: #93D6AD;
   --color-emerald-300: #5DC084;
   --color-emerald-400: #2EAA61;
-  --color-emerald-500: #0E8E40;
+  --color-emerald-500: #0A7935;
   --color-emerald-600: #0A7935;
   --color-emerald-700: #07642B;
   --color-emerald-800: #064E22;
@@ -29,20 +29,20 @@
 
   --color-cream:    #FEFDF8;
 
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans:  var(--font-dm-sans), system-ui, sans-serif;
 }
 
 :root {
-  --green:        #0E8E40;
+  --green:        #0A7935;
   --green-bright: #2EAA61;
   --green-deep:   #07642B;
   --green-darker: #0E1A0F;
   --gold:         #F5A800;
   --gold-bright:  #FBC51A;
   --cream:        #FEFDF8;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,6 +57,12 @@ body {
 h1, h2, h3, h4 { font-family: var(--font-serif); }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; font-family: var(--font-sans); }
+
+/* Reserve space for the fixed mobile action bar (StickyCallButton) so the
+   last section's content is never hidden behind it. Bar is hidden >=900px. */
+@media (max-width: 899px) {
+  body { padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px)); }
+}
 
 /* ── Hero animations (v4) ── */
 @keyframes ec-orb-a { from { transform: translate(0,0); } to { transform: translate(-50px,40px); } }
@@ -111,24 +117,24 @@ body.ec-menu-locked { overflow: hidden; }
 .ec-menu-close:hover { background: #E8F5EE; }
 
 .ec-menu-body { flex: 1; padding: 2rem 1.6rem 2.5rem; max-width: 640px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 0.25rem; }
-.ec-menu-link { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 7vw, 2.6rem); font-weight: 700; color: #0E1A0F; text-decoration: none; padding: 0.95rem 0; border-bottom: 1px solid rgba(14,142,64,0.10); display: flex; justify-content: space-between; align-items: center; transition: color 0.2s, padding-left 0.25s; line-height: 1.05; letter-spacing: -0.02em; }
-.ec-menu-link:hover, .ec-menu-link:active { color: #0E8E40; padding-left: 0.4rem; }
-.ec-menu-link em { font-style: italic; color: #0E8E40; font-weight: 700; }
-.ec-menu-link .ec-menu-arrow { color: #0E8E40; opacity: 0.4; font-size: 0.7em; }
+.ec-menu-link { font-family: var(--font-serif); font-size: clamp(2rem, 7vw, 2.6rem); font-weight: 700; color: #0E1A0F; text-decoration: none; padding: 0.95rem 0; border-bottom: 1px solid rgba(14,142,64,0.10); display: flex; justify-content: space-between; align-items: center; transition: color 0.2s, padding-left 0.25s; line-height: 1.05; letter-spacing: -0.02em; }
+.ec-menu-link:hover, .ec-menu-link:active { color: #0A7935; padding-left: 0.4rem; }
+.ec-menu-link em { font-style: italic; color: #0A7935; font-weight: 700; }
+.ec-menu-link .ec-menu-arrow { color: #0A7935; opacity: 0.4; font-size: 0.7em; }
 
-.ec-menu-pay { margin-top: 1.4rem; background: #F5A800; color: #0E1A0F; border-radius: 14px; padding: 1.05rem 1.3rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(245,168,0,0.28); transition: transform 0.2s, box-shadow 0.2s; }
+.ec-menu-pay { margin-top: 1.4rem; background: #F5A800; color: #0E1A0F; border-radius: 14px; padding: 1.05rem 1.3rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(245,168,0,0.28); transition: transform 0.2s, box-shadow 0.2s; }
 .ec-menu-pay:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(245,168,0,0.38); }
 .ec-menu-pay-sub { font-size: 0.78rem; font-weight: 500; opacity: 0.72; letter-spacing: 0.04em; text-transform: uppercase; }
 
-.ec-menu-quote { margin-top: 0.6rem; background: #0E8E40; color: #fff; border-radius: 14px; padding: 1.05rem 1.3rem; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(14,142,64,0.28); }
+.ec-menu-quote { margin-top: 0.6rem; background: #0A7935; color: #fff; border-radius: 14px; padding: 1.05rem 1.3rem; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 24px rgba(14,142,64,0.28); }
 
-.ec-menu-offices { margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; flex-direction: column; gap: 0.85rem; font-family: 'DM Sans', system-ui, sans-serif; }
+.ec-menu-offices { margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; flex-direction: column; gap: 0.85rem; font-family: var(--font-sans); }
 .ec-menu-offices-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5A7060; margin-bottom: 0.2rem; }
 .ec-menu-office { display: flex; justify-content: space-between; align-items: center; text-decoration: none; padding: 0.45rem 0; }
 .ec-menu-office-name { font-size: 0.95rem; color: #0E1A0F; font-weight: 600; }
-.ec-menu-office-phone { font-size: 0.95rem; color: #0E8E40; font-weight: 700; }
+.ec-menu-office-phone { font-size: 0.95rem; color: #0A7935; font-weight: 700; }
 
-.ec-menu-foot { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; align-items: center; gap: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; color: #5A7060; }
+.ec-menu-foot { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(14,142,64,0.12); display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 0.82rem; color: #5A7060; }
 .ec-menu-foot-dot { width: 8px; height: 8px; border-radius: 50%; background: #5CB85C; }
 
 /* ══════════════════════════════════════════════════════════════

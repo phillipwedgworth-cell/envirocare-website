@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
 
 /**
  * Birmingham hub page — DEEP REWRITE.
@@ -39,15 +40,15 @@ export const metadata: Metadata = {
   },
 };
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const D = "#07642B";
 const F = "#0A7935";
 const Au = "#F5A800";
 const Cr = "#FEFDF8";
 const Ik = "#0E1A0F";
 
-const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-const sans = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+const serif = { fontFamily: "var(--font-serif)" } as const;
+const sans = { fontFamily: "var(--font-sans)" } as const;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -214,12 +215,12 @@ export default function BirminghamPage() {
               The six pest patterns we see most across the Birmingham metro — and how each program handles them.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.1rem" }}>
-              <Card emoji="🪵" title="Termites in historic Birmingham homes" body="Mountain Brook, Forest Park, Highland Park, Five Points South — the older the home, the more vulnerable the foundation. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, no drilling into original brick or masonry. Up to $1M in EnviroCare-backed damage coverage." />
-              <Card emoji="🐜" title="Carpenter ants &amp; sugar ants" body="Older homes in Crestline, English Village, and Hollywood see seasonal carpenter ant invasions tracing moisture pathways. Bi-monthly perimeter service ($35/mo) covers the entire ant family — carpenter, sugar, odorous house ants, pavement ants — plus 30+ other Alabama pests." />
-              <Card emoji="🦟" title="Mosquitoes along the Cahaba" body="Properties anywhere near the Cahaba River, Patton Creek, or Shades Creek see consistent mosquito pressure March–November. 30-day yard barrier at $45/treatment, or the Mosquito + Tick plan at $65/treatment which adds tick coverage and chiggers." />
-              <Card emoji="🕷️" title="Brown recluse in garages &amp; basements" body="Older Birmingham housing stock — particularly Forest Park, Highland Avenue, and the southside — harbors brown recluse in garages, storage areas, and undisturbed crawlspaces. Our interior/perimeter program targets cracks, voids, and the dark zones recluses actually nest in." />
-              <Card emoji="🐾" title="Ticks on Red Mountain &amp; Shades Mountain" body="Mountain Brook, Vestavia, and Chelsea homes backing up to the wooded ridges carry Lone Star and American dog ticks. The Mosquito + Tick plan bundles mosquito + tick + chigger coverage — the actual biting trio you deal with from May through October." />
-              <Card emoji="🔥" title="Fire ants in new construction &amp; lawns" body="Subdivisions across the metro — particularly Greystone, Mt Laurel, Lake Wilborn, and the newer Hoover sections — sit on graded clay that fire ants colonize aggressively. Whole-yard fire ant treatment is a separate service at $150 minimum, priced by yard size." />
+              <Card icon="termite" color="#C77A00" title="Termites in historic Birmingham homes" body="Mountain Brook, Forest Park, Highland Park, Five Points South — the older the home, the more vulnerable the foundation. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, no drilling into original brick or masonry. Up to $1M in EnviroCare-backed damage coverage." />
+              <Card icon="ant" color="#0E8E40" title="Carpenter ants &amp; sugar ants" body="Older homes in Crestline, English Village, and Hollywood see seasonal carpenter ant invasions tracing moisture pathways. Bi-monthly perimeter service ($35/mo) covers the entire ant family — carpenter, sugar, odorous house ants, pavement ants — plus 30+ other Alabama pests." />
+              <Card icon="mosquito" color="#0E7490" title="Mosquitoes along the Cahaba" body="Properties anywhere near the Cahaba River, Patton Creek, or Shades Creek see consistent mosquito pressure March–November. 30-day yard barrier at $45/treatment, or the Mosquito + Tick plan at $65/treatment which adds tick coverage and chiggers." />
+              <Card icon="spider" color="#3F6184" title="Brown recluse in garages &amp; basements" body="Older Birmingham housing stock — particularly Forest Park, Highland Avenue, and the southside — harbors brown recluse in garages, storage areas, and undisturbed crawlspaces. Our interior/perimeter program targets cracks, voids, and the dark zones recluses actually nest in." />
+              <Card icon="tick" color="#9A5B2E" title="Ticks on Red Mountain &amp; Shades Mountain" body="Mountain Brook, Vestavia, and Chelsea homes backing up to the wooded ridges carry Lone Star and American dog ticks. The Mosquito + Tick plan bundles mosquito + tick + chigger coverage — the actual biting trio you deal with from May through October." />
+              <Card icon="fireant" color="#DC4A1A" title="Fire ants in new construction &amp; lawns" body="Subdivisions across the metro — particularly Greystone, Mt Laurel, Lake Wilborn, and the newer Hoover sections — sit on graded clay that fire ants colonize aggressively. Whole-yard fire ant treatment is a separate service at $150 minimum, priced by yard size." />
             </div>
           </div>
         </section>
@@ -312,10 +313,16 @@ export default function BirminghamPage() {
   );
 }
 
-function Card({ emoji, title, body }: { emoji: string; title: string; body: string }) {
+function Card({ icon, color, title, body }: { icon: PestIconName; color: string; title: string; body: string }) {
   return (
     <div style={{ background: "#fff", padding: "1.5rem", borderRadius: 14, border: `1px solid ${G}26` }}>
-      <div style={{ fontSize: 30, marginBottom: ".5rem" }} aria-hidden>{emoji}</div>
+      <div style={{
+        width: 48, height: 48, borderRadius: 12, marginBottom: ".75rem",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        background: `${color}14`, color,
+      }}>
+        <PestIcon name={icon} size={26} />
+      </div>
       <h3 style={{ ...serif, fontSize: "1.15rem", color: D, margin: "0 0 .4rem", fontWeight: 700 }}>{title}</h3>
       <p style={{ fontSize: ".92rem", color: "#4b5563", lineHeight: 1.55, margin: 0 }}>{body}</p>
     </div>

@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "@/components/shared/Header";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 // ── CITY DATA ──────────────────────────────────────────────────────────────
 type OfficeKey = "birmingham" | "huntsville" | "lake-martin";
@@ -161,7 +162,7 @@ const SERVICES = [
   },
   {
     slug: "termite",
-    icon: "🏠",
+    icon: "🪵",
     title: "Sentricon® Termite Protection",
     price: "Free inspection",
     alt: "priced after a free WDO inspection",
@@ -170,7 +171,7 @@ const SERVICES = [
   },
   {
     slug: "mosquito",
-    icon: "🌿",
+    icon: "🦟",
     title: "Mosquito Control",
     price: "$45/visit",
     alt: "March–November season",
@@ -179,7 +180,7 @@ const SERVICES = [
   },
   {
     slug: "tick",
-    icon: "🐕",
+    icon: "🐾",
     title: "Tick & Flea Control",
     price: "Mosquito + Tick $65/visit",
     alt: "with mosquito control",
@@ -224,7 +225,7 @@ export default async function ServiceAreaPage({
 
   const office = OFFICES[data.office];
 
-  const G = "#0E8E40";
+  const G = "#0A7935";
   const GT = "#0A7935";
   const GOLD = "#F5A800";
   const DARK = "#0E1A0F";
@@ -232,8 +233,8 @@ export default async function ServiceAreaPage({
   const PAPER = "#F8F6EE";
   const GREY = "#6B7569";
   const LINE = "rgba(14,26,15,0.12)";
-  const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" } as const;
-  const ss = { fontFamily: "'Fraunces', 'Playfair Display', Georgia, serif" } as const;
+  const sf = { fontFamily: "var(--font-sans)" } as const;
+  const ss = { fontFamily: "'Fraunces', var(--font-serif)" } as const;
 
   const SCHEMA = {
     "@context": "https://schema.org",
@@ -562,7 +563,7 @@ export default async function ServiceAreaPage({
                   transition: "box-shadow 0.2s",
                 }}
               >
-                <div style={{ fontSize: 26, marginBottom: 10 }}>{svc.icon}</div>
+                <div style={{ marginBottom: 10 }}><EmojiIcon glyph={svc.icon} /></div>
                 <div
                   style={{
                     fontWeight: 700,

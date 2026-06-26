@@ -2,29 +2,8 @@
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 
-import { useEffect } from 'react';
 
 export default function ServicesIndexPage() {
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const links = [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
-    ];
-    const els: HTMLLinkElement[] = [];
-    links.forEach((cfg) => {
-      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
-      const el = document.createElement('link');
-      Object.entries(cfg).forEach(([k, v]) => {
-        if (k === 'crossOrigin') el.crossOrigin = v as string;
-        else el.setAttribute(k, v as string);
-      });
-      document.head.appendChild(el);
-      els.push(el);
-    });
-    return () => { els.forEach((el) => el.remove()); };
-  }, []);
 
   return (
     <>
@@ -35,8 +14,8 @@ export default function ServicesIndexPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">Every Service We Offer</span></div>
-          <h1>Four Pillars Plus<em>Specialty Service</em></h1>
-          <p className="page-hero-sub">Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service — plus specialty options for fire ants, fleas, builders, real estate, crawlspaces, and commercial properties.</p>
+          <h1>Core Protection Plus<em>Specialty Service</em></h1>
+          <p className="page-hero-sub">Bi-monthly pest control, seasonal mosquito service (add tick for +$20/treatment), and Sentricon® termite protection with up to $1M coverage — plus specialty options for fire ants, fleas, builders, real estate, crawlspaces, and commercial properties.</p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/quote" className="btn-outline-white">See Pricing →</a>
@@ -56,7 +35,7 @@ export default function ServicesIndexPage() {
       <section className="services-grid-section">
         <div className="container">
           <div className="section-eyebrow">Core Services</div>
-          <h2 className="section-title">The <span>Four Pillars</span></h2>
+          <h2 className="section-title">Core <span>Protection</span></h2>
           <p className="section-sub">What every Alabama home should have. Bundle for convenience, never for forced discounts.</p>
 
           <div className="services-grid">
@@ -64,8 +43,15 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">Most Popular</div>
               <div className="svc-card-name">Pest Control</div>
               <div className="svc-card-price">$35/mo ACH · or $70 bi-monthly</div>
-              <div className="svc-card-desc">Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, no contracts.</div>
+              <div className="svc-card-desc">Bi-monthly interior & perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, no contracts.</div>
               <a href="/services/pest-control" className="svc-card-link">Learn more →</a>
+            </div>
+            <div className="svc-card">
+              <div className="svc-card-tag">March – November</div>
+              <div className="svc-card-name">Mosquito Control</div>
+              <div className="svc-card-price">$45/visit · add tick for +$20</div>
+              <div className="svc-card-desc">30-day yard barrier March through November. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. Pet-safe once dry.</div>
+              <a href="/services/mosquito-control" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card feat">
               <div className="svc-card-tag">Most Insurance</div>
@@ -73,20 +59,6 @@ export default function ServicesIndexPage() {
               <div className="svc-card-price">Priced after a free WDO inspection</div>
               <div className="svc-card-desc">Sentricon® Always Active™ bait stations. Up to $1,000,000 termite damage repair coverage. No drilling, no concrete cuts.</div>
               <a href="/services/termite-control" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-card-tag">March – November</div>
-              <div className="svc-card-name">Mosquito Control</div>
-              <div className="svc-card-price">$45/visit · seasonal</div>
-              <div className="svc-card-desc">30-day yard barrier March through November. Pet- and EPA-registered once dry. Make your patio livable again.</div>
-              <a href="/services/mosquito" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
-              <div className="svc-card-tag">Bundles with Mosquito</div>
-              <div className="svc-card-name">Tick Control</div>
-              <div className="svc-card-price">From $150 · or Mosquito + Tick $65/visit</div>
-              <div className="svc-card-desc">Targeted yard treatments for Lone Star, Dog, and Deer ticks. Critical for wooded lots and lake homes.</div>
-              <a href="/services/tick-control" className="svc-card-link">Learn more →</a>
             </div>
           </div>
         </div>
@@ -108,7 +80,7 @@ export default function ServicesIndexPage() {
             <div className="svc-card">
               <div className="svc-card-tag">Pet Households</div>
               <div className="svc-card-name">Flea Control</div>
-              <div className="svc-card-desc">Interior + yard flea program — +$30/quarter add-on to the $98/quarter interior plan.</div>
+              <div className="svc-card-desc">Interior + yard flea treatment, available as an add-on to your recurring pest plan. Priced per property after a quick assessment.</div>
               <a href="/services/flea" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
@@ -129,15 +101,21 @@ export default function ServicesIndexPage() {
               <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
               <a href="/services/commercial" className="svc-card-link">Learn more →</a>
             </div>
+            <div className="svc-card">
+              <div className="svc-card-tag">Foundation &amp; Moisture</div>
+              <div className="svc-card-name">Crawlspace Service</div>
+              <div className="svc-card-desc">Moisture control, vapor barriers &amp; encapsulation that stop Alabama humidity, termites, mold and musty odors at the source. Free inspection.</div>
+              <a href="/services/crawlspace" className="svc-card-link">Learn more →</a>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Not Sure Where To Start?</div>
+          <div className="section-eyebrow">Not Sure Where To Start?</div>
           <h3>Call A Real Person</h3>
-          <div className="office-cta-addr">We\'ll help you figure out what your home actually needs — no upsell pressure.</div>
+          <div className="office-cta-addr">We&apos;ll help you figure out what your home actually needs — no upsell pressure.</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/quote" className="btn-outline-white">See Pricing →</a>
@@ -154,7 +132,7 @@ const PAGE_CSS = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* REAL ENVIROCARE BRAND — vibrant mint, not generic emerald */
-  --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+  --green:#0A7935; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
   --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
   --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7; --gold-deep:#A16207;
   --white:#fff; --cream:#FFFDF8;

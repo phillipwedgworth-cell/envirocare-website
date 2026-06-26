@@ -12,22 +12,22 @@ export default function FindOfficePage() {
       minHeight: '100vh',
       background: 'linear-gradient(180deg, #E8F5EE 0%, #FEFDF8 100%)',
       padding: '80px 24px',
-      fontFamily: "'DM Sans', system-ui, sans-serif",
+      fontFamily: "var(--font-sans)",
     }}>
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', marginBottom: 48 }}>
         <div style={{
-          fontSize: 13, fontWeight: 600, color: '#0E8E40',
+          fontSize: 13, fontWeight: 600, color: '#0A7935',
           textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12,
         }}>
           🌻 Three Alabama Offices · Family-Owned Since 1958
         </div>
         <h1 style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 'clamp(36px, 5vw, 56px)',
           fontWeight: 700, margin: '0 0 16px', lineHeight: 1.1,
           color: '#0E1A0F',
         }}>
-          Find Your <em style={{ color: '#0E8E40' }}>Local Office</em>
+          Find Your <em style={{ color: '#0A7935' }}>Local Office</em>
         </h1>
         <p style={{
           fontSize: 18, color: '#5A6660', maxWidth: 640, margin: '0 auto', lineHeight: 1.55,
@@ -83,10 +83,10 @@ const officeLabel = {
   fontSize: 11,
   fontWeight: 700,
   letterSpacing: '0.06em',
-  color: '#0E8E40',
+  color: '#0A7935',
 };
 const officePhone = {
-  fontFamily: "'Playfair Display', Georgia, serif",
+  fontFamily: "var(--font-serif)",
   fontSize: 22,
   fontWeight: 700,
 };

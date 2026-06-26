@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 /**
  * DeepCityPage — shared layout for wealthy-corridor "deep" city pages
@@ -18,15 +19,15 @@ import type { ReactNode } from "react";
  * EnviroCare's own guarantee.
  */
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const D = "#07642B";
 const F = "#0A7935";
 const Au = "#F5A800";
 const Cr = "#FEFDF8";
 const Ik = "#0E1A0F";
 
-const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-const sans = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+const serif = { fontFamily: "var(--font-serif)" } as const;
+const sans = { fontFamily: "var(--font-sans)" } as const;
 
 export type DeepCityConfig = {
   name: string;            // "Vestavia Hills"
@@ -147,7 +148,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.1rem" }}>
               {c.pressureCards.map((card, i) => (
                 <div key={i} style={{ background: Cr, padding: "1.5rem", borderRadius: 14, border: `1px solid ${G}26` }}>
-                  <div style={{ fontSize: 30, marginBottom: ".5rem" }} aria-hidden>{card.emoji}</div>
+                  <div style={{ marginBottom: ".75rem" }}><EmojiIcon glyph={card.emoji} /></div>
                   <h3 style={{ ...serif, fontSize: "1.15rem", color: D, margin: "0 0 .4rem", fontWeight: 700 }}>{card.title}</h3>
                   <p style={{ fontSize: ".92rem", color: "#4b5563", lineHeight: 1.55, margin: 0 }}>{card.body}</p>
                 </div>

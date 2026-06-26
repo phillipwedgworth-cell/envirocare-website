@@ -58,6 +58,7 @@ const SERVICE_SLUGS = [
   'wdo-letters',
   'real-estate-wdo',
   'commercial',
+  'crawlspace',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

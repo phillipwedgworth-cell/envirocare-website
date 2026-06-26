@@ -60,7 +60,7 @@ export default function AlexCityFAQ() {
       <SchemaScript schema={getFAQSchema(ALEX_CITY_FAQS)} />
       <div style={{ maxWidth: 820, margin: '0 auto' }}>
         <h2 style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 'clamp(24px, 3vw, 34px)',
           color: 'var(--ink)',
           marginBottom: 8,
@@ -91,7 +91,7 @@ export default function AlexCityFAQ() {
           flexWrap: 'wrap',
         }}>
           <div>
-            <p style={{ margin: 0, fontWeight: 700, fontSize: 18, fontFamily: "'Playfair Display', serif" }}>
+            <p style={{ margin: 0, fontWeight: 700, fontSize: 18, fontFamily: "var(--font-serif)" }}>
               Protecting Lake Martin homes since 1958.
             </p>
             <p style={{ margin: '6px 0 0', fontSize: 14, opacity: 0.85 }}>
@@ -133,7 +133,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         gap: 16,
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-sans)",
       }}>
         <span>{question}</span>
         <span style={{ color: 'var(--green)', flexShrink: 0, fontSize: 20, lineHeight: 1 }}>+</span>
