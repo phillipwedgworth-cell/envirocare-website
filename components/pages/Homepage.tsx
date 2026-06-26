@@ -342,18 +342,21 @@ function Hero() {
           </div>
 
           <h1 className="ec-hero-h1">
-            Protecting Alabama Homes,<br />
-            <em className="ec-h1-italic">Four Generations</em> <span className="ec-h1-gold">Strong.</span>
+            Protecting Alabama Homes{' '}
+            <span className="ec-h1-gold">Since 1958</span>
           </h1>
+
+          <p className="ec-hero-emphasis">
+            <em className="ec-h1-italic">Four Generations Strong.</em>
+          </p>
 
           <p className="ec-hero-keyword">
             Alabama pest, termite &amp; mosquito control — trusted since 1958.
           </p>
 
           <p className="ec-hero-sub">
-            A trained specialist for every service — pest, termite, mosquito and
-            tick — so you get expert quality on every visit. One company. One
-            invoice. Interior and exterior coverage, scheduled around your life.
+            Pest, termite and mosquito protection from one trusted Alabama
+            company — with trained specialists for every service.
           </p>
 
           <div className="ec-hero-ctas">
@@ -1069,23 +1072,48 @@ const HOMEPAGE_CSS = `
     .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
   }
   @media (max-width: 720px) {
-    .ec-banner { padding: 7px 12px; }
-    .ec-banner-inner { gap: 6px; }
-    .ec-banner-rotator { width: 100%; height: 32px; max-width: none; }
-    .ec-banner-msg {
-      display: block;
-      white-space: normal;
-      text-align: center;
-      font-size: 11.5px;
-      line-height: 1.25;
-      padding: 0 2px;
-    }
-    .ec-banner-msg .ec-banner-gold { display: inline; }
-    .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+    /* Thinner, less dominant trust banner */
+    .ec-banner { padding: 5px 14px; font-size: 11.5px; }
+    .ec-banner-rotator { width: 100%; height: 18px; }
+    .ec-banner-msg { font-size: 11.5px; }
+
+    /* Tighter, more premium hero with breathing room */
+    .ec-hero { padding-top: 28px; }
+    .ec-hero-inner { gap: 28px; padding-bottom: 150px; }
+    .ec-eyebrow { margin-bottom: 14px; }
+    .ec-hero-h1 { font-size: clamp(32px, 8.5vw, 44px); line-height: 1.08; margin-bottom: 10px; }
+    .ec-hero-emphasis { font-size: 20px; margin: 0 0 14px; }
+    .ec-hero-keyword { display: none; }
+    .ec-hero-sub { font-size: 16px; margin-bottom: 22px; }
+
+    .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 24px; }
     .ec-hero-ctas .ec-cta-primary,
     .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
   }
-
+  .ec-banner-call {
+    margin-left: 12px;
+    background: #F5A800;
+    color: #0E1A0F !important;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(245,168,0,0.3);
+    transition: background 0.15s, transform 0.15s;
+    text-decoration: none;
+  }
+  .ec-banner-call:hover {
+    background: #FFB81F;
+    transform: translateY(-1px);
+  }
+  /* One call pattern only on mobile: drop the top call pill, keep sticky bar */
+  @media (max-width: 720px) {
+    .ec-banner-call { display: none; }
+  }
 
 
   /* HEADER - LOGO IMAGE ONLY */
@@ -1135,13 +1163,15 @@ const HOMEPAGE_CSS = `
     }
   }
   @media (max-width: 480px) {
+    .ec-header-inner { padding: 8px 16px; }
     .ec-brand {
-      max-height: 60px;
+      max-height: 48px;
     }
     .ec-brand-logo {
-      height: 52px !important;
-      max-width: 200px !important;
+      height: 44px !important;
+      max-width: 168px !important;
     }
+    .ec-mobile-toggle { width: 38px; height: 38px; font-size: 20px; }
   }
 
   .ec-nav {
@@ -1242,6 +1272,11 @@ const HOMEPAGE_CSS = `
   }
   .ec-h1-italic { font-style: italic; color: #0E8E40; font-weight: 400; }
   .ec-h1-gold { color: #F5A800; }
+  .ec-hero-emphasis {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(20px, 3vw, 28px);
+    margin: -8px 0 20px;
+  }
   .ec-hero-sub {
     font-size: 18px; line-height: 1.6; color: #5A6660;
     max-width: 520px; margin: 0 0 32px;
@@ -2166,17 +2201,15 @@ const HOMEPAGE_CSS = `
 
   /* FOOTER */
   .ec-footer {
-    background: #F2F6EF;
-    color: #3a4a40;
-    padding: 56px 20px 32px;
-    border-top: 4px solid #0E8E40;
+    background: #0B3D20; color: #fff;
+    padding: 56px 20px 28px;
   }
   .ec-footer-inner {
-    max-width: 1280px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr; gap: 32px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr; gap: 28px;
   }
   @media (min-width: 720px) {
-    .ec-footer-inner { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    .ec-footer-inner { grid-template-columns: 1.6fr 1fr 1fr 1.5fr; gap: 40px; }
   }
   .ec-footer-brand { display: inline-block; margin-bottom: 16px; }
   .ec-footer-logo {
@@ -2184,15 +2217,17 @@ const HOMEPAGE_CSS = `
     object-fit: contain;
   }
   .ec-footer-tag {
-    font-size: 14px; line-height: 1.6;
-    color: #5a6b60; margin: 0 0 20px;
+    font-size: 13.5px; line-height: 1.55;
+    color: rgba(255,255,255,0.65); margin: 0 0 18px;
+    max-width: 34ch;
   }
   .ec-footer-phones {
-    display: flex; flex-direction: column; gap: 6px;
+    display: flex; flex-direction: column; gap: 8px;
   }
   .ec-footer-phone {
-    color: #0A7935 !important;
-    font-size: 14px; font-weight: 700;
+    color: #FFC233 !important;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.01em;
   }
   .ec-footer-phone em {
     color: #7a887e;
@@ -2209,13 +2244,13 @@ const HOMEPAGE_CSS = `
   }
   .ec-footer-cta:hover { background: #FFB81F; transform: translateY(-1px); }
   .ec-footer-col h4 {
-    font-size: 12px; font-weight: 800;
-    letter-spacing: 0.08em; color: #07642B;
-    margin: 0 0 16px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em; color: #FFC233;
+    margin: 0 0 14px;
   }
   .ec-footer-col a {
-    display: block; padding: 4px 0;
-    font-size: 14px; color: #4a5750;
+    display: block; padding: 3px 0;
+    font-size: 13.5px; color: rgba(255,255,255,0.72);
     transition: color 0.15s;
   }
   .ec-footer-col a:hover { color: #0E8E40; }
