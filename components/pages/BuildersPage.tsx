@@ -489,6 +489,12 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .flow-num{position:absolute;top:-14px;left:1.6rem;background:var(--gold);color:var(--ink);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:900;font-size:1.05rem;border:3px solid var(--cream)}
 .flow-title{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:700;color:var(--green-dk);margin:.8rem 0 .6rem;line-height:1.25}
 .flow-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+.wedge{padding:5.5rem clamp(1.5rem,5vw,4rem)}
+.wedge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem;max-width:1180px;margin:2.4rem auto 0}
+.wedge-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:16px;padding:1.7rem 1.6rem;transition:transform .25s,box-shadow .25s}
+.wedge-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.wedge-lead{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:700;color:var(--green-dk);margin-bottom:.6rem;line-height:1.25}
+.wedge-body{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
 .stat-band{padding:4rem clamp(1.5rem,5vw,4rem);background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-darkest) 100%);color:#fff}
 .stat-band-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;text-align:center}
 .stat-band-n{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--gold);line-height:1;margin-bottom:.4rem}
