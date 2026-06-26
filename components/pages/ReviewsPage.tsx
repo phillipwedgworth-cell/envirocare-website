@@ -1,7 +1,17 @@
 "use client";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { Star } from "lucide-react";
 
+function Stars({ size = 16, gap = 2 }: { size?: number; gap?: number }) {
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap, color: "var(--gold)" }} role="img" aria-label="5 out of 5 stars">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <Star key={i} size={size} fill="currentColor" strokeWidth={0} aria-hidden="true" />
+      ))}
+    </span>
+  );
+}
 
 export default function ReviewsPage() {
 
@@ -25,7 +35,7 @@ export default function ReviewsPage() {
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Reviews</div>
+          <div className="ti"><div className="ti-chk"><Star size={11} fill="currentColor" strokeWidth={0} aria-hidden="true" /></div><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Stars size={12} /> Google Reviews</span></div>
           <div className="ti"><div className="ti-chk">✓</div>Verified Reviews</div>
           <div className="ti"><div className="ti-chk">✓</div>3 Office Locations</div>
           <div className="ti"><div className="ti-chk">✓</div>68 Years Family-Owned</div>
@@ -40,16 +50,16 @@ export default function ReviewsPage() {
           <p className="section-sub">Across hundreds of reviews, these are what customers mention most often.</p>
 
           <div className="rev-grid">
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"The same technician comes every visit. He knows my dog, my gate code, and exactly where the ants come in. That continuity is everything."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Tech Continuity</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Four generations of family. You can feel it in how the team treats you — not a corporate script, just real people who care."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Family-Owned Touch</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Called Monday, scheduled Wednesday, problem gone by Friday. No three-week waitlist like the franchise places."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Week Scheduling</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Sentricon stations installed in 90 minutes — no drilling, no concrete cuts, no torn-up flowerbeds. That sold us."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Sentricon® Install</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"When I called about a wasp nest between visits, they came the next day. Free. No upcharge. That&apos;s service the big companies don&apos;t do anymore."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Free Re-Service</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"The mosquito service made our backyard usable again. We were ready to give up on summer evenings — now we live out there."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Mosquito Yard Service</span></div></div>
+            <div className="rev-card"><div className="rev-stars"><Stars size={17} /></div><div className="rev-quote">"The same technician comes every visit. He knows my dog, my gate code, and exactly where the ants come in. That continuity is everything."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Tech Continuity</span></div></div>
+            <div className="rev-card"><div className="rev-stars"><Stars size={17} /></div><div className="rev-quote">"Four generations of family. You can feel it in how the team treats you — not a corporate script, just real people who care."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Family-Owned Touch</span></div></div>
+            <div className="rev-card"><div className="rev-stars"><Stars size={17} /></div><div className="rev-quote">"Called Monday, scheduled Wednesday, problem gone by Friday. No three-week waitlist like the franchise places."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Week Scheduling</span></div></div>
+            <div className="rev-card"><div className="rev-stars"><Stars size={17} /></div><div className="rev-quote">"Sentricon stations installed in 90 minutes — no drilling, no concrete cuts, no torn-up flowerbeds. That sold us."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Sentricon® Install</span></div></div>
+            <div className="rev-card"><div className="rev-stars"><Stars size={17} /></div><div className="rev-quote">"When I called about a wasp nest between visits, they came the next day. Free. No upcharge. That&apos;s service the big companies don&apos;t do anymore."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Free Re-Service</span></div></div>
+            <div className="rev-card"><div className="rev-stars"><Stars size={17} /></div><div className="rev-quote">"The mosquito service made our backyard usable again. We were ready to give up on summer evenings — now we live out there."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Mosquito Yard Service</span></div></div>
           </div>
 
           <div className="google-cta">
-            <div className="google-cta-stars">★★★★★</div>
+            <div className="google-cta-stars"><Stars size={32} gap={4} /></div>
             <div className="google-cta-num">Google Reviewed</div>
             <div className="google-cta-lbl">Across verified Google reviews</div>
             <div className="page-hero-cta" style={{justifyContent:'center'}}>
@@ -287,24 +297,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .loc-phone{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;font-weight:700;color:var(--green-dk);text-decoration:none;padding:.5rem 1.05rem;border-radius:50px;border:1.5px solid var(--green-dk);transition:all .2s}
 .loc-phone:hover{background:var(--green-dk);color:var(--white)}
 
-/* ─── REVIEWS */
-.reviews-bg{background:linear-gradient(180deg,var(--green-xlt) 0%,var(--green-lt) 100%)}
-.review-track-wrap{overflow:hidden;margin-top:2.5rem;position:relative}
-.review-track-wrap::before,.review-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
-.review-track-wrap::before{left:0;background:linear-gradient(90deg,var(--green-xlt),transparent)}
-.review-track-wrap::after{right:0;background:linear-gradient(-90deg,var(--green-lt),transparent)}
-.review-track{display:flex;gap:1.25rem;width:max-content;animation:revScroll 50s linear infinite}
-.review-track:hover{animation-play-state:paused}
-.rev-card{width:320px;flex-shrink:0;background:var(--white);border:1px solid var(--border-soft);border-radius:18px;padding:1.65rem;box-shadow:var(--sh-sm);position:relative}
-.rev-quote{position:absolute;top:-10px;right:18px;font-family:"Playfair Display",serif;font-size:3.5rem;color:var(--gold);line-height:1;opacity:.3}
-.rev-stars{display:flex;gap:2px;margin-bottom:.8rem}
-.rev-star{color:var(--gold);font-size:14px}
-.rev-text{font-size:.92rem;line-height:1.65;color:var(--ink-mid);margin-bottom:1.1rem;font-style:italic}
-.rev-who{display:flex;align-items:center;gap:10px;padding-top:1rem;border-top:1px solid var(--border-soft)}
-.rev-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 100%);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;box-shadow:0 2px 8px rgba(22,163,74,.3)}
-.rev-name{font-size:.88rem;font-weight:600;color:var(--ink)}
-.rev-loc{font-size:.78rem;color:var(--ink-soft)}
-@keyframes revScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* ─── REVIEWS (live grid styles defined below in .rev-section block) */
 
 /* ─── PLANS */
 .plans-bg{background:var(--white)}
