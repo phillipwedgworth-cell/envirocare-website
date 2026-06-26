@@ -2,29 +2,8 @@
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 
-import { useEffect } from 'react';
 
 export default function ServicesIndexPage() {
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const links = [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
-    ];
-    const els: HTMLLinkElement[] = [];
-    links.forEach((cfg) => {
-      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
-      const el = document.createElement('link');
-      Object.entries(cfg).forEach(([k, v]) => {
-        if (k === 'crossOrigin') el.crossOrigin = v as string;
-        else el.setAttribute(k, v as string);
-      });
-      document.head.appendChild(el);
-      els.push(el);
-    });
-    return () => { els.forEach((el) => el.remove()); };
-  }, []);
 
   return (
     <>
@@ -122,15 +101,21 @@ export default function ServicesIndexPage() {
               <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
               <a href="/services/commercial" className="svc-card-link">Learn more →</a>
             </div>
+            <div className="svc-card">
+              <div className="svc-card-tag">Foundation &amp; Moisture</div>
+              <div className="svc-card-name">Crawlspace Service</div>
+              <div className="svc-card-desc">Moisture control, vapor barriers &amp; encapsulation that stop Alabama humidity, termites, mold and musty odors at the source. Free inspection.</div>
+              <a href="/services/crawlspace" className="svc-card-link">Learn more →</a>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Not Sure Where To Start?</div>
+          <div className="section-eyebrow">Not Sure Where To Start?</div>
           <h3>Call A Real Person</h3>
-          <div className="office-cta-addr">We\'ll help you figure out what your home actually needs — no upsell pressure.</div>
+          <div className="office-cta-addr">We&apos;ll help you figure out what your home actually needs — no upsell pressure.</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/quote" className="btn-outline-white">See Pricing →</a>
@@ -147,7 +132,7 @@ const PAGE_CSS = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* REAL ENVIROCARE BRAND — vibrant mint, not generic emerald */
-  --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+  --green:#0A7935; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
   --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
   --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7; --gold-deep:#A16207;
   --white:#fff; --cream:#FFFDF8;

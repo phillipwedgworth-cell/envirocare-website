@@ -225,7 +225,7 @@ export default async function ServiceAreaPage({
 
   const office = OFFICES[data.office];
 
-  const G = "#0E8E40";
+  const G = "#0A7935";
   const GT = "#0A7935";
   const GOLD = "#F5A800";
   const DARK = "#0E1A0F";
@@ -233,8 +233,8 @@ export default async function ServiceAreaPage({
   const PAPER = "#F8F6EE";
   const GREY = "#6B7569";
   const LINE = "rgba(14,26,15,0.12)";
-  const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" } as const;
-  const ss = { fontFamily: "'Fraunces', 'Playfair Display', Georgia, serif" } as const;
+  const sf = { fontFamily: "var(--font-sans)" } as const;
+  const ss = { fontFamily: "'Fraunces', var(--font-serif)" } as const;
 
   const SCHEMA = {
     "@context": "https://schema.org",

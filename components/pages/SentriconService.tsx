@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Phone, CheckCircle, ChevronDown, Shield, Award } from "lucide-react";
+import { Phone, CheckCircle, ChevronDown, Shield, Award, Lightbulb, Check, X, TriangleAlert } from "lucide-react";
 
 import Header from "@/components/shared/Header";
 /* ── BRAND COLORS (confirmed from logo)
-   Green:  #0E8E40  (forest green — primary)
+   Green:  #0A7935  (forest green — primary)
    Gold:   #F5A800  (sunflower yellow — accents)
    White:  #FFFFFF
    Dark:   #1A1A1A
@@ -34,7 +34,7 @@ export default function SentriconProtection() {
       `}</script>
 
       {/* HERO */}
-      <section className="relative overflow-hidden text-white py-20 md:py-28" style={{background:"linear-gradient(135deg, #0E8E40 0%, #0f4d26 60%, #1a1a1a 100%)"}}>
+      <section className="relative overflow-hidden text-white py-20 md:py-28" style={{background:"linear-gradient(135deg, #0A7935 0%, #0f4d26 60%, #1a1a1a 100%)"}}>
         <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(circle at 80% 20%, #F5A800 0%, transparent 50%)"}} />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-3xl">
@@ -83,7 +83,7 @@ export default function SentriconProtection() {
       <section className="py-10 px-6 bg-amber-50 border-y border-amber-200">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{background:"#0E8E40"}}>
+            <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{background:"#0A7935"}}>
               <Award className="w-8 h-8 text-white" />
             </div>
             <div>
@@ -93,7 +93,7 @@ export default function SentriconProtection() {
           </div>
           <div className="flex-shrink-0 text-center">
             <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">Protecting Alabama Since</p>
-            <p className="text-4xl font-bold" style={{color:"#0E8E40"}}>1958</p>
+            <p className="text-4xl font-bold" style={{color:"#0A7935"}}>1958</p>
           </div>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function SentriconProtection() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="font-semibold text-sm uppercase tracking-wider mb-3" style={{color:"#0E8E40"}}>How It Works</p>
+            <p className="font-semibold text-sm uppercase tracking-wider mb-3" style={{color:"#0A7935"}}>How It Works</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               The Science Behind Sentricon®
             </h2>
@@ -151,7 +151,7 @@ export default function SentriconProtection() {
                 <div className="relative h-48 overflow-hidden bg-slate-100">
                   <img src={item.photo} alt={item.photoAlt} className="w-full h-full object-cover" />
                   {/* STOCK PHOTO NOTE: Replace with real EnviroCare technician photos when available */}
-                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg" style={{background:"#0E8E40"}}>
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg" style={{background:"#0A7935"}}>
                     {item.step}
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export default function SentriconProtection() {
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
                   <p className="text-slate-600 leading-relaxed mb-4">{item.description}</p>
                   <div className="flex items-start gap-2 p-3 rounded-lg" style={{background:"#f0fdf4", border:"1px solid #bbf7d0"}}>
-                    <span style={{color:"#0E8E40"}} className="font-bold mt-0.5 flex-shrink-0">💡</span>
+                    <Lightbulb size={18} style={{color:"#0A7935"}} className="mt-0.5 flex-shrink-0" aria-hidden="true" />
                     <p className="text-sm" style={{color:"#166534"}}>{item.tip}</p>
                   </div>
                 </div>
@@ -169,7 +169,7 @@ export default function SentriconProtection() {
 
           {/* Sentricon vs Liquid comparison */}
           <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-            <div className="p-6 text-white text-center" style={{background:"#0E8E40"}}>
+            <div className="p-6 text-white text-center" style={{background:"#0A7935"}}>
               <h3 className="text-2xl font-bold">Sentricon vs. Traditional Liquid Treatment</h3>
               <p className="text-green-100 mt-2">Why EnviroCare recommends Sentricon for Alabama homes</p>
             </div>
@@ -178,27 +178,38 @@ export default function SentriconProtection() {
                 <thead>
                   <tr className="bg-slate-50">
                     <th className="p-4 text-left text-slate-600 font-semibold">Feature</th>
-                    <th className="p-4 text-center font-bold" style={{color:"#0E8E40"}}>Sentricon® System</th>
+                    <th className="p-4 text-center font-bold" style={{color:"#0A7935"}}>Sentricon® System</th>
                     <th className="p-4 text-center text-slate-500 font-semibold">Liquid Treatment</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Eliminates entire colony (including queen)", sentricon: "✅ Yes", liquid: "❌ No — repels only" },
-                    { feature: "Requires trenching or drilling", sentricon: "✅ No disruption", liquid: "❌ Yes — major disruption" },
-                    { feature: "Low chemical volume / safer near water", sentricon: "✅ Minimal chemicals", liquid: "⚠️ Large volume chemicals" },
-                    { feature: "Always-active 24/7 protection", sentricon: "✅ Always active", liquid: "❌ Degrades over time" },
-                    { feature: "Annual monitoring included", sentricon: "✅ Yes", liquid: "⚠️ Varies by company" },
-                    { feature: "Targeted application — minimal exposure", sentricon: "✅ Yes", liquid: "⚠️ Requires precautions" },
-                    { feature: "Effective at Lake Martin waterfront", sentricon: "✅ Ideal near water", liquid: "⚠️ Restrictions near water" },
-                    { feature: "Used to protect the White House", sentricon: "✅ Yes", liquid: "❌ No" },
-                  ].map((row, i) => (
+                    { feature: "Eliminates entire colony (including queen)", sentricon: "Yes", sStatus: "yes", liquid: "No — repels only", lStatus: "no" },
+                    { feature: "Requires trenching or drilling", sentricon: "No disruption", sStatus: "yes", liquid: "Yes — major disruption", lStatus: "no" },
+                    { feature: "Low chemical volume / safer near water", sentricon: "Minimal chemicals", sStatus: "yes", liquid: "Large volume chemicals", lStatus: "warn" },
+                    { feature: "Always-active 24/7 protection", sentricon: "Always active", sStatus: "yes", liquid: "Degrades over time", lStatus: "no" },
+                    { feature: "Annual monitoring included", sentricon: "Yes", sStatus: "yes", liquid: "Varies by company", lStatus: "warn" },
+                    { feature: "Targeted application — minimal exposure", sentricon: "Yes", sStatus: "yes", liquid: "Requires precautions", lStatus: "warn" },
+                    { feature: "Effective at Lake Martin waterfront", sentricon: "Ideal near water", sStatus: "yes", liquid: "Restrictions near water", lStatus: "warn" },
+                    { feature: "Used to protect the White House", sentricon: "Yes", sStatus: "yes", liquid: "No", lStatus: "no" },
+                  ].map((row, i) => {
+                    const renderStatus = (status: string, text: string, isSentricon: boolean) => {
+                      const Icon = status === "yes" ? Check : status === "no" ? X : TriangleAlert;
+                      const color = status === "yes" ? "#0A7935" : status === "no" ? "#b91c1c" : "#b45309";
+                      return (
+                        <span className="inline-flex items-center justify-center gap-1.5">
+                          <Icon size={16} strokeWidth={2.6} style={{ color }} className="flex-shrink-0" aria-hidden="true" />
+                          <span style={isSentricon ? { color: "#0A7935" } : undefined}>{text}</span>
+                        </span>
+                      );
+                    };
+                    return (
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
                       <td className="p-4 text-slate-700 font-medium">{row.feature}</td>
-                      <td className="p-4 text-center font-semibold text-sm" style={{color:"#0E8E40"}}>{row.sentricon}</td>
-                      <td className="p-4 text-center text-slate-500 text-sm">{row.liquid}</td>
+                      <td className="p-4 text-center font-semibold text-sm">{renderStatus(row.sStatus, row.sentricon, true)}</td>
+                      <td className="p-4 text-center text-slate-500 text-sm">{renderStatus(row.lStatus, row.liquid, false)}</td>
                     </tr>
-                  ))}
+                  );})}
                 </tbody>
               </table>
             </div>
@@ -232,7 +243,7 @@ export default function SentriconProtection() {
                   "Lake Martin's moisture makes waterfront homes especially high risk",
                 ].map((fact, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <Shield className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color:"#0E8E40"}} />
+                    <Shield className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color:"#0A7935"}} />
                     <span className="text-slate-700 text-sm">{fact}</span>
                   </div>
                 ))}
@@ -249,7 +260,7 @@ export default function SentriconProtection() {
                 {/* STOCK PHOTO: Use actual termite damage photo or get from NPMA library */}
               </div>
               <div className="p-5 rounded-xl border-2" style={{borderColor:"#F5A800", background:"#fffbeb"}}>
-                <p className="font-bold text-slate-900 mb-2" style={{color:"#0E8E40"}}>EnviroCare Sentricon Fact</p>
+                <p className="font-bold text-slate-900 mb-2" style={{color:"#0A7935"}}>EnviroCare Sentricon Fact</p>
                 <p className="text-sm text-slate-700 leading-relaxed">
                   Sentricon® with Always Active™ protects national landmarks including the White House, the U.S. Capitol Building, and the Smithsonian Museums. The same proven technology protects Alabama homes through EnviroCare's Certified Specialist program.
                 </p>
@@ -260,7 +271,7 @@ export default function SentriconProtection() {
       </section>
 
       {/* SENTRICON FOR NEW HOMES */}
-      <section className="py-16 px-6 text-white" style={{background:"#0E8E40"}}>
+      <section className="py-16 px-6 text-white" style={{background:"#0A7935"}}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -350,7 +361,7 @@ export default function SentriconProtection() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 text-white text-center" style={{background:"linear-gradient(135deg, #0E8E40, #0f4d26)"}}>
+      <section className="py-20 px-6 text-white text-center" style={{background:"linear-gradient(135deg, #0A7935, #0f4d26)"}}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Free Termite Inspection for Alabama Homeowners</h2>
           <p className="text-green-100 text-lg mb-8">Our Certified Sentricon Specialists will assess your property, explain your options, and give you a written quote — no obligation.</p>
@@ -373,7 +384,7 @@ export default function SentriconProtection() {
       {quoteOpen && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center p-4" onClick={() => setQuoteOpen(false)}>
           <div className="bg-white rounded-2xl w-full sm:w-[440px] overflow-hidden shadow-2xl" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-            <div className="text-white p-5 flex justify-between items-start" style={{background:"#0E8E40"}}>
+            <div className="text-white p-5 flex justify-between items-start" style={{background:"#0A7935"}}>
               <div><h3 className="font-bold text-xl">Free Termite Inspection</h3><p className="text-green-200 text-sm mt-1">Select your area</p></div>
               <button onClick={() => setQuoteOpen(false)} className="text-3xl leading-none text-green-300 hover:text-white mt-[-4px]">×</button>
             </div>
@@ -387,7 +398,7 @@ export default function SentriconProtection() {
                   className="flex justify-between items-center w-full p-4 border-2 border-slate-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition group">
                   <div>
                     <div className="text-sm font-medium text-slate-700">{o.label}</div>
-                    <div className="font-bold mt-0.5" style={{color:"#0E8E40"}}>{o.phone}</div>
+                    <div className="font-bold mt-0.5" style={{color:"#0A7935"}}>{o.phone}</div>
                   </div>
                   <Phone className="w-5 h-5 text-slate-400 group-hover:text-green-600 transition" />
                 </a>

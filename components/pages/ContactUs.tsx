@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle2 } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-react";
 
 import Header from "@/components/shared/Header";
-const G = "#0E8E40";
+const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
@@ -97,7 +97,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
       <Header />
       <script type="application/ld+json">{`
         {
@@ -120,14 +120,14 @@ export default function ContactUs() {
       `}</script>
 
       {/* HERO */}
-      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0E8E40)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
+      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0A7935)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: "1px solid rgba(245,168,0,0.3)", borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
           <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>Free Inspection · Fast Scheduling</span>
         </div>
         <h1 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 400, lineHeight: 1.15, marginBottom: 14 }}>
           Talk to Your <em style={{ color: GOLD }}>Local</em> Office
         </h1>
-        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.65)", maxWidth: 480, margin: "0 auto 28px", lineHeight: 1.7, ...sf }}>
+        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.92)", maxWidth: 480, margin: "0 auto 28px", lineHeight: 1.7, ...sf }}>
           Three Alabama offices. Real people who answer the phone. Same family since 1958.
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
@@ -157,17 +157,17 @@ export default function ContactUs() {
           </div>
 
           {/* Selected office detail */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, maxWidth: 860, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32, maxWidth: 860, margin: "0 auto" }}>
             <div style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.15)", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
               <div style={{ background: OFFICES[selected].accent, color: "#fff", padding: "18px 22px" }}>
                 <div style={{ fontWeight: 700, fontSize: 17 }}>{OFFICES[selected].name}</div>
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", marginTop: 4, ...sf }}>{OFFICES[selected].note}</div>
+                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.92)", marginTop: 4, ...sf }}>{OFFICES[selected].note}</div>
               </div>
               <div style={{ padding: "22px" }}>
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "flex-start" }}>
                   <MapPin size={16} color={G} style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 2 }}>Address</div>
+                    <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Address</div>
                     <div style={{ fontWeight: 600, color: "#111827", fontSize: 14, ...sf }}>{OFFICES[selected].address}<br />{OFFICES[selected].city}</div>
                     <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: G, ...sf, fontWeight: 600, marginTop: 4, display: "inline-block" }}>Get Directions →</a>
                   </div>
@@ -175,20 +175,20 @@ export default function ContactUs() {
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "center" }}>
                   <Phone size={16} color={G} style={{ flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 2 }}>Phone</div>
+                    <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Phone</div>
                     <a href={`tel:${OFFICES[selected].tel}`} style={{ fontWeight: 800, fontSize: 20, color: G, textDecoration: "none", ...sf }}>{OFFICES[selected].phone}</a>
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "center" }}>
                   <Clock size={16} color={G} style={{ flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 2 }}>Hours</div>
+                    <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Hours</div>
                     <div style={{ fontSize: 13, color: "#374151", ...sf }}>{OFFICES[selected].hours}</div>
                   </div>
                 </div>
                 <div style={{ borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: 14, marginTop: 4 }}>
-                  <div style={{ fontSize: 11, color: "#9ca3af", ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>Service Area</div>
-                  <div style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.7, ...sf }}>{OFFICES[selected].serves}</div>
+                  <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>Service Area</div>
+                  <div style={{ fontSize: 12, color: "#4b5563", lineHeight: 1.7, ...sf }}>{OFFICES[selected].serves}</div>
                 </div>
                 <a href={`tel:${OFFICES[selected].tel}`} style={{ display: "block", width: "100%", marginTop: 16, padding: "13px", background: G, color: "#fff", border: "none", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", ...sf, textAlign: "center", textDecoration: "none" }}>
                   Call This Office
@@ -196,33 +196,33 @@ export default function ContactUs() {
               </div>
             </div>
 
-            {/* Map placeholder — use real Google Maps embed */}
-            <div style={{ background: "#e8f5e9", borderRadius: 16, overflow: "hidden", position: "relative", minHeight: 360, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {/* 
-                DEVELOPER NOTE: Replace this div with:
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=..." 
-                  width="100%" height="100%" style={{border:0}} 
-                  allowFullScreen loading="lazy"
-                />
-                Get embed URL from: maps.google.com → Share → Embed
-              */}
-              <div style={{ textAlign: "center", padding: 32 }}>
-                <MapPin size={40} color={G} style={{ marginBottom: 12 }} />
-                <div style={{ fontSize: 14, color: G, fontWeight: 600, ...sf, marginBottom: 8 }}>{OFFICES[selected].address}<br />{OFFICES[selected].city}</div>
-                <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "10px 20px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
-                  Open in Google Maps
-                </a>
-                <div style={{ marginTop: 16, fontSize: 11, color: "#6b7280", ...sf }}>Replace with Google Maps embed before launch</div>
-              </div>
-            </div>
+                {/* Live Google Maps embed (keyless q/output=embed form) */}
+                <div style={{ background: "#e8f5e9", borderRadius: 16, overflow: "hidden", position: "relative", minHeight: 360, display: "flex", flexDirection: "column" }}>
+                  <iframe
+                    title={`Map of ${OFFICES[selected].name} — ${OFFICES[selected].address}, ${OFFICES[selected].city}`}
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(`${OFFICES[selected].address}, ${OFFICES[selected].city}`)}&z=14&output=embed`}
+                    style={{ border: 0, width: "100%", flex: 1, minHeight: 300 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "14px 18px", background: "#fff", borderTop: "1px solid #e2e8e4" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <MapPin size={18} color={G} style={{ flexShrink: 0 }} aria-hidden="true" />
+                      <span style={{ fontSize: 13, color: G, fontWeight: 600, ...sf }}>{OFFICES[selected].address}, {OFFICES[selected].city}</span>
+                    </div>
+                    <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "9px 18px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
+                      Open in Google Maps
+                    </a>
+                  </div>
+                </div>
           </div>
         </div>
       </section>
 
       {/* CONTACT FORM */}
       <section style={{ background: "#f7f8f4", padding: "64px 40px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1.3fr)", gap: 36, alignItems: "start" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 36, alignItems: "start" }}>
 
           {/* Left — what to expect */}
           <div>
@@ -243,12 +243,12 @@ export default function ContactUs() {
             <div style={{ marginBottom: 24 }}>
               <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Request Service</div>
               <h2 style={{ fontSize: 30, fontWeight: 400, color: DARK, marginBottom: 8 }}>Get Your Free Inspection</h2>
-              <p style={{ fontSize: 15, color: "#6b7280", ...sf }}>We'll call you back within 2 hours during business hours.</p>
+              <p style={{ fontSize: 15, color: "#4b5563", ...sf }}>We'll call you back within 2 hours during business hours.</p>
             </div>
 
           {!submitted ? (
             <form onSubmit={handleSubmit} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 16, padding: "36px 32px", boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your Name *</label>
                   <input required value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, name: e.target.value })}
@@ -262,7 +262,7 @@ export default function ContactUs() {
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
                   <input type="email" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, email: e.target.value })}
@@ -278,7 +278,7 @@ export default function ContactUs() {
               </div>
               <div style={{ marginBottom: 16 }}>
                 <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Service Needed *</label>
-                <select required value={form.service} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, service: e.target.value })}
+                <select required aria-label="Service Needed" value={form.service} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, service: e.target.value })}
                   style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", background: "#fff" }}>
                   <option value="">Select a service...</option>
                   <option>Pest Control</option>
@@ -303,16 +303,16 @@ export default function ContactUs() {
                 {submitting ? "Sending..." : "Request Free Inspection →"}
               </button>
               {error && <p style={{ textAlign: "center", fontSize: 13, color: "#b91c1c", marginTop: 12, ...sf }}>{error}</p>}
-              <p style={{ textAlign: "center", fontSize: 12, color: "#9ca3af", marginTop: 12, ...sf }}>
+              <p style={{ textAlign: "center", fontSize: 12, color: "#4b5563", marginTop: 12, ...sf }}>
                 We'll call within 2 hours · No obligation · No pressure
               </p>
             </form>
           ) : (
             <div style={{ background: "#fff", border: `2px solid ${G}`, borderRadius: 16, padding: "52px 32px", textAlign: "center" }}>
-              <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><CheckCircle2 size={52} color={G} strokeWidth={1.75} /></div>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}><CheckCircle size={52} color={G} strokeWidth={1.8} aria-hidden="true" /></div>
               <h3 style={{ fontSize: 24, fontWeight: 400, color: DARK, marginBottom: 10 }}>Thank You, {form.name}!</h3>
-              <p style={{ fontSize: 15, color: "#6b7280", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> within 2 hours.</p>
-              <p style={{ fontSize: 14, color: "#9ca3af", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>
+              <p style={{ fontSize: 15, color: "#4b5563", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> within 2 hours.</p>
+              <p style={{ fontSize: 14, color: "#4b5563", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>
             </div>
           )}
           </div>
@@ -332,7 +332,7 @@ export default function ContactUs() {
             ].map(([q, a], i) => (
               <div key={i} style={{ background: "#f7f8f4", border: "1px solid rgba(27,122,60,0.1)", borderRadius: 10, padding: "16px 20px" }}>
                 <div style={{ fontWeight: 700, fontSize: 14, color: DARK, ...sf, marginBottom: 6 }}>{q}</div>
-                <div style={{ fontSize: 13, color: "#6b7280", ...sf, lineHeight: 1.6 }}>{a}</div>
+                <div style={{ fontSize: 13, color: "#4b5563", ...sf, lineHeight: 1.6 }}>{a}</div>
               </div>
             ))}
           </div>

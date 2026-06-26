@@ -290,7 +290,7 @@ const RQ_CSS = `
   min-height: 100vh;
   background: #F7F6F1;
   padding: 48px 16px 80px;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 .rq-card {
   max-width: 680px;
@@ -305,11 +305,11 @@ const RQ_CSS = `
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #0E8E40;
+  color: #0A7935;
   margin-bottom: 8px;
 }
 .rq-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #0E1A0F;
@@ -322,7 +322,7 @@ const RQ_CSS = `
   margin: 0 0 28px;
   line-height: 1.6;
 }
-.rq-link { color: #0E8E40; text-decoration: underline; }
+.rq-link { color: #0A7935; text-decoration: underline; }
 .rq-link:hover { color: #0A7935; }
 .rq-form { display: flex; flex-direction: column; gap: 18px; }
 .rq-row { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -330,8 +330,8 @@ const RQ_CSS = `
 .rq-field--grow { flex: 2; }
 .rq-field--zip { flex: 1; min-width: 100px; max-width: 140px; }
 .rq-label { font-size: 13px; font-weight: 600; color: #2A3328; }
-.rq-req { color: #0E8E40; }
-.rq-zip-hint { font-weight: 400; color: #0E8E40; font-size: 12px; }
+.rq-req { color: #0A7935; }
+.rq-zip-hint { font-weight: 400; color: #0A7935; font-size: 12px; }
 .rq-input {
   padding: 11px 13px;
   font-size: 15px;
@@ -345,7 +345,7 @@ const RQ_CSS = `
   box-sizing: border-box;
   transition: border-color 0.15s;
 }
-.rq-input:focus { border-color: #0E8E40; }
+.rq-input:focus { border-color: #0A7935; }
 .rq-textarea { resize: vertical; min-height: 100px; }
 .rq-error {
   padding: 12px 14px;
@@ -357,7 +357,7 @@ const RQ_CSS = `
 }
 .rq-btn {
   padding: 14px 24px;
-  background: #0E8E40;
+  background: #0A7935;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -374,8 +374,8 @@ const RQ_CSS = `
 .rq-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .rq-btn--outline {
   background: transparent;
-  color: #0E8E40;
-  border: 2px solid #0E8E40;
+  color: #0A7935;
+  border: 2px solid #0A7935;
 }
 .rq-btn--outline:hover { background: #F0FAF4; }
 .rq-fine {
@@ -393,7 +393,7 @@ const RQ_CSS = `
   height: 64px;
   border-radius: 50%;
   background: #E8F7EE;
-  color: #0E8E40;
+  color: #0A7935;
   font-size: 28px;
   display: flex;
   align-items: center;
@@ -401,14 +401,14 @@ const RQ_CSS = `
   margin: 0 auto 20px;
 }
 .rq-success-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 700;
   color: #0E1A0F;
   margin: 0 0 12px;
 }
 .rq-success-body { font-size: 15px; color: #5A6660; margin: 0 0 10px; line-height: 1.6; }
-.rq-phone { color: #0E8E40; font-weight: 600; text-decoration: none; }
+.rq-phone { color: #0A7935; font-weight: 600; text-decoration: none; }
 @media (max-width: 600px) {
   .rq-card { padding: 28px 18px; }
   .rq-field--zip { max-width: 100%; }

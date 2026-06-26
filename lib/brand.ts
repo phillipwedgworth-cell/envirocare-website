@@ -8,8 +8,10 @@ export const DEEP = "#07642B";
 export const CREAM = "#FEFDF8";
 export const INK = "#0E1A0F";
 
-export const displayFont = "'Playfair Display', Georgia, serif";
-export const bodyFont = "'DM Sans', system-ui, -apple-system, sans-serif";
+// Resolve to the self-hosted next/font families (set on <html> in app/layout.tsx).
+// The var() falls back to Georgia/system-ui automatically via globals.css.
+export const displayFont = "var(--font-serif)";
+export const bodyFont = "var(--font-sans)";
 
 export const TAGLINE = "No One Cares Like EnviroCare";
 export const HERITAGE = "Family-owned since 1958 · Fourth generation";

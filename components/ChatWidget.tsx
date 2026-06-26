@@ -12,7 +12,7 @@
 import { useState, useRef, useEffect } from "react";
 
 // Brand tokens — locked. Do not change without checking with Phillip.
-const BRAND_GREEN = "#0E8E40";
+const BRAND_GREEN = "#0A7935";
 const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";

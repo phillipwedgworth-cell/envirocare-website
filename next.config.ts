@@ -53,8 +53,8 @@ const nextConfig: NextConfig = {
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
             { source: '/contact', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
-            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13
-            { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25
+            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13 (compliance scrub) — PENDING Phillip's call on next-steps revival
+            { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25 (only /services/mosquito page exists)
             { source: '/services/pest', destination: '/services/pest-control', permanent: true },
             { source: '/services/rodent', destination: '/services/pest-control', permanent: true },
             { source: '/termite', destination: '/services/termite-control', permanent: true },

@@ -80,7 +80,7 @@ export default function BlogPage() {
 
 const BLOG_CSS = `
 .bp-main {
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: #FEFDF8;
   color: #0E1A0F;
   min-height: 100vh;
@@ -97,13 +97,13 @@ const BLOG_CSS = `
 .bp-eyebrow {
   font-size: 13px;
   font-weight: 600;
-  color: #0E8E40;
+  color: #0A7935;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 16px;
 }
 .bp-h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(36px, 5.5vw, 60px);
   font-weight: 700;
   margin: 0 0 20px;
@@ -111,7 +111,7 @@ const BLOG_CSS = `
 }
 .bp-h1 em {
   font-style: italic;
-  color: #0E8E40;
+  color: #0A7935;
 }
 .bp-sub {
   font-size: 18px;
@@ -163,7 +163,7 @@ const BLOG_CSS = `
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #0E8E40;
+  color: #0A7935;
   background: #E8F5EE;
   padding: 4px 10px;
   border-radius: 999px;
@@ -173,7 +173,7 @@ const BLOG_CSS = `
   color: #94A89A;
 }
 .bp-card-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
@@ -203,7 +203,7 @@ const BLOG_CSS = `
 }
 .bp-cta-section {
   padding: 80px 24px;
-  background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+  background: linear-gradient(135deg, #0A7935 0%, #0A7935 100%);
   color: #fff;
 }
 .bp-cta-inner {
@@ -212,7 +212,7 @@ const BLOG_CSS = `
   text-align: center;
 }
 .bp-cta-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
   margin: 0 0 12px;

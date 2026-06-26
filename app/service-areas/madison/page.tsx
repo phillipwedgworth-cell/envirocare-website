@@ -18,15 +18,15 @@ export const metadata: Metadata = {
 };
 
 // ─── Brand tokens ────────────────────────────────────────────
-const G = "#0E8E40";   // Brand Green
+const G = "#0A7935";   // Brand Green
 const D = "#07642B";   // Deep
 const F = "#0A7935";   // Forest
 const Au = "#F5A800";  // Gold
 const Cr = "#FEFDF8";  // Cream
 const Ik = "#0E1A0F";  // Ink
 
-const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-const sans  = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+const serif = { fontFamily: "var(--font-serif)" } as const;
+const sans  = { fontFamily: "var(--font-sans)" } as const;
 
 // ─── JSON-LD schema ──────────────────────────────────────────
 const jsonLd = {

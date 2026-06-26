@@ -19,15 +19,15 @@ import { EmojiIcon } from "@/components/shared/PestIcon";
  * EnviroCare's own guarantee.
  */
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const D = "#07642B";
 const F = "#0A7935";
 const Au = "#F5A800";
 const Cr = "#FEFDF8";
 const Ik = "#0E1A0F";
 
-const serif = { fontFamily: "'Playfair Display', Georgia, serif" } as const;
-const sans = { fontFamily: "'DM Sans', system-ui, sans-serif" } as const;
+const serif = { fontFamily: "var(--font-serif)" } as const;
+const sans = { fontFamily: "var(--font-sans)" } as const;
 
 export type DeepCityConfig = {
   name: string;            // "Vestavia Hills"

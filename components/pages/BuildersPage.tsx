@@ -2,29 +2,8 @@
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 
-import { useEffect } from 'react';
 
 export default function BuildersPage() {
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const links = [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap' },
-    ];
-    const els: HTMLLinkElement[] = [];
-    links.forEach((cfg) => {
-      if (document.head.querySelector(`link[href="${cfg.href}"]`)) return;
-      const el = document.createElement('link');
-      Object.entries(cfg).forEach(([k, v]) => {
-        if (k === 'crossOrigin') el.crossOrigin = v as string;
-        else el.setAttribute(k, v as string);
-      });
-      document.head.appendChild(el);
-      els.push(el);
-    });
-    return () => { els.forEach((el) => el.remove()); };
-  }, []);
 
   return (
     <>
@@ -75,7 +54,7 @@ export default function BuildersPage() {
             <div className="flow-card">
               <div className="flow-num">3</div>
               <div className="flow-title">WDO Letter At Closing</div>
-              <div className="flow-desc">NPMA-33 inspection letter delivered to your closing attorney. Buyer\'s lender accepts it. No closing delays from termite paperwork.</div>
+              <div className="flow-desc">NPMA-33 inspection letter delivered to your closing attorney. Buyer&apos;s lender accepts it. No closing delays from termite paperwork.</div>
             </div>
             <div className="flow-card">
               <div className="flow-num">4</div>
@@ -122,7 +101,7 @@ export default function BuildersPage() {
 
       <section className="office-cta">
         <div className="office-cta-inner">
-          <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Ready To Partner?</div>
+          <div className="section-eyebrow">Ready To Partner?</div>
           <h3>Get Builder Pricing</h3>
           <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn — All Alabama markets</div>
           <div className="office-cta-row">
@@ -141,7 +120,7 @@ const PAGE_CSS = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* REAL ENVIROCARE BRAND — vibrant mint, not generic emerald */
-  --green:#0E8E40; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
+  --green:#0A7935; --green-mid:#22C55E; --green-dk:#0A7935; --green-deep:#07642B; --green-darkest:#062514;
   --green-lt:#DCFCE7; --green-xlt:#F0FDF4;
   --gold:#F5A800; --gold-dk:#CA8A04; --gold-lt:#FEF3C7; --gold-deep:#A16207;
   --white:#fff; --cream:#FFFDF8;
@@ -510,6 +489,12 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 .flow-num{position:absolute;top:-14px;left:1.6rem;background:var(--gold);color:var(--ink);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:900;font-size:1.05rem;border:3px solid var(--cream)}
 .flow-title{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:700;color:var(--green-dk);margin:.8rem 0 .6rem;line-height:1.25}
 .flow-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+.wedge{padding:5.5rem clamp(1.5rem,5vw,4rem)}
+.wedge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem;max-width:1180px;margin:2.4rem auto 0}
+.wedge-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:16px;padding:1.7rem 1.6rem;transition:transform .25s,box-shadow .25s}
+.wedge-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.wedge-lead{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:700;color:var(--green-dk);margin-bottom:.6rem;line-height:1.25}
+.wedge-body{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
 .stat-band{padding:4rem clamp(1.5rem,5vw,4rem);background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-darkest) 100%);color:#fff}
 .stat-band-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;text-align:center}
 .stat-band-n{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--gold);line-height:1;margin-bottom:.4rem}

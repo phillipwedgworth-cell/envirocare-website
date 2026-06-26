@@ -61,7 +61,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
 
 const POST_CSS = `
 .bpp-main {
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: #FEFDF8;
   color: #0E1A0F;
 }
@@ -77,7 +77,7 @@ const POST_CSS = `
 .bpp-back {
   display: inline-block;
   font-size: 14px;
-  color: #0E8E40;
+  color: #0A7935;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 32px;
@@ -95,7 +95,7 @@ const POST_CSS = `
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #0E8E40;
+  color: #0A7935;
   background: #E8F5EE;
   padding: 6px 14px;
   border-radius: 999px;
@@ -109,7 +109,7 @@ const POST_CSS = `
   margin-bottom: 20px;
 }
 .bpp-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(32px, 5vw, 52px);
   font-weight: 700;
   line-height: 1.15;
@@ -145,11 +145,11 @@ const POST_CSS = `
   color: #0E1A0F;
   border-left: 4px solid #F5A800;
   padding-left: 20px;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-style: italic;
 }
 .bpp-body h2 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 30px;
   font-weight: 700;
   margin: 2em 0 0.6em;
@@ -157,7 +157,7 @@ const POST_CSS = `
   line-height: 1.25;
 }
 .bpp-body h3 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 700;
   margin: 1.6em 0 0.5em;
@@ -173,12 +173,12 @@ const POST_CSS = `
 .bpp-body strong { color: #0E1A0F; }
 .bpp-body em { font-style: italic; }
 .bpp-body a {
-  color: #0E8E40;
+  color: #0A7935;
   font-weight: 600;
 }
 .bpp-cta-section {
   padding: 80px 24px;
-  background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+  background: linear-gradient(135deg, #0A7935 0%, #0A7935 100%);
   color: #fff;
 }
 .bpp-cta-inner {
@@ -187,7 +187,7 @@ const POST_CSS = `
   text-align: center;
 }
 .bpp-cta-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
   margin: 0 0 12px;

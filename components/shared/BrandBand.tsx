@@ -2,8 +2,7 @@
 // of every interior page. The per-page EnviroCare identifier: sunflower mark +
 // tagline + heritage line. Server component, no interactivity.
 
-import { GREEN, GOLD, CREAM, INK, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
-import PestIcon from "@/components/shared/PestIcon";
+import { GREEN, GOLD, DEEP, CREAM, INK, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
 
 export default function BrandBand() {
   return (
@@ -27,7 +26,7 @@ export default function BrandBand() {
           textAlign: "center",
         }}
       >
-        <span aria-hidden="true" style={{ display: "inline-flex", color: GREEN, lineHeight: 1 }}><PestIcon name="leaf" size={18} /></span>
+        <span aria-hidden="true" style={{ fontSize: 18, lineHeight: 1 }}>🌻</span>
         <span
           style={{
             fontFamily: displayFont,
@@ -46,7 +45,7 @@ export default function BrandBand() {
             fontFamily: bodyFont,
             fontSize: 12.5,
             fontWeight: 600,
-            color: GREEN,
+            color: DEEP, /* darker brand green meets WCAG AA on cream (GREEN was 4.15:1) */
             letterSpacing: "0.06em",
             textTransform: "uppercase",
           }}

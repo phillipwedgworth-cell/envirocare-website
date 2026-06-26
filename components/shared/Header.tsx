@@ -8,11 +8,11 @@ import BrandBand from "./BrandBand";
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
 export const PAYMENT_PORTAL_URL = "/pay";
 
-const G = "#0E8E40";
+const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 
-const sf = { fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif" };
+const sf = { fontFamily: "var(--font-sans)" };
 
 const SERVICES_ITEMS: [string, string][] = [
   ["All Services", "/services"],
@@ -207,7 +207,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
           {/* RIGHT: Phone | Customer Login | Get Free Quote */}
           <div className="ec-desktop-only" style={{ alignItems: "center", gap: 0, ...sf }}>
-            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: G, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
+            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: "#0A7935", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
               <Phone size={14} /> (205) 940-6360
             </a>
             {divider}

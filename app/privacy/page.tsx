@@ -9,15 +9,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const BRAND_GREEN = "#0E8E40";
+const BRAND_GREEN = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
 const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 
 export default function PrivacyPage() {
-  const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, serif" };
-  const sans: React.CSSProperties = { fontFamily: "'DM Sans', system-ui, sans-serif" };
+  const serif: React.CSSProperties = { fontFamily: "var(--font-serif)" };
+  const sans: React.CSSProperties = { fontFamily: "var(--font-sans)" };
 
   return (
     <main style={{ background: CREAM, minHeight: "100vh", color: INK, ...sans }}>
