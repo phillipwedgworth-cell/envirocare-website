@@ -1,21 +1,27 @@
 // components/shared/Footer.tsx — unified site footer. Self-contained (inline
-// styles, no page CSS dependency) so any template can drop it in. Content
-// mirrors the CityPage footer: correct phones, services, areas, legal links.
+// styles, no page CSS dependency) so any template can drop it in. Light cream
+// palette matching the homepage footer. Content mirrors the homepage: correct
+// phones, services, areas, legal links.
 
-import { GOLD, INK, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
+import { GREEN, FOREST, DEEP, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
+
+const TEXT = "#4a5750";
+const MUTED = "#7a887e";
+const SURFACE = "#F2F6EF";
+const HAIRLINE = "#d6e2d8";
 
 const COL_HEAD: React.CSSProperties = {
   fontFamily: bodyFont,
   fontSize: 12,
-  fontWeight: 700,
-  letterSpacing: "0.12em",
+  fontWeight: 800,
+  letterSpacing: "0.08em",
   textTransform: "uppercase",
-  color: GOLD,
+  color: DEEP,
   marginBottom: 14,
 };
 
 const LINK: React.CSSProperties = {
-  color: "rgba(255,255,255,0.72)",
+  color: TEXT,
   textDecoration: "none",
   fontFamily: bodyFont,
   fontSize: 14,
@@ -23,7 +29,28 @@ const LINK: React.CSSProperties = {
   display: "block",
 };
 
+const PHONE: React.CSSProperties = {
+  color: FOREST,
+  textDecoration: "none",
+  fontFamily: bodyFont,
+  fontSize: 14,
+  fontWeight: 700,
+  lineHeight: 2,
+  display: "flex",
+  alignItems: "center",
+  gap: 8,
+};
+
+function PhoneIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
 const SERVICES: [string, string][] = [
+  ["All Services", "/services"],
   ["Pest Control", "/services/pest-control"],
   ["Termite Control", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito"],
@@ -38,6 +65,7 @@ const SPECIALTY: [string, string][] = [
   ["Builder Pre-Treat", "/builders"],
   ["Real Estate / WDO Letters", "/realtor"],
   ["Commercial Service", "/services/commercial"],
+  ["Special Offers", "/special-offers"],
 ];
 
 const AREAS: [string, string][] = [
@@ -52,7 +80,7 @@ const AREAS: [string, string][] = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: INK, padding: "56px clamp(20px,5vw,64px) 28px" }}>
+    <footer style={{ background: SURFACE, borderTop: `4px solid ${GREEN}`, padding: "56px clamp(20px,5vw,64px) 28px" }}>
       <div
         style={{
           maxWidth: 1120,
@@ -63,18 +91,18 @@ export default function Footer() {
         }}
       >
         <div>
-          <div style={{ fontFamily: displayFont, color: "#fff", fontSize: 18, fontWeight: 600, marginBottom: 6 }}>
-            🌻 EnviroCare Pest &amp; Termite Services
+          <div style={{ fontFamily: displayFont, color: DEEP, fontSize: 18, fontWeight: 600, marginBottom: 6 }}>
+            EnviroCare Pest &amp; Termite Services
           </div>
-          <div style={{ fontFamily: displayFont, fontStyle: "italic", color: GOLD, fontSize: 14, marginBottom: 10 }}>
+          <div style={{ fontFamily: displayFont, fontStyle: "italic", color: FOREST, fontSize: 14, marginBottom: 10 }}>
             {TAGLINE}
           </div>
-          <p style={{ ...LINK, lineHeight: 1.7, marginBottom: 14 }}>
+          <p style={{ ...LINK, color: MUTED, lineHeight: 1.7, marginBottom: 14 }}>
             {HERITAGE} of the Wedgworth family. Serving Alabama from three offices.
           </p>
-          <a href="tel:2059406360" style={{ ...LINK, fontWeight: 700, color: "#fff" }}>📞 (205) 940-6360 — Birmingham</a>
-          <a href="tel:2562346162" style={LINK}>📞 (256) 234-6162 — Lake Martin / Alex City</a>
-          <a href="tel:2569377676" style={LINK}>📞 (256) 937-7676 — Huntsville</a>
+          <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Birmingham</a>
+          <a href="tel:2562346162" style={PHONE}><PhoneIcon /> (256) 234-6162 — Lake Martin / Alex City</a>
+          <a href="tel:2569377676" style={PHONE}><PhoneIcon /> (256) 937-7676 — Huntsville</a>
         </div>
         <div>
           <div style={COL_HEAD}>Core Services</div>
@@ -100,20 +128,20 @@ export default function Footer() {
           maxWidth: 1120,
           margin: "40px auto 0",
           paddingTop: 22,
-          borderTop: "1px solid rgba(255,255,255,0.12)",
+          borderTop: `1px solid ${HAIRLINE}`,
           display: "flex",
           justifyContent: "space-between",
           flexWrap: "wrap",
           gap: 12,
           fontFamily: bodyFont,
           fontSize: 12.5,
-          color: "rgba(255,255,255,0.5)",
+          color: MUTED,
         }}
       >
         <span>© 2026 EnviroCare Pest &amp; Termite Services LLC. All rights reserved. Licensed in Alabama · Sentricon® Certified Specialist</span>
         <span style={{ display: "flex", gap: 22 }}>
-          <a href="/privacy" style={{ ...LINK, display: "inline", fontSize: 12.5 }}>Privacy Policy</a>
-          <a href="/terms" style={{ ...LINK, display: "inline", fontSize: 12.5 }}>Terms of Service</a>
+          <a href="/privacy" style={{ ...LINK, display: "inline", fontSize: 12.5, color: MUTED }}>Privacy Policy</a>
+          <a href="/terms" style={{ ...LINK, display: "inline", fontSize: 12.5, color: MUTED }}>Terms of Service</a>
         </span>
       </div>
     </footer>

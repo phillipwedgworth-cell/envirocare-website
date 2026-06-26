@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
   title: "WDO Inspection Letters in Alabama | Real Estate Termite Reports | EnviroCare",
@@ -206,7 +207,7 @@ export default function WDOLettersPage() {
                   textAlign: "center",
                 }}
               >
-                <div style={{ fontSize: 28, marginBottom: 8 }}>{item.icon}</div>
+                <div style={{ marginBottom: 8, display: "flex", justifyContent: "center" }}><EmojiIcon glyph={item.icon} /></div>
                 <p style={{ fontSize: 14, fontWeight: 600, color: DEEP, margin: 0 }}>{item.label}</p>
               </div>
             ))}

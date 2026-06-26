@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import PestIcon from "@/components/shared/PestIcon";
 
 export default function NotFound() {
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function NotFound() {
       <style dangerouslySetInnerHTML={{ __html: NF_CSS }} />
 
       <div className="ann">
-        🌻 <strong>Family-owned since 1958</strong> · Four generations of the Wedgworth family
+        <span style={{ display: 'inline-flex', verticalAlign: 'middle', marginRight: 6, color: '#0E8E40' }}><PestIcon name="leaf" size={15} /></span><strong>Family-owned since 1958</strong> · Four generations of the Wedgworth family
         <a href="tel:2059406360">Call (205) 940-6360 →</a>
       </div>
 
@@ -49,9 +50,9 @@ export default function NotFound() {
       <section className="not-found-hero">
         <div>
           <div className="not-found-num">404</div>
-          <h1 className="not-found-h">This Page<em>Got Away From Us</em></h1>
+          <h1 className="not-found-h">This Page <em>Got Away From Us</em></h1>
           <p className="not-found-p">
-            Sorry — the page you\'re looking for either moved or never existed. Try one of these popular pages, or call us at (205) 940-6360 and we\'ll help you find what you need.
+            Sorry — the page you&rsquo;re looking for either moved or never existed. Try one of these popular pages, or call us at (205) 940-6360 and we&rsquo;ll help you find what you need.
           </p>
           <div className="not-found-links">
             <a href="/" className="nf-link">
@@ -77,7 +78,7 @@ export default function NotFound() {
       <footer id="contact">
         <div className="footer-grid">
           <div><div className="footer-brand"><strong>EnviroCare Pest & Termite Services</strong>Family-owned since 1958.<br /><br />
-          <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700}}>📞 (205) 940-6360</a></div></div>
+          <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700,display:'inline-flex',alignItems:'center',gap:8}}><PestIcon name="phone" size={16} /> (205) 940-6360</a></div></div>
           <div><div className="footer-head">Services</div><ul className="footer-links">
             <li><a href="/services/pest-control">Pest Control</a></li><li><a href="/services/termite-control">Termite Control</a></li><li><a href="/services/mosquito">Mosquito Control</a></li><li><a href="/services/tick-control">Tick Control</a></li>
           </ul></div>

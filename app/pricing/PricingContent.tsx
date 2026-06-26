@@ -14,7 +14,8 @@
 
 "use client";
 
-import { useState } from "react";
+  import { useState } from "react";
+import PestIcon from "@/components/shared/PestIcon";
 
 // ---------- BRAND TOKENS ----------
 const GREEN = "#0E8E40";
@@ -324,7 +325,7 @@ export default function PricingContent() {
       {/* FINAL CTA */}
       <section style={{ background: `linear-gradient(160deg, ${GREEN} 0%, ${DEEP} 100%)`, padding: "80px 36px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
-          <div style={{ fontSize: 48, color: GOLD, marginBottom: 16, fontFamily: "'Fraunces', serif" }}>🌻</div>
+          <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><PestIcon name="leaf" size={44} style={{ color: GOLD }} /></div>
           <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(32px, 4.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 14 }}>
             Get your free quote. <em style={{ color: GOLD, fontStyle: "italic" }}>We&rsquo;ll call you back.</em>
           </h2>
@@ -344,7 +345,7 @@ export default function PricingContent() {
               padding: "16px 24px", fontWeight: 600, fontSize: 15,
               textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8,
             }}>
-              📞 (205) 940-6360
+              <PestIcon name="phone" size={16} /> (205) 940-6360
             </a>
           </div>
         </div>

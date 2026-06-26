@@ -1,30 +1,99 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/pages/Homepage.tsx
-// Commit: feat(homepage): restore Lake Martin band, truck banner, specialty services sections
-// Push: main
-// ─────────────────────────────────────
-
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/pages/Homepage.tsx
-// Commit: feat(homepage): per-service accent colors + tighter section spacing
-// Push: main
-// ─────────────────────────────────────
-
-
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/pages/Homepage.tsx
-// Commit: feat: consolidate homepage — Option B layout, compact pricing, no contract language
-// Push: main
-// ─────────────────────────────────────
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import type { ComponentType, SVGProps } from 'react';
+import {
+  Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
+  Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
+} from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
+
+/* ============================================================
+   ICONS — professional line icons (lucide) + custom insects
+   ============================================================ */
+type IconProps = SVGProps<SVGSVGElement> & { size?: number };
+
+// Mosquito — lucide has no mosquito, so this is a custom line icon
+function MosquitoIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 12l7-8" />
+      <path d="M12 12L5 4" />
+      <path d="M12 12c-2.5 1-4 2.8-4 4.5" />
+      <path d="M12 12c2.5 1 4 2.8 4 4.5" />
+      <path d="M12 12v6" />
+      <ellipse cx="7.5" cy="8" rx="3.5" ry="1.8" transform="rotate(-30 7.5 8)" />
+      <ellipse cx="16.5" cy="8" rx="3.5" ry="1.8" transform="rotate(30 16.5 8)" />
+      <path d="M12 18l-1 2" />
+    </svg>
+  );
+}
+
+// Tick — custom line icon (rounded body + legs)
+function TickIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <ellipse cx="12" cy="13" rx="5" ry="6" />
+      <circle cx="12" cy="5.5" r="2" />
+      <path d="M7 10L3.5 8" />
+      <path d="M7 13H3" />
+      <path d="M7 16l-3.5 2" />
+      <path d="M17 10l3.5-2" />
+      <path d="M17 13h4" />
+      <path d="M17 16l3.5 2" />
+    </svg>
+  );
+}
+
+// Flea — custom line icon (humped jumping insect)
+function FleaIcon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14 6c-4 0-7 3.5-7 8 0 2.2 1.3 4 3.5 4s3.5-1.4 3.5-3.5" />
+      <circle cx="15" cy="5" r="1.6" />
+      <path d="M7 14l-3 1" />
+      <path d="M8 17l-3 2.5" />
+      <path d="M16 5l3-1.5" />
+      <path d="M16 8l3.5-1" />
+    </svg>
+  );
+}
+
+const SERVICE_ICONS: Record<string, ComponentType<IconProps>> = {
+  pest: Bug,
+  termite: ShieldCheck,
+  mosquito: MosquitoIcon,
+  tick: TickIcon,
+  fireant: Flame,
+  flea: FleaIcon,
+  commercial: Building2,
+  wdo: FileText,
+  builder: HardHat,
+  pestmosquito: Leaf,
+  complete: House,
+  initial: Rocket,
+};
+
+function ServiceIcon({ name, size, ...props }: IconProps & { name: string }) {
+  const Cmp = SERVICE_ICONS[name] || Bug;
+  return <Cmp size={size} {...props} />;
+}
+
+// Row of 5 filled rating stars
+function Stars({ size = 14 }: { size?: number }) {
+  return (
+    <span className="ec-stars" aria-hidden="true">
+      {[0, 1, 2, 3, 4].map(i => (
+        <Star key={i} size={size} fill="currentColor" stroke="none" />
+      ))}
+    </span>
+  );
+}
 
 /**
  * EnviroCare Homepage v6 — Consolidated Option B (Jun 19, 2026)
@@ -125,6 +194,15 @@ function LocalBusinessJsonLd() {
 export default function Homepage() {
   return (
     <main className="ec-main">
+      {/* Preload the hero LCP background so the browser fetches it immediately
+          instead of waiting for CSS to parse — improves mobile LCP. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/family-yard.jpg"
+        // @ts-expect-error fetchPriority is a valid DOM attr not yet in React's link types
+        fetchpriority="high"
+      />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <LocalBusinessJsonLd />
       <TopBanner />
@@ -133,7 +211,6 @@ export default function Homepage() {
       <ConsolidatedPricing />
       <Reviews />
       <ServiceLinks />
-      <SpecialtyServices />
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
@@ -146,16 +223,25 @@ export default function Homepage() {
 /* ============================================================
    TOP BANNER
    ============================================================ */
+/* Opens the Scout AI assistant, optionally pre-loading a quote prompt.
+   Falls back to the /quote page when JS is unavailable (href is preserved). */
+function openScout(message?: string) {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('ec:open-scout', { detail: { message } }));
+  }
+}
+const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
+
 function TopBanner() {
   return (
     <div className="ec-banner">
       <div className="ec-banner-inner">
+        <Flower2 size={14} className="ec-banner-sun" aria-hidden="true" />
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-sun">🌻</span> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
           <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
         </div>
-        <a href="tel:2059406360" className="ec-banner-call">Call (205) 940-6360 →</a>
       </div>
     </div>
   );
@@ -196,10 +282,14 @@ function Header() {
             className="ec-header-pay"
           >Pay Bill</a>
           <a href="tel:2059406360" className="ec-header-phone">
-            <span className="ec-phone-icon">📞</span>
+            <Phone size={14} className="ec-phone-icon" aria-hidden="true" />
             <span>(205) 940-6360</span>
           </a>
-          <Link href="/quote" className="ec-header-quote">Get Free Quote</Link>
+          <Link
+            href="/quote"
+            className="ec-header-quote"
+            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+          >Get Free Quote</Link>
         </div>
 
         <button
@@ -209,7 +299,7 @@ function Header() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           aria-controls="ec-mobile-menu"
-        >{mobileOpen ? '×' : '☰'}</button>
+        >{mobileOpen ? <X size={26} /> : <Menu size={26} />}</button>
       </div>
 
       {mobileOpen && (
@@ -224,8 +314,12 @@ function Header() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
           >Pay Bill</a>
-          <a href="tel:2059406360" onClick={() => setMobileOpen(false)}>📞 (205) 940-6360</a>
-          <Link href="/quote" className="ec-mobile-cta" onClick={() => setMobileOpen(false)}>
+          <a href="tel:2059406360" onClick={() => setMobileOpen(false)} className="ec-mobile-phone"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
+          <Link
+            href="/quote"
+            className="ec-mobile-cta"
+            onClick={(e) => { e.preventDefault(); setMobileOpen(false); openScout(QUOTE_PROMPT); }}
+          >
             Get Free Quote →
           </Link>
         </div>
@@ -248,9 +342,8 @@ function Hero() {
           </div>
 
           <h1 className="ec-hero-h1">
-            Protecting Alabama Homes<br />
-            <em className="ec-h1-italic">Four Generations</em><br />
-            <span className="ec-h1-gold">Strong.</span>
+            Protecting Alabama Homes,<br />
+            <em className="ec-h1-italic">Four Generations</em> <span className="ec-h1-gold">Strong.</span>
           </h1>
 
           <p className="ec-hero-keyword">
@@ -264,16 +357,20 @@ function Hero() {
           </p>
 
           <div className="ec-hero-ctas">
-            <Link href="/quote" className="ec-cta-primary">
+            <Link
+              href="/quote"
+              className="ec-cta-primary"
+              onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+            >
               <span>Get a Free Quote</span><span className="ec-arrow">→</span>
             </Link>
             <a href="tel:2059406360" className="ec-cta-secondary">
-              <span>📞</span><span>(205) 940-6360</span>
+              <Phone size={18} aria-hidden="true" /><span>(205) 940-6360</span>
             </a>
           </div>
 
           <div className="ec-hero-trust-row">
-            <span>★★★★★ Google Reviews</span>
+            <span className="ec-trust-stars"><Stars size={13} /> Google Reviews</span>
             <span aria-hidden="true">·</span>
             <span>Sentricon® Certified</span>
             <span aria-hidden="true">·</span>
@@ -327,50 +424,42 @@ interface RecurringPlan {
 // Termite is intentionally NOT a recurring base plan (see Block B / Complete).
 const RECURRING_PLANS: RecurringPlan[] = [
   {
-    key: 'pest', icon: '🛡️', name: 'Pest Control', dotColor: '#0E8E40',
+    key: 'pest', icon: 'pest', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
     perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
     monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
-    cta: 'Choose Pest', ctaCls: 'ec-cp-cta-outline', fine: '$79 initial',
+    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$79 initial',
   },
   {
-    key: 'pest-mosquito', icon: '🌿', name: 'Pest + Mosquito', badge: 'MOST POPULAR', popular: true, dotColor: '#0E7490',
-    perservice: { price: '$70/visit + $45/visit (mosquito)', terms: 'Mosquito treatments March–November' },
-    monthly: { price: 'From $69/mo ACH', terms: 'Pest + seasonal mosquito on one monthly draft' },
-    bullets: ['Bimonthly pest + seasonal mosquito', '30-day mosquito yard barrier', 'Free pest re-service between visits', 'One invoice for both services'],
-    addon: 'Add tick to any mosquito visit: +$20/treatment',
-    cta: 'Choose Pest + Mosquito', ctaCls: 'ec-cp-cta-green', fine: '$99 initial',
-  },
-  {
-    key: 'mosquito', icon: '🦟', name: 'Mosquito', dotColor: '#0E7490',
+    key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
     perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–November' },
-    monthly: { price: '$34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
+    monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
-    addon: 'Add tick: +$20/treatment',
-    cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-green', fine: 'No startup fee',
+    addon: 'Add tick control to any visit: +$20/treatment',
+    cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {
-    key: 'complete', icon: '🏠', name: 'Complete Protection', badge: 'ALL-IN-ONE', dotColor: '#0E1A0F',
-    perservice: { price: 'Pest + Mosquito + Sentricon®', terms: 'Termite confirmed after inspection & approval' },
-    monthly: { price: 'From ~$100/mo ACH', terms: 'Pest + mosquito on ACH · Sentricon® termite priced at inspection' },
-    bullets: ['Everything in Pest + Mosquito', 'Sentricon® termite protection', 'Up to $1M termite damage repair coverage', 'One company, one invoice'],
-    cta: 'Choose Complete', ctaCls: 'ec-cp-cta-dark', fine: '$229 initial · termite confirmed after inspection',
+    key: 'termite', icon: 'termite', name: 'Termite / Sentricon®', dotColor: '#C77A00',
+    perservice: { price: 'After free inspection', terms: 'Sentricon® bait system · priced to your home' },
+    monthly: { price: 'After free inspection', terms: 'Annual renewal · priced to your home' },
+    bullets: ['Sentricon® Always Active bait system', 'Up to $1M termite damage repair coverage', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
+    cta: 'Get Free Termite Inspection', ctaCls: 'ec-cp-cta-outline', fine: 'Priced after inspection',
   },
 ];
 
-// Block B — non-recurring / inspection-triggered. No fixed termite $/mo (locked).
-interface OneTimeItem { icon: string; name: string; price: string; desc: string; href: string; }
-const ONETIME_ITEMS: OneTimeItem[] = [
-  { icon: '🚀', name: 'Initial Pest Service', price: '$79 initial', href: '/quote',
-    desc: 'One-time startup for new recurring pest customers — the first thorough interior and exterior treatment.' },
-  { icon: '🪵', name: 'Termite / Sentricon®', price: 'Subject to inspection', href: '/services/termite-control',
-    desc: 'Sentricon® termite protection is confirmed after inspection. Includes a free WDO inspection; pricing is quoted after.' },
-  { icon: '📋', name: 'WDO Letters', price: 'Inspection-based', href: '/services/wdo-letters',
-    desc: 'Wood-Destroying Organism letters for closings and refinancing. Priced per inspection, with lender-ready turnaround.' },
-  { icon: '🏗️', name: 'Builder Pre-Treat', price: 'Quote / plan-based', href: '/services/builder-pre-treat',
-    desc: 'New-construction termite pre-treatment, scheduled around your builder’s timeline.' },
-  { icon: '🐜', name: 'Fire Ant · Flea · Tick Add-Ons', price: 'Where applicable', href: '/services/fire-ant',
-    desc: 'Targeted add-ons to a recurring plan. Tick is +$20/treatment on mosquito visits.' },
+// Ancillary residential add-ons (paired with a recurring plan)
+interface AncillaryItem { icon: string; name: string; href: string; }
+const RESIDENTIAL_ADDONS: AncillaryItem[] = [
+  { icon: 'tick', name: 'Tick Control', href: '/services/tick-control' },
+  { icon: 'fireant', name: 'Fire Ant', href: '/services/fire-ant' },
+  { icon: 'flea', name: 'Flea Control', href: '/services/flea' },
+];
+
+// Business, realtor & builder services — separate audience, dedicated pages
+const BUSINESS_SERVICES: AncillaryItem[] = [
+  { icon: 'commercial', name: 'Commercial Pest Control', href: '/services/commercial' },
+  { icon: 'wdo', name: 'Real Estate / WDO Letters', href: '/services/wdo-letters' },
+  { icon: 'builder', name: 'Builder Pre-Treatment', href: '/services/builder-pre-treat' },
 ];
 
 function ConsolidatedPricing() {
@@ -434,7 +523,9 @@ function ConsolidatedPricing() {
                   aria-controls={panelId}
                   onClick={() => setOpenKey(isOpen ? null : plan.key)}
                 >
-                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}>{plan.icon}</span>
+                  <span className="ec-cp-dot" style={{ background: plan.dotColor }}>
+                    <ServiceIcon name={plan.icon} size={22} color="#fff" aria-hidden="true" />
+                  </span>
                   <span className="ec-cp-item-info">
                     <span className="ec-cp-item-name">
                       {plan.name}
@@ -442,17 +533,21 @@ function ConsolidatedPricing() {
                     </span>
                     <span className="ec-cp-item-price">{d.price}</span>
                   </span>
-                  <span className="ec-cp-arrow" aria-hidden="true">▼</span>
+                  <span className="ec-cp-arrow" aria-hidden="true"><ChevronDown size={18} /></span>
                 </button>
 
                 {isOpen && (
                   <div id={panelId} className="ec-cp-detail">
                     <div className="ec-cp-terms">{d.terms}</div>
                     <ul className="ec-cp-bullets">
-                      {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk">✓</span>{b}</li>)}
+                      {plan.bullets.map(b => <li key={b}><span className="ec-cp-chk"><Check size={14} /></span>{b}</li>)}
                     </ul>
                     {plan.addon && <div className="ec-cp-addon">{plan.addon}</div>}
-                    <Link href="/quote" className={`ec-cp-cta ${plan.ctaCls}`}>{plan.cta}</Link>
+                    <Link
+                      href="/quote"
+                      className={`ec-cp-cta ${plan.ctaCls}`}
+                      onClick={(e) => { e.preventDefault(); openScout(`I'm interested in your ${plan.name} service. Can you give me a quote?`); }}
+                    >{plan.cta}</Link>
                     {plan.fine && <div className="ec-cp-fine"><em>{plan.fine}</em></div>}
                   </div>
                 )}
@@ -461,31 +556,49 @@ function ConsolidatedPricing() {
           })}
         </div>
 
-        {/* ---------- Block B: One-Time / Inspection-Based Services ---------- */}
-        <h3 className="ec-cp-block-title ec-cp-block-title-2">One-Time &amp; Inspection-Based Services</h3>
-        <p className="ec-cp-block-sub">
-          Not a subscription — these are priced per project or after an inspection. Termite protection is subject to inspection.
-        </p>
-        <div className="ec-cp-onetime">
-          {ONETIME_ITEMS.map(item => (
-            <Link key={item.name} href={item.href} className="ec-cp-ot-card">
-              <span className="ec-cp-ot-icon" aria-hidden="true">{item.icon}</span>
-              <span className="ec-cp-ot-body">
-                <span className="ec-cp-ot-name">{item.name}</span>
-                <span className="ec-cp-ot-desc">{item.desc}</span>
-              </span>
-              <span className="ec-cp-ot-price">{item.price}</span>
-            </Link>
-          ))}
+        {/* Bundle & save callout */}
+        <div className="ec-cp-bundle">
+          <div className="ec-cp-bundle-text">
+            <span className="ec-cp-bundle-tag">BUNDLE &amp; SAVE</span>
+            <strong>Pest + Mosquito on one monthly draft — from $69/mo</strong>
+            <span className="ec-cp-bundle-sub">Year-round pest control plus seasonal mosquito, one invoice. Add tick for +$20/treatment.</span>
+          </div>
+          <Link
+            href="/quote"
+            className="ec-cp-bundle-cta"
+            onClick={(e) => { e.preventDefault(); openScout('I want to bundle Pest + Mosquito. Can you give me a quote?'); }}
+          >
+            Get bundle pricing <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+
+        {/* Residential add-ons */}
+        <div className="ec-cp-also">
+          <span className="ec-cp-also-label">Add to any plan</span>
+          <div className="ec-cp-also-links">
+            {RESIDENTIAL_ADDONS.map(item => (
+              <Link key={item.name} href={item.href} className="ec-cp-chip">
+                <ServiceIcon name={item.icon} size={16} aria-hidden="true" /> {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Business / realtor / builder */}
+        <div className="ec-cp-also">
+          <span className="ec-cp-also-label">For businesses, realtors &amp; builders</span>
+          <div className="ec-cp-also-links">
+            {BUSINESS_SERVICES.map(item => (
+              <Link key={item.name} href={item.href} className="ec-cp-chip">
+                <ServiceIcon name={item.icon} size={16} aria-hidden="true" /> {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="ec-cp-strip">
           <strong>$79 initial service fee</strong> for new pest customers.
-          Mosquito and tick have no startup.
-        </div>
-        <div className="ec-cp-assurance">We never charge twice for the same coverage.</div>
-        <div className="ec-cp-faq">
-          Already have termite coverage? We&rsquo;ll verify your protection before recommending anything.
+          Mosquito and tick have no startup. <em>We never charge twice for the same coverage.</em>
         </div>
       </div>
     </section>
@@ -509,7 +622,7 @@ function Reviews() {
         <div className="ec-reviews-badge">
           <span className="ec-reviews-g">Verified by Google</span>
           <span className="ec-reviews-rating">
-            <span className="ec-reviews-stars">★★★★★</span>
+            <span className="ec-reviews-stars"><Stars size={15} /></span>
             <span className="ec-reviews-count">· 4.7★ Google</span>
           </span>
         </div>
@@ -523,7 +636,7 @@ function Reviews() {
           {reviews.map((r) => (
             <div key={r.name} className="ec-review-card">
               <span className="ec-review-quote">&ldquo;</span>
-              <div className="ec-review-stars">★★★★★</div>
+              <div className="ec-review-stars"><Stars size={15} /></div>
               <p className="ec-review-text">{r.text}</p>
               <div className="ec-review-author">
                 <div className="ec-review-avatar">{r.name.charAt(0)}</div>
@@ -547,21 +660,22 @@ function Reviews() {
    ============================================================ */
 function ServiceLinks() {
   const services = [
-    { name: 'Pest Control', slug: 'pest-control', icon: '🛡️', accent: '#0E8E40' },
-    { name: 'Termite Control', slug: 'termite-control', icon: '🪵', accent: '#F5A800' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: '🦟', accent: '#0E7490' },
-    { name: 'Tick Control', slug: 'tick-control', icon: '🕷️', accent: '#07642B' },
-    { name: 'Fire Ant Control', slug: 'fire-ant', icon: '🐜', accent: '#DC4A1A' },
-    { name: 'Flea Control', slug: 'flea', icon: '🪲', accent: '#7D5BA6' },
-    { name: 'Commercial', slug: 'commercial', icon: '🏢', accent: '#0E1A0F' },
-    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: '📋', accent: '#0A7935' },
+    { name: 'Pest Control', slug: 'pest-control', icon: 'pest', accent: '#0E8E40' },
+    { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#C77A00' },
+    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E7490' },
+    { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#9A5B2E' },
+    { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#DC4A1A' },
+    { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#3F6184' },
+    { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
+    { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0A7935' },
+    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#1D5E8C' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 'clamp(2.5rem,6vw,4rem) 0', background: '#FEFDF8' }}>
       <div className="ec-section-inner">
         <div className="ec-section-eyebrow">EXPLORE OUR SERVICES</div>
         <h2 className="ec-section-h2">Every Service, <em>One Local Team</em></h2>
-        <p className="ec-section-sub">Tap a service for coverage, pricing, and what&rsquo;s included.</p>
+        <p className="ec-section-sub">Residential, commercial, and real-estate/builder services — tap any one for coverage, pricing, and what&rsquo;s included.</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(165px, 1fr))', gap: 14, marginTop: '2rem' }}>
           {services.map(s => (
             <Link
@@ -569,9 +683,11 @@ function ServiceLinks() {
               href={`/services/${s.slug}`}
               style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.15)', borderLeft: `4px solid ${s.accent}`, borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58, transition: 'box-shadow 0.2s, transform 0.15s' }}
             >
-              <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">{s.icon}</span>
+              <span style={{ display: 'inline-flex', lineHeight: 1 }} aria-hidden="true">
+                <ServiceIcon name={s.icon} size={24} color={s.accent} />
+              </span>
               <span style={{ flex: 1 }}>{s.name}</span>
-              <span style={{ color: '#0E8E40', fontWeight: 700 }} aria-hidden="true">→</span>
+              <ArrowRight size={18} color="#0E8E40" aria-hidden="true" />
             </Link>
           ))}
         </div>
@@ -643,9 +759,9 @@ function FindYourOffice() {
         </div>
         {result && <div className="ec-fo-result">{result}</div>}
         <div className="ec-fo-phones">
-          <a href="tel:2059406360">📞 (205) 940-6360 — Birmingham</a>
-          <a href="tel:2562346162">📞 (256) 234-6162 — Alex City / Lake Martin</a>
-          <a href="tel:2569377676">📞 (256) 937-7676 — Huntsville</a>
+          <a href="tel:2059406360"><Phone size={15} aria-hidden="true" /> (205) 940-6360 — Birmingham</a>
+          <a href="tel:2562346162"><Phone size={15} aria-hidden="true" /> (256) 234-6162 — Alex City / Lake Martin</a>
+          <a href="tel:2569377676"><Phone size={15} aria-hidden="true" /> (256) 937-7676 — Huntsville</a>
         </div>
         <div className="ec-fo-areas">
           <div className="ec-fo-areas-label">Popular service areas</div>
@@ -764,54 +880,26 @@ function Heritage() {
 function TruckBanner() {
   return (
     <section className="ec-bundle">
-      <div className="ec-bundle-truck-wrap">
-        <Image
-          src="/truck-lifestyle.webp"
-          alt="EnviroCare service truck"
-          fill
-          sizes="100vw"
-          className="ec-bundle-truck"
-          style={{ objectFit: 'cover' }}
-        />
-        <div className="ec-bundle-truck-overlay" />
-      </div>
-      <div className="ec-bundle-inner" style={{ padding: '0 20px 48px' }}>
+      <div className="ec-bundle-inner" style={{ padding: '0 20px' }}>
         <div className="ec-bundle-truck-eyebrow">ONE COMPANY · ONE INVOICE</div>
         <h2 className="ec-bundle-h2">
-          Every Service, <em>One Local Team</em>
+          Ready to Protect <em>Your Home?</em>
         </h2>
         <p className="ec-bundle-truck-text">
           Pest, termite, mosquito, and tick — handled by trained specialists who
-          know your property. One company, one invoice, one relationship.
+          know your property. Get a free quote in minutes or call your local office.
         </p>
-        <div className="ec-bundle-divider" />
-        <h3 className="ec-bundle-h3">
-          Convenience, <em>Not Complexity</em>
-        </h3>
-        <p className="ec-bundle-sub">
-          Add services as you need them. Each one is a trained specialist doing
-          expert-level work — not a generalist rushing through a checklist.
-        </p>
-        <div className="ec-bundle-prices">
-          <div className="ec-bundle-line">
-            <span>🛡️ Bi-Monthly Pest Control</span>
-            <span className="ec-bundle-price">$35/mo ACH</span>
-          </div>
-          <div className="ec-bundle-line">
-            <span>🦟 Mosquito Yard Barrier</span>
-            <span className="ec-bundle-price">$45/visit</span>
-          </div>
-          <div className="ec-bundle-line">
-            <span>🪵 Sentricon® Termite</span>
-            <span className="ec-bundle-price">Priced at inspection</span>
-          </div>
-        </div>
         <div className="ec-bundle-ctas">
-          <Link href="/quote" className="ec-cta-primary" style={{ background: '#F5A800', color: '#0E1A0F' }}>
+          <Link
+            href="/quote"
+            className="ec-cta-primary"
+            style={{ background: '#F5A800', color: '#0E1A0F' }}
+            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+          >
             Get a Free Quote →
           </Link>
           <a href="tel:2059406360" className="ec-cta-secondary-light">
-            📞 (205) 940-6360
+            <Phone size={18} aria-hidden="true" /> (205) 940-6360
           </a>
         </div>
       </div>
@@ -819,41 +907,6 @@ function TruckBanner() {
   );
 }
 
-
-/* ============================================================
-   SPECIALTY SERVICES — restored Jun 22
-   ============================================================ */
-function SpecialtyServices() {
-  const items = [
-    { icon: '🏗️', name: 'Builder Pre-Treat', slug: 'builder-pre-treat',
-      desc: 'New construction termite pre-treatment. We work with your builder\'s timeline and provide the documentation lenders require.' },
-    { icon: '📋', name: 'Real Estate / WDO', slug: 'wdo-letters',
-      desc: 'Wood-Destroying Organism inspection letters for closings, refinancing, and VA/FHA loans. Fast turnaround, lender-ready reports.' },
-    { icon: '🏢', name: 'Commercial Service', slug: 'commercial',
-      desc: 'Restaurants, offices, warehouses, and multi-family. Scheduled around your business hours with documentation for inspectors.' },
-  ];
-  return (
-    <section className="ec-specialty">
-      <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">SPECIALTY SERVICES</div>
-        <h2 className="ec-section-h2">Builders, Realtors &amp; <em>Commercial</em></h2>
-        <p className="ec-section-sub">
-          Not every job is a residential subscription. These services are priced per project.
-        </p>
-        <div className="ec-specialty-grid">
-          {items.map(s => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="ec-specialty-card">
-              <span className="ec-specialty-icon">{s.icon}</span>
-              <h3 className="ec-specialty-title">{s.name}</h3>
-              <p className="ec-specialty-desc">{s.desc}</p>
-              <span className="ec-specialty-tag">LEARN MORE →</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Footer() {
   return (
@@ -868,10 +921,17 @@ function Footer() {
             of the Wedgworth family. Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
           </p>
           <div className="ec-footer-phones">
-            <a href="tel:2059406360" className="ec-footer-phone">📞 <span>(205) 940-6360</span> — <em>Birmingham</em></a>
-            <a href="tel:2562346162" className="ec-footer-phone">📞 <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
-            <a href="tel:2569377676" className="ec-footer-phone">📞 <span>(256) 937-7676</span> — <em>Huntsville</em></a>
+            <a href="tel:2059406360" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(205) 940-6360</span> — <em>Birmingham</em></a>
+            <a href="tel:2562346162" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 234-6162</span> — <em>Lake Martin / Alex City</em></a>
+            <a href="tel:2569377676" className="ec-footer-phone"><Phone size={14} aria-hidden="true" /> <span>(256) 937-7676</span> — <em>Huntsville</em></a>
           </div>
+          <Link
+            href="/quote"
+            className="ec-footer-cta"
+            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+          >
+            Get an instant quote <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
 
         <div className="ec-footer-col">
@@ -880,7 +940,6 @@ function Footer() {
           <Link href="/services/termite-control">Termite Control</Link>
           <Link href="/services/mosquito">Mosquito Control</Link>
           <Link href="/services/tick-control">Tick Control</Link>
-          <Link href="/quote?plan=complete">Complete Plan</Link>
         </div>
 
         <div className="ec-footer-col">
@@ -900,21 +959,11 @@ function Footer() {
             <Link href="/hoover">Hoover</Link>
             <Link href="/vestavia-hills">Vestavia Hills</Link>
             <Link href="/mountain-brook">Mountain Brook</Link>
-            <Link href="/homewood">Homewood</Link>
-            <Link href="/alabaster">Alabaster</Link>
-            <Link href="/chelsea">Chelsea</Link>
-            <Link href="/pelham">Pelham</Link>
-            <Link href="/helena">Helena</Link>
-            <Link href="/calera">Calera</Link>
-            <Link href="/trussville">Trussville</Link>
-            <Link href="/mt-laurel">Mt Laurel</Link>
           </div>
           <div className="ec-footer-areas-group">
             <div className="ec-footer-areas-label">Lake Martin / Alex City</div>
             <Link href="/alexander-city">Alexander City</Link>
             <Link href="/lake-martin">Lake Martin</Link>
-            <Link href="/dadeville">Dadeville</Link>
-            <Link href="/eclectic">Eclectic</Link>
             <Link href="/auburn">Auburn</Link>
             <Link href="/opelika">Opelika</Link>
           </div>
@@ -922,13 +971,10 @@ function Footer() {
             <div className="ec-footer-areas-label">North Alabama</div>
             <Link href="/huntsville">Huntsville</Link>
             <Link href="/service-areas/madison">Madison</Link>
-            <Link href="/athens">Athens</Link>
             <Link href="/decatur">Decatur</Link>
-            <Link href="/hartselle">Hartselle</Link>
-            <Link href="/harvest">Harvest</Link>
-            <Link href="/hampton-cove">Hampton Cove</Link>
+            <Link href="/athens">Athens</Link>
           </div>
-          <Link href="/find-office" className="ec-footer-find">Find My Office →</Link>
+          <Link href="/find-office" className="ec-footer-find">View all service areas →</Link>
         </div>
       </div>
 
@@ -959,13 +1005,25 @@ const HOMEPAGE_CSS = `
   .ec-main * { box-sizing: border-box; }
   .ec-main a { color: inherit; text-decoration: none; }
 
+  /* ICON ALIGNMENT — keep line icons centered with adjacent text */
+  .ec-stars { display: inline-flex; align-items: center; gap: 1px; color: #F5A800; vertical-align: middle; }
+  .ec-trust-stars { display: inline-flex; align-items: center; gap: 6px; }
+  .ec-banner-sun { vertical-align: -2px; color: #F5A800; }
+  .ec-header-phone, .ec-footer-phone, .ec-mobile-phone { display: inline-flex; align-items: center; gap: 6px; }
+  .ec-fo-phones a { display: inline-flex; align-items: center; gap: 7px; }
+  .ec-cta-secondary, .ec-cta-secondary-light { display: inline-flex; align-items: center; gap: 8px; }
+  .ec-cp-dot svg, .ec-cp-ot-icon svg { display: block; }
+  .ec-cp-arrow { display: inline-flex; align-items: center; }
+  .ec-cp-chk { display: inline-flex; align-items: center; }
+
   /* TOP BANNER */
   .ec-banner {
     background: linear-gradient(90deg, #0A7935 0%, #0E8E40 50%, #0A7935 100%);
     color: #fff;
-    padding: 8px 16px;
+    padding: 9px 16px;
     font-size: 13px;
     overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
   }
   .ec-banner-inner {
     max-width: 1280px;
@@ -974,16 +1032,16 @@ const HOMEPAGE_CSS = `
     align-items: center;
     gap: 8px;
     justify-content: center;
-    flex-wrap: wrap;
   }
-  .ec-banner-sun { font-size: 14px; }
+  .ec-banner-sun { flex: none; color: #F5A800; }
   .ec-banner-gold { color: #F5A800; font-weight: 600; }
   .ec-banner-rotator {
     position: relative;
     height: 20px;
     overflow: hidden;
-    flex: 0 1 auto;
-    min-width: 0;
+    flex: 1 1 auto;
+    max-width: 620px;
+    text-align: center;
   }
   .ec-banner-msg {
     position: absolute;
@@ -1011,32 +1069,23 @@ const HOMEPAGE_CSS = `
     .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
   }
   @media (max-width: 720px) {
-    .ec-banner-rotator { width: 100%; }
-    .ec-banner-msg { font-size: 12px; }
+    .ec-banner { padding: 7px 12px; }
+    .ec-banner-inner { gap: 6px; }
+    .ec-banner-rotator { width: 100%; height: 32px; max-width: none; }
+    .ec-banner-msg {
+      display: block;
+      white-space: normal;
+      text-align: center;
+      font-size: 11.5px;
+      line-height: 1.25;
+      padding: 0 2px;
+    }
+    .ec-banner-msg .ec-banner-gold { display: inline; }
     .ec-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
     .ec-hero-ctas .ec-cta-primary,
     .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
   }
-  .ec-banner-call {
-    margin-left: 12px;
-    background: #F5A800;
-    color: #0E1A0F !important;
-    padding: 7px 16px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-    min-height: 36px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 8px rgba(245,168,0,0.3);
-    transition: background 0.15s, transform 0.15s;
-    text-decoration: none;
-  }
-  .ec-banner-call:hover {
-    background: #FFB81F;
-    transform: translateY(-1px);
-  }
+
 
 
   /* HEADER - LOGO IMAGE ONLY */
@@ -1282,12 +1331,12 @@ const HOMEPAGE_CSS = `
   /* SECTION SHARED */
   .ec-section-inner {
     max-width: 1280px; margin: 0 auto;
-    padding: clamp(48px, 8vw, 72px) 20px;
+    padding: clamp(40px, 6vw, 60px) 20px;
   }
   .ec-section-eyebrow {
-    display: inline-block; font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em; color: #0E8E40;
-    padding: 6px 14px; background: #E8F5EE; border-radius: 999px;
+    display: inline-block; font-size: 13px; font-weight: 800;
+    letter-spacing: 0.08em; color: #07642B;
+    padding: 7px 16px; background: #D7EFE0; border-radius: 999px;
     margin-bottom: 16px;
   }
   .ec-section-h2 {
@@ -1298,7 +1347,7 @@ const HOMEPAGE_CSS = `
   .ec-section-h2 em { font-style: italic; color: #0E8E40; font-weight: 600; }
   .ec-section-sub {
     font-size: 18px; color: #5A6660; max-width: 680px;
-    margin: 0 0 48px; line-height: 1.55;
+    margin: 0 0 36px; line-height: 1.55;
   }
 
   /* CORE SERVICES */
@@ -1717,23 +1766,29 @@ const HOMEPAGE_CSS = `
     color: #5A6660; margin-top: 4px;
   }
 
-  /* PHOTOS */
+  /* PHOTOS — clean balanced grid */
   .ec-heritage-photos {
-    position: relative;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "kevin ribbon1"
+      "kevin ribbon2";
+    gap: 16px;
   }
   .ec-photo-frame {
-    position: absolute;
+    position: relative;
     background: #fff;
-    padding: 12px 12px 40px;
-    box-shadow: 0 12px 30px rgba(14,26,15,0.15);
-    transition: transform 0.3s;
+    padding: 10px 10px 38px;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(14,26,15,0.14);
+    transition: transform 0.25s, box-shadow 0.25s;
     overflow: hidden;
   }
-  .ec-photo-frame:hover { transform: scale(1.02); }
+  .ec-photo-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 38px rgba(14,26,15,0.2);
+  }
   .ec-photo-img {
     width: 100%;
     height: 100%;
@@ -1742,7 +1797,7 @@ const HOMEPAGE_CSS = `
   }
   .ec-photo-caption {
     position: absolute;
-    bottom: 6px;
+    bottom: 8px;
     left: 12px;
     right: 12px;
     display: flex;
@@ -1758,88 +1813,21 @@ const HOMEPAGE_CSS = `
     font-size: 11px;
     color: #5A6660;
   }
-  .ec-caption-small strong { font-size: 11px; }
+  .ec-caption-small strong { font-size: 12px; }
 
-  .ec-photo-kevin {
-    width: 260px;
-    height: 340px;
-    left: 0;
-    top: 40px;
-    transform: rotate(-3deg);
-    z-index: 2;
-  }
-  .ec-photo-ribbon-1 {
-    width: 220px;
-    height: 160px;
-    right: 0;
-    top: 0;
-    transform: rotate(4deg);
-    z-index: 1;
-  }
-  .ec-photo-ribbon-2 {
-    width: 220px;
-    height: 160px;
-    right: 20px;
-    bottom: 0;
-    transform: rotate(-2deg);
-    z-index: 1;
-  }
+  .ec-photo-kevin { grid-area: kevin; }
+  .ec-photo-ribbon-1 { grid-area: ribbon1; aspect-ratio: 4 / 3; }
+  .ec-photo-ribbon-2 { grid-area: ribbon2; aspect-ratio: 4 / 3; }
 
-  /* Fallback styling if photos missing */
-  .ec-photo-fallback {
-    background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-  }
-  .ec-photo-fallback::before {
-    content: '🌻';
-    font-size: 60px;
-    margin-bottom: 12px;
-  }
-  .ec-photo-fallback .ec-photo-caption {
-    position: static;
-    color: #fff;
-    text-align: center;
-    margin-top: 12px;
-  }
-  .ec-photo-fallback .ec-photo-caption strong { color: #fff; }
-  .ec-photo-fallback .ec-photo-caption span { color: rgba(255,255,255,0.85); }
-
-  @media (max-width: 1023px) {
-    .ec-heritage-photos {
-      min-height: 360px;
-    }
-    .ec-photo-kevin {
-      width: 200px; height: 260px;
-      left: 50%;
-      transform: translateX(-60%) rotate(-3deg);
-    }
-    .ec-photo-ribbon-1 {
-      width: 170px; height: 120px;
-      right: 0; top: 20px;
-    }
-    .ec-photo-ribbon-2 {
-      width: 170px; height: 120px;
-      left: 0; bottom: 0;
-    }
-  }
   @media (max-width: 640px) {
     .ec-heritage-photos {
-      min-height: 320px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "kevin kevin"
+        "ribbon1 ribbon2";
     }
-    .ec-photo-kevin {
-      width: 160px; height: 210px;
-    }
-    .ec-photo-ribbon-1 {
-      width: 140px; height: 100px;
-    }
-    .ec-photo-ribbon-2 {
-      width: 140px; height: 100px;
-    }
+    .ec-photo-kevin { aspect-ratio: 16 / 10; }
   }
 
   /* REVIEWS */
@@ -2100,38 +2088,22 @@ const HOMEPAGE_CSS = `
   }
   .ec-offer-desc { font-size: 13px; color: #5A6660; }
 
-  /* BUNDLE CTA + TRUCK */
+  /* CLOSING CTA BAND */
   .ec-bundle {
-    background: linear-gradient(135deg, #0E8E40 0%, #0A7935 100%);
+    background: linear-gradient(160deg, #0E8E40 0%, #0A7935 55%, #07642B 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
   }
-  .ec-bundle-truck-wrap {
-    position: relative;
-    height: 280px;
-    overflow: hidden;
-  }
-  .ec-bundle-truck {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .ec-bundle-truck-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg,
-      rgba(14,26,15,0.0) 0%,
-      rgba(14,26,15,0.4) 70%,
-      rgba(14,142,64,1) 100%);
-  }
   .ec-bundle-inner {
     text-align: center;
-    padding-top: 40px;
+    padding-top: clamp(48px, 7vw, 72px);
+    padding-bottom: clamp(48px, 7vw, 72px);
   }
   .ec-bundle-truck-eyebrow {
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #F5A800;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #FFD37A;
     margin-bottom: 12px;
   }
   .ec-bundle-h2 {
@@ -2194,8 +2166,10 @@ const HOMEPAGE_CSS = `
 
   /* FOOTER */
   .ec-footer {
-    background: #0E1A0F; color: #fff;
-    padding: 60px 20px 32px;
+    background: #F2F6EF;
+    color: #3a4a40;
+    padding: 56px 20px 32px;
+    border-top: 4px solid #0E8E40;
   }
   .ec-footer-inner {
     max-width: 1280px; margin: 0 auto;
@@ -2206,38 +2180,45 @@ const HOMEPAGE_CSS = `
   }
   .ec-footer-brand { display: inline-block; margin-bottom: 16px; }
   .ec-footer-logo {
-    height: 44px !important; width: auto !important;
+    height: 48px !important; width: auto !important;
     object-fit: contain;
-    background: #fff;
-    padding: 8px 14px;
-    border-radius: 10px;
   }
   .ec-footer-tag {
     font-size: 14px; line-height: 1.6;
-    color: rgba(255,255,255,0.7); margin: 0 0 20px;
+    color: #5a6b60; margin: 0 0 20px;
   }
   .ec-footer-phones {
     display: flex; flex-direction: column; gap: 6px;
   }
   .ec-footer-phone {
-    color: #F5A800 !important;
-    font-size: 14px; font-weight: 600;
+    color: #0A7935 !important;
+    font-size: 14px; font-weight: 700;
   }
   .ec-footer-phone em {
-    color: rgba(255,255,255,0.6);
+    color: #7a887e;
     font-style: normal; font-weight: 400;
   }
+  .ec-footer-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 20px;
+    padding: 11px 20px;
+    background: #F5A800; color: #0E1A0F !important;
+    border-radius: 999px;
+    font-size: 15px; font-weight: 700;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .ec-footer-cta:hover { background: #FFB81F; transform: translateY(-1px); }
   .ec-footer-col h4 {
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.1em; color: #F5A800;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.08em; color: #07642B;
     margin: 0 0 16px;
   }
   .ec-footer-col a {
     display: block; padding: 4px 0;
-    font-size: 14px; color: rgba(255,255,255,0.7);
+    font-size: 14px; color: #4a5750;
     transition: color 0.15s;
   }
-  .ec-footer-col a:hover { color: #fff; }
+  .ec-footer-col a:hover { color: #0E8E40; }
 
   /* Expanded footer service areas - 3 grouped columns */
   .ec-footer-col-areas { grid-column: span 1; }
@@ -2253,10 +2234,10 @@ const HOMEPAGE_CSS = `
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.55);
+    color: #8a978c;
     text-transform: uppercase;
     margin-bottom: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid #d6e2d8;
     padding-bottom: 4px;
   }
   .ec-footer-areas-group a {
@@ -2267,29 +2248,29 @@ const HOMEPAGE_CSS = `
     display: inline-block !important;
     margin-top: 12px;
     padding: 8px 14px !important;
-    background: rgba(245,168,0,0.15);
-    border: 1px solid #F5A800;
+    background: #fff;
+    border: 1.5px solid #0E8E40;
     border-radius: 999px;
-    color: #F5A800 !important;
+    color: #0A7935 !important;
     font-size: 13px !important;
     font-weight: 700;
     transition: all 0.15s;
   }
   .ec-footer-find:hover {
-    background: #F5A800;
-    color: #0E1A0F !important;
+    background: #0E8E40;
+    color: #fff !important;
   }
   .ec-footer-bottom {
     max-width: 1280px; margin: 40px auto 0;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #d6e2d8;
     display: flex; flex-wrap: wrap; gap: 16px;
     justify-content: space-between;
-    font-size: 12px; color: rgba(255,255,255,0.5);
+    font-size: 12px; color: #7a887e;
   }
   .ec-footer-bottom-links { display: flex; gap: 16px; }
-  .ec-footer-bottom-links a { color: rgba(255,255,255,0.5); }
-  .ec-footer-bottom-links a:hover { color: #fff; }
+  .ec-footer-bottom-links a { color: #7a887e; }
+  .ec-footer-bottom-links a:hover { color: #0E8E40; }
   @media (max-width: 899px) {
     .ec-main { padding-bottom: 80px; }
   }
@@ -2298,7 +2279,7 @@ const HOMEPAGE_CSS = `
      CONSOLIDATED PRICING — compact expandable list
      ============================================================ */
   .ec-cp {
-    padding: 64px 20px;
+    padding: clamp(40px, 6vw, 56px) 20px;
     background: #fff;
   }
   .ec-cp-toggle-wrap {
@@ -2489,6 +2470,61 @@ const HOMEPAGE_CSS = `
     white-space: nowrap;
   }
 
+  /* Bundle & save callout */
+  .ec-cp-bundle {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 18px 22px;
+    background: #0E1A0F;
+    border-radius: 14px;
+    color: #fff;
+  }
+  .ec-cp-bundle-text { display: flex; flex-direction: column; gap: 4px; }
+  .ec-cp-bundle-tag {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+    color: #F5A800;
+  }
+  .ec-cp-bundle-text strong { font-size: 17px; font-weight: 700; }
+  .ec-cp-bundle-sub { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  .ec-cp-bundle-cta {
+    display: inline-flex; align-items: center; gap: 7px;
+    flex: none;
+    padding: 11px 20px;
+    background: #F5A800; color: #0E1A0F !important;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .ec-cp-bundle-cta:hover { background: #FFB81F; transform: translateY(-1px); }
+
+  /* Compact "also available" link rows */
+  .ec-cp-also {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ec-cp-also-label {
+    font-size: 12.5px; font-weight: 700; color: #5b6f60;
+    flex: none;
+  }
+  .ec-cp-also-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ec-cp-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 13px;
+    background: #fff;
+    border: 1px solid #d9e4dc;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 600; color: #1a2e1c;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .ec-cp-chip:hover { border-color: #0E8E40; background: #F2FBF5; }
+
   .ec-cp-strip {
     margin-top: 24px;
     text-align: center;
@@ -2500,6 +2536,7 @@ const HOMEPAGE_CSS = `
     border-radius: 10px;
   }
   .ec-cp-strip strong { color: #1a2e1c; }
+  .ec-cp-strip em { font-style: normal; color: #2d6a3e; font-weight: 600; }
   .ec-cp-assurance {
     text-align: center;
     margin-top: 12px;

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
@@ -314,7 +315,7 @@ export default function MadisonPage() {
               border: `1px solid rgba(14,142,64,0.12)`,
               borderRadius: 12, padding: "28px 24px",
             }}>
-              <div style={{ fontSize: 28, marginBottom: 12 }}>{icon}</div>
+              <div style={{ marginBottom: 12 }}><EmojiIcon glyph={icon} /></div>
               <h3 style={{ ...serif, fontSize: 18, margin: "0 0 10px", color: D }}>{title}</h3>
               <p style={{ fontSize: 14.5, lineHeight: 1.7, margin: 0, color: "#374151" }}>{body}</p>
             </div>
@@ -400,7 +401,7 @@ export default function MadisonPage() {
               borderRadius: 14, padding: "28px 24px",
               display: "flex", flexDirection: "column",
             }}>
-              <div style={{ fontSize: 30, marginBottom: 12 }}>{icon}</div>
+              <div style={{ marginBottom: 12 }}><EmojiIcon glyph={icon} /></div>
               <h3 style={{ ...serif, fontSize: 20, margin: "0 0 4px", color: D }}>{service}</h3>
               <div style={{ marginBottom: 16 }}>
                 <span style={{ fontWeight: 800, fontSize: 22, color: G }}>{price}</span>
@@ -727,12 +728,12 @@ export default function MadisonPage() {
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px 24px", marginBottom: 20 }}>
             <Link href="/service-areas/huntsville"    style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Huntsville</Link>
-            <Link href="/service-areas/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
+            <Link href="/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
             <Link href="/service-areas/madison"       style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Madison</Link>
             <Link href="/service-areas/mountain-brook" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Mountain Brook</Link>
             <Link href="/service-areas/hoover"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Hoover</Link>
-            <Link href="/service-areas/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
-            <Link href="/service-areas/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
+            <Link href="/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
+            <Link href="/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
           </div>
           <p style={{ margin: 0, opacity: 0.45 }}>
             © {new Date().getFullYear()} EnviroCare Pest &amp; Termite Services · Family-owned since 1958 ·{" "}

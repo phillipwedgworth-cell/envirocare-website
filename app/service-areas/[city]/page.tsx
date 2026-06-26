@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "@/components/shared/Header";
+import { EmojiIcon } from "@/components/shared/PestIcon";
 
 // ── CITY DATA ──────────────────────────────────────────────────────────────
 type OfficeKey = "birmingham" | "huntsville" | "lake-martin";
@@ -161,7 +162,7 @@ const SERVICES = [
   },
   {
     slug: "termite",
-    icon: "🏠",
+    icon: "🪵",
     title: "Sentricon® Termite Protection",
     price: "Free inspection",
     alt: "priced after a free WDO inspection",
@@ -170,7 +171,7 @@ const SERVICES = [
   },
   {
     slug: "mosquito",
-    icon: "🌿",
+    icon: "🦟",
     title: "Mosquito Control",
     price: "$45/visit",
     alt: "March–November season",
@@ -179,7 +180,7 @@ const SERVICES = [
   },
   {
     slug: "tick",
-    icon: "🐕",
+    icon: "🐾",
     title: "Tick & Flea Control",
     price: "Mosquito + Tick $65/visit",
     alt: "with mosquito control",
@@ -562,7 +563,7 @@ export default async function ServiceAreaPage({
                   transition: "box-shadow 0.2s",
                 }}
               >
-                <div style={{ fontSize: 26, marginBottom: 10 }}>{svc.icon}</div>
+                <div style={{ marginBottom: 10 }}><EmojiIcon glyph={svc.icon} /></div>
                 <div
                   style={{
                     fontWeight: 700,
