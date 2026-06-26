@@ -151,8 +151,9 @@ const nextConfig: NextConfig = {
             // Fixes the 6 broken hrefs found by the June 8 crawl that were not
             // already covered above. /pricing and /why-envirocare already exist;
             // /faq has a real page and is intentionally NOT redirected.
-            // UN-SHADOWED per SHADOWED-PAGES-RECOMMENDATION.md: /services (services hub)
-            // and /realtor (B2B referral page) are now live, reachable pages — not redirected.
+            // UN-SHADOWED per SHADOWED-PAGES-RECOMMENDATION.md: /services (real services
+            // overview page, ServicesIndexPage — like Orkin/Terminix/Waynes) and /realtor
+            // (B2B referral page, app/realtor) are now live, reachable pages — not redirected.
             // FIXED 2026-06-10: was '/services/commercial' → '/commercial' (a 404 —
             // the real page lives AT /services/commercial; the old rule shadowed it).
             { source: '/commercial', destination: '/services/commercial', permanent: true },

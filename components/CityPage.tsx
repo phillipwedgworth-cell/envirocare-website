@@ -5,6 +5,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CityData } from "@/data/phase-a-cities";
+import PestIcon from "@/components/shared/PestIcon";
 
 export default function CityPage({ city }: { city: CityData }) {
   return (
@@ -159,7 +160,7 @@ export default function CityPage({ city }: { city: CityData }) {
               <div key={p.title} style={{
                 background: 'white', padding: 24, borderRadius: 12, border: '1px solid var(--line)'
               }}>
-                <div style={{ fontSize: 32, marginBottom: 10 }}>{p.emoji}</div>
+                <PestIcon name={p.emoji} size={48} style={{ marginBottom: 12 }} />
                 <h4 style={{ fontSize: 18, color: 'var(--deep)', marginBottom: 6 }}>{p.title}</h4>
                 <p style={{ fontSize: 13, color: 'var(--muted)', margin: 0 }}>{p.description}</p>
               </div>
@@ -464,7 +465,7 @@ function ServiceCard({
           fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase'
         }}>{ribbon}</div>
       )}
-      <div style={{ fontSize: 36, marginBottom: 16 }}>{icon}</div>
+      <PestIcon name={icon} size={52} style={{ marginBottom: 16 }} />
       <h3 style={{ fontSize: 22, color: 'var(--deep)', marginBottom: 8, marginTop: 0 }}>{title}</h3>
       <div style={{
         fontFamily: "'Playfair Display', serif", fontSize: 24,

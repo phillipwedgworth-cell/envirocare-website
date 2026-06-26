@@ -58,6 +58,12 @@ h1, h2, h3, h4 { font-family: var(--font-serif); }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; font-family: var(--font-sans); }
 
+/* Reserve space for the fixed mobile action bar (StickyCallButton) so the
+   last section's content is never hidden behind it. Bar is hidden >=900px. */
+@media (max-width: 899px) {
+  body { padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px)); }
+}
+
 /* ── Hero animations (v4) ── */
 @keyframes ec-orb-a { from { transform: translate(0,0); } to { transform: translate(-50px,40px); } }
 @keyframes ec-orb-b { from { transform: translate(0,0); } to { transform: translate(35px,-35px); } }
