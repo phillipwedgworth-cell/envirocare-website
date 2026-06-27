@@ -213,7 +213,9 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
               <Phone size={14} /> (205) 940-6360
             </a>
             {divider}
-            <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0 12px" }}>Customer Login</a>
+            <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0 12px", display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <User size={15} aria-hidden="true" /> Customer Login
+            </a>
             {divider}
             <a href="/request-quote" style={{ marginLeft: 8, background: GOLD, color: DARK, borderRadius: 50, padding: "0.52rem 1.3rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap" }}>Get Free Quote</a>
           </div>
