@@ -34,7 +34,6 @@ import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidget from '../components/ChatWidget';
 import Header from '../components/shared/Header';
 import Footer from '../components/shared/Footer';
-import StickyCallButton from '../components/StickyCallButton';
 
 // Self-hosted via next/font — removes the render-blocking Google Fonts
 // stylesheet, applies font-display: swap, and preloads only what we use.
@@ -264,7 +263,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
-        <StickyCallButton />
         <ChatWidget />
 
         {/* Google Analytics 4 — G-CELEB90NKX */}

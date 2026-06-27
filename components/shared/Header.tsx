@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
+import { Phone, ArrowRight, ChevronDown, User, Sparkles } from "lucide-react";
+
+// Opens the floating Scout AI assistant (ChatWidget listens for this event).
+function openScout() {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("ec:open-scout"));
+  }
+}
 
 // When the customer payment portal goes live, change this single value.
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
@@ -207,7 +214,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
             <a href="/reviews" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>Reviews</a>
           </nav>
 
-          {/* RIGHT: Phone | Customer Login | Get Free Quote */}
+          {/* RIGHT: Phone | Customer Login | Ask an Expert (AI) */}
           <div className="ec-desktop-only" style={{ alignItems: "center", gap: 0, ...sf }}>
             <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: "#0A7935", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
               <Phone size={14} /> (205) 940-6360
@@ -217,13 +224,15 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
               <User size={15} aria-hidden="true" /> Customer Login
             </a>
             {divider}
-            <a href="/request-quote" style={{ marginLeft: 8, background: GOLD, color: DARK, borderRadius: 50, padding: "0.52rem 1.3rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap" }}>Get Free Quote</a>
+            <button type="button" onClick={openScout} style={{ marginLeft: 8, background: GOLD, color: DARK, border: "none", cursor: "pointer", borderRadius: 50, padding: "0.55rem 1.3rem", fontWeight: 700, fontSize: 13, boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "inherit" }}>
+              <Sparkles size={15} aria-hidden="true" /> Ask an Expert
+            </button>
           </div>
 
-          {/* MOBILE: phone icon + burger */}
+          {/* MOBILE: phone icon + Ask an Expert (AI) + burger */}
           <div className="ec-mobile-only" style={{ alignItems: "center", gap: 8 }}>
             <a href="tel:2059406360" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
-            <a href={PAYMENT_PORTAL_URL} aria-label="Customer Login / Pay My Bill" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><User size={18} /></a>
+            <button type="button" onClick={openScout} aria-label="Ask an Expert" style={{ width: 44, height: 44, borderRadius: 12, border: "none", cursor: "pointer", background: GOLD, color: DARK, display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: `0 3px 10px ${GOLD}55` }}><Sparkles size={19} /></button>
             <button type="button" className="ec-burger" aria-label="Open menu" aria-expanded={menuOpen} aria-controls="ec-mobile-menu" onClick={() => setMenuOpen(true)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="13" x2="20" y2="13"/><line x1="4" y1="19" x2="14" y2="19"/></svg>
             </button>

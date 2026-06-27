@@ -146,58 +146,10 @@ export default function ChatWidget() {
     }
   };
 
-  // ── Floating launcher (closed) ───────────────────────────────
-  if (!isOpen) {
-    return (
-      <>
-        <style dangerouslySetInnerHTML={{ __html: `
-          @keyframes ec-scout-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.75);opacity:0}100%{transform:scale(1.75);opacity:0}}
-          @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
-        `}} />
-      <button
-        onClick={() => {
-          setIsOpen(true);
-          if (typeof window !== 'undefined' && (window as any).gtag) {
-            (window as any).gtag('event', 'chat_open', { event_category: 'engagement' });
-          }
-        }}
-        aria-label="Chat with Scout, EnviroCare's assistant"
-        title="Chat with Scout"
-        style={{
-          position: "fixed", bottom: 16, right: 16,
-          width: 62, height: 62, borderRadius: "50%",
-          background: `linear-gradient(145deg, ${BRAND_GREEN} 0%, ${FOREST} 70%)`,
-          border: "none", cursor: "pointer",
-          boxShadow: "0 6px 20px rgba(14,26,15,0.30)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          zIndex: 9999, transition: "transform 0.2s, box-shadow 0.2s",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "scale(1.06)";
-          e.currentTarget.style.boxShadow = `0 6px 20px rgba(14,26,15,0.30), 0 0 0 3px ${GOLD}`;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.boxShadow = "0 6px 20px rgba(14,26,15,0.30)";
-        }}
-      >
-        <span className="ec-scout-ring" aria-hidden="true" style={{
-          position: "absolute", inset: 0, borderRadius: "50%",
-          background: BRAND_GREEN, zIndex: 0, pointerEvents: "none",
-          animation: "ec-scout-pulse 2.2s ease-out infinite",
-        }} />
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ position: "relative", zIndex: 2 }}>
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-        </svg>
-        <span style={{
-          position: "absolute", top: 3, right: 3,
-          width: 14, height: 14, borderRadius: "50%",
-          background: GOLD, border: "2px solid white", zIndex: 3,
-        }} />
-      </button>
-      </>
-    );
-  }
+  // ── Closed: render nothing. Scout is opened from the header's
+  //    "Ask an Expert" button via the ec:open-scout event — no floating
+  //    launcher follows the user at the bottom of the screen. ──────────
+  if (!isOpen) return null;
 
   // ── Open panel ───────────────────────────────────────────────
   return (
