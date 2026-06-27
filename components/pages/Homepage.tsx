@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ComponentType, SVGProps } from 'react';
 import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
-  Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
+  Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight, User,
 } from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
@@ -206,8 +206,7 @@ export default function Homepage() {
       />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <LocalBusinessJsonLd />
-      <TopBanner />
-      <Header />
+      <SiteHeader />
       <Hero />
       <ConsolidatedPricing />
       <Reviews />
@@ -233,99 +232,122 @@ function openScout(message?: string) {
 }
 const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
 
-function TopBanner() {
-  return (
-    <div className="ec-banner">
-      <div className="ec-banner-inner">
-        <Flower2 size={14} className="ec-banner-sun" aria-hidden="true" />
-        <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
-        </div>
-      </div>
-    </div>
-  );
-}
+const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
 
-/* ============================================================
-   HEADER
-   ============================================================ */
-function Header() {
+function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 50);
+    fn();
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
 
   return (
-    <header className="ec-header">
-      <div className="ec-header-inner">
-        <Link href="/" className="ec-brand" aria-label="EnviroCare home">
-          <Image
-            src="/logo.png"
-            alt="EnviroCare Pest & Termite Services"
-            width={280}
-            height={72}
-            className="ec-brand-logo"
-            priority
-          />
-        </Link>
+    <div className="ec-shell" data-scrolled={scrolled}>
+      {/* UTILITY BAR — collapses cleanly on scroll, content adapts to device */}
+      <div className="ec-utility" aria-hidden={scrolled}>
+        <div className="ec-utility-inner">
+          {/* Desktop: rotating trust messages + login + phone */}
+          <div className="ec-utility-desktop">
+            <div className="ec-banner-rotator" aria-live="off">
+              <span className="ec-banner-msg"><Flower2 size={13} className="ec-banner-sun" aria-hidden="true" /> <span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+              <span className="ec-banner-msg"><Flower2 size={13} className="ec-banner-sun" aria-hidden="true" /> <span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
+              <span className="ec-banner-msg"><Flower2 size={13} className="ec-banner-sun" aria-hidden="true" /> <span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
+            </div>
+            <div className="ec-utility-right">
+              <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-util-link">
+                <User size={14} aria-hidden="true" /> Customer Login
+              </a>
+              <span className="ec-util-sep" aria-hidden="true" />
+              <a href="tel:2059406360" className="ec-util-link"><Phone size={13} aria-hidden="true" /> (205) 940-6360</a>
+            </div>
+          </div>
 
-        <nav className="ec-nav" aria-label="Main navigation">
-          <Link href="/services/pest-control">Services</Link>
-          <Link href="/quote">Pricing</Link>
-          <Link href="/about-us">About</Link>
-          <Link href="/contact-us">Contact</Link>
-        </nav>
-
-        <div className="ec-header-cta">
-          <a
-            href="https://payenvirocare.key7app.com/User/Login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ec-header-pay"
-          >Pay Bill</a>
-          <a href="tel:2059406360" className="ec-header-phone">
-            <Phone size={14} className="ec-phone-icon" aria-hidden="true" />
-            <span>(205) 940-6360</span>
-          </a>
-          <Link
-            href="/quote"
-            className="ec-header-quote"
-            onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
-          >Get Free Quote</Link>
+          {/* Mobile: customer login (left) + tap-to-call link (right), no number text */}
+          <div className="ec-utility-mobile">
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-util-mobile-link">
+              <User size={15} aria-hidden="true" /> Customer Login
+            </a>
+            <a href="tel:2059406360" aria-label="Call EnviroCare" className="ec-util-mobile-link">
+              <Phone size={14} aria-hidden="true" /> Call Us
+            </a>
+          </div>
         </div>
-
-        <button
-          type="button"
-          className="ec-mobile-toggle"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-          aria-controls="ec-mobile-menu"
-        >{mobileOpen ? <X size={26} /> : <Menu size={26} />}</button>
       </div>
 
-      {mobileOpen && (
-        <div className="ec-mobile-menu" id="ec-mobile-menu">
-          <Link href="/services/pest-control" onClick={() => setMobileOpen(false)}>Services</Link>
-          <Link href="/quote" onClick={() => setMobileOpen(false)}>Pricing</Link>
-          <Link href="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
-          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact</Link>
-          <a
-            href="https://payenvirocare.key7app.com/User/Login"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-          >Pay Bill</a>
-          <a href="tel:2059406360" onClick={() => setMobileOpen(false)} className="ec-mobile-phone"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
-          <Link
-            href="/quote"
-            className="ec-mobile-cta"
-            onClick={(e) => { e.preventDefault(); setMobileOpen(false); openScout(QUOTE_PROMPT); }}
-          >
-            Get Free Quote →
+      {/* MAIN HEADER — stays pinned */}
+      <header className="ec-header">
+        <div className="ec-header-inner">
+          <Link href="/" className="ec-brand" aria-label="EnviroCare home">
+            <Image
+              src="/logo.png"
+              alt="EnviroCare Pest & Termite Services"
+              width={280}
+              height={72}
+              className="ec-brand-logo"
+              priority
+            />
           </Link>
+
+          <nav className="ec-nav" aria-label="Main navigation">
+            <Link href="/services/pest-control">Services</Link>
+            <Link href="/quote">Pricing</Link>
+            <Link href="/about-us">About</Link>
+            <Link href="/contact-us">Contact</Link>
+          </nav>
+
+          <div className="ec-header-cta">
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-header-pay">Pay Bill</a>
+            <a href="tel:2059406360" className="ec-header-phone">
+              <Phone size={14} className="ec-phone-icon" aria-hidden="true" />
+              <span>(205) 940-6360</span>
+            </a>
+            <Link
+              href="/quote"
+              className="ec-header-quote"
+              onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+            >Talk to an Expert</Link>
+          </div>
+
+          <div className="ec-header-mobile-actions">
+            <Link
+              href="/quote"
+              className="ec-header-quote-sm"
+              onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
+            >Talk to an Expert</Link>
+            <button
+              type="button"
+              className="ec-mobile-toggle"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="ec-mobile-menu"
+            >{mobileOpen ? <X size={26} /> : <Menu size={26} />}</button>
+          </div>
         </div>
-      )}
-    </header>
+
+        {mobileOpen && (
+          <div className="ec-mobile-menu" id="ec-mobile-menu">
+            <Link href="/services/pest-control" onClick={() => setMobileOpen(false)}>Services</Link>
+            <Link href="/quote" onClick={() => setMobileOpen(false)}>Pricing</Link>
+            <Link href="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
+            <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact</Link>
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>Customer Login</a>
+            <a href="tel:2059406360" onClick={() => setMobileOpen(false)} className="ec-mobile-phone"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
+            <Link
+              href="/quote"
+              className="ec-mobile-cta"
+              onClick={(e) => { e.preventDefault(); setMobileOpen(false); openScout(QUOTE_PROMPT); }}
+            >
+              Talk to an Expert →
+            </Link>
+          </div>
+        )}
+      </header>
+    </div>
   );
 }
 
@@ -938,39 +960,57 @@ const HOMEPAGE_CSS = `
   .ec-cp-arrow { display: inline-flex; align-items: center; }
   .ec-cp-chk { display: inline-flex; align-items: center; }
 
-  /* TOP BANNER */
-  .ec-banner {
-    background: linear-gradient(90deg, #0A7935 0%, #0E8E40 50%, #0A7935 100%);
+  /* STICKY SHELL */
+  .ec-shell { position: sticky; top: 0; z-index: 100; }
+
+  /* UTILITY BAR — collapses cleanly on scroll */
+  .ec-utility {
+    background: linear-gradient(90deg, #07642B 0%, #0A7935 50%, #07642B 100%);
     color: #fff;
-    padding: 9px 16px;
-    font-size: 13px;
     overflow: hidden;
+    max-height: 46px;
+    opacity: 1;
     border-bottom: 1px solid rgba(255,255,255,0.12);
+    transition: max-height 0.3s ease, opacity 0.22s ease;
   }
-  .ec-banner-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
+  .ec-shell[data-scrolled="true"] .ec-utility {
+    max-height: 0;
+    opacity: 0;
+    border-bottom-color: transparent;
   }
+  .ec-utility-inner { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+  /* Desktop utility content */
+  .ec-utility-desktop { display: none; align-items: center; justify-content: space-between; gap: 18px; height: 46px; font-size: 13px; }
+  .ec-utility-right { display: inline-flex; align-items: center; gap: 14px; flex: none; }
+  .ec-util-link { display: inline-flex; align-items: center; gap: 6px; color: #fff !important; font-weight: 600; font-size: 13px; transition: color 0.15s; }
+  .ec-util-link:hover { color: #F5A800 !important; }
+  .ec-util-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.28); display: inline-block; }
+
+  /* Mobile utility content */
+  .ec-utility-mobile { display: flex; align-items: stretch; justify-content: space-between; height: 44px; }
+  .ec-util-mobile-link { display: inline-flex; align-items: center; gap: 7px; color: #fff !important; font-weight: 600; font-size: 13.5px; padding: 0 16px; }
+  .ec-util-mobile-link svg { color: #F5A800; }
+
+  @media (min-width: 1024px) {
+    .ec-utility-desktop { display: flex; }
+    .ec-utility-mobile { display: none; }
+  }
+
   .ec-banner-sun { flex: none; color: #F5A800; }
   .ec-banner-gold { color: #F5A800; font-weight: 600; }
   .ec-banner-rotator {
     position: relative;
-    height: 20px;
+    height: 46px;
     overflow: hidden;
     flex: 1 1 auto;
-    max-width: 620px;
-    text-align: center;
   }
   .ec-banner-msg {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 6px;
     white-space: nowrap;
     opacity: 0;
@@ -991,11 +1031,6 @@ const HOMEPAGE_CSS = `
     .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
   }
   @media (max-width: 720px) {
-    /* Thinner, less dominant trust banner */
-    .ec-banner { padding: 5px 14px; font-size: 11.5px; }
-    .ec-banner-rotator { width: 100%; height: 18px; }
-    .ec-banner-msg { font-size: 11.5px; }
-
     /* Tighter, more premium hero with breathing room */
     .ec-hero { padding-top: 28px; }
     .ec-hero-inner { gap: 28px; padding-bottom: 150px; }
@@ -1009,42 +1044,18 @@ const HOMEPAGE_CSS = `
     .ec-hero-ctas .ec-cta-primary,
     .ec-hero-ctas .ec-cta-secondary { width: 100%; justify-content: center; }
   }
-  .ec-banner-call {
-    margin-left: 12px;
-    background: #F5A800;
-    color: #0E1A0F !important;
-    padding: 7px 16px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-    min-height: 36px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 8px rgba(245,168,0,0.3);
-    transition: background 0.15s, transform 0.15s;
-    text-decoration: none;
-  }
-  .ec-banner-call:hover {
-    background: #FFB81F;
-    transform: translateY(-1px);
-  }
-  /* One call pattern only on mobile: drop the top call pill, keep sticky bar */
-  @media (max-width: 720px) {
-    .ec-banner-call { display: none; }
-  }
-
-
   /* HEADER - LOGO IMAGE ONLY */
   .ec-header {
     background: #fff;
     border-bottom: 1px solid #E8E2D8;
-    position: sticky;
-    top: 0;
-    z-index: 100;
     box-shadow: 0 1px 0 rgba(14,26,15,0.04);
     max-width: 100vw;
     overflow-x: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  .ec-shell[data-scrolled="true"] .ec-header {
+    box-shadow: 0 4px 22px rgba(14,26,15,0.08);
+    border-bottom-color: rgba(14,142,64,0.18);
   }
   .ec-header-inner {
     max-width: 1280px;
@@ -1125,12 +1136,23 @@ const HOMEPAGE_CSS = `
   }
   .ec-phone-icon { font-size: 13px; }
   .ec-header-quote {
-    padding: 10px 20px; background: #0E1A0F;
-    color: #fff !important; border-radius: 999px;
+    padding: 10px 20px; background: #F5A800;
+    color: #0E1A0F !important; border-radius: 999px;
     font-weight: 700; font-size: 14px;
-    transition: background 0.15s;
+    box-shadow: 0 4px 14px rgba(245,168,0,0.28);
+    transition: background 0.15s, transform 0.15s;
   }
-  .ec-header-quote:hover { background: #1A2620; }
+  .ec-header-quote:hover { background: #FFB81F; transform: translateY(-1px); }
+
+  /* Mobile header right-side actions */
+  .ec-header-mobile-actions { display: flex; align-items: center; gap: 10px; }
+  .ec-header-quote-sm {
+    background: #F5A800; color: #0E1A0F !important;
+    border-radius: 999px; padding: 9px 14px;
+    font-weight: 700; font-size: 12.5px; white-space: nowrap;
+  }
+  @media (max-width: 360px) { .ec-header-quote-sm { display: none; } }
+  @media (min-width: 1024px) { .ec-header-mobile-actions { display: none; } }
 
   .ec-mobile-toggle {
     background: transparent; border: 1px solid #E8E2D8;

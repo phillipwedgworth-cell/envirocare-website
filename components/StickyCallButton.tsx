@@ -42,8 +42,7 @@ export default function StickyCallButton() {
           </span>
         </a>
         <div className="sc-row">
-          <a href="/services/termite-control" className="sc-inspect">Free Inspection</a>
-          <a href="/quote" className="sc-quote">Get Quote</a>
+          <a href="/request-quote" className="sc-quote">Talk to an Expert</a>
         </div>
       </div>
     </>

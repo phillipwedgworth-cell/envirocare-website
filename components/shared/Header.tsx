@@ -143,7 +143,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
             <span>Customer Login <span className="ec-menu-pay-sub" style={{ display: "block", marginTop: 2 }}>Pay My Bill</span></span>
             <ArrowRight size={20} />
           </a>
-          <a href="/request-quote" className="ec-menu-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote <ArrowRight size={18} /></a>
+          <a href="/request-quote" className="ec-menu-quote" onClick={() => setMenuOpen(false)}>Talk to an Expert <ArrowRight size={18} /></a>
 
           <div className="ec-menu-offices">
             <div className="ec-menu-offices-label">Call Your Local Office</div>
@@ -161,19 +161,48 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
         </div>
       </div>
 
-      {/* TOP PHONE BAR */}
+      {/* STICKY SHELL: top utility bar collapses on scroll, main bar stays pinned */}
+      <div className="ec-sticky-shell" style={{ position: "sticky", top: 0, zIndex: 50 }}>
+
+      {/* TOP UTILITY BAR — collapses cleanly on scroll */}
       {showTopBar && (
-        <div style={{ background: DARK, color: "#FBC51A", fontSize: 12, padding: "9px 24px", display: "flex", justifyContent: "center", gap: 22, flexWrap: "wrap", letterSpacing: "0.04em", fontWeight: 500, ...sf }}>
-          <span>Birmingham <strong style={{ color: "#fff" }}>(205) 940-6360</strong></span>
-          <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>
-          <span>Lake Martin <strong style={{ color: "#fff" }}>(256) 234-6162</strong></span>
-          <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>
-          <span>Huntsville <strong style={{ color: "#fff" }}>(256) 937-7676</strong></span>
+        <div
+          aria-hidden={scrolled}
+          style={{
+            background: DARK,
+            maxHeight: scrolled ? 0 : 56,
+            opacity: scrolled ? 0 : 1,
+            overflow: "hidden",
+            transition: "max-height 0.28s ease, opacity 0.2s ease",
+            ...sf,
+          }}
+        >
+          {/* DESKTOP: local office phone numbers */}
+          <div className="ec-desktop-only" style={{ color: "#FBC51A", fontSize: 12, padding: "9px 24px", justifyContent: "center", gap: 22, flexWrap: "wrap", letterSpacing: "0.04em", fontWeight: 500 }}>
+            {OFFICES.map((o, i) => (
+              <span key={o.tel} style={{ display: "inline-flex", alignItems: "center", gap: 22 }}>
+                {i > 0 && <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>}
+                <a href={`tel:${o.tel}`} style={{ color: "#FBC51A", textDecoration: "none" }}>
+                  {o.name} <strong style={{ color: "#fff" }}>{o.phone}</strong>
+                </a>
+              </span>
+            ))}
+          </div>
+
+          {/* MOBILE: customer login (left) + tap-to-call link (right) — no number text */}
+          <div className="ec-mobile-only" style={{ alignItems: "stretch", justifyContent: "space-between", padding: 0, height: 48 }}>
+            <a href={PAYMENT_PORTAL_URL} style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#fff", textDecoration: "none", fontSize: 13.5, fontWeight: 600, padding: "0 18px" }}>
+              <User size={17} style={{ color: GOLD }} /> Customer Login
+            </a>
+            <a href="tel:2059406360" aria-label="Call EnviroCare" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#fff", textDecoration: "none", fontSize: 13.5, fontWeight: 600, padding: "0 18px" }}>
+              <Phone size={16} style={{ color: GOLD }} /> Call Us
+            </a>
+          </div>
         </div>
       )}
 
       {/* HEADER */}
-      <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${scrolled ? "rgba(14,142,64,0.18)" : "#D4E8D8"}`, padding: "0 clamp(1.5rem, 5vw, 4rem)", transition: "all 0.2s", boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.06)" : "none" }}>
+      <header style={{ background: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${scrolled ? "rgba(14,142,64,0.18)" : "#D4E8D8"}`, padding: "0 clamp(1.5rem, 5vw, 4rem)", transition: "all 0.2s", boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.06)" : "none" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
 
           {/* LEFT: Logo — ~50px tall */}
@@ -213,13 +242,12 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
             {divider}
             <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0 12px" }}>Customer Login</a>
             {divider}
-            <a href="/request-quote" style={{ marginLeft: 8, background: GOLD, color: DARK, borderRadius: 50, padding: "0.52rem 1.3rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap" }}>Get Free Quote</a>
+            <a href="/request-quote" style={{ marginLeft: 8, background: GOLD, color: DARK, borderRadius: 50, padding: "0.52rem 1.3rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap" }}>Talk to an Expert</a>
           </div>
 
-          {/* MOBILE: phone icon + burger */}
-          <div className="ec-mobile-only" style={{ alignItems: "center", gap: 8 }}>
-            <a href="tel:2059406360" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
-            <a href={PAYMENT_PORTAL_URL} aria-label="Customer Login / Pay My Bill" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><User size={18} /></a>
+          {/* MOBILE: Talk to an Expert + burger (login + call live in the top bar) */}
+          <div className="ec-mobile-only" style={{ alignItems: "center", gap: 10 }}>
+            <a href="/request-quote" style={{ background: GOLD, color: DARK, borderRadius: 50, padding: "0.5rem 0.95rem", fontWeight: 700, fontSize: 12.5, textDecoration: "none", whiteSpace: "nowrap", ...sf }}>Talk to an Expert</a>
             <button type="button" className="ec-burger" aria-label="Open menu" aria-expanded={menuOpen} aria-controls="ec-mobile-menu" onClick={() => setMenuOpen(true)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="13" x2="20" y2="13"/><line x1="4" y1="19" x2="14" y2="19"/></svg>
             </button>
@@ -227,6 +255,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
         </div>
       </header>
+      </div>
       <BrandBand />
     </>
   );
