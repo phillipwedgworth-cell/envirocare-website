@@ -161,3 +161,25 @@ html, body { max-width: 100%; overflow-x: hidden; }
 @media (max-width: 380px) {
   .ec-header-logo { height: 40px; max-width: 54vw; }
 }
+
+/* 4) Top phone bar: a clean centered row on desktop. On phones it becomes a
+      tidy stacked list with the floating "·" separators removed so the bar
+      never looks broken with dangling dots at the ends of wrapped lines. */
+.ec-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 22px;
+  padding: 9px 24px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.ec-topbar-office { color: inherit; text-decoration: none; white-space: nowrap; }
+.ec-topbar-office strong { color: #fff; font-weight: 700; }
+.ec-topbar-sep { color: #2EAA61; opacity: 0.7; }
+@media (max-width: 640px) {
+  .ec-topbar { flex-direction: column; gap: 5px; padding: 8px 16px; }
+  .ec-topbar-sep { display: none; }
+}

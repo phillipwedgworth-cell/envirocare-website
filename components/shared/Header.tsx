@@ -163,12 +163,12 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
       {/* TOP PHONE BAR */}
       {showTopBar && (
-        <div style={{ background: DARK, color: "#FBC51A", fontSize: 12, padding: "9px 24px", display: "flex", justifyContent: "center", gap: 22, flexWrap: "wrap", letterSpacing: "0.04em", fontWeight: 500, ...sf }}>
-          <span>Birmingham <strong style={{ color: "#fff" }}>(205) 940-6360</strong></span>
-          <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>
-          <span>Lake Martin <strong style={{ color: "#fff" }}>(256) 234-6162</strong></span>
-          <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>
-          <span>Huntsville <strong style={{ color: "#fff" }}>(256) 937-7676</strong></span>
+        <div className="ec-topbar" style={{ background: DARK, color: "#FBC51A", ...sf }}>
+          <a href="tel:2059406360" className="ec-topbar-office">Birmingham <strong>(205) 940-6360</strong></a>
+          <span className="ec-topbar-sep" aria-hidden="true">·</span>
+          <a href="tel:2562346162" className="ec-topbar-office">Lake Martin <strong>(256) 234-6162</strong></a>
+          <span className="ec-topbar-sep" aria-hidden="true">·</span>
+          <a href="tel:2569377676" className="ec-topbar-office">Huntsville <strong>(256) 937-7676</strong></a>
         </div>
       )}
 
