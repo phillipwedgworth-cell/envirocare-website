@@ -1,0 +1,348 @@
+// Pest Library — 12 pest-profile pages migrated from the legacy Scorpion site
+// at the SAME /pest-library/* URLs (recovers the SEO the old library ranked for).
+// Data-driven, mirrors data/services.ts shape. Rendered by
+// components/pages/PestLibraryPage.tsx (detail) + PestLibraryIndex.tsx (index).
+//
+// COMPLIANCE: no "guarantee", no "safe", no eradication promises. Use
+// EPA-registered / licensed / reduce / control / manage language only.
+
+export type PestEntry = {
+  slug: string;
+  name: string;          // "Ants"
+  icon: string;          // PestIcon name (pest|ant|roach|mosquito|spider|tick|termite)
+  also: string;          // common Alabama species / aliases (one line)
+  metaTitle: string;
+  metaDescription: string;
+  intro: string;         // hero subhead
+  identification: string;
+  behavior: string;      // Alabama-specific habits
+  risks: string[];       // health / property concerns
+  signs: string[];       // signs of activity
+  seasonal: string;      // Alabama timing
+  treatment: string;     // how EnviroCare approaches it (compliance-safe)
+  serviceSlug: string;   // related service page
+  serviceLabel: string;
+  faqs: { q: string; a: string }[];
+};
+
+export const PESTS: PestEntry[] = [
+  {
+    slug: 'ants',
+    name: 'Ants',
+    icon: 'ant',
+    also: 'Argentine, odorous house, carpenter, pavement & fire ants',
+    metaTitle: 'Ant Control in Alabama | Identification & Treatment | EnviroCare',
+    metaDescription: 'How to identify Alabama ants — Argentine, odorous house, carpenter & fire ants — the problems they cause, and how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'The most common call we get in Alabama. From kitchen trails to carpenter ants in damp wood, here’s how to tell them apart and what actually keeps them out.',
+    identification: 'Most Alabama ants are 1/16"–1/2" long with bent (elbowed) antennae and a narrow waist. Odorous house ants give off a coconut-like smell when crushed; carpenter ants are larger (up to 1/2") and excavate galleries in moist or damaged wood; Argentine ants form massive multi-queen colonies with endless trails.',
+    behavior: 'Ants forage indoors for moisture and sugars, especially after Alabama rain or summer heat drives them inside. Trails follow baseboards, counters, and plumbing lines. Carpenter ants nest in wood softened by leaks; fire ants build mounds in lawns and along foundations.',
+    risks: [
+      'Contamination of food and food-prep surfaces',
+      'Carpenter ants weaken moist structural wood over time',
+      'Fire ant stings cause painful welts and allergic reactions',
+      'Large trailing colonies are persistent and hard to clear with sprays',
+    ],
+    signs: ['Trails along counters, baseboards & foundations', 'Small piles of sawdust-like frass near wood (carpenter ants)', 'Raised soil mounds in the yard (fire ants)', 'Winged swarmers near windows in spring'],
+    seasonal: 'Activity climbs from spring through fall, peaking in Alabama’s hot, humid summer. Indoor invasions spike after heavy rain.',
+    treatment: 'EnviroCare uses targeted, EPA-registered baits and non-repellent products applied per label — baits let foragers carry the active ingredient back to the colony instead of just scattering the trail. Our bi-monthly program treats the interior and exterior perimeter and re-treats between visits if ants return. Fire-ant mounds are handled as a separate yard treatment.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'Why do ants keep coming back after I spray?', a: 'Over-the-counter sprays kill the ants you see but not the colony. They can also cause some species to "bud" into multiple colonies. We use baits and non-repellent products that reach the nest, then re-treat on a recurring schedule.' },
+      { q: 'Are the ants in my walls carpenter ants?', a: 'Possibly. Carpenter ants are large and favor wood softened by moisture. Fine sawdust-like frass and faint rustling in walls are common signs. We inspect for the moisture source as part of treatment.' },
+    ],
+  },
+  {
+    slug: 'termites',
+    name: 'Termites',
+    icon: 'termite',
+    also: 'Eastern subterranean termites (the #1 wood-destroying pest in Alabama)',
+    metaTitle: 'Termite Identification & Control in Alabama | EnviroCare Sentricon®',
+    metaDescription: 'Subterranean termites cost Alabama homeowners thousands. Learn the warning signs, swarm season, and how EnviroCare’s Sentricon® system protects your home.',
+    intro: 'Subterranean termites are the costliest pest in Alabama — quiet, hidden, and active year-round in our climate. Here’s what to watch for and how Sentricon® protects your home.',
+    identification: 'Subterranean termite workers are pale, soft-bodied, and rarely seen. Swarmers (reproductives) are dark with two pairs of equal-length wings — often mistaken for flying ants, but termites have a straight waist and straight antennae. Discarded wings on a windowsill are a classic giveaway.',
+    behavior: 'These termites live in the soil and tunnel up into wood through pencil-width mud tubes along foundations, piers, and crawlspaces. Alabama’s warm, humid climate keeps them feeding nearly all year, hidden behind drywall and inside framing.',
+    risks: [
+      'Structural damage to framing, subfloors and supports',
+      'Repairs are rarely covered by standard homeowners insurance',
+      'Damage often goes unseen until it is significant',
+      'Required clearance issues during real-estate closings (WDO letters)',
+    ],
+    signs: ['Pencil-width mud tubes on foundations or crawlspace piers', 'Discarded wings near windows & doors after a swarm', 'Hollow-sounding or blistered wood', 'Spring swarms of dark, equal-winged insects'],
+    seasonal: 'Swarms typically occur in spring (often after warm rain), but subterranean termites feed year-round in Alabama — protection should not be seasonal.',
+    treatment: 'EnviroCare installs the Sentricon® Always Active™ bait-station system around the structure — no drilling and no tank trucks. Colonies feed on the stations and decline over time, and the system stays active for ongoing monitoring. Eligible homes carry up to $1,000,000 in damage repair coverage. Every plan starts with a free WDO inspection.',
+    serviceSlug: 'termite-control',
+    serviceLabel: 'Termite Control',
+    faqs: [
+      { q: 'How do I know if I have termites or flying ants?', a: 'Termite swarmers have a straight waist, straight antennae, and four equal-length wings. Flying ants have a pinched waist, bent antennae, and front wings longer than the back. Discarded wings on a sill point to termites.' },
+      { q: 'Does Sentricon® require drilling into my slab?', a: 'No. Sentricon® stations are installed in the soil around the home — no drilling through concrete and no trenching with tank trucks.' },
+    ],
+  },
+  {
+    slug: 'cockroaches',
+    name: 'Cockroaches',
+    icon: 'roach',
+    also: 'German, American (palmetto bug) & smoky-brown roaches',
+    metaTitle: 'Cockroach Control in Alabama | German & Palmetto Bugs | EnviroCare',
+    metaDescription: 'Identify Alabama cockroaches — German, American (palmetto bug) and smoky-brown — the health risks they carry, and how EnviroCare controls them. (205) 940-6360.',
+    intro: 'From tiny German roaches in the kitchen to big "palmetto bugs" on the porch, Alabama’s humidity makes roaches a year-round issue. Here’s how to tell them apart and break the cycle.',
+    identification: 'German cockroaches are small (1/2"), tan, with two dark stripes behind the head — the kind that infest kitchens and bathrooms. American cockroaches ("palmetto bugs") are large (1.5"+), reddish-brown, and live in drains, crawlspaces, and mulch. Smoky-brown roaches are dark and common around Alabama porches and attics.',
+    behavior: 'Roaches seek warmth, moisture, and food. German roaches breed rapidly indoors and hide in cracks near appliances; larger species move indoors from drains, sewers, and landscaping, especially when it’s hot or after heavy rain.',
+    risks: [
+      'Carry bacteria that can contaminate food and surfaces',
+      'Droppings and shed skins trigger asthma and allergies',
+      'German roach populations grow explosively if untreated',
+      'A sign of moisture or sanitation issues that need addressing',
+    ],
+    signs: ['Live roaches at night when lights come on', 'Pepper-like droppings in drawers & cabinets', 'A musty, oily odor in heavy infestations', 'Egg cases (oothecae) in cracks and crevices'],
+    seasonal: 'Active year-round indoors; outdoor species push inside during Alabama’s hottest months and after rain.',
+    treatment: 'EnviroCare combines EPA-registered gel baits, targeted crack-and-crevice treatment, and growth regulators applied per label to interrupt the breeding cycle — not just knock down what’s visible. We also identify the moisture and entry points feeding the problem and re-treat on a recurring schedule.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'I only see big roaches outside — do I have an infestation?', a: 'Large American/smoky-brown roaches usually live outdoors and wander in. German roaches are the ones that breed indoors. We identify which you have, because the treatment differs.' },
+      { q: 'Are cockroaches a sign my house is dirty?', a: 'Not necessarily — they’re drawn to moisture and can hitchhike in on boxes, groceries, and used appliances. Even clean homes get them in Alabama’s humid climate.' },
+    ],
+  },
+  {
+    slug: 'spiders',
+    name: 'Spiders',
+    icon: 'spider',
+    also: 'Common house spiders, wolf spiders & the venomous brown recluse',
+    metaTitle: 'Spider Control in Alabama | Brown Recluse & House Spiders | EnviroCare',
+    metaDescription: 'Identify Alabama spiders including the venomous brown recluse, understand the risk, and learn how EnviroCare controls them around your home. Call (205) 940-6360.',
+    intro: 'Most Alabama spiders are harmless, but the brown recluse is a real concern in older homes. Here’s how to tell the difference and reduce spider activity indoors.',
+    identification: 'House and wolf spiders are common and harmless, if startling. The brown recluse is light brown, about the size of a quarter with legs, with a darker violin-shaped mark behind the head and only six eyes. It hides in undisturbed, dark places — closets, garages, boxes, and crawlspaces.',
+    behavior: 'Spiders follow their food — other insects. Where there are flies, moths, and ants, spiders settle in. Brown recluses prefer quiet storage areas in older Alabama housing stock and are most often encountered when reaching into boxes or pulling on stored clothing.',
+    risks: [
+      'Brown recluse bites can cause serious skin reactions and need medical attention',
+      'Webbing in corners, eaves, and storage areas',
+      'High spider counts usually signal another insect problem',
+      'Egg sacs lead to large numbers of spiderlings',
+    ],
+    signs: ['Webs in corners, eaves, garages & basements', 'Spiders in undisturbed storage areas', 'Egg sacs (round, silk-wrapped) in quiet spots', 'A high count often follows another pest issue'],
+    seasonal: 'Most visible late summer into fall as spiders mature and seek shelter indoors ahead of cooler weather.',
+    treatment: 'EnviroCare’s recurring program reduces the insects spiders feed on, treats harborage in eaves, garages, and storage areas with EPA-registered products per label, and includes web knock-down. For brown recluse concerns we focus on the undisturbed interior zones where they actually hide.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'How do I know if it’s a brown recluse?', a: 'Look for a violin-shaped mark behind the head, uniform light-brown coloring, and six eyes (not eight). They’re found in quiet, undisturbed areas. If you’re unsure, capture it safely for our technician to identify.' },
+      { q: 'Why are there suddenly so many spiders?', a: 'Spiders follow prey. A jump in spiders usually means there’s another insect population nearby. Controlling that food source is the most effective way to reduce spiders.' },
+    ],
+  },
+  {
+    slug: 'mosquitoes',
+    name: 'Mosquitoes',
+    icon: 'mosquito',
+    also: 'Asian tiger mosquito & southern house mosquito',
+    metaTitle: 'Mosquito Control in Alabama | Yard Treatment | EnviroCare',
+    metaDescription: 'Alabama mosquitoes breed in standing water and carry disease risk. Learn the species, the season, and how EnviroCare’s yard barrier reduces them. (205) 940-6360.',
+    intro: 'Alabama’s long, wet, warm season makes mosquitoes relentless. Here’s how they breed, the risk they carry, and how a yard barrier wins back your evenings.',
+    identification: 'The Asian tiger mosquito — small, black, with white-striped legs — is an aggressive daytime biter common across Alabama. The southern house mosquito is more active at dusk and dawn. Both develop from larvae in standing water.',
+    behavior: 'Mosquitoes need only a bottle-cap of standing water to breed — gutters, plant saucers, tarps, and toys. Adults rest in shaded, humid harborage: shrubs, tall grass, under decks, and along fence lines. They rarely travel far from where they hatched.',
+    risks: [
+      'Itchy bites that keep families off the patio',
+      'Can transmit West Nile and other viruses',
+      'Heartworm risk to dogs',
+      'Populations rebuild fast without ongoing treatment',
+    ],
+    signs: ['Daytime biting (Asian tiger) or dusk swarms', 'Activity near standing water & shaded shrubs', 'Larvae ("wigglers") in containers of water', 'Heaviest pressure near wooded or lakefront lots'],
+    seasonal: 'Alabama’s mosquito season runs roughly March through November — we recommend starting treatments early rather than waiting for the first bites.',
+    treatment: 'EnviroCare applies a 30-day yard barrier to the shaded harborage where adults rest, with EPA-registered products per label, and identifies standing-water breeding sites to address. Service runs monthly through the season, with free re-treatment between scheduled visits. Tick protection can be added to any mosquito visit.',
+    serviceSlug: 'mosquito',
+    serviceLabel: 'Mosquito Control',
+    faqs: [
+      { q: 'When should I start mosquito service in Alabama?', a: 'Starting in March — before populations build — is far more effective than waiting until summer. Early-season treatment knocks down the first generations before they multiply.' },
+      { q: 'Will treatment get rid of every mosquito?', a: 'Mosquito service substantially reduces the population resting in your yard; it controls rather than eliminates. Pairing treatment with removing standing water gives the best result.' },
+    ],
+  },
+  {
+    slug: 'ticks',
+    name: 'Ticks',
+    icon: 'tick',
+    also: 'Lone star, American dog & black-legged (deer) ticks',
+    metaTitle: 'Tick Control in Alabama | Lone Star & Deer Ticks | EnviroCare',
+    metaDescription: 'Alabama ticks carry disease risk for families and pets. Identify lone star, dog and deer ticks and learn how EnviroCare treats yard harborage. (205) 940-6360.',
+    intro: 'Ticks are more than a nuisance in Alabama — they carry real disease risk for people and pets. Here’s where they live in your yard and how to push them back.',
+    identification: 'The lone star tick (a single white dot on the female’s back) is Alabama’s most common. American dog ticks are larger and brown; black-legged "deer" ticks are smaller and the primary Lyme-disease carrier. All have eight legs and a rounded body that swells when feeding.',
+    behavior: 'Ticks "quest" — climbing tall grass and brush to latch onto a passing host. They concentrate at the wooded edges of a property, along trails, in leaf litter, and near where deer and rodents travel. Wooded and lakefront lots see the heaviest pressure.',
+    risks: [
+      'Transmit Lyme disease, ehrlichiosis & spotted fever',
+      'Alpha-gal (red-meat allergy) linked to lone star ticks',
+      'Risk to dogs and outdoor pets',
+      'Bites often go unnoticed until attached',
+    ],
+    signs: ['Ticks on people or pets after time outdoors', 'Heaviest activity at wooded/brushy yard edges', 'Concentrations along trails & leaf litter', 'More common on wooded and lakefront lots'],
+    seasonal: 'Active spring through fall in Alabama, with peak questing in the warm months — protection matters most when families and pets are outside.',
+    treatment: 'EnviroCare targets tick harborage — wooded edges, leaf litter, tall grass, and trail margins — with EPA-registered products applied per label, rather than blanketing the whole lawn. Tick control pairs with mosquito service and can be added to any visit.',
+    serviceSlug: 'tick-control',
+    serviceLabel: 'Tick Control',
+    faqs: [
+      { q: 'Where do ticks live in my yard?', a: 'At the edges — where lawn meets woods, in leaf litter, tall grass, and along trails where deer and rodents travel. That’s where we focus treatment instead of the open lawn.' },
+      { q: 'Can you treat ticks and mosquitoes together?', a: 'Yes — tick protection adds onto any mosquito visit, since both target shaded, humid yard harborage.' },
+    ],
+  },
+  {
+    slug: 'silverfish',
+    name: 'Silverfish',
+    icon: 'pest',
+    also: 'Silverfish & firebrats',
+    metaTitle: 'Silverfish Control in Alabama | Identification & Treatment | EnviroCare',
+    metaDescription: 'Silverfish thrive in Alabama’s humidity, damaging paper, books and fabric. Learn the signs and how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'Those wriggling, silver, teardrop-shaped insects in your bathroom or bookshelf are silverfish — a classic humidity pest in Alabama homes.',
+    identification: 'Silverfish are 1/2"–3/4" long, silvery-gray, teardrop-shaped, with three long tail bristles and a fish-like wriggling movement. Firebrats are similar but mottled and prefer warmer spots near water heaters and pipes.',
+    behavior: 'They thrive in damp, dark places — bathrooms, basements, crawlspaces, attics, and around plumbing. They feed on starches: paper, book bindings, wallpaper paste, cardboard, and natural fabrics. Alabama’s humidity gives them ideal conditions.',
+    risks: [
+      'Damage to books, documents, wallpaper & stored fabric',
+      'Contaminate dry-goods packaging in pantries',
+      'Indicate excess moisture that invites other pests',
+      'Populations grow slowly but persist for years',
+    ],
+    signs: ['Silvery insects darting from light in bathrooms', 'Yellowish stains or tiny holes on paper & fabric', 'Pepper-like droppings in storage areas', 'Shed skins near books and boxes'],
+    seasonal: 'Active year-round indoors; most noticeable in humid summer months and in chronically damp areas.',
+    treatment: 'EnviroCare treats silverfish harborage — cracks, crevices, and storage zones — with EPA-registered products per label, and addresses the moisture conditions that sustain them. Recurring service keeps numbers down as part of the interior program.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'Why do I have silverfish in my bathroom?', a: 'Silverfish need humidity. Bathrooms, basements, and crawlspaces hold the moisture they thrive in. Reducing dampness — along with treatment — is key to controlling them.' },
+      { q: 'Are silverfish harmful?', a: 'They don’t bite or carry disease, but they damage paper, books, wallpaper, and stored fabrics, and signal a moisture problem worth addressing.' },
+    ],
+  },
+  {
+    slug: 'crickets',
+    name: 'Crickets',
+    icon: 'pest',
+    also: 'House crickets & camel (cave) crickets',
+    metaTitle: 'Cricket Control in Alabama | House & Camel Crickets | EnviroCare',
+    metaDescription: 'House and camel crickets invade Alabama garages, basements and crawlspaces. Learn the signs and how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'The chirping that won’t quit — or the humpbacked "spider crickets" in your basement — are two crickets common in Alabama homes.',
+    identification: 'House crickets are light brown, about 3/4" long, with long antennae and the familiar nighttime chirp. Camel (cave) crickets are humpbacked, wingless, tan, with very long legs — they don’t chirp but jump when disturbed and are often called "spider crickets."',
+    behavior: 'Crickets move indoors seeking moisture and shelter, concentrating in garages, basements, crawlspaces, and around foundations. Camel crickets favor damp, dark areas; house crickets are drawn to warmth and light, and their chirping carries through quiet rooms.',
+    risks: [
+      'Chew on paper, fabric, and stored items',
+      'Constant chirping disrupts sleep',
+      'Large numbers in crawlspaces and garages',
+      'Attract spiders and other predators indoors',
+    ],
+    signs: ['Nighttime chirping inside the home', 'Humpbacked crickets jumping in basements/crawlspaces', 'Chew damage to fabric or paper', 'Clusters around foundation and garage doors'],
+    seasonal: 'Most invade in late summer and fall as outdoor conditions dry out and cool, pushing them toward the foundation and indoors.',
+    treatment: 'EnviroCare treats foundation, garage, and crawlspace harborage with EPA-registered products per label and addresses the moisture and entry points crickets use. Recurring exterior treatment intercepts them before they get inside.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'What are the humpbacked "spider crickets" in my basement?', a: 'Those are camel (cave) crickets — wingless, long-legged, and harmless but unsettling. They love damp basements and crawlspaces, so moisture control plus treatment works best.' },
+      { q: 'How do I stop crickets from getting in?', a: 'Sealing gaps around doors and the foundation, reducing moisture, and exterior perimeter treatment all reduce entry. We address the harborage around the home, not just the crickets inside.' },
+    ],
+  },
+  {
+    slug: 'centipedes',
+    name: 'Centipedes',
+    icon: 'pest',
+    also: 'House centipedes (the fast, many-legged ones)',
+    metaTitle: 'Centipede Control in Alabama | Identification & Treatment | EnviroCare',
+    metaDescription: 'House centipedes startle Alabama homeowners in bathrooms and basements. Learn what attracts them and how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'Fast, many-legged, and unnerving — house centipedes show up in damp Alabama bathrooms and basements. The good news: they’re a sign of a fixable moisture-and-prey problem.',
+    identification: 'House centipedes are grayish-yellow, about 1"–1.5" long, with 15 pairs of very long legs and a darting, lightning-fast movement. Their long legs and antennae give them a "fringed" look as they scurry across walls and floors.',
+    behavior: 'Centipedes are predators that hunt other small insects — silverfish, roaches, spiders. They need humidity and live in damp basements, crawlspaces, bathrooms, and under landscaping. Where their prey thrives, they follow.',
+    risks: [
+      'Startling, fast movement indoors',
+      'Indicate excess moisture and other insect prey',
+      'Can deliver a mild pinch if handled (rare)',
+      'Persist as long as their food source remains',
+    ],
+    signs: ['Fast, many-legged insects in bathrooms/basements', 'Activity in damp, dark areas', 'Presence of prey insects like silverfish & roaches', 'More common in homes with crawlspace moisture'],
+    seasonal: 'Indoors year-round in damp areas; more noticeable in humid summer and when outdoor conditions push them inside.',
+    treatment: 'Because centipedes are predators, EnviroCare controls them by reducing the insects they feed on, treating damp harborage with EPA-registered products per label, and flagging the moisture conditions (often crawlspace-related) that sustain the whole chain.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'Are house centipedes dangerous?', a: 'They’re essentially harmless to people — they rarely bite and prefer to flee. They’re mostly a nuisance and a sign of moisture plus other insects to address.' },
+      { q: 'Why do I keep seeing centipedes?', a: 'They follow their prey and moisture. Controlling the insects they eat and reducing dampness — along with treatment — is the lasting fix.' },
+    ],
+  },
+  {
+    slug: 'millipedes',
+    name: 'Millipedes',
+    icon: 'pest',
+    also: 'The dark, coiling "thousand-leggers"',
+    metaTitle: 'Millipede Control in Alabama | Identification & Treatment | EnviroCare',
+    metaDescription: 'Millipedes invade Alabama homes in large numbers after rain. Learn why they come inside and how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'When millipedes show up, they often show up in numbers — especially after Alabama rain. Here’s why they migrate indoors and how to keep them out.',
+    identification: 'Millipedes are dark brown to black, rounded, 1"–1.5" long, with two pairs of short legs per body segment, and they curl into a tight spiral when disturbed. Unlike centipedes, they move slowly and don’t bite.',
+    behavior: 'Millipedes live in moist soil, mulch, leaf litter, and under landscaping, feeding on decaying plant matter. After heavy rain — or when the ground dries suddenly — they migrate in large numbers and cross foundations into garages, basements, and ground-floor rooms.',
+    risks: [
+      'Mass migrations indoors after rain',
+      'Emit a faint odor when crushed',
+      'Accumulate in garages, basements & entryways',
+      'Signal excess moisture against the foundation',
+    ],
+    signs: ['Many dark, coiling insects after rain', 'Accumulation along foundations & garage doors', 'Slow-moving "thousand-leggers" curling up when touched', 'Activity near mulch and damp landscaping'],
+    seasonal: 'Heaviest indoors in spring and fall and after periods of heavy Alabama rain that drive them out of saturated soil.',
+    treatment: 'EnviroCare treats the foundation perimeter, mulch beds, and entry points with EPA-registered products per label, and identifies the moisture and landscaping conditions that draw millipedes to the structure. Exterior recurring treatment intercepts migrations before they reach the door.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'Why do millipedes come inside all at once?', a: 'Heavy rain saturates the soil where they live, or a sudden dry spell pushes them to move — and they migrate in large numbers, crossing foundations into the home. Exterior treatment plus moisture management reduces it.' },
+      { q: 'Do millipedes bite or damage my house?', a: 'No — they don’t bite or damage structures. They’re a moisture-driven nuisance, but big migrations are unpleasant, so we treat the perimeter and the conditions drawing them in.' },
+    ],
+  },
+  {
+    slug: 'pill-bugs',
+    name: 'Pill Bugs',
+    icon: 'pest',
+    also: 'Roly-polies (the only crustacean that lives its whole life on land)',
+    metaTitle: 'Pill Bug Control in Alabama | Roly-Polies | EnviroCare',
+    metaDescription: 'Pill bugs (roly-polies) gather in damp Alabama mulch and crawl into garages and basements. Learn how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'Pill bugs — the "roly-polies" kids love — turn into a nuisance when they migrate into garages, basements, and ground-floor rooms. Here’s how to keep them outside.',
+    identification: 'Pill bugs are dark gray, oval, about 1/4"–1/2" long, with a segmented, armored back, and they roll into a tight ball when disturbed (sow bugs, their close cousins, cannot roll). They’re actually land crustaceans, not insects.',
+    behavior: 'Pill bugs need constant moisture and live in mulch, leaf litter, under stones, and against damp foundations, feeding on decaying plant matter. They wander indoors when it’s wet outside or when their habitat dries, collecting in garages, basements, and entryways.',
+    risks: [
+      'Migrate indoors from damp landscaping',
+      'Collect along foundations, garages & entryways',
+      'Indicate excess moisture against the home',
+      'Can feed on tender garden seedlings',
+    ],
+    signs: ['Gray, armored bugs that roll into a ball', 'Accumulation in garages, basements & door tracks', 'Activity in damp mulch and under stones', 'More common after rain or heavy watering'],
+    seasonal: 'Most active in the warm, humid months and after rain; they push indoors when outdoor moisture swings.',
+    treatment: 'EnviroCare treats the foundation perimeter and mulch zones with EPA-registered products per label and flags the moisture and landscaping conditions that sustain pill bugs. Because they’re moisture-driven, pulling mulch back from the foundation greatly helps alongside treatment.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'What’s the difference between a pill bug and a sow bug?', a: 'Both are land crustaceans, but pill bugs roll into a tight ball when touched and sow bugs cannot. Both are moisture pests handled the same way.' },
+      { q: 'How do I keep roly-polies out of my garage?', a: 'They’re drawn to moisture. Pulling mulch back from the foundation, improving drainage, and exterior perimeter treatment together keep them outside.' },
+    ],
+  },
+  {
+    slug: 'sow-bugs',
+    name: 'Sow Bugs',
+    icon: 'pest',
+    also: 'Woodlice — close cousins of the pill bug',
+    metaTitle: 'Sow Bug Control in Alabama | Woodlice | EnviroCare',
+    metaDescription: 'Sow bugs (woodlice) gather in damp Alabama mulch and wander into basements and garages. Learn how EnviroCare controls them. Call (205) 940-6360.',
+    intro: 'Sow bugs look like pill bugs but can’t roll into a ball. They’re a moisture pest that collects in damp spots and wanders indoors — here’s how to manage them.',
+    identification: 'Sow bugs are gray, oval, about 1/4"–1/2" long, with a flatter, segmented shell and two small tail-like appendages at the rear. Unlike pill bugs, they cannot roll into a ball. Like pill bugs, they’re land crustaceans, not insects.',
+    behavior: 'Sow bugs require dampness and live under mulch, leaf litter, stones, logs, and against moist foundations, feeding on decaying organic matter. They migrate into garages, basements, and crawlspaces when conditions outside shift wet to dry.',
+    risks: [
+      'Wander indoors from damp landscaping',
+      'Collect in basements, crawlspaces & garages',
+      'Signal moisture problems near the foundation',
+      'Large numbers are unsightly in entryways',
+    ],
+    signs: ['Flat, gray bugs that don’t roll into a ball', 'Activity in damp mulch, under stones & logs', 'Accumulation in basements & crawlspaces', 'More common after watering or rain'],
+    seasonal: 'Active in warm, humid Alabama months; indoor sightings rise after rain and during moisture swings.',
+    treatment: 'EnviroCare treats foundation perimeters, mulch beds, and crawlspace entry points with EPA-registered products per label and identifies the moisture conditions sow bugs depend on. Reducing dampness around the home is the longest-lasting part of the fix.',
+    serviceSlug: 'pest-control',
+    serviceLabel: 'Pest Control',
+    faqs: [
+      { q: 'Are sow bugs harmful to my home?', a: 'No — they don’t bite, sting, or damage sound structures. They’re a moisture-driven nuisance, and large numbers signal dampness worth addressing.' },
+      { q: 'Why are sow bugs in my crawlspace?', a: 'Crawlspaces hold the moisture sow bugs need. Improving crawlspace moisture and treating the perimeter together keep them out.' },
+    ],
+  },
+];
+
+export function getAllPests(): PestEntry[] {
+  return PESTS;
+}
+export function getPest(slug: string): PestEntry | undefined {
+  return PESTS.find((p) => p.slug === slug);
+}

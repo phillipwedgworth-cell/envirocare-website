@@ -8,6 +8,7 @@
 
 import type { MetadataRoute } from 'next';
 import { BLOG_POSTS } from '@/data/blog-posts';
+import { getAllPests } from '@/data/pest-library';
 
 // Update this when you flip DNS from envirocarellc.com (flipped)
 const BASE_URL = 'https://www.envirocarellc.com';
@@ -116,5 +117,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...mainPages, ...servicePages, ...comboPages, ...cityPages, ...serviceAreaPages, ...blogPages];
+  const pestLibraryPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/pest-library`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
+    ...getAllPests().map((p) => ({
+      url: `${BASE_URL}/pest-library/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...mainPages, ...servicePages, ...comboPages, ...cityPages, ...serviceAreaPages, ...pestLibraryPages, ...blogPages];
 }

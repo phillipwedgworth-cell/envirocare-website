@@ -126,20 +126,12 @@ const nextConfig: NextConfig = {
             { source: '/earwig-control', destination: '/services/pest-control', permanent: true },
             { source: '/bee-wasp-control', destination: '/services/pest-control', permanent: true },
 
-            // ─── PEST LIBRARY → relevant service pages ──────────────────────
-            { source: '/pest-library', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/ants', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/centipedes', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/cockroaches', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/crickets', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/millipedes', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/mosquitoes', destination: '/services/mosquito', permanent: true },
-            { source: '/pest-library/pill-bugs', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/silverfish', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/sow-bugs', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/spiders', destination: '/services/pest-control', permanent: true },
-            { source: '/pest-library/termites', destination: '/services/termite-control', permanent: true },
-            { source: '/pest-library/ticks', destination: '/services/mosquito', permanent: true },
+            // ─── PEST LIBRARY ───────────────────────────────────────────────
+            // REBUILT 2026-06-27 as real content pages at the SAME legacy URLs
+            // (app/pest-library + app/pest-library/[pest], data/pest-library.ts) —
+            // recovers the SEO the old Scorpion pest library ranked for. No longer
+            // redirected to service pages. /pest-library/mosquitoes & /ticks now have
+            // their own profiles (each links out to the relevant service).
 
             // ─── CORE / MISC ────────────────────────────────────────────────
             // NOTE: /faq is a REAL page now — intentionally NOT redirected.
