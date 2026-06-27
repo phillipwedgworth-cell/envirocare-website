@@ -8,7 +8,6 @@ import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
   Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight, User,
 } from 'lucide-react';
-import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
 
 /* ============================================================
@@ -215,7 +214,6 @@ export default function Homepage() {
       <TruckBanner />
       <Heritage />
       <Footer />
-      <StickyCallButton />
     </main>
   );
 }
@@ -299,12 +297,13 @@ function SiteHeader() {
               href="/quote"
               className="ec-header-quote"
               onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
-            >Talk to an Expert</Link>
+            >Ask an Expert</Link>
           </div>
 
           <div className="ec-header-mobile-actions">
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-header-icon-btn" aria-label="Customer Login">
-              <User size={20} aria-hidden="true" />
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-header-login-btn" aria-label="Customer Login">
+              <User size={18} aria-hidden="true" />
+              <span>Log In</span>
             </a>
             <a href="tel:2059406360" className="ec-header-icon-btn" aria-label="Call EnviroCare">
               <Phone size={19} aria-hidden="true" />
@@ -313,7 +312,7 @@ function SiteHeader() {
               href="/quote"
               className="ec-header-quote-sm"
               onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
-            >Ask AI</Link>
+            >Ask an Expert</Link>
             <button
               type="button"
               className="ec-mobile-toggle"
@@ -1128,16 +1127,23 @@ const HOMEPAGE_CSS = `
   }
   .ec-phone-icon { font-size: 13px; }
   .ec-header-quote {
-    padding: 10px 20px; background: #F5A800;
-    color: #0E1A0F !important; border-radius: 999px;
+    padding: 10px 20px; background: #0E8E40;
+    color: #fff !important; border-radius: 999px;
     font-weight: 700; font-size: 14px;
-    box-shadow: 0 4px 14px rgba(245,168,0,0.28);
+    box-shadow: 0 4px 14px rgba(14,142,64,0.28);
     transition: background 0.15s, transform 0.15s;
   }
-  .ec-header-quote:hover { background: #FFB81F; transform: translateY(-1px); }
+  .ec-header-quote:hover { background: #0A7935; transform: translateY(-1px); }
 
-  /* Mobile header right-side actions — login, call, AI all pinned next to logo */
+  /* Mobile header right-side actions — login, call, Ask an Expert all pinned next to logo */
   .ec-header-mobile-actions { display: flex; align-items: center; gap: 6px; }
+  .ec-header-login-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    height: 38px; padding: 0 10px; border-radius: 10px;
+    border: 1px solid #E8E2D8; background: #fff; color: #0A7935 !important;
+    font-weight: 700; font-size: 12px; flex: none; white-space: nowrap;
+  }
+  .ec-header-login-btn:active { background: #F4F8F2; }
   .ec-header-icon-btn {
     display: inline-flex; align-items: center; justify-content: center;
     width: 38px; height: 38px; border-radius: 10px;
@@ -1146,9 +1152,15 @@ const HOMEPAGE_CSS = `
   }
   .ec-header-icon-btn:active { background: #F4F8F2; }
   .ec-header-quote-sm {
-    background: #F5A800; color: #0E1A0F !important;
+    background: #0E8E40; color: #fff !important;
     border-radius: 999px; padding: 9px 13px;
     font-weight: 700; font-size: 12.5px; white-space: nowrap;
+    box-shadow: 0 3px 12px rgba(14,142,64,0.26);
+  }
+  /* On the tightest phones, drop the login text label (icon-only via aria-label) */
+  @media (max-width: 400px) {
+    .ec-header-login-btn span { display: none; }
+    .ec-header-login-btn { width: 38px; padding: 0; justify-content: center; gap: 0; }
   }
   @media (min-width: 1024px) { .ec-header-mobile-actions { display: none; } }
 
