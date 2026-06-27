@@ -100,18 +100,22 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [zip, setZip] = useState("");
+  const [address, setAddress] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   const toggleService = (key: string) =>
     setServices((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
+
+  // Pull a 5-digit ZIP out of the typed address so the lead still routes to the
+  // right office. If none is found we fall back to Birmingham server-side.
+  const zip = (address.match(/\b(\d{5})\b/) || [])[1] || "";
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   const valid =
     name.trim().length > 1 &&
     emailOk &&
     /\d{3}.*\d{3}.*\d{4}/.test(phone) &&
-    /^\d{5}$/.test(zip.trim()) &&
+    address.trim().length > 6 &&
     services.length > 0 &&
     !!activeDate &&
     !!activeWin;
@@ -142,7 +146,8 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           lastName,
           phone: phone.trim(),
           email: email.trim(),
-          zip: zip.trim(),
+          address: address.trim(),
+          zip,
           serviceType: serviceLabels,
           notes,
         }),
@@ -244,12 +249,17 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         })}
       </div>
 
-      {/* Details */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" style={field} />
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" style={field} />
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" inputMode="tel" aria-label="Phone" style={field} />
-        <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" style={field} />
+      {/* Details — name, phone, email, then full service address */}
+      <p style={{ ...body, fontSize: 13.5, fontWeight: 600, color: INK, margin: "4px 0 8px" }}>
+        Where should we come out? <span style={{ color: "#8a948c", fontWeight: 400 }}>(your contact info)</span>
+      </p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 10 }}>
+        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" autoComplete="name" aria-label="Full name" style={field} />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" autoComplete="tel" aria-label="Phone" style={field} />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" autoComplete="email" aria-label="Email" style={field} />
+      </div>
+      <div style={{ marginBottom: 14 }}>
+        <input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Service address (street, city, ZIP)" autoComplete="street-address" aria-label="Service address" style={{ ...field, width: "100%" }} />
       </div>
 
       <button onClick={submit} disabled={!valid || state === "sending"} style={{

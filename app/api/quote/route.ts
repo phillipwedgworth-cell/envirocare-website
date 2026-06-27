@@ -183,15 +183,17 @@ export async function POST(request: Request) {
   try {
     const lead: Lead = await request.json();
 
-    // Validate the bare minimum
-    if (!lead.firstName || !lead.phone || !lead.zip) {
+    // Validate the bare minimum. Either a ZIP or a street address is enough to
+    // act on the lead — the form now collects a full service address and we
+    // parse a ZIP from it when present.
+    if (!lead.firstName || !lead.phone || (!lead.zip && !lead.address)) {
       return NextResponse.json(
-        { ok: false, error: "Missing required fields (firstName, phone, zip)" },
+        { ok: false, error: "Missing required fields (firstName, phone, and zip or address)" },
         { status: 400 }
       );
     }
 
-    const office = routeByZip(lead.zip);
+    const office = routeByZip(lead.zip || "");
     const fieldster = await pushToFieldster(lead);
     const fieldsterStatus = fieldster.ok
       ? `pushed to Fieldster (id ${fieldster.id})`
