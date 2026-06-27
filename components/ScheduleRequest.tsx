@@ -101,6 +101,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [zip, setZip] = useState("");
+  const [address, setAddress] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   const toggleService = (key: string) =>
@@ -142,6 +143,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           lastName,
           phone: phone.trim(),
           email: email.trim(),
+          address: address.trim(),
           zip: zip.trim(),
           serviceType: serviceLabels,
           notes,
@@ -249,6 +251,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" autoComplete="email" style={field} />
         <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" inputMode="tel" aria-label="Phone" autoComplete="tel" style={field} />
         <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" style={field} />
+        <input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
       </div>
 
       <button onClick={submit} disabled={!valid || state === "sending"} style={{
