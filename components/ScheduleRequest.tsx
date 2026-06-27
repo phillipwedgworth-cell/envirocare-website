@@ -191,7 +191,8 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           return (
             <button key={d.iso} onClick={() => { setDate(d.iso); setWin(""); }} aria-pressed={on} style={{
               ...chip, minWidth: 64, flexDirection: "column", gap: 2,
-              background: on ? INK : "#fff", color: on ? "#fff" : INK, borderColor: on ? INK : "#E4E0D4",
+              background: on ? G : "#fff", color: on ? "#fff" : INK, borderColor: on ? G : "#E4E0D4",
+              boxShadow: on ? "0 2px 10px rgba(14,142,64,0.30)" : "none",
             }}>
               <span style={{ fontSize: 11, fontWeight: 600, opacity: 0.75 }}>{d.dow}</span>
               <span style={{ fontSize: 18, fontWeight: 700 }}>{d.day}</span>
