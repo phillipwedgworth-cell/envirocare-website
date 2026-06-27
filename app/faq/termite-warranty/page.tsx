@@ -3,7 +3,6 @@
 // Server component — no client interactivity needed
 
 import type { Metadata } from "next";
-import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
   title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
@@ -134,7 +133,6 @@ export default function TermiteWarrantyFAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
       />
-      <Header />
 
       {/* HERO */}
       <section

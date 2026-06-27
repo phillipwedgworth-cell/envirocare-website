@@ -1,6 +1,4 @@
 "use client";
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import PestIcon from "@/components/shared/PestIcon";
 import { ScrollText, PenLine } from "lucide-react";
 
@@ -32,7 +30,6 @@ export default function BlogPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -80,7 +77,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

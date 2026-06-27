@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Phone, Clock, CheckCircle, Calendar, Truck, Tag } from "lucide-react";
 
-import Header from "@/components/shared/Header";
 import PestIcon, { resolveIconName } from "@/components/shared/PestIcon";
 const G = "#0E8E40";
 const GOLD = "#F5A800";
@@ -50,7 +49,6 @@ export default function SpecialOffers() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
-      <Header />
 
       <script type="application/ld+json">{`
         {

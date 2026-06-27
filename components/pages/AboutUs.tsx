@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/shared/Header";
 import Link from "next/link";
 
 /**
@@ -18,7 +17,6 @@ import Link from "next/link";
 export default function AboutUs() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--white,#fff)" }}>
-      <Header />
 
       <style>{`
         :root {

@@ -1,6 +1,4 @@
 "use client";
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
 
 /**
@@ -233,7 +231,6 @@ export default function ServicePage({ slug }: { slug: string }) {
       <MultiSchemaScript schemas={serviceSchemas} />
       <style dangerouslySetInnerHTML={{ __html: SERVICE_CSS }} />
 
-      <Header />
 
       <section className="svc-hero">
         <div className="svc-hero-inner">
@@ -371,7 +368,6 @@ export default function ServicePage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

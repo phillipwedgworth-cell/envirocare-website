@@ -1,5 +1,3 @@
-import Header from '../../components/shared/Header';
-import Footer from '../../components/shared/Footer';
 import ScheduleRequest from '../../components/ScheduleRequest';
 
 export const metadata = {
@@ -11,7 +9,6 @@ export const metadata = {
 export default function QuotePage() {
   return (
     <main>
-      <Header />
       <section style={{ background: '#FEFDF8', padding: '48px 16px 56px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
@@ -41,7 +38,6 @@ export default function QuotePage() {
           </p>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

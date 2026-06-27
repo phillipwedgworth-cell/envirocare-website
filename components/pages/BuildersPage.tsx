@@ -1,6 +1,4 @@
 "use client";
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 
 
 export default function BuildersPage() {
@@ -9,7 +7,6 @@ export default function BuildersPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -111,7 +108,6 @@ export default function BuildersPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

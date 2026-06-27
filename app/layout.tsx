@@ -32,6 +32,9 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidget from '../components/ChatWidget';
+import Header from '../components/shared/Header';
+import Footer from '../components/shared/Footer';
+import StickyCallButton from '../components/StickyCallButton';
 
 // Self-hosted via next/font — removes the render-blocking Google Fonts
 // stylesheet, applies font-display: swap, and preloads only what we use.
@@ -253,15 +256,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {/*
-          NOTE: We do NOT wrap children with global <Header /> or <Footer /> here.
-          Every page in the v2 design (Homepage, CityPage, ServicePage, RealtorPage,
-          BuildersPage, FaqPage, /pricing, /why-envirocare) has its own integrated
-          nav and footer. Wrapping here would cause double-display.
-
-          If you have legacy pages that need a global Header/Footer, add them on
-          those individual pages instead.
+          Global chrome: the EnviroCare banner (Header) and Footer render once
+          here so every route — including the deep custom city/service pages —
+          gets identical, consistent navigation. Individual pages must NOT
+          render their own <Header />/<Footer /> or the banner will double up.
         */}
+        <Header />
         {children}
+        <Footer />
+        <StickyCallButton />
         <ChatWidget />
 
         {/* Google Analytics 4 — G-CELEB90NKX */}

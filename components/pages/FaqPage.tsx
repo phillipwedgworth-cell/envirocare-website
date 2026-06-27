@@ -1,6 +1,4 @@
 "use client";
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 
 import { useEffect } from 'react';
 
@@ -30,7 +28,6 @@ export default function FaqPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -195,7 +192,6 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

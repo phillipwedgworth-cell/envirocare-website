@@ -4,7 +4,6 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Header from "@/components/shared/Header";
 import { EmojiIcon } from "@/components/shared/PestIcon";
 
 // ── CITY DATA ──────────────────────────────────────────────────────────────
@@ -288,7 +287,6 @@ export default async function ServiceAreaPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
       />
-      <Header />
 
       {/* HERO */}
       <section

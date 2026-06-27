@@ -2,8 +2,6 @@
 // (e.g. /birmingham-termite-control). The shell is shared for design cohesion;
 // every content prop is unique per page — these are NOT doorway clones.
 
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import { GREEN, GOLD, DEEP, CREAM, INK, displayFont, bodyFont } from "@/lib/brand";
 
 export type ComboContent = {
@@ -50,7 +48,6 @@ export default function ComboPage({ c }: { c: ComboContent }) {
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Header />
 
       {/* HERO */}
       <section style={{ background: `linear-gradient(160deg, ${INK} 0%, ${DEEP} 100%)`, color: "#fff", padding: "64px clamp(20px,5vw,64px) 56px" }}>
@@ -129,7 +126,6 @@ export default function ComboPage({ c }: { c: ComboContent }) {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

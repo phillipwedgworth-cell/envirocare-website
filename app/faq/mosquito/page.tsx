@@ -3,7 +3,6 @@
 // Server component — metadata exported at top level, no interactivity needed
 
 import type { Metadata } from "next";
-import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
   title: "Mosquito Control FAQ Alabama | When Does Mosquito Season Start? | EnviroCare",
@@ -140,7 +139,6 @@ export default function MosquitoFAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
       />
-      <Header />
 
       {/* HERO */}
       <section

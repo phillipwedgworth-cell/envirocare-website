@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-react";
 
-import Header from "@/components/shared/Header";
 const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
@@ -98,7 +97,6 @@ export default function ContactUs() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
-      <Header />
       <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",

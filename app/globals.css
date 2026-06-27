@@ -154,10 +154,10 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 /* 3) Sticky-header logo: full size on desktop, scaled down on phones so
       the wide lockup can't crowd or overlap the phone/login/burger buttons. */
-.ec-header-logo { height: 50px; width: auto; }
+.ec-header-logo { height: 62px; width: auto; }
 @media (max-width: 600px) {
-  .ec-header-logo { height: 40px; max-width: 58vw; }
+  .ec-header-logo { height: 46px; max-width: 60vw; }
 }
 @media (max-width: 380px) {
-  .ec-header-logo { height: 36px; max-width: 52vw; }
+  .ec-header-logo { height: 40px; max-width: 54vw; }
 }

@@ -23,8 +23,6 @@
 import { useEffect } from 'react';
 import { getCityBySlug, type City } from '@/data/cities';
 import CityDepth from '@/components/CityDepth';
-import Header from '@/components/shared/Header';
-import Footer from '@/components/shared/Footer';
 import ScheduleRequest from '@/components/ScheduleRequest';
 
 const CITY_ART_SVG: Record<string, string> = {
@@ -174,7 +172,6 @@ export default function CityPage({ slug }: { slug: string }) {
       />
       <style dangerouslySetInnerHTML={{ __html: CITY_CSS }} />
 
-      <Header />
 
       <section className="city-hero">
         <div className="city-hero-inner">
@@ -289,7 +286,6 @@ export default function CityPage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

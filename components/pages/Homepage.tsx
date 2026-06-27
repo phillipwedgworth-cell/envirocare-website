@@ -8,8 +8,6 @@ import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
   Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
 } from 'lucide-react';
-import StickyCallButton from '@/components/StickyCallButton';
-import Footer from '@/components/shared/Footer';
 
 /* ============================================================
    ICONS — professional line icons (lucide) + custom insects
@@ -207,7 +205,6 @@ export default function Homepage() {
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <LocalBusinessJsonLd />
       <TopBanner />
-      <Header />
       <Hero />
       <ConsolidatedPricing />
       <Reviews />
@@ -215,8 +212,6 @@ export default function Homepage() {
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
-      <Footer />
-      <StickyCallButton />
     </main>
   );
 }
