@@ -265,16 +265,6 @@ function SiteHeader() {
               <a href="tel:2059406360" className="ec-util-link"><Phone size={13} aria-hidden="true" /> (205) 940-6360</a>
             </div>
           </div>
-
-          {/* Mobile: customer login (left) + tap-to-call link (right), no number text */}
-          <div className="ec-utility-mobile">
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-util-mobile-link">
-              <User size={15} aria-hidden="true" /> Customer Login
-            </a>
-            <a href="tel:2059406360" aria-label="Call EnviroCare" className="ec-util-mobile-link">
-              <Phone size={14} aria-hidden="true" /> Call Us
-            </a>
-          </div>
         </div>
       </div>
 
@@ -313,11 +303,17 @@ function SiteHeader() {
           </div>
 
           <div className="ec-header-mobile-actions">
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="ec-header-icon-btn" aria-label="Customer Login">
+              <User size={20} aria-hidden="true" />
+            </a>
+            <a href="tel:2059406360" className="ec-header-icon-btn" aria-label="Call EnviroCare">
+              <Phone size={19} aria-hidden="true" />
+            </a>
             <Link
               href="/quote"
               className="ec-header-quote-sm"
               onClick={(e) => { e.preventDefault(); openScout(QUOTE_PROMPT); }}
-            >Talk to an Expert</Link>
+            >Ask AI</Link>
             <button
               type="button"
               className="ec-mobile-toggle"
@@ -963,8 +959,9 @@ const HOMEPAGE_CSS = `
   /* STICKY SHELL */
   .ec-shell { position: sticky; top: 0; z-index: 100; }
 
-  /* UTILITY BAR — collapses cleanly on scroll */
+  /* UTILITY BAR — desktop only; collapses cleanly on scroll */
   .ec-utility {
+    display: none;
     background: linear-gradient(90deg, #07642B 0%, #0A7935 50%, #07642B 100%);
     color: #fff;
     overflow: hidden;
@@ -987,14 +984,9 @@ const HOMEPAGE_CSS = `
   .ec-util-link:hover { color: #F5A800 !important; }
   .ec-util-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.28); display: inline-block; }
 
-  /* Mobile utility content */
-  .ec-utility-mobile { display: flex; align-items: stretch; justify-content: space-between; height: 44px; }
-  .ec-util-mobile-link { display: inline-flex; align-items: center; gap: 7px; color: #fff !important; font-weight: 600; font-size: 13.5px; padding: 0 16px; }
-  .ec-util-mobile-link svg { color: #F5A800; }
-
   @media (min-width: 1024px) {
+    .ec-utility { display: block; }
     .ec-utility-desktop { display: flex; }
-    .ec-utility-mobile { display: none; }
   }
 
   .ec-banner-sun { flex: none; color: #F5A800; }
@@ -1144,14 +1136,20 @@ const HOMEPAGE_CSS = `
   }
   .ec-header-quote:hover { background: #FFB81F; transform: translateY(-1px); }
 
-  /* Mobile header right-side actions */
-  .ec-header-mobile-actions { display: flex; align-items: center; gap: 10px; }
+  /* Mobile header right-side actions — login, call, AI all pinned next to logo */
+  .ec-header-mobile-actions { display: flex; align-items: center; gap: 6px; }
+  .ec-header-icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 10px;
+    border: 1px solid #E8E2D8; background: #fff; color: #0A7935 !important;
+    flex: none;
+  }
+  .ec-header-icon-btn:active { background: #F4F8F2; }
   .ec-header-quote-sm {
     background: #F5A800; color: #0E1A0F !important;
-    border-radius: 999px; padding: 9px 14px;
+    border-radius: 999px; padding: 9px 13px;
     font-weight: 700; font-size: 12.5px; white-space: nowrap;
   }
-  @media (max-width: 360px) { .ec-header-quote-sm { display: none; } }
   @media (min-width: 1024px) { .ec-header-mobile-actions { display: none; } }
 
   .ec-mobile-toggle {
