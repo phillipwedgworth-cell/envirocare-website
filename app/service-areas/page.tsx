@@ -65,7 +65,6 @@ const GROUPS: Group[] = [
 export default function ServiceAreasPage() {
   return (
     <>
-      <Header />
       <main style={{ background: CREAM, fontFamily: bodyFont, color: INK }}>
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '56px clamp(20px,5vw,64px)' }}>
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(30px,5vw,46px)', color: INK, margin: 0 }}>

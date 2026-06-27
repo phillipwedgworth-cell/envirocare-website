@@ -288,7 +288,6 @@ export default async function ServiceAreaPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
       />
-      <Header />
 
       {/* HERO */}
       <section

@@ -140,7 +140,6 @@ export default function MosquitoFAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
       />
-      <Header />
 
       {/* HERO */}
       <section

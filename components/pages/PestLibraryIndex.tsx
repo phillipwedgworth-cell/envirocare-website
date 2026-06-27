@@ -15,7 +15,6 @@ export default function PestLibraryIndex() {
   return (
     <main>
       <style dangerouslySetInnerHTML={{ __html: PLI_CSS }} />
-      <Header />
 
       <section className="pli-hero">
         <div className="pli-inner">

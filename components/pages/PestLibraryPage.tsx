@@ -17,7 +17,6 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
   if (!pest) {
     return (
       <main>
-        <Header />
         <section className="pl-hero"><div className="pl-inner"><h1>Pest not found</h1>
           <p><Link href="/pest-library" className="pl-back">← Back to the Pest Library</Link></p></div></section>
         <Footer />
@@ -39,7 +38,6 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
     <main>
       <style dangerouslySetInnerHTML={{ __html: PL_CSS }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <Header />
 
       {/* HERO */}
       <section className="pl-hero">

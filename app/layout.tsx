@@ -32,6 +32,7 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidget from '../components/ChatWidget';
+import Header from '../components/shared/Header';
 
 // Self-hosted via next/font — removes the render-blocking Google Fonts
 // stylesheet, applies font-display: swap, and preloads only what we use.
@@ -253,14 +254,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {/*
-          NOTE: We do NOT wrap children with global <Header /> or <Footer /> here.
-          Every page in the v2 design (Homepage, CityPage, ServicePage, RealtorPage,
-          BuildersPage, FaqPage, /pricing, /why-envirocare) has its own integrated
-          nav and footer. Wrapping here would cause double-display.
-
-          If you have legacy pages that need a global Header/Footer, add them on
-          those individual pages instead.
+          SITEWIDE HEADER (2026-06-27): the single sticky <Header /> renders once
+          here so every route — homepage, deep city/service pages, /pricing — gets
+          the same nav. Individual pages must NOT render their own <Header /> or it
+          will double up. (Footer stays per-page.)
         */}
+        <Header />
         {children}
         <ChatWidget />
 

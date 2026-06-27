@@ -50,7 +50,6 @@ export default function ComboPage({ c }: { c: ComboContent }) {
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Header />
 
       {/* HERO */}
       <section style={{ background: `linear-gradient(160deg, ${INK} 0%, ${DEEP} 100%)`, color: "#fff", padding: "64px clamp(20px,5vw,64px) 56px" }}>

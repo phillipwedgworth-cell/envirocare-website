@@ -50,7 +50,6 @@ export default function SpecialOffers() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
-      <Header />
 
       <script type="application/ld+json">{`
         {

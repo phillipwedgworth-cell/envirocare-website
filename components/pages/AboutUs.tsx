@@ -18,7 +18,6 @@ import Link from "next/link";
 export default function AboutUs() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--white,#fff)" }}>
-      <Header />
 
       <style>{`
         :root {
