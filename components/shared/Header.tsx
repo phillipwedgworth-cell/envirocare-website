@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
-import BrandBand from "./BrandBand";
 
 // When the customer payment portal goes live, change this single value.
 // Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
@@ -161,14 +160,17 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
         </div>
       </div>
 
-      {/* TOP PHONE BAR */}
+      {/* TOP UTILITY BAR (desktop only) — office call links left, credibility line right */}
       {showTopBar && (
         <div className="ec-topbar" style={{ background: DARK, color: "#FBC51A", ...sf }}>
-          <a href="tel:2059406360" className="ec-topbar-office">Birmingham <strong>(205) 940-6360</strong></a>
-          <span className="ec-topbar-sep" aria-hidden="true">·</span>
-          <a href="tel:2562346162" className="ec-topbar-office">Lake Martin <strong>(256) 234-6162</strong></a>
-          <span className="ec-topbar-sep" aria-hidden="true">·</span>
-          <a href="tel:2569377676" className="ec-topbar-office">Huntsville <strong>(256) 937-7676</strong></a>
+          <div className="ec-topbar-offices">
+            <a href="tel:2059406360" className="ec-topbar-office">Birmingham <strong>(205) 940-6360</strong></a>
+            <span className="ec-topbar-sep" aria-hidden="true">·</span>
+            <a href="tel:2562346162" className="ec-topbar-office">Lake Martin <strong>(256) 234-6162</strong></a>
+            <span className="ec-topbar-sep" aria-hidden="true">·</span>
+            <a href="tel:2569377676" className="ec-topbar-office">Huntsville <strong>(256) 937-7676</strong></a>
+          </div>
+          <span className="ec-topbar-tagline">Family-Owned in Alabama Since 1958</span>
         </div>
       )}
 
@@ -227,7 +229,6 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
 
         </div>
       </header>
-      <BrandBand />
     </>
   );
 }

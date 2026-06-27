@@ -6,7 +6,7 @@ import { useState } from 'react';
 import type { ComponentType, SVGProps } from 'react';
 import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
-  Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
+  Rocket, Phone, Star, ChevronDown, Check, Menu, X, ArrowRight,
 } from 'lucide-react';
 
 /* ============================================================
@@ -204,7 +204,6 @@ export default function Homepage() {
       />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <LocalBusinessJsonLd />
-      <TopBanner />
       <Hero />
       <ConsolidatedPricing />
       <Reviews />
@@ -227,21 +226,6 @@ function openScout(message?: string) {
   }
 }
 const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
-
-function TopBanner() {
-  return (
-    <div className="ec-banner">
-      <div className="ec-banner-inner">
-        <Flower2 size={14} className="ec-banner-sun" aria-hidden="true" />
-        <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ============================================================
    HEADER
