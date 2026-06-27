@@ -213,34 +213,34 @@ export default function MadisonLandingPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              name: "One-Time Service",
-              price: "Starting at $199",
+              name: "Pest Control",
+              price: "From $35/mo",
               features: [
-                "Single pest treatment",
-                "Licensed technician",
-                "30-day guarantee",
-                "Follow-up included"
+                "Bimonthly perimeter treatment",
+                "30+ Alabama pests, incl. mice & rats",
+                "Unlimited free re-service between visits",
+                "$79 startup · no contract"
               ]
             },
             {
-              name: "Bi-Monthly Plan",
-              price: "$59/month",
+              name: "Pest + Mosquito",
+              price: "From $69/mo",
               features: [
-                "6 treatments/year",
-                "Seasonal pest coverage",
-                "Priority scheduling",
-                "Dedicated technician"
+                "Everything in Pest Control",
+                "Seasonal mosquito (March–November)",
+                "Tick add-on available (+$20/visit)",
+                "$99 startup · cancel anytime"
               ],
               popular: true
             },
             {
-              name: "Year-Round Protection",
-              price: "$79/month",
+              name: "Complete",
+              price: "From ~$100/mo",
               features: [
-                "12 treatments/year",
-                "Pest-free guarantee",
-                "Emergency callouts",
-                "Account manager"
+                "Everything in Pest + Mosquito",
+                "Sentricon® termite — quoted at free WDO inspection",
+                "Up to $1,000,000 repair coverage",
+                "$229 startup · one technician, one invoice"
               ]
             }
           ].map((plan, idx) => (
