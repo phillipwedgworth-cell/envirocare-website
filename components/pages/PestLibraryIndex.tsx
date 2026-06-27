@@ -37,7 +37,11 @@ export default function PestLibraryIndex() {
           <div className="pli-grid">
             {pests.map((p) => (
               <Link key={p.slug} href={`/pest-library/${p.slug}`} className="pli-card">
-                <span className="pli-icon" aria-hidden="true"><PestIcon name={p.icon} size={26} /></span>
+                {p.image ? (
+                  <img className="pli-photo" src={p.image} alt={p.imageAlt || p.name} width={56} height={56} loading="lazy" decoding="async" />
+                ) : (
+                  <span className="pli-icon" aria-hidden="true"><PestIcon name={p.icon} size={26} /></span>
+                )}
                 <span className="pli-card-body">
                   <span className="pli-card-name">{p.name}</span>
                   <span className="pli-card-also">{p.also}</span>
@@ -46,6 +50,7 @@ export default function PestLibraryIndex() {
               </Link>
             ))}
           </div>
+          <p className="pli-credit-note">Pest photos courtesy of Wikimedia Commons (CC / public domain) — full attribution on each pest page.</p>
         </div>
       </div>
 
@@ -90,5 +95,7 @@ const PLI_CSS = `
   .pli-card-body { display: flex; flex-direction: column; min-width: 0; }
   .pli-card-name { font-weight: 700; font-size: 16px; }
   .pli-card-also { font-size: 12.5px; color: #5b6f60; line-height: 1.35; margin-top: 2px; }
+  .pli-photo { width: 56px; height: 56px; border-radius: 11px; object-fit: cover; flex-shrink: 0; display: block; background: #eef3ee; }
+  .pli-credit-note { margin-top: 22px; font-size: 11.5px; color: #8a978c; text-align: center; }
   .pli-arrow { margin-left: auto; color: #F5A800; font-weight: 700; flex-shrink: 0; }
 `;

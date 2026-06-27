@@ -65,13 +65,11 @@ export default function Header() {
             <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={280} height={72} className="sh-brand-logo" priority />
           </Link>
 
+          {/* Desktop nav intentionally minimal — Services + Contact only.
+              Everything else (Service Areas, Pest Library, Pricing, About, Reviews)
+              lives on the pages / zip lookup and in the hamburger menu below. */}
           <nav className="sh-nav" aria-label="Main navigation">
             <Link href="/services/pest-control">Services</Link>
-            <Link href="/service-areas">Service Areas</Link>
-            <Link href="/pest-library">Pest Library</Link>
-            <Link href="/quote">Pricing</Link>
-            <Link href="/about-us">About</Link>
-            <Link href="/reviews">Reviews</Link>
             <Link href="/contact-us">Contact</Link>
           </nav>
 
