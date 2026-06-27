@@ -143,8 +143,10 @@ body.ec-menu-locked { overflow: hidden; }
    cropped logo, and the quote button running off-screen.
    ══════════════════════════════════════════════════════════════ */
 
-/* 1) Nothing may cause horizontal scroll / push content off-screen. */
-html, body { max-width: 100%; overflow-x: hidden; }
+/* 1) Nothing may cause horizontal scroll / push content off-screen.
+   Use overflow-x: clip (not hidden) so the root does NOT become a scroll
+   container — overflow-x: hidden would break position: sticky on the header. */
+html, body { max-width: 100%; overflow-x: clip; }
 
 /* 2) Closed mobile menu must NEVER intercept taps. visibility:hidden
       already does this, but pointer-events is a hard belt-and-suspenders
