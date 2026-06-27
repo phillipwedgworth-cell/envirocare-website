@@ -2,204 +2,189 @@
 
 /**
  * Header — single SITEWIDE sticky header (rendered once in app/layout.tsx).
- * Design ported from the v0 "website-redesign-inspiration" SiteHeader
- * (per Phillip 2026-06-27): collapsing utility bar, pinned main nav, "Ask an
- * Expert" AI CTA. Self-contained with sh-* prefixed classes so it can never
- * collide with page-level ec-* CSS. Keeps the existing /logo.png (no swap).
+ * Custom EnviroCare identity (NOT a v0 template): /logo.png sunflower + Playfair
+ * wordmark, "Family-Owned · Since 1958" microline, green (#0A7935) + gold (#F5A800)
+ * accents, gold hover. Top bar = three cohesive controls only:
+ *   [logo]  ……  [Ask an Expert (→Scout)] [Call (primary green)] [☰ Menu]
+ * Everything else (Services, Service Areas, Pest Library, Pricing, About, Reviews,
+ * Contact, Customer Login) lives in the hamburger. No floating bubbles — Scout is
+ * reached ONLY via "Ask an Expert" (dispatches ec:open-scout; ChatWidget listens).
  */
 
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Phone, Menu, X, Flower2, User } from "lucide-react";
+import { Phone, Menu, X, Sparkles, User } from "lucide-react";
 
 const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
 const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
 
-// Opens the floating Scout AI assistant (ChatWidget listens for ec:open-scout).
 function openScout(message?: string) {
   if (typeof window !== "undefined") {
     window.dispatchEvent(new CustomEvent("ec:open-scout", { detail: { message } }));
   }
 }
 
+const MENU_LINKS: [string, string][] = [
+  ["Services", "/services"],
+  ["Service Areas", "/service-areas"],
+  ["Pest Library", "/pest-library"],
+  ["Pricing", "/quote"],
+  ["About", "/about-us"],
+  ["Reviews", "/reviews"],
+  ["Contact", "/contact-us"],
+];
+
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
+    const fn = () => setScrolled(window.scrollY > 40);
     fn();
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
+  }, [menuOpen]);
+
   return (
     <div className="sh-shell" data-scrolled={scrolled}>
       <style dangerouslySetInnerHTML={{ __html: SH_CSS }} />
 
-      {/* UTILITY BAR — desktop only; collapses on scroll */}
-      <div className="sh-utility" aria-hidden={scrolled}>
-        <div className="sh-utility-inner">
-          <div className="sh-utility-desktop">
-            <div className="sh-banner-rotator" aria-live="off">
-              <span className="sh-banner-msg"><Flower2 size={13} className="sh-banner-sun" aria-hidden="true" /> <span className="sh-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
-              <span className="sh-banner-msg"><Flower2 size={13} className="sh-banner-sun" aria-hidden="true" /> <span className="sh-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
-              <span className="sh-banner-msg"><Flower2 size={13} className="sh-banner-sun" aria-hidden="true" /> <span className="sh-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
-            </div>
-            <div className="sh-utility-right">
-              <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-util-link">
-                <User size={14} aria-hidden="true" /> Customer Login
-              </a>
-              <span className="sh-util-sep" aria-hidden="true" />
-              <a href="tel:2059406360" className="sh-util-link"><Phone size={13} aria-hidden="true" /> (205) 940-6360</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* MAIN HEADER — pinned */}
       <header className="sh-header">
-        <div className="sh-header-inner">
-          <Link href="/" className="sh-brand" aria-label="EnviroCare home">
-            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={280} height={72} className="sh-brand-logo" priority />
+        <div className="sh-inner">
+          {/* BRAND: sunflower logo + 1958 microline */}
+          <Link href="/" className="sh-brand" aria-label="EnviroCare — home">
+            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={260} height={68} className="sh-logo" priority />
+            <span className="sh-tagline">Family-Owned <span className="sh-tagline-dot">·</span> Since 1958</span>
           </Link>
 
-          {/* Desktop nav intentionally minimal — Services + Contact only.
-              Everything else (Service Areas, Pest Library, Pricing, About, Reviews)
-              lives on the pages / zip lookup and in the hamburger menu below. */}
-          <nav className="sh-nav" aria-label="Main navigation">
-            <Link href="/services/pest-control">Services</Link>
-            <Link href="/contact-us">Contact</Link>
-          </nav>
-
-          <div className="sh-header-cta">
-            <button type="button" className="sh-btn sh-btn-ghost" onClick={() => openScout(QUOTE_PROMPT)}>Ask an Expert</button>
-            <a href="tel:2059406360" className="sh-btn sh-btn-ghost"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-btn sh-btn-ghost">Pay Bill</a>
-            <Link href="/quote" className="sh-btn sh-btn-primary">Free Quote</Link>
-          </div>
-
-          <div className="sh-header-mobile-actions">
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-header-login-btn" aria-label="Customer Login">
-              <User size={18} aria-hidden="true" /><span>Log In</span>
+          {/* CONTROLS: Ask an Expert · Call · Menu */}
+          <div className="sh-actions">
+            <button type="button" className="sh-ask" onClick={() => openScout(QUOTE_PROMPT)}>
+              <Sparkles size={16} aria-hidden="true" /> <span>Ask an Expert</span>
+            </button>
+            <a href="tel:2059406360" className="sh-call" aria-label="Call EnviroCare at (205) 940-6360">
+              <Phone size={16} aria-hidden="true" /> <span className="sh-call-num">(205) 940-6360</span><span className="sh-call-word">Call</span>
             </a>
-            <a href="tel:2059406360" className="sh-header-icon-btn" aria-label="Call EnviroCare"><Phone size={19} aria-hidden="true" /></a>
-            <button type="button" className="sh-header-quote-sm" onClick={() => openScout(QUOTE_PROMPT)}>Ask an Expert</button>
-            <button type="button" className="sh-mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen} aria-controls="sh-mobile-menu">
-              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+            <button type="button" className="sh-menu" onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen} aria-controls="sh-menu-panel">
+              <Menu size={20} aria-hidden="true" /> <span>Menu</span>
             </button>
           </div>
         </div>
-
-        {mobileOpen && (
-          <div className="sh-mobile-menu" id="sh-mobile-menu">
-            <Link href="/services/pest-control" onClick={() => setMobileOpen(false)}>Services</Link>
-            <Link href="/service-areas" onClick={() => setMobileOpen(false)}>Service Areas</Link>
-            <Link href="/pest-library" onClick={() => setMobileOpen(false)}>Pest Library</Link>
-            <Link href="/quote" onClick={() => setMobileOpen(false)}>Pricing</Link>
-            <Link href="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
-            <Link href="/reviews" onClick={() => setMobileOpen(false)}>Reviews</Link>
-            <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact</Link>
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>Customer Login</a>
-            <a href="tel:2059406360" onClick={() => setMobileOpen(false)} className="sh-mobile-phone"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
-            <button type="button" className="sh-mobile-cta" onClick={() => { setMobileOpen(false); openScout(QUOTE_PROMPT); }}>Talk to an Expert →</button>
-          </div>
-        )}
       </header>
+
+      {/* HAMBURGER PANEL — holds ALL nav + Customer Login */}
+      <div className={`sh-overlay${menuOpen ? " sh-overlay-open" : ""}`} id="sh-menu-panel" role="dialog" aria-modal="true" aria-label="Site menu" onClick={() => setMenuOpen(false)}>
+        <nav className="sh-panel" onClick={(e) => e.stopPropagation()} aria-label="Full navigation">
+          <div className="sh-panel-top">
+            <span className="sh-panel-mark" aria-hidden="true">✿</span>
+            <span className="sh-panel-eyebrow">EnviroCare · Since 1958</span>
+            <button type="button" className="sh-panel-close" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
+          </div>
+          <div className="sh-panel-links">
+            {MENU_LINKS.map(([label, href]) => (
+              <Link key={href} href={href} className="sh-panel-link" onClick={() => setMenuOpen(false)}>{label}</Link>
+            ))}
+          </div>
+          <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-panel-login" onClick={() => setMenuOpen(false)}>
+            <User size={17} aria-hidden="true" /> Customer Login
+          </a>
+          <div className="sh-panel-foot">Family-Owned · Fourth Generation · Birmingham · Lake Martin · Huntsville</div>
+        </nav>
+      </div>
     </div>
   );
 }
 
 const SH_CSS = `
   .sh-shell { position: sticky; top: 0; z-index: 100; font-family: var(--font-sans), system-ui, sans-serif; }
-
-  .sh-utility {
-    display: none;
-    background: linear-gradient(90deg, #07642B 0%, #0A7935 50%, #07642B 100%);
-    color: #fff; overflow: hidden; max-height: 46px; opacity: 1;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    transition: max-height 0.3s ease, opacity 0.22s ease;
-  }
-  .sh-shell[data-scrolled="true"] .sh-utility { max-height: 0; opacity: 0; border-bottom-color: transparent; }
-  .sh-utility-inner { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
-  .sh-utility-desktop { display: none; align-items: center; justify-content: space-between; gap: 18px; height: 46px; font-size: 13px; }
-  .sh-utility-right { display: inline-flex; align-items: center; gap: 14px; flex: none; }
-  .sh-util-link { display: inline-flex; align-items: center; gap: 6px; color: #fff !important; font-weight: 600; font-size: 13px; text-decoration: none; transition: color 0.15s; }
-  .sh-util-link:hover { color: #F5A800 !important; }
-  .sh-util-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.28); display: inline-block; }
-  @media (min-width: 1024px) { .sh-utility { display: block; } .sh-utility-desktop { display: flex; } }
-
-  .sh-banner-sun { flex: none; color: #F5A800; vertical-align: -2px; }
-  .sh-banner-gold { color: #F5A800; font-weight: 600; }
-  .sh-banner-rotator { position: relative; height: 46px; overflow: hidden; flex: 1 1 auto; }
-  .sh-banner-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-start; gap: 6px; white-space: nowrap; opacity: 0; animation: sh-banner-cycle 15s infinite; }
-  .sh-banner-msg:nth-child(2) { animation-delay: 5s; }
-  .sh-banner-msg:nth-child(3) { animation-delay: 10s; }
-  @keyframes sh-banner-cycle {
-    0% { opacity: 0; transform: translateY(8px); }
-    4% { opacity: 1; transform: translateY(0); }
-    30% { opacity: 1; transform: translateY(0); }
-    34% { opacity: 0; transform: translateY(-8px); }
-    100% { opacity: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .sh-banner-msg { animation: none; }
-    .sh-banner-msg:first-child { opacity: 1; position: static; }
-    .sh-banner-msg:nth-child(2), .sh-banner-msg:nth-child(3) { display: none; }
-  }
-
   .sh-header {
-    background: #fff; border-bottom: 1px solid #E8E2D8; box-shadow: 0 1px 0 rgba(14,26,15,0.04);
-    max-width: 100vw; overflow-x: hidden; transition: box-shadow 0.2s ease;
+    background: #fff;
+    border-bottom: 1px solid #E6E0D2;
+    box-shadow: 0 1px 0 rgba(14,26,15,0.04);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
-  .sh-shell[data-scrolled="true"] .sh-header { box-shadow: 0 4px 22px rgba(14,26,15,0.08); border-bottom-color: rgba(14,142,64,0.18); }
-  .sh-header-inner { max-width: 1280px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .sh-brand { display: inline-flex; align-items: center; flex-shrink: 0; max-height: 72px; }
-  .sh-brand-logo { height: 64px !important; width: auto !important; max-width: 240px !important; object-fit: contain !important; display: block !important; }
-  @media (max-width: 480px) {
-    .sh-header-inner { padding: 8px 16px; }
-    .sh-brand { max-height: 48px; }
-    .sh-brand-logo { height: 44px !important; max-width: 168px !important; }
-    .sh-mobile-toggle { width: 38px; height: 38px; font-size: 20px; }
-  }
+  .sh-shell[data-scrolled="true"] .sh-header { box-shadow: 0 6px 24px rgba(14,26,15,0.10); border-bottom-color: rgba(245,168,0,0.45); }
+  .sh-inner { max-width: 1240px; margin: 0 auto; padding: 10px clamp(16px,4vw,32px); display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 76px; }
 
-  .sh-nav { display: none; gap: 24px; font-size: 15px; font-weight: 500; }
-  .sh-nav a { color: #1A2620; text-decoration: none; transition: color 0.15s; white-space: nowrap; }
-  .sh-nav a:hover { color: #0E8E40; }
+  /* BRAND */
+  .sh-brand { display: inline-flex; flex-direction: column; gap: 3px; flex-shrink: 0; text-decoration: none; }
+  .sh-logo { height: 56px !important; width: auto !important; max-width: 230px !important; object-fit: contain !important; display: block !important; }
+  .sh-tagline { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 12px; color: #0A7935; letter-spacing: 0.01em; padding-left: 2px; }
+  .sh-tagline-dot { color: #F5A800; font-style: normal; font-weight: 700; }
 
-  /* CTA button group — one primary (Free Quote), rest secondary; consistent 40px height */
-  .sh-header-cta { display: none; align-items: center; gap: 8px; }
-  .sh-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    height: 40px; padding: 0 16px; border-radius: 999px;
-    font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1;
+  /* CONTROLS — one cohesive style, matching height, rounded, even spacing */
+  .sh-actions { display: inline-flex; align-items: center; gap: 10px; }
+  .sh-ask, .sh-call, .sh-menu {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    height: 44px; padding: 0 18px; border-radius: 999px;
+    font-family: inherit; font-size: 14.5px; font-weight: 700; line-height: 1;
     white-space: nowrap; text-decoration: none; cursor: pointer;
-    border: 1px solid transparent; transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
   }
-  .sh-btn-ghost { background: transparent; color: #1A2620 !important; }
-  .sh-btn-ghost:hover { background: #F0F7F2; color: #0A7935 !important; }
-  .sh-btn-primary { background: #0E8E40; color: #fff !important; font-weight: 700; padding: 0 20px; box-shadow: 0 4px 14px rgba(14,142,64,0.28); }
-  .sh-btn-primary:hover { background: #0A7935; transform: translateY(-1px); }
+  /* Ask an Expert — clear green-outline button (well-contrasted), gold sparkle */
+  .sh-ask { background: #fff; color: #0A7935; border: 1.5px solid #0A7935; }
+  .sh-ask svg { color: #F5A800; }
+  .sh-ask:hover { background: #F0F9F3; border-color: #F5A800; }
+  /* Call — PRIMARY solid EnviroCare green */
+  .sh-call { background: #0A7935; color: #fff !important; border: 1.5px solid #0A7935; box-shadow: 0 4px 14px rgba(10,121,53,0.30); }
+  .sh-call:hover { background: #086A2E; transform: translateY(-1px); }
+  .sh-call-word { display: none; }
+  /* Menu — subtle, gold-accent hover */
+  .sh-menu { background: #fff; color: #0E1A0F; border: 1.5px solid #E0DACE; }
+  .sh-menu:hover { border-color: #F5A800; color: #0A7935; }
 
-  .sh-header-mobile-actions { display: flex; align-items: center; gap: 6px; }
-  .sh-header-login-btn { display: inline-flex; align-items: center; gap: 5px; height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid #E8E2D8; background: #fff; color: #0A7935 !important; text-decoration: none; font-weight: 700; font-size: 12px; flex: none; white-space: nowrap; }
-  .sh-header-login-btn:active { background: #F4F8F2; }
-  .sh-header-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; border: 1px solid #E8E2D8; background: #fff; color: #0A7935 !important; text-decoration: none; flex: none; }
-  .sh-header-quote-sm { background: #0E8E40; color: #fff !important; border: none; cursor: pointer; border-radius: 999px; padding: 9px 13px; font-weight: 700; font-size: 12.5px; font-family: inherit; white-space: nowrap; box-shadow: 0 3px 12px rgba(14,142,64,0.26); }
-  @media (max-width: 400px) {
-    .sh-header-login-btn span { display: none; }
-    .sh-header-login-btn { width: 38px; padding: 0; justify-content: center; gap: 0; }
+  /* Responsive: keep all three, shrink gracefully */
+  @media (max-width: 720px) {
+    .sh-inner { min-height: 64px; }
+    .sh-logo { height: 44px !important; max-width: 170px !important; }
+    .sh-ask span, .sh-menu span { display: none; }       /* icon-only Ask + Menu on phones */
+    .sh-ask, .sh-call, .sh-menu { height: 42px; padding: 0 14px; gap: 0; }
+    .sh-call { padding: 0 16px; }
   }
-  @media (min-width: 1024px) { .sh-header-mobile-actions { display: none; } }
+  @media (max-width: 420px) {
+    .sh-call-num { display: none; }
+    .sh-call-word { display: inline; }
+    .sh-tagline { font-size: 11px; }
+  }
 
-  .sh-mobile-toggle { background: transparent; border: 1px solid #E8E2D8; border-radius: 8px; width: 40px; height: 40px; font-size: 22px; color: #0E1A0F; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-  .sh-mobile-menu { display: flex; flex-direction: column; gap: 4px; padding: 12px 20px 20px; border-top: 1px solid #E8E2D8; background: #fff; }
-  .sh-mobile-menu a { padding: 12px 8px; font-size: 16px; font-weight: 500; color: #1A2620; text-decoration: none; border-bottom: 1px solid #F1F5F2; display: inline-flex; align-items: center; gap: 6px; }
-  .sh-mobile-cta { margin-top: 8px; padding: 14px 20px; background: #F5A800; color: #0E1A0F !important; border: none; cursor: pointer; border-radius: 999px; text-align: center; font-weight: 700; font-size: 16px; font-family: inherit; }
-  @media (min-width: 1024px) {
-    .sh-nav, .sh-header-cta { display: flex; }
-    .sh-mobile-toggle, .sh-header-mobile-actions { display: none; }
-    .sh-mobile-menu { display: none !important; }
+  /* HAMBURGER OVERLAY + PANEL */
+  .sh-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(14,26,15,0.45); opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
+  .sh-overlay-open { opacity: 1; visibility: visible; }
+  .sh-panel {
+    position: absolute; top: 0; right: 0; height: 100%; width: min(380px, 88vw);
+    background: #FEFDF8; box-shadow: -16px 0 48px rgba(14,26,15,0.22);
+    display: flex; flex-direction: column; padding: 18px 22px 26px;
+    transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+    border-left: 4px solid #F5A800;
   }
+  .sh-overlay-open .sh-panel { transform: translateX(0); }
+  .sh-panel-top { display: flex; align-items: center; gap: 10px; padding-bottom: 16px; border-bottom: 1px solid rgba(10,121,53,0.14); margin-bottom: 10px; }
+  .sh-panel-mark { color: #F5A800; font-size: 20px; line-height: 1; }
+  .sh-panel-eyebrow { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 14px; color: #0A7935; font-weight: 700; }
+  .sh-panel-close { margin-left: auto; width: 40px; height: 40px; border-radius: 10px; border: 1px solid #E0DACE; background: #fff; color: #0E1A0F; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .sh-panel-close:hover { border-color: #F5A800; color: #0A7935; }
+  .sh-panel-links { display: flex; flex-direction: column; padding: 6px 0; }
+  .sh-panel-link {
+    font-family: var(--font-serif), Georgia, serif; font-size: 22px; font-weight: 700; color: #0E1A0F;
+    text-decoration: none; padding: 12px 2px; border-bottom: 1px solid rgba(14,26,15,0.06);
+    transition: color 0.15s, padding-left 0.2s; position: relative;
+  }
+  .sh-panel-link:hover { color: #0A7935; padding-left: 8px; }
+  .sh-panel-link:hover::after { content: ""; position: absolute; left: 0; bottom: 8px; width: 22px; height: 3px; background: #F5A800; border-radius: 2px; }
+  .sh-panel-login {
+    margin-top: 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 18px; border-radius: 999px; background: #0A7935; color: #fff !important;
+    font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 4px 14px rgba(10,121,53,0.28);
+  }
+  .sh-panel-login:hover { background: #086A2E; }
+  .sh-panel-foot { margin-top: auto; padding-top: 18px; font-size: 11.5px; color: #6b7d70; line-height: 1.5; }
 `;
