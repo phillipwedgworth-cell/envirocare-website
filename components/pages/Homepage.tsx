@@ -577,13 +577,16 @@ function ConsolidatedPricing() {
           })}
         </div>
 
-        {/* Bundle & save callout */}
+        {/* Best-value bundle — styled to match the plan cards above */}
         <div className="ec-cp-bundle">
-          <div className="ec-cp-bundle-text">
-            <span className="ec-cp-bundle-tag">BUNDLE &amp; SAVE</span>
-            <strong>Pest + Mosquito on one monthly draft — from $69/mo</strong>
-            <span className="ec-cp-bundle-sub">Year-round pest control plus seasonal mosquito, one invoice. Add tick for +$20/treatment.</span>
+          <div className="ec-cp-bundle-head">
+            <span className="ec-cp-bundle-tag">BEST VALUE</span>
+            <strong>Pest + Mosquito, one monthly draft</strong>
+            <span className="ec-cp-bundle-price">From $69/mo</span>
           </div>
+          <span className="ec-cp-bundle-sub">
+            Year-round pest control plus seasonal mosquito on one invoice. Add tick for +$20/treatment.
+          </span>
           <Link
             href="/quote"
             className="ec-cp-bundle-cta"
@@ -2456,36 +2459,51 @@ const HOMEPAGE_CSS = `
     white-space: nowrap;
   }
 
-  /* Bundle & save callout */
+  /* Best-value bundle — on-brand card that blends with the plan list above */
   .ec-cp-bundle {
-    margin-top: 24px;
+    margin-top: 4px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+    background: #F2FBF5;
+    border: 1.5px solid #0E8E40;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(14,142,64,0.10);
+  }
+  .ec-cp-bundle-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
     flex-wrap: wrap;
-    padding: 18px 22px;
-    background: #0E1A0F;
-    border-radius: 14px;
-    color: #fff;
+    gap: 8px 10px;
   }
-  .ec-cp-bundle-text { display: flex; flex-direction: column; gap: 4px; }
   .ec-cp-bundle-tag {
-    font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
-    color: #F5A800;
-  }
-  .ec-cp-bundle-text strong { font-size: 17px; font-weight: 700; }
-  .ec-cp-bundle-sub { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
-  .ec-cp-bundle-cta {
-    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
+    background: #0E8E40; color: #fff;
+    padding: 3px 10px; border-radius: 999px;
     flex: none;
+  }
+  .ec-cp-bundle-head strong { font-size: 16px; font-weight: 700; color: #0E1A0F; }
+  .ec-cp-bundle-price {
+    font-size: 14px; font-weight: 700; color: #0E8E40;
+    margin-left: auto;
+  }
+  .ec-cp-bundle-sub { font-size: 12.5px; color: #3a5040; line-height: 1.5; }
+  .ec-cp-bundle-cta {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 7px;
     padding: 11px 20px;
-    background: #F5A800; color: #0E1A0F !important;
+    background: #0E8E40; color: #fff !important;
     border-radius: 999px;
-    font-size: 14px; font-weight: 700;
+    font-size: 13.5px; font-weight: 700;
     transition: background 0.15s, transform 0.15s;
   }
-  .ec-cp-bundle-cta:hover { background: #FFB81F; transform: translateY(-1px); }
+  .ec-cp-bundle-cta:hover { background: #0A7935; transform: translateY(-1px); }
+  @media (max-width: 480px) {
+    .ec-cp-bundle-price { margin-left: 0; flex-basis: 100%; }
+    .ec-cp-bundle-cta { align-self: stretch; justify-content: center; }
+  }
 
   /* Compact "also available" link rows */
   .ec-cp-also {
