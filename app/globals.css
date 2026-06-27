@@ -162,12 +162,12 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .ec-header-logo { height: 40px; max-width: 54vw; }
 }
 
-/* 4) Top utility bar (desktop only): office call links on the left, the
-      family-owned credibility line on the right — a clean, justified Waynes-
-      style strip. Hidden entirely on phones so mobile gets a single,
-      uncluttered branded header bar (offices stay reachable in the menu). */
+/* 4) Top utility bar: removed from the header entirely for a cleaner, single
+      white nav (offices stay reachable via the nav click-to-call number, the
+      mobile menu, and the footer). Kept the styles below in case it's ever
+      re-enabled, but it is hidden on every breakpoint. */
 .ec-topbar {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 16px 22px;
