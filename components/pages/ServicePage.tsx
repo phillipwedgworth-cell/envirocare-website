@@ -370,7 +370,6 @@ export default function ServicePage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

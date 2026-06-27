@@ -213,7 +213,6 @@ export default function Homepage() {
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
-      <Footer />
       <StickyCallButton />
     </main>
   );

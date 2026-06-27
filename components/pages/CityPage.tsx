@@ -288,7 +288,6 @@ export default function CityPage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

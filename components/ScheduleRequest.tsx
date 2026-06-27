@@ -245,10 +245,10 @@ export default function ScheduleRequest({ city }: { city?: string }) {
 
       {/* Details */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" style={field} />
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" style={field} />
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" inputMode="tel" aria-label="Phone" style={field} />
-        <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" style={field} />
+        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" style={field} />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" autoComplete="email" style={field} />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" inputMode="tel" aria-label="Phone" autoComplete="tel" style={field} />
+        <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" style={field} />
       </div>
 
       <button onClick={submit} disabled={!valid || state === "sending"} style={{

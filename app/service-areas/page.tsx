@@ -104,7 +104,6 @@ export default function ServiceAreasPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

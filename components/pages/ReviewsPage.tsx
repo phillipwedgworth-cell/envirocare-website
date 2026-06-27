@@ -91,7 +91,6 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

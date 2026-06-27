@@ -110,7 +110,6 @@ export default function BuildersPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

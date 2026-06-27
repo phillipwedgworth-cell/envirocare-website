@@ -122,7 +122,6 @@ export default function ServicesIndexPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

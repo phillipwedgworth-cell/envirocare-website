@@ -51,7 +51,7 @@ const OFFICES = [
 ];
 
 export default function ContactUs() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", city: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", city: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected] = useState(0);
 
@@ -250,27 +250,33 @@ export default function ContactUs() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your Name *</label>
-                  <input required value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, name: e.target.value })}
+                  <input required autoComplete="name" value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, name: e.target.value })}
                     placeholder="John Smith"
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Phone Number *</label>
-                  <input required type="tel" value={form.phone} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, phone: e.target.value })}
+                  <input required type="tel" autoComplete="tel" value={form.phone} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, phone: e.target.value })}
                     placeholder="(205) 555-0100"
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
               </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Service Address</label>
+                <input autoComplete="street-address" value={form.address} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, address: e.target.value })}
+                  placeholder="Start typing — your browser can fill this in"
+                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+              </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
-                  <input type="email" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, email: e.target.value })}
+                  <input type="email" autoComplete="email" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, email: e.target.value })}
                     placeholder="john@email.com"
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your City *</label>
-                  <input required value={form.city} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, city: e.target.value })}
+                  <input required autoComplete="address-level2" value={form.city} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, city: e.target.value })}
                     placeholder="Birmingham, AL"
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>

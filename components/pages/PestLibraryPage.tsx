@@ -19,7 +19,6 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
       <main>
         <section className="pl-hero"><div className="pl-inner"><h1>Pest not found</h1>
           <p><Link href="/pest-library" className="pl-back">← Back to the Pest Library</Link></p></div></section>
-        <Footer />
       </main>
     );
   }
@@ -129,7 +128,6 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
         </div>
       </div>
 
-      <Footer />
     </main>
   );
 }

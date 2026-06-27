@@ -194,7 +194,6 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

@@ -132,7 +132,6 @@ export default function RealtorPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

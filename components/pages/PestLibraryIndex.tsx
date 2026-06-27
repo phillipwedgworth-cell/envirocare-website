@@ -49,7 +49,6 @@ export default function PestLibraryIndex() {
         </div>
       </div>
 
-      <Footer />
     </main>
   );
 }

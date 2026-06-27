@@ -128,7 +128,6 @@ export default function ComboPage({ c }: { c: ComboContent }) {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
