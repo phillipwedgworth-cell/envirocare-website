@@ -51,7 +51,7 @@ const OFFICES = [
 ];
 
 export default function ContactUs() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", city: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", city: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected] = useState(0);
 
@@ -68,7 +68,7 @@ export default function ContactUs() {
       // Form not yet wired — fall back to opening email so leads still reach us
       const subject = encodeURIComponent(`Website Inquiry: ${form.service || "Pest service"}`);
       const body = encodeURIComponent(
-        `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nCity: ${form.city}\nService: ${form.service}\n\n${form.message}`
+        `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nAddress: ${form.address}\nCity: ${form.city}\nService: ${form.service}\n\n${form.message}`
       );
       window.location.href = `mailto:service@envirocarellc.com?subject=${subject}&body=${body}`;
       setSubmitted(true);
@@ -262,6 +262,12 @@ export default function ContactUs() {
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
               </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Street Address <span style={{ textTransform: "none", letterSpacing: 0, color: "#9ca3af", fontWeight: 400 }}>(optional)</span></label>
+                <input value={form.address} autoComplete="street-address" onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, address: e.target.value })}
+                  placeholder="123 Main St (optional — or just tell us your city below)"
+                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+              </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
@@ -271,7 +277,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your City *</label>
-                  <input required value={form.city} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, city: e.target.value })}
+                  <input required value={form.city} autoComplete="address-level2" onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, city: e.target.value })}
                     placeholder="Birmingham, AL"
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
                 </div>
