@@ -155,24 +155,8 @@ export default function ChatWidget() {
           @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
           @media (max-width: 600px){.ec-scout-label{display:none!important}}
         `}} />
-      <button
-        className="ec-scout-label"
-        onClick={() => {
-          setIsOpen(true);
-          if (typeof window !== 'undefined' && (window as any).gtag) {
-            (window as any).gtag('event', 'chat_open', { event_category: 'engagement', event_label: 'label' });
-          }
-        }}
-        style={{
-          position: "fixed", bottom: 30, right: 88,
-          background: "#fff", color: FOREST,
-          border: `1px solid ${BRAND_GREEN}`,
-          borderRadius: 999, padding: "9px 16px",
-          fontSize: 14, fontWeight: 700, cursor: "pointer",
-          boxShadow: "0 6px 20px rgba(14,26,15,0.18)",
-          zIndex: 9998, whiteSpace: "nowrap",
-        }}
-      >Get an instant quote</button>
+      {/* Removed the "Get an instant quote" label pill — Scout entry points are now
+          only the top-bar "Ask an Expert" button + this single floating launcher. */}
       <button
         onClick={() => {
           setIsOpen(true);

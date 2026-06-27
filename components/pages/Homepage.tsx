@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
+import { ACH_TERMS } from '@/data/pricing';
 
 /* ============================================================
    ICONS — professional line icons (lucide) + custom insects
@@ -604,6 +605,7 @@ function ConsolidatedPricing() {
           <strong>$79 initial service fee</strong> for new pest customers.
           Mosquito and tick have no startup. <em>We never charge twice for the same coverage.</em>
         </div>
+        <p style={{ fontSize: '11.5px', lineHeight: 1.5, color: '#6b7d70', margin: '10px 4px 0', textAlign: 'center' }}>{ACH_TERMS}</p>
       </div>
     </section>
   );
@@ -2425,33 +2427,38 @@ const HOMEPAGE_CSS = `
   }
 
   /* Best-value bundle — on-brand card that blends with the plan list above */
+  /* Featured "Best Value" bundle — elevated hero card: green→gold gradient ring,
+     raised shadow, sits in line with the plans above but clearly stands out. */
   .ec-cp-bundle {
-    margin-top: 4px;
-    margin-bottom: 14px;
+    position: relative;
+    margin: 14px 0 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 18px;
-    background: #F2FBF5;
-    border: 1.5px solid #0E8E40;
-    border-radius: 14px;
-    box-shadow: 0 2px 12px rgba(14,142,64,0.10);
+    gap: 12px;
+    padding: 22px;
+    border: 2.5px solid transparent;
+    border-radius: 18px;
+    background:
+      linear-gradient(#ffffff, #F7FCF8) padding-box,
+      linear-gradient(135deg, #0E8E40 0%, #2EAA61 45%, #F5A800 100%) border-box;
+    box-shadow: 0 16px 40px rgba(14,142,64,0.18), 0 3px 10px rgba(14,26,15,0.06);
   }
   .ec-cp-bundle-head {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 8px 10px;
+    gap: 8px 12px;
   }
   .ec-cp-bundle-tag {
-    font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
-    background: #0E8E40; color: #fff;
-    padding: 3px 10px; border-radius: 999px;
-    flex: none;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.07em;
+    background: linear-gradient(135deg, #0E8E40, #F5A800);
+    color: #fff;
+    padding: 5px 13px; border-radius: 999px;
+    flex: none; box-shadow: 0 3px 10px rgba(245,168,0,0.30);
   }
-  .ec-cp-bundle-head strong { font-size: 16px; font-weight: 700; color: #0E1A0F; }
+  .ec-cp-bundle-head strong { font-size: 18px; font-weight: 800; color: #0E1A0F; }
   .ec-cp-bundle-price {
-    font-size: 14px; font-weight: 700; color: #0E8E40;
+    font-size: 17px; font-weight: 800; color: #0A7935;
     margin-left: auto;
   }
   .ec-cp-bundle-sub { font-size: 12.5px; color: #3a5040; line-height: 1.5; }

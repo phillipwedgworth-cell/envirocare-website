@@ -74,12 +74,10 @@ export default function Header() {
           </nav>
 
           <div className="sh-header-cta">
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-header-pay">Pay Bill</a>
-            <a href="tel:2059406360" className="sh-header-phone">
-              <Phone size={14} className="sh-phone-icon" aria-hidden="true" />
-              <span>(205) 940-6360</span>
-            </a>
-            <button type="button" className="sh-header-quote" onClick={() => openScout(QUOTE_PROMPT)}>Ask an Expert</button>
+            <button type="button" className="sh-btn sh-btn-ghost" onClick={() => openScout(QUOTE_PROMPT)}>Ask an Expert</button>
+            <a href="tel:2059406360" className="sh-btn sh-btn-ghost"><Phone size={15} aria-hidden="true" /> (205) 940-6360</a>
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-btn sh-btn-ghost">Pay Bill</a>
+            <Link href="/quote" className="sh-btn sh-btn-primary">Free Quote</Link>
           </div>
 
           <div className="sh-header-mobile-actions">
@@ -170,13 +168,19 @@ const SH_CSS = `
   .sh-nav a { color: #1A2620; text-decoration: none; transition: color 0.15s; white-space: nowrap; }
   .sh-nav a:hover { color: #0E8E40; }
 
-  .sh-header-cta { display: none; align-items: center; gap: 10px; }
-  .sh-header-pay { font-size: 14px; font-weight: 600; color: #5A6660 !important; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1px solid #E8E2D8; transition: all 0.15s; }
-  .sh-header-pay:hover { color: #0E8E40 !important; border-color: #0E8E40; }
-  .sh-header-phone { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; border: 1.5px solid #0E8E40; color: #0E8E40 !important; text-decoration: none; font-weight: 700; font-size: 15px; transition: all 0.15s; min-height: 42px; }
-  .sh-header-phone:hover { background: #E8F5EE; border-color: #0A7935; }
-  .sh-header-quote { padding: 10px 20px; background: #0E8E40; color: #fff !important; border: none; cursor: pointer; border-radius: 999px; font-weight: 700; font-size: 14px; font-family: inherit; box-shadow: 0 4px 14px rgba(14,142,64,0.28); transition: background 0.15s, transform 0.15s; }
-  .sh-header-quote:hover { background: #0A7935; transform: translateY(-1px); }
+  /* CTA button group — one primary (Free Quote), rest secondary; consistent 40px height */
+  .sh-header-cta { display: none; align-items: center; gap: 8px; }
+  .sh-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    height: 40px; padding: 0 16px; border-radius: 999px;
+    font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1;
+    white-space: nowrap; text-decoration: none; cursor: pointer;
+    border: 1px solid transparent; transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .sh-btn-ghost { background: transparent; color: #1A2620 !important; }
+  .sh-btn-ghost:hover { background: #F0F7F2; color: #0A7935 !important; }
+  .sh-btn-primary { background: #0E8E40; color: #fff !important; font-weight: 700; padding: 0 20px; box-shadow: 0 4px 14px rgba(14,142,64,0.28); }
+  .sh-btn-primary:hover { background: #0A7935; transform: translateY(-1px); }
 
   .sh-header-mobile-actions { display: flex; align-items: center; gap: 6px; }
   .sh-header-login-btn { display: inline-flex; align-items: center; gap: 5px; height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid #E8E2D8; background: #fff; color: #0A7935 !important; text-decoration: none; font-weight: 700; font-size: 12px; flex: none; white-space: nowrap; }

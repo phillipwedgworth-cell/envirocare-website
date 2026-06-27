@@ -16,6 +16,7 @@
 
   import { useState } from "react";
 import PestIcon from "@/components/shared/PestIcon";
+import { ACH_TERMS } from "@/data/pricing";
 
 // ---------- BRAND TOKENS ----------
 const GREEN = "#0A7935";
@@ -247,6 +248,7 @@ export default function PricingContent() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18, marginTop: 22 }}>
             {MONTHLY_PLANS.map((p) => <PlanCard key={p.name} plan={p} />)}
           </div>
+          <p style={{ marginTop: 18, fontSize: "12.5px", lineHeight: 1.55, color: "#5b6f60", maxWidth: 760 }}>{ACH_TERMS}</p>
         </div>
       </section>
 
