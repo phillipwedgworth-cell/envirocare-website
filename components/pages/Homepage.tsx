@@ -1087,13 +1087,13 @@ const HOMEPAGE_CSS = `
     }
   }
   @media (max-width: 480px) {
-    .ec-header-inner { padding: 8px 14px; }
+    .ec-header-inner { padding: 8px 16px; }
     .ec-brand {
-      max-height: 52px;
+      max-height: 48px;
     }
     .ec-brand-logo {
-      height: 50px !important;
-      max-width: 180px !important;
+      height: 44px !important;
+      max-width: 168px !important;
     }
     .ec-mobile-toggle { width: 38px; height: 38px; font-size: 20px; }
   }
