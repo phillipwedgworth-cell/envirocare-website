@@ -1,6 +1,14 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/DeepCityPage.tsx
+// Commit: feat(city): render per-city CityHeroArt landmark band in hero
+// Push: main
+// ─────────────────────────
+
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { EmojiIcon } from "@/components/shared/PestIcon";
+import CityHeroArt from "@/components/CityHeroArt";
 
 /**
  * DeepCityPage — shared layout for wealthy-corridor "deep" city pages
@@ -110,6 +118,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
         {/* HERO */}
         <section style={{ background: `linear-gradient(135deg,${D} 0%,${F} 50%,${G} 100%)`, color: "#fff", padding: "5rem clamp(1.5rem,5vw,4rem)", position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 20% 50%,rgba(245,168,0,.12) 0%,transparent 55%),radial-gradient(circle at 80% 80%,rgba(134,239,172,.14) 0%,transparent 55%)", pointerEvents: "none" }} />
+          <CityHeroArt slug={c.slug} />
           <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.22)", borderRadius: 40, padding: ".4rem 1rem", marginBottom: "1.4rem" }}>
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>{c.badge}</span>
