@@ -93,7 +93,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Is there a setup fee?</summary>
-              <div className="faq-a">Startup fees are $79 for pest, $99 for pest + mosquito, and $229 for the Complete bundle. Termite is priced at your free WDO inspection. Mosquito or tick booked on their own have no startup — they're billed per visit.</div>
+              <div className="faq-a">Startup fees are $79 for pest, $79 for pest + mosquito, and $229 for the Complete bundle. Termite is priced at your free WDO inspection. Mosquito or tick booked on their own have no startup — they're billed per visit.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you offer one-time treatments?</summary>

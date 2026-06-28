@@ -126,7 +126,7 @@ LANGUAGE RULES (legal — never break these):
 
 PLANS (convenience packages, NOT discounts — never promise "bundle savings"; termite is NEVER a flat number):
 - Pest — From $35/mo (bimonthly) · $79 startup
-- Pest + Mosquito — From $69/mo · $99 startup — MOST POPULAR (lead with this)
+- Pest + Mosquito — From $69/mo · $79 startup — MOST POPULAR (lead with this)
 - Complete (Pest + Termite + Mosquito) — From ~$100/mo · $229 startup — best value; termite priced upon inspection & approval
 - Mosquito: $45/visit alone, OR $34/mo only when bundled with a pest plan. Mosquito + Tick $65/visit (tick rides with mosquito only).
 - Startup fees one-time, ACH. Monthly/ACH requires a year-round anchor (pest or termite) — mosquito/tick can't go monthly on their own.

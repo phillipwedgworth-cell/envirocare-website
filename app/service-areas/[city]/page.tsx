@@ -640,7 +640,7 @@ export default async function ServiceAreaPage({
             },
             {
               q: `Is there a contract for pest control in ${data.name}?`,
-              a: `No. EnviroCare is month-to-month — cancel anytime. We earn your business every visit. There's no initial service fee and no minimum contract term. Our pricing is the same whether you're in ${data.name} or anywhere else in our service area.`,
+              a: `No. EnviroCare pest control is month-to-month — cancel anytime, with no minimum contract term. We earn your business every visit. There's a one-time $79 initial service fee to start, then your regular bi-monthly service. Our pricing is the same whether you're in ${data.name} or anywhere else in our service area.`,
             },
             {
               q: `What is the price for pest control in ${data.name}?`,
