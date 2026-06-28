@@ -1,4 +1,10 @@
 "use client";
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/CityHeroArt.tsx
+// Commit: chore(compliance): remove orphaned Tuscaloosa scene + scrub McCalla public refs
+// Push: main
+// ─────────────────────────────────────
 // components/CityHeroArt.tsx
 // Unique gold city-landmark silhouette band for each city hero.
 // Sits at the bottom of the green hero, behind the text (zIndex 0).
@@ -161,15 +167,6 @@ const scenes: Record<string, string> = {
     `<rect x="560" y="134" width="100" height="66" fill="${GOLD_SOFT}"/><path d="M552,134 L610,104 L668,134 Z" fill="${GOLD}"/>` +
     win(582, 152) + win(610, 152) + win(638, 152) +
     [700, 800].map((x) => building(x, 90, 60, DARK_A) + `<path d="M${x - 6},140 L${x + 45},112 L${x + 96},140 Z" fill="${DARK_A}"/>`).join(""),
-
-  // Tuscaloosa — cable bridge over Black Warrior River + low skyline
-  "tuscaloosa":
-    hill(DARK_B, 158) +
-    waterLines(180) +
-    building(120, 36, 56, DARK_A) + building(160, 30, 74, DARK_A) +
-    building(1010, 34, 60, DARK_A) + building(1050, 28, 78, DARK_A) +
-    // cable-stay bridge, gold pylon
-    `<g><rect x="596" y="96" width="8" height="100" fill="${GOLD}"/><path d="M600,100 L460,170 M600,100 L740,170 M600,118 L500,170 M600,118 L700,170 M600,136 L540,170 M600,136 L660,170" stroke="${GOLD_SOFT}" stroke-width="2.5"/><rect x="420" y="170" width="360" height="6" fill="${GOLD}"/></g>`,
 
   // ===== LAKE MARTIN REGION =====
   // Lake Martin — sun, water, dock, pines (premium seasonal)
