@@ -275,8 +275,7 @@ export default function RequestQuoteForm() {
             </button>
 
             <p className="rq-fine">
-              By submitting you agree to be contacted by EnviroCare. We never sell
-              your information.
+              By submitting, you agree EnviroCare may call or text you about your inquiry at the number provided. Consent is not a condition of purchase. Msg / data rates may apply. Reply STOP to opt out.
             </p>
           </form>
         </div>

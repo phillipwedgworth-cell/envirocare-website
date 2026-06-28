@@ -96,7 +96,7 @@ export default function HuntsvilleFAQ() {
               Ready to protect your Huntsville home?
             </p>
             <p style={{ margin: '6px 0 0', fontSize: 14, opacity: 0.85 }}>
-              Plans from $35/mo · No contracts · Family-owned since 1958
+              Plans from $35/mo · No long-term contract · Family-owned since 1958
             </p>
           </div>
           <a href="tel:+12569377676" style={{

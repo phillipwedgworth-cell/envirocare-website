@@ -270,7 +270,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         </p>
       )}
       <p style={{ ...body, fontSize: 12, color: "#8a948c", marginTop: 10, textAlign: "center" }}>
-        This just tells us your preference — our office confirms the actual visit · Mon–Fri 8–5
+        By submitting, you agree EnviroCare may call or text you about your inquiry at the number provided. Consent is not a condition of purchase. Msg / data rates may apply. Reply STOP to opt out.
       </p>
     </div>
   );

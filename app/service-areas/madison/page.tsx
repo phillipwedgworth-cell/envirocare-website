@@ -115,7 +115,7 @@ const jsonLd = {
           name: "How do I cancel pest service?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "There's no contract. Call (256) 937-7676 or email service@envirocarellc.com and we'll cancel at any time. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
+            text: "There is no long-term contract on our pest control plans. Call (256) 937-7676 or email service@envirocarellc.com and we'll cancel at any time. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
           },
         },
       ],
@@ -261,7 +261,7 @@ export default function MadisonPage() {
             gap: 40, flexWrap: "wrap",
             fontSize: 13, opacity: 0.8,
           }}>
-            {["Family-owned since 1958", "EPA-registered products", "No contracts required", "Free re-service guarantee"].map(t => (
+            {["Family-owned since 1958", "EPA-registered products", "No long-term pest control contract", "Free re-service guarantee"].map(t => (
               <span key={t} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <span style={{ color: Au }}>✓</span> {t}
               </span>
@@ -647,7 +647,7 @@ export default function MadisonPage() {
             },
             {
               q: "Is there a contract for pest service?",
-              a: "No contract. Call or email to cancel at any time. The bi-monthly plan is month-to-month with the only commitment being the re-service guarantee — if pests return between visits, we come back at no charge.",
+              a: "No long-term contract on our pest control plans. Call or email to cancel at any time. The bi-monthly plan is month-to-month with the only commitment being the re-service guarantee — if pests return between visits, we come back at no charge.",
             },
           ].map(({ q, a }) => (
             <details key={q} style={{

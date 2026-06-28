@@ -55,7 +55,7 @@ const MONTHLY_PLANS: Plan[] = [
       "Seasonal mosquito (March–November)",
       "Unlimited free pest re-service",
       "Tick add-on available (+$20/visit)",
-      "No contract — cancel anytime",
+      "Month-to-month — cancel anytime",
     ],
     cta: "Get my quote",
     featured: true,
@@ -86,7 +86,7 @@ const MONTHLY_PLANS: Plan[] = [
       "30+ common Alabama pests, incl. mice & rats",
       "Unlimited free re-service between visits",
       "Applied per label directions once dry",
-      "No contract",
+      "Month-to-month",
     ],
     cta: "Get my quote",
   },
@@ -199,7 +199,7 @@ export default function PricingContent() {
             Honest pricing, <em style={{ color: GOLD, fontWeight: 500 }}>no surprises.</em>
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.6, maxWidth: 640, margin: "0 auto" }}>
-            Real &ldquo;from&rdquo; rates, on the page. Pest control is bimonthly with no contract.
+            Real &ldquo;from&rdquo; rates, on the page. Pest control is bimonthly, month-to-month.
             Termite is quoted after a <strong style={{ color: GOLD }}>free on-site WDO inspection</strong> — Alabama requires it.
           </p>
         </div>

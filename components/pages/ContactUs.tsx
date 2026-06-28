@@ -319,7 +319,7 @@ export default function ContactUs() {
               </button>
               {error && <p style={{ textAlign: "center", fontSize: 13, color: "#b91c1c", marginTop: 12, ...sf }}>{error}</p>}
               <p style={{ textAlign: "center", fontSize: 12, color: "#4b5563", marginTop: 12, ...sf }}>
-                We'll call within 2 hours · No obligation · No pressure
+                By submitting, you agree EnviroCare may call or text you about your inquiry at the number provided. Consent is not a condition of purchase. Msg / data rates may apply. Reply STOP to opt out.
               </p>
             </form>
           ) : (

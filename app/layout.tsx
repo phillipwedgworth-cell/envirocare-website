@@ -156,7 +156,7 @@ const BIRMINGHAM_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
   areaServed: ['Birmingham','Hoover','Vestavia Hills','Mountain Brook','Homewood','Alabaster','Chelsea','Pelham','Helena','Calera','Trussville','Greystone','Mt Laurel'],
-  sameAs: ['https://www.envirocarellc.com'],
+  sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=7378341068021381374'],
 
 };
 
@@ -184,7 +184,7 @@ const LAKE_MARTIN_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
   areaServed: ['Lake Martin','Alexander City','Dadeville','Eclectic','Auburn','Opelika'],
-  sameAs: ['https://www.envirocarellc.com'],
+  sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=12101127141767078247'],
 
 };
 
@@ -212,7 +212,7 @@ const HUNTSVILLE_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
   areaServed: ['Huntsville','Madison','Athens','Decatur','Hartselle','Harvest','Hampton Cove'],
-  sameAs: ['https://www.envirocarellc.com'],
+  sameAs: ['https://www.envirocarellc.com','https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8'],
 
 };
 

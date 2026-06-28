@@ -32,7 +32,7 @@ const c: ComboContent = {
     },
     {
       title: "Free re-service in between",
-      body: "If anything shows up between visits, we come back at no charge — that's standard, not an upsell. No contract, cancel anytime.",
+      body: "If anything shows up between visits, we come back at no charge — that's standard, not an upsell. Month-to-month — cancel anytime.",
     },
   ],
   price: {
@@ -44,7 +44,7 @@ const c: ComboContent = {
       "Fire ant & tick treatment available from $150",
       "Interior service whenever needed",
       "Unlimited free re-services",
-      "No contract — cancel anytime",
+      "Month-to-month — cancel anytime",
     ],
   },
   faqs: [

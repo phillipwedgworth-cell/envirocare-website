@@ -142,10 +142,10 @@ const CITIES: Record<string, CityData> = {
     phone: "2562346162",
     phoneDisplay: "(256) 234-6162",
     blurb:
-      "EnviroCare is the ONLY pest control company with a dedicated Lake Martin office. We understand waterfront properties — our products are selected for waterfront use near the lake, docks, and shoreline. We've protected Lake Martin homes and vacation properties for decades.",
+      "EnviroCare is the ONLY pest control company with a dedicated Lake Martin office. We understand waterfront properties — our EPA-registered products are applied per label directions near the lake, docks, and shoreline. We've protected Lake Martin homes and vacation properties for decades.",
     neighborhoods: ["Kowaliga", "Children's Harbor", "Willow Point", "Cove Marina area", "Dadeville", "Eclectic", "Wind Creek"],
     pestPressure:
-      "Lake Martin's waterfront properties face intense mosquito pressure from late March through November. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered waterfront-appropriate barrier products. Termites are also active in lakefront construction.",
+      "Lake Martin's waterfront properties face intense mosquito pressure from late March through November. Shoreline vegetation and standing water near docks create breeding sites. We use EPA-registered barrier products applied per label directions. Termites are also active in lakefront construction.",
     canonicalBase: "https://www.envirocarellc.com",
   },
 };
@@ -206,7 +206,7 @@ export async function generateMetadata({
 
   return {
     title: `Pest Control ${data.name} ${data.state} | EnviroCare — Family-Owned Since 1958`,
-    description: `EnviroCare pest, termite, and mosquito control in ${data.name}, AL. ${data.blurb.split(".")[0]}. No contract. Call ${data.phoneDisplay}.`,
+    description: `EnviroCare pest, termite, and mosquito control in ${data.name}, AL. ${data.blurb.split(".")[0]}. Call ${data.phoneDisplay}.`,
     alternates: {
       canonical: './',
     },
@@ -434,7 +434,7 @@ export default async function ServiceAreaPage({
               { n: "Since 1958", sub: "67 years in Alabama" },
               { n: "3rd Gen", sub: "Kevin Wedgworth, owner" },
               { n: "$0", sub: "No setup fee" },
-              { n: "No contract", sub: "Cancel anytime" },
+              { n: "Month-to-month", sub: "No long-term commitment" },
               { n: "Free re-service", sub: "Bugs back = we're back" },
             ].map((item) => (
               <div key={item.n}>

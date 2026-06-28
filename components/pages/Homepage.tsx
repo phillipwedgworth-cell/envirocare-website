@@ -111,88 +111,6 @@ function Stars({ size = 14 }: { size?: number }) {
  * 8. Complete tier ~$100/mo (matches data/pricing.ts and city pages)
  */
 
-/* ============================================================
-   LOCAL BUSINESS JSON-LD — one PestControl node per office cluster.
-   All values come from data/offices.ts (verified). No reviews or
-   aggregateRating injected (not verified per office).
-   ============================================================ */
-function LocalBusinessJsonLd() {
-  const SITE = 'https://envirocare-web.vercel.app';
-  const offerCatalog = {
-    '@type': 'OfferCatalog',
-    name: 'Pest & Termite Services',
-    itemListElement: [
-      'Pest Control', 'Termite Control / Sentricon®', 'Mosquito Control',
-      'Tick Control', 'Fire Ant Control', 'Flea Control',
-      'WDO Inspection Letters', 'Commercial Pest Control', 'Builder Pre-Treatment',
-    ].map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s } })),
-  };
-  const clusters = [
-    {
-      id: 'birmingham',
-      name: 'EnviroCare Pest & Termite Services — Birmingham / Alabaster',
-      street: '2025 Butler Rd', city: 'Alabaster', zip: '35007',
-      phone: '+1-205-940-6360',
-      sameAs: 'https://www.google.com/maps?cid=7378341068021381374',
-      areaServed: ['Birmingham', 'Alabaster', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Pelham', 'Chelsea'],
-    },
-    {
-      id: 'lake-martin',
-      name: 'EnviroCare Pest & Termite Services — Alexander City / Lake Martin',
-      street: '1785 Tallapoosa St', city: 'Alexander City', zip: '35010',
-      phone: '+1-256-234-6162',
-      sameAs: 'https://www.google.com/maps?cid=12101127141767078247',
-      areaServed: ['Alexander City', 'Lake Martin', 'Dadeville', 'Eclectic', 'Auburn', 'Opelika'],
-    },
-    {
-      id: 'huntsville',
-      name: 'EnviroCare Pest & Termite Services — Huntsville',
-      street: '7027 Old Madison Pike, Ste 108', city: 'Huntsville', zip: '35806',
-      phone: '+1-256-937-7676',
-      sameAs: 'https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8',
-      areaServed: ['Huntsville', 'Madison', 'Athens', 'Decatur', 'Hartselle', 'Harvest', 'Hampton Cove'],
-    },
-  ];
-  const schema = clusters.map((c) => ({
-    '@context': 'https://schema.org',
-    '@type': 'PestControl',
-    '@id': `${SITE}/#office-${c.id}`,
-    name: c.name,
-    url: SITE,
-    telephone: c.phone,
-    image: `${SITE}/logo.png`,
-    logo: `${SITE}/logo.png`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: c.street,
-      addressLocality: c.city,
-      addressRegion: 'AL',
-      postalCode: c.zip,
-      addressCountry: 'US',
-    },
-    areaServed: c.areaServed.map((a) => ({ '@type': 'City', name: `${a}, AL` })),
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-    sameAs: [c.sameAs],
-    hasOfferCatalog: offerCatalog,
-  }));
-  return (
-    <>
-      {schema.map((s) => (
-        <script
-          key={s['@id']}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
-        />
-      ))}
-    </>
-  );
-}
-
 export default function Homepage() {
   return (
     <main className="ec-main">
@@ -206,7 +124,6 @@ export default function Homepage() {
         fetchpriority="high"
       />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
-      <LocalBusinessJsonLd />
       <Hero />
       <ConsolidatedPricing />
       <Reviews />
