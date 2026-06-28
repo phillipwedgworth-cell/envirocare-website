@@ -11,12 +11,14 @@
 export async function sendEmail(subject, text) {
   const key  = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_FROM;
-  // Supports a comma-separated list so one alert can reach multiple inboxes
-  // (e.g. service@envirocarellc.com,phillipwedgworth@gmail.com).
-  const to   = (process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL || '')
+  // Base inboxes always get every alert; env adds any extras (comma-separated),
+  // deduped so no inbox is hit twice.
+  const baseRecipients = ['phillipwedgworth@gmail.com', 'service@envirocarellc.com'];
+  const envRecipients  = (process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL || '')
     .split(',').map(s => s.trim()).filter(Boolean);
+  const to = Array.from(new Set([...baseRecipients, ...envRecipients]));
   if (!key || !from || !to.length) {
-    console.warn('[notify] missing RESEND_API_KEY / NOTIFY_FROM / ALERT_EMAIL — email skipped');
+    console.warn('[notify] missing RESEND_API_KEY / NOTIFY_FROM — email skipped');
     return false;
   }
   try {

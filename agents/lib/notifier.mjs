@@ -124,9 +124,14 @@ export async function postRunSummary({ agent, sourcesChecked, totalItems, panelC
  * email points Phillip back to the Command Center for triage.
  */
 export async function emailDigest({ agent, findings }) {
-  if (!process.env.RESEND_API_KEY || !process.env.ALERT_EMAIL || !findings.length) {
+  if (!process.env.RESEND_API_KEY || !findings.length) {
     return { skipped: true };
   }
+  // Base inboxes always get the digest; env adds extras (comma-separated), deduped.
+  const baseRecipients = ['phillipwedgworth@gmail.com', 'service@envirocarellc.com'];
+  const envRecipients  = (process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL || '')
+    .split(',').map((s) => s.trim()).filter(Boolean);
+  const notifyTo = Array.from(new Set([...baseRecipients, ...envRecipients]));
   const items = findings
     .map(
       (f) => `
@@ -158,7 +163,7 @@ export async function emailDigest({ agent, findings }) {
     },
     body: JSON.stringify({
       from,
-      to: process.env.ALERT_EMAIL,
+      to: notifyTo,
       subject: `🌻 ${agent}: ${findings.length} new finding${findings.length === 1 ? '' : 's'}`,
       html,
     }),
