@@ -38,7 +38,7 @@ export default function NotFound() {
         <div className="nav-inner">
           <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
           <ul className="nav-links">
-            <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/quote">Pricing</a></li><li><a href="/about-us">Why EnviroCare</a></li><li><a href="/contact-us">Contact</a></li>
+            <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about-us">Why EnviroCare</a></li><li><a href="/contact-us">Contact</a></li>
           </ul>
           <div className="nav-right">
             <a href="tel:2059406360" className="nav-phone">(205) 940-6360</a>
@@ -59,7 +59,7 @@ export default function NotFound() {
               <div className="nf-link-label">Most Popular</div>
               <div className="nf-link-title">Home</div>
             </a>
-            <a href="/quote" className="nf-link">
+            <a href="/pricing" className="nf-link">
               <div className="nf-link-label">See Plans</div>
               <div className="nf-link-title">Pricing</div>
             </a>

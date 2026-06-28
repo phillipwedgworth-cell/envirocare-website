@@ -1,10 +1,9 @@
-import PricingCalculator from '../../components/shared/PricingCalculator';
 import ScheduleRequest from '../../components/ScheduleRequest';
 
 export const metadata = {
   alternates: { canonical: '/quote' },
-  title: "Free Pest Control Quote | EnviroCare Alabama",
-  description: "Get an instant pest control price range for your Alabama home. Pest, termite, mosquito and bundle plans. Free inspection — no obligation.",
+  title: "Request a Free Pest Control Visit | EnviroCare Alabama",
+  description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
 };
 
 export default function QuotePage() {
@@ -23,7 +22,6 @@ export default function QuotePage() {
           <ScheduleRequest />
         </div>
       </section>
-      <PricingCalculator />
       <p style={{
         textAlign: 'center',
         fontFamily: "'DM Sans', system-ui, sans-serif",
@@ -34,10 +32,10 @@ export default function QuotePage() {
       }}>
         Need help choosing?{' '}
         <a
-          href="/request-quote"
+          href="/pricing"
           style={{ color: '#0E8E40', textDecoration: 'underline', fontWeight: 600 }}
         >
-          Request a personal quote →
+          View our transparent pricing →
         </a>
       </p>
     </>

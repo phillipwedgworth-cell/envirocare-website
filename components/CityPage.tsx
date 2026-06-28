@@ -52,7 +52,7 @@ export default function CityPage({ city }: { city: CityData }) {
           </Link>
           <div className="city-nav-links" style={{ display: 'flex', gap: 24, fontSize: 14, fontWeight: 500 }}>
             <Link href="/services/pest-control" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Services</Link>
-            <Link href="/quote" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Pricing</Link>
+            <Link href="/pricing" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Pricing</Link>
             <Link href="/about-us" style={{ color: 'var(--ink)', textDecoration: 'none' }}>About</Link>
             <Link href="/contact-us" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Contact</Link>
           </div>
