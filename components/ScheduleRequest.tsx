@@ -245,22 +245,24 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         })}
       </div>
 
-      {/* Details */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" style={field} />
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" autoComplete="email" style={field} />
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" inputMode="tel" aria-label="Phone" autoComplete="tel" style={field} />
-        <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" style={field} />
-        <input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
-      </div>
+      {/* Details — wrapped in a real <form> with name/id so browser autofill fires */}
+      <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
+          <input name="name" id="sr-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" style={field} />
+          <input name="email" id="sr-email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" autoComplete="email" style={field} />
+          <input name="tel" id="sr-tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" aria-label="Phone" autoComplete="tel" style={field} />
+          <input name="postal-code" id="sr-zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" style={field} />
+          <input name="street-address" id="sr-address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
+        </div>
 
-      <button onClick={submit} disabled={!valid || state === "sending"} style={{
-        width: "100%", padding: "15px 24px", borderRadius: 999, border: "none",
-        background: valid ? G : "#C9D4CC", color: "#fff", fontWeight: 700, fontSize: 16,
-        cursor: valid ? "pointer" : "not-allowed", fontFamily: bodyFont, transition: "background 0.15s",
-      }}>
-        {state === "sending" ? "Sending…" : "Send my request — office will call"}
-      </button>
+        <button type="submit" disabled={!valid || state === "sending"} style={{
+          width: "100%", padding: "15px 24px", borderRadius: 999, border: "none",
+          background: valid ? G : "#C9D4CC", color: "#fff", fontWeight: 700, fontSize: 16,
+          cursor: valid ? "pointer" : "not-allowed", fontFamily: bodyFont, transition: "background 0.15s",
+        }}>
+          {state === "sending" ? "Sending…" : "Send my request — office will call"}
+        </button>
+      </form>
 
       {state === "error" && (
         <p style={{ ...body, color: "#B4231F", fontSize: 13.5, marginTop: 10, textAlign: "center" }}>

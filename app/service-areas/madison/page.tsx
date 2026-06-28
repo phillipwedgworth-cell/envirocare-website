@@ -179,7 +179,7 @@ export default function MadisonPage() {
           </Link>
           <div style={{ display: "flex", gap: 24, fontSize: 14, fontWeight: 600 }}>
             <Link href="/services/pest-control" style={{ color: Ik, textDecoration: "none" }}>Services</Link>
-            <Link href="/quote"                  style={{ color: Ik, textDecoration: "none" }}>Pricing</Link>
+            <Link href="/pricing"                style={{ color: Ik, textDecoration: "none" }}>Pricing</Link>
             <Link href="/about-us"               style={{ color: Ik, textDecoration: "none" }}>About</Link>
             <Link href="/contact-us"             style={{ color: Ik, textDecoration: "none" }}>Contact</Link>
           </div>
@@ -243,7 +243,7 @@ export default function MadisonPage() {
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <GoldCTA href="tel:2569377676" text="Call (256) 937-7676" />
             <Link
-              href="/quote"
+              href="/pricing"
               style={{
                 display: "inline-block",
                 border: "2px solid rgba(255,255,255,0.5)",
@@ -699,7 +699,7 @@ export default function MadisonPage() {
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <GoldCTA href="tel:2569377676" text="Call (256) 937-7676" />
             <Link
-              href="/quote"
+              href="/pricing"
               style={{
                 display: "inline-block",
                 border: "2px solid rgba(255,255,255,0.5)",

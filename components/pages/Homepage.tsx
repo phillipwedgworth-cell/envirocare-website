@@ -838,35 +838,20 @@ function Heritage() {
               </div>
             </div>
 
-            <div className="ec-photo-frame ec-photo-ribbon-1">
+            <div className="ec-photo-frame ec-photo-family">
               <span className="ec-photo-imgwrap">
                 <Image
                   src="/ribbon-cutting-1.jpg"
-                  alt="EnviroCare Birmingham office ribbon cutting"
+                  alt="The EnviroCare Wedgworth family team"
                   fill
-                  sizes="170px"
+                  sizes="(min-width: 1024px) 360px, 320px"
                   className="ec-photo-img"
                   style={{ objectFit: 'cover' }}
                 />
               </span>
-              <div className="ec-photo-caption ec-caption-small">
-                <strong>Birmingham Office Opening</strong>
-              </div>
-            </div>
-
-            <div className="ec-photo-frame ec-photo-ribbon-2">
-              <span className="ec-photo-imgwrap">
-                <Image
-                  src="/ribbon-cutting-2.jpg"
-                  alt="EnviroCare Huntsville office ribbon cutting"
-                  fill
-                  sizes="170px"
-                  className="ec-photo-img"
-                  style={{ objectFit: 'cover' }}
-                />
-              </span>
-              <div className="ec-photo-caption ec-caption-small">
-                <strong>Huntsville Office Opening</strong>
+              <div className="ec-photo-caption">
+                <strong>The EnviroCare Family</strong>
+                <span>Four generations, one team</span>
               </div>
             </div>
           </div>
@@ -1725,11 +1710,9 @@ const HOMEPAGE_CSS = `
   /* PHOTOS — clean balanced grid */
   .ec-heritage-photos {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1.4fr;
     grid-template-areas:
-      "kevin ribbon1"
-      "kevin ribbon2";
+      "kevin family";
     gap: 16px;
   }
   .ec-photo-frame {
@@ -1771,17 +1754,15 @@ const HOMEPAGE_CSS = `
   }
   .ec-caption-small strong { font-size: 12px; }
 
-  .ec-photo-kevin { grid-area: kevin; }
-  .ec-photo-ribbon-1 { grid-area: ribbon1; aspect-ratio: 4 / 3; }
-  .ec-photo-ribbon-2 { grid-area: ribbon2; aspect-ratio: 4 / 3; }
+  .ec-photo-kevin { grid-area: kevin; aspect-ratio: 4 / 5; }
+  .ec-photo-family { grid-area: family; aspect-ratio: 4 / 3; }
 
   @media (max-width: 640px) {
     .ec-heritage-photos {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-columns: 1fr;
       grid-template-areas:
-        "kevin kevin"
-        "ribbon1 ribbon2";
+        "kevin"
+        "family";
     }
     .ec-photo-kevin { aspect-ratio: 16 / 10; }
   }
