@@ -26,7 +26,7 @@ export const PRICING = {
     pestMosquito: {
       label: 'Pest + Mosquito',
       fromMonthly: 69,           // From $69/mo
-      startup: 99,
+      startup: 79,               // $79 startup
       badge: 'Most Popular',
     },
     complete: {
