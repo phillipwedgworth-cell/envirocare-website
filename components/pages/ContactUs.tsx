@@ -98,7 +98,6 @@ export default function ContactUs() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
-      <Header />
       <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",
@@ -229,7 +228,17 @@ export default function ContactUs() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>What To Expect</div>
             <h2 style={{ fontSize: 28, fontWeight: 400, color: DARK, marginBottom: 14, lineHeight: 1.2 }}>A real Alabama technician<br />at your door, fast.</h2>
             <div style={{ borderRadius: 14, overflow: "hidden", marginBottom: 18, boxShadow: "0 8px 24px rgba(0,0,0,0.08)", aspectRatio: "4/5" }}>
-              <img src="/technician-inspection.jpg" alt="EnviroCare licensed pest control technician with inspection clipboard" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+              <img
+                src="/technician-envirocare.webp"
+                srcSet="/technician-envirocare-mobile.webp 800w, /technician-envirocare.webp 1200w"
+                sizes="(max-width: 768px) 100vw, 480px"
+                alt="EnviroCare technician in branded green uniform and cap holding an inspection clipboard"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+              />
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, ...sf, fontSize: 13, color: "#374151", display: "flex", flexDirection: "column", gap: 10 }}>
               <li style={{ display: "flex", gap: 10 }}><span style={{ color: G, fontWeight: 800 }}>1.</span><span>We call back within 2 hours.</span></li>

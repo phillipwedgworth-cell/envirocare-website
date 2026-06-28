@@ -17,10 +17,8 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
   if (!pest) {
     return (
       <main>
-        <Header />
         <section className="pl-hero"><div className="pl-inner"><h1>Pest not found</h1>
           <p><Link href="/pest-library" className="pl-back">← Back to the Pest Library</Link></p></div></section>
-        <Footer />
       </main>
     );
   }
@@ -39,7 +37,6 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
     <main>
       <style dangerouslySetInnerHTML={{ __html: PL_CSS }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <Header />
 
       {/* HERO */}
       <section className="pl-hero">
@@ -62,6 +59,19 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
 
       <div className="pl-body">
         <div className="pl-inner">
+          {pest.image && (
+            <figure className="pl-photo">
+              <img
+                src={pest.image}
+                alt={pest.imageAlt || `${pest.name} — Alabama pest`}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
+              />
+              {pest.imageCredit && <figcaption className="pl-photo-credit">Photo: {pest.imageCredit}</figcaption>}
+            </figure>
+          )}
           <section className="pl-section">
             <h2 className="pl-h2">How to identify {pest.name.toLowerCase()}</h2>
             <p>{pest.identification}</p>
@@ -131,7 +141,6 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
         </div>
       </div>
 
-      <Footer />
     </main>
   );
 }
@@ -170,6 +179,9 @@ const PL_CSS = `
   }
   .pl-body { background: #FEFDF8; color: #0E1A0F; padding: clamp(40px,6vw,64px) 0; }
   .pl-section { margin-bottom: 40px; }
+  .pl-photo { margin: 0 0 34px; }
+  .pl-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; display: block; box-shadow: 0 10px 28px rgba(14,26,15,0.12); background: #eef3ee; }
+  .pl-photo-credit { font-size: 11px; color: #8a978c; margin: 8px 2px 0; }
   .pl-h2 { font-family: var(--font-serif); font-size: clamp(20px,3vw,27px); font-weight: 700; color: #07642B; margin: 0 0 14px; }
   .pl-body p { font-size: 16px; line-height: 1.7; color: #2f3b33; margin: 0 0 12px; }
   .pl-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 4px; }

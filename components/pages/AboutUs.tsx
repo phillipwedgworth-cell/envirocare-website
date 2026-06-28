@@ -18,7 +18,6 @@ import Link from "next/link";
 export default function AboutUs() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--white,#fff)" }}>
-      <Header />
 
       <style>{`
         :root {
@@ -391,7 +390,7 @@ export default function AboutUs() {
           </div>
           <div className="ab-off-grid">
             <div className="ab-off-card">
-              <img className="ab-off-img" src="/truck.webp" alt="EnviroCare service truck in the Birmingham metro" /><div className="ab-off-tag">Main · Birmingham Metro</div>
+              <img className="ab-off-img" src="/birmingham-vulcan.webp" srcSet="/birmingham-vulcan-mobile.webp 800w, /birmingham-vulcan.webp 1200w" sizes="(max-width: 768px) 100vw, 360px" alt="The Vulcan statue overlooking Birmingham, Alabama at dusk" width={1200} height={800} loading="lazy" decoding="async" /><div className="ab-off-tag">Main · Birmingham Metro</div>
               <div className="ab-off-name">Birmingham / Alabaster</div>
               <div className="ab-off-addr">
                 2025 Butler Road<br />Alabaster, AL 35007
@@ -415,6 +414,9 @@ export default function AboutUs() {
               <a href="tel:2569377676" className="ab-off-phone">(256) 937-7676</a>
             </div>
           </div>
+          <p style={{ fontSize: 11, color: "#8a978c", marginTop: 16, textAlign: "center" }}>
+            Vulcan statue photo: Conmat13, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>CC BY-SA 4.0</a>, via Wikimedia Commons.
+          </p>
         </section>
 
         {/* CTA */}

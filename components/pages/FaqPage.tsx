@@ -1,6 +1,7 @@
 "use client";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { ACH_TERMS } from "@/data/pricing";
 
 import { useEffect } from 'react';
 
@@ -30,7 +31,6 @@ export default function FaqPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -81,7 +81,7 @@ export default function FaqPage() {
           <div className="faq-list-wide">
             <details className="faq-item">
               <summary className="faq-q">How much does pest control cost?</summary>
-              <div className="faq-a">Bi-monthly perimeter pest control is $35/mo on ACH autopay, or $70 per visit if you prefer pay-as-you-go bi-monthly. That covers 30+ common pests with unlimited free re-services between visits.</div>
+              <div className="faq-a">Bi-monthly perimeter pest control is $35/mo on ACH autopay, or $70 per visit if you prefer pay-as-you-go bi-monthly. That covers 30+ common pests with unlimited free re-services between visits. {ACH_TERMS}</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>
@@ -89,7 +89,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you bundle services?</summary>
-              <div className="faq-a">Yes — convenience bundling. You get one tech and one invoice for combined services like Pest + Mosquito (from $69/mo) or the Complete bundle (pest + termite + mosquito, from ~$100/mo). We don't discount bundles — we keep individual prices low instead.</div>
+              <div className="faq-a">Yes — convenience bundling. You get one tech and one invoice for combined services like Pest + Mosquito (from $69/mo) or the Complete bundle (pest + termite + mosquito, from ~$100/mo). We don't discount bundles — we keep individual prices low instead. {ACH_TERMS}</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Is there a setup fee?</summary>
@@ -195,7 +195,6 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

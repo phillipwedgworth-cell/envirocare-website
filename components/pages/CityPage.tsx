@@ -174,7 +174,6 @@ export default function CityPage({ slug }: { slug: string }) {
       />
       <style dangerouslySetInnerHTML={{ __html: CITY_CSS }} />
 
-      <Header />
 
       <section className="city-hero">
         <div className="city-hero-inner">
@@ -289,7 +288,6 @@ export default function CityPage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

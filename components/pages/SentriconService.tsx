@@ -16,7 +16,6 @@ export default function SentriconProtection() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",

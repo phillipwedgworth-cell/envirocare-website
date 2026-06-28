@@ -30,7 +30,6 @@ export default function ReviewsPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -92,7 +91,6 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

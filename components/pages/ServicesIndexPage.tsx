@@ -9,7 +9,6 @@ export default function ServicesIndexPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
-      <Header />
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -123,7 +122,6 @@ export default function ServicesIndexPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

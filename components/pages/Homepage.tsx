@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
+import { ACH_TERMS } from '@/data/pricing';
 
 /* ============================================================
    ICONS — professional line icons (lucide) + custom insects
@@ -206,8 +207,6 @@ export default function Homepage() {
       />
       <style dangerouslySetInnerHTML={{ __html: HOMEPAGE_CSS }} />
       <LocalBusinessJsonLd />
-      <TopBanner />
-      <Header />
       <Hero />
       <ConsolidatedPricing />
       <Reviews />
@@ -215,7 +214,6 @@ export default function Homepage() {
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
-      <Footer />
       <StickyCallButton />
     </main>
   );
@@ -560,13 +558,16 @@ function ConsolidatedPricing() {
           })}
         </div>
 
-        {/* Bundle & save callout */}
+        {/* Best-value bundle — styled to match the plan cards above */}
         <div className="ec-cp-bundle">
-          <div className="ec-cp-bundle-text">
-            <span className="ec-cp-bundle-tag">BUNDLE &amp; SAVE</span>
-            <strong>Pest + Mosquito on one monthly draft — from $69/mo</strong>
-            <span className="ec-cp-bundle-sub">Year-round pest control plus seasonal mosquito, one invoice. Add tick for +$20/treatment.</span>
+          <div className="ec-cp-bundle-head">
+            <span className="ec-cp-bundle-tag">BEST VALUE</span>
+            <strong>Pest + Mosquito, one monthly draft</strong>
+            <span className="ec-cp-bundle-price">From $69/mo</span>
           </div>
+          <span className="ec-cp-bundle-sub">
+            Year-round pest control plus seasonal mosquito on one invoice. Add tick for +$20/treatment.
+          </span>
           <Link
             href="/quote"
             className="ec-cp-bundle-cta"
@@ -604,6 +605,7 @@ function ConsolidatedPricing() {
           <strong>$79 initial service fee</strong> for new pest customers.
           Mosquito and tick have no startup. <em>We never charge twice for the same coverage.</em>
         </div>
+        <p style={{ fontSize: '11.5px', lineHeight: 1.5, color: '#6b7d70', margin: '10px 4px 0', textAlign: 'center' }}>{ACH_TERMS}</p>
       </div>
     </section>
   );
@@ -2424,36 +2426,56 @@ const HOMEPAGE_CSS = `
     white-space: nowrap;
   }
 
-  /* Bundle & save callout */
+  /* Best-value bundle — on-brand card that blends with the plan list above */
+  /* Featured "Best Value" bundle — elevated hero card: green→gold gradient ring,
+     raised shadow, sits in line with the plans above but clearly stands out. */
   .ec-cp-bundle {
-    margin-top: 24px;
+    position: relative;
+    margin: 14px 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px;
+    border: 2.5px solid transparent;
+    border-radius: 18px;
+    background:
+      linear-gradient(#ffffff, #F7FCF8) padding-box,
+      linear-gradient(135deg, #0E8E40 0%, #2EAA61 45%, #F5A800 100%) border-box;
+    box-shadow: 0 16px 40px rgba(14,142,64,0.18), 0 3px 10px rgba(14,26,15,0.06);
+  }
+  .ec-cp-bundle-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
     flex-wrap: wrap;
-    padding: 18px 22px;
-    background: #0E1A0F;
-    border-radius: 14px;
-    color: #fff;
+    gap: 8px 12px;
   }
-  .ec-cp-bundle-text { display: flex; flex-direction: column; gap: 4px; }
   .ec-cp-bundle-tag {
-    font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
-    color: #F5A800;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.07em;
+    background: linear-gradient(135deg, #0E8E40, #F5A800);
+    color: #fff;
+    padding: 5px 13px; border-radius: 999px;
+    flex: none; box-shadow: 0 3px 10px rgba(245,168,0,0.30);
   }
-  .ec-cp-bundle-text strong { font-size: 17px; font-weight: 700; }
-  .ec-cp-bundle-sub { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  .ec-cp-bundle-head strong { font-size: 18px; font-weight: 800; color: #0E1A0F; }
+  .ec-cp-bundle-price {
+    font-size: 17px; font-weight: 800; color: #0A7935;
+    margin-left: auto;
+  }
+  .ec-cp-bundle-sub { font-size: 12.5px; color: #3a5040; line-height: 1.5; }
   .ec-cp-bundle-cta {
+    align-self: flex-start;
     display: inline-flex; align-items: center; gap: 7px;
-    flex: none;
     padding: 11px 20px;
-    background: #F5A800; color: #0E1A0F !important;
+    background: #0E8E40; color: #fff !important;
     border-radius: 999px;
-    font-size: 14px; font-weight: 700;
+    font-size: 13.5px; font-weight: 700;
     transition: background 0.15s, transform 0.15s;
   }
-  .ec-cp-bundle-cta:hover { background: #FFB81F; transform: translateY(-1px); }
+  .ec-cp-bundle-cta:hover { background: #0A7935; transform: translateY(-1px); }
+  @media (max-width: 480px) {
+    .ec-cp-bundle-price { margin-left: 0; flex-basis: 100%; }
+    .ec-cp-bundle-cta { align-self: stretch; justify-content: center; }
+  }
 
   /* Compact "also available" link rows */
   .ec-cp-also {

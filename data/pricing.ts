@@ -54,7 +54,19 @@ export const PRICING = {
   // Compliance: bundles are a CONVENIENCE (one invoice, one tech), NEVER a discount.
   bundlingIsDiscount: false,
 
+  // ACH / monthly-billing disclosure — SOURCE OF TRUTH.
+  // MUST appear wherever a $/mo price is shown (homepage plan cards, /pricing,
+  // the bundle, city-page FAQs). Use `achTerms` (full line) as the disclosure;
+  // `achFootnoteShort` is the compact label for tight spots.
+  achTerms:
+    'Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.',
+  achFootnoteShort: '12-month agreement · ACH auto-draft · equal averaged payments',
+
   currency: 'USD',
 } as const;
 
 export type Pricing = typeof PRICING;
+
+// Convenience re-exports for components that just need the disclosure string.
+export const ACH_TERMS = PRICING.achTerms;
+export const ACH_FOOTNOTE_SHORT = PRICING.achFootnoteShort;

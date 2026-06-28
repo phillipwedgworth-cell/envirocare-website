@@ -1,233 +1,190 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { Phone, ArrowRight, ChevronDown, User } from "lucide-react";
-import BrandBand from "./BrandBand";
+/**
+ * Header — single SITEWIDE sticky header (rendered once in app/layout.tsx).
+ * Custom EnviroCare identity (NOT a v0 template): /logo.png sunflower + Playfair
+ * wordmark, "Family-Owned · Since 1958" microline, green (#0A7935) + gold (#F5A800)
+ * accents, gold hover. Top bar = three cohesive controls only:
+ *   [logo]  ……  [Ask an Expert (→Scout)] [Call (primary green)] [☰ Menu]
+ * Everything else (Services, Service Areas, Pest Library, Pricing, About, Reviews,
+ * Contact, Customer Login) lives in the hamburger. No floating bubbles — Scout is
+ * reached ONLY via "Ask an Expert" (dispatches ec:open-scout; ChatWidget listens).
+ */
 
-// When the customer payment portal goes live, change this single value.
-// Example: "https://pay.envirocarellc.com" or whatever URL the vendor gives you.
-export const PAYMENT_PORTAL_URL = "/pay";
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Phone, Menu, X, Sparkles, User } from "lucide-react";
 
-const G = "#0A7935";
-const GOLD = "#F5A800";
-const DARK = "#0E1A0F";
+const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
+const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
 
-const sf = { fontFamily: "var(--font-sans)" };
-
-const SERVICES_ITEMS: [string, string][] = [
-  ["All Services", "/services"],
-  ["Pest Control", "/services/pest-control"],
-  ["Interior Pest Control", "/services/interior-pest-control"],
-  ["Termite / Sentricon®", "/services/termite-control"],
-  ["Mosquito Control", "/services/mosquito"],
-  ["Tick Control", "/services/tick-control"],
-  ["Fire Ant Control", "/services/fire-ant"],
-  ["Flea Control", "/services/flea"],
-  ["Builder Pre-Treat", "/services/builder"],
-  ["Real Estate / WDO", "/services/wdo-letters"],
-  ["Commercial Service", "/services/commercial"],
-];
-
-const AREAS_ITEMS: [string, string, string][] = [
-  ["Birmingham / Shelby County", "/birmingham", "(205) 940-6360"],
-  ["Lake Martin / Alex City", "/lake-martin", "(256) 234-6162"],
-  ["Huntsville / North Alabama", "/huntsville", "(256) 937-7676"],
-];
-
-const OVERLAY_LINKS: [string, string, boolean][] = [
-  ["Services", "/services", false],
-  ["Service Areas", "/find-office", false],
-  ["Pricing", "/quote", false],
-  ["About", "/about-us", false],
-  ["Reviews", "/reviews", false],
-  ["Specials", "/special-offers", false],
-  ["Contact", "/contact-us", false],
-];
-
-const OFFICES = [
-  { name: "Birmingham", phone: "(205) 940-6360", tel: "2059406360" },
-  { name: "Lake Martin · Alex City", phone: "(256) 234-6162", tel: "2562346162" },
-  { name: "Huntsville", phone: "(256) 937-7676", tel: "2569377676" },
-];
-
-function Dropdown({ label, children }: { label: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  return (
-    <div ref={ref} style={{ position: "relative" }} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button
-        type="button"
-        aria-haspopup="true"
-        aria-expanded={open}
-        onClick={() => setOpen(v => !v)}
-        style={{ background: "none", border: "none", cursor: "pointer", fontSize: 14, color: "#1f2a23", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 4, padding: "0.5rem 0.6rem", ...sf, lineHeight: 1 }}
-      >
-        {label}
-        <ChevronDown size={13} style={{ transition: "transform 0.15s", transform: open ? "rotate(180deg)" : "none", opacity: 0.6 }} />
-      </button>
-
-      {open && (
-        <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, background: "#fff", border: "1px solid #E8E2D8", borderRadius: 10, boxShadow: "0 8px 32px rgba(0,0,0,0.10)", minWidth: 200, padding: "6px 0", zIndex: 200 }}>
-          {children}
-        </div>
-      )}
-    </div>
-  );
+function openScout(message?: string) {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("ec:open-scout", { detail: { message } }));
+  }
 }
 
-function DropItem({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <a
-      href={href}
-      style={{ display: "block", padding: "9px 18px", fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 500, ...sf, whiteSpace: "nowrap" }}
-      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#F0FAF4"; (e.currentTarget as HTMLElement).style.color = G; }}
-      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "#1f2a23"; }}
-    >
-      {children}
-    </a>
-  );
-}
+const MENU_LINKS: [string, string][] = [
+  ["Services", "/services"],
+  ["Service Areas", "/service-areas"],
+  ["Pest Library", "/pest-library"],
+  ["Pricing", "/quote"],
+  ["About", "/about-us"],
+  ["Reviews", "/reviews"],
+  ["Contact", "/contact-us"],
+];
 
-const divider = (
-  <span style={{ width: 1, height: 18, background: "rgba(0,0,0,0.12)", display: "inline-block", margin: "0 4px", verticalAlign: "middle" }} />
-);
-
-export default function Header({ showTopBar = true }: { showTopBar?: boolean }) {
-  const [scrolled, setScrolled] = useState(false);
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn);
+    const fn = () => setScrolled(window.scrollY > 40);
+    fn();
+    window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
-    document.body.classList.add("ec-menu-locked");
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
     window.addEventListener("keydown", onKey);
-    return () => { document.body.classList.remove("ec-menu-locked"); window.removeEventListener("keydown", onKey); };
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
   }, [menuOpen]);
 
   return (
-    <>
-      {/* MOBILE OVERLAY MENU */}
-      <div id="ec-mobile-menu" className="ec-menu-overlay" data-open={menuOpen} role="dialog" aria-modal="true" aria-label="Site menu">
-        <div className="ec-menu-bar">
-          <a href="/" onClick={() => setMenuOpen(false)} aria-label="EnviroCare home">
-            <img src="/logo.png" alt="EnviroCare" width={220} height={85} style={{ width: 200, height: "auto", display: "block" }} />
-          </a>
-          <button type="button" className="ec-menu-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-          </button>
-        </div>
-        <div className="ec-menu-body">
-          {OVERLAY_LINKS.map(([label, href, italic]) => (
-            <a key={label} href={href} className="ec-menu-link" onClick={() => setMenuOpen(false)}>
-              {italic ? <em>{label}</em> : label}
-              <span className="ec-menu-arrow">→</span>
+    <div className="sh-shell" data-scrolled={scrolled}>
+      <style dangerouslySetInnerHTML={{ __html: SH_CSS }} />
+
+      <header className="sh-header">
+        <div className="sh-inner">
+          {/* BRAND: sunflower logo + 1958 microline */}
+          <Link href="/" className="sh-brand" aria-label="EnviroCare — home">
+            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={260} height={68} className="sh-logo" priority />
+            <span className="sh-tagline">Family-Owned <span className="sh-tagline-dot">·</span> Since 1958</span>
+          </Link>
+
+          {/* CONTROLS: Ask an Expert · Call · Menu */}
+          <div className="sh-actions">
+            <button type="button" className="sh-ask" onClick={() => openScout(QUOTE_PROMPT)}>
+              <Sparkles size={16} aria-hidden="true" /> <span>Ask an Expert</span>
+            </button>
+            <a href="tel:2059406360" className="sh-call" aria-label="Call EnviroCare at (205) 940-6360">
+              <Phone size={16} aria-hidden="true" /> <span className="sh-call-num">(205) 940-6360</span><span className="sh-call-word">Call</span>
             </a>
-          ))}
-
-          <a href={PAYMENT_PORTAL_URL} className="ec-menu-pay" onClick={() => setMenuOpen(false)}>
-            <span>Customer Login <span className="ec-menu-pay-sub" style={{ display: "block", marginTop: 2 }}>Pay My Bill</span></span>
-            <ArrowRight size={20} />
-          </a>
-          <a href="/request-quote" className="ec-menu-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote <ArrowRight size={18} /></a>
-
-          <div className="ec-menu-offices">
-            <div className="ec-menu-offices-label">Call Your Local Office</div>
-            {OFFICES.map(o => (
-              <a key={o.tel} href={`tel:${o.tel}`} className="ec-menu-office">
-                <span className="ec-menu-office-name">{o.name}</span>
-                <span className="ec-menu-office-phone">{o.phone}</span>
-              </a>
-            ))}
-          </div>
-
-          <div className="ec-menu-foot">
-            <span className="ec-menu-foot-dot ec-pulse-dot" /> Fast Scheduling Available
-          </div>
-        </div>
-      </div>
-
-      {/* TOP PHONE BAR */}
-      {showTopBar && (
-        <div style={{ background: DARK, color: "#FBC51A", fontSize: 12, padding: "9px 24px", display: "flex", justifyContent: "center", gap: 22, flexWrap: "wrap", letterSpacing: "0.04em", fontWeight: 500, ...sf }}>
-          <span>Birmingham <strong style={{ color: "#fff" }}>(205) 940-6360</strong></span>
-          <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>
-          <span>Lake Martin <strong style={{ color: "#fff" }}>(256) 234-6162</strong></span>
-          <span style={{ color: "#2EAA61", opacity: 0.7 }}>·</span>
-          <span>Huntsville <strong style={{ color: "#fff" }}>(256) 937-7676</strong></span>
-        </div>
-      )}
-
-      {/* HEADER */}
-      <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${scrolled ? "rgba(14,142,64,0.18)" : "#D4E8D8"}`, padding: "0 clamp(1.5rem, 5vw, 4rem)", transition: "all 0.2s", boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.06)" : "none" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
-
-          {/* LEFT: Logo — ~50px tall */}
-          <a href="/" style={{ display: "block", textDecoration: "none", minWidth: 0 }} aria-label="EnviroCare home">
-            <img className="ec-header-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" style={{ width: "auto", display: "block" }} />
-          </a>
-
-          {/* CENTER: Nav with dropdowns */}
-          <nav className="ec-desktop-only" style={{ gap: 2, alignItems: "center", ...sf }}>
-            <Dropdown label="Services">
-              {SERVICES_ITEMS.map(([label, href]) => (
-                <DropItem key={label} href={href}>{label}</DropItem>
-              ))}
-            </Dropdown>
-
-            <Dropdown label="Service Areas">
-              {AREAS_ITEMS.map(([label, href, phone]) => (
-                <DropItem key={label} href={href}>
-                  <span style={{ display: "block" }}>{label}</span>
-                  <span style={{ display: "block", fontSize: 12, color: G, marginTop: 1 }}>{phone}</span>
-                </DropItem>
-              ))}
-              <div style={{ borderTop: "1px solid #E8E2D8", margin: "6px 0" }} />
-              <DropItem href="/find-office">Find My Office →</DropItem>
-            </Dropdown>
-
-            <a href="/quote" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>Pricing</a>
-            <a href="/about-us" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>About</a>
-            <a href="/reviews" style={{ fontSize: 14, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0.5rem 0.6rem" }}>Reviews</a>
-          </nav>
-
-          {/* RIGHT: Phone | Customer Login | Get Free Quote */}
-          <div className="ec-desktop-only" style={{ alignItems: "center", gap: 0, ...sf }}>
-            <a href="tel:2059406360" style={{ fontSize: 13.5, fontWeight: 600, color: "#0A7935", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 5, padding: "0 12px" }}>
-              <Phone size={14} /> (205) 940-6360
-            </a>
-            {divider}
-            <a href={PAYMENT_PORTAL_URL} style={{ fontSize: 13.5, color: "#1f2a23", textDecoration: "none", fontWeight: 600, padding: "0 12px" }}>Customer Login</a>
-            {divider}
-            <a href="/request-quote" style={{ marginLeft: 8, background: GOLD, color: DARK, borderRadius: 50, padding: "0.52rem 1.3rem", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: `0 4px 14px ${GOLD}40`, whiteSpace: "nowrap" }}>Get Free Quote</a>
-          </div>
-
-          {/* MOBILE: phone icon + burger */}
-          <div className="ec-mobile-only" style={{ alignItems: "center", gap: 8 }}>
-            <a href="tel:2059406360" aria-label="Call EnviroCare" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><Phone size={18} /></a>
-            <a href={PAYMENT_PORTAL_URL} aria-label="Customer Login / Pay My Bill" style={{ width: 44, height: 44, borderRadius: 12, border: "1px solid rgba(14,142,64,0.18)", background: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: G, textDecoration: "none" }}><User size={18} /></a>
-            <button type="button" className="ec-burger" aria-label="Open menu" aria-expanded={menuOpen} aria-controls="ec-mobile-menu" onClick={() => setMenuOpen(true)}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A0F" strokeWidth="2.2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="13" x2="20" y2="13"/><line x1="4" y1="19" x2="14" y2="19"/></svg>
+            <button type="button" className="sh-menu" onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen} aria-controls="sh-menu-panel">
+              <Menu size={20} aria-hidden="true" /> <span>Menu</span>
             </button>
           </div>
-
         </div>
       </header>
-      <BrandBand />
-    </>
+
+      {/* HAMBURGER PANEL — holds ALL nav + Customer Login */}
+      <div className={`sh-overlay${menuOpen ? " sh-overlay-open" : ""}`} id="sh-menu-panel" role="dialog" aria-modal="true" aria-label="Site menu" onClick={() => setMenuOpen(false)}>
+        <nav className="sh-panel" onClick={(e) => e.stopPropagation()} aria-label="Full navigation">
+          <div className="sh-panel-top">
+            <span className="sh-panel-mark" aria-hidden="true">✿</span>
+            <span className="sh-panel-eyebrow">EnviroCare · Since 1958</span>
+            <button type="button" className="sh-panel-close" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
+          </div>
+          <div className="sh-panel-links">
+            {MENU_LINKS.map(([label, href]) => (
+              <Link key={href} href={href} className="sh-panel-link" onClick={() => setMenuOpen(false)}>{label}</Link>
+            ))}
+          </div>
+          <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-panel-login" onClick={() => setMenuOpen(false)}>
+            <User size={17} aria-hidden="true" /> Customer Login
+          </a>
+          <div className="sh-panel-foot">Family-Owned · Fourth Generation · Birmingham · Lake Martin · Huntsville</div>
+        </nav>
+      </div>
+    </div>
   );
 }
+
+const SH_CSS = `
+  .sh-shell { position: sticky; top: 0; z-index: 100; font-family: var(--font-sans), system-ui, sans-serif; }
+  .sh-header {
+    background: #fff;
+    border-bottom: 1px solid #E6E0D2;
+    box-shadow: 0 1px 0 rgba(14,26,15,0.04);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .sh-shell[data-scrolled="true"] .sh-header { box-shadow: 0 6px 24px rgba(14,26,15,0.10); border-bottom-color: rgba(245,168,0,0.45); }
+  .sh-inner { max-width: 1240px; margin: 0 auto; padding: 10px clamp(16px,4vw,32px); display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 76px; }
+
+  /* BRAND */
+  .sh-brand { display: inline-flex; flex-direction: column; gap: 3px; flex-shrink: 0; text-decoration: none; }
+  .sh-logo { height: 56px !important; width: auto !important; max-width: 230px !important; object-fit: contain !important; display: block !important; }
+  .sh-tagline { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 12px; color: #0A7935; letter-spacing: 0.01em; padding-left: 2px; }
+  .sh-tagline-dot { color: #F5A800; font-style: normal; font-weight: 700; }
+
+  /* CONTROLS — one cohesive style, matching height, rounded, even spacing */
+  .sh-actions { display: inline-flex; align-items: center; gap: 10px; }
+  .sh-ask, .sh-call, .sh-menu {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    height: 44px; padding: 0 18px; border-radius: 999px;
+    font-family: inherit; font-size: 14.5px; font-weight: 700; line-height: 1;
+    white-space: nowrap; text-decoration: none; cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+  }
+  /* Ask an Expert — clear green-outline button (well-contrasted), gold sparkle */
+  .sh-ask { background: #fff; color: #0A7935; border: 1.5px solid #0A7935; }
+  .sh-ask svg { color: #F5A800; }
+  .sh-ask:hover { background: #F0F9F3; border-color: #F5A800; }
+  /* Call — PRIMARY solid EnviroCare green */
+  .sh-call { background: #0A7935; color: #fff !important; border: 1.5px solid #0A7935; box-shadow: 0 4px 14px rgba(10,121,53,0.30); }
+  .sh-call:hover { background: #086A2E; transform: translateY(-1px); }
+  .sh-call-word { display: none; }
+  /* Menu — subtle, gold-accent hover */
+  .sh-menu { background: #fff; color: #0E1A0F; border: 1.5px solid #E0DACE; }
+  .sh-menu:hover { border-color: #F5A800; color: #0A7935; }
+
+  /* Responsive: keep all three, shrink gracefully */
+  @media (max-width: 720px) {
+    .sh-inner { min-height: 64px; }
+    .sh-logo { height: 44px !important; max-width: 170px !important; }
+    .sh-ask span, .sh-menu span { display: none; }       /* icon-only Ask + Menu on phones */
+    .sh-ask, .sh-call, .sh-menu { height: 42px; padding: 0 14px; gap: 0; }
+    .sh-call { padding: 0 16px; }
+  }
+  @media (max-width: 420px) {
+    .sh-call-num { display: none; }
+    .sh-call-word { display: inline; }
+    .sh-tagline { font-size: 11px; }
+  }
+
+  /* HAMBURGER OVERLAY + PANEL */
+  .sh-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(14,26,15,0.45); opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
+  .sh-overlay-open { opacity: 1; visibility: visible; }
+  .sh-panel {
+    position: absolute; top: 0; right: 0; height: 100%; width: min(380px, 88vw);
+    background: #FEFDF8; box-shadow: -16px 0 48px rgba(14,26,15,0.22);
+    display: flex; flex-direction: column; padding: 18px 22px 26px;
+    transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+    border-left: 4px solid #F5A800;
+  }
+  .sh-overlay-open .sh-panel { transform: translateX(0); }
+  .sh-panel-top { display: flex; align-items: center; gap: 10px; padding-bottom: 16px; border-bottom: 1px solid rgba(10,121,53,0.14); margin-bottom: 10px; }
+  .sh-panel-mark { color: #F5A800; font-size: 20px; line-height: 1; }
+  .sh-panel-eyebrow { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 14px; color: #0A7935; font-weight: 700; }
+  .sh-panel-close { margin-left: auto; width: 40px; height: 40px; border-radius: 10px; border: 1px solid #E0DACE; background: #fff; color: #0E1A0F; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .sh-panel-close:hover { border-color: #F5A800; color: #0A7935; }
+  .sh-panel-links { display: flex; flex-direction: column; padding: 6px 0; }
+  .sh-panel-link {
+    font-family: var(--font-serif), Georgia, serif; font-size: 22px; font-weight: 700; color: #0E1A0F;
+    text-decoration: none; padding: 12px 2px; border-bottom: 1px solid rgba(14,26,15,0.06);
+    transition: color 0.15s, padding-left 0.2s; position: relative;
+  }
+  .sh-panel-link:hover { color: #0A7935; padding-left: 8px; }
+  .sh-panel-link:hover::after { content: ""; position: absolute; left: 0; bottom: 8px; width: 22px; height: 3px; background: #F5A800; border-radius: 2px; }
+  .sh-panel-login {
+    margin-top: 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 18px; border-radius: 999px; background: #0A7935; color: #fff !important;
+    font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 4px 14px rgba(10,121,53,0.28);
+  }
+  .sh-panel-login:hover { background: #086A2E; }
+  .sh-panel-foot { margin-top: auto; padding-top: 18px; font-size: 11.5px; color: #6b7d70; line-height: 1.5; }
+`;
