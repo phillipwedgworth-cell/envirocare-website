@@ -131,7 +131,7 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
           {/* CLOSE CTA */}
           <section className="pl-close">
             <h2 className="pl-close-h">Dealing with {pest.name.toLowerCase()}? Let’s handle it.</h2>
-            <p>Family-owned in Alabama since 1958. Licensed technicians, EPA-registered products, no contracts.</p>
+            <p>Family-owned in Alabama since 1958. Licensed technicians, EPA-registered products, no long-term pest control contract.</p>
             <div className="pl-ctas">
               <a href="tel:2059406360" className="pl-cta-gold">Call (205) 940-6360</a>
               <Link href="/quote" className="pl-cta-outline">Get a Free Quote →</Link>

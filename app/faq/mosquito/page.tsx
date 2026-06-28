@@ -53,7 +53,7 @@ const SCHEMA = {
       name: "Do you treat Lake Martin waterfront properties?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. EnviroCare is the only pest control company with a dedicated Lake Martin office (Alexander City). We use waterfront-approved barrier products that meet Alabama Department of Environmental Management guidelines. Lakefront properties receive extra attention to dock areas, boat storage, and shoreline vegetation.",
+        text: "Yes. EnviroCare is the only pest control company with a dedicated Lake Martin office (Alexander City). We use EPA-registered barrier products applied according to label directions. Lakefront properties receive extra attention to dock areas, boat storage, and shoreline vegetation.",
       },
     },
     {
@@ -97,7 +97,7 @@ const FAQS = [
   },
   {
     q: "Do you serve Lake Martin waterfront homes?",
-    a: "Yes — and EnviroCare is the only pest control company with a dedicated Lake Martin office (Alexander City, AL). We use barrier products that meet Alabama DEQ waterfront guidelines. Docks, boat storage areas, and shoreline vegetation get specific attention. Call our Lake Martin line at (256) 234-6162.",
+    a: "Yes — and EnviroCare is the only pest control company with a dedicated Lake Martin office (Alexander City, AL). We use EPA-registered barrier products applied per label directions. Docks, boat storage areas, and shoreline vegetation get specific attention. Call our Lake Martin line at (256) 234-6162.",
   },
   {
     q: "What if it rains right after treatment?",
@@ -485,7 +485,7 @@ export default function MosquitoFAQ() {
               lineHeight: 1.7,
             }}
           >
-            No contract. No setup fee. Local Alabama family since 1958.
+            No long-term pest control contract. No setup fee. Local Alabama family since 1958.
             Start before May for the best results all season.
           </p>
           <div

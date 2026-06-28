@@ -8,7 +8,7 @@ import PricingContent from "./PricingContent";
 export const metadata: Metadata = {
   title: "Pest Control Pricing Alabama | From $35/mo | EnviroCare",
   description:
-    "Honest Alabama pest control pricing — pest control from $35/mo (bimonthly, no contract). Mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Termite (Sentricon®) quoted after a free WDO inspection.",
+    "Honest Alabama pest control pricing — pest control from $35/mo (bimonthly, month-to-month). Mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Termite (Sentricon®) quoted after a free WDO inspection.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -22,7 +22,7 @@ const OFFER_SCHEMA = {
     {
       "@type": "Offer", name: "Pest Control", priceCurrency: "USD", price: "35",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $99 startup, no contract." },
+      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $99 startup, month-to-month." },
     },
     {
       "@type": "Offer", name: "Pest + Mosquito", priceCurrency: "USD", price: "69",

@@ -90,7 +90,7 @@ export default function AlabasterFAQ() {
               Alabama&apos;s trusted pest experts since 1958.
             </p>
             <p style={{ margin: '6px 0 0', fontSize: 14, opacity: 0.85 }}>
-              Plans from $35/mo · No contracts · 228 reviews · Locally owned
+              Plans from $35/mo · No long-term contract · 228 reviews · Locally owned
             </p>
           </div>
           <a href="tel:+12059406360" style={{

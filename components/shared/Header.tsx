@@ -14,7 +14,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Phone, Menu, X, Sparkles, User } from "lucide-react";
+import { Phone, Menu, X, Sparkles, User, Flower2 } from "lucide-react";
 
 const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
 const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
@@ -57,6 +57,18 @@ export default function Header() {
   return (
     <div className="sh-shell" data-scrolled={scrolled}>
       <style dangerouslySetInnerHTML={{ __html: SH_CSS }} />
+
+      {/* SITEWIDE ROTATING BANNER — trust strip above nav */}
+      <div className="sh-banner" aria-label="Company highlights">
+        <div className="sh-banner-inner">
+          <Flower2 size={14} className="sh-banner-sun" aria-hidden="true" />
+          <div className="sh-banner-rotator" aria-live="off">
+            <span className="sh-banner-msg"><span className="sh-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
+            <span className="sh-banner-msg"><span className="sh-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
+            <span className="sh-banner-msg"><span className="sh-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
+          </div>
+        </div>
+      </div>
 
       <header className="sh-header">
         <div className="sh-inner">
@@ -187,4 +199,29 @@ const SH_CSS = `
   }
   .sh-panel-login:hover { background: #086A2E; }
   .sh-panel-foot { margin-top: auto; padding-top: 18px; font-size: 11.5px; color: #6b7d70; line-height: 1.5; }
+
+  /* ── Sitewide rotating banner ── */
+  .sh-banner {
+    background: linear-gradient(135deg, #0A7935 0%, #07642B 100%);
+    color: #fff; text-align: center; font-size: 13px; font-weight: 500;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    padding: 7px 16px; overflow: hidden; position: relative;
+  }
+  .sh-banner-inner { display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .sh-banner-sun { color: #F5A800; flex-shrink: 0; }
+  .sh-banner-gold { color: #F5A800; font-weight: 700; }
+  .sh-banner-rotator {
+    display: inline-flex; flex-direction: column; height: 1.4em; overflow: hidden;
+    animation: sh-banner-scroll 12s cubic-bezier(0.4,0,0.2,1) infinite;
+  }
+  .sh-banner-msg { white-space: nowrap; height: 1.4em; line-height: 1.4em; }
+  @keyframes sh-banner-scroll {
+    0%, 28%   { transform: translateY(0); }
+    33%, 61%  { transform: translateY(-1.4em); }
+    66%, 94%  { transform: translateY(-2.8em); }
+    100%      { transform: translateY(0); }
+  }
+  @media (max-width: 600px) {
+    .sh-banner { font-size: 11.5px; padding: 6px 12px; }
+  }
 `;

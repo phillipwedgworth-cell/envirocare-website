@@ -207,7 +207,7 @@ export default function TermiteWarrantyFAQ() {
               maxWidth: 640,
             }}
           >
-            Industry's strongest termite protection. No drilling. No contracts.
+            Industry’s strongest termite protection. No drilling required.
             Here's exactly how the warranty works, what it covers, and what it
             costs.
           </p>

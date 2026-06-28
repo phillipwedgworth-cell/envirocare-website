@@ -40,7 +40,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   // Current ownership — Wedgworth family
   employee: [
     { '@type': 'Person', name: 'Kevin Wedgworth', jobTitle: 'Owner' },
-    { '@type': 'Person', name: 'William Lex Wedgworth', description: 'Fourth-generation member of the Wedgworth family, working in the business since 2024.' },
+    { '@type': 'Person', name: 'William Lex Wedgworth', description: 'Fourth-generation member of the Wedgworth family, working in the business since 2016.' },
   ],
   knowsAbout: [
     'Pest Control', 'Termite Control', 'Sentricon Termite Baiting', 'Mosquito Control', 'Tick Control',
