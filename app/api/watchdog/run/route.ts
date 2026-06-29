@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { runWatchdog } from "@/agents/lib/watchdog.mjs";
-import { envUrl } from "@/lib/env-url";
+import { cleanEnv } from "@/lib/cleanEnv";
 
 // A single canary call + one Supabase read. 60s is ample.
 export const maxDuration = 60;
@@ -12,11 +12,11 @@ async function execute(req: NextRequest) {
   }
   try {
     const output = await runWatchdog({
-      supabaseUrl: envUrl("SUPABASE_URL"),
+      supabaseUrl: cleanEnv(process.env.SUPABASE_URL),
       supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_KEY,
-      alertEmail: process.env.ALERT_EMAIL,
+      alertEmail: cleanEnv(process.env.ALERT_EMAIL),
       resendApiKey: process.env.RESEND_API_KEY,
-      fromEmail: process.env.NOTIFY_FROM,
+      fromEmail: cleanEnv(process.env.NOTIFY_FROM),
       anthropicApiKey: process.env.ANTHROPIC_API_KEY,
     });
     // ok:false when the canary caught a fleet-wide failure — surface it as 200

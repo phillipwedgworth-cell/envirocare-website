@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { envUrl } from "@/lib/env-url";
+import { cleanEnv } from "@/lib/cleanEnv";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -115,7 +115,7 @@ function safeJson(raw: string): Record<string, unknown> {
 
 export async function GET() {
   const supabase = createClient(
-    envUrl("SUPABASE_URL")!,
+    cleanEnv(process.env.SUPABASE_URL),
     process.env.SUPABASE_KEY!
   );
 

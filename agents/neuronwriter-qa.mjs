@@ -22,7 +22,7 @@ import { writeFinding, logAgentRun } from './lib/supabase.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
 import { criticLoop } from './lib/critic.mjs';
 import { appendWeeklyResult } from './lib/notion.mjs';
-import { envUrl } from './lib/env-url.mjs';
+import { cleanEnv } from './lib/cleanEnv.mjs';
 
 const AGENT_NAME = 'neuronwriter-qa';
 const WORKER_MODEL = 'claude-haiku-4-5-20251001';
@@ -53,7 +53,7 @@ function loadTargets() {
 // Scoring the LIVE rendered HTML is the only accurate option — most page.tsx
 // files are thin wrappers around shared templates, so reading the source
 // produced "<100 chars" for 13 of 16 targets.
-const SITE_BASE = envUrl('NEXT_PUBLIC_SITE_URL', 'https://envirocare-web.vercel.app');
+const SITE_BASE = cleanEnv(process.env.NEXT_PUBLIC_SITE_URL) || 'https://envirocare-web.vercel.app';
 
 function pageToUrl(page) {
   const route = page.replace(/^app\//, '/').replace(/\/page\.tsx$/, '').replace(/^\/$/, '');

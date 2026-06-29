@@ -8,7 +8,7 @@
  */
 import { createClient } from '@supabase/supabase-js';
 import type { Metadata } from 'next';
-import { envUrl } from '@/lib/env-url';
+import { cleanEnv } from '@/lib/cleanEnv';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
@@ -93,7 +93,7 @@ const fmtDate = (iso?: string | null) => {
 
 // ── data ──────────────────────────────────────────────────────────────────────
 async function fetchAll() {
-  const url = envUrl('SUPABASE_URL');
+  const url = cleanEnv(process.env.SUPABASE_URL);
   const key = process.env.SUPABASE_KEY;
   if (!url || !key) return null;
   const sb = createClient(url, key);

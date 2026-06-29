@@ -2,7 +2,7 @@
 // Reproduces the two Supabase writes AEO-Watch makes (startRun + upsertFinding),
 // reports the real status, then deletes its own test rows. Read-only to your real data.
 import { readFile } from 'node:fs/promises';
-import { envUrl } from '../lib/env-url.mjs';
+import { cleanEnv } from '../lib/cleanEnv.mjs';
 
 // Load .env without a dependency
 try {
@@ -15,7 +15,7 @@ try {
 
 const KEY = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_KEY;
 const REF = 'dyoujmyleihcpqgeifre';
-const BASE = envUrl('SUPABASE_URL', `https://${REF}.supabase.co`).replace(/\/$/, '') + '/rest/v1';
+const BASE = (cleanEnv(process.env.SUPABASE_URL) || `https://${REF}.supabase.co`).replace(/\/$/, '') + '/rest/v1';
 
 if (!KEY) { console.error('FAIL: no SUPABASE_SERVICE_KEY / SUPABASE_KEY found in env or .env'); process.exit(1); }
 

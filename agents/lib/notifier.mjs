@@ -27,6 +27,8 @@
  *                          or "EnviroCare <alerts@envirocarellc.com>" once verified)
  */
 
+import { cleanEnv } from './cleanEnv.mjs';
+
 const NOTION_API = 'https://api.notion.com/v1';
 const NOTION_VERSION = '2022-06-28';
 
@@ -129,8 +131,8 @@ export async function emailDigest({ agent, findings }) {
   }
   // Base inboxes always get the digest; env adds extras (comma-separated), deduped.
   const baseRecipients = ['phillipwedgworth@gmail.com', 'service@envirocarellc.com'];
-  const envRecipients  = (process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL || '')
-    .split(',').map((s) => s.trim()).filter(Boolean);
+  const envRecipients  = (cleanEnv(process.env.ALERT_EMAIL) || cleanEnv(process.env.NOTIFY_EMAIL))
+    .split(',').map((s) => cleanEnv(s)).filter(Boolean);
   const notifyTo = Array.from(new Set([...baseRecipients, ...envRecipients]));
   const items = findings
     .map(
@@ -154,7 +156,7 @@ export async function emailDigest({ agent, findings }) {
     </div>
   </body></html>`;
 
-  const from = process.env.NOTIFY_FROM || 'EnviroCare <onboarding@resend.dev>';
+  const from = cleanEnv(process.env.NOTIFY_FROM) || 'EnviroCare <onboarding@resend.dev>';
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {

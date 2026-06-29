@@ -22,13 +22,13 @@ import targetsData from './neuronwriter-targets.json' with { type: 'json' };
 import { analyzePageContent, scoreContent } from './lib/neuronwriter.mjs';
 import { logAgentRun } from './lib/supabase.mjs';
 import { remember, recall } from './lib/memory.mjs';
-import { envUrl } from './lib/env-url.mjs';
+import { cleanEnv } from './lib/cleanEnv.mjs';
 
 const AGENT = 'neuronwriter-optimize';
 const MODEL = 'claude-sonnet-4-6';
 const SCORE_PASS = 70;
 const MAX_PASSES = 3;   // "whatever it takes" — capped so cost/time stay sane (~$0.05/page/pass)
-const SITE_BASE = envUrl('NEXT_PUBLIC_SITE_URL', 'https://envirocare-web.vercel.app');
+const SITE_BASE = cleanEnv(process.env.NEXT_PUBLIC_SITE_URL) || 'https://envirocare-web.vercel.app';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = join(__dirname, 'reports', 'optimized');
 

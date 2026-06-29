@@ -8,14 +8,16 @@
 // Phillip when he is not in a chat. Never throws — a dead email pipe must not
 // crash an agent run; it logs and returns false.
 
+import { cleanEnv } from './cleanEnv.mjs';
+
 export async function sendEmail(subject, text) {
   const key  = process.env.RESEND_API_KEY;
-  const from = process.env.NOTIFY_FROM;
+  const from = cleanEnv(process.env.NOTIFY_FROM);
   // Base inboxes always get every alert; env adds any extras (comma-separated),
   // deduped so no inbox is hit twice.
   const baseRecipients = ['phillipwedgworth@gmail.com', 'service@envirocarellc.com'];
-  const envRecipients  = (process.env.ALERT_EMAIL || process.env.NOTIFY_EMAIL || '')
-    .split(',').map(s => s.trim()).filter(Boolean);
+  const envRecipients  = (cleanEnv(process.env.ALERT_EMAIL) || cleanEnv(process.env.NOTIFY_EMAIL))
+    .split(',').map(s => cleanEnv(s)).filter(Boolean);
   const to = Array.from(new Set([...baseRecipients, ...envRecipients]));
   if (!key || !from || !to.length) {
     console.warn('[notify] missing RESEND_API_KEY / NOTIFY_FROM — email skipped');

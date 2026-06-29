@@ -4,7 +4,7 @@
 // Supabase connectivity check. Returns NO keys or secret values.
 
 import { NextResponse } from "next/server";
-import { envUrl } from "@/lib/env-url";
+import { cleanEnv } from "@/lib/cleanEnv";
 
 export const dynamic = "force-dynamic";
 
@@ -45,7 +45,7 @@ async function resendStatus() {
 }
 
 async function supabaseStatus() {
-  const url = envUrl("SUPABASE_URL");
+  const url = cleanEnv(process.env.SUPABASE_URL);
   const key = process.env.SUPABASE_KEY;
   if (!url || !key) return { configured: false };
   try {

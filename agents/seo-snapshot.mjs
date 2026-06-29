@@ -10,7 +10,7 @@
 // Routing: SEO digest is INTERNAL (Phillip only) -> DIGEST_TO.
 
 import { createClient } from "@supabase/supabase-js";
-import { envUrl } from "./lib/env-url.mjs";
+import { cleanEnv } from "./lib/cleanEnv.mjs";
 
 const AGENT_NAME = "seo-monitor";
 const LF_API = "https://api.localfalcon.com/v1";
@@ -23,7 +23,7 @@ const CAMPAIGNS = [
 ];
 
 function supa() {
-  const url = envUrl("SUPABASE_URL");
+  const url = cleanEnv(process.env.SUPABASE_URL);
   const key = process.env.SUPABASE_KEY;
   if (!url || !key) throw new Error("SUPABASE_URL / SUPABASE_KEY not set");
   return createClient(url, key, { auth: { persistSession: false } });
@@ -127,12 +127,13 @@ export async function run({ email = true } = {}) {
 
   // email — INTERNAL (Phillip only); sender stays onboarding@resend.dev until domain verified
   let emailed = false;
-  if (email && process.env.RESEND_API_KEY && process.env.DIGEST_TO) {
+  const digestTo = cleanEnv(process.env.DIGEST_TO);
+  if (email && process.env.RESEND_API_KEY && digestTo) {
     try {
       const { Resend } = await import("resend");
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const from = process.env.DIGEST_FROM || "EnviroCare SEO <onboarding@resend.dev>";
-      const to = process.env.DIGEST_TO.split(",").map((s) => s.trim()).filter(Boolean);
+      const from = cleanEnv(process.env.DIGEST_FROM) || "EnviroCare SEO <onboarding@resend.dev>";
+      const to = digestTo.split(",").map((s) => cleanEnv(s)).filter(Boolean);
       await resend.emails.send({ from, to, subject: `EnviroCare weekly SEO — ${mdY(runDate)}`, text: summary });
       emailed = true;
     } catch (e) { console.warn(`[${AGENT_NAME}] digest email failed: ${e.message}`); }

@@ -4,6 +4,7 @@
 
 import { logAgentRun, readFindings, readDiscussions } from "./lib/supabase.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { cleanEnv } from "./lib/cleanEnv.mjs";
 
 // Static imports so Next.js bundler ships the agent files to the lambda.
 // Earlier we used dynamic await import("./brightlocal.mjs") with relative
@@ -198,11 +199,27 @@ async function sendDigest(brief) {
     console.log("[orchestrator] Resend not configured — digest not sent");
     return { sent: false, reason: "resend_unavailable" };
   }
-  const to = process.env.NOTIFY_EMAIL ?? "phillipwedgworth@gmail.com";
+  // Sanitize NOTIFY_EMAIL (BOM/zero-width/whitespace), then validate. A corrupted
+  // value must NOT bounce the whole digest — fall back to the service inbox and
+  // warn instead. Unset stays on the existing personal default.
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const FALLBACK_TO = "service@envirocarellc.com";
+  const rawTo = cleanEnv(process.env.NOTIFY_EMAIL);
+  const candidates = (rawTo ? rawTo.split(",") : ["phillipwedgworth@gmail.com"])
+    .map((s) => cleanEnv(s))
+    .filter(Boolean);
+  const validTo = candidates.filter((e) => EMAIL_RE.test(e));
+  let to;
+  if (validTo.length) {
+    to = validTo;
+  } else {
+    console.warn(`[orchestrator] NOTIFY_EMAIL="${rawTo}" has no valid address after cleaning — falling back to ${FALLBACK_TO}`);
+    to = FALLBACK_TO;
+  }
   // Once envirocarellc.com verifies in Resend, set NOTIFY_FROM in Vercel to
   // "EnviroCare Alerts <alerts@envirocarellc.com>" — until then the resend.dev
   // shared domain keeps digests flowing.
-  const from = process.env.NOTIFY_FROM ?? "onboarding@resend.dev";
+  const from = cleanEnv(process.env.NOTIFY_FROM) || "onboarding@resend.dev";
   try {
     const today = new Date().toISOString().slice(0, 10);
     const { error } = await resend.emails.send({

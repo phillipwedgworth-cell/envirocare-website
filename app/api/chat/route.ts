@@ -7,7 +7,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { kv } from "@vercel/kv";
-import { envUrl } from "@/lib/env-url";
+import { cleanEnv } from "@/lib/cleanEnv";
 
 interface Message {
   role: "user" | "assistant";
@@ -293,10 +293,10 @@ export async function POST(req: NextRequest) {
         // (1) Direct email — Phillip + service (floor), plus any NOTIFY_EMAIL extras.
         if (process.env.RESEND_API_KEY) {
           const baseRecipients = ["phillipwedgworth@gmail.com", "service@envirocarellc.com"];
-          const envRecipients = (process.env.NOTIFY_EMAIL || "")
-            .split(",").map((s) => s.trim()).filter(Boolean);
+          const envRecipients = cleanEnv(process.env.NOTIFY_EMAIL)
+            .split(",").map((s) => cleanEnv(s)).filter(Boolean);
           const to = Array.from(new Set([...baseRecipients, ...envRecipients]));
-          const from = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
+          const from = cleanEnv(process.env.NOTIFY_FROM) || "leads@envirocarellc.com";
           fetch("https://api.resend.com/emails", {
             method: "POST",
             headers: {
@@ -316,10 +316,17 @@ export async function POST(req: NextRequest) {
         }
 
         // (2) Formspree forward (legacy/optional) — only if configured.
-        // envUrl() trims whitespace and strips zero-width / BOM characters that
-        // sneak in when the URL is pasted into the Vercel dashboard — they
-        // silently break the fetch target otherwise.
-        const formspreeUrl = envUrl("FORMSPREE_LEAD_URL");
+        // cleanEnv() strips a BOM / zero-width chars and trims, so a value pasted
+        // into the Vercel dashboard can't silently break the fetch target. If the
+        // var IS set but isn't a real https:// URL after cleaning, fail LOUD
+        // rather than silently dropping the lead.
+        const formspreeUrl = cleanEnv(process.env.FORMSPREE_LEAD_URL);
+        if (formspreeUrl && !formspreeUrl.startsWith("https://")) {
+          throw new Error(
+            `FORMSPREE_LEAD_URL is set but is not a valid https:// URL after sanitizing ` +
+            `(got "${formspreeUrl}") — check for a stray BOM or whitespace in the Vercel env var.`,
+          );
+        }
         if (formspreeUrl) {
           fetch(formspreeUrl, {
             method: "POST",

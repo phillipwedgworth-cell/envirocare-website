@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { createAdDraft } from "@/lib/ads";
-import { envUrl } from "@/lib/env-url";
+import { cleanEnv } from "@/lib/cleanEnv";
 
 interface DraftRequest {
   title?: string;
@@ -66,10 +66,10 @@ export async function POST(request: Request) {
     return Response.json({ error: "Failed to store ad draft" }, { status: 500 });
   }
 
-  const reviewer = process.env.NOTIFY_EMAIL;
+  const reviewer = cleanEnv(process.env.NOTIFY_EMAIL);
   const resendKey = process.env.RESEND_API_KEY;
-  const fromAddress = process.env.RESEND_FROM || process.env.NOTIFY_FROM || "onboarding@resend.dev";
-  const reviewUrl = `${envUrl('NEXT_PUBLIC_SITE_URL', 'https://www.envirocarellc.com')}/ads/${id}`;
+  const fromAddress = cleanEnv(process.env.RESEND_FROM) || cleanEnv(process.env.NOTIFY_FROM) || "onboarding@resend.dev";
+  const reviewUrl = `${cleanEnv(process.env.NEXT_PUBLIC_SITE_URL) || 'https://www.envirocarellc.com'}/ads/${id}`;
 
   if (resendKey && reviewer) {
     const resend = new Resend(resendKey);

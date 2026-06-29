@@ -26,13 +26,14 @@ const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" 
 const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
 const RESEND_KEY  = process.env.RESEND_API_KEY || "";
-const NOTIFY_TO   = (process.env.NOTIFY_EMAIL || "").split(",").map(s => s.trim()).filter(Boolean);
-const NOTIFY_FROM = process.env.NOTIFY_FROM || "EnviroCare Narrator <onboarding@resend.dev>";
+const NOTIFY_TO   = cleanEnv(process.env.NOTIFY_EMAIL).split(",").map(s => cleanEnv(s)).filter(Boolean);
+const NOTIFY_FROM = cleanEnv(process.env.NOTIFY_FROM) || "EnviroCare Narrator <onboarding@resend.dev>";
 
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { COMPLIANCE_SYSTEM, userPrompt } from "./lib/compliance.mjs";
+import { cleanEnv } from "./lib/cleanEnv.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dir, "neuronwriter-content");

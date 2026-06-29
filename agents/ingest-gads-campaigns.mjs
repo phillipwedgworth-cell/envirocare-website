@@ -9,12 +9,12 @@
 import fs from 'node:fs';
 import Papa from 'papaparse';
 import { createClient } from '@supabase/supabase-js';
-import { envUrl } from './lib/env-url.mjs';
+import { cleanEnv } from './lib/cleanEnv.mjs';
 
 const FILE = process.argv[2];
 if (!FILE) { console.error('Usage: node ingest-gads-campaigns.mjs <campaign-report.csv>'); process.exit(1); }
 
-const url = envUrl('SUPABASE_URL');
+const url = cleanEnv(process.env.SUPABASE_URL);
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
 if (!url || !key) { console.error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY (or SUPABASE_KEY)'); process.exit(1); }
 const db = createClient(url, key, { auth: { persistSession: false } });

@@ -30,8 +30,9 @@
 
 import { google } from "googleapis";
 import { createClient } from "@supabase/supabase-js";
+import { cleanEnv } from "./lib/cleanEnv.mjs";
 
-const SITE_URL = process.env.GSC_SITE_URL || "sc-domain:envirocarellc.com";
+const SITE_URL = cleanEnv(process.env.GSC_SITE_URL) || "sc-domain:envirocarellc.com";
 const DOMAIN = "envirocarellc.com";
 const ROW_LIMIT = 25000;
 

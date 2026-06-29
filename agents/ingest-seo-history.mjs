@@ -13,13 +13,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import Papa from 'papaparse';
 import { createClient } from '@supabase/supabase-js';
-import { envUrl } from './lib/env-url.mjs';
+import { cleanEnv } from './lib/cleanEnv.mjs';
 
 const DIR = process.argv[2] || './gsc-export';
 const LABEL = `gsc-16mo-${new Date().toISOString().slice(0, 7)}`; // e.g. gsc-16mo-2026-06
 const DOMAIN = 'envirocarellc.com';
 
-const url = envUrl('SUPABASE_URL');
+const url = cleanEnv(process.env.SUPABASE_URL);
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
 if (!url || !key) { console.error('Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY (or SUPABASE_KEY)'); process.exit(1); }
 const db = createClient(url, key, { auth: { persistSession: false } });
