@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import AdDraftReview from "./AdDraftReview";
+import { envUrl } from "@/lib/env-url";
 
 interface AdDraft {
   id: string;
@@ -21,7 +22,7 @@ export default async function AdDraftReviewPage({
 }: {
   params: { id: string };
 }) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const baseUrl = envUrl("NEXT_PUBLIC_SITE_URL") || envUrl("NEXT_PUBLIC_APP_URL") || "http://localhost:3000";
   const response = await fetch(`${baseUrl}/api/ads/${params.id}`, {
     cache: "no-store",
   });

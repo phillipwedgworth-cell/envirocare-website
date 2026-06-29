@@ -45,6 +45,29 @@ if (process.env.ANTHROPIC_API_KEY) {
 // The trial API key works with BrightLocal's MCP server (mcp.brightlocal.com),
 // not the legacy REST API v4. We open a session per call (stateless for simplicity).
 
+// A rejected/expired key makes BrightLocal answer with a bare token like
+// "[INVALID_API_KEY]" (NOT JSON) — sometimes even with HTTP 200 — so a naive
+// JSON.parse blows up with a cryptic SyntaxError. Detect those bodies so we can
+// log the raw payload, flag the key for renewal, and skip gracefully.
+function looksLikeKeyRejection(raw) {
+  return /invalid[_ ]?api[_ ]?key|api[_ ]?key.*(invalid|expired|rejected)|unauthorized|forbidden/i.test(String(raw || ""));
+}
+
+// Only raise the "renew the key" finding once per process — blMcpCall runs many
+// times per agent and we don't want to spam agent_findings.
+let keyRenewalFlagged = false;
+async function flagKeyRenewal(toolName, rawBody) {
+  const snippet = String(rawBody ?? "").trim().slice(0, 300);
+  console.error(`[${AGENT_NAME}] BrightLocal API key REJECTED on ${toolName} — renew BRIGHTLOCAL_API_KEY. Raw body: ${snippet || "(empty)"}`);
+  if (keyRenewalFlagged) return;
+  keyRenewalFlagged = true;
+  await writeFinding(
+    AGENT_NAME, "ops", "critical", null,
+    "BrightLocal API key is being rejected — renew BRIGHTLOCAL_API_KEY",
+    { tool: toolName, raw_body: snippet },
+  ).catch(() => {});
+}
+
 export async function blMcpCall(toolName, args) {
   if (!BL_KEY) throw new Error("BRIGHTLOCAL_API_KEY is not set");
   const url = `${BL_MCP}?api-key=${encodeURIComponent(BL_KEY)}`;
@@ -55,9 +78,22 @@ export async function blMcpCall(toolName, args) {
     method: "POST", headers: hdrs,
     body: JSON.stringify({ jsonrpc: "2.0", method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "envirocare-agent", version: "1.0" } }, id: 0 }),
   });
-  if (!initResp.ok) throw new Error(`BL MCP init: ${initResp.status}`);
+  if (!initResp.ok) {
+    // A 401/403 or a non-JSON "[INVALID_API_KEY]" body here means the key is dead.
+    const raw = await initResp.text().catch(() => "");
+    if (initResp.status === 401 || initResp.status === 403 || looksLikeKeyRejection(raw)) {
+      await flagKeyRenewal(toolName, raw);
+      return null; // skip gracefully — caller treats null as "no data"
+    }
+    throw new Error(`BL MCP init: ${initResp.status}`);
+  }
   const sessionId = initResp.headers.get("mcp-session-id");
-  if (!sessionId) throw new Error("BL MCP: no session ID returned");
+  if (!sessionId) {
+    // No session id + a rejection-looking body == dead key answered with HTTP 200.
+    const raw = await initResp.text().catch(() => "");
+    if (looksLikeKeyRejection(raw)) { await flagKeyRenewal(toolName, raw); return null; }
+    throw new Error("BL MCP: no session ID returned");
+  }
 
   const shdrs = { ...hdrs, "Mcp-Session-Id": sessionId };
 
@@ -69,17 +105,44 @@ export async function blMcpCall(toolName, args) {
     method: "POST", headers: shdrs,
     body: JSON.stringify({ jsonrpc: "2.0", method: "tools/call", params: { name: toolName, arguments: args }, id: 1 }),
   });
-  if (!resp.ok) throw new Error(`BL MCP ${toolName}: ${resp.status}`);
 
-  // 4. Parse SSE response (event: message\ndata: {...}\n)
+  // 4. Validate the response BEFORE parsing. Guard on res.ok + content-type, and
+  // treat any rejection-looking body as a dead key. Anything unparseable is
+  // logged with its raw body and skipped gracefully rather than thrown.
   const text = await resp.text();
+  const ctype = (resp.headers.get("content-type") || "").toLowerCase();
+  const parseable = ctype.includes("json") || ctype.includes("event-stream");
+  if (!resp.ok || !parseable || looksLikeKeyRejection(text)) {
+    if (resp.status === 401 || resp.status === 403 || looksLikeKeyRejection(text)) {
+      await flagKeyRenewal(toolName, text);
+    } else {
+      console.error(`[${AGENT_NAME}] BL MCP ${toolName}: unparseable response (HTTP ${resp.status}, content-type "${ctype}") — raw body: ${text.trim().slice(0, 300) || "(empty)"}`);
+    }
+    return null;
+  }
+
+  // Parse SSE response (event: message\ndata: {...}\n)
   const dataLine = text.split("\n").find((l) => l.startsWith("data: "));
-  if (!dataLine) throw new Error(`BL MCP ${toolName}: no data in response`);
-  const envelope = JSON.parse(dataLine.slice(6));
+  if (!dataLine) {
+    console.error(`[${AGENT_NAME}] BL MCP ${toolName}: no data line in response — raw body: ${text.trim().slice(0, 300) || "(empty)"}`);
+    return null;
+  }
+  let envelope;
+  try {
+    envelope = JSON.parse(dataLine.slice(6));
+  } catch {
+    console.error(`[${AGENT_NAME}] BL MCP ${toolName}: SSE data was not JSON — raw line: ${dataLine.slice(6).trim().slice(0, 300)}`);
+    return null;
+  }
   if (envelope.error) throw new Error(`BL MCP ${toolName}: ${envelope.error.message}`);
   const content = envelope.result?.content?.[0]?.text;
   if (!content) throw new Error(`BL MCP ${toolName}: empty content`);
-  return JSON.parse(content);
+  try {
+    return JSON.parse(content);
+  } catch {
+    console.error(`[${AGENT_NAME}] BL MCP ${toolName}: tool content was not JSON — raw content: ${String(content).trim().slice(0, 300)}`);
+    return null;
+  }
 }
 
 function findLocation(name) {

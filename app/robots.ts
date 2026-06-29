@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { envUrl } from '@/lib/env-url';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -15,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com'}/sitemap.xml`,
+    sitemap: `${envUrl('NEXT_PUBLIC_SITE_URL', 'https://www.envirocarellc.com')}/sitemap.xml`,
   };
 }

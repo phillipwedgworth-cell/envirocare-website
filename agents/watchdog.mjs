@@ -22,6 +22,12 @@ const DIGEST_DAY = 1;                 // Monday (UTC)
 const DAILY_USD_BUDGET = Number(process.env.DAILY_USD_BUDGET || 5);   // soft AI-spend cap
 const DEPLOY_ANOMALY   = Number(process.env.DEPLOY_ANOMALY   || 12);  // deploys/24h = runaway
 
+// Anthropic returns HTTP 400 with this phrase when the org/workspace MONTHLY usage
+// limit is hit. Critically, a 400 bills $0 — so agent_costs reads $0 and the daily
+// dollar guard below passes "ok" while every agent is silently dead. We scan recent
+// agent output for this signature so the cap can never slip past unnoticed again.
+const ANTHROPIC_CAP_SIGNATURE = 'specified api usage limits';
+
 // Agents that write to the agent_runs ledger. Add one the moment it starts logging.
 const EXPECTED = [
   { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8, label: 'Weekly QA (Mon 7am CT)' },
@@ -58,6 +64,34 @@ async function budgetCheck(lines, problems) {
     lines.push(`budget   ${tag} AI spend today $${total.toFixed(2)} / $${DAILY_USD_BUDGET.toFixed(2)} cap`);
     if (total > DAILY_USD_BUDGET) problems.push(`AI spend $${total.toFixed(2)}`);
   } catch (e) { lines.push(`budget   skipped — ${e.message}`); }
+
+  // The dollar counter above is blind to the monthly org/workspace cap (a capped
+  // 400 costs $0). Run a distinct check so we still catch it.
+  await anthropicCapCheck(lines, problems);
+}
+
+// ── Anthropic monthly usage cap (blind spot of the $/day counter) ─────────────
+// Scans today's agent_runs output for the 400 "specified API usage limits"
+// signature. Any hit is CRITICAL: the whole fleet is dead until a human raises
+// the cap or waits for the monthly reset, even though spend reads $0.
+async function anthropicCapCheck(lines, problems) {
+  if (!supabase) return;
+  try {
+    const since = new Date(); since.setUTCHours(0, 0, 0, 0);
+    const { data, error } = await supabase.from('agent_runs')
+      .select('agent_name,status,output,created_at')
+      .gte('created_at', since.toISOString())
+      .order('created_at', { ascending: false })
+      .limit(500);
+    if (error) { lines.push(`anthropic skipped — agent_runs read failed (${error.message})`); return; }
+    const hit = (data ?? []).find(r => String(r.output ?? '').toLowerCase().includes(ANTHROPIC_CAP_SIGNATURE));
+    if (hit) {
+      lines.push(`anthropic CRITICAL — Anthropic monthly cap hit (first seen on "${hit.agent_name}"); spend reads $0 but the fleet is throttled`);
+      problems.push('Anthropic monthly cap hit');
+    } else {
+      lines.push(`anthropic ok     — no monthly usage-cap 400s in today's runs`);
+    }
+  } catch (e) { lines.push(`anthropic skipped — ${e.message}`); }
 }
 
 // ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────

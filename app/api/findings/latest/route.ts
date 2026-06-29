@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
+import { envUrl } from "@/lib/env-url";
 
 export const runtime = "nodejs";
 export const maxDuration = 15;
@@ -7,7 +8,7 @@ export const maxDuration = 15;
 export async function GET() {
   try {
     const supabase = createClient(
-      process.env.SUPABASE_URL!,
+      envUrl("SUPABASE_URL")!,
       process.env.SUPABASE_KEY!
     );
 

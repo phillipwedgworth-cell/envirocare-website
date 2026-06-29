@@ -10,6 +10,7 @@
 // Routing: SEO digest is INTERNAL (Phillip only) -> DIGEST_TO.
 
 import { createClient } from "@supabase/supabase-js";
+import { envUrl } from "./lib/env-url.mjs";
 
 const AGENT_NAME = "seo-monitor";
 const LF_API = "https://api.localfalcon.com/v1";
@@ -22,7 +23,7 @@ const CAMPAIGNS = [
 ];
 
 function supa() {
-  const url = process.env.SUPABASE_URL;
+  const url = envUrl("SUPABASE_URL");
   const key = process.env.SUPABASE_KEY;
   if (!url || !key) throw new Error("SUPABASE_URL / SUPABASE_KEY not set");
   return createClient(url, key, { auth: { persistSession: false } });

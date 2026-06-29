@@ -1,7 +1,9 @@
 // agents/lib/supabase.mjs
 // Shared Supabase client — imported by kv.mjs, orchestrator.mjs, and any agent that logs data
 
-const url = process.env.SUPABASE_URL;
+import { envUrl } from "./env-url.mjs";
+
+const url = envUrl("SUPABASE_URL");
 const key = process.env.SUPABASE_KEY;
 
 // Supabase errors carry code/details/hint in addition to message; .message alone

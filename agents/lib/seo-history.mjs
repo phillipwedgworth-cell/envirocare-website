@@ -7,6 +7,7 @@
 // ──────────────────────────────────────────
 
 import { createClient } from '@supabase/supabase-js';
+import { envUrl } from './env-url.mjs';
 
 // Lazy, guarded client. Creating the client at module scope crashes the
 // Next.js production build during "Collecting page data" (env vars are
@@ -14,7 +15,7 @@ import { createClient } from '@supabase/supabase-js';
 let _db;
 function getDb() {
   if (_db !== undefined) return _db;
-  const url = process.env.SUPABASE_URL;
+  const url = envUrl("SUPABASE_URL");
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
   _db = url && key ? createClient(url, key, { auth: { persistSession: false } }) : null;
   return _db;

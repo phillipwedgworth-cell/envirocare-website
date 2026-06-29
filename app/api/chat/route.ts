@@ -7,6 +7,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { kv } from "@vercel/kv";
+import { envUrl } from "@/lib/env-url";
 
 interface Message {
   role: "user" | "assistant";
@@ -315,10 +316,10 @@ export async function POST(req: NextRequest) {
         }
 
         // (2) Formspree forward (legacy/optional) — only if configured.
-        // Sanitize the env value: trim whitespace and strip zero-width / BOM
-        // characters that can sneak in when the URL is pasted into the Vercel
-        // dashboard — they silently break the fetch target otherwise.
-        const formspreeUrl = (process.env.FORMSPREE_LEAD_URL || "").trim().replace(/[\u200B-\u200D\uFEFF]/g, "");
+        // envUrl() trims whitespace and strips zero-width / BOM characters that
+        // sneak in when the URL is pasted into the Vercel dashboard — they
+        // silently break the fetch target otherwise.
+        const formspreeUrl = envUrl("FORMSPREE_LEAD_URL");
         if (formspreeUrl) {
           fetch(formspreeUrl, {
             method: "POST",

@@ -14,23 +14,21 @@
 // Target band: 70-80. Do not optimize toward 100.
 
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import targetsData from './neuronwriter-targets.json' with { type: 'json' };
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import { analyzePageContent } from './lib/neuronwriter.mjs';
 import { writeFinding, logAgentRun } from './lib/supabase.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
 import { criticLoop } from './lib/critic.mjs';
 import { appendWeeklyResult } from './lib/notion.mjs';
+import { envUrl } from './lib/env-url.mjs';
 
 const AGENT_NAME = 'neuronwriter-qa';
 const WORKER_MODEL = 'claude-haiku-4-5-20251001';
 const SCORE_PASS = 70;
 // Concurrency cap: 3 parallel NeuronWriter queries keeps total runtime ~2-3 min for 14 pages.
 const CONCURRENCY = 3;
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = join(__dirname, '..');
 
 let anthropic = null;
 if (process.env.ANTHROPIC_API_KEY) {
@@ -55,7 +53,7 @@ function loadTargets() {
 // Scoring the LIVE rendered HTML is the only accurate option — most page.tsx
 // files are thin wrappers around shared templates, so reading the source
 // produced "<100 chars" for 13 of 16 targets.
-const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocare-web.vercel.app';
+const SITE_BASE = envUrl('NEXT_PUBLIC_SITE_URL', 'https://envirocare-web.vercel.app');
 
 function pageToUrl(page) {
   const route = page.replace(/^app\//, '/').replace(/\/page\.tsx$/, '').replace(/^\/$/, '');
@@ -194,11 +192,14 @@ const rubric = `
 
 async function writeReport(final, results) {
   const today = new Date().toISOString().slice(0, 10);
-  const reportDir = join(REPO_ROOT, 'agents', 'reports');
+  // Vercel's project FS is read-only — mkdir under /vercel/path0/agents/reports
+  // always throws ENOENT/EROFS. Write to the OS temp dir (/tmp on Vercel) instead;
+  // the durable copy of the run lives in Supabase via writeFinding below.
+  const reportDir = join(tmpdir(), 'reports');
   mkdirSync(reportDir, { recursive: true });
   const reportPath = join(reportDir, `neuronwriter-${today}.md`);
   writeFileSync(reportPath, final, 'utf8');
-  console.log(`[${AGENT_NAME}] report saved → agents/reports/neuronwriter-${today}.md`);
+  console.log(`[${AGENT_NAME}] report saved → ${reportPath}`);
 
   const failures = results.filter(r => !r.error && r.score < SCORE_PASS);
   await writeFinding(

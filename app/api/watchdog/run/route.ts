@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { runWatchdog } from "@/agents/lib/watchdog.mjs";
+import { envUrl } from "@/lib/env-url";
 
 // A single canary call + one Supabase read. 60s is ample.
 export const maxDuration = 60;
@@ -11,7 +12,7 @@ async function execute(req: NextRequest) {
   }
   try {
     const output = await runWatchdog({
-      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseUrl: envUrl("SUPABASE_URL"),
       supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_KEY,
       alertEmail: process.env.ALERT_EMAIL,
       resendApiKey: process.env.RESEND_API_KEY,
