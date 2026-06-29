@@ -6,7 +6,7 @@
 // Every agent follows this shape. The critic loop is non-negotiable.
 // Cost logging is automatic via createMessage — no extra work needed.
 
-import { criticLoop }                       from './critic.mjs';
+import { criticLoop, criticDraft }          from './critic.mjs';
 import { writeFinding, logAgentRun }         from './supabase.mjs';
 import { stateGet, stateSet }               from './kv.mjs';
 import { createMessage }                    from './llm-with-logging.mjs';
@@ -184,7 +184,7 @@ export async function run() {
   }
 
   // ── CRITIC ──
-  const final = await criticLoop({
+  const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: 'Describe the task in one sentence — same as the job description above',
     output: draft,
@@ -194,7 +194,7 @@ export async function run() {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       await logAgentRun(AGENT_NAME, 'escalated', out).catch(() => {});
     },
-  });
+  }));
 
   // ── WRITE_FINDINGS ──
   await writeFindings(final).catch(() => {});

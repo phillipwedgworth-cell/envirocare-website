@@ -8,7 +8,7 @@
 //      the framework (orchestrator, advisors) can read it.
 //   4. Week-over-week deltas come from stateGet/stateSet keyed by location.
 
-import { criticLoop } from "./lib/critic.mjs";
+import { criticLoop, isExternallyBlocked } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
@@ -16,6 +16,12 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 const AGENT_NAME = "brightlocal";
 const WORKER_MODEL = "claude-haiku-4-5-20251001";
 const MAX_TURNS = 12;
+
+// Tool failures (a rejected key surfaced as BrightLocalKeyError, an MCP error,
+// etc.) get swallowed into a graceful { error } and never reach the worker's
+// final brief. Collect them here so run() can hand them to the critic, which
+// short-circuits the revision loops on an external block instead of burning them.
+const runToolErrors = [];
 
 const BL_KEY = process.env.BRIGHTLOCAL_API_KEY;
 const BL_MCP = "https://mcp.brightlocal.com/mcp";
@@ -169,7 +175,9 @@ async function getCitationScore({ location_name }) {
       report_id: loc.ct_report_id,
     };
   } catch (err) {
-    return { error: err.message };
+    // Keep the raw body (a rejected key carries "[INVALID_API_KEY]") visible so
+    // the collected tool error matches the critic's external-block detector.
+    return { error: err.raw ? `${err.message}: ${err.raw}` : err.message };
   }
 }
 
@@ -183,7 +191,9 @@ async function getReputationSummary({ location_name }) {
     const resp = await blMcpCall("get_rm_report", { "report-id": String(loc.rm_report_id) });
     return { location: loc.name, data: resp?.response || resp?.results || resp };
   } catch (err) {
-    return { error: err.message };
+    // Keep the raw body (a rejected key carries "[INVALID_API_KEY]") visible so
+    // the collected tool error matches the critic's external-block detector.
+    return { error: err.raw ? `${err.message}: ${err.raw}` : err.message };
   }
 }
 
@@ -331,6 +341,10 @@ async function workerDraft(feedback = null) {
       if (block.type !== "tool_use") continue;
       console.log(`[${AGENT_NAME}] -> ${block.name}`, block.input);
       const result = await callTool(block.name, block.input);
+      // A tool error here (e.g. a propagated/ rejected-key failure) would
+      // otherwise be buried in the tool_result and never reach the final brief —
+      // record it so the critic can see external blockers.
+      if (result && result.error) runToolErrors.push(`${block.name}: ${result.error}`);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -365,18 +379,29 @@ export async function run() {
 - No vague phrases ("improve citations", "monitor closely") without numbers
 - Under 200 words, no preamble, no sign-off`;
 
-  const final = await criticLoop({
+  const critic = await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly BrightLocal citation brief for EnviroCare's 3 Alabama locations",
     output: draft,
     rubric,
     revise: (feedback) => workerDraft(feedback),
+    toolErrors: runToolErrors,
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       await logAgentRun(AGENT_NAME, "escalated", output);
     },
   });
 
+  // External block (most often a rejected/expired BrightLocal key). Report it
+  // honestly rather than emitting a citation brief built on empty data.
+  if (isExternallyBlocked(critic)) {
+    const reason = `BrightLocal API blocked (${critic.reason}) — renew BRIGHTLOCAL_API_KEY`;
+    console.warn(`[${AGENT_NAME}] blocked — ${reason}`);
+    await logAgentRun(AGENT_NAME, "blocked", reason).catch(() => {});
+    return { blocked: true, reason, brief: `blocked: ${reason}` };
+  }
+
+  const final = critic;
   await logAgentRun(AGENT_NAME, "ok", final);
   console.log(`[${AGENT_NAME}] Done`);
   return final;

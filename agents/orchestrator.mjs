@@ -103,6 +103,9 @@ async function synthesizeDigest(outputs, findings, discussions, proposerOut = nu
   const agentBlocks = Object.entries(outputs)
     .filter(([, v]) => !v.skipped)
     .map(([name, v]) => {
+      // A blocked agent was stopped by an external dependency (quota, rejected
+      // key, usage cap). Render the honest reason — NOT a failed/empty report.
+      if (v.blocked) return `## ${name}\n[BLOCKED] ${v.reason}`;
       if (v.error) return `## ${name}\n[ERROR] ${v.error}`;
       return `## ${name}\n${v.brief ?? ""}\n${
         v.recommendations?.length ? `\nRECOMMENDATIONS:\n- ${v.recommendations.join("\n- ")}` : ""
@@ -140,6 +143,10 @@ Numbered list. Each item: what to do, why (which finding/agent flagged it), and 
 
 ## Per-Agent Highlights
 For each agent that ran (skip ones that didn't): 2-3 bullets max.
+If an agent block is marked [BLOCKED], report it honestly as blocked by an
+external dependency and quote the reason (e.g. "neuronwriter-qa — blocked:
+NeuronWriter quota (resets monthly)"). Do NOT fabricate findings or "contact
+support" filler for a blocked agent.
 
 ## Cross-Agent Signals
 The most interesting *combinations* of findings — where two agents independently flagged related things. Quote impact/effort scores from the discussions block.
@@ -253,7 +260,7 @@ export async function run() {
     agents: Object.fromEntries(
       Object.entries(raw_outputs).map(([k, v]) => [
         k,
-        v.skipped ? "skipped" : v.error ? `error: ${v.error}` : "ok",
+        v.skipped ? "skipped" : v.blocked ? `blocked: ${v.reason}` : v.error ? `error: ${v.error}` : "ok",
       ]),
     ),
     findings_count: findings.length,

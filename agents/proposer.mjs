@@ -13,7 +13,7 @@
 // from Supabase. It proposes; it does NOT edit the site. Approval stays human
 // (or a future approval agent). The critic loop holds it to the no-vague-advice bar.
 
-import { criticLoop } from "./lib/critic.mjs";
+import { criticLoop, criticDraft } from "./lib/critic.mjs";
 import { readFindings, readDiscussions, writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
@@ -149,7 +149,7 @@ export async function run() {
 - Duplicates across agents are merged into one proposal.
 - "THIS CYCLE'S ONE THING" names a single concrete highest-leverage item.`;
 
-  const final = await criticLoop({
+  const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Consolidate this cycle's agent findings into a ranked, deduped set of proposed SITE + SEO changes for EnviroCare",
     output: proposal,
@@ -159,7 +159,7 @@ export async function run() {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       await logAgentRun(AGENT_NAME, "escalated", out).catch(() => {});
     },
-  });
+  }));
 
   // Persist: write the proposal as a finding (so the command center shows it),
   // and remember the WHAT lines so next cycle can dedupe against them.

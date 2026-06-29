@@ -21,7 +21,7 @@ import { dirname, join } from 'node:path';
 import { analyzePageContent } from './lib/neuronwriter.mjs';
 import { writeFinding, logAgentRun } from './lib/supabase.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
-import { criticLoop } from './lib/critic.mjs';
+import { criticLoop, isExternallyBlocked } from './lib/critic.mjs';
 import { appendWeeklyResult } from './lib/notion.mjs';
 
 const AGENT_NAME = 'neuronwriter-qa';
@@ -279,18 +279,35 @@ export async function run() {
     draft = rawTableReport(results);
   }
 
-  const final = anthropic ? await criticLoop({
+  // Surface per-page tool failures (e.g. NeuronWriter 429 / quota) to the critic
+  // so a blocked run short-circuits instead of burning all 3 revision loops.
+  const toolErrors = results.filter(r => r.error).map(r => r.error);
+
+  const critic = anthropic ? await criticLoop({
     workerName: AGENT_NAME,
     task: 'NeuronWriter content quality QA report for 16 EnviroCare service and city pages',
     output: draft,
     rubric,
     revise: fb => workerDraft(results, fb),
+    toolErrors,
     onEscalate: async out => {
       console.warn(`[${AGENT_NAME}] critic escalated — accepting best draft`);
       await logAgentRun(AGENT_NAME, 'escalated', out).catch(() => {});
     },
   }) : draft;
 
+  // External-dependency block (NeuronWriter quota/rate limit). Report it honestly
+  // — a blocked run is NOT a failed QA report, so don't write/Notion-post filler.
+  if (isExternallyBlocked(critic)) {
+    const reason = `NeuronWriter quota/rate limit reached (${critic.reason}; resets monthly)`;
+    console.warn(`[${AGENT_NAME}] blocked — ${reason}`);
+    await writeFinding(AGENT_NAME, 'seo', 'warning', null, `Blocked: ${reason}`,
+      { blocked: true, reason: critic.reason }).catch(() => {});
+    await logAgentRun(AGENT_NAME, 'blocked', reason).catch(() => {});
+    return { blocked: true, reason, brief: `blocked: ${reason}`, results, failCount: 0 };
+  }
+
+  const final = critic;
   await writeReport(final, results).catch(e => console.error(`[${AGENT_NAME}] writeReport error: ${e.message}`));
   await appendWeeklyResult(results).catch(e => console.error(`[${AGENT_NAME}] Notion post error: ${e.message}`));
   await logAgentRun(AGENT_NAME, 'ok', final).catch(() => {});

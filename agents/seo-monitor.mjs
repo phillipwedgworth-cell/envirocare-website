@@ -9,7 +9,7 @@
 //
 // API: https://api.localfalcon.com/v1, key passed as `api_key` query param.
 
-import { criticLoop } from "./lib/critic.mjs";
+import { criticLoop, criticDraft } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import { getDailyTrend, getOpportunities } from "./lib/seo-history.mjs";
@@ -387,7 +387,7 @@ export async function run() {
 - No vague phrases ("monitor", "continue efforts") without numbers
 - Under 200 words, no preamble, no sign-off`;
 
-  const final = await criticLoop({
+  const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly Local Falcon SoLV brief for EnviroCare's 3 Alabama locations",
     output: draft,
@@ -397,7 +397,7 @@ export async function run() {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       await logAgentRun(AGENT_NAME, "escalated", output);
     },
-  });
+  }));
 
   await logAgentRun(AGENT_NAME, "ok", final);
   console.log(`[${AGENT_NAME}] Done`);

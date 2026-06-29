@@ -14,7 +14,7 @@
 //   Phase 5  Persist: writeFinding per recommendation, writeDiscussion
 //            for cross-agent connections, stateSet for next-run delta.
 
-import { criticLoop } from "./lib/critic.mjs";
+import { criticLoop, criticDraft } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import {
@@ -479,7 +479,7 @@ export async function run() {
 
   const { panel, synthesis } = await panelReview(gathered.data, gathered.screenshots);
 
-  const final = await criticLoop({
+  const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly site review of envirocarellc.com across visual + performance + SEO/content",
     output: synthesis.brief,
@@ -493,7 +493,7 @@ export async function run() {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       await logAgentRun(AGENT_NAME, "escalated", output);
     },
-  });
+  }));
 
   await persistFindings(synthesis, gathered.data?.pages);
 
