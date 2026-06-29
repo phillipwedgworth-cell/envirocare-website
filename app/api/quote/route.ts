@@ -10,6 +10,12 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { cleanEnv } from "@/lib/env-url";
+
+// A recipient is only added if it's a real-looking address. This is what makes
+// the leads list "can't be corrupted": a malformed or invisible-char-poisoned
+// NOTIFY_EMAIL contributes nothing instead of failing the whole Resend send.
+const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 // Lazy init — constructing Resend at module level throws during `next build`
 // when RESEND_API_KEY is absent (e.g. local builds without .env secrets).
@@ -135,11 +141,13 @@ async function emailLead(lead: Lead, office: Office, fieldsterStatus: string) {
   // Every website lead goes to BOTH Phillip and the service inbox. These are
   // hardcoded as the floor so the lead reaches them no matter what NOTIFY_EMAIL
   // happens to be set to in Vercel; NOTIFY_EMAIL (comma-separated) can ADD more.
+  // cleanEnv() strips invisible/BOM chars and EMAIL_RE drops anything that isn't
+  // a valid address, so a corrupt NOTIFY_EMAIL can never poison the whole send.
   const baseRecipients = ["phillipwedgworth@gmail.com", "service@envirocarellc.com"];
-  const envRecipients = (process.env.NOTIFY_EMAIL || "")
-    .split(",").map((s) => s.trim()).filter(Boolean);
+  const envRecipients = cleanEnv("NOTIFY_EMAIL")
+    .split(",").map((s) => s.trim()).filter((s) => EMAIL_RE.test(s));
   const notifyTo = Array.from(new Set([...baseRecipients, ...envRecipients]));
-  const notifyFrom = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
+  const notifyFrom = cleanEnv("NOTIFY_FROM") || "leads@envirocarellc.com";
 
   const subject = `New lead: ${lead.firstName} ${lead.lastName} → ${office.name}`;
   const html = `
