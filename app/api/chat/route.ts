@@ -315,8 +315,12 @@ export async function POST(req: NextRequest) {
         }
 
         // (2) Formspree forward (legacy/optional) — only if configured.
-        if (process.env.FORMSPREE_LEAD_URL) {
-          fetch(process.env.FORMSPREE_LEAD_URL, {
+        // Sanitize the env value: trim whitespace and strip zero-width / BOM
+        // characters that can sneak in when the URL is pasted into the Vercel
+        // dashboard — they silently break the fetch target otherwise.
+        const formspreeUrl = (process.env.FORMSPREE_LEAD_URL || "").trim().replace(/[\u200B-\u200D\uFEFF]/g, "");
+        if (formspreeUrl) {
+          fetch(formspreeUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
