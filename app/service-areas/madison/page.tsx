@@ -167,38 +167,6 @@ export default function MadisonPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ── STICKY NAV ── */}
-      <nav style={{
-        position: "sticky", top: 0, zIndex: 100,
-        background: Cr, borderBottom: `1px solid rgba(14,142,64,0.15)`,
-        padding: "14px 24px",
-      }}>
-        <div style={{
-          maxWidth: 1200, margin: "0 auto",
-          display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16,
-        }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-            <img src="/logo.png" alt="EnviroCare Pest & Termite Services" style={{ height: 44, width: "auto" }} />
-          </Link>
-          <div style={{ display: "flex", gap: 24, fontSize: 14, fontWeight: 600 }}>
-            <Link href="/services/pest-control" style={{ color: Ik, textDecoration: "none" }}>Services</Link>
-            <Link href="/pricing"                style={{ color: Ik, textDecoration: "none" }}>Pricing</Link>
-            <Link href="/about-us"               style={{ color: Ik, textDecoration: "none" }}>About</Link>
-            <Link href="/contact-us"             style={{ color: Ik, textDecoration: "none" }}>Contact</Link>
-          </div>
-          <a
-            href="tel:2569377676"
-            style={{
-              background: Au, color: Ik,
-              padding: "10px 20px", borderRadius: 6,
-              fontWeight: 800, fontSize: 14, textDecoration: "none",
-            }}
-          >
-            (256) 937-7676
-          </a>
-        </div>
-      </nav>
 
       {/* ── HERO ── */}
       <section style={{
@@ -723,28 +691,6 @@ export default function MadisonPage() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer style={{
-        background: Ik, color: "rgba(255,255,255,0.6)",
-        padding: "40px 24px",
-        fontSize: 13, textAlign: "center",
-      }}>
-        <div style={{ maxWidth: 960, margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px 24px", marginBottom: 20 }}>
-            <Link href="/huntsville"    style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Huntsville</Link>
-            <Link href="/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
-            <Link href="/service-areas/madison"       style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Madison</Link>
-            <Link href="/mountain-brook" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Mountain Brook</Link>
-            <Link href="/hoover"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Hoover</Link>
-            <Link href="/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
-            <Link href="/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
-          </div>
-          <p style={{ margin: 0, opacity: 0.45 }}>
-            © {new Date().getFullYear()} EnviroCare Pest &amp; Termite Services · Family-owned since 1958 ·{" "}
-            <Link href="/privacy" style={{ color: "inherit", textDecoration: "underline" }}>Privacy Policy</Link>
-          </p>
-        </div>
-      </footer>
 
     </main>
   );

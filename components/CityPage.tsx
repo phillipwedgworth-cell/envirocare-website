@@ -2,7 +2,6 @@
 // Shared layout component for Phase A city pages.
 // Uses real /logo.png from public folder. No Lake Martin nav link. No customer counts.
 
-import Image from "next/image";
 import Link from "next/link";
 import type { CityData } from "@/data/phase-a-cities";
 import PestIcon from "@/components/shared/PestIcon";
@@ -36,38 +35,6 @@ export default function CityPage({ city }: { city: CityData }) {
         }
       `}</style>
 
-      {/* ============ STICKY NAV ============ */}
-      <nav style={{
-        position: 'sticky', top: 0, zIndex: 100,
-        background: 'var(--cream)',
-        borderBottom: '1px solid var(--line)',
-        padding: '14px 24px'
-      }}>
-        <div style={{
-          maxWidth: 1200, margin: '0 auto',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16
-        }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={180} height={48} style={{ height: 'auto', maxWidth: 180 }} priority />
-          </Link>
-          <div className="city-nav-links" style={{ display: 'flex', gap: 24, fontSize: 14, fontWeight: 500 }}>
-            <Link href="/services/pest-control" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Services</Link>
-            <Link href="/pricing" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Pricing</Link>
-            <Link href="/about-us" style={{ color: 'var(--ink)', textDecoration: 'none' }}>About</Link>
-            <Link href="/contact-us" style={{ color: 'var(--ink)', textDecoration: 'none' }}>Contact</Link>
-          </div>
-          <a href={`tel:${city.tel}`} style={{
-            background: 'var(--gold)', color: 'var(--ink)',
-            padding: '10px 18px', borderRadius: 6, fontWeight: 700, fontSize: 14,
-            textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6
-          }}>📞 {city.phone}</a>
-        </div>
-        <style jsx>{`
-          @media (max-width: 768px) {
-            .city-nav-links { display: none !important; }
-          }
-        `}</style>
-      </nav>
 
       {/* ============ HERO ============ */}
       <header style={{
@@ -322,67 +289,6 @@ export default function CityPage({ city }: { city: CityData }) {
         </div>
       </div>
 
-      {/* ============ FOOTER ============ */}
-      <footer style={{ background: 'var(--ink)', color: 'white', padding: '56px 24px 28px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div className="city-footer-grid" style={{
-            display: 'grid', gap: 36,
-            gridTemplateColumns: '2fr 1fr 1fr',
-            marginBottom: 40
-          }}>
-            <div>
-              <Image src="/logo.png" alt="EnviroCare" width={200} height={56} style={{ height: 'auto', maxWidth: 200, marginBottom: 16, filter: 'brightness(1.5)' }} />
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>
-                Family-owned and operated since 1958 — four generations of the Wedgworth family.
-                Serving Alabama from three offices: Birmingham, Lake Martin, and Huntsville.
-              </p>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, marginTop: 16 }}>
-                service@envirocarellc.com<br />Mon-Fri 8am-5pm
-              </p>
-            </div>
-            <div>
-              <h5 style={{
-                fontFamily: "var(--font-sans)", fontSize: 12,
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: 'var(--gold)', marginBottom: 16, fontWeight: 700
-              }}>Call Us</h5>
-              <FooterLink href="tel:2059406360">📞 (205) 940-6360 — Main</FooterLink>
-              <FooterLink href="tel:2059406360">📞 (205) 940-6360 — Birmingham</FooterLink>
-              <FooterLink href="tel:2562346162">📞 (256) 234-6162 — Lake Martin</FooterLink>
-              <FooterLink href="tel:2569377676">📞 (256) 937-7676 — Huntsville</FooterLink>
-            </div>
-            <div>
-              <h5 style={{
-                fontFamily: "var(--font-sans)", fontSize: 12,
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: 'var(--gold)', marginBottom: 16, fontWeight: 700
-              }}>{city.office} Office</h5>
-              {city.office === 'Birmingham' && <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>2025 Butler Rd<br />Alabaster, AL 35007</p>}
-              {city.office === 'Huntsville' && <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Serving North Alabama<br />Mon-Fri 8am-5pm</p>}
-              {city.office === 'Lake Martin' && <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Alexander City<br />Mon-Fri 8am-5pm</p>}
-              <h5 style={{
-                fontFamily: "var(--font-sans)", fontSize: 12,
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: 'var(--gold)', marginTop: 20, marginBottom: 16, fontWeight: 700
-              }}>Serving</h5>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>{city.footerServingCities.join(' · ')}</p>
-            </div>
-          </div>
-          <div style={{
-            borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 20,
-            display: 'flex', justifyContent: 'space-between',
-            fontSize: 12, color: 'rgba(255,255,255,0.5)', flexWrap: 'wrap', gap: 12
-          }}>
-            <div>© 2026 EnviroCare Pest & Termite Services · Licensed in Alabama · Sentricon® Certified Specialist</div>
-            <div>No One Cares Like EnviroCare</div>
-          </div>
-        </div>
-        <style jsx>{`
-          @media (max-width: 768px) {
-            .city-footer-grid { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
-      </footer>
 
       {/* ============ JSON-LD ============ */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -495,12 +401,3 @@ function ServiceCard({
   );
 }
 
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <a href={href} style={{
-      display: 'block', padding: '4px 0',
-      fontSize: 14, color: 'rgba(255,255,255,0.8)',
-      textDecoration: 'none'
-    }}>{children}</a>
-  );
-}
