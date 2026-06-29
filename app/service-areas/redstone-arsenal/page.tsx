@@ -76,7 +76,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Commercial Pest Control",
-      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services" },
+      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services", address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" } },
       areaServed: { "@type": "Place", name: "Redstone Arsenal area, Huntsville, AL" },
       name: "Commercial Pest Control near Redstone Arsenal",
       description:
