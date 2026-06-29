@@ -27,6 +27,7 @@ const serviceLd = {
     name: "EnviroCare Pest & Termite Services",
     telephone: "+1-205-940-6360",
     areaServed: "Alabama",
+    address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
   },
   description:
     "Official Alabama wood-destroying organism (WDO) inspection letters for real estate closings, refinances, and VA/FHA loans.",

@@ -105,7 +105,7 @@ function buildCitySchema(city: City) {
   const streetAddress = parts.slice(0, parts.length - 2).join(', ');
   return {
     '@context': 'https://schema.org',
-    '@type': 'PestControlService',
+    '@type': 'LocalBusiness',
     '@id': `https://www.envirocarellc.com/${city.slug}`,
     name: `EnviroCare Pest & Termite Services — ${city.name}`,
     description: city.metaDescription,

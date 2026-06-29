@@ -46,6 +46,7 @@ export default function InteriorPestControlPage() {
       name: "EnviroCare Pest & Termite Services",
       telephone: "+1-205-940-6360",
       areaServed: "Alabama",
+      address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
     },
     description:
       "Quarterly pest control covering both the inside and outside of your home, with optional flea treatment add-on. Serving Alabama since 1958.",

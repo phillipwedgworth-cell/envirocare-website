@@ -134,7 +134,7 @@ export const metadata: Metadata = {
 // ─── 3 LocalBusiness JSON-LD schemas (one per office)
 const BIRMINGHAM_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
   '@id': 'https://www.envirocarellc.com/#birmingham',
   name: 'EnviroCare Pest & Termite Services — Birmingham',
   image: 'https://www.envirocarellc.com/og-image.png',
@@ -162,7 +162,7 @@ const BIRMINGHAM_SCHEMA = {
 
 const LAKE_MARTIN_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
   '@id': 'https://www.envirocarellc.com/#lake-martin',
   name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
   image: 'https://www.envirocarellc.com/og-image.png',
@@ -190,7 +190,7 @@ const LAKE_MARTIN_SCHEMA = {
 
 const HUNTSVILLE_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
   '@id': 'https://www.envirocarellc.com/#huntsville',
   name: 'EnviroCare Pest & Termite Services — Huntsville',
   image: 'https://www.envirocarellc.com/og-image.png',

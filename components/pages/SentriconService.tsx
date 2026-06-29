@@ -25,7 +25,8 @@ export default function SentriconProtection() {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
             "description": "Certified Sentricon Specialist serving Alabama since 1958",
-            "telephone": "(205) 940-6360"
+            "telephone": "(205) 940-6360",
+            "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
           },
           "description": "EnviroCare is a Certified Sentricon Specialist providing the #1 termite bait system in Alabama. Colony elimination, always-active protection, low-impact application.",
           "areaServed": ["Birmingham, AL", "Huntsville, AL", "Lake Martin, AL", "Alexander City, AL"]
@@ -252,7 +253,7 @@ export default function SentriconProtection() {
               {/* Stock photo placeholder with instructions */}
               <div className="rounded-2xl overflow-hidden shadow-lg bg-slate-100 h-64 flex items-center justify-center relative">
                 <img
-                  src="https://images.unsplash.com/photo-1523413555884-c0f9a8e3a11a?w=600&auto=format&fit=crop"
+                  src="/termite-damage.jpg"
                   alt="Termite damage in wood structural beam"
                   className="w-full h-full object-cover"
                 />
