@@ -45,7 +45,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "PestControlService"],
+      "@type": "LocalBusiness",
       "@id": "https://www.envirocarellc.com/mountain-brook",
       name: "EnviroCare Pest & Termite Services — Mountain Brook",
       image: "https://www.envirocarellc.com/logo.png",

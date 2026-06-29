@@ -58,7 +58,7 @@ function buildJsonLd(c: DeepCityConfig) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "PestControlService"],
+        "@type": "LocalBusiness",
         "@id": `https://www.envirocarellc.com/${c.slug}`,
         name: `EnviroCare Pest & Termite Services — ${c.name}`,
         image: "https://www.envirocarellc.com/logo.png",

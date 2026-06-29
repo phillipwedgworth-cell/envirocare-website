@@ -44,22 +44,23 @@ const COMBO_SLUGS = [
   'huntsville-exterminator',
 ];
 
-// Service pages that exist as REAL routes (no redirect sources here)
+// Service pages that exist as REAL routes (no redirect sources here).
+// Removed 2026-06-29 (SEO audit): mosquito-control→mosquito, real-estate-wdo→
+// wdo-letters, and crawlspace→termite-control all 308-redirect (see next.config.ts),
+// so the sitemap now lists only the final destination URLs.
 const SERVICE_SLUGS = [
   'pest-control',
   'interior-pest-control',
   'termite-control',
   'sentricon',
-  'mosquito-control',
+  'mosquito',
   'tick-control',
   'fire-ant',
   'flea',
   'builder',
   'builder-pre-treat',
   'wdo-letters',
-  'real-estate-wdo',
   'commercial',
-  'crawlspace',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

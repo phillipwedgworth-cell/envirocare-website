@@ -26,7 +26,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
   const schema = [
     {
       "@context": "https://schema.org",
-      "@type": "PestControlService" as const,
+      "@type": "LocalBusiness" as const,
       name: c.schemaName,
       telephone: c.office.phone,
       address: { "@type": "PostalAddress", streetAddress: c.office.address, addressRegion: "AL", addressCountry: "US" },

@@ -59,7 +59,8 @@ export default function SpecialOffers() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "telephone": "(205) 940-6360"
+            "telephone": "(205) 940-6360",
+            "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
           },
           "itemListElement": [
             {"@type": "Offer", "name": "$50 OFF Initial Pest Control", "description": "New customers save $50 on first pest control treatment"},

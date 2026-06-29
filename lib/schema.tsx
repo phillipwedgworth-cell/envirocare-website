@@ -103,7 +103,7 @@ export function getOrganizationSchema() {
 export function getBirminghamSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'PestControlService'],
+    '@type': 'LocalBusiness',
     '@id': `${BRAND_URL}/#birmingham`,
     name: BRAND_NAME,
     image: LOGO_URL,
@@ -129,7 +129,7 @@ export function getBirminghamSchema() {
 export function getHuntsvilleSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'PestControlService'],
+    '@type': 'LocalBusiness',
     '@id': `${BRAND_URL}/#huntsville`,
     name: BRAND_NAME,
     image: LOGO_URL,
@@ -155,7 +155,7 @@ export function getHuntsvilleSchema() {
 export function getAlexCitySchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'PestControlService'],
+    '@type': 'LocalBusiness',
     '@id': `${BRAND_URL}/#alexander-city`,
     name: BRAND_NAME,
     image: LOGO_URL,

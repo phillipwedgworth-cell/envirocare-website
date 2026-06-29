@@ -10,7 +10,7 @@
 // To add new social profiles: just add the URL to SAME_AS below.
 export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': ['Organization', 'LocalBusiness', 'PestControlService'],
+  '@type': ['Organization', 'LocalBusiness'],
   '@id': 'https://www.envirocarellc.com/#organization',
   name: 'EnviroCare Pest & Termite Services',
   legalName: 'EnviroCare Pest & Termite Services LLC',
