@@ -1,107 +1,171 @@
 {
   "report": "envirocare-ga4-weekly",
-  "run_date": "2026-06-22",
+  "run_date": "2026-06-29",
   "status": "ok",
   "property": "G-CELEB90NKX",
   "ga4_property_id": "313205131",
   "site": "envirocarellc.com",
   "data_source": "Google Analytics Data API (direct, no Supermetrics)",
   "period": {
+    "startDate": "2026-06-22",
+    "endDate": "2026-06-28"
+  },
+  "prior_period": {
     "startDate": "2026-06-15",
     "endDate": "2026-06-21"
   },
-  "prior_period": {
-    "startDate": "2026-06-08",
-    "endDate": "2026-06-14"
-  },
   "totals": {
+    "sessions": 233,
+    "users": 173,
+    "engagedSessions": 77,
+    "conversions": 12
+  },
+  "totals_prior": {
     "sessions": 54,
     "users": 13,
     "engagedSessions": 35,
     "conversions": 2
   },
-  "totals_prior": {
-    "sessions": 59,
-    "users": 13,
-    "engagedSessions": 31,
-    "conversions": 1
-  },
   "channels": [
     {
       "key": "Referral",
-      "value": 41
+      "value": 161
     },
     {
       "key": "Direct",
-      "value": 12
+      "value": 65
     },
     {
-      "key": "Organic Social",
+      "key": "Unassigned",
+      "value": 6
+    },
+    {
+      "key": "Organic Search",
       "value": 1
     }
   ],
   "landing_pages": [
     {
       "key": "/",
-      "value": 31
+      "value": 154
     },
     {
       "key": "(not set)",
-      "value": 11
+      "value": 36
     },
     {
-      "key": "/command-center?key=envirocare2026",
-      "value": 8
+      "key": "/quote",
+      "value": 7
     },
     {
-      "key": "/ give me input thought. i dont likedouble  coverage of pricing.  should be shoreter on frone for cell phoen. 70 bimontly325 initial with with 1 year coverat for termite , ad mosuito 45 9 treatmemts,  and tick 20 exra with mostiuito, , want monthly with ach and and perservice and monlty with acyh option like hae gie me a visusl with sken and jsut idea and help tell clause competitior waynes pest control. look at innoviative atlanta or floridea company like mccall for feedback.",
-      "value": 1
-    },
-    {
-      "key": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEefzKN1PTWaJtafyvvwS5II7aY5A_uC_1OvJ-OxpyGidoXTyQ-Qnrz58PUvyQ_aem_NKtS3LKRRjudQLJqAkO8ag",
-      "value": 1
+      "key": "/services/fire-ant",
+      "value": 3
     },
     {
       "key": "/services/pest-control",
+      "value": 3
+    },
+    {
+      "key": "/command-center?key=envirocare2026",
+      "value": 2
+    },
+    {
+      "key": "/?v=10",
       "value": 1
     },
     {
-      "key": "/services/termite-control",
+      "key": "/?v=100",
+      "value": 1
+    },
+    {
+      "key": "/about-us",
+      "value": 1
+    },
+    {
+      "key": "/alexander-city",
+      "value": 1
+    },
+    {
+      "key": "/birmingham",
+      "value": 1
+    },
+    {
+      "key": "/birmingham-exterminator",
+      "value": 1
+    },
+    {
+      "key": "/birmingham-mosquito-control",
+      "value": 1
+    },
+    {
+      "key": "/birmingham-termite-control",
+      "value": 1
+    },
+    {
+      "key": "/brook-highland",
       "value": 1
     }
   ],
   "devices": [
     {
       "key": "desktop",
-      "value": 53
+      "value": 217
     },
     {
       "key": "mobile",
-      "value": 1
+      "value": 16
     }
   ],
   "cities": [
     {
       "key": "Vestavia Hills",
-      "value": 32
-    },
-    {
-      "key": "Birmingham",
-      "value": 14
+      "value": 147
     },
     {
       "key": "Garden City",
-      "value": 7
+      "value": 25
     },
     {
-      "key": "Forest City",
+      "key": "Singapore",
+      "value": 22
+    },
+    {
+      "key": "Birmingham",
+      "value": 16
+    },
+    {
+      "key": "Columbus",
+      "value": 13
+    },
+    {
+      "key": "(not set)",
+      "value": 4
+    },
+    {
+      "key": "Council Bluffs",
+      "value": 3
+    },
+    {
+      "key": "Aspen",
+      "value": 1
+    },
+    {
+      "key": "Calera",
+      "value": 1
+    },
+    {
+      "key": "Cardington",
+      "value": 1
+    },
+    {
+      "key": "Glenview",
       "value": 1
     }
   ],
   "conversion_events": [
     {
       "key": "ads_conversion_Contact_Us_1",
-      "value": 2
+      "value": 12
     }
   ]
 }
