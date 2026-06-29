@@ -45,7 +45,30 @@ WHAT AUTOMATICALLY FAILS:
 - Recommendations that don't reference competitor intelligence or site audit findings
 - ANY claim that the agent took an external action it has no tool for (e.g. "filed a support ticket," "emailed the team," "submitted to Google," "opened a Jira issue") — agents may ONLY claim actions that correspond to actual tool calls they made during this run. If you spot a fabricated action claim, FAIL the output and require the agent to either remove the claim or replace it with what it actually did/observed.`;
 
-export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate }) {
+// External-dependency blockers. When a worker is stopped by something OUTSIDE
+// the prompt — a 429/rate limit, a monthly quota, a rejected/expired API key, an
+// Anthropic usage cap — re-running it produces the identical failure. Detecting
+// these lets us short-circuit so a blocked agent doesn't burn all 3 critic loops
+// (the revision re-runs are what spend the tokens).
+const EXTERNAL_BLOCK =
+  /(?:\b429\b|rate.?limit|quota|exceeds the number of|invalid[_\s-]?api[_\s-]?key|\b401\b|\b403\b|unauthorized|specified API usage limits)/i;
+
+export function externalBlockReason(workerOutput, toolErrors = []) {
+  const hay = [workerOutput, ...toolErrors].filter(Boolean).join('\n');
+  const m = hay.match(EXTERNAL_BLOCK);
+  return m ? m[0] : null;
+}
+
+// Callers may get a string (normal/escalated) or a BLOCKED_EXTERNAL object back
+// from criticLoop. These keep the unwrap one line at each call site.
+export function isExternallyBlocked(result) {
+  return !!(result && typeof result === 'object' && result.status === 'BLOCKED_EXTERNAL');
+}
+export function criticDraft(result) {
+  return isExternallyBlocked(result) ? result.draft : result;
+}
+
+export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate, toolErrors = [] }) {
   let current = output;
   const history = [];
 
@@ -105,6 +128,16 @@ If PASS, write VERDICT: PASS and nothing else.`,
       console.warn(`[critic] ${workerName} — max loops hit, escalating`);
       if (onEscalate) await onEscalate(current, history);
       return current;
+    }
+
+    // External-blocker short-circuit — BEFORE sending feedback for revision.
+    // Check the worker's original output AND the tool errors it collected this
+    // run; if either shows a rate limit / quota / rejected key, revising can't
+    // help (loops 2 and 3 would re-run the worker into the same wall), so bail.
+    const reason = externalBlockReason(output, toolErrors);
+    if (reason) {
+      console.log(`[critic] ${workerName} — external dependency blocked (${reason}); skipping revision loops`);
+      return { status: 'BLOCKED_EXTERNAL', reason, draft: output };
     }
 
     const feedback = reviewText.replace("VERDICT: FAIL", "").trim();

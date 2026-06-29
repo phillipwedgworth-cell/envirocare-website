@@ -8,7 +8,7 @@
 //      the framework (orchestrator, advisors) can read it.
 //   4. Week-over-week deltas come from stateGet/stateSet keyed by location.
 
-import { criticLoop } from "./lib/critic.mjs";
+import { criticLoop, isExternallyBlocked } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
@@ -53,12 +53,19 @@ function looksLikeKeyRejection(raw) {
   return /invalid[_ ]?api[_ ]?key|api[_ ]?key.*(invalid|expired|rejected)|unauthorized|forbidden/i.test(String(raw || ""));
 }
 
+// Tool failures (rejected key, etc.) that get swallowed by graceful skips don't
+// reach the worker's final brief — collect them here so run() can hand them to
+// the critic, which short-circuits the revision loops on an external block.
+const runToolErrors = [];
+
 // Only raise the "renew the key" finding once per process — blMcpCall runs many
 // times per agent and we don't want to spam agent_findings.
 let keyRenewalFlagged = false;
 async function flagKeyRenewal(toolName, rawBody) {
   const snippet = String(rawBody ?? "").trim().slice(0, 300);
   console.error(`[${AGENT_NAME}] BrightLocal API key REJECTED on ${toolName} — renew BRIGHTLOCAL_API_KEY. Raw body: ${snippet || "(empty)"}`);
+  // Keep the raw body (it carries "[INVALID_API_KEY]") visible to the critic.
+  runToolErrors.push(`BrightLocal ${toolName}: ${snippet || "invalid api key"}`);
   if (keyRenewalFlagged) return;
   keyRenewalFlagged = true;
   await writeFinding(
@@ -341,6 +348,10 @@ async function workerDraft(feedback = null) {
       if (block.type !== "tool_use") continue;
       console.log(`[${AGENT_NAME}] -> ${block.name}`, block.input);
       const result = await callTool(block.name, block.input);
+      // A tool error here (e.g. a propagated API failure) would otherwise be
+      // buried in the tool_result and never reach the final brief — record it
+      // so the critic can see external blockers.
+      if (result && result.error) runToolErrors.push(`${block.name}: ${result.error}`);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -375,18 +386,29 @@ export async function run() {
 - No vague phrases ("improve citations", "monitor closely") without numbers
 - Under 200 words, no preamble, no sign-off`;
 
-  const final = await criticLoop({
+  const critic = await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly BrightLocal citation brief for EnviroCare's 3 Alabama locations",
     output: draft,
     rubric,
     revise: (feedback) => workerDraft(feedback),
+    toolErrors: runToolErrors,
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       await logAgentRun(AGENT_NAME, "escalated", output);
     },
   });
 
+  // External block (most often a rejected/expired BrightLocal key). Report it
+  // honestly rather than emitting a citation brief built on empty data.
+  if (isExternallyBlocked(critic)) {
+    const reason = `BrightLocal API blocked (${critic.reason}) — renew BRIGHTLOCAL_API_KEY`;
+    console.warn(`[${AGENT_NAME}] blocked — ${reason}`);
+    await logAgentRun(AGENT_NAME, "blocked", reason).catch(() => {});
+    return { blocked: true, reason, brief: `blocked: ${reason}` };
+  }
+
+  const final = critic;
   await logAgentRun(AGENT_NAME, "ok", final);
   console.log(`[${AGENT_NAME}] Done`);
   return final;
