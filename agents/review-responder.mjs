@@ -16,7 +16,7 @@
 // Orchestrator: runs Mondays only (cron is daily) unless FORCE_REVIEWS=1.
 // CLI: node agents/review-responder.mjs [--force]
 
-import { blMcpCall } from "./brightlocal.mjs";
+import { blMcpCall, BrightLocalKeyError } from "./brightlocal.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { appendBlocksToPage, nHeading2, nHeading3, nParagraph, nQuote, nDivider } from "./lib/notion.mjs";
@@ -77,7 +77,7 @@ async function fetchRecentReviews() {
       }
     } catch (e) {
       console.error(`[${AGENT_NAME}] ${loc.name} (RM ${loc.report_id}): ${e.message}`);
-      all.push({ location: loc.name, error: e.message });
+      all.push({ location: loc.name, error: e.message, keyRejected: e instanceof BrightLocalKeyError });
     }
   }
   return all;
@@ -120,6 +120,17 @@ export async function run() {
   const reviews = await fetchRecentReviews();
   const errors = reviews.filter(r => r.error);
   const fresh = reviews.filter(r => !r.error && r.rating > 0);
+
+  // BrightLocal rejected the API key (INVALID_API_KEY) — every location failed
+  // the same way. Raise ONE clear "renew the key" alert instead of burying it in
+  // per-location errors, and stop here (no point drafting against zero data).
+  if (reviews.some(r => r.keyRejected)) {
+    const msg = "BrightLocal API key rejected (INVALID_API_KEY) — renew it in the BrightLocal dashboard and update BRIGHTLOCAL_API_KEY in Vercel.";
+    console.error(`[${AGENT_NAME}] ${msg}`);
+    await writeFinding(AGENT_NAME, "reviews", "critical", null, msg, { needs_renewal: true, key_rejected: true }).catch(() => {});
+    await logAgentRun(AGENT_NAME, "error", msg).catch(() => {});
+    return { skipped: true, reason: msg, keyRejected: true };
+  }
 
   if (fresh.length === 0) {
     console.log(`[${AGENT_NAME}] no new reviews in the past 7 days (${errors.length} report errors)`);

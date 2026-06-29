@@ -1,7 +1,11 @@
 // agents/lib/supabase.mjs
 // Shared Supabase client — imported by kv.mjs, orchestrator.mjs, and any agent that logs data
 
-const url = process.env.SUPABASE_URL;
+import { envUrl } from "./env-url.mjs";
+
+// envUrl() strips a stray BOM/whitespace so a pasted SUPABASE_URL can't silently
+// break every agent's logging (same class of bug that broke FORMSPREE_LEAD_URL).
+const url = envUrl("SUPABASE_URL") || undefined;
 const key = process.env.SUPABASE_KEY;
 
 // Supabase errors carry code/details/hint in addition to message; .message alone

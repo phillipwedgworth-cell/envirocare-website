@@ -14,6 +14,7 @@
 // Target band: 70-80. Do not optimize toward 100.
 
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import targetsData from './neuronwriter-targets.json' with { type: 'json' };
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -194,11 +195,22 @@ const rubric = `
 
 async function writeReport(final, results) {
   const today = new Date().toISOString().slice(0, 10);
-  const reportDir = join(REPO_ROOT, 'agents', 'reports');
-  mkdirSync(reportDir, { recursive: true });
-  const reportPath = join(reportDir, `neuronwriter-${today}.md`);
-  writeFileSync(reportPath, final, 'utf8');
-  console.log(`[${AGENT_NAME}] report saved → agents/reports/neuronwriter-${today}.md`);
+  // Vercel's project filesystem (/vercel/path0/...) is READ-ONLY at runtime, so
+  // mkdir under REPO_ROOT/agents/reports throws ENOENT/EROFS in production. The
+  // only writable location in a Vercel lambda is the OS temp dir, so the .md
+  // artifact lands there. The durable copy is the Supabase finding written below;
+  // this file is just a convenience dump (overridable via NW_REPORT_DIR).
+  const reportDir = process.env.NW_REPORT_DIR || join(tmpdir(), 'reports');
+  try {
+    mkdirSync(reportDir, { recursive: true });
+    const reportPath = join(reportDir, `neuronwriter-${today}.md`);
+    writeFileSync(reportPath, final, 'utf8');
+    console.log(`[${AGENT_NAME}] report saved → ${reportPath}`);
+  } catch (e) {
+    // Never let a failed file dump abort the run — the Supabase finding is the
+    // source of truth and is written regardless.
+    console.error(`[${AGENT_NAME}] report file dump skipped: ${e.message}`);
+  }
 
   const failures = results.filter(r => !r.error && r.score < SCORE_PASS);
   await writeFinding(

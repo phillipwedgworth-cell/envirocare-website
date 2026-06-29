@@ -45,6 +45,48 @@ if (process.env.ANTHROPIC_API_KEY) {
 // The trial API key works with BrightLocal's MCP server (mcp.brightlocal.com),
 // not the legacy REST API v4. We open a session per call (stateless for simplicity).
 
+// Thrown when BrightLocal rejects the key (body is plain text like
+// "[INVALID_API_KEY]", never JSON). Callers catch this to raise ONE "renew the
+// key" alert instead of a per-location JSON.parse SyntaxError crash.
+export class BrightLocalKeyError extends Error {
+  constructor(raw) {
+    super("BrightLocal API key rejected — needs renewal");
+    this.name = "BrightLocalKeyError";
+    this.raw = String(raw ?? "").slice(0, 300);
+    this.keyRejected = true;
+  }
+}
+
+// A rejected key (or other auth failure) comes back as plain text, not JSON.
+function looksLikeKeyRejection(raw) {
+  return /invalid[_ ]?api[_ ]?key|\[INVALID_API_KEY\]|unauthor|forbidden|api key/i.test(String(raw ?? ""));
+}
+
+// Guard every parse: BrightLocal answers a bad key / error with a plain-text
+// body that JSON.parse would choke on with an opaque SyntaxError. Detect a key
+// rejection (typed throw), otherwise log the raw body and throw a clear message.
+function parseBlJson(raw, ctx) {
+  const trimmed = String(raw ?? "").trim();
+  if (looksLikeKeyRejection(trimmed)) {
+    console.error(`[${AGENT_NAME}] BrightLocal key rejected at ${ctx}: ${trimmed.slice(0, 200)}`);
+    throw new BrightLocalKeyError(trimmed);
+  }
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    console.error(`[${AGENT_NAME}] BL ${ctx}: non-JSON body (logged): ${trimmed.slice(0, 200)}`);
+    throw new Error(`BL MCP ${ctx}: non-JSON response (${trimmed.slice(0, 80)})`);
+  }
+}
+
+// Read a non-2xx response body once and turn it into the right typed error.
+async function blHttpError(resp, ctx) {
+  const raw = await resp.text().catch(() => "");
+  if (looksLikeKeyRejection(raw)) return new BrightLocalKeyError(raw);
+  console.error(`[${AGENT_NAME}] BL ${ctx}: HTTP ${resp.status} body: ${String(raw).slice(0, 200)}`);
+  return new Error(`BL MCP ${ctx}: ${resp.status}${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+}
+
 export async function blMcpCall(toolName, args) {
   if (!BL_KEY) throw new Error("BRIGHTLOCAL_API_KEY is not set");
   const url = `${BL_MCP}?api-key=${encodeURIComponent(BL_KEY)}`;
@@ -55,9 +97,14 @@ export async function blMcpCall(toolName, args) {
     method: "POST", headers: hdrs,
     body: JSON.stringify({ jsonrpc: "2.0", method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "envirocare-agent", version: "1.0" } }, id: 0 }),
   });
-  if (!initResp.ok) throw new Error(`BL MCP init: ${initResp.status}`);
+  if (!initResp.ok) throw await blHttpError(initResp, `${toolName} init`);
   const sessionId = initResp.headers.get("mcp-session-id");
-  if (!sessionId) throw new Error("BL MCP: no session ID returned");
+  if (!sessionId) {
+    // 200 but no session header is almost always a key rejection returned as text.
+    const raw = await initResp.text().catch(() => "");
+    if (looksLikeKeyRejection(raw)) throw new BrightLocalKeyError(raw);
+    throw new Error(`BL MCP ${toolName}: no session ID returned${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+  }
 
   const shdrs = { ...hdrs, "Mcp-Session-Id": sessionId };
 
@@ -69,17 +116,23 @@ export async function blMcpCall(toolName, args) {
     method: "POST", headers: shdrs,
     body: JSON.stringify({ jsonrpc: "2.0", method: "tools/call", params: { name: toolName, arguments: args }, id: 1 }),
   });
-  if (!resp.ok) throw new Error(`BL MCP ${toolName}: ${resp.status}`);
+  if (!resp.ok) throw await blHttpError(resp, toolName);
 
-  // 4. Parse SSE response (event: message\ndata: {...}\n)
+  // 4. Parse SSE response (event: message\ndata: {...}\n). Verify it actually
+  //    looks like SSE/JSON before trusting it — a rejected key can 200 with text.
+  const ct = resp.headers.get("content-type") || "";
   const text = await resp.text();
+  if (looksLikeKeyRejection(text)) throw new BrightLocalKeyError(text);
   const dataLine = text.split("\n").find((l) => l.startsWith("data: "));
-  if (!dataLine) throw new Error(`BL MCP ${toolName}: no data in response`);
-  const envelope = JSON.parse(dataLine.slice(6));
+  if (!dataLine) {
+    console.error(`[${AGENT_NAME}] BL ${toolName}: no SSE data (content-type="${ct}"), body: ${text.slice(0, 200)}`);
+    throw new Error(`BL MCP ${toolName}: no data in response`);
+  }
+  const envelope = parseBlJson(dataLine.slice(6), `${toolName} envelope`);
   if (envelope.error) throw new Error(`BL MCP ${toolName}: ${envelope.error.message}`);
   const content = envelope.result?.content?.[0]?.text;
   if (!content) throw new Error(`BL MCP ${toolName}: empty content`);
-  return JSON.parse(content);
+  return parseBlJson(content, `${toolName} content`);
 }
 
 function findLocation(name) {

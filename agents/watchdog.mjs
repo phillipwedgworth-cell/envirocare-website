@@ -22,6 +22,12 @@ const DIGEST_DAY = 1;                 // Monday (UTC)
 const DAILY_USD_BUDGET = Number(process.env.DAILY_USD_BUDGET || 5);   // soft AI-spend cap
 const DEPLOY_ANOMALY   = Number(process.env.DEPLOY_ANOMALY   || 12);  // deploys/24h = runaway
 
+// Anthropic returns this in the 400 body when the monthly org/workspace usage
+// limit is hit. Those requests are NEVER billed, so the daily spend counter
+// stays at $0 and would otherwise pass as healthy — this string is the only
+// signal that the whole fleet is silently blocked.
+const ANTHROPIC_CAP_SIGNATURE = 'specified API usage limits';
+
 // Agents that write to the agent_runs ledger. Add one the moment it starts logging.
 const EXPECTED = [
   { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8, label: 'Weekly QA (Mon 7am CT)' },
@@ -46,18 +52,55 @@ async function latestPerAgent() {
 }
 
 // ── Daily AI spend (no new secret — reads the agent_costs table) ──────────────
+// Two independent checks live here:
+//   (a) the $/day spend cap (agent_costs), and
+//   (b) the Anthropic MONTHLY usage cap, which the $/day counter cannot see —
+//       a capped month returns $0 spend, so (a) alone reports a false "ok".
 async function budgetCheck(lines, problems) {
   if (!supabase) return;
+
+  // (a) Daily $ spend.
   try {
     const since = new Date(); since.setUTCHours(0, 0, 0, 0);
     const { data, error } = await supabase.from('agent_costs')
       .select('agent_name,usd_cost,created_at').gte('created_at', since.toISOString());
-    if (error) { lines.push(`budget   skipped — agent_costs read failed (${error.message})`); return; }
-    const total = (data ?? []).reduce((s, r) => s + Number(r.usd_cost || 0), 0);
-    const tag = total > DAILY_USD_BUDGET ? 'OVER  ' : 'ok    ';
-    lines.push(`budget   ${tag} AI spend today $${total.toFixed(2)} / $${DAILY_USD_BUDGET.toFixed(2)} cap`);
-    if (total > DAILY_USD_BUDGET) problems.push(`AI spend $${total.toFixed(2)}`);
+    if (error) {
+      lines.push(`budget   skipped — agent_costs read failed (${error.message})`);
+    } else {
+      const total = (data ?? []).reduce((s, r) => s + Number(r.usd_cost || 0), 0);
+      const tag = total > DAILY_USD_BUDGET ? 'OVER  ' : 'ok    ';
+      lines.push(`budget   ${tag} AI spend today $${total.toFixed(2)} / $${DAILY_USD_BUDGET.toFixed(2)} cap`);
+      if (total > DAILY_USD_BUDGET) problems.push(`AI spend $${total.toFixed(2)}`);
+    }
   } catch (e) { lines.push(`budget   skipped — ${e.message}`); }
+
+  // (b) Anthropic monthly cap — runs even if (a) failed; it is the spend
+  // counter's blind spot. Any agent run whose output carries the 400 signature
+  // means the fleet is blocked, regardless of what the $ counter says.
+  await anthropicCapCheck(lines, problems);
+}
+
+// Scan recent agent_runs output for the monthly-cap 400 signature. A single hit
+// is CRITICAL: the whole fleet is blocked and nothing is being billed, so the
+// dollar counter alone would (wrongly) report everything healthy.
+async function anthropicCapCheck(lines, problems) {
+  if (!supabase) return;
+  try {
+    const dayAgo = new Date(Date.now() - 24 * 3.6e6).toISOString();
+    const { data, error } = await supabase.from('agent_runs')
+      .select('agent_name,output,created_at')
+      .gte('created_at', dayAgo).order('created_at', { ascending: false }).limit(1000);
+    if (error) { lines.push(`anthropic skipped — agent_runs read failed (${error.message})`); return; }
+    const sig = ANTHROPIC_CAP_SIGNATURE.toLowerCase();
+    const hits = (data ?? []).filter(r => String(r.output ?? '').toLowerCase().includes(sig));
+    if (hits.length) {
+      const who = [...new Set(hits.map(r => r.agent_name))].join(', ');
+      lines.push(`CRITICAL Anthropic monthly cap hit — "${ANTHROPIC_CAP_SIGNATURE}" in ${hits.length} run(s): ${who}`);
+      problems.push('Anthropic monthly cap hit');
+    } else {
+      lines.push(`anthropic ok    — no monthly-cap errors in last 24h`);
+    }
+  } catch (e) { lines.push(`anthropic skipped — ${e.message}`); }
 }
 
 // ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────
