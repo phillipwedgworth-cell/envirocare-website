@@ -1,3 +1,7 @@
+// app/service-areas/madison/page.tsx
+// Madison service-area page. Content refresh: killed-crawlspace copy removed,
+// 3rd->4th generation, dead service card swapped for Tick & Chigger Control,
+// footer links canonicalized to live routes.
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
@@ -75,7 +79,7 @@ const jsonLd = {
           name: "Do you service Heritage Plantation in Madison?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes — Heritage Plantation is one of our core Madison service areas. Our Huntsville-office technicians are familiar with the neighborhood's established landscaping, crawlspace-style construction in older sections, and the wooded rear lots that tend to have tick and mosquito pressure.",
+            text: "Yes — Heritage Plantation is one of our core Madison service areas. Our Huntsville-office technicians are familiar with the neighborhood's established landscaping, the older construction in some sections, and the wooded rear lots that tend to have tick and mosquito pressure.",
           },
         },
         {
@@ -381,18 +385,18 @@ export default function MadisonPage() {
               cta: "/services/mosquito",
             },
             {
-              icon: "🏠",
-              service: "Crawlspace Services",
-              price: "Custom quote",
-              priceNote: "Free inspection",
+              icon: "🕷️",
+              service: "Tick & Chigger Control",
+              price: "Add-on",
+              priceNote: "Pairs with mosquito · $65/treatment",
               features: [
-                "Vapor barrier installation",
-                "Moisture control & dehumidifiers",
-                "Encapsulation",
-                "Protects structure & HVAC",
-                "Reduces pest entry points",
+                "Targets Lone Star ticks & chiggers",
+                "Treated on the same mosquito visit",
+                "Yard perimeter & harborage zones",
+                "Best for homes with kids & pets",
+                "EPA-registered products, label directions",
               ],
-              cta: "/services/crawlspace",
+              cta: "/services/tick-control",
             },
           ].map(({ icon, service, price, priceNote, features, cta }) => (
             <div key={service} style={{
@@ -486,7 +490,7 @@ export default function MadisonPage() {
                 name: "Sullivan Street Corridor",
                 zip: "35757",
                 note: "High-traffic residential corridor with older and newer construction mixed. Annual termite inspections recommended on any home pre-2000. Good candidate for Sentricon® preventive protection.",
-                tags: ["Sentricon®", "Pest", "Crawlspace"],
+                tags: ["Sentricon®", "Pest", "Tick yards"],
               },
               {
                 name: "Rainbow Mountain",
@@ -563,7 +567,7 @@ export default function MadisonPage() {
           <div style={{ display: "grid", gap: 16 }}>
             {[
               { stat: "1958", label: "Family-owned since" },
-              { stat: "3rd gen", label: "Wedgworth family operation" },
+              { stat: "4th gen", label: "Wedgworth family operation" },
               { stat: "M–F 8–5", label: "Live staff, no call center" },
               { stat: "$0", label: "Re-service fee between visits" },
             ].map(({ stat, label }) => (
@@ -627,7 +631,7 @@ export default function MadisonPage() {
           {[
             {
               q: "Do you service Heritage Plantation in Madison?",
-              a: "Yes — Heritage Plantation is one of our core Madison service areas. Our Huntsville-office technicians are familiar with the neighborhood's established landscaping, the crawlspace-style construction in older sections, and the wooded rear lots that carry tick and mosquito pressure.",
+              a: "Yes — Heritage Plantation is one of our core Madison service areas. Our Huntsville-office technicians are familiar with the neighborhood's established landscaping, the older construction in some sections, and the wooded rear lots that carry tick and mosquito pressure.",
             },
             {
               q: "When do termites swarm in Madison AL?",
@@ -727,11 +731,11 @@ export default function MadisonPage() {
       }}>
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "8px 24px", marginBottom: 20 }}>
-            <Link href="/service-areas/huntsville"    style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Huntsville</Link>
+            <Link href="/huntsville"    style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Huntsville</Link>
             <Link href="/athens"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Athens</Link>
             <Link href="/service-areas/madison"       style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Madison</Link>
-            <Link href="/service-areas/mountain-brook" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Mountain Brook</Link>
-            <Link href="/service-areas/hoover"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Hoover</Link>
+            <Link href="/mountain-brook" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Mountain Brook</Link>
+            <Link href="/hoover"        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Hoover</Link>
             <Link href="/greystone"     style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Greystone</Link>
             <Link href="/alexander-city" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>Alex City / Lake Martin</Link>
           </div>
