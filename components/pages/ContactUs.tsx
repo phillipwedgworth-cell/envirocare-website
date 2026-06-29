@@ -237,7 +237,7 @@ export default function ContactUs() {
                 height={800}
                 loading="lazy"
                 decoding="async"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
               />
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, ...sf, fontSize: 13, color: "#374151", display: "flex", flexDirection: "column", gap: 10 }}>
