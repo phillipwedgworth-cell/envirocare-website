@@ -33,6 +33,14 @@ const TOPIC_MAP: [RegExp, string][] = [
   [/\bants?\b|ant-/, "/blog/ant-control-alabama"],
 ];
 
+// Specific legacy posts that have been REPUBLISHED as their own article get an
+// exact-slug override (checked before the topic buckets above), so the old URL
+// recovers its impressions against the matching article instead of a category
+// page. Add a line here each time a blog-recovery post ships.
+const POST_OVERRIDES: [RegExp, string][] = [
+  [/keeping-the-wolf-spiders/, "/blog/wolf-spiders-birmingham"],
+];
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
@@ -46,10 +54,16 @@ export function middleware(req: NextRequest) {
   const post = pathname.match(/^\/blog\/\d{4}\/[^/]+\/(.+?)\/?$/);
   if (post) {
     const slug = post[1].toLowerCase();
-    for (const [re, d] of TOPIC_MAP) {
-      if (re.test(slug)) {
-        dest = d;
-        break;
+    // Exact republished-post override wins over the topic bucket.
+    const override = POST_OVERRIDES.find(([re]) => re.test(slug));
+    if (override) {
+      dest = override[1];
+    } else {
+      for (const [re, d] of TOPIC_MAP) {
+        if (re.test(slug)) {
+          dest = d;
+          break;
+        }
       }
     }
   }

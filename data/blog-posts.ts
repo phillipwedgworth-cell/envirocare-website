@@ -1064,6 +1064,56 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 </ul>
 `,
   },
+
+  {
+    slug: 'wolf-spiders-birmingham',
+    title: 'How to Keep Wolf Spiders Out of Your Birmingham Home',
+    excerpt: 'Wolf spiders are the biggest spider most Birmingham homeowners ever see indoors — fast, hairy, and alarming. Here\'s why they\'re really inside (it\'s their food), what actually keeps them out, and what doesn\'t.',
+    publishedAt: '2026-06-30',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    metaTitle: 'How to Keep Wolf Spiders Out of Your Birmingham Home | EnviroCare',
+    metaDescription: 'Wolf spiders in your Birmingham home? They follow their food indoors. What actually keeps them out — exclusion plus perimeter pest control. Free inspection. Call (205) 940-6360.',
+    body: `
+<p class="lede">Wolf spiders are the largest spider most Birmingham homeowners ever see indoors — brown, hairy, fast, and often the size of a half-dollar with their legs spread. They aren't dangerous in the medical sense (no medically significant venom, no aggression), but they look alarming, they hunt at night, and they turn up in kitchens and basements in numbers that make one sighting feel like an infestation. Here's what we tell customers around Birmingham and the Over-the-Mountain suburbs when they call about them.</p>
+
+<h2>Why you're seeing them inside</h2>
+
+<p>Wolf spiders don't build webs. They hunt — which means they follow their prey. When you find one in the house, you're really finding evidence of something smaller it's eating: crickets, roaches, silverfish, earwigs, sometimes other spiders. A wolf spider problem is almost always a "their food source is inside" problem, which is also why squashing the ones you see never ends it.</p>
+
+<p>The triggers we see most often in Birmingham homes — from Vestavia and Mountain Brook to Hoover and Trussville:</p>
+
+<ul>
+<li><strong>Crawl space and foundation entry points.</strong> Wolf spiders are ground-level hunters, so they push in at the foundation line, around utility penetrations, and through gaps under exterior doors.</li>
+<li><strong>Mulch and ground cover within three feet of the foundation.</strong> It's perfect staging ground for crickets — the number-one wolf-spider draw.</li>
+<li><strong>Outdoor lighting on dusk timers.</strong> Porch and flood lights pull in moths and beetles, which pull in the spiders that eat them.</li>
+</ul>
+
+<h2>What actually works (and what doesn't)</h2>
+
+<p><strong>Doesn't work:</strong> essential-oil sprays, ultrasonic plug-ins, and vinegar around doorways. We hear about these constantly. None of them produce a lasting change in spider activity in our climate.</p>
+
+<p><strong>Does work:</strong></p>
+
+<ol>
+<li><strong>Exclusion first.</strong> Seal foundation cracks, add door sweeps on every exterior door, and put fine mesh over crawl-space vents. Spiders that can't get in don't have to be dealt with later.</li>
+<li><strong>Knock down the food source.</strong> A perimeter treatment that targets crickets, roaches, and silverfish removes the reason the spiders came inside in the first place. This is what our standard bi-monthly or quarterly pest control covers — wolf-spider sightings drop off within about two service visits in most homes.</li>
+<li><strong>Adjust the exterior.</strong> Pull mulch back 12 inches from the foundation, switch porch lights to yellow "bug" bulbs, and trim shrubs off the siding so there's no bridge to the house.</li>
+</ol>
+
+<h2>When to call a professional</h2>
+
+<p>If you're seeing more than one wolf spider a week indoors, or you have a finished basement where they keep reappearing, the problem isn't really the spiders — it's that something they hunt has an established population in your home. That's what professional <a href="/services/pest-control">pest control</a> resolves, because it treats the underlying insect activity instead of the spider symptom.</p>
+
+<p>EnviroCare has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/service-areas/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
+
+<p><a href="/request-quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
+
+<p><em>Related:</em> <a href="/blog/brown-recluse-spiders-alabama">Brown recluse spiders in Alabama</a> · <a href="/blog/spider-control-alabama">Spider control in Alabama</a> · <a href="/blog/cricket-control-alabama">Cricket control</a> (the wolf spider's favorite meal).</p>
+`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
