@@ -987,6 +987,83 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>EnviroCare offers free termite inspections across central and north Alabama. If termites are present, we explain treatment options — Sentricon® bait stations and liquid soil treatments — with a written estimate. <a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
 `,
   },
+
+  {
+    slug: 'tick-control-alabama',
+    title: 'Tick Control in Alabama: Lone Star Ticks, Alpha-Gal & Protecting Your Yard',
+    excerpt: 'Alabama yards back up to the woods, and that edge is where ticks wait. Here\'s how to identify the three that matter, the real disease risk (including alpha-gal), and how to treat the yard without blanketing the whole lawn.',
+    publishedAt: '2026-05-22',
+    author: 'Kevin Wedgworth',
+    category: 'Ticks',
+    readMinutes: 5,
+    heroEmoji: '🐾',
+    metaTitle: 'Alabama Tick Control: Lone Star Ticks & Alpha-Gal | EnviroCare',
+    metaDescription: 'Alabama tick control done right. Identify lone star, American dog & deer ticks, understand alpha-gal and other risks, and treat yard harborage. Call (205) 940-6360.',
+    body: `
+<p class="lede">If your Alabama yard backs up to woods, a creek, or even a thick hedge line, you have ticks — whether you've seen one or not. They don't roam the open lawn; they wait at the edges where the mowed grass meets the wild, questing on tall blades for a host to brush past. For families with kids and dogs, that edge is the problem.</p>
+
+<p>We've treated North and Central Alabama yards for ticks for four generations. Here's what's actually out there, why it matters more than most people realize, and how to bring the pressure down.</p>
+
+<h2>The three Alabama ticks that matter</h2>
+
+<ul>
+<li><strong>Lone Star tick</strong> — by far the most common in Alabama. The adult female has a single white dot on her back. Aggressive and fast-moving; it actively pursues a host rather than waiting passively. This is the one behind most of the bites we hear about.</li>
+<li><strong>American dog tick</strong> — larger and brown, common in grassy areas and along trail margins. The primary carrier of Rocky Mountain spotted fever in the Southeast.</li>
+<li><strong>Black-legged ("deer") tick</strong> — smaller, and the carrier of Lyme disease. Less common in Alabama than further north, but established and increasing.</li>
+</ul>
+
+<h2>Why a tick is more than a nuisance</h2>
+
+<p>A tick bite isn't just itchy — it's the delivery method for several real illnesses:</p>
+
+<ul>
+<li><strong>Alpha-gal syndrome</strong> — a red-meat allergy linked to the lone star tick that can develop after a single bite. It's increasingly diagnosed across the Southeast, and Alabama is squarely in the hot zone.</li>
+<li><strong>Ehrlichiosis and STARI</strong> — both associated with the lone star tick; flu-like illness that needs prompt treatment.</li>
+<li><strong>Rocky Mountain spotted fever</strong> — from the American dog tick; serious if not caught early.</li>
+<li><strong>Lyme disease</strong> — from the black-legged tick; present in Alabama and on the rise.</li>
+</ul>
+
+<p>None of that is meant to alarm you — most bites don't transmit disease. But it's why we treat ticks as a health issue, not a cosmetic one, especially in homes with children and pets.</p>
+
+<h2>Where ticks actually live in your yard</h2>
+
+<p>This is the part most homeowners get wrong. Ticks don't live in the middle of a sunny, mowed lawn — it's too hot and dry for them. They concentrate in <strong>harborage zones</strong>:</p>
+
+<ul>
+<li>The shaded transition where lawn meets woods or a fence line</li>
+<li>Leaf litter, pine straw, and ground-cover beds</li>
+<li>Tall grass and weedy margins along trails, creeks, and ditches</li>
+<li>Around woodpiles, ornamental grasses, and stone walls where rodents nest</li>
+</ul>
+
+<p>Lake homes on Lake Martin, Smith Lake, and the Tennessee River tributaries get heavy pressure because the wooded, leaf-littered lots are perfect habitat — and the deer and rodents that carry ticks move right through them.</p>
+
+<h2>What you can do yourself</h2>
+
+<ol>
+<li>Keep the lawn mowed short and create a 3-foot mulch or gravel border between the lawn and any woods or beds — ticks won't readily cross dry, open ground.</li>
+<li>Rake and remove leaf litter, and keep ornamental grasses and brush trimmed back.</li>
+<li>Keep pets on a vet-recommended tick preventive year-round — pets are the most common way ticks ride indoors.</li>
+<li>For body protection in the yard or on the trail, an EPA-registered repellent with DEET or picaridin works; tuck pant legs into socks.</li>
+<li>Do a tick check after time outdoors — especially the hairline, behind the knees, and the waistband.</li>
+</ol>
+
+<h2>How we treat ticks</h2>
+
+<p>Blanketing your whole lawn with product is unnecessary and not how we work. EnviroCare targets the <strong>harborage zones</strong> where ticks actually are — wooded edges, leaf litter, tall-grass margins, and trail borders — with EPA-registered products applied per label directions. That knocks down the active population where it lives instead of soaking ground the ticks never use.</p>
+
+<p>Tick treatment pairs naturally with our mosquito program — same visit, same zones — so a lot of families on the lake or backing up to woods run the two together March through November. It can also be added to any existing service.</p>
+
+<h2>Protect your yard</h2>
+
+<p>If you've pulled a tick off a kid or a dog this season, you're not imagining the problem — and you don't have to live with it. Call the EnviroCare office nearest you for a free evaluation:</p>
+<ul>
+<li>Birmingham — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

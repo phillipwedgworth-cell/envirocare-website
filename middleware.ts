@@ -6,10 +6,9 @@
 // one 404s and Google drops the impressions. This middleware 301-redirects each
 // legacy URL to the BEST-MATCHING live page — by keyword in the slug. Where a real
 // new blog post exists for the topic (spiders, termites, roaches, ants, mosquitoes,
-// silverfish, crickets, centipedes) it points there (blog→blog, best intent match).
-// Topics without a post fall back to the pest library (ticks). Year/month archives
-// and anything unmatched go to the blog index. New posts at /blog/<slug> (a single
-// segment, no year) are untouched.
+// silverfish, crickets, centipedes, ticks) it points there (blog→blog, best intent
+// match). Year/month archives and anything unmatched go to the blog index. New posts
+// at /blog/<slug> (a single segment, no year) are untouched.
 //
 // This is the SINGLE owner of legacy blog URLs: it replaces the old
 // next.config.ts `/blog/{2022..2026}/:path* → /blog` blanket redirects (removed),
@@ -20,14 +19,13 @@ import type { NextRequest } from "next/server";
 
 // Order matters: first match wins, so more specific patterns come first
 // (e.g. "recluse" before generic "spider"). Every destination is a confirmed
-// live route — blog slugs exist in data/blog-posts.ts, /pest-library/ticks in
-// data/pest-library.ts.
+// live route — every destination blog slug exists in data/blog-posts.ts.
 const TOPIC_MAP: [RegExp, string][] = [
   [/recluse/, "/blog/brown-recluse-spiders-alabama"],
   [/termite/, "/blog/how-to-identify-termites-alabama"],
   [/cockroach|roach/, "/blog/cockroach-control-alabama"],
   [/spider/, "/blog/spider-control-alabama"],
-  [/tick/, "/pest-library/ticks"],
+  [/tick/, "/blog/tick-control-alabama"],
   [/mosquito/, "/blog/mosquito-season-birmingham-al"],
   [/silverfish/, "/blog/silverfish-control-alabama"],
   [/cricket/, "/blog/cricket-control-alabama"],
