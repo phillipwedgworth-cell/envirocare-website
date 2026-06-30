@@ -153,14 +153,12 @@ const nextConfig: NextConfig = {
             { source: '/services/rodent-control', destination: '/services/pest-control', permanent: true },
             { source: '/services/real-estate-wdo', destination: '/services/wdo-letters', permanent: true },
 
-            // ─── BLOG: Scorpion year/month/post paths → /blog ───────────────
-            // Scorpion uses /blog/{year}/{month}/{slug}/ — new site uses /blog/{slug}.
-            // 5 wildcards cover all 89 legacy blog URLs (year archives, month archives, posts).
-            { source: '/blog/2022/:path*', destination: '/blog', permanent: true },
-            { source: '/blog/2023/:path*', destination: '/blog', permanent: true },
-            { source: '/blog/2024/:path*', destination: '/blog', permanent: true },
-            { source: '/blog/2025/:path*', destination: '/blog', permanent: true },
-            { source: '/blog/2026/:path*', destination: '/blog', permanent: true },
+            // ─── BLOG: legacy Scorpion /blog/{year}/{month}/{slug} URLs ─────
+            // Now owned by middleware.ts, which 301s each legacy post to the
+            // best-matching live blog post by topic (recovering impressions) and
+            // sends year/month archives to /blog. Replaces the old blanket
+            // /blog/{2022..2026}/:path* → /blog redirects (a config redirect could
+            // otherwise shadow the middleware before it runs).
 
             // ─── SCORPION SUB-CITY SERVICE PAGES ────────────────────────────
             { source: '/where-we-service/birmingham-al-pest-control/insect-control', destination: '/services/pest-control', permanent: true },
