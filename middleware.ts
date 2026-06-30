@@ -39,6 +39,9 @@ const TOPIC_MAP: [RegExp, string][] = [
 // page. Add a line here each time a blog-recovery post ships.
 const POST_OVERRIDES: [RegExp, string][] = [
   [/keeping-the-wolf-spiders/, "/blog/wolf-spiders-birmingham"],
+  [/common-winter-pest-problems/, "/blog/winter-pests-alabama"],
+  [/diy-pest-control-mistakes/, "/blog/diy-pest-control-mistakes"],
+  [/complete-guide-to-eff|property-owners-complete-guide/, "/blog/pest-control-birmingham-guide"],
 ];
 
 export function middleware(req: NextRequest) {

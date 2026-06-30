@@ -1114,6 +1114,129 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p><em>Related:</em> <a href="/blog/brown-recluse-spiders-alabama">Brown recluse spiders in Alabama</a> · <a href="/blog/spider-control-alabama">Spider control in Alabama</a> · <a href="/blog/cricket-control-alabama">Cricket control</a> (the wolf spider's favorite meal).</p>
 `,
   },
+
+  {
+    slug: 'winter-pests-alabama',
+    title: 'Common Winter Pest Problems in Alabama',
+    excerpt: 'Alabama winters are too mild to kill pests off — they just move indoors. Here is what Birmingham and north-Alabama homeowners deal with December through February, and why "the cold will handle it" is a myth.',
+    publishedAt: '2026-06-28',
+    author: 'Kevin Wedgworth',
+    category: 'Seasonal',
+    readMinutes: 5,
+    heroEmoji: '❄️',
+    metaTitle: 'Common Winter Pest Problems in Alabama | EnviroCare',
+    metaDescription: 'Alabama winters do not kill pests — rodents, ants, and roaches move indoors for warmth. What Birmingham homeowners face Dec-Feb and how to keep them out. Call (205) 940-6360.',
+    body: `
+<p class="lede">Up north, winter does a lot of pest control for you. In Alabama it doesn't. Our winters are mild and short, so instead of dying off, pests simply move where it's warm — which is your house. That's why "the cold will take care of it" is one of the more expensive myths we hear around Birmingham and the Tennessee Valley.</p>
+
+<h2>Why cold weather doesn't help here</h2>
+
+<p>Most Alabama pests don't need to survive a hard freeze — they just need to avoid one. A heated home, an attic, a garage, or a wall void stays plenty warm, and our temperatures swing back into the 50s and 60s often enough that activity never fully stops. So winter doesn't end the problem; it concentrates it indoors, where you actually notice it.</p>
+
+<h2>The usual winter offenders</h2>
+
+<ul>
+<li><strong>Rodents.</strong> Mice and rats push into attics, garages, and crawl spaces as soon as nights cool off. One gap the width of a pencil is all a mouse needs.</li>
+<li><strong>Ants.</strong> Argentine and odorous house ants overwinter in wall voids and forage indoors on warm days — which is why a January ant trail shows up on the kitchen counter and you wonder where they came from.</li>
+<li><strong>Cockroaches.</strong> American and smokybrown roaches move in from mulch beds, sewers, and woodpiles toward the warmth of the foundation and the kitchen.</li>
+<li><strong>Spiders.</strong> They follow their prey indoors — fewer bugs outside in winter means the spiders go where the bugs went.</li>
+</ul>
+
+<h2>How they're getting in</h2>
+
+<p>Almost always at the foundation line: gaps around utility penetrations, worn door sweeps, unscreened crawl-space vents, and firewood stacked against the house (a rodent and roach highway). Attic and crawl-space access points are the other big one.</p>
+
+<h2>What actually keeps them out</h2>
+
+<p>Exclusion first — seal foundation gaps, add door sweeps, screen vents, and keep firewood off the house. Then keep your <a href="/services/pest-control">perimeter pest service</a> running <em>through</em> the winter. The instinct to cancel when it gets cold is exactly backwards: winter is when pests are pushing toward the warm interior, so a maintained exterior barrier is doing the most work. We use EPA-registered products applied per label directions, year round.</p>
+
+<p>Seeing winter activity in your Birmingham-area home? <a href="/request-quote">Request a free inspection</a> or call (205) 940-6360.</p>
+`,
+  },
+
+  {
+    slug: 'diy-pest-control-mistakes',
+    title: 'DIY Pest Control Mistakes That Make Problems Worse',
+    excerpt: 'Most "I tried everything and it got worse" calls are not bad luck — they come down to a handful of common DIY mistakes. Here is what backfires, and what to do instead.',
+    publishedAt: '2026-06-29',
+    author: 'Kevin Wedgworth',
+    category: 'Tips',
+    readMinutes: 5,
+    heroEmoji: '🧰',
+    metaTitle: 'DIY Pest Control Mistakes That Make Problems Worse | EnviroCare',
+    metaDescription: 'Spraying trails, bug bombs, treating only what you see — common DIY pest control mistakes that backfire in Alabama homes, and what actually works instead. Call (205) 940-6360.',
+    body: `
+<p class="lede">A good share of our calls start with "I tried everything and it just got worse." Usually it isn't bad luck — it's one of a handful of do-it-yourself moves that quietly make the problem harder to solve. Here are the ones we see most around Birmingham, and what works instead.</p>
+
+<h2>Spraying the trail you can see</h2>
+
+<p>It feels productive, but spraying an active ant or roach trail mostly kills foragers and signals the colony that the route is compromised. Survivors scatter and open new trails from different entry points. The fix is the opposite of a spray: a slow-acting <strong>bait</strong> the workers carry back to the queen, so the colony collapses instead of splitting.</p>
+
+<h2>Bug bombs and foggers</h2>
+
+<p>Total-release foggers push roaches and spiders deeper into wall voids rather than killing them where they hide, rarely reach the harborage that matters, and come with real fire and air-quality risks. They look dramatic and change very little.</p>
+
+<h2>Treating only what you can see</h2>
+
+<p>The insects on the counter are a small fraction of the population. Surface kills don't dent the nest in the wall, the harborage in the crawl space, or the mound out in the yard — so the problem refills within days.</p>
+
+<h2>Skipping exclusion</h2>
+
+<p>Spraying without sealing entry points is bailing a boat without plugging the hole. Door sweeps, foundation sealing, and screened vents do more long-term good than any product, because pests that can't get in don't have to be treated.</p>
+
+<h2>Quitting when it looks quiet</h2>
+
+<p>Pest pressure is seasonal and mostly invisible between flare-ups. Cancelling service the moment things calm down is how a small, manageable population rebuilds into next season's infestation.</p>
+
+<h2>What actually works</h2>
+
+<p>Bait-and-colony treatment instead of contact sprays, exclusion first, and a steady exterior perimeter program using EPA-registered products applied per label directions. That's the boring approach that actually holds. If the DIY cycle isn't breaking, a <a href="/services/pest-control">professional perimeter plan</a> usually does. <a href="/request-quote">Request a free inspection</a> or call (205) 940-6360.</p>
+`,
+  },
+
+  {
+    slug: 'pest-control-birmingham-guide',
+    title: 'A Birmingham Homeowner\'s Guide to Pest Control',
+    excerpt: 'If you own a home around Birmingham, pest pressure is not a maybe — it is a when. Red clay soil, humidity, and Over-the-Mountain tree cover give pests everything they need. Here is a plain guide to what you are up against and how to handle it.',
+    publishedAt: '2026-06-30',
+    author: 'Kevin Wedgworth',
+    category: 'Local',
+    readMinutes: 6,
+    heroEmoji: '🏙️',
+    metaTitle: 'A Birmingham Homeowner\'s Guide to Pest Control | EnviroCare',
+    metaDescription: 'What Birmingham homeowners are up against — clay-soil termites, humidity-loving roaches, fire ants, Over-the-Mountain spiders and ticks — and what a real pest control program covers. Call (205) 940-6360.',
+    body: `
+<p class="lede">If you own a home around Birmingham, pest pressure isn't a question of <em>if</em> — it's <em>when</em>. Our red clay soil, the humidity, and all that Over-the-Mountain tree cover give pests exactly what they need. Here's a plain-spoken guide to what you're up against in the metro and how to actually handle it.</p>
+
+<h2>Why Birmingham is a pest town</h2>
+
+<p>Two things drive it. First, our clay soil holds moisture for weeks after rain — perfect for subterranean termites and the roaches and ants that follow damp ground. Second, the Over-the-Mountain communities — Vestavia, Mountain Brook, Homewood, and the wooded lots toward Hoover and Greystone — put homes right up against mature tree canopy and leaf litter, so spiders, ticks, and mosquitoes have cover right up to the foundation.</p>
+
+<h2>The pests that define the metro</h2>
+
+<ul>
+<li><strong>Subterranean termites</strong> — the costliest local threat, swarming on warm, humid spring afternoons; our clay soil keeps colonies active.</li>
+<li><strong>Cockroaches</strong> — German roaches indoors, American and smokybrown coming in from outside.</li>
+<li><strong>Fire ants and Argentine ants</strong> — mounds in the yard, trails in the kitchen.</li>
+<li><strong>Mosquitoes and ticks</strong> — heavy from spring through fall on shaded, creek-fed OTM lots.</li>
+<li><strong>Spiders</strong> — wolf spiders and the occasional brown recluse, usually a sign of an indoor insect food source.</li>
+</ul>
+
+<h2>What a real pest control program covers</h2>
+
+<p>A solid plan is built around a <strong>bi-monthly exterior perimeter</strong> treatment that covers 30-plus common household pests, with interior service as needed and unlimited re-service between visits if something flares up. <strong>Termite protection is separate</strong> — handled with a Sentricon bait system after a free WDO inspection, with pricing subject to inspection and approval — and <strong>mosquito reduction and tick service</strong> run seasonally for the yards that need them. It isn't a bundle-for-discount thing; it's the right tools matched to your property.</p>
+
+<h2>DIY or call a pro?</h2>
+
+<p>DIY is fine for prevention — sealing gaps, trimming shrubs off the siding, keeping mulch back from the foundation. Call a professional for termites (Alabama regulates the work), for anything that keeps coming back after you treat it, for a suspected brown recluse, and for the WDO letter a real-estate closing requires.</p>
+
+<h2>The local part</h2>
+
+<p>EnviroCare has serviced Birmingham homes since 1958, run by the fourth generation of the Wedgworth family, from our office on Butler Road in Alabaster — covering the whole metro from Alabaster and Pelham up through Hoover, Vestavia, Mountain Brook, and Homewood. See <a href="/birmingham">pest control in Birmingham</a>, our <a href="/services/pest-control">pest control program</a>, or <a href="/services/termite-control">termite protection</a>.</p>
+
+<p><a href="/request-quote">Request a free inspection</a> or call (205) 940-6360.</p>
+`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
