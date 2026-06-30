@@ -1,3 +1,15 @@
+#
+# WHAT CHANGED FROM PREVIOUS VERSION:
+#   + AI_GATEWAY_API_KEY mapped from repo secrets so llm-panel.mjs can
+#     reach Claude / Gemini / GPT through the single Vercel gateway key.
+#   - GEMINI_API_KEY / OPENAI_API_KEY kept TEMPORARILY as a fallback during
+#     the cutover — once the first scheduled run confirms the gateway works,
+#     remove those two lines so there's only one key path.
+#
+# REQUIRED REPO SECRET (must be added BEFORE this workflow runs):
+#   AI_GATEWAY_API_KEY  →  github.com/phillipwedgworth-cell/envirocare-website
+#                          → Settings → Secrets and variables → Actions → New
+#
 name: AEO-Watch
 
 # Daily at 7am CT (12:00 UTC during CDT, 13:00 UTC during CST).
@@ -19,9 +31,20 @@ jobs:
           node-version: '22'
       - name: Run AEO-Watch
         env:
+          # ─── NEW: single-key path through Vercel AI Gateway ───
+          AI_GATEWAY_API_KEY:   ${{ secrets.AI_GATEWAY_API_KEY }}
+          # Optional overrides — leave unset to use llm-panel.mjs defaults.
+          # PANEL_CLAUDE_MODEL:  anthropic/claude-haiku-4-5
+          # PANEL_GEMINI_MODEL:  google/gemini-2.5-pro
+          # PANEL_OPENAI_MODEL:  openai/gpt-5
+
+          # ─── KEPT (temporary cutover): direct-provider keys ───
+          # Safe to delete after one successful gateway run.
           ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY:       ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY:       ${{ secrets.OPENAI_API_KEY }}
+
+          # ─── Unchanged ───
           SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
           # SUPABASE_KEY is the existing service-role repo secret
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
