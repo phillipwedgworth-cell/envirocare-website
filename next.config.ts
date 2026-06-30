@@ -61,6 +61,7 @@ const nextConfig: NextConfig = {
             { source: '/mosquito', destination: '/services/mosquito', permanent: true },
             { source: '/pest-control', destination: '/services/pest-control', permanent: true },
             { source: '/sentricon', destination: '/services/sentricon', permanent: true },
+            { source: '/madison', destination: '/service-areas/madison', permanent: true },  // /madison had no top-level route; consolidate to the maintained service-area page (avoids duplicate content)
             { source: '/pay', destination: 'https://payenvirocare.key7app.com', permanent: false },
 
             // ─── SCORPION CITY URLS → city pages (Birmingham region) ─────────
