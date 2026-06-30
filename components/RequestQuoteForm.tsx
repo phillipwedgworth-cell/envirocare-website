@@ -131,6 +131,7 @@ export default function RequestQuoteForm() {
                 </label>
                 <input
                   id="rq-name"
+                  name="name"
                   className="rq-input"
                   type="text"
                   value={form.name}
@@ -146,6 +147,7 @@ export default function RequestQuoteForm() {
                 </label>
                 <input
                   id="rq-phone"
+                  name="phone"
                   className="rq-input"
                   type="tel"
                   value={form.phone}
@@ -163,6 +165,7 @@ export default function RequestQuoteForm() {
               </label>
               <input
                 id="rq-email"
+                  name="email"
                 className="rq-input"
                 type="email"
                 value={form.email}
@@ -180,6 +183,7 @@ export default function RequestQuoteForm() {
                 </label>
                 <input
                   id="rq-address"
+                  name="address"
                   className="rq-input"
                   type="text"
                   value={form.address}
@@ -197,8 +201,10 @@ export default function RequestQuoteForm() {
                 </label>
                 <input
                   id="rq-zip"
+                  name="zip"
                   className="rq-input"
                   type="text"
+                  autoComplete="postal-code"
                   inputMode="numeric"
                   pattern="[0-9]{5}"
                   maxLength={5}
@@ -217,6 +223,7 @@ export default function RequestQuoteForm() {
                 </label>
                 <select
                   id="rq-plan"
+                  name="plan"
                   className="rq-input"
                   value={form.plan}
                   onChange={set('plan')}
@@ -235,6 +242,7 @@ export default function RequestQuoteForm() {
                 </label>
                 <select
                   id="rq-service"
+                  name="service"
                   className="rq-input"
                   value={form.service}
                   onChange={set('service')}
@@ -255,6 +263,7 @@ export default function RequestQuoteForm() {
               </label>
               <textarea
                 id="rq-message"
+                  name="message"
                 className="rq-input rq-textarea"
                 value={form.message}
                 onChange={set('message')}

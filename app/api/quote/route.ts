@@ -189,12 +189,35 @@ type Lead = {
 
 export async function POST(request: Request) {
   try {
-    const lead: Lead = await request.json();
+    const raw = await request.json();
+
+    // Normalize the payload. The website quote form (RequestQuoteForm) posts a
+    // single `name` plus `plan`/`service`/`message`; older callers post
+    // firstName/lastName + serviceType/notes. Accept BOTH so a lead is never
+    // dropped on a field-name mismatch (this previously 400'd every quote-form
+    // submission because `name` !== `firstName`).
+    const fullName = String(raw.name ?? `${raw.firstName ?? ""} ${raw.lastName ?? ""}`).trim();
+    const [firstName = "", ...rest] = fullName.split(/\s+/);
+    const lastName = rest.join(" ");
+    const serviceType = raw.service ?? raw.serviceType ?? "";
+    const notes = [raw.plan ? `Plan: ${raw.plan}` : "", raw.message ?? raw.notes ?? ""]
+      .filter(Boolean)
+      .join(" — ");
+    const lead: Lead = {
+      firstName,
+      lastName,
+      phone: raw.phone,
+      email: raw.email ?? "",
+      address: raw.address,
+      zip: raw.zip,
+      serviceType,
+      notes,
+    };
 
     // Validate the bare minimum
-    if (!lead.firstName || !lead.phone || !lead.zip) {
+    if (!fullName || !lead.phone || !lead.zip) {
       return NextResponse.json(
-        { ok: false, error: "Missing required fields (firstName, phone, zip)" },
+        { ok: false, error: "Missing required fields (name, phone, zip)" },
         { status: 400 }
       );
     }
