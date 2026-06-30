@@ -1,5 +1,6 @@
 "use client";
 
+
 /**
  * Header — single SITEWIDE sticky header (rendered once in app/layout.tsx).
  * Custom EnviroCare identity (NOT a v0 template): /logo.png sunflower + Playfair
@@ -17,7 +18,6 @@ import { useEffect, useState } from "react";
 import { Phone, Menu, X, Sparkles, User, Flower2 } from "lucide-react";
 
 const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
-const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
 
 function openScout(message?: string) {
   if (typeof window !== "undefined") {
@@ -78,11 +78,17 @@ export default function Header() {
             <span className="sh-tagline">Family-Owned <span className="sh-tagline-dot">·</span> Since 1958</span>
           </Link>
 
-          {/* CONTROLS: Ask an Expert · Call · Menu */}
+          {/* CONTROLS: Ask an Expert / Pay Bill / Get Free Quote / Call / Menu */}
           <div className="sh-actions">
-            <button type="button" className="sh-ask" onClick={() => openScout(QUOTE_PROMPT)}>
+            <button type="button" className="sh-ask" onClick={() => openScout()}>
               <Sparkles size={16} aria-hidden="true" /> <span>Ask an Expert</span>
             </button>
+            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-pay">
+              <span>Pay Bill</span>
+            </a>
+            <Link href="/request-quote" className="sh-quote">
+              <span className="sh-quote-full">Get Free Quote</span><span className="sh-quote-short">Quote</span>
+            </Link>
             <a href="tel:2059406360" className="sh-call" aria-label="Call EnviroCare at (205) 940-6360">
               <Phone size={16} aria-hidden="true" /> <span className="sh-call-num">(205) 940-6360</span><span className="sh-call-word">Call</span>
             </a>
@@ -135,7 +141,7 @@ const SH_CSS = `
 
   /* CONTROLS — one cohesive style, matching height, rounded, even spacing */
   .sh-actions { display: inline-flex; align-items: center; gap: 10px; }
-  .sh-ask, .sh-call, .sh-menu {
+  .sh-ask, .sh-pay, .sh-quote, .sh-call, .sh-menu {
     display: inline-flex; align-items: center; justify-content: center; gap: 7px;
     height: 44px; padding: 0 18px; border-radius: 999px;
     font-family: inherit; font-size: 14.5px; font-weight: 700; line-height: 1;
@@ -153,14 +159,29 @@ const SH_CSS = `
   /* Menu — subtle, gold-accent hover */
   .sh-menu { background: #fff; color: #0E1A0F; border: 1.5px solid #E0DACE; }
   .sh-menu:hover { border-color: #F5A800; color: #0A7935; }
+  /* Pay Bill - subtle outline, same family as Menu */
+  .sh-pay { background: #fff; color: #0E1A0F; border: 1.5px solid #E0DACE; }
+  .sh-pay:hover { border-color: #F5A800; color: #0A7935; }
+  /* Get Free Quote - PRIMARY lead CTA, solid gold */
+  .sh-quote { background: #F5A800; color: #0E1A0F !important; border: 1.5px solid #F5A800; box-shadow: 0 4px 14px rgba(245,168,0,0.32); }
+  .sh-quote:hover { background: #E89C00; border-color: #E89C00; transform: translateY(-1px); }
+  .sh-quote-short { display: none; }
 
-  /* Responsive: keep all three, shrink gracefully */
+  /* Responsive */
+  @media (max-width: 980px) {
+    .sh-pay { display: none; }   /* Pay Bill folds into the menu (Customer Login) */
+  }
   @media (max-width: 720px) {
     .sh-inner { min-height: 64px; }
     .sh-logo { height: 44px !important; max-width: 170px !important; }
     .sh-ask span, .sh-menu span { display: none; }       /* icon-only Ask + Menu on phones */
-    .sh-ask, .sh-call, .sh-menu { height: 42px; padding: 0 14px; gap: 0; }
+    .sh-ask, .sh-quote, .sh-call, .sh-menu { height: 42px; padding: 0 14px; gap: 0; }
     .sh-call { padding: 0 16px; }
+  }
+  @media (max-width: 560px) {
+    .sh-quote-full { display: none; }
+    .sh-quote-short { display: inline; }
+    .sh-actions { gap: 7px; }
   }
   @media (max-width: 420px) {
     .sh-call-num { display: none; }
