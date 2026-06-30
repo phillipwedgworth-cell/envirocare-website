@@ -2,12 +2,6 @@
 // Functionality unchanged from prior version — this pass only restyles the open panel
 // (the old header + user bubbles were flat near-black "INK"; now they're on-brand and colorful).
 
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: components/ChatWidget.tsx
-// Commit: feat: fire Meta Pixel Lead event on chat phone capture
-// Push: main
-// ─────────────────────────────────────
 "use client";
 import { useState, useRef, useEffect } from "react";
 
@@ -28,12 +22,40 @@ interface Message {
   content: string;
 }
 
-const QUICK_ACTIONS = [
-  "Pest control pricing",
-  "Free termite inspection",
-  "Pay my bill",
-  "Talk to a person",
+const QUICK_ACTIONS: { label: string; prompt?: string; href?: string }[] = [
+  { label: "Pricing & plans", prompt: "What does pest control cost, and what plans do you offer?" },
+  { label: "What pests do you cover?", prompt: "What pests do you cover?" },
+  { label: "Request a quote", href: "/request-quote" },
+  { label: "Pay my bill", prompt: "How do I pay my bill online?" },
 ];
+
+// Linkify URLs, known site paths, and phone numbers in Scout's replies so a
+// handoff (the quote form, contact page, or office phone) is one tap away.
+function renderRich(text: string): (string | JSX.Element)[] {
+  const re =
+    /(https?:\/\/[^\s)]+|\/(?:request-quote|contact-us|pricing|reviews|services|about-us|quote)\b|\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/g;
+  const out: (string | JSX.Element)[] = [];
+  let last = 0;
+  let k = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const tok = m[0];
+    if (/^\(?\d/.test(tok)) {
+      const tel = tok.replace(/[^\d]/g, "");
+      out.push(
+        <a key={k++} href={`tel:${tel}`} style={{ color: BRAND_GREEN, fontWeight: 600 }}>{tok}</a>
+      );
+    } else {
+      out.push(
+        <a key={k++} href={tok} style={{ color: BRAND_GREEN, fontWeight: 600, textDecoration: "underline" }}>{tok}</a>
+      );
+    }
+    last = m.index + tok.length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +63,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hi, I'm Scout 🌻 — EnviroCare's assistant. We're a fourth-generation Alabama family business, here since 1958. What can I help you with today?",
+        "Hi, I'm Scout 🌻 — EnviroCare's assistant. I can answer questions about our services, pricing, coverage areas, or your bill. What can I help you with?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -259,7 +281,7 @@ export default function ChatWidget() {
                 ? { background: `linear-gradient(135deg, ${BRAND_GREEN}, ${FOREST})`, color: "#fff", borderBottomRightRadius: 4 }
                 : { background: "#fff", border: "1px solid #E8E2D8", color: INK, borderBottomLeftRadius: 4 }),
             }}>
-              {msg.content}
+              {msg.role === "assistant" ? renderRich(msg.content) : msg.content}
             </div>
           </div>
         ))}
@@ -282,20 +304,36 @@ export default function ChatWidget() {
       {/* Quick actions (first message only) */}
       {messages.length <= 1 && (
         <div style={{ padding: "0 14px 8px", display: "flex", gap: 6, flexWrap: "wrap", background: "#fff" }}>
-          {QUICK_ACTIONS.map((q) => (
-            <button
-              key={q}
-              onClick={() => sendMessage(q)}
-              style={{
-                padding: "7px 13px", borderRadius: 20,
-                border: `1px solid ${BRAND_GREEN}`, background: CREAM,
-                color: BRAND_GREEN, fontSize: 12.5, fontWeight: 600,
-                cursor: "pointer", fontFamily: FONT_STACK, transition: "all 0.15s",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = BRAND_GREEN; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = CREAM; e.currentTarget.style.color = BRAND_GREEN; }}
-            >{q}</button>
-          ))}
+          {QUICK_ACTIONS.map((q) =>
+            q.href ? (
+              <a
+                key={q.label}
+                href={q.href}
+                style={{
+                  padding: "7px 13px", borderRadius: 20,
+                  border: `1px solid ${BRAND_GREEN}`, background: CREAM,
+                  color: BRAND_GREEN, fontSize: 12.5, fontWeight: 600,
+                  cursor: "pointer", fontFamily: FONT_STACK, transition: "all 0.15s",
+                  textDecoration: "none", display: "inline-block",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = BRAND_GREEN; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = CREAM; e.currentTarget.style.color = BRAND_GREEN; }}
+              >{q.label}</a>
+            ) : (
+              <button
+                key={q.label}
+                onClick={() => sendMessage(q.prompt)}
+                style={{
+                  padding: "7px 13px", borderRadius: 20,
+                  border: `1px solid ${BRAND_GREEN}`, background: CREAM,
+                  color: BRAND_GREEN, fontSize: 12.5, fontWeight: 600,
+                  cursor: "pointer", fontFamily: FONT_STACK, transition: "all 0.15s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = BRAND_GREEN; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = CREAM; e.currentTarget.style.color = BRAND_GREEN; }}
+              >{q.label}</button>
+            )
+          )}
         </div>
       )}
 
