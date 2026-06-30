@@ -95,6 +95,14 @@ const CITY_ART_SVG: Record<string, string> = {
 </svg>`,
 };
 
+// Physical office geo + verified Google Business Profile, keyed by office phone (digits).
+// Coordinates mirror app/layout.tsx; GBP links mirror data/offices.ts. Keep all three in sync.
+const OFFICE_NAP: Record<string, { lat: number; lng: number; gbp: string }> = {
+  '2059406360': { lat: 33.2106, lng: -86.8164, gbp: 'https://www.google.com/maps?cid=7378341068021381374' },   // Birmingham / Alabaster
+  '2562346162': { lat: 32.9440, lng: -85.9536, gbp: 'https://www.google.com/maps?cid=12101127141767078247' },  // Alexander City / Lake Martin
+  '2569377676': { lat: 34.7191, lng: -86.6878, gbp: 'https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8' },             // Huntsville
+};
+
 function buildCitySchema(city: City) {
   const tel = city.directTel || city.officeTel;
   const telFormatted = `+1-${tel.slice(0, 3)}-${tel.slice(3, 6)}-${tel.slice(6)}`;
@@ -103,6 +111,9 @@ function buildCitySchema(city: City) {
   const [addressRegion, postalCode] = stateZip.split(' ');
   const addressLocality = parts[parts.length - 2];
   const streetAddress = parts.slice(0, parts.length - 2).join(', ');
+  // geo + verified GBP key off the physical office (officeTel), not a city-specific routing line.
+  const nap = OFFICE_NAP[city.officeTel];
+  const sameAs = nap ? ['https://www.envirocarellc.com', nap.gbp] : ['https://www.envirocarellc.com'];
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -120,9 +131,10 @@ function buildCitySchema(city: City) {
       postalCode,
       addressCountry: 'US',
     },
+    ...(nap ? { geo: { '@type': 'GeoCoordinates', latitude: nap.lat, longitude: nap.lng } } : {}),
     areaServed: { '@type': 'City', name: city.name, addressRegion: 'AL', addressCountry: 'US' },
     openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' }],
-    sameAs: ['https://www.envirocarellc.com'],
+    sameAs,
     image: 'https://www.envirocarellc.com/og-image.png',
   };
 }
