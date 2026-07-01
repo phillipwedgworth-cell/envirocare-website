@@ -1,4 +1,4 @@
-# NeuronWriter Optimize — 2026-06-21
+# NeuronWriter Optimize — 2026-07-01
 
 Drafts that cleared 70: **0**. Target band 70–80. Review each before merging.
 
