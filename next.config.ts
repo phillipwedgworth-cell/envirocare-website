@@ -61,6 +61,7 @@ const nextConfig: NextConfig = {
             { source: '/mosquito', destination: '/services/mosquito', permanent: true },
             { source: '/pest-control', destination: '/services/pest-control', permanent: true },
             { source: '/sentricon', destination: '/services/sentricon', permanent: true },
+            { source: '/madison', destination: '/service-areas/madison', permanent: true },  // /madison had no top-level route; consolidate to the maintained service-area page (avoids duplicate content)
             { source: '/pay', destination: 'https://payenvirocare.key7app.com', permanent: false },
 
             // ─── SCORPION CITY URLS → city pages (Birmingham region) ─────────
@@ -179,6 +180,15 @@ const nextConfig: NextConfig = {
             { source: '/request-appointment', destination: '/quote', permanent: true },
             { source: '/coupons', destination: '/quote', permanent: true },
             { source: '/coupons/:path*', destination: '/quote', permanent: true },
+
+            // ─── LEGACY ASSET 404 CATCH (post-flip cleanup) ───
+            // The old Scorpion site served assets under /images/* and /cms/*.
+            // This repo hosts nothing at those paths (no public/images or
+            // public/cms dir, and no /images//cms references in code), so a
+            // blanket 308 to home retires the legacy 404s without intercepting
+            // any real asset. Revisit if a real /images or /cms route is added.
+            { source: '/images/:path*', destination: '/', permanent: true },
+            { source: '/cms/:path*', destination: '/', permanent: true },
                 ];
     },
 };
