@@ -1,0 +1,51 @@
+name: Social Poster + Suggester
+# Publishes due social_posts to Facebook/Instagram/Google Business Profile daily,
+# and runs the multi-model suggester weekly (Mondays). Platform clients no-op
+# until their tokens exist, so this is safe to enable now.
+on:
+  schedule:
+    - cron: '0 15 * * *'   # daily 15:00 UTC (~10am CT)
+  workflow_dispatch: {}
+
+jobs:
+  social:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_URL:            ${{ secrets.SUPABASE_URL }}
+      SUPABASE_KEY:            ${{ secrets.SUPABASE_KEY }}
+      # Meta (Facebook / Instagram)
+      META_PAGE_ID:            ${{ secrets.META_PAGE_ID }}
+      META_PAGE_TOKEN:         ${{ secrets.META_PAGE_TOKEN }}
+      IG_BUSINESS_ID:          ${{ secrets.IG_BUSINESS_ID }}
+      # Google Business Profile (reuses the GSC/GA4 OAuth app)
+      GOOGLE_CLIENT_ID:        ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET:    ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      GOOGLE_REFRESH_TOKEN:    ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+      GBP_ACCOUNT_ID:          ${{ secrets.GBP_ACCOUNT_ID }}
+      GBP_LOCATION_HUNTSVILLE: ${{ secrets.GBP_LOCATION_HUNTSVILLE }}
+      GBP_LOCATION_BIRMINGHAM: ${{ secrets.GBP_LOCATION_BIRMINGHAM }}
+      GBP_LOCATION_LAKE_MARTIN: ${{ secrets.GBP_LOCATION_LAKE_MARTIN }}
+      # Suggester (multi-model)
+      ANTHROPIC_API_KEY:       ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY:          ${{ secrets.GEMINI_API_KEY }}
+      OPENAI_API_KEY:          ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm ci || npm install
+      - name: Publish due posts
+        run: node -e "import('./agents/social-poster.mjs').then(m=>m.run()).then(r=>console.log(JSON.stringify(r))).catch(e=>{console.error(e);process.exit(1)})"
+      - name: Weekly suggestions (Mondays only)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: node -e "import('./agents/social-suggester.mjs').then(m=>m.run()).then(r=>console.log(JSON.stringify(r))).catch(e=>{console.error(e);process.exit(1)})"
+      - name: Weekly suggestions (scheduled, Mondays)
+        if: ${{ github.event_name == 'schedule' }}
+        run: |
+          if [ "$(date -u +%u)" = "1" ]; then
+            node -e "import('./agents/social-suggester.mjs').then(m=>m.run()).then(r=>console.log(JSON.stringify(r))).catch(e=>{console.error(e);process.exit(1)})"
+          else
+            echo "Not Monday — skipping suggester."
+          fi
