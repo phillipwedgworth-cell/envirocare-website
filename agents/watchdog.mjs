@@ -139,6 +139,7 @@ async function run() {
   const expected = new Set(EXPECTED.map(e => e.agent));
   for (const [name, r] of latest) {
     if (expected.has(name)) continue;
+    if (name === 'watchdog') continue;   // never self-monitor via the ledger — reading its own last row created a false "watchdog failed" loop
     if (!healthy(r.status)) { lines.push(`FAILED   ${name} — status="${r.status}"`); problems.push(name); }
   }
 
@@ -159,7 +160,12 @@ async function run() {
   if (problems.length) emailed = await sendEmail(`⚠️ EnviroCare: ${problems.length} need attention`, body);
   else if (new Date().getUTCDay() === DIGEST_DAY) emailed = await sendEmail(`✅ EnviroCare: all healthy`, body);
 
-  await logAgentRun('watchdog', problems.length ? 'fail' : 'ok', { problems, emailed });
+  // The watchdog itself completed successfully — always log 'ok' and carry any
+  // found problems in the payload. Logging 'fail' here (merely because OTHER
+  // agents have problems) made the next run read its own row and re-flag
+  // "watchdog failed" — a self-perpetuating false alarm. A genuine watchdog
+  // failure exits non-zero via the catch below, which is the real liveness signal.
+  await logAgentRun('watchdog', 'ok', { problems, emailed });
   return { problems, emailed };
 }
 
