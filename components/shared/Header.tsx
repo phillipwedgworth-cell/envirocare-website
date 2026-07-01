@@ -1,3 +1,10 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/shared/Header.tsx
+// Commit: feat(ui): slim mobile header to logo+call+menu; ask/quote move to menu
+// Push: main
+// ──────────────────────────────────────
+
 "use client";
 
 
@@ -8,8 +15,10 @@
  * accents, gold hover. Top bar = three cohesive controls only:
  *   [logo]  ……  [Ask an Expert (→Scout)] [Call (primary green)] [☰ Menu]
  * Everything else (Services, Service Areas, Pest Library, Pricing, About, Reviews,
- * Contact, Customer Login) lives in the hamburger. No floating bubbles — Scout is
- * reached ONLY via "Ask an Expert" (dispatches ec:open-scout; ChatWidget listens).
+ * Contact, Customer Login) lives in the hamburger. On phones the top bar is just
+ * [logo] [Call] [Menu] — Ask an Expert + Get a Free Quote move into the menu, and
+ * Scout also has a floating chat bubble (ChatWidget). Ask still dispatches
+ * ec:open-scout, which ChatWidget listens for.
  */
 
 import Link from "next/link";
@@ -112,6 +121,12 @@ export default function Header() {
               <Link key={href} href={href} className="sh-panel-link" onClick={() => setMenuOpen(false)}>{label}</Link>
             ))}
           </div>
+          <div className="sh-panel-cta">
+            <Link href="/request-quote" className="sh-panel-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote</Link>
+            <button type="button" className="sh-panel-ask" onClick={() => { setMenuOpen(false); openScout(); }}>
+              <Sparkles size={16} aria-hidden="true" /> Ask an Expert
+            </button>
+          </div>
           <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-panel-login" onClick={() => setMenuOpen(false)}>
             <User size={17} aria-hidden="true" /> Customer Login
           </a>
@@ -174,9 +189,11 @@ const SH_CSS = `
   @media (max-width: 720px) {
     .sh-inner { min-height: 64px; }
     .sh-logo { height: 44px !important; max-width: 170px !important; }
-    .sh-ask span, .sh-menu span { display: none; }       /* icon-only Ask + Menu on phones */
-    .sh-ask, .sh-quote, .sh-call, .sh-menu { height: 42px; padding: 0 14px; gap: 0; }
-    .sh-call { padding: 0 16px; }
+    /* Declutter: Ask an Expert -> chat bubble + menu; Get Quote -> menu. Top bar = logo + Call + Menu. */
+    .sh-ask, .sh-quote { display: none; }
+    .sh-menu span { display: none; }                     /* icon-only Menu on phones */
+    .sh-menu { height: 42px; padding: 0 12px; gap: 0; }
+    .sh-call { height: 42px; padding: 0 16px; gap: 7px; }
   }
   @media (max-width: 560px) {
     .sh-quote-full { display: none; }
@@ -219,6 +236,22 @@ const SH_CSS = `
     font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 4px 14px rgba(10,121,53,0.28);
   }
   .sh-panel-login:hover { background: #086A2E; }
+  /* Mobile-only quick actions inside the menu (desktop header already shows these) */
+  .sh-panel-cta { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .sh-panel-quote {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 18px; border-radius: 999px; background: #F5A800; color: #0E1A0F !important;
+    font-weight: 800; font-size: 16px; text-decoration: none; box-shadow: 0 4px 14px rgba(245,168,0,0.32);
+  }
+  .sh-panel-quote:hover { background: #E89C00; }
+  .sh-panel-ask {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 18px; border-radius: 999px; background: #fff; color: #0A7935;
+    border: 1.5px solid #0A7935; font-weight: 700; font-size: 15px; cursor: pointer; font-family: inherit;
+  }
+  .sh-panel-ask svg { color: #F5A800; }
+  .sh-panel-ask:hover { background: #F0F9F3; border-color: #F5A800; }
+  @media (min-width: 721px) { .sh-panel-cta { display: none; } }
   .sh-panel-foot { margin-top: auto; padding-top: 18px; font-size: 11.5px; color: #6b7d70; line-height: 1.5; }
 
   /* ── Sitewide rotating banner ── */

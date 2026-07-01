@@ -1,3 +1,10 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/ChatWidget.tsx
+// Commit: feat(chat): add floating Scout bubble + one-time nudge tooltip
+// Push: main
+// ──────────────────────────────────────
+
 // Floating chat widget for EnviroCare ("Scout"). Add <ChatWidget /> to app/layout.tsx inside <body>.
 // Functionality unchanged from prior version — this pass only restyles the open panel
 // (the old header + user bubbles were flat near-black "INK"; now they're on-brand and colorful).
@@ -59,6 +66,7 @@ function renderRich(text: string): (string | JSX.Element)[] {
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [nudge, setNudge] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -93,6 +101,19 @@ export default function ChatWidget() {
     window.addEventListener("ec:open-scout", handler as EventListener);
     return () => window.removeEventListener("ec:open-scout", handler as EventListener);
   }, []);
+
+  // One-time proactive nudge so visitors notice Scout exists (suppressed per session once seen).
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try { if (sessionStorage.getItem("ec-scout-nudged")) return; } catch {}
+    const t = setTimeout(() => setNudge(true), 7000);
+    return () => clearTimeout(t);
+  }, []);
+  useEffect(() => { if (isOpen) setNudge(false); }, [isOpen]);
+  const dismissNudge = () => {
+    setNudge(false);
+    try { sessionStorage.setItem("ec-scout-nudged", "1"); } catch {}
+  };
 
   // Once opened with a pending prompt, send it automatically
   useEffect(() => {
@@ -173,12 +194,40 @@ export default function ChatWidget() {
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: `
-          @keyframes ec-scout-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.75);opacity:0}100%{transform:scale(1.75);opacity:0}}
-          @media (prefers-reduced-motion: reduce){.ec-scout-ring{animation:none!important;display:none}}
-          @media (max-width: 600px){.ec-scout-label{display:none!important}}
+          @keyframes ec-scout-pop{0%{transform:scale(0.6);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+          @keyframes ec-scout-ring{0%{transform:scale(1);opacity:.45}70%{transform:scale(1.8);opacity:0}100%{opacity:0}}
+          .ec-scout-fab{position:fixed;bottom:16px;right:16px;z-index:9999;width:58px;height:58px;border-radius:50%;
+            border:none;cursor:pointer;background:#0A7935;color:#fff;box-shadow:0 10px 28px rgba(10,121,53,0.42);
+            display:flex;align-items:center;justify-content:center;animation:ec-scout-pop .3s ease both;}
+          .ec-scout-fab:hover{background:#086A2E;transform:translateY(-2px);transition:transform .12s,background .15s;}
+          .ec-scout-fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #F5A800;animation:ec-scout-ring 2.6s ease-out infinite;}
+          @media (prefers-reduced-motion: reduce){.ec-scout-fab::before{animation:none;display:none}.ec-scout-fab{animation:none}}
+          .ec-scout-tip{position:fixed;bottom:22px;right:84px;z-index:9999;max-width:230px;
+            background:#fff;color:#0E1A0F;border:1px solid #E6E0D2;border-left:4px solid #F5A800;border-radius:14px;
+            padding:10px 12px 10px 14px;box-shadow:0 12px 34px rgba(14,26,15,0.20);
+            font-family:'DM Sans',system-ui,sans-serif;font-size:13.5px;line-height:1.35;
+            display:flex;align-items:flex-start;gap:8px;animation:ec-scout-pop .25s ease both;}
+          .ec-scout-tip b{color:#0A7935;}
+          .ec-scout-tip-x{flex-shrink:0;background:none;border:none;cursor:pointer;color:#8a978c;font-size:16px;line-height:1;padding:0 2px;}
+          .ec-scout-tip-x:hover{color:#0E1A0F;}
+          @media (max-width:600px){.ec-scout-tip{right:12px;bottom:86px;left:auto;max-width:72vw;}}
         `}} />
-      {/* No floating bubble — Scout opens ONLY via the header "Ask an Expert" button,
-          which dispatches the ec:open-scout event the effect above listens for. */}
+        {nudge && (
+          <div className="ec-scout-tip" role="status">
+            <span>Questions about pests or pricing? <b>Chat with Scout</b> — quick answers, no wait.</span>
+            <button type="button" className="ec-scout-tip-x" aria-label="Dismiss" onClick={dismissNudge}>&times;</button>
+          </div>
+        )}
+        <button
+          type="button"
+          className="ec-scout-fab"
+          aria-label="Open chat with Scout, the EnviroCare assistant"
+          onClick={() => { dismissNudge(); setIsOpen(true); }}
+        >
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+        </button>
       </>
     );
   }

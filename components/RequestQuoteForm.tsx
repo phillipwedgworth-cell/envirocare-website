@@ -1,3 +1,10 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/RequestQuoteForm.tsx
+// Commit: fix(compliance): remove killed Crawlspace Service from quote form
+// Push: main
+// ──────────────────────────────────────
+
 'use client';
 
 import { useState } from 'react';
@@ -20,7 +27,6 @@ const SERVICES = [
   'Flea Control',
   'Builder Pre-Treat',
   'Real Estate / WDO Letter',
-  'Crawlspace Service',
   'Commercial Service',
   'Not sure yet',
 ];

@@ -1,8 +1,15 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/StickyCallButton.tsx
+// Commit: feat(ui): simplify mobile action bar to call + get-a-free-quote
+// Push: main
+// ──────────────────────────────────────
+
 'use client';
 
 /**
  *
- * Mobile-only fixed bottom action bar: Call (with number) + Free Inspection + Get Quote.
+ * Mobile-only fixed bottom action bar: Call (with number) + Get a Free Quote.
  * Hidden >=900px (desktop has header phones). Reserves the bottom-right
  * corner so it never overlaps the chat launcher, respects the iOS bottom
  * safe area, and slides out of the way while a form field is focused so
@@ -41,10 +48,7 @@ export default function StickyCallButton() {
             <span className="sc-num">(205) 940-6360</span>
           </span>
         </a>
-        <div className="sc-row">
-          <a href="/services/termite-control" className="sc-inspect">Free Inspection</a>
-          <a href="/quote" className="sc-quote">Get Quote</a>
-        </div>
+        <a href="/request-quote" className="sc-quote">Get a Free Quote</a>
       </div>
     </>
   );
@@ -81,21 +85,13 @@ const STICKY_CSS = `
 .sc-text { display: flex; flex-direction: column; line-height: 1.15; }
 .sc-label { font-size: 11px; opacity: 0.9; font-weight: 500; }
 .sc-num { font-size: 18px; font-weight: 700; letter-spacing: 0.01em; }
-.sc-row { display: flex; gap: 8px; }
-.sc-inspect, .sc-quote {
-  flex: 1;
+.sc-quote {
   display: flex; align-items: center; justify-content: center;
   text-decoration: none; border-radius: 14px; min-height: 50px;
-  font-weight: 700; font-size: 14px;
+  font-weight: 700; font-size: 15px;
+  background: #F5A800; color: #0E1A0F !important;
   transition: transform 0.1s;
 }
-.sc-inspect {
-  background: #fff; color: #0E8E40 !important;
-  border: 1.5px solid #0E8E40;
-}
-.sc-quote {
-  background: #F5A800; color: #0E1A0F !important;
-}
-.sc-inspect:active, .sc-quote:active { transform: translateY(1px); }
+.sc-quote:active { transform: translateY(1px); }
 @media (min-width: 900px) { .sc-wrap { display: none; } }
 `;
