@@ -7,6 +7,8 @@
 // exist, so this can be scheduled now and "go live" the moment you add secrets.
 
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { postToFacebook, postToInstagram } from "./lib/meta.mjs";
 import { postGbp } from "./lib/gbp.mjs";
@@ -16,9 +18,11 @@ const AGENT_NAME = "social-poster";
 function loadCalendar() {
   // The calendar ships in a companion PR; tolerate its absence so the poster
   // (which also reads the live social_posts queue) never hard-crashes.
+  // Path is built dynamically (not `new URL(literal, import.meta.url)`) so the
+  // Next.js/webpack build doesn't try to bundle the JSON as a static asset.
   try {
-    const url = new URL("./social/content-calendar.json", import.meta.url);
-    return JSON.parse(readFileSync(url, "utf8"));
+    const dir = dirname(fileURLToPath(import.meta.url));
+    return JSON.parse(readFileSync(join(dir, "social", "content-calendar.json"), "utf8"));
   } catch {
     return { locations: {}, defaults: {}, posts: [] };
   }
