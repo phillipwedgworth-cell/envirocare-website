@@ -1,0 +1,74 @@
+{
+  "_comment": "EnviroCare social + local content calendar. Drives content-generator/meta-poster/gbp-poster. Captions are compliance-safe (correct office phone per location; the banned legacy Scorpion tracking number must never appear). Dates are seed values — the generator rolls them forward weekly.",
+  "locations": {
+    "huntsville":  { "gbp_place_id": "ChIJd4YXKCRmqmIR1DmDoEcGohU", "phone": "(256) 937-7676", "label": "Huntsville" },
+    "birmingham":  { "gbp_place_id": "ChIJr8cmt-EeiYgR_jgX9xsiZWY", "phone": "(205) 940-6360", "label": "Birmingham / Alabaster" },
+    "lake_martin": { "gbp_place_id": "ChIJ508mEjcLjIgRZ2HdWgXX76c", "phone": "(256) 234-6162", "label": "Lake Martin / Alex City" }
+  },
+  "defaults": { "status": "draft", "cta": "Call for a free quote", "utm": "?utm_source=gbp&utm_medium=post" },
+  "posts": [
+    {
+      "id": "wk1-mosquito-hsv", "week": 1, "publish_date": "2026-07-06",
+      "platforms": ["google", "facebook"], "location": "huntsville", "type": "offer",
+      "headline": "Take your Huntsville yard back this summer",
+      "body": "Beaverdam Creek and Hampton Cove keep mosquitoes thick all season. Our 30-day yard barrier runs March–November so the patio stays usable. First application 50% off for new mosquito customers.",
+      "cta": "Call (256) 937-7676 for a free quote", "graphic_theme": "mosquito-season"
+    },
+    {
+      "id": "wk1-mosquito-bhm", "week": 1, "publish_date": "2026-07-06",
+      "platforms": ["google", "facebook"], "location": "birmingham", "type": "offer",
+      "headline": "Enjoy your Birmingham backyard again",
+      "body": "30-day mosquito barrier across Hoover, Vestavia, Mountain Brook and the metro. Family-owned since 1958. First application 50% off for new mosquito customers.",
+      "cta": "Call (205) 940-6360 for a free quote", "graphic_theme": "mosquito-season"
+    },
+    {
+      "id": "wk1-tick-lkm", "week": 1, "publish_date": "2026-07-09",
+      "platforms": ["google", "facebook"], "location": "lake_martin", "type": "whats_new",
+      "headline": "Lake days without the ticks",
+      "body": "Wooded lots around Lake Martin carry Lone Star and dog ticks. Our mosquito + tick program bundles both for waterfront and wooded properties.",
+      "cta": "Call (256) 234-6162", "graphic_theme": "tick-control"
+    },
+    {
+      "id": "wk2-termite-hsv", "week": 2, "publish_date": "2026-07-13",
+      "platforms": ["google", "facebook"], "location": "huntsville", "type": "whats_new",
+      "headline": "No-drill termite protection for historic Huntsville homes",
+      "body": "Monte Sano and Twickenham homes sit on damp clay against old foundations. Sentricon® Always Active™ protects without drilling into original brick — up to $1M coverage. Free inspection.",
+      "cta": "Call (256) 937-7676", "graphic_theme": "termite-sentricon"
+    },
+    {
+      "id": "wk2-review-ask-bhm", "week": 2, "publish_date": "2026-07-16",
+      "platforms": ["facebook"], "location": "birmingham", "type": "engagement",
+      "headline": "How are we doing?",
+      "body": "If a technician took great care of your home, we'd love a quick Google review — it helps your neighbors find dependable, family-owned service. Thank you for trusting EnviroCare since 1958.",
+      "cta": "Leave a review", "graphic_theme": "review-thank-you"
+    },
+    {
+      "id": "wk3-fireant-bhm", "week": 3, "publish_date": "2026-07-20",
+      "platforms": ["google", "facebook"], "location": "birmingham", "type": "whats_new",
+      "headline": "Fire ants in new-construction yards?",
+      "body": "Fresh sod in Trace Crossings and newer Shelby County builds arrives with fire-ant colonies aboard. Whole-colony treatment is available to anyone, priced by yard size.",
+      "cta": "Call (205) 940-6360", "graphic_theme": "fire-ant"
+    },
+    {
+      "id": "wk3-mosquito-lkm", "week": 3, "publish_date": "2026-07-23",
+      "platforms": ["google", "facebook"], "location": "lake_martin", "type": "offer",
+      "headline": "Waterfront mosquito control built for the lake",
+      "body": "880 miles of shoreline means standing water everywhere. Our 30-day barrier is designed for waterfront lots. First application 50% off for new customers.",
+      "cta": "Call (256) 234-6162 for a free quote", "graphic_theme": "mosquito-season"
+    },
+    {
+      "id": "wk4-fall-prep-hsv", "week": 4, "publish_date": "2026-07-27",
+      "platforms": ["google", "facebook"], "location": "huntsville", "type": "whats_new",
+      "headline": "Get ahead of fall invaders off Monte Sano",
+      "body": "Asian lady beetles, stink bugs, and boxelder bugs come off the ridgeline every October. Bi-monthly exterior treatments seal entry points before they get inside — 30+ pests, no contract.",
+      "cta": "Call (256) 937-7676", "graphic_theme": "fall-invaders"
+    },
+    {
+      "id": "wk4-family-brand-all", "week": 4, "publish_date": "2026-07-30",
+      "platforms": ["facebook"], "location": "birmingham", "type": "brand",
+      "headline": "Four generations. One promise.",
+      "body": "The Wedgworth family has protected Alabama homes since 1958. No one cares like EnviroCare — pest, termite, mosquito, and tick service across the whole state.",
+      "cta": "Learn more", "graphic_theme": "family-brand"
+    }
+  ]
+}
