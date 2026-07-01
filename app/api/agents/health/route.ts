@@ -11,17 +11,27 @@ const ENV_GROUPS = {
   panel: ["OPENAI_API_KEY", "GEMINI_API_KEY"],
   email: ["RESEND_API_KEY", "NOTIFY_EMAIL", "NOTIFY_FROM"],
   seo: ["BRIGHTLOCAL_API_KEY", "LOCAL_FALCON_API_KEY", "PAGESPEED_API_KEY"],
+  // Guards the /api/*/run cron endpoints + the /command-center gate (Vercel-side).
+  cron: ["CRON_SECRET", "COMMAND_CENTER_KEY"],
+  // GA4/Search Console + Google Business Profile posting (reuse one OAuth app).
+  analytics: ["GA4_PROPERTY_ID", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "GOOGLE_REFRESH_TOKEN"],
 };
 
 // Keys that are optional — their absence is fine and shouldn't mark the
 // deployment unhealthy (panel degrades to fewer lenses; PageSpeed works
-// keyless at low volume; NOTIFY_FROM falls back to a default).
+// keyless at low volume; NOTIFY_FROM falls back to a default; analytics +
+// command-center + GBP are feature-gated and only needed once those are turned on).
 const OPTIONAL = new Set([
   "OPENAI_API_KEY",
   "GEMINI_API_KEY",
   "PAGESPEED_API_KEY",
   "NOTIFY_FROM",
   "LOCAL_FALCON_API_KEY",
+  "COMMAND_CENTER_KEY",
+  "GA4_PROPERTY_ID",
+  "GOOGLE_CLIENT_ID",
+  "GOOGLE_CLIENT_SECRET",
+  "GOOGLE_REFRESH_TOKEN",
 ]);
 
 export async function GET() {
