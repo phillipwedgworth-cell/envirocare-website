@@ -1,6 +1,6 @@
 /**
  * EnviroCare Command Center — single-pane-of-glass ops cockpit.
- * Gate: /command-center?key=envirocare2026
+ * Gate: /command-center?key=$COMMAND_CENTER_KEY  (set COMMAND_CENTER_KEY in Vercel)
  * Server component. Reads every Supabase feed the agents + ingests populate:
  *   agent_runs · agent_findings · envirocare_seo · gsc_daily · ga4_weekly
  *   gads_campaigns · cfo_snapshots · morning_brief
@@ -17,7 +17,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const GATE = 'envirocare2026';
+// Access key comes from the COMMAND_CENTER_KEY env var (set in Vercel), never
+// hardcoded — this repo is public. If the var is unset the page fails closed.
+const GATE = process.env.COMMAND_CENTER_KEY;
 
 // ── types ─────────────────────────────────────────────────────────────────────
 interface AgentRun { agent_name: string; status: string; output: string | null; created_at: string; }
@@ -139,7 +141,7 @@ function Empty({ children }: { children: React.ReactNode }) {
 // ── page ────────────────────────────────────────────────────────────────────
 export default async function CommandCenter({ searchParams }: { searchParams: Promise<{ key?: string }> }) {
   const sp = await searchParams;
-  if (sp?.key !== GATE) {
+  if (!GATE || sp?.key !== GATE) {
     return (
       <main className="cc-locked">
         <style dangerouslySetInnerHTML={{ __html: CC_CSS }} />
