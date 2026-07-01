@@ -179,6 +179,15 @@ const nextConfig: NextConfig = {
             { source: '/request-appointment', destination: '/quote', permanent: true },
             { source: '/coupons', destination: '/quote', permanent: true },
             { source: '/coupons/:path*', destination: '/quote', permanent: true },
+
+            // ─── LEGACY ASSET 404 CATCH (post-flip cleanup) ───
+            // The old Scorpion site served assets under /images/* and /cms/*.
+            // This repo hosts nothing at those paths (no public/images or
+            // public/cms dir, and no /images//cms references in code), so a
+            // blanket 308 to home retires the legacy 404s without intercepting
+            // any real asset. Revisit if a real /images or /cms route is added.
+            { source: '/images/:path*', destination: '/', permanent: true },
+            { source: '/cms/:path*', destination: '/', permanent: true },
                 ];
     },
 };
