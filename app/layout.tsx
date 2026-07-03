@@ -179,7 +179,7 @@ const LAKE_MARTIN_SCHEMA = {
     postalCode: '35010',
     addressCountry: 'US',
   },
-  geo: { '@type': 'GeoCoordinates', latitude: 32.9440, longitude: -85.9536 },
+  geo: { '@type': 'GeoCoordinates', latitude: 32.9539, longitude: -85.9536 },
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
@@ -207,7 +207,7 @@ const HUNTSVILLE_SCHEMA = {
     postalCode: '35806',
     addressCountry: 'US',
   },
-  geo: { '@type': 'GeoCoordinates', latitude: 34.7191, longitude: -86.6878 },
+  geo: { '@type': 'GeoCoordinates', latitude: 34.7121, longitude: -86.6867 },
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
