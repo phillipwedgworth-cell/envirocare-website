@@ -279,7 +279,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             // deploys and v0.dev / vusercontent.net sandboxes OUT of property
             // G-CELEB90NKX (they were polluting it — ~40 junk hostnames, incl.
             // fake conversions that would poison Google Ads bidding).
-            var GA_ON = /(^|\\.)envirocarellc\\.com$/i.test(location.hostname);
+            var _h = (location.hostname || '').toLowerCase();
+            var GA_ON = (_h === 'envirocarellc.com' || _h.slice(-18) === '.envirocarellc.com');
             if (GA_ON) {
               gtag('js', new Date());
               gtag('config', 'G-CELEB90NKX');
