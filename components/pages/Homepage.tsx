@@ -149,20 +149,9 @@ function openScout(message?: string) {
 const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
 
 function TopBanner() {
-  // America250 window: Jul 3-11, 2026. Self-expiring - no cleanup deploy needed.
-  const now = new Date();
-  const showAmerica250 =
-    now >= new Date('2026-07-03T00:00:00-05:00') && now < new Date('2026-07-11T00:00:00-05:00');
-
+  // America250 greeting now lives in the standout <America250Banner /> (app/layout.tsx),
+  // so it's intentionally not duplicated in this rotating trust strip.
   const messages: { key: string; content: ReactNode }[] = [
-    ...(showAmerica250
-      ? [{
-          key: 'america250',
-          content: (
-            <><span className="ec-banner-gold">Happy 250th, America!</span> · Proudly serving Alabama families since 1958</>
-          ),
-        }]
-      : []),
     {
       key: 'family',
       content: (

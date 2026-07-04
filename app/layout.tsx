@@ -33,6 +33,7 @@ import Script from 'next/script';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidget from '../components/ChatWidget';
 import Header from '../components/shared/Header';
+import America250Banner from '../components/America250Banner';
 import Footer from '../components/shared/Footer';
 
 // Self-hosted via next/font — removes the render-blocking Google Fonts
@@ -260,6 +261,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           the same nav. Individual pages must NOT render their own <Header /> or it
           will double up. (Footer stays per-page.)
         */}
+        <America250Banner />
         <Header />
         {children}
         <Footer />
