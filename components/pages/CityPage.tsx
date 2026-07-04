@@ -99,8 +99,8 @@ const CITY_ART_SVG: Record<string, string> = {
 // Coordinates mirror app/layout.tsx; GBP links mirror data/offices.ts. Keep all three in sync.
 const OFFICE_NAP: Record<string, { lat: number; lng: number; gbp: string }> = {
   '2059406360': { lat: 33.2106, lng: -86.8164, gbp: 'https://www.google.com/maps?cid=7378341068021381374' },   // Birmingham / Alabaster
-  '2562346162': { lat: 32.9440, lng: -85.9536, gbp: 'https://www.google.com/maps?cid=12101127141767078247' },  // Alexander City / Lake Martin
-  '2569377676': { lat: 34.7191, lng: -86.6878, gbp: 'https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8' },             // Huntsville
+  '2562346162': { lat: 32.9539, lng: -85.9536, gbp: 'https://www.google.com/maps?cid=12101127141767078247' },  // Alexander City / Lake Martin
+  '2569377676': { lat: 34.7121, lng: -86.6867, gbp: 'https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8' },             // Huntsville
 };
 
 function buildCitySchema(city: City) {

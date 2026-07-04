@@ -140,7 +140,7 @@ export function getHuntsvilleSchema() {
     foundingDate: FOUNDING,
     priceRange: PRICE_RANGE,
     address: { '@type': 'PostalAddress', streetAddress: '7027 Old Madison Pike, Ste 108', addressLocality: 'Huntsville', addressRegion: 'AL', postalCode: '35806', addressCountry: 'US' },
-    geo: { '@type': 'GeoCoordinates', latitude: 34.7252, longitude: -86.6745 },
+    geo: { '@type': 'GeoCoordinates', latitude: 34.7121, longitude: -86.6867 },
     openingHoursSpecification: HOURS,
     description:
       'Family-owned Alabama pest control founded in 1958, serving Huntsville, Madison, Hampton Cove, Athens, and surrounding North Alabama communities. Sentricon-certified termite specialist with $1M damage coverage.',
@@ -166,7 +166,7 @@ export function getAlexCitySchema() {
     foundingDate: FOUNDING,
     priceRange: PRICE_RANGE,
     address: { '@type': 'PostalAddress', streetAddress: '1785 Tallapoosa St', addressLocality: 'Alexander City', addressRegion: 'AL', postalCode: '35010', addressCountry: 'US' },
-    geo: { '@type': 'GeoCoordinates', latitude: 32.9440, longitude: -85.9536 },
+    geo: { '@type': 'GeoCoordinates', latitude: 32.9539, longitude: -85.9536 },
     openingHoursSpecification: HOURS,
     description:
       'Founded 1958 in Alexander City, AL — our original location. Serving Alexander City, Lake Martin, Dadeville, Auburn, Eclectic, Jacksons Gap, and surrounding Tallapoosa County communities. Sentricon-certified termite specialist. Locally owned for 65+ years.',
