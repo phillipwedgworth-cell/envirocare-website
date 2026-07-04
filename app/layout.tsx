@@ -274,12 +274,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-CELEB90NKX');
+
+            // Only transmit to GA4 on the production domain. Keeps Vercel preview
+            // deploys and v0.dev / vusercontent.net sandboxes OUT of property
+            // G-CELEB90NKX (they were polluting it — ~40 junk hostnames, incl.
+            // fake conversions that would poison Google Ads bidding).
+            var GA_ON = /(^|\\.)envirocarellc\\.com$/i.test(location.hostname);
+            if (GA_ON) {
+              gtag('js', new Date());
+              gtag('config', 'G-CELEB90NKX');
+            }
 
             // ── EnviroCare event helpers (used by components + inline listeners) ──
             window.ecTrack = function(eventName, params) {
-              gtag('event', eventName, params || {});
+              if (GA_ON) gtag('event', eventName, params || {});
               if (window.fbq) fbq('trackCustom', eventName, params || {});
             };
 
@@ -288,7 +296,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               var link = e.target.closest('a[href^="tel:"]');
               if (link) {
                 var phone = link.href.replace('tel:', '');
-                gtag('event', 'phone_click', {
+                if (GA_ON) gtag('event', 'phone_click', {
                   event_category: 'engagement',
                   event_label: phone,
                   value: 1
@@ -301,7 +309,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             document.addEventListener('click', function(e) {
               var link = e.target.closest('a[href^="mailto:"]');
               if (link) {
-                gtag('event', 'email_click', {
+                if (GA_ON) gtag('event', 'email_click', {
                   event_category: 'engagement',
                   event_label: link.href.replace('mailto:', '')
                 });
@@ -312,7 +320,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             document.addEventListener('click', function(e) {
               var el = e.target.closest('[data-track]');
               if (el) {
-                gtag('event', el.getAttribute('data-track'), {
+                if (GA_ON) gtag('event', el.getAttribute('data-track'), {
                   event_category: 'cta',
                   event_label: el.textContent.trim().substring(0, 50)
                 });
