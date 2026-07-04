@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import type { ComponentType, SVGProps } from 'react';
+import type { ComponentType, SVGProps, ReactNode } from 'react';
 import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
   Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
@@ -149,14 +149,55 @@ function openScout(message?: string) {
 const QUOTE_PROMPT = "I'd like a free quote. Can you help me get started?";
 
 function TopBanner() {
+  // America250 window: Jul 3-11, 2026. Self-expiring - no cleanup deploy needed.
+  const now = new Date();
+  const showAmerica250 =
+    now >= new Date('2026-07-03T00:00:00-05:00') && now < new Date('2026-07-11T00:00:00-05:00');
+
+  const messages: { key: string; content: ReactNode }[] = [
+    ...(showAmerica250
+      ? [{
+          key: 'america250',
+          content: (
+            <><span className="ec-banner-gold">Happy 250th, America!</span> · Proudly serving Alabama families since 1958</>
+          ),
+        }]
+      : []),
+    {
+      key: 'family',
+      content: (
+        <><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</>
+      ),
+    },
+    {
+      key: 'sentricon',
+      content: (
+        <><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</>
+      ),
+    },
+    {
+      key: 'realtor',
+      content: (
+        <><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</>
+      ),
+    },
+  ];
+  const cycleSeconds = messages.length * 5;
+
   return (
     <div className="ec-banner">
       <div className="ec-banner-inner">
         <Flower2 size={14} className="ec-banner-sun" aria-hidden="true" />
         <div className="ec-banner-rotator" aria-live="off">
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
-          <span className="ec-banner-msg"><span className="ec-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
+          {messages.map((m, i) => (
+            <span
+              key={m.key}
+              className="ec-banner-msg"
+              style={{ animationDuration: `${cycleSeconds}s`, animationDelay: `${i * 5}s` }}
+            >
+              {m.content}
+            </span>
+          ))}
         </div>
       </div>
     </div>
@@ -880,8 +921,7 @@ const HOMEPAGE_CSS = `
     opacity: 0;
     animation: ec-banner-cycle 15s infinite;
   }
-  .ec-banner-msg:nth-child(2) { animation-delay: 5s; }
-  .ec-banner-msg:nth-child(3) { animation-delay: 10s; }
+  /* per-message animation-delay/duration now set inline (message count is dynamic) */
   @keyframes ec-banner-cycle {
     0% { opacity: 0; transform: translateY(8px); }
     4% { opacity: 1; transform: translateY(0); }
@@ -892,7 +932,7 @@ const HOMEPAGE_CSS = `
   @media (prefers-reduced-motion: reduce) {
     .ec-banner-msg { animation: none; }
     .ec-banner-msg:first-child { opacity: 1; position: static; }
-    .ec-banner-msg:nth-child(2), .ec-banner-msg:nth-child(3) { display: none; }
+    .ec-banner-msg:not(:first-child) { display: none; }
   }
   @media (max-width: 720px) {
     /* Thinner, less dominant trust banner */
