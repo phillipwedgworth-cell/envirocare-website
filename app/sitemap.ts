@@ -26,6 +26,8 @@ const CITY_SLUGS = [
   // Premium-tier neighborhood pages (Jun 2026)
   'liberty-park', 'highland-lakes', 'indian-springs',
   'eagle-point', 'brook-highland', 'meadow-brook',
+  // Mountain Brook sub-areas (Jul 2026)
+  'crestline', 'english-village', 'mountain-brook-village', 'cherokee-bend',
   // New market pages (Jun 25, 2026) — competitor/radius expansion
   'bessemer', 'mccalla', 'gardendale', 'meridianville', 'sylacauga',
 ];
