@@ -3,30 +3,100 @@
     "purpose": "EnviroCare Google Ads campaign drafts — content only.",
     "launch_state": "PAUSED",
     "spend": "NONE — these are drafts. No campaign is live and nothing spends until a human explicitly launches it in Google Ads.",
-    "how_to_launch": "See agents/ad-launch-plan.md. There is NO live Google Ads API integration in this repo; approving a draft only marks it reviewed. Going live means a human pastes the approved copy into Google Ads with the campaign set to PAUSED, then flips it to ENABLED.",
-    "compliance": "All copy validated against data/compliance.ts BANNED_PATTERNS. Mosquito copy uses reduce/knock-down (never eliminate/guarantee/mosquito-free). No safety/availability/discount claims. Tuscaloosa excluded. Services not offered (bed bug, rodent, wildlife) excluded and added as negatives.",
-    "phone": "(205) 940-6360 — EnviroCare main line (data/offices.ts). The dead (205) 649-5278 is banned and must never appear.",
-    "geo_excluded": ["Tuscaloosa AL"]
+    "data_basis": "Structured from Local Falcon grid scans (7/6/2026) + BrightLocal tracking. Birmingham and Lake Martin already dominate organic local pack (SoLV 78-100%, rank 1-2.6). Huntsville is nearly invisible organically (SoLV 0-11%, rank ~9-11) despite a 5.0 rating on only 28 reviews. Therefore paid budget is weighted to HUNTSVILLE, with Birmingham/Lake Martin run lean/defensive.",
+    "how_to_launch": "See agents/ad-launch-plan.md. There is NO live Google Ads API integration in this repo; approving a draft only marks it reviewed. Going live means a human pastes the copy into Google Ads with each campaign set to PAUSED, then flips to ENABLED.",
+    "compliance": "All copy validated against data/compliance.ts BANNED_PATTERNS + Google Ads limits. Mosquito copy uses reduce/knock-down only. No safety/availability/discount claims. Tuscaloosa excluded. Services not offered (bed bug/rodent/wildlife) excluded and negatived.",
+    "phones": { "birmingham": "(205) 940-6360", "huntsville": "(256) 937-7676", "lake_martin": "(256) 234-6162" },
+    "banned_phone_never_use": "(205) 649-5278"
   },
-  "campaign": {
-    "name": "EnviroCare — AL Search (PAUSED)",
-    "status": "PAUSED",
-    "channel": "Search",
-    "suggested_daily_budget_usd": 25,
-    "bidding": "Maximize conversions (set a conversion action first); start Manual CPC if none yet",
-    "geo_targeting_included": [
-      "Birmingham AL", "Alabaster AL", "Hoover AL", "Vestavia Hills AL", "Mountain Brook AL",
-      "Alexander City AL", "Lake Martin AL", "Auburn AL", "Huntsville AL", "Athens AL", "Madison AL"
-    ],
-    "geo_targeting_excluded": ["Tuscaloosa AL"],
-    "campaign_negative_keywords": [
-      "bed bug", "bed bugs", "raccoon", "squirrel", "wildlife", "wildlife removal",
-      "rodent", "rodent removal", "free", "cheap", "diy", "jobs", "salary", "how to", "tuscaloosa"
-    ]
-  },
+  "shared_negative_keywords": [
+    "bed bug", "bed bugs", "raccoon", "squirrel", "wildlife", "wildlife removal",
+    "rodent", "rodent removal", "free", "cheap", "diy", "jobs", "salary", "how to", "tuscaloosa"
+  ],
+  "campaigns": [
+    {
+      "name": "EnviroCare — Huntsville Metro (PAUSED)",
+      "priority": "PRIMARY — organic is invisible here (SoLV 0%); paid has the highest incremental value.",
+      "status": "PAUSED",
+      "channel": "Search",
+      "suggested_daily_budget_usd": 35,
+      "geo_targeting_included": ["Huntsville AL", "Madison AL", "Athens AL"],
+      "geo_targeting_excluded": []
+    },
+    {
+      "name": "EnviroCare — Birmingham + Lake Martin (PAUSED)",
+      "priority": "SECONDARY / defensive — already ranks 1-2 organically (SoLV 78-100%). Run lean to hold top-of-page.",
+      "status": "PAUSED",
+      "channel": "Search",
+      "suggested_daily_budget_usd": 15,
+      "geo_targeting_included": [
+        "Birmingham AL", "Alabaster AL", "Hoover AL", "Vestavia Hills AL", "Mountain Brook AL",
+        "Alexander City AL", "Lake Martin AL", "Auburn AL"
+      ],
+      "geo_targeting_excluded": ["Tuscaloosa AL"]
+    }
+  ],
   "drafts": [
     {
-      "id": "seed-termite-bham",
+      "id": "seed-hsv-termite",
+      "agent_name": "ad-automation-bot",
+      "status": "pending-review",
+      "title": "Termite Control — Huntsville (PAUSED)",
+      "body": "EPA-registered termite treatment applied per label directions. Prompt scheduling with a fourth-generation Alabama team since 1958.",
+      "cta": "Call (256) 937-7676",
+      "landing_url": "https://www.envirocarellc.com/huntsville-termite-control",
+      "metadata": {
+        "launch_state": "PAUSED", "campaign": "Huntsville Metro", "ad_group": "Termite - Huntsville", "match_type": "phrase",
+        "keywords": ["termite control huntsville al", "huntsville termite treatment", "termite inspection huntsville", "sentricon huntsville"],
+        "rsa_headlines": ["Termite Control Huntsville", "EnviroCare Termite Experts", "Sentricon Termite Defense", "Family-Owned Since 1958", "Fourth-Generation Local Team", "Alabama Termite Specialists", "Schedule a Termite Check"],
+        "rsa_descriptions": [
+          "EPA-registered termite treatment applied per label directions. Prompt scheduling.",
+          "Protect your home with Sentricon and a fourth-generation Alabama team since 1958.",
+          "Local Huntsville termite experts. Call (256) 937-7676 to schedule an inspection.",
+          "No One Cares Like EnviroCare. Family-owned termite and pest control in Alabama."
+        ]
+      }
+    },
+    {
+      "id": "seed-hsv-mosquito",
+      "agent_name": "ad-automation-bot",
+      "status": "pending-review",
+      "title": "Mosquito Control — Huntsville (PAUSED)",
+      "body": "Reduce backyard mosquito populations with seasonal service, March through November. EPA-registered products applied per label directions.",
+      "cta": "Call (256) 937-7676",
+      "landing_url": "https://www.envirocarellc.com/huntsville-mosquito-control",
+      "metadata": {
+        "launch_state": "PAUSED", "campaign": "Huntsville Metro", "ad_group": "Mosquito - Huntsville", "match_type": "phrase",
+        "keywords": ["mosquito control huntsville al", "backyard mosquito service huntsville", "mosquito treatment huntsville"],
+        "rsa_headlines": ["Mosquito Control Huntsville", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service", "March to November Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"],
+        "rsa_descriptions": [
+          "Reduce backyard mosquito populations with seasonal service, March through November.",
+          "EPA-registered mosquito treatment applied per label directions. Prompt scheduling.",
+          "Local Huntsville team since 1958. Call (256) 937-7676 to start seasonal service."
+        ]
+      }
+    },
+    {
+      "id": "seed-hsv-pest",
+      "agent_name": "ad-automation-bot",
+      "status": "pending-review",
+      "title": "General Pest Control — Huntsville (PAUSED)",
+      "body": "Perimeter pest control for spiders, scorpions, and ants on a bi-monthly schedule. EPA-registered products applied per label directions.",
+      "cta": "Call (256) 937-7676",
+      "landing_url": "https://www.envirocarellc.com/services/pest-control",
+      "metadata": {
+        "launch_state": "PAUSED", "campaign": "Huntsville Metro", "ad_group": "Pest - Huntsville", "match_type": "phrase",
+        "keywords": ["pest control huntsville al", "scorpion control huntsville", "spider control huntsville", "exterminator huntsville al"],
+        "rsa_headlines": ["Huntsville Pest Control", "Spiders, Scorpions, Ants", "Bi-Monthly Pest Service", "Family-Owned Since 1958", "EnviroCare Pest Experts", "Fourth-Generation Local Team"],
+        "rsa_descriptions": [
+          "Perimeter pest control for spiders, scorpions, and ants on a bi-monthly schedule.",
+          "EPA-registered products applied per label directions by a local Alabama team.",
+          "No One Cares Like EnviroCare. Call (256) 937-7676 for prompt scheduling."
+        ]
+      }
+    },
+    {
+      "id": "seed-bham-termite",
       "agent_name": "ad-automation-bot",
       "status": "pending-review",
       "title": "Termite Control — Birmingham (PAUSED)",
@@ -34,18 +104,9 @@
       "cta": "Call (205) 940-6360",
       "landing_url": "https://www.envirocarellc.com/birmingham-termite-control",
       "metadata": {
-        "launch_state": "PAUSED",
-        "ad_group": "Termite - Birmingham",
-        "match_type": "phrase",
-        "keywords": [
-          "termite control birmingham al", "birmingham termite treatment",
-          "termite inspection birmingham", "sentricon birmingham"
-        ],
-        "rsa_headlines": [
-          "Termite Control Birmingham", "EnviroCare Termite Experts", "Sentricon Termite Defense",
-          "Family-Owned Since 1958", "Fourth-Generation Local Team", "Alabama Termite Specialists",
-          "Schedule a Termite Check"
-        ],
+        "launch_state": "PAUSED", "campaign": "Birmingham + Lake Martin", "ad_group": "Termite - Birmingham", "match_type": "phrase",
+        "keywords": ["termite control birmingham al", "birmingham termite treatment", "termite inspection birmingham", "sentricon birmingham"],
+        "rsa_headlines": ["Termite Control Birmingham", "EnviroCare Termite Experts", "Sentricon Termite Defense", "Family-Owned Since 1958", "Fourth-Generation Local Team", "Alabama Termite Specialists", "Schedule a Termite Check"],
         "rsa_descriptions": [
           "EPA-registered termite treatment applied per label directions. Prompt scheduling.",
           "Protect your home with Sentricon and a fourth-generation Alabama team since 1958.",
@@ -55,7 +116,7 @@
       }
     },
     {
-      "id": "seed-mosquito-bham",
+      "id": "seed-bham-mosquito",
       "agent_name": "ad-automation-bot",
       "status": "pending-review",
       "title": "Mosquito Control — Birmingham (PAUSED)",
@@ -63,17 +124,9 @@
       "cta": "Call (205) 940-6360",
       "landing_url": "https://www.envirocarellc.com/birmingham-mosquito-control",
       "metadata": {
-        "launch_state": "PAUSED",
-        "ad_group": "Mosquito - Birmingham",
-        "match_type": "phrase",
-        "keywords": [
-          "mosquito control birmingham al", "backyard mosquito service birmingham",
-          "mosquito treatment birmingham"
-        ],
-        "rsa_headlines": [
-          "Mosquito Control Birmingham", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service",
-          "March to November Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"
-        ],
+        "launch_state": "PAUSED", "campaign": "Birmingham + Lake Martin", "ad_group": "Mosquito - Birmingham", "match_type": "phrase",
+        "keywords": ["mosquito control birmingham al", "backyard mosquito service birmingham", "mosquito treatment birmingham"],
+        "rsa_headlines": ["Mosquito Control Birmingham", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service", "March to November Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"],
         "rsa_descriptions": [
           "Reduce backyard mosquito populations with seasonal service, March through November.",
           "EPA-registered mosquito treatment applied per label directions. Prompt scheduling.",
@@ -85,22 +138,14 @@
       "id": "seed-pest-general",
       "agent_name": "ad-automation-bot",
       "status": "pending-review",
-      "title": "General Pest Control — Alabama (PAUSED)",
+      "title": "General Pest Control — Birmingham (PAUSED)",
       "body": "Perimeter pest control for spiders, scorpions, and ants on a bi-monthly schedule. EPA-registered products applied per label directions.",
       "cta": "Call (205) 940-6360",
       "landing_url": "https://www.envirocarellc.com/services/pest-control",
       "metadata": {
-        "launch_state": "PAUSED",
-        "ad_group": "Pest - General",
-        "match_type": "phrase",
-        "keywords": [
-          "pest control birmingham al", "scorpion control alabama",
-          "spider control birmingham", "exterminator birmingham al"
-        ],
-        "rsa_headlines": [
-          "Alabama Pest Control", "Spiders, Scorpions, Ants", "Bi-Monthly Pest Service",
-          "Family-Owned Since 1958", "EnviroCare Pest Experts", "Fourth-Generation Local Team"
-        ],
+        "launch_state": "PAUSED", "campaign": "Birmingham + Lake Martin", "ad_group": "Pest - Birmingham", "match_type": "phrase",
+        "keywords": ["pest control birmingham al", "scorpion control alabama", "spider control birmingham", "exterminator birmingham al"],
+        "rsa_headlines": ["Alabama Pest Control", "Spiders, Scorpions, Ants", "Bi-Monthly Pest Service", "Family-Owned Since 1958", "EnviroCare Pest Experts", "Fourth-Generation Local Team"],
         "rsa_descriptions": [
           "Perimeter pest control for spiders, scorpions, and ants on a bi-monthly schedule.",
           "EPA-registered products applied per label directions by a local Alabama team.",
