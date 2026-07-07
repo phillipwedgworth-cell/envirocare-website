@@ -2,57 +2,66 @@
 
 Status: **PAUSED. Nothing is live. Nothing is spending.**
 
-This implements the ad drafts and leaves everything stopped, exactly as requested.
-The actual campaign content lives in [`ad-campaign-drafts.json`](./ad-campaign-drafts.json)
-(3 ad groups: Termite–Birmingham, Mosquito–Birmingham, General Pest). All copy is
-validated against `data/compliance.ts` and within Google Ads character limits.
+## Recommendation (from real data)
 
-## Important: what "hit play" does and does NOT do
+Based on Local Falcon grid scans (7/6/2026) + BrightLocal tracking:
 
-This repo has **no live Google Ads integration**. Approving a draft in the review UI
-only sets its status to `approved` in the database — it does **not** create, enable, or
-fund any Google Ads campaign, and it cannot spend money. That is by design and matches
-the rule: *never change a billing/spending account without an explicit human step.*
+| Office | Reviews | Organic local rank (SoLV) | Read |
+|---|---|---|---|
+| Birmingham / Alabaster | 240 (4.7★) | 78–100% top-3 | Already **wins** the map |
+| Alex City / Lake Martin | 19 (4.9★) | 78–89% top-3 | Already **wins** the map |
+| **Huntsville** | 28 (5.0★) | **0–11% top-3** | **Invisible organically** |
 
-So there are two separate "play buttons":
+**So spend where paid actually moves the needle:**
 
-1. **In-app approval (safe, no spend).** Load the drafts, review them at `/ads/<id>`,
-   and click **Approve**. This just marks the copy signed-off. Money is never touched.
-2. **Actually going live on Google Ads (real spend — 100% manual, by you).** Paste the
-   approved copy into Google Ads. See below.
+1. **Put the ad budget on Huntsville (PRIMARY).** You're rank ~9–11 there organically, so
+   paid search is the fastest way to show up while you build. Suggested ~$35/day.
+2. **Run Birmingham + Lake Martin lean/defensive (SECONDARY).** You already rank #1–2
+   organically there — paid mostly protects top-of-page. Suggested ~$15/day.
+3. **Reviews are the long-game lever.** Birmingham's 240 reviews are *why* it dominates.
+   Getting Huntsville (28) and Lake Martin (19) up toward 100+ will lift organic rank over
+   time. BrightLocal Reputation Manager already tracks all three — turn on review requests.
+4. **Optional: LSA (Local Services Ads) for Huntsville only.** Pest control is a strong
+   pay-per-lead vertical and LSA would leapfrog the weak organic there. It needs license +
+   background-check verification and its own budget — left OFF unless you say go.
 
-## Step 1 — Load the drafts into your review queue (no spend)
+Campaign content is in [`ad-campaign-drafts.json`](./ad-campaign-drafts.json): 2 campaigns,
+6 ad groups, all validated against `data/compliance.ts` and Google Ads limits.
 
-Dry-run first (prints what would be seeded, writes nothing):
+## What "hit play" does and does NOT do
+
+This repo has **no live Google Ads integration**. Approving a draft only sets its status to
+`approved` — it does not create, enable, or fund anything and cannot spend. Two separate steps:
+
+1. **In-app approval (safe, no spend):** review at `/ads/<id>` and click Approve.
+2. **Going live on Google Ads (real spend — 100% manual, by you):** paste into Google Ads.
+
+## Step 1 — Load drafts into your review queue (no spend)
 
 ```
-node scripts/seed-ad-drafts.mjs
-```
-
-Then commit them to the `agent_drafts` table (needs Supabase env; still PAUSED / pending-review):
-
-```
+node scripts/seed-ad-drafts.mjs                # dry-run, writes nothing
 SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... node scripts/seed-ad-drafts.mjs --commit
 ```
 
-Review each at `https://www.envirocarellc.com/ads/<id>` and Approve the ones you like.
+## Step 2 — Build in Google Ads, PAUSED (only when YOU decide)
 
-## Step 2 — Go live on Google Ads (only when YOU decide)
+Create **two Search campaigns**, each **set to PAUSED**:
 
-1. In Google Ads, create a **Search** campaign, and **set the campaign status to PAUSED**.
-2. Geo targeting: include the metros in `ad-campaign-drafts.json` → `campaign.geo_targeting_included`.
-   **Exclude Tuscaloosa** (EnviroCare does not service it).
-3. Add the campaign **negative keywords** from the JSON (bed bug, rodent, wildlife, free, cheap, diy, tuscaloosa, …).
-4. For each ad group, paste the `rsa_headlines`, `rsa_descriptions`, `keywords`, and `landing_url`.
-5. Set your **daily budget** (suggested starting point: $25/day — you decide).
-6. Leave it **PAUSED**. Nothing spends yet.
-7. When you're ready to spend, flip the campaign from **PAUSED → ENABLED**. That is the
-   real "play." Until you do that, cost is $0.
+- **Campaign A — Huntsville Metro** (priority). Geo: Huntsville, Madison, Athens. Budget ~$35/day.
+- **Campaign B — Birmingham + Lake Martin** (defensive). Geo: Birmingham, Alabaster, Hoover,
+  Vestavia Hills, Mountain Brook, Alexander City, Lake Martin, Auburn. **Exclude Tuscaloosa.** Budget ~$15/day.
+
+For each campaign: add the `shared_negative_keywords`, then for each ad group paste its
+`keywords` (Phrase match), set the `landing_url` as Final URL, and build one Responsive
+Search Ad from its `rsa_headlines` + `rsa_descriptions`. Use the right office phone
+(Huntsville (256) 937-7676; Birmingham (205) 940-6360).
+
+Leave both **PAUSED**. Cost stays $0 until you flip a campaign **PAUSED → ENABLED** — that
+flip is the only thing that spends, and only you do it.
 
 ## Guardrails honored
 
-- No automated login to your Google account; no credentials handled here.
-- No live ad-platform API calls anywhere in this repo (verified).
-- Mosquito copy never says eliminate/guarantee/mosquito-free (uses reduce/knock-down).
-- No safety, availability, or discount claims; correct phone `(205) 940-6360` only.
+- No automated Google login; no credentials handled. No live ad-platform API calls in this repo.
+- Mosquito copy never says eliminate/guarantee/mosquito-free (reduce/knock-down only).
+- No safety/availability/discount claims; correct per-office phone; banned dead line never appears.
 - Everything ships PAUSED; going ENABLED is a deliberate manual action by you.
