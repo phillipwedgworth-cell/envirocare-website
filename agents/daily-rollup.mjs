@@ -15,6 +15,7 @@
  */
 
 import { postActivity, emailDigest } from './lib/notifier.mjs';
+import { logRunREST } from './lib/run-log.mjs';
 
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
 const BASE = `https://${PROJECT_REF}.supabase.co/rest/v1`;
@@ -130,10 +131,17 @@ async function main() {
     });
   }
 
-  console.log(`[daily-rollup] ${totalRuns} runs · ${totalFindings} findings · ${totalShip} SHIP · $${totalCost.toFixed(4)}`);
+  const summary = `${totalRuns} runs · ${totalFindings} findings · ${totalShip} SHIP · $${totalCost.toFixed(4)}`;
+  console.log(`[daily-rollup] ${summary}`);
+  return summary;
 }
 
-main().catch((e) => {
-  console.error('[daily-rollup] FATAL:', e);
-  process.exit(1);
-});
+// Heartbeat both outcomes to agent_runs so the watchdog's expected-run check
+// can see this agent (it previously never wrote to the ledger at all).
+main()
+  .then((summary) => logRunREST('daily-rollup', 'ok', summary))
+  .catch(async (e) => {
+    console.error('[daily-rollup] FATAL:', e);
+    await logRunREST('daily-rollup', 'error', e?.message ?? String(e)).catch(() => {});
+    process.exit(1);
+  });

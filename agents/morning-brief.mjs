@@ -9,6 +9,8 @@
 //
 // Env: SUPABASE_SERVICE_KEY, ANTHROPIC_API_KEY (already GitHub secrets).
 
+import { logRunREST } from './lib/run-log.mjs';
+
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
 const BASE = `https://${PROJECT_REF}.supabase.co/rest/v1`;
 const TZ = 'America/Chicago';
@@ -114,8 +116,19 @@ async function main() {
   const content = await generateBrief(ctx);
   if (!content) throw new Error('empty brief from model');
   await upsertBrief(content);
-  console.log(`Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings).`);
+  const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings).`;
+  console.log(summary);
   console.log('---\n' + content);
+  return summary;
 }
 
-main().catch((e) => { console.error('Morning Brief failed:', e.message); process.exit(1); });
+// Heartbeat both outcomes to agent_runs — this agent failed daily for weeks
+// (missing morning_brief table) while the watchdog reported green, because it
+// died before ever writing to the ledger the watchdog reads.
+main()
+  .then((summary) => logRunREST('morning-brief', 'ok', summary))
+  .catch(async (e) => {
+    console.error('Morning Brief failed:', e.message);
+    await logRunREST('morning-brief', 'error', e.message).catch(() => {});
+    process.exit(1);
+  });

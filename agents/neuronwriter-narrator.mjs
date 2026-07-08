@@ -33,6 +33,7 @@ import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { COMPLIANCE_SYSTEM, userPrompt } from "./lib/compliance.mjs";
+import { logRunREST } from "./lib/run-log.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dir, "neuronwriter-content");
@@ -215,11 +216,15 @@ async function runFill() {
 
 // -- main ---------------------------------------------------------------------
 const mode = (process.argv[2] || "score").toLowerCase();
+// Heartbeat both outcomes to agent_runs so the watchdog's expected-run check
+// can see this agent (needs SUPABASE_URL + SUPABASE_SERVICE_KEY in the workflow).
 try {
   if (mode === "fill" || mode === "push") await runFill();
   else await runScore();
+  await logRunREST("neuronwriter-narrator", "ok", `mode=${mode} completed`).catch(() => {});
 } catch (e) {
   console.error("Narrator failed:", e.message);
+  await logRunREST("neuronwriter-narrator", "error", `mode=${mode}: ${e.message}`).catch(() => {});
   await email("Neuron Narrator FAILED", `<pre>${e.message}</pre>`);
   process.exit(1);
 }
