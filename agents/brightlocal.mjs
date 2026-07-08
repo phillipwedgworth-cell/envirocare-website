@@ -12,6 +12,7 @@ import { criticLoop, isExternallyBlocked } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { cleanEnv, envWasDirty } from "./lib/env-url.mjs";
 
 const AGENT_NAME = "brightlocal";
 const WORKER_MODEL = "claude-haiku-4-5-20251001";
@@ -23,7 +24,13 @@ const MAX_TURNS = 12;
 // short-circuits the revision loops on an external block instead of burning them.
 const runToolErrors = [];
 
-const BL_KEY = process.env.BRIGHTLOCAL_API_KEY;
+// cleanEnv() BOM/zero-width-strips + trims the key — a pasted key with an
+// invisible prefix authenticates as garbage and BrightLocal answers
+// INVALID_API_KEY, indistinguishable from a genuinely expired key.
+const BL_KEY = cleanEnv("BRIGHTLOCAL_API_KEY");
+if (envWasDirty("BRIGHTLOCAL_API_KEY")) {
+  console.warn("[brightlocal] BRIGHTLOCAL_API_KEY carried BOM/zero-width/whitespace characters — stripped for this run; fix the stored secret");
+}
 const BL_MCP = "https://mcp.brightlocal.com/mcp";
 
 // Citation Tracker report IDs per location — looked up live via BrightLocal
