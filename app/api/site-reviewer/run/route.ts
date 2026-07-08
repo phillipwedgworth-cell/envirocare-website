@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { run as runSiteReviewer } from "@/agents/site-reviewer.mjs";
 
+// The agent self-chunks (N pages per invocation, cursor in Supabase
+// agent_state, resumes on the next cron tick) — 300s is a ceiling it plans
+// around, not a limit it runs into. Do not raise this.
 export const maxDuration = 300;
 
 async function execute(req: NextRequest) {
