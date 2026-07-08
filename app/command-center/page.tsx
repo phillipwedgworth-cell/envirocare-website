@@ -32,6 +32,9 @@ interface CfoRow { snapshot_date: string; metrics: Record<string, unknown>; note
 interface BriefRow { brief_date: string; content: string; }
 interface SeoMetric { location: string; keyword: string; campaign_key: string; arp: number | null; atrp: number | null; solv: number | null; run_date: string; }
 interface SeoDigest { run_date: string; summary_text: string; rows_json: unknown; created_at: string; }
+interface AdDraftRow { id: string; title: string; status: string; updated_at: string; }
+interface Discussion { id?: number; agent_name: string; references_agent?: string | null; message: string; impact_score?: number | null; effort_score?: number | null; created_at: string; }
+interface OpenPr { number: number; title: string; html_url: string; draft: boolean; labels: { name: string }[]; user: { login: string }; updated_at: string; }
 
 // ── helpers ─────────────────────────────────────────────────────────────────
 const num = (v: unknown) => (v == null || isNaN(Number(v)) ? 0 : Number(v));
@@ -113,7 +116,32 @@ async function fetchAll() {
     grab<SeoMetric>(sb.from('seo_metrics').select('location,keyword,campaign_key,arp,atrp,solv,run_date').order('run_date', { ascending: false }).limit(300)),
     grab<SeoDigest>(sb.from('seo_digests').select('run_date,summary_text,rows_json,created_at').order('run_date', { ascending: false }).order('created_at', { ascending: false }).limit(12)),
   ]);
-  return { runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests };
+  const [adDrafts, discussions] = await Promise.all([
+    grab<AdDraftRow>(sb.from('agent_drafts').select('id,title,status,updated_at').eq('status', 'pending-review').order('updated_at', { ascending: false }).limit(20)),
+    grab<Discussion>(sb.from('agent_discussions').select('id,agent_name,references_agent,message,impact_score,effort_score,created_at').order('created_at', { ascending: false }).limit(15)),
+  ]);
+  return { runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions };
+}
+
+// Open PRs on the (public) repo — the approval queue for agent-written content.
+// GITHUB_TOKEN is optional; it only raises the rate limit.
+async function fetchOpenPrs(): Promise<OpenPr[]> {
+  try {
+    const res = await fetch(
+      'https://api.github.com/repos/phillipwedgworth-cell/envirocare-website/pulls?state=open&per_page=20',
+      {
+        headers: {
+          accept: 'application/vnd.github+json',
+          ...(process.env.GITHUB_TOKEN ? { authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+        },
+        next: { revalidate: 300 },
+      },
+    );
+    if (!res.ok) return [];
+    return (await res.json()) as OpenPr[];
+  } catch {
+    return [];
+  }
 }
 
 // ── small UI atoms ────────────────────────────────────────────────────────────
@@ -169,7 +197,12 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
     );
   }
 
-  const { runs, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests } = data;
+  const { runs, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions } = data;
+  const prs = await fetchOpenPrs();
+  // Content-review PRs are the ship-gate — surface them first.
+  const prSort = (p: OpenPr) => (p.labels.some((l) => l.name === 'content-review') ? 0 : 1);
+  const openPrs = [...prs].sort((a, b) => prSort(a) - prSort(b));
+  const approvalsCount = openPrs.length + adDrafts.length;
 
   // Ranking Snapshots — newest run_date, grouped by location (Local Falcon campaigns)
   const snapRunDate = seoMetrics[0]?.run_date ?? null;
@@ -265,6 +298,43 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
       </div>
 
       <div className="cc-grid">
+        {/* NEEDS YOUR APPROVAL — the one place to see everything waiting on Phillip */}
+        <Panel title="Needs Your Approval" hint={approvalsCount ? `${approvalsCount} waiting` : 'all clear'} wide>
+          {approvalsCount === 0 ? (
+            <Empty>Nothing waiting on you. 🎉 Agent content PRs and ad drafts appear here the moment they need a decision.</Empty>
+          ) : (
+            <ul className="cc-findings">
+              {openPrs.map((p) => {
+                const isContent = p.labels.some((l) => l.name === 'content-review');
+                return (
+                  <li key={p.number} style={{ borderLeft: `3px solid ${isContent ? '#F5A800' : '#3FBE7C'}` }}>
+                    <div>
+                      <div className="cc-f-text">
+                        <a href={p.html_url} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>
+                          {isContent ? '★ ' : ''}PR #{p.number} — {p.title}
+                        </a>
+                      </div>
+                      <div className="cc-f-meta">
+                        {isContent ? 'website content — merge = approve' : p.draft ? 'draft PR' : 'open PR'} · {p.user.login} · {timeAgo(p.updated_at)}
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+              {adDrafts.map((d) => (
+                <li key={d.id} style={{ borderLeft: '3px solid #1FAE5A' }}>
+                  <div>
+                    <div className="cc-f-text">
+                      <a href={`/ads/${d.id}`} style={{ color: 'inherit', textDecoration: 'underline' }}>Ad draft — {d.title}</a>
+                    </div>
+                    <div className="cc-f-meta">approve or request changes · {timeAgo(d.updated_at)}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Panel>
+
         {/* LOCAL SEARCH */}
         <Panel title="Local Search" hint="Local Falcon">
           {latestSeo.size === 0 ? (
@@ -434,6 +504,29 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
                   <div>
                     <div className="cc-f-text">{f.finding}</div>
                     <div className="cc-f-meta">{f.agent_name} · {f.category} · {timeAgo(f.run_date)}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Panel>
+
+        {/* AGENT CHATTER — cross-agent discussions, the "everything communicating" view */}
+        <Panel title="Agent Chatter" hint={discussions.length ? `${discussions.length} recent` : 'cross-agent'}>
+          {discussions.length === 0 ? (
+            <Empty>No cross-agent discussion yet — agents post here when one references another&apos;s findings.</Empty>
+          ) : (
+            <ul className="cc-findings">
+              {discussions.slice(0, 10).map((d, i) => (
+                <li key={d.id ?? i} style={{ borderLeft: '3px solid #3FBE7C' }}>
+                  <div>
+                    <div className="cc-f-text">{d.message}</div>
+                    <div className="cc-f-meta">
+                      {d.agent_name}{d.references_agent ? ` → ${d.references_agent}` : ''}
+                      {d.impact_score != null ? ` · impact ${d.impact_score}` : ''}
+                      {d.effort_score != null ? ` · effort ${d.effort_score}` : ''}
+                      {' · '}{timeAgo(d.created_at)}
+                    </div>
                   </div>
                 </li>
               ))}
