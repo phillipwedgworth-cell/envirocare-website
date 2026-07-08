@@ -1,10 +1,12 @@
 name: EnviroCare CrewAI Analysis
 
 on:
-  # Run every Monday at 6 AM CT (noon UTC)
-  schedule:
-    - cron: '0 12 * * 1'
-  # Also allow manual trigger from GitHub UI
+  # SCHEDULE DISABLED 2026-07-08 (agents audit): every scheduled run fails with
+  # "working directory envirocare-crew: No such file or directory" — the
+  # envirocare-crew/ folder is not checked into this repo, so the workflow can
+  # never succeed. Re-enable the cron only after committing that directory.
+  #   was: cron '0 12 * * 1' (Mondays noon UTC)
+  # Manual trigger kept for when the directory lands.
   workflow_dispatch:
 
 jobs:
