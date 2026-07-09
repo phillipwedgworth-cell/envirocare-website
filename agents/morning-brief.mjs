@@ -1,8 +1,10 @@
 // agents/morning-brief.mjs
-// THE MORNING BRIEF — fills the command center's "Morning Brief" panel (the
-// morning_brief table, which previously had NO writer). Turns the proposer's
-// ranked SHIP findings + recent agent activity into a tight, plain-English
-// "here's what to decide today" brief. Recommends only — never acts.
+// THE STRATEGIST BRIEF — fills the command center's "Morning Brief" panel (the
+// morning_brief table). Reads the STRATEGY BRAIN (agents/knowledge/*.md — live
+// scoreboard, standing decisions, autonomy rules) plus the proposer's ranked
+// SHIP findings, and writes a decisive two-section brief: what agents will
+// handle autonomously today vs. the few money/irreversible calls only Phillip
+// can make. It never re-asks decisions the brain records as already made.
 //
 // Reads Supabase agent_findings (last ~30h), asks Claude for a prioritized brief,
 // upserts one row per day into morning_brief (brief_date is unique).
@@ -10,6 +12,7 @@
 // Env: SUPABASE_SERVICE_KEY, ANTHROPIC_API_KEY (already GitHub secrets).
 
 import { logRunREST } from './lib/run-log.mjs';
+import { knowledgeBlock } from './lib/knowledge.mjs';
 
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
 const BASE = `https://${PROJECT_REF}.supabase.co/rest/v1`;
@@ -65,15 +68,18 @@ function buildContext({ findings, runs }) {
   };
 }
 
-const SYSTEM = `You are EnviroCare's marketing chief of staff. EnviroCare is a family-owned Alabama pest & termite company (since 1958, three offices: Birmingham/Alabaster, Lake Martin/Alex City, Huntsville). You write a concise daily MORNING BRIEF for the owner, Phillip, who is busy and wants to make decisions fast.
+const SYSTEM = `You are EnviroCare's marketing STRATEGIST — not a passive reporter. EnviroCare is a family-owned Alabama pest & termite company (since 1958, three offices: Birmingham/Alabaster, Lake Martin/Alex City, Huntsville). You write a concise daily MORNING BRIEF for the owner, Phillip, who is busy and wants to make decisions fast.
 
-Rules:
+You are given the STRATEGY BRAIN (knowledge block in the user message): the live scoreboard, decisions Phillip has ALREADY made, ranked priorities, and autonomy rules. USE IT:
+- Never re-ask or re-litigate a decision the brain records as already made.
+- Tie every item to a brain priority (P1 reviews, P2 LSA, P3 Huntsville, P4 suburb organic, P5 AI visibility). Drop findings that serve no priority.
+- Structure the brief in two sections:
+  "HANDLED (autonomous)" — findings agents can execute under the autonomy rules; phrase as what WILL happen today (e.g. "narrator optimizes /hoover").
+  "YOUR CALL (money/irreversible)" — only items the rules reserve for Phillip, each with a one-line recommendation and a default ("if you do nothing, we hold").
 - Lead with the 3-5 things that actually matter today, RANKED, most important first.
-- For each: one line on WHAT, one short clause on WHY it matters, and the suggested action.
 - Plain English. No jargon, no filler, no "as an AI". Operator tone.
 - If it's a quiet day, say so in one line and list 1-2 things worth watching.
-- You RECOMMEND. You never claim to have done anything or to auto-publish.
-- Keep the whole brief under ~250 words. Use short lines, not big paragraphs.`;
+- Keep the whole brief under ~300 words. Short lines, not big paragraphs.`;
 
 async function generateBrief(ctx) {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error('ANTHROPIC_API_KEY not set');
@@ -81,7 +87,8 @@ async function generateBrief(ctx) {
   const Anthropic = mod.default ?? mod;
   const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 1 });
 
-  const user = `Date: ${niceDate()}
+  const user = `${knowledgeBlock()}
+Date: ${niceDate()}
 Agents that ran in the last 30h: ${ctx.agentsRan.join(', ') || 'none'}
 SHIP-flagged items (need human decision): ${ctx.shipCount}
 Total findings examined: ${ctx.totalFindings}
