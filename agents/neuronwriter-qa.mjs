@@ -19,6 +19,7 @@ import targetsData from './neuronwriter-targets.json' with { type: 'json' };
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { analyzePageContent } from './lib/neuronwriter.mjs';
+import { stateGet, stateSet } from './lib/kv.mjs';
 import { writeFinding, logAgentRun } from './lib/supabase.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
 import { criticLoop, isExternallyBlocked } from './lib/critic.mjs';
@@ -44,12 +45,30 @@ if (process.env.ANTHROPIC_API_KEY) {
   }
 }
 
+// ─── QUOTA GUARD ───────────────────────────────────────────────────────────
+// The 2026-06-29 and 07-06 runs each threw ~15 "new-query 429: analysis
+// exceeds monthly keyword analyses" errors — every page after the quota ran
+// out burned an attempt and an error row. Now: the first 429 halts the run
+// (one summary line, one finding), and the exhaustion is remembered in
+// agent_state so later runs skip pre-flight until the quota month rolls over.
+
+const QUOTA_STATE_KEY = 'neuronwriter:quota-exhausted';
+const QUOTA_RE = /\b429\b|exceeds\s+(the\s+)?(number\s+of\s+|monthly\s+)?(keyword\s+)?analyses|quota/i;
+const isQuotaError = msg => QUOTA_RE.test(String(msg ?? ''));
+
+function firstOfNextMonthISO() {
+  const d = new Date();
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1)).toISOString();
+}
+
 // ─── CONTEXT_READ ──────────────────────────────────────────────────────────
 
 // Static JSON import so Next.js bundles the targets into the lambda
 // (readFileSync + __dirname pointed at /vercel/path0/... which isn't traced).
+// Sorted money-pages-first (priority 1 → 3) so a mid-run quota halt costs the
+// long tail, never termite/pest-control/Birmingham/Huntsville.
 function loadTargets() {
-  return targetsData.targets;
+  return [...targetsData.targets].sort((a, b) => (a.priority ?? 99) - (b.priority ?? 99));
 }
 
 // Map a repo page path (app/services/termite-control/page.tsx) to its live URL.
@@ -109,15 +128,20 @@ async function analyzeOnePage({ page, keyword }) {
 
 async function runAllTargets(targets) {
   const results = [];
+  let quotaHit = false;
   // Process in CONCURRENCY-sized batches so we don't hammer the NeuronWriter API.
-  for (let i = 0; i < targets.length; i += CONCURRENCY) {
+  // The first quota 429 halts the loop between batches — pages already in
+  // flight finish, but no new batch launches once the quota is known dead.
+  for (let i = 0; i < targets.length && !quotaHit; i += CONCURRENCY) {
     const batch = targets.slice(i, i + CONCURRENCY);
     const settled = await Promise.allSettled(batch.map(analyzeOnePage));
     for (const r of settled) {
-      results.push(r.status === 'fulfilled' ? r.value : { page: '?', keyword: '?', score: null, error: r.reason?.message ?? 'unknown' });
+      const val = r.status === 'fulfilled' ? r.value : { page: '?', keyword: '?', score: null, error: r.reason?.message ?? 'unknown' };
+      results.push(val);
+      if (val.error && isQuotaError(val.error)) quotaHit = true;
     }
   }
-  return results;
+  return { results, quotaHit };
 }
 
 // ─── SYNTHESIS ─────────────────────────────────────────────────────────────
@@ -266,10 +290,36 @@ export async function run() {
     return { skipped: true, reason: 'NEURONWRITER_API_KEY not set' };
   }
 
+  // Pre-flight quota check: if a prior run already hit the monthly cap, don't
+  // burn a single analysis (or LLM token) until the quota month rolls over.
+  const quotaState = await stateGet(QUOTA_STATE_KEY).catch(() => null);
+  if (quotaState?.resets_at && Date.now() < new Date(quotaState.resets_at).getTime()) {
+    const msg = `NeuronWriter monthly analysis quota exhausted (detected ${String(quotaState.detected_at ?? '').slice(0, 10)}) — skipping until ${String(quotaState.resets_at).slice(0, 10)}`;
+    console.warn(`[${AGENT_NAME}] ${msg}`);
+    await logAgentRun(AGENT_NAME, 'blocked', msg).catch(() => {});
+    return { skipped: true, blocked: true, reason: msg };
+  }
+
   console.log(`[${AGENT_NAME}] Starting batch run`);
 
   const targets = loadTargets();
-  const results = await runAllTargets(targets);
+  const { results, quotaHit } = await runAllTargets(targets);
+
+  // Quota died mid-run: ONE summary line + ONE finding, remember the
+  // exhaustion for pre-flight, and skip synthesis/critic entirely (no LLM
+  // burn, no per-page error rows — the old behavior logged ~15 of them).
+  if (quotaHit) {
+    const scored = results.filter(r => !r.error && r.score != null).length;
+    const notAttempted = targets.length - results.length;
+    const resetsAt = firstOfNextMonthISO();
+    await stateSet(QUOTA_STATE_KEY, { detected_at: new Date().toISOString(), resets_at: resetsAt }).catch(() => {});
+    const msg = `NeuronWriter 429 (monthly analysis quota) — halted after ${scored} scored page(s); ${notAttempted} page(s) not attempted. Auto-resumes ${resetsAt.slice(0, 10)}.`;
+    console.warn(`[${AGENT_NAME}] ${msg}`);
+    await writeFinding(AGENT_NAME, 'seo', 'warning', null, msg,
+      { blocked: true, quota: true, scored, not_attempted: notAttempted, resets_at: resetsAt }).catch(() => {});
+    await logAgentRun(AGENT_NAME, 'blocked', msg).catch(() => {});
+    return { blocked: true, reason: msg, brief: `blocked: ${msg}`, results, failCount: 0 };
+  }
 
   let draft;
   try {
