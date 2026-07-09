@@ -19,6 +19,8 @@
 import { blMcpCall, BrightLocalKeyError } from "./brightlocal.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
+import { sendEmail } from "./lib/notify.mjs";
+import { cleanEnv, envWasDirty } from "./lib/env-url.mjs";
 import { appendBlocksToPage, nHeading2, nHeading3, nParagraph, nQuote, nDivider } from "./lib/notion.mjs";
 
 const AGENT_NAME = "review-responder";
@@ -78,6 +80,10 @@ async function fetchRecentReviews() {
     } catch (e) {
       console.error(`[${AGENT_NAME}] ${loc.name} (RM ${loc.report_id}): ${e.message}`);
       all.push({ location: loc.name, error: e.message, keyRejected: e instanceof BrightLocalKeyError });
+      // Auth failure is account-wide, not per-location: the same key will be
+      // rejected for every remaining report. Fail fast — one error entry, no
+      // wasted API calls, ONE alert downstream instead of a row per location.
+      if (e instanceof BrightLocalKeyError) break;
     }
   }
   return all;
@@ -111,8 +117,14 @@ export async function run() {
     console.log(`[${AGENT_NAME}] not Monday — skipping (set FORCE_REVIEWS=1 to override)`);
     return { skipped: true, reason: "weekly agent — runs Mondays" };
   }
-  if (!process.env.BRIGHTLOCAL_API_KEY) {
-    console.log(`[${AGENT_NAME}] BRIGHTLOCAL_API_KEY not set — skipping`);
+  // Startup env sanity: BOM/zero-width-strip + trim before judging presence —
+  // a whitespace-only or BOM-wrapped value is "set" to process.env but reaches
+  // BrightLocal as garbage (the FORMSPREE_LEAD_URL failure class).
+  if (envWasDirty("BRIGHTLOCAL_API_KEY")) {
+    console.warn(`[${AGENT_NAME}] BRIGHTLOCAL_API_KEY carried BOM/zero-width/whitespace characters — stripped for this run; fix the stored secret`);
+  }
+  if (!cleanEnv("BRIGHTLOCAL_API_KEY")) {
+    console.log(`[${AGENT_NAME}] BRIGHTLOCAL_API_KEY not set (or empty after stripping) — skipping`);
     return { skipped: true, reason: "BRIGHTLOCAL_API_KEY not set" };
   }
 
@@ -121,13 +133,19 @@ export async function run() {
   const errors = reviews.filter(r => r.error);
   const fresh = reviews.filter(r => !r.error && r.rating > 0);
 
-  // BrightLocal rejected the API key (INVALID_API_KEY) — every location failed
-  // the same way. Raise ONE clear "renew the key" alert instead of burying it in
-  // per-location errors, and stop here (no point drafting against zero data).
+  // BrightLocal rejected the API key (INVALID_API_KEY) — fetchRecentReviews
+  // already stopped at the first rejection (auth is account-wide). Raise ONE
+  // clear "renew the key" alert — a single finding row plus an email straight
+  // to Phillip — and stop here (no point drafting against zero data).
   if (reviews.some(r => r.keyRejected)) {
-    const msg = "BrightLocal API key rejected (INVALID_API_KEY) — renew it in the BrightLocal dashboard and update BRIGHTLOCAL_API_KEY in Vercel.";
+    const msg = "BrightLocal API key rejected (INVALID_API_KEY) — renew it in the BrightLocal dashboard and update BRIGHTLOCAL_API_KEY in Vercel + GitHub secrets.";
     console.error(`[${AGENT_NAME}] ${msg}`);
     await writeFinding(AGENT_NAME, "reviews", "critical", null, msg, { needs_renewal: true, key_rejected: true }).catch(() => {});
+    await sendEmail(
+      "⛔ EnviroCare: BrightLocal API key rejected — review drafts halted",
+      `${msg}\n\nreview-responder halted before drafting (no review data available). ` +
+      `It will resume automatically on its next scheduled run once the key works.`,
+    ).catch(() => {});
     await logAgentRun(AGENT_NAME, "error", msg).catch(() => {});
     return { skipped: true, reason: msg, keyRejected: true };
   }
