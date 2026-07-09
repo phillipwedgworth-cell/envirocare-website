@@ -1,22 +1,26 @@
 // agents/site-reviewer.mjs
 // Site reviewer — visual + performance + SEO/content in one agent.
 //
-// Architecture:
-//   Phase 1  Worker (Haiku tool-use) gathers data — fetches pages, runs
-//            PageSpeed (which returns a screenshot), parses SEO signals,
-//            reads peer agents' findings.
+// Architecture (CHUNKED — the whole cycle no longer fits one 300s invocation):
+//   Phase 1  Deterministic gather, N pages per invocation with a per-page
+//            timeout. Each page's data (PageSpeed + SEO signals + text +
+//            screenshot) is persisted to agent_state and a cursor advances;
+//            an unfinished cycle resumes on the next cron tick (4x/day).
+//            (This replaced the Haiku tool-use gather worker: the work was
+//            purely mechanical, and an LLM loop can't be checkpointed.)
 //   Phase 2  Multi-model panel (Claude/Gemini/GPT) reviews the gathered
-//            data + screenshots. Gemini is the visual lens; GPT is the
-//            SEO/technical lens; Claude is the copy/brand lens.
+//            data + screenshots — runs only once all pages are gathered,
+//            and only if enough of the invocation's budget remains
+//            (otherwise it runs alone on the next tick).
 //   Phase 3  Sonnet synthesizes the three lenses into a brief +
 //            structured findings + recommendations.
-//   Phase 4  Critic loop (Opus) holds the brief to the team rubric.
+//   Phase 4  Critic loop holds the brief to the team rubric.
 //   Phase 5  Persist: writeFinding per recommendation, writeDiscussion
-//            for cross-agent connections, stateSet for next-run delta.
+//            for cross-agent connections, stateSet for next-run delta;
+//            cursor + gathered pages are cleared for the next cycle.
 
 import { criticLoop, criticDraft } from "./lib/critic.mjs";
-import { stateGet, stateSet } from "./lib/kv.mjs";
-import { createMessage } from "./lib/llm-with-logging.mjs";
+import { stateGet, stateSet, stateGetAll } from "./lib/kv.mjs";
 import {
   writeFinding,
   writeDiscussion,
@@ -27,9 +31,25 @@ import {
 import { runPanel, synthesize } from "../lib/llm-panel.ts";
 
 const AGENT_NAME = "site-reviewer";
-const WORKER_MODEL = "claude-haiku-4-5-20251001";
-const MAX_TURNS = 25;
-const PROMPT_VERSION = "2026-05-28";
+const PROMPT_VERSION = "2026-07-08";
+
+// ── Chunking knobs ────────────────────────────────────────────────────────────
+// Pages gathered per invocation. 3/run × cron 4x/day = a full 5-page cycle
+// completes in 2 ticks (~12h), reviews land twice a day.
+const MAX_PAGES_PER_RUN = Number(process.env.SITE_REVIEWER_PAGES_PER_RUN || 3);
+// One slow page (PageSpeed regularly takes 30-40s) can't burn the budget.
+const PAGE_TIMEOUT_MS = Number(process.env.SITE_REVIEWER_PAGE_TIMEOUT_MS || 75_000);
+// Stop starting new pages past this point in the invocation.
+const GATHER_DEADLINE_MS = Number(process.env.SITE_REVIEWER_GATHER_DEADLINE_MS || 180_000);
+// Only start the panel+synthesis phase if we're under this elapsed time —
+// otherwise defer it to the next tick, where it gets the whole budget.
+const SYNTH_GATE_MS = Number(process.env.SITE_REVIEWER_SYNTH_GATE_MS || 120_000);
+// A cursor older than this is a wedged cycle (deploy mid-cycle, schema change…)
+// — reset and start over rather than resuming stale data forever.
+const CYCLE_STALE_H = 48;
+
+const CURSOR_KEY = `${AGENT_NAME}:cursor`;
+const GATHER_PREFIX = `${AGENT_NAME}:gathered:`;
 
 const TARGET_PAGES = [
   { url: "https://envirocare-web.vercel.app/", label: "home" },
@@ -39,26 +59,7 @@ const TARGET_PAGES = [
   { url: "https://envirocare-web.vercel.app/birmingham", label: "birmingham" },
 ];
 
-let anthropic = null;
-let anthropicInitError = null;
-if (!process.env.ANTHROPIC_API_KEY) {
-  anthropicInitError = "ANTHROPIC_API_KEY is not set in this environment";
-} else {
-  try {
-    const mod = await import("@anthropic-ai/sdk");
-    const Anthropic = mod.default ?? mod;
-    anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 0 });
-  } catch (e) {
-    anthropicInitError = `@anthropic-ai/sdk failed to load: ${e.message}`;
-    console.error(`[${AGENT_NAME}] ${anthropicInitError}`);
-  }
-}
-
-// ---------- Tool implementations ----------
-
-async function listTargetPages() {
-  return { pages: TARGET_PAGES };
-}
+// ---------- Page-data gathering (deterministic, no LLM) ----------
 
 // Strip a rendered HTML document down to visible text.
 function extractVisibleText(html) {
@@ -177,11 +178,6 @@ function parseSeoSignals(html) {
   };
 }
 
-async function readLastReview({ url }) {
-  const prior = await stateGet(`${AGENT_NAME}:page:${url}`);
-  return prior ?? { date: null, summary: null };
-}
-
 async function readPeerFindings({ agents = [], hoursBack = 168 }) {
   const findings = await readFindings(agents, hoursBack);
   const discussions = await readDiscussions(agents, hoursBack);
@@ -191,197 +187,45 @@ async function readPeerFindings({ agents = [], hoursBack = 168 }) {
   };
 }
 
-// ---------- Tool schema (worker sees these) ----------
+// ---------- Phase 1: chunked deterministic gather ----------
 
-const tools = [
-  {
-    name: "list_target_pages",
-    description: "List the EnviroCare pages this agent should review.",
-    input_schema: { type: "object", properties: {} },
-  },
-  {
-    name: "fetch_page",
-    description:
-      "Fetch a URL and return its parsed SEO signals (title, meta description, H1/H2 counts, JSON-LD @types, canonical, OG tags) plus the cleaned visible page text (~6k chars) for content review.",
-    input_schema: {
-      type: "object",
-      properties: { url: { type: "string" } },
-      required: ["url"],
-    },
-  },
-  {
-    name: "run_pagespeed",
-    description:
-      "Run Google PageSpeed Insights for a URL. Returns performance/SEO/a11y scores, Core Web Vitals (LCP/CLS/TBT), and a screenshot (will be passed to the vision panel — you don't see it).",
-    input_schema: {
-      type: "object",
-      properties: {
-        url: { type: "string" },
-        strategy: { type: "string", enum: ["mobile", "desktop"] },
-      },
-      required: ["url"],
-    },
-  },
-  {
-    name: "read_last_review",
-    description: "Read this agent's prior review for a URL.",
-    input_schema: {
-      type: "object",
-      properties: { url: { type: "string" } },
-      required: ["url"],
-    },
-  },
-  {
-    name: "read_peer_findings",
-    description:
-      "Read recent findings + discussions from other agents (brightlocal, cfo-agent, etc). Use to surface cross-agent connections.",
-    input_schema: {
-      type: "object",
-      properties: {
-        agents: { type: "array", items: { type: "string" } },
-        hoursBack: { type: "integer" },
-      },
-    },
-  },
-];
-
-// Strip large/binary fields before echoing tool results back into the LLM context.
-function stripHeavy(result) {
-  if (!result || typeof result !== "object") return result;
-  const out = { ...result };
-  if (out._screenshot_b64) {
-    out._screenshot_b64 = "[stored separately for panel]";
-  }
-  return out;
+// Reject after ms — one hung PageSpeed call can't eat the whole invocation.
+function withTimeout(promise, ms, label) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`${label}: page timeout after ${ms}ms`)), ms);
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }
 
-async function callTool(name, input, screenshotStore) {
-  switch (name) {
-    case "list_target_pages":
-      return await listTargetPages();
-    case "fetch_page":
-      return await fetchPage(input);
-    case "run_pagespeed": {
-      const result = await runPageSpeed(input);
-      if (result?._screenshot_b64) {
-        screenshotStore.push({
-          url: result.url,
-          mediaType: "image/jpeg",
-          base64: result._screenshot_b64,
-        });
-      }
-      return result;
-    }
-    case "read_last_review":
-      return await readLastReview(input);
-    case "read_peer_findings":
-      return await readPeerFindings(input);
-    default:
-      return { error: `Unknown tool: ${name}` };
-  }
+// Gather everything the panel needs for ONE page. The screenshot rides along
+// in agent_state (size-capped) so a cycle spread across invocations still
+// feeds the vision lens when synthesis finally runs.
+async function gatherPage(page) {
+  const [pagespeed, fetched] = await Promise.all([
+    runPageSpeed({ url: page.url, strategy: "mobile" }),
+    fetchPage({ url: page.url }),
+  ]);
+  const screenshot =
+    pagespeed?._screenshot_b64 && pagespeed._screenshot_b64.length < 400_000
+      ? pagespeed._screenshot_b64
+      : null;
+  if (pagespeed && typeof pagespeed === "object") delete pagespeed._screenshot_b64;
+  return {
+    url: page.url,
+    label: page.label,
+    pagespeed,
+    seo: fetched?.seo ?? null,
+    content_excerpt: (fetched?.text ?? "").slice(0, 1500),
+    fetch_error: fetched?.error ?? null,
+    screenshot,
+    gathered_at: new Date().toISOString(),
+  };
 }
 
-// ---------- Phase 1: Worker (data gathering) ----------
-
-const WORKER_SYSTEM = `You are the data-gatherer for EnviroCare Pest Control's site review (envirocarellc.com — Alabaster, Huntsville, Alex City).
-
-YOUR JOB
-Gather raw data — do NOT write analysis. The multi-model panel will analyze afterward.
-
-APPROACH (you choose order)
-1. read_peer_findings to see what BrightLocal/CFO/other agents have reported recently.
-2. list_target_pages.
-3. For each target page: run_pagespeed (mobile), then fetch_page (which returns SEO signals + cleaned page text).
-4. Stop once you've covered every target page.
-
-OUTPUT — your FINAL message MUST be the JSON object and NOTHING else.
-- No preamble, no reasoning, no "Let me compile the data…", no commentary before or after.
-- No markdown code fences. The message must start with { and end with }.
-{
-  "pages": [
-    {
-      "url": "...",
-      "label": "...",
-      "pagespeed": { ... full run_pagespeed result },
-      "seo": { ... the seo object from fetch_page },
-      "content_excerpt": "first ~1500 chars of fetch_page's text — actual page copy for the brand/copy lens"
-    }
-  ],
-  "peer_findings_summary": "1-2 sentence summary of what other agents have flagged that's relevant to this review"
-}
-
-PROMPT VERSION: ${PROMPT_VERSION}`;
-
-// Parse the worker's final message into JSON, tolerating stray markdown fences
-// or a chatty preamble ("Let me compile the data…") before the object. Strip
-// fences first, then fall back to slicing the outermost { … } so one narrated
-// run can't drop all page data.
-function parseWorkerJson(text) {
-  const cleaned = text
-    .replace(/^```json\s*/i, "")
-    .replace(/^```\s*/i, "")
-    .replace(/\s*```$/i, "")
-    .trim();
-  try {
-    return JSON.parse(cleaned);
-  } catch {
-    const first = cleaned.indexOf("{");
-    const last = cleaned.lastIndexOf("}");
-    if (first !== -1 && last > first) {
-      return JSON.parse(cleaned.slice(first, last + 1)); // may throw — caller handles
-    }
-    throw new Error("no JSON object found in worker output");
-  }
-}
-
-async function gatherData() {
-  if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
-
-  const screenshots = [];
-  const messages = [{ role: "user", content: "Begin gathering site data for the weekly review." }];
-
-  for (let turn = 0; turn < MAX_TURNS; turn++) {
-    const resp = await createMessage(anthropic, {
-      model: WORKER_MODEL,
-      max_tokens: 2500,
-      system: WORKER_SYSTEM,
-      tools,
-      messages,
-    }, { agentName: AGENT_NAME, role: 'worker' });
-    messages.push({ role: "assistant", content: resp.content });
-
-    if (resp.stop_reason === "end_turn") {
-      const text = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
-      let data;
-      try {
-        data = parseWorkerJson(text);
-      } catch (e) {
-        // Worker returned text that isn't valid JSON. Log so we don't
-        // silently lose page data — pages: [] makes the rest of the
-        // pipeline run against empty input and produce a useless brief.
-        console.error(`[${AGENT_NAME}] gather JSON.parse failed: ${e.message}`);
-        console.error(`[${AGENT_NAME}] raw worker text (first 500 chars): ${text.slice(0, 500)}`);
-        data = { pages: [], peer_findings_summary: "", raw: text };
-      }
-      return { data, screenshots };
-    }
-
-    if (resp.stop_reason !== "tool_use") return { data: { pages: [] }, screenshots };
-
-    const toolResults = [];
-    for (const block of resp.content) {
-      if (block.type !== "tool_use") continue;
-      console.log(`[${AGENT_NAME}] -> ${block.name}`, JSON.stringify(block.input).slice(0, 160));
-      const result = await callTool(block.name, block.input, screenshots);
-      toolResults.push({
-        type: "tool_result",
-        tool_use_id: block.id,
-        content: JSON.stringify(stripHeavy(result)).slice(0, 12000),
-      });
-    }
-    messages.push({ role: "user", content: toolResults });
-  }
-  return { data: { pages: [], peer_findings_summary: "[max turns reached]" }, screenshots };
+async function clearCycleState() {
+  for (const t of TARGET_PAGES) await stateSet(GATHER_PREFIX + t.label, null);
+  await stateSet(CURSOR_KEY, null);
 }
 
 // ---------- Phases 2 & 3: Panel + synthesis ----------
@@ -466,22 +310,89 @@ async function persistFindings(synthesis, pages) {
 // ---------- Entry point ----------
 
 export async function run() {
+  const started = Date.now();
   console.log(`[${AGENT_NAME}] Starting (prompt ${PROMPT_VERSION})`);
 
-  let gathered;
-  try {
-    gathered = await gatherData();
-  } catch (e) {
-    console.error(`[${AGENT_NAME}] gather failed: ${e.message}`);
-    await logAgentRun(AGENT_NAME, "error", `gather: ${e.message}`);
-    throw e;
+  // Resume (or start) the gather cycle. The cursor lives in agent_state, so
+  // a run killed at the 300s cap loses at most the page it was on — every
+  // completed page is checkpointed before the cursor advances.
+  let cursor = await stateGet(CURSOR_KEY);
+  if (cursor && (Date.now() - new Date(cursor.cycle_started_at).getTime()) / 3.6e6 > CYCLE_STALE_H) {
+    console.warn(`[${AGENT_NAME}] cursor from ${cursor.cycle_started_at} is stale — restarting cycle`);
+    cursor = null;
+  }
+  if (!cursor) cursor = { index: 0, cycle_started_at: new Date().toISOString() };
+
+  let gatheredThisRun = 0;
+  const pageErrors = [];
+  while (
+    cursor.index < TARGET_PAGES.length &&
+    gatheredThisRun < MAX_PAGES_PER_RUN &&
+    Date.now() - started < GATHER_DEADLINE_MS
+  ) {
+    const page = TARGET_PAGES[cursor.index];
+    console.log(`[${AGENT_NAME}] gathering ${cursor.index + 1}/${TARGET_PAGES.length}: ${page.label}`);
+    let result;
+    try {
+      result = await withTimeout(gatherPage(page), PAGE_TIMEOUT_MS, page.label);
+    } catch (e) {
+      // A slow/broken page costs its own slot, never the whole cycle.
+      console.error(`[${AGENT_NAME}] ${page.label}: ${e.message}`);
+      pageErrors.push(`${page.label}: ${e.message}`);
+      result = { url: page.url, label: page.label, error: e.message, gathered_at: new Date().toISOString() };
+    }
+    await stateSet(GATHER_PREFIX + page.label, result);
+    cursor.index += 1;
+    gatheredThisRun += 1;
+    await stateSet(CURSOR_KEY, cursor);
   }
 
-  const { panel, synthesis } = await panelReview(gathered.data, gathered.screenshots);
+  if (cursor.index < TARGET_PAGES.length) {
+    const msg = `chunk done: ${cursor.index}/${TARGET_PAGES.length} pages gathered (${gatheredThisRun} this run${pageErrors.length ? `, ${pageErrors.length} page error(s)` : ""}) — resuming next cron tick`;
+    console.log(`[${AGENT_NAME}] ${msg}`);
+    await logAgentRun(AGENT_NAME, "ok", msg);
+    return { chunked: true, gathered: cursor.index, total: TARGET_PAGES.length, pageErrors };
+  }
+
+  // All pages gathered. Panel + synthesis is the expensive tail — give it a
+  // fresh invocation of its own if this one already spent much of its budget.
+  if (Date.now() - started > SYNTH_GATE_MS) {
+    const msg = `all ${TARGET_PAGES.length} pages gathered — deferring panel+synthesis to next cron tick (${Math.round((Date.now() - started) / 1000)}s elapsed)`;
+    console.log(`[${AGENT_NAME}] ${msg}`);
+    await logAgentRun(AGENT_NAME, "ok", msg);
+    return { chunked: true, gathered: cursor.index, total: TARGET_PAGES.length, deferredSynthesis: true };
+  }
+
+  return await finalizeReview();
+}
+
+// Phases 2-5 on the accumulated cycle data, then reset for the next cycle.
+async function finalizeReview() {
+  const stored = await stateGetAll(GATHER_PREFIX);
+  const byLabel = new Map(
+    Object.values(stored).filter(Boolean).map((p) => [p.label, p]),
+  );
+  const pages = TARGET_PAGES.map((t) => byLabel.get(t.label)).filter(Boolean);
+  const screenshots = pages
+    .filter((p) => p.screenshot)
+    .slice(0, 3)
+    .map((p) => ({ url: p.url, mediaType: "image/jpeg", base64: p.screenshot }));
+
+  const peers = await readPeerFindings({});
+  const gatheredData = {
+    pages: pages.map(({ screenshot, ...rest }) => rest),
+    peer_findings: peers.findings.slice(0, 10).map((f) => ({
+      agent: f.agent_name,
+      severity: f.severity,
+      finding: f.finding,
+    })),
+  };
+
+  const { panel, synthesis } = await panelReview(gatheredData, screenshots);
 
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
-    task: "Weekly site review of envirocarellc.com across visual + performance + SEO/content",
+    task: "Site review of envirocarellc.com across visual + performance + SEO/content",
     output: synthesis.brief,
     rubric: RUBRIC,
     revise: async () => {
@@ -495,14 +406,15 @@ export async function run() {
     },
   }));
 
-  await persistFindings(synthesis, gathered.data?.pages);
+  await persistFindings(synthesis, gatheredData.pages);
 
   await stateSet(`${AGENT_NAME}:last-run`, {
     date: new Date().toISOString(),
     brief: final,
-    pages_reviewed: (gathered.data?.pages ?? []).map((p) => p.url),
+    pages_reviewed: gatheredData.pages.map((p) => p.url),
   });
 
+  await clearCycleState();
   await logAgentRun(AGENT_NAME, "ok", final);
 
   console.log(`[${AGENT_NAME}] Done`);
