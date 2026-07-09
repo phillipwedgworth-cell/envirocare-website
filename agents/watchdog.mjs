@@ -21,6 +21,8 @@ const HEALTHY = new Set(['ok', 'success', 'pass', 'passed', 'green', 'complete',
 const DIGEST_DAY = 1;                 // Monday (UTC)
 const DAILY_USD_BUDGET = Number(process.env.DAILY_USD_BUDGET || 5);   // soft AI-spend cap
 const DEPLOY_ANOMALY   = Number(process.env.DEPLOY_ANOMALY   || 12);  // deploys/24h = runaway
+const RUNTIME_ERROR_ALERT = Number(process.env.RUNTIME_ERROR_ALERT || 10); // fn errors/24h worth an email
+const IN_FLIGHT_GRACE_H = 3;          // a 'running' row younger than this is a live run, not a crash
 
 // Anthropic returns this in the 400 body when the monthly org/workspace usage
 // limit is hit. Those requests are NEVER billed, so the daily spend counter
@@ -28,27 +30,55 @@ const DEPLOY_ANOMALY   = Number(process.env.DEPLOY_ANOMALY   || 12);  // deploys
 // signal that the whole fleet is silently blocked.
 const ANTHROPIC_CAP_SIGNATURE = 'specified API usage limits';
 
-// Agents that write to the agent_runs ledger. Add one the moment it starts logging.
+// Every scheduled automation that writes to the agent_runs ledger, with the
+// heartbeat window = schedule interval + grace. The check is on the last
+// SUCCESSFUL run: an agent that crashes before logging, or logs only errors,
+// goes OVERDUE once its last success ages past this window — that is the
+// Morning Brief blind spot (failed daily for weeks while the ledger's latest
+// row was simply absent and the old latest-run check stayed green).
+// Daily agents get 30h (24 + 6 grace); weeklies 192h (7d + 1d grace).
+// Not listed (log nothing yet): ingest-seo — add once it heartbeats.
 const EXPECTED = [
+  // GitHub Actions — daily
+  { agent: 'morning-brief',         maxAgeH: 30,     label: 'Morning Brief (daily 13:30 UTC)' },
+  { agent: 'daily-rollup',          maxAgeH: 30,     label: 'Daily Rollup (daily 13:00 UTC)' },
+  { agent: 'aeo-watch',             maxAgeH: 30,     label: 'AEO watch (daily 12:00 UTC)' },
+  { agent: 'neuronwriter-narrator', maxAgeH: 30,     label: 'Neuron Narrator (daily 13:00 UTC score)' },
+  { agent: 'social-poster',         maxAgeH: 30,     label: 'Social poster (daily 15:00 UTC)' },
+  // GitHub Actions — weekly
   { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8, label: 'Weekly QA (Mon 7am CT)' },
   { agent: 'neuronwriter-optimize', maxAgeH: 24 * 8, label: 'Weekly optimize (Tue 7am CT)' },
+  { agent: 'seo-watch',             maxAgeH: 24 * 8, label: 'SEO watch (Mon 13:00 UTC)' },
+  { agent: 'seo-monitor',           maxAgeH: 24 * 8, label: 'SEO monitor (Mon)' },
   // Vercel cron routes — these agents already call logAgentRun() internally:
-  { agent: 'seo-monitor',   maxAgeH: 24 * 8, label: 'SEO monitor (Mon)' },
-  { agent: 'brightlocal',   maxAgeH: 12,     label: 'BrightLocal (4x/day)' },
-  { agent: 'site-reviewer', maxAgeH: 12,     label: 'Site reviewer (4x/day)' },
+  { agent: 'orchestrator',          maxAgeH: 30,     label: 'Orchestrator (daily 09:00 UTC, Vercel cron)' },
+  { agent: 'review-responder',      maxAgeH: 24 * 8, label: 'Review responder (Mon, via orchestrator)' },
+  { agent: 'brightlocal',           maxAgeH: 12,     label: 'BrightLocal (4x/day)' },
+  { agent: 'site-reviewer',         maxAgeH: 12,     label: 'Site reviewer (4x/day)' },
 ];
 
 const healthy = s => HEALTHY.has(String(s ?? '').toLowerCase());
 const ageH = ts => (Date.now() - new Date(ts).getTime()) / 3.6e6;
+
+// A 'running' row younger than IN_FLIGHT_GRACE_H is a live run (aeo-watch
+// inserts 'running' at start and PATCHes to 'complete'); older means it
+// crashed mid-run without ever closing the row.
+const inFlight = r => String(r?.status ?? '').toLowerCase() === 'running'
+  && ageH(r.created_at) < IN_FLIGHT_GRACE_H;
 
 async function latestPerAgent() {
   if (!supabase) throw new Error('Supabase client is null — SUPABASE_URL / SUPABASE_KEY not set');
   const { data, error } = await supabase.from('agent_runs')
     .select('agent_name,status,created_at').order('created_at', { ascending: false }).limit(1000);
   if (error) throw new Error(`agent_runs read: ${JSON.stringify(error)}`);
-  const latest = new Map();
-  for (const r of data ?? []) if (!latest.has(r.agent_name)) latest.set(r.agent_name, r);
-  return latest;
+  // Track both the latest run (any status — catches active failures) and the
+  // latest HEALTHY run (the heartbeat — catches agents that stopped succeeding).
+  const latest = new Map(), latestHealthy = new Map();
+  for (const r of data ?? []) {
+    if (!latest.has(r.agent_name)) latest.set(r.agent_name, r);
+    if (healthy(r.status) && !latestHealthy.has(r.agent_name)) latestHealthy.set(r.agent_name, r);
+  }
+  return { latest, latestHealthy };
 }
 
 // ── Daily AI spend (no new secret — reads the agent_costs table) ──────────────
@@ -122,25 +152,108 @@ async function vercelCheck(lines, problems) {
     lines.push(`vercel   ${last24.length} deploy(s)/24h${last24.length > DEPLOY_ANOMALY ? ' — RUNAWAY' : ''}; latest=${String(deps[0]?.state ?? deps[0]?.readyState ?? '?').toLowerCase()}`);
     if (last24.length > DEPLOY_ANOMALY) problems.push(`${last24.length} Vercel deploys/24h`);
     if (errored) { lines.push(`vercel   FAILED deploy on record: ${errored.url ?? errored.uid}`); problems.push('Vercel deploy ERROR'); }
+
+    await runtimeErrorCheck(lines, problems, { token, project, team, deps });
   } catch (e) { lines.push(`vercel   skipped — ${e.message}`); }
 }
 
+// ── Vercel RUNTIME errors (function crashes, 5xx, cron-route timeouts) ────────
+// The deploy check above only sees BUILD failures; a route that deploys fine
+// and then dies at runtime (e.g. site-reviewer hitting the 300s cap) is
+// invisible to it. Read the current production deployment's runtime-logs
+// stream (best-effort: it is a stream, so read for a bounded window and parse
+// whatever arrived) and count error/fatal-level entries from the last 24h.
+async function runtimeErrorCheck(lines, problems, { token, project, team, deps }) {
+  const prod = deps.find(d =>
+    (d.target ?? '') === 'production' &&
+    String(d.state ?? d.readyState).toUpperCase() === 'READY');
+  if (!prod) { lines.push('runtime  skipped — no READY production deploy in the last 20'); return; }
+  const depId = prod.uid ?? prod.id;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 10_000);
+  try {
+    const u = `https://api.vercel.com/v1/projects/${project}/deployments/${depId}/runtime-logs?teamId=${team}`;
+    const r = await fetch(u, { headers: { Authorization: `Bearer ${token}` }, signal: ctrl.signal });
+    if (!r.ok) { lines.push(`runtime  skipped — API ${r.status}`); return; }
+
+    // Bounded read: stop at stream end, 2MB, or the 10s abort — keep what we have.
+    let raw = '';
+    const reader = r.body.getReader();
+    const dec = new TextDecoder();
+    try {
+      while (raw.length < 2_000_000) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        raw += dec.decode(value, { stream: true });
+      }
+    } catch { /* aborted mid-stream — parse what arrived */ }
+
+    // Body is NDJSON (one log object per line) or a JSON array — accept both.
+    let events = [];
+    const trimmed = raw.trim();
+    if (trimmed.startsWith('[')) {
+      try { events = JSON.parse(trimmed); } catch { /* truncated array — fall through */ }
+    }
+    if (!events.length) {
+      for (const line of trimmed.split('\n')) {
+        const t = line.trim();
+        if (!t.startsWith('{')) continue;
+        try { events.push(JSON.parse(t)); } catch { /* partial trailing line */ }
+      }
+    }
+
+    const dayAgo = Date.now() - 24 * 3.6e6;
+    const byPath = new Map();
+    let errors = 0;
+    for (const ev of events) {
+      const ts = Number(ev.timestampInMs ?? ev.timestamp ?? 0);
+      if (ts && ts < dayAgo) continue;
+      const isError = ev.level === 'error' || ev.level === 'fatal' || Number(ev.responseStatusCode) >= 500;
+      if (!isError) continue;
+      errors++;
+      const p = ev.requestPath ?? '?';
+      byPath.set(p, (byPath.get(p) ?? 0) + 1);
+    }
+    const top = [...byPath.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3)
+      .map(([p, n]) => `${p}×${n}`).join(', ');
+    lines.push(`runtime  ${errors} error(s)/24h in ${events.length} sampled log entries${top ? ` — top: ${top}` : ''}`);
+    if (errors >= RUNTIME_ERROR_ALERT) problems.push(`${errors} Vercel runtime errors/24h${top ? ` (${top})` : ''}`);
+  } catch (e) {
+    lines.push(`runtime  skipped — ${e.message}`);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function run() {
-  const latest = await latestPerAgent();
+  const { latest, latestHealthy } = await latestPerAgent();
   const lines = [], problems = [];
 
   for (const e of EXPECTED) {
-    const r = latest.get(e.agent);
-    if (!r) { lines.push(`OVERDUE  ${e.agent} — no run on record (${e.label})`); problems.push(e.agent); }
-    else if (ageH(r.created_at) > e.maxAgeH) { lines.push(`OVERDUE  ${e.agent} — last run ${Math.round(ageH(r.created_at)/24)}d ago (${e.label})`); problems.push(e.agent); }
-    else if (!healthy(r.status)) { lines.push(`FAILED   ${e.agent} — status="${r.status}", ${Math.round(ageH(r.created_at))}h ago`); problems.push(e.agent); }
-    else { lines.push(`ok       ${e.agent} — ${Math.round(ageH(r.created_at))}h ago`); }
+    const last = latest.get(e.agent);
+    const ok = latestHealthy.get(e.agent);
+    const okAgeH = ok ? ageH(ok.created_at) : Infinity;
+    const attempt = last
+      ? `last attempt status="${last.status}" ${Math.round(ageH(last.created_at))}h ago`
+      : 'no attempt on record';
+    if (!ok || okAgeH > e.maxAgeH) {
+      // Heartbeat miss: no SUCCESSFUL run inside schedule + grace. Fires both
+      // when the agent stopped running AND when it runs but only ever fails.
+      const when = ok ? `${Math.round(okAgeH / 24)}d ago` : 'never';
+      lines.push(`OVERDUE  ${e.agent} — last success ${when}, allowed ${e.maxAgeH}h; ${attempt} (${e.label})`);
+      problems.push(e.agent);
+    } else if (!healthy(last.status) && !inFlight(last)) {
+      lines.push(`FAILED   ${e.agent} — status="${last.status}", ${Math.round(ageH(last.created_at))}h ago (last success ${Math.round(okAgeH)}h ago)`);
+      problems.push(e.agent);
+    } else {
+      lines.push(`ok       ${e.agent} — success ${Math.round(okAgeH)}h ago`);
+    }
   }
   const expected = new Set(EXPECTED.map(e => e.agent));
   for (const [name, r] of latest) {
     if (expected.has(name)) continue;
     if (name === 'watchdog') continue;   // never self-monitor via the ledger — reading its own last row created a false "watchdog failed" loop
-    if (!healthy(r.status)) { lines.push(`FAILED   ${name} — status="${r.status}"`); problems.push(name); }
+    if (!healthy(r.status) && !inFlight(r)) { lines.push(`FAILED   ${name} — status="${r.status}"`); problems.push(name); }
   }
 
   await budgetCheck(lines, problems);
