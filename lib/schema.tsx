@@ -40,7 +40,7 @@ const SAME_AS = [
 
 // ─── Service catalog (shared) ─────────────────────────────────────────────────
 // NOTE: bed bug and wildlife removal are NOT offered — intentionally excluded.
-const SERVICE_CATALOG = {
+export const SERVICE_CATALOG = {
   '@type': 'OfferCatalog',
   name: 'Pest & Termite Control Services',
   itemListElement: [

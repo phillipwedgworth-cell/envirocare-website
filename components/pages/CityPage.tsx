@@ -22,6 +22,7 @@
 
 import { useEffect } from 'react';
 import { getCityBySlug, type City } from '@/data/cities';
+import { SERVICE_CATALOG } from '@/lib/schema';
 import CityDepth from '@/components/CityDepth';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
@@ -134,6 +135,7 @@ function buildCitySchema(city: City) {
     ...(nap ? { geo: { '@type': 'GeoCoordinates', latitude: nap.lat, longitude: nap.lng } } : {}),
     areaServed: { '@type': 'City', name: city.name, addressRegion: 'AL', addressCountry: 'US' },
     openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' }],
+    hasOfferCatalog: SERVICE_CATALOG,
     sameAs,
     image: 'https://www.envirocarellc.com/og-image.png',
   };
