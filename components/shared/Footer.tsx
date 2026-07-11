@@ -67,6 +67,7 @@ const SPECIALTY: [string, string][] = [
   ["Commercial Service", "/services/commercial"],
   ["Pest Library", "/pest-library"],
   ["Pest Tips & Blog", "/blog"],
+  ["Local vs National Chains", "/family-owned-vs-national-chains"],
   ["Special Offers", "/special-offers"],
 ];
 

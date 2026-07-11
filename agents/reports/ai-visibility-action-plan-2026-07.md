@@ -56,11 +56,49 @@ template already leads with intro copy — audit per city via NeuronWriter score
 renewal-date fix is in).
 
 ### B. Comparison content vs national brands (AI loves comparisons)
-- One page: "EnviroCare vs the national pest control chains in Alabama" —
-  family-owned since 1958, same-technician routes, published pricing, unlimited
-  re-service, local offices vs call centers. Factual, no disparagement.
+- DONE Jul 11: /family-owned-vs-national-chains — AI-answer block, side-by-side
+  table (no competitor named), FAQPage schema, footer-linked sitewide. Trust
+  points: since 1958, fourth generation, 3 real offices, same technician,
+  no-drill Sentricon® up to $1M coverage, published pricing, unlimited
+  re-service, canonical contract wording.
 - Huntsville angle: Cook's Pest Control is the incumbent — the huntsville city
   page already references this; extend with a short factual comparison FAQ.
+
+### B2. The 25 tracked AI prompts (plug these into NeuronWriter AI Visibility)
+Birmingham metro money terms:
+1. Best pest control company in Birmingham AL
+2. Best termite control company in Birmingham AL
+3. Best mosquito control Birmingham AL
+4. Pest control Hoover AL
+5. Termite control Hoover AL
+6. Pest control Vestavia Hills AL
+7. Termite control Vestavia Hills AL
+8. Pest control Mountain Brook AL
+9. Mosquito control Mountain Brook AL
+10. Pest control Homewood AL
+11. Pest control Trussville AL
+12. Termite inspection Birmingham AL
+13. Sentricon termite protection Birmingham AL
+14. Pest control Alabaster AL
+15. Pest control Pelham AL
+16. Pest control Helena AL
+17. Pest control Chelsea AL
+18. Pest control Greystone AL
+
+Expansion markets:
+19. Pest control Huntsville AL
+20. Termite control Huntsville AL
+21. Pest control Madison AL
+22. Pest control Lake Martin AL
+23. Pest control Alexander City AL
+24. Pest control Auburn AL
+25. Termite inspection Auburn AL
+
+Strategy note (GPT review, Jul 11): don't chase the broad head terms where the
+big regional brands have prominence — win suburb by suburb, service by service,
+question by question. Our edge is local specificity + published pricing +
+termite authority; their edge is review volume + domain authority, which we
+close via review velocity (city-mentioning reviews), citations, and backlinks.
 
 ### C. Third-party citation floor (AI engines corroborate before citing)
 - GBP: submit the 20-service-area lists per office profile (Phillip, manual).
