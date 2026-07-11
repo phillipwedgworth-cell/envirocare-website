@@ -38,6 +38,7 @@ const GROUPS: Group[] = [
     office: 'Lake Martin / Alex City Office',
     phone: '(256) 234-6162',
     cities: [
+      ['Lake Martin & East Alabama (cluster)', '/lake-martin-area'],
       ['Alexander City', '/alexander-city'], ['Lake Martin', '/lake-martin'],
       ['Dadeville', '/dadeville'], ['Eclectic', '/eclectic'],
       ['Willow Point', '/willow-point'], ['The Ridge', '/the-ridge'],
@@ -49,6 +50,7 @@ const GROUPS: Group[] = [
     office: 'Huntsville Office',
     phone: '(256) 937-7676',
     cities: [
+      ['North Alabama (cluster)', '/north-alabama'],
       ['Huntsville', '/huntsville'], ['Madison', '/service-areas/madison'],
       ['Athens', '/athens'], ['Harvest', '/harvest'], ['Hampton Cove', '/hampton-cove'],
       ['Decatur', '/decatur'], ['Hartselle', '/hartselle'],

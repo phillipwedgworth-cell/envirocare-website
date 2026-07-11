@@ -91,8 +91,12 @@ const AREAS_2: [string, string][] = [
   ["Bessemer, AL", "/bessemer"],
   ["Huntsville, AL", "/huntsville"],
   ["Madison, AL", "/service-areas/madison"],
+  ["Athens, AL", "/athens"],
+  ["Decatur, AL", "/decatur"],
   ["Lake Martin / Alex City", "/lake-martin"],
+  ["Alexander City, AL", "/alexander-city"],
   ["Auburn, AL", "/auburn"],
+  ["Opelika, AL", "/opelika"],
   ["All Service Areas →", "/service-areas"],
 ];
 

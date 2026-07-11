@@ -33,6 +33,7 @@ const CITY_SLUGS = [
   'irondale', 'leeds', 'moody', 'fultondale',
   // Birmingham-metro cluster pages (Jul 11, 2026 metro rebuild)
   'over-the-mountain', 'south-birmingham', 'east-birmingham', 'north-birmingham',
+  'north-alabama', 'lake-martin-area',
 ];
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).
