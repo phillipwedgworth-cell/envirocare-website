@@ -1,0 +1,56 @@
+name: Supabase Schema Check
+
+# One-shot diagnostic: verifies every table in agents/lib/schema.sql exists and
+# that the agent_runs write path (watchdog heartbeats) works with the repo's
+# SUPABASE_URL / SUPABASE_KEY secrets. Read-only except one self-deleting test
+# row in agent_runs. Manual trigger only.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe schema tables via PostgREST
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          set -u
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_KEY" ]; then
+            echo "::error::SUPABASE_URL or SUPABASE_KEY secret is empty"; exit 1
+          fi
+          missing=0
+          for t in agent_state agent_runs envirocare_seo agent_findings morning_brief cfo_snapshots cfo_briefs; do
+            code=$(curl -s -o /tmp/body -w "%{http_code}" \
+              -H "apikey: $SUPABASE_KEY" -H "Authorization: Bearer $SUPABASE_KEY" \
+              "$SUPABASE_URL/rest/v1/$t?select=*&limit=1")
+            if [ "$code" = "200" ]; then
+              echo "TABLE_OK      $t"
+            else
+              echo "TABLE_MISSING $t (HTTP $code: $(head -c 200 /tmp/body))"
+              missing=$((missing+1))
+            fi
+          done
+          echo "MISSING_COUNT=$missing"
+
+      - name: Smoke-test agent_runs write path (insert + delete)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          set -u
+          code=$(curl -s -o /tmp/body -w "%{http_code}" -X POST \
+            -H "apikey: $SUPABASE_KEY" -H "Authorization: Bearer $SUPABASE_KEY" \
+            -H "Content-Type: application/json" -H "Prefer: return=representation" \
+            -d '{"agent_name":"schema-check","status":"ok","output":"workflow smoke test — safe to ignore"}' \
+            "$SUPABASE_URL/rest/v1/agent_runs")
+          echo "INSERT: HTTP $code $(head -c 200 /tmp/body)"
+          [ "$code" = "201" ] || { echo "::error::agent_runs insert failed"; exit 1; }
+          code=$(curl -s -o /tmp/body -w "%{http_code}" -X DELETE \
+            -H "apikey: $SUPABASE_KEY" -H "Authorization: Bearer $SUPABASE_KEY" \
+            "$SUPABASE_URL/rest/v1/agent_runs?agent_name=eq.schema-check")
+          echo "CLEANUP DELETE: HTTP $code"
+          echo "WRITE_PATH_OK"
