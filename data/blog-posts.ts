@@ -19,6 +19,56 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'mosquito-repellent-yard-spray-vs-professional',
+    title: 'Yard Mosquito Spray vs. Professional Treatment: What Actually Works in Alabama',
+    excerpt: 'Hose-end sprays, foggers, citronella, zappers — most Alabama homeowners have tried them all. An honest grading of the DIY aisle, and where professional treatment earns its cost.',
+    publishedAt: '2026-07-07',
+    author: 'Kevin Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 5,
+    heroEmoji: '🧴',
+    metaTitle: 'Yard Mosquito Spray vs. Professional Treatment | EnviroCare',
+    metaDescription: 'Do DIY mosquito sprays, foggers, and citronella actually work in Alabama? An honest comparison with professional mosquito treatment, from EnviroCare since 1958.',
+    body: `
+<p class="lede">Walk into any hardware store in Birmingham or Huntsville in July and you'll find an entire aisle promising to fix your mosquito problem: hose-end yard sprays, foggers, citronella buckets, bug zappers, granules. Most Alabama homeowners have tried at least three of them before they ever call us. So here's an honest grading of the DIY options — and where professional mosquito treatment actually earns its cost.</p>
+
+<h2>The DIY lineup, graded honestly</h2>
+
+<p><strong>Citronella candles and torches.</strong> They protect a few feet of air, in dead-calm conditions, while lit. A breeze defeats them, and so does walking to the grill. Ambience, not control.</p>
+
+<p><strong>Bug zappers.</strong> Research on zapper catches consistently finds mosquitoes make up a tiny fraction of what they kill — mostly moths and beneficial insects drawn to the light. Mosquitoes hunt by carbon dioxide and body heat, not ultraviolet. Skip these.</p>
+
+<p><strong>Spatial repellent devices</strong> — the butane-cartridge units you set on a table. These actually work, and we'll say so: within their roughly 15-foot zone, while running, in calm air, they meaningfully cut bites. For two people on a dock at Lake Martin, one is a reasonable tool. It does nothing for the rest of your yard and nothing once it's off.</p>
+
+<p><strong>Hose-end yard sprays.</strong> This is the closest DIY equivalent to professional treatment, and the knockdown is real — spray the yard Saturday morning and Saturday evening is noticeably better. The catch is what happens by Wednesday.</p>
+
+<h2>Why the DIY spray stops working in a few days</h2>
+
+<p>It usually isn't the product. It's placement. During the day, adult mosquitoes rest in shaded, humid harborage — the <em>undersides</em> of leaves, dense shrubs, fence lines, ivy beds, the dark space under your deck. A hose-end sprayer soaks the tops of the foliage and mostly misses the surfaces where mosquitoes actually sit, so there's little residual protection left where it matters. Rain and irrigation wash away the rest.</p>
+
+<p>Meanwhile, breeding never stopped. A female mosquito needs about a bottle cap of standing water for four or five days — a clogged gutter, a plant saucer, a tarp fold. Your yard refills from those sites and from every untreated yard around you, and by the weekend you're spraying again.</p>
+
+<h2>What professional treatment does differently</h2>
+
+<p>Our technicians use backpack misters that push a fine droplet up into the harborage DIY sprayers miss — the undersides of leaves, the shaded resting zones, fence lines and deck skirting — using EPA-registered products applied per label directions. We treat every three to four weeks, March through November, so the residual never fully lapses. And on each visit the technician walks the property looking for the breeding sites you can't spray your way out of: the gutter, the corrugated drainpipe, the low spot that holds water.</p>
+
+<p>Here's the honest part, because it matters: professional mosquito control is about significant reduction, not elimination. No treatment removes every mosquito in Alabama, and any company promising otherwise is overselling. What we do promise is to stand behind the service — if mosquitoes bounce back between scheduled visits, we come back and re-treat at no charge.</p>
+
+<h2>The cost math</h2>
+
+<p>DIY isn't free. A hose-end concentrate runs $20–25 a month through the season, plus the candles, cartridges, and the zapper gathering moths on the porch — most homeowners spend $150–200 a season for results that fade midweek.</p>
+
+<p>Our <a href="/services/mosquito">seasonal mosquito service</a> is $45 per treatment, March through November. Customers on a pest control plan can add it from $34 a month (monthly pricing requires a 12-month service agreement, billed by ACH auto-draft in equal averaged payments). Timing helps too — as we covered in our <a href="/blog/mosquito-season-birmingham-al">Alabama mosquito season guide</a>, starting earlier in the season keeps the breeding population from ever compounding.</p>
+
+<h2>When DIY is the right call</h2>
+
+<p>If you have a small patio, use it occasionally, and don't back up to woods or water — a spatial repellent, a box fan (genuinely underrated; mosquitoes are weak fliers), and a weekly walk to dump standing water may be all you need. If you're backing up to a creek in Hoover, a wooded lot in Hampton Cove, or shoreline at Lake Martin, the physics are against you, and a barrier program is the difference between owning your yard in August and surrendering it. Whatever you choose, skip the <a href="/blog/diy-pest-control-mistakes">DIY moves that make things worse</a>.</p>
+
+<p><a href="/request-quote">Request a free quote</a> or call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
+`,
+  },
+
+  {
     slug: 'alabama-termite-swarm-season',
     title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
     excerpt: 'Every March, subterranean termite swarmers emerge across Alabama. Here\'s how to spot them, why Birmingham\'s clay soil makes it worse, and what we recommend.',
