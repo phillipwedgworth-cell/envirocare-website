@@ -64,7 +64,7 @@ export const SERVICES: Service[] = [
       { title: 'EPA-Registered', desc: 'EPA-registered products applied per label directions.' },
     ],
     wedgePoints: [
-      { lead: 'No contracts', body: 'Cancel anytime. We earn your business every visit, not lock you in.' },
+      { lead: 'Pay per visit', body: 'No long-term contract when paying per visit — we earn your business every time. Monthly plans use a 12-month ACH billing agreement.' },
       { lead: 'Local technician', body: 'A local technician who gets to know your home — your dog\'s name, your gate code — visit after visit when scheduling allows.' },
       { lead: 'Familiar local team', body: 'A local crew that knows your area, with urgent issues prioritized.' },
     ],

@@ -44,7 +44,7 @@ const c: ComboContent = {
       "Fire ant & tick treatment available from $150",
       "Interior service whenever needed",
       "Unlimited free re-services",
-      "Month-to-month — cancel anytime",
+      "Equal monthly ACH payments (12-month agreement)",
     ],
   },
   faqs: [

@@ -91,7 +91,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'Does EnviroCare require a long-term contract?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. EnviroCare pest control is month-to-month on ACH and you can cancel anytime. We would rather earn the next visit than lock you into a contract.',
+        text: 'No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.',
       },
     },
   ],

@@ -619,7 +619,7 @@ export default function MadisonPage() {
             },
             {
               q: "Is there a contract for pest service?",
-              a: "No long-term contract on our pest control plans. Call or email to cancel at any time. The bi-monthly plan is month-to-month with the only commitment being the re-service guarantee — if pests return between visits, we come back at no charge.",
+              a: "No long-term contract is required when you pay per visit; monthly pricing uses a 12-month ACH billing agreement. Either way, the re-service guarantee applies — if pests return between visits, we come back at no charge.",
             },
           ].map(({ q, a }) => (
             <details key={q} style={{

@@ -96,7 +96,7 @@ export default function Header() {
               <span>Pay Bill</span>
             </a>
             <Link href="/request-quote" className="sh-quote">
-              <span className="sh-quote-full">Get Free Quote</span><span className="sh-quote-short">Quote</span>
+              <span className="sh-quote-full">Get Free{' '}</span><span>Quote</span>
             </Link>
             <a href="tel:2059406360" className="sh-call" aria-label="Call EnviroCare at (205) 940-6360">
               <Phone size={16} aria-hidden="true" /> <span className="sh-call-num">(205) 940-6360</span><span className="sh-call-word">Call</span>
@@ -180,7 +180,6 @@ const SH_CSS = `
   /* Get Free Quote - PRIMARY lead CTA, solid gold */
   .sh-quote { background: #F5A800; color: #0E1A0F !important; border: 1.5px solid #F5A800; box-shadow: 0 4px 14px rgba(245,168,0,0.32); }
   .sh-quote:hover { background: #E89C00; border-color: #E89C00; transform: translateY(-1px); }
-  .sh-quote-short { display: none; }
 
   /* Responsive */
   @media (max-width: 980px) {
@@ -197,7 +196,6 @@ const SH_CSS = `
   }
   @media (max-width: 560px) {
     .sh-quote-full { display: none; }
-    .sh-quote-short { display: inline; }
     .sh-actions { gap: 7px; }
   }
   @media (max-width: 420px) {

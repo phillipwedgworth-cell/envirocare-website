@@ -109,7 +109,7 @@ const jsonLd = {
           name: "How much does pest control cost in Birmingham?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. No long-term contract, cancel anytime.",
+            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement.",
           },
         },
         {
@@ -157,7 +157,7 @@ const jsonLd = {
           name: "Is there a long-term contract?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No. Pest control is month-to-month on ACH and you can cancel anytime. We'd rather earn the next visit than lock you in.",
+            text: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
           },
         },
       ],
@@ -232,7 +232,7 @@ export default function BirminghamPage() {
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 .85rem" }}>
               Four programs, <em style={{ color: F }}>no long-term contracts</em>
             </h2>
-            <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked Birmingham pricing. Month-to-month on ACH, cancel anytime.</p>
+            <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked Birmingham pricing. Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Unlimited free re-services","Quarterly interior on request"]} />
@@ -284,13 +284,13 @@ export default function BirminghamPage() {
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 2rem" }}>
               Answers for <em style={{ color: F }}>Birmingham homeowners</em>
             </h2>
-            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. No long-term contract, cancel anytime." />
+            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare has been the Wedgworth family's Birmingham-area exterminator since 1958, now in our fourth generation. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), and our main office is in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our office is at 2025 Butler Road in Alabaster — central to the metro." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through November in Birmingham. We apply the 30-day yard barrier monthly across those 9 months. $45 per treatment for mosquito only, or $65 per treatment for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
             <Faq q="Are EnviroCare's pest treatments safe for my family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
-            <Faq q="Is there a long-term contract?" a="No. Pest control is month-to-month on ACH and you can cancel anytime. We'd rather earn the next visit than lock you in." />
+            <Faq q="Is there a long-term contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
           </div>
         </section>
 

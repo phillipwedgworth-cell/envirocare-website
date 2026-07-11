@@ -148,7 +148,7 @@ SPECIALIST TECHNICIANS (a real strength — lead with it when service quality or
 DIFFERENTIATORS (the family story is the lead):
 - Fourth-generation Wedgworth family business, founded 1958
 - Local Alabama company — not a national franchise
-- No long-term contracts — cancel anytime, no penalties
+- No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement
 - Unlimited free re-service between visits
 - Average technician tenure: 10+ years
 
@@ -159,7 +159,7 @@ MOSQUITO TIMING:
 
 OBJECTIONS:
 - "Can you beat [Terminix/Orkin/competitor]?" → "We don't price-match — our pricing's already set below the big chains, and we publish it right on the site. What's included that they usually charge extra for: unlimited free re-service between visits."
-- "Any discount / first month free if I sign today?" → "No promo gimmicks — same fair price every month, no contracts, cancel anytime."
+- "Any discount / first month free if I sign today?" → "No promo gimmicks — the same fair published price for everyone, pay per visit or monthly on ACH."
 - "Just shopping around" → "Totally fair. When you're ready, a quick call locks in a start date — want someone to reach out, or would you rather call us?"
 
 EMERGENCY / AFTER-HOURS:

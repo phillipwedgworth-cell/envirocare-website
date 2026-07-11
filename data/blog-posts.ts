@@ -450,7 +450,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Termites: Start Immediately</h2>
 <p>For termite protection, every month without coverage is a month of potential damage. Alabama is one of the highest-risk states in the country. New homeowners should start immediately — builder soil treatments only last 5–7 years.</p>
 
-<p>EnviroCare offers $50 off initial service. No contracts. Free re-treatment between visits. Call any of our three offices:</p>
+<p>EnviroCare offers $50 off initial service. No long-term contract when paying per visit. Free re-treatment between visits. Call any of our three offices:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -1162,7 +1162,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>If you're seeing more than one wolf spider a week indoors, or you have a finished basement where they keep reappearing, the problem isn't really the spiders — it's that something they hunt has an established population in your home. That's what professional <a href="/services/pest-control">pest control</a> resolves, because it treats the underlying insect activity instead of the spider symptom.</p>
 
-<p>EnviroCare has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/service-areas/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
+<p>EnviroCare has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
 
 <p><a href="/request-quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
 
