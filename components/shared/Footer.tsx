@@ -66,6 +66,7 @@ const SPECIALTY: [string, string][] = [
   ["Real Estate / WDO Letters", "/realtor"],
   ["Commercial Service", "/services/commercial"],
   ["Pest Library", "/pest-library"],
+  ["Pest Tips & Blog", "/blog"],
   ["Special Offers", "/special-offers"],
 ];
 

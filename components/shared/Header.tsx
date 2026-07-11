@@ -38,6 +38,7 @@ const MENU_LINKS: [string, string][] = [
   ["Services", "/services"],
   ["Service Areas", "/service-areas"],
   ["Pest Library", "/pest-library"],
+  ["Pest Tips & Blog", "/blog"],
   ["Pricing", "/pricing"],
   ["About", "/about-us"],
   ["Reviews", "/reviews"],
