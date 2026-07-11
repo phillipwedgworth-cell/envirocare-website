@@ -14,6 +14,14 @@ export type ClusterCity = {
   hook: string; // one-line local angle
 };
 
+export type ClusterOffice = {
+  name: string;        // e.g. "Alabaster" — used in the disclaimer
+  phone: string;       // formatted
+  tel: string;         // digits
+  street: string;
+  cityStateZip: string; // e.g. "Alabaster, AL 35007"
+};
+
 export type ClusterConfig = {
   slug: string;
   name: string;               // e.g. "Over the Mountain"
@@ -23,11 +31,22 @@ export type ClusterConfig = {
   cities: ClusterCity[];
   faqs: { q: string; a: string }[];
   nearbyClusters: { name: string; href: string }[];
+  office?: ClusterOffice;     // defaults to the Alabaster metro hub
 };
 
 const BASE = 'https://www.envirocarellc.com';
 
+const DEFAULT_OFFICE: ClusterOffice = {
+  name: 'Alabaster',
+  phone: '(205) 940-6360',
+  tel: '2059406360',
+  street: '2025 Butler Rd',
+  cityStateZip: 'Alabaster, AL 35007',
+};
+
 export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
+  const office = cfg.office ?? DEFAULT_OFFICE;
+  const [officeCity, officeStateZip] = [office.cityStateZip.split(',')[0], office.cityStateZip.split(',').slice(1).join(',').trim()];
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -39,8 +58,8 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
         provider: {
           '@type': 'LocalBusiness',
           name: 'EnviroCare Pest & Termite Services',
-          address: { '@type': 'PostalAddress', streetAddress: '2025 Butler Rd', addressLocality: 'Alabaster', addressRegion: 'AL', postalCode: '35007', addressCountry: 'US' },
-          telephone: '+1-205-940-6360',
+          address: { '@type': 'PostalAddress', streetAddress: office.street, addressLocality: officeCity, addressRegion: 'AL', postalCode: officeStateZip.split(' ').pop(), addressCountry: 'US' },
+          telephone: `+1-${office.tel.slice(0,3)}-${office.tel.slice(3,6)}-${office.tel.slice(6)}`,
         },
         areaServed: cfg.cities.map(c => ({ '@type': 'City', name: `${c.name}, AL` })),
       },
@@ -84,8 +103,8 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
           ))}
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 22 }}>
-            <a href="tel:2059406360" style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>
-              Call (205) 940-6360
+            <a href={`tel:${office.tel}`} style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>
+              Call {office.phone}
             </a>
             <a href="/quote" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
               See Plans →
@@ -118,7 +137,7 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
           </div>
 
           <div style={{ marginTop: 40, fontSize: 15, color: '#5A6660' }}>
-            More of the metro:{' '}
+            More EnviroCare service areas:{' '}
             {cfg.nearbyClusters.map((n, i) => (
               <span key={n.href}>
                 {i > 0 && ' · '}
@@ -130,8 +149,8 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
           </div>
 
           <p style={{ marginTop: 26, fontSize: 14, color: '#7a887e', maxWidth: 780 }}>
-            EnviroCare serves {cfg.name} as part of our Birmingham metro service area — routes run
-            daily from our staffed office at 2025 Butler Rd, Alabaster. Family-owned since 1958.
+            EnviroCare serves {cfg.name} as a service area — routes run daily from our staffed
+            office at {office.street}, {office.cityStateZip}. Family-owned since 1958.
           </p>
         </section>
       </main>
