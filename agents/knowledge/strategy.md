@@ -29,6 +29,7 @@ Do NOT recommend "more GBP optimization" as a fix for these suburbs' map-pack ab
 - Shadowed pages resolved per SHADOWED-PAGES-RECOMMENDATION.md: /services, /special-offers, /realtor live; /bundle-services, /services/crawlspace, /services/real-estate-wdo stay 301s.
 - Auburn is a SERVICE AREA of the Alex City office — never claim an Auburn office/location anywhere (GBP, schema, copy). 3 real offices only: Alabaster, Alexander City, Huntsville.
 - NeuronWriter optimizes the top-20 target list (agents/neuronwriter-targets.json) — money suburbs Hoover/Vestavia/Mountain Brook are priority 1.
+- NeuronWriter **Advanced AI Monitoring add-on is ACTIVE** (purchased Jul 11, 2026 — $20/mo, ~50 AI-monitored questions across ChatGPT/Perplexity/Google AI Overviews/AI Mode). Subscription + analysis quota renew on the **10th** of each month (75 content analyses/mo; ~55 pages still pending optimization). Baseline Jul 11: SoV 35% · brand-in-answers 40% · domain-cited 30% · Google Top-10 20%. Working plan: agents/reports/ai-visibility-action-plan-2026-07.md — goal is domain CITATIONS ≥ brand mentions in 90 days; Phillip exports the ~20 Opportunity prompts from the dashboard on the 15th monthly (module data is dashboard-only, NOT in the NeuronWriter API — no agent can pull it automatically).
 
 ## Office Scout results (Jul 9 head-to-head grid scans)
 | Candidate | Active competitors | Top rival SoLV | Verdict |
