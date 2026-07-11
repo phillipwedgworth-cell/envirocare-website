@@ -39,6 +39,38 @@ export async function listProjects() {
   return post('list-projects');
 }
 
+// List all existing queries in a project. Costs NO quota (read-only).
+export async function listQueries(project) {
+  const proj = project ?? process.env.NEURONWRITER_PROJECT;
+  if (!proj) throw new Error('NeuronWriter: no project id for list-queries');
+  return post('list-queries', { project: proj });
+}
+
+// Memoized newest-existing-query-per-keyword map, one list-queries call per
+// process. 2026-07-10: added because an empty KV cache caused analyzePageContent
+// to mint brand-new queries even when duplicates of the same keyword already
+// existed in the project (~67 empty shells, ~5x per keyword). Reusing an
+// existing query costs zero analyses; only truly-new keywords hit new-query.
+const _existingByProject = new Map();
+async function existingQueryFor(proj, keyword) {
+  if (!_existingByProject.has(proj)) {
+    const p = (async () => {
+      const rows = await listQueries(proj);
+      const byKeyword = {};
+      for (const q of Array.isArray(rows) ? rows : []) {
+        const k = String(q.keyword ?? '').trim().toLowerCase();
+        if (!k) continue;
+        if (!byKeyword[k] || String(q.created ?? '') > String(byKeyword[k].created ?? '')) byKeyword[k] = q;
+      }
+      return byKeyword;
+    })();
+    _existingByProject.set(proj, p);
+  }
+  const byKeyword = await _existingByProject.get(proj).catch(() => ({}));
+  const hit = byKeyword[String(keyword).trim().toLowerCase()];
+  return hit ? (hit.query ?? hit.query_id ?? hit.id ?? null) : null;
+}
+
 // Create a new NLP query for a keyword inside a project.
 // project falls back to NEURONWRITER_PROJECT in env.
 // Returns { query, ... }
@@ -114,7 +146,15 @@ export async function analyzePageContent(keyword, content, opts = {}) {
   const cacheKey = proj ? `neuronwriter:query:${proj}:${keyword}` : null;
 
   let queryId = cacheKey ? await stateGet(cacheKey) : null;
-  const createdThisRun = !queryId;
+
+  // KV cache miss → check the project's existing queries before creating.
+  // list-queries is free; new-query burns one of the 75 monthly analyses.
+  if (!queryId && proj) {
+    queryId = await existingQueryFor(proj, keyword);
+    if (queryId) console.log(`[neuronwriter] reusing existing query ${queryId} for "${keyword}" (no quota spent)`);
+  }
+
+  let createdThisRun = false;
   let scored = false;
 
   // create → poll → score wrapped so a failure anywhere never leaves a silent
@@ -122,6 +162,7 @@ export async function analyzePageContent(keyword, content, opts = {}) {
   try {
     if (!queryId) {
       const q = await createQuery(keyword, opts);
+      createdThisRun = true;
       queryId = q.query ?? q.query_id ?? q.id;
       if (!queryId) throw new Error(`NeuronWriter: new-query returned no query id: ${JSON.stringify(q).slice(0, 200)}`);
     }
