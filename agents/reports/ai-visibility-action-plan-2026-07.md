@@ -69,7 +69,7 @@ renewal-date fix is in).
 - Reviews: review-responder resumes Monday; respond-rate and recency are
   AI-trust signals.
 
-### D. Monthly AI-visibility cadence (once Advanced AI Monitoring is active — $20/mo, approved by the <$50 rule)
+### D. Monthly AI-visibility cadence (Advanced AI Monitoring ACTIVE as of Jul 11 — $20/mo, approved by the <$50 rule)
 1. On the 15th of each month, export the Opportunities list (the 20 prompts).
 2. For each weak prompt record: competitor mentioned, domain cited instead of
    ours, and whether we have an existing page.
