@@ -94,6 +94,19 @@ Expansion markets:
 24. Pest control Auburn AL
 25. Termite inspection Auburn AL
 
+### B3. NeuronWriter dashboard setup (Phillip does this once, logged in)
+1. AI Visibility module → Monitored questions → add the 25 prompts above
+   verbatim (they map 1:1 to pages the QA agent now optimizes).
+2. Engines: enable ALL available — ChatGPT, Perplexity, Google AI Overviews,
+   Google AI Mode (that's what the $20 Advanced AI Monitoring add-on unlocks).
+3. Brand variants to track: "EnviroCare", "EnviroCare Pest & Termite",
+   "Wedgworth Pest Control" (the Lake Martin legacy name).
+4. Domain: envirocarellc.com (this is the CITATION being measured).
+5. Competitors to watch: callwaynes.com, cookspest.com, terminix.com,
+   orkin.com, and any local Birmingham operator the module suggests.
+6. Leave content projects/analyses alone — the agents drive those via API
+   within the 75/mo quota (renews the 10th).
+
 Strategy note (GPT review, Jul 11): don't chase the broad head terms where the
 big regional brands have prominence — win suburb by suburb, service by service,
 question by question. Our edge is local specificity + published pricing +

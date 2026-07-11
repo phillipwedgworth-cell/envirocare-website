@@ -1,25 +1,150 @@
 {
-  "_comment": "priority: 1 = money pages (scored first — quota goes to what matters), 2 = secondary services/cities, 3 = long-tail. The QA agent sorts ascending; a mid-run quota halt sacrifices tier 3 before tier 1.",
+  "_comment": "priority: 1 = money pages (scored first \u2014 quota goes to what matters), 2 = secondary services/cities, 3 = long-tail. The QA agent sorts ascending; a mid-run quota halt sacrifices tier 3 before tier 1.",
   "targets": [
-    { "page": "app/services/termite-control/page.tsx",    "keyword": "termite control birmingham al",            "priority": 1 },
-    { "page": "app/services/pest-control/page.tsx",       "keyword": "pest control birmingham al",               "priority": 1 },
-    { "page": "app/birmingham/page.tsx",                  "keyword": "pest control birmingham al",               "priority": 1 },
-    { "page": "app/huntsville/page.tsx",                  "keyword": "pest control huntsville al",               "priority": 1 },
-    { "page": "app/hoover/page.tsx",                      "keyword": "pest control hoover al",                   "priority": 1 },
-    { "page": "app/vestavia-hills/page.tsx",              "keyword": "pest control vestavia hills al",           "priority": 1 },
-    { "page": "app/mountain-brook/page.tsx",              "keyword": "pest control mountain brook al",           "priority": 1 },
-    { "page": "app/services/mosquito/page.tsx",           "keyword": "mosquito control birmingham al",           "priority": 2 },
-    { "page": "app/services/sentricon/page.tsx",          "keyword": "sentricon termite system alabama",         "priority": 2 },
-    { "page": "app/services/commercial/page.tsx",         "keyword": "commercial pest control birmingham al",    "priority": 2 },
-    { "page": "app/alexander-city/page.tsx",              "keyword": "pest control alexander city al",           "priority": 2 },
-    { "page": "app/homewood/page.tsx",                    "keyword": "pest control homewood al",                 "priority": 2 },
-    { "page": "app/opelika/page.tsx",                     "keyword": "pest control opelika al",                  "priority": 2 },
-    { "page": "app/services/fire-ant/page.tsx",           "keyword": "fire ant control alabama",                 "priority": 3 },
-    { "page": "app/services/flea/page.tsx",               "keyword": "flea control birmingham al",               "priority": 3 },
-    { "page": "app/services/tick-control/page.tsx",       "keyword": "tick control birmingham al",               "priority": 3 },
-    { "page": "app/services/wdo-letters/page.tsx",        "keyword": "wdo letter inspection alabama",            "priority": 3 },
-    { "page": "app/services/builder-pre-treat/page.tsx",  "keyword": "pre-construction pest treatment alabama",  "priority": 3 },
-    { "page": "app/auburn/page.tsx",                      "keyword": "pest control auburn al",                   "priority": 3 },
-    { "page": "app/service-areas/madison/page.tsx",       "keyword": "pest control madison al",                  "priority": 3 }
+    {
+      "page": "app/services/termite-control/page.tsx",
+      "keyword": "termite control birmingham al",
+      "priority": 1
+    },
+    {
+      "page": "app/services/pest-control/page.tsx",
+      "keyword": "pest control birmingham al",
+      "priority": 1
+    },
+    {
+      "page": "app/birmingham/page.tsx",
+      "keyword": "pest control birmingham al",
+      "priority": 1
+    },
+    {
+      "page": "app/huntsville/page.tsx",
+      "keyword": "pest control huntsville al",
+      "priority": 1
+    },
+    {
+      "page": "app/hoover/page.tsx",
+      "keyword": "pest control hoover al",
+      "priority": 1
+    },
+    {
+      "page": "app/vestavia-hills/page.tsx",
+      "keyword": "pest control vestavia hills al",
+      "priority": 1
+    },
+    {
+      "page": "app/mountain-brook/page.tsx",
+      "keyword": "pest control mountain brook al",
+      "priority": 1
+    },
+    {
+      "page": "app/family-owned-vs-national-chains/page.tsx",
+      "keyword": "best pest control company in birmingham al",
+      "priority": 1
+    },
+    {
+      "page": "app/services/mosquito/page.tsx",
+      "keyword": "mosquito control birmingham al",
+      "priority": 2
+    },
+    {
+      "page": "app/services/sentricon/page.tsx",
+      "keyword": "sentricon termite system alabama",
+      "priority": 2
+    },
+    {
+      "page": "app/services/commercial/page.tsx",
+      "keyword": "commercial pest control birmingham al",
+      "priority": 2
+    },
+    {
+      "page": "app/alexander-city/page.tsx",
+      "keyword": "pest control alexander city al",
+      "priority": 2
+    },
+    {
+      "page": "app/homewood/page.tsx",
+      "keyword": "pest control homewood al",
+      "priority": 2
+    },
+    {
+      "page": "app/opelika/page.tsx",
+      "keyword": "pest control opelika al",
+      "priority": 2
+    },
+    {
+      "page": "app/trussville/page.tsx",
+      "keyword": "pest control trussville al",
+      "priority": 2
+    },
+    {
+      "page": "app/alabaster/page.tsx",
+      "keyword": "pest control alabaster al",
+      "priority": 2
+    },
+    {
+      "page": "app/lake-martin/page.tsx",
+      "keyword": "pest control lake martin al",
+      "priority": 2
+    },
+    {
+      "page": "app/huntsville-termite-control/page.tsx",
+      "keyword": "termite control huntsville al",
+      "priority": 2
+    },
+    {
+      "page": "app/services/fire-ant/page.tsx",
+      "keyword": "fire ant control alabama",
+      "priority": 3
+    },
+    {
+      "page": "app/services/flea/page.tsx",
+      "keyword": "flea control birmingham al",
+      "priority": 3
+    },
+    {
+      "page": "app/services/tick-control/page.tsx",
+      "keyword": "tick control birmingham al",
+      "priority": 3
+    },
+    {
+      "page": "app/services/wdo-letters/page.tsx",
+      "keyword": "wdo letter inspection alabama",
+      "priority": 3
+    },
+    {
+      "page": "app/services/builder-pre-treat/page.tsx",
+      "keyword": "pre-construction pest treatment alabama",
+      "priority": 3
+    },
+    {
+      "page": "app/auburn/page.tsx",
+      "keyword": "pest control auburn al",
+      "priority": 3
+    },
+    {
+      "page": "app/service-areas/madison/page.tsx",
+      "keyword": "pest control madison al",
+      "priority": 3
+    },
+    {
+      "page": "app/pelham/page.tsx",
+      "keyword": "pest control pelham al",
+      "priority": 3
+    },
+    {
+      "page": "app/helena/page.tsx",
+      "keyword": "pest control helena al",
+      "priority": 3
+    },
+    {
+      "page": "app/chelsea/page.tsx",
+      "keyword": "pest control chelsea al",
+      "priority": 3
+    },
+    {
+      "page": "app/greystone/page.tsx",
+      "keyword": "pest control greystone al",
+      "priority": 3
+    }
   ]
 }
