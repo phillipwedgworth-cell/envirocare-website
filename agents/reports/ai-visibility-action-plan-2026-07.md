@@ -94,7 +94,15 @@ Expansion markets:
 24. Pest control Auburn AL
 25. Termite inspection Auburn AL
 
-### B3. NeuronWriter dashboard setup (Phillip does this once, logged in)
+### B3. NeuronWriter dashboard setup — ✅ DONE Jul 11, 2026 (~23:03), via Phillip's browser agent
+Confirmed saved state: 30 monitored prompts (the 25 below + 5 auto-suggested
+natural-language questions kept deliberately); all 4 engines live (ChatGPT,
+Perplexity, Google AI Overviews, AI Mode); brands EnviroCare / EnviroCare
+Pest & Termite / Wedgworth Pest Control; domain envirocarellc.com; competitors
+callwaynes.com, cookspest.com, terminix.com, orkin.com (+ auto-discovered
+locals, e.g. Elevated Pest Solutions, safespraypestcontrol.com). First results
+populate on the next ~daily monitoring cycle. Original checklist below for
+reference / re-setup:
 1. AI Visibility module → Monitored questions → add the 25 prompts above
    verbatim (they map 1:1 to pages the QA agent now optimizes).
 2. Engines: enable ALL available — ChatGPT, Perplexity, Google AI Overviews,
