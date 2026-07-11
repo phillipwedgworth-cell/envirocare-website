@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "fire-ant-control-alabama",
+    "keyword": "fire ant control Alabama",
+    "title": "Fire Ant Control in Alabama: What Works and What Doesn't",
+    "angle": "Alabama homeowners deal with fire ants spring through fall. Cover: identifying fire ant mounds, why mound treatments fail, broadcast bait vs mound drench, when to call a professional, EnviroCare's fire ant program.",
+    "season": "spring",
+    "published": true
+  },
+  {
+    "slug": "how-to-identify-termites-alabama",
+    "keyword": "how to identify termites Alabama",
+    "title": "How to Tell If You Have Termites in Your Alabama Home",
+    "angle": "Signs of subterranean termites: mud tubes, hollow wood, discarded wings, swarmers. How to tell termites from ants. What to do if you find them. EnviroCare free inspection CTA.",
+    "season": "year-round",
+    "published": true
+  },
+  {
+    "slug": "pest-control-cost-alabama",
+    "keyword": "how much does pest control cost Alabama",
+    "title": "How Much Does Pest Control Cost in Alabama? (2026 Pricing Guide)",
+    "angle": "Transparent pricing guide: monthly subscription vs per-visit, what's included, why EnviroCare publishes prices while competitors don't. Include $35/$62/$109 tiers. Compare to national chains hiding pricing. Address: 'is pest control worth it?'",
+    "season": "year-round",
+    "published": true
+  },
+  {
+    "slug": "sugar-ants-in-house-alabama",
+    "keyword": "sugar ants in house Alabama",
+    "title": "Sugar Ants Getting Into Your Alabama Home? Here's Why (and How to Stop It)",
+    "angle": "June\u2013July surge in sugar ants / odorous house ants entering Alabama homes. Why they come in (heat, rain, food sources). DIY traps vs professional treatment. EnviroCare free re-service guarantee \u2014 if ants return, we come back free.",
+    "season": "summer",
+    "published": true
+  },
+  {
+    "slug": "sentricon-vs-termidor-alabama",
+    "keyword": "Sentricon vs Termidor Alabama",
+    "title": "Sentricon vs. Termidor: Which Termite Treatment Is Right for Your Alabama Home?",
+    "angle": "Objective comparison. Sentricon: bait system, eliminates colony, no soil chemicals, $1M warranty. Termidor: liquid barrier, fast-acting, soil application, no warranty. EnviroCare is Sentricon Certified Specialist \u2014 explain why they chose Sentricon.",
+    "season": "year-round",
+    "published": true
+  },
+  {
+    "slug": "lake-martin-pest-guide",
+    "keyword": "pest control Lake Martin Alabama",
+    "title": "The Complete Pest Guide for Lake Martin Property Owners",
+    "angle": "Lake Martin-specific: mosquitoes off the shoreline, termites in dock structures and cabin wood, ticks in wooded lots, ants in seasonal homes left unattended. Seasonal opening/closing pest checklist for lake homes. EnviroCare Alex City office.",
+    "season": "year-round",
+    "published": true
+  },
+  {
+    "slug": "crawl-space-moisture-pests-alabama",
+    "keyword": "crawl space pests Alabama",
+    "title": "What's Living in Your Alabama Crawl Space (And How to Get Rid of It)",
+    "angle": "Alabama crawl spaces: termites, roaches, rodents, wood-decay fungi from moisture. Why humidity is the root cause. Encapsulation + pest control combo. Signs you have a crawl space pest problem.",
+    "season": "year-round",
+    "published": true
+  },
+  {
+    "slug": "flea-tick-season-alabama",
+    "keyword": "flea tick season Alabama",
+    "title": "Flea and Tick Season in Alabama: When It Peaks and How to Protect Your Yard",
+    "angle": "Alabama flea/tick season: March\u2013November. Lone Star tick, black-legged tick, brown dog tick. Where ticks harbor (leaf litter, fence rows, tree lines). Flea lifecycle and why DIY bombs fail. Pet owners guide.",
+    "season": "spring",
+    "published": true
+  },
+  {
+    "slug": "mosquito-control-lake-martin",
+    "keyword": "mosquito control Lake Martin AL",
+    "title": "Mosquito Control for Lake Martin Properties: Docks, Shorelines, and Wooded Lots",
+    "angle": "Lakefront mosquito pressure is different from residential: shoreline breeding, dock shade, wooded lot harborage. 21-day treatment calendar for lake properties. April start = less pressure all summer. EnviroCare Alex City office.",
+    "season": "spring",
+    "published": true,
+    "publishedNote": "SKIPPED: superseded by existing live post lake-martin-mosquito-guide (cannibalization risk)"
+  },
+  {
+    "slug": "termite-inspection-before-buying-home-alabama",
+    "keyword": "termite inspection buying home Alabama",
+    "title": "Why You Need a Termite Inspection Before Buying a Home in Alabama",
+    "angle": "Alabama termite pressure is high \u2014 homeowners insurance doesn't cover termite damage. What WDO inspections cover, what they don't. What happens if termites are found before closing. How to negotiate. EnviroCare free inspection CTA.",
+    "season": "year-round",
+    "published": false
+  },
+  {
+    "slug": "mosquito-repellent-yard-spray-vs-professional",
+    "keyword": "professional mosquito yard treatment vs DIY Alabama",
+    "title": "Yard Mosquito Spray vs. Professional Treatment: What Actually Works in Alabama",
+    "angle": "Why citronella candles and backyard foggers fail. How professional 21-day barrier treatments work. Cost comparison. The 'April start advantage' \u2014 start before peak to suppress breeding population. EnviroCare 50% off first application.",
+    "season": "spring",
+    "published": true,
+    "publishedNote": "Published 2026-07-07 in envirocare-website-deploy data/blog-posts.ts"
+  },
+  {
+    "slug": "pest-control-huntsville-al-guide",
+    "keyword": "pest control Huntsville AL guide",
+    "title": "Pest Control in Huntsville, AL: What Homeowners Need to Know in 2026",
+    "angle": "Huntsville-specific: Monte Sano tick pressure, Wheeler Lake mosquitoes, Twickenham historic district termite risk, Hampton Cove new construction. North Alabama pest calendar. Local vs. national pest company comparison.",
+    "season": "year-round",
+    "published": true,
+    "publishedNote": "SKIPPED: superseded by existing live post huntsville-pest-control-guide (cannibalization risk)"
+  }
+]

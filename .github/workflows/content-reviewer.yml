@@ -1,0 +1,38 @@
+name: Content Reviewer
+
+on:
+  schedule:
+    - cron: '0 11 * * *'   # daily 11:00 UTC — after nw-optimize drafts land, before Phillip's review
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write   # panel dialogue is posted as a PR comment
+  issues: write          # PR comments use the issues comment endpoint
+
+jobs:
+  content-reviewer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Run content reviewer
+        continue-on-error: true   # a single model/API hiccup shouldn't red the whole run
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_REVIEW_HUB_PAGE_ID: ${{ secrets.NOTION_REVIEW_HUB_PAGE_ID }}
+          REVIEW_REPO: phillipwedgworth-cell/envirocare-website
+        run: node agents/content-reviewer.mjs
