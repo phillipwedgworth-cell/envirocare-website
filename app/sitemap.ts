@@ -31,6 +31,8 @@ const CITY_SLUGS = [
   // New market pages (Jun 25, 2026) — competitor/radius expansion
   'bessemer', 'mccalla', 'gardendale', 'meridianville', 'sylacauga',
   'irondale', 'leeds', 'moody', 'fultondale',
+  // Birmingham-metro cluster pages (Jul 11, 2026 metro rebuild)
+  'over-the-mountain', 'south-birmingham', 'east-birmingham', 'north-birmingham',
 ];
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).
