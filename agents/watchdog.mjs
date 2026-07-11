@@ -69,7 +69,7 @@ const inFlight = r => String(r?.status ?? '').toLowerCase() === 'running'
 async function latestPerAgent() {
   if (!supabase) throw new Error('Supabase client is null — SUPABASE_URL / SUPABASE_KEY not set');
   const { data, error } = await supabase.from('agent_runs')
-    .select('agent_name,status,created_at').order('created_at', { ascending: false }).limit(1000);
+    .select('agent_name,status,created_at,output').order('created_at', { ascending: false }).limit(1000);
   if (error) throw new Error(`agent_runs read: ${JSON.stringify(error)}`);
   // Track both the latest run (any status — catches active failures) and the
   // latest HEALTHY run (the heartbeat — catches agents that stopped succeeding).
@@ -219,7 +219,14 @@ async function runtimeErrorCheck(lines, problems, { token, project, team, deps }
     lines.push(`runtime  ${errors} error(s)/24h in ${events.length} sampled log entries${top ? ` — top: ${top}` : ''}`);
     if (errors >= RUNTIME_ERROR_ALERT) problems.push(`${errors} Vercel runtime errors/24h${top ? ` (${top})` : ''}`);
   } catch (e) {
-    lines.push(`runtime  skipped — ${e.message}`);
+    // runtime-logs is a LIVE tail: on a quiet site nothing arrives inside the
+    // sample window and the abort fires during fetch — that is "no traffic
+    // observed", not a broken check.
+    if (e.name === 'AbortError' || /abort/i.test(String(e.message))) {
+      lines.push('runtime  idle — live-log tail sent no entries in the 10s sample window (best-effort check)');
+    } else {
+      lines.push(`runtime  skipped — ${e.message}`);
+    }
   } finally {
     clearTimeout(timer);
   }
@@ -237,11 +244,22 @@ async function run() {
       ? `last attempt status="${last.status}" ${Math.round(ageH(last.created_at))}h ago`
       : 'no attempt on record';
     if (!ok || okAgeH > e.maxAgeH) {
-      // Heartbeat miss: no SUCCESSFUL run inside schedule + grace. Fires both
-      // when the agent stopped running AND when it runs but only ever fails.
-      const when = ok ? `${Math.round(okAgeH / 24)}d ago` : 'never';
-      lines.push(`OVERDUE  ${e.agent} — last success ${when}, allowed ${e.maxAgeH}h; ${attempt} (${e.label})`);
-      problems.push(e.agent);
+      // A recent 'blocked' row is a DELIBERATE pause (quota guard, key gate)
+      // that re-logs itself each scheduled run and auto-resumes — report it as
+      // paused, not OVERDUE, so a known month-long quota wait doesn't page
+      // daily. Older than 14d means the agent stopped even re-logging: overdue.
+      const pausedRow = last && String(last.status).toLowerCase() === 'blocked'
+        && ageH(last.created_at) < 24 * 14 ? last : null;
+      if (pausedRow) {
+        const why = pausedRow.output ? `: ${String(pausedRow.output).slice(0, 140)}` : '';
+        lines.push(`paused   ${e.agent} — self-blocked ${Math.round(ageH(pausedRow.created_at))}h ago${why} (${e.label})`);
+      } else {
+        // Heartbeat miss: no SUCCESSFUL run inside schedule + grace. Fires both
+        // when the agent stopped running AND when it runs but only ever fails.
+        const when = ok ? `${Math.round(okAgeH / 24)}d ago` : 'never';
+        lines.push(`OVERDUE  ${e.agent} — last success ${when}, allowed ${e.maxAgeH}h; ${attempt} (${e.label})`);
+        problems.push(e.agent);
+      }
     } else if (!healthy(last.status) && !inFlight(last)) {
       lines.push(`FAILED   ${e.agent} — status="${last.status}", ${Math.round(ageH(last.created_at))}h ago (last success ${Math.round(okAgeH)}h ago)`);
       problems.push(e.agent);
