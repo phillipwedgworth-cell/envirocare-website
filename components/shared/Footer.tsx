@@ -69,12 +69,29 @@ const SPECIALTY: [string, string][] = [
   ["Special Offers", "/special-offers"],
 ];
 
+// Crawlable Birmingham-metro cluster + the other two regions. Every link is a
+// real routed page — this is the site-wide internal-link mesh for local SEO.
 const AREAS: [string, string][] = [
   ["Birmingham, AL", "/birmingham"],
-  ["Huntsville, AL", "/huntsville"],
-  ["Lake Martin / Alex City", "/lake-martin"],
   ["Hoover, AL", "/hoover"],
+  ["Vestavia Hills, AL", "/vestavia-hills"],
+  ["Mountain Brook, AL", "/mountain-brook"],
+  ["Homewood, AL", "/homewood"],
+  ["Trussville, AL", "/trussville"],
+  ["Chelsea, AL", "/chelsea"],
+  ["Pelham, AL", "/pelham"],
+  ["Helena, AL", "/helena"],
+  ["Alabaster, AL", "/alabaster"],
+];
+
+const AREAS_2: [string, string][] = [
+  ["Calera, AL", "/calera"],
+  ["Greystone", "/greystone"],
+  ["Gardendale, AL", "/gardendale"],
+  ["Bessemer, AL", "/bessemer"],
+  ["Huntsville, AL", "/huntsville"],
   ["Madison, AL", "/service-areas/madison"],
+  ["Lake Martin / Alex City", "/lake-martin"],
   ["Auburn, AL", "/auburn"],
   ["All Service Areas →", "/service-areas"],
 ];
@@ -118,8 +135,14 @@ export default function Footer() {
           ))}
         </div>
         <div>
-          <div style={COL_HEAD}>Service Areas</div>
+          <div style={COL_HEAD}>Birmingham Metro</div>
           {AREAS.map(([label, href]) => (
+            <a key={href} href={href} style={LINK}>{label}</a>
+          ))}
+        </div>
+        <div>
+          <div style={COL_HEAD}>More Service Areas</div>
+          {AREAS_2.map(([label, href]) => (
             <a key={href} href={href} style={LINK}>{label}</a>
           ))}
         </div>

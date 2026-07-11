@@ -4,9 +4,9 @@ import { GREEN, GOLD, INK, CREAM, displayFont, bodyFont } from '@/lib/brand';
 
 export const metadata = {
   alternates: { canonical: '/service-areas' },
-  title: 'Service Areas | EnviroCare Pest & Termite — Family-Owned Alabama Since 1958',
+  title: 'Pest Control & Termite Protection Across the Birmingham Metro | EnviroCare',
   description:
-    'EnviroCare serves Birmingham, Lake Martin / Alex City, Huntsville, Auburn and surrounding Alabama communities from three local offices. Find your city.',
+    'EnviroCare serves the entire Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville, Chelsea, Pelham, Helena, Alabaster and more — plus Lake Martin / Alex City and Huntsville. Family-owned since 1958.',
 };
 
 type Group = { office: string; phone: string; cities: [string, string][] };
@@ -68,11 +68,21 @@ export default function ServiceAreasPage() {
       <main style={{ background: CREAM, fontFamily: bodyFont, color: INK }}>
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '56px clamp(20px,5vw,64px)' }}>
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(30px,5vw,46px)', color: INK, margin: 0 }}>
-            Where We Serve
+            Pest Control &amp; Termite Protection Across the Birmingham Metro
           </h1>
-          <p style={{ fontSize: 18, lineHeight: 1.7, maxWidth: 720, marginTop: 14 }}>
-            EnviroCare has protected Alabama homes and businesses since 1958, working from three
-            local offices. Find your city below, or call the office nearest you.
+          <p style={{ fontSize: 18, lineHeight: 1.7, maxWidth: 760, marginTop: 14 }}>
+            EnviroCare is a Birmingham-metro pest control company, family-owned since 1958. Our
+            technicians run daily routes from our Alabaster hub through Hoover, Vestavia Hills,
+            Mountain Brook, Homewood, Trussville, Chelsea, Pelham, Helena, Calera, Gardendale and
+            the surrounding suburbs — the same four-pillar protection (pest, termite, mosquito,
+            tick) on every route. We also serve Lake Martin / Alex City from our original 1958
+            office and North Alabama from Huntsville. Find your city below, or call the office
+            nearest you.
+          </p>
+          <p style={{ fontSize: 15.5, lineHeight: 1.7, maxWidth: 760, marginTop: 10, color: '#5A6660' }}>
+            One note on how we work: these are service areas, not storefronts. We have three
+            staffed offices — Alabaster, Alexander City, and Huntsville — and our local crews
+            serve every community listed here as part of their regular routes.
           </p>
 
           {/* THREE OFFICES SHOWCASE */}

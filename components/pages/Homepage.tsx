@@ -669,9 +669,14 @@ function FindYourOffice() {
     { name: 'Vestavia Hills', href: '/vestavia-hills' },
     { name: 'Mountain Brook', href: '/mountain-brook' },
     { name: 'Homewood', href: '/homewood' },
+    { name: 'Trussville', href: '/trussville' },
     { name: 'Alabaster', href: '/alabaster' },
     { name: 'Pelham', href: '/pelham' },
+    { name: 'Helena', href: '/helena' },
     { name: 'Chelsea', href: '/chelsea' },
+    { name: 'Greystone', href: '/greystone' },
+    { name: 'Calera', href: '/calera' },
+    { name: 'Gardendale', href: '/gardendale' },
     { name: 'Alexander City', href: '/alexander-city' },
     { name: 'Alex City / Lake Martin', href: '/lake-martin' },
     { name: 'Auburn', href: '/auburn' },
@@ -696,7 +701,9 @@ function FindYourOffice() {
         <div className="ec-section-eyebrow">THREE OFFICES ACROSS ALABAMA</div>
         <h2 className="ec-section-h2">Find <em>Your Office</em></h2>
         <p className="ec-section-sub">
-          Birmingham/Alabaster · Alexander City/Lake Martin · Huntsville
+          Serving the whole Birmingham metro — Birmingham, Hoover, Vestavia Hills, Mountain Brook,
+          Homewood, Trussville, Chelsea, Pelham, Helena, Alabaster and beyond — plus Lake Martin /
+          Alex City and Huntsville / Madison, from three local offices.
         </p>
         <div className="ec-fo-box">
           <input
