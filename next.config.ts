@@ -78,10 +78,12 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/mt-laurel-al-pest-control', destination: '/mt-laurel', permanent: true },
             // Gardendale now has its own dedicated page (Jun 25, 2026)
             { source: '/where-we-service/gardendale-al-pest-control', destination: '/gardendale', permanent: true },
-            // Birmingham metro outliers without their own page → /birmingham hub
-            { source: '/where-we-service/fultondale-al-pest-control', destination: '/birmingham', permanent: true },
-            { source: '/where-we-service/leeds-al-pest-control', destination: '/birmingham', permanent: true },
-            { source: '/where-we-service/moody-al-pest-control', destination: '/birmingham', permanent: true },
+            // Fultondale / Leeds / Moody have dedicated pages (Jul 11, 2026 metro rebuild)
+            { source: '/where-we-service/fultondale-al-pest-control', destination: '/fultondale', permanent: true },
+            { source: '/where-we-service/leeds-al-pest-control', destination: '/leeds', permanent: true },
+            { source: '/where-we-service/moody-al-pest-control', destination: '/moody', permanent: true },
+            // Old static service-area page superseded by the full city page
+            { source: '/service-areas/fultondale', destination: '/fultondale', permanent: true },
             { source: '/where-we-service/pest-control-in-trussville-al', destination: '/trussville', permanent: true },
             { source: '/where-we-service/wilsonville-al-pest-control', destination: '/birmingham', permanent: true },
             { source: '/where-we-service/indian-springs-al-pest-control', destination: '/indian-springs', permanent: true },
