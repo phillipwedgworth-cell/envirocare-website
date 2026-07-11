@@ -30,11 +30,12 @@ const CITY_SLUGS = [
   'crestline', 'english-village', 'mountain-brook-village', 'cherokee-bend',
   // New market pages (Jun 25, 2026) — competitor/radius expansion
   'bessemer', 'mccalla', 'gardendale', 'meridianville', 'sylacauga',
+  'irondale', 'leeds', 'moody', 'fultondale',
 ];
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).
 // /madison 301s here — see next.config.ts redirects.
-const SERVICE_AREA_SLUGS = ['madison', 'fultondale', 'redstone-arsenal'];
+const SERVICE_AREA_SLUGS = ['madison', 'redstone-arsenal'];
 
 // City×service combo pages (top-level routes)
 const COMBO_SLUGS = [
