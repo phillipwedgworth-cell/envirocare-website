@@ -16,6 +16,8 @@ const GROUPS: Group[] = [
     office: 'Birmingham / Alabaster Office',
     phone: '(205) 940-6360',
     cities: [
+      ['Over the Mountain (cluster)', '/over-the-mountain'], ['South Birmingham (cluster)', '/south-birmingham'],
+      ['East Birmingham (cluster)', '/east-birmingham'], ['North Birmingham (cluster)', '/north-birmingham'],
       ['Birmingham', '/birmingham'], ['Hoover', '/hoover'], ['Alabaster', '/alabaster'],
       ['Pelham', '/pelham'], ['Helena', '/helena'], ['Calera', '/calera'],
       ['Chelsea', '/chelsea'], ['Vestavia Hills', '/vestavia-hills'],
