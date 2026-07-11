@@ -56,9 +56,22 @@ const QUOTA_STATE_KEY = 'neuronwriter:quota-exhausted';
 const QUOTA_RE = /\b429\b|exceeds\s+(the\s+)?(number\s+of\s+|monthly\s+)?(keyword\s+)?analyses|quota/i;
 const isQuotaError = msg => QUOTA_RE.test(String(msg ?? ''));
 
-function firstOfNextMonthISO() {
-  const d = new Date();
-  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1)).toISOString();
+// The NeuronWriter subscription renews on the 10th of each month (Phillip's
+// plan), not the 1st — the analysis quota refills then. Override with
+// NEURONWRITER_RENEWAL_DAY if the billing date ever changes.
+const RENEWAL_DAY = Math.min(28, Math.max(1, Number(process.env.NEURONWRITER_RENEWAL_DAY ?? 10) || 10));
+
+// Most recent renewal instant (RENEWAL_DAY 00:00 UTC) at or before now.
+function lastRenewalMs(now = Date.now()) {
+  const d = new Date(now);
+  const thisMonth = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), RENEWAL_DAY);
+  return now >= thisMonth ? thisMonth : Date.UTC(d.getUTCFullYear(), d.getUTCMonth() - 1, RENEWAL_DAY);
+}
+
+function nextRenewalISO(now = Date.now()) {
+  const d = new Date(now);
+  const thisMonth = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), RENEWAL_DAY);
+  return new Date(now < thisMonth ? thisMonth : Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, RENEWAL_DAY)).toISOString();
 }
 
 // ─── CONTEXT_READ ──────────────────────────────────────────────────────────
@@ -292,7 +305,15 @@ export async function run() {
 
   // Pre-flight quota check: if a prior run already hit the monthly cap, don't
   // burn a single analysis (or LLM token) until the quota month rolls over.
-  const quotaState = await stateGet(QUOTA_STATE_KEY).catch(() => null);
+  // Self-heal: a block detected BEFORE the last renewal date is stale (the
+  // quota refilled since) — clear it and proceed, even if the stored resets_at
+  // was computed with the old first-of-month logic.
+  let quotaState = await stateGet(QUOTA_STATE_KEY).catch(() => null);
+  if (quotaState?.detected_at && new Date(quotaState.detected_at).getTime() < lastRenewalMs()) {
+    console.log(`[${AGENT_NAME}] quota block from ${String(quotaState.detected_at).slice(0, 10)} predates the last renewal (day ${RENEWAL_DAY}) — clearing stale block and proceeding`);
+    await stateSet(QUOTA_STATE_KEY, { cleared_at: new Date().toISOString() }).catch(() => {});
+    quotaState = null;
+  }
   if (quotaState?.resets_at && Date.now() < new Date(quotaState.resets_at).getTime()) {
     const msg = `NeuronWriter monthly analysis quota exhausted (detected ${String(quotaState.detected_at ?? '').slice(0, 10)}) — skipping until ${String(quotaState.resets_at).slice(0, 10)}`;
     console.warn(`[${AGENT_NAME}] ${msg}`);
@@ -311,7 +332,7 @@ export async function run() {
   if (quotaHit) {
     const scored = results.filter(r => !r.error && r.score != null).length;
     const notAttempted = targets.length - results.length;
-    const resetsAt = firstOfNextMonthISO();
+    const resetsAt = nextRenewalISO();
     await stateSet(QUOTA_STATE_KEY, { detected_at: new Date().toISOString(), resets_at: resetsAt }).catch(() => {});
     const msg = `NeuronWriter 429 (monthly analysis quota) — halted after ${scored} scored page(s); ${notAttempted} page(s) not attempted. Auto-resumes ${resetsAt.slice(0, 10)}.`;
     console.warn(`[${AGENT_NAME}] ${msg}`);
