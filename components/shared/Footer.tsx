@@ -51,6 +51,7 @@ function PhoneIcon() {
 
 const SERVICES: [string, string][] = [
   ["All Services", "/services"],
+  ["What Pest Problem Do You Have?", "/what-pest-problem"],
   ["Pest Control", "/services/pest-control"],
   ["Termite Control", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito"],

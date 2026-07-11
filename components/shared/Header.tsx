@@ -36,6 +36,7 @@ function openScout(message?: string) {
 
 const MENU_LINKS: [string, string][] = [
   ["Services", "/services"],
+  ["What's Bugging You?", "/what-pest-problem"],
   ["Service Areas", "/service-areas"],
   ["Pest Library", "/pest-library"],
   ["Pest Tips & Blog", "/blog"],
