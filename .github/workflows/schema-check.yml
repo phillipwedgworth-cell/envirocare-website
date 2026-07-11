@@ -23,7 +23,7 @@ jobs:
             echo "::error::SUPABASE_URL or SUPABASE_KEY secret is empty"; exit 1
           fi
           missing=0
-          for t in agent_state agent_runs envirocare_seo agent_findings morning_brief cfo_snapshots cfo_briefs; do
+          for t in agent_state agent_runs envirocare_seo agent_findings morning_brief cfo_snapshots cfo_briefs social_posts agent_tasks agent_artifacts agent_costs gads_campaigns gsc_daily gsc_dimensions gsc_pages gsc_queries seo_snapshots; do
             code=$(curl -s -o /tmp/body -w "%{http_code}" \
               -H "apikey: $SUPABASE_KEY" -H "Authorization: Bearer $SUPABASE_KEY" \
               "$SUPABASE_URL/rest/v1/$t?select=*&limit=1")
