@@ -33,6 +33,7 @@ interface BriefRow { brief_date: string; content: string; }
 interface SeoMetric { location: string; keyword: string; campaign_key: string; arp: number | null; atrp: number | null; solv: number | null; run_date: string; }
 interface SeoDigest { run_date: string; summary_text: string; rows_json: unknown; created_at: string; }
 interface AdDraftRow { id: string; title: string; status: string; updated_at: string; }
+interface SocialDraft { id: string; location: string; platform: string; post_type: string | null; headline: string | null; body: string; cta: string | null; scheduled_for: string; }
 interface Discussion { id?: number; agent_name: string; references_agent?: string | null; message: string; impact_score?: number | null; effort_score?: number | null; created_at: string; }
 interface OpenPr { number: number; title: string; html_url: string; draft: boolean; labels: { name: string }[]; user: { login: string }; updated_at: string; }
 
@@ -116,11 +117,12 @@ async function fetchAll() {
     grab<SeoMetric>(sb.from('seo_metrics').select('location,keyword,campaign_key,arp,atrp,solv,run_date').order('run_date', { ascending: false }).limit(300)),
     grab<SeoDigest>(sb.from('seo_digests').select('run_date,summary_text,rows_json,created_at').order('run_date', { ascending: false }).order('created_at', { ascending: false }).limit(12)),
   ]);
-  const [adDrafts, discussions] = await Promise.all([
+  const [adDrafts, discussions, socialDrafts] = await Promise.all([
     grab<AdDraftRow>(sb.from('agent_drafts').select('id,title,status,updated_at').eq('status', 'pending-review').order('updated_at', { ascending: false }).limit(20)),
     grab<Discussion>(sb.from('agent_discussions').select('id,agent_name,references_agent,message,impact_score,effort_score,created_at').order('created_at', { ascending: false }).limit(15)),
+    grab<SocialDraft>(sb.from('social_posts').select('id,location,platform,post_type,headline,body,cta,scheduled_for').eq('status', 'draft').order('scheduled_for', { ascending: true }).limit(20)),
   ]);
-  return { runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions };
+  return { runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts };
 }
 
 // Open PRs on the (public) repo — the approval queue for agent-written content.
@@ -197,12 +199,12 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
     );
   }
 
-  const { runs, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions } = data;
+  const { runs, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts } = data;
   const prs = await fetchOpenPrs();
   // Content-review PRs are the ship-gate — surface them first.
   const prSort = (p: OpenPr) => (p.labels.some((l) => l.name === 'content-review') ? 0 : 1);
   const openPrs = [...prs].sort((a, b) => prSort(a) - prSort(b));
-  const approvalsCount = openPrs.length + adDrafts.length;
+  const approvalsCount = openPrs.length + adDrafts.length + socialDrafts.length;
 
   // Ranking Snapshots — newest run_date, grouped by location (Local Falcon campaigns)
   const snapRunDate = seoMetrics[0]?.run_date ?? null;
@@ -300,10 +302,44 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
       <div className="cc-grid">
         {/* NEEDS YOUR APPROVAL — the one place to see everything waiting on Phillip */}
         <Panel title="Needs Your Approval" hint={approvalsCount ? `${approvalsCount} waiting` : 'all clear'} wide>
+          <span id="approvals" />
           {approvalsCount === 0 ? (
-            <Empty>Nothing waiting on you. 🎉 Agent content PRs and ad drafts appear here the moment they need a decision.</Empty>
+            <Empty>Nothing waiting on you. 🎉 Social posts, agent content PRs, and ad drafts appear here the moment they need a decision.</Empty>
           ) : (
             <ul className="cc-findings">
+              {socialDrafts.map((d) => (
+                <li key={d.id} style={{ borderLeft: '3px solid #7B61FF' }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div className="cc-f-text">
+                      📣 {d.platform} · {d.location.replace(/_/g, ' ')}{d.post_type ? ` · ${d.post_type.replace(/_/g, ' ')}` : ''}
+                      {d.headline ? ` — ${d.headline}` : ''}
+                    </div>
+                    <div className="cc-f-meta" style={{ whiteSpace: 'pre-wrap' }}>{d.body.slice(0, 280)}{d.body.length > 280 ? '…' : ''}</div>
+                    <div className="cc-f-meta">
+                      scheduled {new Date(d.scheduled_for).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
+                      {d.cta ? ` · CTA: ${d.cta}` : ''}
+                    </div>
+                    <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
+                      <form action="/api/social-approve" method="POST" style={{ margin: 0 }}>
+                        <input type="hidden" name="key" value={sp.key} />
+                        <input type="hidden" name="id" value={d.id} />
+                        <input type="hidden" name="action" value="approve" />
+                        <button type="submit" style={{ background: '#1FAE5A', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontWeight: 700, fontSize: 14, cursor: 'pointer' }}>
+                          ✓ Approve
+                        </button>
+                      </form>
+                      <form action="/api/social-approve" method="POST" style={{ margin: 0 }}>
+                        <input type="hidden" name="key" value={sp.key} />
+                        <input type="hidden" name="id" value={d.id} />
+                        <input type="hidden" name="action" value="skip" />
+                        <button type="submit" style={{ background: 'transparent', color: '#FF6B57', border: '1.5px solid #FF6B57', borderRadius: 8, padding: '10px 22px', fontWeight: 700, fontSize: 14, cursor: 'pointer' }}>
+                          ✕ Skip
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </li>
+              ))}
               {openPrs.map((p) => {
                 const isContent = p.labels.some((l) => l.name === 'content-review');
                 return (
