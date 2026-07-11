@@ -356,7 +356,7 @@ export default function AboutUs() {
               <div className="ab-vcard">
                 <div className="ab-vcard-num">01</div>
                 <h3>No long-term contracts</h3>
-                <p>Pest control is month-to-month on ACH. Cancel anytime. We'd rather earn the next visit than lock you in.</p>
+                <p>Pay per visit with no long-term contract, or choose monthly pricing on a 12-month ACH billing agreement with equal, averaged payments.</p>
               </div>
               <div className="ab-vcard">
                 <div className="ab-vcard-num">02</div>

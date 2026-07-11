@@ -50,7 +50,7 @@ const config: DeepCityConfig = {
     { q: "Do you treat ticks and mosquitoes in Mt Laurel?", a: "Yes — the Mosquito + Tick mosquito + tick program runs every 30 days, March through November, for $65 per treatment (about $48.75/month), built for Mt Laurel's wooded, woodland-edge lots." },
     { q: "What does bi-monthly pest control cover in Mt Laurel?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Do you serve Mt Laurel Village and Dunnavant Valley?", a: "Yes — all of Mt Laurel. Call (205) 940-6360 and we'll confirm your address is on our route." },
-    { q: "Is there a long-term contract?", a: "No. Pest control is month-to-month on ACH and you can cancel anytime. We'd rather earn the next visit than lock you in." },
+    { q: "Is there a long-term contract?", a: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." },
   ],
   siblings: [
     ["Chelsea", "/chelsea"],

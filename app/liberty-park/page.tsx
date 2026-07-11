@@ -87,7 +87,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "Is there a long-term contract?",
-      "a": "No. Pest control is month-to-month on ACH and you can cancel anytime. We would rather earn the next service visit than lock you in."
+      "a": "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
     }
   ],
   "nearby": [
@@ -227,7 +227,7 @@ const jsonLd = {
           "name": "Is there a long-term contract?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Pest control is month-to-month on ACH and you can cancel anytime. We would rather earn the next service visit than lock you in."
+            "text": "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
           }
         }
       ]

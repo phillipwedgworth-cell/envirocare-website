@@ -84,6 +84,18 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/moody-al-pest-control', destination: '/moody', permanent: true },
             // Old static service-area page superseded by the full city page
             { source: '/service-areas/fultondale', destination: '/fultondale', permanent: true },
+            // ─── /service-areas/[city] duplicates retired (2026-07-11 cleanup) ──
+            // The dynamic route duplicated 7 flat city pages with stale office
+            // addresses and drifted copy. Route deleted; each URL 301s to the
+            // canonical flat page. /service-areas/madison and /redstone-arsenal
+            // remain real static pages (no flat equivalents).
+            { source: '/service-areas/birmingham', destination: '/birmingham', permanent: true },
+            { source: '/service-areas/hoover', destination: '/hoover', permanent: true },
+            { source: '/service-areas/vestavia-hills', destination: '/vestavia-hills', permanent: true },
+            { source: '/service-areas/mountain-brook', destination: '/mountain-brook', permanent: true },
+            { source: '/service-areas/huntsville', destination: '/huntsville', permanent: true },
+            { source: '/service-areas/auburn', destination: '/auburn', permanent: true },
+            { source: '/service-areas/lake-martin', destination: '/lake-martin', permanent: true },
             { source: '/where-we-service/pest-control-in-trussville-al', destination: '/trussville', permanent: true },
             { source: '/where-we-service/wilsonville-al-pest-control', destination: '/birmingham', permanent: true },
             { source: '/where-we-service/indian-springs-al-pest-control', destination: '/indian-springs', permanent: true },

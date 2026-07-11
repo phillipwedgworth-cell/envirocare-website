@@ -5,7 +5,6 @@
 // JSON-LD is honest service-area markup (Service + FAQPage + BreadcrumbList,
 // areaServed only — the one real office NAP lives on the office pages).
 
-import Footer from '@/components/shared/Footer';
 import { GREEN, GOLD, INK, CREAM, displayFont, bodyFont } from '@/lib/brand';
 
 export type ClusterCity = {
@@ -154,7 +153,6 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
           </p>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

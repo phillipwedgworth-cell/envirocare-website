@@ -189,7 +189,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 .85rem" }}>
               Four programs, <em style={{ color: F }}>no long-term contracts</em>
             </h2>
-            <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Month-to-month on ACH, cancel anytime.</p>
+            <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />

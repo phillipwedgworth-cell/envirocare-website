@@ -32,7 +32,7 @@ const c: ComboContent = {
     },
     {
       title: "Free re-service in between",
-      body: "If anything shows up between visits, we come back at no charge — that's standard, not an upsell. Month-to-month — cancel anytime.",
+      body: "If anything shows up between visits, we come back at no charge — that's standard, not an upsell. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement.",
     },
   ],
   price: {
@@ -44,7 +44,7 @@ const c: ComboContent = {
       "Fire ant & tick treatment available from $150",
       "Interior service whenever needed",
       "Unlimited free re-services",
-      "Month-to-month — cancel anytime",
+      "Equal monthly ACH payments (12-month agreement)",
     ],
   },
   faqs: [

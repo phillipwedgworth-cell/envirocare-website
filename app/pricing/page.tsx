@@ -8,7 +8,7 @@ import PricingContent from "./PricingContent";
 export const metadata: Metadata = {
   title: "Pest Control Pricing Alabama | From $35/mo | EnviroCare",
   description:
-    "Honest Alabama pest control pricing — pest control from $35/mo (bimonthly, month-to-month). Mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Termite (Sentricon®) quoted after a free WDO inspection.",
+    "Honest Alabama pest control pricing — pest control from $35/mo (bimonthly). Mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Termite (Sentricon®) quoted after a free WDO inspection.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -22,7 +22,7 @@ const OFFER_SCHEMA = {
     {
       "@type": "Offer", name: "Pest Control", priceCurrency: "USD", price: "35",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $79 startup, month-to-month." },
+      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $79 startup; monthly pricing uses a 12-month ACH billing agreement." },
     },
     {
       "@type": "Offer", name: "Pest + Mosquito", priceCurrency: "USD", price: "69",
@@ -51,7 +51,7 @@ const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "No. Pest plans are month-to-month on ACH autopay — cancel anytime, with zero hidden cancellation fees." } },
+    { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." } },
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
     { "@type": "Question", name: "What are the startup fees?", acceptedAnswer: { "@type": "Answer", text: "Pest is $79, Pest + Mosquito is $79, and the Complete bundle (which includes termite) is $229. Mosquito and tick booked alone have no startup — they're billed per service." } },
     { "@type": "Question", name: "Can I get mosquito or tick without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, nine rounds March through November, charged at each service. Tick is only offered alongside mosquito." } },

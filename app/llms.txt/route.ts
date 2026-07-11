@@ -11,7 +11,7 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
 - Exterior-first protection: the home perimeter is treated every other month (bi-monthly,
   6 visits/year) so pests never make it inside. Most visits do not require the customer home.
 - One technician handles every service — pest, termite, mosquito, tick — one invoice.
-- Unlimited free re-services between visits. No long-term contracts; cancel anytime.
+- Unlimited free re-services between visits. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement.
 - Flat monthly pricing, published openly.
 
 ## Services & pricing (exact, current)

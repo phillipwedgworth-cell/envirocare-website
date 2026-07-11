@@ -65,7 +65,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you require a contract?</summary>
-              <div className="faq-a">No long-term contracts. Cancel anytime. We earn your business every visit — we don't lock you in.</div>
+              <div className="faq-a">No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How quickly can you schedule service?</summary>
