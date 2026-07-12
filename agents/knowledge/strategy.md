@@ -65,6 +65,36 @@ Homewood ranks in Homewood identically. Any new office MUST be genuinely staffed
 - Anything legal, pricing-change, or customer-refund related.
 
 ## OPEN LOOPS (as of Jul 12, 2026 — check these before proposing new work)
+- **Full key/secret audit run Jul 12 (Vercel `/api/agents/health` + live GH
+  Actions job logs — see below for how to re-check):**
+  - `COMMAND_CENTER_KEY` **MISSING in Vercel production** — the live
+    `/api/agents/health` endpoint reports it false. The Command Center page
+    (incl. the Jul 11 approve/skip buttons) fails closed without it — set it
+    in Vercel → envirocare-web project → Settings → Environment Variables,
+    any random value, then redeploy.
+  - **Social poster has zero live publish destinations.** GitHub secrets
+    `META_PAGE_ID` / `META_PAGE_TOKEN` / `IG_BUSINESS_ID` (Facebook/Instagram)
+    and `GBP_ACCOUNT_ID` + all three `GBP_LOCATION_*` (Google Business
+    Profile) are all blank in the repo's Actions secrets — confirmed via live
+    Jul 11 16:00 UTC job log — even though Google OAuth itself
+    (CLIENT_ID/SECRET/REFRESH_TOKEN) is set. The agent no-ops silently
+    (`skipped:true`) rather than erroring, so approved posts just sit forever
+    with nowhere to go. Needs a Facebook Page token+ID and the 3 GBP
+    location IDs added as GitHub Actions secrets before the approve buttons
+    do anything real.
+  - **BrightLocal Citation Builder credits: 0** (confirmed live via
+    `get_cb_credits`). This is the tool meant to fix Huntsville's near-zero
+    SoLV — priority #1 in this file — and it's stalled at 0 credits, unable
+    to run. Needs credits purchased in BrightLocal.
+  - Local Falcon credits: healthy, 12,121 of 15,150 remaining this cycle —
+    no action needed.
+  - Confirmed fine (both GitHub + Vercel): BrightLocal API key, Local Falcon,
+    PageSpeed, Anthropic, Supabase, OpenAI, Gemini, Resend, Vercel token.
+  - Re-audit method: `mcp__Vercel__web_fetch_vercel_url` on
+    `https://envirocare-web.vercel.app/api/agents/health` for the Vercel
+    side (returns `missingRequired`/`missingOptional` JSON); for GitHub
+    Actions secrets, read the `env:` block in a recent job log (masked ***
+    = set, blank = missing) — there is no direct "list secret names" API.
 - **BrightLocal services EMPTY on all 3 locations** (`services_or_products: []`,
   IDs 4068335 Alabaster / 4068729 Alex City / 4068730 Huntsville). NOT a Google
   rejection — zero sync errors; the services were never saved. Phillip must
