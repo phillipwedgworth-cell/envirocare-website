@@ -52,6 +52,10 @@ const nextConfig: NextConfig = {
             // NOTE: /pricing is a REAL page now (app/pricing/*) — do NOT redirect it.
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
             { source: '/contact', destination: '/contact-us', permanent: true },
+            // GBP appointment link on the Alex City profile still points at the
+            // old Scorpion-era /contact.php (found in BrightLocal Jul 12) — 301
+            // it so the live listing link works until the profile is updated.
+            { source: '/contact.php', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
             { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13 (compliance scrub) — PENDING Phillip's call on next-steps revival
             { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25 (only /services/mosquito page exists)

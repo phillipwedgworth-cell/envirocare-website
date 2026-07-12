@@ -64,6 +64,42 @@ Homewood ranks in Homewood identically. Any new office MUST be genuinely staffed
 - Deleting pages or content; changing redirects on money pages.
 - Anything legal, pricing-change, or customer-refund related.
 
+## OPEN LOOPS (as of Jul 12, 2026 — check these before proposing new work)
+- **BrightLocal services EMPTY on all 3 locations** (`services_or_products: []`,
+  IDs 4068335 Alabaster / 4068729 Alex City / 4068730 Huntsville). NOT a Google
+  rejection — zero sync errors; the services were never saved. Phillip must
+  re-enter them in each location's dashboard (API/MCP is read-only). Paste list:
+  Pest Control · Termite Control (Sentricon®) · Free Termite/WDO Inspection ·
+  Mosquito Control · Tick & Flea Control · Fire Ant Control · Interior Pest
+  Control · Commercial Pest Control · Builder Pre-Treat.
+- **GBP data problems found in BrightLocal (Phillip-only edits — live GBP):**
+  (a) Alex City profile's Facebook link points to facebook.com/3Dandstlprobables
+  — wrong page entirely; should be facebook.com/EnviroCareAL.
+  (b) Birmingham + Huntsville GBP descriptions claim "locations also in
+  Alexander City, Auburn, and Huntsville" — the AUBURN OFFICE CLAIM violates
+  the standing rule (Auburn = service area only). Reword when editing.
+  (c) Birmingham description says "Bundle & Save" — compliance: bundles are a
+  convenience, never a discount; drop "Save" wording.
+  (d) Alex City appointment link uses old /contact.php — site now 301s it
+  (Jul 12), but update the profile link to /contact-us when in there.
+- review-responder: erroring since Jul 6; next run Mon Jul 14 carries the
+  fail-fast fix — verify it succeeds or emails the cause.
+- neuronwriter-qa: resumes Mon Jul 14 with fresh quota (renewal-day fix
+  shipped Jul 11; renewal is the 10th). 55-page optimization backlog.
+- NOTION_REVIEW_HUB_PAGE_ID repo secret: value 393202ee7a7181d889c8ccef8f4c5daf
+  given to Phillip Jul 11 — confirm it's added (content-reviewer Notion posts
+  silently skip until then).
+- GSC: sitemap.xml resubmission after the malformed entry — confirm "Success".
+- GBP 20-service-area lists per office — Phillip manual task, lists on request.
+- AI Visibility: monitoring live (30 prompts, 4 engines). Opportunities export
+  due ~Aug 15 → competitor-replacement fixes.
+- Roadmap P2–P6 pending (seo-operating-system-roadmap-2026-07.md): risk-report
+  lead funnel → nurture emails (copy needs sign-off) → Monday consolidated
+  report → page-decay monitor → market scorecard. P1 pest picker DONE Jul 12.
+- Call tracking by region: undecided — Phillip-only (spend + NAP risk).
+- Fieldster review-ask: HANDLED by Phillip (his statement Jul 12) — do not
+  re-propose.
+
 ## Contacts / plumbing
 - Owner: Phillip Wedgworth — phillipwedgworth@gmail.com (all briefs + scan insights go here).
 - Site: envirocare-website repo → Vercel `envirocare-web` → envirocarellc.com (post-flip). Live: envirocare-web.vercel.app.
