@@ -1,107 +1,213 @@
-'use client';
+// app/approve/QueueClient.tsx
+"use client";
 
-import { useState, type CSSProperties } from 'react';
+import { useState } from "react";
 
-export interface QueueItem {
-  id: number;
-  agent: string;
-  kind: string;
-  title: string;
-  summary: string | null;
-  link: string | null;
-  priority: number | null;
-  status: string;
-  error: string | null;
+export type Item = {
+  id: string;
   created_at: string;
-}
+  title: string;
+  category: "comms" | "web" | "ads" | "post" | "ops";
+  preview: string | null;
+  preview_url: string | null;
+  risk: "green" | "yellow" | "red";
+  compliance_clean: boolean;
+  compliance_notes: string | null;
+  status: "pending" | "failed";
+  source: string | null;
+};
 
-type Decision = 'approved' | 'fix' | 'skipped';
+const CATS = [
+  { id: "all", label: "All" },
+  { id: "comms", label: "Replies" },
+  { id: "web", label: "Web" },
+  { id: "ads", label: "Ads" },
+  { id: "post", label: "Posts" },
+  { id: "ops", label: "Ops" },
+] as const;
 
-function timeAgo(s: string) {
-  const m = Math.floor((Date.now() - new Date(s).getTime()) / 60000);
-  if (isNaN(m)) return '';
-  if (m < 1) return 'just now';
-  if (m < 60) return `${m}m ago`;
-  const h = Math.floor(m / 60);
-  if (h < 24) return `${h}h ago`;
-  return `${Math.floor(h / 24)}d ago`;
-}
+const RISK: Record<Item["risk"], { stripe: string; dot: string; label: string }> = {
+  green: { stripe: "#16a34a", dot: "bg-green-500", label: "Low" },
+  yellow: { stripe: "#d97706", dot: "bg-amber-500", label: "Check" },
+  red: { stripe: "#dc2626", dot: "bg-red-500", label: "Flag" },
+};
 
-export default function QueueClient({ initialItems, apiKey }: { initialItems: QueueItem[]; apiKey: string }) {
-  const [items, setItems] = useState<QueueItem[]>(initialItems);
-  const [busy, setBusy] = useState<number | null>(null);
-  const [err, setErr] = useState<string | null>(null);
+export default function QueueClient({ items, apiKey }: { items: Item[]; apiKey: string }) {
+  const [queue, setQueue] = useState<Item[]>(items);
+  const [cat, setCat] = useState<string>("all");
+  const [busy, setBusy] = useState<string | null>(null);
+  const [fixFor, setFixFor] = useState<string | null>(null);
+  const [fixNote, setFixNote] = useState("");
 
-  async function decide(item: QueueItem, decision: Decision) {
-    setErr(null);
-    let note: string | undefined;
-    if (decision === 'fix') {
-      note = window.prompt('What needs fixing? (this note goes to the agent)') || '';
-      if (note === '') return; // cancelled
-    }
-    setBusy(item.id);
+  const visible = queue.filter((i) => cat === "all" || i.category === cat);
+
+  async function decide(id: string, decision: "approved" | "fix" | "skip", note?: string) {
+    setBusy(id);
+    const prev = queue;
+    setQueue((q) => q.filter((i) => i.id !== id)); // optimistic: card leaves
     try {
-      const res = await fetch('/api/approve', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ id: item.id, decision, note, k: apiKey }),
+      const res = await fetch("/api/approve", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ id, decision, note, key: apiKey }),
       });
-      const json = await res.json();
-      if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
-      setItems((prev) => prev.filter((i) => i.id !== item.id)); // remove decided card
-    } catch (e) {
-      setErr(e instanceof Error ? e.message : 'Failed to record decision');
+      if (!res.ok) throw new Error(await res.text());
+    } catch {
+      setQueue(prev); // put it back if the write failed — never silently lose a decision
+      alert("That didn’t save. Nothing changed — try again.");
     } finally {
       setBusy(null);
+      setFixFor(null);
+      setFixNote("");
     }
   }
 
-  if (items.length === 0) {
-    return (
-      <div style={{ textAlign: 'center', padding: '48px 12px', color: '#7d8ea0' }}>
-        <div style={{ fontSize: 40, marginBottom: 8 }}>✅</div>
-        <div style={{ fontSize: 16 }}>All clear — nothing waiting on you.</div>
-      </div>
-    );
-  }
-
-  const btn = (bg: string): CSSProperties => ({
-    flex: 1, padding: '12px 8px', border: 'none', borderRadius: 10, background: bg,
-    color: '#fff', fontSize: 15, fontWeight: 700, cursor: 'pointer', minHeight: 46,
-  });
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-      {err && <div style={{ background: '#3a1414', color: '#ff9a9a', padding: '10px 12px', borderRadius: 8, fontSize: 13 }}>{err}</div>}
-      {items.map((it) => {
-        const failed = it.status === 'failed';
-        return (
-          <div key={it.id} style={{
-            background: '#18222e', borderRadius: 14, padding: 16,
-            border: `1px solid ${failed ? '#b3261e' : '#25313f'}`,
-            borderLeft: `5px solid ${failed ? '#ff5c4d' : '#1FAE5A'}`,
-            opacity: busy === it.id ? 0.55 : 1, transition: 'opacity .15s',
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, marginBottom: 6 }}>
-              <span style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 0.5,
-                color: failed ? '#ff8a7d' : '#1FAE5A', fontWeight: 700 }}>
-                {failed ? '⚠ FAILED — ' : ''}{it.agent} · {it.kind}
-              </span>
-              <span style={{ fontSize: 11, color: '#6b7c8e', whiteSpace: 'nowrap' }}>{timeAgo(it.created_at)}</span>
-            </div>
-            <div style={{ fontSize: 16, fontWeight: 600, lineHeight: 1.3, marginBottom: it.summary ? 6 : 0 }}>{it.title}</div>
-            {it.summary && <div style={{ fontSize: 13.5, color: '#b7c4d1', lineHeight: 1.45, whiteSpace: 'pre-wrap' }}>{it.summary}</div>}
-            {failed && it.error && <div style={{ fontSize: 12.5, color: '#ff9a9a', marginTop: 8 }}>Executor error: {it.error}</div>}
-            {it.link && <a href={it.link} target="_blank" rel="noreferrer"
-              style={{ display: 'inline-block', marginTop: 8, fontSize: 13, color: '#69b7ff' }}>Preview ↗</a>}
-            <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
-              <button style={btn('#1FAE5A')} disabled={busy === it.id} onClick={() => decide(it, 'approved')}>Approve</button>
-              <button style={btn('#c9821f')} disabled={busy === it.id} onClick={() => decide(it, 'fix')}>Fix it</button>
-              <button style={btn('#41505f')} disabled={busy === it.id} onClick={() => decide(it, 'skipped')}>Skip</button>
-            </div>
+    <main className="min-h-dvh bg-[#f6f8f5] text-neutral-900">
+      {/* Sticky header + filter */}
+      <header className="sticky top-0 z-10 border-b border-neutral-200 bg-[#f6f8f5]/90 backdrop-blur">
+        <div className="mx-auto max-w-xl px-4 pt-4 pb-3">
+          <div className="flex items-baseline justify-between">
+            <h1 className="text-xl font-bold tracking-tight text-[#14532d]">Approvals</h1>
+            <span className="text-sm text-neutral-500">
+              {queue.length} waiting
+            </span>
           </div>
-        );
-      })}
-    </div>
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+            {CATS.map((c) => {
+              const n =
+                c.id === "all"
+                  ? queue.length
+                  : queue.filter((i) => i.category === c.id).length;
+              const active = cat === c.id;
+              return (
+                <button
+                  key={c.id}
+                  onClick={() => setCat(c.id)}
+                  className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition ${
+                    active
+                      ? "bg-[#14532d] text-white"
+                      : "bg-white text-neutral-600 border border-neutral-200"
+                  }`}
+                >
+                  {c.label}
+                  {n > 0 && <span className={active ? "opacity-80" : "text-neutral-400"}> · {n}</span>}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-xl px-4 py-4 space-y-3">
+        {visible.length === 0 && (
+          <div className="mt-24 text-center">
+            <p className="text-lg font-semibold text-[#14532d]">Queue clear.</p>
+            <p className="mt-1 text-sm text-neutral-500">Nothing waiting on you.</p>
+          </div>
+        )}
+
+        {visible.map((item) => {
+          const r = RISK[item.risk];
+          return (
+            <article
+              key={item.id}
+              className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-100"
+              style={{ borderLeft: `5px solid ${r.stripe}` }}
+            >
+              <div className="p-4">
+                <div className="flex items-center gap-2 text-xs">
+                  {item.status === "failed" && (
+                    <span className="rounded bg-red-100 px-1.5 py-0.5 font-semibold text-red-700">
+                      SHIP FAILED — retry
+                    </span>
+                  )}
+                  <span className="inline-flex items-center gap-1 text-neutral-400">
+                    <span className={`h-1.5 w-1.5 rounded-full ${r.dot}`} />
+                    {r.label}
+                  </span>
+                  {item.source && <span className="text-neutral-300">· {item.source}</span>}
+                </div>
+
+                <h2 className="mt-1.5 text-base font-semibold leading-snug">{item.title}</h2>
+
+                {item.preview && (
+                  <p className="mt-1.5 whitespace-pre-wrap text-sm text-neutral-600">
+                    {item.preview}
+                  </p>
+                )}
+
+                {item.compliance_notes && (
+                  <p className="mt-2 text-xs text-amber-700">⚑ {item.compliance_notes}</p>
+                )}
+
+                {item.preview_url && (
+                  <a
+                    href={item.preview_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-block text-sm font-medium text-[#14532d] underline underline-offset-2"
+                  >
+                    Open preview ↗
+                  </a>
+                )}
+              </div>
+
+              {fixFor === item.id ? (
+                <div className="border-t border-neutral-100 p-3">
+                  <textarea
+                    autoFocus
+                    value={fixNote}
+                    onChange={(e) => setFixNote(e.target.value)}
+                    placeholder="What should change?"
+                    className="w-full rounded-xl border border-neutral-200 p-3 text-sm outline-none focus:border-[#14532d]"
+                    rows={3}
+                  />
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => { setFixFor(null); setFixNote(""); }}
+                      className="rounded-xl py-3 text-sm font-medium text-neutral-500"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      disabled={busy === item.id}
+                      onClick={() => decide(item.id, "fix", fixNote)}
+                      className="rounded-xl bg-amber-500 py-3 text-sm font-semibold text-white disabled:opacity-50"
+                    >
+                      Send fix
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-3 gap-px border-t border-neutral-100 bg-neutral-100 text-sm font-semibold">
+                  <button
+                    disabled={busy === item.id}
+                    onClick={() => decide(item.id, "skip")}
+                    className="bg-white py-4 text-neutral-500 active:bg-neutral-50 disabled:opacity-40"
+                  >
+                    Skip
+                  </button>
+                  <button
+                    disabled={busy === item.id}
+                    onClick={() => { setFixFor(item.id); setFixNote(""); }}
+                    className="bg-white py-4 text-amber-700 active:bg-amber-50 disabled:opacity-40"
+                  >
+                    Fix it
+                  </button>
+                  <button
+                    disabled={busy === item.id}
+                    onClick={() => decide(item.id, "approved")}
+                    className="bg-white py-4 text-[#14532d] active:bg-green-50 disabled:opacity-40"
+                  >
+                    Approve
+                  </button>
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </main>
   );
 }

@@ -1,85 +1,68 @@
-/**
- * Approval Console — live, Supabase-backed "Needs Your Approval" you tap through on phone/tablet.
- * Gate: /approve?k=$APPROVE_KEY   (set APPROVE_KEY in Vercel; page fails closed if unset/mismatched)
- * Server component, force-dynamic. DECISION CAPTURE ONLY — it never ships anything itself.
- * A separate executor polls status='approved', does the work, then sets 'shipped' or 'failed'.
- * 'failed' rows resurface at the top in red so a broken downstream step is loud, not silent.
- */
-import { createClient } from '@supabase/supabase-js';
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
-import QueueClient, { type QueueItem } from './QueueClient';
+// app/approve/page.tsx
+// Live approval console. Source of truth = Supabase approval_queue.
+// Bookmark this on your phone/tablet WITH the key:  /approve?k=YOUR_KEY
+import { createClient } from "@supabase/supabase-js";
+import QueueClient, { type Item } from "./QueueClient";
 
-export const dynamic = 'force-dynamic';
-export const metadata: Metadata = {
-  alternates: { canonical: '/approve' },
-  title: 'Approve — EnviroCare',
-  description: 'Approval console',
-  robots: { index: false, follow: false },
-};
+export const dynamic = "force-dynamic"; // never cache — always fresh
 
-const GATE = process.env.APPROVE_KEY;
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
-
-function Shell({ children }: { children: ReactNode }) {
-  return (
-    <div style={{ minHeight: '100vh', background: '#0f1720', color: '#e8edf2',
-      fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif',
-      padding: '20px 14px 60px', maxWidth: 720, margin: '0 auto' }}>
-      {children}
-    </div>
-  );
-}
+const RISK_ORDER: Record<string, number> = { red: 0, yellow: 1, green: 2 };
 
 export default async function ApprovePage({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{ k?: string }>;
 }) {
-  const sp = await searchParams;
-  const k = typeof sp.k === 'string' ? sp.k : '';
+  const { k } = await searchParams;
+  const key = process.env.APPROVE_KEY;
 
-  if (!GATE) {
-    return <Shell><h1 style={{ fontSize: 20 }}>Approval console not configured</h1>
-      <p style={{ color: '#9fb0c0' }}>Set <code>APPROVE_KEY</code> in Vercel to enable this page.</p></Shell>;
+  // Minimal gate for a single-user internal tool.
+  if (!key || k !== key) {
+    return (
+      <main className="min-h-dvh grid place-items-center bg-[#f6f8f5] px-6 text-center">
+        <div>
+          <p className="text-lg font-semibold text-[#14532d]">Approval console</p>
+          <p className="mt-2 text-sm text-neutral-500">
+            Add your key to the address: <code>/approve?k=…</code>
+          </p>
+        </div>
+      </main>
+    );
   }
-  if (k !== GATE) {
-    return <Shell><h1 style={{ fontSize: 20 }}>🔒 Locked</h1>
-      <p style={{ color: '#9fb0c0' }}>Append <code>?k=YOUR_APPROVE_KEY</code> to the URL.</p></Shell>;
-  }
-  if (!SUPABASE_URL || !SUPABASE_KEY) {
-    return <Shell><h1 style={{ fontSize: 20 }}>Database not configured</h1>
-      <p style={{ color: '#9fb0c0' }}>Missing <code>SUPABASE_URL</code> / service key in Vercel.</p></Shell>;
-  }
 
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-  const { data, error } = await supabase
-    .from('approval_queue')
-    .select('id, agent, kind, title, summary, link, priority, status, error, created_at')
-    .in('status', ['pending', 'failed'])
-    .limit(200);
-
-  const rows = (data ?? []) as QueueItem[];
-  // failed first (loud), then by priority desc, then oldest first.
-  rows.sort((a, b) => {
-    if ((a.status === 'failed') !== (b.status === 'failed')) return a.status === 'failed' ? -1 : 1;
-    if ((b.priority ?? 0) !== (a.priority ?? 0)) return (b.priority ?? 0) - (a.priority ?? 0);
-    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
-  });
-
-  return (
-    <Shell>
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 4 }}>
-        <h1 style={{ fontSize: 22, margin: 0 }}>Needs Your Approval</h1>
-        <span style={{ color: '#1FAE5A', fontWeight: 700, fontSize: 14 }}>{rows.length} open</span>
-      </div>
-      <p style={{ color: '#7d8ea0', fontSize: 12, margin: '0 0 18px' }}>
-        Live from Supabase. Tap a decision — an executor ships approved items separately.
-      </p>
-      {error
-        ? <p style={{ color: '#ff6b6b' }}>Error loading queue: {error.message}</p>
-        : <QueueClient initialItems={rows} apiKey={k} />}
-    </Shell>
+  const supabase = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
   );
+
+  const { data, error } = await supabase
+    .from("approval_queue")
+    .select("*")
+    .in("status", ["pending", "failed"])
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    return (
+      <main className="min-h-dvh grid place-items-center bg-[#f6f8f5] px-6 text-center">
+        <div>
+          <p className="text-lg font-semibold text-red-700">Couldn’t load the queue</p>
+          <p className="mt-2 text-sm text-neutral-500">{error.message}</p>
+          <p className="mt-1 text-xs text-neutral-400">
+            Check SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY in Vercel.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
+  const items = (data ?? []).sort((a, b) => {
+    // failed first (loud), then by risk, then newest
+    if (a.status !== b.status) return a.status === "failed" ? -1 : 1;
+    const r = (RISK_ORDER[a.risk] ?? 3) - (RISK_ORDER[b.risk] ?? 3);
+    if (r !== 0) return r;
+    return b.created_at.localeCompare(a.created_at);
+  }) as Item[];
+
+  return <QueueClient items={items} apiKey={key} />;
 }
