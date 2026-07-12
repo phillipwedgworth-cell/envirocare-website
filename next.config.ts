@@ -132,6 +132,8 @@ const nextConfig: NextConfig = {
             { source: '/commercial-pest-control', destination: '/services/commercial', permanent: true },
             { source: '/mosquito-and-tick-control', destination: '/services/mosquito', permanent: true },
             { source: '/fire-ant-control', destination: '/services/fire-ant', permanent: true },
+            // Legacy /flea-control had no redirect (gap found 2026-07-12 via URL-inventory audit) → real /services/flea page
+            { source: '/flea-control', destination: '/services/flea', permanent: true },
 
             // ─── RODENT (no dedicated page → pest-control) ──────────────────
             { source: '/rodent-control', destination: '/services/pest-control', permanent: true },
@@ -155,6 +157,8 @@ const nextConfig: NextConfig = {
             // ─── CORE / MISC ────────────────────────────────────────────────
             // NOTE: /faq is a REAL page now — intentionally NOT redirected.
             { source: '/site-map', destination: '/', permanent: true },
+            { source: '/site-search', destination: '/', permanent: true },   // legacy Scorpion search page → home (gap found 2026-07-12)
+            { source: '/common', destination: '/', permanent: true },        // legacy crawl artifact → home (retire the 404)
             { source: '/accessibility-statement', destination: '/', permanent: true },
             { source: '/photo-gallery/:slug*', destination: '/', permanent: true },
 
