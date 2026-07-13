@@ -23,8 +23,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Phone, Menu, X, Sparkles, User, Flower2 } from "lucide-react";
+import { OFFICES } from "../../data/offices";
+import { officeForPath } from "../../data/city-offices";
 
 const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
 
@@ -49,6 +52,12 @@ const MENU_LINKS: [string, string][] = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // PER-MARKET CALL BUTTON: a Huntsville or Lake Martin visitor should reach the
+  // office that actually serves them, not the Birmingham main line. Unmapped
+  // routes fall back to Birmingham — the previous sitewide behavior.
+  const pathname = usePathname();
+  const office = OFFICES[officeForPath(pathname ?? "/")];
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -100,8 +109,8 @@ export default function Header() {
             <Link href="/request-quote" className="sh-quote">
               <span className="sh-quote-full">Get Free{' '}</span><span>Quote</span>
             </Link>
-            <a href="tel:2059406360" className="sh-call" aria-label="Call EnviroCare at (205) 940-6360">
-              <Phone size={16} aria-hidden="true" /> <span className="sh-call-num">(205) 940-6360</span><span className="sh-call-word">Call</span>
+            <a href={office.phoneHref} className="sh-call" aria-label={`Call EnviroCare ${office.name} at ${office.phone}`}>
+              <Phone size={16} aria-hidden="true" /> <span className="sh-call-num">{office.phone}</span><span className="sh-call-word">Call</span>
             </a>
             <button type="button" className="sh-menu" onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen} aria-controls="sh-menu-panel">
               <Menu size={20} aria-hidden="true" /> <span>Menu</span>
