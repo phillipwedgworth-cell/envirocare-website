@@ -19,6 +19,58 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'termite-inspection-before-buying-home-alabama',
+    title: 'Why You Need a Termite Inspection Before Buying a Home in Alabama',
+    excerpt: 'Alabama doesn\'t always require a termite inspection to close on a house — and that catches buyers off guard, because homeowners insurance won\'t cover what termites do. A buyer\'s guide.',
+    publishedAt: '2026-07-12',
+    author: 'Kevin Wedgworth',
+    category: 'Real Estate',
+    readMinutes: 5,
+    heroEmoji: '🔑',
+    metaTitle: 'Termite Inspection Before Buying a Home in Alabama | EnviroCare',
+    metaDescription: 'Buying a house in Alabama? A termite inspection before closing can save you from five-figure repairs insurance won\'t cover. What it includes, costs, and how to negotiate.',
+    body: `
+<p class="lede">Here's something that surprises a lot of buyers: getting a termite inspection before buying a home in Alabama isn't automatically required. Depending on your loan, you can close on a house in Homewood or Madison without anyone ever looking for termites. And in the state with some of the heaviest termite pressure in the country, that's how people end up owning someone else's five-figure problem.</p>
+
+<h2>Is a termite inspection required to buy a house in Alabama?</h2>
+
+<p>It depends on how you're paying. VA loans require a wood-destroying organism inspection in Alabama — no exceptions. Many conventional lenders ask for a termite letter too, but not all of them. FHA generally only requires one if the appraiser notes evidence of a problem. And if you're paying cash, nobody requires anything.</p>
+
+<p>That last group worries us the most. Cash buyers — common on Lake Martin waterfront and in competitive markets like Huntsville — often waive everything to make an offer stronger. Waive what you like, but a home in Alabama that's never been checked for termites is a genuine gamble.</p>
+
+<h2>Why Alabama homes are a special case</h2>
+
+<p>Building-code maps put Alabama in the "very heavy" termite infestation probability zone — the highest category. Our long humid summers and moisture-holding clay soil keep subterranean termite colonies active and foraging most of the year.</p>
+
+<p>The part every buyer should know: <strong>homeowners insurance does not cover termite damage.</strong> Insurers classify it as preventable maintenance, not a sudden event. Fire, wind, a tree through the roof — covered. A colony that's spent six years hollowing out the sill plates — that's entirely on you, and repairs to structural wood routinely run into five figures.</p>
+
+<p>Age and setting shape the risk. Older neighborhoods — Forest Park or Crestwood in Birmingham, the Twickenham historic district in Huntsville — have decades-old foundations with wood-to-soil contact that modern codes wouldn't allow. Lake cabins around Alexander City add moisture, docks, and seasonal vacancy. And new construction in Hampton Cove or Trussville isn't exempt: builder pre-treatments typically expire after about five years.</p>
+
+<h2>What a pre-purchase termite inspection actually covers</h2>
+
+<p>First, clear up a common mix-up: your general home inspection is not a termite inspection. Home inspectors note visible damage if they happen to see it, but they aren't licensed for wood-destroying organism work. In Alabama, a termite inspection is performed by a state-licensed inspector and documented on the official WDIIR-100 form — the "termite letter" your lender wants. We walked through that whole process, including the three possible outcomes and what delays letters, in our <a href="/blog/real-estate-wdo-letter-explained">WDO letter guide</a>.</p>
+
+<p>The inspector examines every accessible wood surface — crawlspace sills and joists, garage framing, baseboards, eaves, decks, attic — looking for mud tubes, damaged wood, discarded swarmer wings, and conducive conditions like wood-to-soil contact or crawlspace moisture. If you're not sure what those signs look like, our guide to <a href="/blog/how-to-identify-termites-alabama">identifying termites in Alabama homes</a> covers them with photos of what to watch for.</p>
+
+<h2>What happens if the inspection finds termites</h2>
+
+<p>Don't walk away — negotiate. Active termites or old damage found <em>before</em> closing is leverage; found after closing, it's your bill. Typical paths:</p>
+
+<ul>
+<li><strong>Seller treats before closing.</strong> The seller pays for treatment, and a re-inspection produces a clear letter. Most common outcome.</li>
+<li><strong>Repair credit at closing.</strong> You take a documented estimate for treatment and repairs and negotiate that amount off the price.</li>
+<li><strong>Existing protection transfers.</strong> If the home already has a Sentricon® system — look for the round green caps in the soil around the foundation — the warranty can usually transfer to you for a small fee, typically $50 to $100. That's almost always worth doing.</li>
+</ul>
+
+<h2>What it costs</h2>
+
+<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, that's $75 standalone, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
+
+<p>Buying in Alabama? Get the house looked at before it's yours. <a href="/request-quote">Request an inspection</a> or call the office nearest the property — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
+`,
+  },
+
+  {
     slug: 'mosquito-repellent-yard-spray-vs-professional',
     title: 'Yard Mosquito Spray vs. Professional Treatment: What Actually Works in Alabama',
     excerpt: 'Hose-end sprays, foggers, citronella, zappers — most Alabama homeowners have tried them all. An honest grading of the DIY aisle, and where professional treatment earns its cost.',

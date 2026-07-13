@@ -78,7 +78,8 @@
     "title": "Why You Need a Termite Inspection Before Buying a Home in Alabama",
     "angle": "Alabama termite pressure is high \u2014 homeowners insurance doesn't cover termite damage. What WDO inspections cover, what they don't. What happens if termites are found before closing. How to negotiate. EnviroCare free inspection CTA.",
     "season": "year-round",
-    "published": false
+    "published": true,
+    "publishedNote": "Drafted 2026-07-12 in envirocare-website-deploy data/blog-posts.ts (pending Phillip approval + push)"
   },
   {
     "slug": "mosquito-repellent-yard-spray-vs-professional",
