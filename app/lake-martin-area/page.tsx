@@ -2,8 +2,8 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/lake-martin-area' },
-  title: "Lake Martin Area Pest Control — Alexander City, Dadeville, Auburn | EnviroCare",
-  description: "Pest, termite & mosquito control around Lake Martin — Alexander City, Dadeville, Eclectic, the lake communities, plus Auburn & Opelika. The original 1958 office. Call (256) 234-6162.",
+  title: "Lake Martin Area Pest Control | EnviroCare",
+  description: "Pest, termite & mosquito control around Lake Martin — Alexander City, Dadeville, Eclectic, Auburn & Opelika. The original 1958 office. (256) 234-6162.",
 };
 
 const cfg: ClusterConfig = {

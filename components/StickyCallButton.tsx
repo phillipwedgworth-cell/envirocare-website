@@ -1,31 +1,39 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: components/StickyCallButton.tsx
-// Commit: feat(ui): simplify mobile action bar to call + get-a-free-quote
+// Commit: feat(ui): scroll-aware mobile action bar — hides while reading, returns on scroll-up/pause
 // Push: main
 // ──────────────────────────────────────
 
 'use client';
 
 /**
- *
  * Mobile-only fixed bottom action bar: Call (with number) + Get a Free Quote.
  * Hidden >=900px (desktop has header phones). Reserves the bottom-right
  * corner so it never overlaps the chat launcher, respects the iOS bottom
  * safe area, and slides out of the way while a form field is focused so
  * it can never cover an input.
+ *
+ * SCROLL-AWARE (Jul 2026, Phillip request — reduce mobile clutter):
+ * the bar no longer rides the screen constantly. It slides away while the
+ * visitor scrolls DOWN (reading), and returns when they scroll UP, pause
+ * for ~1.2s, or are near the top/bottom of the page. Field-focus hiding
+ * still wins over everything.
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function StickyCallButton() {
-  const [hidden, setHidden] = useState(false);
+  const [fieldHidden, setFieldHidden] = useState(false);
+  const [scrolledAway, setScrolledAway] = useState(false);
+  const lastY = useRef(0);
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const isField = (el: EventTarget | null) =>
       el instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName);
-    const onIn = (e: FocusEvent) => { if (isField(e.target)) setHidden(true); };
-    const onOut = () => setHidden(false);
+    const onIn = (e: FocusEvent) => { if (isField(e.target)) setFieldHidden(true); };
+    const onOut = () => setFieldHidden(false);
     document.addEventListener('focusin', onIn);
     document.addEventListener('focusout', onOut);
     return () => {
@@ -33,6 +41,34 @@ export default function StickyCallButton() {
       document.removeEventListener('focusout', onOut);
     };
   }, []);
+
+  useEffect(() => {
+    lastY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      const nearBottom =
+        window.innerHeight + y >= document.documentElement.scrollHeight - 120;
+      if (delta > 8 && y > 320 && !nearBottom) {
+        // scrolling down mid-page: get out of the way
+        setScrolledAway(true);
+      } else if (delta < -8 || y <= 320 || nearBottom) {
+        // scrolling up, near top, or reached the end: offer the CTA
+        setScrolledAway(false);
+      }
+      lastY.current = y;
+      // reappear after the reader pauses
+      if (idleTimer.current) clearTimeout(idleTimer.current);
+      idleTimer.current = setTimeout(() => setScrolledAway(false), 1200);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (idleTimer.current) clearTimeout(idleTimer.current);
+    };
+  }, []);
+
+  const hidden = fieldHidden || scrolledAway;
 
   return (
     <>
@@ -71,7 +107,7 @@ const STICKY_CSS = `
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(14,26,15,0.18), 0 2px 8px rgba(14,26,15,0.10);
   font-family: 'DM Sans', system-ui, sans-serif;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .sc-hidden { transform: translateY(180%); opacity: 0; pointer-events: none; }
 .sc-call {

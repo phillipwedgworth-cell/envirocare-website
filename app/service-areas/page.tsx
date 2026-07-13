@@ -4,9 +4,9 @@ import { GREEN, GOLD, INK, CREAM, displayFont, bodyFont } from '@/lib/brand';
 
 export const metadata = {
   alternates: { canonical: '/service-areas' },
-  title: 'Pest Control & Termite Protection Across the Birmingham Metro | EnviroCare',
+  title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
   description:
-    'EnviroCare serves the entire Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville, Chelsea, Pelham, Helena, Alabaster and more — plus Lake Martin / Alex City and Huntsville. Family-owned since 1958.',
+    'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
 };
 
 type Group = { office: string; phone: string; cities: [string, string][] };

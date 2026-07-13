@@ -10,7 +10,7 @@ export const metadata = {
   alternates: { canonical: '/family-owned-vs-national-chains' },
   title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
   description:
-    'How a fourth-generation, family-owned Alabama pest control company compares to the national and regional chains — real local offices, the same technician on your route, no-drill Sentricon® termite protection, published pricing, and unlimited free re-service.',
+    'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, the same technician every visit.',
 };
 
 const BASE = 'https://www.envirocarellc.com';

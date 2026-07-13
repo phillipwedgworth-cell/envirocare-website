@@ -9,7 +9,7 @@ import { EmojiIcon } from "@/components/shared/PestIcon";
 export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
   description:
-    "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Madison Crossings, Sullivan Street, Rainbow Mountain. Sentricon® up to $1M coverage. Call (256) 937-7676.",
+    "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Rainbow Mountain. Sentricon® $1M coverage. Call (256) 937-7676.",
   alternates: { canonical: "/service-areas/madison" },
   openGraph: {
     images: ["/og/og-madison.png"],

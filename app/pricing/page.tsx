@@ -8,7 +8,7 @@ import PricingContent from "./PricingContent";
 export const metadata: Metadata = {
   title: "Pest Control Pricing Alabama | From $35/mo | EnviroCare",
   description:
-    "Honest Alabama pest control pricing — pest control from $35/mo (bimonthly). Mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Termite (Sentricon®) quoted after a free WDO inspection.",
+    "Alabama pest control pricing — pest from $35/mo, mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Sentricon® quoted after a free inspection.",
   alternates: { canonical: "/pricing" },
 };
 

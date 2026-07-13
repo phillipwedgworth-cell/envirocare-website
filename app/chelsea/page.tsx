@@ -3,9 +3,9 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Chelsea AL | Termite, Mosquito & New-Construction Pre-Treat — Since 1958",
+  title: "Pest Control Chelsea AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Chelsea AL — Chelsea Park, Foothills, Westover. Bi-monthly from $35/mo, no-drill termite with $1M coverage. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service in Chelsea AL — Chelsea Park, Foothills. From $35/mo, $1M coverage. Call (205) 940-6360.",
   alternates: { canonical: "/chelsea" },
   openGraph: {
     images: ["/og/og-chelsea.png"],

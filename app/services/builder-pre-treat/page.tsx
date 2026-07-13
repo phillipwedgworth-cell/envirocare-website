@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "New Construction Termite Pre-Treatment | EnviroCare Pest & Termite",
   description:
-    "Code-compliant termite pre-treatment for Alabama builders. Soil treatment, Sentricon® baiting, or combination. WDO paperwork included. Birmingham, Huntsville & Lake Martin.",
+    "Code-compliant termite pre-treatment for Alabama builders. Soil treatment or Sentricon®, WDO paperwork included. Birmingham, Huntsville & Lake Martin.",
   alternates: { canonical: "/services/builder-pre-treat" },
   robots: { index: true, follow: true },
 };

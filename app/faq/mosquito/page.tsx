@@ -6,9 +6,9 @@ import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
-  title: "Mosquito Control FAQ Alabama | When Does Mosquito Season Start? | EnviroCare",
+  title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
   description:
-    "Everything Alabama homeowners ask about mosquito season: when it starts, how long it lasts, when kids and pets can go back outside after treatment, and what $45/visit gets you. EnviroCare, family-owned since 1958.",
+    "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
   alternates: { canonical: './' },
 };
 

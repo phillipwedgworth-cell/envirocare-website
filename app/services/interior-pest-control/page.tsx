@@ -14,7 +14,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Interior + Exterior Pest Control in Alabama | EnviroCare Pest & Termite",
+  title: "Interior + Exterior Pest Control in Alabama | EnviroCare",
   description:
     "Quarterly inside-and-outside pest control for Alabama homes — $98 per quarter. Add flea treatment for $30 more. Family-owned since 1958.",
   alternates: { canonical: "/services/interior-pest-control" },

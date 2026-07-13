@@ -28,7 +28,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🔑',
     metaTitle: 'Termite Inspection Before Buying a Home in Alabama | EnviroCare',
-    metaDescription: 'Buying a house in Alabama? A termite inspection before closing can save you from five-figure repairs insurance won\'t cover. What it includes, costs, and how to negotiate.',
+    metaDescription: 'Buying a house in Alabama? A termite inspection before closing can save you from five-figure repairs. What it includes, costs, and how to negotiate.',
     body: `
 <p class="lede">Here's something that surprises a lot of buyers: getting a termite inspection before buying a home in Alabama isn't automatically required. Depending on your loan, you can close on a house in Homewood or Madison without anyone ever looking for termites. And in the state with some of the heaviest termite pressure in the country, that's how people end up owning someone else's five-figure problem.</p>
 
@@ -452,7 +452,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 4,
     heroEmoji: '🌧️',
     metaTitle: 'Why Pests Get Worse After Rain in Alabama | EnviroCare',
-    metaDescription: 'Fire ants, palmetto bugs, millipedes, and mosquitoes all surge after Alabama rainstorms. Learn why rain drives pests indoors and how proactive perimeter treatment stops them.',
+    metaDescription: 'Fire ants, palmetto bugs, millipedes, and mosquitoes surge after Alabama rain. Why storms drive pests indoors and how perimeter treatment stops them.',
     body: `
 <p class="lede">Every pest company in Alabama gets the same call after a rainstorm: why are there suddenly bugs everywhere? Rain disrupts underground and outdoor habitats, forcing pests toward your home.</p>
 
@@ -487,7 +487,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 4,
     heroEmoji: '📅',
     metaTitle: 'The Best Time to Start Pest Control in Alabama | EnviroCare',
-    metaDescription: 'Early spring is ideal but any time works. Alabama pests are year-round. Why starting treatment in February–April gets ahead of summer ant, roach, and termite pressure.',
+    metaDescription: 'Early spring is ideal but any time works — Alabama pests are year-round. Starting in February–April gets ahead of summer ant and roach pressure.',
     body: `
 <p class="lede">The honest answer: now. The strategic answer: early spring, February through April. Here is why.</p>
 
@@ -521,7 +521,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 3,
     heroEmoji: '🏡',
     metaTitle: 'How to Prepare Your Home for Pest Control Service | EnviroCare Alabama',
-    metaDescription: 'A few simple steps before your pest control visit make treatment more effective. Clear baseboards, secure pets, and give access to key areas. Tips from EnviroCare.',
+    metaDescription: 'A few simple steps before your pest control visit make treatment more effective — clear baseboards, secure pets, give access to key areas.',
     body: `
 <p class="lede">Getting the most from your pest control service starts before the technician arrives. A few simple steps help us treat more effectively and make results last longer.</p>
 
@@ -551,15 +551,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'huntsville-pest-control-guide',
-    title: 'Huntsville Pest Control: What North Alabama Homeowners Face',
+    title: 'Huntsville Pest Control Guide for North Alabama | EnviroCare',
     excerpt: 'Limestone geology, Tennessee Valley climate, and rapid suburban growth create unique pest challenges. Local guide from EnviroCare\'s Huntsville office.',
     publishedAt: '2026-05-20',
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 5,
     heroEmoji: '🚀',
-    metaTitle: 'Huntsville Pest Control: What North Alabama Homeowners Face | EnviroCare',
-    metaDescription: 'Limestone geology, Tennessee Valley climate, and rapid growth create unique pest challenges in Huntsville. Local guide from EnviroCare\'s North Alabama office on Old Madison Pike.',
+    metaTitle: 'Huntsville Pest Control Guide for North Alabama | EnviroCare',
+    metaDescription: 'Limestone geology, Tennessee Valley climate, and rapid growth create unique pest challenges in Huntsville. A local guide from EnviroCare.',
     body: `
 <p class="lede">Huntsville and North Alabama present unique pest challenges. The Tennessee Valley climate, limestone geology, and rapid suburban development all influence what pests you deal with — and how to stop them.</p>
 
@@ -587,14 +587,14 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'brown-recluse-spiders-alabama',
-    title: 'Brown Recluse Spiders in Alabama: What Every Homeowner Should Know',
+    title: 'Brown Recluse Spiders in Alabama | EnviroCare',
     excerpt: 'Far more common than most realize. How to identify them, what a bite looks like, where they hide in Alabama homes, and how to keep them out.',
     publishedAt: '2026-05-21',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
     readMinutes: 6,
     heroEmoji: '🕷️',
-    metaTitle: 'Brown Recluse Spiders in Alabama: What Every Homeowner Should Know | EnviroCare',
+    metaTitle: 'Brown Recluse Spiders in Alabama | EnviroCare',
     metaDescription: 'Brown recluse are far more common in Alabama homes than most realize. Identification, bite risks, prevention tips, and when to call for professional treatment.',
     body: `
 <p class="lede">Of all the spiders in Alabama, the brown recluse is the one worth taking seriously — and it's far more common in our homes than most people realize. The good news is that recluses are shy, they don't want anything to do with you, and a few straightforward habits keep the risk low. The key is knowing what you're actually looking at.</p>
@@ -623,15 +623,15 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'cockroach-control-alabama',
-    title: 'Cockroach Control in Alabama: German, American & Smokybrown Roaches',
+    title: 'Cockroach Control in Alabama | EnviroCare',
     excerpt: 'Three species, three different treatment approaches. Alabama\'s humidity makes cockroach control harder than most states.',
     publishedAt: '2026-05-21',
     author: 'Kevin Wedgworth',
     category: 'Roaches',
     readMinutes: 6,
     heroEmoji: '🪳',
-    metaTitle: 'Cockroach Control in Alabama: German, American & Smokybrown | EnviroCare',
-    metaDescription: 'Three cockroach species require three different treatment approaches in Alabama. German roaches inside, American and smokybrown outside. EnviroCare bi-monthly plan covers all.',
+    metaTitle: 'Cockroach Control in Alabama | EnviroCare',
+    metaDescription: 'Three cockroach species, three treatment approaches in Alabama — German roaches inside, American and smokybrown outside. EnviroCare covers all three.',
     body: `
 <p class="lede">Cockroaches are harder to control in Alabama than in most of the country, and the reason is our climate: long, hot, humid summers give roaches the warmth and moisture they thrive on nearly year-round. But "roach control" isn't one problem — it's three, because the three species you'll see here live differently and have to be handled differently.</p>
 
@@ -659,15 +659,15 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'spider-control-alabama',
-    title: 'Spider Control in Alabama: Black Widow, Brown Recluse & More',
+    title: 'Spider Control in Alabama: Widows & Recluses | EnviroCare',
     excerpt: 'Two medically significant species plus dozens of nuisance spiders. Effective control starts with reducing their food supply, not just spraying webs.',
     publishedAt: '2026-05-21',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
     readMinutes: 6,
     heroEmoji: '🕸️',
-    metaTitle: 'Spider Control in Alabama: Black Widow, Brown Recluse & More | EnviroCare',
-    metaDescription: 'Alabama has black widows and brown recluse. Effective spider control starts with reducing their food supply, not just spraying webs. EnviroCare bi-monthly plan covers 30+ pests.',
+    metaTitle: 'Spider Control in Alabama: Widows & Recluses | EnviroCare',
+    metaDescription: 'Alabama has black widows and brown recluse. Effective spider control starts with reducing their food supply, not just spraying webs.',
     body: `
 <p class="lede">Alabama is home to dozens of spider species, and the honest truth is that the overwhelming majority are harmless — even helpful, since they eat the insects you like even less. But two of them are medically significant, and effective spider control isn't about spraying every web you see. It's about cutting off what spiders come inside for in the first place: food.</p>
 
@@ -697,15 +697,15 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'ant-control-alabama',
-    title: 'Ant Control in Alabama: Fire Ants, Carpenter Ants & House Ants',
+    title: 'Ant Control in Alabama: Fire, Carpenter & House | EnviroCare',
     excerpt: 'Spraying active ant trails backfires — it scatters the colony. Learn why bait-based treatment is the only approach that reaches the queen and ends the infestation.',
     publishedAt: '2026-05-21',
     author: 'Kevin Wedgworth',
     category: 'Ants',
     readMinutes: 4,
     heroEmoji: '🐜',
-    metaTitle: 'Ant Control in Alabama: Fire Ants, Carpenter Ants & House Ants | EnviroCare',
-    metaDescription: 'Spraying active ant trails backfires. Alabama has fire ants, carpenter ants, Argentine ants, and more. EnviroCare uses targeted bait to reach the queen and eliminate colonies.',
+    metaTitle: 'Ant Control in Alabama: Fire, Carpenter & House | EnviroCare',
+    metaDescription: 'Spraying active ant trails backfires. Alabama has fire ants, carpenter ants, Argentine ants, and more. Targeted bait reaches the queen and the colony.',
     body: `
 <p class="lede">Alabama hosts dozens of ant species — fire ants in the yard, Argentine ants in the kitchen, carpenter ants damaging wood, and odorous house ants trailing across counters. The most common mistake homeowners make is spraying the trails they can see. That kills foragers and scatters the colony into multiple new entry points.</p>
 
@@ -745,7 +745,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 4,
     heroEmoji: '🐟',
     metaTitle: 'Silverfish Control in Alabama | EnviroCare Pest & Termite Services',
-    metaDescription: 'Silverfish thrive in Alabama humidity and damage books, clothing, wallpaper, and documents. They hide in attics and bathroom walls. Professional treatment from EnviroCare.',
+    metaDescription: 'Silverfish thrive in Alabama humidity and damage books, clothing, and wallpaper. They hide in attics and bathroom walls. Treatment from EnviroCare.',
     body: `
 <p class="lede">Silverfish thrive in Alabama humidity and are one of the most common household pests we treat — and one of the most overlooked. These fast-moving silver insects damage books, wallpaper, clothing, and stored documents while hiding in walls and attics where they're rarely seen until populations are large.</p>
 
@@ -780,15 +780,15 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'cricket-control-alabama',
-    title: 'Cricket Control in Alabama: Stop Chirping in Walls & Basement Invasions',
+    title: 'Cricket Control in Alabama | EnviroCare',
     excerpt: 'House crickets chirp all night. Camel crickets invade basements in large numbers. Both surge in fall. Perimeter barriers and granular bait stop them before entry.',
     publishedAt: '2026-05-21',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 4,
     heroEmoji: '🦗',
-    metaTitle: 'Cricket Control in Alabama: Stop Chirping & Basement Invasions | EnviroCare',
-    metaDescription: 'House crickets chirp all night in walls. Camel crickets invade basements in large numbers. Alabama fall cricket invasions stopped with perimeter barriers and granular bait.',
+    metaTitle: 'Cricket Control in Alabama | EnviroCare',
+    metaDescription: 'House crickets chirp all night in walls; camel crickets invade basements. Alabama fall cricket invasions stopped with perimeter barriers and bait.',
     body: `
 <p class="lede">House crickets chirp all night from walls and garages. Camel crickets invade damp basements in large numbers. Both enter Alabama homes seeking shelter as temperatures drop in fall — and once inside, they breed and damage fabrics before you realize you have a problem.</p>
 
@@ -831,7 +831,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 6,
     heroEmoji: '🪵',
     metaTitle: 'Termite Season 2026 Alabama: What Homeowners Need to Know | EnviroCare',
-    metaDescription: 'Termite season 2026 is underway across Alabama. Heavy winter rain and warm soil mean elevated swarm activity. Sentricon® $1M coverage. Free inspection. Call (205) 940-6360.',
+    metaDescription: 'Termite season 2026 is underway across Alabama — warm soil means elevated swarm activity. Sentricon® $1M coverage. Free inspection. (205) 940-6360.',
     body: `
 <p class="lede">By late April 2026, our technicians had already logged more termite swarm calls than we typically see through the end of May in a normal year. If you've seen wings on your windowsill or swarmers boiling out of a mulch bed, you're not alone — and you're not too late to protect your home.</p>
 
@@ -907,7 +907,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 4,
     heroEmoji: '🐛',
     metaTitle: 'Centipede & Millipede Control in Alabama | EnviroCare Pest Services',
-    metaDescription: 'Millipedes migrate in hundreds after Alabama rain. Centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation. EnviroCare bi-monthly plan.',
+    metaDescription: 'Millipedes migrate by the hundreds after Alabama rain; centipedes appear in bathrooms year-round. Both signal moisture problems near your foundation.',
     body: `
 <p class="lede">Centipedes and millipedes are moisture-loving pests that invade Alabama homes after heavy rain. House centipedes are fast predators found in bathrooms year-round. Millipedes invade in mass migrations during wet weather — sometimes hundreds in a single day. Both indicate excess moisture around your foundation that needs to be addressed.</p>
 
@@ -943,15 +943,15 @@ Free inspections. No setup fee. Fast scheduling available.</p>
   // ── Migrated from dead repo (envirocare-web) 2026-06-08 ──────────────────
   {
     slug: 'pest-control-cost-alabama',
-    title: 'How Much Does Pest Control Cost in Alabama? (2026 Pricing Guide)',
+    title: 'How Much Does Pest Control Cost in Alabama? | EnviroCare',
     excerpt: 'Real 2026 numbers, no sales call required — what pest control actually costs in Alabama, what\'s included at each price point, and why the national chains hide their pricing.',
     publishedAt: '2026-05-26',
     author: 'Kevin Wedgworth',
     category: 'Pricing',
     readMinutes: 7,
     heroEmoji: '💵',
-    metaTitle: 'How Much Does Pest Control Cost in Alabama? (2026 Pricing Guide) | EnviroCare',
-    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pricing: pest from $35/mo, pest + mosquito from $69/mo, Complete from ~$100/mo. No hidden fees, free termite inspections.',
+    metaTitle: 'How Much Does Pest Control Cost in Alabama? | EnviroCare',
+    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pricing — pest from $35/mo, pest + mosquito from $69/mo, Complete from ~$100/mo. No hidden fees.',
     body: `
 <p class="lede">Real numbers, no sales call required. Here's what pest control actually costs in Alabama in 2026 — what's included at each price point, why the national chains hide their pricing, and how to tell whether a monthly plan or a one-time treatment is the right call for your home.</p>
 
@@ -990,7 +990,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 6,
     heroEmoji: '🐜',
     metaTitle: 'Sugar Ants in House (Alabama): Stop the June Invasion | EnviroCare',
-    metaDescription: 'Sugar ant invasions explode in Alabama every June. Identify the species in your kitchen, stop the trail, and keep them out — from EnviroCare, family-owned in Alabama since 1958.',
+    metaDescription: 'Sugar ant invasions explode in Alabama every June. Identify the species in your kitchen, stop the trail, and keep them out — from EnviroCare.',
     body: `
 <p class="lede">Every June, the calls start. You walk into the kitchen before coffee and there's a line of tiny brown ants marching from behind the toaster to a single drop of jelly. By Tuesday they've found the dog bowl. By Friday they're in the pantry.</p>
 <p>If you live in Alabama, this is sugar ant season — and we've been answering this call since 1958. Here's what they actually are, how to stop them, and when it's time to call a pro.</p>
@@ -1025,7 +1025,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 8,
     heroEmoji: '🦟',
     metaTitle: 'Mosquito Season in Alabama: When to Start Treatment | EnviroCare',
-    metaDescription: 'Mosquito season in Alabama runs April through October. Starting treatment in April suppresses breeding populations before they explode. Learn when and how to protect your yard.',
+    metaDescription: 'Mosquito season in Alabama runs April through October. Starting treatment in April suppresses breeding populations before they explode.',
     body: `
 <p class="lede">In Alabama, mosquito season is long. It typically runs from April through October, and in a mild year the first bites arrive in March and the last ones linger into November. The single biggest factor in whether you actually get to use your yard all summer isn't which product goes down — it's when you start.</p>
 
@@ -1061,7 +1061,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 8,
     heroEmoji: '🔍',
     metaTitle: 'How to Identify Termites in Your Alabama Home | EnviroCare',
-    metaDescription: 'How to identify termites in Alabama: mud tubes, hollow wood, discarded wings, and swarmers. How to tell termites from flying ants. Free inspection from EnviroCare.',
+    metaDescription: 'How to identify termites in Alabama — mud tubes, hollow wood, discarded wings, swarmers — and how to tell termites from flying ants. Free inspection.',
     body: `
 <p class="lede">By the time most Alabama homeowners realize they have termites, the colony has usually been feeding for months — sometimes years. The insects work silently, inside walls and under floors, and Alabama's warm, humid climate lets them stay active nearly year-round. Learning to read the warning signs early is the difference between a free inspection and a five-figure repair.</p>
 
@@ -1105,7 +1105,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 5,
     heroEmoji: '🐾',
     metaTitle: 'Alabama Tick Control: Lone Star Ticks & Alpha-Gal | EnviroCare',
-    metaDescription: 'Alabama tick control done right. Identify lone star, American dog & deer ticks, understand alpha-gal and other risks, and treat yard harborage. Call (205) 940-6360.',
+    metaDescription: 'Alabama tick control done right — identify lone star, American dog & deer ticks, understand alpha-gal risk, treat yard harborage. (205) 940-6360.',
     body: `
 <p class="lede">If your Alabama yard backs up to woods, a creek, or even a thick hedge line, you have ticks — whether you've seen one or not. They don't roam the open lawn; they wait at the edges where the mowed grass meets the wild, questing on tall blades for a host to brush past. For families with kids and dogs, that edge is the problem.</p>
 
@@ -1182,7 +1182,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 6,
     heroEmoji: '🕷️',
     metaTitle: 'How to Keep Wolf Spiders Out of Your Birmingham Home | EnviroCare',
-    metaDescription: 'Wolf spiders in your Birmingham home? They follow their food indoors. What actually keeps them out — exclusion plus perimeter pest control. Free inspection. Call (205) 940-6360.',
+    metaDescription: 'Wolf spiders in your Birmingham home? They follow their food indoors. What keeps them out — exclusion plus perimeter pest control. (205) 940-6360.',
     body: `
 <p class="lede">Wolf spiders are the largest spider most Birmingham homeowners ever see indoors — brown, hairy, fast, and often the size of a half-dollar with their legs spread. They aren't dangerous in the medical sense (no medically significant venom, no aggression), but they look alarming, they hunt at night, and they turn up in kitchens and basements in numbers that make one sighting feel like an infestation. Here's what we tell customers around Birmingham and the Over-the-Mountain suburbs when they call about them.</p>
 
@@ -1232,7 +1232,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 5,
     heroEmoji: '❄️',
     metaTitle: 'Common Winter Pest Problems in Alabama | EnviroCare',
-    metaDescription: 'Alabama winters do not kill pests — rodents, ants, and roaches move indoors for warmth. What Birmingham homeowners face Dec-Feb and how to keep them out. Call (205) 940-6360.',
+    metaDescription: 'Alabama winters do not kill pests — rodents, ants, and roaches move indoors for warmth. What Birmingham homeowners face Dec–Feb. (205) 940-6360.',
     body: `
 <p class="lede">Up north, winter does a lot of pest control for you. In Alabama it doesn't. Our winters are mild and short, so instead of dying off, pests simply move where it's warm — which is your house. That's why "the cold will take care of it" is one of the more expensive myths we hear around Birmingham and the Tennessee Valley.</p>
 
@@ -1271,7 +1271,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 5,
     heroEmoji: '🧰',
     metaTitle: 'DIY Pest Control Mistakes That Make Problems Worse | EnviroCare',
-    metaDescription: 'Spraying trails, bug bombs, treating only what you see — common DIY pest control mistakes that backfire in Alabama homes, and what actually works instead. Call (205) 940-6360.',
+    metaDescription: 'Spraying trails, bug bombs, treating only what you see — DIY pest control mistakes that backfire in Alabama homes, and what works instead. (205) 940-6360.',
     body: `
 <p class="lede">A good share of our calls start with "I tried everything and it just got worse." Usually it isn't bad luck — it's one of a handful of do-it-yourself moves that quietly make the problem harder to solve. Here are the ones we see most around Birmingham, and what works instead.</p>
 
@@ -1311,7 +1311,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 6,
     heroEmoji: '🏙️',
     metaTitle: 'A Birmingham Homeowner\'s Guide to Pest Control | EnviroCare',
-    metaDescription: 'What Birmingham homeowners are up against — clay-soil termites, humidity-loving roaches, fire ants, Over-the-Mountain spiders and ticks — and what a real pest control program covers. Call (205) 940-6360.',
+    metaDescription: 'What Birmingham homeowners face — clay-soil termites, roaches, fire ants, spiders and ticks — and what a real pest control program covers.',
     body: `
 <p class="lede">If you own a home around Birmingham, pest pressure isn't a question of <em>if</em> — it's <em>when</em>. Our red clay soil, the humidity, and all that Over-the-Mountain tree cover give pests exactly what they need. Here's a plain-spoken guide to what you're up against in the metro and how to actually handle it.</p>
 

@@ -20,12 +20,12 @@ import { EmojiIcon } from "@/components/shared/PestIcon";
  */
 
 export const metadata: Metadata = {
-  title: "Pest Control Near Redstone Arsenal | Commercial Service in Cummings Research Park | EnviroCare",
+  title: "Pest Control Near Redstone Arsenal | Cummings Research Park",
   description:
-    "Commercial pest, rodent, wasp & insect control for businesses near Redstone Arsenal, Cummings Research Park and Huntsville's defense corridor. Family-owned since 1958. Call (256) 937-7676.",
+    "Commercial pest control for businesses near Redstone Arsenal and Cummings Research Park. Family-owned since 1958. Call (256) 937-7676.",
   alternates: { canonical: "/service-areas/redstone-arsenal" },
   openGraph: {
-    title: "Commercial Pest Control Near Redstone Arsenal | EnviroCare — Since 1958",
+    title: "Commercial Pest Control Near Redstone Arsenal | EnviroCare",
     description:
       "Commercial pest, rodent, and wasp control for offices, contractors, and retail near Redstone Arsenal and Cummings Research Park. Family-owned, Huntsville office.",
     url: "https://www.envirocarellc.com/service-areas/redstone-arsenal",

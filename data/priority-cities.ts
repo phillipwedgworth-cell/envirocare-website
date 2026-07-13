@@ -33,7 +33,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Huntsville",
     metaTitle: "Pest Control Huntsville AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Family-owned pest control in Huntsville, AL since 1958. Bi-monthly pest service, Sentricon® termite protection, and seasonal mosquito control. Free inspection — call (256) 937-7676.",
+      "Family-owned pest control in Huntsville, AL since 1958. Bi-monthly service, Sentricon® termite protection, seasonal mosquito control. (256) 937-7676.",
     office: "Huntsville",
     phone: "(256) 937-7676",
     tel: "2569377676",
@@ -79,7 +79,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Madison",
     metaTitle: "Pest Control Madison AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Trusted pest control in Madison, AL. Bi-monthly pest service, Sentricon® termite protection, and seasonal mosquito control from a family-owned Alabama company. Free quote — (256) 937-7676.",
+      "Trusted pest control in Madison, AL — bi-monthly service, Sentricon® termite protection, seasonal mosquito control. Family-owned. (256) 937-7676.",
     office: "Huntsville",
     phone: "(256) 937-7676",
     tel: "2569377676",
@@ -125,7 +125,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Decatur",
     metaTitle: "Pest Control Decatur AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Family-owned pest control in Decatur, AL. Bi-monthly pest service, Sentricon® termite protection, and seasonal mosquito control along the Tennessee River. Free inspection — (256) 937-7676.",
+      "Family-owned pest control in Decatur, AL — bi-monthly service, Sentricon® termite, seasonal mosquito control along the Tennessee River. (256) 937-7676.",
     office: "Huntsville",
     phone: "(256) 937-7676",
     tel: "2569377676",
@@ -171,7 +171,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Vestavia Hills",
     metaTitle: "Pest Control Vestavia Hills AL | Mosquito, Termite & Ant | EnviroCare",
     metaDescription:
-      "Pest control in Vestavia Hills, AL from a family-owned Alabama company. Mosquito and tick control, Sentricon® termite protection, ant and pest service. Free quote — (205) 940-6360.",
+      "Pest control in Vestavia Hills, AL — mosquito and tick control, Sentricon® termite protection, ant and pest service. Family-owned. (205) 940-6360.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",
@@ -217,7 +217,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Pelham",
     metaTitle: "Pest Control Pelham AL | Termite, Mosquito & Roach | EnviroCare",
     metaDescription:
-      "Family-owned pest control in Pelham, AL. Bi-monthly pest service, Sentricon® termite protection, mosquito and tick control near Oak Mountain. Free quote — (205) 940-6360.",
+      "Family-owned pest control in Pelham, AL — bi-monthly service, Sentricon® termite, mosquito and tick control near Oak Mountain. (205) 940-6360.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",
@@ -263,7 +263,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Alabaster",
     metaTitle: "Pest Control Alabaster AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Local pest control in Alabaster, AL — our home base. Bi-monthly pest service, Sentricon® termite protection, and seasonal mosquito control. Free inspection — (205) 940-6360.",
+      "Local pest control in Alabaster, AL — our home base. Bi-monthly service, Sentricon® termite, seasonal mosquito control. Free inspection. (205) 940-6360.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",
@@ -307,9 +307,9 @@ export const priorityCities: Record<string, CityData> = {
   "chelsea": {
     slug: "chelsea",
     name: "Chelsea",
-    metaTitle: "Pest Control Chelsea AL | Termite, Mosquito & Tick | EnviroCare",
+    metaTitle: "Pest Control Chelsea AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Family-owned pest control in Chelsea, AL. Bi-monthly pest service, Sentricon® termite protection, and seasonal mosquito and tick control. Free quote — (205) 940-6360.",
+      "Family-owned pest control in Chelsea, AL. Bi-monthly service, Sentricon® termite protection, seasonal mosquito and tick control. (205) 940-6360.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",
@@ -355,7 +355,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Birmingham",
     metaTitle: "Pest Control Birmingham AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Family-owned pest control serving Birmingham, AL since 1958. Bi-monthly pest service, Sentricon® termite protection, and seasonal mosquito control across the metro. Free inspection — (205) 940-6360.",
+      "Family-owned pest control in Birmingham, AL since 1958. Bi-monthly service, Sentricon® termite, mosquito control across the metro. (205) 940-6360.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",

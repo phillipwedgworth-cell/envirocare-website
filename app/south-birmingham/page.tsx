@@ -2,7 +2,7 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/south-birmingham' },
-  title: "South Birmingham Pest Control — Alabaster, Pelham, Helena, Calera | EnviroCare",
+  title: "South Birmingham Pest Control | EnviroCare",
   description: "Pest, termite & mosquito control across south Birmingham — Alabaster, Pelham, Helena, Calera, Chelsea. Home of our metro hub. Call (205) 940-6360.",
 };
 

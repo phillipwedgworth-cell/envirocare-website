@@ -267,7 +267,7 @@ export default function BirminghamPage() {
                 ["Greystone","/greystone"],
                 ["Mt Laurel","/mt-laurel"],
                 ["Calera","/calera"],
-                ["Fultondale","/service-areas/fultondale"],
+                ["Fultondale","/fultondale"],
                 ["Gardendale","/gardendale"],
                 ["Bessemer","/bessemer"],
               ].map(([n,h]) => (

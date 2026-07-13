@@ -2,7 +2,7 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/east-birmingham' },
-  title: "East Birmingham Pest Control — Trussville, Leeds, Moody, Irondale | EnviroCare",
+  title: "East Birmingham Pest Control | EnviroCare",
   description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
 };
 

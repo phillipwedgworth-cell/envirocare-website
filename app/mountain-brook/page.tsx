@@ -17,13 +17,13 @@ import { EmojiIcon } from "@/components/shared/PestIcon";
  */
 
 export const metadata: Metadata = {
-  title: "Mountain Brook Pest Control & Termite | Sentricon, Mosquito & Commercial — Since 1958",
+  title: "Mountain Brook Pest Control & Termite | EnviroCare",
   description:
-    "Pest control, Sentricon® termite protection, mosquito, tick & commercial service in Mountain Brook AL — Crestline, English Village, Mountain Brook Village, Cahaba Village. Bi-monthly from $35/mo. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite & commercial service in Mountain Brook AL — Crestline, English Village, Cahaba Village. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/mountain-brook" },
   openGraph: {
     images: ["/og/og-mountain-brook.png"],
-    title: "Mountain Brook Pest Control & Termite Service | EnviroCare — Since 1958",
+    title: "Mountain Brook Pest Control & Termite | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito, tick & commercial service for Mountain Brook homes and businesses. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/mountain-brook",

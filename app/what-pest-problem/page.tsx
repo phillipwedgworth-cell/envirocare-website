@@ -11,7 +11,7 @@ export const metadata = {
   alternates: { canonical: '/what-pest-problem' },
   title: 'What Pest Problem Do You Have? | EnviroCare Pest & Termite',
   description:
-    'Ants, roaches, spiders, mosquitoes, termites, rodents, fire ants, or crawlspace worries — pick your pest problem and see exactly how EnviroCare treats it, with published pricing. Family-owned Alabama pest control since 1958.',
+    'Pick your pest problem — ants, roaches, spiders, mosquitoes, termites, fire ants — and see exactly how EnviroCare treats it, with published pricing.',
 };
 
 const BASE = 'https://www.envirocarellc.com';

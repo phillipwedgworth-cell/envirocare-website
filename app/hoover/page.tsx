@@ -3,9 +3,9 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Hoover AL | Termite, Mosquito, Tick & Commercial — Since 1958",
+  title: "Pest Control Hoover AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito, tick & commercial service in Hoover AL — Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, Ross Bridge. Bi-monthly from $35/mo. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service in Hoover AL — Riverchase, Bluff Park, Ross Bridge. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/hoover" },
   openGraph: {
     images: ["/og/og-hoover.png"],

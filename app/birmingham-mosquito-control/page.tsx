@@ -4,7 +4,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Birmingham — Cahaba River and Village Creek humidity make the metro a breeding ground. 30-day yard barrier, March–November, $45/visit. Call (205) 940-6360.",
+    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
   alternates: { canonical: "./" },
 };
 

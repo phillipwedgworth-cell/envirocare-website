@@ -3,7 +3,7 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 export const metadata = {
   alternates: { canonical: '/north-alabama' },
   title: "North Alabama Pest Control — Huntsville, Madison, Athens | EnviroCare",
-  description: "Pest, termite & mosquito control across North Alabama — Huntsville, Madison, Athens, Decatur, Hartselle and the Tennessee Valley. Family-owned since 1958. Call (256) 937-7676.",
+  description: "Pest, termite & mosquito control across North Alabama — Huntsville, Madison, Athens, Decatur. Family-owned since 1958. Call (256) 937-7676.",
 };
 
 const cfg: ClusterConfig = {

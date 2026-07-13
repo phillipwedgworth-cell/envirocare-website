@@ -2,7 +2,7 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/over-the-mountain' },
-  title: "Over the Mountain Pest Control — Vestavia Hills, Mountain Brook, Homewood, Hoover | EnviroCare",
+  title: "Over the Mountain Pest Control | EnviroCare",
   description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
 };
 

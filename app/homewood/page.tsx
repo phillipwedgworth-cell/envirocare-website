@@ -3,9 +3,9 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Homewood AL | Termite, Mosquito & Exterminator — Since 1958",
+  title: "Pest Control Homewood AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Homewood AL — Edgewood, Hollywood, West Homewood, SoHo. Bi-monthly from $35/mo, no-drill termite with $1M coverage. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service in Homewood AL — Edgewood, Hollywood, West Homewood. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/homewood" },
   openGraph: {
     images: ["/og/og-homewood.png"],

@@ -615,7 +615,7 @@ function ServiceLinks() {
   const services = [
     { name: 'Pest Control', slug: 'pest-control', icon: 'pest', accent: '#0E8E40' },
     { name: 'Termite Control', slug: 'termite-control', icon: 'termite', accent: '#C77A00' },
-    { name: 'Mosquito Control', slug: 'mosquito-control', icon: 'mosquito', accent: '#0E7490' },
+    { name: 'Mosquito Control', slug: 'mosquito', icon: 'mosquito', accent: '#0E7490' },
     { name: 'Tick Control', slug: 'tick-control', icon: 'tick', accent: '#9A5B2E' },
     { name: 'Fire Ant Control', slug: 'fire-ant', icon: 'fireant', accent: '#DC4A1A' },
     { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#3F6184' },

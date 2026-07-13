@@ -4,7 +4,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Exterminator Birmingham AL | EnviroCare — Family-Owned Since 1958",
   description:
-    "Looking for an exterminator in Birmingham? Here's what we do differently: exterior-first bi-monthly protection that stops pests before they're inside. From $35/mo. (205) 940-6360.",
+    "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
   alternates: { canonical: "./" },
 };
 

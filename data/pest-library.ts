@@ -211,7 +211,7 @@ export const PESTS: PestEntry[] = [
     imageAlt: "Silverfish (Lepisma saccharinum)",
     imageCredit: "Aiwok / CC BY-SA 3.0 (Wikimedia Commons)",
     also: 'Silverfish & firebrats',
-    metaTitle: 'Silverfish Control in Alabama | Identification & Treatment | EnviroCare',
+    metaTitle: 'Silverfish Control in Alabama | EnviroCare',
     metaDescription: 'Silverfish thrive in Alabama’s humidity, damaging paper, books and fabric. Learn the signs and how EnviroCare controls them. Call (205) 940-6360.',
     intro: 'Those wriggling, silver, teardrop-shaped insects in your bathroom or bookshelf are silverfish — a classic humidity pest in Alabama homes.',
     identification: 'Silverfish are 1/2"–3/4" long, silvery-gray, teardrop-shaped, with three long tail bristles and a fish-like wriggling movement. Firebrats are similar but mottled and prefer warmer spots near water heaters and pipes.',

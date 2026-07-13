@@ -3,9 +3,9 @@ import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
-  title: "WDO Inspection Letters in Alabama | Real Estate Termite Reports | EnviroCare",
+  title: "WDO Inspection Letters in Alabama | EnviroCare",
   description:
-    "Alabama WDO (wood-destroying organism) inspection letters for real estate closings. Fast turnaround for realtors and lenders across Birmingham, Lake Martin, and Huntsville.",
+    "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
   alternates: { canonical: "/services/wdo-letters" },
   robots: { index: true, follow: true },
 };

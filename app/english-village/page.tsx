@@ -9,11 +9,11 @@ import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control English Village, Mountain Brook AL | Sentricon® Termite | EnviroCare — Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for English Village homes. No drilling, $1M termite coverage, no long-term contracts. Call (205) 940-6360.",
+  title: "Pest Control English Village AL | EnviroCare Since 1958",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for English Village homes. No drilling, $1M coverage, no long-term contracts. (205) 940-6360.",
   alternates: { canonical: "/english-village" },
   openGraph: {
-    title: "Pest Control English Village, Mountain Brook AL | Sentricon® Termite | EnviroCare — Since 1958",
+    title: "Pest Control English Village AL | EnviroCare Since 1958",
     description: "Family-owned pest, Sentricon® termite, and mosquito service for English Village homes. No drilling, $1M termite coverage, no long-term contracts. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/english-village",
     type: "website",

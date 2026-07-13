@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Highland Lakes 35242 | Sentricon® Termite | EnviroCare — Since 1958",
-  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage, no long-term contracts. Call (205) 940-6360.",
+  title: "Pest Control Highland Lakes 35242 | EnviroCare",
+  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage. Call (205) 940-6360.",
   alternates: { canonical: "/highland-lakes" },
   openGraph: {
-    title: "Pest Control Highland Lakes 35242 | Sentricon® Termite | EnviroCare — Since 1958",
+    title: "Pest Control Highland Lakes 35242 | EnviroCare",
     description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage, no long-term contracts. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/highland-lakes",
     type: "website",

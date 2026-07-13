@@ -2,7 +2,7 @@
 
 export const metadata = {
   title: "Sentricon® Termite System Alabama | $1M Coverage | EnviroCare",
-  description: "Sentricon Always Active termite baiting in Alabama — priced after a free WDO inspection. No drilling. EnviroCare guarantee up to $1M. Certified specialist since 1958.",
+  description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare guarantee up to $1M, priced after a free WDO inspection. Since 1958.",
   alternates: { canonical: './' },
 };
 

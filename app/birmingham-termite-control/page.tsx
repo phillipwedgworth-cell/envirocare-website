@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Termite Control Birmingham AL | Sentricon® · Up to $1M Coverage | EnviroCare",
+  title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
   description:
-    "Termite control in Birmingham — pre-1980 housing stock on damp clay soil is prime subterranean termite ground. Sentricon® with up to $1M repair coverage, no drilling. (205) 940-6360.",
+    "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
   alternates: { canonical: "./" },
 };
 

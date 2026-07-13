@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Termite Control Huntsville AL | New Construction & Sentricon® | EnviroCare",
+  title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
   description:
-    "Termite control in Huntsville — Madison County's construction boom puts new slabs on disturbed, termite-prone soil. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
+    "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
   alternates: { canonical: "./" },
 };
 

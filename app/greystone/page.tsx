@@ -5,9 +5,9 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 // NOTE: no per-city OG image yet (public/og/og-greystone.png missing) — inherits
 // the sitewide default OG from app/layout.tsx. Add og-greystone.png later.
 export const metadata: Metadata = {
-  title: "Pest Control Greystone AL | Termite, Mosquito & Tick — Hoover | Since 1958",
+  title: "Pest Control Greystone AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service for Greystone homes in Hoover AL — Founders, Legacy, Farms. Bi-monthly from $35/mo, no-drill termite with $1M coverage. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service for Greystone homes in Hoover AL — Founders, Legacy. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/greystone" },
   openGraph: {
     title: "Pest Control Greystone AL | EnviroCare — Since 1958",

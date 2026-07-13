@@ -4,7 +4,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Exterminator Huntsville AL | EnviroCare — Local Since 1958",
   description:
-    "Need an exterminator in Huntsville? We fix the problem today, then keep it from coming back — exterior-first bi-monthly protection from $35/mo. Old Madison Pike office. (256) 937-7676.",
+    "Need an exterminator in Huntsville? We fix the problem, then keep it from coming back — bi-monthly protection from $35/mo. (256) 937-7676.",
   alternates: { canonical: "./" },
 };
 
