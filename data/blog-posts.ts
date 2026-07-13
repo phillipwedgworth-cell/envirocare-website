@@ -64,7 +64,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What it costs</h2>
 
-<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, that's $75 standalone, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
+<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, standalone letters start as low as $75, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
 
 <p>Buying in Alabama? Get the house looked at before it's yours. <a href="/request-quote">Request an inspection</a> or call the office nearest the property — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
 `,
@@ -419,7 +419,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Our turnaround</h2>
 
-<p>We schedule WDO inspections within 48 hours of request — usually next-day. The letter goes to your lender, your agent, and you within 24 hours of the inspection. We charge <strong>$75</strong> for a standalone WDO letter.</p>
+<p>We schedule WDO inspections within 48 hours of request — usually next-day. The letter goes to your lender, your agent, and you within 24 hours of the inspection. Standalone WDO letters start <strong>as low as $75</strong>.</p>
 
 <p>If you're already an active EnviroCare customer on our pest or termite program, your first WDO letter each year is <strong>free</strong>.</p>
 
@@ -1047,7 +1047,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <h2>What it costs</h2>
 <p>Our mosquito service runs about $45 per treatment across the roughly nine-month season, which works out to around $33.75 a month when spread across the year. Adding tick and chigger coverage brings it to about $48.75 a month. There are no long-term contracts, and the free re-treatment between visits is included.</p>
 
-<p>If you want a usable yard this summer, the move is to get on the schedule before the season builds — ideally in early spring. <a href="/services/mosquito-control">Set up seasonal mosquito control</a> or call (205) 940-6360. No One Cares Like EnviroCare.</p>
+<p>If you want a usable yard this summer, the move is to get on the schedule before the season builds — ideally in early spring. <a href="/services/mosquito">Set up seasonal mosquito control</a> or call (205) 940-6360. No One Cares Like EnviroCare.</p>
 `,
   },
 

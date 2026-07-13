@@ -49,8 +49,8 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">March – November</div>
               <div className="svc-card-name">Mosquito Control</div>
               <div className="svc-card-price">$45/visit · add tick for +$20</div>
-              <div className="svc-card-desc">30-day yard barrier March through November. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. Pet-safe once dry.</div>
-              <a href="/services/mosquito-control" className="svc-card-link">Learn more →</a>
+              <div className="svc-card-desc">30-day yard barrier March through November. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. EPA-registered products, applied per label directions.</div>
+              <a href="/services/mosquito" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card feat">
               <div className="svc-card-tag">Most Insurance</div>
@@ -92,7 +92,7 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">Closings</div>
               <div className="svc-card-name">Real Estate / WDO Letters</div>
               <div className="svc-card-desc">NPMA-33 inspection letters, lender-ready format, 48-hour turnaround. $75 standalone or free annually for active customers.</div>
-              <a href="/services/real-estate-wdo" className="svc-card-link">Learn more →</a>
+              <a href="/services/wdo-letters" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-card-tag">Business</div>
@@ -100,12 +100,8 @@ export default function ServicesIndexPage() {
               <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
               <a href="/services/commercial" className="svc-card-link">Learn more →</a>
             </div>
-            <div className="svc-card">
-              <div className="svc-card-tag">Foundation &amp; Moisture</div>
-              <div className="svc-card-name">Crawlspace Service</div>
-              <div className="svc-card-desc">Moisture control, vapor barriers &amp; encapsulation that stop Alabama humidity, termites, mold and musty odors at the source. Free inspection.</div>
-              <a href="/services/crawlspace" className="svc-card-link">Learn more →</a>
-            </div>
+            {/* Crawlspace card removed 2026-07-12 — service killed Jun 13 compliance scrub;
+                /services/crawlspace 308s to termite-control. Restore card if Phillip revives the service. */}
           </div>
         </div>
       </section>

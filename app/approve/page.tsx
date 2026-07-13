@@ -6,6 +6,11 @@ import QueueClient, { type Item } from "./QueueClient";
 
 export const dynamic = "force-dynamic"; // never cache — always fresh
 
+// Internal tool — keep out of search engines entirely.
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 const RISK_ORDER: Record<string, number> = { red: 0, yellow: 1, green: 2 };
 
 export default async function ApprovePage({

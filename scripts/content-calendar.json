@@ -98,5 +98,61 @@
     "season": "year-round",
     "published": true,
     "publishedNote": "SKIPPED: superseded by existing live post huntsville-pest-control-guide (cannibalization risk)"
+  },
+  {
+    "slug": "termite-bond-alabama-explained",
+    "keyword": "termite bond Alabama",
+    "title": "What Is a Termite Bond in Alabama \u2014 And Is Yours Still Good?",
+    "angle": "High-intent AL search. What a termite bond actually covers (retreatment vs repair), how to read yours, why old liquid-treatment bonds quietly expire, what happens to the bond when a home sells, how Sentricon coverage compares. CTA: free inspection + bond review. Links: /blog/real-estate-wdo-letter-explained, /services/termite-control.",
+    "season": "year-round",
+    "published": false
+  },
+  {
+    "slug": "fleas-in-house-no-pets",
+    "keyword": "fleas in house no pets",
+    "title": "Fleas in the House But No Pets? Here's What's Actually Happening",
+    "angle": "Classic AEO question. Sources: previous owner's pets, wildlife under crawlspace, visitors' pets, flea lifecycle (pupae dormant for months, wake on vibration/CO2). Why foggers fail. Interior flea service. Links: /services/flea, /blog/diy-pest-control-mistakes.",
+    "season": "summer",
+    "published": false
+  },
+  {
+    "slug": "more-bugs-after-pest-control-treatment",
+    "keyword": "more bugs after pest control treatment",
+    "title": "Seeing More Bugs Right After a Pest Control Treatment? That's Normal \u2014 Here's Why",
+    "angle": "Retention + AEO post. Flush-out effect, baits working slowly, why killing foragers fast is worse, realistic 1\u20132 week timeline, when to call for free re-service. Sets expectations for new customers. Links: /blog/prepare-home-for-pest-control, /services/pest-control.",
+    "season": "year-round",
+    "published": false
+  },
+  {
+    "slug": "green-caps-in-yard-sentricon",
+    "keyword": "green caps in yard what are they",
+    "title": "What Are Those Round Green Caps in the Ground Around a House?",
+    "angle": "Curiosity AEO query with buying intent (new homeowners find them). They're Sentricon stations: how they work, don't mow over/remove them, what it means the home has active termite protection, transferring coverage when buying. Links: /blog/termite-inspection-before-buying-home-alabama, /services/sentricon.",
+    "season": "year-round",
+    "published": false
+  },
+  {
+    "slug": "termite-treatment-cost-alabama",
+    "keyword": "termite treatment cost Alabama",
+    "title": "How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)",
+    "angle": "COMPLIANCE NOTE: EnviroCare quotes termite ONLY after free inspection \u2014 do NOT invent a flat price. Explain drivers: linear footage, foundation type, slab vs crawlspace, active infestation vs prevention, bait vs liquid. Industry ranges OK if attributed generally. Free inspection CTA. Links: /blog/sentricon-vs-liquid-termite-treatment, /pricing.",
+    "season": "year-round",
+    "published": false
+  },
+  {
+    "slug": "fall-pest-proofing-alabama",
+    "keyword": "pest proofing home fall Alabama",
+    "title": "Fall Pest-Proofing in Alabama: Seal Up Before September Ends",
+    "angle": "Exclusion checklist: door sweeps, weep holes, foundation gaps, firewood placement, leaf litter, crawlspace vents. What tries to move in when temps drop (roaches, spiders, crickets, silverfish \u2014 NOT rodents/wildlife, we don't market those). Links: /blog/winter-pests-alabama, /services/pest-control.",
+    "season": "fall",
+    "published": false
+  },
+  {
+    "slug": "stink-bugs-lady-beetles-alabama-fall",
+    "keyword": "stink bugs in house Alabama fall",
+    "title": "Stink Bugs and Lady Beetles: Alabama's Fall Home Invaders",
+    "angle": "Sept\u2013Oct: BMSB + Asian lady beetles massing on sunny south walls, why they pick certain houses, why squishing/vacuuming indoors backfires, exterior barrier timing in early fall. Bi-monthly exterior program covers them. Links: /blog/fall-pest-proofing-alabama, /services/pest-control.",
+    "season": "fall",
+    "published": false
   }
 ]

@@ -94,7 +94,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.envirocarellc.com',
+    // NOTE: no hard-coded `url` here — a root-level og:url is inherited by every
+    // page that doesn't set its own, so og:url pointed at the homepage while each
+    // page's canonical pointed at itself (Ahrefs: "OG URL not matching canonical").
     siteName: 'EnviroCare Pest & Termite Services',
     title: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
     description:

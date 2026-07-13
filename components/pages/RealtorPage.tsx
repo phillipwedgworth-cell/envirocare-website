@@ -45,7 +45,7 @@ export default function RealtorPage() {
           </p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/services/real-estate-wdo" className="btn-outline-white">Learn More →</a>
+            <a href="/services/wdo-letters" className="btn-outline-white">Learn More →</a>
           </div>
         </div>
       </section>

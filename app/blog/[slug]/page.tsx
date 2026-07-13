@@ -19,9 +19,11 @@ export async function generateMetadata({
   return {
     title: post.metaTitle,
     description: post.metaDescription,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
+      url: `/blog/${post.slug}`, // resolved against metadataBase; matches canonical
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author],
