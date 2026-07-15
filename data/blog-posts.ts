@@ -19,6 +19,50 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'termite-bond-alabama-explained',
+    title: 'What Is a Termite Bond in Alabama — And Is Yours Still Good?',
+    excerpt: 'Most Alabama homeowners haven\'t read their termite bond since the day they signed it. What a bond actually covers, how bonds quietly lapse, and what to check before you sell or buy.',
+    publishedAt: '2026-07-14',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 5,
+    heroEmoji: '📄',
+    metaTitle: 'What Is a Termite Bond in Alabama? | EnviroCare',
+    metaDescription: 'What a termite bond in Alabama covers, how to tell if yours has lapsed, what happens when a home sells, and how Sentricon coverage compares.',
+    body: `
+<p class="lede">If your home has ever been treated for termites, somewhere in a drawer there's probably a termite bond — and if you're like most Alabama homeowners, you haven't read it since the day you signed it. That's worth fixing this week, not the week you find mud tubes. A bond that's lapsed, or that covers less than you think it does, is one of the more expensive surprises we see in homes from <a href="/hoover">Hoover</a> to <a href="/chelsea">Chelsea</a>.</p>
+
+<h2>What does a termite bond actually cover?</h2>
+
+<p>A termite bond is a service agreement between you and a pest control company: the company inspects the home periodically, and if termites show up, the bond spells out what the company owes you. In Alabama — where building-code maps put us in the "very heavy" termite probability zone, the highest category — a bond is less a nice-to-have and more the paperwork standing between you and a structural repair bill. Homeowners insurance won't help; insurers classify termite damage as preventable maintenance, so it's excluded from essentially every policy.</p>
+
+<p>The catch is that "bond" describes two very different promises, and plenty of homeowners holding the cheaper one believe they have the better one.</p>
+
+<h2>Retreatment bond vs. repair bond — the difference that matters</h2>
+
+<p>A <strong>retreatment-only bond</strong> obligates the company to come back and treat again if termites return. That's it. If the colony worked through your sill plates before anyone caught it, the repairs — routinely five figures for structural wood — are your problem. A <strong>repair bond</strong> covers retreatment <em>and</em> damage repair, up to a stated limit.</p>
+
+<p>Pull out your paperwork and look for the words "retreatment only." Then find the coverage limit, and read the exclusions, because that's where repair bonds quietly shrink: damage in areas with wood-to-soil contact, moisture conditions the homeowner didn't correct, additions built after the bond was written, detached structures. If your Highland Lakes home got a sunroom in 2020 and the bond dates to 2015, that sunroom may not be covered at all.</p>
+
+<h2>How do I know if my termite bond is still good?</h2>
+
+<p>Three things kill bonds, usually silently. <strong>Missed renewals</strong> — most bonds require an annual renewal payment, and skipping one typically voids the coverage; the company isn't obligated to chase you for it. <strong>Missed inspections</strong> — coverage is usually conditioned on the company having regular access to inspect, so years of nobody-ever-came is a red flag either way. And <strong>the aging treatment underneath</strong> — most older Alabama bonds sit on top of a liquid soil treatment, and liquid termiticides break down over the years. Once the barrier degrades past the point the company will stand behind it, many contracts let them require a full new treatment at your expense to keep the bond in force. Homeowners who decline, or who never get the letter, simply lose coverage without much fanfare.</p>
+
+<p>Company changes matter too. If the outfit that treated your <a href="/helena">Helena</a> home in 2012 has been bought or merged since, call and confirm the current owner is honoring the old bonds. Some do. Some don't.</p>
+
+<h2>What happens to a termite bond when a home sells?</h2>
+
+<p>Most bonds can transfer to a buyer, usually for a modest transfer fee — and a transferable repair bond is genuinely worth something in a negotiation. But transfer isn't automatic: it typically has to be requested within a set window after closing, and buyers routinely don't know that. If you're buying in <a href="/vestavia-hills">Vestavia Hills</a> or Pelham, ask three questions before you close: is there a bond, is it retreatment-only or repair, and what does the transfer require? That conversation pairs naturally with the termite letter your lender wants — we walked through that document in our <a href="/blog/real-estate-wdo-letter-explained">WDO letter guide</a>, and the broader pre-purchase process in our <a href="/blog/termite-inspection-before-buying-home-alabama">buyer's termite inspection guide</a>.</p>
+
+<h2>How Sentricon coverage compares</h2>
+
+<p>Our termite protection works differently from a bond riding on an aging liquid barrier. The <a href="/services/termite-control">Sentricon® bait system</a> is ongoing, active protection: stations around the home that stay on the job year-round, serviced and monitored by our technicians, with no soil barrier to degrade out from under the agreement. Coverage stays current as long as the service does, includes up to $1,000,000 in damage protection backed by EnviroCare's own guarantee, and moves with the home when it sells.</p>
+
+<p>If you're not sure what you're holding, bring it to us. We'll do a free termite inspection and read the bond with you — what's covered, what's excluded, whether it's still in force, and what it would take to protect the house properly if it isn't. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/request-quote">request your free inspection online</a>. No One Cares Like EnviroCare.</p>
+`,
+  },
+
+  {
     slug: 'termite-inspection-before-buying-home-alabama',
     title: 'Why You Need a Termite Inspection Before Buying a Home in Alabama',
     excerpt: 'Alabama doesn\'t always require a termite inspection to close on a house — and that catches buyers off guard, because homeowners insurance won\'t cover what termites do. A buyer\'s guide.',
