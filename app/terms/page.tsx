@@ -58,7 +58,8 @@ export default function TermsPage() {
         </ul>
         <p>
           We do not offer bed bug treatment, wildlife removal, bat exclusion, lawn care, or standalone wasp and bee
-          removal as general services. Carpenter bee treatment is available as an add-on for existing customers only.
+          removal as general services. Wasp, hornet, and carpenter bee treatment is available to active pest control
+          customers as an add-on service for an additional charge.
         </p>
 
         <h2 style={{ ...serif, fontSize: 24, color: DEEP, marginTop: 36, marginBottom: 12 }}>2. Service Agreements &amp; Billing</h2>

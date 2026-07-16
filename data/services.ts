@@ -70,7 +70,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'Why bi-monthly instead of quarterly?', a: 'Exterior barrier products typically wear down after about 60 days. A quarterly (90-day) plan leaves roughly a month each cycle with no active barrier — which is when pests return. Bi-monthly re-treats every 60 days, right as the previous application wears off, so there\'s no gap.' },
-      { q: 'What pests does the regular service cover?', a: 'Ants, cockroaches, spiders, silverfish, crickets, earwigs, and exterior wasps. Fire ants, fleas, and ticks are handled as separate targeted treatments.' },
+      { q: 'What pests does the regular service cover?', a: 'Ants, cockroaches, spiders, silverfish, crickets, earwigs, and the common occasional invaders. Fire ants, fleas, and ticks are handled as separate targeted treatments, and stinging insects like wasps, hornets, and carpenter bees are available to pest customers as an add-on for an additional charge.' },
       { q: 'How much does pest control cost?', a: 'About $35/month on auto-draft, or $70 per bi-monthly service. There\'s a quarterly option around $98, and the one-time initial service fee is $79.' },
       { q: 'What if pests show up between visits?', a: 'Let us know and we\'ll come back out between scheduled services.' },
       { q: 'Do you treat inside the home?', a: 'Our standard service focuses on the exterior perimeter to stop pests before they get in, and we treat interior areas as needed. Fleas specifically require a dedicated interior service.' },

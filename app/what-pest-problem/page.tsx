@@ -90,7 +90,7 @@ const jsonLd = {
           name: 'What pests does EnviroCare treat?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'EnviroCare treats 30+ common Alabama pests: ants (including fire ants), roaches, spiders (including brown recluse), earwigs, silverfish, crickets, millipedes, centipedes, exterior wasps and hornets, mice and rats within a pest plan, seasonal mosquitoes, ticks with mosquito service, and termites with Sentricon®. Carpenter bees and interior flea treatment are add-ons for existing pest customers. We serve the Birmingham metro, Huntsville / North Alabama, and Lake Martin / Alexander City from three staffed offices.',
+            text: 'EnviroCare treats 30+ common Alabama pests: ants (including fire ants), roaches, spiders (including brown recluse), earwigs, silverfish, crickets, millipedes, centipedes, exterior wasps and hornets, mice and rats within a pest plan, seasonal mosquitoes, ticks with mosquito service, and termites with Sentricon®. Wasp nests, carpenter bees, and extra rodent or trapping jobs are available to active pest customers as add-ons for an additional charge. We serve the Birmingham metro, Huntsville / North Alabama, and Lake Martin / Alexander City from three staffed offices.',
           },
         },
         {
@@ -98,7 +98,7 @@ const jsonLd = {
           name: 'What pests does EnviroCare NOT treat?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'We don\'t treat bed bugs, wildlife (raccoons, squirrels, bats), or lawn care. Earwigs, exterior wasps, and rodents are handled within a pest plan, and carpenter bees are an add-on for existing customers. If you need bed bug or wildlife help, call us anyway — we\'ll point you toward the right kind of specialist.',
+            text: 'We don\'t treat bed bugs, wildlife (raccoons, squirrels, bats), or lawn care. Earwigs and routine mice and rats are handled within a pest plan; wasp nests, carpenter bees, and extra rodent work are add-ons for active pest customers at an additional charge. If you need bed bug or wildlife help, call us anyway — we\'ll point you toward the right kind of specialist.',
           },
         },
       ],
@@ -156,8 +156,8 @@ export default function WhatPestProblemPage() {
 
           <p style={{ marginTop: 30, fontSize: 14.5, color: '#7a887e', maxWidth: 780, lineHeight: 1.7 }}>
             Honest scope note: we don&apos;t treat bed bugs, wildlife (raccoons, squirrels, bats),
-            or lawn care. Earwigs, exterior wasps, and rodents are covered within a pest plan, and
-            carpenter bees are an add-on for existing customers. Need bed bug or wildlife help?
+            or lawn care. Earwigs and routine rodents are handled within a pest plan; wasp nests and
+            carpenter bees are add-on services for active pest customers. Need bed bug or wildlife help?
             Call <a href="tel:2059406360" style={{ color: DEEP, fontWeight: 600 }}>(205) 940-6360</a> anyway —
             we&apos;ll point you to the right specialist.
           </p>

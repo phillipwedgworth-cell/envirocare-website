@@ -156,19 +156,17 @@ const TREAT = [
   "Spiders — including brown recluse",
   "Earwigs, silverfish & crickets",
   "Millipedes & centipedes",
-  "Wasps & hornets (exterior nests)",
   "Mice & rats (within a pest plan)",
+  "Fleas (interior add-on)",
   "Mosquitoes (seasonal, Mar–Nov)",
   "Ticks (with mosquito service)",
   "Termites — Sentricon® (free WDO inspection)",
 ];
-// Available to add on to an active pest plan — existing customers only.
-// NOTE: no rodent/trapping add-on here. compliance.ts SERVICES_NOT_OFFERED lists
-// 'rodent removal' as never-marketed; mice & rats are covered only *within* a pest
-// plan (see TREAT above), and standalone trapping isn't offered.
+// Add-on services for active pest customers — billed for an additional charge.
 const ADD_ONS = [
+  "Wasp & hornet nests",
   "Carpenter bees",
-  "Interior flea treatment",
+  "Extra rodent & trapping jobs",
 ];
 // True exclusions — we'll refer you to the right specialist.
 const DONT_TREAT = [
@@ -301,16 +299,16 @@ export default function PricingContent() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 18 }}>
             <CoverageCard title="We treat" items={TREAT} tone="yes" />
             <CoverageCard
-              title="Add-ons for customers"
+              title="Add-ons for pest customers"
               items={ADD_ONS}
               tone="add"
-              note="Available to add on to an active pest plan — existing customers only."
+              note="Available to active pest customers for an additional charge — just ask."
             />
             <CoverageCard
               title="We don't treat"
               items={DONT_TREAT}
               tone="no"
-              note="Have one of these? Call us anyway — we'll point you to the right specialist."
+              note="These need specialized treatment — call us and we'll point you to the right specialist."
             />
           </div>
         </div>
@@ -467,7 +465,7 @@ function CoverageCard({
 }) {
   const marks = {
     yes: { symbol: "✓", color: FOREST, titleColor: FOREST, bg: "#fff" },
-    add: { symbol: "+", color: "#B8860B", titleColor: DEEP, bg: "#fff" },
+    add: { symbol: "+", color: GOLD_DARK, titleColor: DEEP, bg: "#FFFDF5" },
     no: { symbol: "✕", color: "#B23B2E", titleColor: INK, bg: PAPER },
   }[tone];
   return (
