@@ -148,25 +148,33 @@ const COMPARE_ROWS = [
   { plan: "Termite", startup: "Free inspection", monthly: "—", perVisit: "—", included: "Sentricon® — service & price provided upon inspection & approval" },
 ];
 
-// Coverage table — what's in scope vs out. Carpenter bees: existing customers only.
+// Coverage — what's included, what's an add-on, and the few things we don't do.
+// Source of truth: data/services.ts + data/compliance.ts (SERVICES_NOT_OFFERED).
 const TREAT = [
-  "Ants (incl. fire ants)",
+  "Ants — including fire ants",
   "Cockroaches",
-  "Spiders (incl. brown recluse)",
+  "Spiders — including brown recluse",
+  "Earwigs, silverfish & crickets",
+  "Millipedes & centipedes",
+  "Wasps & hornets (exterior nests)",
   "Mice & rats (within a pest plan)",
-  "Silverfish, crickets, millipedes, centipedes",
-  "Mosquitoes (seasonal)",
+  "Mosquitoes (seasonal, Mar–Nov)",
   "Ticks (with mosquito service)",
-  "Termites — Sentricon® (quoted after free WDO inspection)",
-  "Fleas (interior add-on)",
-  "Carpenter bees (existing customers only)",
+  "Termites — Sentricon® (free WDO inspection)",
 ];
+// Available to add on to an active pest plan — existing customers only.
+// NOTE: no rodent/trapping add-on here. compliance.ts SERVICES_NOT_OFFERED lists
+// 'rodent removal' as never-marketed; mice & rats are covered only *within* a pest
+// plan (see TREAT above), and standalone trapping isn't offered.
+const ADD_ONS = [
+  "Carpenter bees",
+  "Interior flea treatment",
+];
+// True exclusions — we'll refer you to the right specialist.
 const DONT_TREAT = [
   "Bed bugs",
-  "Wildlife (raccoons, squirrels, bats)",
-  "Standalone rodent / trapping jobs",
-  "Earwigs",
-  "General bee & wasp removal",
+  "Wildlife — raccoons, squirrels, bats",
+  "Lawn care & fertilization",
 ];
 
 // ---------- COMPONENT ----------
@@ -290,9 +298,20 @@ export default function PricingContent() {
           <p style={{ fontSize: 14, color: GREY, marginBottom: 22 }}>
             Straight answers so you know before you call.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
-            <CoverageCard title="We treat" items={TREAT} positive />
-            <CoverageCard title="We don't treat" items={DONT_TREAT} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 18 }}>
+            <CoverageCard title="We treat" items={TREAT} tone="yes" />
+            <CoverageCard
+              title="Add-ons for customers"
+              items={ADD_ONS}
+              tone="add"
+              note="Available to add on to an active pest plan — existing customers only."
+            />
+            <CoverageCard
+              title="We don't treat"
+              items={DONT_TREAT}
+              tone="no"
+              note="Have one of these? Call us anyway — we'll point you to the right specialist."
+            />
           </div>
         </div>
       </section>
@@ -435,20 +454,47 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 // ---------- COVERAGE CARD ----------
-function CoverageCard({ title, items, positive }: { title: string; items: string[]; positive?: boolean }) {
+function CoverageCard({
+  title,
+  items,
+  tone = "yes",
+  note,
+}: {
+  title: string;
+  items: string[];
+  tone?: "yes" | "add" | "no";
+  note?: string;
+}) {
+  const marks = {
+    yes: { symbol: "✓", color: FOREST, titleColor: FOREST, bg: "#fff" },
+    add: { symbol: "+", color: "#B8860B", titleColor: DEEP, bg: "#fff" },
+    no: { symbol: "✕", color: "#B23B2E", titleColor: INK, bg: PAPER },
+  }[tone];
   return (
-    <div style={{ background: positive ? "#fff" : PAPER, border: `1px solid ${LINE}`, borderRadius: 12, padding: "26px 24px" }}>
-      <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 19, fontWeight: 500, marginBottom: 16, color: positive ? FOREST : INK }}>
-        {title}
+    <div style={{ background: marks.bg, border: `1px solid ${LINE}`, borderRadius: 12, padding: "26px 24px", display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 9, marginBottom: 15 }}>
+        <span aria-hidden="true" style={{
+          display: "inline-flex", alignItems: "center", justifyContent: "center",
+          width: 24, height: 24, borderRadius: "50%", background: marks.color,
+          color: "#fff", fontSize: 14, fontWeight: 800, flexShrink: 0, lineHeight: 1,
+        }}>{marks.symbol}</span>
+        <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 19, fontWeight: 500, color: marks.titleColor }}>
+          {title}
+        </div>
       </div>
       <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {items.map((it, i) => (
-          <li key={i} style={{ fontSize: 13.5, color: "rgba(14,26,15,0.78)", padding: "8px 0", display: "flex", gap: 10, lineHeight: 1.5, borderTop: i ? `1px solid ${LINE}` : "none" }}>
-            <span style={{ color: positive ? FOREST : "#B23B2E", fontWeight: 800, flexShrink: 0 }}>{positive ? "✓" : "✕"}</span>
-            {it}
+          <li key={i} style={{ fontSize: 13.5, color: "rgba(14,26,15,0.8)", padding: "9px 0", display: "flex", gap: 10, lineHeight: 1.5, borderTop: i ? `1px solid ${LINE}` : "none" }}>
+            <span style={{ color: marks.color, fontWeight: 800, flexShrink: 0 }}>{marks.symbol}</span>
+            <span>{it}</span>
           </li>
         ))}
       </ul>
+      {note && (
+        <p style={{ marginTop: "auto", paddingTop: 16, fontSize: 12.5, lineHeight: 1.6, color: GREY }}>
+          {note}
+        </p>
+      )}
     </div>
   );
 }
