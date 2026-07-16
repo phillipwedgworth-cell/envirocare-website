@@ -1,0 +1,33 @@
+{
+  "_comment": "First-party AI-visibility config for agents/ai-citation-probe.mjs. The 25 tracked prompts mirror the NeuronWriter AI-Tracker set (agents/reports/ai-visibility-action-plan-2026-07.md B2). brand_variants = strings that count as a brand MENTION; domain = the CITATION we actually measure; competitors = domains we flag when they're cited instead of us.",
+  "domain": "envirocarellc.com",
+  "brand_variants": ["EnviroCare", "EnviroCare Pest & Termite", "Wedgworth Pest Control"],
+  "competitors": ["callwaynes.com", "cookspest.com", "terminix.com", "orkin.com", "mrbuggs.com", "mosquitojoe.com"],
+  "prompts": [
+    "Best pest control company in Birmingham AL",
+    "Best termite control company in Birmingham AL",
+    "Best mosquito control Birmingham AL",
+    "Pest control Hoover AL",
+    "Termite control Hoover AL",
+    "Pest control Vestavia Hills AL",
+    "Termite control Vestavia Hills AL",
+    "Pest control Mountain Brook AL",
+    "Mosquito control Mountain Brook AL",
+    "Pest control Homewood AL",
+    "Pest control Trussville AL",
+    "Termite inspection Birmingham AL",
+    "Sentricon termite protection Birmingham AL",
+    "Pest control Alabaster AL",
+    "Pest control Pelham AL",
+    "Pest control Helena AL",
+    "Pest control Chelsea AL",
+    "Pest control Greystone AL",
+    "Pest control Huntsville AL",
+    "Termite control Huntsville AL",
+    "Pest control Madison AL",
+    "Pest control Lake Martin AL",
+    "Pest control Alexander City AL",
+    "Pest control Auburn AL",
+    "Termite inspection Auburn AL"
+  ]
+}
