@@ -19,7 +19,7 @@ import PestIcon from "@/components/shared/PestIcon";
 import { ACH_TERMS } from "@/data/pricing";
 
 // ---------- BRAND TOKENS ----------
-const GREEN = "#0A7935";
+const GREEN = "#0E8E40";
 const FOREST = "#0A7935";
 const DEEP = "#07642B";
 const GOLD = "#F5A800";
@@ -179,6 +179,14 @@ const DONT_TREAT = [
 export default function PricingContent() {
   return (
     <main style={{ background: CREAM, color: INK, minHeight: "100vh", fontFamily: "var(--font-sans)" }}>
+      <style>{`
+        .pc-lift { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+        .pc-lift:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(14,26,15,0.10); border-color: #0E8E40; }
+        .pc-btn { transition: transform .2s ease, box-shadow .2s ease; }
+        .pc-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(245,168,0,0.40); }
+        .pc-btn-ghost { transition: background .2s ease, border-color .2s ease; }
+        .pc-btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+      `}</style>
 
       {/* HERO */}
       <section style={{
@@ -192,13 +200,13 @@ export default function PricingContent() {
             display: "inline-block",
             fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
             textTransform: "uppercase", color: GOLD,
-            border: `1px solid ${GOLD}`, borderRadius: 4,
-            padding: "4px 12px", marginBottom: 18,
+            border: `1px solid ${GOLD}`, borderRadius: 999,
+            padding: "5px 16px", marginBottom: 18,
           }}>
             Plans &amp; Pricing
           </div>
           <h1 style={{
-            fontFamily: "'Fraunces', Georgia, serif",
+            fontFamily: "var(--font-serif)",
             fontSize: "clamp(40px, 5.5vw, 64px)", fontWeight: 400,
             lineHeight: 1.05, letterSpacing: "-0.02em", marginBottom: 18,
           }}>
@@ -208,13 +216,28 @@ export default function PricingContent() {
             Real &ldquo;from&rdquo; rates, on the page. Pest control is bimonthly — pay per visit, or spread it into equal monthly ACH payments.
             Termite is quoted after a <strong style={{ color: GOLD }}>free on-site WDO inspection</strong> — Alabama requires it.
           </p>
+          <div style={{
+            display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center",
+            gap: "10px 22px", marginTop: 30, fontSize: 13, fontWeight: 600,
+            color: "rgba(255,255,255,0.82)",
+          }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+              <Stars /> Google-reviewed
+            </span>
+            <TrustDot />
+            <span>Sentricon® Certified</span>
+            <TrustDot />
+            <span>Up to $1M coverage</span>
+            <TrustDot />
+            <span>Family-owned since 1958</span>
+          </div>
         </div>
       </section>
 
       {/* PLAN-COMPARISON TABLE (above the cards) */}
       <section style={{ padding: "56px 36px 0" }}>
         <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 26, fontWeight: 500, marginBottom: 6, letterSpacing: "-0.01em" }}>
+          <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 26, fontWeight: 500, marginBottom: 6, letterSpacing: "-0.01em" }}>
             Compare every plan at a glance
           </h2>
           <p style={{ fontSize: 14, color: GREY, marginBottom: 20 }}>
@@ -275,7 +298,7 @@ export default function PricingContent() {
           background: "linear-gradient(135deg, rgba(14,142,64,0.05), rgba(245,168,0,0.08))",
           border: `1px solid ${LINE}`, borderRadius: 10, padding: "24px 28px",
         }}>
-          <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 17, fontWeight: 600, color: INK, marginBottom: 8 }}>
+          <div style={{ fontFamily: "var(--font-serif)", fontSize: 17, fontWeight: 600, color: INK, marginBottom: 8 }}>
             Pricing Transparency
           </div>
           <p style={{ fontSize: 14.5, color: "rgba(14,26,15,0.78)", lineHeight: 1.65, margin: 0 }}>
@@ -290,7 +313,7 @@ export default function PricingContent() {
       {/* COVERAGE TABLE */}
       <section style={{ padding: "56px 36px 0" }}>
         <div style={{ maxWidth: 980, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 26, fontWeight: 500, marginBottom: 6, letterSpacing: "-0.01em" }}>
+          <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 26, fontWeight: 500, marginBottom: 6, letterSpacing: "-0.01em" }}>
             Pests we treat &mdash; and what we don&rsquo;t
           </h2>
           <p style={{ fontSize: 14, color: GREY, marginBottom: 22 }}>
@@ -319,13 +342,13 @@ export default function PricingContent() {
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <div style={{
-              display: "inline-block", fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
-              textTransform: "uppercase", color: FOREST, border: `1px solid ${FOREST}`,
-              borderRadius: 4, padding: "4px 12px", marginBottom: 14,
+              display: "inline-block", fontSize: 11, fontWeight: 800, letterSpacing: "0.16em",
+              textTransform: "uppercase", color: DEEP, background: "#D7EFE0",
+              borderRadius: 999, padding: "5px 16px", marginBottom: 14,
             }}>
               Pricing FAQ
             </div>
-            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 36, fontWeight: 400, letterSpacing: "-0.01em" }}>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 36, fontWeight: 400, letterSpacing: "-0.01em" }}>
               The questions we get most.
             </h2>
           </div>
@@ -345,22 +368,23 @@ export default function PricingContent() {
       <section style={{ background: `linear-gradient(160deg, ${GREEN} 0%, ${DEEP} 100%)`, padding: "80px 36px", textAlign: "center", color: "#fff" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
           <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}><PestIcon name="leaf" size={44} style={{ color: GOLD }} /></div>
-          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(32px, 4.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 14 }}>
+          <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(32px, 4.5vw, 48px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 14 }}>
             Get your free quote. <em style={{ color: GOLD, fontStyle: "italic" }}>We&rsquo;ll call you back.</em>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
             No obligation. No hidden fees. The Wedgworth family guarantee.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="/quote" style={{
-              background: GOLD, color: INK, border: "none", borderRadius: 8,
+            <a href="/quote" className="pc-btn" style={{
+              background: GOLD, color: INK, border: "none", borderRadius: 999,
               padding: "16px 32px", fontWeight: 800, fontSize: 15, textDecoration: "none",
+              boxShadow: "0 4px 12px rgba(245,168,0,0.3)",
             }}>
               Get my free quote →
             </a>
-            <a href="tel:2059406360" style={{
+            <a href="tel:2059406360" className="pc-btn-ghost" style={{
               background: "transparent", color: "#fff",
-              border: "1px solid rgba(255,255,255,0.3)", borderRadius: 8,
+              border: "1px solid rgba(255,255,255,0.3)", borderRadius: 999,
               padding: "16px 24px", fontWeight: 600, fontSize: 15,
               textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8,
             }}>
@@ -373,11 +397,23 @@ export default function PricingContent() {
   );
 }
 
+// ---------- TRUST BITS ----------
+function Stars() {
+  return (
+    <span aria-label="5 star rated" style={{ display: "inline-flex", gap: 2, color: GOLD, fontSize: 13, letterSpacing: 1 }}>
+      {"★★★★★"}
+    </span>
+  );
+}
+function TrustDot() {
+  return <span aria-hidden="true" style={{ opacity: 0.4 }}>·</span>;
+}
+
 // ---------- GROUP LABEL ----------
 function GroupLabel({ text, sub }: { text: string; sub: string }) {
   return (
     <div>
-      <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 24, fontWeight: 500, letterSpacing: "-0.01em", margin: 0 }}>{text}</h2>
+      <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 24, fontWeight: 500, letterSpacing: "-0.01em", margin: 0 }}>{text}</h2>
       <p style={{ fontSize: 13.5, color: GREY, margin: "4px 0 0" }}>{sub}</p>
     </div>
   );
@@ -387,32 +423,32 @@ function GroupLabel({ text, sub }: { text: string; sub: string }) {
 function PlanCard({ plan }: { plan: Plan }) {
   const f = plan.featured;
   return (
-    <div style={{
+    <div className={f ? undefined : "pc-lift"} style={{
       background: f ? `linear-gradient(180deg, ${INK} 0%, #1a2a1c 100%)` : "#fff",
       color: f ? "#fff" : INK,
       border: f ? "none" : `1px solid ${LINE}`,
-      borderRadius: 12, padding: "30px 26px", position: "relative",
+      borderRadius: 16, padding: "30px 26px", position: "relative",
       transform: f ? "scale(1.03)" : "none",
-      boxShadow: f ? "0 20px 50px rgba(14,26,15,0.15)" : "none",
+      boxShadow: f ? "0 20px 50px rgba(14,26,15,0.15)" : "0 4px 16px rgba(14,26,15,0.06)",
       display: "flex", flexDirection: "column",
     }}>
       {f && (
         <div style={{
           position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
           background: GOLD, color: INK, fontSize: 10, fontWeight: 800, letterSpacing: "0.12em",
-          padding: "5px 14px", borderRadius: 4, textTransform: "uppercase", whiteSpace: "nowrap",
+          padding: "5px 14px", borderRadius: 999, textTransform: "uppercase", whiteSpace: "nowrap",
         }}>
           Most Popular
         </div>
       )}
-      <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 22, fontWeight: 500, letterSpacing: "-0.01em", marginBottom: 4 }}>
+      <div style={{ fontFamily: "var(--font-serif)", fontSize: 22, fontWeight: 500, letterSpacing: "-0.01em", marginBottom: 4 }}>
         {plan.name}
       </div>
       <div style={{ fontSize: 12, color: f ? GOLD : GREY, marginBottom: 18, fontWeight: 500 }}>
         {plan.tagline}
       </div>
       <div style={{
-        fontFamily: "'Fraunces', Georgia, serif", fontSize: 28, fontWeight: 600,
+        fontFamily: "var(--font-serif)", fontSize: 28, fontWeight: 600,
         color: f ? GOLD : FOREST, letterSpacing: "-0.02em", lineHeight: 1.15,
       }}>
         {plan.priceLabel}
@@ -439,11 +475,12 @@ function PlanCard({ plan }: { plan: Plan }) {
           </li>
         ))}
       </ul>
-      <a href="/quote" style={{
+      <a href="/quote" className="pc-btn" style={{
         background: f ? GOLD : FOREST, color: f ? INK : "#fff",
-        border: "none", borderRadius: 7, padding: 13, fontWeight: 700, fontSize: 14,
+        border: "none", borderRadius: 999, padding: 14, fontWeight: 700, fontSize: 14,
         textAlign: "center", textDecoration: "none", width: "100%",
-        fontFamily: "var(--font-sans)",
+        fontFamily: "var(--font-sans)", boxSizing: "border-box",
+        boxShadow: f ? "0 4px 12px rgba(245,168,0,0.3)" : "none",
       }}>
         {plan.cta}
       </a>
@@ -469,14 +506,14 @@ function CoverageCard({
     no: { symbol: "✕", color: "#B23B2E", titleColor: INK, bg: PAPER },
   }[tone];
   return (
-    <div style={{ background: marks.bg, border: `1px solid ${LINE}`, borderRadius: 12, padding: "26px 24px", display: "flex", flexDirection: "column" }}>
+    <div className="pc-lift" style={{ background: marks.bg, border: `1px solid ${LINE}`, borderRadius: 16, padding: "26px 24px", display: "flex", flexDirection: "column", boxShadow: "0 4px 16px rgba(14,26,15,0.05)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 9, marginBottom: 15 }}>
         <span aria-hidden="true" style={{
           display: "inline-flex", alignItems: "center", justifyContent: "center",
           width: 24, height: 24, borderRadius: "50%", background: marks.color,
           color: "#fff", fontSize: 14, fontWeight: 800, flexShrink: 0, lineHeight: 1,
         }}>{marks.symbol}</span>
-        <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 19, fontWeight: 500, color: marks.titleColor }}>
+        <div style={{ fontFamily: "var(--font-serif)", fontSize: 19, fontWeight: 500, color: marks.titleColor }}>
           {title}
         </div>
       </div>
@@ -509,7 +546,7 @@ function FAQ({ q, a }: { q: string; a: string }) {
           cursor: "pointer", padding: 0, display: "flex", justifyContent: "space-between",
           alignItems: "center", gap: 20, fontFamily: "var(--font-sans)",
         }}>
-        <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontWeight: 500, color: INK, letterSpacing: "-0.005em" }}>
+        <span style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 500, color: INK, letterSpacing: "-0.005em" }}>
           {q}
         </span>
         <span style={{ color: FOREST, fontSize: 20, fontWeight: 700, flexShrink: 0, transform: open ? "rotate(45deg)" : "none", transition: "transform 0.2s" }}>
@@ -528,7 +565,7 @@ function FAQ({ q, a }: { q: string; a: string }) {
 // ---------- TABLE CELLS ----------
 const cellHead: React.CSSProperties = {
   background: INK, color: GOLD, textAlign: "left", padding: "14px 16px",
-  fontFamily: "'Fraunces', Georgia, serif", fontWeight: 500, fontSize: 14,
+  fontFamily: "var(--font-serif)", fontWeight: 500, fontSize: 14,
 };
 const cell: React.CSSProperties = {
   padding: "14px 16px", borderBottom: `1px solid ${LINE}`, background: "#fff", fontSize: 14,
