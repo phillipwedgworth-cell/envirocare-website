@@ -1,0 +1,80 @@
+{
+  "_comment": "AI Visibility (NeuronWriter AI Tracker) opportunity intake. Source: AI Tracker > Opportunities export (project 9d0bec3a70f4743c). SEEDED with a partial paste on 2026-07-16 (6 of 74). PASTE THE FULL 74 HERE. Then run `node agents/ai-opportunities-intake.mjs` to upsert 'optimize' opportunities that have a `page` into agents/neuronwriter-targets.json so the weekly optimize/QA agents work them within the 75/mo quota. Opportunities with page:null are printed for a human to map to a route (or a new page/FAQ). type: 'optimize' = our own page can rank/answer better; 'mention' = a competitor page is being cited and we need our own answer. status: todo|in_progress|done|rejected. Do NOT auto-add 'mention'-only rows as targets; use them to decide new comparison/FAQ content.",
+  "exported": "2026-07-16",
+  "project": "9d0bec3a70f4743c",
+  "total_opportunities": 74,
+  "seeded_count": 6,
+  "opportunities": [
+    {
+      "prompt": "Best mosquito control Birmingham AL",
+      "type": "optimize",
+      "status": "todo",
+      "page": "app/birmingham-mosquito-control/page.tsx",
+      "priority": 1,
+      "competitors_cited": [
+        "https://callwaynes.com/mosquito-control",
+        "https://www.mosquito-authority.com/birmingham-al",
+        "https://mosquitojoe.com/locations/birmingham"
+      ],
+      "note": "Answer-block: first 2-3 sentences must answer 'best mosquito control in Birmingham' naming the office + seasonal Mar-Nov offer."
+    },
+    {
+      "prompt": "Best pest control company in Birmingham AL",
+      "type": "optimize",
+      "status": "todo",
+      "page": "app/family-owned-vs-national-chains/page.tsx",
+      "priority": 1,
+      "competitors_cited": [
+        "https://www.yelp.com/search?cflt=pest_control&find_loc=Birmingham,+AL",
+        "https://www.mrbuggs.com/pest-control-birmingham-al",
+        "https://www.reddit.com/r/Birmingham/comments/8zoy7c/best_pest_control"
+      ],
+      "note": "Reddit + Yelp are cited — needs third-party corroboration (reviews/citations) plus the comparison answer block. Already a priority-1 target."
+    },
+    {
+      "prompt": "Best termite control company in Birmingham AL",
+      "type": "optimize",
+      "status": "todo",
+      "page": "app/birmingham-termite-control/page.tsx",
+      "priority": 1,
+      "competitors_cited": [
+        "https://pestextinct.com/birmingham-termite-treatment-cost",
+        "https://www.envirogpc.com/birmingham-al-pest-control",
+        "https://www.expertise.com/home-improvement/pest-control/alabama/birmingham"
+      ],
+      "note": "Lead with Sentricon authority + $1M coverage answer block; add a 'how much does termite treatment cost' FAQ (pestextinct is winning on cost intent)."
+    },
+    {
+      "prompt": "Best way to control roaches in my Alabama home",
+      "type": "optimize",
+      "status": "todo",
+      "page": null,
+      "priority": 2,
+      "competitors_cited": [
+        "https://callwaynes.com/blog/how-to-get-rid-of-american-cockroaches-mobile-al",
+        "https://www.reddit.com/r/Alabama/comments/yztjxw/i_have_roaches_in_my_apartment"
+      ],
+      "note": "MAP ME: informational/how-to intent. Best fit is a blog post or a roach FAQ on app/services/pest-control/page.tsx. Competitors win with a how-to blog."
+    },
+    {
+      "prompt": "Free termite inspection near me in Pelham",
+      "type": "optimize",
+      "status": "todo",
+      "page": "app/pelham/page.tsx",
+      "priority": 2,
+      "competitors_cited": [
+        "https://www.yelp.com/search?find_desc=Termite+Control&find_loc=Pelham,+AL+35124"
+      ],
+      "note": "Add a Pelham 'free WDO termite inspection' answer block + FAQ; only Yelp is cited today, easy win."
+    },
+    {
+      "prompt": "How much does pest control cost in Birmingham AL?",
+      "type": "optimize",
+      "status": "todo",
+      "page": "app/pricing/page.tsx",
+      "priority": 1,
+      "competitors_cited": [],
+      "note": "Cost intent maps to /pricing (which now publishes real 'from' rates) and/or the Birmingham page. Ensure the first answer block gives a plain-language price range."
+    }
+  ]
+}

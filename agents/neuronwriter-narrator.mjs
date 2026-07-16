@@ -80,7 +80,10 @@ function pickTerms(o) {
 const norm = (s) => String(s||"").toLowerCase().replace(/\s+/g," ").trim();
 
 async function readScore(id) {
-  try { return pickScore(await nw("get-content", { query: id })); } catch { return null; }
+  // Surface failures instead of swallowing them — a silent catch here is why a
+  // broken call would show up as "-- (empty)" in the score table with no clue why.
+  try { return pickScore(await nw("get-content", { query: id })); }
+  catch (e) { console.error(`[narrator] get-content failed for query ${id}: ${e.message}`); return null; }
 }
 
 function loadManifest() {
