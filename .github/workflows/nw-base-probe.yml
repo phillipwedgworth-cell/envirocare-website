@@ -1,0 +1,33 @@
+name: NeuronWriter Base Probe
+
+# Settles the open question: does the NeuronWriter API base need the '/writer'
+# segment or not? A local probe can't answer it (the local key is stale/invalid
+# and 401s on BOTH bases). This runs agents/nw-scores-snapshot.mjs --probe with
+# the REAL repo secret and prints which base returns 200.
+#
+# Manual only — zero analysis quota (list-queries is a free read).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Probe both NeuronWriter base paths
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT: ${{ secrets.NEURONWRITER_PROJECT }}
+        run: node agents/nw-scores-snapshot.mjs --probe
