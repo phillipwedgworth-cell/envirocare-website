@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website
+// Path: next.config.ts
+// Commit: fix(seo): correct 4 legacy 301 targets from Scorpion URL-inventory audit
+// Push: main
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -120,9 +126,12 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },
 
             // Tuscaloosa — NOT serviced (confirmed Jun 14).
-            // Legacy Scorpion URL keeps its redirect to capture residual impressions;
-            // bare /tuscaloosa now 404s (no source page) so we don't surface a city we don't serve.
-            { source: '/where-we-service/tuscaloosa-al-pest-control', destination: '/birmingham', permanent: true },
+            // Legacy Scorpion URL keeps its redirect to capture residual impressions, but it
+            // must land on the service-area INDEX, never a city page — pointing it at
+            // /birmingham implied we serve Tuscaloosa. /service-areas is the real index page
+            // (app/service-areas/page.tsx); /where-we-service only 301s to home, so targeting
+            // that would chain 301->301.
+            { source: '/where-we-service/tuscaloosa-al-pest-control', destination: '/service-areas', permanent: true },
             // Service-area hub
             { source: '/where-we-service', destination: '/', permanent: true },
 
@@ -138,11 +147,11 @@ const nextConfig: NextConfig = {
             // ─── RODENT (no dedicated page → pest-control) ──────────────────
             { source: '/rodent-control', destination: '/services/pest-control', permanent: true },
             { source: '/rodent-control/rat-control', destination: '/services/pest-control', permanent: true },
-            { source: '/rodent-control/squirrel-control', destination: '/', permanent: true },
+            { source: '/rodent-control/squirrel-control', destination: '/services/pest-control', permanent: true },
 
             // ─── SERVICES NOT OFFERED → clean redirects ─────────────────────
-            { source: '/bed-bug-control', destination: '/', permanent: true },
-            { source: '/raccoon-control', destination: '/', permanent: true },
+            { source: '/bed-bug-control', destination: '/services/pest-control', permanent: true },
+            { source: '/raccoon-control', destination: '/services/pest-control', permanent: true },
             { source: '/fly-control', destination: '/services/pest-control', permanent: true },
             { source: '/earwig-control', destination: '/services/pest-control', permanent: true },
             { source: '/bee-wasp-control', destination: '/services/pest-control', permanent: true },
