@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website
+// Path: middleware.ts
+// Commit: fix(seo): recover 3 legacy blog URLs falling through to /blog index
+// Push: main
+
 // middleware.ts
 //
 // WHY THIS EXISTS:
@@ -26,7 +32,7 @@ const TOPIC_MAP: [RegExp, string][] = [
   [/cockroach|roach/, "/blog/cockroach-control-alabama"],
   [/spider/, "/blog/spider-control-alabama"],
   [/tick/, "/blog/tick-control-alabama"],
-  [/mosquito/, "/blog/mosquito-season-birmingham-al"],
+  [/mosq(uito)?/, "/blog/mosquito-season-birmingham-al"],  // Scorpion truncated slugs mid-word ("...birminghams-mosq")
   [/silverfish/, "/blog/silverfish-control-alabama"],
   [/cricket/, "/blog/cricket-control-alabama"],
   [/centipede|millipede/, "/blog/centipede-millipede-control-alabama"],
@@ -42,6 +48,8 @@ const POST_OVERRIDES: [RegExp, string][] = [
   [/common-winter-pest-problems/, "/blog/winter-pests-alabama"],
   [/diy-pest-control-mistakes/, "/blog/diy-pest-control-mistakes"],
   [/complete-guide-to-eff|property-owners-complete-guide/, "/blog/pest-control-birmingham-guide"],
+  [/benefits-of-professional-pest-control/, "/blog/pest-control-birmingham-guide"],
+  [/dont-risk-diy-pest-control/, "/blog/diy-pest-control-mistakes"],
 ];
 
 export function middleware(req: NextRequest) {
