@@ -35,6 +35,7 @@ const TARGETS = {
   orchestrator: "./orchestrator.mjs",
   brightlocal: "./brightlocal.mjs",
   "site-reviewer": "./site-reviewer.mjs",
+  "seo-monitor": "./seo-monitor.mjs",
   "cfo-agent": "./cfo-agent.mjs",
   "neuronwriter-qa": "./neuronwriter-qa.mjs",
 };
