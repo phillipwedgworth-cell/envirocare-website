@@ -10,7 +10,7 @@ export const metadata = {
   alternates: { canonical: '/family-owned-vs-national-chains' },
   title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
   description:
-    'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, the same technician every visit.',
+    'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
 };
 
 const BASE = 'https://www.envirocarellc.com';
