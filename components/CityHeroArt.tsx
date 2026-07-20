@@ -286,56 +286,53 @@ const scenes: Record<string, string> = {
     // golf flag gold
     `<g fill="${GOLD}"><rect x="598" y="120" width="4" height="60"/><path d="M602,120 L630,130 L602,140 Z"/><ellipse cx="600" cy="182" rx="20" ry="5" fill="rgba(7,100,43,0.4)"/></g>`,
 
-  // ── 280-corridor & affluent gaps (Jul 20, 2026) ──
-  // Inverness — Lake Heather: lakeside home, dock, sun, pines
+  // ── 280-corridor & affluent gaps (Jul 20, 2026) — distinct geometry per scene ──
+  // Inverness — Lake Heather: pier + sailboat on the water + sun (dominant: water)
   "inverness":
-    hill(DARK_B, 150) +
-    sun(1010, 54, 20) +
-    pine(90, 200, 52, DARK_A) + pine(140, 200, 40, DARK_A) + pine(1075, 200, 54, DARK_A) +
-    `<rect x="540" y="150" width="120" height="50" fill="${GOLD_SOFT}"/><path d="M532,150 L600,116 L668,150 Z" fill="${GOLD}"/>` +
-    win(560, 164) + win(586, 164) + win(614, 164) + win(640, 164) +
-    dock(360, 178, DARK_A) +
-    waterLines(186),
+    `<rect x="0" y="166" width="1200" height="34" fill="rgba(4,40,20,0.34)"/>` +
+    sun(1030, 52, 20) +
+    pine(70, 200, 46, DARK_A) + pine(1140, 200, 46, DARK_A) +
+    `<g fill="${GOLD_SOFT}"><rect x="40" y="164" width="250" height="6"/>${[70, 120, 170, 220, 270].map((x) => `<rect x="${x}" y="164" width="5" height="22"/>`).join("")}</g>` +
+    `<path d="M598,110 L598,168 L656,168 Z" fill="${GOLD}"/>` +
+    `<path d="M592,124 L592,168 L556,168 Z" fill="${GOLD_SOFT}"/>` +
+    `<rect x="596" y="108" width="4" height="60" fill="${GOLD}"/>` +
+    `<path d="M548,168 Q604,188 660,168 L648,178 Q604,192 560,178 Z" fill="${GOLD}"/>` +
+    waterLines(178),
 
-  // Cahaba Heights — village storefront row + Cahaba River + wooded ridges
+  // Cahaba Heights — storefront street: scalloped awnings + street lamps (dominant: awning rhythm)
   "cahaba-heights":
-    hill(DARK_B, 146) + hill(DARK_A, 172) +
-    pine(110, 200, 56, DARK_A) + pine(1080, 200, 56, DARK_A) + pine(1120, 200, 42, DARK_A) +
-    building(420, 64, 52, DARK_A) + building(500, 60, 46, DARK_A) + building(672, 60, 46, DARK_A) + building(748, 64, 52, DARK_A) +
-    `<rect x="560" y="140" width="92" height="60" fill="${GOLD_SOFT}"/><path d="M556,140 L606,112 L656,140 Z" fill="${GOLD}"/>` +
-    win(576, 158) + win(596, 158) + win(616, 158) + win(636, 158) +
-    waterLines(190),
-
-  // Ballantrae — Oak Mountain ridges + golf flag on a green
-  "ballantrae":
-    `<path d="M0,200 L0,116 L280,44 L560,116 L560,200 Z" fill="${DARK_B}"/>` +
-    `<path d="M640,200 L640,110 L920,48 L1200,110 L1200,200 Z" fill="${DARK_B}"/>` +
-    `<path d="M340,200 L340,92 L600,36 L860,92 L860,200 Z" fill="${GOLD_SOFT}"/>` +
-    pine(120, 200, 60, DARK_A) + pine(1080, 200, 60, DARK_A) +
-    `<g fill="${GOLD}"><rect x="596" y="118" width="4" height="66"/><path d="M600,118 L632,129 L600,140 Z"/></g>` +
-    `<ellipse cx="600" cy="188" rx="60" ry="8" fill="rgba(7,100,43,0.4)"/>`,
-
-  // Ross Bridge — signature stone arch bridge over water + resort clock tower
-  "ross-bridge":
     hill(DARK_B, 150) +
-    pine(90, 200, 50, DARK_A) + pine(1110, 200, 50, DARK_A) +
-    `<g fill="${GOLD}"><rect x="740" y="96" width="34" height="104"/><path d="M740,96 L757,72 L774,96 Z"/><rect x="750" y="112" width="14" height="14" fill="rgba(7,100,43,0.5)"/></g>` +
-    `<g fill="${GOLD_SOFT}"><rect x="340" y="150" width="250" height="10"/><rect x="346" y="160" width="14" height="40"/><rect x="428" y="160" width="14" height="40"/><rect x="510" y="160" width="14" height="40"/><rect x="576" y="160" width="14" height="40"/></g>` +
-    `<g fill="${GOLD}"><path d="M360,160 A44,24 0 0 1 428,160 Z"/><path d="M442,160 A42,24 0 0 1 510,160 Z"/><path d="M524,160 A34,22 0 0 1 576,160 Z"/></g>` +
+    pine(80, 200, 52, DARK_A) + pine(1130, 200, 52, DARK_A) +
+    `<rect x="322" y="150" width="556" height="50" fill="${GOLD_SOFT}"/>` +
+    [340, 408, 476, 544, 612, 680, 748, 816].map((x) => `<path d="M${x},150 a17,11 0 0 0 34,0 Z" fill="${GOLD}"/>`).join("") +
+    [352, 420, 488, 556, 624, 692, 760, 828].map((x) => win(x, 172, "rgba(7,100,43,0.5)")).join("") +
+    `<g fill="${GOLD}"><rect x="300" y="150" width="4" height="50"/><circle cx="302" cy="149" r="6"/><rect x="892" y="150" width="4" height="50"/><circle cx="894" cy="149" r="6"/></g>`,
+
+  // Ballantrae — jagged Oak Mountain peaks (open center) + golf pin on a green (dominant: peaks)
+  "ballantrae":
+    `<path d="M0,200 L0,150 L240,96 L470,150 L740,96 L980,150 L1200,110 L1200,200 Z" fill="${DARK_B}"/>` +
+    `<path d="M0,200 L0,150 L160,150 L300,58 L450,124 L560,150 L640,150 L760,124 L900,58 L1050,150 L1200,150 L1200,200 Z" fill="${GOLD_SOFT}"/>` +
+    pine(120, 200, 54, DARK_A) + pine(1080, 200, 54, DARK_A) +
+    `<ellipse cx="600" cy="190" rx="96" ry="13" fill="rgba(7,100,43,0.5)"/>` +
+    `<g fill="${GOLD}"><rect x="598" y="92" width="5" height="98"/><path d="M603,92 L650,107 L603,122 Z"/></g>`,
+
+  // Ross Bridge — bold multi-arch bridge (hero) + small clock tower aside (dominant: arches)
+  "ross-bridge":
+    hill(DARK_B, 158) +
+    pine(64, 200, 44, DARK_A) +
+    `<rect x="0" y="176" width="1200" height="24" fill="rgba(4,40,20,0.34)"/>` +
+    `<g fill="${GOLD_SOFT}"><rect x="1044" y="120" width="22" height="80"/><path d="M1044,120 L1055,104 L1066,120 Z"/><rect x="1050" y="132" width="10" height="10" fill="rgba(7,100,43,0.5)"/></g>` +
+    `<g fill="${GOLD}"><rect x="360" y="150" width="480" height="12"/><rect x="372" y="162" width="16" height="30"/><rect x="470" y="162" width="16" height="34"/><rect x="584" y="162" width="16" height="34"/><rect x="698" y="162" width="16" height="34"/><rect x="812" y="162" width="16" height="30"/><path d="M388,162 A45,30 0 0 1 470,162 Z"/><path d="M486,162 A49,32 0 0 1 584,162 Z"/><path d="M600,162 A49,32 0 0 1 698,162 Z"/><path d="M714,162 A45,30 0 0 1 812,162 Z"/></g>` +
     waterLines(184),
 
-  // Chelsea Park — lakeside row of new gabled homes + sun + pines
+  // Chelsea Park — chain of overlapping community lakes + tiny bg house + sun (dominant: soft ovals)
   "chelsea-park":
-    hill(DARK_B, 148) +
-    pine(100, 200, 54, DARK_A) + pine(1090, 200, 54, DARK_A) + pine(1130, 200, 40, DARK_A) +
-    building(360, 84, 50, DARK_A) + `<path d="M352,150 L402,126 L452,150 Z" fill="${DARK_A}"/>` +
-    building(470, 84, 50, DARK_A) + `<path d="M462,150 L512,126 L562,150 Z" fill="${DARK_A}"/>` +
-    building(700, 84, 50, DARK_A) + `<path d="M692,150 L742,126 L792,150 Z" fill="${DARK_A}"/>` +
-    building(810, 84, 50, DARK_A) + `<path d="M802,150 L852,126 L902,150 Z" fill="${DARK_A}"/>` +
-    `<rect x="556" y="138" width="92" height="62" fill="${GOLD_SOFT}"/><path d="M548,138 L602,110 L656,138 Z" fill="${GOLD}"/>` +
-    win(576, 158) + win(600, 158) + win(624, 158) +
-    sun(1010, 52, 18) +
-    waterLines(188),
+    hill(DARK_B, 150) +
+    pine(110, 200, 50, DARK_A) + pine(1110, 200, 50, DARK_A) +
+    sun(1030, 50, 16) +
+    `<rect x="588" y="132" width="30" height="20" fill="${DARK_A}"/><path d="M584,132 L603,120 L622,132 Z" fill="${DARK_A}"/>` +
+    `<g fill="${GOLD_SOFT}"><ellipse cx="452" cy="184" rx="126" ry="20"/><ellipse cx="642" cy="192" rx="158" ry="23"/><ellipse cx="838" cy="182" rx="116" ry="18"/></g>` +
+    `<g fill="${GOLD}"><ellipse cx="452" cy="181" rx="126" ry="4"/><ellipse cx="642" cy="189" rx="158" ry="4"/><ellipse cx="838" cy="179" rx="116" ry="4"/></g>`,
 
   // fallback
   "_default":
