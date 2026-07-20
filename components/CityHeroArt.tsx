@@ -286,53 +286,69 @@ const scenes: Record<string, string> = {
     // golf flag gold
     `<g fill="${GOLD}"><rect x="598" y="120" width="4" height="60"/><path d="M602,120 L630,130 L602,140 Z"/><ellipse cx="600" cy="182" rx="20" ry="5" fill="rgba(7,100,43,0.4)"/></g>`,
 
-  // ── 280-corridor & affluent gaps (Jul 20, 2026) — distinct geometry per scene ──
-  // Inverness — Lake Heather: pier + sailboat on the water + sun (dominant: water)
+  // ── 280-corridor & affluent gaps — v3 detailed (Jul 20, 2026) — distinct geometry + richness ──
+  // Inverness — lake: pier + sailboat + reflection + distant regatta + birds + sun
   "inverness":
     `<rect x="0" y="166" width="1200" height="34" fill="rgba(4,40,20,0.34)"/>` +
     sun(1030, 52, 20) +
-    pine(70, 200, 46, DARK_A) + pine(1140, 200, 46, DARK_A) +
+    `<path d="M950,66 Q956,61 962,66" stroke="${GOLD}" stroke-width="2" fill="none"/><path d="M980,60 Q986,55 992,60" stroke="${GOLD}" stroke-width="2" fill="none"/>` +
+    pine(70, 200, 46, DARK_A) + pine(1040, 200, 34, DARK_A) + pine(1075, 200, 44, DARK_A) + pine(1140, 200, 46, DARK_A) +
     `<g fill="${GOLD_SOFT}"><rect x="40" y="164" width="250" height="6"/>${[70, 120, 170, 220, 270].map((x) => `<rect x="${x}" y="164" width="5" height="22"/>`).join("")}</g>` +
     `<path d="M598,110 L598,168 L656,168 Z" fill="${GOLD}"/>` +
     `<path d="M592,124 L592,168 L556,168 Z" fill="${GOLD_SOFT}"/>` +
     `<rect x="596" y="108" width="4" height="60" fill="${GOLD}"/>` +
     `<path d="M548,168 Q604,188 660,168 L648,178 Q604,192 560,178 Z" fill="${GOLD}"/>` +
+    [560, 584, 608, 632].map((x, i) => `<rect x="${x}" y="${186 + (i % 3) * 2}" width="14" height="2" rx="1" fill="rgba(245,168,0,0.5)"/>`).join("") +
+    `<g fill="${GOLD_SOFT}"><path d="M880,150 L880,168 L900,168 Z"/><path d="M940,154 L940,169 L957,169 Z"/></g>` +
     waterLines(178),
 
-  // Cahaba Heights — storefront street: scalloped awnings + street lamps (dominant: awning rhythm)
+  // Cahaba Heights — storefront street: buildings behind + scalloped awnings + posts + lamps + planter
   "cahaba-heights":
     hill(DARK_B, 150) +
-    pine(80, 200, 52, DARK_A) + pine(1130, 200, 52, DARK_A) +
+    building(360, 70, 66, DARK_A) + building(556, 74, 78, DARK_A) + building(760, 66, 60, DARK_A) +
+    pine(80, 200, 52, DARK_A) + pine(470, 200, 44, DARK_A) + pine(1130, 200, 52, DARK_A) +
     `<rect x="322" y="150" width="556" height="50" fill="${GOLD_SOFT}"/>` +
     [340, 408, 476, 544, 612, 680, 748, 816].map((x) => `<path d="M${x},150 a17,11 0 0 0 34,0 Z" fill="${GOLD}"/>`).join("") +
+    [408, 544, 680].map((x) => `<rect x="${x + 15}" y="150" width="3" height="50" fill="${GOLD}"/>`).join("") +
     [352, 420, 488, 556, 624, 692, 760, 828].map((x) => win(x, 172, "rgba(7,100,43,0.5)")).join("") +
-    `<g fill="${GOLD}"><rect x="300" y="150" width="4" height="50"/><circle cx="302" cy="149" r="6"/><rect x="892" y="150" width="4" height="50"/><circle cx="894" cy="149" r="6"/></g>`,
+    `<g fill="${GOLD}"><rect x="300" y="150" width="4" height="50"/><circle cx="302" cy="149" r="6"/><rect x="892" y="150" width="4" height="50"/><circle cx="894" cy="149" r="6"/></g>` +
+    `<rect x="905" y="188" width="20" height="12" fill="${DARK_A}"/><circle cx="915" cy="184" r="8" fill="${DARK_A}"/>`,
 
-  // Ballantrae — jagged Oak Mountain peaks (open center) + golf pin on a green (dominant: peaks)
+  // Ballantrae — peaks + saddle pines + back ridge + golf pin + green + bunker + cart path
   "ballantrae":
+    `<path d="M0,200 L0,150 L360,86 L720,150 L1200,96 L1200,200 Z" fill="rgba(4,40,20,0.22)"/>` +
     `<path d="M0,200 L0,150 L240,96 L470,150 L740,96 L980,150 L1200,110 L1200,200 Z" fill="${DARK_B}"/>` +
     `<path d="M0,200 L0,150 L160,150 L300,58 L450,124 L560,150 L640,150 L760,124 L900,58 L1050,150 L1200,150 L1200,200 Z" fill="${GOLD_SOFT}"/>` +
+    pine(556, 150, 26, DARK_A) + pine(584, 150, 32, DARK_A) + pine(616, 150, 26, DARK_A) + pine(644, 150, 30, DARK_A) +
     pine(120, 200, 54, DARK_A) + pine(1080, 200, 54, DARK_A) +
     `<ellipse cx="600" cy="190" rx="96" ry="13" fill="rgba(7,100,43,0.5)"/>` +
+    `<ellipse cx="516" cy="192" rx="26" ry="7" fill="${GOLD_SOFT}"/>` +
+    [430, 470, 510].map((x) => `<rect x="${x}" y="194" width="16" height="2" fill="rgba(245,168,0,0.5)"/>`).join("") +
     `<g fill="${GOLD}"><rect x="598" y="92" width="5" height="98"/><path d="M603,92 L650,107 L603,122 Z"/></g>`,
 
-  // Ross Bridge — bold multi-arch bridge (hero) + small clock tower aside (dominant: arches)
+  // Ross Bridge — multi-arch bridge + arch reflections + windowed resort tower + flanking trees
   "ross-bridge":
     hill(DARK_B, 158) +
-    pine(64, 200, 44, DARK_A) +
+    pine(64, 200, 44, DARK_A) + pine(330, 200, 40, DARK_A) + pine(872, 200, 40, DARK_A) +
     `<rect x="0" y="176" width="1200" height="24" fill="rgba(4,40,20,0.34)"/>` +
-    `<g fill="${GOLD_SOFT}"><rect x="1044" y="120" width="22" height="80"/><path d="M1044,120 L1055,104 L1066,120 Z"/><rect x="1050" y="132" width="10" height="10" fill="rgba(7,100,43,0.5)"/></g>` +
+    `<g fill="${GOLD_SOFT}"><rect x="1044" y="118" width="24" height="82"/><path d="M1044,118 L1056,100 L1068,118 Z"/></g>` +
+    `<g fill="rgba(7,100,43,0.55)"><rect x="1050" y="130" width="12" height="9"/><rect x="1052" y="146" width="8" height="8"/><rect x="1052" y="160" width="8" height="8"/></g>` +
     `<g fill="${GOLD}"><rect x="360" y="150" width="480" height="12"/><rect x="372" y="162" width="16" height="30"/><rect x="470" y="162" width="16" height="34"/><rect x="584" y="162" width="16" height="34"/><rect x="698" y="162" width="16" height="34"/><rect x="812" y="162" width="16" height="30"/><path d="M388,162 A45,30 0 0 1 470,162 Z"/><path d="M486,162 A49,32 0 0 1 584,162 Z"/><path d="M600,162 A49,32 0 0 1 698,162 Z"/><path d="M714,162 A45,30 0 0 1 812,162 Z"/></g>` +
-    waterLines(184),
+    `<g fill="rgba(245,168,0,0.5)"><path d="M388,178 A45,16 0 0 0 470,178 Z"/><path d="M486,178 A49,17 0 0 0 584,178 Z"/><path d="M600,178 A49,17 0 0 0 698,178 Z"/><path d="M714,178 A45,16 0 0 0 812,178 Z"/></g>` +
+    waterLines(190),
 
-  // Chelsea Park — chain of overlapping community lakes + tiny bg house + sun (dominant: soft ovals)
+  // Chelsea Park — chain of lakes + islands + cattails + dock + reflection + tiny pavilion + sun
   "chelsea-park":
     hill(DARK_B, 150) +
     pine(110, 200, 50, DARK_A) + pine(1110, 200, 50, DARK_A) +
     sun(1030, 50, 16) +
+    `<g fill="${DARK_A}"><ellipse cx="560" cy="182" rx="26" ry="6"/><ellipse cx="740" cy="188" rx="30" ry="7"/></g>` +
     `<rect x="588" y="132" width="30" height="20" fill="${DARK_A}"/><path d="M584,132 L603,120 L622,132 Z" fill="${DARK_A}"/>` +
     `<g fill="${GOLD_SOFT}"><ellipse cx="452" cy="184" rx="126" ry="20"/><ellipse cx="642" cy="192" rx="158" ry="23"/><ellipse cx="838" cy="182" rx="116" ry="18"/></g>` +
-    `<g fill="${GOLD}"><ellipse cx="452" cy="181" rx="126" ry="4"/><ellipse cx="642" cy="189" rx="158" ry="4"/><ellipse cx="838" cy="179" rx="116" ry="4"/></g>`,
+    `<g fill="${GOLD}"><ellipse cx="452" cy="181" rx="126" ry="4"/><ellipse cx="642" cy="189" rx="158" ry="4"/><ellipse cx="838" cy="179" rx="116" ry="4"/></g>` +
+    [596, 612].map((x, i) => `<rect x="${x}" y="${168 + (i % 3) * 2}" width="14" height="2" rx="1" fill="rgba(245,168,0,0.5)"/>`).join("") +
+    `<rect x="636" y="176" width="40" height="4" fill="${GOLD}"/>` +
+    `<g fill="${GOLD}"><rect x="338" y="162" width="2" height="24"/><ellipse cx="339" cy="162" rx="3" ry="6"/><rect x="348" y="166" width="2" height="24"/><ellipse cx="349" cy="166" rx="3" ry="6"/><rect x="360" y="160" width="2" height="24"/><ellipse cx="361" cy="160" rx="3" ry="6"/></g>`,
 
   // fallback
   "_default":
