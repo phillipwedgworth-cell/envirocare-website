@@ -45,6 +45,31 @@ const cfg: ClusterConfig = {
       "name": "Cherokee Bend",
       "href": "/cherokee-bend",
       "hook": "Mountain Brook's wooded east side — deep-shade mosquito harborage."
+    },
+    {
+      "name": "Inverness",
+      "href": "/inverness",
+      "hook": "Lake Heather and the US-280 corridor — established homes, ponds, and year-round pressure."
+    },
+    {
+      "name": "Cahaba Heights",
+      "href": "/cahaba-heights",
+      "hook": "The walkable village between Mountain Brook and 280 — original ranches and new rebuilds alike."
+    },
+    {
+      "name": "Ross Bridge",
+      "href": "/ross-bridge",
+      "hook": "Hoover's resort community — lakes, golf, and newer homes on graded ground."
+    },
+    {
+      "name": "Ballantrae",
+      "href": "/ballantrae",
+      "hook": "The Ballantrae golf community in Pelham — Oak Mountain tick pressure at the fairway edge."
+    },
+    {
+      "name": "Chelsea Park",
+      "href": "/chelsea-park",
+      "hook": "The 280-corridor's master-planned community — new construction and community lakes."
     }
   ],
   "faqs": [
