@@ -33,7 +33,7 @@ import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { COMPLIANCE_SYSTEM, userPrompt } from "./lib/compliance.mjs";
-import { logRunREST } from "./lib/run-log.mjs";
+import { logRunREST, logFindingREST } from "./lib/run-log.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dir, "neuronwriter-content");
@@ -160,6 +160,8 @@ async function runScore() {
   for (const r of rows) md += `| ${r.keyword} | ${r.score===null?"-- (empty)":r.score+"%"} |\n`;
   md += `\n**${rows.length} queries.**\n`;
   toSummary(md); await email("Neuron Narrator -- scores", md.replace(/\n/g,"<br>"));
+  const best = rows.reduce((m, r) => Math.max(m, r.score ?? -1), -1);
+  return `score: ${rows.length} queries checked${best >= 0 ? `, best ${best}%` : ""}`;
 }
 
 // -- FILL: write/use draft for every query, push, score, lift-if-low, rank ----
@@ -215,6 +217,18 @@ async function runFill() {
   }
   md += `\nAll drafts are in NeuronWriter now. Publish to the live site best-first, a few a week, via pull requests.\n`;
   toSummary(md); await email("Neuron Narrator -- ready-to-ship queue", md.replace(/\n/g,"<br>"));
+
+  // Surface the result in the Command Center (Recent Findings panel), not just email.
+  const top = ready.slice(0, 3).map(r => `${r.keyword} ${r.score}%`).join(", ");
+  await logFindingREST({
+    agent_name: "neuronwriter-narrator",
+    category: "content",
+    severity: ready.length ? "info" : "warning",
+    finding: ready.length
+      ? `${ready.length} SEO draft(s) ready to ship (score ≥ ${SCORE_FLOOR}%). Top: ${top || "—"}. Review in NeuronWriter, then publish via PR.`
+      : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
+  }).catch(() => {});
+  return `fill: ${results.length} editors, ${ready.length} ready to ship${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
 }
 
 // -- main ---------------------------------------------------------------------
@@ -222,9 +236,8 @@ const mode = (process.argv[2] || "score").toLowerCase();
 // Heartbeat both outcomes to agent_runs so the watchdog's expected-run check
 // can see this agent (needs SUPABASE_URL + SUPABASE_SERVICE_KEY in the workflow).
 try {
-  if (mode === "fill" || mode === "push") await runFill();
-  else await runScore();
-  await logRunREST("neuronwriter-narrator", "ok", `mode=${mode} completed`).catch(() => {});
+  const summary = (mode === "fill" || mode === "push") ? await runFill() : await runScore();
+  await logRunREST("neuronwriter-narrator", "ok", summary || `mode=${mode} completed`).catch(() => {});
 } catch (e) {
   console.error("Narrator failed:", e.message);
   await logRunREST("neuronwriter-narrator", "error", `mode=${mode}: ${e.message}`).catch(() => {});

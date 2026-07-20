@@ -43,3 +43,39 @@ export async function logRunREST(agentName, status, output) {
     return false;
   }
 }
+
+// Sibling of logRunREST for agent_findings — lets a plain-REST script surface a
+// human-readable "here's what I did / found" row that the Command Center's
+// "Recent Findings" panel renders. Non-fatal: returns false on any problem.
+export async function logFindingREST({ agent_name, category = "info", severity = "info", finding, page_url = null, run_date }) {
+  const key = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_KEY;
+  if (!key || !finding) {
+    console.warn(`[${agent_name}] finding not logged (missing key or text)`);
+    return false;
+  }
+  const base = (process.env.SUPABASE_URL || `https://${PROJECT_REF}.supabase.co`)
+    .trim().replace(/\/+$/, "");
+  const today = run_date || new Date().toISOString().slice(0, 10);
+  try {
+    const res = await fetch(`${base}/rest/v1/agent_findings`, {
+      method: "POST",
+      headers: {
+        apikey: key,
+        authorization: `Bearer ${key}`,
+        "content-type": "application/json",
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify([{
+        agent_name, category, severity,
+        page_url,
+        finding: String(finding).slice(0, 1000),
+        run_date: today,
+      }]),
+    });
+    if (!res.ok) console.error(`[${agent_name}] agent_findings log failed: ${res.status} ${(await res.text().catch(()=> "")).slice(0,200)}`);
+    return res.ok;
+  } catch (e) {
+    console.error(`[${agent_name}] agent_findings log failed: ${e.message}`);
+    return false;
+  }
+}
