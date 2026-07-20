@@ -26,6 +26,8 @@ const CITY_SLUGS = [
   // Premium-tier neighborhood pages (Jun 2026)
   'liberty-park', 'highland-lakes', 'indian-springs',
   'eagle-point', 'brook-highland', 'meadow-brook',
+  // 280-corridor & affluent gaps (Jul 20, 2026)
+  'inverness', 'cahaba-heights', 'ballantrae', 'ross-bridge', 'chelsea-park',
   // Mountain Brook sub-areas (Jul 2026)
   'crestline', 'english-village', 'mountain-brook-village', 'cherokee-bend',
   // New market pages (Jun 25, 2026) — competitor/radius expansion
