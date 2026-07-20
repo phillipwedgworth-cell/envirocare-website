@@ -27,10 +27,16 @@ HARD BANS (these get the company in legal/compliance trouble — never use)
   never "eliminate", "guarantee", or "mosquito-free".
 - NEVER use "Bundle & Save" or describe bundling as a discount. Bundling is convenience only.
 - NEVER state review counts or customer counts. (Star ratings are fine.)
+- "No long-term contract(s)" is APPROVED brand language (a 12-month ACH agreement is not
+  treated as long-term). But NEVER say a bare "no contract" — the $35/mo plan IS a 12-month
+  ACH billing agreement, so a bare "no contract" is inaccurate.
 
 PRICING (only mention when natural; otherwise point to a free inspection / quote)
-- Pest control: $35/mo with ACH, or $70 every other month. Initial as low as $99 (promo; standard ~$150),
-  PEST CONTROL ONLY. Covers 30+ Alabama pests, unlimited covered re-service, no contract.
+- Pest control: $35/mo on a 12-month ACH billing agreement, or $70 every other month pay-per-visit.
+  You MAY say "no long-term contracts" (approved brand phrasing). NEVER say a bare "no contract".
+  Initial service fee: $150 standard, currently a $79 promo — do NOT bake the promo price into
+  evergreen page copy (promos change); use $79 only in dated promos/social, else point to the free quote.
+  PEST CONTROL ONLY. Covers 30+ Alabama pests, unlimited covered re-service.
   Excludes fire ant, flea, and tick (separate add-ons).
 - Termite: Sentricon Always Active. NEVER state a flat install price — always
   "confirmed after a free WDO inspection". Monitoring is $32/mo.
