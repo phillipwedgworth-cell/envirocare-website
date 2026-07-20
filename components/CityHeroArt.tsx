@@ -286,6 +286,57 @@ const scenes: Record<string, string> = {
     // golf flag gold
     `<g fill="${GOLD}"><rect x="598" y="120" width="4" height="60"/><path d="M602,120 L630,130 L602,140 Z"/><ellipse cx="600" cy="182" rx="20" ry="5" fill="rgba(7,100,43,0.4)"/></g>`,
 
+  // ── 280-corridor & affluent gaps (Jul 20, 2026) ──
+  // Inverness — Lake Heather: lakeside home, dock, sun, pines
+  "inverness":
+    hill(DARK_B, 150) +
+    sun(1010, 54, 20) +
+    pine(90, 200, 52, DARK_A) + pine(140, 200, 40, DARK_A) + pine(1075, 200, 54, DARK_A) +
+    `<rect x="540" y="150" width="120" height="50" fill="${GOLD_SOFT}"/><path d="M532,150 L600,116 L668,150 Z" fill="${GOLD}"/>` +
+    win(560, 164) + win(586, 164) + win(614, 164) + win(640, 164) +
+    dock(360, 178, DARK_A) +
+    waterLines(186),
+
+  // Cahaba Heights — village storefront row + Cahaba River + wooded ridges
+  "cahaba-heights":
+    hill(DARK_B, 146) + hill(DARK_A, 172) +
+    pine(110, 200, 56, DARK_A) + pine(1080, 200, 56, DARK_A) + pine(1120, 200, 42, DARK_A) +
+    building(420, 64, 52, DARK_A) + building(500, 60, 46, DARK_A) + building(672, 60, 46, DARK_A) + building(748, 64, 52, DARK_A) +
+    `<rect x="560" y="140" width="92" height="60" fill="${GOLD_SOFT}"/><path d="M556,140 L606,112 L656,140 Z" fill="${GOLD}"/>` +
+    win(576, 158) + win(596, 158) + win(616, 158) + win(636, 158) +
+    waterLines(190),
+
+  // Ballantrae — Oak Mountain ridges + golf flag on a green
+  "ballantrae":
+    `<path d="M0,200 L0,116 L280,44 L560,116 L560,200 Z" fill="${DARK_B}"/>` +
+    `<path d="M640,200 L640,110 L920,48 L1200,110 L1200,200 Z" fill="${DARK_B}"/>` +
+    `<path d="M340,200 L340,92 L600,36 L860,92 L860,200 Z" fill="${GOLD_SOFT}"/>` +
+    pine(120, 200, 60, DARK_A) + pine(1080, 200, 60, DARK_A) +
+    `<g fill="${GOLD}"><rect x="596" y="118" width="4" height="66"/><path d="M600,118 L632,129 L600,140 Z"/></g>` +
+    `<ellipse cx="600" cy="188" rx="60" ry="8" fill="rgba(7,100,43,0.4)"/>`,
+
+  // Ross Bridge — signature stone arch bridge over water + resort clock tower
+  "ross-bridge":
+    hill(DARK_B, 150) +
+    pine(90, 200, 50, DARK_A) + pine(1110, 200, 50, DARK_A) +
+    `<g fill="${GOLD}"><rect x="740" y="96" width="34" height="104"/><path d="M740,96 L757,72 L774,96 Z"/><rect x="750" y="112" width="14" height="14" fill="rgba(7,100,43,0.5)"/></g>` +
+    `<g fill="${GOLD_SOFT}"><rect x="340" y="150" width="250" height="10"/><rect x="346" y="160" width="14" height="40"/><rect x="428" y="160" width="14" height="40"/><rect x="510" y="160" width="14" height="40"/><rect x="576" y="160" width="14" height="40"/></g>` +
+    `<g fill="${GOLD}"><path d="M360,160 A44,24 0 0 1 428,160 Z"/><path d="M442,160 A42,24 0 0 1 510,160 Z"/><path d="M524,160 A34,22 0 0 1 576,160 Z"/></g>` +
+    waterLines(184),
+
+  // Chelsea Park — lakeside row of new gabled homes + sun + pines
+  "chelsea-park":
+    hill(DARK_B, 148) +
+    pine(100, 200, 54, DARK_A) + pine(1090, 200, 54, DARK_A) + pine(1130, 200, 40, DARK_A) +
+    building(360, 84, 50, DARK_A) + `<path d="M352,150 L402,126 L452,150 Z" fill="${DARK_A}"/>` +
+    building(470, 84, 50, DARK_A) + `<path d="M462,150 L512,126 L562,150 Z" fill="${DARK_A}"/>` +
+    building(700, 84, 50, DARK_A) + `<path d="M692,150 L742,126 L792,150 Z" fill="${DARK_A}"/>` +
+    building(810, 84, 50, DARK_A) + `<path d="M802,150 L852,126 L902,150 Z" fill="${DARK_A}"/>` +
+    `<rect x="556" y="138" width="92" height="62" fill="${GOLD_SOFT}"/><path d="M548,138 L602,110 L656,138 Z" fill="${GOLD}"/>` +
+    win(576, 158) + win(600, 158) + win(624, 158) +
+    sun(1010, 52, 18) +
+    waterLines(188),
+
   // fallback
   "_default":
     hill(DARK_B, 152) +
