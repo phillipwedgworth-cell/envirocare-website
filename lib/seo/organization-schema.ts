@@ -48,6 +48,10 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
     'Builder Pre-Treatment', 'Commercial Pest Control', 'Brown Recluse Spider Control', 'Carpenter Ant Control',
     'German Cockroach Control', 'Alabama Pest Pressure', 'Eastern Subterranean Termites',
   ],
+  memberOf: [
+    { '@type': 'Organization', name: 'Alabama Pest Control Association' },
+    { '@type': 'Organization', name: 'Shelby County Home Builders Association' },
+  ],
   areaServed: [
     { '@type': 'State', name: 'Alabama' },
     { '@type': 'City', name: 'Birmingham', containedInPlace: { '@type': 'State', name: 'Alabama' } },

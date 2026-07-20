@@ -88,7 +88,7 @@ Monday–Friday 8am–5pm Central. Closed weekends.
 - Founded 1958; 68 years in continuous family operation.
 - Sentricon® Certified Specialist (Corteva).
 - Licensed by the Alabama Department of Agriculture & Industries; member, Alabama Pest
-  Control Association.
+  Control Association and the Shelby County Home Builders Association.
 - Free termite inspections cover the home, crawlspace — and on Lake Martin properties,
   the dock, pier, and boathouse.
 - Website: https://www.envirocarellc.com

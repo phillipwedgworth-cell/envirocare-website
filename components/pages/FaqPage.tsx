@@ -61,7 +61,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Are you licensed?</summary>
-              <div className="faq-a">Yes. EnviroCare is licensed by the Alabama Department of Agriculture and Industries. We're members of the Alabama Pest Control Association and a Sentricon® Certified Specialist.</div>
+              <div className="faq-a">Yes. EnviroCare is licensed by the Alabama Department of Agriculture and Industries. We're members of the Alabama Pest Control Association and the Shelby County Home Builders Association, and a Sentricon® Certified Specialist.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you require a contract?</summary>
