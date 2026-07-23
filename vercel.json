@@ -3,21 +3,47 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
-  "regions": ["iad1"],
+  "regions": [
+    "iad1"
+  ],
   "crons": [
-    { "path": "/api/orchestrator/run", "schedule": "0 9 * * *" },
-    { "path": "/api/brightlocal/run", "schedule": "0 2,8,14,20 * * *" },
-    { "path": "/api/site-reviewer/run", "schedule": "0 5,11,17,23 * * *" },
-    { "path": "/api/seo-monitor/run", "schedule": "0 14 * * 1" },
-    { "path": "/api/watchdog/run", "schedule": "30 */6 * * *" }
+    {
+      "path": "/api/orchestrator/run",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/brightlocal/run",
+      "schedule": "0 8 * * 1"
+    },
+    {
+      "path": "/api/site-reviewer/run",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/seo-monitor/run",
+      "schedule": "0 14 * * 1"
+    },
+    {
+      "path": "/api/watchdog/run",
+      "schedule": "30 */6 * * *"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]
