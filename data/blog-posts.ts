@@ -8,6 +8,8 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   publishedAt: string; // ISO
+  /** ISO. Set when a post is materially rewritten; emits dateModified in Article schema. */
+  updatedAt?: string;
   author: string;
   category: string;
   readMinutes: number;
@@ -18,6 +20,47 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'fleas-in-house-no-pets',
+    title: 'Fleas in the House But No Pets? Here\'s What\'s Actually Happening',
+    excerpt: 'No dog, no cat, still getting bit at the ankles. Where interior fleas actually come from, why bombs and foggers rarely finish the job, and how we treat the life cycle instead of just the adults you can see.',
+    publishedAt: '2026-07-21',
+    author: 'Kevin Wedgworth',
+    category: 'Fleas',
+    readMinutes: 5,
+    heroEmoji: '🐾',
+    metaTitle: 'Fleas in the House but No Pets? | EnviroCare',
+    metaDescription: 'Fleas in the house with no pets? Here\'s where they actually come from, why foggers fail, and how EnviroCare treats an interior flea problem.',
+    body: `
+<p class="lede">"We don't have pets — so why do we have fleas?" We hear that one a lot, usually from a homeowner standing in the living room with a can of bug spray and no idea where to point it. It's a fair question, and the answer isn't what most people expect: fleas don't need your dog or cat to get into the house. They just need a host that's already there, and something usually is.</p>
+
+<h2>Where do fleas come from if there's no pet in the house?</h2>
+
+<p>Fleas are opportunists. They'll ride in on whatever warm-blooded animal is available, and in a lot of Alabama homes that's not a pet — it's wildlife. A raccoon or possum denning under a deck, a stray cat sheltering in the crawl space, even squirrels in the attic, can all carry fleas in and drop eggs wherever they bed down. We see this pattern a lot in wooded lots around <a href="/chelsea">Chelsea</a> and <a href="/helena">Helena</a>, where houses back up to tree lines and there's no shortage of wildlife passing through underneath the house.</p>
+
+<p>The second common source is people, not animals. Fleas hitch a ride on shoes, pant legs, and bags from a friend's house, a boarding kennel, or even a rental property that had a prior flea problem. And if you just moved into a home in <a href="/vestavia-hills">Vestavia Hills</a> or Homewood, don't rule out the previous owner's pet — flea eggs and pupae can sit dormant in carpet and baseboards for months after the animals that dropped them are long gone.</p>
+
+<h2>Can fleas actually survive in a house with no animal at all?</h2>
+
+<p>For a while, yes. Adult fleas need a blood meal to reproduce, and without a steady host they won't build a big population — but the flea life cycle is built for exactly this kind of gap. Eggs fall off a host into carpet fibers and cracks in the floor, hatch into larvae that feed on organic debris, then spin into pupae that can lie dormant for weeks to months. Pupae wait for a trigger — vibration, warmth, carbon dioxide — that signals a potential host is nearby. That's why families sometimes move into an empty house, and within days of unpacking, fleas start biting around the ankles. Nobody brought them in. They were already there, waiting.</p>
+
+<h2>Why bug bombs and foggers usually don't fix it</h2>
+
+<p>Foggers kill what they touch, which is mostly adult fleas caught out in the open. They don't reach eggs and pupae tucked down in carpet pile, under baseboards, or inside furniture, and they do nothing for the larvae feeding in those same hidden spots. So a homeowner sets off a fogger, sees dead fleas on the floor the next morning, feels good about it — and two weeks later the pupae that survived have hatched into a fresh wave of adults. It looks like the treatment failed. It didn't fail; it was never treating the part of the population that mattered. We cover more of these DIY missteps, fleas included, in our <a href="/blog/diy-pest-control-mistakes">common pest control mistakes</a> post.</p>
+
+<h2>How we treat an interior flea problem</h2>
+
+<p>Our <a href="/services/flea">flea service</a> is built around that life cycle instead of ignoring it. We treat carpets, baseboards, upholstery, and other harborage areas with EPA-registered products, applied per label directions, that target the developing stages as well as the adults you can see. Vacuuming beforehand helps — it physically pulls eggs and larvae out of carpet fibers and can trigger dormant pupae to hatch into a stage the treatment can reach. For homes where the source is outdoor wildlife rather than a pet, we'll also talk through exclusion around the crawl space and foundation, since retreating the inside without closing the entry point just invites round two.</p>
+
+<p>Most interior flea jobs need a follow-up visit two to three weeks out, timed to catch the pupae that were dormant during the first treatment and have since hatched. That's normal, not a sign anything went wrong — the same staged timeline applies whether the house is in <a href="/homewood">Homewood</a>, Pelham, or out toward Alabaster and Calera.</p>
+
+<h2>When it might not be fleas at all</h2>
+
+<p>Bites around the ankles and lower legs are the classic flea complaint, but we've walked into plenty of "flea" calls that turned out to be carpet beetle larvae, chiggers tracked in from the yard, or straightforward skin irritation with no pest behind it. A flea comb pulled through a pet's coat, or a white sock dragged across carpet near baseboards, is a quick way to confirm live fleas before spending money treating for the wrong thing. If you're not sure, that's exactly what a professional inspection is for.</p>
+
+<p>If you're seeing bites and can't find the source, don't guess at it with another fogger. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/request-quote">request a free quote online</a> and we'll figure out what's actually biting and where it's coming from. No One Cares Like EnviroCare.</p>
+`,
+  },
   {
     slug: 'termite-bond-alabama-explained',
     title: 'What Is a Termite Bond in Alabama — And Is Yours Still Good?',
@@ -703,39 +746,109 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'spider-control-alabama',
-    title: 'Spider Control in Alabama: Widows & Recluses | EnviroCare',
-    excerpt: 'Two medically significant species plus dozens of nuisance spiders. Effective control starts with reducing their food supply, not just spraying webs.',
+    title: 'Spider Control in Alabama: What Actually Works',
+    excerpt: 'Two medically significant species, dozens of harmless ones, and one reason they all come inside. Identification, seasonality, and why spraying webs never holds.',
     publishedAt: '2026-05-21',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
-    readMinutes: 6,
+    readMinutes: 8,
     heroEmoji: '🕸️',
-    metaTitle: 'Spider Control in Alabama: Widows & Recluses | EnviroCare',
-    metaDescription: 'Alabama has black widows and brown recluse. Effective spider control starts with reducing their food supply, not just spraying webs.',
+    metaTitle: 'Spider Control in Alabama: Widows, Recluses & What Works | EnviroCare',
+    metaDescription: 'How to identify Alabama black widows and brown recluses, why spider season peaks in fall, and why lasting spider control means removing their food supply.',
     body: `
-<p class="lede">Alabama is home to dozens of spider species, and the honest truth is that the overwhelming majority are harmless — even helpful, since they eat the insects you like even less. But two of them are medically significant, and effective spider control isn't about spraying every web you see. It's about cutting off what spiders come inside for in the first place: food.</p>
+<p class="lede">Alabama is home to dozens of spider species, and the honest truth is that the overwhelming majority are harmless — even useful, since they eat the insects you like even less. But two of them are medically significant, and effective spider control isn't about spraying every web you see. It's about cutting off what spiders come inside for in the first place: food.</p>
 
 <h2>The two spiders in Alabama worth worrying about</h2>
-<p>Of all our native spiders, only two carry real medical concern: the black widow and the brown recluse. Both are shy, both prefer to avoid you, and both bite almost exclusively when trapped against skin. Knowing how to recognize them — and where they hide — is far more useful than fearing every spider on the porch.</p>
 
-<h2>Black widow identification</h2>
-<p>The female black widow is unmistakable: glossy jet-black, about a half-inch body, with the famous red hourglass on the underside of her abdomen. She builds messy, strong, irregular webs low to the ground in dark, sheltered spots — under deck steps and outdoor furniture, in wood piles, inside meter boxes, garages, and crawl spaces. Bites are rare but can cause muscle cramping and pain that warrants medical attention. If you're seeing widows around the house, don't reach bare-handed into the places they favor.</p>
+<p>Of all our native spiders, only two carry real medical concern: the black widow and the brown recluse. Both are shy, both would rather avoid you, and both bite almost exclusively when trapped against skin — pressed inside a work glove, rolled onto in bed, pulled on with a boot left in the garage. Knowing how to recognize them, and where they hide, is far more useful than fearing every spider on the porch.</p>
 
-<h2>Brown recluse</h2>
-<p>The other one to know is the brown recluse — small, uniformly light brown, and fond of dark, dry, undisturbed spaces like closets, attics, storage boxes, and shoes left on the floor. Because recluses are common enough in Alabama homes to deserve their own treatment, we've written a full guide: see <a href="/blog/brown-recluse-spiders-alabama">brown recluse spiders in Alabama</a> for identification, bite information, and prevention.</p>
+<h3>Black widow identification</h3>
 
-<h2>Wolf spiders and other nuisance spiders</h2>
-<p>Most of what people find are nuisance spiders — wolf spiders, which are large, fast, hairy, and alarming but not dangerous; plus house spiders, orb weavers, and jumping spiders. They're startling, not harmful. Wolf spiders in particular don't build webs to catch prey; they hunt on foot, which is why they turn up running across a garage floor or basement. Their presence is usually a sign of one thing: there are plenty of insects in the house for them to eat.</p>
+<p>The female black widow is unmistakable once you've seen one: glossy jet-black, a body roughly half an inch across, with the famous red hourglass on the <em>underside</em> of her abdomen. That placement matters — you often see the shape only when she's hanging in her web, which is why people miss it.</p>
+
+<p>Her web is a giveaway too. Widow webs are messy and irregular, nothing like the tidy wheel of an orb weaver, and they're noticeably strong — you can hear one tear. She builds low to the ground in dark, sheltered spots: under deck steps and outdoor furniture, in wood piles, inside water meter boxes and electrical boxes, in garages, and in crawl spaces.</p>
+
+<h3>Brown recluse identification</h3>
+
+<p>The brown recluse is small, uniformly light-to-medium brown, and has a violin-shaped marking behind the eyes — though that mark is far less obvious in real life than photos suggest, and a great many harmless brown spiders get mistaken for one. The more reliable tell is the legs: a recluse has no bands, no stripes, no spines, just plain smooth brown, and it moves with a fast, low scuttle.</p>
+
+<p>Recluses prefer dark, dry, undisturbed spaces — closets, attics, cardboard storage boxes, behind furniture that hasn't moved in years, and shoes left on the floor. Because they're common enough in Alabama homes to deserve their own treatment, we've written a full guide: see <a href="/blog/brown-recluse-spiders-alabama">brown recluse spiders in Alabama</a>.</p>
+
+<h3>Quick comparison</h3>
+
+<ul>
+<li><strong>Widow:</strong> glossy black, red hourglass underneath, messy strong web, low and outdoors, prefers damp sheltered spots.</li>
+<li><strong>Recluse:</strong> flat brown, plain unbanded legs, no functional web to speak of, indoors, prefers dry undisturbed spots.</li>
+</ul>
+
+<p>If you're not sure what you're looking at, don't handle it. A photo from a safe distance is enough for our technicians to identify during an inspection.</p>
+
+<h2>What to do about a spider bite</h2>
+
+<p>Most spider bites in Alabama are minor and heal without incident. But if you've been bitten and the area develops spreading redness, an open sore, or severe pain — or if you develop muscle cramping, nausea, or fever — contact a doctor or urgent care promptly, and bring the spider if you safely can. That's a medical question, not a pest control one, and it's worth taking seriously rather than waiting it out.</p>
+
+<h2>Wolf spiders and the rest</h2>
+
+<p>Most of what people actually find are nuisance spiders. Wolf spiders are the usual culprit for a panicked phone call — large, fast, hairy, and genuinely alarming to come across, but not dangerous. They don't build webs to catch prey; they hunt on foot, which is exactly why one turns up sprinting across a garage floor or basement at nine at night. We've covered them separately in our guide to <a href="/blog/wolf-spiders-birmingham">wolf spiders in Birmingham</a>.</p>
+
+<p>Add house spiders, orb weavers, cellar spiders, and jumping spiders, and you have the great majority of what shows up in an Alabama home. They're startling, not harmful. And their presence tells you something specific: there are enough insects in the house to feed them.</p>
+
+<h2>When is spider season in Alabama?</h2>
+
+<p>Spiders are around all year, but calls spike sharply in <strong>late September through November</strong>, and homeowners usually read that as an invasion. It isn't. Two things are happening at once. Spiders that hatched in spring have spent the summer eating and are now simply big enough to notice. And as nights cool, the insects they hunt move toward the warmth of your foundation — so the spiders follow them right to your door.</p>
+
+<p>That's the practical argument for treating on a schedule rather than reacting in October. By the time you're seeing spiders in the living room, the insect population that drew them has been building against your foundation since August.</p>
+
+<h2>Where spiders get in</h2>
+
+<p>Spiders rarely chew their way anywhere. They walk through gaps that already exist:</p>
+
+<ul>
+<li>Gaps under exterior doors and missing weatherstripping — a quarter inch is plenty</li>
+<li>Torn window screens and unscreened crawl space and attic vents</li>
+<li>Unsealed penetrations where pipes, cables, and dryer vents pass through the wall</li>
+<li>Gaps around garage door seals, easily the most common entry we find</li>
+<li>Foundation cracks and gaps behind siding</li>
+</ul>
+
+<p>Then there's the route nobody thinks about: carried in. Recluses in particular travel inside cardboard boxes, stored holiday decorations, and firewood. If a box has been in a shed or attic since last year, open it outside.</p>
 
 <h2>Why spraying webs doesn't work</h2>
-<p>Knocking down webs and spot-spraying the spiders you can see feels productive, but it barely dents the problem. Spiders come indoors to hunt, so as long as the house offers a steady supply of insects, new spiders keep arriving to replace the ones you removed. Treating the symptom leaves the cause untouched.</p>
+
+<p>Knocking down webs and spot-spraying the spiders you can see feels productive, and it does clean things up for a week. But it barely dents the problem, for a simple reason: spiders come indoors to hunt. As long as the house offers a steady supply of insects, new spiders keep arriving to replace the ones you removed. You're treating the symptom and leaving the cause completely untouched.</p>
+
+<p>It's the same reason the aerosol can from the hardware store disappoints. It kills what it touches. It does nothing about why they came.</p>
 
 <h2>The real fix: cut off their food</h2>
-<p>Lasting spider control works from the bottom of the food chain up. Our <a href="/services/pest-control">bi-monthly perimeter program</a> reduces the ants, roaches, crickets, and other insects spiders feed on, treats the entry points and harborage areas around the foundation, and knocks down webbing along eaves and corners. Remove the food supply and the spiders lose their reason to stay. Products are EPA-registered and applied to label directions, and the plan covers 30-plus Alabama pests starting around $35 a month, with free re-treatment between visits.</p>
 
-<p>A few free habits help too: keep exterior lights off or switch to yellow bulbs (bright white light draws the insects spiders eat), clear webs and clutter from the garage and porch, seal gaps around doors and windows, and pull mulch and wood piles back from the foundation.</p>
+<p>Lasting spider control works from the bottom of the food chain up. Our <a href="/services/pest-control">bi-monthly perimeter program</a> reduces the ants, roaches, crickets, silverfish, and other insects spiders feed on; treats entry points and harborage areas around the foundation; and knocks down webbing along eaves, soffits, and corners. Remove the food supply and the spiders lose their reason to stay.</p>
 
-<p>Family-owned since 1958, four generations strong. If spiders — or the two that matter — have you uneasy, call (205) 940-6360 for a free inspection.</p>
+<p>Products are EPA-registered and applied according to label directions. The plan covers 30-plus Alabama pests starting at $35 a month, and includes unlimited re-service between scheduled visits — if something comes back before we're due, we come back out.</p>
+
+<h3>What you can do for free</h3>
+
+<ul>
+<li><strong>Change your exterior lighting.</strong> The single most effective free change. Bright white porch and floodlights pull in flying insects all night, and spiders set up where the food is. Yellow bulbs, warm LEDs, or simply leaving lights off cuts the buffet dramatically.</li>
+<li><strong>Clear clutter from garage, porch, and storage areas.</strong> Swap cardboard boxes for sealed plastic totes, especially in attics.</li>
+<li><strong>Pull mulch, wood piles, and dense plantings back</strong> twelve to eighteen inches from the foundation.</li>
+<li><strong>Seal what you can reach</strong> — door sweeps, weatherstripping, screen repairs, caulk around penetrations.</li>
+<li><strong>Shake out shoes, gloves, and stored clothing</strong> that have been sitting, particularly in the garage.</li>
+</ul>
+
+<h2>Common questions</h2>
+
+<p><strong>Does one spider mean there are more?</strong> Not necessarily — wolf spiders and jumping spiders wander in alone all the time. But repeated sightings in the same room, or webbing in corners, points to an established insect supply worth addressing.</p>
+
+<p><strong>Do brown recluses live in north Alabama?</strong> Yes. We find them in homes from Birmingham and Hoover up through Huntsville and Madison, and around Lake Martin. They're not a south-Alabama-only problem.</p>
+
+<p><strong>Will treatment get rid of every spider?</strong> No, and be skeptical of anyone who says it will. What a well-run program does is make your home a poor place to hunt, which drives the population down and keeps it there.</p>
+
+<p><strong>Are the spiders in my crawl space a problem?</strong> Usually they're a symptom. Widows in particular favor crawl spaces and meter boxes, and their presence generally means there's moisture and an insect population down there worth looking at.</p>
+
+<h2>Talk to us</h2>
+
+<p>Family-owned since 1958, four generations strong, serving Birmingham, Huntsville, and the Lake Martin area. If spiders — or specifically the two that matter — have you uneasy, call <a href="tel:+12059406360">(205) 940-6360</a> for a free inspection and we'll tell you what you're actually dealing with.</p>
 `,
   },
 
