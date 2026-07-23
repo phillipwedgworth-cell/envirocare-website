@@ -674,73 +674,184 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'brown-recluse-spiders-alabama',
-    title: 'Brown Recluse Spiders in Alabama | EnviroCare',
-    excerpt: 'Far more common than most realize. How to identify them, what a bite looks like, where they hide in Alabama homes, and how to keep them out.',
+    title: 'Brown Recluse Spiders in Alabama: Identification & Prevention',
+    excerpt: 'Most "brown recluse" sightings are something else entirely. How to identify a real one, where they hide in Alabama homes, and what to do about a bite.',
     publishedAt: '2026-05-21',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
-    readMinutes: 6,
+    readMinutes: 8,
     heroEmoji: '🕷️',
-    metaTitle: 'Brown Recluse Spiders in Alabama | EnviroCare',
-    metaDescription: 'Brown recluse are far more common in Alabama homes than most realize. Identification, bite risks, prevention tips, and when to call for professional treatment.',
+    metaTitle: 'Brown Recluse Spiders in Alabama: ID & Prevention | EnviroCare',
+    metaDescription: 'How to identify a brown recluse using the legs and eyes, not the violin marking. Where they hide in Alabama homes, bite guidance, and prevention that works.',
     body: `
-<p class="lede">Of all the spiders in Alabama, the brown recluse is the one worth taking seriously — and it's far more common in our homes than most people realize. The good news is that recluses are shy, they don't want anything to do with you, and a few straightforward habits keep the risk low. The key is knowing what you're actually looking at.</p>
+<p class="lede">More spiders get called brown recluse than any other species in Alabama, and the large majority of them aren't. That matters in both directions — unnecessary alarm about harmless house spiders, and occasionally the opposite. Here's how to actually tell.</p>
 
-<h2>What a brown recluse actually looks like</h2>
-<p>A brown recluse is small — body about the size of a pencil eraser, roughly a half-inch, with legs spanning a quarter to a bit over a half-dollar. It's uniformly light-to-medium brown with no stripes, no bands on the legs, and a smooth, un-fuzzy body. The famous "violin" or "fiddle" marking on its back is real but unreliable: plenty of harmless brown spiders have similar markings, and the violin is hard to see. The more dependable tell is the eyes — recluses have six eyes arranged in three pairs, while most spiders have eight. Unless you're comfortable getting that close, it's safer to assume and call.</p>
+<h2>How do you identify a brown recluse?</h2>
 
-<h2>Where they hide in Alabama homes</h2>
-<p>The name fits: recluses seek out dark, dry, undisturbed spaces. In our homes that means closets, attics, wall voids, behind baseboards, inside storage boxes, under furniture that rarely moves, and in clothing or shoes left on the floor. Garages and basements are prime real estate. Because they hide in exactly the places we reach into without looking, most bites happen when a spider gets trapped against skin — pulling on a stored jacket, slipping on a boot, or reaching into a box in the attic.</p>
+<p>The reliable identifiers are the legs and the eyes, not the violin. A brown recluse has <strong>uniformly colored legs with no bands, no stripes, and no spines</strong> — just smooth, plain brown — and <strong>six eyes arranged in three pairs</strong> rather than the eight that nearly every other spider has.</p>
 
-<h2>What a brown recluse bite looks like</h2>
-<p>Most recluse bites are minor and heal on their own. Some, though, develop over a day or two into a painful, reddened area that can blister and, in more serious cases, break down into a slow-healing sore. Reactions vary widely from person to person. We're pest professionals, not doctors, so our advice is simple: if you're bitten and the area worsens, or you feel unwell, seek medical care promptly — and if you can safely capture the spider, bring it so it can be identified. Do not wait to "see how it goes" if symptoms are escalating.</p>
+<p>The violin-shaped marking behind the head is real, but it's the worst identifier in common use. It's faint on many specimens, it varies with age, and plenty of harmless brown spiders have vaguely violin-ish markings. People identify from the violin and get it wrong constantly.</p>
 
-<h2>Why Alabama homes get them</h2>
-<p>Recluses are native to the central and southern U.S., and Alabama sits right in their range. Our long warm season, wooded lots, and older housing stock with plenty of voids and crawl spaces give them exactly the sheltered conditions they want. They can also hitchhike in on moving boxes and secondhand furniture, which is how they sometimes turn up in a home that never had them before.</p>
+<p>Other characteristics: body about a quarter to a half inch, legs spanning roughly the size of a quarter, uniform tan to medium brown with no patterning on the abdomen, and no web you'd notice — recluses build irregular retreat webbing in hidden places, not display webs.</p>
 
-<h2>How to keep them out</h2>
-<p>A few habits go a long way. Store clothing and shoes off the floor and shake out anything that's been sitting. Swap cardboard storage boxes for sealed plastic totes — cardboard is a recluse favorite. Reduce clutter in closets, garages, and attics so there are fewer hiding spots. Seal gaps around baseboards, pipes, and foundation cracks. And keep the perimeter of the house clear of leaf litter and firewood, which is where they live outdoors before moving in.</p>
+<h3>What gets mistaken for a brown recluse</h3>
 
-<h2>When to call</h2>
-<p>If you're seeing recluses regularly — not just the occasional wandering spider, but repeated sightings in closets, garages, or storage areas — that points to a population living in the structure, and that's worth professional treatment. Our approach targets their harborage and, just as importantly, reduces the small insects recluses feed on, so the home stops supporting them. For the broader picture on Alabama's other species, see our guide to <a href="/blog/spider-control-alabama">spider control in Alabama</a>.</p>
+<ul>
+<li><strong>Wolf spiders</strong> — much larger, hairy, patterned, with banded legs. The most frequent false alarm by a wide margin.</li>
+<li><strong>Grass spiders</strong> — striped, build funnel webs, often found in the same corners.</li>
+<li><strong>Cellar spiders</strong> — very long thin legs, hang upside down in basements.</li>
+<li><strong>Southern house spiders</strong> — the males are brown and leggy and get mistaken for recluses constantly.</li>
+</ul>
 
-<p>Family-owned since 1958, four generations in. If brown recluses have you uneasy about your closets and attic, call (205) 940-6360 for a free inspection.</p>
+<p>If you're unsure, capture it under a cup or take a clear photo. Our technicians identify spiders during inspections routinely, and it costs you nothing to ask.</p>
+
+<h2>Are brown recluses common in Alabama?</h2>
+
+<p>Yes. Alabama sits within the brown recluse's established native range, and we find them in homes across the state — Birmingham, Hoover, and Alabaster, north through Huntsville and Madison, and around Lake Martin. This is not a spider that only turns up in the Midwest.</p>
+
+<p>That said, established indoor populations are less common than the level of public concern suggests. Most homes that have recluses have a modest number in undisturbed storage areas rather than an infestation.</p>
+
+<h2>Where do brown recluses hide?</h2>
+
+<p>The name is accurate. Recluses seek dark, dry, undisturbed places and avoid traffic:</p>
+
+<ul>
+<li>Cardboard boxes in attics, closets, and garages — their single favorite harborage</li>
+<li>Behind and beneath furniture that hasn't moved in months</li>
+<li>Inside shoes and boots left on the floor, and in stored clothing</li>
+<li>Under and inside stored holiday decorations</li>
+<li>Wall voids, crawl spaces, and behind baseboards</li>
+<li>Between hanging clothes at the back of a closet</li>
+<li>In bedding that's been left unused, particularly guest rooms</li>
+</ul>
+
+<p>Note what's common across that list: cardboard, stillness, and dryness. Recluses do not want your kitchen, and they do not want damp.</p>
+
+<h2>What should you do about a brown recluse bite?</h2>
+
+<p>Contact a doctor. Recluse bites are frequently painless at first and can develop over the following hours into a lesion that needs medical management, so this is not something to evaluate at home.</p>
+
+<p>Practical steps while you're arranging care: clean the area with soap and water, apply a cold compress, elevate if possible, and don't apply heat. If you can safely collect the spider — even a crushed one — bring it, because identification meaningfully changes how a physician approaches it.</p>
+
+<p>Worth knowing: bite reactions vary enormously, most recluse bites heal without serious complication, and many wounds attributed to recluses turn out to be bacterial infections instead. That's a reason to see a doctor rather than a reason to panic.</p>
+
+<h2>How do you keep brown recluses out?</h2>
+
+<p>Prevention here is unusually effective, because you're removing habitat rather than chasing an insect:</p>
+
+<ul>
+<li><strong>Replace cardboard with sealed plastic totes</strong> in attics, closets, and garages. This is the highest-impact change available to you.</li>
+<li><strong>Shake out shoes, gloves, and stored clothing</strong> before putting them on, especially in the garage.</li>
+<li><strong>Keep beds away from walls</strong> and don't let bedskirts or blankets touch the floor.</li>
+<li><strong>Reduce clutter</strong> in low-traffic storage areas — stacked and stored items are the whole draw.</li>
+<li><strong>Seal gaps</strong> around baseboards, pipe penetrations, and under doors.</li>
+<li><strong>Open boxes outdoors</strong> if they've been stored in a shed or attic since last year.</li>
+</ul>
+
+<h2>How does treatment work?</h2>
+
+<p>Recluses eat insects, so lasting control works the same way it does for spiders generally — reduce the food supply and the harborage. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> reduces the insects recluses feed on, treats entry points and harborage areas, and covers 30-plus Alabama pests starting at $35 a month. Products are EPA-registered and applied according to label directions.</p>
+
+<p>For confirmed recluse activity, interior placement in the specific storage areas they occupy matters more than perimeter work, since these spiders live indoors rather than commuting in. Our <a href="/blog/spider-control-alabama">general spider control guide</a> covers the wider picture, including black widows.</p>
+
+<h2>Common questions</h2>
+
+<p><strong>Do brown recluses chase people?</strong> No. They avoid contact and bite almost exclusively when pressed against skin — inside clothing, in bedding, in a shoe.</p>
+
+<p><strong>Are they active in winter?</strong> Yes, indoors. Heated homes keep them going year-round, though they're less mobile in cold months.</p>
+
+<p><strong>Do glue boards help?</strong> They're genuinely useful for monitoring — placed along walls and behind furniture, they tell you whether you have a real population and where. They're a diagnostic tool more than a control method.</p>
+
+<p><strong>Is one recluse a sign of many?</strong> Not necessarily, but it justifies checking storage areas and putting out monitors.</p>
+
+<h2>Talk to us</h2>
+
+<p>Family-owned since 1958, four generations, serving Birmingham, Huntsville, and Lake Martin. If you think you've found a recluse — or you want to know what you actually found — call <a href="tel:+12059406360">(205) 940-6360</a> for a free inspection.</p>
 `,
   },
 
   {
     slug: 'cockroach-control-alabama',
-    title: 'Cockroach Control in Alabama | EnviroCare',
-    excerpt: 'Three species, three different treatment approaches. Alabama\'s humidity makes cockroach control harder than most states.',
+    title: 'Cockroach Control in Alabama: Three Species, Three Approaches',
+    excerpt: 'German, American, and smokybrown roaches are different problems with different solutions. Which one you have determines whether this is a nuisance or an infestation.',
     publishedAt: '2026-05-21',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Roaches',
-    readMinutes: 6,
+    readMinutes: 8,
     heroEmoji: '🪳',
-    metaTitle: 'Cockroach Control in Alabama | EnviroCare',
-    metaDescription: 'Three cockroach species, three treatment approaches in Alabama — German roaches inside, American and smokybrown outside. EnviroCare covers all three.',
+    metaTitle: 'Cockroach Control in Alabama: German, American & Smokybrown | EnviroCare',
+    metaDescription: 'How to identify Alabama cockroach species, why German roaches are the serious one, health risks including asthma triggers, and what actually eliminates them.',
     body: `
-<p class="lede">Cockroaches are harder to control in Alabama than in most of the country, and the reason is our climate: long, hot, humid summers give roaches the warmth and moisture they thrive on nearly year-round. But "roach control" isn't one problem — it's three, because the three species you'll see here live differently and have to be handled differently.</p>
+<p class="lede">The first question isn't how to kill roaches — it's which roach you have. A palmetto bug wandering in from the mulch bed is a nuisance. German cockroaches breeding in your kitchen are an infestation with a health dimension. Same word, entirely different problems.</p>
 
-<h2>The three roaches you'll see in Alabama</h2>
-<p>Nearly every call we get is a German cockroach, an American cockroach, or a smokybrown cockroach. Telling them apart matters, because a treatment that works on one can be nearly useless on another.</p>
+<h2>How do you identify Alabama cockroach species?</h2>
 
-<h2>German cockroaches — the indoor infestation</h2>
-<p>German roaches are the small ones, about a half-inch, light brown with two dark stripes behind the head. They are the species that truly infests — they live indoors full-time, breed astonishingly fast, and cluster in warm, moist, hidden spots: behind the fridge, under the sink, inside cabinet voids, around the dishwasher and coffee maker. A German roach problem is almost always a kitchen-and-bathroom problem, and it will not go away on its own. Because they breed so quickly and hide in voids, over-the-counter sprays tend to scatter them and make things worse. These need targeted baiting and a treatment of the harborage areas, done thoroughly.</p>
+<p>Three species account for nearly every Alabama roach call, and you can tell them apart by size and where you find them.</p>
 
-<h2>American and smokybrown — the outdoor invaders</h2>
-<p>These are the big ones — the roaches people call "palmetto bugs" or "water bugs." Americans can top an inch and a half; smokybrowns are a dark, uniform mahogany and are strong fliers. Unlike German roaches, these live outside by preference — in mulch beds, wood piles, storm drains, gutters, and crawl spaces — and wander indoors looking for moisture, especially in the heat of summer or after heavy rain. You're not usually facing an indoor breeding population; you're facing a perimeter that keeps letting them in. Control is about treating and sealing the outside, not just chasing the ones that got in.</p>
+<h3>German cockroach — the serious one</h3>
 
-<h2>Why Alabama's humidity makes it worse</h2>
-<p>Every roach species needs moisture, and Alabama supplies it generously. Humid crawl spaces, condensation, damp mulch against the foundation, and slow leaks under sinks all create the conditions roaches look for. That's why moisture control — fixing leaks, improving drainage, keeping mulch pulled back from the slab — is part of every roach job we do, not an afterthought.</p>
+<p>Small, about half an inch, light brown, with two dark parallel stripes behind the head. German cockroaches live indoors exclusively and concentrate in kitchens and bathrooms — behind refrigerators, under sinks, inside appliance motor housings, in the hinges of cabinet doors.</p>
 
-<h2>What actually works</h2>
-<p>Effective roach control combines the right method for the species with consistent perimeter protection. For German roaches, that's precise interior baiting and treatment of harborage points. For the outdoor species, it's a treated, sealed exterior that stops the wandering before it starts. In both cases, the reason our regular service works where a one-time spray doesn't is consistency — reapplying protection before it wears off, so the population never gets a foothold. All products are EPA-registered and applied to label directions.</p>
+<p>They're the serious species for one reason: reproduction. A single female produces an egg case holding roughly 30 to 40 eggs, and the cycle from egg to reproducing adult runs about 60 days. A handful of roaches becomes thousands within months. If you see one in daylight, the population is already large enough that they're competing for hiding space.</p>
 
-<h2>How our plan handles roaches</h2>
-<p>Our <a href="/services/pest-control">bi-monthly pest program</a> covers roaches along with 30-plus common Alabama pests — ants, spiders, silverfish, and more — starting around $35 a month with no long-term contract. We re-treat between scheduled visits at no charge if something comes back. For a heavy German-roach infestation, we'll build an interior plan on top of the perimeter service to break the cycle fast.</p>
+<h3>American cockroach — the "palmetto bug"</h3>
 
-<p>Four generations of the Wedgworth family, protecting Alabama homes since 1958. If roaches have moved in — or keep wandering in — call (205) 940-6360 for a free inspection.</p>
+<p>Large, up to an inch and a half, reddish-brown with a yellowish figure-eight pattern behind the head. These live outdoors in mulch, sewers, crawl spaces, and storm drains, and wander inside — often through drains, gaps under doors, or the garage.</p>
+
+<p>They're startling because of size, but they typically aren't breeding in your kitchen. Recurring sightings usually point to an entry point and a moisture condition rather than an indoor population.</p>
+
+<h3>Smokybrown cockroach</h3>
+
+<p>Uniformly dark mahogany, about an inch and a quarter, and a strong flier. Smokybrowns live in tree holes, gutters, and attics, and lose moisture quickly — so they're drawn to damp areas and frequently enter through the roofline rather than at ground level. Very common in wooded Alabama neighborhoods.</p>
+
+<h2>Are cockroaches actually a health risk?</h2>
+
+<p>Yes, and the most significant risk isn't the one people expect. Cockroach allergens — from droppings, shed skins, and saliva — are a well-documented asthma trigger, particularly in children. In homes with substantial German cockroach populations, that allergen load becomes a genuine indoor air quality problem.</p>
+
+<p>Roaches also travel through drains, garbage, and crawl spaces before crossing kitchen surfaces, mechanically carrying bacteria onto food-contact areas. They don't bite and they don't transmit disease the way mosquitoes do, but the contamination and allergen concerns are real and worth acting on.</p>
+
+<h2>Why don't foggers and bombs work on roaches?</h2>
+
+<p>Total-release foggers fill open air with insecticide. Roaches are not in open air — they're in wall voids, behind appliance panels, and inside cabinet hardware, which is precisely where fog does not reach. What foggers reliably do is push survivors deeper into the structure and spread them to adjacent rooms.</p>
+
+<p>With German cockroaches specifically, a fogger frequently converts a kitchen problem into a whole-house problem. The effective approach is targeted gel bait placed directly into harborage points, combined with growth regulators that break the reproductive cycle — applied where the roaches actually live rather than into the room they occasionally cross.</p>
+
+<h2>What attracts roaches to a house?</h2>
+
+<p>Moisture first, food second. Roaches can survive weeks without food and only days without water, so a dripping trap under the sink matters more than crumbs.</p>
+
+<ul>
+<li>Leaking pipes, condensation, and standing water in sink cabinets</li>
+<li>Grease film behind and under the stove — the single richest food source in most kitchens</li>
+<li>Pet food left out overnight and open pantry packaging</li>
+<li>Cardboard storage, which offers food (glue), harborage, and a common way German roaches arrive in the first place</li>
+<li>Clogged gutters and mulch against the foundation, for the outdoor species</li>
+<li>Unsealed gaps around plumbing penetrations and dryer vents</li>
+</ul>
+
+<h2>How does EnviroCare treat cockroaches?</h2>
+
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers roaches along with 30-plus common Alabama pests, starting at $35 a month with unlimited re-service between visits. That program handles the outdoor species — American and smokybrown — very well, because the work happens where they originate: the perimeter, the entry points, and the harborage areas outside.</p>
+
+<p>An established German cockroach population is a different job. It requires interior access and targeted placement inside the kitchen and bathrooms, which is why we offer <strong>interior quarterly service at $98 per quarter</strong>. Products are EPA-registered and applied according to label directions.</p>
+
+<p>What we won't do is tell you a perimeter treatment will clear a German roach infestation in a kitchen. It won't, and you'd rightly be annoyed with us in six weeks.</p>
+
+<h2>Common questions</h2>
+
+<p><strong>Does seeing one roach mean there are hundreds?</strong> Depends on the species. One large American cockroach in the garage is often just a wanderer. One small German cockroach on a kitchen counter in daylight strongly suggests an established population.</p>
+
+<p><strong>Do roaches mean my house is dirty?</strong> No. German cockroaches arrive in grocery bags, cardboard boxes, secondhand appliances, and through shared walls in multi-family buildings. Spotless homes get them.</p>
+
+<p><strong>How long does it take to get rid of German cockroaches?</strong> Typically several weeks and more than one visit, because the treatment has to outlast the egg cases already in the walls. Anyone promising one visit is not being straight with you.</p>
+
+<p><strong>Why do I see them more at night?</strong> Roaches are nocturnal and avoid light. Daytime sightings generally indicate crowding.</p>
+
+<h2>Talk to us</h2>
+
+<p>Four generations of the Wedgworth family, protecting Alabama homes since 1958. If roaches have moved in — or keep wandering in — call <a href="tel:+12059406360">(205) 940-6360</a> for a free inspection, and we'll start by telling you which species you're actually dealing with.</p>
 `,
   },
 
@@ -854,41 +965,88 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'ant-control-alabama',
-    title: 'Ant Control in Alabama: Fire, Carpenter & House | EnviroCare',
-    excerpt: 'Spraying active ant trails backfires — it scatters the colony. Learn why bait-based treatment is the only approach that reaches the queen and ends the infestation.',
+    title: 'Ant Control in Alabama: Fire, Carpenter & Odorous House Ants',
+    excerpt: 'Spraying an ant trail scatters the colony and makes it worse. Why bait reaches the queen, how to tell the species apart, and which ones need their own treatment.',
     publishedAt: '2026-05-21',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Ants',
-    readMinutes: 4,
+    readMinutes: 8,
     heroEmoji: '🐜',
-    metaTitle: 'Ant Control in Alabama: Fire, Carpenter & House | EnviroCare',
-    metaDescription: 'Spraying active ant trails backfires. Alabama has fire ants, carpenter ants, Argentine ants, and more. Targeted bait reaches the queen and the colony.',
+    metaTitle: 'Ant Control in Alabama: Fire, Carpenter & House Ants | EnviroCare',
+    metaDescription: 'Identify Alabama ant species, why spraying trails backfires, how bait reaches the queen, and which ants need separate treatment from a standard pest plan.',
     body: `
-<p class="lede">Alabama hosts dozens of ant species — fire ants in the yard, Argentine ants in the kitchen, carpenter ants damaging wood, and odorous house ants trailing across counters. The most common mistake homeowners make is spraying the trails they can see. That kills foragers and scatters the colony into multiple new entry points.</p>
+<p class="lede">Here's the thing almost every homeowner gets wrong about ants: the ants you can see are the least important part of the problem. They're foragers — maybe five percent of the colony. Kill every one of them and the queen keeps producing replacements. That's why the spray under your sink stops working after a week.</p>
 
-<h2>Common Species</h2>
-<p><strong>Fire ants</strong> build mounds in your yard and sting aggressively when disturbed. <strong>Argentine ants</strong> invade kitchens in large numbers following established trails. <strong>Carpenter ants</strong> excavate galleries in moist wood — they can cause structural damage over years. <strong>Odorous house ants</strong> emit a rotting-coconut smell when crushed.</p>
+<h2>Why does spraying ant trails make it worse?</h2>
 
-<h2>The Spraying Problem</h2>
-<p>Spraying active ant trails kills the workers you see but signals the colony that the trail is compromised. Surviving workers release alarm pheromones, the colony scatters, and new trails emerge from different entry points within days. Over-the-counter sprays make infestations harder to treat by dispersing colonies.</p>
+<p>Contact sprays kill foragers on the spot, which feels like progress and actively works against you. Many ant species respond to a chemical threat with <strong>budding</strong> — the colony splits, and satellite colonies with their own reproductive females scatter to new locations. One kitchen problem becomes three problems in the walls.</p>
 
-<h2>How We Treat</h2>
-<p>Indoor ant control uses slow-acting bait that workers carry back to the colony and feed to the queen. The queen dies, the colony dies. Exterior perimeter barrier stops scouts before they establish new interior trails. For fire ants, broadcast bait covers the whole yard — not just visible mounds — so the entire property is treated.</p>
+<p>You've also destroyed the trail. That trail was the delivery route bait needed to reach the queen. Spraying it is, functionally, cutting the wire on the only tool that works.</p>
 
-<h2>Common Questions</h2>
+<h2>How does ant bait actually work?</h2>
 
-<h3>Why do ants keep coming back after I spray?</h3>
-<p>Spraying kills foragers but not the colony. Surviving workers often scatter the colony and create new entry points. Bait-based treatment reaches the queen — that's the only way to end the infestation.</p>
+<p>Bait works by exploiting how ants feed each other. A forager carries bait back to the nest and shares it through trophallaxis — mouth-to-mouth food exchange — which distributes it through the colony and, critically, to the queen. Kill the queen and the colony collapses. Nothing else does that.</p>
 
-<h3>Are carpenter ants as bad as termites?</h3>
-<p>They don't eat wood like termites, but they excavate galleries in moist or decayed wood. A mature colony can cause significant structural damage over years. Look for sawdust-like frass near baseboards as an early warning sign.</p>
+<p>This is why bait looks slower and isn't. You'll often see <em>more</em> ant activity for a few days as foragers recruit to the bait. That's the treatment working. Resist the urge to spray it, which is the single most common way homeowners undo their own ant treatment.</p>
 
-<p>Ant control is included in our bi-monthly plan — 30+ pests, starting at $35/month. Call today:</p>
+<h2>Which ants are common in Alabama?</h2>
+
+<h3>Odorous house ants</h3>
+
+<p>Small, dark brown to black, and named for the smell they give off when crushed — usually described as rotten coconut. These are the ants on your kitchen counter, and they're relentless about sweets. They nest in wall voids, under floors, and beneath slabs, and they bud aggressively when sprayed, which makes them a textbook case for bait.</p>
+
+<h3>Argentine ants</h3>
+
+<p>Light to medium brown, moving in dense, unmistakable trails. Argentine ants form supercolonies with many queens spread across huge areas, which is why they're persistent and why treating just the trail inside your house accomplishes very little.</p>
+
+<h3>Carpenter ants</h3>
+
+<p>The large black ants, up to half an inch. Carpenter ants don't eat wood — they excavate it to nest, preferring wood that's already been softened by moisture. Finding them indoors often points to a moisture problem: a roof leak, a bad window seal, a damp crawl space.</p>
+
+<p>The tell is <strong>frass</strong> — coarse sawdust mixed with insect parts, pushed out of the nest and piled below. If you find that, the moisture source needs correcting alongside the ant treatment, or they'll come back to the same softened wood.</p>
+
+<h3>Fire ants</h3>
+
+<p>Reddish-brown, aggressive, and the reason a lot of Alabama yards go unused. Fire ants swarm when the mound is disturbed and sting repeatedly, leaving the characteristic white pustule. Mounds appear as loose soil domes with no visible entrance hole — they enter through underground tunnels.</p>
+
+<p>Never kick or flood a mound. Both scatter the colony into multiple new mounds, and neither reaches the queen. Fire ants need a broadcast bait approach across the whole treatment area, not spot treatment of visible mounds.</p>
+
+<h2>Which ants does a standard pest plan cover?</h2>
+
+<p>Worth being precise about, because assumptions here cause real frustration. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers 30-plus household pests, including odorous house ants, Argentine ants, carpenter ants, and the other nuisance species that come inside. It starts at $35 a month and includes unlimited re-service between scheduled visits.</p>
+
+<p><strong>Fire ants are not included.</strong> They're a separate yard treatment — different product, different application method, priced by square footage with a $150 minimum — and it's available to anyone, whether or not you're on a pest plan. We'd rather say that plainly than have you discover it during a cookout.</p>
+
+<p>Carpenter bees, which people often ask about alongside carpenter ants, are a service we provide for existing customers.</p>
+
+<h2>How do you keep ants out?</h2>
+
+<p>Ants come inside for two reasons: food and water. Cut both and you become a much less attractive address.</p>
+
 <ul>
-<li>Birmingham — (205) 940-6360</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li>Wipe counters and sweep floors nightly — invisible sugar residue is the whole draw</li>
+<li>Store sugar, cereal, and pet food in sealed containers; a cardboard box is not a barrier</li>
+<li>Fix dripping taps and address condensation under sinks — moisture matters as much as food</li>
+<li>Take out the trash and rinse recycling; a soda can is a feast</li>
+<li>Seal gaps around pipes, cables, and window frames, and repair door sweeps</li>
+<li>Trim branches and shrubs touching the roof or siding — they're bridges over any perimeter treatment</li>
+<li>Pull mulch back from the foundation and keep firewood off the ground and away from the house</li>
 </ul>
+
+<h2>Common questions</h2>
+
+<p><strong>Why do ants suddenly appear after rain?</strong> Heavy rain floods soil nests, and colonies relocate — often into the dry structure next door, which is your house. Sudden indoor ant activity after a storm is one of the most predictable calls we get. We wrote more about this pattern in our guide to <a href="/blog/pests-after-rain-alabama">pests after rain in Alabama</a>.</p>
+
+<p><strong>Why are ants in my bathroom with no food there?</strong> Water. Bathrooms offer condensation, damp grout, and leaking traps, and that's enough on its own.</p>
+
+<p><strong>How long does ant treatment take to work?</strong> Bait-based treatment usually shows clear reduction within one to two weeks, with activity sometimes increasing in the first few days as foragers recruit.</p>
+
+<p><strong>Do I need to empty my kitchen cabinets?</strong> Usually not. Our technician will tell you what access is needed before starting.</p>
+
+<h2>Talk to us</h2>
+
+<p>Family-owned since 1958, four generations, serving Birmingham, Huntsville, and the Lake Martin area. If ants keep coming back no matter what you spray, call <a href="tel:+12059406360">(205) 940-6360</a> — we'll identify the species and treat for that species, which is the part the hardware store aisle can't do.</p>
 `,
   },
 
