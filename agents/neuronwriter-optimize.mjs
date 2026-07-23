@@ -22,6 +22,7 @@ import targetsData from './neuronwriter-targets.json' with { type: 'json' };
 import { analyzePageContent, scoreContent } from './lib/neuronwriter.mjs';
 import { logAgentRun } from './lib/supabase.mjs';
 import { remember, recall } from './lib/memory.mjs';
+import { createMessage } from './lib/llm-with-logging.mjs';
 
 const AGENT = 'neuronwriter-optimize';
 const MODEL = 'claude-sonnet-4-6';
@@ -93,10 +94,12 @@ async function rewrite({ keyword, baseText, terms, pass, lastScore, priorTerms =
     `CURRENT PAGE COPY (rewrite this — keep every price, phone number and fact identical):`,
     baseText.slice(0, 9000),
   ].join('\n');
-  const msg = await anthropic.messages.create({
+  // Routed through createMessage() for cost logging. This agent runs multiple
+  // rewrite passes per page, so it was one of the larger invisible spenders.
+  const msg = await createMessage(anthropic, {
     model: MODEL, max_tokens: 2800, system: COMPLIANCE,
     messages: [{ role: 'user', content: user }],
-  });
+  }, { agentName: 'neuronwriter-optimize', role: `rewrite-pass-${pass}` });
   return msg.content.filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
 }
 

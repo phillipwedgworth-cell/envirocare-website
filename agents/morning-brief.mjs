@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/morning-brief.mjs
+// Commit: fix(cost): route morning-brief through createMessage()
+// Push: main
+// ─────────────────────────────────
 // agents/morning-brief.mjs
 // THE STRATEGIST BRIEF — fills the command center's "Morning Brief" panel (the
 // morning_brief table). Reads the STRATEGY BRAIN (agents/knowledge/*.md — live
@@ -13,6 +19,7 @@
 
 import { logRunREST } from './lib/run-log.mjs';
 import { knowledgeBlock } from './lib/knowledge.mjs';
+import { createMessage } from './lib/llm-with-logging.mjs';
 
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
 const BASE = `https://${PROJECT_REF}.supabase.co/rest/v1`;
@@ -98,12 +105,14 @@ ${ctx.findingsBlock}
 
 Write today's Morning Brief.`;
 
-  const resp = await anthropic.messages.create({
+  // Routed through createMessage() so this call lands in agent_costs. Direct
+  // anthropic.messages.create() calls are invisible to the spend ledger.
+  const resp = await createMessage(anthropic, {
     model: MODEL,
     max_tokens: 900,
     system: SYSTEM,
     messages: [{ role: 'user', content: user }],
-  });
+  }, { agentName: 'morning-brief', role: 'brief' });
   return (resp.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
 }
 
