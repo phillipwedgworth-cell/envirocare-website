@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/seo-snapshot.mjs
+// Commit: fix(seo-snapshot): point at live v3 campaigns; v2 keys were paused since 6/30
+// Push: main
+// ─────────────────────────────────
 // agents/seo-snapshot.mjs
 // Deterministic Local Falcon -> Supabase ranking snapshot + weekly digest.
 // NO LLM (runs fine while Anthropic is capped). Pulls EXISTING campaign
@@ -15,11 +21,31 @@ const AGENT_NAME = "seo-monitor";
 const LF_API = "https://api.localfalcon.com/v1";
 
 // campaign_key -> location label (1 location per campaign; "Hoover"/"Pelham" etc. are keywords)
+//
+// GRID BASELINE BREAK (2026-07-23): these are the v3 campaigns. The v2 campaigns
+// they replace were PAUSED on 2026-06-30 and this file was still reading them,
+// so every snapshot since then re-reported frozen 6/30 numbers.
+//
+// v3 also changed the grid geometry (Birmingham: 5x5 @ 15mi -> 9x9 @ 20mi). A
+// wider, denser grid adds outer points where a single office can never rank, so
+// SoLV drops hard for reasons that have nothing to do with rankings:
+//   Birmingham  v2 53.86% (5x5/15mi, 6/30)  ->  v3 2.71% (9x9/20mi, 7/17)
+//   Lake Martin v2 47.50%                   ->  v3 44.49%
+//   Huntsville  v2  0.67%                   ->  v3  0.20%
+// DO NOT compare a v3 SoLV against a v2 SoLV. `baseline` below marks the epoch;
+// any consumer joining across a baseline change must treat it as a new series.
 const CAMPAIGNS = [
-  { key: "1822923e68f74d1", location: "Huntsville" },
-  { key: "b6d42c9c19856f2", location: "Birmingham/Alabaster" },
-  { key: "7d2a6df072df6f8", location: "Lake Martin/Alex City" },
+  { key: "a58db3090ac9ab0", location: "Huntsville",            grid: "9x9", radius_mi: 20, baseline: "v3" },
+  { key: "4ee47a23fc4793e", location: "Birmingham/Alabaster",  grid: "9x9", radius_mi: 20, baseline: "v3" },
+  { key: "a99dae3fd51a462", location: "Lake Martin/Alex City", grid: "9x9", radius_mi: 20, baseline: "v3" },
 ];
+
+// Retired — paused 2026-06-30, kept only so a stale key is recognizable, never fetched.
+const RETIRED_CAMPAIGNS = {
+  "1822923e68f74d1": "Huntsville v2 (paused)",
+  "b6d42c9c19856f2": "Birmingham v2 (paused)",
+  "7d2a6df072df6f8": "Lake Martin v2 (paused)",
+};
 
 function supa() {
   const url = process.env.SUPABASE_URL;
@@ -84,6 +110,8 @@ export async function run({ email = true } = {}) {
         location: c.location,
         keyword: k.keyword,
         campaign_key: c.key,
+        baseline: c.baseline,
+        grid: c.grid,
         arp: n2(k.arp),
         atrp: n2(k.atrp),
         solv: n2(k.solv),
@@ -95,6 +123,8 @@ export async function run({ email = true } = {}) {
     perLocation.push({
       location: c.location,
       campaign_key: c.key,
+      baseline: c.baseline,
+      grid: c.grid,
       run_date: date,
       agg_solv: n2(data.solv),
       keywords: rows.map((r) => ({ keyword: r.keyword, arp: r.arp, solv: r.solv })),
