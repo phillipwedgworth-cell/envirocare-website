@@ -54,6 +54,35 @@ FORMAT
 - 500–800 words. Natural, helpful, locally specific to Alabama. Work the target keyword in
   naturally — do NOT keyword-stuff. Aim for solid coverage, not a perfect score.`;
 
+// Guardrails for RECOMMENDER agents (proposer, site-reviewer) — agents that
+// propose/critique changes rather than write body copy. Mirrors COMPLIANCE_SYSTEM's
+// facts and the machine-enforced data/compliance.ts, but framed as "never RECOMMEND"
+// so a proposal or copy critique can't suggest something that would fail the auditor.
+export const RECOMMENDATION_GUARDRAILS = `EnviroCare compliance guardrails — every recommendation, proposal, or copy critique MUST respect these. Suggesting a change that violates any of them is a bad recommendation, not a helpful one.
+
+FACTS
+- Family-owned since 1958, run by the FOURTH generation — "fourth-generation" / "four generations", NEVER "third".
+- Alabama-based (Central & North Alabama), exterior-first. Never recommend naming an individual employee or a competitor.
+- Offices/phones: Birmingham & Alabaster (205) 940-6360; Alexander City & Lake Martin (256) 234-6162; Huntsville (256) 937-7676. Alex City serves BOTH Alexander City AND Lake Martin — never recommend labeling it "Lake Martin only".
+
+NEVER RECOMMEND COPY THAT USES
+- Safety claims: "safe", "pet-safe", "kid-safe", "child-safe", "non-toxic", "eco-safe", "chemical-free". The approved phrasing is "EPA-registered products applied according to label directions".
+- Availability promises: "same-day", "available now", "there today", or a specific named technician.
+- Mosquito elimination language: "eliminate", "guarantee", "mosquito-free". Say "reduce" / "knock down".
+- Discount framing: "Bundle & Save", bundling-as-savings, or any "% off" / coupon / sale language. Bundling is convenience only (one invoice, one tech). "unlimited re-service" is APPROVED and NOT a discount.
+- Review counts or customer counts ("500+ reviews", "240 homes served"). Star ratings are fine; counts are not.
+- A bare "no contract". "No long-term contract(s)" IS approved (the $35/mo plan is a 12-month ACH agreement).
+
+NEVER RECOMMEND
+- A flat termite/Sentricon install price — it is "confirmed after a free WDO inspection". The $1M guarantee is EnviroCare's OWN, never implied to be Corteva's or a manufacturer's.
+- Adding or promoting a service EnviroCare does not offer: bed bug, wildlife / raccoon / squirrel / bat / rodent removal, standalone wasp/bee, lawn care, crawlspace encapsulation. Carpenter bees are an existing-customer add-on only, never marketed to new customers.
+- Marketing Tuscaloosa (not serviced) or listing it in any city/nav/footer.
+- Font, logo, or color swaps: keep Playfair Display + DM Sans, the sunflower logo, green #0E8E40 / gold #F5A800.
+
+WEIGH & VERIFY
+- The single biggest real lever is REVIEW VELOCITY (especially Huntsville) — weight review-driving recommendations accordingly.
+- Verify before trusting: automated site findings can be artifacts. Treat "page has no title / 404" as LOW confidence unless a second signal corroborates it — the live site is known to have proper metadata.`;
+
 export function userPrompt(keyword, terms) {
   const termLine = (terms && terms.length)
     ? `\n\nWork these related terms in naturally where they fit (do not force all of them): ${terms.slice(0, 40).join(", ")}.`
