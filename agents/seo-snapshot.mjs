@@ -1,7 +1,7 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/seo-snapshot.mjs
-// Commit: fix(seo-snapshot): point at live v3 campaigns; v2 keys were paused since 6/30
+// Commit: fix(seo-snapshot): stop logging under the seo-monitor identity
 // Push: main
 // ─────────────────────────────────
 // agents/seo-snapshot.mjs
@@ -17,7 +17,7 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-const AGENT_NAME = "seo-monitor";
+const AGENT_NAME = "seo-snapshot";
 const LF_API = "https://api.localfalcon.com/v1";
 
 // campaign_key -> location label (1 location per campaign; "Hoover"/"Pelham" etc. are keywords)

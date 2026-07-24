@@ -1,7 +1,7 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/watchdog.mjs
-// Commit: feat(agents): watchdog + Vercel health + daily budget guard
+// Commit: fix(watchdog): agent_costs uses recorded_at + coalesce usd_cost/cost_usd
 // Push: main
 // ─────────────────────────────────────
 //
@@ -92,12 +92,19 @@ async function budgetCheck(lines, problems) {
   // (a) Daily $ spend.
   try {
     const since = new Date(); since.setUTCHours(0, 0, 0, 0);
+    // Live agent_costs uses `recorded_at`, not `created_at` -- the old
+    // .gte('created_at', ...) was a phantom column and this whole check has
+    // been silently landing in the catch below. The cost column is ALSO
+    // ambiguous: the base table has `cost_usd` while llm-with-logging.mjs and
+    // lib/llm-cost-log.ts both write `usd_cost` (added by the duration_ms
+    // migration). select('*') avoids naming a column that may not exist, and
+    // the sum coalesces across both spellings.
     const { data, error } = await supabase.from('agent_costs')
-      .select('agent_name,usd_cost,created_at').gte('created_at', since.toISOString());
+      .select('*').gte('recorded_at', since.toISOString());
     if (error) {
       lines.push(`budget   skipped — agent_costs read failed (${error.message})`);
     } else {
-      const total = (data ?? []).reduce((s, r) => s + Number(r.usd_cost || 0), 0);
+      const total = (data ?? []).reduce((s, r) => s + Number(r.usd_cost ?? r.cost_usd ?? 0), 0);
       const tag = total > DAILY_USD_BUDGET ? 'OVER  ' : 'ok    ';
       lines.push(`budget   ${tag} AI spend today $${total.toFixed(2)} / $${DAILY_USD_BUDGET.toFixed(2)} cap`);
       if (total > DAILY_USD_BUDGET) problems.push(`AI spend $${total.toFixed(2)}`);
