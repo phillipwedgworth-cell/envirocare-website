@@ -31,7 +31,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
-import ChatWidget from '../components/ChatWidget';
+import ChatWidgetLazy from '../components/ChatWidgetLazy';
 import Header from '../components/shared/Header';
 import America250Banner from '../components/America250Banner';
 import Footer from '../components/shared/Footer';
@@ -267,14 +267,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
-        <ChatWidget />
+        <ChatWidgetLazy />
 
         {/* Google Analytics 4 — G-CELEB90NKX */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CELEB90NKX"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -335,7 +335,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
 
         {/* Meta Pixel — envirocare main page (ID: 1945518562226719) */}
-        <Script id="fb-pixel" strategy="afterInteractive">
+        <Script id="fb-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

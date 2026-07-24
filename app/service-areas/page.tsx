@@ -136,7 +136,7 @@ export default function ServiceAreasPage() {
               </div>
               <div className="wws-office-card">
                 <div className="wws-office-imgwrap">
-                  <img className="wws-office-img" src="/huntsville-saturn-v.webp" alt="EnviroCare Huntsville / Madison office service area" />
+                  <img className="wws-office-img" src="/huntsville-saturn-v.webp" alt="EnviroCare Huntsville / Madison office service area" width={1200} height={933} loading="lazy" decoding="async" />
                   <span className="wws-office-badge">North Alabama</span>
                 </div>
                 <div className="wws-office-body">

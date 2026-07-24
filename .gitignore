@@ -19,3 +19,4 @@ gen-lang-client-*.json
 
 # NeuronWriter / audit script output (regenerated, not source)
 audit-results/
+_img_originals_precompress_*
