@@ -1332,158 +1332,265 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
   {
     slug: 'mosquito-season-birmingham-al',
-    title: 'Mosquito Season in Alabama: When to Start Treatment for Best Results',
-    excerpt: 'Mosquito season in Alabama runs April through October. Starting in April — before the season builds — is the single biggest factor in having a usable yard all summer.',
+    title: 'Mosquito Season in Alabama: When to Start for Best Results',
+    excerpt: 'Alabama mosquito season runs March through November. Starting early — before the population compounds — is the single biggest factor in how well control works.',
     publishedAt: '2026-03-01',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 8,
     heroEmoji: '🦟',
     metaTitle: 'Mosquito Season in Alabama: When to Start Treatment | EnviroCare',
-    metaDescription: 'Mosquito season in Alabama runs April through October. Starting treatment in April suppresses breeding populations before they explode.',
+    metaDescription: 'When Alabama mosquito season starts, why early treatment outperforms mid-season, how barrier treatment works, and what mosquito control can and cannot do.',
     body: `
-<p class="lede">In Alabama, mosquito season is long. It typically runs from April through October, and in a mild year the first bites arrive in March and the last ones linger into November. The single biggest factor in whether you actually get to use your yard all summer isn't which product goes down — it's when you start.</p>
+<p class="lede">Most people call us about mosquitoes in late June, standing in a backyard they've stopped using. By then the population has been doubling on itself since March. Starting earlier isn't a sales pitch — it's the single biggest variable in how well the whole season goes.</p>
 
-<h2>When mosquito season starts in Alabama</h2>
-<p>Mosquitoes become active once nighttime temperatures hold above about 50°F, which in the Birmingham area usually means early April. Populations then build through the warm, wet late spring, peak in the heat and humidity of June through August, and taper off through October. Along the water — Lake Martin, the Coosa, the Tennessee River up near Huntsville — the season tends to run a little longer and heavier.</p>
+<h2>When is mosquito season in Alabama?</h2>
 
-<h2>Why April is the month that matters</h2>
-<p>Mosquitoes breed in standing water, and a single female can lay hundreds of eggs at a time. Early in the season the population is small. Wait until you're already getting bitten in June, and you're fighting several generations that have compounded on top of each other. Starting treatment in April knocks the population down while it's still low, so it never reaches that explosive midsummer peak. It's the difference between staying ahead of the problem and constantly chasing it.</p>
+<p>Alabama mosquito season effectively runs March through November. Mosquitoes become active once temperatures hold consistently above about 50°F, breeding accelerates sharply past 70°F, and activity doesn't meaningfully stop until sustained cold in late fall. That's a nine-month season — considerably longer than most of the country, and the reason our treatment program is built as nine treatments rather than a summer add-on.</p>
 
-<h2>Where mosquitoes actually breed in your yard</h2>
-<p>You don't need a pond — you need a bottle cap of water for four or five days. The usual culprits we find: clogged gutters, plant saucers, tarps and toys that hold rain, corrugated drainpipe, bird baths, buckets, and the low spots that stay damp after a storm. The single most effective free thing you can do is walk your property once a week and dump anything holding water. Professional treatment handles the mosquitoes you can't; source reduction handles the ones you're accidentally raising.</p>
+<h2>Why does starting early matter so much?</h2>
 
-<h2>What professional mosquito control does</h2>
-<p>Our seasonal program treats the shaded, humid resting areas where adult mosquitoes spend their day — the undersides of leaves, dense shrubs, fence lines, and mulch beds — using EPA-registered products applied strictly to label directions. We service every three to four weeks through the season, March through November. It's important to be honest about what this does: mosquito control is about significant reduction and control, not elimination. No treatment removes every mosquito, and any company promising otherwise is overselling. What we will always do, though, is stand behind the service — if mosquitoes bounce back between scheduled visits, we come back and re-treat at no charge.</p>
+<p>Because mosquito populations compound. A single female lays 100 to 300 eggs at a time, and in Alabama's summer heat a mosquito goes from egg to biting adult in about 8 to 10 days. That's a new generation roughly every week and a half, each one larger than the last.</p>
 
-<h2>Adding tick and chigger coverage</h2>
-<p>Because the same shaded, brushy zones that harbor mosquitoes also harbor ticks and chiggers, many customers add our <a href="/services/tick-control">mosquito-plus-tick program</a>. It covers the yard for all three and is a good fit for homes backing up to woods or tall grass. (It doesn't cover fleas — those need a separate interior approach.)</p>
+<p>Treat in March or April and you're suppressing a small founding population before it multiplies. Wait until late June and you're fighting six or eight compounded generations — the same treatment, applied to a vastly larger problem, producing a visibly worse result. Same product, same technician, different outcome, purely because of timing.</p>
 
-<h2>What it costs</h2>
-<p>Our mosquito service runs about $45 per treatment across the roughly nine-month season, which works out to around $33.75 a month when spread across the year. Adding tick and chigger coverage brings it to about $48.75 a month. There are no long-term contracts, and the free re-treatment between visits is included.</p>
+<h2>What mosquito control can and cannot do</h2>
 
-<p>If you want a usable yard this summer, the move is to get on the schedule before the season builds — ideally in early spring. <a href="/services/mosquito">Set up seasonal mosquito control</a> or call (205) 940-6360. No One Cares Like EnviroCare.</p>
+<p>Mosquito control means significant, noticeable reduction — not elimination. We want to be straight about that, because it's where a lot of frustration in this industry comes from.</p>
+
+<p>Your yard isn't sealed. Mosquitoes fly in from the neighbor's untreated property, from a drainage ditch down the street, from the creek behind the subdivision. What a well-run program does is knock down the population breeding and resting on <em>your</em> property and keep it suppressed, so the yard becomes usable again. Anyone promising a mosquito-free yard is describing something the biology doesn't support.</p>
+
+<h2>How does mosquito barrier treatment work?</h2>
+
+<p>Barrier treatment targets the shaded, humid places where adult mosquitoes rest during the day — not the open air. Mosquitoes are poor fliers and spend most of daylight hours motionless on the undersides of leaves, in dense shrubs, under decks, along fence lines, in ivy and monkey grass, and in the shaded strip behind the garage.</p>
+
+<p>A technician treats those resting sites directly, along with breeding sites where standing water can't be eliminated. Products are EPA-registered and applied according to label directions. The treatment continues working on the resting surfaces between visits, which is why the schedule matters more than the intensity of any single application.</p>
+
+<h2>Which mosquitoes are in Alabama?</h2>
+
+<p>Two groups matter for most homeowners. The <strong>Asian tiger mosquito</strong> is the black-and-white striped one that bites during the day, breeds in astonishingly small containers, and rarely travels more than a couple hundred yards from where it hatched — which means if it's biting you, it almost certainly hatched on or near your property. That's the good news: it's the most treatable mosquito you have.</p>
+
+<p><strong>Culex</strong> mosquitoes bite at dusk and after dark, breed in stagnant water with organic material, and are the group associated with West Nile virus in Alabama. They travel farther, which makes them somewhat harder to control from your yard alone.</p>
+
+<h2>Where is standing water hiding in your yard?</h2>
+
+<p>Asian tiger mosquitoes can complete their cycle in a bottle cap's worth of water. The usual suspects on Alabama properties:</p>
+
+<ul>
+<li>Clogged gutters — the single most overlooked breeding site on most homes</li>
+<li>Plant saucers under potted plants, and the plants themselves in bromeliads</li>
+<li>Corrugated downspout extensions, which hold water in every ridge</li>
+<li>Tarps, boat and grill covers, and trampoline pads with sagging low spots</li>
+<li>Children's toys, wheelbarrows, buckets, and upturned trash can lids</li>
+<li>Tree holes, French drain outlets, and low spots that hold water for a week after rain</li>
+<li>Pet bowls and bird baths that aren't dumped and refilled at least weekly</li>
+</ul>
+
+<p>Walking the yard after a rain and dumping everything that holds water is genuinely the highest-value free thing you can do. It also multiplies the effect of treatment, because you've removed the nursery rather than just the adults.</p>
+
+<h2>What does mosquito service cost in Alabama?</h2>
+
+<p>Our mosquito program runs about $45 per treatment across nine treatments, March through November — roughly $33.75 a month when spread evenly across the year. Adding tick and chigger coverage brings it to about $65 per treatment, or roughly $48.75 a month.</p>
+
+<p>Both are their own services rather than part of the bi-monthly pest plan, because mosquito work uses different products, different equipment, and a different treatment map than interior and perimeter pest control.</p>
+
+<h2>Common questions</h2>
+
+<p><strong>How long does a mosquito treatment last?</strong> Treatments are scheduled roughly every three weeks through the season, which is set to the mosquito life cycle rather than the calendar. Heavy rain shortly after an application can reduce residual, and if that happens we'll come back out.</p>
+
+<p><strong>Do those citronella candles and yard sprays work?</strong> They create small, brief effects near the source. They don't reduce the breeding population, so nothing carries over to tomorrow. That's the core difference between repelling and controlling.</p>
+
+<p><strong>Do mosquito misting systems work better?</strong> They apply more often, but they apply on a timer rather than to the resting sites that matter, and they don't address breeding. We'd rather treat the right places on the right schedule.</p>
+
+<p><strong>Is it too late to start in July?</strong> No — it just means the first couple of treatments are working harder against a bigger population. Most families see a clear difference within two to three visits.</p>
+
+<h2>Talk to us</h2>
+
+<p>Family-owned since 1958, four generations, serving Birmingham, Huntsville, and Lake Martin. To get on the schedule before the season compounds, <a href="/services/mosquito">set up seasonal mosquito control</a> or call <a href="tel:+12059406360">(205) 940-6360</a>.</p>
 `,
   },
 
   {
     slug: 'how-to-identify-termites-alabama',
     title: 'How to Identify Termites in Your Alabama Home',
-    excerpt: 'Knowing how to spot termites is the difference between a free inspection and a five-figure repair. Here are the signs every Alabama homeowner should recognize.',
+    excerpt: 'Alabama sits in the highest termite pressure zone in the country, and homeowners insurance excludes the damage. Here is exactly what to look for.',
     publishedAt: '2026-05-19',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Termites',
-    readMinutes: 8,
-    heroEmoji: '🔍',
+    readMinutes: 9,
+    heroEmoji: '🪵',
     metaTitle: 'How to Identify Termites in Your Alabama Home | EnviroCare',
-    metaDescription: 'How to identify termites in Alabama — mud tubes, hollow wood, discarded wings, swarmers — and how to tell termites from flying ants. Free inspection.',
+    metaDescription: 'Mud tubes, discarded wings, hollow-sounding wood, and swarmers — the signs of termites in Alabama homes, how to tell termites from flying ants, and what to do next.',
     body: `
-<p class="lede">By the time most Alabama homeowners realize they have termites, the colony has usually been feeding for months — sometimes years. The insects work silently, inside walls and under floors, and Alabama's warm, humid climate lets them stay active nearly year-round. Learning to read the warning signs early is the difference between a free inspection and a five-figure repair.</p>
+<p class="lede">Alabama sits in the "very heavy" termite pressure zone — the highest category on the national termite infestation probability map. Your homeowners insurance almost certainly excludes the damage, because insurers classify termite activity as preventable maintenance. That combination is why knowing the signs matters more here than almost anywhere else.</p>
 
-<p>These are the signs we look for on every inspection, in the order homeowners tend to notice them.</p>
+<h2>What are the signs of termites in a house?</h2>
 
-<h2>The four warning signs of termites in Alabama homes</h2>
-<p>Subterranean termites — the species responsible for about 95% of the damage in our state — leave four tells: mud tubes, discarded wings, hollow or blistered wood, and swarmers. Any one of them means it's time for an inspection. Two or more, and you almost certainly have an active colony.</p>
+<p>The four reliable signs of subterranean termites are mud tubes on foundation walls, discarded wings near windows and doors, wood that sounds hollow when tapped, and swarming insects in late winter or spring. Any one of them justifies an inspection.</p>
 
-<h2>Mud tubes — the single clearest sign</h2>
-<p>Subterranean termites dry out and die in open air, so they build pencil-width tunnels of mud and saliva to travel between the soil and your wood. You'll find these tubes running up foundation walls, along piers, inside crawl spaces, and up the outside of slab foundations. Break a small section open: if it's rebuilt within a few days, the colony is active. Mud tubes are the reason our technicians always check the foundation line first.</p>
+<h3>1. Mud tubes</h3>
 
-<h2>Discarded wings and swarmers</h2>
-<p>Once a year — in Alabama, usually between mid-March and late May, on the first warm afternoon after a good rain — a mature colony releases winged reproductives called swarmers. They fly a short distance, drop their wings, and try to start new colonies. If you find a small pile of identical translucent wings on a windowsill, near a door, or around a light fixture, that's a swarm. Finding swarmers inside your home is the most urgent sign there is: it means a colony is already established in or under the structure.</p>
+<p>Pencil-width tunnels of soil and saliva running up foundation walls, piers, and crawl space supports. Subterranean termites dry out in open air, so they build covered highways between the soil and the wood they're eating. This is the most definitive sign there is.</p>
 
-<h2>Hollow or blistered wood — what termite damage looks like</h2>
-<p>Termites eat wood from the inside out, following the grain and leaving a thin outer shell. Tap along baseboards, door frames, and window sills with a screwdriver handle. Sound wood is solid; damaged wood sounds papery or hollow, and sometimes the surface looks blistered or rippled, almost like water damage. In advanced cases you'll see sagging floors, doors and windows that stick, or paint that bubbles. That kind of visible damage means the problem is well past its early stage.</p>
+<p>To check whether a tube is active, break a small section out and come back in a few days. If it's been repaired, the colony is working. If it stays broken, it may be old — but old tubes still mean termites found your house once, and that alone is worth an inspection.</p>
 
-<h2>The early signs most homeowners miss</h2>
-<p>Before any of the obvious signs show up, there are quieter ones: faint mud spotting at the base of a wall, tiny pinholes in drywall with a speck of dirt around them, a musty odor in a closet or crawl space, or frass (termite droppings that look like fine sawdust or coffee grounds) below drywood-termite galleries. Homeowners often mistake these for ordinary house wear. When we catch a problem at this stage, the repair conversation is usually a very different one.</p>
+<h3>2. Discarded wings</h3>
 
-<h2>Termite swarmers vs. flying ants</h2>
-<p>Every spring we get calls about "flying ants" that turn out to be termites, and vice versa. Three quick tells: a termite has a straight, thick waist while an ant is pinched in the middle; termite antennae are straight, ant antennae are bent; and a termite's four wings are all the same length, while an ant's front wings are noticeably longer than the back pair. When in doubt, save a few in a bag and let us look — it costs you nothing and settles the question.</p>
+<p>Small piles of translucent wings on window sills, in spider webs, along baseboards, or near door thresholds. After a swarm, termites shed their wings — all four the same length, which is a distinguishing detail. Finding wings inside is significant: it means the swarm happened in your home, not outside it.</p>
 
-<h2>What waiting actually costs</h2>
-<p>Termites cause billions in property damage across the U.S. every year, and homeowners insurance almost never covers it, because it's classified as preventable. Alabama's clay soils and long warm season put our homes at higher-than-average risk. The math is simple: an inspection is free, and treatment is a fraction of what structural repairs cost once damage is done.</p>
+<h3>3. Hollow-sounding or damaged wood</h3>
 
-<h2>What to do if you find signs</h2>
-<p>Don't disturb the area more than you already have, and don't spray it — over-the-counter products can scatter a colony and make professional treatment harder. Call us for a free inspection. If we confirm activity, we typically recommend the <a href="/services/termite-control">Sentricon® bait system</a>: no drilling, no tank trucks in your yard, and up to $1 million in repair coverage backed by our own guarantee. Every termite recommendation is made subject to a full inspection of your specific home.</p>
+<p>Termites eat wood from the inside out, following the soft grain and leaving the surface intact. Tap along baseboards, door frames, window sills, and floor joists with a screwdriver handle — a papery or hollow sound where you expect solid wood is a warning. Related signs: paint that bubbles or looks water-damaged with no water source, floors that feel spongy, doors and windows that have suddenly started sticking.</p>
 
-<p>Four generations of the Wedgworth family have been protecting Alabama homes since 1958. If you've seen even one of the signs above, <a href="/services/termite-control">start with a free termite inspection</a> — call (205) 940-6360.</p>
+<h3>4. Swarmers</h3>
+
+<p>Winged termites emerging indoors, usually on a warm day after rain from February through May in Alabama. A swarm is a mature colony sending out reproductives — meaning the colony has been established long enough to reproduce, typically three to five years.</p>
+
+<h2>Termites vs. flying ants — how do you tell them apart?</h2>
+
+<p>This is the single most common misidentification, and it matters because one costs you a nuisance and the other costs you a floor joist. Three things to look at:</p>
+
+<ul>
+<li><strong>Waist:</strong> termites have a straight, thick body with no pinch. Ants have an obvious narrow waist.</li>
+<li><strong>Wings:</strong> a termite's four wings are all the same length and noticeably longer than its body. An ant's front wings are clearly larger than the back pair.</li>
+<li><strong>Antennae:</strong> termite antennae are straight and beaded. Ant antennae are bent, with a distinct elbow.</li>
+</ul>
+
+<p>If you're unsure, tape one to an index card and hold onto it. That's plenty for our technicians to make a positive ID.</p>
+
+<h2>Which termites are in Alabama?</h2>
+
+<p>The Eastern subterranean termite is the species responsible for the overwhelming majority of Alabama termite damage. It lives in soil, builds mud tubes to reach wood, and maintains colonies that can number in the hundreds of thousands.</p>
+
+<p>Formosan subterranean termites — a considerably more aggressive introduced species with much larger colonies — are established along the Gulf Coast and have been documented moving northward. Drywood termites, which don't require soil contact, are far less common in our part of the state.</p>
+
+<h2>Where should you look for termites?</h2>
+
+<p>Start where wood is closest to soil and moisture:</p>
+
+<ul>
+<li>The full perimeter of the foundation, inside and out, checking for tubes</li>
+<li>Crawl space piers, sills, and floor joists</li>
+<li>Around water heaters, HVAC condensate lines, and under sinks</li>
+<li>Where porches, decks, and steps attach to the house</li>
+<li>Window and door frames, especially on the shaded side of the home</li>
+<li>Garage door frames where they meet the slab</li>
+</ul>
+
+<p>Also worth correcting, because these conditions are what invite termites in: wood mulch piled against siding, firewood stacked against the house, downspouts discharging at the foundation, and any wood-to-soil contact — deck posts, fence rails, trellises.</p>
+
+<h2>What should you do if you find signs of termites?</h2>
+
+<p>Don't disturb the area more than you already have, and don't spray it. Over-the-counter products can scatter a colony into new areas of the structure and make the eventual treatment harder without ever reaching the nest. Photograph what you found, leave it alone, and get an inspection.</p>
+
+<p>The arithmetic is simple: an inspection costs nothing, and treatment is a fraction of what structural repairs cost once damage is done.</p>
+
+<h2>How does EnviroCare treat termites?</h2>
+
+<p>When an inspection confirms activity, we typically recommend the <a href="/services/termite-control">Sentricon® bait system</a> — stations installed in the soil around the home, with no drilling through your slab and no trenching across your yard. The colony carries the bait back and the system stays in place, monitored and serviced, rather than depending on a liquid barrier that degrades over the years.</p>
+
+<p>Monitoring runs about $32 a month, and installation pricing is confirmed after a free inspection — every structure is different, and we will not quote one we have not looked at. Coverage includes up to $1,000,000 in damage protection, <strong>backed by EnviroCare's own guarantee</strong>, and it transfers when the home sells. All termite pricing and coverage is subject to inspection.</p>
+
+<h2>Common questions</h2>
+
+<p><strong>When do termites swarm in Alabama?</strong> Typically February through May, most often on a warm afternoon after rain.</p>
+
+<p><strong>Does homeowners insurance cover termite damage?</strong> Essentially never. Insurers treat it as preventable maintenance and exclude it from standard policies.</p>
+
+<p><strong>How fast do termites cause damage?</strong> Slower than the internet suggests — meaningful structural damage generally takes years, not months. The problem is that colonies typically operate undetected for those years.</p>
+
+<p><strong>I had a treatment years ago. Am I still protected?</strong> Only if the agreement is current. Liquid barriers degrade, and coverage often lapses on a missed renewal without anyone calling you. Our guide to <a href="/blog/termite-bond-alabama-explained">termite bonds in Alabama</a> walks through how to check.</p>
+
+<h2>Talk to us</h2>
+
+<p>Four generations of the Wedgworth family have protected Alabama homes since 1958, from Birmingham and Alabaster to Huntsville and Lake Martin. If you've seen even one of the signs above, <a href="/services/termite-control">start with a free termite inspection</a> — or call <a href="tel:+12059406360">(205) 940-6360</a>.</p>
 `,
   },
 
   {
     slug: 'tick-control-alabama',
-    title: 'Tick Control in Alabama: Lone Star Ticks, Alpha-Gal & Protecting Your Yard',
-    excerpt: 'Alabama yards back up to the woods, and that edge is where ticks wait. Here\'s how to identify the three that matter, the real disease risk (including alpha-gal), and how to treat the yard without blanketing the whole lawn.',
+    title: 'Tick Control in Alabama: Lone Star Ticks, Alpha-Gal & Your Yard',
+    excerpt: 'Alabama yards back up to the woods, and that edge is where ticks wait. Which species live here, what they carry, and why yard treatment targets the tree line.',
     publishedAt: '2026-05-22',
+    updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
     category: 'Ticks',
-    readMinutes: 5,
-    heroEmoji: '🐾',
-    metaTitle: 'Alabama Tick Control: Lone Star Ticks & Alpha-Gal | EnviroCare',
-    metaDescription: 'Alabama tick control done right — identify lone star, American dog & deer ticks, understand alpha-gal risk, treat yard harborage. (205) 940-6360.',
+    readMinutes: 8,
+    heroEmoji: '🕷️',
+    metaTitle: 'Tick Control in Alabama: Lone Star Ticks & Alpha-Gal | EnviroCare',
+    metaDescription: 'Alabama tick species, alpha-gal syndrome from lone star tick bites, how to remove a tick correctly, and why yard treatment focuses on the wood line.',
     body: `
-<p class="lede">If your Alabama yard backs up to woods, a creek, or even a thick hedge line, you have ticks — whether you've seen one or not. They don't roam the open lawn; they wait at the edges where the mowed grass meets the wild, questing on tall blades for a host to brush past. For families with kids and dogs, that edge is the problem.</p>
+<p class="lede">Ticks don't wander into open lawn. They wait at the edge — the strip where mowed grass meets woods, ivy, or tall brush — and they climb onto whatever brushes past. In Alabama, where a huge share of homes back up to trees, that edge is often twenty feet from where your kids play.</p>
 
-<p>We've treated North and Central Alabama yards for ticks for four generations. Here's what's actually out there, why it matters more than most people realize, and how to bring the pressure down.</p>
+<h2>What ticks live in Alabama?</h2>
 
-<h2>The three Alabama ticks that matter</h2>
-
-<ul>
-<li><strong>Lone Star tick</strong> — by far the most common in Alabama. The adult female has a single white dot on her back. Aggressive and fast-moving; it actively pursues a host rather than waiting passively. This is the one behind most of the bites we hear about.</li>
-<li><strong>American dog tick</strong> — larger and brown, common in grassy areas and along trail margins. The primary carrier of Rocky Mountain spotted fever in the Southeast.</li>
-<li><strong>Black-legged ("deer") tick</strong> — smaller, and the carrier of Lyme disease. Less common in Alabama than further north, but established and increasing.</li>
-</ul>
-
-<h2>Why a tick is more than a nuisance</h2>
-
-<p>A tick bite isn't just itchy — it's the delivery method for several real illnesses:</p>
+<p>Alabama has five tick species that regularly bite people: the lone star tick, the American dog tick, the blacklegged (deer) tick, the brown dog tick, and the Gulf Coast tick. The lone star tick is by far the most common across North and Central Alabama, and it's the most aggressive — unlike most ticks, it will actively move toward a host rather than wait.</p>
 
 <ul>
-<li><strong>Alpha-gal syndrome</strong> — a red-meat allergy linked to the lone star tick that can develop after a single bite. It's increasingly diagnosed across the Southeast, and Alabama is squarely in the hot zone.</li>
-<li><strong>Ehrlichiosis and STARI</strong> — both associated with the lone star tick; flu-like illness that needs prompt treatment.</li>
-<li><strong>Rocky Mountain spotted fever</strong> — from the American dog tick; serious if not caught early.</li>
-<li><strong>Lyme disease</strong> — from the black-legged tick; present in Alabama and on the rise.</li>
+<li><strong>Lone star tick</strong> — reddish-brown; the adult female has a single white dot on her back. Active spring through fall. The species behind alpha-gal syndrome.</li>
+<li><strong>American dog tick</strong> — larger, brown with mottled grey-white markings. Peaks in spring and early summer. Associated with Rocky Mountain spotted fever.</li>
+<li><strong>Blacklegged / deer tick</strong> — much smaller, dark legs, no markings. Nymphs are the size of a poppy seed, which is exactly why they go unnoticed.</li>
+<li><strong>Brown dog tick</strong> — the one species that can complete its whole life cycle indoors, usually in homes with dogs.</li>
+<li><strong>Gulf Coast tick</strong> — similar to the dog tick, more common in the southern half of the state.</li>
 </ul>
 
-<p>None of that is meant to alarm you — most bites don't transmit disease. But it's why we treat ticks as a health issue, not a cosmetic one, especially in homes with children and pets.</p>
+<h2>What is alpha-gal syndrome?</h2>
 
-<h2>Where ticks actually live in your yard</h2>
+<p>Alpha-gal syndrome is an allergy to red meat that can develop after a bite from a lone star tick. The tick's saliva introduces a sugar molecule called alpha-gal, and some people's immune systems begin treating that molecule as a threat — so beef, pork, lamb, and often dairy and gelatin start triggering allergic reactions. The reaction is characteristically delayed, appearing three to six hours after eating rather than immediately, which is a large part of why it goes undiagnosed for so long.</p>
 
-<p>This is the part most homeowners get wrong. Ticks don't live in the middle of a sunny, mowed lawn — it's too hot and dry for them. They concentrate in <strong>harborage zones</strong>:</p>
+<p>Alabama sits inside the region where this is most frequently reported, and it's part of why lone star ticks warrant more attention here than in most of the country. If you've been bitten and later develop hives, stomach upset, or swelling hours after a meal with red meat, that's worth raising with a doctor specifically — including the tick bite, because the delay makes the connection easy to miss.</p>
 
-<ul>
-<li>The shaded transition where lawn meets woods or a fence line</li>
-<li>Leaf litter, pine straw, and ground-cover beds</li>
-<li>Tall grass and weedy margins along trails, creeks, and ditches</li>
-<li>Around woodpiles, ornamental grasses, and stone walls where rodents nest</li>
-</ul>
+<h2>What other diseases do Alabama ticks carry?</h2>
 
-<p>Lake homes on Lake Martin, Smith Lake, and the Tennessee River tributaries get heavy pressure because the wooded, leaf-littered lots are perfect habitat — and the deer and rodents that carry ticks move right through them.</p>
+<p>Beyond alpha-gal, the tick-borne illnesses reported in Alabama include Rocky Mountain spotted fever, ehrlichiosis, STARI (southern tick-associated rash illness), and tularemia. Lyme disease is documented here but uncommon compared with the Northeast.</p>
 
-<h2>What you can do yourself</h2>
+<p>The practical version: a tick bite followed within two weeks by fever, headache, deep muscle aches, or an expanding rash is a reason to call a doctor and mention the bite. These illnesses respond well to prompt treatment and poorly to waiting.</p>
 
-<ol>
-<li>Keep the lawn mowed short and create a 3-foot mulch or gravel border between the lawn and any woods or beds — ticks won't readily cross dry, open ground.</li>
-<li>Rake and remove leaf litter, and keep ornamental grasses and brush trimmed back.</li>
-<li>Keep pets on a vet-recommended tick preventive year-round — pets are the most common way ticks ride indoors.</li>
-<li>For body protection in the yard or on the trail, an EPA-registered repellent with DEET or picaridin works; tuck pant legs into socks.</li>
-<li>Do a tick check after time outdoors — especially the hairline, behind the knees, and the waistband.</li>
-</ol>
+<h2>How do you remove a tick correctly?</h2>
 
-<h2>How we treat ticks</h2>
+<p>Use fine-tipped tweezers, grip the tick as close to the skin as you can, and pull straight up with steady even pressure. Don't twist, don't jerk, and don't squeeze the body.</p>
 
-<p>Blanketing your whole lawn with product is unnecessary and not how we work. EnviroCare targets the <strong>harborage zones</strong> where ticks actually are — wooded edges, leaf litter, tall-grass margins, and trail borders — with EPA-registered products applied per label directions. That knocks down the active population where it lives instead of soaking ground the ticks never use.</p>
+<p>Skip every folk method you've heard — petroleum jelly, nail polish, a hot match. They don't make the tick back out; they agitate it, and an agitated tick is more likely to regurgitate into the bite. Clean the area with soap and water or alcohol afterward. If mouthparts break off and won't come out easily, leave them and let the skin push them out.</p>
 
-<p>Tick treatment pairs naturally with our mosquito program — same visit, same zones — so a lot of families on the lake or backing up to woods run the two together March through November. It can also be added to any existing service.</p>
+<p>Then write down the date. If symptoms show up later, knowing exactly when you were bitten genuinely helps a physician.</p>
 
-<h2>Protect your yard</h2>
+<h2>How long does a tick have to be attached to transmit disease?</h2>
 
-<p>If you've pulled a tick off a kid or a dog this season, you're not imagining the problem — and you don't have to live with it. Call the EnviroCare office nearest you for a free evaluation:</p>
-<ul>
-<li>Birmingham — (205) 940-6360</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
-</ul>
+<p>It varies by pathogen — some require a day or more of attachment, others can transmit considerably faster. That variability is the whole argument for checking daily rather than counting on a safety window. After time outdoors, check behind the knees, the waistband, the hairline, behind the ears, and the armpits. Check pets too, especially around the ears and between the toes.</p>
+
+<h2>Where do ticks actually live in a yard?</h2>
+
+<p>Ticks concentrate in the transition zone between mowed lawn and unmanaged growth — the tree line, the fence row, the ivy bed, the leaf litter under shrubs. They need humidity, so open sunny turf is genuinely poor tick habitat; they dry out there.</p>
+
+<p>That's useful, because it means the risk on most properties is concentrated in a predictable band rather than spread evenly. Two things you can do for free: keep leaf litter cleared and grass cut short along the wood line, and consider a three-foot band of gravel or wood chips where lawn meets woods — ticks are reluctant to cross dry open material.</p>
+
+<p>Deer deserve a mention. Deer move adult ticks around and drop them where they browse, so properties on a regular deer route tend to carry a heavier load year after year.</p>
+
+<h2>How does professional tick treatment work?</h2>
+
+<p>Yard tick treatment is a targeted barrier application to the places ticks actually occupy — the wood line, fence rows, ivy and ground cover, shaded shrub beds, and leaf litter — rather than a blanket spray of open lawn. Products are EPA-registered and applied according to label directions.</p>
+
+<p>At EnviroCare, tick coverage is part of our <strong>Mosquito &amp; Tick program</strong>, which runs about $65 per treatment across nine treatments from March through November — roughly $48.75 a month when spread across the year. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas; fleas are an interior problem and we handle them separately.</p>
+
+<p>One important clarification: <strong>ticks are not included in our standard bi-monthly pest plan.</strong> That plan covers 30-plus household pests, but ticks, fleas, and fire ants each require different products and different placement, so they're handled as their own services. We'd rather tell you that up front than have you assume you're covered.</p>
+
+<p>Since the treatment zones overlap almost entirely, tick service is typically done on the same visit as mosquito service — same technician, same trip, same areas of the yard. That's a scheduling convenience, not a package.</p>
+
+<h2>Common questions</h2>
+
+<p><strong>When is tick season in Alabama?</strong> Ticks are active any month the temperature stays above roughly 45°F, which in Alabama means most of the year. Activity peaks April through September, with a secondary adult peak in fall.</p>
+
+<p><strong>Will treating my yard get rid of every tick?</strong> No. Treatment substantially reduces the population in the areas people and pets actually use. Ticks arrive continuously on deer, birds, and rodents, so this is ongoing suppression rather than a one-time fix.</p>
+
+<p><strong>Do I still need tick prevention for my dog?</strong> Yes. Yard treatment lowers exposure at home; it does nothing about the trailhead or the neighbor's yard. Veterinary tick prevention and yard treatment address different halves of the problem.</p>
+
+<p><strong>Can ticks get inside the house?</strong> Usually they're carried in on people or pets and don't establish. The exception is the brown dog tick, which can complete its full cycle indoors — that one needs an interior treatment plan.</p>
+
+<h2>Talk to us</h2>
+
+<p>We've treated North and Central Alabama yards for four generations, since 1958. If your property backs up to woods anywhere around Birmingham, Huntsville, or Lake Martin, call <a href="tel:+12059406360">(205) 940-6360</a> and we'll walk the edge with you and show you where the risk actually sits.</p>
 `,
   },
 
