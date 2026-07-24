@@ -4,6 +4,19 @@ export const metadata = {
   alternates: { canonical: '/over-the-mountain' },
   title: "Over the Mountain Pest Control | EnviroCare",
   description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
+  openGraph: {
+    title: "Over the Mountain Pest Control | EnviroCare",
+    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
+    url: 'https://www.envirocarellc.com/over-the-mountain',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Over the Mountain Pest Control | EnviroCare",
+    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+  },
 };
 
 const cfg: ClusterConfig = {

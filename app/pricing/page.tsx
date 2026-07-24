@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   description:
     "Alabama pest control pricing — pest from $35/mo, mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Sentricon® quoted after a free inspection.",
   alternates: { canonical: "/pricing" },
+  openGraph: {
+    title: "Pest Control Pricing Alabama | From $35/mo | EnviroCare",
+    description: "Alabama pest control pricing — pest from $35/mo, mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Sentricon® quoted after a free inspection.",
+    url: 'https://www.envirocarellc.com/pricing',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Pest Control Pricing Alabama | From $35/mo | EnviroCare",
+    description: "Alabama pest control pricing — pest from $35/mo, mosquito $45/visit, mosquito + tick $65/visit (Mar–Nov). Sentricon® quoted after a free inspection.",
+    images: ['/og-image.png'],
+  },
 };
 
 // OfferCatalog — priced plans only. Termite is a Service with NO price (quote after free WDO inspection).

@@ -10,6 +10,18 @@ export const metadata: Metadata = {
   description:
     "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
   alternates: { canonical: './' },
+  openGraph: {
+    title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
+    description: "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
+    description: "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
+    images: ['/og-image.png'],
+  },
 };
 
 const SCHEMA = {

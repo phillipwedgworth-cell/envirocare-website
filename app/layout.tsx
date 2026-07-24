@@ -76,17 +76,8 @@ export const metadata: Metadata = {
   },
   description:
     'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M coverage, mosquito and tick yard treatment. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
-  keywords: [
-    'Alabama pest control',
-    'Birmingham pest control',
-    'Lake Martin pest control',
-    'Huntsville pest control',
-    'Auburn pest control',
-    'Sentricon termite',
-    'Alabama termite service',
-    'family-owned pest control Alabama',
-    'EnviroCare',
-  ],
+  // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
+  // it only signals "template site" to anything parsing the markup.
   authors: [{ name: 'EnviroCare Pest & Termite Services LLC' }],
   creator: 'EnviroCare Pest & Termite Services LLC',
   publisher: 'EnviroCare Pest & Termite Services LLC',

@@ -16,6 +16,19 @@ export const metadata = {
   title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
   description:
     'Code-compliant pre-construction termite treatment for Alabama builders: pre-slab soil treatment, Sentricon® install, WDO letter at closing. One vendor, coordinated to your build. (205) 940-6360.',
+  openGraph: {
+    title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
+    description: 'Code-compliant pre-construction termite treatment for Alabama builders: pre-slab soil treatment, Sentricon® install, WDO letter at closing. One vendor, coordinated to your build. (205) 940-6360.',
+    url: 'https://www.envirocarellc.com/builders',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
+    description: 'Code-compliant pre-construction termite treatment for Alabama builders: pre-slab soil treatment, Sentricon® install, WDO letter at closing. One vendor, coordinated to your build. (205) 940-6360.',
+    images: ['/og-image.png'],
+  },
 };
 
 const schema = {

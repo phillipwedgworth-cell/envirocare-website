@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   description:
     "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
   alternates: { canonical: "./" },
+  openGraph: {
+    title: "Exterminator Birmingham AL | EnviroCare — Family-Owned Since 1958",
+    description: "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Exterminator Birmingham AL | EnviroCare — Family-Owned Since 1958",
+    description: "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
+    images: ['/og-image.png'],
+  },
 };
 
 const c: ComboContent = {

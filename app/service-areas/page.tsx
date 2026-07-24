@@ -7,6 +7,19 @@ export const metadata = {
   title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
   description:
     'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
+  openGraph: {
+    title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
+    description: 'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
+    url: 'https://www.envirocarellc.com/service-areas',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
+    description: 'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
+    images: ['/og-image.png'],
+  },
 };
 
 type Group = { office: string; phone: string; cities: [string, string][] };

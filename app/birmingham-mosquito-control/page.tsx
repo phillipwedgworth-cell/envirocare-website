@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   description:
     "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
   alternates: { canonical: "./" },
+  openGraph: {
+    title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+  },
 };
 
 const c: ComboContent = {

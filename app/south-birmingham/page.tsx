@@ -4,6 +4,19 @@ export const metadata = {
   alternates: { canonical: '/south-birmingham' },
   title: "South Birmingham Pest Control | EnviroCare",
   description: "Pest, termite & mosquito control across south Birmingham — Alabaster, Pelham, Helena, Calera, Chelsea. Home of our metro hub. Call (205) 940-6360.",
+  openGraph: {
+    title: "South Birmingham Pest Control | EnviroCare",
+    description: "Pest, termite & mosquito control across south Birmingham — Alabaster, Pelham, Helena, Calera, Chelsea. Home of our metro hub. Call (205) 940-6360.",
+    url: 'https://www.envirocarellc.com/south-birmingham',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "South Birmingham Pest Control | EnviroCare",
+    description: "Pest, termite & mosquito control across south Birmingham — Alabaster, Pelham, Helena, Calera, Chelsea. Home of our metro hub. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+  },
 };
 
 const cfg: ClusterConfig = {

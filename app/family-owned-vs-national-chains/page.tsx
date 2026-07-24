@@ -11,6 +11,19 @@ export const metadata = {
   title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
   description:
     'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
+  openGraph: {
+    title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
+    description: 'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
+    url: 'https://www.envirocarellc.com/family-owned-vs-national-chains',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
+    description: 'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
+    images: ['/og-image.png'],
+  },
 };
 
 const BASE = 'https://www.envirocarellc.com';

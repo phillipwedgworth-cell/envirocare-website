@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   description:
     "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
   alternates: { canonical: "./" },
+  openGraph: {
+    title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
+    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
+    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
+    images: ['/og-image.png'],
+  },
 };
 
 const c: ComboContent = {
