@@ -34,7 +34,7 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
 - [Flea treatment](https://www.envirocarellc.com/services/flea): interior-plan add-on.
 - [WDO letters](https://www.envirocarellc.com/services/wdo-letters): Alabama Wood Infestation Reports for real estate.
 - [Commercial pest control](https://www.envirocarellc.com/services/commercial): IPM/HACCP programs for businesses.
-- [Builder pre-treat](https://www.envirocarellc.com/services/builder-pre-treat): new-construction termite pre-treatment.
+- [Builders / pre-construction](https://www.envirocarellc.com/builders): code-compliant pre-slab termite treatment, Sentricon® install, and WDO closing documentation for Alabama builders.
 
 ## Service-area pages
 - Birmingham metro: [Birmingham](https://www.envirocarellc.com/birmingham), [Hoover](https://www.envirocarellc.com/hoover), [Vestavia Hills](https://www.envirocarellc.com/vestavia-hills), [Mountain Brook](https://www.envirocarellc.com/mountain-brook), [Homewood](https://www.envirocarellc.com/homewood), [Alabaster](https://www.envirocarellc.com/alabaster).

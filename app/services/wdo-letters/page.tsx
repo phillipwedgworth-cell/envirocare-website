@@ -326,7 +326,7 @@ export default function WDOLettersPage() {
         <section style={{ padding: "32px 24px", background: DEEP, color: "#fff", textAlign: "center" }}>
           <p style={{ fontSize: 15, opacity: 0.85, margin: 0 }}>
             Building a new home?{" "}
-            <Link href="/services/builder-pre-treat" style={{ color: GOLD, textDecoration: "underline" }}>
+            <Link href="/builders" style={{ color: GOLD, textDecoration: "underline" }}>
               See our Builder Pre-Treatment page →
             </Link>
           </p>

@@ -65,8 +65,7 @@ const SERVICE_SLUGS = [
   'tick-control',
   'fire-ant',
   'flea',
-  'builder',
-  'builder-pre-treat',
+  // 'builder' + 'builder-pre-treat' removed 2026-07-24 — both 301 to /builders (canonical)
   'wdo-letters',
   'commercial',
 ];
@@ -81,7 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/pricing`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/about-us`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/service-areas`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/builders`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/builders`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/faq/mosquito`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
     { url: `${BASE_URL}/faq/termite-warranty`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },

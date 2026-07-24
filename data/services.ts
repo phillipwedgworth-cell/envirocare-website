@@ -347,7 +347,7 @@ export const SERVICES: Service[] = [
     features: [
       'Pre-slab treatment',
       'Sentricon® install at handoff',
-      'Builder partnership discounts',
+      'Builder partnership pricing',
       'WDO letter at closing',
       'Coordinated with GC scheduling',
       'Soil treatment per AL code',

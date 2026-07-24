@@ -185,6 +185,19 @@ const nextConfig: NextConfig = {
             { source: '/services/rodent-control', destination: '/services/pest-control', permanent: true },
             { source: '/services/real-estate-wdo', destination: '/services/wdo-letters', permanent: true },
 
+            // ─── BUILDER CONSOLIDATION (2026-07-24) ─────────────────────────
+            // Three pages were splitting the builder / pre-construction keyword
+            // (/builders, /services/builder, /services/builder-pre-treat).
+            // /builders is now the one canonical page; the other two 301 here.
+            // Route dirs app/services/builder and app/services/builder-pre-treat
+            // must be DELETED in the same commit (config redirects win over
+            // filesystem routes, but dead routes still build).
+            { source: '/services/builder', destination: '/builders', permanent: true },
+            { source: '/services/builder-pre-treat', destination: '/builders', permanent: true },
+            // NeuronWriter target keyword URL — capture direct hits
+            { source: '/pre-construction-pest-treatment', destination: '/builders', permanent: true },
+            { source: '/pre-construction-termite-treatment', destination: '/builders', permanent: true },
+
             // ─── BLOG: legacy Scorpion /blog/{year}/{month}/{slug} URLs ─────
             // Now owned by middleware.ts, which 301s each legacy post to the
             // best-matching live blog post by topic (recovering impressions) and
