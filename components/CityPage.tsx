@@ -305,12 +305,10 @@ export default function CityPage({ city }: { city: CityData }) {
         "areaServed": [
           { "@type": "City", "name": city.name },
           ...city.neighborhoods.map(n => ({ "@type": "Neighborhood", "name": n.name }))
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "246"
-        }
+        ]
+        // aggregateRating removed 2026-07-24 — hardcoded reviewCount "246" violated the
+        // no-public-review-counts lock (and a stale self-serving count risks a Google
+        // structured-data penalty). Star ratings live on the homepage only per policy.
       })}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",

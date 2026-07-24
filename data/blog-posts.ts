@@ -256,7 +256,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ol>
 <li><strong>Photograph</strong> what you found — both the swarmers and the location.</li>
 <li><strong>Collect a few</strong> in a sandwich bag, just in case.</li>
-<li><strong>Call us</strong> for a free inspection. We'll send a Sentricon-certified technician within 24 hours, usually fast scheduling. The inspection is free and there's no obligation.</li>
+<li><strong>Call us</strong> for a free inspection. We'll get a Sentricon-certified technician out with fast scheduling. The inspection is free and there's no obligation.</li>
 </ol>
 
 <p>Call our nearest office:</p>
@@ -266,7 +266,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p><em>Kevin Wedgworth is the third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
+<p><em>Kevin Wedgworth is the owner of EnviroCare Pest &amp; Termite Services, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
 `,
   },
 
@@ -1208,7 +1208,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Or call our main line: <strong>(205) 940-6360</strong>. If you found swarmers this week, don't wait — inspections are typically available within 48 hours.</p>
 
-<p><em>Kevin Wedgworth is the third-generation owner of EnviroCare Pest &amp; Termite Services, founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
+<p><em>Kevin Wedgworth is the owner of EnviroCare Pest &amp; Termite Services, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
 `,
   },
 
