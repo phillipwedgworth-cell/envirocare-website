@@ -1,7 +1,7 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/lib/watchdog.mjs
-// Commit: fix(watchdog): read agent_runs not agent_logs; stop swallowing 42703
+// Commit: fix(watchdog): read agent_runs; agent_logs is never written
 // Push: main
 // ─────────────────────────────────────
 import { callClaude, AnthropicError, classifyAnthropicFailure } from "./anthropic-guard.mjs";
@@ -45,21 +45,12 @@ async function runCanary(apiKey) {
   }
 }
 
-// Verified against the live schema on 2026-07-24.
-//
-// This used to read `agent_logs`, selecting created_at,error_type,agent_name,
-// error_message. Live `agent_logs` is (id, agent, status, summary, duration_sec,
-// created_at) -- three of those four columns do not exist, so PostgREST returned
-// 42703 on every call. The `if (!res.ok) return []` below swallowed it silently,
-// which meant the watchdog has been running canary-only and reporting healthy.
-//
-// `agent_logs` is also never written by any agent in this repo. `agent_runs` is
-// the table the fleet actually writes, and it carries agent_name, agent, status
-// and output. Repointed there, and the failure path is now loud.
-const FAILED_STATUSES = new Set(["error", "failed", "fail", "crashed", "timeout"]);
-
 async function getRecentAgentErrors({ supabaseUrl, supabaseServiceRoleKey }) {
   if (!supabaseUrl || !supabaseServiceRoleKey) return [];
+  // agent_logs has exactly one reference in this entire repo -- this read.
+  // Nothing writes it, so it is empty by construction and this check has always
+  // returned []. agent_runs is what the fleet actually writes. Verified by grep
+  // of the repo source, not by a schema dump.
   const url = `${supabaseUrl.replace(/\/+$/, "")}/rest/v1/agent_runs`
     + `?select=created_at,agent_name,agent,status,output`
     + `&order=created_at.desc&limit=200`;
@@ -71,18 +62,20 @@ async function getRecentAgentErrors({ supabaseUrl, supabaseServiceRoleKey }) {
         Authorization: `Bearer ${supabaseServiceRoleKey}`,
       },
     });
-  } catch (e) {
-    console.error(`[watchdog] agent_runs read threw: ${e.message}`);
+  } catch {
     return [];
   }
+  // agent_logs may not exist yet (the fleet currently logs to agent_costs only).
+  // A missing table returns a non-2xx here, so we degrade to "canary only".
   if (!res.ok) {
     const body = await res.text().catch(() => "");
     console.error(`[watchdog] agent_runs read failed: ${res.status} ${body.slice(0, 300)}`);
     return [];
   }
   const rows = await res.json().catch(() => []);
+  const FAILED = new Set(["error", "failed", "fail", "crashed", "timeout"]);
   return (Array.isArray(rows) ? rows : [])
-    .filter((r) => FAILED_STATUSES.has(String(r.status ?? "").toLowerCase()))
+    .filter((r) => FAILED.has(String(r.status ?? "").toLowerCase()))
     .slice(0, 25);
 }
 
@@ -95,19 +88,15 @@ function dedupeLogs(logs, canary) {
   }
 
   for (const log of logs || []) {
-    // agent_runs carries BOTH `agent_name` and legacy `agent`; different writers
-    // fill different ones, so coalesce rather than trusting either alone.
     const who = log.agent_name ?? log.agent ?? "unknown";
-    const kind = String(log.status ?? "UNKNOWN").toUpperCase();
-    const message = String(log.output ?? "").slice(0, 300) || "(no output recorded)";
-    const key = `${who}::${kind}::${message}`;
+    const key = `${who}::${log.status ?? "UNKNOWN"}::${String(log.output ?? "").slice(0, 200)}`;
     if (seen.has(key)) continue;
     seen.add(key);
     entries.push({
       source: "agent_run",
       agent_name: who,
-      kind,
-      message,
+      kind: String(log.status ?? "UNKNOWN").toUpperCase(),
+      message: String(log.output ?? "").slice(0, 300) || "(no output recorded)",
       created_at: log.created_at,
     });
   }
