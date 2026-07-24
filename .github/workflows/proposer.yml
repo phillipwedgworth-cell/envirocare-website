@@ -1,0 +1,32 @@
+name: Proposer
+
+on:
+  schedule:
+    # 07:00 CT — 12:00 UTC during CDT. Runs daily.
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: proposer
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run proposer
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          # Repo standard secret is SUPABASE_KEY (the service key) — no
+          # SUPABASE_SERVICE_ROLE_KEY secret exists. Fall back so this works
+          # with the secrets already configured.
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/proposer.mjs
