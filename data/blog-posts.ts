@@ -454,17 +454,18 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'real-estate-wdo-letter-explained',
-    title: 'The WDO Letter Explained: What Alabama Lenders Actually Require at Closing',
+    title: 'Do I Need a WDO Letter to Close on a House in Alabama?',
     excerpt: 'You\'re buying a house in Alabama. Your lender is asking for a "WDO letter" or "termite letter." Here\'s what it actually is, what gets you a clear letter, and what gets you a delay.',
     publishedAt: '2026-01-28',
+    updatedAt: '2026-07-25',
     author: 'Kevin Wedgworth',
     category: 'Real Estate',
     readMinutes: 5,
     heroEmoji: '🏠',
-    metaTitle: 'Alabama WDO Termite Letter Guide | EnviroCare Fast Turnaround',
-    metaDescription: 'Alabama WDO inspection letters for closings. Lender-ready format. 48-hour turnaround. Family-owned since 1958. Call (205) 940-6360.',
+    metaTitle: 'Do I Need a WDO Letter to Close in Alabama? | EnviroCare',
+    metaDescription: 'Buying a home in Alabama with a loan? You almost certainly need a WDO (termite) letter. What it is, who orders it, and how to keep it off the closing critical path. (205) 940-6360.',
     body: `
-<p class="lede">You're under contract on a home in Birmingham, Hoover, Madison, or anywhere in Alabama. Your lender's checklist includes a "WDO letter" or "termite letter" or "Form 99B." Your realtor says "no big deal, just get one." Here's what's actually involved.</p>
+<p class="lede">Short answer: if your Alabama home purchase involves a loan, plan on yes. VA loans require the official one-page Alabama WDO report (Form ADAI-WDO-100) outright, FHA requires evidence of no active infestation, and most conventional lenders ask for the same letter. So when your lender's checklist says "WDO letter," "termite letter," or "Form 99B" and your realtor says "no big deal, just get one" — here's what's actually involved.</p>
 
 <h2>What WDO stands for</h2>
 
@@ -506,7 +507,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Our turnaround</h2>
 
-<p>We schedule WDO inspections within 48 hours of request — usually next-day. The letter goes to your lender, your agent, and you within 24 hours of the inspection. Standalone WDO letters start <strong>as low as $75</strong>.</p>
+<p>Tell us your closing date when you order and we schedule the inspection around it — the completed letter goes to your lender, your agent, and you as soon as the inspection is done. Standalone WDO letters start <strong>as low as $75</strong>.</p>
 
 <p>If you're already an active EnviroCare customer on our pest or termite program, your first WDO letter each year is <strong>free</strong>.</p>
 
@@ -525,7 +526,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p>Or our main line, <strong>(205) 940-6360</strong>. Standard turnaround is 48 hours. Rush inspections are available when needed.</p>
+<p>Or our main line, <strong>(205) 940-6360</strong> — give us your closing date and we build the schedule around it. Homeowners can read more on our <a href="/services/wdo-letters">WDO letter service page</a>; real estate agents, closing attorneys, and lenders who order letters regularly have their own direct line and details at <a href="/wdo-inspection-letters-alabama">WDO letters for closing professionals</a>.</p>
 `,
   },
 
