@@ -210,7 +210,8 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/birmingham-al-pest-control/mouse-control', destination: '/services/pest-control', permanent: true },
 
             // ─── CITY PAGES MIGRATED TO /service-areas/* ────────────────────
-            { source: '/madison', destination: '/service-areas/madison', permanent: true },
+            // (/madison is declared once, higher up in this list — a second rule here
+            // was dead config, since Next matches the first source that hits.)
 
             // NOTE: /reviews is a REAL page now (app/reviews/page.tsx) — do NOT redirect it.
             // NOTE: /special-offers is a REAL, reachable landing page (un-shadowed per
