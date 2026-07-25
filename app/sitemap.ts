@@ -50,6 +50,18 @@ const COMBO_SLUGS = [
   'huntsville-termite-control',
   'birmingham-exterminator',
   'huntsville-exterminator',
+  // Track A wave 1 (2026-07-24) — Madison + Decatur, chosen from the 16-month
+  // GSC export (natural demand curves, winnable positions). Verify indexation
+  // in GSC before shipping wave 2.
+  'madison-pest-control',
+  'madison-termite-control',
+  'madison-mosquito-control',
+  'madison-exterminator',
+  'madison-commercial-pest-control',
+  'decatur-pest-control',
+  'decatur-mosquito-control',
+  'decatur-exterminator',
+  'decatur-termite-control',
 ];
 
 // Service pages that exist as REAL routes (no redirect sources here).
