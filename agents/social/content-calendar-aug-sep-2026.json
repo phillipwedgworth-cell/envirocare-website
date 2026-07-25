@@ -1,0 +1,231 @@
+{
+  "_note": "Aug-Sep 2026 continuation. The original content-calendar.json runs dry after 2026-07-30. Built 2026-07-25. Claims audited against the live pricing page: no review-count claims, no 'no contracts' claims (monthly plans use a 12-month ACH agreement — only per-visit is contract-free), no bed bugs / wildlife / lawn care. Instagram is deliberately excluded: IG posts require an imageUrl and no graphic_url is set on these rows, so they would hard-error. Add graphics, then add 'instagram' to platforms.",
+  "locations": {
+    "huntsville": {
+      "gbp_place_id": "ChIJd4YXKCRmqmIR1DmDoEcGohU",
+      "phone": "(256) 937-7676",
+      "label": "Huntsville"
+    },
+    "birmingham": {
+      "gbp_place_id": "ChIJr8cmt-EeiYgR_jgX9xsiZWY",
+      "phone": "(205) 940-6360",
+      "label": "Birmingham / Alabaster"
+    },
+    "lake_martin": {
+      "gbp_place_id": "ChIJ508mEjcLjIgRZ2HdWgXX76c",
+      "phone": "(256) 234-6162",
+      "label": "Lake Martin / Alex City"
+    }
+  },
+  "defaults": {
+    "status": "draft",
+    "cta": "Call for a free quote",
+    "utm": "?utm_source=gbp&utm_medium=post"
+  },
+  "posts": [
+    {
+      "id": "aug-w1-fallinvaders-bhm",
+      "week": 5,
+      "publish_date": "2026-08-03",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "seasonal",
+      "headline": "Fall invaders start moving in August, not October",
+      "body": "Ladybugs, stink bugs and cluster flies find their way in weeks before the first cool night. Sealing entry points now is far easier than chasing them across a ceiling in November. Our bi-monthly service treats the perimeter before the migration starts — 30+ pests covered, unlimited free re-service between visits.",
+      "cta": "Call (205) 940-6360 for a free quote",
+      "graphic_theme": "fall-invaders"
+    },
+    {
+      "id": "aug-w1-fallinvaders-hsv",
+      "week": 5,
+      "publish_date": "2026-08-03",
+      "platforms": ["google", "facebook"],
+      "location": "huntsville",
+      "type": "seasonal",
+      "headline": "Getting ahead of fall invaders in Huntsville",
+      "body": "Homes along Monte Sano and Hampton Cove see the earliest push — wooded lots put stink bugs and ladybugs on the siding before Labor Day. We treat the perimeter and the entry points they actually use, then come back free if anything gets through.",
+      "cta": "Call (256) 937-7676 for a free quote",
+      "graphic_theme": "fall-invaders"
+    },
+    {
+      "id": "aug-w2-mosquito-lkm",
+      "week": 6,
+      "publish_date": "2026-08-06",
+      "platforms": ["google", "facebook"],
+      "location": "lake_martin",
+      "type": "seasonal",
+      "headline": "August is peak mosquito month on Lake Martin",
+      "body": "Water levels drop, coves warm up, and breeding sites multiply right when everyone is outside. Our 30-day barrier treats the harborage — under decks, in shrub lines, along the shore — not just the open yard. Nine treatments carry through November.",
+      "cta": "Call (256) 234-6162 for a free quote",
+      "graphic_theme": "lake-mosquito"
+    },
+    {
+      "id": "aug-w2-fourgen-bhm",
+      "week": 6,
+      "publish_date": "2026-08-10",
+      "platforms": ["facebook"],
+      "location": "birmingham",
+      "type": "brand",
+      "headline": "The tech who comes to your door has a name",
+      "body": "When you call a national chain you get a call center, a routing algorithm, and whoever is closest that day. When you call us you get the same technician on the same route, and if something goes wrong there is a Wedgworth to talk to. Sixty-eight years in Alabama. That is the whole difference.",
+      "cta": "Call (205) 940-6360",
+      "graphic_theme": "family-heritage"
+    },
+    {
+      "id": "aug-w3-termite-hsv",
+      "week": 7,
+      "publish_date": "2026-08-13",
+      "platforms": ["google", "facebook"],
+      "location": "huntsville",
+      "type": "service",
+      "headline": "No-drill termite protection for older Huntsville homes",
+      "body": "Sentricon Always Active protects without drilling into your slab or foundation — which matters on historic homes in Twickenham and Old Town where the original masonry is part of the value. Backed by EnviroCare coverage up to $1,000,000 in repairs. Termite inspection is free.",
+      "cta": "Call (256) 937-7676 to book a free inspection",
+      "graphic_theme": "sentricon"
+    },
+    {
+      "id": "aug-w3-spiders-bhm",
+      "week": 7,
+      "publish_date": "2026-08-17",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "seasonal",
+      "headline": "Why you are suddenly seeing more spiders",
+      "body": "Late summer is when spiders mature and go looking for mates, which is why they turn up in garages and basements now. They follow the insects, so the fix is treating what they eat. Bi-monthly service handles both — and brown recluse and black widow harborage gets treated directly.",
+      "cta": "Call (205) 940-6360 for a free quote",
+      "graphic_theme": "spiders"
+    },
+    {
+      "id": "aug-w4-rodent-lkm",
+      "week": 8,
+      "publish_date": "2026-08-20",
+      "platforms": ["google", "facebook"],
+      "location": "lake_martin",
+      "type": "seasonal",
+      "headline": "Closing up the lake house for the season?",
+      "body": "An empty house is exactly what mice are looking for once nights cool off. Mice and rats are covered in the standard pest plan — we seal the entry points and set the interior stations before you lock up, so you are not opening the door to a mess next spring.",
+      "cta": "Call (256) 234-6162 for a free quote",
+      "graphic_theme": "rodent-exclusion"
+    },
+    {
+      "id": "aug-w4-commercial-bhm",
+      "week": 8,
+      "publish_date": "2026-08-24",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "service",
+      "headline": "Restaurants, offices and retail across the metro",
+      "body": "Commercial pest control built around IPM and HACCP documentation, with service scheduled outside your business hours. Local techs who know your building instead of a rotating national crew. Free walkthrough and a fixed monthly quote.",
+      "cta": "Call (205) 940-6360 to schedule a walkthrough",
+      "graphic_theme": "commercial"
+    },
+    {
+      "id": "aug-w5-review-hsv",
+      "week": 9,
+      "publish_date": "2026-08-27",
+      "platforms": ["facebook"],
+      "location": "huntsville",
+      "type": "review-ask",
+      "headline": "How did we do?",
+      "body": "If a Huntsville tech took care of you this summer, a quick Google review helps more than you would think — it is how neighbors two streets over find us. Takes about thirty seconds and it means a lot to the crew.",
+      "cta": "Leave a review on Google",
+      "graphic_theme": "review-request"
+    },
+    {
+      "id": "sep-w1-termite-bhm",
+      "week": 10,
+      "publish_date": "2026-09-03",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "service",
+      "headline": "Termites do not stop in the fall",
+      "body": "Subterranean termites feed year-round in Alabama — swarming season is when you see them, not when they start. Sentricon Always Active works through winter with no drilling and no tank trucks, backed by coverage up to $1,000,000. The inspection is free either way.",
+      "cta": "Call (205) 940-6360 to book a free inspection",
+      "graphic_theme": "sentricon"
+    },
+    {
+      "id": "sep-w1-wdo-bhm",
+      "week": 10,
+      "publish_date": "2026-09-07",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "service",
+      "headline": "Realtors: WDO letters that do not hold up a closing",
+      "body": "NPMA-33 termite letters for real estate closings, lender-ready, with fast turnaround across the metro. Fall is closing season and a slow inspection is the last thing anyone needs. We have been doing these in Alabama since 1958.",
+      "cta": "Call (205) 940-6360",
+      "graphic_theme": "wdo-realtor"
+    },
+    {
+      "id": "sep-w2-rodent-hsv",
+      "week": 11,
+      "publish_date": "2026-09-10",
+      "platforms": ["google", "facebook"],
+      "location": "huntsville",
+      "type": "seasonal",
+      "headline": "First cool night is when the mice move in",
+      "body": "A mouse fits through a gap the width of a pencil. Once temperatures drop they head for the warm wall voids and attics — and by the time you hear them at night the family is established. Mice and rats are covered in the standard plan, including trapping and entry-point sealing.",
+      "cta": "Call (256) 937-7676 for a free quote",
+      "graphic_theme": "rodent-exclusion"
+    },
+    {
+      "id": "sep-w2-fireant-lkm",
+      "week": 11,
+      "publish_date": "2026-09-14",
+      "platforms": ["google", "facebook"],
+      "location": "lake_martin",
+      "type": "service",
+      "headline": "Fall is the best time to treat fire ants",
+      "body": "Colonies forage hard before winter, which is exactly what makes bait work now. Treating in September means you are not fighting mounds across the whole yard next April. Yard-wide fire ant control, safe for kids and pets once dry.",
+      "cta": "Call (256) 234-6162 for a free quote",
+      "graphic_theme": "fire-ant"
+    },
+    {
+      "id": "sep-w3-crawlspace-bhm",
+      "week": 12,
+      "publish_date": "2026-09-17",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "service",
+      "headline": "What is actually going on under your house",
+      "body": "Most homeowners have never looked. Standing moisture in a crawlspace draws termites, roaches and mold, and it pushes damp air up into the house. Our crawlspace service covers moisture control, vapor barrier and pest treatment together. Free look under the house.",
+      "cta": "Call (205) 940-6360 to schedule",
+      "graphic_theme": "crawlspace"
+    },
+    {
+      "id": "sep-w3-heritage-lkm",
+      "week": 12,
+      "publish_date": "2026-09-21",
+      "platforms": ["facebook"],
+      "location": "lake_martin",
+      "type": "brand",
+      "headline": "Sixty-eight years on this lake",
+      "body": "We were treating houses around Lake Martin before most of the docks out there were built. Four generations of the same Alabama family, still answering our own phone. If you have called us before, chances are you know the tech by name.",
+      "cta": "Call (256) 234-6162",
+      "graphic_theme": "family-heritage"
+    },
+    {
+      "id": "sep-w4-mosquito-end-bhm",
+      "week": 13,
+      "publish_date": "2026-09-24",
+      "platforms": ["google", "facebook"],
+      "location": "birmingham",
+      "type": "seasonal",
+      "headline": "Mosquito season runs through November",
+      "body": "People stop treating in September and get bitten all through October — mosquitoes stay active in Alabama until a hard frost, and fall is when West Nile risk actually peaks. The barrier runs every 30 days through November. It is not too late to start.",
+      "cta": "Call (205) 940-6360 for a free quote",
+      "graphic_theme": "mosquito-season"
+    },
+    {
+      "id": "sep-w4-roach-hsv",
+      "week": 13,
+      "publish_date": "2026-09-28",
+      "platforms": ["google", "facebook"],
+      "location": "huntsville",
+      "type": "seasonal",
+      "headline": "Roaches come indoors when the weather turns",
+      "body": "Cooler nights push American and smoky-brown roaches from mulch beds and sewer lines into kitchens and garages. We treat the harborage and entry points rather than just spraying baseboards — and if they come back between visits, so do we, at no charge.",
+      "cta": "Call (256) 937-7676 for a free quote",
+      "graphic_theme": "roaches"
+    }
+  ]
+}
