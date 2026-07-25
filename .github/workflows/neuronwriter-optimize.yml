@@ -41,6 +41,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}   # lib reads SUPABASE_KEY — without this, optimize run-logging silently no-ops and the watchdog reports "no run on record"
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
         run: node agents/neuronwriter-optimize.mjs --all
 
       - name: Open pull request with drafts

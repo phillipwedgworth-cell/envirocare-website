@@ -20,6 +20,8 @@ jobs:
       GSC_SITE_URL: "sc-domain:envirocarellc.com"
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5

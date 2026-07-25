@@ -45,9 +45,11 @@ jobs:
           OPENAI_API_KEY:       ${{ secrets.OPENAI_API_KEY }}
 
           # ─── Unchanged ───
+          # All four Supabase names, normalized (SUPABASE_KEY is the canonical repo secret)
           SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
-          # SUPABASE_KEY is the existing service-role repo secret
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
           NOTION_TOKEN:         ${{ secrets.NOTION_TOKEN }}
           NOTION_APPROVALS_DB_ID: ${{ secrets.NOTION_APPROVALS_DB_ID }}
           # Unified Agent Command Center DB (notifier.mjs reads this) — see docs/NOTION-AGENT-COMMAND-CENTER-SETUP.md
