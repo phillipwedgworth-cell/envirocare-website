@@ -391,7 +391,7 @@ export const SERVICES: Service[] = [
       'Lender-ready format',
       'All Alabama lenders accepted',
       '1 free per year for active customers',
-      '$75 standalone fee',
+      '$125 standalone fee',
       'Includes recommendations if active issues',
     ],
     includes: [
