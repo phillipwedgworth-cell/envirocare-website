@@ -42,7 +42,9 @@ const BANNED = [
   [/pet[\s-]?safe|kid[\s-]?safe|child[\s-]?safe|non[\s-]?toxic|eco[\s-]?(safe|friendly)|chemical[\s-]?free/i, "safety claim"],
   [/\bsame[\s-]?day\b|there today|available now|within \d+ hours?/i, "availability claim"],
   [/bundle\s*&\s*save|%\s*off|\$\d+\s*off\b|\bdiscount\b|coupon/i, "discount language"],
-  [/\d+\s*(reviews|stars?)|★|Google Rated/i, "review/rating count"],
+  // \b guard: without it, "$79 startup" matched \d+\s*star ("79 star[tup]")
+  // and every proposal carrying the required startup-fee language was flagged.
+  [/\d+\s*(reviews?|stars?)\b|★|Google Rated/i, "review/rating count"],
   [/(third|3rd)[ -]generation/i, "wrong generation (company is fourth)"],
   [/mosquito[\s-]?free|eliminat\w+ (all )?mosquito/i, "mosquito elimination claim"],
   [/649[\s-]?5278/, "dead tracking number"],
