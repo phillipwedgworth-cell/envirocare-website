@@ -62,19 +62,48 @@ const LOOKBACK_DAYS = 14;
 // the previous /reports polling saw almost nothing and reported phantom dead
 // zones across every market while the campaigns were healthy.
 //
-// Targets are re-baselined for the v3 9x9 @ 20mi grid. The old targets were set
-// against v2's 5x5 @ 15mi and are unreachable on a grid whose outer ring sits
-// 20 miles from a single office — that mismatch is what made every market look
-// catastrophically "below target".
+// Targets are grid-dependent — a tighter grid scores higher SoLV for identical
+// rankings. These were set assuming 9x9/20mi for all three, which live API
+// (2026-07-24) says is only true for Birmingham; Huntsville is 7x7 @ 7mi and
+// Lake Martin is 7x7 @ 10mi. Huntsville/Alex City targets need re-derivation
+// against their actual geometry — marked needsReview until Phillip confirms.
 const LOCATIONS = [
-  { name: "Alabaster",  placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", campaign: "4ee47a23fc4793e", target: 20, target_v2: 65 },
-  { name: "Alex City",  placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", campaign: "a99dae3fd51a462", target: 40, target_v2: 50 },
-  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", campaign: "a58db3090ac9ab0", target: 10, target_v2: 35 },
+  { name: "Alabaster",  placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", campaign: "4ee47a23fc4793e", target: 20, needsReview: false }, // 9x9 @ 20mi — target valid
+  { name: "Alex City",  placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", campaign: "a99dae3fd51a462", target: 40, needsReview: true  }, // 7x7 @ 10mi — currently ~44.9, target likely too low
+  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", campaign: "a58db3090ac9ab0", target: 10, needsReview: true  }, // 7x7 @ 7mi — currently ~0.2, target likely too lenient
 ];
 
-// Grid epoch. Bump this whenever campaign geometry changes so stored week-over-week
-// state from a different grid is discarded instead of reported as a real move.
-const BASELINE = "v3-9x9-20mi";
+// GRID GEOMETRY IS READ FROM THE API, NOT ASSERTED. A single global epoch
+// string was wrong for three campaigns with three different geometries — a
+// geometry change in one market couldn't be detected without invalidating the
+// other two. The per-campaign baseline string is built from live grid_size +
+// radius; stored week-over-week state is discarded only when ITS campaign's
+// baseline changes.
+function baselineOf(meta) {
+  const g = meta?.grid_size ?? "?";
+  const r = meta?.radius ?? "?";
+  return `${g}x${g}-${r}mi`;
+}
+
+// Campaign list metadata (grid_size, radius, status per key). 0 scan credits.
+// Cached per process; failure degrades to "?x?-?mi" with a loud warning.
+let _campaignMeta = null;
+async function campaignMeta() {
+  if (_campaignMeta) return _campaignMeta;
+  try {
+    const j = await lfFetch("campaigns", { fieldmask: "report_key,name,status,grid_size,radius,keywords" });
+    const out = {};
+    for (const c of j?.data?.reports ?? j?.reports ?? j?.data?.campaigns ?? []) {
+      const k = c.report_key ?? c.campaign_key ?? c.key;
+      if (k) out[k] = c;
+    }
+    _campaignMeta = out;
+  } catch (e) {
+    console.warn(`[${AGENT_NAME}] campaign meta unavailable (${e.message}) — baselines will read "?x?-?mi"`);
+    _campaignMeta = {};
+  }
+  return _campaignMeta;
+}
 
 let anthropic = null;
 let anthropicInitError = null;
@@ -156,6 +185,21 @@ async function computeLocation(location_name) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
 
+  // Skip-if-not-scheduled guard: a paused campaign serves frozen numbers —
+  // the exact failure that produced the false 6/30 digests.
+  const meta = await campaignMeta();
+  const m = meta[loc.campaign];
+  if (m && m.status && m.status !== "scheduled") {
+    return {
+      location: loc.name,
+      target: loc.target,
+      blended_solv: null,
+      keyword_count: 0,
+      note: `Campaign ${loc.campaign} status="${m.status}" (not scheduled) — refusing to read frozen numbers.`,
+    };
+  }
+  const baseline = baselineOf(m);
+
   let campaign;
   try {
     campaign = await fetchCampaignKeywords(loc.campaign);
@@ -191,7 +235,8 @@ async function computeLocation(location_name) {
   return {
     location: loc.name,
     target: loc.target,
-    baseline: BASELINE,
+    target_needs_review: loc.needsReview === true,
+    baseline,
     campaign_key: loc.campaign,
     campaign_solv: campaign.agg_solv,
     blended_solv: blended,
@@ -221,12 +266,15 @@ async function analyzeLocation({ location_name }) {
 
   // Week-over-week delta from stored blended SoLV.
   const prior = await stateGet(`${AGENT_NAME}:solv:${location_name}`);
-  // A prior reading from a different grid is not comparable — treat it as absent
-  // rather than reporting a -51pt "collapse" that is pure geometry.
-  const priorSolv = prior && prior.baseline === BASELINE ? (prior.solv ?? null) : null;
+  // A prior reading from a different grid (per-campaign baseline mismatch, or a
+  // "?x?-?mi" unknown) is not comparable — treat it as absent rather than
+  // reporting a -51pt "collapse" that is pure geometry.
+  const comparable =
+    prior && prior.baseline && prior.baseline === summary.baseline && !summary.baseline.includes("?");
+  const priorSolv = comparable ? (prior.solv ?? null) : null;
   const delta = priorSolv === null ? null : Math.round((summary.blended_solv - priorSolv) * 100) / 100;
   await stateSet(`${AGENT_NAME}:solv:${location_name}`, {
-    baseline: BASELINE,
+    baseline: summary.baseline,
     solv: summary.blended_solv,
     date: new Date().toISOString(),
   });
