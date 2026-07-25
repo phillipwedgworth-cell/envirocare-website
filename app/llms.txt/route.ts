@@ -67,7 +67,7 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
 - Plans: Pest from $35/mo · Pest + Mosquito from $69/mo · Pest + Termite from $35/mo + termite quote ·
   Complete (pest + termite + mosquito) from $69/mo + termite quote (most popular). Mosquito alone $45/visit,
   Mosquito + Tick $65/visit — per service only. Plans are conveniences, not discounts.
-- WDO letters (Alabama Wood Infestation Report): $75 standalone; one free per year for
+- WDO letters (Alabama Wood Infestation Report): $125 standalone; one free per year for
   active termite customers. Builder pre-treats and commercial IPM/HACCP programs available.
 - Not offered: bed bug treatment, wildlife removal, lawn care.
 

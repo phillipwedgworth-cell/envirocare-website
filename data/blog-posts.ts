@@ -151,7 +151,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What it costs</h2>
 
-<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, standalone letters start as low as $75, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
+<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, standalone letters start as low as $125, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
 
 <p>Buying in Alabama? Get the house looked at before it's yours. <a href="/request-quote">Request an inspection</a> or call the office nearest the property — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
 `,
@@ -507,7 +507,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Our turnaround</h2>
 
-<p>Tell us your closing date when you order and we schedule the inspection around it — the completed letter goes to your lender, your agent, and you as soon as the inspection is done. Standalone WDO letters start <strong>as low as $75</strong>.</p>
+<p>Tell us your closing date when you order and we schedule the inspection around it — the completed letter goes to your lender, your agent, and you as soon as the inspection is done. Standalone WDO letters start <strong>as low as $125</strong>.</p>
 
 <p>If you're already an active EnviroCare customer on our pest or termite program, your first WDO letter each year is <strong>free</strong>.</p>
 

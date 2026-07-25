@@ -125,7 +125,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Can you do a WDO inspection for refinancing or selling?</summary>
-              <div className="faq-a">Yes — we provide NPMA-33 Wood-Destroying Organism letters accepted by every Alabama lender. One free per year on active accounts; $75 standalone fee otherwise. Most letters delivered in 48 hours.</div>
+              <div className="faq-a">Yes — we provide NPMA-33 Wood-Destroying Organism letters accepted by every Alabama lender. One free per year on active accounts; $125 standalone fee otherwise. Most letters delivered in 48 hours.</div>
             </details>
           </div>
         </div>
