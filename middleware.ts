@@ -50,6 +50,30 @@ const POST_OVERRIDES: [RegExp, string][] = [
   [/complete-guide-to-eff|property-owners-complete-guide/, "/blog/pest-control-birmingham-guide"],
   [/benefits-of-professional-pest-control/, "/blog/pest-control-birmingham-guide"],
   [/dont-risk-diy-pest-control/, "/blog/diy-pest-control-mistakes"],
+
+  // --- Added 2026-07-24 from the 16-month GSC export. ---
+  // 45 legacy URLs were pooling onto 9 topic pages while 17 live posts had no
+  // legacy traffic routed to them at all. These point specific legacy slugs at
+  // the live post that actually matches their intent. No new content required.
+
+  // FIRE ANT: business-critical. "fire-ants" contains "ant", so these were
+  // falling into the general /\bants?\b/ bucket and landing on ant-control.
+  // Fire ant is a SEPARATE PAID ADD-ON ($150 min, priced per sq ft), not part
+  // of the bi-monthly plan, so that redirect sent buying intent to the wrong offer.
+  [/fire-ants?/, "/blog/fire-ants-alabama-summer"],
+
+  // Bait/trap comparison intent belongs on the treatment-comparison post,
+  // not on the "how to identify termites" post. (1,371 imps, avg pos 53.5.)
+  [/termite-baits-and-traps|choosing-the-right-termite/, "/blog/sentricon-vs-liquid-termite-treatment"],
+
+  // "Is professional termite control necessary" is a bond/value question.
+  [/professional-termite-control|termite-control-is-a-must/, "/blog/termite-bond-alabama-explained"],
+
+  // Repellent / "keep them away" intent, not season timing.
+  [/repel-mosquitoes|keep-mosquitoes-away|secret-to-effective-mosquito/, "/blog/mosquito-repellent-yard-spray-vs-professional"],
+
+  // Swarmers and conducive conditions map to swarm season, not identification.
+  [/what-brings-termites|subterranean-termites/, "/blog/alabama-termite-swarm-season"],
 ];
 
 export function middleware(req: NextRequest) {
