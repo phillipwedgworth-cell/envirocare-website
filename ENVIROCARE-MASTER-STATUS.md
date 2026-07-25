@@ -104,7 +104,11 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 
 ---
 
-## PRICING MODEL (locked Jun 11 — both updates)
+## PRICING MODEL
+
+**⚠️ SUPERSEDED (2026-07-24): `data/pricing.ts` is now the single source of truth and the live /pricing page matches it.** Current plan set: Pest **$35/mo** ($79 startup) · Pest + Mosquito **$69/mo** ($79 startup, Most Popular) · Complete **~$100/mo** ($229 startup, Best Value). Termite has NO flat price (quoted after free WDO inspection; `monthlyAnchor` is an OPEN Phillip decision). Mosquito add-on $45/visit ($34/mo only when paired with pest); Mosquito+Tick $65/visit. The $116 Complete and the Jun-11 card set below are HISTORICAL — do not quote them. ($127 and $60-Outdoor remain retired.)
+
+## OLD PRICING MODEL (locked Jun 11 — superseded, kept for history)
 
 - Bi-monthly pest: $35/mo ACH · $70/visit · $108 quarterly · initial $150 (ask about $99). Covers 30+ pests. Fire ant/flea/tick NOT included.
 - Fire ant: $150 minimum, priced per sq ft of covered area. Standalone, open to anyone. Locked copy: "Starting at $150 — priced by the size of your yard."
