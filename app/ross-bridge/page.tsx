@@ -53,6 +53,7 @@ const config: DeepCityConfig = {
     { q: "Which office serves Ross Bridge?", a: "Our Birmingham-area office at 2025 Butler Rd in Alabaster. Call (205) 940-6360 and we'll confirm your address is on our route." }
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Hoover", "/hoover"],
     ["Vestavia Hills", "/vestavia-hills"],
     ["Homewood", "/homewood"],

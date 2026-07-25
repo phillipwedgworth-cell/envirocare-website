@@ -53,6 +53,7 @@ const config: DeepCityConfig = {
     { q: "Do you serve Dolly Ridge, Overton, and the Cahaba Heights village?", a: "Yes — all of Cahaba Heights. Call (205) 940-6360 and we'll confirm your address is on our route." }
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Vestavia Hills", "/vestavia-hills"],
     ["Mountain Brook", "/mountain-brook"],
     ["Liberty Park", "/liberty-park"],

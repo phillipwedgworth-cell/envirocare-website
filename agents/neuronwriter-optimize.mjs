@@ -28,7 +28,7 @@ const AGENT = 'neuronwriter-optimize';
 const MODEL = 'claude-sonnet-4-6';
 const SCORE_PASS = 70;
 const MAX_PASSES = 3;   // "whatever it takes" — capped so cost/time stay sane (~$0.05/page/pass)
-const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocare-web.vercel.app';
+const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = join(__dirname, 'reports', 'optimized');
 

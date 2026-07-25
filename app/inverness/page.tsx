@@ -53,6 +53,7 @@ const config: DeepCityConfig = {
     { q: "Do you serve Inverness Cove, Inverness Point, and Lake Heather?", a: "Yes — all of Inverness. Call (205) 940-6360 and we'll confirm your address is on our route." },
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Greystone", "/greystone"],
     ["Hoover", "/hoover"],
     ["Meadow Brook", "/meadow-brook"],

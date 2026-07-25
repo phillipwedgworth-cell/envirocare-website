@@ -59,12 +59,18 @@ const CYCLE_STALE_H = 48;
 const CURSOR_KEY = `${AGENT_NAME}:cursor`;
 const GATHER_PREFIX = `${AGENT_NAME}:gathered:`;
 
+// Live production host. This MUST be the custom domain, not a *.vercel.app URL:
+// deployment URLs sit behind Vercel Authentication and 302 to a login page, so
+// auditing them measures the login screen, not the site. (Fixed 2026-07-25 — the
+// stale vercel.app host was the root cause of months of false performance findings.)
+const SITE_BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.envirocarellc.com").replace(/\/$/, "");
+
 const TARGET_PAGES = [
-  { url: "https://envirocare-web.vercel.app/", label: "home" },
-  { url: "https://envirocare-web.vercel.app/services/mosquito-control", label: "mosquito" },
-  { url: "https://envirocare-web.vercel.app/services/termite-control", label: "termite" },
-  { url: "https://envirocare-web.vercel.app/huntsville", label: "huntsville" },
-  { url: "https://envirocare-web.vercel.app/birmingham", label: "birmingham" },
+  { url: `${SITE_BASE}/`, label: "home" },
+  { url: `${SITE_BASE}/services/mosquito-control`, label: "mosquito" },
+  { url: `${SITE_BASE}/services/termite-control`, label: "termite" },
+  { url: `${SITE_BASE}/huntsville`, label: "huntsville" },
+  { url: `${SITE_BASE}/birmingham`, label: "birmingham" },
 ];
 
 // ---------- Page-data gathering (deterministic, no LLM) ----------

@@ -54,6 +54,7 @@ const config: DeepCityConfig = {
     { q: "Do you serve Riverchase, Trace Crossings, and Lake Cyrus?", a: "Yes — all of Hoover, including Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. Call (205) 940-6360 to confirm your address." },
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Greystone", "/greystone"],
     ["Vestavia Hills", "/vestavia-hills"],
     ["Mountain Brook", "/mountain-brook"],

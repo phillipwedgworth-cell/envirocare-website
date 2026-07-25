@@ -55,6 +55,7 @@ const config: DeepCityConfig = {
     { q: "Do you serve Greystone Founders, Legacy, and Farms?", a: "Yes — all of Greystone. Call (205) 940-6360 and we'll confirm your address is on our route." },
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Hoover", "/hoover"],
     ["Mountain Brook", "/mountain-brook"],
     ["Vestavia Hills", "/vestavia-hills"],

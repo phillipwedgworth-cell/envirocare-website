@@ -119,7 +119,7 @@ const jsonLd = {
           name: "How do I cancel pest service?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "There is no long-term contract on our pest control plans. Call (256) 937-7676 or email service@envirocarellc.com and we'll cancel at any time. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
+            text: "Pay-per-visit service has no long-term contract. Monthly plans use a 12-month ACH billing agreement, which spreads the year's cost into equal payments. Call (256) 937-7676 or email service@envirocarellc.com and we'll walk you through the options on your account. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
           },
         },
       ],

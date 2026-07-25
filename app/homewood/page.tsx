@@ -54,6 +54,7 @@ const config: DeepCityConfig = {
     { q: "Do you serve Edgewood, Hollywood, West Homewood, and SoHo?", a: "Yes — all of Homewood. Call (205) 940-6360 and we'll confirm your address is on our route." },
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Mountain Brook", "/mountain-brook"],
     ["Vestavia Hills", "/vestavia-hills"],
     ["Hoover", "/hoover"],

@@ -88,7 +88,7 @@ function loadTargets() {
 // Scoring the LIVE rendered HTML is the only accurate option — most page.tsx
 // files are thin wrappers around shared templates, so reading the source
 // produced "<100 chars" for 13 of 16 targets.
-const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://envirocare-web.vercel.app';
+const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com';
 
 function pageToUrl(page) {
   const route = page.replace(/^app\//, '/').replace(/\/page\.tsx$/, '').replace(/^\/$/, '');
