@@ -1,9 +1,14 @@
 /**
  * app/sitemap.ts — EnviroCare site sitemap
  * Rebuilt 2026-06-10 (speed/SEO audit): the old map listed redirect SOURCES
- * (/pricing, /why-envirocare, /services, /realtor, /contact, real-estate-wdo)
- * instead of canonical pages, omitted sentricon + builder-pre-treat, and had
- * zero blog URLs. Blog slugs now come straight from data/blog-posts.ts.
+ * (/pricing, /why-envirocare, /contact, real-estate-wdo) instead of canonical
+ * pages, omitted sentricon + builder-pre-treat, and had zero blog URLs. Blog
+ * slugs now come straight from data/blog-posts.ts.
+ *
+ * CORRECTED 2026-07-25: the 2026-06-10 note also listed /services and /realtor
+ * as redirect sources. They are NOT — next.config.ts un-shadowed both on the
+ * same day and they have been real 200-status pages since. They are now in the
+ * map, along with /special-offers, /privacy and /terms. See the ADDED block below.
  */
 
 import type { MetadataRoute } from 'next';
@@ -105,6 +110,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // homeowner-facing page remains /services/wdo-letters.
     { url: `${BASE_URL}/wdo-inspection-letters-alabama`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/what-pest-problem`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    // ADDED 2026-07-25 (live-site audit): these five were linked in the global
+    // nav/footer and returned 200, but were absent from the sitemap. The header
+    // comment above lists /services and /realtor as "redirect SOURCES" — that was
+    // true when this file was rebuilt on 2026-06-10, but next.config.ts un-shadowed
+    // both the SAME DAY (see the "UN-SHADOWED per SHADOWED-PAGES-RECOMMENDATION.md"
+    // block, ~line 178). They are real pages and have been for six weeks.
+    { url: `${BASE_URL}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/realtor`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE_URL}/special-offers`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    // NOT added: /request-quote. It is also nav-linked and returns 200, but it
+    // overlaps /quote (both are "get in touch" forms with near-identical titles —
+    // "Request a Free Pest Control Quote" vs "Request a Free Pest Control Visit").
+    // They use different components (RequestQuoteForm vs ScheduleRequest), so this
+    // is a product decision, not a sitemap bug. Consolidate to one URL and 301 the
+    // other, THEN add the survivor here. Flagged 2026-07-25.
   ];
 
   const servicePages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({
