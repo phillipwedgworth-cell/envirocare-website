@@ -165,6 +165,8 @@ const nextConfig: NextConfig = {
 
             // ─── CORE / MISC ────────────────────────────────────────────────
             // NOTE: /faq is a REAL page now — intentionally NOT redirected.
+            // /faqs (plural) was a live 404 — GSC-confirmed legacy URL (2026-07-26).
+            { source: '/faqs', destination: '/faq', permanent: true },
             { source: '/site-map', destination: '/', permanent: true },
             { source: '/site-search', destination: '/', permanent: true },   // legacy Scorpion search page → home (gap found 2026-07-12)
             { source: '/common', destination: '/', permanent: true },        // legacy crawl artifact → home (retire the 404)

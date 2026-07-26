@@ -79,14 +79,16 @@ const POST_OVERRIDES: [RegExp, string][] = [
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Only legacy Scorpion blog URLs begin with /blog/<4-digit year>. New posts
-  // (/blog/<slug>, no year) pass straight through untouched.
-  if (!/^\/blog\/\d{4}(\/|$)/.test(pathname)) return NextResponse.next();
+  // Legacy Scorpion blog URLs begin with /blog/<4-digit year> or /blog/posts/
+  // (the /blog/posts/<slug> shape confirmed 404ing in GSC, 2026-07-26 — e.g.
+  // .../are-you-having-a-hard-time-dealing-with-fire-ants-in-birmingham).
+  // New posts (/blog/<slug>, single segment) pass straight through untouched.
+  if (!/^\/blog\/(\d{4}|posts)(\/|$)/.test(pathname)) return NextResponse.next();
 
-  // A full post URL is /blog/<year>/<month>/<slug...>; match its slug to a topic.
-  // Year/month archives (and unmatched posts) fall back to the blog index.
+  // A full post URL is /blog/<year>/<month>/<slug...> or /blog/posts/<slug...>;
+  // match its slug to a topic. Archives and unmatched posts fall back to /blog.
   let dest = "/blog";
-  const post = pathname.match(/^\/blog\/\d{4}\/[^/]+\/(.+?)\/?$/);
+  const post = pathname.match(/^\/blog\/(?:\d{4}\/[^/]+|posts)\/(.+?)\/?$/);
   if (post) {
     const slug = post[1].toLowerCase();
     // Exact republished-post override wins over the topic bucket.
