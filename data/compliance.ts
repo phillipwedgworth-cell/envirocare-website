@@ -23,6 +23,10 @@ export interface BannedTerm {
    *  'chat' = the chatbot prompt/output only (app/api/chat). Use 'chat' for
    *  AI-tell / stylistic rules so they never flag ordinary site punctuation. */
   scope?: 'content' | 'chat';
+  /** 'block' (default) fails the deploy. 'warn' reports for human review without
+   *  blocking — for decision-gated language (e.g. discounts, which Phillip may
+   *  approve per-offer) and rules with an open business question. */
+  severity?: 'block' | 'warn';
 }
 
 export const BANNED_PATTERNS: BannedTerm[] = [
@@ -47,6 +51,19 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: '(third|3rd)[ -]generation\\s+(wedgworth\\s+)?(family|business|company)', reason: 'wrong generation (company is fourth)', approvedInstead: 'fourth-generation Wedgworth family (see data/business.ts)' },
   // OWNERSHIP — owner is Kevin Wedgworth (gen 3). Flag an "owner" claim naming anyone else.
   // notIf excludes founder/history references (Phillip M. Wedgworth is the gen-1 FOUNDER, not owner).
+  // ── Added 2026-07-28 (approval-queue item 9): the 3 classes packs kept sneaking past self-scans ──
+  // Discounts are DECISION-GATED, not always banned (Phillip approves real offers, e.g. the $79
+  // initial promo) — severity 'warn' surfaces them for review instead of blocking the deploy.
+  { pattern: '\\d+\\s*%\\s*off|percent\\s+off|half[\\s-]off|\\bdiscount(s|ed)?\\b', notIf: 'NOT discounts|aren.{0,2}t discounts|No promo|not a discount', severity: 'warn', reason: 'discount language — needs per-offer approval', approvedInstead: 'no discount framing unless the specific offer is approved; bundling is convenience only' },
+  // Rodent/wildlife service marketing. WARN until the open question is answered: does EnviroCare
+  // offer ANY rodent program (exterior bait stations / commercial monitoring)? Residential
+  // plan-coverage claims ('covers ... and rodents') were scrubbed 2026-07-28; flip to 'block'
+  // once the redstone-arsenal / bait-station copy is ruled on.
+  { pattern: '(cover|includ|treat|control|remov|monitor)[^.\\n]{0,60}\\brodents?\\b|\\brodents?\\b[^.\\n]{0,60}\\b(cover|control|removal|treatment|monitoring|bait)', notIf: 'not\\s+(offer|includ)|refuge|exclud', severity: 'warn', reason: 'rodent service marketing — rodent removal is in SERVICES_NOT_OFFERED', approvedInstead: 'do not market rodent services (see SERVICES_NOT_OFFERED)' },
+  { pattern: 'wildlife\\s+(removal|control|trapping)', notIf: 'not\\s+offer|refuge|exclud|no raccoons', severity: 'warn', reason: 'wildlife service marketing — not offered', approvedInstead: 'do not market wildlife services' },
+  // 'unlimited' is approved ONLY in the re-service/re-treatment phrasings. Anything else
+  // ('unlimited protection', 'unlimited treatments') is a service-scope overpromise. BLOCKS.
+  { pattern: '\\bunlimited\\b', notIf: 'unlimited\\s+(free|covered|visits|pest|re-?servic|re-?treatment)', reason: 'unapproved unlimited claim', approvedInstead: 'unlimited (free) re-service / re-treatment is the only approved unlimited phrasing' },
   { pattern: '\\bowner\\b[^.\\n]*\\b(phillip|lex|william)\\b', notIf: '(Phillip M\\.|founder|founded)', reason: 'wrong owner', approvedInstead: 'Kevin Wedgworth (owner, gen 3); Phillip M. Wedgworth is the founder (gen 1)' },
 ];
 

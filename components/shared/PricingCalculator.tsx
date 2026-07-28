@@ -17,7 +17,7 @@ type Size = "sm" | "md" | "lg" | "xl";
 
 const SERVICES: Array<{ id: Service; label: string; icon: PestIconName; sub: string }> = [
   { id: "bundle",         label: "Bundle (Best Value)",      icon: "pest",     sub: "Pest + Termite + Mosquito/Tick" },
-  { id: "pest",           label: "Bi-Monthly Pest Control",  icon: "ant",      sub: "Ants, roaches, spiders, rodents" },
+  { id: "pest",           label: "Bi-Monthly Pest Control",  icon: "ant",      sub: "Ants, roaches, spiders" },
   { id: "termite",        label: "Termite Protection",       icon: "termite",  sub: "Sentricon® system" },
   { id: "mosquito-tick",  label: "Mosquito + Tick Combo",    icon: "tick",     sub: "Both threats, one visit" },
   { id: "mosquito",       label: "Mosquito Only",            icon: "mosquito", sub: "Yard treatment season" },

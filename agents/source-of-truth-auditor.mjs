@@ -59,7 +59,9 @@ function loadBannedPatterns() {
   // Isolate the BANNED_PATTERNS array body, then parse each { ... } entry on its own.
   const body = (txt.match(/BANNED_PATTERNS[^=]*=\s*\[([\s\S]*?)\];/) || [, ''])[1];
   const out = [];
-  for (const obj of body.match(/\{[^{}]*\}/g) || []) {
+  // NOTE: entry regexes may contain {n,m} quantifiers, so match balanced braces
+  // one level deep — a flat /\{[^{}]*\}/ silently drops (or splits) those entries.
+  for (const obj of body.match(/\{(?:[^{}]|\{[^{}]*\})*\}/g) || []) {
     const pattern = field(obj, 'pattern');
     if (!pattern) continue;
     const notIf = field(obj, 'notIf');
@@ -70,6 +72,7 @@ function loadBannedPatterns() {
       approved: field(obj, 'approvedInstead') || '',
       notRx: notIf ? new RegExp(unesc(notIf), 'i') : null,
       scope,
+      severity: field(obj, 'severity') || 'block',
     });
   }
   return out;
@@ -103,20 +106,32 @@ for (const rel of files) {
       if (p.scope === 'chat' && !chat) continue;        // AI-tell rules only on chatbot files
       if (!p.rx.test(line)) continue;
       if (p.notRx && p.notRx.test(line)) continue;      // suppressed context (e.g. founder ≠ owner)
-      violations.push({ file: norm(rel), line: i + 1, reason: p.reason, approved: p.approved, text: t.slice(0, 100) });
+      violations.push({ file: norm(rel), line: i + 1, reason: p.reason, approved: p.approved, severity: p.severity, text: t.slice(0, 100) });
     }
   });
 }
 
 console.log(`\n[source-of-truth auditor] scanned ${files.length} files, ${patterns.length} rules\n`);
 
-if (violations.length === 0) {
+const blockers = violations.filter((v) => v.severity !== 'warn');
+const warns = violations.filter((v) => v.severity === 'warn');
+
+if (warns.length) {
+  console.log(`⚠️  ${warns.length} warning(s) — decision-gated language, review but not blocking:\n`);
+  for (const v of warns) {
+    console.log(`  ${v.file}:${v.line}  [${v.reason}]`);
+    console.log(`     found:    ${v.text}`);
+    console.log(`     guidance: ${v.approved}\n`);
+  }
+}
+
+if (blockers.length === 0) {
   console.log('✅ No banned language found. Safe to deploy.\n');
   process.exit(0);
 }
 
-console.log(`❌ ${violations.length} violation(s) — BLOCKING deploy:\n`);
-for (const v of violations) {
+console.log(`❌ ${blockers.length} violation(s) — BLOCKING deploy:\n`);
+for (const v of blockers) {
   console.log(`  ${v.file}:${v.line}  [${v.reason}]`);
   console.log(`     found:    ${v.text}`);
   console.log(`     fix with: ${v.approved}\n`);

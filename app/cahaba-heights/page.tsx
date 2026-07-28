@@ -49,7 +49,7 @@ const config: DeepCityConfig = {
     { q: "How much is termite treatment in Cahaba Heights?", a: "EnviroCare termite protection in Cahaba Heights is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Can you protect a Cahaba Heights home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching — with up to $1M coverage under EnviroCare's own guarantee. The inspection is free." },
     { q: "Is there mosquito control in Cahaba Heights?", a: "Yes. EnviroCare treats Cahaba Heights yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
-    { q: "What does bi-monthly pest control cover in Cahaba Heights?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
+    { q: "What does bi-monthly pest control cover in Cahaba Heights?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, and roaches, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Do you serve Dolly Ridge, Overton, and the Cahaba Heights village?", a: "Yes — all of Cahaba Heights. Call (205) 940-6360 and we'll confirm your address is on our route." }
   ],
   siblings: [

@@ -49,7 +49,7 @@ const config: DeepCityConfig = {
     { q: "How much is termite treatment in Inverness?", a: "EnviroCare termite protection in Inverness is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Can you protect an Inverness home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching, no disruption to your landscaping — with up to $1M coverage under EnviroCare's own guarantee. The inspection is free." },
     { q: "Is there mosquito control in Inverness?", a: "Yes. EnviroCare treats Inverness yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
-    { q: "What does bi-monthly pest control cover in Inverness?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
+    { q: "What does bi-monthly pest control cover in Inverness?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, and roaches, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Do you serve Inverness Cove, Inverness Point, and Lake Heather?", a: "Yes — all of Inverness. Call (205) 940-6360 and we'll confirm your address is on our route." },
   ],
   siblings: [
