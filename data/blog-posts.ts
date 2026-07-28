@@ -21,6 +21,56 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'more-bugs-after-pest-control-treatment',
+    title: 'Seeing More Bugs Right After a Pest Control Treatment? That\'s Normal — Here\'s Why',
+    excerpt: 'More ants on the counter two days after service usually means the treatment is working, not failing. What flush-out is, how long it lasts, why fast-acting products make ant problems worse, and when it is actually worth calling us back.',
+    publishedAt: '2026-07-27',
+    author: 'Kevin Wedgworth',
+    category: 'Tips',
+    readMinutes: 6,
+    heroEmoji: '🐜',
+    metaTitle: 'Why You See More Bugs After Treatment | EnviroCare',
+    metaDescription: 'Seeing more bugs after a pest control treatment? That flush-out is normal. What is happening, how long it lasts, and when to call us back.',
+    body: `
+<p class="lede">The technician pulls out of the driveway, and two days later there are more ants on the kitchen counter than there were before he showed up. We get that call most weeks, and the honest answer catches people off guard: what you are seeing is usually the treatment working, not failing. Here is what is actually happening along your foundation and inside your walls during those first couple of weeks.</p>
+
+<h2>Why do I see more bugs right after a pest control treatment?</h2>
+
+<p>It is called flush-out, and it is the single most common question new customers bring us. Pests do not live out in the open where you can see them. They live in wall voids, under siding, in mulch beds, behind baseboards, and in the seam where brick veneer meets the slab. When we treat those harborage areas, the insects sitting in them do not quietly die in place. They get agitated, they move, and moving means walking out into the open where you finally notice them.</p>
+
+<p>So the population is not growing. Your visibility of it is. A <a href="/hoover">Hoover</a> homeowner who noticed two or three spiders a month before service might count a dozen in the week after, and every one of those was already living in the house. Treatment did not bring them in. It just changed where they were standing.</p>
+
+<h2>How long does the flush-out last?</h2>
+
+<p>Usually seven to ten days. Two weeks is not unusual for a heavy population or an older home with a lot of hiding places. Activity tends to peak in the first three or four days, taper hard through the end of week one, and by day fourteen most homes are noticeably quieter than they were before we came out.</p>
+
+<p>Two things stretch that window. Older construction gives insects more voids and settled gaps to sit in, which is why the established streets in Mountain Brook, Homewood, and older <a href="/vestavia-hills">Vestavia Hills</a> neighborhoods often run a longer flush than a five-year-old house in <a href="/mt-laurel">Mt Laurel</a>. Season matters too. A June treatment in <a href="/chelsea">Chelsea</a> or Greystone is working against peak sugar ant pressure, so there is simply more insect in the system to push out.</p>
+
+<h2>Why we do not try to kill everything on day one</h2>
+
+<p>This is the part that runs against instinct. With ants especially, the fastest-acting product is often the worst choice. The ants you see on the counter are foragers, and they are maybe five percent of the colony. Kill them instantly with a repellent product and you accomplish two bad things: the rest of the colony never gets dosed, and the survivors read the treated area as hostile and bud off into satellite colonies somewhere else in the structure. You trade one ant problem for three.</p>
+
+<p>Non-repellent products and baits work the other way. Foragers pick the material up, walk it home undetected, and pass it through the colony by grooming and feeding. That transfer takes days, not minutes, and during those days you keep seeing ants. That is the mechanism doing its job. Ripping into the trail with a store-bought aerosol in the middle of that window is the most common way homeowners undo their own service, and it is one of the missteps we cover in our <a href="/blog/diy-pest-control-mistakes">DIY pest control mistakes</a> post.</p>
+
+<h2>What is normal, and what is not</h2>
+
+<p>Normal in the first two weeks: more visible activity than usual, dead or dying insects showing up on windowsills and in corners, ants still working an established trail, sluggish spiders in the open, and a short bump right after the first hard rain.</p>
+
+<p>Worth a phone call: activity that is climbing rather than tapering at the two-week mark, a brand-new trail in a room we never treated, live insects in an area that was quiet before service, or any sign of termite or wood-destroying activity, which is a separate issue from general pest work and handled through our <a href="/services/termite-control">termite service</a> after a free inspection.</p>
+
+<h2>What to do during the first two weeks</h2>
+
+<p>Leave the treated surfaces alone. Do not mop or wipe baseboards and exterior foundation lines for a couple of days, since the residual is what keeps working after we leave. Vacuum what you find rather than spraying it, especially near baseboards and window tracks. Keep a rough note of where you are seeing activity and on what days, because that pattern tells the technician far more on a return visit than a general report that bugs are still around.</p>
+
+<p>And if it does not settle down, call us. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> includes unlimited re-service between scheduled visits, so if something is still working two weeks out, we come back and treat again at no additional charge. Products are EPA-registered and applied per label directions, and a second application targeted at the spot that is still active is a normal part of the process, not an admission that anything went wrong. Our guide on <a href="/blog/prepare-home-for-pest-control">preparing your home for service</a> is worth a read before that visit, since access is often the difference between a two-week flush and a four-week one.</p>
+
+<p>Questions about what you are seeing? Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
     slug: 'fleas-in-house-no-pets',
     title: 'Fleas in the House But No Pets? Here\'s What\'s Actually Happening',
     excerpt: 'No dog, no cat, still getting bit at the ankles. Where interior fleas actually come from, why bombs and foggers rarely finish the job, and how we treat the life cycle instead of just the adults you can see.',
