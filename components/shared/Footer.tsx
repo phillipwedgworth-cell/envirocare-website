@@ -67,6 +67,7 @@ const SPECIALTY: [string, string][] = [
   ["Real Estate / WDO Letters", "/realtor"],
   ["Commercial Service", "/services/commercial"],
   ["Pest Library", "/pest-library"],
+  ["Seasonal Pest Calendar", "/pest-calendar"],
   ["Pest Tips & Blog", "/blog"],
   ["Local vs National Chains", "/family-owned-vs-national-chains"],
   ["Special Offers", "/special-offers"],
@@ -100,6 +101,7 @@ const AREAS_2: [string, string][] = [
   ["Alexander City, AL", "/alexander-city"],
   ["Auburn, AL", "/auburn"],
   ["Opelika, AL", "/opelika"],
+  ["Find Your Office", "/find-office"],
   ["All Service Areas →", "/service-areas"],
 ];
 
