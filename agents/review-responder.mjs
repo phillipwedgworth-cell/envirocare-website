@@ -18,6 +18,7 @@
 
 import { blMcpCall, BrightLocalKeyError } from "./brightlocal.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { stateGet, stateSet } from "./lib/kv.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { sendEmail } from "./lib/notify.mjs";
 import { cleanEnv, envWasDirty } from "./lib/env-url.mjs";
@@ -25,6 +26,9 @@ import { appendBlocksToPage, nHeading2, nHeading3, nParagraph, nQuote, nDivider 
 
 const AGENT_NAME = "review-responder";
 const WORKER_MODEL = "claude-sonnet-4-6";
+// agent_state key holding the keys of every review already drafted (capped).
+const DRAFTED_LEDGER_KEY = "review-responder:drafted-keys";
+const LEDGER_CAP = 500;
 const REVIEW_STATION_PAGE_ID = "37b202ee-7a71-813f-a3f8-e3e5807bd7bb";
 
 const RM_REPORTS = [
@@ -54,8 +58,20 @@ function isoDaysAgo(n) {
   return d.toISOString().slice(0, 10);
 }
 
+// Widened from 7 to 14 days: BrightLocal RM can surface a review days after
+// it was published, and a hard 7-day window silently dropped anything that
+// synced late. The drafted-key ledger (below) makes the overlap safe.
+const LOOKBACK_DAYS = 14;
+
+/** Stable identity for a review across runs — BrightLocal id when present,
+ *  else a fingerprint. This is what the dedup ledger stores. */
+function reviewKey(r) {
+  if (r.id) return `id:${r.id}`;
+  return `fp:${r.location}|${r.directory}|${r.author}|${r.publishTime}|${r.text.slice(0, 40)}`;
+}
+
 async function fetchRecentReviews() {
-  const fromDate = isoDaysAgo(7);
+  const fromDate = isoDaysAgo(LOOKBACK_DAYS);
   const all = [];
   for (const loc of RM_REPORTS) {
     try {
@@ -68,6 +84,7 @@ async function fetchRecentReviews() {
       const reviews = Array.isArray(data) ? data : (data?.items ?? data?.reviews ?? data?.results ?? data?.data ?? []);
       for (const r of reviews) {
         all.push({
+          id: r.id ?? r.review_id ?? null,
           location: loc.name,
           author: r.author ?? r.author_name ?? "A customer",
           rating: Number(r.rating ?? r.star_rating ?? 0),
@@ -89,7 +106,7 @@ async function fetchRecentReviews() {
   return all;
 }
 
-const DRAFT_SYSTEM = `You draft Google/Facebook review responses for EnviroCare Pest & Termite Services, a third-generation family pest control company in Alabama (since 1958). Owner: Phillip Wedgworth.
+const DRAFT_SYSTEM = `You draft Google/Facebook review responses for EnviroCare Pest & Termite Services, a fourth-generation family pest control company in Alabama (since 1958). Owner: Phillip Wedgworth.
 
 RULES — never break:
 - 5-star or 4-star: thank the reviewer BY NAME, mention something SPECIFIC from their review (a service, a tech's name, their town — whatever they actually wrote), and vary wording so consecutive responses never sound templated. Warm, brief (2-3 sentences), Southern-friendly, never corporate.
@@ -128,10 +145,19 @@ export async function run() {
     return { skipped: true, reason: "BRIGHTLOCAL_API_KEY not set" };
   }
 
-  console.log(`[${AGENT_NAME}] pulling reviews since ${isoDaysAgo(7)}`);
+  console.log(`[${AGENT_NAME}] pulling reviews since ${isoDaysAgo(LOOKBACK_DAYS)}`);
   const reviews = await fetchRecentReviews();
   const errors = reviews.filter(r => r.error);
-  const fresh = reviews.filter(r => !r.error && r.rating > 0);
+
+  // Dedup ledger: every review drafted in a prior run is remembered by key in
+  // agent_state, so overlapping windows, --force re-runs, and same-Monday
+  // retries can never re-draft (and re-post to Notion) the same review.
+  const ledger = (await stateGet(DRAFTED_LEDGER_KEY).catch(() => null)) ?? [];
+  const drafted_before = new Set(ledger);
+  const candidates = reviews.filter(r => !r.error && r.rating > 0);
+  const fresh = candidates.filter(r => !drafted_before.has(reviewKey(r)));
+  const skippedDupes = candidates.length - fresh.length;
+  if (skippedDupes) console.log(`[${AGENT_NAME}] ${skippedDupes} review(s) already drafted in a prior run — skipped`);
 
   // BrightLocal rejected the API key (INVALID_API_KEY) — fetchRecentReviews
   // already stopped at the first rejection (auth is account-wide). Raise ONE
@@ -151,9 +177,10 @@ export async function run() {
   }
 
   if (fresh.length === 0) {
-    console.log(`[${AGENT_NAME}] no new reviews in the past 7 days (${errors.length} report errors)`);
-    await logAgentRun(AGENT_NAME, "ok", `No new reviews this week. ${errors.length} report errors.`).catch(() => {});
-    return { brief: "No new reviews in the past 7 days.", count: 0, errors: errors.length };
+    const note = skippedDupes ? ` (${skippedDupes} already drafted previously)` : "";
+    console.log(`[${AGENT_NAME}] no undrafted reviews in the past ${LOOKBACK_DAYS} days${note} (${errors.length} report errors)`);
+    await logAgentRun(AGENT_NAME, "ok", `No undrafted reviews this week${note}. ${errors.length} report errors.`).catch(() => {});
+    return { brief: `No undrafted reviews in the past ${LOOKBACK_DAYS} days${note}.`, count: 0, errors: errors.length };
   }
 
   // Draft responses — 5★/4★ alternate signatures, negatives always Phillip.
@@ -188,6 +215,12 @@ export async function run() {
   if (errors.length) blocks.push(nParagraph(`⚠️ ${errors.map(e => `${e.location}: ${e.error}`).join(" · ")}`));
 
   await appendBlocksToPage(REVIEW_STATION_PAGE_ID, blocks, { label: "Review Response Station" });
+
+  // Persist the ledger AFTER the Notion post succeeds, and only for drafts that
+  // actually drafted — a failed draft stays off the ledger so it retries next run.
+  const newKeys = drafted.filter(d => !d.draft.startsWith("⚠️")).map(reviewKey);
+  await stateSet(DRAFTED_LEDGER_KEY, [...ledger, ...newKeys].slice(-LEDGER_CAP)).catch(e =>
+    console.error(`[${AGENT_NAME}] ledger save failed (${e.message}) — next run may re-draft this week's reviews`));
 
   const brief = `${drafted.length} review response draft(s) posted to the Review Response Station (${weekLabel}). ` +
     `${drafted.filter(d => d.rating <= 3).length} negative — review those first.`;
