@@ -88,18 +88,44 @@ You are given the STRATEGY BRAIN (knowledge block in the user message): the live
 - If it's a quiet day, say so in one line and list 1-2 things worth watching.
 - Keep the whole brief under ~300 words. Short lines, not big paragraphs.`;
 
-async function generateBrief(ctx) {
+// Read-before-act (agents/BEST-PRACTICES.md, retrieve→act→distill): pull the
+// most recent prior brief so today's brief reports DELTAS instead of
+// re-announcing the same items every morning, and so a decision Phillip was
+// asked for yesterday doesn't silently vanish from today's brief.
+async function fetchPreviousBrief() {
+  try {
+    const rows = await fetch(
+      `${BASE}/morning_brief?brief_date=lt.${briefDate()}&order=brief_date.desc&limit=1&select=brief_date,content`,
+      { headers: sbHeaders() },
+    ).then((r) => r.json());
+    const prev = arr(rows)[0];
+    return prev?.content ? { date: prev.brief_date, content: String(prev.content).slice(0, 2000) } : null;
+  } catch {
+    return null; // no prior brief is a normal cold-start, never a failure
+  }
+}
+
+async function generateBrief(ctx, prevBrief) {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error('ANTHROPIC_API_KEY not set');
   const mod = await import('@anthropic-ai/sdk');
   const Anthropic = mod.default ?? mod;
   const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 1 });
 
+  const prevBlock = prevBrief
+    ? `\nPREVIOUS BRIEF (${prevBrief.date}) — for delta context only:
+${prevBrief.content}
+
+Delta rules: do NOT re-announce items unchanged since the previous brief — one
+"still open" line each at most. Lead with what is NEW or CHANGED. If the
+previous brief asked Phillip for a decision that is still unanswered, keep it
+in "YOUR CALL" and mark it (day 2, day 3, …).\n`
+    : '';
   const user = `${knowledgeBlock()}
 Date: ${niceDate()}
 Agents that ran in the last 30h: ${ctx.agentsRan.join(', ') || 'none'}
 SHIP-flagged items (need human decision): ${ctx.shipCount}
 Total findings examined: ${ctx.totalFindings}
-
+${prevBlock}
 Findings / proposed changes:
 ${ctx.findingsBlock}
 
@@ -127,9 +153,9 @@ async function upsertBrief(content) {
 }
 
 async function main() {
-  const data = await fetchFindings();
+  const [data, prevBrief] = await Promise.all([fetchFindings(), fetchPreviousBrief()]);
   const ctx = buildContext(data);
-  const content = await generateBrief(ctx);
+  const content = await generateBrief(ctx, prevBrief);
   if (!content) throw new Error('empty brief from model');
   await upsertBrief(content);
   const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings).`;
