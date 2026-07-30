@@ -99,6 +99,14 @@ export async function run({ nowIso } = {}) {
   }
 
   let posted = 0, failed = 0, skipped = 0;
+  // A post skipped for missing credentials used to increment `skipped` only, which
+  // meant the run still logged "ok" and the daily health email printed
+  // "ok social-poster — success" while nothing reached Facebook. Approving posts in
+  // /command-center#approvals looked like it worked. Collect the skip reasons so an
+  // unpublished queue is loud instead of silent. NOTE: the Meta/IG tokens must exist
+  // as GitHub Actions secrets — this agent runs in Actions, so /api/agents/health
+  // (which only inspects Vercel) reporting missingRequired: [] says nothing about them.
+  const skipReasons = new Map(); // reason -> count
   for (const row of due || []) {
     const result = await postOne(row, cal);
     if (result.ok) {
@@ -108,7 +116,11 @@ export async function run({ nowIso } = {}) {
         posted_at: new Date().toISOString(), error: null, updated_at: new Date().toISOString(),
       }).eq("id", row.id);
     } else if (result.skipped) {
-      skipped++; // creds missing — leave as approved so it posts once tokens exist
+      // creds missing — leave the row 'approved' so it publishes once tokens exist,
+      // but record why so the run can escalate instead of reporting success.
+      skipped++;
+      const reason = result.reason || `${row.platform}: credentials not set`;
+      skipReasons.set(reason, (skipReasons.get(reason) || 0) + 1);
     } else {
       failed++;
       await supabase.from("social_posts").update({
@@ -119,8 +131,26 @@ export async function run({ nowIso } = {}) {
     }
   }
 
-  const summary = `posted ${posted}, failed ${failed}, skipped ${skipped} (of ${due?.length || 0} due)`;
-  await logAgentRun(AGENT_NAME, failed ? "escalated" : "ok", summary);
+  // A due, approved post that could not publish for want of credentials is a
+  // failure to publish, not a success — surface it in the run status, the summary
+  // line, and a warning finding that names the missing variables.
+  const reasonList = [...skipReasons.entries()].map(([reason, n]) => `${reason} (${n})`);
+  const blocked = skipped > 0;
+  const summary = [
+    `posted ${posted}, failed ${failed}, skipped ${skipped} (of ${due?.length || 0} due)`,
+    ...(blocked ? [`NOT PUBLISHED — ${reasonList.join("; ")}`] : []),
+  ].join(" · ");
+  const status = failed || blocked ? "escalated" : "ok";
+  await logAgentRun(AGENT_NAME, status, summary);
   if (posted) await writeFinding(AGENT_NAME, "social", "info", null, `Published ${posted} scheduled post(s).`, {});
-  return { agent: AGENT_NAME, status: "ok", posted, failed, skipped, due: due?.length || 0 };
+  if (blocked) {
+    await writeFinding(
+      AGENT_NAME, "social", "warning", null,
+      `${skipped} approved post(s) were due but did NOT publish — missing credentials: ${reasonList.join("; ")}. ` +
+      `These must be set as GitHub Actions secrets (this agent runs in Actions, not on Vercel). ` +
+      `The posts remain 'approved' and will publish on the next run once the secrets exist.`,
+      { skipped, reasons: reasonList, due: due?.length || 0 },
+    );
+  }
+  return { agent: AGENT_NAME, status, posted, failed, skipped, due: due?.length || 0, skipReasons: reasonList };
 }

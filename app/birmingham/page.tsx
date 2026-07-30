@@ -55,9 +55,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.envirocarellc.com/birmingham",
+      // Reuses the site-wide Birmingham office @id from app/layout.tsx so this page's
+      // LocalBusiness node MERGES with it instead of reading as a second business at
+      // the same address. Was '.../birmingham' — a distinct @id with identical NAP,
+      // which is entity dilution. Verified in the build output 2026-07-30.
+      // Keep in sync with app/layout.tsx and components/pages/CityPage.tsx.
+      "@id": "https://www.envirocarellc.com/#birmingham",
       name: "EnviroCare Pest & Termite Services — Birmingham",
-      url: "https://www.envirocarellc.com",
+      url: "https://www.envirocarellc.com/birmingham",
       telephone: "+12059406360",
       address: {
         "@type": "PostalAddress",

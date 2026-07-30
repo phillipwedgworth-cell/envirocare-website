@@ -104,6 +104,33 @@ const OFFICE_NAP: Record<string, { lat: number; lng: number; gbp: string }> = {
   '2569377676': { lat: 34.7121, lng: -86.6867, gbp: 'https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8' },             // Huntsville
 };
 
+// The three office home pages ALSO receive a site-wide LocalBusiness node from
+// app/layout.tsx, keyed '@id': .../#birmingham | #lake-martin | #huntsville.
+// Emitting a second LocalBusiness here with a *different* @id but an identical
+// name/address/telephone/url reads to Google as two competing businesses at one
+// address — entity dilution on exactly the pages where local visibility matters
+// most. Reusing the layout @id merges the two nodes into a single entity that
+// carries both the office NAP and this page's hasOfferCatalog.
+// The name is aligned to the layout node's name for the same reason: one entity
+// should not resolve to two names.
+// Non-office city pages are unaffected and keep their own per-city @id.
+// Verified against the live page 2026-07-30: /huntsville emitted both
+// '.../#huntsville' and '.../huntsville'. Keep this map in sync with app/layout.tsx.
+const OFFICE_SCHEMA: Record<string, { id: string; name: string }> = {
+  'birmingham': {
+    id: 'https://www.envirocarellc.com/#birmingham',
+    name: 'EnviroCare Pest & Termite Services — Birmingham',
+  },
+  'lake-martin': {
+    id: 'https://www.envirocarellc.com/#lake-martin',
+    name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
+  },
+  'huntsville': {
+    id: 'https://www.envirocarellc.com/#huntsville',
+    name: 'EnviroCare Pest & Termite Services — Huntsville',
+  },
+};
+
 function buildCitySchema(city: City) {
   const tel = city.directTel || city.officeTel;
   const telFormatted = `+1-${tel.slice(0, 3)}-${tel.slice(3, 6)}-${tel.slice(6)}`;
@@ -115,11 +142,12 @@ function buildCitySchema(city: City) {
   // geo + verified GBP key off the physical office (officeTel), not a city-specific routing line.
   const nap = OFFICE_NAP[city.officeTel];
   const sameAs = nap ? ['https://www.envirocarellc.com', nap.gbp] : ['https://www.envirocarellc.com'];
+  const office = OFFICE_SCHEMA[city.slug];
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `https://www.envirocarellc.com/${city.slug}`,
-    name: `EnviroCare Pest & Termite Services — ${city.name}`,
+    '@id': office ? office.id : `https://www.envirocarellc.com/${city.slug}`,
+    name: office ? office.name : `EnviroCare Pest & Termite Services — ${city.name}`,
     description: city.metaDescription,
     url: `https://www.envirocarellc.com/${city.slug}`,
     telephone: telFormatted,
