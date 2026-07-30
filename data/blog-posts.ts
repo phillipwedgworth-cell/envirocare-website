@@ -21,6 +21,62 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'green-caps-in-yard-sentricon',
+    title: 'What Are Those Round Green Caps in the Ground Around a House?',
+    excerpt: 'New homeowners find them along the foundation and assume they are sprinkler heads or old irrigation. They are termite bait stations — here is what they do, why you should not mow over or pull one up, and what it means when the house changes hands.',
+    publishedAt: '2026-07-28',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '🟢',
+    metaTitle: 'Green Caps in the Yard? What They Are | EnviroCare',
+    metaDescription: 'Round green caps in the ground around your house are termite bait stations. What they do, why not to remove them, and what happens when you buy the home.',
+    body: `
+<p class="lede">You close on a house in <a href="/greystone">Greystone</a>, walk the yard on a Saturday morning, and notice a row of round green plastic caps set flush in the ground every ten feet or so around the foundation. Most people guess irrigation, or leftover landscape lighting, and a few of them try to pry one up. They are almost always termite bait stations, and what you do with them over the next few months matters more than anyone tells you at closing.</p>
+
+<h2>What are the green caps in my yard?</h2>
+
+<p>They are in-ground termite monitoring and bait stations. A plastic sleeve about the diameter of a coffee cup is driven into the soil, a cartridge of termite bait sits inside it, and the cap you see is the lid a technician unlocks to inspect what is happening underground. The system we install is Sentricon, and the stations get placed in a ring around the structure at regular intervals so that the foraging termites already moving through your soil run into a station before they run into your house.</p>
+
+<p>If the caps are green, unmarked, and evenly spaced along the drip line, that is the pattern. Sprinkler heads sit in the middle of turf where the spray pattern needs them, not hugging the foundation in an even ring. Irrigation valve boxes are rectangular and considerably larger.</p>
+
+<h2>How do the stations actually work?</h2>
+
+<p>Subterranean termites are constantly foraging underground, in every direction, looking for cellulose. They do not know your house is there until they find wood. Bait stations put something more attractive in their path first. When termites hit a station and begin feeding, they carry the active material back through the colony by trophallaxis — the mouth-to-mouth food sharing that keeps a colony fed. It moves through the workers, then the soldiers and the reproductives that depend on those workers.</p>
+
+<p>That is the part people find counterintuitive: nothing dramatic happens the week a station is hit. The mechanism is slow on purpose. A fast-acting material would kill the foragers at the station and never reach the colony that sent them. The whole point is that the workers stay healthy long enough to make the trip home.</p>
+
+<p>It also explains why the stations stay in the ground permanently and get inspected on a schedule rather than installed once and forgotten. A station is only doing its job if it is monitored. Products are EPA-registered and applied per label directions.</p>
+
+<h2>Do I need to do anything with them?</h2>
+
+<p>Mostly, leave them alone. Four things worth knowing:</p>
+
+<p><strong>Do not mow over them.</strong> They are installed flush, but soil settles and mulch shifts, and a lifted cap catches a mower deck. If one is sitting proud, tell your technician rather than tapping it back down yourself.</p>
+
+<p><strong>Do not pull one up.</strong> We get this call a few times a year, usually from someone in <a href="/hoover">Hoover</a> or <a href="/mt-laurel">Mt Laurel</a> putting in a new bed and clearing what they assumed was old irrigation. Pulling a station out is a hole in the ring, and the ring is the point.</p>
+
+<p><strong>Do not spray around them.</strong> Repellent lawn and garden products applied right at a station can push foraging termites away from the bait and toward the structure instead.</p>
+
+<p><strong>Tell us before you landscape.</strong> New beds, a retaining wall, a patio pour, or a French drain in <a href="/chelsea">Chelsea</a> or <a href="/highland-lakes">Highland Lakes</a> can all disturb the spacing. We would rather reposition stations before the concrete truck shows up.</p>
+
+<h2>Does this mean the house had termites?</h2>
+
+<p>Not necessarily, and this is where new buyers get anxious for no reason. In central Alabama a lot of these systems go in as prevention, because subterranean termite pressure here is simply constant. Stations in the yard are just as likely to mean a previous owner was careful as they are to mean there was ever an active infestation. The paperwork tells you which — a treatment record and a bond history are worth asking for, and our post on <a href="/blog/termite-bond-alabama-explained">what a termite bond actually covers</a> walks through how to read one.</p>
+
+<h2>What happens to the coverage when the house sells?</h2>
+
+<p>Stations in the ground do not automatically mean you are covered. Coverage lives in the agreement, not the plastic, and agreements do not follow the deed on their own. If you bought a home in <a href="/vestavia-hills">Vestavia Hills</a>, Pelham, or Alabaster with stations already installed, call and ask whether the bond is current, whether it is transferable, and when the last inspection was performed. A lapsed system is worse than no system, because the homeowner believes they are protected while nobody has opened a station in three years. If you are still under contract, our guide to the <a href="/blog/termite-inspection-before-buying-home-alabama">termite inspection before buying a home</a> covers what to ask for before closing.</p>
+
+<p>If you have caps in the yard and no idea who put them there, we will come look. A standard termite inspection is free, and our <a href="/services/sentricon">Sentricon service page</a> explains how we price a system after we have seen the structure — there is no flat termite price, because a crawlspace ranch and a slab-on-grade two-story are not the same job. Our broader <a href="/services/termite-control">termite control service</a> covers the rest.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
     slug: 'more-bugs-after-pest-control-treatment',
     title: 'Seeing More Bugs Right After a Pest Control Treatment? That\'s Normal — Here\'s Why',
     excerpt: 'More ants on the counter two days after service usually means the treatment is working, not failing. What flush-out is, how long it lasts, why fast-acting products make ant problems worse, and when it is actually worth calling us back.',
