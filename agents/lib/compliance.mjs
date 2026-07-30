@@ -46,6 +46,8 @@ PRICING (only mention when natural; otherwise point to a free inspection / quote
 
 SERVICES WE DO NOT OFFER (never imply we do)
 - No bed bug treatment, no wildlife/animal removal, no crawlspace encapsulation.
+- Rodent CONTROL is offered (with regular pest control, and commercially for restaurants,
+  commercial and governmental buildings) - rodent copy is fine; wildlife copy is not.
 
 FORMAT
 - Return clean HTML only (no <html>/<head>/<body>, no markdown). Start with one <h1>.
@@ -91,7 +93,7 @@ NEVER propose wording containing:
   footer mention for it.
 - A flat termite installation price. Termite pricing is always "confirmed after a
   free inspection".
-- Bed bug, wildlife/animal removal (raccoon/squirrel/bat/rodent), standalone
+- Bed bug, wildlife/animal removal (raccoon/squirrel/bat), standalone
   wasp/bee, lawn care, or crawlspace services. EnviroCare does not offer them.
   Carpenter bees are an existing-customer add-on only — never marketed to new.
 - A bare "no contract". "No long-term contract(s)" IS approved (the $35/mo plan

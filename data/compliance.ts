@@ -55,12 +55,12 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // Discounts are DECISION-GATED, not always banned (Phillip approves real offers, e.g. the $79
   // initial promo) — severity 'warn' surfaces them for review instead of blocking the deploy.
   { pattern: '\\d+\\s*%\\s*off|percent\\s+off|half[\\s-]off|\\bdiscount(s|ed)?\\b', notIf: 'NOT discounts|aren.{0,2}t discounts|No promo|not a discount', severity: 'warn', reason: 'discount language — needs per-offer approval', approvedInstead: 'no discount framing unless the specific offer is approved; bundling is convenience only' },
-  // Rodent/wildlife service marketing. WARN until the open question is answered: does EnviroCare
-  // offer ANY rodent program (exterior bait stations / commercial monitoring)? Residential
-  // plan-coverage claims ('covers ... and rodents') were scrubbed 2026-07-28; flip to 'block'
-  // once the redstone-arsenal / bait-station copy is ruled on.
-  { pattern: '(cover|includ|treat|control|remov|monitor)[^.\\n]{0,60}\\brodents?\\b|\\brodents?\\b[^.\\n]{0,60}\\b(cover|control|removal|treatment|monitoring|bait)', notIf: 'not\\s+(offer|includ)|refuge|exclud', severity: 'warn', reason: 'rodent service marketing — rodent removal is in SERVICES_NOT_OFFERED', approvedInstead: 'do not market rodent services (see SERVICES_NOT_OFFERED)' },
-  { pattern: 'wildlife\\s+(removal|control|trapping)', notIf: 'not\\s+offer|refuge|exclud|no raccoons', severity: 'warn', reason: 'wildlife service marketing — not offered', approvedInstead: 'do not market wildlife services' },
+  // RULED 2026-07-28 (Phillip): rodent CONTROL PROGRAMS ARE OFFERED - residential (with
+  // regular pest control) and commercial (restaurants, commercial, governmental buildings).
+  // The old 'rodent removal' entry in SERVICES_NOT_OFFERED conflated rodent control with
+  // wildlife removal and caused false scrubs. Rodent marketing is legitimate; only
+  // WILDLIFE removal (raccoon/squirrel/bat) stays banned - and now hard-blocks:
+  { pattern: 'wildlife\\s+(removal|control|trapping)', notIf: 'not\\s+offer|refuge|exclud|no raccoons', reason: 'wildlife service marketing — not offered', approvedInstead: 'do not market wildlife services' },
   // 'unlimited' is approved ONLY in the re-service/re-treatment phrasings. Anything else
   // ('unlimited protection', 'unlimited treatments') is a service-scope overpromise. BLOCKS.
   { pattern: '\\bunlimited\\b', notIf: 'unlimited\\s+(free|covered|visits|pest|re-?servic|re-?treatment)', reason: 'unapproved unlimited claim', approvedInstead: 'unlimited (free) re-service / re-treatment is the only approved unlimited phrasing' },
@@ -80,7 +80,9 @@ export const SOFT_RULES: string[] = [
 ];
 
 /** Services EnviroCare does NOT offer — must not be marketed. */
-export const SERVICES_NOT_OFFERED = ['bed bug', 'raccoon', 'squirrel', 'wildlife removal', 'rodent removal'];
+// NOTE: rodent control IS offered (residential w/ regular pest control + commercial -
+// restaurants, commercial, governmental; Phillip 2026-07-28). Only WILDLIFE is out.
+export const SERVICES_NOT_OFFERED = ['bed bug', 'raccoon', 'squirrel', 'wildlife removal'];
 
 /** Locked seasonal facts (the Lake Martin "April–October" mismatch is the bug to fix). */
 export const SEASONS = {
