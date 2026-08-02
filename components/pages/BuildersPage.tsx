@@ -1,14 +1,30 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/BuildersPage.tsx
+// Commit: feat(builders): rebuild flagship builder page — compliance fixes, FAQ, deep content
+// Push: main
+// ─────────────────────────────────────
+//
+// REBUILD (Jul 24, 2026) — this page is now the ONE canonical builder page.
+// /services/builder and /services/builder-pre-treat 301 here (see next.config.ts).
+// Compliance fixes vs the old version:
+//   - removed "Same- or next-day" availability claim (banned)
+//   - "$1M Sentricon® Repair Coverage" → "$1M EnviroCare-Backed Damage Coverage"
+//     ($1M is EnviroCare's own guarantee, never attributed to the manufacturer)
+//   - removed "Volume discounts" / bundle-savings framing (banned; bundling =
+//     convenience only)
+//   - removed "★★★★★ Google Rated" claim
+//   - all pricing language is quote-after-inspection / quoted-to-project
 "use client";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { BUILDER_FAQS as FAQS } from "@/data/builder-faqs";
 
 
 export default function BuildersPage() {
-
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
-
 
       <section className="page-hero">
         <div className="page-hero-inner">
@@ -19,14 +35,14 @@ export default function BuildersPage() {
           </p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/services/builder" className="btn-outline-white">Learn More →</a>
+            <a href="#process" className="btn-outline-white">How It Works →</a>
           </div>
         </div>
       </section>
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Rated</div>
+          <div className="ti"><div className="ti-chk">✓</div>Family-Owned Since 1958</div>
           <div className="ti"><div className="ti-chk">✓</div>Alabama Code-Compliant Treatment</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Builder Partnership Pricing</div>
@@ -34,7 +50,7 @@ export default function BuildersPage() {
         </div>
       </div>
 
-      <section className="flow-section">
+      <section className="flow-section" id="process">
         <div className="container">
           <div className="section-eyebrow">How We Work With You</div>
           <h2 className="section-title">From Slab Pour To <span>Closing</span></h2>
@@ -43,22 +59,22 @@ export default function BuildersPage() {
             <div className="flow-card">
               <div className="flow-num">1</div>
               <div className="flow-title">Pre-Slab Soil Treatment</div>
-              <div className="flow-desc">After trenches are dug, before concrete pour. We coordinate directly with your superintendent. Documentation provided to your building inspector.</div>
+              <div className="flow-desc">After trenches are dug, before concrete pour — EPA-registered termiticide applied strictly per label directions to the exposed soil and critical contact points. We coordinate directly with your superintendent. Documentation provided to your building inspector.</div>
             </div>
             <div className="flow-card">
               <div className="flow-num">2</div>
               <div className="flow-title">Sentricon® Install</div>
-              <div className="flow-desc">At landscape phase — stations placed around foundation perimeter. No drilling, no concrete cuts. Active monitoring begins immediately.</div>
+              <div className="flow-desc">At landscape phase — Sentricon® Always Active stations placed around the foundation perimeter. No drilling, no concrete cuts. Colony protection begins immediately and follows the home to its owner.</div>
             </div>
             <div className="flow-card">
               <div className="flow-num">3</div>
               <div className="flow-title">WDO Letter At Closing</div>
-              <div className="flow-desc">NPMA-33 inspection letter delivered to your closing attorney. Buyer&apos;s lender accepts it. No closing delays from termite paperwork.</div>
+              <div className="flow-desc">NPMA-33 inspection letter delivered to your closing attorney. Buyer&apos;s lender accepts it. No closing delays from termite paperwork. <a href="/services/wdo-letters">How WDO letters work →</a></div>
             </div>
             <div className="flow-card">
               <div className="flow-num">4</div>
-              <div className="flow-title">Optional Buyer Handoff</div>
-              <div className="flow-desc">We offer your buyer continued Sentricon® monitoring and pest control. They get a trusted vendor; you build the relationship that keeps them happy.</div>
+              <div className="flow-title">Buyer Handoff</div>
+              <div className="flow-desc">We offer your buyer continued Sentricon® monitoring and <a href="/services/pest-control">residential pest control</a>. They get a trusted vendor from day one; you hand over a home that&apos;s already protected.</div>
             </div>
           </div>
         </div>
@@ -68,7 +84,7 @@ export default function BuildersPage() {
         <div className="stat-band-inner">
           <div><div className="stat-band-n">3 visits</div><div className="stat-band-l">Per New Build</div></div>
           <div><div className="stat-band-n">1 invoice</div><div className="stat-band-l">One Coordination Point</div></div>
-          <div><div className="stat-band-n">$1M</div><div className="stat-band-l">Sentricon® Repair Coverage</div></div>
+          <div><div className="stat-band-n">$1M</div><div className="stat-band-l">EnviroCare-Backed Damage Coverage</div></div>
           <div><div className="stat-band-n">68 Years</div><div className="stat-band-l">In Alabama Construction</div></div>
         </div>
       </section>
@@ -80,20 +96,61 @@ export default function BuildersPage() {
           <div className="wedge-grid">
             <div className="wedge-card">
               <div className="wedge-lead">We work to your schedule</div>
-              <div className="wedge-body">Pre-pour delays cost real money. We coordinate with your super, not the other way around. Same- or next-day soil treatment when you call.</div>
+              <div className="wedge-body">Pre-pour delays cost real money. We coordinate with your super, not the other way around — treatment scheduled to land inside your pour window, documented, and out of the way.</div>
             </div>
             <div className="wedge-card">
               <div className="wedge-lead">Inspector-ready documentation</div>
-              <div className="wedge-body">Every soil treatment comes with a Treatment Certificate that satisfies AL code-required termite barrier documentation. No back-and-forth.</div>
+              <div className="wedge-body">Every soil treatment comes with a Treatment Certificate that satisfies Alabama&apos;s code-required termite protection documentation. No back-and-forth with the inspector.</div>
             </div>
             <div className="wedge-card">
-              <div className="wedge-lead">Sentricon® &gt; liquid alternatives</div>
-              <div className="wedge-body">Liquid barriers degrade over 5-7 years and require retreat. Sentricon® stations are active from day one and protect your warranty period and beyond.</div>
+              <div className="wedge-lead">Sentricon® from day one</div>
+              <div className="wedge-body">Liquid barriers alone degrade over time and need retreatment. Sentricon® Always Active stations installed at landscape phase protect the home continuously — through your warranty period and into the buyer&apos;s ownership. <a href="/services/sentricon">Why we install Sentricon® →</a></div>
             </div>
             <div className="wedge-card">
-              <div className="wedge-lead">Partnership pricing</div>
-              <div className="wedge-body">Builder tier pricing on Sentricon® install + soil treatment bundled. Volume discounts for production builders. Call us for builder rates.</div>
+              <div className="wedge-lead">One coordinated quote</div>
+              <div className="wedge-body">Soil treatment, Sentricon® install, and closing documentation quoted as one coordinated scope per project — single-lot custom builds or multi-lot phases. Scope and pricing confirmed after a free site inspection.</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="wedge" style={{background:'var(--cream)'}}>
+        <div className="container">
+          <div className="section-eyebrow">Where We Build With You</div>
+          <h2 className="section-title">Three Offices, <span>All Of Central & North Alabama</span></h2>
+          <p className="section-sub">Crews run out of Birmingham/Alabaster, Huntsville, and Alexander City — so a superintendent in Chelsea, a GC in Madison, and a custom builder on Lake Martin all get the same response.</p>
+          <div className="wedge-grid">
+            <div className="wedge-card">
+              <div className="wedge-lead"><a href="/birmingham">Birmingham Metro</a></div>
+              <div className="wedge-body">Hoover, Chelsea, Helena, Calera, Trussville, and the fast-growing Shelby County corridor — where most of the metro&apos;s new rooftops are going in.</div>
+            </div>
+            <div className="wedge-card">
+              <div className="wedge-lead"><a href="/huntsville">Huntsville & Madison</a></div>
+              <div className="wedge-body">One of the fastest-growing housing markets in the Southeast. Subdivision phases, custom builds, and everything between — coordinated from our Old Madison Pike office.</div>
+            </div>
+            <div className="wedge-card">
+              <div className="wedge-lead"><a href="/lake-martin">Lake Martin & Alexander City</a></div>
+              <div className="wedge-body">Custom lake homes from Willow Point to The Ridge. Our original 1958 office — nobody has treated more Lake Martin soil than we have.</div>
+            </div>
+            <div className="wedge-card">
+              <div className="wedge-lead"><a href="/auburn">Auburn & Opelika</a></div>
+              <div className="wedge-body">New construction across Lee County, serviced from our Alexander City office with the same three-visit builder program.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="faq-cat" id="faq">
+        <div className="container">
+          <div className="section-eyebrow">Builder Questions</div>
+          <h2 className="section-title">Pre-Construction Treatment <span>FAQ</span></h2>
+          <div className="faq-list-wide">
+            {FAQS.map((f) => (
+              <details className="faq-item" key={f.q}>
+                <summary className="faq-q">{f.q}</summary>
+                <div className="faq-a">{f.a}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
@@ -102,7 +159,7 @@ export default function BuildersPage() {
         <div className="office-cta-inner">
           <div className="section-eyebrow">Ready To Partner?</div>
           <h3>Get Builder Pricing</h3>
-          <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn — All Alabama markets</div>
+          <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn — quoted to your project after a free site inspection</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="mailto:service@envirocarellc.com" className="btn-outline-white">Email Service Team →</a>

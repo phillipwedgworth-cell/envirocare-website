@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   description:
     "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
   alternates: { canonical: "./" },
+  openGraph: {
+    title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
+    description: "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
+    description: "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+  },
 };
 
 const c: ComboContent = {

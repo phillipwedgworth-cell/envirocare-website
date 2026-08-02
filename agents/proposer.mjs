@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/proposer.mjs
+// Commit: fix(proposer): load compliance guardrails + knowledge base into system prompt
+// Push: main
+// ─────────────────────────────────
 // agents/proposer.mjs
 // The Proposer — reads everything the observer agents found this cycle and
 // turns the pile into a SHORT, RANKED, DEDUPED set of specific proposed changes.
@@ -17,6 +23,8 @@ import { criticLoop, criticDraft } from "./lib/critic.mjs";
 import { readFindings, readDiscussions, writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { RECOMMENDATION_GUARDRAILS } from './lib/compliance.mjs';
+import { knowledgeBlock } from './lib/knowledge.mjs';
 
 const AGENT_NAME = "proposer";
 const MODEL = "claude-sonnet-4-6"; // synthesis tier; critic is Opus
@@ -76,7 +84,9 @@ function compact(findings) {
   return rows;
 }
 
-const SYSTEM = `You are the Proposer for EnviroCare Pest Control — a solo operator (Phillip) who is time-poor and burned out. Your job: read everything the observer agents found this cycle and produce a SHORT, decision-ready set of PROPOSED CHANGES. You consolidate and decide; you do not pad.
+const SYSTEM = `${RECOMMENDATION_GUARDRAILS}
+${knowledgeBlock()}
+You are the Proposer for EnviroCare Pest Control — a solo operator (Phillip) who is time-poor and burned out. Your job: read everything the observer agents found this cycle and produce a SHORT, decision-ready set of PROPOSED CHANGES. You consolidate and decide; you do not pad.
 
 ${HOUSE_RULES}
 

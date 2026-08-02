@@ -8,6 +8,19 @@ export const metadata: Metadata = {
     "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
   alternates: { canonical: "/services/wdo-letters" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "WDO Inspection Letters in Alabama | EnviroCare",
+    description: "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
+    url: 'https://www.envirocarellc.com/services/wdo-letters',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "WDO Inspection Letters in Alabama | EnviroCare",
+    description: "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
+    images: ['/og-image.png'],
+  },
 };
 
 const BRAND_GREEN = "#0A7935";
@@ -326,7 +339,7 @@ export default function WDOLettersPage() {
         <section style={{ padding: "32px 24px", background: DEEP, color: "#fff", textAlign: "center" }}>
           <p style={{ fontSize: 15, opacity: 0.85, margin: 0 }}>
             Building a new home?{" "}
-            <Link href="/services/builder-pre-treat" style={{ color: GOLD, textDecoration: "underline" }}>
+            <Link href="/builders" style={{ color: GOLD, textDecoration: "underline" }}>
               See our Builder Pre-Treatment page →
             </Link>
           </p>

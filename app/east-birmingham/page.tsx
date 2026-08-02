@@ -4,6 +4,19 @@ export const metadata = {
   alternates: { canonical: '/east-birmingham' },
   title: "East Birmingham Pest Control | EnviroCare",
   description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
+  openGraph: {
+    title: "East Birmingham Pest Control | EnviroCare",
+    description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
+    url: 'https://www.envirocarellc.com/east-birmingham',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "East Birmingham Pest Control | EnviroCare",
+    description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
+    images: ['/og-image.png'],
+  },
 };
 
 const cfg: ClusterConfig = {

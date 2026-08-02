@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/lib/watchdog.mjs
+// Commit: fix(watchdog): read agent_runs; agent_logs is never written
+// Push: main
+// ─────────────────────────────────────
 import { callClaude, AnthropicError, classifyAnthropicFailure } from "./anthropic-guard.mjs";
 
 // Cheapest valid model — the canary only needs a single "ok" token back.
@@ -41,7 +47,13 @@ async function runCanary(apiKey) {
 
 async function getRecentAgentErrors({ supabaseUrl, supabaseServiceRoleKey }) {
   if (!supabaseUrl || !supabaseServiceRoleKey) return [];
-  const url = `${supabaseUrl.replace(/\/+$/, "")}/rest/v1/agent_logs?select=created_at,error_type,agent_name,error_message&order=created_at.desc&limit=25`;
+  // agent_logs has exactly one reference in this entire repo -- this read.
+  // Nothing writes it, so it is empty by construction and this check has always
+  // returned []. agent_runs is what the fleet actually writes. Verified by grep
+  // of the repo source, not by a schema dump.
+  const url = `${supabaseUrl.replace(/\/+$/, "")}/rest/v1/agent_runs`
+    + `?select=created_at,agent_name,agent,status,output`
+    + `&order=created_at.desc&limit=200`;
   let res;
   try {
     res = await fetch(url, {
@@ -55,8 +67,16 @@ async function getRecentAgentErrors({ supabaseUrl, supabaseServiceRoleKey }) {
   }
   // agent_logs may not exist yet (the fleet currently logs to agent_costs only).
   // A missing table returns a non-2xx here, so we degrade to "canary only".
-  if (!res.ok) return [];
-  return res.json();
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    console.error(`[watchdog] agent_runs read failed: ${res.status} ${body.slice(0, 300)}`);
+    return [];
+  }
+  const rows = await res.json().catch(() => []);
+  const FAILED = new Set(["error", "failed", "fail", "crashed", "timeout"]);
+  return (Array.isArray(rows) ? rows : [])
+    .filter((r) => FAILED.has(String(r.status ?? "").toLowerCase()))
+    .slice(0, 25);
 }
 
 function dedupeLogs(logs, canary) {
@@ -68,14 +88,15 @@ function dedupeLogs(logs, canary) {
   }
 
   for (const log of logs || []) {
-    const key = `${log.agent_name}::${log.error_type || "UNKNOWN"}::${log.error_message}`;
+    const who = log.agent_name ?? log.agent ?? "unknown";
+    const key = `${who}::${log.status ?? "UNKNOWN"}::${String(log.output ?? "").slice(0, 200)}`;
     if (seen.has(key)) continue;
     seen.add(key);
     entries.push({
-      source: "agent_log",
-      agent_name: log.agent_name,
-      kind: log.error_type || "UNKNOWN",
-      message: log.error_message,
+      source: "agent_run",
+      agent_name: who,
+      kind: String(log.status ?? "UNKNOWN").toUpperCase(),
+      message: String(log.output ?? "").slice(0, 300) || "(no output recorded)",
       created_at: log.created_at,
     });
   }

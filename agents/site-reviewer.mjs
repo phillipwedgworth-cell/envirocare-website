@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/site-reviewer.mjs
+// Commit: fix(site-reviewer): load compliance guardrails + knowledge into CLAUDE_LENS
+// Push: main
+// ─────────────────────────────────
 // agents/site-reviewer.mjs
 // Site reviewer — visual + performance + SEO/content in one agent.
 //
@@ -29,6 +35,8 @@ import {
   logAgentRun,
 } from "./lib/supabase.mjs";
 import { runPanel, synthesize } from "../lib/llm-panel.ts";
+import { RECOMMENDATION_GUARDRAILS } from "./lib/compliance.mjs";
+import { knowledgeBlock } from "./lib/knowledge.mjs";
 
 const AGENT_NAME = "site-reviewer";
 const PROMPT_VERSION = "2026-07-08";
@@ -51,12 +59,18 @@ const CYCLE_STALE_H = 48;
 const CURSOR_KEY = `${AGENT_NAME}:cursor`;
 const GATHER_PREFIX = `${AGENT_NAME}:gathered:`;
 
+// Live production host. This MUST be the custom domain, not a *.vercel.app URL:
+// deployment URLs sit behind Vercel Authentication and 302 to a login page, so
+// auditing them measures the login screen, not the site. (Fixed 2026-07-25 — the
+// stale vercel.app host was the root cause of months of false performance findings.)
+const SITE_BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.envirocarellc.com").replace(/\/$/, "");
+
 const TARGET_PAGES = [
-  { url: "https://envirocare-web.vercel.app/", label: "home" },
-  { url: "https://envirocare-web.vercel.app/services/mosquito-control", label: "mosquito" },
-  { url: "https://envirocare-web.vercel.app/services/termite-control", label: "termite" },
-  { url: "https://envirocare-web.vercel.app/huntsville", label: "huntsville" },
-  { url: "https://envirocare-web.vercel.app/birmingham", label: "birmingham" },
+  { url: `${SITE_BASE}/`, label: "home" },
+  { url: `${SITE_BASE}/services/mosquito-control`, label: "mosquito" },
+  { url: `${SITE_BASE}/services/termite-control`, label: "termite" },
+  { url: `${SITE_BASE}/huntsville`, label: "huntsville" },
+  { url: `${SITE_BASE}/birmingham`, label: "birmingham" },
 ];
 
 // ---------- Page-data gathering (deterministic, no LLM) ----------
@@ -230,7 +244,9 @@ async function clearCycleState() {
 
 // ---------- Phases 2 & 3: Panel + synthesis ----------
 
-const CLAUDE_LENS = `You are a brand and conversion-copy reviewer for EnviroCare Pest Control (68-year family pest control company in Alabama). Read the gathered site data and screenshots. Focus on: brand voice consistency, copy clarity, conversion intent (does each page push toward call/quote?), trust signals, missing reassurances. Be specific: name the page, quote the problematic copy if you can see it, propose a concrete rewrite. 6-10 bullets max. No vague advice.`;
+const CLAUDE_LENS = `${RECOMMENDATION_GUARDRAILS}
+${knowledgeBlock()}
+You are a brand and conversion-copy reviewer for EnviroCare Pest Control (68-year family pest control company in Alabama). Read the gathered site data and screenshots. Focus on: brand voice consistency, copy clarity, conversion intent (does each page push toward call/quote?), trust signals, missing reassurances. Be specific: name the page, quote the problematic copy if you can see it, propose a concrete rewrite. 6-10 bullets max. No vague advice.`;
 
 const GEMINI_LENS = `You are a visual and UX design reviewer. Look at the screenshots and structural data provided. Focus on: visual hierarchy, whitespace, mobile readability, image quality, color contrast, CTA prominence, layout consistency across pages. Identify SPECIFIC visual problems with SPECIFIC pages — e.g. "the mosquito hero image is washed out on mobile" not "improve imagery." 6-10 bullets max.`;
 

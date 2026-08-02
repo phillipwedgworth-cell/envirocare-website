@@ -23,6 +23,10 @@ export interface BannedTerm {
    *  'chat' = the chatbot prompt/output only (app/api/chat). Use 'chat' for
    *  AI-tell / stylistic rules so they never flag ordinary site punctuation. */
   scope?: 'content' | 'chat';
+  /** 'block' (default) fails the deploy. 'warn' reports for human review without
+   *  blocking — for decision-gated language (e.g. discounts, which Phillip may
+   *  approve per-offer) and rules with an open business question. */
+  severity?: 'block' | 'warn';
 }
 
 export const BANNED_PATTERNS: BannedTerm[] = [
@@ -47,6 +51,19 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: '(third|3rd)[ -]generation\\s+(wedgworth\\s+)?(family|business|company)', reason: 'wrong generation (company is fourth)', approvedInstead: 'fourth-generation Wedgworth family (see data/business.ts)' },
   // OWNERSHIP — owner is Kevin Wedgworth (gen 3). Flag an "owner" claim naming anyone else.
   // notIf excludes founder/history references (Phillip M. Wedgworth is the gen-1 FOUNDER, not owner).
+  // ── Added 2026-07-28 (approval-queue item 9): the 3 classes packs kept sneaking past self-scans ──
+  // Discounts are DECISION-GATED, not always banned (Phillip approves real offers, e.g. the $79
+  // initial promo) — severity 'warn' surfaces them for review instead of blocking the deploy.
+  { pattern: '\\d+\\s*%\\s*off|percent\\s+off|half[\\s-]off|\\bdiscount(s|ed)?\\b', notIf: 'NOT discounts|aren.{0,2}t discounts|No promo|not a discount', severity: 'warn', reason: 'discount language — needs per-offer approval', approvedInstead: 'no discount framing unless the specific offer is approved; bundling is convenience only' },
+  // RULED 2026-07-28 (Phillip): rodent CONTROL PROGRAMS ARE OFFERED - residential (with
+  // regular pest control) and commercial (restaurants, commercial, governmental buildings).
+  // The old 'rodent removal' entry in SERVICES_NOT_OFFERED conflated rodent control with
+  // wildlife removal and caused false scrubs. Rodent marketing is legitimate; only
+  // WILDLIFE removal (raccoon/squirrel/bat) stays banned - and now hard-blocks:
+  { pattern: 'wildlife\\s+(removal|control|trapping)', notIf: 'not\\s+offer|refuge|exclud|no raccoons', reason: 'wildlife service marketing — not offered', approvedInstead: 'do not market wildlife services' },
+  // 'unlimited' is approved ONLY in the re-service/re-treatment phrasings. Anything else
+  // ('unlimited protection', 'unlimited treatments') is a service-scope overpromise. BLOCKS.
+  { pattern: '\\bunlimited\\b', notIf: 'unlimited\\s+(free|covered|visits|pest|re-?servic|re-?treatment)', reason: 'unapproved unlimited claim', approvedInstead: 'unlimited (free) re-service / re-treatment is the only approved unlimited phrasing' },
   { pattern: '\\bowner\\b[^.\\n]*\\b(phillip|lex|william)\\b', notIf: '(Phillip M\\.|founder|founded)', reason: 'wrong owner', approvedInstead: 'Kevin Wedgworth (owner, gen 3); Phillip M. Wedgworth is the founder (gen 1)' },
 ];
 
@@ -63,7 +80,9 @@ export const SOFT_RULES: string[] = [
 ];
 
 /** Services EnviroCare does NOT offer — must not be marketed. */
-export const SERVICES_NOT_OFFERED = ['bed bug', 'raccoon', 'squirrel', 'wildlife removal', 'rodent removal'];
+// NOTE: rodent control IS offered (residential w/ regular pest control + commercial -
+// restaurants, commercial, governmental; Phillip 2026-07-28). Only WILDLIFE is out.
+export const SERVICES_NOT_OFFERED = ['bed bug', 'raccoon', 'squirrel', 'wildlife removal'];
 
 /** Locked seasonal facts (the Lake Martin "April–October" mismatch is the bug to fix). */
 export const SEASONS = {

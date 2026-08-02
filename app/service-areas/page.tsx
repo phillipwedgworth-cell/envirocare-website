@@ -7,6 +7,19 @@ export const metadata = {
   title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
   description:
     'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
+  openGraph: {
+    title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
+    description: 'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
+    url: 'https://www.envirocarellc.com/service-areas',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Birmingham Metro Pest Control | Service Areas | EnviroCare',
+    description: 'EnviroCare serves the Birmingham metro — Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville — plus Lake Martin & Huntsville. Since 1958.',
+    images: ['/og-image.png'],
+  },
 };
 
 type Group = { office: string; phone: string; cities: [string, string][] };
@@ -58,6 +71,15 @@ const GROUPS: Group[] = [
       ['Huntsville Exterminator', '/huntsville-exterminator'],
       ['Huntsville Mosquito Control', '/huntsville-mosquito-control'],
       ['Huntsville Termite Control', '/huntsville-termite-control'],
+      ['Madison Pest Control', '/madison-pest-control'],
+      ['Madison Exterminator', '/madison-exterminator'],
+      ['Madison Mosquito Control', '/madison-mosquito-control'],
+      ['Madison Termite Control', '/madison-termite-control'],
+      ['Madison Commercial Pest Control', '/madison-commercial-pest-control'],
+      ['Decatur Pest Control', '/decatur-pest-control'],
+      ['Decatur Exterminator', '/decatur-exterminator'],
+      ['Decatur Mosquito Control', '/decatur-mosquito-control'],
+      ['Decatur Termite Control', '/decatur-termite-control'],
     ],
   },
   {
@@ -136,7 +158,7 @@ export default function ServiceAreasPage() {
               </div>
               <div className="wws-office-card">
                 <div className="wws-office-imgwrap">
-                  <img className="wws-office-img" src="/huntsville-saturn-v.webp" alt="EnviroCare Huntsville / Madison office service area" />
+                  <img className="wws-office-img" src="/huntsville-saturn-v.webp" alt="EnviroCare Huntsville / Madison office service area" width={1200} height={933} loading="lazy" decoding="async" />
                   <span className="wws-office-badge">North Alabama</span>
                 </div>
                 <div className="wws-office-body">

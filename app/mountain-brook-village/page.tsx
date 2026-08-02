@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/mountain-brook-village" },
   openGraph: {
     title: "Pest Control Mountain Brook Village AL | EnviroCare",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for homes around Mountain Brook Village. No drilling, $1M termite coverage, no long-term contracts. Call (205) 940-6360.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for homes around Mountain Brook Village. No drilling, $1M termite coverage, no contract when you pay per visit. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/mountain-brook-village",
     type: "website",
   },

@@ -4,6 +4,19 @@ export const metadata = {
   alternates: { canonical: '/find-office' },
   title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
   description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
+  openGraph: {
+    title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
+    description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
+    url: 'https://www.envirocarellc.com/find-office',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
+    description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function FindOfficePage() {

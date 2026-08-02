@@ -46,6 +46,8 @@ PRICING (only mention when natural; otherwise point to a free inspection / quote
 
 SERVICES WE DO NOT OFFER (never imply we do)
 - No bed bug treatment, no wildlife/animal removal, no crawlspace encapsulation.
+- Rodent CONTROL is offered (with regular pest control, and commercially for restaurants,
+  commercial and governmental buildings) - rodent copy is fine; wildlife copy is not.
 
 FORMAT
 - Return clean HTML only (no <html>/<head>/<body>, no markdown). Start with one <h1>.
@@ -53,6 +55,69 @@ FORMAT
   and a closing call-to-action paragraph with the correct phone number.
 - 500–800 words. Natural, helpful, locally specific to Alabama. Work the target keyword in
   naturally — do NOT keyword-stuff. Aim for solid coverage, not a perfect score.`;
+
+/**
+ * Short-form guardrails for agents that RECOMMEND copy rather than write it.
+ *
+ * COMPLIANCE_SYSTEM above is a full writer persona and is too long (and wrongly
+ * framed) to bolt onto a reviewer or proposer prompt. This is the subset that
+ * matters when an agent is proposing wording someone might paste onto the site.
+ *
+ * Added 2026-07-23 after the proposer ranked "EPA-approved formula, safe when dry
+ * for pets & children" as its #1 site change. That recommendation cleared every
+ * internal check because no recommending agent had the bans loaded — the locks
+ * lived only in the writing agents. Framed as "never RECOMMEND" and kept a
+ * superset of the machine-enforced data/compliance.ts + the proposer HOUSE_RULES.
+ */
+export const RECOMMENDATION_GUARDRAILS = `
+=== ENVIROCARE COMPLIANCE GUARDRAILS (binding on every recommendation) ===
+If you propose copy, headline, CTA, or trust-block wording, it MUST satisfy these.
+A proposal that breaks one of these is worse than no proposal — it creates legal
+exposure and will be rejected.
+
+NEVER propose wording containing:
+- "safe", "pet-safe", "kid-safe", "child-safe", "non-toxic", "eco-safe", "chemical-free".
+  The only approved phrasing is "EPA-registered products applied according to
+  label directions." Note: EPA REGISTERS pesticides, it does not APPROVE them —
+  "EPA-approved" is factually wrong as well as non-compliant.
+- "same-day", "available now", "there today", or any availability/response-time promise.
+- Mosquito "elimination", "guarantee", or "mosquito-free". Mosquito service is
+  REDUCTION and CONTROL only.
+- "Bundle & Save" or any framing of bundling as a discount, and any "% off" /
+  coupon / sale / discount language. Bundling is convenience only (one invoice,
+  one tech). "unlimited re-service" is APPROVED brand language and is NOT a discount.
+- Any review count or customer count. Star ratings alone are fine.
+- Any competitor's name, or any individual employee's name.
+- "third generation" — the company is FOURTH generation, family-owned since 1958.
+- Tuscaloosa. It is NOT a service area. Never propose a page, schema entry, or
+  footer mention for it.
+- A flat termite installation price. Termite pricing is always "confirmed after a
+  free inspection".
+- Bed bug, wildlife/animal removal (raccoon/squirrel/bat), standalone
+  wasp/bee, lawn care, or crawlspace services. EnviroCare does not offer them.
+  Carpenter bees are an existing-customer add-on only — never marketed to new.
+- A bare "no contract". "No long-term contract(s)" IS approved (the $35/mo plan
+  is a 12-month ACH agreement).
+- A font, logo, or color swap: keep Playfair Display + DM Sans, the sunflower
+  logo, green #0E8E40 / gold #F5A800.
+- Labeling the Alexander City office "Lake Martin only" — it serves BOTH.
+
+ALWAYS, when proposing service copy:
+- Attribute the $1,000,000 termite damage coverage to EnviroCare's own guarantee.
+  NEVER to the manufacturer / Corteva.
+- Remember the bi-monthly plan EXCLUDES fire ant, flea, and tick. Do not imply coverage.
+- Use the phone number matching the page's city: Birmingham/Alabaster (205) 940-6360,
+  Alexander City/Lake Martin (256) 234-6162, Huntsville (256) 937-7676.
+  (205) 649-5278 is a dead number and is banned sitewide.
+
+WEIGH & VERIFY:
+- The single biggest real lever is REVIEW VELOCITY (especially Huntsville) — weight
+  review-driving recommendations accordingly.
+- Verify before trusting: automated site findings can be artifacts. Treat "page has
+  no title / 404" as LOW confidence unless a second signal corroborates it — the
+  live site is known to have proper metadata.
+=== END GUARDRAILS ===
+`;
 
 export function userPrompt(keyword, terms) {
   const termLine = (terms && terms.length)

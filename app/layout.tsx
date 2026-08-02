@@ -31,7 +31,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
-import ChatWidget from '../components/ChatWidget';
+import ChatWidgetLazy from '../components/ChatWidgetLazy';
 import Header from '../components/shared/Header';
 import America250Banner from '../components/America250Banner';
 import Footer from '../components/shared/Footer';
@@ -76,17 +76,8 @@ export const metadata: Metadata = {
   },
   description:
     'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M coverage, mosquito and tick yard treatment. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
-  keywords: [
-    'Alabama pest control',
-    'Birmingham pest control',
-    'Lake Martin pest control',
-    'Huntsville pest control',
-    'Auburn pest control',
-    'Sentricon termite',
-    'Alabama termite service',
-    'family-owned pest control Alabama',
-    'EnviroCare',
-  ],
+  // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
+  // it only signals "template site" to anything parsing the markup.
   authors: [{ name: 'EnviroCare Pest & Termite Services LLC' }],
   creator: 'EnviroCare Pest & Termite Services LLC',
   publisher: 'EnviroCare Pest & Termite Services LLC',
@@ -267,14 +258,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
-        <ChatWidget />
+        <ChatWidgetLazy />
 
         {/* Google Analytics 4 — G-CELEB90NKX */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CELEB90NKX"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -335,7 +326,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
 
         {/* Meta Pixel — envirocare main page (ID: 1945518562226719) */}
-        <Script id="fb-pixel" strategy="afterInteractive">
+        <Script id="fb-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

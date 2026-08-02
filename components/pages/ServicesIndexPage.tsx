@@ -86,12 +86,12 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">New Construction</div>
               <div className="svc-card-name">Builder Pre-Treat</div>
               <div className="svc-card-desc">Pre-slab termite treatment plus Sentricon® install. Coordinated with your construction schedule. Builder partnership pricing.</div>
-              <a href="/services/builder" className="svc-card-link">Learn more →</a>
+              <a href="/builders" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">
               <div className="svc-card-tag">Closings</div>
               <div className="svc-card-name">Real Estate / WDO Letters</div>
-              <div className="svc-card-desc">NPMA-33 inspection letters, lender-ready format, 48-hour turnaround. $75 standalone or free annually for active customers.</div>
+              <div className="svc-card-desc">NPMA-33 inspection letters, lender-ready format, 48-hour turnaround. $125 standalone or free annually for active customers.</div>
               <a href="/services/wdo-letters" className="svc-card-link">Learn more →</a>
             </div>
             <div className="svc-card">

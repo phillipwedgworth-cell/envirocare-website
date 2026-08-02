@@ -137,7 +137,7 @@ export const SERVICES: Service[] = [
       { q: 'Will Sentricon® mess up my landscaping?', a: 'No. Bait stations are small (about the size of a soda can) and installed flush with the ground around your home perimeter. No drilling, no concrete cuts, no torn-up flowerbeds.' },
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
-      { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters for refinancing and home sales. One included per year on active accounts; otherwise $75 standalone fee.' },
+      { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters for refinancing and home sales. One included per year on active accounts; otherwise $125 standalone fee.' },
       { q: 'What if I already have an active termite infestation?', a: 'Sentricon® handles an active infestation as well as prevention — the colony feeds on the bait and collapses from the inside. Unlike termite control services that only treat what you can see, colony elimination stops the damage at its source.' },
     ],
     intro: [
@@ -347,7 +347,7 @@ export const SERVICES: Service[] = [
     features: [
       'Pre-slab treatment',
       'Sentricon® install at handoff',
-      'Builder partnership discounts',
+      'Builder partnership pricing',
       'WDO letter at closing',
       'Coordinated with GC scheduling',
       'Soil treatment per AL code',
@@ -391,7 +391,7 @@ export const SERVICES: Service[] = [
       'Lender-ready format',
       'All Alabama lenders accepted',
       '1 free per year for active customers',
-      '$75 standalone fee',
+      '$125 standalone fee',
       'Includes recommendations if active issues',
     ],
     includes: [

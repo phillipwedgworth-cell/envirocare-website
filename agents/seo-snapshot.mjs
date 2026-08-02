@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/seo-snapshot.mjs
+// Commit: fix(seo-snapshot): stop logging under the seo-monitor identity
+// Push: main
+// ─────────────────────────────────────
 // agents/seo-snapshot.mjs
 // Deterministic Local Falcon -> Supabase ranking snapshot + weekly digest.
 // NO LLM (runs fine while Anthropic is capped). Pulls EXISTING campaign
@@ -11,15 +17,66 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-const AGENT_NAME = "seo-monitor";
+const AGENT_NAME = "seo-snapshot";
 const LF_API = "https://api.localfalcon.com/v1";
 
 // campaign_key -> location label (1 location per campaign; "Hoover"/"Pelham" etc. are keywords)
+//
+// GRID GEOMETRY IS READ FROM THE API, NOT ASSERTED HERE (2026-07-24).
+// The previous version hardcoded all three v3 campaigns as 9x9 @ 20mi. Live
+// API says only Birmingham is; Huntsville is 7x7 @ 7mi and Lake Martin is
+// 7x7 @ 10mi. Hardcoding geometry meant a grid edit in the Local Falcon UI
+// silently desynced the code.
+//
+// WHY THIS MATTERS: a wider/denser grid adds outer points a single office can
+// never rank in, so SoLV falls for reasons unrelated to ranking. Birmingham
+// read 53.86% on v2 (5x5/15mi) and 2.71% on v3 (9x9/20mi) with no real change.
+// NEVER compare SoLV across different `baseline` values.
 const CAMPAIGNS = [
-  { key: "1822923e68f74d1", location: "Huntsville" },
-  { key: "b6d42c9c19856f2", location: "Birmingham/Alabaster" },
-  { key: "7d2a6df072df6f8", location: "Lake Martin/Alex City" },
+  { key: "a58db3090ac9ab0", location: "Huntsville" },
+  { key: "4ee47a23fc4793e", location: "Birmingham/Alabaster" },
+  { key: "a99dae3fd51a462", location: "Lake Martin/Alex City" },
 ];
+
+// Retired — paused, never fetched. Kept so a stale key is recognizable.
+// Re-paused 2026-07-24 after an accidental resume.
+const RETIRED_CAMPAIGNS = {
+  "1822923e68f74d1": "Huntsville v2 (paused)",
+  "b6d42c9c19856f2": "Birmingham v2 (paused)",
+  "7d2a6df072df6f8": "Lake Martin v2 (paused)",
+};
+// NOTE: campaign 853ebf2af21a1b1 ("Offices — Weekly Maps + AI", 7x7 @ 4mi)
+// runs weekly and is NOT tracked here. Its AI legs report `saiv`, not `solv`,
+// so ingesting it into seo_metrics would write junk zeros. Phillip decides:
+// pause it (it burns credits weekly) or we add a saiv-aware reader.
+
+// Per-campaign baseline built from LIVE geometry. Any consumer joining across
+// a change in this string must treat it as a new series.
+function baselineOf(meta) {
+  const g = meta?.grid_size ?? "?";
+  const r = meta?.radius ?? "?";
+  return `${g}x${g}-${r}mi`;
+}
+
+// Campaign list metadata (grid_size, radius, status per key). 0 scan credits.
+// Defensive on response shape and key field; a failure here degrades to
+// baseline "?x?-?mi" with a loud warning rather than killing the snapshot.
+async function lfCampaignMeta() {
+  const lfKey = process.env.LOCAL_FALCON_API_KEY;
+  if (!lfKey) throw new Error("LOCAL_FALCON_API_KEY not set");
+  const u = new URL(`${LF_API}/campaigns`);
+  u.searchParams.set("api_key", lfKey);
+  u.searchParams.set("fieldmask", "report_key,name,status,grid_size,radius,keywords");
+  const r = await fetch(u);
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !j.success) throw new Error(`LF campaigns list: HTTP ${r.status}${j.message ? ` ${j.message}` : ""}`);
+  const out = {};
+  for (const c of j.data?.reports ?? j.reports ?? j.data?.campaigns ?? []) {
+    const k = c.report_key ?? c.campaign_key ?? c.key;
+    if (k) out[k] = c;
+  }
+  return out;
+}
 
 function supa() {
   const url = process.env.SUPABASE_URL;
@@ -72,7 +129,25 @@ export async function run({ email = true } = {}) {
   const perLocation = [];
   let runDate = null;
 
+  // Live geometry + status per campaign. Degrade loudly, not silently.
+  let meta = {};
+  try {
+    meta = await lfCampaignMeta();
+  } catch (e) {
+    console.warn(`[${AGENT_NAME}] campaign meta unavailable (${e.message}) — baselines will read "?x?-?mi"`);
+  }
+
   for (const c of CAMPAIGNS) {
+    const m = meta[c.key];
+    // Skip-if-not-scheduled guard: a paused campaign serves frozen numbers —
+    // the exact failure that produced the false 6/30 digests. Never write them.
+    if (m && m.status && m.status !== "scheduled") {
+      console.warn(`[${AGENT_NAME}] SKIP ${c.location}: campaign ${c.key} status="${m.status}" (not scheduled) — refusing to write frozen numbers`);
+      perLocation.push({ location: c.location, campaign_key: c.key, skipped: `status=${m.status}`, keywords: [] });
+      continue;
+    }
+    const baseline = baselineOf(m);
+    const grid = m?.grid_size ? `${m.grid_size}x${m.grid_size}` : null;
     const data = await lfCampaign(c.key);
     const rd = data.run_data || {};
     const date = rd.run || null;
@@ -84,6 +159,8 @@ export async function run({ email = true } = {}) {
         location: c.location,
         keyword: k.keyword,
         campaign_key: c.key,
+        baseline,
+        grid,
         arp: n2(k.arp),
         atrp: n2(k.atrp),
         solv: n2(k.solv),
@@ -95,6 +172,9 @@ export async function run({ email = true } = {}) {
     perLocation.push({
       location: c.location,
       campaign_key: c.key,
+      baseline,
+      grid,
+      radius_mi: m?.radius ?? null,
       run_date: date,
       agg_solv: n2(data.solv),
       keywords: rows.map((r) => ({ keyword: r.keyword, arp: r.arp, solv: r.solv })),

@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/seo-monitor.mjs
+// Commit: fix(seo-monitor): read campaign reports, not the scan list; re-baseline for v3 grid
+// Push: main
+// ─────────────────────────────────
 // agents/seo-monitor.mjs
 // Local Falcon SoLV / rankings agent for EnviroCare (3 Alabama locations).
 //
@@ -51,12 +57,53 @@ const WEAK_SOLV = 20;
 // least one run of every campaign keyword even if a run slips a day.
 const LOOKBACK_DAYS = 14;
 
-// No more per-location reportKey — we read whatever the campaigns produced.
+// Each location reads its own weekly CAMPAIGN report. See the note in
+// seo-snapshot.mjs: campaign scans do NOT appear in the /reports scan list, so
+// the previous /reports polling saw almost nothing and reported phantom dead
+// zones across every market while the campaigns were healthy.
+//
+// Targets are grid-dependent — a tighter grid scores higher SoLV for identical
+// rankings. These were set assuming 9x9/20mi for all three, which live API
+// (2026-07-24) says is only true for Birmingham; Huntsville is 7x7 @ 7mi and
+// Lake Martin is 7x7 @ 10mi. Huntsville/Alex City targets need re-derivation
+// against their actual geometry — marked needsReview until Phillip confirms.
 const LOCATIONS = [
-  { name: "Alabaster", placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", target: 65 },
-  { name: "Alex City", placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", target: 50 },
-  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", target: 35 },
+  { name: "Alabaster",  placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", campaign: "4ee47a23fc4793e", target: 20, needsReview: false }, // 9x9 @ 20mi — target valid
+  { name: "Alex City",  placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", campaign: "a99dae3fd51a462", target: 40, needsReview: true  }, // 7x7 @ 10mi — currently ~44.9, target likely too low
+  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", campaign: "a58db3090ac9ab0", target: 10, needsReview: true  }, // 7x7 @ 7mi — currently ~0.2, target likely too lenient
 ];
+
+// GRID GEOMETRY IS READ FROM THE API, NOT ASSERTED. A single global epoch
+// string was wrong for three campaigns with three different geometries — a
+// geometry change in one market couldn't be detected without invalidating the
+// other two. The per-campaign baseline string is built from live grid_size +
+// radius; stored week-over-week state is discarded only when ITS campaign's
+// baseline changes.
+function baselineOf(meta) {
+  const g = meta?.grid_size ?? "?";
+  const r = meta?.radius ?? "?";
+  return `${g}x${g}-${r}mi`;
+}
+
+// Campaign list metadata (grid_size, radius, status per key). 0 scan credits.
+// Cached per process; failure degrades to "?x?-?mi" with a loud warning.
+let _campaignMeta = null;
+async function campaignMeta() {
+  if (_campaignMeta) return _campaignMeta;
+  try {
+    const j = await lfFetch("campaigns", { fieldmask: "report_key,name,status,grid_size,radius,keywords" });
+    const out = {};
+    for (const c of j?.data?.reports ?? j?.reports ?? j?.data?.campaigns ?? []) {
+      const k = c.report_key ?? c.campaign_key ?? c.key;
+      if (k) out[k] = c;
+    }
+    _campaignMeta = out;
+  } catch (e) {
+    console.warn(`[${AGENT_NAME}] campaign meta unavailable (${e.message}) — baselines will read "?x?-?mi"`);
+    _campaignMeta = {};
+  }
+  return _campaignMeta;
+}
 
 let anthropic = null;
 let anthropicInitError = null;
@@ -89,53 +136,47 @@ function findLocation(name) {
   return LOCATIONS.find((l) => l.name === name);
 }
 
-const fmtDate = (d) => `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
 const num = (v) => {
   const n = Number(v);
   return Number.isFinite(n) ? n : null;
 };
 
-// ---------- Data layer (reads LIVE scans, not frozen keys) ----------
+// ---------- Data layer (reads the weekly CAMPAIGN report) ----------
 
-// Pull recent scan reports, optionally filtered to one Place ID. The list
-// endpoint returns one row per keyword-scan with its own SoLV — that per-keyword
-// granularity is what lets us catch dead zones. Response shape (confirmed via the
-// Local Falcon MCP, which wraps this same REST API):
-//   { reports: [{ report_key, date, keyword, location:{name}, place_id,
-//                 solv, arp, atrp, grid_size, radius, platform }], total, next_token }
-async function fetchRecentReports({ placeId = null, days = LOOKBACK_DAYS } = {}) {
-  const today = new Date();
-  const start = new Date(today.getTime() - days * 86400000);
-  const params = { start_date: fmtDate(start), end_date: fmtDate(today) };
-  // Prefer maps (google) rankings for the SoLV brief; AI platforms are a
-  // separate concern handled by aeo-watch. If the API ignores these params we
-  // filter client-side below anyway.
-  if (placeId) params.place_id = placeId;
-  const json = await lfFetch("reports", params);
-  let reports = json?.reports ?? json?.data?.reports ?? [];
-  // Client-side guards in case the REST filters aren't honored.
-  if (placeId) reports = reports.filter((r) => (r.place_id ?? r.location?.place_id) === placeId);
-  // google/maps only — an AI-platform 0% is not a maps dead zone.
-  reports = reports.filter((r) => !r.platform || r.platform === "google");
-  return reports;
+// Campaign reports carry per-keyword ARP/ATRP/SoLV for the latest run:
+//   GET /v1/campaigns/{key}/report -> data.run_data.{ run, by_keyword[] }
+// with by_keyword[] = [{ keyword, arp, atrp, solv }]. Same endpoint and shape
+// seo-snapshot.mjs already uses, so both agents now read one source of truth.
+//
+// Costs 0 scan credits — it reads a run that already happened.
+async function fetchCampaignKeywords(campaignKey) {
+  const json = await lfFetch(`campaigns/${campaignKey}/report`);
+  if (!json?.success) throw new Error(json?.message || "campaign report unavailable");
+  const rd = json?.data?.run_data ?? {};
+  const runDate = rd.run ?? null;
+  const rows = Array.isArray(rd.by_keyword) ? rd.by_keyword : [];
+  return {
+    runDate,
+    agg_solv: num(json?.data?.solv),
+    keywords: rows
+      .filter((k) => k && k.keyword)
+      .map((k) => ({
+        keyword: k.keyword,
+        solv: num(k.solv),
+        arp: num(k.arp),
+        atrp: num(k.atrp),
+        date: runDate,
+      })),
+  };
 }
 
-// Keep only the most recent scan per keyword (list is newest-first; dedupe by
-// keyword). Returns [{ keyword, solv, grid_size, date, report_key }].
-function latestPerKeyword(reports) {
-  const seen = new Map();
-  for (const r of reports) {
-    const kw = (r.keyword ?? "").trim().toLowerCase();
-    if (!kw || seen.has(kw)) continue;
-    seen.set(kw, {
-      keyword: r.keyword,
-      solv: num(r.solv ?? r.summary?.solv),
-      grid_size: r.grid_size ?? null,
-      date: r.date ?? r.created_at ?? null,
-      report_key: r.report_key ?? null,
-    });
-  }
-  return [...seen.values()];
+// A run older than this is stale — the campaign is probably paused. Surfacing
+// that is the whole point: a paused campaign served frozen numbers for 23 days
+// before anyone noticed.
+function isStale(runDate, days = LOOKBACK_DAYS) {
+  if (!runDate) return true;
+  const t = Date.parse(runDate);
+  return !Number.isFinite(t) || Date.now() - t > days * 86400000;
 }
 
 // Compute a location's live picture: blended SoLV (avg of latest per-keyword),
@@ -144,21 +185,45 @@ async function computeLocation(location_name) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
 
-  let reports;
+  // Skip-if-not-scheduled guard: a paused campaign serves frozen numbers —
+  // the exact failure that produced the false 6/30 digests.
+  const meta = await campaignMeta();
+  const m = meta[loc.campaign];
+  if (m && m.status && m.status !== "scheduled") {
+    return {
+      location: loc.name,
+      target: loc.target,
+      blended_solv: null,
+      keyword_count: 0,
+      note: `Campaign ${loc.campaign} status="${m.status}" (not scheduled) — refusing to read frozen numbers.`,
+    };
+  }
+  const baseline = baselineOf(m);
+
+  let campaign;
   try {
-    reports = await fetchRecentReports({ placeId: loc.placeId });
+    campaign = await fetchCampaignKeywords(loc.campaign);
   } catch (e) {
-    return { location: loc.name, error: `Local Falcon fetch failed: ${e.message}` };
+    return { location: loc.name, error: `Local Falcon campaign ${loc.campaign} failed: ${e.message}` };
   }
 
-  const kws = latestPerKeyword(reports).filter((k) => k.solv !== null);
+  const kws = campaign.keywords.filter((k) => k.solv !== null);
   if (kws.length === 0) {
     return {
       location: loc.name,
       target: loc.target,
       blended_solv: null,
       keyword_count: 0,
-      note: "No Google-Maps scans found in the last 14 days — is the weekly campaign running for this location?",
+      note: `Campaign ${loc.campaign} returned no keyword rows — check it is still scheduled in Local Falcon.`,
+    };
+  }
+  if (isStale(campaign.runDate)) {
+    return {
+      location: loc.name,
+      target: loc.target,
+      blended_solv: null,
+      keyword_count: kws.length,
+      note: `Campaign ${loc.campaign} last ran ${campaign.runDate ?? "unknown"} — older than ${LOOKBACK_DAYS} days. It is probably PAUSED; these numbers are frozen, not current.`,
     };
   }
 
@@ -170,10 +235,14 @@ async function computeLocation(location_name) {
   return {
     location: loc.name,
     target: loc.target,
+    target_needs_review: loc.needsReview === true,
+    baseline,
+    campaign_key: loc.campaign,
+    campaign_solv: campaign.agg_solv,
     blended_solv: blended,
     below_target: blended < loc.target,
     keyword_count: kws.length,
-    latest_date: kws[0]?.date ?? null,
+    latest_date: campaign.runDate,
     best: sorted[sorted.length - 1],
     worst: sorted.slice(0, 3),
     dead_zones: deadZones.map((k) => ({ keyword: k.keyword, solv: k.solv })),
@@ -197,9 +266,15 @@ async function analyzeLocation({ location_name }) {
 
   // Week-over-week delta from stored blended SoLV.
   const prior = await stateGet(`${AGENT_NAME}:solv:${location_name}`);
-  const priorSolv = prior?.solv ?? null;
+  // A prior reading from a different grid (per-campaign baseline mismatch, or a
+  // "?x?-?mi" unknown) is not comparable — treat it as absent rather than
+  // reporting a -51pt "collapse" that is pure geometry.
+  const comparable =
+    prior && prior.baseline && prior.baseline === summary.baseline && !summary.baseline.includes("?");
+  const priorSolv = comparable ? (prior.solv ?? null) : null;
   const delta = priorSolv === null ? null : Math.round((summary.blended_solv - priorSolv) * 100) / 100;
   await stateSet(`${AGENT_NAME}:solv:${location_name}`, {
+    baseline: summary.baseline,
     solv: summary.blended_solv,
     date: new Date().toISOString(),
   });

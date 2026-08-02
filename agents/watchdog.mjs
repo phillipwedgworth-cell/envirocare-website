@@ -1,7 +1,7 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/watchdog.mjs
-// Commit: feat(agents): watchdog + Vercel health + daily budget guard
+// Commit: fix(watchdog): zero agent_costs rows is NODATA, not under-budget
 // Push: main
 // ─────────────────────────────────────
 //
@@ -97,10 +97,19 @@ async function budgetCheck(lines, problems) {
     if (error) {
       lines.push(`budget   skipped — agent_costs read failed (${error.message})`);
     } else {
-      const total = (data ?? []).reduce((s, r) => s + Number(r.usd_cost || 0), 0);
-      const tag = total > DAILY_USD_BUDGET ? 'OVER  ' : 'ok    ';
-      lines.push(`budget   ${tag} AI spend today $${total.toFixed(2)} / $${DAILY_USD_BUDGET.toFixed(2)} cap`);
-      if (total > DAILY_USD_BUDGET) problems.push(`AI spend $${total.toFixed(2)}`);
+      const rows = data ?? [];
+      const total = rows.reduce((s, r) => s + Number(r.usd_cost || 0), 0);
+      // Zero rows is not "under budget" -- if cost logging ever breaks, an empty
+      // read would print "ok $0.00" and pass. Same false-healthy trap the
+      // Anthropic monthly-cap check below exists to catch. Say so instead.
+      if (rows.length === 0) {
+        lines.push(`budget   NODATA no agent_costs rows today — cost logging may be down`);
+        problems.push('agent_costs empty today');
+      } else {
+        const tag = total > DAILY_USD_BUDGET ? 'OVER  ' : 'ok    ';
+        lines.push(`budget   ${tag} AI spend today $${total.toFixed(2)} / $${DAILY_USD_BUDGET.toFixed(2)} cap (${rows.length} calls)`);
+        if (total > DAILY_USD_BUDGET) problems.push(`AI spend $${total.toFixed(2)}`);
+      }
     }
   } catch (e) { lines.push(`budget   skipped — ${e.message}`); }
 

@@ -95,6 +95,7 @@ const config: DeepCityConfig = {
     { q: "Do you serve Cahaba Heights, Liberty Park, and Rocky Ridge?", a: "Yes — all of Vestavia Hills, including Cahaba Heights, Rocky Ridge, Liberty Park, Vestavia East, and the Highway 31 corridor. Call (205) 940-6360 and we'll confirm your address is on our route." },
   ],
   siblings: [
+    ["Over the Mountain", "/over-the-mountain"],
     ["Mountain Brook", "/mountain-brook"],
     ["Liberty Park", "/liberty-park"],
     ["Homewood", "/homewood"],

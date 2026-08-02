@@ -56,7 +56,7 @@ export default function RealtorPage() {
           <div className="ti"><div className="ti-chk">✓</div>NPMA-33 Standard Letter</div>
           <div className="ti"><div className="ti-chk">✓</div>VA / FHA / Conventional Accepted</div>
           <div className="ti"><div className="ti-chk">✓</div>48-Hour Turnaround</div>
-          <div className="ti"><div className="ti-chk">✓</div>$75 Standalone Fee</div>
+          <div className="ti"><div className="ti-chk">✓</div>$125 Standalone Fee</div>
         </div>
       </div>
 
@@ -93,7 +93,7 @@ export default function RealtorPage() {
       <section className="stat-band">
         <div className="stat-band-inner">
           <div><div className="stat-band-n">48 hrs</div><div className="stat-band-l">Typical Letter Turnaround</div></div>
-          <div><div className="stat-band-n">$75</div><div className="stat-band-l">Standalone Fee</div></div>
+          <div><div className="stat-band-n">$125</div><div className="stat-band-l">Standalone Fee</div></div>
           <div><div className="stat-band-n">100%</div><div className="stat-band-l">AL Lenders Accepting</div></div>
           <div><div className="stat-band-n">68 Years</div><div className="stat-band-l">Trusted In Alabama</div></div>
         </div>

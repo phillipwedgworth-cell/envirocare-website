@@ -19,6 +19,7 @@ jobs:
           SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY:         ${{ secrets.SUPABASE_KEY }}   # lib reads SUPABASE_KEY (this is the name that matters)
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
           RESEND_API_KEY:       ${{ secrets.RESEND_API_KEY }}
           NOTIFY_FROM:          ${{ secrets.NOTIFY_FROM }}
           NOTIFY_EMAIL:         ${{ secrets.NOTIFY_EMAIL }}

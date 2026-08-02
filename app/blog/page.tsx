@@ -10,6 +10,19 @@ export const metadata = {
   alternates: { canonical: '/blog' },
   title: 'Alabama Pest Control Blog — Real Knowledge From EnviroCare Since 1958',
   description: 'Real Alabama pest knowledge from 68 years in the field. Seasonal guides, Sentricon® deep-dives, and homeowner advice you won\'t find in big-box marketing.',
+  openGraph: {
+    title: 'Alabama Pest Control Blog — Real Knowledge From EnviroCare Since 1958',
+    description: 'Real Alabama pest knowledge from 68 years in the field. Seasonal guides, Sentricon® deep-dives, and homeowner advice you won\'t find in big-box marketing.',
+    url: 'https://www.envirocarellc.com/blog',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alabama Pest Control Blog — Real Knowledge From EnviroCare Since 1958',
+    description: 'Real Alabama pest knowledge from 68 years in the field. Seasonal guides, Sentricon® deep-dives, and homeowner advice you won\'t find in big-box marketing.',
+    images: ['/og-image.png'],
+  },
 };
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];

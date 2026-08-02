@@ -46,7 +46,13 @@ On flip day the site must switch from hidden to indexable. Prepare (but do not m
 - Google Ads: `6799827884` (37 campaigns PAUSED)
 - NeuronWriter project: `9d0bec3a70f4743c`
 - Place IDs — Alabaster `ChIJr8cmt-EeiYgR_jgX9xsiZWY` · Huntsville `ChIJd4YXKCRmqmIR1DmDoEcGohU` · Alex City `ChIJ508mEjcLjIgRZ2HdWgXX76c`
-- Local Falcon report keys — Huntsville `cd64365e1dab32f` · Alex City `7febc8908039d6d` · Alabaster `644c1bcec9e3b67`
+- Local Falcon CAMPAIGN keys (v3 — the live weekly campaigns, 9x9 @ 20mi):
+  Huntsville `a58db3090ac9ab0` · Birmingham/Alabaster `4ee47a23fc4793e` · Lake Martin/Alex City `a99dae3fd51a462`
+  Read via `GET /v1/campaigns/{key}/report` (0 scan credits). Scan `report_key`s are minted per
+  scan and expire — never store them. The three previously recorded here (`cd64365e1dab32f`,
+  `7febc8908039d6d`, `644c1bcec9e3b67`) are DEAD; the API returns "report not found".
+  v2 campaigns `1822923e68f74d1` / `b6d42c9c19856f2` / `7d2a6df072df6f8` are PAUSED (last run
+  2026-06-30) — do not read them, and do not compare v2 SoLV to v3 SoLV (different grid).
 - Offices/phones/service-areas: `data/offices.ts`, `data/service-areas.ts`
 - Compliance source of truth: `data/compliance.ts`
 

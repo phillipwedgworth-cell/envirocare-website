@@ -4,6 +4,19 @@ export const metadata = {
   alternates: { canonical: '/quote' },
   title: "Request a Free Pest Control Visit | EnviroCare Alabama",
   description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
+  openGraph: {
+    title: "Request a Free Pest Control Visit | EnviroCare Alabama",
+    description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
+    url: 'https://www.envirocarellc.com/quote',
+    images: ['/og-image.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Request a Free Pest Control Visit | EnviroCare Alabama",
+    description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
+    images: ['/og-image.png'],
+  },
 };
 
 export default function QuotePage() {

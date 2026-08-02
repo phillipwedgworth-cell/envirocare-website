@@ -406,7 +406,7 @@ export default function AboutUs() {
               <a href="tel:2562346162" className="ab-off-phone">(256) 234-6162</a>
             </div>
             <div className="ab-off-card">
-              <img className="ab-off-img" src="/huntsville-saturn-v.webp" alt="Huntsville, Alabama, served by EnviroCareʼs North Alabama office" /><div className="ab-off-tag">North Alabama</div>
+              <img className="ab-off-img" src="/huntsville-saturn-v.webp" alt="Huntsville, Alabama, served by EnviroCareʼs North Alabama office" width={1200} height={933} loading="lazy" decoding="async" /><div className="ab-off-tag">North Alabama</div>
               <div className="ab-off-name">Huntsville / Madison</div>
               <div className="ab-off-addr">
                 7027 Old Madison Pike, Ste 108<br />Huntsville, AL 35806

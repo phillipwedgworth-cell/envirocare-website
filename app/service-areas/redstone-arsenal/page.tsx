@@ -239,7 +239,7 @@ export default function RedstoneArsenalPage() {
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: `linear-gradient(135deg,${D} 0%,#062514 100%)`, color: "#fff", textAlign: "center" }}>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .6rem" }}>Commercial assessment for your facility</h2>
-            <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.6rem", fontSize: "1.05rem" }}>Free walkthrough, fixed monthly quote, no long-term contract required.</p>
+            <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.6rem", fontSize: "1.05rem" }}>Free walkthrough and a fixed monthly quote.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
               <a href="tel:2569377676" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (256) 937-7676</a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>Request Commercial Quote →</Link>

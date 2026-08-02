@@ -408,7 +408,7 @@ const RESIDENTIAL_ADDONS: AncillaryItem[] = [
 const BUSINESS_SERVICES: AncillaryItem[] = [
   { icon: 'commercial', name: 'Commercial Pest Control', href: '/services/commercial' },
   { icon: 'wdo', name: 'Real Estate / WDO Letters', href: '/services/wdo-letters' },
-  { icon: 'builder', name: 'Builder Pre-Treatment', href: '/services/builder-pre-treat' },
+  { icon: 'builder', name: 'Builder Pre-Treatment', href: '/builders' },
 ];
 
 function ConsolidatedPricing() {

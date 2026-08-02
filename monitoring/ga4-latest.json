@@ -1,88 +1,92 @@
 {
   "report": "envirocare-ga4-weekly",
-  "run_date": "2026-07-20",
+  "run_date": "2026-07-27",
   "status": "ok",
   "property": "G-CELEB90NKX",
   "ga4_property_id": "313205131",
   "site": "envirocarellc.com",
   "data_source": "Google Analytics Data API (direct, no Supermetrics)",
   "period": {
+    "startDate": "2026-07-20",
+    "endDate": "2026-07-26"
+  },
+  "prior_period": {
     "startDate": "2026-07-13",
     "endDate": "2026-07-19"
   },
-  "prior_period": {
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-12"
-  },
   "totals": {
+    "sessions": 400,
+    "users": 322,
+    "engagedSessions": 177,
+    "conversions": 42
+  },
+  "totals_prior": {
     "sessions": 303,
     "users": 240,
     "engagedSessions": 164,
     "conversions": 37
   },
-  "totals_prior": {
-    "sessions": 284,
-    "users": 226,
-    "engagedSessions": 162,
-    "conversions": 44
-  },
   "channels": [
     {
       "key": "Direct",
-      "value": 172
+      "value": 242
     },
     {
       "key": "Organic Search",
-      "value": 121
+      "value": 140
     },
     {
       "key": "Paid Search",
-      "value": 4
-    },
-    {
-      "key": "Referral",
-      "value": 3
-    },
-    {
-      "key": "AI Assistant",
-      "value": 1
+      "value": 12
     },
     {
       "key": "Organic Social",
-      "value": 1
+      "value": 2
     },
     {
-      "key": "Unassigned",
+      "key": "Referral",
+      "value": 2
+    },
+    {
+      "key": "AI Assistant",
       "value": 1
     }
   ],
   "landing_pages": [
     {
       "key": "/",
-      "value": 173
+      "value": 184
     },
     {
       "key": "/contact-us",
-      "value": 18
+      "value": 25
     },
     {
       "key": "(not set)",
-      "value": 14
-    },
-    {
-      "key": "/quote",
-      "value": 8
-    },
-    {
-      "key": "/birmingham",
-      "value": 6
-    },
-    {
-      "key": "/about-us",
-      "value": 4
+      "value": 23
     },
     {
       "key": "/feedback",
+      "value": 18
+    },
+    {
+      "key": "/pricing",
+      "value": 9
+    },
+    {
+      "key": "/quote",
+      "value": 9
+    },
+    {
+      "key": "/request-quote",
+      "value": 7
+    },
+    {
+      "key": "/services/wdo-letters",
+      "value": 5
+    },
+    {
+      "key": "/command-center?key=1a27264c15871556397552ec5984a0ba",
       "value": 4
     },
     {
@@ -90,110 +94,106 @@
       "value": 4
     },
     {
-      "key": "/pricing",
+      "key": "/terms",
       "value": 4
+    },
+    {
+      "key": "",
+      "value": 3
+    },
+    {
+      "key": "/?sa=X&ved=2ahUKEwj695T_l-SVAxWfmWoFHfjxGN8Q1Y4JegQICxAU&nis=8&ch=1",
+      "value": 3
+    },
+    {
+      "key": "/about-us",
+      "value": 3
     },
     {
       "key": "/alexander-city",
       "value": 3
-    },
-    {
-      "key": "/blog",
-      "value": 3
-    },
-    {
-      "key": "/pest-library/spiders",
-      "value": 3
-    },
-    {
-      "key": "/blog/how-to-identify-termites-alabama",
-      "value": 2
-    },
-    {
-      "key": "/blog/posts/how-to-protect-your-birmingham-home-from-termites",
-      "value": 2
-    },
-    {
-      "key": "/blog/real-estate-wdo-letter-explained",
-      "value": 2
     }
   ],
   "devices": [
     {
       "key": "desktop",
-      "value": 204
+      "value": 255
     },
     {
       "key": "mobile",
-      "value": 99
+      "value": 144
+    },
+    {
+      "key": "tablet",
+      "value": 1
     }
   ],
   "cities": [
     {
       "key": "(not set)",
-      "value": 42
+      "value": 43
     },
     {
       "key": "Birmingham",
-      "value": 25
-    },
-    {
-      "key": "Vestavia Hills",
-      "value": 20
-    },
-    {
-      "key": "",
-      "value": 10
-    },
-    {
-      "key": "New York",
-      "value": 8
-    },
-    {
-      "key": "Atlanta",
-      "value": 7
-    },
-    {
-      "key": "Chicago",
-      "value": 7
+      "value": 27
     },
     {
       "key": "Singapore",
-      "value": 7
+      "value": 27
     },
     {
-      "key": "Auburn",
-      "value": 6
+      "key": "Chelsea",
+      "value": 18
     },
     {
-      "key": "Garden City",
-      "value": 6
-    },
-    {
-      "key": "Alabaster",
-      "value": 5
+      "key": "Vestavia Hills",
+      "value": 13
     },
     {
       "key": "Ashburn",
-      "value": 5
+      "value": 12
     },
     {
-      "key": "Helena",
-      "value": 5
+      "key": "New York",
+      "value": 10
+    },
+    {
+      "key": "Hoover",
+      "value": 8
+    },
+    {
+      "key": "Huntsville",
+      "value": 7
+    },
+    {
+      "key": "",
+      "value": 6
     },
     {
       "key": "Alexander City",
+      "value": 5
+    },
+    {
+      "key": "Atlanta",
       "value": 4
     },
     {
-      "key": "Clifton",
+      "key": "Calera",
+      "value": 4
+    },
+    {
+      "key": "Clanton",
+      "value": 4
+    },
+    {
+      "key": "Garden City",
       "value": 4
     }
   ],
   "conversion_events": [
     {
       "key": "ads_conversion_Contact_Us_1",
-      "value": 37
+      "value": 42
     }
   ]
 }

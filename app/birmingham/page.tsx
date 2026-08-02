@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og/og-birmingham.png"],
     title: "Pest Control Birmingham AL | EnviroCare — Family-Owned Since 1958",
     description:
-      "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, three Alabama offices, no long-term contracts.",
+      "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, three Alabama offices, no contract when you pay per visit.",
     url: "https://www.envirocarellc.com/birmingham",
     type: "website",
   },
@@ -55,9 +55,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.envirocarellc.com/birmingham",
+      // Reuses the site-wide Birmingham office @id from app/layout.tsx so this page's
+      // LocalBusiness node MERGES with it instead of reading as a second business at
+      // the same address. Was '.../birmingham' — a distinct @id with identical NAP,
+      // which is entity dilution. Verified in the build output 2026-07-30.
+      // Keep in sync with app/layout.tsx and components/pages/CityPage.tsx.
+      "@id": "https://www.envirocarellc.com/#birmingham",
       name: "EnviroCare Pest & Termite Services — Birmingham",
-      url: "https://www.envirocarellc.com",
+      url: "https://www.envirocarellc.com/birmingham",
       telephone: "+12059406360",
       address: {
         "@type": "PostalAddress",
@@ -300,7 +305,7 @@ export default function BirminghamPage() {
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>Birmingham Office</div>
             <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2025 Butler Road · Alabaster, AL 35007</h2>
             <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.8rem", fontSize: "1.05rem" }}>
-              Free inspection, no long-term contract, and a real Wedgworth on the other end of the phone.
+              Free inspection, straight pricing, and a real Wedgworth on the other end of the phone.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
               <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 940-6360</a>
