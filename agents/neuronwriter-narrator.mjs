@@ -25,6 +25,13 @@ const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // ready-to-
 const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" mark
 const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
+// Do not overwrite a draft that is already good. Before this existed, every FILL run
+// blew away hand-corrected editor content and replaced it with a fresh model draft —
+// including drafts a human had just fixed for compliance. Set NARRATOR_FORCE=1 to
+// deliberately rewrite everything.
+const PROTECT_AT = Number(process.env.NARRATOR_PROTECT_AT || 70);
+const FORCE      = process.env.NARRATOR_FORCE === "1";
+
 const RESEND_KEY  = process.env.RESEND_API_KEY || "";
 const NOTIFY_TO   = (process.env.NOTIFY_EMAIL || "").split(",").map(s => s.trim()).filter(Boolean);
 const NOTIFY_FROM = process.env.NOTIFY_FROM || "EnviroCare Narrator <onboarding@resend.dev>";
@@ -177,6 +184,17 @@ async function runFill() {
       const hand = manifest[norm(keyword)];
       const handFile = hand ? join(CONTENT_DIR, hand.file) : null;
       let score, source;
+
+      // GUARD: leave good drafts alone. A hand-written manifest file still wins,
+      // because that is the deliberate, version-controlled source of truth.
+      if (!FORCE && !(hand && handFile && existsSync(handFile))) {
+        const existing = await readScore(id);
+        if (existing !== null && existing >= PROTECT_AT) {
+          results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
+          await sleep(SLEEP_MS);
+          continue;
+        }
+      }
 
       if (hand && handFile && existsSync(handFile)) {
         const html = readFileSync(handFile, "utf8");
