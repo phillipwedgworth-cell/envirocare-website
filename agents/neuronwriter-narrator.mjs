@@ -86,10 +86,28 @@ function pickTerms(o) {
 }
 const norm = (s) => String(s||"").toLowerCase().replace(/\s+/g," ").trim();
 
+// Score straight off a list-queries row. The 2026-08-03 score run showed every
+// query as "-- (empty)": get-content responses carry no score pickScore can find,
+// which also made the protect guard a no-op (existing always null -> rewrite all).
+// list-queries rows are expected to carry content_score (see nw-scores-snapshot.mjs);
+// prefer that and keep get-content only as a fallback.
+const listedScore = (q) =>
+  typeof q?.content_score === "number" ? q.content_score
+  : typeof q?.score === "number" ? q.score
+  : null;
+
+let loggedContentShape = false;
 async function readScore(id) {
   // Surface failures instead of swallowing them — a silent catch here is why a
   // broken call would show up as "-- (empty)" in the score table with no clue why.
-  try { return pickScore(await nw("get-content", { query: id })); }
+  try {
+    const c = await nw("get-content", { query: id });
+    if (!loggedContentShape) {
+      loggedContentShape = true;
+      console.log(`[narrator] get-content keys: ${Object.keys(c || {}).join(", ")}`);
+    }
+    return pickScore(c);
+  }
   catch (e) { console.error(`[narrator] get-content failed for query ${id}: ${e.message}`); return null; }
 }
 
@@ -150,7 +168,9 @@ function toSummary(md) {
 
 async function listQueries() {
   const list = await nw("list-queries", { project: PROJECT });
-  return Array.isArray(list) ? list : (list.queries || []);
+  const rows = Array.isArray(list) ? list : (list.queries || []);
+  if (rows[0]) console.log(`[narrator] list-queries row keys: ${Object.keys(rows[0]).join(", ")}`);
+  return rows;
 }
 
 // -- SCORE: show every query + score ------------------------------------------
@@ -160,7 +180,7 @@ async function runScore() {
   const rows = [];
   for (const q of queries) {
     const id = q.query || q.id, keyword = q.keyword || "";
-    rows.push({ keyword, score: await readScore(id) });
+    rows.push({ keyword, score: listedScore(q) ?? await readScore(id) });
   }
   rows.sort((a,b) => (a.score ?? -1) - (b.score ?? -1));
   let md = "## Neuron Narrator -- query scores\n\n| Keyword | Score |\n|---|---|\n";
@@ -188,7 +208,7 @@ async function runFill() {
       // GUARD: leave good drafts alone. A hand-written manifest file still wins,
       // because that is the deliberate, version-controlled source of truth.
       if (!FORCE && !(hand && handFile && existsSync(handFile))) {
-        const existing = await readScore(id);
+        const existing = listedScore(q) ?? await readScore(id);
         if (existing !== null && existing >= PROTECT_AT) {
           results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
           await sleep(SLEEP_MS);
