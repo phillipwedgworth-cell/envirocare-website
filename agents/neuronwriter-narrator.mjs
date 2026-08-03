@@ -86,29 +86,32 @@ function pickTerms(o) {
 }
 const norm = (s) => String(s||"").toLowerCase().replace(/\s+/g," ").trim();
 
-// Score straight off a list-queries row. The 2026-08-03 score run showed every
-// query as "-- (empty)": get-content responses carry no score pickScore can find,
-// which also made the protect guard a no-op (existing always null -> rewrite all).
-// list-queries rows are expected to carry content_score (see nw-scores-snapshot.mjs);
-// prefer that and keep get-content only as a fallback.
+// API shapes proven in CI 2026-08-03 (run 30851142163): NEITHER list-queries rows
+// nor get-content responses carry any score field. list-queries rows: id, query,
+// keyword, language, engine, created, updated, source, tags, *_url. get-content:
+// content, title, description, created, type, query, keyword, language, engine,
+// project. The ONLY reads that return content_score are import-content (a write)
+// and evaluate-content (read-only, quota-free — the 75/month quota is on
+// new-query, see lib/neuronwriter.mjs). So: keep listedScore in case NW ever adds
+// the field, and read real scores via get-content html -> evaluate-content.
 const listedScore = (q) =>
   typeof q?.content_score === "number" ? q.content_score
   : typeof q?.score === "number" ? q.score
   : null;
 
-let loggedContentShape = false;
 async function readScore(id) {
   // Surface failures instead of swallowing them — a silent catch here is why a
   // broken call would show up as "-- (empty)" in the score table with no clue why.
   try {
     const c = await nw("get-content", { query: id });
-    if (!loggedContentShape) {
-      loggedContentShape = true;
-      console.log(`[narrator] get-content keys: ${Object.keys(c || {}).join(", ")}`);
-    }
-    return pickScore(c);
+    let s = pickScore(c);
+    if (s !== null) return s;
+    const html = typeof c?.content === "string" ? c.content : "";
+    if (!html.trim()) return null; // genuinely empty editor
+    const ev = await nw("evaluate-content", { query: id, html, title: c.title || "", description: c.description || "" });
+    return pickScore(ev);
   }
-  catch (e) { console.error(`[narrator] get-content failed for query ${id}: ${e.message}`); return null; }
+  catch (e) { console.error(`[narrator] readScore failed for query ${id}: ${e.message}`); return null; }
 }
 
 function loadManifest() {
@@ -181,6 +184,7 @@ async function runScore() {
   for (const q of queries) {
     const id = q.query || q.id, keyword = q.keyword || "";
     rows.push({ keyword, score: listedScore(q) ?? await readScore(id) });
+    await sleep(300); // readScore is now 2 API calls (get-content + evaluate-content)
   }
   rows.sort((a,b) => (a.score ?? -1) - (b.score ?? -1));
   let md = "## Neuron Narrator -- query scores\n\n| Keyword | Score |\n|---|---|\n";
