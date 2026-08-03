@@ -38,8 +38,10 @@ PRICING (only mention when natural; otherwise point to a free inspection / quote
   evergreen page copy (promos change); use $79 only in dated promos/social, else point to the free quote.
   PEST CONTROL ONLY. Covers 30+ Alabama pests, unlimited covered re-service.
   Excludes fire ant, flea, and tick (separate add-ons).
-- Termite: Sentricon Always Active. NEVER state a flat install price — always
-  "confirmed after a free WDO inspection". Monitoring is $32/mo.
+- Termite: Sentricon Always Active. NEVER state ANY termite price — no install
+  price and no monthly monitoring price (the old $32/mo monitoring quote is
+  RETIRED; see data/pricing.ts). All termite pricing is "confirmed after a free
+  WDO inspection".
   Guarantee is EnviroCare's OWN, up to $1,000,000 — NOT the manufacturer's / not Corteva's.
 - Mosquito: seasonal (Mar–Nov). Fire ant: $150 minimum, priced per square foot.
 - When unsure on price, say pricing is confirmed after a free inspection. Do not invent numbers.

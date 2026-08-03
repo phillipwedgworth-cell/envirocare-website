@@ -1598,7 +1598,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>When an inspection confirms activity, we typically recommend the <a href="/services/termite-control">Sentricon® bait system</a> — stations installed in the soil around the home, with no drilling through your slab and no trenching across your yard. The colony carries the bait back and the system stays in place, monitored and serviced, rather than depending on a liquid barrier that degrades over the years.</p>
 
-<p>Monitoring runs about $32 a month, and installation pricing is confirmed after a free inspection — every structure is different, and we will not quote one we have not looked at. Coverage includes up to $1,000,000 in damage protection, <strong>backed by EnviroCare's own guarantee</strong>, and it transfers when the home sells. All termite pricing and coverage is subject to inspection.</p>
+<p>Installation and monitoring pricing is confirmed after a free inspection — every structure is different, and we will not quote one we have not looked at. Coverage includes up to $1,000,000 in damage protection, <strong>backed by EnviroCare's own guarantee</strong>, and it transfers when the home sells. All termite pricing and coverage is subject to inspection.</p>
 
 <h2>Common questions</h2>
 

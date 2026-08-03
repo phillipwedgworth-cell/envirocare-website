@@ -25,6 +25,10 @@ on:
         description: "fill or score"
         default: "fill"
         required: false
+      force:
+        description: "true = NARRATOR_FORCE=1 (rewrite ALL drafts, ignoring the protect guard — use after a compliance/pricing change)"
+        default: "false"
+        required: false
   push:
     branches:
       - main
@@ -50,6 +54,7 @@ jobs:
           node-version: "20"
       - name: Run narrator
         env:
+          NARRATOR_FORCE: ${{ inputs.force == 'true' && '1' || '' }}
           NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
           NEURONWRITER_PROJECT: 9d0bec3a70f4743c
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
