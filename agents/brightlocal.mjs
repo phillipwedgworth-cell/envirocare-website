@@ -166,7 +166,9 @@ async function getCitationScore({ location_name }) {
     };
   }
   try {
-    const resp = await blMcpCall("get_ct_report_results", { "report-id": String(loc.ct_report_id) });
+    // Schema verified 2026-08-04: parameter is report_id (integer) — the old
+    // "report-id" string form now fails validation ("unexpected additional properties").
+    const resp = await blMcpCall("get_ct_report_results", { report_id: Number(loc.ct_report_id) });
     const results = resp?.response?.results || resp?.results || {};
     const activeCount = Array.isArray(results.active) ? results.active.length : null;
     const pendingCount = Array.isArray(results.pending) ? results.pending.length : 0;
@@ -195,7 +197,7 @@ async function getReputationSummary({ location_name }) {
     return { location: loc.name, data: null, note: "No Reputation Manager report set up in BrightLocal for this location" };
   }
   try {
-    const resp = await blMcpCall("get_rm_report", { "report-id": String(loc.rm_report_id) });
+    const resp = await blMcpCall("get_rm_report", { report_id: Number(loc.rm_report_id) });
     return { location: loc.name, data: resp?.response || resp?.results || resp };
   } catch (err) {
     // Keep the raw body (a rejected key carries "[INVALID_API_KEY]") visible so
