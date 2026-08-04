@@ -1,0 +1,38 @@
+name: BrightLocal Citations
+# Weekly citation-score brief (3 locations) → Supabase findings + week-over-week
+# deltas. Runs agents/brightlocal.mjs directly via agents/run.mjs.
+#
+# WHY THIS EXISTS (2026-08-04): no workflow consumed the BRIGHTLOCAL_API_KEY
+# GitHub secret — the agent only ran inside the Vercel orchestrator cron, which
+# reads the key from VERCEL env. The key was renewed in GitHub secrets on
+# 2026-08-04; this workflow validates it and gives the agent a CI home.
+# NOTE: the Vercel copy of BRIGHTLOCAL_API_KEY is a SEPARATE store — if the
+# orchestrator still reports a rejected key, paste the new key into Vercel env
+# (project envirocare-web-only-testing) too.
+on:
+  schedule:
+    - cron: '30 13 * * 1'   # Mondays 13:30 UTC (~8:30am CT)
+  workflow_dispatch: {}
+
+jobs:
+  brightlocal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm ci || npm install
+      - name: Run BrightLocal citation agent
+        env:
+          BRIGHTLOCAL_API_KEY:  ${{ secrets.BRIGHTLOCAL_API_KEY }}
+          ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:         ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          RESEND_API_KEY:       ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL:         ${{ secrets.NOTIFY_EMAIL }}
+          NOTIFY_FROM:          ${{ secrets.NOTIFY_FROM }}
+        run: node agents/run.mjs brightlocal
