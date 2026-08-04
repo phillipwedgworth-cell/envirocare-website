@@ -41,6 +41,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { COMPLIANCE_SYSTEM, userPrompt } from "./lib/compliance.mjs";
 import { logRunREST, logFindingREST } from "./lib/run-log.mjs";
+import { knowledgeBlock } from "./lib/knowledge.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dir, "neuronwriter-content");
@@ -124,6 +125,28 @@ function loadManifest() {
 }
 
 // -- Claude writer (compliance-locked) ----------------------------------------
+// Loaded once per process. NOTE: knowledgeBlock() reads the local
+// agents/knowledge/*.md files (brand, competitors, goals, strategy) — it is
+// NOT Supabase-backed, despite what an earlier patch comment claimed.
+let _knowledge = null;
+function getKnowledge() {
+  if (_knowledge === null) {
+    _knowledge = knowledgeBlock();
+    if (_knowledge) console.log("[narrator] loaded knowledge block (agents/knowledge/*.md)");
+    else console.warn("[narrator] no knowledge files loaded — using hardcoded compliance rules only");
+  }
+  return _knowledge;
+}
+
+// The model sometimes returns HTML wrapped in a markdown code fence. Pushing that
+// raw put a literal ```html into two saved drafts on 2026-08-03.
+function stripFences(s) {
+  return String(s || "")
+    .replace(/^\s*```(?:html)?\s*/i, "")
+    .replace(/\s*```\s*$/i, "")
+    .trim();
+}
+
 async function writeDraft(keyword, terms, lift = false) {
   if (!ANTHROPIC_KEY) throw new Error("ANTHROPIC_API_KEY not set -- cannot auto-write.");
   let prompt = userPrompt(keyword, terms);
@@ -134,13 +157,13 @@ async function writeDraft(keyword, terms, lift = false) {
     method: "POST",
     headers: { "x-api-key": ANTHROPIC_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
     body: JSON.stringify({
-      model: MODEL, max_tokens: 2400, system: COMPLIANCE_SYSTEM,
+      model: MODEL, max_tokens: 4000, system: COMPLIANCE_SYSTEM + getKnowledge(),
       messages: [{ role: "user", content: prompt }],
     }),
   });
   const j = await res.json();
   if (!res.ok) throw new Error(`Anthropic ${res.status}: ${JSON.stringify(j).slice(0,200)}`);
-  const html = (j.content || []).filter(b => b.type === "text").map(b => b.text).join("\n").trim();
+  const html = stripFences((j.content || []).filter(b => b.type === "text").map(b => b.text).join("\n"));
   if (!html) throw new Error("empty draft from model");
   return html;
 }
