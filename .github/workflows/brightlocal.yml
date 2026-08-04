@@ -12,7 +12,12 @@ name: BrightLocal Citations
 on:
   schedule:
     - cron: '30 13 * * 1'   # Mondays 13:30 UTC (~8:30am CT)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "true = only run the key/endpoint diagnostic probe"
+        default: "false"
+        required: false
 
 jobs:
   brightlocal:
@@ -35,4 +40,9 @@ jobs:
           RESEND_API_KEY:       ${{ secrets.RESEND_API_KEY }}
           NOTIFY_EMAIL:         ${{ secrets.NOTIFY_EMAIL }}
           NOTIFY_FROM:          ${{ secrets.NOTIFY_FROM }}
-        run: node agents/run.mjs brightlocal
+        run: |
+          if [ "${{ inputs.probe }}" = "true" ]; then
+            node agents/diagnostics/brightlocal-probe.mjs
+          else
+            node agents/run.mjs brightlocal
+          fi
