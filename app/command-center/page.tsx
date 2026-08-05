@@ -2,7 +2,7 @@
  * EnviroCare Command Center — single-pane-of-glass ops cockpit.
  * Gate: /command-center?key=$COMMAND_CENTER_KEY  (set COMMAND_CENTER_KEY in Vercel)
  * Server component. Reads every Supabase feed the agents + ingests populate:
- *   agent_runs · agent_findings · envirocare_seo · gsc_daily · ga4_weekly
+ *   agent_runs · agent_findings · seo_metrics · gsc_daily · ga4_weekly
  *   gads_campaigns · cfo_snapshots · morning_brief
  * Empty sections show how to populate them. No client JS.
  */
@@ -24,7 +24,6 @@ const GATE = process.env.COMMAND_CENTER_KEY;
 // ── types ─────────────────────────────────────────────────────────────────────
 interface AgentRun { agent_name: string; status: string; output: string | null; created_at: string; }
 interface Finding { id?: number; agent_name: string; category: string; severity: string; page_url?: string | null; finding: string; run_date: string; }
-interface SeoRow { location: string; solv: number | null; arp: number | null; review_count: number | null; keyword: string | null; snapshot_date: string; }
 interface GscDay { date: string; clicks: number; impressions: number; ctr: number; position: number; }
 interface Ga4Row { period_end: string; sessions: number; users: number; engaged_sessions: number; conversions: number; }
 interface GadsRow { campaign: string; cost: number; clicks: number; impressions: number; conversions: number; cost_per_conv: number; snapshot_label: string; snapshot_date: string; }
@@ -105,10 +104,9 @@ async function fetchAll() {
   const grab = <T,>(p: PromiseLike<{ data: T[] | null }>): Promise<T[]> =>
     Promise.resolve(p).then((r) => (r.data ?? []) as T[]).catch(() => [] as T[]);
 
-  const [runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests] = await Promise.all([
+  const [runs, findings, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests] = await Promise.all([
     grab<AgentRun>(sb.from('agent_runs').select('agent_name,status,output,created_at').order('created_at', { ascending: false }).limit(80)),
     grab<Finding>(sb.from('agent_findings').select('id,agent_name,category,severity,page_url,finding,run_date').order('run_date', { ascending: false }).limit(120)),
-    grab<SeoRow>(sb.from('envirocare_seo').select('location,solv,arp,review_count,keyword,snapshot_date').order('snapshot_date', { ascending: false }).limit(80)),
     grab<GscDay>(sb.from('gsc_daily').select('date,clicks,impressions,ctr,position').order('date', { ascending: false }).limit(45)),
     grab<Ga4Row>(sb.from('ga4_weekly').select('period_end,sessions,users,engaged_sessions,conversions').order('period_end', { ascending: false }).limit(12)),
     grab<GadsRow>(sb.from('gads_campaigns').select('campaign,cost,clicks,impressions,conversions,cost_per_conv,snapshot_label,snapshot_date').order('snapshot_date', { ascending: false }).limit(60)),
@@ -122,7 +120,7 @@ async function fetchAll() {
     grab<Discussion>(sb.from('agent_discussions').select('id,agent_name,references_agent,message,impact_score,effort_score,created_at').order('created_at', { ascending: false }).limit(15)),
     grab<SocialDraft>(sb.from('social_posts').select('id,location,platform,post_type,headline,body,cta,scheduled_for').eq('status', 'draft').order('scheduled_for', { ascending: true }).limit(20)),
   ]);
-  return { runs, findings, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts };
+  return { runs, findings, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts };
 }
 
 // Open PRs on the (public) repo — the approval queue for agent-written content.
@@ -199,7 +197,7 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
     );
   }
 
-  const { runs, seo, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts } = data;
+  const { runs, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts } = data;
   const prs = await fetchOpenPrs();
   // Content-review PRs are the ship-gate — surface them first.
   const prSort = (p: OpenPr) => (p.labels.some((l) => l.name === 'content-review') ? 0 : 1);
@@ -221,8 +219,35 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
   const findings = data.findings.filter((f) => !BANNED.test(f.finding || ''));
 
   // local SEO — latest row per market
+  // Was reading `envirocare_seo`, which has 0 rows and no writer — this panel had
+  // been rendering its empty state indefinitely. seo_metrics holds the live Local
+  // Falcon data (per-keyword grain), so aggregate the newest run per market.
+  //
+  // The UI uses short labels but seo_metrics stores compound location strings that
+  // both history and new rows share ('Birmingham/Alabaster', 'Lake Martin/Alex City').
+  // Map them explicitly — a substring/equality match on the short label silently
+  // returns nothing, which is how this panel would look "fine" while showing '—'.
   const MARKETS = ['Alabaster', 'Alex City', 'Huntsville'];
-  const latestSeo = firstPerKey(seo, (r) => r.location);
+  const MARKET_LOCATION: Record<string, string> = {
+    'Alabaster': 'Birmingham/Alabaster',
+    'Alex City': 'Lake Martin/Alex City',
+    'Huntsville': 'Huntsville',
+  };
+  const mean = (vals: number[]) => (vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null);
+  const latestSeo = new Map<string, { solv: number | null; arp: number | null; review_count: number | null; snapshot_date: string }>();
+  for (const m of MARKETS) {
+    const rows = seoMetrics.filter((r) => r.location === MARKET_LOCATION[m]);
+    if (!rows.length) continue;
+    const newest = rows.reduce((acc, r) => (r.run_date > acc ? r.run_date : acc), rows[0].run_date);
+    const cur = rows.filter((r) => r.run_date === newest);
+    const finite = (xs: (number | null)[]) => xs.map(Number).filter((v) => Number.isFinite(v));
+    latestSeo.set(m, {
+      solv: mean(finite(cur.map((r) => r.solv))),
+      arp: mean(finite(cur.map((r) => r.arp))),
+      review_count: null, // seo_metrics does not track reviews; KPI renders '—'
+      snapshot_date: newest,
+    });
+  }
   const totalReviews = MARKETS.reduce((s, m) => s + num(latestSeo.get(m)?.review_count), 0);
   const solvVals = MARKETS.map((m) => num(latestSeo.get(m)?.solv)).filter((v) => v > 0);
   const avgSolv = solvVals.length ? solvVals.reduce((a, b) => a + b, 0) / solvVals.length : 0;
