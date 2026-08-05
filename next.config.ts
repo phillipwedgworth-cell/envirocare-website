@@ -63,7 +63,12 @@ const nextConfig: NextConfig = {
             // it so the live listing link works until the profile is updated.
             { source: '/contact.php', destination: '/contact-us', permanent: true },
             { source: '/services/termite', destination: '/services/termite-control', permanent: true },
-            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },  // crawlspace killed Jun 13 (compliance scrub) — PENDING Phillip's call on next-steps revival
+            // Crawlspace encapsulation is NOT a service EnviroCare offers — see the
+            // SERVICES WE DO NOT OFFER block in agents/lib/compliance.mjs. Killed
+            // Jun 13 2026 in the compliance scrub; Phillip DECIDED Jun 26 2026 that
+            // it stays killed permanently. This is settled, not pending: do not
+            // revive /services/crawlspace or re-apply the next-steps branch copy.
+            { source: '/services/crawlspace', destination: '/services/termite-control', permanent: true },
             { source: '/services/mosquito-control', destination: '/services/mosquito', permanent: true },  // canonical moved to /services/mosquito Jun 25 (only /services/mosquito page exists)
             { source: '/services/pest', destination: '/services/pest-control', permanent: true },
             { source: '/services/rodent', destination: '/services/pest-control', permanent: true },
