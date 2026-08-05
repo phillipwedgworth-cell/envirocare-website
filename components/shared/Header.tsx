@@ -107,7 +107,7 @@ export default function Header() {
             <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-pay">
               <span>Pay Bill</span>
             </a>
-            <Link href="/request-quote" className="sh-quote">
+            <Link href="/quote" className="sh-quote">
               <span className="sh-quote-full">Get Free{' '}</span><span>Quote</span>
             </Link>
             <a href={office.phoneHref} className="sh-call" aria-label={`Call EnviroCare ${office.label} at ${office.phone}`}>
@@ -134,7 +134,7 @@ export default function Header() {
             ))}
           </div>
           <div className="sh-panel-cta">
-            <Link href="/request-quote" className="sh-panel-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote</Link>
+            <Link href="/quote" className="sh-panel-quote" onClick={() => setMenuOpen(false)}>Get a Free Quote</Link>
             <button type="button" className="sh-panel-ask" onClick={() => { setMenuOpen(false); openScout(); }}>
               <Sparkles size={16} aria-hidden="true" /> Ask an Expert
             </button>

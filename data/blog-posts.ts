@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Bites around the ankles and lower legs are the classic flea complaint, but we've walked into plenty of "flea" calls that turned out to be carpet beetle larvae, chiggers tracked in from the yard, or straightforward skin irritation with no pest behind it. A flea comb pulled through a pet's coat, or a white sock dragged across carpet near baseboards, is a quick way to confirm live fleas before spending money treating for the wrong thing. If you're not sure, that's exactly what a professional inspection is for.</p>
 
-<p>If you're seeing bites and can't find the source, don't guess at it with another fogger. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/request-quote">request a free quote online</a> and we'll figure out what's actually biting and where it's coming from. No One Cares Like EnviroCare.</p>
+<p>If you're seeing bites and can't find the source, don't guess at it with another fogger. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/quote">request a free quote online</a> and we'll figure out what's actually biting and where it's coming from. No One Cares Like EnviroCare.</p>
 `,
   },
   {
@@ -207,7 +207,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Our termite protection works differently from a bond riding on an aging liquid barrier. The <a href="/services/termite-control">Sentricon® bait system</a> is ongoing, active protection: stations around the home that stay on the job year-round, serviced and monitored by our technicians, with no soil barrier to degrade out from under the agreement. Coverage stays current as long as the service does, includes up to $1,000,000 in damage protection backed by EnviroCare's own guarantee, and moves with the home when it sells.</p>
 
-<p>If you're not sure what you're holding, bring it to us. We'll do a free termite inspection and read the bond with you — what's covered, what's excluded, whether it's still in force, and what it would take to protect the house properly if it isn't. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/request-quote">request your free inspection online</a>. No One Cares Like EnviroCare.</p>
+<p>If you're not sure what you're holding, bring it to us. We'll do a free termite inspection and read the bond with you — what's covered, what's excluded, whether it's still in force, and what it would take to protect the house properly if it isn't. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/quote">request your free inspection online</a>. No One Cares Like EnviroCare.</p>
 `,
   },
 
@@ -259,7 +259,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, standalone letters start as low as $125, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
 
-<p>Buying in Alabama? Get the house looked at before it's yours. <a href="/request-quote">Request an inspection</a> or call the office nearest the property — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
+<p>Buying in Alabama? Get the house looked at before it's yours. <a href="/quote">Request an inspection</a> or call the office nearest the property — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
 `,
   },
 
@@ -309,7 +309,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>If you have a small patio, use it occasionally, and don't back up to woods or water — a spatial repellent, a box fan (genuinely underrated; mosquitoes are weak fliers), and a weekly walk to dump standing water may be all you need. If you're backing up to a creek in Hoover, a wooded lot in Hampton Cove, or shoreline at Lake Martin, the physics are against you, and a barrier program is the difference between owning your yard in August and surrendering it. Whatever you choose, skip the <a href="/blog/diy-pest-control-mistakes">DIY moves that make things worse</a>.</p>
 
-<p><a href="/request-quote">Request a free quote</a> or call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
+<p><a href="/quote">Request a free quote</a> or call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
 `,
   },
 
@@ -1745,7 +1745,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>EnviroCare has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
 
-<p><a href="/request-quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
+<p><a href="/quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
 
 <p><em>Related:</em> <a href="/blog/brown-recluse-spiders-alabama">Brown recluse spiders in Alabama</a> · <a href="/blog/spider-control-alabama">Spider control in Alabama</a> · <a href="/blog/cricket-control-alabama">Cricket control</a> (the wolf spider's favorite meal).</p>
 `,
@@ -1786,7 +1786,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Exclusion first — seal foundation gaps, add door sweeps, screen vents, and keep firewood off the house. Then keep your <a href="/services/pest-control">perimeter pest service</a> running <em>through</em> the winter. The instinct to cancel when it gets cold is exactly backwards: winter is when pests are pushing toward the warm interior, so a maintained exterior barrier is doing the most work. We use EPA-registered products applied per label directions, year round.</p>
 
-<p>Seeing winter activity in your Birmingham-area home? <a href="/request-quote">Request a free inspection</a> or call (205) 940-6360.</p>
+<p>Seeing winter activity in your Birmingham-area home? <a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
 `,
   },
 
@@ -1826,7 +1826,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <h2>What actually works</h2>
 
-<p>Bait-and-colony treatment instead of contact sprays, exclusion first, and a steady exterior perimeter program using EPA-registered products applied per label directions. That's the boring approach that actually holds. If the DIY cycle isn't breaking, a <a href="/services/pest-control">professional perimeter plan</a> usually does. <a href="/request-quote">Request a free inspection</a> or call (205) 940-6360.</p>
+<p>Bait-and-colony treatment instead of contact sprays, exclusion first, and a steady exterior perimeter program using EPA-registered products applied per label directions. That's the boring approach that actually holds. If the DIY cycle isn't breaking, a <a href="/services/pest-control">professional perimeter plan</a> usually does. <a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
 `,
   },
 
@@ -1870,7 +1870,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>EnviroCare has serviced Birmingham homes since 1958, run by the fourth generation of the Wedgworth family, from our office on Butler Road in Alabaster — covering the whole metro from Alabaster and Pelham up through Hoover, Vestavia, Mountain Brook, and Homewood. See <a href="/birmingham">pest control in Birmingham</a>, our <a href="/services/pest-control">pest control program</a>, or <a href="/services/termite-control">termite protection</a>.</p>
 
-<p><a href="/request-quote">Request a free inspection</a> or call (205) 940-6360.</p>
+<p><a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
 `,
   },
   {

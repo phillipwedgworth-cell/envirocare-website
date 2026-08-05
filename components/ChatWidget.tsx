@@ -32,7 +32,7 @@ interface Message {
 const QUICK_ACTIONS: { label: string; prompt?: string; href?: string }[] = [
   { label: "Pricing & plans", prompt: "What does pest control cost, and what plans do you offer?" },
   { label: "What pests do you cover?", prompt: "What pests do you cover?" },
-  { label: "Request a quote", href: "/request-quote" },
+  { label: "Request a quote", href: "/quote" },
   { label: "Pay my bill", prompt: "How do I pay my bill online?" },
 ];
 
@@ -40,7 +40,7 @@ const QUICK_ACTIONS: { label: string; prompt?: string; href?: string }[] = [
 // handoff (the quote form, contact page, or office phone) is one tap away.
 function renderRich(text: string): (string | JSX.Element)[] {
   const re =
-    /(https?:\/\/[^\s)]+|\/(?:request-quote|contact-us|pricing|reviews|services|about-us|quote)\b|\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/g;
+    /(https?:\/\/[^\s)]+|\/(?:contact-us|pricing|reviews|services|about-us|quote)\b|\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/g;
   const out: (string | JSX.Element)[] = [];
   let last = 0;
   let k = 0;

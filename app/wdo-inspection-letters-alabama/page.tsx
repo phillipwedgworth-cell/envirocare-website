@@ -124,7 +124,7 @@ export default function Page() {
             <a href="tel:2059406360" style={{ background: GOLD, color: INK, padding: "16px 30px", borderRadius: 10, fontWeight: 800, textDecoration: "none", fontSize: 17 }}>
               Order a Letter: (205) 940-6360
             </a>
-            <Link href="/request-quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.5)", padding: "14px 28px", borderRadius: 10, fontWeight: 700, textDecoration: "none", fontSize: 17 }}>
+            <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.5)", padding: "14px 28px", borderRadius: 10, fontWeight: 700, textDecoration: "none", fontSize: 17 }}>
               Request Online
             </Link>
           </div>
