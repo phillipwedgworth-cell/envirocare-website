@@ -21,6 +21,68 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'termite-treatment-cost-alabama',
+    title: 'How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)',
+    excerpt: 'Nobody can quote you a termite price over the phone honestly, and the companies that do are guessing. Here is what actually moves the number on an Alabama house — linear footage, foundation type, active infestation versus prevention, and which system fits the structure.',
+    publishedAt: '2026-08-04',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 7,
+    heroEmoji: '🏷️',
+    metaTitle: 'What Termite Treatment Costs in Alabama | EnviroCare',
+    metaDescription: 'Termite treatment cost in Alabama depends on linear footage, foundation type, and whether termites are active. Here is what drives the price.',
+    body: `
+<p class="lede">The first question on almost every termite call we take is what it is going to cost, and the honest answer is that we do not know yet. Not because we are being cagey — because a 1,400-square-foot slab ranch in <a href="/alabaster">Alabaster</a> and a 3,800-square-foot house on a stepped crawlspace in <a href="/greystone">Greystone</a> are two completely different jobs, and anyone who quotes both the same over the phone is either padding one or shorting the other. Here is what actually sets the number, so you can walk into a quote knowing what you are looking at.</p>
+
+<h2>Why is there no flat price for termite treatment?</h2>
+
+<p>Termite work is priced off the structure, not off a menu. Pest control carries a published monthly price because the job is broadly the same house to house — our plans are on the <a href="/pricing">pricing page</a>. Termite work cannot, because the material, labor, and equipment involved swing enormously depending on what we find when we get under the house.</p>
+
+<p>That is why our standard termite inspection is free. We would rather spend an hour measuring and crawling than hand you a number we have to walk back later. You get the findings and the quote either way.</p>
+
+<h2>What drives the price up or down?</h2>
+
+<p><strong>Linear footage of the foundation.</strong> This is the single biggest factor. Both liquid barrier treatments and bait station systems are priced along the perimeter of the structure. A long, sprawling one-story with a lot of wall line can cost more to treat than a compact two-story with the same interior square footage. Detached garages and additions add perimeter.</p>
+
+<p><strong>Foundation type.</strong> Slab-on-grade, crawlspace, and basement homes each need a different approach. A slab often means drilling through concrete along the interior perimeter and through a garage floor, then patching — more labor and more equipment than trenching soil around a crawlspace home. Split-level houses common around <a href="/vestavia-hills">Vestavia Hills</a> and <a href="/homewood">Homewood</a> frequently combine two or three of these on one structure, and each transition point is treated on its own terms.</p>
+
+<p><strong>Obstructions and access.</strong> Patios, driveways poured tight to the foundation, retaining walls, tight crawlspace clearance, and heavy landscaping all add time. A bed of established shrubs along a foundation in <a href="/chelsea">Chelsea</a> gets worked around carefully rather than trenched straight through.</p>
+
+<p><strong>Active infestation versus prevention.</strong> A preventive treatment on a clean structure is a straightforward job. An active infestation means we are also addressing where they came in, what they have reached, and how the conditions let them get there — moisture, wood-to-ground contact, a stuck downspout. Active jobs cost more and take longer.</p>
+
+<p><strong>Which system fits the structure.</strong> A liquid barrier and a bait system are not interchangeable, and the right one depends on the soil, the slab, the water table, and how the house sits on the lot. We broke down the tradeoffs in <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon versus liquid termite treatment</a> — read it before comparing two quotes that may not be quoting the same thing.</p>
+
+<h2>Are you comparing the same thing?</h2>
+
+<p>The most common mistake we see is a homeowner in <a href="/hoover">Hoover</a> holding two quotes that look close and picking the lower one, when one includes ongoing coverage and the other is a one-time application. Get these four things in writing from everyone bidding:</p>
+
+<p><strong>What is the treatment, exactly?</strong> Full perimeter, or a spot treatment of the area where damage was found? Spot treatments cost less because they are smaller.</p>
+
+<p><strong>What happens after year one?</strong> Most termite protection carries an annual renewal that keeps the agreement and the inspections active. A quote without a renewal figure is incomplete.</p>
+
+<p><strong>Is there a repair provision, or damage coverage only for retreatment?</strong> These are very different promises. Our $1 million coverage is EnviroCare's own guarantee, backed by us — read <a href="/blog/termite-bond-alabama-explained">what a termite bond actually covers</a> for how to read the fine print on any company's version.</p>
+
+<p><strong>Who inspects it, and how often?</strong> A system nobody opens is not protection.</p>
+
+<h2>Is termite treatment worth it in Alabama?</h2>
+
+<p>Central Alabama sits in one of the heaviest subterranean termite pressure zones in the country. Warm ground, long seasons, and clay soil that holds moisture mean the foraging never really stops. And the part homeowners find out too late: standard homeowners insurance does not cover termite damage — it is classified as preventable maintenance, not a sudden loss.</p>
+
+<p>So the comparison is not treatment cost against zero. It is treatment cost against sill plate and floor joist repair, which in an older home in <a href="/helena">Helena</a> or Pelham runs well past what a lifetime of protection would have.</p>
+
+<h2>What to expect from a free inspection</h2>
+
+<p>We measure the exterior perimeter, get into the crawlspace or check the slab line, probe accessible wood in the areas that fail first, and look for mud tubes, damaged wood, swarmer evidence, and the moisture conditions that invited them. Then you get a written quote with scope and renewal terms spelled out. If you are buying or selling, that is a different document — see our <a href="/services/wdo-letters">WDO letters page</a>.</p>
+
+<p>Products are EPA-registered and applied per label directions. Program details are on our <a href="/services/termite-control">termite control service page</a>.</p>
+
+<p>If you want a real number for your house, call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676. The inspection is free and the quote is yours to keep.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
     slug: 'green-caps-in-yard-sentricon',
     title: 'What Are Those Round Green Caps in the Ground Around a House?',
     excerpt: 'New homeowners find them along the foundation and assume they are sprinkler heads or old irrigation. They are termite bait stations — here is what they do, why you should not mow over or pull one up, and what it means when the house changes hands.',
