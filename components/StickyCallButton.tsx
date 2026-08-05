@@ -84,7 +84,7 @@ export default function StickyCallButton() {
             <span className="sc-num">(205) 940-6360</span>
           </span>
         </a>
-        <a href="/request-quote" className="sc-quote">Get a Free Quote</a>
+        <a href="/quote" className="sc-quote">Get a Free Quote</a>
       </div>
     </>
   );

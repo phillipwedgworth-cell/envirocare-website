@@ -121,12 +121,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/special-offers`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    // NOT added: /request-quote. It is also nav-linked and returns 200, but it
-    // overlaps /quote (both are "get in touch" forms with near-identical titles —
-    // "Request a Free Pest Control Quote" vs "Request a Free Pest Control Visit").
-    // They use different components (RequestQuoteForm vs ScheduleRequest), so this
-    // is a product decision, not a sitemap bug. Consolidate to one URL and 301 the
-    // other, THEN add the survivor here. Flagged 2026-07-25.
+    // RESOLVED 2026-08-05: /request-quote is gone. It and /quote were two
+    // 200-status pages with near-identical titles, both self-canonical, both
+    // posting to /api/quote — cannibalization, not two products. /quote survives
+    // (already the sitemap entry, line ~96) and /request-quote now 308s to it via
+    // next.config.ts. All 13 internal links were repointed at /quote in the same
+    // commit so nothing hops through the redirect.
+    //
+    // STILL OPEN — which FORM /quote renders. The deleted page used
+    // RequestQuoteForm (name, phone, email, address, zip, plan, service, message);
+    // /quote uses ScheduleRequest (name, email, tel). Richer data vs. lower
+    // friction. Both post to the same endpoint, so swapping is a one-line change
+    // in app/quote/page.tsx with no URL churn. Phillip's call.
   ];
 
   const servicePages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({

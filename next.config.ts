@@ -57,6 +57,11 @@ const nextConfig: NextConfig = {
             // ─── SHORT SERVICE ALIASES (existing) ───────────────────────────
             // NOTE: /pricing is a REAL page now (app/pricing/*) — do NOT redirect it.
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
+            // Quote consolidation 2026-08-05: /request-quote and /quote were two
+            // separate 200-status pages with near-identical titles, both
+            // self-canonical, both posting to /api/quote. Classic cannibalization.
+            // /quote survives (it was the one in the sitemap). See app/quote/page.tsx.
+            { source: '/request-quote', destination: '/quote', permanent: true },
             { source: '/contact', destination: '/contact-us', permanent: true },
             // GBP appointment link on the Alex City profile still points at the
             // old Scorpion-era /contact.php (found in BrightLocal Jul 12) — 301
