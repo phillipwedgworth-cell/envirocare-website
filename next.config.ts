@@ -10,6 +10,18 @@ const nextConfig: NextConfig = {
     typescript: {
           ignoreBuildErrors: true,
     },
+    // Agents read agents/knowledge/*.md at RUNTIME via readdirSync (see
+    // agents/lib/knowledge.mjs). Next's tracer only bundles statically-imported
+    // files, so on Vercel those .md files were absent and every agent invoked
+    // through an /api route logged:
+    //   [knowledge] Could not load knowledge files: ENOENT:
+    //   no such directory '/vercel/path0/agents/knowledge'
+    // …then generated its brief with the hardcoded rules only. Locally and in
+    // GitHub Actions the repo is on disk, so this only ever broke on Vercel.
+    // NOTE: top-level in Next 15.5, NOT under `experimental`.
+    outputFileTracingIncludes: {
+      '/api/**/*': ['./agents/knowledge/**/*'],
+    },
     images: {
           remotePatterns: [
             { protocol: 'https', hostname: 'images.unsplash.com' },

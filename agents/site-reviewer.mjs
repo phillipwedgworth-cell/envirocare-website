@@ -26,7 +26,7 @@
 //            cursor + gathered pages are cleared for the next cycle.
 
 import { criticLoop, criticDraft } from "./lib/critic.mjs";
-import { stateGet, stateSet, stateGetAll } from "./lib/kv.mjs";
+import { stateGet, stateSet, stateGetAll, stateClear } from "./lib/kv.mjs";
 import {
   writeFinding,
   writeDiscussion,
@@ -238,8 +238,10 @@ async function gatherPage(page) {
 }
 
 async function clearCycleState() {
-  for (const t of TARGET_PAGES) await stateSet(GATHER_PREFIX + t.label, null);
-  await stateSet(CURSOR_KEY, null);
+  // stateClear, not stateSet(…, null): agent_state.value is jsonb NOT NULL, so
+  // the old null writes threw on every one of these 6 keys.
+  for (const t of TARGET_PAGES) await stateClear(GATHER_PREFIX + t.label);
+  await stateClear(CURSOR_KEY);
 }
 
 // ---------- Phases 2 & 3: Panel + synthesis ----------

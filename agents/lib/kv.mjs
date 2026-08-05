@@ -30,7 +30,29 @@ export async function stateGet(key) {
   return data?.value ?? null;
 }
 
+// Remove a key entirely. Use this to RESET state — `agent_state.value` is
+// `jsonb NOT NULL`, so writing null throws "null value in column value violates
+// not-null constraint". Deleting is equivalent for every reader, because
+// stateGet() already returns null when the row is missing (PGRST116).
+export async function stateClear(key) {
+  if (IS_LOCAL) {
+    let store = {};
+    try {
+      store = JSON.parse(await fs.readFile(LOCAL_STATE_FILE, "utf8"));
+    } catch {}
+    delete store[key];
+    await fs.writeFile(LOCAL_STATE_FILE, JSON.stringify(store, null, 2));
+    return;
+  }
+  const { error } = await supabase.from("agent_state").delete().eq("key", key);
+  if (error) console.error(`[kv] stateClear error: ${error.message}`);
+}
+
 export async function stateSet(key, value) {
+  // Callers meaning "reset this key" passed null and hit the NOT NULL constraint
+  // (site-reviewer emitted 6 of these per run: 5 target pages + the cursor).
+  // Route them to the delete path instead of failing the write.
+  if (value === null || value === undefined) return stateClear(key);
   if (IS_LOCAL) {
     let store = {};
     try {
