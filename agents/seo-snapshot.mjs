@@ -66,7 +66,13 @@ async function lfCampaignMeta() {
   if (!lfKey) throw new Error("LOCAL_FALCON_API_KEY not set");
   const u = new URL(`${LF_API}/campaigns`);
   u.searchParams.set("api_key", lfKey);
-  u.searchParams.set("fieldmask", "report_key,name,status,grid_size,radius,keywords");
+  // NO fieldmask. Verified against the live API 2026-08-05: passing
+  // fieldmask=report_key,name,status,grid_size,radius,keywords returns
+  // success:true with an EMPTY data.reports array, while the same call without
+  // it returns all 9 campaigns. That silent empty is why every row written on
+  // 2026-08-05 landed with baseline "?x?-?mi" and grid null — and why the
+  // "refuse to write frozen numbers" status guard below never fired (no meta
+  // means no status to check). The full payload is small; do not re-add it.
   const r = await fetch(u);
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.success) throw new Error(`LF campaigns list: HTTP ${r.status}${j.message ? ` ${j.message}` : ""}`);
