@@ -140,7 +140,8 @@
     "title": "How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)",
     "angle": "COMPLIANCE NOTE: EnviroCare quotes termite ONLY after free inspection — do NOT invent a flat price. Explain drivers: linear footage, foundation type, slab vs crawlspace, active infestation vs prevention, bait vs liquid. Industry ranges OK if attributed generally. Free inspection CTA. Links: /blog/sentricon-vs-liquid-termite-treatment, /pricing.",
     "season": "year-round",
-    "published": false
+    "published": true,
+    "publishedNote": "Drafted 2026-08-04, shipped 2026-08-05 (commit 92530a0). LIVE at /blog/termite-treatment-cost-alabama, verified 200."
   },
   {
     "slug": "fall-pest-proofing-alabama",
