@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/api/style-critic/run/route.ts
+// Commit: fix(agents): style-critic was 404ing on gemini-1.5-flash
+// Push: main
+
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
@@ -42,7 +48,7 @@ Return a JSON object exactly like this (no markdown, no explanation outside JSON
 }`;
 
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${process.env.GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -91,7 +97,7 @@ Return JSON only (no markdown):
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
-      model: "gpt-4o-mini",
+      model: "gpt-5.6-luna",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.3,
       max_tokens: 600,

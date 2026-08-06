@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: lib/llm-panel.ts
+// Commit: fix(agents): retire dead gemini-1.5-flash/gpt-4o panel defaults
+// Push: main
+
 // lib/llm-panel.ts
 // Generic 3-model panel + Sonnet synthesizer.
 //
@@ -69,8 +75,11 @@ export interface Synthesis {
 }
 
 const DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5-20251001";
-const DEFAULT_GEMINI_MODEL = "gemini-1.5-flash";
-const DEFAULT_GPT_MODEL = "gpt-4o";
+// Google retired the entire gemini-1.5 family on 2026-06-01 (hard 404).
+// gemini-3.1-flash-lite and gpt-5.6-luna are the current budget-tier pair
+// and both are already priced in lib/llm-cost-log.ts.
+const DEFAULT_GEMINI_MODEL = "gemini-3.1-flash-lite";
+const DEFAULT_GPT_MODEL = "gpt-5.6-luna";
 const SYNTHESIZER_MODEL = "claude-sonnet-4-6";
 
 async function callClaude(input: PanelInput): Promise<ModelOutput> {

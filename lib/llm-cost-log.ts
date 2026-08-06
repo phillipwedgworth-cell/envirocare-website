@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: lib/llm-cost-log.ts
+// Commit: docs(agents): retire stale gemini-1.5 note in cost table
+// Push: main
+
 // lib/llm-cost-log.ts
 //
 // WHY THIS EXISTS
@@ -29,8 +35,9 @@ const RATES: Record<string, { input: number; output: number }> = {
   'claude-haiku-4-5':             { input:  1.00, output:  5.00 },
 
   // Google — the 1.5 family is GONE (404 since 2026-06-01). Do not add it back.
-  // NOTE: lib/llm-panel.ts still calls gemini-1.5-flash — that panel leg needs
-  // updating to a current model; until then its usage prices at $0 here.
+  // (Resolved 2026-08-05: lib/llm-panel.ts now defaults to gemini-3.1-flash-lite.
+  // lib/multi-model.ts still targets gemini-1.5-pro on the retired v1beta2
+  // :generate endpoint, but it has no importers — dead code, flagged for removal.)
   'gemini-3.1-flash-lite':        { input:  0.25, output:  1.50 },
   'gemini-3.5-flash':             { input:  1.50, output:  9.00 },
   'gemini-3.1-pro':               { input:  2.00, output: 12.00 },

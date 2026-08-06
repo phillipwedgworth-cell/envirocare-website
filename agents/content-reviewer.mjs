@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/content-reviewer.mjs
+// Commit: chore(agents): move content-reviewer OpenAI leg to gpt-5.6-luna
+// Push: main
+
 // agents/content-reviewer.mjs — EnviroCare multi-model content review panel
 // =========================================================================
 // Every open content PR (blog drafts, city pages) and every pending
@@ -67,7 +73,7 @@ async function askGPT(content) {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "content-type": "application/json" },
     body: JSON.stringify({
-      model: "gpt-4o", max_tokens: 600,
+      model: "gpt-5.6-luna", max_tokens: 600,
       messages: [{ role: "system", content: RUBRIC }, { role: "user", content }],
     }),
   });

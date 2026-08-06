@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
       '/api/**/*': ['./agents/knowledge/**/*'],
     },
     images: {
+          // AVIF/WebP shrink the hero + city imagery substantially and are the
+          // cheapest half of the LCP fix. The other half is /family-yard.jpg,
+          // which is painted as a CSS background and therefore bypasses
+          // next/image entirely — converting that asset to WebP and updating
+          // both refs (preload ~L122, CSS ~L1106) is a separate change.
+          formats: ['image/avif', 'image/webp'],
           remotePatterns: [
             { protocol: 'https', hostname: 'images.unsplash.com' },
             { protocol: 'https', hostname: 'envirocarellc.com' },
