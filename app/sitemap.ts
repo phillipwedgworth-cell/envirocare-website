@@ -106,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/find-office`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/family-owned-vs-national-chains`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/best-pest-control-birmingham`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     // B2B WDO page for agents/closing attorneys (campaign-plan Track E4) — the
     // homeowner-facing page remains /services/wdo-letters.
     { url: `${BASE_URL}/wdo-inspection-letters-alabama`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
