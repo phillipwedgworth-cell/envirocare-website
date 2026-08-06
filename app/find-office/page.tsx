@@ -3,10 +3,10 @@ import ZipLookup from '@/components/ZipLookup';
 export const metadata = {
   alternates: { canonical: '/find-office' },
   title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
-  description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
+  description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
   openGraph: {
     title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
-    description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
+    description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
     url: 'https://www.envirocarellc.com/find-office',
     images: ['/og-image.png'],
     type: 'website',
@@ -14,7 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Find Your Local EnviroCare Office | Alabama Pest Control',
-    description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Three offices: Birmingham, Lake Martin, Huntsville. Call (205) 940-6360.',
+    description: 'Enter your Alabama zip code to find the EnviroCare office that serves your area. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
     images: ['/og-image.png'],
   },
 };
@@ -32,7 +32,7 @@ export default function FindOfficePage() {
           fontSize: 13, fontWeight: 600, color: '#0A7935',
           textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12,
         }}>
-          🌻 Three Alabama Offices · Family-Owned Since 1958
+          🌻 Four Alabama Offices · Family-Owned Since 1958
         </div>
         <h1 style={{
           fontFamily: "var(--font-serif)",
@@ -45,7 +45,7 @@ export default function FindOfficePage() {
         <p style={{
           fontSize: 18, color: '#5A6660', maxWidth: 640, margin: '0 auto', lineHeight: 1.55,
         }}>
-          EnviroCare serves Alabama from three locations. Enter your zip code below and
+          EnviroCare serves Alabama from four locations. Enter your zip code below and
           we&apos;ll route you to the office nearest you — a real human, not a call center.
         </p>
       </div>
@@ -59,8 +59,18 @@ export default function FindOfficePage() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: 16,
         }}>
-          <a href="tel:2059406360" style={officeCardStyle}>
+          {/* Birmingham city office, opened 2026-08-05. The card below it is the
+              Alabaster office, which was previously labelled "BIRMINGHAM" while
+              showing an Alabaster address — relabelled so both read honestly.
+              Alabaster keeps the "(Birmingham metro)" qualifier so metro callers
+              still recognise it; no existing number was removed or repointed. */}
+          <a href="tel:2059912882" style={officeCardStyle}>
             <strong style={officeLabel}>BIRMINGHAM</strong>
+            <span style={officePhone}>(205) 991-2882</span>
+            <span style={officeAddr}>2120 16th Ave S, Ste 302</span>
+          </a>
+          <a href="tel:2059406360" style={officeCardStyle}>
+            <strong style={officeLabel}>ALABASTER (BIRMINGHAM METRO)</strong>
             <span style={officePhone}>(205) 940-6360</span>
             <span style={officeAddr}>2025 Butler Rd, Alabaster</span>
           </a>
