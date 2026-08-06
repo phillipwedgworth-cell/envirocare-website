@@ -125,7 +125,7 @@ export default function Footer() {
             {TAGLINE}
           </div>
           <p style={{ ...LINK, color: MUTED, lineHeight: 1.7, marginBottom: 14 }}>
-            {HERITAGE} of the Wedgworth family. Serving Alabama from three offices.
+            {HERITAGE} of the Wedgworth family. Serving Alabama from four offices.
           </p>
           <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Birmingham</a>
           <a href="tel:2562346162" style={PHONE}><PhoneIcon /> (256) 234-6162 — Lake Martin / Alex City</a>

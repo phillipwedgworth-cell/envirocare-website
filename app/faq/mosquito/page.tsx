@@ -429,7 +429,7 @@ export default function MosquitoFAQ() {
               { n: "21 days", label: "Treatment cycle" },
               { n: "Free", label: "Re-service guarantee" },
               { n: "Since 1958", label: "Family-owned Alabama" },
-              { n: "3 offices", label: "Birmingham · Huntsville · Lake Martin" },
+              { n: "4 offices", label: "Birmingham · Alabaster · Huntsville · Lake Martin" },
             ].map((item) => (
               <div key={item.n} style={{ textAlign: "center" }}>
                 <div

@@ -264,7 +264,7 @@ export default function AboutUs() {
             <div className="ab-tl-row l">
               <div className="ab-tl-year">Today</div>
               <div className="ab-tl-card">
-                <h3>Three offices, one family</h3>
+                <h3>Four offices, one family</h3>
                 <p>
                   Bi-monthly pest control, Sentricon® termite protection, and seasonal mosquito and tick service
                   across Alabama. Still family-owned. Still no long-term contracts. Still the same promise.
@@ -320,7 +320,7 @@ export default function AboutUs() {
               <div className="ab-fam-body">
                 <div className="ab-fam-role">Owner · Today</div>
                 <p className="ab-fam-bio">
-                  Kevin opened the Birmingham office in 2002 and took the helm in 2016. He runs EnviroCare today across three Alabama offices, and the answer when something goes wrong hasn't changed: we come back until it's right.
+                  Kevin opened the Birmingham office in 2002 and took the helm in 2016. He runs EnviroCare today across four Alabama offices, and the answer when something goes wrong hasn't changed: we come back until it's right.
                 </p>
               </div>
             </div>
@@ -366,7 +366,7 @@ export default function AboutUs() {
               <div className="ab-vcard">
                 <div className="ab-vcard-num">03</div>
                 <h3>A real Wedgworth answers</h3>
-                <p>Three Alabama offices, three direct phone numbers, three Wedgworths. No 1-800 call center between you and the family.</p>
+                <p>Four Alabama offices, four direct phone numbers, the same family. No 1-800 call center between you and the family.</p>
               </div>
               <div className="ab-vcard">
                 <div className="ab-vcard-num">04</div>
@@ -380,12 +380,12 @@ export default function AboutUs() {
         {/* OFFICES */}
         <section className="ab-offices">
           <div style={{ maxWidth: 1320, margin: "0 auto", textAlign: "center" }}>
-            <div className="ab-section-eyebrow">Three Alabama Offices</div>
+            <div className="ab-section-eyebrow">Our Alabama Offices</div>
             <h2 className="ab-section-title" style={{ margin: "0 auto .85rem" }}>
               Four Generations, <span>Right Down the Road</span>
             </h2>
             <p className="ab-section-sub" style={{ margin: "0 auto" }}>
-              Three Alabama offices — each with its own local phone, a familiar local team, and the neighborhoods they know best. You reach people here, not a national call center.
+              Four Alabama offices — each with its own local phone, a familiar local team, and the neighborhoods they know best. You reach people here, not a national call center.
             </p>
           </div>
           <div className="ab-off-grid">

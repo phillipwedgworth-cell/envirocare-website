@@ -11,6 +11,20 @@ const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
 const OFFICES = [
   {
     name: "Birmingham Office",
+    address: "2120 16th Ave S, Ste 302",
+    city: "Birmingham, AL 35205",
+    phone: "(205) 991-2882",
+    tel: "2059912882",
+    email: "service@envirocarellc.com",
+    // No Google Business Profile yet — omit `maps` rather than link a wrong pin.
+    maps: "",
+    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
+    serves: "Birmingham · Southside · Highland Park · Forest Park · Crestwood · Avondale · Five Points South",
+    note: "Our Birmingham city office, in Southside off 16th Avenue South.",
+    accent: G,
+  },
+  {
+    name: "Alabaster Office",
     address: "2025 Butler Rd",
     city: "Alabaster, AL 35007",
     phone: "(205) 940-6360",
@@ -110,6 +124,7 @@ export default function ContactUs() {
             "telephone": "(205) 940-6360",
             "openingHours": "Mo-Fr 08:00-17:00",
             "address": [
+              {"@type": "PostalAddress", "streetAddress": "2120 16th Ave S Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205"},
               {"@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007"},
               {"@type": "PostalAddress", "streetAddress": "1785 Tallapoosa St", "addressLocality": "Alexander City", "addressRegion": "AL", "postalCode": "35010"},
               {"@type": "PostalAddress", "streetAddress": "7027 Old Madison Pike Suite 108", "addressLocality": "Huntsville", "addressRegion": "AL", "postalCode": "35806"}
@@ -127,7 +142,7 @@ export default function ContactUs() {
           Talk to Your <em style={{ color: GOLD }}>Local</em> Office
         </h1>
         <p style={{ fontSize: 16, color: "rgba(255,255,255,0.92)", maxWidth: 480, margin: "0 auto 28px", lineHeight: 1.7, ...sf }}>
-          Three Alabama offices. Real people who answer the phone. Same family since 1958.
+          Four Alabama offices. Real people who answer the phone. Same family since 1958.
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
           {OFFICES.map((o, i) => (
@@ -142,7 +157,7 @@ export default function ContactUs() {
       <section style={{ padding: "56px 40px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 12, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Our 3 Offices</div>
+            <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 12, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Our 4 Offices</div>
             <h2 style={{ fontSize: 30, fontWeight: 400, color: DARK }}>Find Your Nearest Location</h2>
           </div>
 
@@ -168,7 +183,10 @@ export default function ContactUs() {
                   <div>
                     <div style={{ fontSize: 11, color: "#4b5563", ...sf, marginBottom: 2 }}>Address</div>
                     <div style={{ fontWeight: 600, color: "#111827", fontSize: 14, ...sf }}>{OFFICES[selected].address}<br />{OFFICES[selected].city}</div>
-                    <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: G, ...sf, fontWeight: 600, marginTop: 4, display: "inline-block" }}>Get Directions →</a>
+                    {/* Birmingham has no GBP pin yet — hide rather than link to href="" */}
+                    {OFFICES[selected].maps ? (
+                      <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: G, ...sf, fontWeight: 600, marginTop: 4, display: "inline-block" }}>Get Directions →</a>
+                    ) : null}
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 10, marginBottom: 14, alignItems: "center" }}>
@@ -210,9 +228,11 @@ export default function ContactUs() {
                       <MapPin size={18} color={G} style={{ flexShrink: 0 }} aria-hidden="true" />
                       <span style={{ fontSize: 13, color: G, fontWeight: 600, ...sf }}>{OFFICES[selected].address}, {OFFICES[selected].city}</span>
                     </div>
-                    <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "9px 18px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
-                      Open in Google Maps
-                    </a>
+                    {OFFICES[selected].maps ? (
+                      <a href={OFFICES[selected].maps} target="_blank" rel="noreferrer" style={{ display: "inline-block", padding: "9px 18px", background: G, color: "#fff", borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: "none", ...sf }}>
+                        Open in Google Maps
+                      </a>
+                    ) : null}
                   </div>
                 </div>
           </div>
@@ -343,7 +363,7 @@ export default function ContactUs() {
               ["What are your hours?", "Monday–Friday 8am–5pm, closed weekends. Emergency situations — call us, we'll do our best."],
               ["How quickly can you schedule service?", "Call your nearest office to check availability — most visits are within 48 hours."],
               ["Is the inspection really free?", "Yes. We inspect your property, give you a written assessment and quote, with no obligation to purchase."],
-              ["Do you serve my city?", "We serve 30+ Alabama communities across 3 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],
+              ["Do you serve my city?", "We serve 30+ Alabama communities across 4 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],
             ].map(([q, a], i) => (
               <div key={i} style={{ background: "#f7f8f4", border: "1px solid rgba(27,122,60,0.1)", borderRadius: 10, padding: "16px 20px" }}>
                 <div style={{ fontWeight: 700, fontSize: 14, color: DARK, ...sf, marginBottom: 6 }}>{q}</div>

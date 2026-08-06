@@ -48,6 +48,6 @@ export const BUILDER_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What areas do you cover for builder work?",
-    a: "Our crews run out of three Alabama offices — Birmingham/Alabaster, Huntsville, and Alexander City/Lake Martin — and cover new construction across Central and North Alabama, including Birmingham metro, Huntsville and Madison, Auburn and Opelika, and the Lake Martin communities.",
+    a: "Our crews run out of four Alabama offices — Birmingham, Alabaster, Huntsville, and Alexander City/Lake Martin — and cover new construction across Central and North Alabama, including Birmingham metro, Huntsville and Madison, Auburn and Opelika, and the Lake Martin communities.",
   },
 ];

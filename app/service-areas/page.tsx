@@ -112,7 +112,7 @@ export default function ServiceAreasPage() {
             serve every community listed here as part of their regular routes.
           </p>
 
-          {/* THREE OFFICES SHOWCASE */}
+          {/* OFFICES SHOWCASE — Birmingham city office still needs a card + photo */}
           <style>{`
             .wws-offices { margin-top: 52px; }
             .wws-office-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 34px; }
@@ -129,9 +129,9 @@ export default function ServiceAreasPage() {
           `}</style>
           <div className="wws-offices">
             <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto' }}>
-              <div style={{ textTransform: 'uppercase', letterSpacing: 2, fontSize: 13, fontWeight: 700, color: GOLD }}>Three Alabama Offices</div>
+              <div style={{ textTransform: 'uppercase', letterSpacing: 2, fontSize: 13, fontWeight: 700, color: GOLD }}>Our Alabama Offices</div>
               <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(24px,4vw,34px)', color: INK, margin: '8px 0 12px' }}>Four Generations, Right Down the Road</h2>
-              <p style={{ fontSize: 17, lineHeight: 1.7, color: INK, margin: 0 }}>Three Alabama offices — each with its own local phone, a familiar local team, and the neighborhoods they know best. You reach people here, not a national call center.</p>
+              <p style={{ fontSize: 17, lineHeight: 1.7, color: INK, margin: 0 }}>Four Alabama offices — each with its own local phone, a familiar local team, and the neighborhoods they know best. You reach people here, not a national call center.</p>
             </div>
             <div className="wws-office-grid">
               <div className="wws-office-card">

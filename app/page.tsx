@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: 'EnviroCare Pest & Termite Services',
     title: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
     description:
-      'Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service. Three offices across Alabama.',
+      'Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service. Four offices across Alabama.',
     images: [
       {
         url: '/og-image.png',

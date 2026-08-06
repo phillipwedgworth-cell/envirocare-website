@@ -4,12 +4,12 @@ import AboutUs from '@/components/pages/AboutUs';
 export const metadata: Metadata = {
   title: 'About EnviroCare — Alabama Pest Control Since 1958',
   description:
-    "EnviroCare is the Wedgworth family — founded 1958 in Alexander City, now four generations on. Three Alabama offices, no contract when you pay per visit.",
+    "EnviroCare is the Wedgworth family — founded 1958 in Alexander City, now four generations on. Four Alabama offices, no contract when you pay per visit.",
   alternates: { canonical: '/about-us' },
   openGraph: {
     title: 'About EnviroCare — Family-Owned in Alabama Since 1958',
     description:
-      'Four generations of the Wedgworth family. Three Alabama offices. One promise that hasn\'t changed since 1958.',
+      'Four generations of the Wedgworth family. Four Alabama offices. One promise that hasn\'t changed since 1958.',
     url: '/about-us',
     type: 'website',
   },
@@ -75,7 +75,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'Where is EnviroCare located?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'EnviroCare has three Alabama offices. Our original 1958 office is at 1785 Tallapoosa Street in Alexander City, serving Lake Martin and East Alabama. Our Birmingham office is at 2025 Butler Road in Alabaster. Our Huntsville office is at 7027 Old Madison Pike, Suite 108. Each office has its own technicians and direct phone number.',
+        text: 'EnviroCare has four Alabama offices. Our original 1958 office is at 1785 Tallapoosa Street in Alexander City, serving Lake Martin and East Alabama. Our Birmingham office is at 2025 Butler Road in Alabaster. Our Huntsville office is at 7027 Old Madison Pike, Suite 108. Each office has its own technicians and direct phone number.',
       },
     },
     {

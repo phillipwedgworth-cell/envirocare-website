@@ -698,12 +698,12 @@ function FindYourOffice() {
   return (
     <section className="ec-findoffice">
       <div className="ec-section-inner">
-        <div className="ec-section-eyebrow">THREE OFFICES ACROSS ALABAMA</div>
+        <div className="ec-section-eyebrow">OFFICES ACROSS ALABAMA</div>
         <h2 className="ec-section-h2">Find <em>Your Office</em></h2>
         <p className="ec-section-sub">
           Serving the whole Birmingham metro — Birmingham, Hoover, Vestavia Hills, Mountain Brook,
           Homewood, Trussville, Chelsea, Pelham, Helena, Alabaster and beyond — plus Lake Martin /
-          Alex City and Huntsville / Madison, from three local offices.
+          Alex City and Huntsville / Madison, from four local offices.
         </p>
         <div className="ec-fo-box">
           <input

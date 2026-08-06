@@ -15,8 +15,8 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
 - [Pricing](https://www.envirocarellc.com/pricing): flat monthly pricing, published openly (pest from $35/mo).
 - [Get a free quote](https://www.envirocarellc.com/quote): request a visit or a free termite/WDO inspection.
 - [About us](https://www.envirocarellc.com/about-us): the 1958 founding story and fourth-generation family ownership.
-- [Service areas](https://www.envirocarellc.com/service-areas): every city and community the three offices cover.
-- [Find your office](https://www.envirocarellc.com/find-office): which of the three offices serves your address.
+- [Service areas](https://www.envirocarellc.com/service-areas): every city and community the four offices cover.
+- [Find your office](https://www.envirocarellc.com/find-office): which of the four offices serves your address.
 - [Reviews](https://www.envirocarellc.com/reviews): customer reviews and ratings.
 - [Contact us](https://www.envirocarellc.com/contact-us): phone numbers and office details.
 - [FAQ](https://www.envirocarellc.com/faq): common questions on pest, termite, and mosquito service.

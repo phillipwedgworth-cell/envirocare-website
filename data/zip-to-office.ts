@@ -2,7 +2,7 @@
  * Alabama ZIP → EnviroCare Office routing
  * Generated May 18, 2026
  *
- * Three offices serve different regions of Alabama:
+ * Four offices serve different regions of Alabama:
  * - Birmingham (BIR): Jefferson, Shelby, St. Clair, Walker, Blount
  * - Lake Martin / Alex City (LKM): Tallapoosa, Elmore, Coosa, Lee (Auburn), Chambers, Russell
  * - Huntsville (HSV): Madison, Limestone, Morgan, Marshall, Jackson

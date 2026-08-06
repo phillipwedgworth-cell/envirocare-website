@@ -121,7 +121,7 @@ const FAQS = [
   },
   {
     q: "Can I add Sentricon to my existing pest control plan?",
-    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free WDO inspection, with the same technician on one schedule. Call any of our three Alabama offices to add termite protection.",
+    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free WDO inspection, with the same technician on one schedule. Call any of our four Alabama offices to add termite protection.",
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",

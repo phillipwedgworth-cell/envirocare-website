@@ -758,7 +758,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Termites: Start Immediately</h2>
 <p>For termite protection, every month without coverage is a month of potential damage. Alabama is one of the highest-risk states in the country. New homeowners should start immediately — builder soil treatments only last 5–7 years.</p>
 
-<p>EnviroCare offers $50 off initial service. No long-term contract when paying per visit. Free re-treatment between visits. Call any of our three offices:</p>
+<p>EnviroCare offers $50 off initial service. No long-term contract when paying per visit. Free re-treatment between visits. Call any of our four offices:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
@@ -1357,7 +1357,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>The 2026 season is a bad year to be unprotected. Here's the math: a subterranean termite colony in Alabama typically contains 250,000 to one million workers. Each worker consumes about 0.0025 ounces of wood per day. At peak population, a mature colony in your foundation can consume the equivalent of a 1-inch pine board every 23 days. By the time you see visible damage, the colony has usually been present for 3 to 5 years.</p>
 
-<p>We offer free inspections at all three offices. Fast appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
+<p>We offer free inspections at all four offices. Fast appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
 
 <h2>Steps to take right now</h2>
 

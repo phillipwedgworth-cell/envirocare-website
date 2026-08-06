@@ -158,7 +158,7 @@ export default function Page() {
               b: "Existing Sentricon® coverage can transfer with the home, and new buyers can start a plan at closing — up to $1,000,000 in damage repair coverage backed by EnviroCare's own guarantee. That's a talking point at the table, and a client of yours we then take care of for years.",
             },
             {
-              t: "Three offices, five counties of closings",
+              t: "Four offices, five counties of closings",
               b: "Birmingham metro (Jefferson & Shelby), Huntsville (Madison), and Lake Martin/Alex City (Tallapoosa & Lee) — each with a local team that runs these inspections constantly.",
             },
             {

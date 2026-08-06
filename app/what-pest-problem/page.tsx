@@ -103,7 +103,7 @@ const jsonLd = {
           name: 'What pests does EnviroCare treat?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'EnviroCare treats 30+ common Alabama pests: ants (including fire ants), roaches, spiders (including brown recluse), earwigs, silverfish, crickets, millipedes, centipedes, exterior wasps and hornets, mice and rats within a pest plan, seasonal mosquitoes, ticks with mosquito service, and termites with Sentricon®. Wasp nests, carpenter bees, and extra rodent or trapping jobs are available to active pest customers as add-ons for an additional charge. We serve the Birmingham metro, Huntsville / North Alabama, and Lake Martin / Alexander City from three staffed offices.',
+            text: 'EnviroCare treats 30+ common Alabama pests: ants (including fire ants), roaches, spiders (including brown recluse), earwigs, silverfish, crickets, millipedes, centipedes, exterior wasps and hornets, mice and rats within a pest plan, seasonal mosquitoes, ticks with mosquito service, and termites with Sentricon®. Wasp nests, carpenter bees, and extra rodent or trapping jobs are available to active pest customers as add-ons for an additional charge. We serve the Birmingham metro, Huntsville / North Alabama, and Lake Martin / Alexander City from four staffed offices.',
           },
         },
         {
@@ -144,7 +144,7 @@ export default function WhatPestProblemPage() {
           <p style={{ fontSize: 17.5, lineHeight: 1.75, maxWidth: 780, marginTop: 16 }}>
             Pick what&apos;s bugging you and we&apos;ll show you exactly how we treat it — with the
             price on the page, the way it should be. EnviroCare is family-owned since 1958,
-            serving the Birmingham metro, Huntsville, and Lake Martin from three Alabama offices.
+            serving the Birmingham metro, Huntsville, and Lake Martin from four Alabama offices.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18, marginTop: 34 }}>

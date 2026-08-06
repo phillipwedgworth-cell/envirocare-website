@@ -377,7 +377,7 @@ export default function SentriconProtection() {
               <Phone className="w-5 h-5" /> (205) 940-6360
             </a>
           </div>
-          <p className="text-green-300 text-sm mt-6">3 Alabama offices · Birmingham · Alexander City · Huntsville</p>
+          <p className="text-green-300 text-sm mt-6">4 Alabama offices · Birmingham · Alabaster · Alexander City · Huntsville</p>
         </div>
       </section>
 

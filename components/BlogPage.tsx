@@ -59,7 +59,7 @@ export default function BlogPage() {
         <div className="bp-cta-inner">
           <h2 className="bp-cta-title">Have a Pest Question We Haven&apos;t Written About?</h2>
           <p className="bp-cta-sub">
-            Call us. Three offices across Alabama. Family-owned since 1958.
+            Call us. Four offices across Alabama. Family-owned since 1958.
           </p>
           <div className="bp-cta-phones">
             <a href="tel:2059406360" className="bp-cta-phone">

@@ -74,7 +74,7 @@ export function getOrganizationSchema() {
     foundingDate: FOUNDING,
     founder: { '@type': 'Person', name: 'Phillip M. Wedgworth' },
     description:
-      'EnviroCare Pest & Termite Services is a fourth-generation, family-owned Alabama pest and termite control company founded in 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from three Alabama offices.',
+      'EnviroCare Pest & Termite Services is a fourth-generation, family-owned Alabama pest and termite control company founded in 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
     areaServed: { '@type': 'State', name: 'Alabama' },
     contactPoint: {
       '@type': 'ContactPoint',

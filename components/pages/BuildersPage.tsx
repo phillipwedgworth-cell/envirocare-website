@@ -117,7 +117,7 @@ export default function BuildersPage() {
       <section className="wedge" style={{background:'var(--cream)'}}>
         <div className="container">
           <div className="section-eyebrow">Where We Build With You</div>
-          <h2 className="section-title">Three Offices, <span>All Of Central & North Alabama</span></h2>
+          <h2 className="section-title">Four Offices, <span>All Of Central & North Alabama</span></h2>
           <p className="section-sub">Crews run out of Birmingham/Alabaster, Huntsville, and Alexander City — so a superintendent in Chelsea, a GC in Madison, and a custom builder on Lake Martin all get the same response.</p>
           <div className="wedge-grid">
             <div className="wedge-card">

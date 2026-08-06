@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og/og-birmingham.png"],
     title: "Pest Control Birmingham AL | EnviroCare — Family-Owned Since 1958",
     description:
-      "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, three Alabama offices, no contract when you pay per visit.",
+      "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, four Alabama offices, no contract when you pay per visit.",
     url: "https://www.envirocarellc.com/birmingham",
     type: "website",
   },
