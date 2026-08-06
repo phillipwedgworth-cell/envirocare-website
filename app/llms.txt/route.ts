@@ -71,10 +71,12 @@ const LLMS_TXT = `# EnviroCare Pest & Termite Services
   active termite customers. Builder pre-treats and commercial IPM/HACCP programs available.
 - Not offered: bed bug treatment, wildlife removal, lawn care.
 
-## Offices (3)
-- Birmingham office: 2025 Butler Rd, Alabaster, AL 35007 — (205) 940-6360
-  Serves Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Pelham, Alabaster,
-  Helena, Chelsea, Calera, Trussville, and the greater Birmingham metro.
+## Offices (4)
+- Birmingham office: 2120 16th Ave S, Ste 302, Birmingham, AL 35205 — (205) 991-2882
+  Serves Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville,
+  Chelsea, Greystone, Mt Laurel, and the Highway 280 / 35242 corridor.
+- Alabaster office: 2025 Butler Rd, Alabaster, AL 35007 — (205) 940-6360
+  Serves Alabaster, Pelham, Helena, Calera, and south Shelby County.
 - Alexander City / Lake Martin office: 1785 Tallapoosa St, Alexander City, AL 35010 —
   (256) 234-6162. Serves Alexander City, the Lake Martin area (Willow Point, StillWaters,
   The Ridge, The Heritage), Dadeville, Eclectic. Auburn/Opelika direct line: (334) 332-3321.

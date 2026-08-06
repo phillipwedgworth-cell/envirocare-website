@@ -102,7 +102,8 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   slogan: 'No One Cares Like EnviroCare',
   award: 'Sentricon® Certified Specialist',
   contactPoint: [
-    { '@type': 'ContactPoint', telephone: '+1-205-940-6360', contactType: 'customer service', areaServed: ['Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Alabaster', 'Pelham', 'Helena'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
+    { '@type': 'ContactPoint', telephone: '+1-205-991-2882', contactType: 'customer service', areaServed: ['Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Trussville', 'Chelsea', 'Greystone', 'Mt Laurel'], availableLanguage: 'English' },
+    { '@type': 'ContactPoint', telephone: '+1-205-940-6360', contactType: 'customer service', areaServed: ['Alabaster', 'Pelham', 'Helena', 'Calera', 'Helena'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
     { '@type': 'ContactPoint', telephone: '+1-256-234-6162', contactType: 'customer service', areaServed: ['Alexander City', 'Lake Martin', 'Dadeville', 'Eclectic', 'Auburn', 'Opelika'], availableLanguage: 'English' },
     { '@type': 'ContactPoint', telephone: '+1-256-937-7676', contactType: 'customer service', areaServed: ['Huntsville', 'Madison', 'Athens', 'Decatur', 'Hartselle', 'Harvest', 'Hampton Cove'], availableLanguage: 'English' },
   ],
