@@ -94,6 +94,11 @@ const SERVICE_CITY_SLUGS: Record<
 export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   ...HUNTSVILLE_SLUGS.map((s): [string, OfficeId] => [s, 'huntsville']),
   ...LAKE_MARTIN_SLUGS.map((s): [string, OfficeId] => [s, 'lake-martin']),
+  // /birmingham is the city office (opened 2026-08-05). Without this entry the
+  // slug falls through to the 'birmingham' default below — which is the
+  // ALABASTER office — and the sitewide header dialled 940-6360 on a page whose
+  // body advertises 991-2882. Every other metro slug still defaults to Alabaster.
+  ['birmingham', 'birmingham-downtown'] as [string, OfficeId],
 ]);
 
 /**
