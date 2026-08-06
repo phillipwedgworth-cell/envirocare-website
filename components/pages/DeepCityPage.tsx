@@ -51,7 +51,21 @@ export type DeepCityConfig = {
   services: { title: string; body: ReactNode }[];   // 5 city-named subsections
   faqs: { q: string; a: string }[];                 // plain text → also FAQPage schema
   siblings: [string, string][];                     // [name, href] internal links
+  /**
+   * Which office answers this city. OMIT for Alabaster-served cities — the
+   * default below keeps every existing page on (205) 940-6360 unchanged.
+   *
+   * Added 2026-08-06: this component is shared by cities served from different
+   * offices, so the phone could not stay hardcoded once Birmingham opened.
+   * Source of truth for the values is data/offices.ts.
+   */
+  officePhone?: string;                             // display, e.g. "(205) 991-2882"
+  officeTel?: string;                               // digits, e.g. "2059912882"
 };
+
+/** Alabaster office — the historical default for every DeepCityPage. */
+const DEFAULT_PHONE = "(205) 940-6360";
+const DEFAULT_TEL = "2059406360";
 
 function buildJsonLd(c: DeepCityConfig) {
   return {
@@ -63,7 +77,7 @@ function buildJsonLd(c: DeepCityConfig) {
         name: `EnviroCare Pest & Termite Services — ${c.name}`,
         image: "https://www.envirocarellc.com/logo.png",
         url: `https://www.envirocarellc.com/${c.slug}`,
-        telephone: "+12059406360",
+        telephone: `+1${c.officeTel ?? DEFAULT_TEL}`,
         email: "service@envirocarellc.com",
         priceRange: "$$",
         address: {
@@ -135,7 +149,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>★★★★★</strong> Google rated</span>
             </div>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 940-6360 →</a>
+              <a href={`tel:${c.officeTel ?? DEFAULT_TEL}`} style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call {c.officePhone ?? DEFAULT_PHONE} →</a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>See Pricing</Link>
             </div>
           </div>
@@ -237,7 +251,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
               Free inspection, no long-term contract, and a real Wedgworth on the other end of the phone. M–F 8am–5pm.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 940-6360</a>
+              <a href={`tel:${c.officeTel ?? DEFAULT_TEL}`} style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call {c.officePhone ?? DEFAULT_PHONE}</a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>Get a Free Quote →</Link>
             </div>
           </div>

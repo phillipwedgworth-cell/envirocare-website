@@ -5,7 +5,7 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 export const metadata: Metadata = {
   title: "Pest Control Trussville AL | Termite, Mosquito & Tick — Since 1958",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Trussville AL — Cahaba Project, Carrington, Stockton. From $35/mo. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service in Trussville AL — Cahaba Project, Carrington, Stockton. From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/trussville" },
   openGraph: {
     images: ["/og/og-trussville.png"],
@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Year-round pest and termite defense for Trussville homes — the historic Cahaba Project, Trussville Springs, Carrington, and Stockton. No-drill Sentricon®, seasonal mosquito and tick service, family-owned and dispatched from our Birmingham office.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "The Cahaba River and Trussville's mature tree canopy bring termites, ants, and mosquito pressure to yards year-round.",
   whySub: "The patterns we treat most across Trussville's historic and new neighborhoods.",
   pressureCards: [
@@ -44,14 +44,14 @@ const config: DeepCityConfig = {
     { title: "Mosquito Control in Trussville", body: (<>The Cahaba River and its backwaters keep mosquito pressure up spring into fall.{" "}<Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
     { title: "Tick Control in Trussville", body: (<>Wooded lots in Carrington and Stockton and along the river put ticks close to families and pets. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with habitat.</>) },
     { title: "Ant Control in Trussville", body: (<>Carpenter and odorous house ants come off the tree canopy. The bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> in newer subdivisions are priced separately by treated area.</>) },
-    { title: "Commercial Pest Control in Trussville", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Trussville — downtown shops, offices, and restaurants — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
+    { title: "Commercial Pest Control in Trussville", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Trussville — downtown shops, offices, and restaurants — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;991-2882 for a walkthrough.</>) },
   ],
   faqs: [
     { q: "How much is termite treatment in Trussville?", a: "EnviroCare termite protection in Trussville is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Do you treat the historic Cahaba Project homes?", a: "Yes — historic homes get Sentricon® termite protection with no drilling into original masonry, plus the bi-monthly perimeter program. The full-home termite inspection is free." },
     { q: "Is there mosquito control in Trussville?", a: "Yes. EnviroCare treats Trussville yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Trussville?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Do you serve the Cahaba Project, Trussville Springs, and Carrington?", a: "Yes — all of Trussville. Call (205) 940-6360 and we'll confirm your address is on our route." },
+    { q: "Do you serve the Cahaba Project, Trussville Springs, and Carrington?", a: "Yes — all of Trussville. Call (205) 991-2882 and we'll confirm your address is on our route." },
   ],
   siblings: [
     ["Birmingham", "/birmingham"],
@@ -61,6 +61,9 @@ const config: DeepCityConfig = {
     ["Termite Control", "/services/termite-control"],
     ["Mosquito Control", "/services/mosquito"],
   ],
+  // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
+  officePhone: "(205) 991-2882",
+  officeTel: "2059912882",
 };
 
 export default function TrussvillePage() {

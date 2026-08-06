@@ -94,11 +94,20 @@ const SERVICE_CITY_SLUGS: Record<
 export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   ...HUNTSVILLE_SLUGS.map((s): [string, OfficeId] => [s, 'huntsville']),
   ...LAKE_MARTIN_SLUGS.map((s): [string, OfficeId] => [s, 'lake-martin']),
-  // /birmingham is the city office (opened 2026-08-05). Without this entry the
-  // slug falls through to the 'birmingham' default below — which is the
-  // ALABASTER office — and the sitewide header dialled 940-6360 on a page whose
-  // body advertises 991-2882. Every other metro slug still defaults to Alabaster.
-  ['birmingham', 'birmingham-downtown'] as [string, OfficeId],
+  // Birmingham office (opened 2026-08-05). Without an explicit entry a slug
+  // falls through to the 'birmingham' default below — which is the ALABASTER
+  // office — so the sitewide header dialled 940-6360 on pages whose body
+  // advertises 991-2882.
+  //
+  // Split per Phillip 2026-08-06: Jefferson County + the Hwy 280 / 35242
+  // corridor answer from Birmingham; the rest of Shelby stays Alabaster.
+  //   Birmingham → birmingham, hoover (35242), vestavia-hills, mountain-brook,
+  //                homewood, trussville, chelsea, greystone (35242),
+  //                mt-laurel (35242)
+  //   Alabaster  → alabaster, pelham, helena, calera  (the default)
+  ...(['birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
+       'trussville', 'chelsea', 'greystone', 'mt-laurel'] as const)
+      .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
 ]);
 
 /**

@@ -5,7 +5,7 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 export const metadata: Metadata = {
   title: "Pest Control Mt Laurel AL | Termite, Mosquito & Tick — Since 1958",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Mt Laurel AL — Mt Laurel Village, Dunnavant Valley. From $35/mo. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service in Mt Laurel AL — Mt Laurel Village, Dunnavant Valley. From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/mt-laurel" },
   openGraph: {
     images: ["/og/og-mt-laurel.png"],
@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Considerate pest and termite care for Mt Laurel's wooded, nature-minded village and the Dunnavant Valley. No-drill Sentricon®, a 30-day mosquito and tick barrier built for woodland lots, and the bi-monthly perimeter program.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Mt Laurel, Alabama, including Mt Laurel Village and Dunnavant Valley. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Mt Laurel, Alabama, including Mt Laurel Village and Dunnavant Valley. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "Mt Laurel's preserved woodland and foothill setting puts mosquitoes, ticks, and termites right against the property line.",
   whySub: "The patterns we treat most across Mt Laurel Village and Dunnavant Valley.",
   pressureCards: [
@@ -43,13 +43,13 @@ const config: DeepCityConfig = {
     { title: "Tick Control in Mt Laurel", body: (<>Homes carved into deep forest sit right against tick habitat. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with surrounding habitat.</>) },
     { title: "Mosquito Control in Mt Laurel", body: (<>Shaded valley lots and creek drainage hold mosquito pressure spring into fall.{" "}<Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
     { title: "Ant Control in Mt Laurel", body: (<>Carpenter and odorous house ants come in from the surrounding woods. The bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> are priced separately by treated area.</>) },
-    { title: "Commercial Pest Control in Mt Laurel", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> in the Mt Laurel Village center — shops, offices, and common areas — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
+    { title: "Commercial Pest Control in Mt Laurel", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> in the Mt Laurel Village center — shops, offices, and common areas — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;991-2882 for a walkthrough.</>) },
   ],
   faqs: [
     { q: "How much is termite treatment in Mt Laurel?", a: "EnviroCare termite protection in Mt Laurel is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Do you treat ticks and mosquitoes in Mt Laurel?", a: "Yes — the Mosquito + Tick mosquito + tick program runs every 30 days, March through November, for $65 per treatment (about $48.75/month), built for Mt Laurel's wooded, woodland-edge lots." },
     { q: "What does bi-monthly pest control cover in Mt Laurel?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Do you serve Mt Laurel Village and Dunnavant Valley?", a: "Yes — all of Mt Laurel. Call (205) 940-6360 and we'll confirm your address is on our route." },
+    { q: "Do you serve Mt Laurel Village and Dunnavant Valley?", a: "Yes — all of Mt Laurel. Call (205) 991-2882 and we'll confirm your address is on our route." },
     { q: "Is there a long-term contract?", a: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." },
   ],
   siblings: [
@@ -60,6 +60,9 @@ const config: DeepCityConfig = {
     ["Termite Control", "/services/termite-control"],
     ["Tick Control", "/services/tick-control"],
   ],
+  // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
+  officePhone: "(205) 991-2882",
+  officeTel: "2059912882",
 };
 
 export default function MtLaurelPage() {
