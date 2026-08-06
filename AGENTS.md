@@ -67,13 +67,27 @@ instead of live data. On Jul 25 alone, five confident conclusions were wrong:
   generation (Wedgworth family). Formerly "Lex Wedgworth Pest Control Inc."
 - Canonical brand name: **EnviroCare, LLC**. Not "Envirocare", not "Enviro Care".
 
-### Three locations (all GBP-verified as of Jul 25 2026)
+### Four locations (the first three GBP-verified as of Jul 25 2026)
 
 | Office | Address | Phone | Store code |
 |---|---|---|---|
 | Alabaster (Birmingham metro) | 2025 Butler Rd, Alabaster, AL 35007 | (205) 940-6360 | 62134 |
 | Alexander City | 1785 Tallapoosa St, Alexander City, AL 35010 | (256) 234-6162 | 62135 |
 | Huntsville | 7027 Old Madison Pike NW Ste 108, Huntsville, AL 35806 | (256) 937-7676 | 63766 |
+| **Birmingham** (added 2026-08-05) | **2120 16th Ave S, Ste 302, Birmingham, AL 35205** | **(205) 991-2882** | — no GBP yet |
+
+⚠️ **The Birmingham office has NO Google Business Profile yet** — Phillip is
+creating one. Until it exists, do not describe it as GBP-verified and do not
+expect it in Local Falcon / BrightLocal location data.
+
+⚠️ **Naming trap in `data/offices.ts`:** the OfficeId `'birmingham'` is the
+**Alabaster** office (named for the metro it serves). The city office is
+`'birmingham-downtown'`. ZIP routing in `data/zip-to-office.ts` keys off the
+former — do not rename it.
+
+⚠️ **Open decision:** Birmingham-metro city pages all display the Alabaster line
+(205) 940-6360 (~191 occurrences). Whether they should switch to (205) 991-2882
+is Phillip's call and has NOT been actioned.
 
 ⚠️ **(205) 649-5278 is DEAD.** It still appears on the Thryv directory network
 (YellowPages / YP / DexKnows / Superpages). Never reintroduce it.

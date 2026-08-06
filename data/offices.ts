@@ -12,7 +12,11 @@
  * OfficeId matches data/zip-to-office.ts.
  */
 
-export type OfficeId = 'birmingham' | 'lake-martin' | 'huntsville';
+// NAMING TRAP: the id 'birmingham' below is the ALABASTER office (2025 Butler Rd)
+// — it is named for the metro it serves, not the city it sits in. The actual
+// Birmingham city office added 2026-08-05 is 'birmingham-downtown'. Do not
+// rename 'birmingham'; data/zip-to-office.ts keys metro ZIP routing off it.
+export type OfficeId = 'birmingham' | 'birmingham-downtown' | 'lake-martin' | 'huntsville';
 
 export interface Office {
   id: OfficeId;
@@ -37,6 +41,23 @@ export const OFFICES: Record<OfficeId, Office> = {
     phoneHref: 'tel:+12059406360',
     servesMarkets: ['birmingham-metro'],
     googleBusinessProfile: 'https://www.google.com/maps?cid=7378341068021381374',
+  },
+  // Birmingham city office — CONFIRMED by Phillip 2026-08-05, incl. Suite 302.
+  // NOT yet a Google Business Profile listing (he plans to create one), so there
+  // is deliberately no googleBusinessProfile link and it is not GBP-verified.
+  //
+  // ⚠️ OPEN — Phillip's call, do not assume: which number Birmingham-metro pages
+  // should display. Every metro city page currently shows the Alabaster line
+  // (205) 940-6360 (~191 occurrences). This office's line is NEW and appears
+  // nowhere else on the site; swapping the metro pages over is a deliberate
+  // business decision, not a cleanup, so nothing else was repointed.
+  'birmingham-downtown': {
+    id: 'birmingham-downtown',
+    name: 'Birmingham',
+    address: { street: '2120 16th Ave S, Ste 302', city: 'Birmingham', region: 'AL', postalCode: '35205' },
+    phone: '(205) 991-2882',
+    phoneHref: 'tel:+12059912882',
+    servesMarkets: ['birmingham-metro'],
   },
   'lake-martin': {
     id: 'lake-martin',
