@@ -22,13 +22,14 @@ import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
  * Pelham, Alabaster, Helena, Chelsea) — internal linking that benefits both
  * directions.
  *
- * Office: Birmingham/Alabaster, (205) 940-6360
+ * Office: Birmingham city office, 2120 16th Ave S Ste 302, (205) 991-2882
+ * (Was Birmingham/Alabaster 940-6360 until the city office opened 2026-08-05.)
  */
 
 export const metadata: Metadata = {
   title: "Pest Control Birmingham AL | Exterminator, Termite & Mosquito | EnviroCare — Since 1958",
   description:
-    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® $1M termite coverage. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 940-6360.",
+    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® $1M termite coverage. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
@@ -63,7 +64,7 @@ const jsonLd = {
       "@id": "https://www.envirocarellc.com/#birmingham",
       name: "EnviroCare Pest & Termite Services — Birmingham",
       url: "https://www.envirocarellc.com/birmingham",
-      telephone: "+12059406360",
+      telephone: "+12059912882",
       address: {
         "@type": "PostalAddress",
         streetAddress: "2025 Butler Road",
@@ -94,7 +95,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services", address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" } },
+      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
@@ -199,8 +200,8 @@ export default function BirminghamPage() {
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>★★★★★</strong> Google rated</span>
             </div>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
-                Call (205) 940-6360 →
+              <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
+                Call (205) 991-2882 →
               </a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>
                 See Pricing
@@ -308,7 +309,7 @@ export default function BirminghamPage() {
               Free inspection, straight pricing, and a real Wedgworth on the other end of the phone.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 940-6360</a>
+              <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 991-2882</a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>Get a Free Quote →</Link>
             </div>
           </div>
