@@ -385,7 +385,7 @@ export const priorityCities: Record<string, CityData> = {
       { q: "How much does pest control cost in Birmingham?", a: "Bi-monthly pest service starts at $35/month on auto-pay (or $70 every other month) for 30+ common Alabama pests, with unlimited re-service on covered pests. The one-time initial service fee is $79." },
       { q: "Do you offer termite control across Birmingham?", a: "Yes — Sentricon® Always Active, a no-drill in-ground monitoring system backed by EnviroCare's own guarantee of up to $1,000,000 in covered structural repair. Monitoring and install are quoted after a free termite inspection." },
       { q: "When should I start mosquito control in Birmingham?", a: "Early spring, before the first hatch. Our season runs March through November at $45 per treatment, which most homeowners spread across the year. Treatments reduce mosquito activity around your yard — we never promise to eliminate them." },
-      { q: "How long has EnviroCare served Birmingham?", a: "EnviroCare is a family-owned Alabama company founded in 1958, now in its fourth generation. The family expanded into the Birmingham metro in 2002 and has served homes across the area ever since." },
+      { q: "How long has EnviroCare served Birmingham?", a: "EnviroCare is a family-owned Alabama company doing pest control in Alabama since 1958, now in its fourth generation. The family expanded into the Birmingham metro in 2002 and has served homes across the area ever since." },
     ],
     reviews: [],
     ctaBlockHeadline: "Get your free Birmingham pest inspection",

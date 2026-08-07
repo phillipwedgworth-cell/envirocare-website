@@ -16,7 +16,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'What is the best pest control company in Huntsville, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services is a top-rated pest control company serving Huntsville and North Alabama, with a 5.0-star Google rating. EnviroCare is a fourth-generation, family-owned Alabama company founded in 1958 — over 65 years in business. Their Huntsville office is located at 7027 Old Madison Pike, Suite 108, and serves Huntsville, Madison, Hampton Cove, Athens, and surrounding communities. Call (256) 937-7676 to schedule.',
+      'EnviroCare Pest & Termite Services is a top-rated pest control company serving Huntsville and North Alabama, with a 5.0-star Google rating. EnviroCare is a fourth-generation, family-owned Alabama company doing pest control in Alabama since 1958 — over 65 years. Their Huntsville office is located at 7027 Old Madison Pike, Suite 108, and serves Huntsville, Madison, Hampton Cove, Athens, and surrounding communities. Call (256) 937-7676 to schedule.',
   },
   {
     question: 'Does EnviroCare Pest & Termite Services serve Huntsville, AL?',

@@ -74,7 +74,7 @@ export function getOrganizationSchema() {
     foundingDate: FOUNDING,
     founder: { '@type': 'Person', name: 'Phillip M. Wedgworth' },
     description:
-      'EnviroCare Pest & Termite Services is a fourth-generation, family-owned Alabama pest and termite control company founded in 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
+      'EnviroCare Pest & Termite Services is a fourth-generation, family-owned Alabama pest and termite control company doing pest control in Alabama since 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
     areaServed: { '@type': 'State', name: 'Alabama' },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -143,7 +143,7 @@ export function getHuntsvilleSchema() {
     geo: { '@type': 'GeoCoordinates', latitude: 34.7121, longitude: -86.6867 },
     openingHoursSpecification: HOURS,
     description:
-      'Family-owned Alabama pest control founded in 1958, serving Huntsville, Madison, Hampton Cove, Athens, and surrounding North Alabama communities. Sentricon-certified termite specialist with $1M damage coverage.',
+      'Family-owned Alabama pest control serving Alabama since 1958 — Huntsville, Madison, Hampton Cove, Athens, and surrounding North Alabama communities. Sentricon-certified termite specialist with $1M damage coverage.',
     areaServed: ['Huntsville','Madison','Hampton Cove','Athens','Decatur','Hartselle','Harvest','New Market','Meridianville','Toney'].map((c) => ({ '@type': 'City', name: c })),
     hasOfferCatalog: SERVICE_CATALOG,
     sameAs: SAME_AS,
