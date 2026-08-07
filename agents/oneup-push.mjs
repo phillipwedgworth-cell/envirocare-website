@@ -24,6 +24,19 @@
 //   Validation fires in that order, so a missing field tells you which is next.
 //   GET returns 405; POST only.
 //
+//   POST MANAGEMENT — these DO exist, under non-obvious names (2026-08-07).
+//   An earlier probe concluded OneUp had no way to list or edit scheduled posts
+//   because it guessed listposts/listpost/getposts/listscheduled — all 404.
+//   The real names are:
+//     GET  /api/getscheduledposts     -> { data: [ { post_id, content,
+//                                          date_time, social_network_username,
+//                                          category_name, ... } ] }
+//     POST /api/editpost              -> post_id + content   ("Post updated successfully")
+//     POST /api/deletescheduledpost   -> post_id
+//   Note the listing field is social_network_username and the id is post_id
+//   (NOT id — that key is absent). Do not conclude an endpoint is missing from
+//   a handful of guessed names; walk the error messages.
+//
 // SAFETY: dry run unless --live is passed. Every post is compliance-scanned
 // first — an approved row in this queue was found on 2026-08-06 carrying a bare
 // "no contract", which is banned language (the $35/mo plan IS a 12-month ACH
@@ -31,6 +44,7 @@
 //
 // Run:  node agents/oneup-push.mjs            # dry run, prints what it would send
 //       node agents/oneup-push.mjs --live     # actually schedules in OneUp
+//       node agents/oneup-push.mjs --audit    # NAP-check everything already scheduled
 
 import { supabase, logAgentRun } from "./lib/supabase.mjs";
 
@@ -122,7 +136,37 @@ function scheduleFor(iso, pastDueIndex) {
   return { when: d, restaged: true };
 }
 
+/**
+ * NAP audit of everything already scheduled in OneUp — including posts this
+ * agent did not create. A post publishes to ONE listing; if its copy advertises
+ * a different office's number, that listing carries a conflicting phone.
+ */
+async function auditScheduled() {
+  const posts = await oneup("getscheduledposts");
+  const expected = [
+    [/butler/i, "(205) 940-6360", "Alabaster"],
+    [/madison pike/i, "(256) 937-7676", "Huntsville"],
+    [/tallapoosa/i, "(256) 234-6162", "Alex City"],
+  ];
+  let bad = 0;
+  for (const p of posts) {
+    const listing = p.social_network_username || "";
+    const rule = expected.find(([re]) => re.test(listing));
+    if (!rule) continue;                       // Facebook / X carry no office phone
+    const [, phone, label] = rule;
+    for (const found of new Set(p.content?.match(/\(\d{3}\) \d{3}-\d{4}/g) || [])) {
+      if (found !== phone) {
+        bad++;
+        console.error(`[${AGENT_NAME}] MISMATCH post ${p.post_id} (${p.date_time}) -> ${label} listing expects ${phone}, copy says ${found}`);
+      }
+    }
+  }
+  console.log(`[${AGENT_NAME}] audited ${posts.length} scheduled posts — ${bad} NAP mismatch(es)`);
+  return { audited: posts.length, mismatches: bad };
+}
+
 export async function run() {
+  if (process.argv.includes("--audit")) return auditScheduled();
   if (!KEY) {
     const msg = "ONEUP_API not set — nothing pushed";
     console.warn(`[${AGENT_NAME}] ${msg}`);
