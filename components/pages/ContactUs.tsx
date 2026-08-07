@@ -248,13 +248,18 @@ export default function ContactUs() {
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>What To Expect</div>
             <h2 style={{ fontSize: 28, fontWeight: 400, color: DARK, marginBottom: 14, lineHeight: 1.2 }}>A real Alabama technician<br />at your door, fast.</h2>
             <div style={{ borderRadius: 14, overflow: "hidden", marginBottom: 18, boxShadow: "0 8px 24px rgba(0,0,0,0.08)", aspectRatio: "4/5" }}>
+              {/* Was /technician-envirocare.webp — an AI-composited stock figure on a
+                  generated interior, sitting directly under the headline "A real
+                  Alabama technician at your door". Per the Aug-7 image standard,
+                  generated people/uniforms/vehicles are never published; a fabricated
+                  person under a claim of realness is a misrepresentation, not a design
+                  choice. Swapped for a genuine field photo of a Sentricon install. */}
               <img
-                src="/technician-envirocare.webp"
-                srcSet="/technician-envirocare-mobile.webp 800w, /technician-envirocare.webp 1200w"
+                src="/sentricon-install.webp"
                 sizes="(max-width: 768px) 100vw, 480px"
-                alt="EnviroCare technician in branded green uniform and cap holding an inspection clipboard"
-                width={1200}
-                height={800}
+                alt="EnviroCare technician installing a Sentricon termite bait station in a customer's lawn"
+                width={604}
+                height={403}
                 loading="lazy"
                 decoding="async"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
