@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { officeForZip } from "@/data/zip-to-office";
 import { Phone, Check, ChevronRight, Home, Bug, Shield } from "lucide-react";
 import PestIcon, { type PestIconName, ICON_COLOR } from "@/components/shared/PestIcon";
 
@@ -72,13 +73,14 @@ export default function PricingCalculator() {
     [service, size, freq, fireants],
   );
 
+  // Reads data/zip-to-office.ts rather than testing prefixes. The old version
+  // routed ANY zip starting "35" to 940-6360 — that is most of Alabama, and it
+  // sent Mountain Brook (35213) to the Alabaster office while labelling it
+  // "Birmingham". It also never reached the Auburn branch, because the "368"
+  // test above it matched 36830 first.
   const officePhone = useMemo(() => {
-    const z = zip.trim();
-    if (z.startsWith("358") || z.startsWith("357")) return { name: "Huntsville Office",   tel: "2569377676", display: "(256) 937-7676" };
-    if (z.startsWith("368") || z.startsWith("369")) return { name: "Lake Martin Office",  tel: "2562346162", display: "(256) 234-6162" };
-    if (z.startsWith("36830") || z.startsWith("36801") || z.startsWith("36832") || z.startsWith("36802")) return { name: "Auburn Routing", tel: "3343323321", display: "(334) 332-3321" };
-    if (z.startsWith("35"))                         return { name: "Birmingham Office",   tel: "2059406360", display: "(205) 940-6360" };
-    return { name: "EnviroCare Main Line", tel: "2059406360", display: "(205) 940-6360" };
+    const o = officeForZip(zip);
+    return { name: o.name, tel: o.phone, display: o.phoneDisplay };
   }, [zip]);
 
   const showSummary = step === 4;

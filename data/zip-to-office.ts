@@ -8,7 +8,11 @@
  * - Huntsville (HSV): Madison, Limestone, Morgan, Marshall, Jackson
  */
 
-export type OfficeId = 'birmingham' | 'lake-martin' | 'huntsville';
+// 'birmingham' here is the ALABASTER office (2025 Butler Rd) — named for the
+// metro it has always served. The Birmingham CITY office opened 2026-08-05.
+// 'auburn' is a routed direct line, not a staffed office, but ZIP lookups must
+// return it so Auburn callers get (334) 332-3321 instead of the Lake Martin line.
+export type OfficeId = 'birmingham' | 'birmingham-downtown' | 'lake-martin' | 'huntsville' | 'auburn';
 
 export interface Office {
   id: OfficeId;
@@ -23,9 +27,31 @@ export interface Office {
 }
 
 export const OFFICES: Record<OfficeId, Office> = {
+  'birmingham-downtown': {
+    id: 'birmingham-downtown',
+    name: 'Birmingham Office',
+    phone: '2059912882',
+    phoneDisplay: '(205) 991-2882',
+    address: '2120 16th Ave S, Ste 302',
+    city: 'Birmingham',
+    state: 'AL',
+    zip: '35205',
+    cityPageSlug: 'birmingham',
+  },
+  'auburn': {
+    id: 'auburn',
+    name: 'Auburn / Opelika',
+    phone: '3343323321',
+    phoneDisplay: '(334) 332-3321',
+    address: '1785 Tallapoosa St',
+    city: 'Alexander City',
+    state: 'AL',
+    zip: '35010',
+    cityPageSlug: 'auburn',
+  },
   'birmingham': {
     id: 'birmingham',
-    name: 'Birmingham Office',
+    name: 'Alabaster Office',
     phone: '2059406360',
     phoneDisplay: '(205) 940-6360',
     address: '2025 Butler Rd',
@@ -74,16 +100,16 @@ export const OFFICES: Record<OfficeId, Office> = {
 export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   // ===== BIRMINGHAM METRO =====
   // Birmingham proper
-  '35201': 'birmingham', '35202': 'birmingham', '35203': 'birmingham', '35204': 'birmingham',
-  '35205': 'birmingham', '35206': 'birmingham', '35207': 'birmingham', '35208': 'birmingham',
-  '35209': 'birmingham', '35210': 'birmingham', '35211': 'birmingham', '35212': 'birmingham',
-  '35213': 'birmingham', '35214': 'birmingham', '35215': 'birmingham', '35216': 'birmingham',
+  '35201': 'birmingham', '35202': 'birmingham', '35203': 'birmingham-downtown', '35204': 'birmingham-downtown',
+  '35205': 'birmingham-downtown', '35206': 'birmingham-downtown', '35207': 'birmingham', '35208': 'birmingham',
+  '35209': 'birmingham-downtown', '35210': 'birmingham-downtown', '35211': 'birmingham', '35212': 'birmingham-downtown',
+  '35213': 'birmingham-downtown', '35214': 'birmingham', '35215': 'birmingham-downtown', '35216': 'birmingham-downtown',
   '35217': 'birmingham', '35218': 'birmingham', '35219': 'birmingham', '35220': 'birmingham',
-  '35221': 'birmingham', '35222': 'birmingham', '35223': 'birmingham', '35224': 'birmingham',
-  '35226': 'birmingham', '35228': 'birmingham', '35229': 'birmingham', '35230': 'birmingham',
+  '35221': 'birmingham', '35222': 'birmingham-downtown', '35223': 'birmingham-downtown', '35224': 'birmingham',
+  '35226': 'birmingham-downtown', '35228': 'birmingham', '35229': 'birmingham', '35230': 'birmingham',
   '35231': 'birmingham', '35232': 'birmingham', '35233': 'birmingham', '35234': 'birmingham',
-  '35235': 'birmingham', '35236': 'birmingham', '35237': 'birmingham', '35238': 'birmingham',
-  '35242': 'birmingham', '35243': 'birmingham', '35244': 'birmingham', '35246': 'birmingham',
+  '35235': 'birmingham-downtown', '35236': 'birmingham', '35237': 'birmingham', '35238': 'birmingham',
+  '35242': 'birmingham-downtown', '35243': 'birmingham-downtown', '35244': 'birmingham-downtown', '35246': 'birmingham',
   '35249': 'birmingham', '35253': 'birmingham', '35254': 'birmingham', '35255': 'birmingham',
   '35259': 'birmingham', '35260': 'birmingham', '35261': 'birmingham', '35266': 'birmingham',
   '35282': 'birmingham', '35283': 'birmingham', '35285': 'birmingham', '35287': 'birmingham',
@@ -96,9 +122,9 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '35007': 'birmingham', '35114': 'birmingham', '35124': 'birmingham', '35080': 'birmingham',
   '35040': 'birmingham',
   // Chelsea
-  '35043': 'birmingham',
+  '35043': 'birmingham-downtown',
   // Trussville, Clay, Pinson
-  '35173': 'birmingham', '35126': 'birmingham',
+  '35173': 'birmingham-downtown', '35126': 'birmingham',
   // Leeds, Moody, Springville (St. Clair)
   '35094': 'birmingham', '35004': 'birmingham', '35146': 'birmingham',
   // Gardendale, Fultondale, Center Point (35215 covered above)
@@ -124,9 +150,9 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   // Wetumpka
   '36092': 'lake-martin', '36093': 'lake-martin',
   // Auburn
-  '36830': 'lake-martin', '36831': 'lake-martin', '36832': 'lake-martin', '36849': 'lake-martin',
+  '36830': 'auburn', '36831': 'lake-martin', '36832': 'auburn', '36849': 'lake-martin',
   // Opelika
-  '36801': 'lake-martin', '36802': 'lake-martin', '36803': 'lake-martin', '36804': 'lake-martin',
+  '36801': 'auburn', '36802': 'lake-martin', '36803': 'lake-martin', '36804': 'auburn',
   // Smiths Station
   '36877': 'lake-martin',
   // Phenix City / Russell County
