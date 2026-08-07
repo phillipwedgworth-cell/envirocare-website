@@ -5,7 +5,7 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 export const metadata: Metadata = {
   title: "Pest Control Inverness AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service for Inverness homes along US-280 in Hoover AL (35242). From $35/mo. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service for Inverness homes along US-280 in Hoover AL (35242). From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/inverness" },
   openGraph: {
     title: "Pest Control Inverness AL | EnviroCare — Since 1958",
@@ -27,7 +27,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Full pest, termite, and mosquito protection for the Inverness community along the US-280 corridor — Inverness Cove, Inverness Point, and the homes around Lake Heather. No-drill Sentricon® that leaves your landscaping untouched, plus a 30-day mosquito and tick barrier built for wooded, water-adjacent lots.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Inverness community of Hoover, Alabama (35242), including Inverness Cove, Inverness Point, and Lake Heather. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Inverness community of Hoover, Alabama (35242), including Inverness Cove, Inverness Point, and Lake Heather. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "Inverness's established homes, lake, and wooded 280-corridor lots keep pest pressure working year-round.",
   whySub: "The patterns we treat most across Inverness Cove, Inverness Point, and Lake Heather.",
   pressureCards: [
@@ -43,14 +43,14 @@ const config: DeepCityConfig = {
     { title: "Mosquito Control in Inverness", body: (<>Lake Heather, the Inverness Country Club ponds, and shaded cul-de-sacs hold mosquito pressure spring into fall. <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — $45 a visit, about $33.75/month across the season. We never promise elimination, but most yards see a clear seasonal drop.</>) },
     { title: "Tick Control in Inverness", body: (<>The greenways and wooded lot lines between Inverness Cove and Inverness Point carry Lone Star and dog ticks. The <Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>Mosquito + Tick program</Link> adds tick and chigger coverage at $65 a visit — the right call for homes backing up to the tree line.</>) },
     { title: "Ant &amp; Perimeter Pest in Inverness", body: (<>Carpenter ants work out of Inverness&apos;s mature hardwood canopy into fascia and trim, while the everyday 30+ pests come with wooded, landscaped lots — all covered under the bi-monthly perimeter plan with unlimited re-service. <Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> on the open lawns are priced separately by yard size.</>) },
-    { title: "Commercial Pest Control in Inverness", body: (<>EnviroCare services the <Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>office parks, medical suites, and retail</Link> along US-280 at Inverness with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
+    { title: "Commercial Pest Control in Inverness", body: (<>EnviroCare services the <Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>office parks, medical suites, and retail</Link> along US-280 at Inverness with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;991-2882 for a walkthrough.</>) },
   ],
   faqs: [
     { q: "How much is termite treatment in Inverness?", a: "EnviroCare termite protection in Inverness is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Can you protect an Inverness home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching, no disruption to your landscaping — with up to $1M coverage under EnviroCare's own guarantee. The inspection is free." },
     { q: "Is there mosquito control in Inverness?", a: "Yes. EnviroCare treats Inverness yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Inverness?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Do you serve Inverness Cove, Inverness Point, and Lake Heather?", a: "Yes — all of Inverness. Call (205) 940-6360 and we'll confirm your address is on our route." },
+    { q: "Do you serve Inverness Cove, Inverness Point, and Lake Heather?", a: "Yes — all of Inverness. Call (205) 991-2882 and we'll confirm your address is on our route." },
   ],
   siblings: [
     ["Over the Mountain", "/over-the-mountain"],

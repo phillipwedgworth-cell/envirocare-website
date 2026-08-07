@@ -4,18 +4,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Exterminator Birmingham AL | EnviroCare — Family-Owned Since 1958",
   description:
-    "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
+    "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: {
     title: "Exterminator Birmingham AL | EnviroCare — Family-Owned Since 1958",
-    description: "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
+    description: "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Exterminator Birmingham AL | EnviroCare — Family-Owned Since 1958",
-    description: "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 940-6360.",
+    description: "Looking for an exterminator in Birmingham? Exterior-first bi-monthly protection stops pests before they get inside. From $35/mo. (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
@@ -66,7 +66,7 @@ const c: ComboContent = {
     },
     {
       q: "How fast can you get to my house?",
-      a: "Our Birmingham-area office is at 2025 Butler Rd in Alabaster with routes across the metro daily. Call (205) 940-6360 — most new services are scheduled within a few days, and active infestations get priority.",
+      a: "Our Birmingham office is at 2120 16th Ave S, Ste 302, with routes across the metro daily. Call (205) 991-2882 — most new services are scheduled within a few days, and active infestations get priority.",
     },
     {
       q: "What pests do Birmingham exterminator calls usually involve?",
@@ -77,7 +77,7 @@ const c: ComboContent = {
       a: "Termites are a separate program — Sentricon® bait stations with up to $1M in damage repair coverage, because Birmingham's old housing stock on damp clay is prime termite ground. The inspection is free.",
     },
   ],
-  office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },
+  office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
   servicePage: { name: "Pest Control Service", href: "/services/pest-control" },
   schemaName: "EnviroCare Exterminator — Birmingham, AL",
