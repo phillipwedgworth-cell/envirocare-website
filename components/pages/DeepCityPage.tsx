@@ -61,11 +61,23 @@ export type DeepCityConfig = {
    */
   officePhone?: string;                             // display, e.g. "(205) 991-2882"
   officeTel?: string;                               // digits, e.g. "2059912882"
+  /**
+   * Office ADDRESS for the LocalBusiness schema. Omit for Alabaster-served
+   * cities. This was hardcoded to Butler Road even after officePhone was made
+   * configurable, so Birmingham-territory pages published the new phone beside
+   * the Alabaster address — a contradiction inside the same JSON-LD block.
+   */
+  officeStreet?: string;
+  officeLocality?: string;
+  officePostal?: string;
 };
 
 /** Alabaster office — the historical default for every DeepCityPage. */
 const DEFAULT_PHONE = "(205) 940-6360";
 const DEFAULT_TEL = "2059406360";
+const DEFAULT_STREET = "2025 Butler Road";
+const DEFAULT_LOCALITY = "Alabaster";
+const DEFAULT_POSTAL = "35007";
 
 function buildJsonLd(c: DeepCityConfig) {
   return {
@@ -82,10 +94,10 @@ function buildJsonLd(c: DeepCityConfig) {
         priceRange: "$$",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "2025 Butler Road",
-          addressLocality: "Alabaster",
+          streetAddress: c.officeStreet ?? DEFAULT_STREET,
+          addressLocality: c.officeLocality ?? DEFAULT_LOCALITY,
           addressRegion: "AL",
-          postalCode: "35007",
+          postalCode: c.officePostal ?? DEFAULT_POSTAL,
           addressCountry: "US",
         },
         areaServed: {

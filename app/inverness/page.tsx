@@ -61,6 +61,12 @@ const config: DeepCityConfig = {
     ["Vestavia Hills", "/vestavia-hills"],
     ["Termite Control", "/services/termite-control"],
   ],
+  // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
+  officePhone: "(205) 991-2882",
+  officeTel: "2059912882",
+  officeStreet: "2120 16th Ave S, Ste 302",
+  officeLocality: "Birmingham",
+  officePostal: "35205",
 };
 
 export default function InvernessPage() {
