@@ -80,17 +80,20 @@ async function buildAccountMap() {
 
   const facebook = accounts.find((a) => a.social_network_type === "Facebook")?.social_account_id ?? null;
 
+  // Each route carries the phone of the LISTING it publishes to, not of the
+  // nominal location. See the mismatch guard in run().
   return {
     // NOTE: there is no Birmingham GBP listing yet — Phillip is creating one.
-    // Until it exists, Birmingham-metro GBP posts go to the Alabaster listing,
-    // which is the metro's verified profile.
-    "birmingham:google": byCity("butler rd"),
-    "alabaster:google": byCity("butler rd"),
-    "huntsville:google": byCity("old madison pike"),
-    "lake_martin:google": byCity("tallapoosa"),
-    "birmingham:facebook": facebook,
-    "huntsville:facebook": facebook,
-    "lake_martin:facebook": facebook,
+    // Until it exists, Birmingham-metro GBP posts go to the ALABASTER listing,
+    // which is the metro's verified profile. That makes Birmingham a FALLBACK
+    // route, so its posts must carry Alabaster's number.
+    "birmingham:google": { id: byCity("butler rd"), phone: "(205) 940-6360", listing: "Alabaster GBP", fallback: true },
+    "alabaster:google": { id: byCity("butler rd"), phone: "(205) 940-6360", listing: "Alabaster GBP" },
+    "huntsville:google": { id: byCity("old madison pike"), phone: "(256) 937-7676", listing: "Huntsville GBP" },
+    "lake_martin:google": { id: byCity("tallapoosa"), phone: "(256) 234-6162", listing: "Alex City GBP" },
+    "birmingham:facebook": { id: facebook, phone: null, listing: "Facebook page" },
+    "huntsville:facebook": { id: facebook, phone: null, listing: "Facebook page" },
+    "lake_martin:facebook": { id: facebook, phone: null, listing: "Facebook page" },
   };
 }
 
@@ -148,7 +151,8 @@ export async function run() {
   for (const r of rows) {
     const content = [r.headline, r.body, r.cta].filter(Boolean).join("\n\n");
     const violations = scan(content);
-    const account = accountMap[`${r.location}:${r.platform}`];
+    const route = accountMap[`${r.location}:${r.platform}`];
+    const account = route?.id ?? null;
 
     if (violations.length) {
       console.error(`[${AGENT_NAME}] BLOCKED ${r.id} — banned language: ${violations.join(", ")}`);
@@ -158,6 +162,22 @@ export async function run() {
     if (!account) {
       console.warn(`[${AGENT_NAME}] no OneUp account for ${r.location}:${r.platform} — skipping ${r.id}`);
       results.push({ id: r.id, skipped: "no matching OneUp account" });
+      continue;
+    }
+
+    // NAP guard. A post publishes to ONE listing; if its CTA advertises a
+    // different office's number, that listing now carries a conflicting phone —
+    // exactly the inconsistency the citation cleanup exists to remove.
+    // This bit on 2026-08-07: two Birmingham posts were pushed carrying
+    // (205) 991-2882 while routing to the Alabaster listing, because Birmingham
+    // has no GBP of its own yet.
+    if (route.phone && content.includes("(") && !content.includes(route.phone)) {
+      const shown = (content.match(/\(\d{3}\)\s?\d{3}-\d{4}/g) || []).join(", ") || "none";
+      console.error(
+        `[${AGENT_NAME}] BLOCKED ${r.id} — publishes to ${route.listing} (${route.phone}) but the copy says ${shown}.` +
+        (route.fallback ? " This is a fallback route: no GBP exists for this location yet." : "")
+      );
+      results.push({ id: r.id, skipped: `NAP mismatch: ${route.listing} vs ${shown}` });
       continue;
     }
 
