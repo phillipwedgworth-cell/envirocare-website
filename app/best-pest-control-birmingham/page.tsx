@@ -180,7 +180,7 @@ export default function BestPestControlBirminghamPage() {
             Alabama licensing, whether the termite warranty covers <em>repairs</em> or only
             re-treatment, whether pricing is published before an in-home visit, what the agreement
             term and cancellation actually say, and whether the same technician works your route.
-            EnviroCare is a fourth-generation Alabama family company founded in 1958, holding
+            EnviroCare is a fourth-generation Alabama family company whose family has been doing pest control in Alabama since 1958, holding
             4.7 stars across 247 Google reviews at the Alabaster office that runs the Birmingham
             metro routes.
           </p>
@@ -195,8 +195,8 @@ export default function BestPestControlBirminghamPage() {
             <a href="/pricing" style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>
               See Our Published Pricing →
             </a>
-            <a href="tel:2059406360" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
-              Call (205) 940-6360
+            <a href="tel:2059912882" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
+              Call (205) 991-2882
             </a>
           </div>
 
