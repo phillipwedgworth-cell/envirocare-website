@@ -128,6 +128,13 @@ export default function Page() {
               Request Online
             </Link>
           </div>
+          <p style={{ fontSize: 15, margin: "22px auto 0", maxWidth: 620, opacity: 0.9 }}>
+            Ordering one this week?{" "}
+            <Link href="/wdo-letter-checklist-alabama" style={{ color: GOLD, fontWeight: 700 }}>
+              Run the free pre-inspection checklist first
+            </Link>{" "}
+            &mdash; it&rsquo;s the handful of preventable things that hold letters up.
+          </p>
         </div>
       </section>
 

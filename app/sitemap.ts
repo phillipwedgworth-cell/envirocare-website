@@ -110,6 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // B2B WDO page for agents/closing attorneys (campaign-plan Track E4) — the
     // homeowner-facing page remains /services/wdo-letters.
     { url: `${BASE_URL}/wdo-inspection-letters-alabama`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/wdo-letter-checklist-alabama`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
     { url: `${BASE_URL}/what-pest-problem`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
     // ADDED 2026-07-25 (live-site audit): these five were linked in the global
     // nav/footer and returned 200, but were absent from the sitemap. The header
