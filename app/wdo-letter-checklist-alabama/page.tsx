@@ -4,13 +4,17 @@
 // links, and links are what Google AI Overviews reads.
 //
 // Compliance rules observed here:
-// - NO form number is asserted. Ala. Admin. Code r. 80-10-9 names the
-//   "Official Alabama Wood Infestation Inspection Report"; the designation
-//   "ADAI-WDO-100" used elsewhere in this repo could not be verified against
-//   any authoritative source (Aug 2026). Do not add it here without a citation.
+// - NO form number is asserted. Rule text read directly 2026-08-08
+//   (admincode.legislature.state.al.us/api/rule/80-10-9-.18): the instrument is
+//   the "Official Alabama Wood Infestation Inspection Report", Part A and Part B,
+//   and the form is Exhibit "A" to the rule, available from the Commissioner for
+//   reproduction. Alabama uses its OWN report — it is not the NPMA-33 industry
+//   form, and no "ADAI-WDO-100" designation exists anywhere in the rule.
 // - NO turnaround-time promise. Same rule as the B2B page.
-// - NO claim about who pays or how long a report stays valid — both are set by
-//   the purchase contract or the lender, not by us, and they vary.
+// - NO claim about who pays — that is set by the purchase contract and varies.
+//   The ninety-day retreatment provision IS stated, because the rule fixes it;
+//   it is distinguished from a lender's acceptance window, which the rule does
+//   not set.
 // - NO contract/agreement claims of any kind (see data/compliance.ts).
 // - NO use of the word "guarantee" — banned outright in agents/lib/compliance.mjs.
 //   Termite coverage is "up to $1,000,000 in damage repair coverage, subject to
@@ -69,7 +73,7 @@ const DELAYS = [
 const FAQS = [
   {
     q: "What is the official Alabama WDO report?",
-    a: "Alabama Administrative Code Rule 80-10-9 refers to the Official Alabama Wood Infestation Inspection Report, completed by a licensed inspector. Wood-destroying organisms are defined in that chapter as termites, beetles, other insects, or fungi that invade, inhabit, devour or destroy wood, wood products and other cellulose material in, on, under or in contact with and around structures — so a report covers more than termites alone.",
+    a: "Alabama Administrative Code Rule 80-10-9-.18 establishes the Official Alabama Wood Infestation Inspection Report as the written instrument used when a report is required as a condition of sale financing or refinancing. It has two parts — Part A and Part B — and the form itself is Exhibit A to that rule, available from the Commissioner of Agriculture and Industries. Alabama uses its own state report rather than an industry form. The inspection may only be performed by a qualified inspector, and the report only completed and issued by someone certified and permitted in the structural pest control category covering wood-destroying organisms.",
   },
   {
     q: "When should the inspection be ordered?",
@@ -81,7 +85,15 @@ const FAQS = [
   },
   {
     q: "Who pays for the inspection, and how long is a report good for?",
-    a: "Both are set by the purchase contract and the lender rather than by the inspection company, and both vary between transactions. Check the contract and confirm with the lender or closing attorney on each file — do not assume the last closing's terms carry over.",
+    a: "Who pays is set by the purchase contract, not by the inspection company, and it varies between transactions — check the contract on each file. On validity, note what Rule 80-10-9-.18 actually provides: where the report certifies apparent freedom from wood-destroying organisms and an infestation is found within ninety days of issuance, the licensee must treat the structure at no charge. That ninety-day provision is not the same thing as a lender's acceptance window, which is set by the lender. Confirm the lender's requirement separately.",
+  },
+  {
+    q: "What happens to areas the inspector cannot reach?",
+    a: "Rule 80-10-9-.18 requires the inspection to examine visible, accessible areas in accordance with accepted procedures, and states plainly that inspection of inaccessible areas is not required — concealed infestation or damage in those areas may not be discovered. That is exactly why the preparation list above matters: anything left blocked simply does not get inspected, and the report says so. The permittee is responsible for the accuracy of the report as to what was visible and accessible on the date of inspection.",
+  },
+  {
+    q: "How long does the inspector keep a copy?",
+    a: "Rule 80-10-9-.18 requires the permittee to keep a copy of Part A and Part B on file for one year following the inspection, available to the Commissioner of Agriculture and Industries or an authorized agent on request. If you need a reissue inside that window, the file exists.",
   },
   {
     q: "Does moving firewood or mulch before the inspection look like concealment?",
