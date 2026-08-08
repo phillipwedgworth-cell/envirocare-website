@@ -9,7 +9,7 @@ Toggle labels: `Per Service` | `Monthly Plan` (already exists on page — keep, 
 ## Card copy — BOTH STATES
 
 ### Essential — Pest
-- Monthly: **$35/mo** · "ACH autopay · cancel anytime"
+- Monthly: **$35/mo** · "ACH autopay · 12-month agreement, equal averaged payments"
 - Per Service: **$70 per visit** · "bi-monthly · or $108 quarterly"
 - Bullets (unchanged plus): ✓ Exterior-first treatment — you don't need to be home · ✓ 30+ pests · ✓ Unlimited free re-services · ✓ EPA-registered products applied per label directions
 - Initial line under CTA: "*$150 initial — ask about our $99 new-customer rate*"

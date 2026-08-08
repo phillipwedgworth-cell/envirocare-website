@@ -51,7 +51,7 @@ We are NOT a franchise. We are NOT a call center. Every customer talks to a loca
 2. **Three generations** — Phillip M. Wedgworth → son → Kevin Wedgworth (current owner)
 3. **Sentricon® Certified Specialist** — $1,000,000 damage repair warranty from Corteva
 4. **Lake Martin exclusivity** — only pest control company with a dedicated Lake Martin office
-5. **No contracts** — month-to-month, cancel anytime
+5. **A contract-free option** — per-visit billing has no agreement (monthly ACH is a 12-month agreement)
 6. **Local humans answer the phone** — no call centers
 7. **Same technician** — customers know who's coming
 8. **Bi-monthly pest control from $35/mo** — competitive pricing
