@@ -67,10 +67,10 @@ const jsonLd = {
       telephone: "+12059912882",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "2025 Butler Road",
-        addressLocality: "Alabaster",
+        streetAddress: "2120 16th Ave S, Ste 302",
+        addressLocality: "Birmingham",
         addressRegion: "AL",
-        postalCode: "35007",
+        postalCode: "35205",
         addressCountry: "US",
       },
       areaServed: [
@@ -139,7 +139,7 @@ const jsonLd = {
           name: "Which Birmingham suburbs do you serve?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our office is at 2025 Butler Road in Alabaster — central to the metro.",
+            text: "All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Ste 302, with the Alabaster office at 2025 Butler Road covering south Shelby County.",
           },
         },
         {
@@ -293,7 +293,7 @@ export default function BirminghamPage() {
             <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare has been the Wedgworth family's Birmingham-area exterminator since 1958, now in our fourth generation. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), and our main office is in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
-            <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our office is at 2025 Butler Road in Alabaster — central to the metro." />
+            <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Ste 302, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through November in Birmingham. We apply the 30-day yard barrier monthly across those 9 months. $45 per treatment for mosquito only, or $65 per treatment for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
             <Faq q="Are EnviroCare's pest treatments safe for my family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
             <Faq q="Is there a long-term contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
@@ -304,7 +304,7 @@ export default function BirminghamPage() {
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: `linear-gradient(135deg,${D} 0%,#062514 100%)`, color: "#fff", textAlign: "center" }}>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>Birmingham Office</div>
-            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2025 Butler Road · Alabaster, AL 35007</h2>
+            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2120 16th Ave S, Ste 302 · Birmingham, AL 35205</h2>
             <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.8rem", fontSize: "1.05rem" }}>
               Free inspection, straight pricing, and a real Wedgworth on the other end of the phone.
             </p>

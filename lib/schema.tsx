@@ -83,9 +83,15 @@ export function getOrganizationSchema() {
       areaServed: 'US-AL',
       availableLanguage: 'English',
     },
-    // Three physical offices referenced as locations (full LocalBusiness lives on each city page)
+    // Four physical offices referenced as locations (full LocalBusiness lives on each
+    // city page). NOTE: the '#birmingham' id historically pointed at the ALABASTER
+    // office because it served the whole metro. The Birmingham city office opened
+    // 2026-08-05; both are listed separately now.
     location: [
       { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#birmingham`, name: `${BRAND_NAME} — Birmingham`,
+        telephone: '+12059912882',
+        address: { '@type': 'PostalAddress', streetAddress: '2120 16th Ave S, Ste 302', addressLocality: 'Birmingham', addressRegion: 'AL', postalCode: '35205', addressCountry: 'US' } },
+      { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#alabaster`, name: `${BRAND_NAME} — Alabaster`,
         telephone: '+12059406360',
         address: { '@type': 'PostalAddress', streetAddress: '2025 Butler Rd', addressLocality: 'Alabaster', addressRegion: 'AL', postalCode: '35007', addressCountry: 'US' } },
       { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#huntsville`, name: `${BRAND_NAME} — Huntsville`,
@@ -109,12 +115,12 @@ export function getBirminghamSchema() {
     image: LOGO_URL,
     logo: LOGO_URL,
     url: `${BRAND_URL}/birmingham`,
-    telephone: '+12059406360',
+    telephone: '+12059912882',
     email: EMAIL,
     foundingDate: FOUNDING,
     priceRange: PRICE_RANGE,
-    address: { '@type': 'PostalAddress', streetAddress: '2025 Butler Rd', addressLocality: 'Alabaster', addressRegion: 'AL', postalCode: '35007', addressCountry: 'US' },
-    geo: { '@type': 'GeoCoordinates', latitude: 33.2348, longitude: -86.8164 },
+    address: { '@type': 'PostalAddress', streetAddress: '2120 16th Ave S, Ste 302', addressLocality: 'Birmingham', addressRegion: 'AL', postalCode: '35205', addressCountry: 'US' },
+    geo: { '@type': 'GeoCoordinates', latitude: 33.5030, longitude: -86.8025 },
     openingHoursSpecification: HOURS,
     description:
       'Family-owned Alabama pest control since 1958. Serving Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Alabaster, Pelham, Chelsea, Helena, and surrounding communities. Sentricon-certified termite specialist with $1M damage coverage.',
