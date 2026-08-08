@@ -290,6 +290,13 @@ export default function BirminghamPage() {
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 2rem" }}>
               Answers for <em style={{ color: F }}>Birmingham homeowners</em>
             </h2>
+            <p style={{ color: "#4b5563", fontSize: "1.02rem", lineHeight: 1.7, margin: "0 0 1.6rem" }}>
+              Still comparing companies? We wrote an honest buyer&rsquo;s guide to{" "}
+              <Link href="/best-pest-control-birmingham" style={{ color: F, fontWeight: 700 }}>
+                choosing a pest control company in Birmingham
+              </Link>{" "}
+              &mdash; including the cases where we tell you to call someone else.
+            </p>
             <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare has been the Wedgworth family's Birmingham-area exterminator since 1958, now in our fourth generation. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), and our main office is in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />

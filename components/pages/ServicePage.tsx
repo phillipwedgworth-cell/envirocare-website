@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
@@ -274,6 +275,22 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="ti"><div className="ti-chk">✓</div>4th-Generation Wedgworth Family</div>
         </div>
       </div>
+
+      {service.relatedLinks && service.relatedLinks.length > 0 && (
+        <section className="svc-intro" aria-label="Related reading">
+          <div className="container">
+            {service.relatedLinks.map((r) => (
+              <p key={r.href} className="svc-intro-p">
+                {r.note}{" "}
+                <Link href={r.href} style={{ color: "var(--green, #0A7935)", fontWeight: 700 }}>
+                  {r.label}
+                </Link>
+                .
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
 
       {service.intro && service.intro.length > 0 && (
         <section className="svc-intro">

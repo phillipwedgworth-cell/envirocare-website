@@ -281,6 +281,13 @@ export default function MountainBrookPage() {
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 2rem" }}>
               Answers for <em style={{ color: F }}>Mountain Brook homeowners</em>
             </h2>
+            <p style={{ color: "#4b5563", fontSize: "1.02rem", lineHeight: 1.7, margin: "0 0 1.6rem" }}>
+              Shopping the village itself? See{" "}
+              <Link href="/mountain-brook-village" style={{ color: F, fontWeight: 700 }}>
+                pest and termite service around Mountain Brook Village
+              </Link>
+              , where the older commercial buildings and tight lots change what we look for.
+            </p>
             <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." />
             <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month spread over the year. Most homeowners see a clear seasonal reduction in mosquito activity." />
             <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." />
