@@ -427,7 +427,7 @@ export default function MosquitoFAQ() {
             {[
               { n: "$45/visit", label: "March–November" },
               { n: "21 days", label: "Treatment cycle" },
-              { n: "Free", label: "Re-service guarantee" },
+              { n: "Free", label: "Re-service between visits" },
               { n: "Since 1958", label: "Family-owned Alabama" },
               { n: "4 offices", label: "Birmingham · Alabaster · Huntsville · Lake Martin" },
             ].map((item) => (

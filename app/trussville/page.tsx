@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Year-round pest and termite defense for Trussville homes — the historic Cahaba Project, Trussville Springs, Carrington, and Stockton. No-drill Sentricon®, seasonal mosquito and tick service, family-owned and dispatched from our Birmingham office.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "The Cahaba River and Trussville's mature tree canopy bring termites, ants, and mosquito pressure to yards year-round.",
   whySub: "The patterns we treat most across Trussville's historic and new neighborhoods.",
   pressureCards: [
@@ -47,7 +47,7 @@ const config: DeepCityConfig = {
     { title: "Commercial Pest Control in Trussville", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Trussville — downtown shops, offices, and restaurants — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;991-2882 for a walkthrough.</>) },
   ],
   faqs: [
-    { q: "How much is termite treatment in Trussville?", a: "EnviroCare termite protection in Trussville is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "How much is termite treatment in Trussville?", a: "EnviroCare termite protection in Trussville is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Do you treat the historic Cahaba Project homes?", a: "Yes — historic homes get Sentricon® termite protection with no drilling into original masonry, plus the bi-monthly perimeter program. The full-home termite inspection is free." },
     { q: "Is there mosquito control in Trussville?", a: "Yes. EnviroCare treats Trussville yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Trussville?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },

@@ -19,7 +19,7 @@ const c: ComboContent = {
   h1Accent: "Where the River Never Lets the Soil Dry Out.",
   intro: [
     "Subterranean termites need one thing above all: moist soil to travel through. The Tennessee River gives Decatur exactly that, all year — riverside humidity, clay that holds every rain, and winters mild enough that colonies barely pause. Morgan County termite pressure isn't a season here; it's a constant with a spring swarm on top.",
-    "EnviroCare protects Decatur homes with the Sentricon® Always Active™ bait system: in-ground stations around the perimeter that intercept foragers and eliminate the colony in the soil, before it reaches sill plates and studs. No drilling through slabs or historic brick, no tank truck — and up to $1,000,000 in damage repair coverage backed by EnviroCare's own guarantee.",
+    "EnviroCare protects Decatur homes with the Sentricon® Always Active™ bait system: in-ground stations around the perimeter that intercept foragers and eliminate the colony in the soil, before it reaches sill plates and studs. No drilling through slabs or historic brick, no tank truck — and up to $1,000,000 in damage repair coverage subject to the terms of the agreement.",
   ],
   anglesHeading: "Decatur's termite math",
   localAngles: [
@@ -46,7 +46,7 @@ const c: ComboContent = {
     sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 damage repair coverage — EnviroCare's own guarantee",
+      "Up to $1,000,000 damage repair coverage — subject to the terms of the agreement",
       "No drilling — historic-home friendly",
       "Annual inspection + station service",
       "Free WDO letter yearly for active customers",
@@ -67,7 +67,7 @@ const c: ComboContent = {
     },
     {
       q: "Who stands behind the $1,000,000 coverage?",
-      a: "EnviroCare does — it's our own damage repair guarantee, not the equipment manufacturer's. It stays with the house when it sells, which Decatur buyers' agents notice.",
+      a: "EnviroCare does — it's our own damage repair coverage, subject to the terms of the agreement, not the equipment manufacturer's. It stays with the house when it sells, which Decatur buyers' agents notice.",
     },
   ],
   office: { name: "North Alabama Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },

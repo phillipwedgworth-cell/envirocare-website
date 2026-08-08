@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Pest, termite, mosquito, tick, and commercial service across Hoover — Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. No-drill Sentricon®, seasonal yard programs, and documented commercial service for the Galleria corridor.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, tick, and commercial pest service in Hoover, Alabama, including Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, tick, and commercial pest service in Hoover, Alabama, including Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "Tree-lined neighborhoods, lake lots, and steady new construction keep Hoover's pest pressure high year-round.",
   whySub: "The patterns we treat most across Hoover's homes and businesses.",
   pressureCards: [
@@ -49,7 +49,7 @@ const config: DeepCityConfig = {
   faqs: [
     { q: "How much is pest control in Hoover?", a: "EnviroCare's bi-monthly plan is $35 per month on ACH (or $70 per visit) and covers 30+ common pests including ants, spiders, roaches, and rodents, with unlimited free re-service between visits." },
     { q: "Who does commercial pest control in Hoover?", a: "EnviroCare provides commercial pest control across Hoover — restaurants, retail, and offices on the Galleria corridor — with documented, inspection-ready service built around your hours. Call (205) 991-2882." },
-    { q: "How much is termite treatment in Hoover?", a: "Termite protection is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "How much is termite treatment in Hoover?", a: "Termite protection is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Do you treat ticks in Hoover?", a: "Yes — the mosquito-plus-tick program adds tick and chigger coverage for $65 per treatment (about $48.75/month across the season), targeting the wooded lots in Bluff Park, Inverness, and Ross Bridge." },
     { q: "Do you serve Riverchase, Trace Crossings, and Lake Cyrus?", a: "Yes — all of Hoover, including Riverchase, Bluff Park, Trace Crossings, Inverness, Lake Cyrus, and Ross Bridge. Call (205) 991-2882 to confirm your address." },
   ],

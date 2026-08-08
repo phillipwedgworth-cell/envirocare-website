@@ -66,7 +66,7 @@ const c: ComboContent = {
     },
     {
       q: "What does the $1M coverage actually mean?",
-      a: "If subterranean termites damage your home while you're on the Sentricon® Always Active™ program and we've maintained it, EnviroCare covers repairs up to $1,000,000. It's our guarantee, not a vague warranty.",
+      a: "If subterranean termites damage your home while you're on the Sentricon® Always Active™ program and we've maintained it, EnviroCare covers repairs up to $1,000,000. It's that coverage, subject to the terms of the agreement, not a vague warranty.",
     },
     {
       q: "Is Sentricon® better than a liquid treatment for older homes?",

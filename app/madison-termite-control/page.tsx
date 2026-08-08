@@ -19,7 +19,7 @@ const c: ComboContent = {
   h1Accent: "Before the Slab Tells You It's Too Late.",
   intro: [
     "Almost everything in Madison is slab-on-grade and almost everything is under thirty years old — a combination that feels safe and isn't. Eastern subterranean termites colonize disturbed soil first, and Madison is one long stretch of recently disturbed soil, from Clift Farm's phases to the infill west of Wall Triana. A slab home gives no crawlspace to inspect and no mud tubes to spot; entry happens invisibly through expansion joints and plumbing penetrations.",
-    "EnviroCare protects Madison homes with the Sentricon® Always Active™ bait system — in-ground stations that eliminate the colony in the soil before it reaches the framing. No drilling, no tank truck in the driveway, and up to $1,000,000 in damage repair coverage backed by EnviroCare's own guarantee.",
+    "EnviroCare protects Madison homes with the Sentricon® Always Active™ bait system — in-ground stations that eliminate the colony in the soil before it reaches the framing. No drilling, no tank truck in the driveway, and up to $1,000,000 in damage repair coverage subject to the terms of the agreement.",
   ],
   anglesHeading: "Why Madison's housing stock is termite-friendly",
   localAngles: [
@@ -46,7 +46,7 @@ const c: ComboContent = {
     sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 damage repair coverage — EnviroCare's own guarantee",
+      "Up to $1,000,000 damage repair coverage — subject to the terms of the agreement",
       "No drilling, no trenching disruption",
       "Annual inspection + station service",
       "Free WDO letter yearly for active customers",

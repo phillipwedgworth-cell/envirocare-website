@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Pest and termite care for Chelsea's rolling hills and fast-growing neighborhoods — Chelsea Park, Foothills, and Westover. No-drill Sentricon® (including new-construction pre-treat), seasonal mosquito and tick service, all from one local team.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Chelsea, Alabama, including Chelsea Park, Foothills, and Westover. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Chelsea, Alabama, including Chelsea Park, Foothills, and Westover. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "Chelsea's rolling foothills, new construction, and wooded edges drive year-round termite, mosquito, and ant pressure.",
   whySub: "The patterns we treat most across Chelsea's growing neighborhoods.",
   pressureCards: [
@@ -47,8 +47,8 @@ const config: DeepCityConfig = {
     { title: "Commercial Pest Control in Chelsea", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Chelsea — shops, offices, and restaurants along the Highway 280 corridor — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;991-2882 for a walkthrough.</>) },
   ],
   faqs: [
-    { q: "Do you do new-construction termite pre-treat in Chelsea?", a: "Yes. EnviroCare installs Sentricon® for new Chelsea homes — locking in protection before damage starts, no drilling, up to $1,000,000 in coverage under EnviroCare's guarantee. We coordinate around the build." },
-    { q: "How much is termite treatment in Chelsea?", a: "Termite protection is priced after a free on-site WDO inspection, using Sentricon baiting with no drilling and coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "Do you do new-construction termite pre-treat in Chelsea?", a: "Yes. EnviroCare installs Sentricon® for new Chelsea homes — locking in protection before damage starts, no drilling, up to $1,000,000 in coverage subject to the terms of the agreement. We coordinate around the build." },
+    { q: "How much is termite treatment in Chelsea?", a: "Termite protection is priced after a free on-site WDO inspection, using Sentricon baiting with no drilling and coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Is there mosquito control in Chelsea?", a: "Yes. EnviroCare treats Chelsea yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Chelsea?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Do you serve Chelsea Park, Foothills, and Westover?", a: "Yes — all of Chelsea. Call (205) 991-2882 and we'll confirm your address is on our route." },

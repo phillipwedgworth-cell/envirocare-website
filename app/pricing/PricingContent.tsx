@@ -359,7 +359,7 @@ export default function PricingContent() {
             <FAQ q="Can I get mosquito or tick without a pest plan?" a="Yes — on its own, mosquito is $45 per visit and mosquito + tick is $65 per visit, nine rounds March through November, charged at each service. The $34/mo mosquito rate is only available bundled with a pest plan, since monthly autopay needs a year-round anchor. Tick is only offered alongside mosquito, never on its own." />
             <FAQ q="Is the bundle a discount?" a="No — bundling is a convenience play, not a discount. One technician, one invoice, one schedule. We keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
             <FAQ q="What does Mosquito + Tick cover?" a="A 30-day yard barrier from March through November targeting mosquito breeding sites and adult populations, plus tick pressure — including the chiggers that come with wooded and lakefront lots. (Flea is a separate interior add-on.)" />
-            <FAQ q="What's the Sentricon $1M coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — our guarantee. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
+            <FAQ q="What's the Sentricon $1M coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
       </section>

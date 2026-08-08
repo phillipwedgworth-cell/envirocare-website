@@ -27,13 +27,13 @@ const config: DeepCityConfig = {
   heroIntro:
     "Complete pest, termite, and mosquito protection for the Ballantrae golf community in Pelham. Sitting against Oak Mountain with fairway ponds and wooded lots, Ballantrae gets real tick and mosquito pressure — EnviroCare's 30-day barrier and no-drill Sentricon® are built for exactly this.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Ballantrae golf community of Pelham, Alabama (35124). Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Ballantrae golf community of Pelham, Alabama (35124). Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
   whyHeadline: "Ballantrae's golf-course water, Oak Mountain tree line, and graded lots keep pest pressure working most of the year.",
   whySub: "The patterns we treat most across the Ballantrae community.",
   pressureCards: [
     { emoji: "🐾", title: "Ticks off Oak Mountain", body: "Lone Star and American dog ticks ride deer and small mammals out of Oak Mountain straight into Ballantrae yards. Tick and chigger coverage bundles with mosquito in the Mosquito + Tick plan." },
     { emoji: "🦟", title: "Mosquitoes off the course ponds", body: "Fairway ponds, irrigated turf, and shaded lots hold the standing water mosquitoes breed in. The 30-day yard barrier treats March through November." },
-    { emoji: "🪵", title: "Termites on wooded Shelby soil", body: "Ballantrae's moist, wooded Shelby County soil is prime Eastern subterranean termite ground. Sentricon® protects with no drilling — up to $1,000,000 in coverage under EnviroCare's guarantee." },
+    { emoji: "🪵", title: "Termites on wooded Shelby soil", body: "Ballantrae's moist, wooded Shelby County soil is prime Eastern subterranean termite ground. Sentricon® protects with no drilling — up to $1,000,000 in coverage subject to the terms of the agreement." },
     { emoji: "🔥", title: "Fire ants on fairway-edge turf", body: "Manicured, sunny lawns along the fairways are prime fire-ant ground. Whole-yard fire ant treatment is available, priced separately by yard size." },
     { emoji: "🐜", title: "Carpenter ants in the canopy", body: "The wooded lots send carpenter and odorous house ants into eaves and trim. Bi-monthly exterior service covers the whole nuisance-ant family." },
     { emoji: "🕷️", title: "Spiders & the everyday 30+", body: "Garages, basements, and outbuildings on wooded lots harbor spiders and seasonal invaders — all covered under the bi-monthly perimeter program with unlimited re-service." }
@@ -46,9 +46,9 @@ const config: DeepCityConfig = {
     { title: "Commercial Pest Control in Ballantrae", body: (<>EnviroCare services the <Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>clubhouse, HOA common areas, and Highway 119 businesses</Link> around Ballantrae with documented, inspection-ready service. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
   ],
   faqs: [
-    { q: "How much is termite treatment in Ballantrae?", a: "EnviroCare termite protection in Ballantrae is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "How much is termite treatment in Ballantrae?", a: "EnviroCare termite protection in Ballantrae is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Do you treat ticks and mosquitoes in Ballantrae?", a: "Yes. The Mosquito + Tick program (chiggers covered) treats every 30 days, March through November, for $65 per visit — built for the Oak Mountain tree line and fairway ponds." },
-    { q: "Can you protect a Ballantrae home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching — with up to $1M coverage under EnviroCare's own guarantee. The inspection is free." },
+    { q: "Can you protect a Ballantrae home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching — with up to $1M coverage subject to the terms of the agreement. The inspection is free." },
     { q: "What does bi-monthly pest control cover in Ballantrae?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Which office serves Ballantrae?", a: "Our Birmingham-area office at 2025 Butler Rd in Alabaster, just up Highway 31. Call (205) 940-6360 to confirm your address is on our route." }
   ],

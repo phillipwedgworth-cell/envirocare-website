@@ -113,7 +113,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">What does the $1M coverage actually cover?</summary>
-              <div className="faq-a">If subterranean termites cause damage to your home while you're on Sentricon® Always Active™ and we've been maintaining it, EnviroCare covers repair costs up to $1,000,000. That's our guarantee — four generations of Wedgworths standing behind your home.</div>
+              <div className="faq-a">If subterranean termites cause damage to your home while you're on Sentricon® Always Active™ and we've been maintaining it, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement — four generations of Wedgworths standing behind your home.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Will Sentricon® mess up my landscaping?</summary>

@@ -122,7 +122,7 @@ function buildJsonLd(c: DeepCityConfig) {
           name: `Pest & Termite Services in ${c.name}`,
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting, no drilling, EnviroCare guarantee up to $1,000,000. Priced after a free WDO inspection." },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "45", description: "Nine seasonal treatments, March–November, ~$33.75/month." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage, ~$48.75/month." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Pest Control", areaServed: `${c.name}, AL` } },

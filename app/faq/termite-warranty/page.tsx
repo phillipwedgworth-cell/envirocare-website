@@ -33,7 +33,7 @@ const SCHEMA = {
       name: "What is the Sentricon $1 million termite warranty?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "If termites cause structural damage to your home while it's under active Sentricon® protection, EnviroCare covers repair costs up to $1,000,000. That's our guarantee — backed by four generations protecting Alabama homes since 1958.",
+        text: "If termites cause structural damage to your home while it's under active Sentricon® protection, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement — backed by four generations protecting Alabama homes since 1958.",
       },
     },
     {
@@ -85,7 +85,7 @@ const ss = { fontFamily: "'Fraunces', var(--font-serif)" } as const;
 const FAQS = [
   {
     q: "What is the Sentricon $1,000,000 termite warranty?",
-    a: "If termites cause structural damage to your home while it's under active Sentricon® Always Active protection, EnviroCare covers repair costs up to $1,000,000. That's our guarantee, and it's among the strongest in residential termite control.",
+    a: "If termites cause structural damage to your home while it's under active Sentricon® Always Active protection, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement, and it's among the strongest in residential termite control.",
   },
   {
     q: "What exactly does the warranty cover?",

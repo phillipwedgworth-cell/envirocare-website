@@ -32,7 +32,7 @@ export const BUILDER_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Does the protection carry a warranty?",
-    a: "Yes. New-construction termite protection is backed by EnviroCare's own guarantee, with damage coverage up to $1,000,000 — backed by EnviroCare directly, standing behind our own work. Specific terms are confirmed at the site inspection.",
+    a: "Yes. New-construction termite protection is subject to the terms of the agreement, with damage coverage up to $1,000,000 — backed by EnviroCare directly, standing behind our own work. Specific terms are confirmed at the site inspection.",
   },
   {
     q: "Can the homeowner keep the Sentricon® protection after closing?",

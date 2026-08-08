@@ -27,7 +27,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Full pest, termite, and mosquito protection for the Chelsea Park community — the lakes, the ridge, and the newer sections. Fresh construction on disturbed Shelby County soil needs termite pre-treat and fire-ant control from day one, and the community lakes bring mosquito pressure all season. EnviroCare does it all, one team.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Chelsea Park community of Chelsea, Alabama (35043), including the Chelsea Park lakes and ridge neighborhoods. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by EnviroCare's guarantee of up to $1,000,000 in property coverage. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Chelsea Park community of Chelsea, Alabama (35043), including the Chelsea Park lakes and ridge neighborhoods. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "Chelsea Park's new construction, community lakes, and rolling wooded lots keep pest pressure high year-round.",
   whySub: "The patterns we treat most across Chelsea Park.",
   pressureCards: [
@@ -47,7 +47,7 @@ const config: DeepCityConfig = {
   ],
   faqs: [
     { q: "My Chelsea Park home is new construction — do I still need termite protection?", a: "Especially then. New slabs sit on disturbed soil that subterranean termites find first, and a slab gives no warning before damage starts. Sentricon® installed at or near build is the right time to lock in protection, with up to $1,000,000 in EnviroCare coverage." },
-    { q: "How much is termite treatment in Chelsea Park?", a: "EnviroCare termite protection in Chelsea Park is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
+    { q: "How much is termite treatment in Chelsea Park?", a: "EnviroCare termite protection in Chelsea Park is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Is there mosquito control in Chelsea Park?", a: "Yes. EnviroCare treats Chelsea Park yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Chelsea Park?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Which office serves Chelsea Park?", a: "Our Birmingham office at 2120 16th Ave S, Ste 302. Call (205) 991-2882 and we'll confirm your address is on our route." }

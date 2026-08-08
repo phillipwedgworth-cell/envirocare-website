@@ -331,7 +331,7 @@ export default function MadisonPage() {
               priceNote: "Sentricon® Always Active™",
               features: [
                 "Priced after a free WDO inspection",
-                "Up to $1,000,000 coverage (EnviroCare guarantee)",
+                "Up to $1,000,000 coverage, subject to the terms of the agreement",
                 "No drilling, no disruption",
                 "Annual inspection included",
                 "WDO letters for real estate",

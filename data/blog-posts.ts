@@ -267,7 +267,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How Sentricon coverage compares</h2>
 
-<p>Our termite protection works differently from a bond riding on an aging liquid barrier. The <a href="/services/termite-control">Sentricon® bait system</a> is ongoing, active protection: stations around the home that stay on the job year-round, serviced and monitored by our technicians, with no soil barrier to degrade out from under the agreement. Coverage stays current as long as the service does, includes up to $1,000,000 in damage protection backed by EnviroCare's own guarantee, and moves with the home when it sells.</p>
+<p>Our termite protection works differently from a bond riding on an aging liquid barrier. The <a href="/services/termite-control">Sentricon® bait system</a> is ongoing, active protection: stations around the home that stay on the job year-round, serviced and monitored by our technicians, with no soil barrier to degrade out from under the agreement. Coverage stays current as long as the service does, includes up to $1,000,000 in damage protection subject to the terms of the agreement, and moves with the home when it sells.</p>
 
 <p>If you're not sure what you're holding, bring it to us. We'll do a free termite inspection and read the bond with you — what's covered, what's excluded, whether it's still in force, and what it would take to protect the house properly if it isn't. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/quote">request your free inspection online</a>. No One Cares Like EnviroCare.</p>
 `,
@@ -1660,7 +1660,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>When an inspection confirms activity, we typically recommend the <a href="/services/termite-control">Sentricon® bait system</a> — stations installed in the soil around the home, with no drilling through your slab and no trenching across your yard. The colony carries the bait back and the system stays in place, monitored and serviced, rather than depending on a liquid barrier that degrades over the years.</p>
 
-<p>Installation and monitoring pricing is confirmed after a free inspection — every structure is different, and we will not quote one we have not looked at. Coverage includes up to $1,000,000 in damage protection, <strong>backed by EnviroCare's own guarantee</strong>, and it transfers when the home sells. All termite pricing and coverage is subject to inspection.</p>
+<p>Installation and monitoring pricing is confirmed after a free inspection — every structure is different, and we will not quote one we have not looked at. Coverage includes up to $1,000,000 in damage protection, <strong>subject to the terms of the agreement</strong>, and it transfers when the home sells. All termite pricing and coverage is subject to inspection.</p>
 
 <h2>Common questions</h2>
 
