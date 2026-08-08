@@ -60,7 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>What happens after year one?</strong> Most termite protection carries an annual renewal that keeps the agreement and the inspections active. A quote without a renewal figure is incomplete.</p>
 
-<p><strong>Is there a repair provision, or damage coverage only for retreatment?</strong> These are very different promises. Our $1 million coverage is EnviroCare's own guarantee, backed by us — read <a href="/blog/termite-bond-alabama-explained">what a termite bond actually covers</a> for how to read the fine print on any company's version.</p>
+<p><strong>Is there a repair provision, or damage coverage only for retreatment?</strong> These are very different promises. Our $1 million damage repair coverage is EnviroCare's own, subject to the terms of the agreement — read <a href="/blog/termite-bond-alabama-explained">what a termite bond actually covers</a> for how to read the fine print on any company's version.</p>
 
 <p><strong>Who inspects it, and how often?</strong> A system nobody opens is not protection.</p>
 

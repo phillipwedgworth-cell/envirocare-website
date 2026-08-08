@@ -43,6 +43,25 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // PROMISE of it is a staffing claim. Require an every-time/guaranteed qualifier nearby.
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
+  // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
+  // bare token match will destroy all three. Match the claim SHAPE, never the word.
+  //
+  //  1. NEGATED HEDGES — "we never guarantee elimination", "we can't guarantee zero
+  //     ticks". These say the OPPOSITE of a guarantee and are what keeps mosquito and
+  //     tick copy from over-promising. Stripping them inverts the meaning and creates
+  //     exactly the exposure this rule exists to prevent. The lookbehind below exempts
+  //     a preceding negation.
+  //  2. STATUTORY QUOTATION — Ala. Admin. Code r. 80-10-9-.18 reads "Such instrument
+  //     shall carry a guarantee that if an infestation ... is found within ninety (90)
+  //     days ... shall be treated by the licensee, free of charge." Our WDO pages
+  //     paraphrase this ("treats the structure at no charge") and should keep doing so,
+  //     but if anyone ever quotes the rule directly, removing the word would make the
+  //     QUOTATION WRONG. Never sweep inside a quotation of the rule.
+  //  3. The re-service commitment is real; only its framing as a "guarantee" is the
+  //     issue. Reword, do not delete the substance.
+  { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare[’']s)\\s+(own\\s+)?([$\\d,. ]*(million|000)?\\s*)?(damage\\s+repair\\s+)?guarantee\\b",
+    reason: 'coverage asserted as a guarantee',
+    approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
   // Dead Scorpion tracking number — must never appear.
   { pattern: '649[\\s-]?5278',        reason: 'dead tracking number', approvedInstead: 'the correct office line from data/offices.ts' },
   // GENERATION — company is FOURTH-generation; Kevin is the THIRD-generation OWNER.
