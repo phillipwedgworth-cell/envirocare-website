@@ -14,7 +14,7 @@ import Link from "next/link";
 
 const TITLE = "WDO Letters for Alabama Closings — Agent & Attorney Direct | EnviroCare";
 const DESC =
-  "Order Alabama WDO inspection letters (ADAI-WDO-100) for your closings — VA, FHA, conventional & refi accepted. Direct scheduling for agents, closing attorneys & lenders. (205) 940-6360.";
+  "Order Alabama WDO inspection letters — the Official Alabama Wood Infestation Inspection Report — for your closings — VA, FHA, conventional & refi accepted. Direct scheduling for agents, closing attorneys & lenders. (205) 940-6360.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -39,7 +39,7 @@ const OFFICES = [
 const FAQS = [
   {
     q: "Which loan types does your WDO letter satisfy?",
-    a: "We complete the Alabama Department of Agriculture and Industries Official WDO Inspection Report (Form ADAI-WDO-100), accepted for VA, FHA, conventional, and refinance transactions statewide. VA appraisers see this form constantly; there's no follow-up form fight.",
+    a: "We complete the Alabama Department of Agriculture and Industries Official Alabama Wood Infestation Inspection Report, accepted for VA, FHA, conventional, and refinance transactions statewide. VA appraisers see this form constantly; there's no follow-up form fight.",
   },
   {
     q: "How do you handle a closing date?",
@@ -81,7 +81,7 @@ const schema = [
       { "@type": "AdministrativeArea", name: "Lee County, Alabama" },
     ],
     description:
-      "Official ADAI-WDO-100 wood-destroying organism inspection letters for Alabama real estate closings — VA, FHA, conventional, and refinance. Direct scheduling for agents, closing attorneys, and lenders.",
+      "Official Alabama Wood Infestation Inspection Reports for wood-destroying organisms, for Alabama real estate closings — VA, FHA, conventional, and refinance. Direct scheduling for agents, closing attorneys, and lenders.",
   },
   {
     "@context": "https://schema.org",
@@ -116,7 +116,7 @@ export default function Page() {
             The WDO Letter Your Closing Is Waiting On
           </h1>
           <p style={{ fontSize: "clamp(16px, 2.4vw, 19px)", lineHeight: 1.6, opacity: 0.92, maxWidth: 620, margin: "0 auto 26px" }}>
-            Official ADAI-WDO-100 inspection letters, scheduled around your closing date and delivered to every
+            Official Alabama Wood Infestation Inspection Reports, scheduled around your closing date and delivered to every
             party on the file. Accepted for VA, FHA, conventional, and refinance loans statewide. One licensed,
             fourth-generation Alabama company since 1958 — and a direct line, not a queue.
           </p>
@@ -150,7 +150,7 @@ export default function Page() {
           {[
             {
               t: "The right form, the first time",
-              b: "Every letter is the Alabama Department of Agriculture and Industries Official WDO Inspection Report — ADAI-WDO-100 — completed by a licensed inspector. VA and FHA files clear without a form fight, because it's the form their appraisers expect.",
+              b: "Every letter is the Alabama Department of Agriculture and Industries Official Alabama Wood Infestation Inspection Report, completed by a licensed inspector. VA and FHA files clear without a form fight, because it's the form their appraisers expect.",
             },
             {
               t: "Scheduled to the closing, not to our route",

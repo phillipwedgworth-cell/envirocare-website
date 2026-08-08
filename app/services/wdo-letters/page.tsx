@@ -81,7 +81,7 @@ const faqLd = {
       name: "Do you accept VA and FHA loan inspections?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We provide the Alabama Department of Agriculture and Industries Official WDO Inspection Report (Form ADAI-WDO-100), which is accepted for VA, FHA, conventional, and refinance loans.",
+        text: "Yes. We provide the Alabama Department of Agriculture and Industries Official Alabama Wood Infestation Inspection Report, which is accepted for VA, FHA, conventional, and refinance loans.",
       },
     },
     {
@@ -186,7 +186,7 @@ export default function WDOLettersPage() {
               alignItems: "center",
             }}
           >
-            {["Alabama Licensed & Insured", "Form ADAI-WDO-100", "VA / FHA / Conventional", "Family-owned since 1958"].map((t) => (
+            {["Alabama Licensed & Insured", "Official Alabama WDO Report", "VA / FHA / Conventional", "Family-owned since 1958"].map((t) => (
               <span key={t} style={{ fontSize: 13.5, fontWeight: 600, color: DEEP, letterSpacing: "0.02em" }}>
                 ✓ {t}
               </span>
@@ -200,7 +200,7 @@ export default function WDOLettersPage() {
             What the WDO inspection covers
           </h2>
           <p style={{ textAlign: "center", color: "#666", fontSize: 16, marginBottom: 48 }}>
-            Alabama uses the ADAI-WDO-100 form — the same form accepted by VA, FHA, and conventional lenders statewide.
+            Alabama uses the Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9) — accepted by VA, FHA, and conventional lenders statewide.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {[
@@ -261,7 +261,7 @@ export default function WDOLettersPage() {
             {[
               {
                 type: "VA Loans",
-                detail: "VA requires a WDO inspection in Alabama. We provide the ADAI-WDO-100 form accepted by VA appraisers statewide.",
+                detail: "VA requires a WDO inspection in Alabama. We provide the Official Alabama Wood Infestation Inspection Report accepted by VA appraisers statewide.",
               },
               {
                 type: "FHA Loans",
@@ -310,7 +310,7 @@ export default function WDOLettersPage() {
               },
               {
                 q: "Do you accept VA and FHA loan inspections?",
-                a: "Yes. We provide the Alabama Department of Agriculture and Industries Official WDO Inspection Report (Form ADAI-WDO-100), which is accepted for VA, FHA, conventional, and refinance loans.",
+                a: "Yes. We provide the Alabama Department of Agriculture and Industries Official Alabama Wood Infestation Inspection Report, which is accepted for VA, FHA, conventional, and refinance loans.",
               },
               {
                 q: "What if the inspection finds active termites?",
