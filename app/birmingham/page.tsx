@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     images: ["/og/og-birmingham.png"],
     title: "Pest Control Birmingham AL | EnviroCare — Family-Owned Since 1958",
     description:
-      "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, four Alabama offices, no contract when you pay per visit.",
+      "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, four Alabama offices, two ways to pay.",
     url: "https://www.envirocarellc.com/birmingham",
     type: "website",
   },
@@ -115,7 +115,7 @@ const jsonLd = {
           name: "How much does pest control cost in Birmingham?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement.",
+            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.",
           },
         },
         {
@@ -236,7 +236,7 @@ export default function BirminghamPage() {
           <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
             <div style={{ display: "inline-block", fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: G, fontWeight: 700, marginBottom: 14 }}>Birmingham Service &amp; Pricing</div>
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 .85rem" }}>
-              Four programs, <em style={{ color: F }}>no long-term contracts</em>
+              Four programs, <em style={{ color: F }}>two ways to pay</em>
             </h2>
             <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked Birmingham pricing. Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
@@ -290,7 +290,7 @@ export default function BirminghamPage() {
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 2rem" }}>
               Answers for <em style={{ color: F }}>Birmingham homeowners</em>
             </h2>
-            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement." />
+            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare has been the Wedgworth family's Birmingham-area exterminator since 1958, now in our fourth generation. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), and our main office is in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our office is at 2025 Butler Road in Alabaster — central to the metro." />

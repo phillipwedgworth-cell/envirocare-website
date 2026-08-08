@@ -105,7 +105,7 @@ const FAQS = [
   },
   {
     q: "How much does mosquito control cost?",
-    a: "$45 per visit, March through November (9 visits, billed per service — no monthly). No setup fee, no long-term contract, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
+    a: "$45 per visit, March through November (9 visits, billed per service — no monthly). No setup fee, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
   },
   {
     q: "Do you serve Lake Martin waterfront homes?",

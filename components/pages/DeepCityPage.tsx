@@ -67,6 +67,8 @@ export type DeepCityConfig = {
    * configurable, so Birmingham-territory pages published the new phone beside
    * the Alabaster address — a contradiction inside the same JSON-LD block.
    */
+  /** Display label for the office block, e.g. "Birmingham" or "Alabaster". */
+  officeLabel?: string;
   officeStreet?: string;
   officeLocality?: string;
   officePostal?: string;
@@ -78,6 +80,11 @@ const DEFAULT_TEL = "2059406360";
 const DEFAULT_STREET = "2025 Butler Road";
 const DEFAULT_LOCALITY = "Alabaster";
 const DEFAULT_POSTAL = "35007";
+// The office block previously hardcoded "Birmingham Office / 2025 Butler Road ·
+// Alabaster" on EVERY page — the same naming trap as data/offices.ts, and after
+// the schema was made configurable it left Birmingham pages showing the correct
+// address in JSON-LD beside the Alabaster one on screen.
+const DEFAULT_LABEL = "Alabaster";
 
 function buildJsonLd(c: DeepCityConfig) {
   return {
@@ -213,7 +220,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
           <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
             <div style={{ display: "inline-block", fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: G, fontWeight: 700, marginBottom: 14 }}>{c.name} Pricing</div>
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 .85rem" }}>
-              Four programs, <em style={{ color: F }}>no long-term contracts</em>
+              Four programs, <em style={{ color: F }}>two ways to pay</em>
             </h2>
             <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
@@ -257,10 +264,10 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
         {/* OFFICE + CTA */}
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: `linear-gradient(135deg,${D} 0%,#062514 100%)`, color: "#fff", textAlign: "center" }}>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>Birmingham Office</div>
-            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2025 Butler Road · Alabaster, AL 35007</h2>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>{c.officeLabel ?? DEFAULT_LABEL} Office</div>
+            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>{`${c.officeStreet ?? DEFAULT_STREET} · ${c.officeLocality ?? DEFAULT_LOCALITY}, AL ${c.officePostal ?? DEFAULT_POSTAL}`}</h2>
             <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.8rem", fontSize: "1.05rem" }}>
-              Free inspection, no long-term contract, and a real Wedgworth on the other end of the phone. M–F 8am–5pm.
+              Free inspection, straight pricing, and a real Wedgworth on the other end of the phone. M–F 8am–5pm.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
               <a href={`tel:${c.officeTel ?? DEFAULT_TEL}`} style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call {c.officePhone ?? DEFAULT_PHONE}</a>

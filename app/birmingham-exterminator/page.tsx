@@ -44,7 +44,7 @@ const c: ComboContent = {
     },
     {
       title: "Free re-service in between",
-      body: "If anything shows up between visits, we come back at no charge — that's standard, not an upsell. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement.",
+      body: "If anything shows up between visits, we come back at no charge — that's standard, not an upsell. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.",
     },
   ],
   price: {

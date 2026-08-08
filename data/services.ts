@@ -48,7 +48,7 @@ export const SERVICES: Service[] = [
     metaDescription: 'Bi-monthly pest control that re-treats before the barrier wears off. Ants, roaches, spiders & more across Birmingham & Alabama. From ~$35/mo. (205) 940-6360.',
     heroEyebrow: 'Year-Round Pest Defense',
     heroTagline: 'Bi-Monthly Pest Control',
-    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, no long-term contract, family-owned since 1958.',
+    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, two ways to pay, family-owned since 1958.',
     features: [
       'Bi-monthly exterior treatment',
       '30+ common pests covered',
@@ -64,7 +64,7 @@ export const SERVICES: Service[] = [
       { title: 'EPA-Registered', desc: 'EPA-registered products applied per label directions.' },
     ],
     wedgePoints: [
-      { lead: 'Pay per visit', body: 'No long-term contract when paying per visit — we earn your business every time. Monthly plans use a 12-month ACH billing agreement.' },
+      { lead: 'Pay per visit', body: 'Pay as you go, every other month — we earn your business every time. Monthly plans use a 12-month ACH billing agreement with equal, averaged payments.' },
       { lead: 'Local technician', body: 'A local technician who gets to know your home — your dog\'s name, your gate code — visit after visit when scheduling allows.' },
       { lead: 'Familiar local team', body: 'A local crew that knows your area, with urgent issues prioritized.' },
     ],

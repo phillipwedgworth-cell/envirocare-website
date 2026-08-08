@@ -3,11 +3,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = {
   title: "Pest Control Meadow Brook AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, no contract when you pay per visit. Call (205) 991-2882.",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
   alternates: { canonical: "/meadow-brook" },
   openGraph: {
     title: "Pest Control Meadow Brook AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, no contract when you pay per visit. Call (205) 991-2882.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
     url: "https://www.envirocarellc.com/meadow-brook",
     type: "website",
   },

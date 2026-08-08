@@ -30,7 +30,7 @@ We are NOT a franchise. We are NOT a call center. Every customer talks to a loca
 - Weakness: national call center, no local knowledge, high churn
 - Weakness: pricing is opaque, contracts required
 - Weakness: technician turnover — customer never sees the same face twice
-- **Beat them on**: local relationships, no contracts, same technician, real phone answered by humans
+- **Beat them on**: local relationships, same technician, real phone answered by humans
 
 ### Orkin (National chain)
 - Strong SEO, high ad spend, ranks for almost every pest keyword in Alabama

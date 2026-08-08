@@ -119,7 +119,7 @@ const jsonLd = {
           name: "How do I cancel pest service?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Pay-per-visit service has no long-term contract. Monthly plans use a 12-month ACH billing agreement, which spreads the year's cost into equal payments. Call (256) 937-7676 or email service@envirocarellc.com and we'll walk you through the options on your account. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
+            text: "Monthly plans use a 12-month ACH billing agreement, which spreads the year's cost into equal payments. Per-visit terms are confirmed in writing before service starts. Call (256) 937-7676 or email service@envirocarellc.com and we'll walk you through the options on your account. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
           },
         },
       ],
@@ -619,7 +619,7 @@ export default function MadisonPage() {
             },
             {
               q: "Is there a contract for pest service?",
-              a: "No long-term contract is required when you pay per visit; monthly pricing uses a 12-month ACH billing agreement. Either way, the re-service guarantee applies — if pests return between visits, we come back at no charge.",
+              a: "Monthly pricing uses a 12-month ACH billing agreement, billed in equal averaged payments. Per-visit terms are confirmed in writing before service starts. Either way, the re-service guarantee applies — if pests return between visits, we come back at no charge.",
             },
           ].map(({ q, a }) => (
             <details key={q} style={{

@@ -37,7 +37,7 @@
   - Reviews often mention "technician changed every time"
   - Slow response time on non-emergency calls
 - **Steal this**: Their "termite guarantee" messaging is clear and prominent
-- **Beat them on**: Price transparency (we show prices, they don't), no contracts, local human answers, $1M Sentricon warranty vs their own warranty
+- **Beat them on**: Price transparency (we show prices, they don't), two ways to pay, local human answers, $1M Sentricon warranty vs their own warranty
 
 ## Orkin
 - **URL**: https://www.orkin.com
@@ -56,7 +56,7 @@
   - Reviews consistently mention "couldn't reach local office"
   - No Lake Martin presence
 - **Steal this**: Their pest library / educational content drives organic traffic; very detailed pest ID pages
-- **Beat them on**: Family story, 68-year Alabama history, no contracts, local ownership, Lake Martin
+- **Beat them on**: Family story, 68-year Alabama history, local ownership, Lake Martin
 
 ## Wayne's Pest Control
 - **URL**: https://www.waynespest.com

@@ -129,7 +129,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
         <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
           <div style={{ display: "inline-block", fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: G, fontWeight: 700, marginBottom: 14 }}>{cfg.name} Pricing</div>
           <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 .85rem" }}>
-            Four programs, <em style={{ color: F }}>no long-term contracts</em>
+            Four programs, <em style={{ color: F }}>two ways to pay</em>
           </h2>
           <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked pricing. Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
         </div>
@@ -190,7 +190,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>{cfg.office.name} Office</div>
           <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>{cfg.office.address}</h2>
           <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.8rem", fontSize: "1.05rem" }}>
-            Free inspection, no long-term contract, and a real Wedgworth on the other end of the phone.
+            Free inspection, straight pricing, and a real Wedgworth on the other end of the phone.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
             <a href={`tel:${phoneDigits}`} style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call {cfg.office.phone}</a>

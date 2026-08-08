@@ -267,7 +267,7 @@ export default function AboutUs() {
                 <h3>Four offices, one family</h3>
                 <p>
                   Bi-monthly pest control, Sentricon® termite protection, and seasonal mosquito and tick service
-                  across Alabama. Still family-owned. Still no long-term contracts. Still the same promise.
+                  across Alabama. Still family-owned. Still a real person answering the phone. Still the same promise.
                 </p>
               </div>
             </div>
@@ -355,8 +355,8 @@ export default function AboutUs() {
             <div className="ab-vgrid">
               <div className="ab-vcard">
                 <div className="ab-vcard-num">01</div>
-                <h3>No long-term contracts</h3>
-                <p>Pay per visit with no long-term contract, or choose monthly pricing on a 12-month ACH billing agreement with equal, averaged payments.</p>
+                <h3>Two ways to pay</h3>
+                <p>Pay per visit, or choose monthly pricing on a 12-month ACH billing agreement with equal, averaged payments. Your service manager confirms the exact terms in writing before anything starts.</p>
               </div>
               <div className="ab-vcard">
                 <div className="ab-vcard-num">02</div>
@@ -423,7 +423,7 @@ export default function AboutUs() {
         <section className="ab-cta">
           <div className="ab-cta-inner">
             <h2>Ready to meet the family?</h2>
-            <p>Free inspection, no long-term contract, and a real Wedgworth on the other end of the phone.</p>
+            <p>Free inspection, straight pricing, and a real Wedgworth on the other end of the phone.</p>
             <div className="ab-cta-row">
               <Link href="/quote" className="ab-btn-gold">Get a Free Quote →</Link>
               <a href="tel:2059406360" className="ab-btn-outline">Call (205) 940-6360</a>

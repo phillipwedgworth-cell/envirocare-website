@@ -148,7 +148,7 @@ SPECIALIST TECHNICIANS (a real strength — lead with it when service quality or
 DIFFERENTIATORS (the family story is the lead):
 - Fourth-generation Wedgworth family business, founded 1958
 - Local Alabama company — not a national franchise
-- No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement
+- Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts
 - Unlimited free re-service between visits
 - Average technician tenure: 10+ years
 

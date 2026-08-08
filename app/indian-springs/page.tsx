@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/indian-springs" },
   openGraph: {
     title: "Pest Control Indian Springs AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Indian Springs Village homes. No drilling, $1M coverage, no contract when you pay per visit. Call (205) 940-6360.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Indian Springs Village homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/indian-springs",
     type: "website",
   },

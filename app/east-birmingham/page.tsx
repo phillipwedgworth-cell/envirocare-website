@@ -57,7 +57,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "How much does pest control cost in east Birmingham?",
-      "a": "Our bi-monthly perimeter program is $35/month on ACH, or $70 per bi-monthly visit — 30+ pests covered, unlimited free re-services between visits. No long-term contract when paying per visit; monthly pricing uses a 12-month ACH billing agreement."
+      "a": "Our bi-monthly perimeter program is $35/month on ACH, or $70 per bi-monthly visit — 30+ pests covered, unlimited free re-services between visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts."
     },
     {
       "q": "My east-metro home is new construction — do I need termite protection?",

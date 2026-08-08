@@ -34,7 +34,7 @@ const SIZES: Array<{ id: Size; label: string; desc: string }> = [
 const FREQUENCIES: Array<{ id: Frequency; label: string; desc: string }> = [
   { id: "bimonthly", label: "Bi-Monthly Plan", desc: "Every 2 months — what most homes do" },
   { id: "monthly",   label: "Monthly Plan",    desc: "Heavy pressure / new construction" },
-  { id: "onetime",   label: "One-Time Visit",  desc: "Single treatment, no commitment" },
+  { id: "onetime",   label: "One-Time Visit",  desc: "Single treatment, one-time charge" },
 ];
 
 // Internal price ranges per service / size / frequency.

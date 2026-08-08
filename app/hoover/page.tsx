@@ -47,7 +47,7 @@ const config: DeepCityConfig = {
     { title: "Ant & Pest Control in Hoover", body: (<>Carpenter, odorous house, and Argentine ants are common across Hoover. The bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> in new-construction yards are priced separately by treated area.</>) },
   ],
   faqs: [
-    { q: "How much is pest control in Hoover?", a: "EnviroCare's bi-monthly plan is $35 per month on ACH (or $70 per visit) and covers 30+ common pests including ants, spiders, roaches, and rodents, with unlimited free re-service between visits. No long-term contract." },
+    { q: "How much is pest control in Hoover?", a: "EnviroCare's bi-monthly plan is $35 per month on ACH (or $70 per visit) and covers 30+ common pests including ants, spiders, roaches, and rodents, with unlimited free re-service between visits." },
     { q: "Who does commercial pest control in Hoover?", a: "EnviroCare provides commercial pest control across Hoover — restaurants, retail, and offices on the Galleria corridor — with documented, inspection-ready service built around your hours. Call (205) 991-2882." },
     { q: "How much is termite treatment in Hoover?", a: "Termite protection is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 backed by EnviroCare's guarantee." },
     { q: "Do you treat ticks in Hoover?", a: "Yes — the mosquito-plus-tick program adds tick and chigger coverage for $65 per treatment (about $48.75/month across the season), targeting the wooded lots in Bluff Park, Inverness, and Ross Bridge." },
@@ -65,6 +65,7 @@ const config: DeepCityConfig = {
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
   officePhone: "(205) 991-2882",
   officeTel: "2059912882",
+  officeLabel: "Birmingham",
   officeStreet: "2120 16th Ave S, Ste 302",
   officeLocality: "Birmingham",
   officePostal: "35205",

@@ -65,6 +65,7 @@ const config: DeepCityConfig = {
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
   officePhone: "(205) 991-2882",
   officeTel: "2059912882",
+  officeLabel: "Birmingham",
   officeStreet: "2120 16th Ave S, Ste 302",
   officeLocality: "Birmingham",
   officePostal: "35205",

@@ -95,7 +95,7 @@ export default function AlexCityFAQ() {
               Protecting Lake Martin homes since 1958.
             </p>
             <p style={{ margin: '6px 0 0', fontSize: 14, opacity: 0.85 }}>
-              Plans from $35/mo · No long-term contract · Your original Alexander City pest control company
+              Plans from $35/mo · Two ways to pay · Your original Alexander City pest control company
             </p>
           </div>
           <a href="tel:+12562346162" style={{

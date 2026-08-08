@@ -76,7 +76,7 @@ export const SOFT_RULES: string[] = [
   '$1M coverage is EnviroCareʼs own guarantee — never imply Corteva/manufacturer backing.',
   'Carpenter bees: existing customers only — never marketed to new customers.',
   'Tuscaloosa: NOT serviced — must not appear in any city list, footer, or nav.',
-  'Contract/pricing: "no long-term contract(s)" is APPROVED brand language (a 12-month ACH agreement is not treated as long-term). Do NOT use a bare "no contract" — the $35/mo plan is a 12-month ACH billing agreement. Initial fee: $150 standard, $79 current promo (do not hardcode the promo price in evergreen copy).',
+  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: $150 standard, $79 current promo (do not hardcode the promo price in evergreen copy).',
 ];
 
 /** Services EnviroCare does NOT offer — must not be marketed. */

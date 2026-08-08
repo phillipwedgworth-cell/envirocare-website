@@ -28,14 +28,14 @@ Mosquito/tick without a pest plan are PER-VISIT only (no monthly). Tick rides wi
 - **WDO (real estate termite letter)**: $75 standalone; one free/yr for active customers
 
 ## Strongest Differentiators (in order of impact)
-1. **Sentricon® Certified Specialist** — $1,000,000 damage repair warranty from Corteva
+1. **Sentricon® Certified Specialist** — up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. This is EnviroCare's OWN coverage, NOT Corteva's warranty — never attribute it to the manufacturer, and never call it a "guarantee" or "warranty".
 2. **68-year track record** — founded 1958, predates most competitors
-3. **Three generations of ownership** — same family, same values
+3. **Four generations of ownership** — same family, same values. NEVER write "third generation".
 4. **Lake Martin exclusivity** — ONLY pest control company with a dedicated Lake Martin office
-5. **A contract-free option** — per-visit billing has no agreement (monthly ACH is a 12-month agreement)
+5. **Two ways to pay** — $35/mo on a 12-month ACH billing agreement in equal averaged payments, or $70 per bi-monthly visit. NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime": agreement practice is not uniform and some per-visit customers sign one. Say terms are confirmed in writing before service starts.
 6. **Local humans answer the phone** — no call center routing
 7. **Same technician every visit** — customers know who is coming
-8. **Fast local scheduling** — local routing and three Alabama offices mean quick turnaround, often within 24–48 hours (never promise same-day)
+8. **Fast local scheduling** — local routing and four Alabama offices mean quick turnaround, often within 24–48 hours (never promise same-day)
 
 ## Customer Profile
 - Alabama homeowners, age 35–65
