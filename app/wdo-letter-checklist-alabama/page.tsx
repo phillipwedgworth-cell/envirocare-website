@@ -62,6 +62,24 @@ const PREP = [
   { t: "Stored firewood and mulch noted", b: "Wood in contact with the structure is a conducive condition and gets recorded. Moving it before the inspection is legitimate; it is a genuine correction, not concealment." },
 ];
 
+// Part A / Part B structure. Sourced from Ala. Admin. Code r. 80-10-9-.18,
+// which requires both parts and attaches the form as Exhibit "A"; the
+// per-part breakdown is corroborated by the printed state forms in circulation
+// (Part A = the report, Part B = the diagram plus the consumer information
+// section). Physical format deliberately not asserted — it varies by printer.
+const PARTS = [
+  {
+    tag: "Part A",
+    title: "The report itself",
+    b: "Carries the inspecting company's identity — name, address and the license or permit number of the certified operator — plus the inspection date, the findings, and any recommendations. This is the part everyone means when they say “the termite letter.” It also carries the buyer's acknowledgment line, and that line refers to Part A AND Part B together.",
+  },
+  {
+    tag: "Part B",
+    title: "The diagram and the consumer information section",
+    b: "A sketch of the structure showing where findings and inaccessible areas actually are, plus the CONSUMER INFORMATION SECTION setting out the scope and limitations of the inspection. It is not an optional attachment or a courtesy page — Rule 80-10-9-.18 names Part B in the same breath as Part A and requires both.",
+  },
+];
+
 const DELAYS = [
   { t: "Obstructed or inaccessible areas", b: "Anything the inspector cannot reach is recorded as inaccessible. Lenders and VA appraisers read that line, and it can generate a request for a re-inspection — which costs more days than clearing the space would have." },
   { t: "Ordering too late in the file", b: "A WDO letter is a small line item that can hold a six-figure closing. Order when the inspection period opens, not the week of closing." },
@@ -237,11 +255,47 @@ export default function Page() {
         </div>
       </section>
 
+      {/* PART A / PART B */}
+      <section style={{ padding: "clamp(44px, 6vw, 64px) 20px" }}>
+        <div style={wrap}>
+          <h2 style={{ ...serif, fontSize: "clamp(24px, 4.4vw, 32px)", color: DEEP, margin: "0 0 10px" }}>
+            3. A complete report is two parts, not one
+          </h2>
+          <p style={{ fontSize: 16, color: MUT, lineHeight: 1.65, margin: "0 0 26px" }}>
+            This is the detail that most often makes a file incomplete without anyone noticing. Rule 80-10-9-.18
+            requires the Official Alabama Wood Infestation Inspection Report as Part A <em>and</em> Part B, and the
+            buyer&rsquo;s acknowledgment on Part A refers to both. A file holding only Part A is missing the half
+            that defines what the inspection did and did not cover.
+          </p>
+          <div style={{ display: "grid", gap: 12 }}>
+            {PARTS.map((p) => (
+              <div key={p.tag} style={{ background: "#fff", border: "1px solid #E2E8E4", borderRadius: 12, padding: "16px 18px" }}>
+                <span style={{ display: "inline-block", background: DEEP, color: "#fff", fontSize: 12, fontWeight: 800, letterSpacing: ".06em", padding: "3px 9px", borderRadius: 6, marginBottom: 8 }}>
+                  {p.tag}
+                </span>
+                <strong style={{ display: "block", fontSize: 16, marginBottom: 4 }}>{p.title}</strong>
+                <span style={{ fontSize: 15, color: MUT, lineHeight: 1.6 }}>{p.b}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{ borderLeft: `4px solid ${GOLD}`, background: "#FFFDF6", borderRadius: "0 10px 10px 0", padding: "14px 18px", marginTop: 16 }}>
+            <strong style={{ display: "block", fontSize: 15, marginBottom: 4 }}>Two practical consequences</strong>
+            <span style={{ fontSize: 15, color: MUT, lineHeight: 1.6 }}>
+              When a lender or closing attorney asks for &ldquo;the termite letter,&rdquo; send both parts — a Part A
+              on its own can come back as incomplete. And because Part B is where inaccessible areas are drawn and
+              the scope limitations are written, it is the part that answers a dispute later about what was actually
+              examined. The permittee must keep both on file for one year after the inspection, so a reissue inside
+              that window is a phone call.
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* WHAT ACTUALLY DELAYS THINGS */}
       <section style={{ padding: "clamp(44px, 6vw, 64px) 20px" }}>
         <div style={wrap}>
           <h2 style={{ ...serif, fontSize: "clamp(24px, 4.4vw, 32px)", color: DEEP, margin: "0 0 10px" }}>
-            3. The five things that actually delay a letter
+            4. The five things that actually delay a letter
           </h2>
           <p style={{ fontSize: 16, color: MUT, lineHeight: 1.65, margin: "0 0 26px" }}>
             In our experience these account for nearly all of it. Only the last one is outside anybody&rsquo;s control

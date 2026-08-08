@@ -38,6 +38,14 @@ const OFFICES = [
 
 const FAQS = [
   {
+    q: "What is actually in an Alabama WDO report?",
+    a: "Two parts, and Rule 80-10-9-.18 requires both. Part A is the report proper — the inspecting company, the license or permit number of the certified operator, the inspection date, the findings and any recommendations, plus the buyer's acknowledgment line. Part B is the structural diagram together with the consumer information section that sets out the scope and limitations of the inspection. The buyer's acknowledgment on Part A refers to Part A and Part B together, so a file holding only Part A is incomplete. We keep both on file for one year after inspection, as the rule requires.",
+  },
+  {
+    q: "How long does the report cover the property?",
+    a: "Rule 80-10-9-.18 provides that where the report certifies apparent freedom from wood-destroying organisms and an infestation is found within ninety days of issuance, the licensee treats the structure at no charge. That is a specific obligation under the rule and is separate from a lender's acceptance window, which the lender sets — confirm that requirement on each file.",
+  },
+  {
     q: "Which loan types does your WDO letter satisfy?",
     a: "We complete the Alabama Department of Agriculture and Industries Official Alabama Wood Infestation Inspection Report, accepted for VA, FHA, conventional, and refinance transactions statewide. VA appraisers see this form constantly; there's no follow-up form fight.",
   },
