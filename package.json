@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "audit:locations": "node scripts/audit-location-pages.mjs",
-    "test:compliance": "node scripts/test-compliance-guarantee.mjs"
+    "test:compliance": "node scripts/test-compliance-guarantee.mjs",
+    "test:imagery": "node scripts/test-no-ai-imagery.mjs",
+    "test": "npm run test:compliance && npm run test:imagery"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
