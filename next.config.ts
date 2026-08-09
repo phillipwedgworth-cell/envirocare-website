@@ -43,10 +43,16 @@ const nextConfig: NextConfig = {
     async redirects() {
           return [
             // ─── HOST-LEVEL: enforce canonical https://www.envirocarellc.com ─
-            // NOTE: the CURRENT live host (envirocare-web.vercel.app) is intentionally
-            // NOT redirected — www does not resolve until the DNS flip, so redirecting
-            // the live host pre-flip would take the site down. Apex + the stray alias
-            // are safe: apex serves the old site until flip, the alias is unused.
+            // HISTORY: envirocare-web.vercel.app was deliberately NOT redirected
+            // while it was the live host — www did not resolve until the DNS flip,
+            // so redirecting it pre-flip would have taken the site down.
+            // 2026-08-09: the flip is done. www.envirocarellc.com is an active
+            // domain on the Vercel project and serves the site, and the alias is
+            // still indexed by Google under its own title tag. It is now safe —
+            // and necessary — to redirect it. Note the alias is
+            // `envirocare-web.vercel.app`; the rule below previously only listed
+            // `envirocare-website.vercel.app`, a different hostname that never
+            // matched it. Both are listed now.
             {
                       source: '/:path*',
                       has: [{ type: 'host', value: 'envirocarellc.com' }],
@@ -56,6 +62,12 @@ const nextConfig: NextConfig = {
             {
                       source: '/:path*',
                       has: [{ type: 'host', value: 'envirocare-website.vercel.app' }],
+                      destination: 'https://www.envirocarellc.com/:path*',
+                      permanent: true,
+            },
+            {
+                      source: '/:path*',
+                      has: [{ type: 'host', value: 'envirocare-web.vercel.app' }],
                       destination: 'https://www.envirocarellc.com/:path*',
                       permanent: true,
             },
@@ -75,6 +87,13 @@ const nextConfig: NextConfig = {
             // ─── SHORT SERVICE ALIASES (existing) ───────────────────────────
             // NOTE: /pricing is a REAL page now (app/pricing/*) — do NOT redirect it.
             { source: '/why-envirocare', destination: '/about-us', permanent: true },
+            // GSC reports /terms-and-conditions as a 404 (legacy Scorpion URL).
+            // The live page is app/terms. 301 rather than leave it 404 — this is a
+            // real page that still exists under a different path, unlike the lawn
+            // URLs (/lawn-fertilization, /liquid-aeration) which must STAY 404
+            // because the service was discontinued. See
+            // claude/EnviroCare-Live-Lawn-Pages-Aug9.md.
+            { source: '/terms-and-conditions', destination: '/terms', permanent: true },
             // Quote consolidation 2026-08-05: /request-quote and /quote were two
             // separate 200-status pages with near-identical titles, both
             // self-canonical, both posting to /api/quote. Classic cannibalization.
