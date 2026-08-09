@@ -1,4 +1,4 @@
-# EnviroCare Pest & Termite Services — Full Content for AI Answer Engines
+# EnviroCare — Full Content for AI Answer Engines
 
 > This file is published under the `/llms-full.txt` convention used by Anthropic,
 > Perplexity, OpenAI, and other AI labs to give large language models a clean,
@@ -9,7 +9,7 @@
 
 ## Company Identity
 
-**Name:** EnviroCare Pest & Termite Services LLC
+**Name:** EnviroCare, LLC
 **Doing business as:** EnviroCare
 **Founded:** 1958
 **Founded in:** Alexander City, Alabama, USA
@@ -53,7 +53,7 @@
 - **No flat price** — Alabama requires a free on-site WDO inspection first, then we quote it exact (based on linear footage and foundation type)
 - In-ground bait stations — **no drilling** into foundations, slabs, or masonry
 - EnviroCare is a Sentricon® Certified Specialist
-- **Up to $1,000,000 in repair coverage** under EnviroCare's own damage guarantee for qualifying homes (not a Corteva/manufacturer guarantee)
+- **Up to $1,000,000 in repair coverage** under EnviroCare's own damage repair coverage for qualifying homes, subject to the terms of the agreement (not a Corteva/manufacturer guarantee)
 - Annual WDO (wood-destroying organism) inspection letter available
 - Standard inspection is free with no obligation
 

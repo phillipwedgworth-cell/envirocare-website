@@ -76,10 +76,10 @@ const schema = [
     audience: { "@type": "BusinessAudience", name: "Real estate agents, closing attorneys, and mortgage lenders" },
     provider: {
       "@type": "LocalBusiness",
-      name: "EnviroCare Pest & Termite Services",
+      name: "EnviroCare",
       telephone: "+1-205-940-6360",
       address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
-      parentOrganization: { "@type": "Organization", name: "EnviroCare Pest & Termite Services", foundingDate: "1958" },
+      parentOrganization: { "@type": "Organization", name: "EnviroCare", foundingDate: "1958" },
     },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Jefferson County, Alabama" },

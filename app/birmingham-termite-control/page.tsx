@@ -74,7 +74,7 @@ const c: ComboContent = {
     },
     {
       q: "I'm buying or selling a home — can you handle the termite letter?",
-      a: "Yes — we issue the official Alabama Wood Infestation Report (WDO letter) accepted by every lender, usually within 48 hours of inspection. One per year is free for active termite customers.",
+      a: "Yes — we issue the official Alabama Wood Infestation Report (WDO letter) accepted by every lender. One per year is free for active termite customers.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },

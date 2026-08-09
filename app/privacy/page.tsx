@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | EnviroCare Pest & Termite Services",
+  title: "Privacy Policy | EnviroCare",
   description:
-    "How EnviroCare Pest & Termite Services collects, uses, and protects your information. Privacy policy for envirocarellc.com and EnviroCare digital services.",
+    "How EnviroCare collects, uses, and protects your information. Privacy policy for envirocarellc.com and EnviroCare digital services.",
   alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Privacy Policy | EnviroCare Pest & Termite Services",
-    description: "How EnviroCare Pest & Termite Services collects, uses, and protects your information. Privacy policy for envirocarellc.com and EnviroCare digital services.",
+    title: "Privacy Policy | EnviroCare",
+    description: "How EnviroCare collects, uses, and protects your information. Privacy policy for envirocarellc.com and EnviroCare digital services.",
     url: 'https://www.envirocarellc.com/privacy',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Privacy Policy | EnviroCare Pest & Termite Services",
-    description: "How EnviroCare Pest & Termite Services collects, uses, and protects your information. Privacy policy for envirocarellc.com and EnviroCare digital services.",
+    title: "Privacy Policy | EnviroCare",
+    description: "How EnviroCare collects, uses, and protects your information. Privacy policy for envirocarellc.com and EnviroCare digital services.",
     images: ['/og-image.png'],
   },
 };

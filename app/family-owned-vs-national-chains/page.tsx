@@ -2,7 +2,7 @@
 // local family-owned company over a national/regional chain" prompts. AI-answer
 // block up top, factual comparison table (no competitor named), FAQ + honest
 // Service/FAQPage/Breadcrumb schema. Pricing lines follow the canonical
-// wording: pay per visit with no long-term agreement, or equal monthly ACH
+// wording: pay per visit billed as serviced, or equal monthly ACH
 // payments under a 12-month billing agreement.
 import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/brand';
 
@@ -34,7 +34,7 @@ const ROWS: [string, string, string][] = [
   ['Ownership', 'Fourth-generation Wedgworth family, same family since 1958', 'Corporate or franchise ownership, often multi-state'],
   ['Termite protection', 'Sentricon® Always Active™ — in-ground bait stations, no drilling; up to $1,000,000 EnviroCare repair coverage on qualifying homes', 'Varies by branch; often liquid-barrier treatments that require drilling'],
   ['Pricing', 'Published on the website — $35/month on ACH or $70 per bi-monthly visit for pest control', 'Usually quote-only; pricing varies by branch and promotion'],
-  ['Contract', 'Pay per visit with no long-term agreement, or equal monthly ACH payments under a 12-month billing agreement', 'Commonly annual service agreements'],
+  ['Billing', 'Pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement — terms confirmed in writing before service starts', 'Commonly annual service agreements'],
   ['Re-service', 'Unlimited free re-services between scheduled visits', 'Policies vary by branch and plan'],
   ['Local knowledge', 'Routes worked since 1958 — techs know which pest shows up on which street', 'Coverage maps span several states'],
 ];
@@ -54,7 +54,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Do I have to sign a contract with EnviroCare?',
-    a: 'Pay per visit with no long-term agreement, or choose equal monthly ACH payments under a 12-month billing agreement. Either way, unlimited free re-service between scheduled visits is included.',
+    a: 'Pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Terms are confirmed in writing before service starts. Either way, unlimited free re-service between scheduled visits is included.',
   },
   {
     q: 'Where does EnviroCare actually have offices?',

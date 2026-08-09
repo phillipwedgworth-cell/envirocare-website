@@ -55,14 +55,18 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "PestControlService",
       // Reuses the site-wide Birmingham office @id from app/layout.tsx so this page's
       // LocalBusiness node MERGES with it instead of reading as a second business at
       // the same address. Was '.../birmingham' — a distinct @id with identical NAP,
       // which is entity dilution. Verified in the build output 2026-07-30.
       // Keep in sync with app/layout.tsx and components/pages/CityPage.tsx.
       "@id": "https://www.envirocarellc.com/#birmingham",
-      name: "EnviroCare Pest & Termite Services — Birmingham",
+      // Per-location name (2026-08-09): the Birmingham door sign reads
+      // "EnviroCare Pest Services". Must match app/layout.tsx BIRMINGHAM_SCHEMA
+      // and lib/schema.tsx exactly -- they share the '#birmingham' @id and Google
+      // merges them, so a mismatch is a conflicting name on one entity.
+      name: "EnviroCare Pest Services",
       url: "https://www.envirocarellc.com/birmingham",
       telephone: "+12059912882",
       address: {
@@ -89,13 +93,19 @@ const jsonLd = {
         { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "17:00" },
       ],
       priceRange: "$$",
+      parentOrganization: {
+        "@type": "Organization",
+        "@id": "https://www.envirocarellc.com/#organization",
+        name: "EnviroCare, LLC",
+        url: "https://www.envirocarellc.com/",
+      },
       description:
         "Family-owned Birmingham pest control, exterminator, termite, and mosquito service. EnviroCare has served the Birmingham metro since 1958. Four generations of the Wedgworth family, Sentricon® Certified Specialist, EPA-registered products applied to label directions.",
     },
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
+      provider: { "@type": "PestControlService", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
@@ -290,6 +300,13 @@ export default function BirminghamPage() {
             <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 2rem" }}>
               Answers for <em style={{ color: F }}>Birmingham homeowners</em>
             </h2>
+            <p style={{ color: "#4b5563", fontSize: "1.02rem", lineHeight: 1.7, margin: "0 0 1.6rem" }}>
+              Still comparing companies? We wrote an honest buyer&rsquo;s guide to{" "}
+              <Link href="/best-pest-control-birmingham" style={{ color: F, fontWeight: 700 }}>
+                choosing a pest control company in Birmingham
+              </Link>{" "}
+              &mdash; including the cases where we tell you to call someone else.
+            </p>
             <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare has been the Wedgworth family's Birmingham-area exterminator since 1958, now in our fourth generation. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), and our main office is in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />

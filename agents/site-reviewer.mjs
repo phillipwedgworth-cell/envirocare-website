@@ -67,7 +67,11 @@ const SITE_BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.envirocarell
 
 const TARGET_PAGES = [
   { url: `${SITE_BASE}/`, label: "home" },
-  { url: `${SITE_BASE}/services/mosquito-control`, label: "mosquito" },
+  // WAS /services/mosquito-control. That is NOT a dead URL -- it 308s to
+  // /services/mosquito -- but auditing a redirect measures an extra hop and files
+  // every finding against a non-canonical URL. Verified live 2026-08-09:
+  // /services/mosquito-control -> 308 -> /services/mosquito (200).
+  { url: `${SITE_BASE}/services/mosquito`, label: "mosquito" },
   { url: `${SITE_BASE}/services/termite-control`, label: "termite" },
   { url: `${SITE_BASE}/huntsville`, label: "huntsville" },
   { url: `${SITE_BASE}/birmingham`, label: "birmingham" },
@@ -111,6 +115,8 @@ async function fetchPage({ url }) {
   }
 }
 
+const PAGESPEED_TIMEOUT_MS = 45_000;
+
 async function runPageSpeed({ url, strategy = "mobile" }) {
   try {
     const key = process.env.PAGESPEED_API_KEY ?? "";
@@ -121,7 +127,13 @@ async function runPageSpeed({ url, strategy = "mobile" }) {
     apiUrl.searchParams.append("category", "seo");
     apiUrl.searchParams.append("category", "accessibility");
     if (key) apiUrl.searchParams.set("key", key);
-    const r = await fetch(apiUrl);
+    // PageSpeed had NO timeout of its own, so a hung call consumed the entire 75s
+    // gather budget and surfaced as a misleading "page timeout". Bounded here so it
+    // fails fast, names itself, and still lets fetchPage's SEO signals through.
+    // NOTE: without PAGESPEED_API_KEY the unkeyed quota is heavily rate-limited,
+    // which makes slow and failed responses much more likely -- see the missing
+    // Vercel env keys item.
+    const r = await fetch(apiUrl, { signal: AbortSignal.timeout(PAGESPEED_TIMEOUT_MS) });
     const json = await r.json();
     if (json.error) return { error: json.error.message };
     const audits = json.lighthouseResult?.audits ?? {};
@@ -143,7 +155,13 @@ async function runPageSpeed({ url, strategy = "mobile" }) {
       _screenshot_b64: screenshotB64,
     };
   } catch (e) {
-    return { error: e.message };
+    // AbortSignal.timeout throws "The operation was aborted due to a timeout",
+    // which names neither the API nor the URL. Say which call died, or the next
+    // person debugging this goes looking for a slow page again.
+    if (e?.name === "TimeoutError" || /abort/i.test(e?.message ?? "")) {
+      return { error: `PageSpeed API timed out after ${PAGESPEED_TIMEOUT_MS}ms for ${url} (the page itself may be fine)` };
+    }
+    return { error: `PageSpeed API: ${e.message}` };
   }
 }
 
@@ -207,7 +225,11 @@ async function readPeerFindings({ agents = [], hoursBack = 168 }) {
 function withTimeout(promise, ms, label) {
   let timer;
   const timeout = new Promise((_, reject) => {
-    timer = setTimeout(() => reject(new Error(`${label}: page timeout after ${ms}ms`)), ms);
+    // Message deliberately says "gather", not "page". It wraps runPageSpeed AND
+    // fetchPage, and the old wording ("page timeout") sent two separate
+    // investigations looking for a slow page. On 2026-08-06 this fired for
+    // birmingham -- which serves in 0.38s. It was PageSpeed, not the page.
+    timer = setTimeout(() => reject(new Error(`${label}: gather timeout after ${ms}ms (PageSpeed API + fetch; usually PageSpeed)`)), ms);
   });
   return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }

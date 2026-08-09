@@ -125,7 +125,7 @@ const FAQS = [
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",
-    a: "EnviroCare is the only local, family-owned Sentricon Certified Specialist in central Alabama. Kevin Wedgworth's family has been protecting Alabama homes since 1958. National chains rotate technicians — you'll get a different person each visit. EnviroCare assigns the same tech to your property so they know your home's history. And our $1,000,000 guarantee stands behind every Sentricon system we install and maintain.",
+    a: "EnviroCare is the only local, family-owned Sentricon Certified Specialist in central Alabama. Kevin Wedgworth's family has been protecting Alabama homes since 1958. National chains rotate technicians — you'll get a different person each visit. EnviroCare assigns the same tech to your property so they know your home's history. And up to $1,000,000 in damage repair coverage stands behind every Sentricon system, subject to the terms of the agreement we install and maintain.",
   },
 ];
 
@@ -271,7 +271,7 @@ export default function TermiteWarrantyFAQ() {
               {
                 n: "$1,000,000",
                 label: "Repair warranty",
-                note: "Our guarantee — four generations behind it",
+                note: "Subject to the terms of the agreement",
                 color: GOLD,
               },
               {

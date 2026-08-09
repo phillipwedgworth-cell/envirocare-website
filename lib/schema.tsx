@@ -17,7 +17,7 @@
 import React from 'react';
 
 // ─── Shared constants ────────────────────────────────────────────────────────
-const BRAND_NAME = 'EnviroCare Pest & Termite Services';
+const BRAND_NAME = 'EnviroCare';
 const BRAND_URL  = 'https://www.envirocarellc.com';
 const LOGO_URL   = 'https://www.envirocarellc.com/logo.png';
 const EMAIL      = 'service@envirocarellc.com';
@@ -74,7 +74,7 @@ export function getOrganizationSchema() {
     foundingDate: FOUNDING,
     founder: { '@type': 'Person', name: 'Phillip M. Wedgworth' },
     description:
-      'EnviroCare Pest & Termite Services is a fourth-generation, family-owned Alabama pest and termite control company doing pest control in Alabama since 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
+      'EnviroCare is a fourth-generation, family-owned Alabama pest and termite control company doing pest control in Alabama since 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
     areaServed: { '@type': 'State', name: 'Alabama' },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -88,7 +88,7 @@ export function getOrganizationSchema() {
     // office because it served the whole metro. The Birmingham city office opened
     // 2026-08-05; both are listed separately now.
     location: [
-      { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#birmingham`, name: `${BRAND_NAME} — Birmingham`,
+      { '@type': 'PestControlService', '@id': `${BRAND_URL}/#birmingham`, name: 'EnviroCare Pest Services',
         telephone: '+12059912882',
         address: { '@type': 'PostalAddress', streetAddress: '2120 16th Ave S, Ste 302', addressLocality: 'Birmingham', addressRegion: 'AL', postalCode: '35205', addressCountry: 'US' } },
       { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#alabaster`, name: `${BRAND_NAME} — Alabaster`,

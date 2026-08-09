@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation";
 import AdDraftReview from "./AdDraftReview";
 
+import type { Metadata } from "next";
+
+// Internal ad-review surface. Never indexable: it renders unapproved draft copy,
+// which is exactly the content the compliance rules exist to keep off the web.
+// Belt and braces -- this meta tag AND a robots.txt disallow in app/robots.ts.
+export const metadata: Metadata = { robots: { index: false, follow: false } };
+
 interface AdDraft {
   id: string;
   agent_name: string;

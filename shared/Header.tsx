@@ -109,7 +109,7 @@ export default function Header({ showTopBar = true }: { showTopBar?: boolean }) 
       <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${scrolled ? "rgba(14,142,64,0.18)" : "#D4E8D8"}`, padding: "0 clamp(1.5rem, 5vw, 4rem)", transition: "all 0.2s", boxShadow: scrolled ? "0 4px 28px rgba(0,0,0,0.06)" : "none" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 96 }}>
           <a href="/" style={{ display: "block", textDecoration: "none", flexShrink: 0 }} aria-label="EnviroCare home">
-            <img src="/logo.png" alt="EnviroCare Pest & Termite Services" width={380} height={146} style={{ width: "clamp(220px, 26vw, 380px)", height: "auto", display: "block" }} />
+            <img src="/logo.png" alt="EnviroCare" width={380} height={146} style={{ width: "clamp(220px, 26vw, 380px)", height: "auto", display: "block" }} />
           </a>
 
           <nav className="ec-desktop-only" style={{ gap: 28, alignItems: "center", ...sf }}>

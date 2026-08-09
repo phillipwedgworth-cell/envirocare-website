@@ -31,7 +31,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
       telephone: c.office.phone,
       address: { "@type": "PostalAddress", streetAddress: c.office.address, addressRegion: "AL", addressCountry: "US" },
       url: `https://www.envirocarellc.com${c.canonicalPath}`,
-      parentOrganization: { "@type": "Organization", name: "EnviroCare Pest & Termite Services", foundingDate: "1958" },
+      parentOrganization: { "@type": "Organization", name: "EnviroCare", foundingDate: "1958" },
     },
     {
       "@context": "https://schema.org",

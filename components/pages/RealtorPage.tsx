@@ -41,7 +41,7 @@ export default function RealtorPage() {
           <div className="city-eyebrow"><span className="city-eyebrow-txt">For Realtors & Closing Attorneys</span></div>
           <h1>Your Closing&rsquo;s Best <em>Termite Partner</em></h1>
           <p className="page-hero-sub">
-            Fast WDO inspection letters, lender-ready NPMA-33 form, accepted by every Alabama lender we\'ve worked with. Keep your closings on track — most letters delivered in 48 hours.
+            WDO inspection letters on the lender-ready Official Alabama Wood Infestation Inspection Report, accepted by every Alabama lender we&rsquo;ve worked with. Tell us your closing date and we will work to it.
           </p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
@@ -53,7 +53,7 @@ export default function RealtorPage() {
       <div className="trust">
         <div className="trust-inner">
           <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Rated</div>
-          <div className="ti"><div className="ti-chk">✓</div>NPMA-33 Standard Letter</div>
+          <div className="ti"><div className="ti-chk">✓</div>Official Alabama WDO Report</div>
           <div className="ti"><div className="ti-chk">✓</div>VA / FHA / Conventional Accepted</div>
           <div className="ti"><div className="ti-chk">✓</div>48-Hour Turnaround</div>
           <div className="ti"><div className="ti-chk">✓</div>$125 Standalone Fee</div>
@@ -79,7 +79,7 @@ export default function RealtorPage() {
             <div className="flow-card">
               <div className="flow-num">3</div>
               <div className="flow-title">Letter Delivered</div>
-              <div className="flow-desc">NPMA-33 letter emailed within 48 hours. Most under 24. Lender gets copy direct if you want.</div>
+              <div className="flow-desc">Report emailed to you as soon as the inspector completes it. Lender gets a copy direct if you want.</div>
             </div>
             <div className="flow-card">
               <div className="flow-num">4</div>
@@ -106,7 +106,7 @@ export default function RealtorPage() {
           <div className="wedge-grid">
             <div className="wedge-card">
               <div className="wedge-lead">Standard Form</div>
-              <div className="wedge-body">NPMA-33 is the federal standard — same form your lender already accepts. No special version, no rejection at closing.</div>
+              <div className="wedge-body">Alabama has its own report, set by Ala. Admin. Code r. 80-10-9-.18 — the form your lender expects on an Alabama closing. No special version, no rejection at closing.</div>
             </div>
             <div className="wedge-card">
               <div className="wedge-lead">Direct To Lender</div>

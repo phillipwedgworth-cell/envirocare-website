@@ -37,7 +37,7 @@ function pageToSlug(page) { return page.replace(/^app\//,'').replace(/\/page\.ts
 
 // ─── COMPLIANCE (non-negotiable) ─────────────────────────────────────────────
 const COMPLIANCE = `
-You are rewriting copy for EnviroCare Pest & Termite Services, a fourth-generation
+You are rewriting copy for EnviroCare, a fourth-generation
 family-owned Alabama pest control company (Wedgworth family, founded 1958).
 Rewrite naturally — like a person wrote it. NEVER keyword-stuff.
 

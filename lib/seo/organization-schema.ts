@@ -12,8 +12,8 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': ['Organization', 'LocalBusiness'],
   '@id': 'https://www.envirocarellc.com/#organization',
-  name: 'EnviroCare Pest & Termite Services',
-  legalName: 'EnviroCare Pest & Termite Services LLC',
+  name: 'EnviroCare',
+  legalName: 'EnviroCare, LLC',
   alternateName: ['EnviroCare', 'EnviroCare Pest Control', 'EnviroCare Termite', 'Wedgworth Pest Control', 'Wedgworth Pest & Termite', "Wedgworth's Pest Control"],
   url: 'https://www.envirocarellc.com',
   logo: {
@@ -66,7 +66,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'EnviroCare Pest & Termite Services',
+    name: 'EnviroCare',
     itemListElement: [
       {
         '@type': 'Offer', name: 'Essential Pest Control', price: '35', priceCurrency: 'USD',
@@ -123,7 +123,7 @@ export const WEBSITE_SCHEMA = {
   '@type': 'WebSite',
   '@id': 'https://www.envirocarellc.com/#website',
   url: 'https://www.envirocarellc.com',
-  name: 'EnviroCare Pest & Termite Services',
+  name: 'EnviroCare',
   publisher: { '@id': 'https://www.envirocarellc.com/#organization' },
   inLanguage: 'en-US',
   // potentialAction omitted: only include when you actually have a /search endpoint

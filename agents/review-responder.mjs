@@ -31,10 +31,20 @@ const DRAFTED_LEDGER_KEY = "review-responder:drafted-keys";
 const LEDGER_CAP = 500;
 const REVIEW_STATION_PAGE_ID = "37b202ee-7a71-813f-a3f8-e3e5807bd7bb";
 
+// BrightLocal validates report_id as an INTEGER. These were quoted strings, and
+// every find_rm_reviews call failed schema validation from 2026-07-27 onward:
+//   find_rm_reviews: validating /properties/report_id:
+//       type: 630345 has type "string", want "integer"
+// The failure was silent to any human -- it surfaced only in Vercel runtime
+// errors, which nothing was watching. No review was auto-replied to for two
+// weeks. Sibling calls in agents/brightlocal.mjs were fixed 2026-08-04; this
+// one was missed because it lives in a different file.
+// Integers here AND Number() at the call site, so re-adding quotes cannot
+// silently break it again.
 const RM_REPORTS = [
-  { name: "Alabaster", report_id: "630345" },
-  { name: "Huntsville", report_id: "630846" },
-  { name: "Alex City", report_id: "631866" },
+  { name: "Alabaster", report_id: 630345 },
+  { name: "Huntsville", report_id: 630846 },
+  { name: "Alex City", report_id: 631866 },
 ];
 
 // Phillip's direct line offered on negative reviews. Using the main office
@@ -62,6 +72,12 @@ function isoDaysAgo(n) {
 // it was published, and a hard 7-day window silently dropped anything that
 // synced late. The drafted-key ledger (below) makes the overlap safe.
 const LOOKBACK_DAYS = 14;
+// BrightLocal hard limit: find_rm_reviews rejects num_per_page outside 1-20.
+// Verified against the endpoint schema 2026-08-09, not assumed.
+const RM_PAGE_SIZE = 20;
+// 10 pages = 200 reviews per location per run. Far above any real fortnight;
+// exists only so a paging bug cannot loop forever.
+const RM_MAX_PAGES = 10;
 
 /** Stable identity for a review across runs — BrightLocal id when present,
  *  else a fingerprint. This is what the dedup ledger stores. */
@@ -75,13 +91,31 @@ async function fetchRecentReviews() {
   const all = [];
   for (const loc of RM_REPORTS) {
     try {
-      const data = await blMcpCall("find_rm_reviews", {
-        report_id: loc.report_id,
-        from_date: fromDate,
-        sort_date: "desc",
-        num_per_page: 50,
-      });
-      const reviews = Array.isArray(data) ? data : (data?.items ?? data?.reviews ?? data?.results ?? data?.data ?? []);
+      // num_per_page was 50. BrightLocal accepts 1-20 and REJECTS anything else
+      // ("num per page must be between 1 and 20"), so this call would have failed
+      // even after the report_id type fix -- two bugs stacked on one call, and the
+      // second is invisible in the error log because the first one masked it.
+      //
+      // Capping at 20 alone would silently truncate: the lookback is 14 days across
+      // three locations, and a busy fortnight can exceed 20 reviews at one location.
+      // Dropping the 21st review without saying so is worse than failing, so we PAGE
+      // instead, and log loudly if we ever hit the page ceiling.
+      const reviews = [];
+      for (let page = 1; page <= RM_MAX_PAGES; page++) {
+        const data = await blMcpCall("find_rm_reviews", {
+          report_id: Number(loc.report_id),
+          from_date: fromDate,
+          sort_date: "desc",
+          num_per_page: RM_PAGE_SIZE,
+          page,
+        });
+        const batch = Array.isArray(data) ? data : (data?.items ?? data?.reviews ?? data?.results ?? data?.data ?? []);
+        reviews.push(...batch);
+        if (batch.length < RM_PAGE_SIZE) break;          // last page
+        if (page === RM_MAX_PAGES) {
+          console.warn(`[${AGENT_NAME}] ${loc.name}: hit the ${RM_MAX_PAGES}-page ceiling (${reviews.length} reviews) — there may be more that were NOT read`);
+        }
+      }
       for (const r of reviews) {
         all.push({
           id: r.id ?? r.review_id ?? null,
@@ -106,7 +140,9 @@ async function fetchRecentReviews() {
   return all;
 }
 
-const DRAFT_SYSTEM = `You draft Google/Facebook review responses for EnviroCare Pest & Termite Services, a fourth-generation family pest control company in Alabama (since 1958). Owner: Phillip Wedgworth.
+const DRAFT_SYSTEM = `You draft Google/Facebook review responses for EnviroCare, a fourth-generation family pest control company in Alabama (since 1958).
+Owner: Kevin Wedgworth (third-generation). Phillip M. Wedgworth is the gen-1 FOUNDER, not
+the owner -- do not confuse them, and do not name the founder as owner in a reply.
 
 RULES — never break:
 - 5-star or 4-star: thank the reviewer BY NAME, mention something SPECIFIC from their review (a service, a tech's name, their town — whatever they actually wrote), and vary wording so consecutive responses never sound templated. Warm, brief (2-3 sentences), Southern-friendly, never corporate.

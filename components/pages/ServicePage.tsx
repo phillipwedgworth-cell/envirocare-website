@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
@@ -150,7 +151,7 @@ const SERVICE_ART_SVG: Record<string, string> = {
 <text x="0" y="-75" font-family="DM Sans" font-size="11" font-weight="900" fill="#fff" text-anchor="middle">WDO LETTER</text>
 </g>
 <g fill="#F5A800" opacity="0.7"><circle cx="50" cy="40" r="2"/><circle cx="350" cy="50" r="2"/></g>
-<text x="200" y="295" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff" opacity="0.55" text-anchor="middle">NPMA-33 LENDER-READY</text>
+<text x="200" y="295" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff" opacity="0.55" text-anchor="middle">WDO LETTER LENDER-READY</text>
 </svg>`,
   'crawlspace': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <defs><linearGradient id="csFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fff" stop-opacity="0.32"/><stop offset="100%" stop-color="#fff" stop-opacity="0.08"/></linearGradient></defs>
@@ -217,7 +218,7 @@ export default function ServicePage({ slug }: { slug: string }) {
     description: service.metaDescription,
     provider: {
       '@type': 'Organization',
-      name: 'EnviroCare Pest & Termite Services',
+      name: 'EnviroCare',
       telephone: '+1-205-940-6360',
       url: 'https://www.envirocarellc.com',
     },
@@ -274,6 +275,22 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="ti"><div className="ti-chk">✓</div>4th-Generation Wedgworth Family</div>
         </div>
       </div>
+
+      {service.relatedLinks && service.relatedLinks.length > 0 && (
+        <section className="svc-intro" aria-label="Related reading">
+          <div className="container">
+            {service.relatedLinks.map((r) => (
+              <p key={r.href} className="svc-intro-p">
+                {r.note}{" "}
+                <Link href={r.href} style={{ color: "var(--green, #0A7935)", fontWeight: 700 }}>
+                  {r.label}
+                </Link>
+                .
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
 
       {service.intro && service.intro.length > 0 && (
         <section className="svc-intro">

@@ -43,7 +43,7 @@ export default function FireAntPage() {
     serviceType: "Fire Ant Treatment",
     provider: {
       "@type": "LocalBusiness",
-      name: "EnviroCare Pest & Termite Services",
+      name: "EnviroCare",
       telephone: "+1-205-940-6360",
       areaServed: "Alabama",
       address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },

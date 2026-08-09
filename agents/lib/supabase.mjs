@@ -100,13 +100,29 @@ export async function writeDiscussion({
   effortScore,
 }) {
   if (!supabase) return null;
+  // ── INTERIM GUARD — remove once the migration below is applied ──────────────
+  // agent_discussions.impact_score / effort_score are INTEGER, but agents emit
+  // half-points (9.5, 8.5, 7.5). Every seo-monitor write failed with:
+  //   invalid input syntax for type integer: "9.5"
+  //
+  // Rounding here makes the write succeed TODAY, but it DISCARDS precision the
+  // scoring scale was designed around -- a 9.5 and a 9.0 become the same number,
+  // which is exactly the distinction the half-point scale exists to express.
+  // The real fix is the column type:
+  //   agents/lib/migrations/widen_discussion_scores_to_numeric.sql
+  // That is production DDL and is deliberately left for a human to run.
+  //
+  // WHEN THAT MIGRATION IS APPLIED, DELETE THESE TWO ROUNDS. Left as-is they
+  // become permanent silent lossiness that nobody remembers is here.
+  const impactInt = impactScore == null ? null : Math.round(Number(impactScore));
+  const effortInt = effortScore == null ? null : Math.round(Number(effortScore));
   const { data, error } = await supabase.from("agent_discussions").insert({
     agent_name: agentName,
     references_agent: referencesAgent,
     references_finding_id: referencesFindingId,
     message,
-    impact_score: impactScore,
-    effort_score: effortScore,
+    impact_score: impactInt,
+    effort_score: effortInt,
     created_at: new Date().toISOString(),
   }).select().single();
   if (error) {

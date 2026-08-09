@@ -4,7 +4,7 @@
 // Includes a Markdown H1 + link sections per the llms.txt convention so AI
 // crawlers can navigate to the key pages.
 
-const LLMS_TXT = `# EnviroCare Pest & Termite Services
+const LLMS_TXT = `# EnviroCare
 
 > Family-owned Alabama pest control company, founded 1958 in Alexander City — now in its
 > fourth generation of the Wedgworth family. Tagline: "No One Cares Like EnviroCare."

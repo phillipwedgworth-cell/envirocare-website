@@ -62,7 +62,7 @@ const c: ComboContent = {
   faqs: [
     {
       q: "Do you do one-time exterminator visits in Huntsville?",
-      a: "Yes — $70 for a single licensed-technician visit with a 30-day guarantee. Most folks roll it into the bi-monthly program afterward since the per-visit price is the same and the pests stop returning.",
+      a: "Yes — $70 for a single licensed-technician visit, with a follow-up at no charge if pests return within 30 days. Most folks roll it into the bi-monthly program afterward since the per-visit price is the same and the pests stop returning.",
     },
     {
       q: "How quickly can someone come out?",

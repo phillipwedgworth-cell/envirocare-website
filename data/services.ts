@@ -32,6 +32,13 @@ export type Service = {
   intro?: string[];                                   // long-form SEO body copy (rendered after hero)
   pestsFeatured?: { name: string; desc: string }[];   // named + described pests (SEO topical relevance)
   pestsMore?: string[];                                // additional covered pests (chip list)
+  /**
+   * Contextual in-body links to deeper reference pages. Rendered as real
+   * anchors in the server HTML so they are crawlable without JS — added
+   * 2026-08-08 because /faq/mosquito and /faq/termite-warranty existed in the
+   * sitemap while being linked from nowhere in the codebase.
+   */
+  relatedLinks?: { href: string; label: string; note: string }[];
 };
 
 export const SERVICES: Service[] = [
@@ -101,6 +108,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'termite-control',
+    relatedLinks: [{ href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers', note: 'Before you compare our termite protection against another company’s, it is worth reading' }],
     name: 'Termite Control',
     shortName: 'Termite',
     category: 'core',
@@ -150,6 +158,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'mosquito',
+    relatedLinks: [{ href: '/faq/mosquito', label: 'the mosquito service FAQ', note: 'Wondering how the 30-day barrier actually works, or when the season starts? We answer the questions we get most in' }],
     intro: [
       'From late spring through fall, mosquitoes are the reason a lot of Alabama families stop using their own backyard. Our warm, humid weather and frequent rain create exactly the standing water mosquitoes need to breed, so even a tidy yard can turn into a hatching ground. EnviroCare\'s seasonal mosquito program is built to push the population way down so you can get your evenings back — across Birmingham, Huntsville, Lake Martin, and Auburn.',
       'Mosquitoes don\'t need much: a bottle cap of standing water is enough to breed, and our climate keeps the cycle going roughly March through November. They rest during the heat of the day in shaded, humid spots — under decks, in dense shrubs, along fence lines, and in tall grass — then come out for you at dusk. Our service targets both the adult mosquitoes resting in those harborage areas and the breeding sites where the next generation is developing.',
@@ -396,12 +405,12 @@ export const SERVICES: Service[] = [
     ],
     includes: [
       { title: 'Full WDO Inspection', desc: 'Trained inspector checks all accessible areas for subterranean termites, drywood termites, powderpost beetles, and wood-decay fungi.' },
-      { title: 'Official Letter', desc: 'NPMA-33 standard form accepted by VA, FHA, and conventional lenders.' },
+      { title: 'Official Letter', desc: 'The Official Alabama Wood Infestation Inspection Report, accepted by VA, FHA, and conventional lenders.' },
       { title: 'Photos & Recommendations', desc: 'If we find active infestation or conducive conditions, you get photos and a treatment quote so you can negotiate at closing.' },
     ],
     wedgePoints: [
-      { lead: 'Fast', body: 'Most letters delivered within 48 hours of inspection. Critical when closings move fast.' },
-      { lead: 'Trusted by AL lenders', body: 'Our NPMA-33 letters are accepted by every Alabama lender we\'ve dealt with — no surprises at closing.' },
+      { lead: 'Built around your closing', body: 'Tell us the closing date when you book and we will work to it.' },
+      { lead: 'Trusted by AL lenders', body: 'Our WDO letters are accepted by every Alabama lender we\'ve dealt with — no surprises at closing.' },
     ],
     faqs: [
       { q: 'What is a WDO letter?', a: 'It\'s the official report from a Wood Destroying Organism inspection — commonly called the termite letter — that documents any evidence of wood-destroying pests or conducive conditions at a property. Lenders and closing attorneys typically require it for a real estate transaction.' },

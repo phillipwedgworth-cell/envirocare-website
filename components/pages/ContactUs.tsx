@@ -366,7 +366,7 @@ export default function ContactUs() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
               ["What are your hours?", "Monday–Friday 8am–5pm, closed weekends. Emergency situations — call us, we'll do our best."],
-              ["How quickly can you schedule service?", "Call your nearest office to check availability — most visits are within 48 hours."],
+              ["How quickly can you schedule service?", "Call your nearest office and we will check current availability with you."],
               ["Is the inspection really free?", "Yes. We inspect your property, give you a written assessment and quote, with no obligation to purchase."],
               ["Do you serve my city?", "We serve 30+ Alabama communities across 4 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],
             ].map(([q, a], i) => (

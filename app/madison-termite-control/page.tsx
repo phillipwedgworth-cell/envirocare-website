@@ -67,7 +67,7 @@ const c: ComboContent = {
     },
     {
       q: "Is the $1,000,000 coverage from the Sentricon manufacturer?",
-      a: "No — it's EnviroCare's own damage repair guarantee, up to $1,000,000, and it transfers with the home when you sell. We put our own name behind the protection we install.",
+      a: "No — it's EnviroCare's own damage repair coverage, up to $1,000,000, subject to the terms of the agreement, and it transfers with the home when you sell. We put our own name behind the protection we install.",
     },
   ],
   office: { name: "North Alabama Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },

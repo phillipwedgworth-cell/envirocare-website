@@ -43,6 +43,43 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // PROMISE of it is a staffing claim. Require an every-time/guaranteed qualifier nearby.
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
+  // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
+  // bare token match will destroy all three. Match the claim SHAPE, never the word.
+  //
+  //  1. NEGATED HEDGES — "we never guarantee elimination", "we can't guarantee zero
+  //     ticks". These say the OPPOSITE of a guarantee and are what keeps mosquito and
+  //     tick copy from over-promising. Stripping them inverts the meaning and creates
+  //     exactly the exposure this rule exists to prevent. The lookbehind below exempts
+  //     a preceding negation.
+  //  2. STATUTORY QUOTATION — Ala. Admin. Code r. 80-10-9-.18 reads "Such instrument
+  //     shall carry a guarantee that if an infestation ... is found within ninety (90)
+  //     days ... shall be treated by the licensee, free of charge." Our WDO pages
+  //     paraphrase this ("treats the structure at no charge") and should keep doing so,
+  //     but if anyone ever quotes the rule directly, removing the word would make the
+  //     QUOTATION WRONG. Never sweep inside a quotation of the rule.
+  //  3. The re-service commitment is real; only its framing as a "guarantee" is the
+  //     issue. Reword, do not delete the substance.
+  //  ── two gaps found 2026-08-09 by checking the guard against the pages it was
+  //     supposed to have caught. Both were real misses, not theory:
+  //     (a) HTML-ENTITY POSSESSIVE. /mountain-brook line 153 reads
+  //         "EnviroCare&apos;s guarantee of up to $1,000,000". The character class
+  //         [’'] matches the two literal apostrophes but NOT the entity, so the
+  //         claim sailed through. &apos; / &#39; / &#x27; / &rsquo; now all match.
+  //     (b) BARE DURATION. "a 30-day guarantee" (both exterminator pages) has no
+  //         possessive at all, so the claim-shape pattern skipped it entirely.
+  //         Covered by the second rule below.
+  //     (c) INTERVENING WORD. "our satisfaction guarantee" (live on /special-offers)
+  //         also slipped past: the old pattern only allowed digits/currency or the
+  //         literal "damage repair" between the possessive and the word. Now allows
+  //         up to three intervening words, which is what caught it.
+  { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare(?:[’']|&apos;|&#39;|&#x27;|&rsquo;)s)\\s+(own\\s+)?(?:[$\\w,.]+\\s+){0,3}guarantee\\b",
+    reason: 'coverage asserted as a guarantee',
+    approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
+  // A duration attached to "guarantee" is a claim no matter whose it is:
+  // "a 30-day guarantee", "90 day guarantee", "12-month guarantee".
+  { pattern: "\\b\\d{1,3}[\\s-]?(day|days|month|months|year|years)\\s+guarantee\\b",
+    reason: 'time-bounded guarantee asserted as a claim',
+    approvedInstead: 'state the commitment without the word: e.g. "if pests return within 30 days we come back at no charge"' },
   // Dead Scorpion tracking number — must never appear.
   { pattern: '649[\\s-]?5278',        reason: 'dead tracking number', approvedInstead: 'the correct office line from data/offices.ts' },
   // GENERATION — company is FOURTH-generation; Kevin is the THIRD-generation OWNER.
@@ -65,6 +102,58 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // ('unlimited protection', 'unlimited treatments') is a service-scope overpromise. BLOCKS.
   { pattern: '\\bunlimited\\b', notIf: 'unlimited\\s+(free|covered|visits|pest|re-?servic|re-?treatment)', reason: 'unapproved unlimited claim', approvedInstead: 'unlimited (free) re-service / re-treatment is the only approved unlimited phrasing' },
   { pattern: '\\bowner\\b[^.\\n]*\\b(phillip|lex|william)\\b', notIf: '(Phillip M\\.|founder|founded)', reason: 'wrong owner', approvedInstead: 'Kevin Wedgworth (owner, gen 3); Phillip M. Wedgworth is the founder (gen 1)' },
+
+  // ── Added 2026-08-09 after a live audit of all 156 sitemap pages ─────────────
+  // Every one of these was already a stated rule with NO machine check behind it,
+  // which is why each kept coming back after being fixed by hand. Same failure
+  // mode as the retired $32/mo price: the rule lived in prose, not in a regex.
+
+  // CONTRACT-FREE CLAIMS — banned outright (owner direction, Aug 2026). Agreement
+  // practice is not uniform, so ANY absence-framing is inaccurate. State the two
+  // billing options positively instead. Found live on /best-pest-control-birmingham
+  // and /family-owned-vs-national-chains as "pay per visit with no long-term agreement".
+  { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?(contract|agreement|commitment)s?\\b',
+    reason: 'contract-free claim — agreement practice is not uniform',
+    approvedInstead: 'pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement; terms confirmed in writing before service starts' },
+  { pattern: '\\bcancel\\s+(any\\s?time|whenever)\\b',
+    reason: 'cancel-anytime claim',
+    approvedInstead: 'terms are confirmed in writing before service starts' },
+
+  // TURNAROUND-TIME PROMISES on WDO/termite work. Matches the PROMISE SHAPE (a
+  // deliverable + a clock), never a bare time reference — "if heavy rain falls
+  // within 24 hours of your treatment" on /faq/mosquito is legitimate and must
+  // keep passing. Verified against both in the test at the bottom of this comment.
+  { pattern: '\\b\\d{1,3}[\\s-]hour turnaround\\b',
+    reason: 'turnaround-time promise',
+    approvedInstead: 'tell us the closing date when you book and we will work to it' },
+  // WARN, not block: the owner's rule is scoped to WDO/termite pages, and this
+  // schema can't express page scope. As a hard block it would fail the build on
+  // legitimate copy — e.g. the /contact-us form's "we call back within 2 hours",
+  // which is a real commitment the office makes, not a WDO turnaround claim.
+  // A human decides per hit; the WDO/termite ones were cleared 2026-08-09.
+  { pattern: '\\b(letters?|reports?|visits?|inspections?|appointments?)\\b[^.!?]{0,70}?\\b(with)?in\\s+\\d{1,3}\\s*(hours|hrs)\\b', severity: 'warn',
+    reason: 'turnaround-time promise — banned on WDO/termite pages, judgment call elsewhere',
+    approvedInstead: 'tell us the closing date when you book and we will work to it' },
+
+  // WRONG WDO FORM. Alabama does NOT use the NPMA-33. Ala. Admin. Code r. 80-10-9-.18
+  // (rule text read directly 2026-08-08) makes the instrument the "Official Alabama
+  // Wood Infestation Inspection Report", Exhibit "A" to the rule, obtained from the
+  // Commissioner. "WDIIR-100" and "ADAI-WDO-100" are designations that appear
+  // nowhere in the rule. This mattered more than a typo: /realtor sold the wrong
+  // form to realtors and closing attorneys — the exact readers who would know.
+  // NOTE: keep `pattern` and `notIf` on ONE line. Several scan harnesses parse this
+  // file line-by-line rather than importing it, and a notIf on its own line is
+  // silently dropped — which turns a carve-out into a false positive.
+  { pattern: '\\bNPMA[\\s-]?33\\b|\\bWDIIR[\\s-]?100\\b|\\bADAI[\\s-]?WDO[\\s-]?100\\b', notIf: 'not the NPMA-33|no .{0,12}(ADAI-WDO-100|WDIIR-100).{0,20}(exists|designation)',
+    reason: 'wrong/nonexistent WDO form designation for Alabama',
+    approvedInstead: 'Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9-.18, Exhibit A)' },
+
+  // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
+  // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would
+  // fail every build before that NAP change is approved and made.
+  { pattern: 'EnviroCare Pest & Termite Services', severity: 'warn',
+    reason: 'retired name — appears on no sign, plate or letterhead',
+    approvedInstead: 'per-location: "EnviroCare" (Alexander City, Alabaster, Huntsville), "EnviroCare Pest Services" (Birmingham)' },
 ];
 
 /** Hard rules that need human judgment (auditor flags as WARN, not auto-block). */
