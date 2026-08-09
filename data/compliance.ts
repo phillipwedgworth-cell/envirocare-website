@@ -148,6 +148,16 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'wrong/nonexistent WDO form designation for Alabama',
     approvedInstead: 'Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9-.18, Exhibit A)' },
 
+  // $1M COVERAGE ATTRIBUTION. It is EnviroCare's own; attributing it to Corteva,
+  // Sentricon's maker, or "the manufacturer" misrepresents who is actually liable.
+  // This existed only as a SOFT_RULE in prose, so nothing checked it -- and three
+  // GBP posts scheduled for 2026-08-13 carried "damage repair coverage from
+  // Corteva" across all three locations. Being a Sentricon Certified Specialist is
+  // a real credential and is deliberately NOT matched here; only the attribution is.
+  { pattern: '(coverage|repair|warrant\\w*)[^.]{0,40}\\b(from|by|backed by|through)\\s+(corteva|the\\s+manufacturer|sentricon)|\\b(corteva|manufacturer)([\'’]s)?\\s+(guarantee|warranty|coverage)\\b',
+    reason: 'coverage attributed to the manufacturer',
+    approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement (EnviroCare-backed; never attributed to Corteva or Sentricon)' },
+
   // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
   // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would
   // fail every build before that NAP change is approved and made.

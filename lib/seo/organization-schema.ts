@@ -12,9 +12,32 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': ['Organization', 'LocalBusiness'],
   '@id': 'https://www.envirocarellc.com/#organization',
-  name: 'EnviroCare',
+  // Published brand name per the 2026-08-09 ruling. NOT the same as the legal
+  // entity (legalName) and NOT the same as the per-location GBP titles: the
+  // three verified listings keep the name on their own door sign, because
+  // adding words to a verified listing is a name change that can trigger
+  // re-review. This node describes the BRAND; the LocalBusiness nodes in
+  // app/layout.tsx describe the locations.
+  name: 'EnviroCare Pest Services',
   legalName: 'EnviroCare, LLC',
-  alternateName: ['EnviroCare', 'EnviroCare Pest Control', 'EnviroCare Termite', 'Wedgworth Pest Control', 'Wedgworth Pest & Termite', "Wedgworth's Pest Control"],
+  // The RETIRED names stay here ON PURPOSE (decision doc, 2026-08-09). Roughly 50
+  // existing citations across directories still carry "EnviroCare Pest & Termite
+  // Services". alternateName is how Google and the answer engines are told those
+  // citations describe the SAME entity. Deleting the string everywhere would split
+  // the brand in two at the exact moment a new Birmingham profile is trying to
+  // establish itself. Retired for AUTHORING; retained for RECONCILIATION.
+  // Do not "tidy" these out.
+  alternateName: [
+    'EnviroCare',
+    'EnviroCare, LLC',
+    'EnviroCare Pest Control',
+    'EnviroCare Termite',
+    'EnviroCare Pest & Termite Services',
+    'EnviroCare Pest & Termite Services LLC',
+    'Wedgworth Pest Control',
+    'Wedgworth Pest & Termite',
+    "Wedgworth's Pest Control",
+  ],
   url: 'https://www.envirocarellc.com',
   logo: {
     '@type': 'ImageObject',

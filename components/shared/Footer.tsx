@@ -118,8 +118,12 @@ export default function Footer() {
         }}
       >
         <div>
+          {/* Footer masthead = the PUBLISHED BRAND NAME (ruling 2026-08-09).
+              Distinct from the legal entity in the copyright line below
+              ("EnviroCare, LLC") and from the per-location GBP titles, which
+              keep whatever is on that location's door sign. */}
           <div style={{ fontFamily: displayFont, color: DEEP, fontSize: 18, fontWeight: 600, marginBottom: 6 }}>
-            EnviroCare
+            EnviroCare Pest Services
           </div>
           <div style={{ fontFamily: displayFont, fontStyle: "italic", color: FOREST, fontSize: 14, marginBottom: 10 }}>
             {TAGLINE}
