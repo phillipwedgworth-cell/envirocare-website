@@ -236,3 +236,35 @@ the ACTUAL WRAP, on four vehicles driving around Alabama.
 >
 > Editing the photo makes the marketing look consistent while the discrepancy stays on
 > the road. Record which way it goes; do not quietly keep patching the image.
+
+## OneUp "Invalid Image URL" — the host is NOT blocking. Tested 3x. (2026-08-09)
+
+Three separate documents now state that OneUp's fetcher "is refused by" or "cannot
+fetch from" `envirocarellc.com`, and recommend routing images through Google Drive or
+the OneUp gallery to work around it.
+
+**That diagnosis is wrong.** Tested live 2026-08-09 with four user agents —
+`OneUpApp/1.0`, a browser UA, `curl/8.0`, and none at all. Every one returned **HTTP
+200** with the correct `Content-Type` and full byte count:
+
+```
+https://www.envirocarellc.com/hero-family.webp        200 image/webp  95,876b
+https://www.envirocarellc.com/birmingham-vulcan.webp  200 image/webp  31,330b
+https://www.envirocarellc.com/family-yard.jpg         200 image/jpeg  96,316b
+https://www.envirocarellc.com/logo.png                200 image/png   39,077b
+```
+
+**What actually happens.** A path that does NOT exist on this site does not return 404
+— it returns **308 → `text/plain`** (trailing-slash normalisation catches it). Any image
+fetcher receiving `text/plain` reports "Invalid Image URL." So the Aug-7 failure was
+**wrong paths in the CSV**, not host refusal.
+
+**Consequences for the fix:**
+- Hosting images on the site is fine. No Drive workaround is needed for that reason.
+- Using the OneUp Media Gallery is still a perfectly good idea — for durability and
+  because it removes a dependency — but it is **not** a workaround for a block that
+  does not exist. Do not present it as one.
+- The real control is the one already recommended: **test one row before building 24.**
+
+**Before repeating this claim, run the curl above.** If it returns 200, the host is not
+the problem.
