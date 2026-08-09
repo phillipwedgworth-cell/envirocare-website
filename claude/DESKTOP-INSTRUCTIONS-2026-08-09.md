@@ -49,6 +49,36 @@ This is why the sibling fix on Aug 4 missed it — the corrected calls live in
 the 6 May complaint about missed visits and billing. Review replies are the named
 lever for Huntsville (0.20% SoLV, 34 reviews at 5.0★).
 
+### 2b. Your `num_per_page` catch was right — and it needed paging, not a cap
+
+Good catch, and I had missed it. Verified against the endpoint schema rather than
+taken on trust: `find_rm_reviews` accepts **1–20** and rejects anything else, and
+`report_id` is typed `integer`. The call carried `num_per_page: 50`, so **it would
+have failed even after the type fix** — two bugs stacked on one call, the second
+masked by the first.
+
+**I did not just pin it to 20.** The lookback is 14 days across three locations, and
+a busy fortnight at one location can exceed 20 reviews — a hard cap would silently
+drop the 21st. It now **pages** (`RM_PAGE_SIZE = 20`, ceiling `RM_MAX_PAGES = 10`) and
+logs loudly if the ceiling is ever reached. Silent truncation reads as "we handled
+everything" when we did not.
+
+### 2c. 🔴 Conflict in the draft prompt — needs a person, not a commit
+
+`agents/review-responder.mjs:143` opens the drafting prompt with:
+
+> `Owner: Phillip Wedgworth.`
+
+`data/compliance.ts:104` flags exactly that shape as **`wrong owner`**, stating the
+owner is **Kevin Wedgworth** (gen 3) and that **Phillip M. Wedgworth is the founder**
+(gen 1). The `notIf` carve-out only exempts "Phillip M." or founder wording, neither
+of which is present.
+
+**I have not changed it.** Who owns the company is a fact I cannot settle from the
+repo, and the two sources disagree. It matters because this line feeds an AI that
+drafts **public** review replies — if it is wrong, it can surface on Google. Either
+correct the prompt or correct the rule, but they cannot both stand.
+
 > ⚠️ **Do not assume replies will now flow.** The code path is fixed; nobody has run
 > it end-to-end against live BrightLocal. **Run the review responder once and check
 > its output before telling Phillip replies are working.**
