@@ -70,3 +70,32 @@ it is a single sweep.
 `agents/lib/compliance.mjs` states the per-location rule so agents cannot regenerate
 the retired name. `agents/oneup-push.mjs` blocks it before anything reaches social.
 Tests: `npm run test:compliance`.
+
+## 🔴 The largest remaining gap: the LOGO still says the retired name
+
+**Text was swept. The image was not.** `public/logo.png` reads
+**"EnviroCare — PEST & TERMITE SERVICES"** and renders in the header of all 156 pages.
+Confirmed by opening the file, 2026-08-09.
+
+It is worse than a header image, because the same file is the Organization schema's
+`logo`:
+
+```
+lib/seo/organization-schema.ts   name: 'EnviroCare Pest Services'
+                                 logo: .../logo.png   <- reads "PEST & TERMITE SERVICES"
+```
+
+So the structured data now names the brand one thing and hands Google a picture saying
+another. Also used in `app/not-found.tsx` and several page-level schema blocks.
+
+**Not fixable from here, deliberately.** `logo.svg` is flattened paths with no `<text>`
+element, so there is nothing to edit; and redrawing a wordmark would mean fabricating a
+brand asset, which is not a call code should make.
+
+**The correct wordmark already exists in the physical world.** `public/truck.jpg` shows
+the door reading **"EnviroCare PEST SERVICES"** — see `agents/knowledge/image-standard.md`.
+The vehicle wrap is ahead of the logo files. Whoever produced that wrap has the artwork.
+
+**Needed:** `logo.png`, `logo-white.png` and `logo.svg` reissued with the published brand
+name. Until then the name retirement is complete in text and incomplete in pixels, and the
+most prominent instance on every page is the wrong one.
