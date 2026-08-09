@@ -13,17 +13,24 @@
 //
 // Deleted 2026-08-09. Recoverable from git history if ever needed for reference.
 // Do NOT restore them to public/.
-import { existsSync, readdirSync } from "node:fs";
+import { readdirSync } from "node:fs";
 
-const BANNED_FILES = ["truck-lifestyle.webp", "technician-envirocare.webp"];
+// STEMS, not filenames. The first version of this test listed two exact names and
+// passed -- while public/technician-envirocare-MOBILE.webp sat right beside them,
+// orphaned and live at HTTP 200. Responsive variants (-mobile, -sm, @2x) and format
+// swaps (.webp/.jpg/.png) are the normal shape of an asset in this repo, so matching
+// one literal filename is matching one of several files. Same failure as the retired
+// name, which existed in four encodings while the guard knew one.
+const BANNED_STEMS = ["truck-lifestyle", "technician-envirocare"];
 // Depictions of these subjects must be real photographs, never generated.
 const SUSPECT = /(^|[-_])(ai|generated|synthetic|midjourney|firefly|dalle)([-_]|\.)/i;
 
 let failed = 0;
-for (const f of BANNED_FILES) {
-  const bad = existsSync(`public/${f}`);
-  console.log(`${bad ? "  FAIL" : "  ok  "} ${f} ${bad ? "IS PRESENT — a file in public/ is a live URL" : "absent"}`);
-  if (bad) failed++;
+const present = readdirSync("public");
+for (const stem of BANNED_STEMS) {
+  const hits = present.filter((f) => f.toLowerCase().startsWith(stem.toLowerCase()));
+  console.log(`${hits.length ? "  FAIL" : "  ok  "} ${stem}* ${hits.length ? `PRESENT: ${hits.join(", ")} — a file in public/ is a live URL` : "absent (all variants)"}`);
+  failed += hits.length;
 }
 const flagged = readdirSync("public").filter((f) => SUSPECT.test(f));
 if (flagged.length) {
