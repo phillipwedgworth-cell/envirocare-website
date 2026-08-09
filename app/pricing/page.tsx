@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const OFFER_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
-  name: "EnviroCare Pest & Termite — Plans & Pricing",
+  name: "EnviroCare — Plans & Pricing",
   url: "https://www.envirocarellc.com/pricing",
   itemListElement: [
     {

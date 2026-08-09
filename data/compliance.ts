@@ -151,7 +151,16 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
   // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would
   // fail every build before that NAP change is approved and made.
-  { pattern: 'EnviroCare Pest & Termite Services', severity: 'warn',
+  // Matches THREE forms, all of which were live after the first sweep "finished":
+  //   1. literal ampersand   "EnviroCare Pest & Termite Services"
+  //   2. HTML entity         "EnviroCare Pest &amp; Termite Services"  <- the footer,
+  //      on EVERY page, including the copyright line. A literal-string sweep walks
+  //      straight past this. Exactly the same blind spot as the &apos; possessive
+  //      that let a guarantee claim survive on /mountain-brook.
+  //   3. truncated           "EnviroCare Pest & Termite" (no "Services") -- /pricing,
+  //      /what-pest-problem and /service-areas/madison page titles.
+  // "Services" is optional in the pattern for exactly that reason.
+  { pattern: 'EnviroCare Pest (&|&amp;) Termite( Services)?', severity: 'warn',
     reason: 'retired name — appears on no sign, plate or letterhead',
     approvedInstead: 'per-location: "EnviroCare" (Alexander City, Alabaster, Huntsville), "EnviroCare Pest Services" (Birmingham)' },
 ];

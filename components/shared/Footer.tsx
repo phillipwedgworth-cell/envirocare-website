@@ -119,7 +119,7 @@ export default function Footer() {
       >
         <div>
           <div style={{ fontFamily: displayFont, color: DEEP, fontSize: 18, fontWeight: 600, marginBottom: 6 }}>
-            EnviroCare Pest &amp; Termite Services
+            EnviroCare
           </div>
           <div style={{ fontFamily: displayFont, fontStyle: "italic", color: FOREST, fontSize: 14, marginBottom: 10 }}>
             {TAGLINE}
@@ -175,7 +175,7 @@ export default function Footer() {
           color: MUTED,
         }}
       >
-        <span>© 2026 EnviroCare Pest &amp; Termite Services LLC. All rights reserved. Licensed in Alabama · Sentricon® Certified Specialist</span>
+        <span>© 2026 EnviroCare, LLC. All rights reserved. Licensed in Alabama · Sentricon® Certified Specialist</span>
         <span style={{ display: "flex", gap: 22 }}>
           <a href="/privacy" style={{ ...LINK, display: "inline", fontSize: 12.5, color: MUTED }}>Privacy Policy</a>
           <a href="/terms" style={{ ...LINK, display: "inline", fontSize: 12.5, color: MUTED }}>Terms of Service</a>

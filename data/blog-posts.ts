@@ -434,7 +434,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p><em>Kevin Wedgworth is the owner of EnviroCare Pest &amp; Termite Services, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
+<p><em>Kevin Wedgworth is the owner of EnviroCare, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
 `,
   },
 
@@ -1377,7 +1377,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Or call our main line: <strong>(205) 940-6360</strong>. If you found swarmers this week, don't wait — call and we&#39;ll get you on the schedule.</p>
 
-<p><em>Kevin Wedgworth is the owner of EnviroCare Pest &amp; Termite Services, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
+<p><em>Kevin Wedgworth is the owner of EnviroCare, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
 `,
   },
 

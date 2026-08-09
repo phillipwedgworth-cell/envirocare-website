@@ -9,11 +9,11 @@ import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/bran
 
 export const metadata = {
   alternates: { canonical: '/what-pest-problem' },
-  title: 'What Pest Problem Do You Have? | EnviroCare Pest & Termite',
+  title: 'What Pest Problem Do You Have? | EnviroCare',
   description:
     'Pick your pest problem — ants, roaches, spiders, mosquitoes, termites, fire ants — and see exactly how EnviroCare treats it, with published pricing.',
   openGraph: {
-    title: 'What Pest Problem Do You Have? | EnviroCare Pest & Termite',
+    title: 'What Pest Problem Do You Have? | EnviroCare',
     description: 'Pick your pest problem — ants, roaches, spiders, mosquitoes, termites, fire ants — and see exactly how EnviroCare treats it, with published pricing.',
     url: 'https://www.envirocarellc.com/what-pest-problem',
     images: ['/og-image.png'],
@@ -21,7 +21,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'What Pest Problem Do You Have? | EnviroCare Pest & Termite',
+    title: 'What Pest Problem Do You Have? | EnviroCare',
     description: 'Pick your pest problem — ants, roaches, spiders, mosquitoes, termites, fire ants — and see exactly how EnviroCare treats it, with published pricing.',
     images: ['/og-image.png'],
   },
