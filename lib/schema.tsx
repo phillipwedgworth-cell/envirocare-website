@@ -88,7 +88,7 @@ export function getOrganizationSchema() {
     // office because it served the whole metro. The Birmingham city office opened
     // 2026-08-05; both are listed separately now.
     location: [
-      { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#birmingham`, name: `${BRAND_NAME} — Birmingham`,
+      { '@type': 'PestControlService', '@id': `${BRAND_URL}/#birmingham`, name: 'EnviroCare Pest Services',
         telephone: '+12059912882',
         address: { '@type': 'PostalAddress', streetAddress: '2120 16th Ave S, Ste 302', addressLocality: 'Birmingham', addressRegion: 'AL', postalCode: '35205', addressCountry: 'US' } },
       { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#alabaster`, name: `${BRAND_NAME} — Alabaster`,

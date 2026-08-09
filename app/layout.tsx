@@ -125,16 +125,29 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── 3 LocalBusiness JSON-LD schemas (one per office)
-const BIRMINGHAM_SCHEMA = {
+// ─── 4 LocalBusiness JSON-LD schemas (one per office)
+//
+// ⚠ FIXED 2026-08-09 — ENTITY COLLISION. This block previously held ONE node named
+// BIRMINGHAM_SCHEMA that carried '@id': '.../#birmingham' with the ALABASTER NAP
+// (2025 Butler Rd, +1-205-940-6360, Alabaster's GBP cid) while pointing url at
+// /birmingham. lib/schema.tsx:91 used the SAME '#birmingham' @id with the real
+// Birmingham NAP (2120 16th Ave S, +1-205-991-2882). Google merges nodes by @id,
+// so every page emitted one business with two addresses and two phone numbers.
+// Live /birmingham showed both: 940-6360 in 6 places, 991-2882 in 10.
+//
+// Cause is the documented naming trap: OfficeId 'birmingham' in data/offices.ts IS
+// the Alabaster office (named for the metro it served). When the real city office
+// opened 2026-08-05 this node was never split. Territory split below matches
+// data/cities.ts exactly.
+const ALABASTER_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://www.envirocarellc.com/#birmingham',
-  name: 'EnviroCare Pest & Termite Services — Birmingham',
+  '@type': 'PestControlService',
+  '@id': 'https://www.envirocarellc.com/#alabaster',
+  name: 'EnviroCare — Alabaster',
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    'Family-owned Birmingham pest control and termite service since 1958. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment.',
-  url: 'https://www.envirocarellc.com/birmingham',
+    'Family-owned Alabaster and Shelby County pest control and termite service. Sentricon® termite protection, bi-monthly perimeter service, mosquito and tick yard treatment.',
+  url: 'https://www.envirocarellc.com/alabaster',
   telephone: '+1-205-940-6360',
   priceRange: '$$',
   address: {
@@ -149,8 +162,48 @@ const BIRMINGHAM_SCHEMA = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
-  areaServed: ['Birmingham','Hoover','Vestavia Hills','Mountain Brook','Homewood','Alabaster','Chelsea','Pelham','Helena','Calera','Trussville','Greystone','Mt Laurel'],
+  // Shelby County minus Chelsea and the Hwy 280 / 35242 corridor, which route to
+  // the city office. Matches the ...BHM cities in data/cities.ts.
+  areaServed: ['Alabaster','Pelham','Helena','Calera'],
   sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=7378341068021381374'],
+
+};
+
+const BIRMINGHAM_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'PestControlService',
+  '@id': 'https://www.envirocarellc.com/#birmingham',
+  // Per-location name: the Birmingham door sign reads "EnviroCare Pest Services".
+  name: 'EnviroCare Pest Services',
+  image: 'https://www.envirocarellc.com/og-image.png',
+  description:
+    'Family-owned Birmingham pest control and termite service. Sentricon® termite protection, bi-monthly perimeter service, mosquito and tick yard treatment across the Birmingham metro.',
+  url: 'https://www.envirocarellc.com/birmingham',
+  telephone: '+1-205-991-2882',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '2120 16th Ave S, Ste 302',
+    addressLocality: 'Birmingham',
+    addressRegion: 'AL',
+    postalCode: '35205',
+    addressCountry: 'US',
+  },
+  // No `geo` and no Google Maps `sameAs`: this office has NO Google Business
+  // Profile yet. Do not invent coordinates and do not point sameAs at another
+  // office's listing — that is what created the collision this block just fixed.
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
+  ],
+  // The ...BHM_CITY cities in data/cities.ts.
+  areaServed: ['Birmingham','Homewood','Mountain Brook','Vestavia Hills','Hoover','Chelsea','Trussville','Greystone','Mt Laurel'],
+  parentOrganization: {
+    '@type': 'Organization',
+    '@id': 'https://www.envirocarellc.com/#organization',
+    name: 'EnviroCare, LLC',
+    url: 'https://www.envirocarellc.com/',
+  },
+  sameAs: ['https://www.envirocarellc.com'],
 
 };
 
@@ -217,10 +270,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Fonts are now self-hosted via next/font (see top of file) —
             no external Google Fonts stylesheet needed. */}
 
-        {/* LocalBusiness structured data — one per office */}
+        {/* LocalBusiness structured data — one per office (4 as of 2026-08-05) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(BIRMINGHAM_SCHEMA) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ALABASTER_SCHEMA) }}
         />
         <script
           type="application/ld+json"

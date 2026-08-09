@@ -55,14 +55,18 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "PestControlService",
       // Reuses the site-wide Birmingham office @id from app/layout.tsx so this page's
       // LocalBusiness node MERGES with it instead of reading as a second business at
       // the same address. Was '.../birmingham' — a distinct @id with identical NAP,
       // which is entity dilution. Verified in the build output 2026-07-30.
       // Keep in sync with app/layout.tsx and components/pages/CityPage.tsx.
       "@id": "https://www.envirocarellc.com/#birmingham",
-      name: "EnviroCare Pest & Termite Services — Birmingham",
+      // Per-location name (2026-08-09): the Birmingham door sign reads
+      // "EnviroCare Pest Services". Must match app/layout.tsx BIRMINGHAM_SCHEMA
+      // and lib/schema.tsx exactly -- they share the '#birmingham' @id and Google
+      // merges them, so a mismatch is a conflicting name on one entity.
+      name: "EnviroCare Pest Services",
       url: "https://www.envirocarellc.com/birmingham",
       telephone: "+12059912882",
       address: {
@@ -89,13 +93,19 @@ const jsonLd = {
         { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "17:00" },
       ],
       priceRange: "$$",
+      parentOrganization: {
+        "@type": "Organization",
+        "@id": "https://www.envirocarellc.com/#organization",
+        name: "EnviroCare, LLC",
+        url: "https://www.envirocarellc.com/",
+      },
       description:
         "Family-owned Birmingham pest control, exterminator, termite, and mosquito service. EnviroCare has served the Birmingham metro since 1958. Four generations of the Wedgworth family, Sentricon® Certified Specialist, EPA-registered products applied to label directions.",
     },
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "LocalBusiness", name: "EnviroCare Pest & Termite Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
+      provider: { "@type": "PestControlService", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
