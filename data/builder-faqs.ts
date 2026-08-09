@@ -28,7 +28,7 @@ export const BUILDER_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What paperwork does the builder receive?",
-    a: "Three documents across the build: a treatment certificate after the pre-pour soil treatment (for your building inspector), Sentricon® installation records at the landscape phase, and an NPMA-33 WDO inspection letter at closing for the buyer's lender and closing attorney. Everything stays on file with us, so replacements are a phone call away.",
+    a: "Three documents across the build: a treatment certificate after the pre-pour soil treatment (for your building inspector), Sentricon® installation records at the landscape phase, and the Official Alabama Wood Infestation Inspection Report at closing for the buyer's lender and closing attorney. Everything stays on file with us, so replacements are a phone call away.",
   },
   {
     q: "Does the protection carry a warranty?",

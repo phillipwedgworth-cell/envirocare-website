@@ -41,7 +41,7 @@ const schema = {
       serviceType: 'Pre-Construction Termite Treatment',
       url: `${SITE}/builders`,
       description:
-        'Code-compliant termite protection for Alabama new construction: pre-slab soil treatment with EPA-registered termiticide applied per label directions, Sentricon® Always Active installation at landscape phase, and NPMA-33 WDO documentation at closing. Scope and pricing confirmed after a free site inspection.',
+        'Code-compliant termite protection for Alabama new construction: pre-slab soil treatment with EPA-registered termiticide applied per label directions, Sentricon® Always Active installation at landscape phase, and the Official Alabama Wood Infestation Inspection Report at closing. Scope and pricing confirmed after a free site inspection.',
       audience: { '@type': 'BusinessAudience', name: 'Home builders and general contractors' },
       provider: {
         '@type': 'LocalBusiness',

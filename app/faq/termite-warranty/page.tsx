@@ -271,7 +271,7 @@ export default function TermiteWarrantyFAQ() {
               {
                 n: "$1,000,000",
                 label: "Repair warranty",
-                note: "Our guarantee — four generations behind it",
+                note: "Subject to the terms of the agreement",
                 color: GOLD,
               },
               {

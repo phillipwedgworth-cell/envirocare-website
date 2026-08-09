@@ -69,7 +69,7 @@ export default function BuildersPage() {
             <div className="flow-card">
               <div className="flow-num">3</div>
               <div className="flow-title">WDO Letter At Closing</div>
-              <div className="flow-desc">NPMA-33 inspection letter delivered to your closing attorney. Buyer&apos;s lender accepts it. No closing delays from termite paperwork. <a href="/services/wdo-letters">How WDO letters work →</a></div>
+              <div className="flow-desc">The Official Alabama Wood Infestation Inspection Report delivered to your closing attorney. Buyer&apos;s lender accepts it. No closing delays from termite paperwork. <a href="/services/wdo-letters">How WDO letters work →</a></div>
             </div>
             <div className="flow-card">
               <div className="flow-num">4</div>

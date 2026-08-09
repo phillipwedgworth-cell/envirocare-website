@@ -73,7 +73,7 @@ const faqLd = {
       name: "How fast can I get a WDO inspection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most WDO inspections in our service areas are scheduled within 48–72 hours. The completed letter is typically emailed to the realtor and lender within 24 hours of inspection. Rush options are available for tight closings.",
+        text: "Most WDO inspections in our service areas are scheduled within 48–72 hours. The completed letter is emailed to the realtor and lender as soon as the inspector finalizes it. Rush options are available for tight closings.",
       },
     },
     {
@@ -146,7 +146,7 @@ export default function WDOLettersPage() {
               <em style={{ color: GOLD, fontWeight: 500 }}>For Alabama Closings</em>
             </h1>
             <p style={{ fontSize: 18, lineHeight: 1.6, opacity: 0.92, maxWidth: 720, margin: "0 auto 36px" }}>
-              Schedule an inspection in under a minute. Letter sent to your inbox within 24 hours of the visit. Closings don't
+              Schedule an inspection in under a minute. Letter sent to your inbox once the inspector finalizes it. Closings don't
               wait — neither do we.
             </p>
             <Link
@@ -306,7 +306,7 @@ export default function WDOLettersPage() {
               },
               {
                 q: "How fast can I get a WDO inspection?",
-                a: "Most inspections in our service areas are scheduled within 48–72 hours. The completed letter is typically emailed to the realtor and lender within 24 hours of inspection. Rush options are available for tight closings.",
+                a: "Most inspections in our service areas are scheduled within 48–72 hours. The completed letter is emailed to the realtor and lender as soon as the inspector finalizes it. Rush options are available for tight closings.",
               },
               {
                 q: "Do you accept VA and FHA loan inspections?",

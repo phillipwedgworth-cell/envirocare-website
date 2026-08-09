@@ -9,7 +9,7 @@
 // House conventions followed: no competitor is named anywhere; comparison rows
 // describe common industry practice only. Pricing uses the canonical wording —
 // $35/month on ACH or $70 per bi-monthly visit, $79 startup, unlimited free
-// re-service. Contract wording is "pay per visit with no long-term agreement,
+// re-service. Contract wording states the two billing options positively;
 // or equal monthly ACH payments under a 12-month billing agreement"; the bare
 // phrase "no contract" is banned and must not be reintroduced.
 //
@@ -101,7 +101,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'What should I look for in a Birmingham pest control agreement?',
-    a: 'Four things, all in writing: the term length, what renewal looks like, what cancelling costs, and whether the termite warranty covers repairs or only re-treatment. With EnviroCare you can pay per visit with no long-term agreement, or choose equal monthly ACH payments under a 12-month billing agreement. Either way, unlimited free re-service between scheduled visits is included.',
+    a: 'Four things, all in writing: the term length, what renewal looks like, what cancelling costs, and whether the termite warranty covers repairs or only re-treatment. With EnviroCare you can pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Whichever you pick, the terms are confirmed in writing before service starts. Either way, unlimited free re-service between scheduled visits is included.',
   },
   {
     q: 'How often do I need pest control service in Birmingham?',

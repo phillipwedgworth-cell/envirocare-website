@@ -303,7 +303,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What a pre-purchase termite inspection actually covers</h2>
 
-<p>First, clear up a common mix-up: your general home inspection is not a termite inspection. Home inspectors note visible damage if they happen to see it, but they aren't licensed for wood-destroying organism work. In Alabama, a termite inspection is performed by a state-licensed inspector and documented on the official WDIIR-100 form — the "termite letter" your lender wants. We walked through that whole process, including the three possible outcomes and what delays letters, in our <a href="/blog/real-estate-wdo-letter-explained">WDO letter guide</a>.</p>
+<p>First, clear up a common mix-up: your general home inspection is not a termite inspection. Home inspectors note visible damage if they happen to see it, but they aren't licensed for wood-destroying organism work. In Alabama, a termite inspection is performed by a state-licensed inspector and documented on the Official Alabama Wood Infestation Inspection Report — the "termite letter" your lender wants. We walked through that whole process, including the three possible outcomes and what delays letters, in our <a href="/blog/real-estate-wdo-letter-explained">WDO letter guide</a>.</p>
 
 <p>The inspector examines every accessible wood surface — crawlspace sills and joists, garage framing, baseboards, eaves, decks, attic — looking for mud tubes, damaged wood, discarded swarmer wings, and conducive conditions like wood-to-soil contact or crawlspace moisture. If you're not sure what those signs look like, our guide to <a href="/blog/how-to-identify-termites-alabama">identifying termites in Alabama homes</a> covers them with photos of what to watch for.</p>
 
@@ -319,7 +319,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What it costs</h2>
 
-<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official WDIIR-100 letter, standalone letters start as low as $125, scheduled within 48 hours of your call — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
+<p>Our standard termite inspection is free — it always has been, and there's no obligation attached. If your lender needs the official Alabama WDO letter, standalone letters start as low as $125 — timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and agents can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need protection, we'll quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings.</p>
 
 <p>Buying in Alabama? Get the house looked at before it's yours. <a href="/quote">Request an inspection</a> or call the office nearest the property — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
 `,
@@ -637,7 +637,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What WDO stands for</h2>
 
-<p>Wood-Destroying Organism. In Alabama, that means primarily termites, but also includes wood-decay fungi, carpenter ants, carpenter bees, and powderpost beetles. The official form is the <strong>Alabama Department of Agriculture WDIIR-100</strong> (Wood-Destroying Insect Infestation Report), and it's the document your lender will require to fund the loan.</p>
+<p>Wood-Destroying Organism. In Alabama, that means primarily termites, but also includes wood-decay fungi, carpenter ants, carpenter bees, and powderpost beetles. The official form is the <strong>Official Alabama Wood Infestation Inspection Report</strong>, issued by the Alabama Department of Agriculture and Industries as Exhibit A to Ala. Admin. Code r. 80-10-9-.18, and it's the document your lender will require to fund the loan.</p>
 
 <h2>What we do during the inspection</h2>
 
@@ -1375,7 +1375,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 
-<p>Or call our main line: <strong>(205) 940-6360</strong>. If you found swarmers this week, don't wait — inspections are typically available within 48 hours.</p>
+<p>Or call our main line: <strong>(205) 940-6360</strong>. If you found swarmers this week, don't wait — call and we&#39;ll get you on the schedule.</p>
 
 <p><em>Kevin Wedgworth is the owner of EnviroCare Pest &amp; Termite Services, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
 `,

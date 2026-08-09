@@ -84,6 +84,58 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // ('unlimited protection', 'unlimited treatments') is a service-scope overpromise. BLOCKS.
   { pattern: '\\bunlimited\\b', notIf: 'unlimited\\s+(free|covered|visits|pest|re-?servic|re-?treatment)', reason: 'unapproved unlimited claim', approvedInstead: 'unlimited (free) re-service / re-treatment is the only approved unlimited phrasing' },
   { pattern: '\\bowner\\b[^.\\n]*\\b(phillip|lex|william)\\b', notIf: '(Phillip M\\.|founder|founded)', reason: 'wrong owner', approvedInstead: 'Kevin Wedgworth (owner, gen 3); Phillip M. Wedgworth is the founder (gen 1)' },
+
+  // ── Added 2026-08-09 after a live audit of all 156 sitemap pages ─────────────
+  // Every one of these was already a stated rule with NO machine check behind it,
+  // which is why each kept coming back after being fixed by hand. Same failure
+  // mode as the retired $32/mo price: the rule lived in prose, not in a regex.
+
+  // CONTRACT-FREE CLAIMS — banned outright (owner direction, Aug 2026). Agreement
+  // practice is not uniform, so ANY absence-framing is inaccurate. State the two
+  // billing options positively instead. Found live on /best-pest-control-birmingham
+  // and /family-owned-vs-national-chains as "pay per visit with no long-term agreement".
+  { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?(contract|agreement|commitment)s?\\b',
+    reason: 'contract-free claim — agreement practice is not uniform',
+    approvedInstead: 'pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement; terms confirmed in writing before service starts' },
+  { pattern: '\\bcancel\\s+(any\\s?time|whenever)\\b',
+    reason: 'cancel-anytime claim',
+    approvedInstead: 'terms are confirmed in writing before service starts' },
+
+  // TURNAROUND-TIME PROMISES on WDO/termite work. Matches the PROMISE SHAPE (a
+  // deliverable + a clock), never a bare time reference — "if heavy rain falls
+  // within 24 hours of your treatment" on /faq/mosquito is legitimate and must
+  // keep passing. Verified against both in the test at the bottom of this comment.
+  { pattern: '\\b\\d{1,3}[\\s-]hour turnaround\\b',
+    reason: 'turnaround-time promise',
+    approvedInstead: 'tell us the closing date when you book and we will work to it' },
+  // WARN, not block: the owner's rule is scoped to WDO/termite pages, and this
+  // schema can't express page scope. As a hard block it would fail the build on
+  // legitimate copy — e.g. the /contact-us form's "we call back within 2 hours",
+  // which is a real commitment the office makes, not a WDO turnaround claim.
+  // A human decides per hit; the WDO/termite ones were cleared 2026-08-09.
+  { pattern: '\\b(letters?|reports?|visits?|inspections?|appointments?)\\b[^.!?]{0,70}?\\b(with)?in\\s+\\d{1,3}\\s*(hours|hrs)\\b', severity: 'warn',
+    reason: 'turnaround-time promise — banned on WDO/termite pages, judgment call elsewhere',
+    approvedInstead: 'tell us the closing date when you book and we will work to it' },
+
+  // WRONG WDO FORM. Alabama does NOT use the NPMA-33. Ala. Admin. Code r. 80-10-9-.18
+  // (rule text read directly 2026-08-08) makes the instrument the "Official Alabama
+  // Wood Infestation Inspection Report", Exhibit "A" to the rule, obtained from the
+  // Commissioner. "WDIIR-100" and "ADAI-WDO-100" are designations that appear
+  // nowhere in the rule. This mattered more than a typo: /realtor sold the wrong
+  // form to realtors and closing attorneys — the exact readers who would know.
+  // NOTE: keep `pattern` and `notIf` on ONE line. Several scan harnesses parse this
+  // file line-by-line rather than importing it, and a notIf on its own line is
+  // silently dropped — which turns a carve-out into a false positive.
+  { pattern: '\\bNPMA[\\s-]?33\\b|\\bWDIIR[\\s-]?100\\b|\\bADAI[\\s-]?WDO[\\s-]?100\\b', notIf: 'not the NPMA-33|no .{0,12}(ADAI-WDO-100|WDIIR-100).{0,20}(exists|designation)',
+    reason: 'wrong/nonexistent WDO form designation for Alabama',
+    approvedInstead: 'Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9-.18, Exhibit A)' },
+
+  // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
+  // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would
+  // fail every build before that NAP change is approved and made.
+  { pattern: 'EnviroCare Pest & Termite Services', severity: 'warn',
+    reason: 'retired name — appears on no sign, plate or letterhead',
+    approvedInstead: 'per-location: "EnviroCare" (Alexander City, Alabaster, Huntsville), "EnviroCare Pest Services" (Birmingham)' },
 ];
 
 /** Hard rules that need human judgment (auditor flags as WARN, not auto-block). */

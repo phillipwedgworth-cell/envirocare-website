@@ -405,12 +405,12 @@ export const SERVICES: Service[] = [
     ],
     includes: [
       { title: 'Full WDO Inspection', desc: 'Trained inspector checks all accessible areas for subterranean termites, drywood termites, powderpost beetles, and wood-decay fungi.' },
-      { title: 'Official Letter', desc: 'NPMA-33 standard form accepted by VA, FHA, and conventional lenders.' },
+      { title: 'Official Letter', desc: 'The Official Alabama Wood Infestation Inspection Report, accepted by VA, FHA, and conventional lenders.' },
       { title: 'Photos & Recommendations', desc: 'If we find active infestation or conducive conditions, you get photos and a treatment quote so you can negotiate at closing.' },
     ],
     wedgePoints: [
-      { lead: 'Fast', body: 'Most letters delivered within 48 hours of inspection. Critical when closings move fast.' },
-      { lead: 'Trusted by AL lenders', body: 'Our NPMA-33 letters are accepted by every Alabama lender we\'ve dealt with — no surprises at closing.' },
+      { lead: 'Built around your closing', body: 'Tell us the closing date when you book and we will work to it.' },
+      { lead: 'Trusted by AL lenders', body: 'Our WDO letters are accepted by every Alabama lender we\'ve dealt with — no surprises at closing.' },
     ],
     faqs: [
       { q: 'What is a WDO letter?', a: 'It\'s the official report from a Wood Destroying Organism inspection — commonly called the termite letter — that documents any evidence of wood-destroying pests or conducive conditions at a property. Lenders and closing attorneys typically require it for a real estate transaction.' },
