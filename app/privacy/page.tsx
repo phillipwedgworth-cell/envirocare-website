@@ -56,7 +56,7 @@ export default function PrivacyPage() {
         }}
       >
         <p>
-          EnviroCare Pest &amp; Termite Services ("EnviroCare," "we," "us," or "our") respects your privacy. This policy explains
+          EnviroCare, LLC ("EnviroCare," "we," "us," or "our") respects your privacy. This policy explains
           what information we collect when you use our website, request a quote, or sign up for service, and how we use it.
         </p>
 

@@ -55,7 +55,7 @@ export default function TermsPage() {
         }}
       >
         <p>
-          These Terms of Service ("Terms") govern your use of EnviroCare Pest &amp; Termite Services ("EnviroCare," "we," "us," or
+          These Terms of Service ("Terms") govern your use of EnviroCare, LLC ("EnviroCare," "we," "us," or
           "our") and any pest, termite, mosquito, or tick services you purchase from us. By scheduling service or using our website, you
           agree to these Terms.
         </p>

@@ -60,7 +60,10 @@ const cases = [
   // --- name ---
   // Built from parts on purpose: a literal here would be rewritten by any future
   // sitewide rename sweep, silently turning this assertion into a tautology.
-  ["EnviroCare Pest" + " & Termite " + "Services", true, "retired name (warn)"],
+  ["EnviroCare Pest" + " & Termite " + "Services", true, "retired name, literal ampersand"],
+  ["EnviroCare Pest" + " &amp; Termite " + "Services", true, "retired name, HTML entity (the footer form)"],
+  ["EnviroCare Pest" + " & Termite", true, "retired name, truncated (no 'Services')"],
+  ["© 2026 EnviroCare Pest" + " &amp; Termite " + "Services LLC", true, "the copyright line, on every page"],
   ["EnviroCare", false, "the approved generic name must NOT flag"],
   ["EnviroCare Pest Services", false, "the approved Birmingham name must NOT flag"],
 ];

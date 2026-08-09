@@ -7,13 +7,13 @@ import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
-  title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
+  title: "Pest Control Madison AL | EnviroCare — Since 1958",
   description:
     "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Rainbow Mountain. Sentricon® $1M coverage. Call (256) 937-7676.",
   alternates: { canonical: "/service-areas/madison" },
   openGraph: {
     images: ["/og/og-madison.png"],
-    title: "Pest Control Madison AL | EnviroCare Pest & Termite — Since 1958",
+    title: "Pest Control Madison AL | EnviroCare — Since 1958",
     description:
       "Family-owned pest, termite, mosquito & tick control in Madison AL. Serving Heritage Plantation, Madison Crossings, and all 35756–35758 zip codes. Call the Huntsville office.",
     url: "https://www.envirocarellc.com/service-areas/madison",
@@ -685,7 +685,7 @@ export default function MadisonPage() {
             </Link>
           </div>
           <p style={{ fontSize: 12, opacity: 0.55, marginTop: 24, letterSpacing: "0.05em" }}>
-            EnviroCare Pest &amp; Termite Services · 7027 Old Madison Pike Suite 108 · Huntsville AL 35806<br />
+            EnviroCare · 7027 Old Madison Pike Suite 108 · Huntsville AL 35806<br />
             Hours: Monday–Friday 8 am–5 pm · Closed Saturday &amp; Sunday
           </p>
         </div>
