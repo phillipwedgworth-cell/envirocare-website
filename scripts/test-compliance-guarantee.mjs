@@ -63,6 +63,7 @@ const cases = [
   ["EnviroCare Pest" + " & Termite " + "Services", true, "retired name, literal ampersand"],
   ["EnviroCare Pest" + " &amp; Termite " + "Services", true, "retired name, HTML entity (the footer form)"],
   ["EnviroCare Pest" + " & Termite", true, "retired name, truncated (no 'Services')"],
+  ["EnviroCare Pest" + " and Termite " + "Services", true, "retired name, 'and' spelled out"],
   ["© 2026 EnviroCare Pest" + " &amp; Termite " + "Services LLC", true, "the copyright line, on every page"],
   ["EnviroCare", false, "the approved generic name must NOT flag"],
   ["EnviroCare Pest Services", false, "the approved Birmingham name must NOT flag"],

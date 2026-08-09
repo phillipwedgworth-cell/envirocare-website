@@ -96,7 +96,11 @@ const jsonLd = {
       parentOrganization: {
         "@type": "Organization",
         "@id": "https://www.envirocarellc.com/#organization",
-        name: "EnviroCare, LLC",
+        // Must match lib/seo/organization-schema.ts EXACTLY -- this shares the
+        // '#organization' @id with it, so a different name here merges into one
+        // entity carrying two names. That is the same defect just fixed on
+        // '#birmingham'. legalName lives on the Organization node, not here.
+        name: "EnviroCare Pest Services",
         url: "https://www.envirocarellc.com/",
       },
       description:

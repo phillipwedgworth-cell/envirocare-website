@@ -55,16 +55,57 @@ const LIVE = process.argv.includes("--live");
 
 // Banned strings from agents/lib/compliance.mjs. Kept literal here so this agent
 // never publishes something the writer-side rules would have rejected.
+//
+// ── EXPANDED 2026-08-09 ──────────────────────────────────────────────────────
+// An audit of the 24 scheduled GBP posts found a banned claim on three of them
+// that THIS GATE WOULD HAVE PASSED. The gate is the only control between a draft
+// and Google — every rule that lives only in prose is a rule that does not exist.
+// Six classes were missing entirely; one was actively wrong.
 const BANNED = [
-  /\bno contracts?\b(?!\s*when)/i,   // bare "no contract" — only "no long-term contract" is approved
+  // WAS: /\bno contracts?\b(?!\s*when)/ with a comment saying "no long-term
+  // contract" is approved. That phrasing was RETIRED by owner direction: agreement
+  // practice is not uniform, so every absence-framing is inaccurate. State the two
+  // billing options positively instead. The old lookahead actively permitted the
+  // exact sentence that had to be pulled from a scheduled post on Aug 7.
+  /\bno[\s-]+(long[\s-]?term[\s-]+)?(contract|agreement|commitment)s?\b/i,
+  /\bcancel\s+(any\s?time|whenever)\b/i,
+  /\bnot\s+locked\s+in\b/i,
+
+  // $1M coverage is EnviroCare's OWN. Attributing it to Corteva/Sentricon's maker
+  // is a misrepresentation of who is liable. Found on the Aug-13 post, all three
+  // locations. Being a "Sentricon Certified Specialist" is a real credential and
+  // is NOT caught here -- only the coverage attribution is.
+  /(coverage|repair|warrant\w*)[^.]{0,40}\b(from|by|backed by|through)\s+(corteva|the\s+manufacturer|sentricon)/i,
+  /\b(corteva|manufacturer)(['’]s)?\s+(guarantee|warranty|coverage)\b/i,
+
+  // "guarantee" as a claim. Negated hedges ("we never guarantee elimination") are
+  // legitimate and must still pass, hence the lookbehind.
+  /(?<!\b(?:never|not|don['’]t|doesn['’]t|cannot|can['’]t|no)\s)\b(our|your|its|EnviroCare(?:['’]|&apos;|&#39;)s)\s+(own\s+)?(?:[$\w,.]+\s+){0,3}guarantee\b/i,
+  /\b\d{1,3}[\s-]?(day|days|month|months|year|years)\s+guarantee\b/i,
+
+  // Retired company name, in every encoding it has actually appeared in.
+  /EnviroCare Pest (&|&amp;|and) Termite( Services)?/i,   // 'and' spelled out: seen in generated copy 2026-08-09
+  /\bEnviroCare\s+LLC\b/i,          // must carry the comma: "EnviroCare, LLC"
+  /EnviroCare[^.]{0,20}\bLawn\b/i,  // no name containing "Lawn"
+
+  // GOOGLE REJECTS a GBP post whose BODY carries a phone number. This is a
+  // publish-blocker, not a style rule -- the post silently fails to go live.
+  /\(?\b\d{3}\)?[.\-\s]\d{3}[.\-\s]\d{4}\b/,
+
+  // No reputation numbers of any kind.
+  /\b\d(\.\d)?[\s-]?star\b/i, /\b\d{2,}\+?\s+(reviews?|customers?)\b/i,
+  /\bhighly[\s-]rated\b/i, /\bfive[\s-]star\b/i,
+
   /\bpet[- ]safe\b/i, /\bkid[- ]safe\b/i, /\bchild[- ]safe\b/i,
   /\bnon[- ]toxic\b/i, /\bchemical[- ]free\b/i, /\beco[- ]safe\b/i,
   /\bmosquito[- ]free\b/i, /\beliminate\s+mosquito/i,
+  /\bsame[\s-]day\b/i, /\bthere today\b/i, /\bavailable now\b/i,
   /\bbundle\s*&\s*save\b/i, /\d+%\s*off/i, /\bcoupon\b/i,
   /\bbed\s*bug/i, /\bwildlife\b/i, /\bhoneybee\b/i,
+  /\blawn\s+care\b/i,
   /\bfounded in 1958\b/i,
   /205[.\-\s)]*649[.\-\s]*5278/,     // dead Scorpion line
-];
+].filter((r) => r instanceof RegExp);
 
 function scan(text) {
   return BANNED.filter((re) => re.test(text)).map((re) => re.source);

@@ -184,3 +184,55 @@ Now review the attached image.
 3. Any FAIL → fix or swap, re-review. Never override.
 4. Both PASS → build the CSV → OneUp bulk upload → Submit.
 5. Log what shipped in `agents/knowledge/content-ledger.md` the same session.
+
+## Fabricated statistic — do not repeat (recorded 2026-08-09)
+
+`EnviroCare-Visual-Template-System-Jul31.md` §4 attributes **"2.13 clicks vs 0.38
+for stock"** to Sterling Sky. The article was fetched 2026-08-09 and **contains no
+such figures** — no click counts, no sample size. It reports qualitative case-study
+observations only.
+
+Same class as the retired `$32` price, the `$67`/`$127` tiers, and the
+`ADAI-WDO-100` form number: a number that entered a doc, got quoted forward, and
+was never re-verified. `agents/lib/compliance.mjs` bans uncited statistics for
+exactly this reason.
+
+**The mechanism still holds and is the part worth citing:** Google already has
+copies of common stock files indexed, so uploading one adds nothing new. That is a
+deduplication effect, not a penalty — and it is why stock is *invisible* rather
+than *harmful*.
+
+## Deleted 2026-08-09
+
+`truck-lifestyle.webp` and `technician-envirocare.webp` are gone from `public/`.
+They were unreferenced by any page but still returned **HTTP 200** — an orphaned
+file in `public/` is a published URL. Both showed a Chevrolet grille on a Ford
+Maverick body and a lowercase "Envirocare" wordmark.
+
+Enforced by `npm run test:imagery`. Recoverable from git history; do not restore.
+
+## truck.jpg — read the photo before editing it (2026-08-09)
+
+`public/truck.jpg` is a REAL photograph and a genuine asset. **Do not delete it**
+(unlike the two AI fakes above). It is currently unreferenced by any page but still
+returns HTTP 200.
+
+Two things visible in the frame, confirmed by opening it rather than by description:
+
+**1. The door reads "EnviroCare PEST SERVICES."** This independently corroborates the
+2026-08-09 naming ruling from a physical vehicle rather than a document — the published
+brand name is on the truck. See `docs/decisions/name.md`.
+
+**2. The four-icon strip reads Lawn · Pest · Termite · Mosquito.** The "Lawn" tile is on
+the ACTUAL WRAP, on four vehicles driving around Alabama.
+
+> ⚠️ **Patching "Lawn" out of the photograph does not make the trucks compliant.**
+> `data/compliance.ts` bans marketing lawn care, and `SERVICES_NOT_OFFERED` excludes it,
+> yet the fleet advertises it. This is an OPERATIONS question, not an image question, and
+> only Phillip can settle it:
+>   - if lawn care is NOT offered, the wraps carry a service claim the rules forbid, and
+>     the fix is vinyl, not Photoshop;
+>   - if it IS offered, `data/compliance.ts` is wrong and the rule should change.
+>
+> Editing the photo makes the marketing look consistent while the discrepancy stays on
+> the road. Record which way it goes; do not quietly keep patching the image.
