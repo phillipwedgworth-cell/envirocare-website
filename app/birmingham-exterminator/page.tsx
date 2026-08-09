@@ -62,7 +62,7 @@ const c: ComboContent = {
   faqs: [
     {
       q: "Do you do one-time exterminator visits in Birmingham?",
-      a: "Yes — a single visit with a licensed technician runs $70 and includes a 30-day guarantee with follow-up. Most customers convert it to the bi-monthly program afterward because it costs the same per visit and the problems stop coming back.",
+      a: "Yes — a single visit with a licensed technician runs $70 and includes a follow-up visit at no charge if pests return within 30 days. Most customers convert it to the bi-monthly program afterward because it costs the same per visit and the problems stop coming back.",
     },
     {
       q: "How fast can you get to my house?",

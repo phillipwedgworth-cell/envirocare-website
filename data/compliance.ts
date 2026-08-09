@@ -59,9 +59,27 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   //     QUOTATION WRONG. Never sweep inside a quotation of the rule.
   //  3. The re-service commitment is real; only its framing as a "guarantee" is the
   //     issue. Reword, do not delete the substance.
-  { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare[’']s)\\s+(own\\s+)?([$\\d,. ]*(million|000)?\\s*)?(damage\\s+repair\\s+)?guarantee\\b",
+  //  ── two gaps found 2026-08-09 by checking the guard against the pages it was
+  //     supposed to have caught. Both were real misses, not theory:
+  //     (a) HTML-ENTITY POSSESSIVE. /mountain-brook line 153 reads
+  //         "EnviroCare&apos;s guarantee of up to $1,000,000". The character class
+  //         [’'] matches the two literal apostrophes but NOT the entity, so the
+  //         claim sailed through. &apos; / &#39; / &#x27; / &rsquo; now all match.
+  //     (b) BARE DURATION. "a 30-day guarantee" (both exterminator pages) has no
+  //         possessive at all, so the claim-shape pattern skipped it entirely.
+  //         Covered by the second rule below.
+  //     (c) INTERVENING WORD. "our satisfaction guarantee" (live on /special-offers)
+  //         also slipped past: the old pattern only allowed digits/currency or the
+  //         literal "damage repair" between the possessive and the word. Now allows
+  //         up to three intervening words, which is what caught it.
+  { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare(?:[’']|&apos;|&#39;|&#x27;|&rsquo;)s)\\s+(own\\s+)?(?:[$\\w,.]+\\s+){0,3}guarantee\\b",
     reason: 'coverage asserted as a guarantee',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
+  // A duration attached to "guarantee" is a claim no matter whose it is:
+  // "a 30-day guarantee", "90 day guarantee", "12-month guarantee".
+  { pattern: "\\b\\d{1,3}[\\s-]?(day|days|month|months|year|years)\\s+guarantee\\b",
+    reason: 'time-bounded guarantee asserted as a claim',
+    approvedInstead: 'state the commitment without the word: e.g. "if pests return within 30 days we come back at no charge"' },
   // Dead Scorpion tracking number — must never appear.
   { pattern: '649[\\s-]?5278',        reason: 'dead tracking number', approvedInstead: 'the correct office line from data/offices.ts' },
   // GENERATION — company is FOURTH-generation; Kevin is the THIRD-generation OWNER.

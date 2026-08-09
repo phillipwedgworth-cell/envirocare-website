@@ -24,7 +24,8 @@ import CityHeroArt from "@/components/CityHeroArt";
  * pricing/office details (Birmingham metro) live here: $35 pest / Sentricon priced at inspection
  * / $45 mosquito / $65 Mosquito + Tick, office 2025 Butler Road Alabaster,
  * (205) 940-6360. No discount language, mosquito/tick hedged, Sentricon $1M =
- * EnviroCare's own guarantee.
+ * EnviroCare-backed damage repair coverage, subject to the terms of the agreement
+ * (never the word "guarantee").
  */
 
 const G = "#0A7935";

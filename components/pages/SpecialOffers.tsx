@@ -14,7 +14,7 @@ const OFFERS = [
     headline: "$50 OFF",
     subline: "Initial Pest Control",
     icon: "🐜",
-    description: "New customers get $50 off your first pest control treatment. Full perimeter protection, licensed technician, and our satisfaction guarantee — $50 less.",
+    description: "New customers get $50 off your first pest control treatment. Full perimeter protection, licensed technician, and unlimited free re-service between visits — $50 less.",
     terms: "Valid for new customers only. Applies to initial general pest control service. Must mention offer at time of booking.",
     cta: "Claim $50 Off",
     color: G,
