@@ -56,7 +56,7 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
         description: cfg.pestAngle,
         provider: {
           '@type': 'LocalBusiness',
-          name: 'EnviroCare Pest & Termite Services',
+          name: 'EnviroCare',
           address: { '@type': 'PostalAddress', streetAddress: office.street, addressLocality: officeCity, addressRegion: 'AL', postalCode: officeStateZip.split(' ').pop(), addressCountry: 'US' },
           telephone: `+1-${office.tel.slice(0,3)}-${office.tel.slice(3,6)}-${office.tel.slice(6)}`,
         },

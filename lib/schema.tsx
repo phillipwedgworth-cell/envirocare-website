@@ -17,7 +17,7 @@
 import React from 'react';
 
 // ─── Shared constants ────────────────────────────────────────────────────────
-const BRAND_NAME = 'EnviroCare Pest & Termite Services';
+const BRAND_NAME = 'EnviroCare';
 const BRAND_URL  = 'https://www.envirocarellc.com';
 const LOGO_URL   = 'https://www.envirocarellc.com/logo.png';
 const EMAIL      = 'service@envirocarellc.com';
@@ -74,7 +74,7 @@ export function getOrganizationSchema() {
     foundingDate: FOUNDING,
     founder: { '@type': 'Person', name: 'Phillip M. Wedgworth' },
     description:
-      'EnviroCare Pest & Termite Services is a fourth-generation, family-owned Alabama pest and termite control company doing pest control in Alabama since 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
+      'EnviroCare is a fourth-generation, family-owned Alabama pest and termite control company doing pest control in Alabama since 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
     areaServed: { '@type': 'State', name: 'Alabama' },
     contactPoint: {
       '@type': 'ContactPoint',

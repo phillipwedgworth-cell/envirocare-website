@@ -119,15 +119,15 @@ const OFFICE_NAP: Record<string, { lat: number; lng: number; gbp: string }> = {
 const OFFICE_SCHEMA: Record<string, { id: string; name: string }> = {
   'birmingham': {
     id: 'https://www.envirocarellc.com/#birmingham',
-    name: 'EnviroCare Pest & Termite Services — Birmingham',
+    name: 'EnviroCare — Birmingham',
   },
   'lake-martin': {
     id: 'https://www.envirocarellc.com/#lake-martin',
-    name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
+    name: 'EnviroCare — Alex City / Lake Martin',
   },
   'huntsville': {
     id: 'https://www.envirocarellc.com/#huntsville',
-    name: 'EnviroCare Pest & Termite Services — Huntsville',
+    name: 'EnviroCare — Huntsville',
   },
 };
 
@@ -147,7 +147,7 @@ function buildCitySchema(city: City) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': office ? office.id : `https://www.envirocarellc.com/${city.slug}`,
-    name: office ? office.name : `EnviroCare Pest & Termite Services — ${city.name}`,
+    name: office ? office.name : `EnviroCare — ${city.name}`,
     description: city.metaDescription,
     url: `https://www.envirocarellc.com/${city.slug}`,
     telephone: telFormatted,

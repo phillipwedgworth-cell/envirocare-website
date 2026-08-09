@@ -16,17 +16,17 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'What is the best pest control company in Huntsville, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services is a top-rated pest control company serving Huntsville and North Alabama, with a 5.0-star Google rating. EnviroCare is a fourth-generation, family-owned Alabama company doing pest control in Alabama since 1958 — over 65 years. Their Huntsville office is located at 7027 Old Madison Pike, Suite 108, and serves Huntsville, Madison, Hampton Cove, Athens, and surrounding communities. Call (256) 937-7676 to schedule.',
+      'EnviroCare is a top-rated pest control company serving Huntsville and North Alabama, with a 5.0-star Google rating. EnviroCare is a fourth-generation, family-owned Alabama company doing pest control in Alabama since 1958 — over 65 years. Their Huntsville office is located at 7027 Old Madison Pike, Suite 108, and serves Huntsville, Madison, Hampton Cove, Athens, and surrounding communities. Call (256) 937-7676 to schedule.',
   },
   {
-    question: 'Does EnviroCare Pest & Termite Services serve Huntsville, AL?',
+    question: 'Does EnviroCare serve Huntsville, AL?',
     answer:
       'Yes. EnviroCare has a dedicated Huntsville office at 7027 Old Madison Pike, Suite 108, Huntsville, AL 35806. They serve Huntsville, Madison, Hampton Cove, Athens, Harvest, Decatur, and surrounding North Alabama communities. Office hours are Monday–Friday, 8 AM–5 PM. Call (256) 937-7676.',
   },
   {
     question: 'How much does pest control cost in Huntsville, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services offers pest control in Huntsville starting at $35/month for bi-monthly service, which covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. Adding Sentricon® termite protection is priced at a free WDO inspection. Mosquito yard barrier treatments start at $45/visit and run March through November. No annual contracts required.',
+      'EnviroCare offers pest control in Huntsville starting at $35/month for bi-monthly service, which covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. Adding Sentricon® termite protection is priced at a free WDO inspection. Mosquito yard barrier treatments start at $45/visit and run March through November. No annual contracts required.',
   },
   {
     question: 'How do I get rid of mosquitoes in Huntsville, Alabama?',
@@ -46,12 +46,12 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'Is EnviroCare a local Huntsville pest control company or a national chain?',
     answer:
-      'EnviroCare Pest & Termite Services is a locally owned, family-operated Alabama company — not a national franchise. Founded in Alexander City, Alabama in 1958, the company is now run by the fourth generation of the Wedgworth family. Their Huntsville office at 7027 Old Madison Pike serves North Alabama independently. Unlike national chains, EnviroCare technicians are long-term local employees who know the specific pest pressures and conditions in the Huntsville area.',
+      'EnviroCare is a locally owned, family-operated Alabama company — not a national franchise. Founded in Alexander City, Alabama in 1958, the company is now run by the fourth generation of the Wedgworth family. Their Huntsville office at 7027 Old Madison Pike serves North Alabama independently. Unlike national chains, EnviroCare technicians are long-term local employees who know the specific pest pressures and conditions in the Huntsville area.',
   },
   {
     question: 'What pest control companies service Madison, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services serves Madison, Alabama from their Huntsville office at 7027 Old Madison Pike, Suite 108. They provide pest control, Sentricon termite protection, mosquito control, and tick and flea treatments throughout Madison and surrounding North Alabama communities. Call (256) 937-7676 for service in Madison.',
+      'EnviroCare serves Madison, Alabama from their Huntsville office at 7027 Old Madison Pike, Suite 108. They provide pest control, Sentricon termite protection, mosquito control, and tick and flea treatments throughout Madison and surrounding North Alabama communities. Call (256) 937-7676 for service in Madison.',
   },
 ];
 

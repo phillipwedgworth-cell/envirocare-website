@@ -58,7 +58,11 @@ const cases = [
   ["shall carry a guarantee that if an infestation is found within ninety (90) days", false, "statutory quotation"],
   ["up to $1,000,000 in damage repair coverage, subject to the terms of the agreement", false, "the approved phrasing"],
   // --- name ---
-  ["EnviroCare Pest & Termite Services", true, "retired name (warn)"],
+  // Built from parts on purpose: a literal here would be rewritten by any future
+  // sitewide rename sweep, silently turning this assertion into a tautology.
+  ["EnviroCare Pest" + " & Termite " + "Services", true, "retired name (warn)"],
+  ["EnviroCare", false, "the approved generic name must NOT flag"],
+  ["EnviroCare Pest Services", false, "the approved Birmingham name must NOT flag"],
 ];
 
 let pass = 0;

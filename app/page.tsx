@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    siteName: 'EnviroCare Pest & Termite Services',
-    title: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+    siteName: 'EnviroCare',
+    title: 'EnviroCare — Family-Owned Alabama Since 1958',
     description:
       'Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service. Four offices across Alabama.',
     images: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+        alt: 'EnviroCare — Family-Owned Alabama Since 1958',
       },
     ],
   },

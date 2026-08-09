@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | EnviroCare Pest & Termite Services",
+  title: "Terms of Service | EnviroCare",
   description:
-    "Terms of service for EnviroCare Pest & Termite Services. Covers pest control, Sentricon® termite, mosquito, and tick services. Alabama governing law.",
+    "Terms of service for EnviroCare. Covers pest control, Sentricon® termite, mosquito, and tick services. Alabama governing law.",
   alternates: { canonical: "/terms" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Terms of Service | EnviroCare Pest & Termite Services",
-    description: "Terms of service for EnviroCare Pest & Termite Services. Covers pest control, Sentricon® termite, mosquito, and tick services. Alabama governing law.",
+    title: "Terms of Service | EnviroCare",
+    description: "Terms of service for EnviroCare. Covers pest control, Sentricon® termite, mosquito, and tick services. Alabama governing law.",
     url: 'https://www.envirocarellc.com/terms',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Terms of Service | EnviroCare Pest & Termite Services",
-    description: "Terms of service for EnviroCare Pest & Termite Services. Covers pest control, Sentricon® termite, mosquito, and tick services. Alabama governing law.",
+    title: "Terms of Service | EnviroCare",
+    description: "Terms of service for EnviroCare. Covers pest control, Sentricon® termite, mosquito, and tick services. Alabama governing law.",
     images: ['/og-image.png'],
   },
 };

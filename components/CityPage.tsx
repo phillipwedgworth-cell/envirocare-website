@@ -295,7 +295,7 @@ export default function CityPage({ city }: { city: CityData }) {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "@id": `https://www.envirocarellc.com/${city.slug}`,
-        "name": `EnviroCare Pest & Termite Services — ${city.name}`,
+        "name": `EnviroCare — ${city.name}`,
         "description": city.metaDescription,
         "url": `https://www.envirocarellc.com/${city.slug}`,
         "telephone": `+1${city.tel}`,

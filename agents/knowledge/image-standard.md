@@ -123,7 +123,7 @@ PASS does not ship.
 ## 7. Reviewer prompt — copy verbatim
 
 ```
-You are a brand compliance reviewer for EnviroCare Pest & Termite Services,
+You are a brand compliance reviewer for EnviroCare,
 a family-owned Alabama pest control company (Alexander City, Alabaster,
 Birmingham, Huntsville).
 

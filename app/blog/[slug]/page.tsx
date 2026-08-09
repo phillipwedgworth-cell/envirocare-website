@@ -67,11 +67,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             author: {
               '@type': 'Person',
               name: post.author,
-              worksFor: { '@type': 'Organization', name: 'EnviroCare Pest & Termite Services' },
+              worksFor: { '@type': 'Organization', name: 'EnviroCare' },
             },
             publisher: {
               '@type': 'Organization',
-              name: 'EnviroCare Pest & Termite Services',
+              name: 'EnviroCare',
               url: SITE,
               logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` },
             },

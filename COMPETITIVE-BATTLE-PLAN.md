@@ -6,7 +6,7 @@
 
 ## Our Position
 
-**EnviroCare Pest & Termite Services** — family-owned since 1958, 3rd generation.
+**EnviroCare** — family-owned since 1958, 3rd generation.
 Three Alabama offices: Birmingham/Alabaster · Alexander City/Lake Martin · Huntsville.
 Tagline: *"No One Cares Like EnviroCare."*
 

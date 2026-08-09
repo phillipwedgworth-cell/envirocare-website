@@ -205,7 +205,7 @@ function Header() {
         <Link href="/" className="ec-brand" aria-label="EnviroCare home">
           <Image
             src="/logo.png"
-            alt="EnviroCare Pest & Termite Services"
+            alt="EnviroCare"
             width={280}
             height={72}
             className="ec-brand-logo"
@@ -779,7 +779,7 @@ function Heritage() {
               <span className="ec-photo-imgwrap">
                 <Image
                   src="/kevin.jpg"
-                  alt="Kevin Wedgworth, owner of EnviroCare Pest & Termite Services"
+                  alt="Kevin Wedgworth, owner of EnviroCare"
                   fill
                   sizes="(min-width: 1024px) 260px, 200px"
                   className="ec-photo-img"

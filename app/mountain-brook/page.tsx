@@ -48,7 +48,7 @@ const jsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": "https://www.envirocarellc.com/mountain-brook",
-      name: "EnviroCare Pest & Termite Services — Mountain Brook",
+      name: "EnviroCare — Mountain Brook",
       image: "https://www.envirocarellc.com/logo.png",
       url: "https://www.envirocarellc.com/mountain-brook",
       telephone: "+12059912882",

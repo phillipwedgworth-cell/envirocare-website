@@ -15,12 +15,12 @@ const ALEX_CITY_FAQS = [
   {
     question: 'What is the best pest control company in Alexander City, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services was founded in Alexander City, Alabama in 1958 — making it the original and longest-running pest control company in the area. Now in its fourth generation under the Wedgworth family, EnviroCare\'s Alexander City office at 1785 Tallapoosa St has served Tallapoosa County and the Lake Martin area for over 65 years. They hold a 4.8-star Google rating. Call (256) 234-6162.',
+      'EnviroCare was founded in Alexander City, Alabama in 1958 — making it the original and longest-running pest control company in the area. Now in its fourth generation under the Wedgworth family, EnviroCare\'s Alexander City office at 1785 Tallapoosa St has served Tallapoosa County and the Lake Martin area for over 65 years. They hold a 4.8-star Google rating. Call (256) 234-6162.',
   },
   {
     question: 'Does EnviroCare serve Lake Martin, Alabama?',
     answer:
-      'Yes. EnviroCare Pest & Termite Services serves the entire Lake Martin area from their Alexander City office at 1785 Tallapoosa St, including lakefront homes, boat docks, and communities around the lake such as Willow Point, The Ridge at Lake Martin, StillWaters, The Heritage, Dadeville, Jacksons Gap, and surrounding Tallapoosa County neighborhoods. Call (256) 234-6162.',
+      'Yes. EnviroCare serves the entire Lake Martin area from their Alexander City office at 1785 Tallapoosa St, including lakefront homes, boat docks, and communities around the lake such as Willow Point, The Ridge at Lake Martin, StillWaters, The Heritage, Dadeville, Jacksons Gap, and surrounding Tallapoosa County neighborhoods. Call (256) 234-6162.',
   },
   {
     question: 'How much does pest control cost in Alexander City, AL?',
@@ -45,12 +45,12 @@ const ALEX_CITY_FAQS = [
   {
     question: 'Is EnviroCare the original pest control company in Alexander City?',
     answer:
-      'Yes. EnviroCare Pest & Termite Services was founded in Alexander City, Alabama by Phillip M. Wedgworth in 1958. The Alexander City office at 1785 Tallapoosa St is the company\'s founding location. EnviroCare is now operated by the fourth generation of the Wedgworth family — Phillip, Kevin, and Lex — and serves the Lake Martin area, Tallapoosa County, and surrounding communities from the same location where the company started over 65 years ago.',
+      'Yes. EnviroCare was founded in Alexander City, Alabama by Phillip M. Wedgworth in 1958. The Alexander City office at 1785 Tallapoosa St is the company\'s founding location. EnviroCare is now operated by the fourth generation of the Wedgworth family — Phillip, Kevin, and Lex — and serves the Lake Martin area, Tallapoosa County, and surrounding communities from the same location where the company started over 65 years ago.',
   },
   {
     question: 'What pest control companies serve Dadeville and Tallapoosa County?',
     answer:
-      'EnviroCare Pest & Termite Services serves Dadeville, Eclectic, Jacksons Gap, and the broader Tallapoosa County area from their Alexander City office at 1785 Tallapoosa St. They provide pest control, Sentricon termite protection, and mosquito and tick treatments throughout the county. Call (256) 234-6162.',
+      'EnviroCare serves Dadeville, Eclectic, Jacksons Gap, and the broader Tallapoosa County area from their Alexander City office at 1785 Tallapoosa St. They provide pest control, Sentricon termite protection, and mosquito and tick treatments throughout the county. Call (256) 234-6162.',
   },
 ];
 

@@ -94,7 +94,7 @@ function buildJsonLd(c: DeepCityConfig) {
       {
         "@type": "LocalBusiness",
         "@id": `https://www.envirocarellc.com/${c.slug}`,
-        name: `EnviroCare Pest & Termite Services — ${c.name}`,
+        name: `EnviroCare — ${c.name}`,
         image: "https://www.envirocarellc.com/logo.png",
         url: `https://www.envirocarellc.com/${c.slug}`,
         telephone: `+1${c.officeTel ?? DEFAULT_TEL}`,

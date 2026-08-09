@@ -137,7 +137,7 @@ const jsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": "https://www.envirocarellc.com/indian-springs",
-      "name": "EnviroCare Pest & Termite Services — Indian Springs Village",
+      "name": "EnviroCare — Indian Springs Village",
       "url": "https://www.envirocarellc.com",
       "telephone": "+12059406360",
       "address": {
@@ -176,7 +176,7 @@ const jsonLd = {
       "serviceType": "Pest Control",
       "provider": {
         "@type": "LocalBusiness",
-        "name": "EnviroCare Pest & Termite Services",
+        "name": "EnviroCare",
         "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
       },
       "areaServed": {

@@ -71,16 +71,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.envirocarellc.com'),
   title: {
-    default: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+    default: 'EnviroCare — Family-Owned Alabama Since 1958',
     template: '%s',
   },
   description:
     'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M coverage, mosquito and tick yard treatment. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
   // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
   // it only signals "template site" to anything parsing the markup.
-  authors: [{ name: 'EnviroCare Pest & Termite Services LLC' }],
-  creator: 'EnviroCare Pest & Termite Services LLC',
-  publisher: 'EnviroCare Pest & Termite Services LLC',
+  authors: [{ name: 'EnviroCare, LLC' }],
+  creator: 'EnviroCare, LLC',
+  publisher: 'EnviroCare, LLC',
   formatDetection: { telephone: false, address: true, email: true },
   openGraph: {
     type: 'website',
@@ -88,8 +88,8 @@ export const metadata: Metadata = {
     // NOTE: no hard-coded `url` here — a root-level og:url is inherited by every
     // page that doesn't set its own, so og:url pointed at the homepage while each
     // page's canonical pointed at itself (Ahrefs: "OG URL not matching canonical").
-    siteName: 'EnviroCare Pest & Termite Services',
-    title: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+    siteName: 'EnviroCare',
+    title: 'EnviroCare — Family-Owned Alabama Since 1958',
     description:
       'Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service. Four offices across Alabama.',
     images: [
@@ -97,13 +97,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'EnviroCare Pest & Termite Services — Family-Owned Alabama Since 1958',
+        alt: 'EnviroCare — Family-Owned Alabama Since 1958',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EnviroCare Pest & Termite Services — Alabama Since 1958',
+    title: 'EnviroCare — Alabama Since 1958',
     description:
       'Family-owned bi-monthly pest control, Sentricon® termite protection with $1M coverage. Four Alabama offices.',
     images: ['/og-image.png'],
@@ -211,7 +211,7 @@ const LAKE_MARTIN_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://www.envirocarellc.com/#lake-martin',
-  name: 'EnviroCare Pest & Termite Services — Alex City / Lake Martin',
+  name: 'EnviroCare — Alex City / Lake Martin',
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
     'EnviroCare\'s original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.',
@@ -239,7 +239,7 @@ const HUNTSVILLE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://www.envirocarellc.com/#huntsville',
-  name: 'EnviroCare Pest & Termite Services — Huntsville',
+  name: 'EnviroCare — Huntsville',
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
     'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',

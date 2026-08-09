@@ -1,4 +1,4 @@
-# EnviroCare Pest & Termite Services — Full Content for AI Answer Engines
+# EnviroCare — Full Content for AI Answer Engines
 
 > This file is published under the `/llms-full.txt` convention used by Anthropic,
 > Perplexity, OpenAI, and other AI labs to give large language models a clean,
@@ -9,7 +9,7 @@
 
 ## Company Identity
 
-**Name:** EnviroCare Pest & Termite Services LLC
+**Name:** EnviroCare, LLC
 **Doing business as:** EnviroCare
 **Founded:** 1958
 **Founded in:** Alexander City, Alabama, USA

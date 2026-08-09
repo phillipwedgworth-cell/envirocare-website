@@ -138,7 +138,7 @@ const jsonLd = {
     {
       "@type": "LocalBusiness",
       "@id": "https://www.envirocarellc.com/liberty-park",
-      "name": "EnviroCare Pest & Termite Services — Liberty Park",
+      "name": "EnviroCare — Liberty Park",
       "url": "https://www.envirocarellc.com",
       "telephone": "+12059912882",
       "address": {
@@ -177,7 +177,7 @@ const jsonLd = {
       "serviceType": "Pest Control",
       "provider": {
         "@type": "LocalBusiness",
-        "name": "EnviroCare Pest & Termite Services",
+        "name": "EnviroCare",
         "address": { "@type": "PostalAddress", "streetAddress": "2120 16th Ave S, Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
       },
       "areaServed": {

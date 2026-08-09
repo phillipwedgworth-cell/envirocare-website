@@ -145,7 +145,7 @@ export default function Header() {
         <div className="sh-inner">
           {/* BRAND: sunflower logo + 1958 microline */}
           <Link href="/" className="sh-brand" aria-label="EnviroCare — home">
-            <Image src="/logo.png" alt="EnviroCare Pest & Termite Services" width={260} height={68} className="sh-logo" priority />
+            <Image src="/logo.png" alt="EnviroCare" width={260} height={68} className="sh-logo" priority />
             <span className="sh-tagline">Family-Owned <span className="sh-tagline-dot">·</span> Since 1958</span>
           </Link>
 

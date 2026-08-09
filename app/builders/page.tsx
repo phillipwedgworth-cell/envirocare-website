@@ -45,7 +45,7 @@ const schema = {
       audience: { '@type': 'BusinessAudience', name: 'Home builders and general contractors' },
       provider: {
         '@type': 'LocalBusiness',
-        name: 'EnviroCare Pest & Termite Services',
+        name: 'EnviroCare',
         telephone: '+1-205-940-6360',
         url: SITE,
         address: {

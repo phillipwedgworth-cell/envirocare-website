@@ -36,7 +36,7 @@ export default function NotFound() {
 
       <nav>
         <div className="nav-inner">
-          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare Pest & Termite Services" /></div>
+          <div className="logo-wrap"><img id="ec-logo" src="/logo.png" alt="EnviroCare" /></div>
           <ul className="nav-links">
             <li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about-us">Why EnviroCare</a></li><li><a href="/contact-us">Contact</a></li>
           </ul>
@@ -77,7 +77,7 @@ export default function NotFound() {
 
       <footer id="contact">
         <div className="footer-grid">
-          <div><div className="footer-brand"><strong>EnviroCare Pest & Termite Services</strong>Family-owned since 1958.<br /><br />
+          <div><div className="footer-brand"><strong>EnviroCare</strong>Family-owned since 1958.<br /><br />
           <a href="tel:2059406360" className="footer-phone" style={{fontSize:'1.05rem',fontWeight:700,display:'inline-flex',alignItems:'center',gap:8}}><PestIcon name="phone" size={16} /> (205) 940-6360</a></div></div>
           <div><div className="footer-head">Services</div><ul className="footer-links">
             <li><a href="/services/pest-control">Pest Control</a></li><li><a href="/services/termite-control">Termite Control</a></li><li><a href="/services/mosquito">Mosquito Control</a></li><li><a href="/services/tick-control">Tick Control</a></li>
@@ -90,7 +90,7 @@ export default function NotFound() {
           </ul></div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 EnviroCare Pest & Termite Services LLC. Licensed in Alabama.</span>
+          <span>© 2026 EnviroCare, LLC. Licensed in Alabama.</span>
           <div style={{display:'flex',gap:'1.5rem'}}><a href="/sitemap.xml">Sitemap</a></div>
         </div>
       </footer>

@@ -14,7 +14,7 @@
  */
 
 export const BUSINESS = {
-  legalName: 'EnviroCare Pest & Termite Services',
+  legalName: 'EnviroCare',
   displayName: 'EnviroCare',
   foundedYear: 1958,
   originalName: 'Wedgworth Pest Control',

@@ -20,7 +20,7 @@ const ALABASTER_FAQS = [
   {
     question: 'What is the best pest control company in Alabaster, Alabama?',
     answer:
-      'EnviroCare Pest & Termite Services is a top-rated, locally owned pest control company serving Alabaster and the Birmingham metro from its main Birmingham-area office at 2025 Butler Rd. EnviroCare carries a strong 4.7-star Google rating from Alabaster and Birmingham-area homeowners. The company is family-owned by the Wedgworth family and has protected Alabama homes since 1958. Call (205) 940-6360.',
+      'EnviroCare is a top-rated, locally owned pest control company serving Alabaster and the Birmingham metro from its main Birmingham-area office at 2025 Butler Rd. EnviroCare carries a strong 4.7-star Google rating from Alabaster and Birmingham-area homeowners. The company is family-owned by the Wedgworth family and has protected Alabama homes since 1958. Call (205) 940-6360.',
   },
   {
     question: 'What areas does EnviroCare serve in the Birmingham metro?',

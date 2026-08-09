@@ -26,7 +26,7 @@ const ABOUT_PAGE_SCHEMA = {
   url: 'https://www.envirocarellc.com/about-us',
   name: 'About EnviroCare — Family-Owned Alabama Pest Control Since 1958',
   description:
-    "The story of EnviroCare Pest & Termite Services — family-owned in Alabama since 1958, when it began in Alexander City as Wedgworth Pest Control, now four generations of the Wedgworth family across Birmingham, Huntsville, and Lake Martin.",
+    "The story of EnviroCare — family-owned in Alabama since 1958, when it began in Alexander City as Wedgworth Pest Control, now four generations of the Wedgworth family across Birmingham, Huntsville, and Lake Martin.",
   inLanguage: 'en-US',
   isPartOf: { '@id': 'https://www.envirocarellc.com/#website' },
   about: { '@id': 'https://www.envirocarellc.com/#organization' },
@@ -56,7 +56,7 @@ const ABOUT_FAQ_SCHEMA = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Who owns EnviroCare Pest & Termite Services?',
+      name: 'Who owns EnviroCare?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'EnviroCare is owned and operated by the Wedgworth family. Founded in 1958 in Alexander City as Wedgworth Pest Control, it is run today by Kevin Wedgworth, with the fourth generation of the family — William Lex Wedgworth — now working in the business. Four generations of Wedgworths in all.',

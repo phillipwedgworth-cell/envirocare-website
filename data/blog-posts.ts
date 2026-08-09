@@ -1228,7 +1228,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Pests',
     readMinutes: 4,
     heroEmoji: '🐟',
-    metaTitle: 'Silverfish Control in Alabama | EnviroCare Pest & Termite Services',
+    metaTitle: 'Silverfish Control in Alabama | EnviroCare',
     metaDescription: 'Silverfish thrive in Alabama humidity and damage books, clothing, and wallpaper. They hide in attics and bathroom walls. Treatment from EnviroCare.',
     body: `
 <p class="lede">Silverfish thrive in Alabama humidity and are one of the most common household pests we treat — and one of the most overlooked. These fast-moving silver insects damage books, wallpaper, clothing, and stored documents while hiding in walls and attics where they're rarely seen until populations are large.</p>

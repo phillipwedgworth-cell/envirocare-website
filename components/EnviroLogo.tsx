@@ -112,7 +112,7 @@ export default function EnviroLogo({
   const img = (
     <Image
       src={SRC_BY_COLOR[colorMode]}
-      alt="EnviroCare Pest & Termite Services"
+      alt="EnviroCare"
       width={800}
       height={240}
       sizes={VARIANT_SIZES[variant]}
