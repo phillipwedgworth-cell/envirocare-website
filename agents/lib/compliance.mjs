@@ -52,7 +52,13 @@ VOICE & FACTS
   when the FAMILY started, as Wedgworth Pest Control. BBB publishes both dates, so
   "founded in 1958" is a visible contradiction. Say the family has been doing pest
   control in Alabama since 1958.
-- Company name is "EnviroCare Pest & Termite Services". Never "EnviroCare LLC", never "EnviroCare Pest Control".
+- NAME (decided 2026-08-09): "EnviroCare Pest & Termite Services" is RETIRED — it is on no
+  sign, plate or letterhead. Do NOT introduce it. Never "EnviroCare LLC", never "EnviroCare
+  Pest Control". Names are PER LOCATION and must match that location's door sign:
+    Alexander City, Alabaster, Huntsville -> "EnviroCare"
+    Birmingham                            -> "EnviroCare Pest Services"
+  Do not add words to a verified Google listing name — that is a name change and can
+  trigger re-review. In generic prose where no location is implied, use "EnviroCare".
 - Alabama-based, serving Central & North Alabama. Exterior-first approach.
 - Never mention any individual employee by name. Never name a competitor.
 - Offices/phones (four as of 2026-08-05): Birmingham (205) 991-2882 — Jefferson County and
