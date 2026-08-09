@@ -31,10 +31,20 @@ const DRAFTED_LEDGER_KEY = "review-responder:drafted-keys";
 const LEDGER_CAP = 500;
 const REVIEW_STATION_PAGE_ID = "37b202ee-7a71-813f-a3f8-e3e5807bd7bb";
 
+// BrightLocal validates report_id as an INTEGER. These were quoted strings, and
+// every find_rm_reviews call failed schema validation from 2026-07-27 onward:
+//   find_rm_reviews: validating /properties/report_id:
+//       type: 630345 has type "string", want "integer"
+// The failure was silent to any human -- it surfaced only in Vercel runtime
+// errors, which nothing was watching. No review was auto-replied to for two
+// weeks. Sibling calls in agents/brightlocal.mjs were fixed 2026-08-04; this
+// one was missed because it lives in a different file.
+// Integers here AND Number() at the call site, so re-adding quotes cannot
+// silently break it again.
 const RM_REPORTS = [
-  { name: "Alabaster", report_id: "630345" },
-  { name: "Huntsville", report_id: "630846" },
-  { name: "Alex City", report_id: "631866" },
+  { name: "Alabaster", report_id: 630345 },
+  { name: "Huntsville", report_id: 630846 },
+  { name: "Alex City", report_id: 631866 },
 ];
 
 // Phillip's direct line offered on negative reviews. Using the main office
@@ -76,7 +86,7 @@ async function fetchRecentReviews() {
   for (const loc of RM_REPORTS) {
     try {
       const data = await blMcpCall("find_rm_reviews", {
-        report_id: loc.report_id,
+        report_id: Number(loc.report_id),
         from_date: fromDate,
         sort_date: "desc",
         num_per_page: 50,

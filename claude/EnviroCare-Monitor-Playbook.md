@@ -130,7 +130,26 @@ The second project, `phillip-personal`, is **INACTIVE** — ignore it unless it 
 **Flag only NEW advisories, and only WARN or ERROR level.** The 42 existing
 `rls_enabled_no_policy` INFO notices are known — see §5. Do not re-report them weekly.
 
-### 5 · Site health
+### 5 · Vercel runtime errors — ADDED 2026-08-09
+
+```
+get_runtime_errors(projectId="prj_bD63HstQIuOMn5cEGDK4RAW7yM2F",
+                   teamId="team_e56vlWMynAPn6B3dI83AzgAD",
+                   since="7d")
+```
+
+**This surface was watched by nothing, and it is where the agent fleet reports that
+it is broken.** A month of daily failures produced no signal anywhere a human looked —
+including the review responder failing on all three locations from Jul 27, which is the
+single named lever for Huntsville.
+
+**Flag any group whose `last` timestamp falls inside the window.**
+**Baseline 2026-08-09: 9 groups.** Note that 3 of the 4 underlying bugs were already
+fixed in code by the time the errors were read — an error group's presence in a 7-day
+window does **not** mean the bug is still live. **Check the code before reporting a
+bug as open**, and compare the group's `last` timestamp against when the fix shipped.
+
+### 6 · Site health
 
 Fetch `https://www.envirocarellc.com/` and confirm:
 - 200, and the title matches the current brand name
