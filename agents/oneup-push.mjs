@@ -84,7 +84,7 @@ const BANNED = [
   /\b\d{1,3}[\s-]?(day|days|month|months|year|years)\s+guarantee\b/i,
 
   // Retired company name, in every encoding it has actually appeared in.
-  /EnviroCare Pest (&|&amp;) Termite( Services)?/i,
+  /EnviroCare Pest (&|&amp;|and) Termite( Services)?/i,   // 'and' spelled out: seen in generated copy 2026-08-09
   /\bEnviroCare\s+LLC\b/i,          // must carry the comma: "EnviroCare, LLC"
   /EnviroCare[^.]{0,20}\bLawn\b/i,  // no name containing "Lawn"
 

@@ -170,7 +170,11 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   //   3. truncated           "EnviroCare Pest & Termite" (no "Services") -- /pricing,
   //      /what-pest-problem and /service-areas/madison page titles.
   // "Services" is optional in the pattern for exactly that reason.
-  { pattern: 'EnviroCare Pest (&|&amp;) Termite( Services)?', severity: 'warn',
+  //   4. spelled out   'EnviroCare Pest and Termite Services'  <- generated copy
+  //      used this on 2026-08-09, four times per page plus the title, across five
+  //      city drafts. An ampersand-only pattern misses it entirely. This is the
+  //      FOURTH encoding of one name; assume a fifth exists and match loosely.
+  { pattern: 'EnviroCare Pest (&|&amp;|and) Termite( Services)?', severity: 'warn',
     reason: 'retired name — appears on no sign, plate or letterhead',
     approvedInstead: 'per-location: "EnviroCare" (Alexander City, Alabaster, Huntsville), "EnviroCare Pest Services" (Birmingham)' },
 ];
