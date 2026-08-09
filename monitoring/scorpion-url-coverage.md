@@ -1,3 +1,27 @@
+> # ⛔ SUPERSEDED — 2026-08-09. DO NOT ACT ON THE GAPS BELOW.
+>
+> This was a **pre-DNS-flip** audit. The flip has happened and the gaps it lists were
+> either closed or **left open on purpose**. Acting on it now breaks working behaviour.
+>
+> **Verified live 2026-08-09** — nine legacy URLs tested, **zero 404s**. Legacy blog
+> posts are topic-matched to the best live post by `middleware.ts`, not dumped on
+> `/blog`. 96 redirect rules are live.
+>
+> Three specific traps in the list below:
+>
+> 1. **`/reviews` and `/special-offers` are listed as gaps. They must NOT be
+>    redirected.** Both are real, ranking, converting pages returning 200.
+>    `next.config.ts` carries explicit `NOTE:` comments saying so.
+> 2. **Do not re-add blanket `/blog/{2022..2026}/:path*` config redirects.** They were
+>    removed deliberately — a config redirect shadows `middleware.ts` before it runs,
+>    which would silently disable the topic-matching and send ~80 URLs to the index.
+> 3. **Legacy URLs with a trailing slash take 2 hops**, not 1 — the slash is stripped
+>    first, then the real redirect fires. Scorpion built every URL with a trailing
+>    slash, so real inbound backlinks land on 2-hop chains. Equity still passes; this
+>    is recorded because it is easy to mistake for a misconfiguration and "fix".
+>
+> Kept for history only. See `claude/EnviroCare-AI-SEO-Report-Verification-Aug9.md`.
+
 # Scorpion URL Coverage Map
 Generated: 2026-06-10 | Pre-DNS-flip SEO protection audit
 
