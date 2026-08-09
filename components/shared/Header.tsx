@@ -37,15 +37,65 @@ function openScout(message?: string) {
 }
 
 const MENU_LINKS: [string, string][] = [
-  ["Services", "/services"],
   ["What's Bugging You?", "/what-pest-problem"],
-  ["Service Areas", "/service-areas"],
   ["Pest Library", "/pest-library"],
   ["Pest Tips & Blog", "/blog"],
   ["Pricing", "/pricing"],
   ["About", "/about-us"],
   ["Reviews", "/reviews"],
   ["Contact", "/contact-us"],
+];
+
+// ─── Services + Locations submenus (added 2026-08-09) ────────────────────────
+// The nav previously exposed only the two HUB pages, /services and
+// /service-areas. Individual service and city pages were reachable from body
+// copy and the sitemap but from no navigation anywhere — which is the "37% of
+// service pages linked from the homepage, 2% in main nav" finding.
+//
+// Built with native <details>/<summary> on purpose, NOT a hover mega-menu:
+//   - the links sit in the server HTML unconditionally, so crawlers see every
+//     one without running JS (the panel is CSS-toggled, never conditionally
+//     rendered — verified against the live page before changing anything)
+//   - <summary> is focusable and toggles on Enter/Space with no keyboard code
+//     of our own, and no aria-expanded to keep in sync
+//   - it degrades to plain open/closed with JS disabled
+//   - tap-to-open works on touch; a hover menu strands mobile users
+//
+// EVERY href below was checked against an existing app/<slug>/page.tsx.
+// 'madison' is deliberately ABSENT: data/cities.ts defines it but there is no
+// app/madison route, so linking it would manufacture a 404 in the nav. Madison
+// traffic has /madison-termite-control instead.
+const SERVICE_LINKS: [string, string][] = [
+  ["Pest Control", "/services/pest-control"],
+  ["Termite Control", "/services/termite-control"],
+  ["Sentricon® Baiting", "/services/sentricon"],
+  ["Mosquito Control", "/services/mosquito"],
+  ["Tick Control", "/services/tick-control"],
+  ["Fire Ant Control", "/services/fire-ant"],
+  ["Flea Treatment", "/services/flea"],
+  ["Interior Pest Control", "/services/interior-pest-control"],
+  ["WDO Letters", "/services/wdo-letters"],
+  ["Commercial", "/services/commercial"],
+];
+
+// Grouped by the office that actually services them, matching data/cities.ts.
+const LOCATION_GROUPS: { office: string; cities: [string, string][] }[] = [
+  { office: "Birmingham", cities: [
+    ["Birmingham", "/birmingham"], ["Homewood", "/homewood"], ["Mountain Brook", "/mountain-brook"],
+    ["Vestavia Hills", "/vestavia-hills"], ["Hoover", "/hoover"], ["Chelsea", "/chelsea"],
+    ["Trussville", "/trussville"], ["Greystone", "/greystone"], ["Mt Laurel", "/mt-laurel"],
+  ]},
+  { office: "Alabaster", cities: [
+    ["Alabaster", "/alabaster"], ["Pelham", "/pelham"], ["Helena", "/helena"], ["Calera", "/calera"],
+  ]},
+  { office: "Huntsville", cities: [
+    ["Huntsville", "/huntsville"], ["Athens", "/athens"], ["Decatur", "/decatur"],
+    ["Hartselle", "/hartselle"], ["Harvest", "/harvest"], ["Hampton Cove", "/hampton-cove"],
+  ]},
+  { office: "Lake Martin", cities: [
+    ["Lake Martin", "/lake-martin"], ["Alexander City", "/alexander-city"], ["Dadeville", "/dadeville"],
+    ["Eclectic", "/eclectic"], ["Auburn", "/auburn"], ["Opelika", "/opelika"],
+  ]},
 ];
 
 export default function Header() {
@@ -129,6 +179,32 @@ export default function Header() {
             <button type="button" className="sh-panel-close" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
           </div>
           <div className="sh-panel-links">
+            <details className="sh-group">
+              <summary className="sh-group-sum">Services</summary>
+              <div className="sh-group-body">
+                <Link href="/services" className="sh-sub sh-sub-all" onClick={() => setMenuOpen(false)}>All Services →</Link>
+                {SERVICE_LINKS.map(([label, href]) => (
+                  <Link key={href} href={href} className="sh-sub" onClick={() => setMenuOpen(false)}>{label}</Link>
+                ))}
+              </div>
+            </details>
+
+            <details className="sh-group">
+              <summary className="sh-group-sum">Service Areas</summary>
+              <div className="sh-group-body">
+                <Link href="/service-areas" className="sh-sub sh-sub-all" onClick={() => setMenuOpen(false)}>All Service Areas →</Link>
+                <Link href="/find-office" className="sh-sub sh-sub-all" onClick={() => setMenuOpen(false)}>Find My Office →</Link>
+                {LOCATION_GROUPS.map((g) => (
+                  <div key={g.office} className="sh-loc-group">
+                    <span className="sh-loc-office">{g.office}</span>
+                    {g.cities.map(([label, href]) => (
+                      <Link key={href} href={href} className="sh-sub" onClick={() => setMenuOpen(false)}>{label}</Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </details>
+
             {MENU_LINKS.map(([label, href]) => (
               <Link key={href} href={href} className="sh-panel-link" onClick={() => setMenuOpen(false)}>{label}</Link>
             ))}
@@ -240,6 +316,57 @@ const SH_CSS = `
   }
   .sh-panel-link:hover { color: #0A7935; padding-left: 8px; }
   .sh-panel-link:hover::after { content: ""; position: absolute; left: 0; bottom: 8px; width: 22px; height: 3px; background: #F5A800; border-radius: 2px; }
+
+  /* ── Services / Service Areas submenus ──────────────────────────────────
+     <summary> is styled to match .sh-panel-link exactly so the collapsed menu
+     reads as one consistent list. The default disclosure triangle is removed
+     (::-webkit-details-marker for Safari, list-style for everyone else) and
+     replaced with a chevron that rotates on open. Keyboard focus is left
+     VISIBLE on purpose -- <summary> is the only focusable control here and
+     removing its outline would make the menu unusable by keyboard. */
+  .sh-group { border-bottom: 1px solid rgba(14,26,15,0.06); }
+  .sh-group-sum {
+    font-family: var(--font-serif), Georgia, serif; font-size: 22px; font-weight: 700; color: #0E1A0F;
+    padding: 12px 2px; cursor: pointer; list-style: none; position: relative;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: color 0.15s;
+  }
+  .sh-group-sum::-webkit-details-marker { display: none; }
+  .sh-group-sum::after {
+    content: ""; width: 9px; height: 9px; margin-right: 6px; flex: none;
+    border-right: 2.5px solid #0A7935; border-bottom: 2.5px solid #0A7935;
+    transform: rotate(45deg) translateY(-2px); transition: transform 0.2s;
+  }
+  .sh-group[open] > .sh-group-sum { color: #0A7935; }
+  .sh-group[open] > .sh-group-sum::after { transform: rotate(-135deg) translateY(-2px); }
+  .sh-group-sum:hover { color: #0A7935; }
+  .sh-group-sum:focus-visible { outline: 3px solid #F5A800; outline-offset: 2px; border-radius: 4px; }
+
+  .sh-group-body { display: flex; flex-direction: column; padding: 2px 0 12px 2px; }
+  .sh-sub {
+    font-family: var(--font-sans), system-ui, sans-serif; font-size: 15.5px; font-weight: 600;
+    color: #33402F; text-decoration: none; padding: 9px 4px 9px 14px;
+    border-left: 2px solid rgba(10,121,53,0.18); transition: color 0.15s, border-color 0.15s, padding-left 0.15s;
+  }
+  .sh-sub:hover, .sh-sub:focus-visible { color: #0A7935; border-left-color: #F5A800; padding-left: 18px; }
+  .sh-sub:focus-visible { outline: 2px solid #F5A800; outline-offset: -2px; border-radius: 3px; }
+  .sh-sub-all { font-weight: 800; color: #0A7935; border-left-color: #F5A800; }
+
+  .sh-loc-group { display: flex; flex-direction: column; margin-top: 10px; }
+  .sh-loc-office {
+    font-family: var(--font-sans), system-ui, sans-serif; font-size: 11.5px; font-weight: 800;
+    letter-spacing: 0.09em; text-transform: uppercase; color: #8A9487; padding: 4px 0 3px 14px;
+  }
+
+  /* Long lists must not trap the user at the bottom of a phone screen. The panel
+     itself scrolls; this just keeps the open group from running past the fold
+     without a scroll affordance. */
+  @media (max-height: 720px) {
+    .sh-group-body { max-height: 46vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sh-group-sum, .sh-group-sum::after, .sh-sub { transition: none; }
+  }
   .sh-panel-login {
     margin-top: 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     padding: 13px 18px; border-radius: 999px; background: #0A7935; color: #fff !important;
