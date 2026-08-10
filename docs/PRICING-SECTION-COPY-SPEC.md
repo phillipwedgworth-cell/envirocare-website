@@ -1,3 +1,20 @@
+> # SUPERSEDED — 2026-08-10. DO NOT IMPLEMENT THESE PRICES.
+>
+> This is the **Jun 11 2026** spec. Its `$67/mo` Pest + Termite tier was superseded and
+> is **not** the live price. The declared single source of truth is **`data/pricing.ts`**,
+> which reads **$35 / $69 / ~$100** with $79 / $79 / $229 startup — matching live
+> `/pricing`, verified 2026-08-10 ($35 x14, $69 x2, $79 x12, $229 x6; no $67 anywhere).
+>
+> **This file is why that number keeps coming back.** It has been re-asserted as the approved
+> tier at least three times since Aug 6, and on 2026-08-09 nearly reached five published
+> city pages as a "correction" to copy that was already right. The number was never
+> invented — it was *stale*, and nobody marked the doc that carried it.
+>
+> (`$127`, which travels with it, appears nowhere at all — not here, not in
+> `data/pricing.ts`, not on the live site.)
+>
+> Kept for history. Read `data/pricing.ts` for prices.
+
 # Pricing Section Copy Spec — "Per Service ⇄ Monthly" Toggle
 *Claude's panel vote, Jun 11 2026. Apply to the live pricing section (homepage + /quote). Pull real component from GitHub first — do not edit stale mockups.*
 

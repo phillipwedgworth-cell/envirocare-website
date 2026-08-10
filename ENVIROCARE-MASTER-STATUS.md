@@ -34,7 +34,7 @@ The company is **fourth-generation** (founded 1958). **Kevin Wedgworth is the th
 ## WHAT'S LIVE
 
 - **Hero**: "Four Generations Strong" headline + one-tech-one-invoice sub, clutter stripped per panel spec (no stat boxes/floating cards/pest strip/orbs)
-- **Pricing section (Jun 11 spec)**: 4 plan cards in both toggle states — Essential $35/mo ($70/visit · $108 quarterly · $150/$99 initial), Foundation $67/mo ($325 install incl yr-1 + $380/yr renewal per-service), **Outdoor Pro $49/mo** (= $65 × 9 treatments billed evenly · mosquito + tick + chigger · NO flea · $0 initial), **Complete $116/mo** (printed math $35+$32+$49). Initial-fee trust strip (competitor-neutral variant).
+- **Pricing section (Jun 11 spec — SUPERSEDED, see docs/PRICING-SECTION-COPY-SPEC.md; prices come from data/pricing.ts)**: 4 plan cards in both toggle states — Essential $35/mo ($70/visit · $108 quarterly · $150/$99 initial), Foundation $67/mo ($325 install incl yr-1 + $380/yr renewal per-service), **Outdoor Pro $49/mo** (= $65 × 9 treatments billed evenly · mosquito + tick + chigger · NO flea · $0 initial), **Complete $116/mo** (printed math $35+$32+$49). Initial-fee trust strip (competitor-neutral variant).
 - **Brand system locked in code**: `lib/brand.ts` tokens · BrandBand identifier on every interior page (via shared Header) · shared Footer · Playfair/DM Sans · the real full logo (old `public/logo.png` was a cropped file — replaced Jun 10, original archived)
 - 31 city pages (Pelham/Alabaster/Helena/Decatur/Athens/Madison/Huntsville all DEEP) + 15 Lake Martin neighborhood pages with waterfront language (dock-pier-boathouse line)
 - **6 city×service combo pages**: birmingham/huntsville × mosquito-control/termite-control/exterminator
@@ -116,7 +116,7 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 - Mosquito alone: $45/mo, 9 treatments Mar–Nov, 30-day cycle.
 - Interior + exterior quarterly plan: $98/quarter. Flea = +$30/quarter add-on REQUIRING it ($128/quarter). Page: /services/interior-pest-control.
 - Sentricon: $32/mo OR $325 install (includes year-1 guarantee) + $380/yr renewal. Up to $1M coverage.
-- Plans: Essential $35 · Foundation $67 · Outdoor Pro $49 · **Complete $116** (= 35+32+49, zero markup). $127 and $60-Outdoor are RETIRED numbers — never reintroduce.
+- ~~Plans: Essential $35 · Foundation $67 · Outdoor Pro $49 · **Complete $116**~~ **SUPERSEDED — these are Jun-11 spec numbers, not live prices. data/pricing.ts reads $35 / $69 / ~$100. Do not implement.** Original for history:
 
 ## DO NOT
 
