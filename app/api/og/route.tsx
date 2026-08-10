@@ -89,7 +89,13 @@ export async function GET(request: NextRequest) {
               fontFamily: "Arial, Helvetica, sans-serif",
             }}
           >
-            Pest &amp; Termite Services
+            {/* Reads as "ENVIROCARE Pest Services" with the line above -- the
+                published brand name (docs/decisions/name.md). This string is
+                rendered INTO the social share image, so it is the brand name on
+                every Facebook, LinkedIn and X preview of every page. It said
+                "Pest & Termite Services" until 2026-08-10: an image, so no text
+                sweep could ever have found it. */}
+            Pest Services
           </div>
         </div>
 
