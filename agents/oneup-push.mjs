@@ -78,6 +78,18 @@ const BANNED = [
   /(coverage|repair|warrant\w*)[^.]{0,40}\b(from|by|backed by|through)\s+(corteva|the\s+manufacturer|sentricon)/i,
   /\b(corteva|manufacturer)(['’]s)?\s+(guarantee|warranty|coverage)\b/i,
 
+  // A BARE $1,000,000 coverage claim -- correct attribution, missing qualifier.
+  // The site states it 91 times and attaches ", subject to the terms of the
+  // agreement" every time. Four GBP posts scheduled 2026-08-10/13 stated the figure
+  // with no qualifier at all, and the previous version of this gate passed them:
+  // it only checked WHO the coverage came from, never whether it was qualified.
+  //
+  // Tempered token -- matches a sentence containing the figure UNLESS that same
+  // sentence also contains "subject to the terms". Sentence-scoped on purpose, so a
+  // qualifier three sentences away does not launder an unqualified claim.
+  /(?:^|[.!?]\s)(?:(?!subject to the terms)[^.!?])*\$\s?1[,.]?000[,.]?000(?:(?!subject to the terms)[^.!?])*(?=[.!?]|$)/i,
+  /(?:^|[.!?]\s)(?:(?!subject to the terms)[^.!?])*\$\s?1\s?(million|M)\b(?:(?!subject to the terms)[^.!?])*(?=[.!?]|$)/i,
+
   // "guarantee" as a claim. Negated hedges ("we never guarantee elimination") are
   // legitimate and must still pass, hence the lookbehind.
   /(?<!\b(?:never|not|don['’]t|doesn['’]t|cannot|can['’]t|no)\s)\b(our|your|its|EnviroCare(?:['’]|&apos;|&#39;)s)\s+(own\s+)?(?:[$\w,.]+\s+){0,3}guarantee\b/i,

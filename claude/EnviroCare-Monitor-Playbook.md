@@ -31,7 +31,7 @@ A weekly note that is usually three lines gets read. A complete status dump does
 | **Local Falcon** | ✅ full read + write | Campaign results, credits, Falcon Guard, new platforms, KB articles |
 | **BrightLocal** | ⚠️ partial | Locations, NAP change alerts, CB/LSG credits. **`get_brain_recommendations` returns INVALID_API_KEY** — that endpoint is gated by plan, the key itself is fine |
 | **Supabase** | ✅ full read | Security + performance advisors, logs, migrations, table state |
-| **OneUp** | ❌ **no connector exists** | Searched the registry Aug 9 — nothing. Monitor manually or via browser |
+| **OneUp** | ⚠️ **session-dependent** | A working MCP connector EXISTS and served a full audit on 2026-08-10 (`list-categories-tool`, `get-scheduled-posts-tool`, `edit-post-tool`, and more). It is **not present in every session** — the Claude Code session searched the registry on Aug 9 and Aug 10 and found nothing, which is what produced the original "no connector" note. **Check your own tool list before concluding it is unavailable.** It exposes accounts, categories and posts only; timeslots, Canva link, Media Gallery and Best Time to Post remain UI-only |
 | **Ahrefs** | ❌ dead | Every endpoint returns `Insufficient plan`, including free ones. Do not retry |
 
 ---
