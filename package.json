@@ -11,7 +11,8 @@
     "test:compliance": "node scripts/test-compliance-guarantee.mjs",
     "test:imagery": "node scripts/test-no-ai-imagery.mjs",
     "audit:fleet": "node scripts/audit-agent-fleet.mjs",
-    "test": "npm run test:compliance && npm run test:imagery"
+    "test:zombies": "node scripts/test-no-zombie-claims.mjs",
+    "test": "npm run test:compliance && npm run test:imagery && npm run test:zombies"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
