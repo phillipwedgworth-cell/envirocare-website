@@ -70,6 +70,10 @@ const cases = [
   ["Fourth-generation Wedgworth family business, founded 1958", true, "founded 1958 bare"],
   ["founded in 1958", true, "founded IN 1958"],
   ["Established 1958", true, "established 1958"],
+  // the queued Facebook draft marked "ready" on 2026-08-10
+  ["Lex Wedgworth started this company in 1958", true, "STARTED this company in 1958"],
+  ["Kevin's grandfather began the business in 1958", true, "began the business in 1958"],
+  ["the family started doing pest control in Alabama in 1958", false, "FAMILY form must pass"],
   ["the family has been doing pest control in Alabama since 1958", false, "APPROVED phrasing must pass"],
   ["Family-owned since 1958", false, "approved short form must pass"],
   ["EnviroCare", false, "the approved generic name must NOT flag"],

@@ -158,8 +158,17 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // nothing. Third time this week a guard matched a literal instead of a shape.
   // Matches founded/established/est. with or without "in", and "since 1958" only when
   // it attaches to the COMPANY rather than the family.
-  { pattern: '\\b(founded|established|est\\.?)\\s+(in\\s+)?1958\\b',
-    notIf: 'never say|do not say|banned|NEVER write',
+  // WIDENED again 2026-08-10. The rule matched founded/established/est. and missed
+  // "Lex Wedgworth STARTED THIS COMPANY in 1958" -- a queued Facebook draft marked
+  // ready to publish. Any verb that attaches the COMPANY's origin to 1958 is the
+  // same claim; the verb is not the point. Fourth time in one day that a guard here
+  // matched a literal instead of a shape.
+  // "the family started in 1958" and "in Alabama since 1958" stay legal via notIf.
+  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\s+((the|this|his|her|their|our)\\s+)?(company|business|firm)?\\s*(in\\s+)?1958\\b|\\b(company|business)\\s+\\w{0,12}\\s*(founded|started|began)\\s+(in\\s+)?1958\\b',
+    // Carve-outs are the FAMILY forms only. "since 1958" alone must NOT exempt --
+    // it appears in approved copy and in violations alike, so exempting on it would
+    // let "started this company in 1958, family-owned since 1958" through.
+    notIf: 'family (has |been )?(started|doing)|the family started|never say|do not say|banned|NEVER write',
     reason: '"founded 1958" -- the FAMILY started in 1958; the company began 1993/2005',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
