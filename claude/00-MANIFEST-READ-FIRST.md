@@ -143,7 +143,9 @@ rule is now executable:
 | `npm run test:citynap` | a city's phone, tel and address disagree |
 | `npm run audit:fleet` | re-measures the agent checklist instead of estimating it |
 
-Writing `$67` into a doc now fails a test. That is the difference.
+Writing a retracted price into a doc now fails a test. That is the difference —
+and this file proves it: the first draft of this very line contained the bare
+number, and `npm run test:zombies` rejected it.
 
 **A file carrying a `SUPERSEDED` banner in its first 25 lines is quarantined, not
 scanned** — its body legitimately holds old numbers. Quarantined files are *reported*,

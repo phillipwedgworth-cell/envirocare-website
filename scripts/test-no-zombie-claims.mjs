@@ -40,7 +40,7 @@ const ZOMBIES = [
     truth: "SESSION-DEPENDENT. A working connector ran a full audit and edited six posts on Aug 9. It is absent in some sessions. Check your own tool list; neither absolute is correct." },
   { re: /\$67\b|\$127\b/,
     claim: "$67 / $127 pricing tiers",
-    truth: "Fabricated. data/pricing.ts and live /pricing both read $35 / $69 / ~$100. $67 is a retired Jun-11 sheet; $127 appears nowhere." },
+    truth: "SUPERSEDED, not invented — which is why it keeps returning honestly. docs/PRICING-SECTION-COPY-SPEC.md (Jun 11) still specifies it. data/pricing.ts and live /pricing read $35 / $69 / ~$100. The $127 figure appears nowhere at all." },
   { re: /2\.13 clicks|0\.38 for stock/i,
     claim: "Sterling Sky '2.13 clicks vs 0.38 for stock'",
     truth: "The article contains no such figures — fetched Aug 9. The deduplication mechanism is real; the numbers are not." },
