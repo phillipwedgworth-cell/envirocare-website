@@ -224,3 +224,39 @@ Plus one baseline error: change alerts were **not** empty on all locations.
 **The lesson matches rule zero in AGENTS.md.** Every one of these came from a document
 written the same day rather than from a live check. A playbook that has never been run
 against live data is a hypothesis, not a baseline.
+
+---
+
+## v3 amendments — 2026-08-10
+
+Adopted from the Aug-10 run. Three more checks were wrong; recorded here rather than in a new file.
+
+**§0 — new standing rules**
+- **Never trust a single fetch of a recently-deployed page.** Aug 10: the first homepage read
+  returned the PRE-deploy title nine minutes after a deploy went READY. Fetch with a
+  cache-busting query string; if a read contradicts deployed `HEAD`, fetch again before
+  reporting. (Independently reproduced here: a deploy watcher reported CLEAN while its own
+  confirmation line printed the old value — two edges, mid-rollout.)
+- **Re-test dead ends before repeating them.** A "dead end" written once outlives the condition
+  that created it.
+
+**Local Falcon stall — still open.** Nothing has run since Jul 24. Credits identical on Aug 9
+and Aug 10 (13,449), which corroborates non-execution independently of the campaign list.
+**If Birmingham Core still reads `last_run: Jul 24` after Aug 10 09:00, open a support ticket** —
+three weeks of silent non-execution is a platform fault.
+
+**Supabase known-INFO baseline corrected: 41, not 42.** New WARN `duplicate_index` on
+`public.agent_findings`.
+
+**OneUp is SESSION-DEPENDENT, not universally available.** v3 states "✅ full". That is true of
+the session that ran the Aug-10 audit and false of this one — the Claude Code session searched
+the tool registry on Aug 9 and Aug 10 and found no OneUp connector. **Check your own tool list.**
+Neither "no connector exists" nor "full access" is correct as an absolute.
+
+**Same caveat for GitHub, inverted.** v3 says "Writes are blocked in agent sessions." This
+session has write access and merged PRs #74-#80. Session-dependent.
+
+**Status codes ARE observable from this session** — `curl` works here and returned 308 on both
+the apex and the vercel.app alias. v3 correctly declines to carry forward a figure it could not
+reproduce; recording that a different session can, so the check is not abandoned.
+
