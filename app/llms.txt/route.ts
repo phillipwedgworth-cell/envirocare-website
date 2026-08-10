@@ -6,7 +6,7 @@
 
 const LLMS_TXT = `# EnviroCare
 
-> Family-owned Alabama pest control company, founded 1958 in Alexander City — now in its
+> Family-owned Alabama pest control company; the family has been doing pest control in Alabama since 1958, starting in Alexander City — now in its
 > fourth generation of the Wedgworth family. Tagline: "No One Cares Like EnviroCare."
 > Offices in Birmingham/Alabaster, Lake Martin/Alexander City, and Huntsville.
 

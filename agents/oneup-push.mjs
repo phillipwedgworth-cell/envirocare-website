@@ -103,7 +103,9 @@ const BANNED = [
   /\bbundle\s*&\s*save\b/i, /\d+%\s*off/i, /\bcoupon\b/i,
   /\bbed\s*bug/i, /\bwildlife\b/i, /\bhoneybee\b/i,
   /\blawn\s+care\b/i,
-  /\bfounded in 1958\b/i,
+  // 'founded 1958' WITHOUT the "in" was live on five pages, including the
+  // /about-us meta description, while this rule required it.
+  /\b(founded|established|est\.?)\s+(in\s+)?1958\b/i,
   /205[.\-\s)]*649[.\-\s]*5278/,     // dead Scorpion line
 ].filter((r) => r instanceof RegExp);
 

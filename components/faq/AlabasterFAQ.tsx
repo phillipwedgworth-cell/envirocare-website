@@ -8,7 +8,7 @@
 // invisible in AI results. This block + FAQ schema gives AI engines structured,
 // citable answers anchored to Shelby County and the Birmingham metro.
 //
-// FACT-CHECKED against nap-master.md: phone (205) 940-6360, founded 1958 in
+// FACT-CHECKED against nap-master.md: phone (205) 940-6360, family in Alabama pest control since 1958, beginning in
 // Alexander City (NOT Alabaster), commercial pest mgmt (not real estate),
 // confirmed service-area cities only.
 
