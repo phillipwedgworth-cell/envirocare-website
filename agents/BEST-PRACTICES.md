@@ -34,3 +34,47 @@ Your storage (`agent_runs`, `agent_memory`) is the right substrate; the missing 
 ## The verification checklist (run this against the fleet)
 
 For each agent ask five questions: Does it read prior findings before acting? Does it write a distilled learning after? Is every side effect idempotent and gated? Does the watchdog see it? Is it measured on an outcome, not activity? Any "no" is the retrofit list. My read from the repo commits: watchdog and seo-snapshot pass most; social-poster passes gating; nearly everything fails the *read-before-act* question — that's the single highest-leverage fix, roughly one Claude Code session across the fleet. **[Corrected 2026-07-28 after a per-agent survey: brightlocal, orchestrator, proposer, seo-monitor, seo-watch, site-reviewer, neuronwriter-qa and neuronwriter-optimize all already read prior state; the real gaps were morning-brief (fixed — reads yesterday's brief, PR #72) and review-responder (fixed — dedup ledger, PR #71). Read-before-act retrofit is DONE.]**
+
+---
+
+## Checklist run — 2026-08-10 (measured, not estimated)
+
+`npm run audit:fleet` (`scripts/audit-agent-fleet.mjs`) applies the five questions above to
+every `agents/*.mjs`, excluding 10 one-shot utilities. **26 scheduled agents.**
+
+| Question | Pass | Gap |
+|---|---|---|
+| Q1 read-before-act | 11 | 15 |
+| Q2 writes a distilled learning | 14 | 12 |
+| Q3 side effects gated / idempotent | 21 | 5 |
+| **Q4 visible to the watchdog** | **14** | **12** |
+| Q5 measured on an outcome | 17 | 9 |
+
+**No ungated customer-facing side effect exists.** The two agents the first pass flagged were
+both false alarms on inspection: `content-reviewer` only calls LLM APIs, and
+`ai-citation-probe`'s email is env-gated and goes to `NOTIFY_EMAIL` internally.
+`social-poster` gates correctly on `.eq("status","approved")`.
+
+### The real gap is Q4, and it is structural
+
+**12 of 26 agents never call `logAgentRun`**, so the one-ledger/one-watchdog rule this file
+sets out is only true for half the fleet:
+
+> aeo-watch · ai-citation-probe · ai-opportunities-intake · cfo-agent · daily-rollup ·
+> ingest-ga4 · ingest-gads-campaigns · ingest-gsc · morning-brief · neuronwriter-narrator ·
+> seo-snapshot · source-of-truth-auditor
+
+The same 12 also fail Q2. That is not a coincidence — they are the agents that were written to
+*produce an artifact* (a file, a table row, an email) rather than to participate in the fleet's
+memory. **A silent failure in any of them looks identical to success**, which is exactly how the
+review responder went two weeks without drafting anything.
+
+### Correction to the note below
+
+Line 36 states *"Read-before-act retrofit is DONE."* Measured: **15 of 26 still do not read
+prior state.** The Jul-28 survey was right about the agents it named — `morning-brief` does read
+yesterday's brief, via a raw REST call rather than the kv helper — but the retrofit was never
+fleet-wide. Two of my own first-pass numbers were also wrong for the same reason: matching
+`stateGet(` missed the REST form, and matching `=== "approved"` missed the Supabase filter.
+**The heuristics are documented in the script; widen them rather than trusting a stale count.**
+
