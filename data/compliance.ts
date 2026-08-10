@@ -148,6 +148,21 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'wrong/nonexistent WDO form designation for Alabama',
     approvedInstead: 'Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9-.18, Exhibit A)' },
 
+  // "FOUNDED 1958" -- the company was not. EnviroCare LLC began 1993 and
+  // incorporated 2005; 1958 is when the FAMILY started, as Wedgworth Pest Control.
+  // BBB publishes both dates, so this is a visible contradiction.
+  //
+  // There was NO pattern for this in this file at all, and the only one that existed
+  // (agents/oneup-push.mjs) required the word "in" -- so "founded 1958", which is what
+  // five live pages actually said including the /about-us meta description, matched
+  // nothing. Third time this week a guard matched a literal instead of a shape.
+  // Matches founded/established/est. with or without "in", and "since 1958" only when
+  // it attaches to the COMPANY rather than the family.
+  { pattern: '\\b(founded|established|est\\.?)\\s+(in\\s+)?1958\\b',
+    notIf: 'never say|do not say|banned|NEVER write',
+    reason: '"founded 1958" -- the FAMILY started in 1958; the company began 1993/2005',
+    approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
+
   // $1M COVERAGE ATTRIBUTION. It is EnviroCare's own; attributing it to Corteva,
   // Sentricon's maker, or "the manufacturer" misrepresents who is actually liable.
   // This existed only as a SOFT_RULE in prose, so nothing checked it -- and three

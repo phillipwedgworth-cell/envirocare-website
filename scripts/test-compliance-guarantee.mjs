@@ -65,6 +65,13 @@ const cases = [
   ["EnviroCare Pest" + " & Termite", true, "retired name, truncated (no 'Services')"],
   ["EnviroCare Pest" + " and Termite " + "Services", true, "retired name, 'and' spelled out"],
   ["© 2026 EnviroCare Pest" + " &amp; Termite " + "Services LLC", true, "the copyright line, on every page"],
+  // "founded 1958" -- five live pages, and no rule in this file caught it
+  ["the Wedgworth family — founded 1958 in Alexander City", true, "founded 1958, no 'in'"],
+  ["Fourth-generation Wedgworth family business, founded 1958", true, "founded 1958 bare"],
+  ["founded in 1958", true, "founded IN 1958"],
+  ["Established 1958", true, "established 1958"],
+  ["the family has been doing pest control in Alabama since 1958", false, "APPROVED phrasing must pass"],
+  ["Family-owned since 1958", false, "approved short form must pass"],
   ["EnviroCare", false, "the approved generic name must NOT flag"],
   ["EnviroCare Pest Services", false, "the approved Birmingham name must NOT flag"],
 ];

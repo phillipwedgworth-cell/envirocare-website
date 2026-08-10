@@ -146,7 +146,7 @@ SPECIALIST TECHNICIANS (a real strength — lead with it when service quality or
 - Still simple for the customer: one company, one invoice, one schedule — just the right specialist for each part.
 
 DIFFERENTIATORS (the family story is the lead):
-- Fourth-generation Wedgworth family business, founded 1958
+- Fourth-generation Wedgworth family business; the family has been doing pest control in Alabama since 1958 (never say the company was "founded 1958" -- EnviroCare LLC began 1993, incorporated 2005, and BBB publishes both dates)
 - Local Alabama company — not a national franchise
 - Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts
 - Unlimited free re-service between visits
