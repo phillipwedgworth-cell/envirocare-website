@@ -3,10 +3,10 @@ import CityPage from '@/components/pages/CityPage';
 export const metadata = {
   alternates: { canonical: '/gardendale' },
   title: "Gardendale Pest Control & Termite Service | EnviroCare Since 1958",
-  description: "Gardendale pest control and termite service. Family-owned since 1958. Sentricon® up to $1M coverage. Call (205) 940-6360.",
+  description: "Gardendale pest control and termite service. Family-owned since 1958. Sentricon® up to $1M coverage. Call (205) 991-2882.",
   openGraph: {
     title: "Gardendale Pest Control & Termite Service | EnviroCare Since 1958",
-    description: "Gardendale pest control and termite service. Family-owned since 1958. Sentricon® up to $1M coverage. Call (205) 940-6360.",
+    description: "Gardendale pest control and termite service. Family-owned since 1958. Sentricon® up to $1M coverage. Call (205) 991-2882.",
     url: 'https://www.envirocarellc.com/gardendale',
     images: ['/og-image.png'],
     type: 'website',
@@ -14,7 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Gardendale Pest Control & Termite Service | EnviroCare Since 1958",
-    description: "Gardendale pest control and termite service. Family-owned since 1958. Sentricon® up to $1M coverage. Call (205) 940-6360.",
+    description: "Gardendale pest control and termite service. Family-owned since 1958. Sentricon® up to $1M coverage. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
