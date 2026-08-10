@@ -62,128 +62,28 @@ export const SERVICE_CATALOG = {
 };
 
 // ─── HOMEPAGE: brand-level Organization entity ───────────────────────────────
-export function getOrganizationSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${BRAND_URL}/#organization`,
-    name: BRAND_NAME,
-    url: BRAND_URL,
-    logo: LOGO_URL,
-    image: LOGO_URL,
-    foundingDate: FOUNDING,
-    founder: { '@type': 'Person', name: 'Phillip M. Wedgworth' },
-    description:
-      'EnviroCare is a fourth-generation, family-owned Alabama pest and termite control company doing pest control in Alabama since 1958. Sentricon-certified termite specialist serving the Birmingham metro, Huntsville/North Alabama, and the Lake Martin / Alexander City area from four Alabama offices.',
-    areaServed: { '@type': 'State', name: 'Alabama' },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+12059406360',
-      contactType: 'customer service',
-      areaServed: 'US-AL',
-      availableLanguage: 'English',
-    },
-    // Four physical offices referenced as locations (full LocalBusiness lives on each
-    // city page). NOTE: the '#birmingham' id historically pointed at the ALABASTER
-    // office because it served the whole metro. The Birmingham city office opened
-    // 2026-08-05; both are listed separately now.
-    location: [
-      { '@type': 'PestControlService', '@id': `${BRAND_URL}/#birmingham`, name: 'EnviroCare Pest Services',
-        telephone: '+12059912882',
-        address: { '@type': 'PostalAddress', streetAddress: '2120 16th Ave S, Ste 302', addressLocality: 'Birmingham', addressRegion: 'AL', postalCode: '35205', addressCountry: 'US' } },
-      { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#alabaster`, name: `${BRAND_NAME} — Alabaster`,
-        telephone: '+12059406360',
-        address: { '@type': 'PostalAddress', streetAddress: '2025 Butler Rd', addressLocality: 'Alabaster', addressRegion: 'AL', postalCode: '35007', addressCountry: 'US' } },
-      { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#huntsville`, name: `${BRAND_NAME} — Huntsville`,
-        telephone: '+12569377676',
-        address: { '@type': 'PostalAddress', streetAddress: '7027 Old Madison Pike, Ste 108', addressLocality: 'Huntsville', addressRegion: 'AL', postalCode: '35806', addressCountry: 'US' } },
-      { '@type': 'LocalBusiness', '@id': `${BRAND_URL}/#alexander-city`, name: `${BRAND_NAME} — Alexander City`,
-        telephone: '+12562346162',
-        address: { '@type': 'PostalAddress', streetAddress: '1785 Tallapoosa St', addressLocality: 'Alexander City', addressRegion: 'AL', postalCode: '35010', addressCountry: 'US' } },
-    ],
-    sameAs: SAME_AS,
-  };
-}
+// ── REMOVED 2026-08-10: getOrganizationSchema, getBirminghamSchema,
+//    getHuntsvilleSchema, getAlexCitySchema ─────────────────────────────────
+// All four were DEAD -- zero imports anywhere in the repo, verified before
+// deletion -- and all four were hazards rather than merely unused:
+//
+//   * getOrganizationSchema built an Organization node on '#organization' with
+//     name: BRAND_NAME ('EnviroCare'), while the LIVE node in
+//     lib/seo/organization-schema.ts emits 'EnviroCare Pest Services'.
+//   * getBirminghamSchema built '#birmingham' with name: BRAND_NAME, while the
+//     live node in app/layout.tsx emits 'EnviroCare Pest Services'.
+//
+// Google merges nodes by @id. Either one, if ever imported, would have
+// recreated exactly the two-names-one-entity defect fixed on '#birmingham'
+// earlier this week -- a second definition of the same entity sitting one
+// import away from going live.
+//
+// BRAND_NAME stays 'EnviroCare' on purpose: it is still correct for the
+// per-office LocalBusiness names below, where the door-sign rule applies
+// (Alabaster / Huntsville / Alexander City all publish "EnviroCare").
+// Recover from git history if a location schema is ever needed again -- but
+// build it from lib/seo/organization-schema.ts, not from a second source.
 
-// ─── Birmingham / Alabaster office (city page) ───────────────────────────────
-export function getBirminghamSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${BRAND_URL}/#birmingham`,
-    name: BRAND_NAME,
-    image: LOGO_URL,
-    logo: LOGO_URL,
-    url: `${BRAND_URL}/birmingham`,
-    telephone: '+12059912882',
-    email: EMAIL,
-    foundingDate: FOUNDING,
-    priceRange: PRICE_RANGE,
-    address: { '@type': 'PostalAddress', streetAddress: '2120 16th Ave S, Ste 302', addressLocality: 'Birmingham', addressRegion: 'AL', postalCode: '35205', addressCountry: 'US' },
-    geo: { '@type': 'GeoCoordinates', latitude: 33.5030, longitude: -86.8025 },
-    openingHoursSpecification: HOURS,
-    description:
-      'Family-owned Alabama pest control since 1958. Serving Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Alabaster, Pelham, Chelsea, Helena, and surrounding communities. Sentricon-certified termite specialist with $1M damage coverage.',
-    areaServed: ['Birmingham','Hoover','Vestavia Hills','Mountain Brook','Homewood','Alabaster','Chelsea','Pelham','Helena','Calera','Trussville','Greystone','Mt Laurel'].map((c) => ({ '@type': 'City', name: c })),
-    hasOfferCatalog: SERVICE_CATALOG,
-    sameAs: SAME_AS,
-    // aggregateRating intentionally omitted — see header note.
-  };
-}
-
-// ─── Huntsville office (city page) ───────────────────────────────────────────
-export function getHuntsvilleSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${BRAND_URL}/#huntsville`,
-    name: BRAND_NAME,
-    image: LOGO_URL,
-    logo: LOGO_URL,
-    url: `${BRAND_URL}/huntsville`,
-    telephone: '+12569377676',
-    email: EMAIL,
-    foundingDate: FOUNDING,
-    priceRange: PRICE_RANGE,
-    address: { '@type': 'PostalAddress', streetAddress: '7027 Old Madison Pike, Ste 108', addressLocality: 'Huntsville', addressRegion: 'AL', postalCode: '35806', addressCountry: 'US' },
-    geo: { '@type': 'GeoCoordinates', latitude: 34.7121, longitude: -86.6867 },
-    openingHoursSpecification: HOURS,
-    description:
-      'Family-owned Alabama pest control serving Alabama since 1958 — Huntsville, Madison, Hampton Cove, Athens, and surrounding North Alabama communities. Sentricon-certified termite specialist with $1M damage coverage.',
-    areaServed: ['Huntsville','Madison','Hampton Cove','Athens','Decatur','Hartselle','Harvest','New Market','Meridianville','Toney'].map((c) => ({ '@type': 'City', name: c })),
-    hasOfferCatalog: SERVICE_CATALOG,
-    sameAs: SAME_AS,
-    // aggregateRating intentionally omitted — see header note.
-  };
-}
-
-// ─── Alexander City / Lake Martin office (city page) ─────────────────────────
-export function getAlexCitySchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${BRAND_URL}/#alexander-city`,
-    name: BRAND_NAME,
-    image: LOGO_URL,
-    logo: LOGO_URL,
-    url: `${BRAND_URL}/service-areas/alexander-city`,
-    telephone: '+12562346162',
-    email: EMAIL,
-    foundingDate: FOUNDING,
-    priceRange: PRICE_RANGE,
-    address: { '@type': 'PostalAddress', streetAddress: '1785 Tallapoosa St', addressLocality: 'Alexander City', addressRegion: 'AL', postalCode: '35010', addressCountry: 'US' },
-    geo: { '@type': 'GeoCoordinates', latitude: 32.9539, longitude: -85.9536 },
-    openingHoursSpecification: HOURS,
-    description:
-      'Founded 1958 in Alexander City, AL — our original location. Serving Alexander City, Lake Martin, Dadeville, Auburn, Eclectic, Jacksons Gap, and surrounding Tallapoosa County communities. Sentricon-certified termite specialist. Locally owned for 65+ years.',
-    areaServed: ['Alexander City','Lake Martin','Dadeville','Eclectic','Auburn','Opelika','Jacksons Gap','Wetumpka'].map((c) => ({ '@type': 'City', name: c })),
-    hasOfferCatalog: SERVICE_CATALOG,
-    sameAs: SAME_AS,
-    // aggregateRating intentionally omitted — see header note.
-  };
-}
-
-// ─── FAQ Page Schema ─────────────────────────────────────────────────────────
 export function getFAQSchema(faqs: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',
