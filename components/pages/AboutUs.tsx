@@ -157,7 +157,7 @@ export default function AboutUs() {
                 Four Generations.<em>One Promise.</em>
               </h1>
               <p className="ab-hero-sub">
-                EnviroCare is the Wedgworth family. Founded in Alexander City in 1958 as Wedgworth Pest Control,
+                EnviroCare is the Wedgworth family. The family started in Alexander City in 1958 as Wedgworth Pest Control,
                 now four generations on across Birmingham, Huntsville, and Lake Martin — protecting Alabama
                 homes the way we'd protect our own.
               </p>

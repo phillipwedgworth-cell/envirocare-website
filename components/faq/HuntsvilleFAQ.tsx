@@ -46,7 +46,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'Is EnviroCare a local Huntsville pest control company or a national chain?',
     answer:
-      'EnviroCare is a locally owned, family-operated Alabama company — not a national franchise. Founded in Alexander City, Alabama in 1958, the company is now run by the fourth generation of the Wedgworth family. Their Huntsville office at 7027 Old Madison Pike serves North Alabama independently. Unlike national chains, EnviroCare technicians are long-term local employees who know the specific pest pressures and conditions in the Huntsville area.',
+      'EnviroCare is a locally owned, family-operated Alabama company — not a national franchise. The family has been doing pest control in Alexander City, Alabama since 1958, and the company is now run by the fourth generation of the Wedgworth family. Their Huntsville office at 7027 Old Madison Pike serves North Alabama independently. Unlike national chains, EnviroCare technicians are long-term local employees who know the specific pest pressures and conditions in the Huntsville area.',
   },
   {
     question: 'What pest control companies service Madison, Alabama?',

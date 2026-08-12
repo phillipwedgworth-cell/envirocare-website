@@ -84,6 +84,15 @@ const cases = [
   // the queued Facebook draft marked "ready" on 2026-08-10
   ["Lex Wedgworth started this company in 1958", true, "STARTED this company in 1958"],
   ["Kevin's grandfather began the business in 1958", true, "began the business in 1958"],
+  // 2026-08-12: a PLACE between the verb and the year defeated the rule entirely.
+  // Seven live locations said this and the guard reported clean on all of them.
+  ["EnviroCare was founded in Alabama in 1958", true, "founded in <place> in 1958"],
+  ["Founded in Alexander City, Alabama in 1958", true, "founded in <city>, <state> in 1958"],
+  ["The company was founded in Birmingham in 1958", true, "company founded in <place> in 1958"],
+  ["**Founded:** 1958", true, "founded as a bare metadata field"],
+  // ...and the legitimate forms that must survive the widening
+  ["the Wedgworth family opened the Alexander City office in 1958", false, "the OFFICE did open in 1958"],
+  ["Started the family pest control business in 1958 in Alexander City", false, "founder bio — the FAMILY business did start then"],
   ["the family started doing pest control in Alabama in 1958", false, "FAMILY form must pass"],
   ["the family has been doing pest control in Alabama since 1958", false, "APPROVED phrasing must pass"],
   ["Family-owned since 1958", false, "approved short form must pass"],
