@@ -171,7 +171,7 @@ export default function AboutUs() {
                   <div className="ab-stat-l">Generations of Wedgworths</div>
                 </div>
                 <div className="ab-stat">
-                  <div className="ab-stat-n">3</div>
+                  <div className="ab-stat-n">4</div>
                   <div className="ab-stat-l">Alabama offices</div>
                 </div>
               </div>
@@ -224,7 +224,7 @@ export default function AboutUs() {
                 <p>
                   EnviroCare becomes a Sentricon® Certified Specialist — one of fewer than 1% of pest companies
                   authorized to install the in-ground bait system, with no-drilling termite protection and up to
-                  $1M in EnviroCare-backed damage coverage.
+                  $1M in EnviroCare-backed damage coverage, subject to the terms of the agreement.
                 </p>
               </div>
               <div className="ab-tl-year">2000s</div>
@@ -243,7 +243,7 @@ export default function AboutUs() {
               <div className="ab-tl-card">
                 <h3>Kevin takes the helm</h3>
                 <p>
-                  Kevin Wedgworth takes over the family business and runs EnviroCare across three Alabama
+                  Kevin Wedgworth takes over the family business and runs EnviroCare across four Alabama
                   offices. The fourth generation, William Lex Wedgworth, joined the business in 2024 —
                   learning the trade the same way every Wedgworth before him has.
                 </p>

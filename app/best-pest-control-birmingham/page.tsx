@@ -225,7 +225,8 @@ export default function BestPestControlBirminghamPage() {
             visit</strong>, with a $79 startup and unlimited free re-service between scheduled
             visits. Termite protection is Sentricon<sup>®</sup> Always Active™, in-ground bait
             stations with no drilling, backed by up to $1,000,000 in EnviroCare repair coverage on
-            qualifying homes — repair coverage, not a re-treat promise. And technicians work their
+            qualifying homes, subject to the terms of the agreement — repair coverage, not a
+            re-treat promise. And technicians work their
             own routes, so the person servicing Bluff Park has serviced Bluff Park before.
           </p>
 

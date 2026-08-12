@@ -32,7 +32,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🪵",
       title: "Sentricon® for stone-and-brick estate homes",
-      body: "English Village's established homes along Overton Road often feature extensive stonework and brick — construction nobody wants drilled into. Sentricon® Always Active™ places in-ground bait stations around the perimeter with no holes in the masonry. Up to $1M in EnviroCare-backed damage coverage on qualifying homes.",
+      body: "English Village's established homes along Overton Road often feature extensive stonework and brick — construction nobody wants drilled into. Sentricon® Always Active™ places in-ground bait stations around the perimeter with no holes in the masonry. Up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement.",
     },
     {
       emoji: "🐾",

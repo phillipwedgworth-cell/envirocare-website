@@ -86,7 +86,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "My home is new construction — do I need termite protection?",
-      "a": "Especially then. New slabs sit on disturbed soil that subterranean termites find first, and North Alabama's growth means a lot of disturbed soil. Starting Sentricon® early locks in protection — up to $1M coverage on qualifying homes."
+      "a": "Especially then. New slabs sit on disturbed soil that subterranean termites find first, and North Alabama's growth means a lot of disturbed soil. Starting Sentricon® early locks in protection — up to $1M coverage on qualifying homes, subject to the terms of the agreement."
     },
     {
       "q": "When does mosquito season run in the Tennessee Valley?",

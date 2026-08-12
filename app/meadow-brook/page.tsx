@@ -35,7 +35,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🪵",
       "title": "Sentricon® for established homes",
-      "body": "Many Meadow Brook homes are now 20-30 years old — the prime termite vulnerability window. Sentricon® Always Active™ in-ground bait stations protect without drilling into existing brick, stone, or hardscape. Up to $1M in EnviroCare-backed damage coverage."
+      "body": "Many Meadow Brook homes are now 20-30 years old — the prime termite vulnerability window. Sentricon® Always Active™ in-ground bait stations protect without drilling into existing brick, stone, or hardscape. Up to $1M in EnviroCare-backed damage coverage, subject to the terms of the agreement."
     },
     {
       "emoji": "🐜",

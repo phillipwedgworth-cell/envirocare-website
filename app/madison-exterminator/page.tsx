@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "./" },
-  openGraph: { title: TITLE, description: DESC, images: ["/og/og-madison.png"], type: "website" },
+  openGraph: { url: 'https://www.envirocarellc.com/madison-exterminator', title: TITLE, description: DESC, images: ["/og/og-madison.png"], type: "website" },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/og-madison.png"] },
 };
 

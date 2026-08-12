@@ -55,7 +55,7 @@ const SERVICE_ART_SVG: Record<string, string> = {
 <g transform="translate(120,250)" fill="#fff" opacity="0.85"><circle r="14" stroke="#0F5C2E" stroke-width="3" fill="#fff"/><text x="0" y="5" font-family="DM Sans" font-size="14" font-weight="900" fill="#0F5C2E" text-anchor="middle">S</text></g>
 <g transform="translate(200,255)" fill="#fff" opacity="0.85"><circle r="14" stroke="#0F5C2E" stroke-width="3" fill="#fff"/><text x="0" y="5" font-family="DM Sans" font-size="14" font-weight="900" fill="#0F5C2E" text-anchor="middle">S</text></g>
 <g transform="translate(280,250)" fill="#fff" opacity="0.85"><circle r="14" stroke="#0F5C2E" stroke-width="3" fill="#fff"/><text x="0" y="5" font-family="DM Sans" font-size="14" font-weight="900" fill="#0F5C2E" text-anchor="middle">S</text></g>
-<g transform="translate(40,280)"><rect width="80" height="22" rx="4" fill="#F5A800"/><text x="40" y="15" font-family="DM Sans" font-size="11" font-weight="900" fill="#0A1A0E" text-anchor="middle">$1M COVERED</text></g>
+<g transform="translate(40,280)"><rect width="80" height="22" rx="4" fill="#F5A800"/><text x="40" y="15" font-family="DM Sans" font-size="11" font-weight="900" fill="#0A1A0E" text-anchor="middle">PROTECTED</text></g>
 <line x1="120" y1="240" x2="200" y2="240" stroke="#F5A800" stroke-width="2" stroke-dasharray="4,3" opacity="0.7"/>
 <line x1="200" y1="240" x2="280" y2="240" stroke="#F5A800" stroke-width="2" stroke-dasharray="4,3" opacity="0.7"/>
 </svg>`,

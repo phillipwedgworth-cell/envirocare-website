@@ -135,7 +135,7 @@ export default function Header() {
           <Flower2 size={14} className="sh-banner-sun" aria-hidden="true" />
           <div className="sh-banner-rotator" aria-live="off">
             <span className="sh-banner-msg"><span className="sh-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
-            <span className="sh-banner-msg"><span className="sh-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</span>
+            <span className="sh-banner-msg"><span className="sh-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage, subject to the terms of the agreement · No drilling</span>
             <span className="sh-banner-msg"><span className="sh-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
           </div>
         </div>

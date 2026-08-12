@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Quarterly inside-and-outside pest control for Alabama homes — $98 per quarter. Add flea treatment for $30 more. Family-owned since 1958.",
   alternates: { canonical: "/services/interior-pest-control" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/services/interior-pest-control',
     title: "Interior + Exterior Pest Control | EnviroCare",
     description:
       "Quarterly inside-and-outside protection — $98/quarter. Flea treatment add-on available.",

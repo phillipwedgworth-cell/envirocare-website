@@ -36,7 +36,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'Do I need termite protection in Huntsville, Alabama?',
     answer:
-      'Yes — termites are a serious and often invisible threat throughout Madison County and North Alabama. Eastern Subterranean Termites are the most destructive and common species in the Huntsville area. EnviroCare offers Sentricon® Always Active™ termite protection — the same system used at the White House — with up to $1 million in termite damage coverage and no drilling required. Termite pricing is set after a free WDO inspection. Call (256) 937-7676.',
+      'Yes — termites are a serious and often invisible threat throughout Madison County and North Alabama. Eastern Subterranean Termites are the most destructive and common species in the Huntsville area. EnviroCare offers Sentricon® Always Active™ termite protection — the same system used at the White House — with up to $1 million in termite damage coverage and no drilling required, subject to the terms of the agreement. Termite pricing is set after a free WDO inspection. Call (256) 937-7676.',
   },
   {
     question: 'What pests are common in Huntsville, Alabama?',

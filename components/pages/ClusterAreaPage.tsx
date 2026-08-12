@@ -35,6 +35,33 @@ export type ClusterConfig = {
 
 const BASE = 'https://www.envirocarellc.com';
 
+// Phone numbers written inline in cluster COPY (intro paragraphs, city hooks, FAQ
+// answers) rendered as dead text — /lake-martin-area showed the direct Auburn line
+// (334) 332-3321 three times with no way to tap it on a phone. The numbers in the
+// nav/footer/office block were always anchors; these were not, because they live
+// inside prose strings rather than a phone field.
+//
+// Splitting on the pattern keeps the copy authored as plain strings (which is also
+// what the JSON-LD consumes verbatim — do NOT run this over the schema payload).
+// Split keeps the capture group, so odd indices are the matches. Two regexes on
+// purpose: a /g one would carry lastIndex between .test() calls and drop numbers.
+const PHONE_SPLIT = /(\(\d{3}\)\s?\d{3}-\d{4})/g;
+const PHONE_ONE = /^\(\d{3}\)\s?\d{3}-\d{4}$/;
+
+function linkPhones(text: string) {
+  const parts = text.split(PHONE_SPLIT);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    PHONE_ONE.test(part) ? (
+      <a key={i} href={`tel:+1${part.replace(/\D/g, '')}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 const DEFAULT_OFFICE: ClusterOffice = {
   name: 'Alabaster',
   phone: '(205) 940-6360',
@@ -98,7 +125,7 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
             {cfg.h1}
           </h1>
           {cfg.intro.map((p, i) => (
-            <p key={i} style={{ fontSize: 17.5, lineHeight: 1.75, maxWidth: 780, marginTop: i === 0 ? 16 : 10 }}>{p}</p>
+            <p key={i} style={{ fontSize: 17.5, lineHeight: 1.75, maxWidth: 780, marginTop: i === 0 ? 16 : 10 }}>{linkPhones(p)}</p>
           ))}
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 22 }}>
@@ -118,6 +145,8 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
             {cfg.cities.map(c => (
               <a key={c.href} href={c.href} style={{ display: 'block', background: '#fff', border: '1px solid rgba(14,26,15,.08)', borderRadius: 14, padding: '18px 20px', textDecoration: 'none', boxShadow: '0 4px 16px rgba(14,26,15,.06)' }}>
                 <div style={{ fontFamily: displayFont, fontSize: 19, color: INK, marginBottom: 6 }}>{c.name} →</div>
+                {/* NOT linkPhones() — this sits inside the card's <a>, and a nested
+                    anchor is invalid HTML. The card already routes to the city page. */}
                 <div style={{ fontSize: 14.5, lineHeight: 1.6, color: '#5A6660' }}>{c.hook}</div>
               </a>
             ))}
@@ -130,7 +159,7 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
             {cfg.faqs.map(f => (
               <details key={f.q} style={{ background: '#fff', border: '1px solid rgba(14,26,15,.10)', borderRadius: 10, marginBottom: 12, padding: '4px 0' }}>
                 <summary style={{ padding: '14px 18px', cursor: 'pointer', fontWeight: 600, color: '#07642B', fontSize: 15.5 }}>{f.q}</summary>
-                <p style={{ padding: '0 18px 16px', margin: 0, fontSize: 15, lineHeight: 1.65, color: '#4b5563' }}>{f.a}</p>
+                <p style={{ padding: '0 18px 16px', margin: 0, fontSize: 15, lineHeight: 1.65, color: '#4b5563' }}>{linkPhones(f.a)}</p>
               </details>
             ))}
           </div>

@@ -59,7 +59,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'Who owns EnviroCare?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'EnviroCare is owned and operated by the Wedgworth family. Founded in 1958 in Alexander City as Wedgworth Pest Control, it is run today by Kevin Wedgworth, with the fourth generation of the family — William Lex Wedgworth — now working in the business. Four generations of Wedgworths in all.',
+        text: 'EnviroCare is owned and operated by the Wedgworth family, who have been doing pest control in Alabama since 1958 — starting in Alexander City as Wedgworth Pest Control. It is run today by Kevin Wedgworth, with the fourth generation of the family — William Lex Wedgworth — now working in the business. Four generations of Wedgworths in all.',
       },
     },
     {

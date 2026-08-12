@@ -2,7 +2,7 @@ import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
   alternates: { canonical: '/dadeville' },
-  openGraph: { images: ['/og/og-dadeville.png'] },
+  openGraph: { url: 'https://www.envirocarellc.com/dadeville', images: ['/og/og-dadeville.png'] },
   // Retitled 2026-07-25: Local Falcon 7/24 showed "pest control dadeville al" at
   // 0.00% SoLV, found in only 6 of 49 grid points — the single hole in a market
   // where EnviroCare otherwise holds ~45% SoLV. Title now leads with the query.

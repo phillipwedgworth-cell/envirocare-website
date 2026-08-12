@@ -233,7 +233,7 @@ export default function MadisonPage() {
             gap: 40, flexWrap: "wrap",
             fontSize: 13, opacity: 0.8,
           }}>
-            {["Family-owned since 1958", "EPA-registered products", "No long-term pest control contract", "Free re-service guarantee"].map(t => (
+            {["Family-owned since 1958", "EPA-registered products", "Two ways to pay — per visit or monthly ACH", "Free re-service between visits"].map(t => (
               <span key={t} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <span style={{ color: Au }}>✓</span> {t}
               </span>
@@ -619,7 +619,7 @@ export default function MadisonPage() {
             },
             {
               q: "Is there a contract for pest service?",
-              a: "Monthly pricing uses a 12-month ACH billing agreement, billed in equal averaged payments. Per-visit terms are confirmed in writing before service starts. Either way, the re-service guarantee applies — if pests return between visits, we come back at no charge.",
+              a: "Monthly pricing uses a 12-month ACH billing agreement, billed in equal averaged payments. Per-visit terms are confirmed in writing before service starts. Either way, if pests return between visits, we come back at no charge.",
             },
           ].map(({ q, a }) => (
             <details key={q} style={{

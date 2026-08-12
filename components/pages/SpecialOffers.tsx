@@ -19,7 +19,7 @@ const OFFERS = [
     cta: "Claim $50 Off",
     color: G,
     label: "MOST POPULAR",
-    includes: ["Full perimeter treatment", "Licensed AL technician", "Satisfaction guarantee", "30-day re-treatment included"],
+    includes: ["Full perimeter treatment", "Licensed AL technician", "If pests return between visits, we come back at no charge", "30-day re-treatment included"],
   },
   {
     headline: "50% OFF",

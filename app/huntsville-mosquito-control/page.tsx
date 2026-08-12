@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–November, $45/visit. Call (256) 937-7676.",
   alternates: { canonical: "./" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/huntsville-mosquito-control',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
     description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–November, $45/visit. Call (256) 937-7676.",
     images: ['/og-image.png'],

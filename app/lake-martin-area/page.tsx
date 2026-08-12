@@ -97,7 +97,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "Can you protect a lakefront home from termites without drilling?",
-      "a": "Yes. Sentricon® Always Active™ uses in-ground bait stations — no drilling, no trenching, no tank trucks — with up to $1M coverage on qualifying homes. The free inspection covers the home, crawlspace, dock, pier, and boathouse."
+      "a": "Yes. Sentricon® Always Active™ uses in-ground bait stations — no drilling, no trenching, no tank trucks — with up to $1M coverage on qualifying homes, subject to the terms of the agreement. The free inspection covers the home, crawlspace, dock, pier, and boathouse."
     },
     {
       "q": "Do you service the gated lake communities?",

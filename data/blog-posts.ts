@@ -21,6 +21,67 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'fall-pest-proofing-alabama',
+    title: 'Fall Pest-Proofing in Alabama: Seal Up Before September Ends',
+    excerpt: 'The house was fine all summer, then one cool week in October it filled up with crickets and spiders. Nothing changed inside — the temperature changed outside. Here is the exclusion checklist that keeps them out, and why the window closes at the end of September.',
+    publishedAt: '2026-08-11',
+    author: 'Kevin Wedgworth',
+    category: 'Seasonal',
+    readMinutes: 6,
+    heroEmoji: '🍂',
+    metaTitle: 'Fall Pest-Proofing Your Alabama Home | EnviroCare',
+    metaDescription: 'Fall pest-proofing in Alabama: door sweeps, weep holes, foundation gaps, and firewood. The exclusion checklist to finish before September ends.',
+    body: `
+<p class="lede">Every fall we take the same call, and it always sounds a little surprised. The house was fine all summer. Then one cool week in October it filled up with crickets, spiders, and something brown that ran under the baseboard. Nothing changed inside — what changed was outside. The first real drop in overnight temperatures pushes everything living in your mulch beds and leaf litter toward warmth, and your foundation is the nearest warm thing. The work that keeps them out is not spraying. It is sealing, and the window closes at the end of September.</p>
+
+<h2>Why does the end of September matter?</h2>
+
+<p>Alabama does not get the hard freeze that ends the season further north. What we get is a slow slide — nights in the 50s by late September, the first 40s in mid-October — and that slide is the trigger. Insects that were perfectly content under a pine straw bed in <a href="/hoover">Hoover</a> or beneath a deck in <a href="/chelsea">Chelsea</a> start moving toward heat, and the warm air leaking out of a foundation line, a door frame, or an unsealed garage jamb reads to them as an open door.</p>
+
+<p>Huntsville and the Tennessee Valley usually feel that push a week or two ahead of the Birmingham metro. Either way the timing is the whole point: seal in November and you are sealing them in rather than out.</p>
+
+<h2>Where are they actually getting in?</h2>
+
+<p>Almost never the front door. Crawl enough Alabama foundations and the same handful of entry points repeat house to house:</p>
+
+<ul>
+<li><strong>Weep holes.</strong> The small vertical gaps in the mortar along the bottom course of brick. They are supposed to be there — they drain and ventilate the wall cavity, and caulking them shut causes moisture problems far more expensive than crickets. Use stainless mesh weep hole inserts instead.</li>
+<li><strong>Door sweeps.</strong> The most common one by far. A worn sweep on a back door or the garage-to-house door leaves a gap you can see daylight through.</li>
+<li><strong>Utility penetrations.</strong> Hose bibs, AC line sets, gas lines, and cable drops are cut oversized and rarely sealed well.</li>
+<li><strong>Crawl space vents and access doors.</strong> Torn screen, a warped panel, or a vent knocked loose by a mower. Older homes around <a href="/homewood">Homewood</a> and <a href="/mountain-brook">Mountain Brook</a> are the usual suspects.</li>
+<li><strong>Garage doors.</strong> The bottom rubber seal flattens and cracks with age, and the side jambs usually gap at the corners.</li>
+<li><strong>Window and door frames.</strong> Failed caulk joints, worst on the south and west elevations where sealant bakes and pulls away.</li>
+</ul>
+
+<h2>What is worth doing this month?</h2>
+
+<p>Work the perimeter once, slowly, with a caulk gun and a flashlight. Exterior-grade silicone or polyurethane for gaps under about a quarter inch; copper or stainless mesh packed in first for anything larger, then sealed over. Foam alone gets chewed through and does not hold up to Alabama sun and moisture.</p>
+
+<p>Replace door sweeps rather than adjusting them. Re-screen crawl space vents. Check that the garage seal contacts the slab across its full width when closed. And look at the gaps you have stopped seeing: behind the shrubs, behind the AC unit, behind the trash cans.</p>
+
+<h2>The yard half almost nobody does</h2>
+
+<p>Sealing helps far more when the pressure against the wall drops. Pull mulch and pine straw back six to twelve inches so there is a dry, bare band around the foundation — that gap alone kills a lot of harborage. Move firewood away from the house and up off the ground. Clear leaf litter from foundation beds and window wells, and cut back shrubs and limbs touching the siding.</p>
+
+<p>Gutters matter more than people expect. A downspout dumping at the foundation keeps the soil wet, and wet soil invites the more expensive problems — see <a href="/blog/pests-after-rain-alabama">what heavy rain does to pest pressure</a>.</p>
+
+<p>Newer neighborhoods are not exempt. Construction in <a href="/mt-laurel">Mt Laurel</a>, <a href="/highland-lakes">Highland Lakes</a>, and out toward <a href="/alabaster">Alabaster</a> has a tight envelope but heavy new landscaping against the brick, and that landscaping is where the population lives.</p>
+
+<h2>What sealing will not do</h2>
+
+<p>Honest answer: exclusion cuts pressure, it does not zero it. A house has dozens of penetrations, some behind finished surfaces, and no amount of caulk closes all of them. Good sealing shrinks the ways in far enough that a treated perimeter can hold the rest — which is why the two together work and either alone disappoints.</p>
+
+<p>It also will not fix a population already inside the wall. If you are seeing activity indoors now, in August, that is a different job, and it starts with where they are living rather than where they are entering. Our <a href="/services/pest-control">perimeter pest control</a> program is built around the exterior for that reason, using EPA-registered products applied per label directions. When the weather turns, these same pests become the ones in our guide to <a href="/blog/winter-pests-alabama">common winter pest problems in Alabama</a> — and the instinct to cancel service once it gets cold is exactly backwards.</p>
+
+<h2>Do it once, in September</h2>
+
+<p>Sweeps, sealant, mesh, and an afternoon of yard cleanup will do more for your October than anything in a spray bottle. If you would rather have someone walk the foundation with you, that is part of a free inspection. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> before the weather turns.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
     slug: 'termite-treatment-cost-alabama',
     title: 'How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)',
     excerpt: 'Nobody can quote you a termite price over the phone honestly, and the companies that do are guessing. Here is what actually moves the number on an Alabama house — linear footage, foundation type, active infestation versus prevention, and which system fits the structure.',
@@ -415,7 +476,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>It's a bait station system. We install monitoring stations every 10–15 feet around your foundation. When termites find the stations (they always do — they're constantly foraging), they take the bait back to the colony, and the entire colony collapses. No drilling into your slab. No tank trucks. No chemicals injected into the soil under your kids' play area.</p>
 
-<p>Sentricon is backed by a $1,000,000 damage repair warranty from Corteva — the manufacturer. If termites cause damage to your home while we're protecting it, that's covered.</p>
+<p>Sentricon installations we service carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. The coverage is EnviroCare's own — not Corteva's and not the manufacturer's. If termites cause damage to your home while we're protecting it, the agreement sets out what is covered.</p>
 
 <h2>If you find swarmers in your house</h2>
 
@@ -488,7 +549,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What we actually do</h2>
 
-<p>EnviroCare has been a Sentricon® Certified Specialist since the system was approved for residential use. Four generations of my family have treated termites in this state — my grandfather started the company in 1958 with a single truck and a chlordane sprayer. We've used every method the industry has thrown at us, and Sentricon is what we recommend now.</p>
+<p>EnviroCare has been a Sentricon® Certified Specialist since the system was approved for residential use. Four generations of my family have treated termites in this state — the family has been doing pest control in Alabama since 1958, when my grandfather worked it with a single truck and a chlordane sprayer. We've used every method the industry has thrown at us, and Sentricon is what we recommend now.</p>
 
 <p>Free inspection. Call the office nearest you:</p>
 <ul>
@@ -633,7 +694,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Do I Need a WDO Letter to Close in Alabama? | EnviroCare',
     metaDescription: 'Buying a home in Alabama with a loan? You almost certainly need a WDO (termite) letter. What it is, who orders it, and how to keep it off the closing critical path. (205) 940-6360.',
     body: `
-<p class="lede">Short answer: if your Alabama home purchase involves a loan, plan on yes. VA loans require the official one-page Alabama WDO report (Form ADAI-WDO-100) outright, FHA requires evidence of no active infestation, and most conventional lenders ask for the same letter. So when your lender's checklist says "WDO letter," "termite letter," or "Form 99B" and your realtor says "no big deal, just get one" — here's what's actually involved.</p>
+<p class="lede">Short answer: if your Alabama home purchase involves a loan, plan on yes. VA loans require the Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9-.18, Exhibit A) outright, FHA requires evidence of no active infestation, and most conventional lenders ask for the same letter. So when your lender's checklist says "WDO letter," "termite letter," or "Form 99B" and your realtor says "no big deal, just get one" — here's what's actually involved.</p>
 
 <h2>What WDO stands for</h2>
 
@@ -1228,7 +1289,10 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Pests',
     readMinutes: 4,
     heroEmoji: '🐟',
-    metaTitle: 'Silverfish Control in Alabama | EnviroCare',
+    // Distinct from /pest-library/silverfish, which carries the species profile
+    // under the plain "Silverfish Control in Alabama | EnviroCare" title. These two
+    // were byte-identical until 2026-08-11 — the only duplicate title on the site.
+    metaTitle: 'Silverfish in Alabama Homes: Humidity Damage Guide | EnviroCare',
     metaDescription: 'Silverfish thrive in Alabama humidity and damage books, clothing, and wallpaper. They hide in attics and bathroom walls. Treatment from EnviroCare.',
     body: `
 <p class="lede">Silverfish thrive in Alabama humidity and are one of the most common household pests we treat — and one of the most overlooked. These fast-moving silver insects damage books, wallpaper, clothing, and stored documents while hiding in walls and attics where they're rarely seen until populations are large.</p>

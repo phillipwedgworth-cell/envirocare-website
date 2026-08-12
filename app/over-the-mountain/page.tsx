@@ -92,7 +92,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "Can you treat termites in an older home without drilling?",
-      "a": "Yes. Sentricon® Always Active™ uses in-ground bait stations — no drilling into historic masonry, no tank trucks — with up to $1M in damage coverage on qualifying homes. The inspection is free."
+      "a": "Yes. Sentricon® Always Active™ uses in-ground bait stations — no drilling into historic masonry, no tank trucks — with up to $1M in damage coverage on qualifying homes, subject to the terms of the agreement. The inspection is free."
     },
     {
       "q": "How much does pest control cost Over the Mountain?",

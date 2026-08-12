@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "./" },
-  openGraph: { title: TITLE, description: DESC, images: ["/og/og-decatur.png"], type: "website" },
+  openGraph: { url: 'https://www.envirocarellc.com/decatur-termite-control', title: TITLE, description: DESC, images: ["/og/og-decatur.png"], type: "website" },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/og-decatur.png"] },
 };
 

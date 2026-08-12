@@ -229,6 +229,12 @@ export default function CityPage({ slug }: { slug: string }) {
               <div className="city-stat"><div className="city-stat-n">$1M</div><div className="city-stat-l">Sentricon® Coverage</div></div>
               <div className="city-stat"><div className="city-stat-n">30+</div><div className="city-stat-l">Pests Covered</div></div>
             </div>
+            {/* A stat tile cannot carry the clause inside itself, so the disclosure
+                sits directly beneath the band. Required on every page stating the
+                figure — see the file-scoped $1M rule in data/compliance.ts. */}
+            <div className="city-stat-fine" style={{ fontSize: 12, opacity: 0.75, marginTop: 8 }}>
+              Sentricon® damage repair coverage is up to $1,000,000 on qualifying homes, subject to the terms of the agreement.
+            </div>
             <div className="city-cta-row">
               <a href={`tel:${tel}`} className="btn-gold" style={{overflow:'visible'}}>Call {phone}</a>
               <a href="/quote" className="btn-outline-white">See Pricing →</a>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "How the Sentricon $1,000,000 termite damage warranty works in Alabama — what is covered and how to keep it active. Family-owned since 1958.",
   alternates: { canonical: './' },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/faq/termite-warranty',
     title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
     description: "How the Sentricon $1,000,000 termite damage warranty works in Alabama — what is covered and how to keep it active. Family-owned since 1958.",
     images: ['/og-image.png'],

@@ -14,7 +14,13 @@ for (const line of body.split("\n")) {
   const lit = dq ? dq[1] : sq[1].replace(/\\'/g, "'").replace(/"/g, '\\"');
   const raw = JSON.parse(`"${lit}"`);
   const nm = line.match(/notIf:\s*'((?:\\.|[^'\\])*)'/);
-  rules.push({ re: new RegExp(raw, "i"), notIf: nm ? new RegExp(nm[1], "i") : null, raw });
+  // `requires` belongs to file-scoped rules (granularity: 'file'), where the
+  // obligation is satisfied once per page rather than once per line. These cases
+  // assert what a string means STANDING ALONE, so a string that already carries
+  // the required text is not a violation — same effect as notIf here.
+  const rq = line.match(/requires:\s*'((?:\\.|[^'\\])*)'/);
+  const exempt = [nm && nm[1], rq && rq[1]].filter(Boolean).join("|");
+  rules.push({ re: new RegExp(raw, "i"), notIf: exempt ? new RegExp(exempt, "i") : null, raw });
 }
 console.log(`${rules.length} rules compiled OK\n`);
 
@@ -57,6 +63,11 @@ const cases = [
   ["We don't guarantee elimination, but treatments reduce activity", false, "negated hedge"],
   ["shall carry a guarantee that if an infestation is found within ninety (90) days", false, "statutory quotation"],
   ["up to $1,000,000 in damage repair coverage, subject to the terms of the agreement", false, "the approved phrasing"],
+  // the sitewide header band that shipped the bare figure to all 156 URLs
+  ["Sentricon® termite protection · Up to $1M repair coverage · No drilling", true, "$1M with no qualifier — the header band"],
+  ["Up to $1M damage warranty.", true, "$1M abbreviated, no qualifier"],
+  ["Up to $1 million in damage repair coverage", true, "$1 million spelled out, no qualifier"],
+  ["Up to $1M repair coverage, subject to the terms of the agreement", false, "qualified on the same line must pass"],
   // --- name ---
   // Built from parts on purpose: a literal here would be rewritten by any future
   // sitewide rename sweep, silently turning this assertion into a tautology.

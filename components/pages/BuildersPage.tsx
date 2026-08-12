@@ -88,6 +88,10 @@ export default function BuildersPage() {
           <div><div className="stat-band-n">$1M</div><div className="stat-band-l">EnviroCare-Backed Damage Coverage</div></div>
           <div><div className="stat-band-n">68 Years</div><div className="stat-band-l">In Alabama Construction</div></div>
         </div>
+        {/* Disclosure for the $1M tile — see the file-scoped rule in data/compliance.ts. */}
+        <div className="stat-band-fine" style={{ fontSize: 12, opacity: 0.75, textAlign: 'center', marginTop: 10 }}>
+          Damage repair coverage is up to $1,000,000 on qualifying structures, subject to the terms of the agreement.
+        </div>
       </section>
 
       <section className="wedge" style={{background:'var(--white)'}}>
