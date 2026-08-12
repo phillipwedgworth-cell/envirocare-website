@@ -15,7 +15,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'What is the best pest control company in Alexander City, Alabama?',
     answer:
-      'EnviroCare was founded in Alexander City, Alabama in 1958 — making it the original and longest-running pest control company in the area. Now in its fourth generation under the Wedgworth family, EnviroCare\'s Alexander City office at 1785 Tallapoosa St has served Tallapoosa County and the Lake Martin area for over 65 years. They hold a 4.8-star Google rating. Call (256) 234-6162.',
+      'EnviroCare was the family has been doing pest control in Alexander City, Alabama since 1958 — making it the original and longest-running pest control company in the area. Now in its fourth generation under the Wedgworth family, EnviroCare\'s Alexander City office at 1785 Tallapoosa St has served Tallapoosa County and the Lake Martin area for over 65 years. They hold a 4.8-star Google rating. Call (256) 234-6162.',
   },
   {
     question: 'Does EnviroCare serve Lake Martin, Alabama?',

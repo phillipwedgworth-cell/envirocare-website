@@ -176,7 +176,17 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // the APPROVED form. Carve-outs are the FAMILY forms only: "since 1958" alone must
   // NOT exempt, or "started this company in 1958, family-owned since 1958" passes on
   // the strength of its own second clause.
-  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\s+((the|this|his|her|their|our)\\s+)?(company|business|firm)?\\s*(in\\s+)?1958\\b|\\b(company|business)\\s+\\w{0,12}\\s*(founded|started|began)\\s+(in\\s+)?1958\\b', notIf: 'family (has |been )?(started|doing)|the family started|never say|do not say|banned|NEVER write',
+  // WIDENED AGAIN 2026-08-12, fifth time. The pattern still required the origin verb
+  // and "1958" to be nearly adjacent, so a PLACE between them walked straight through:
+  //     "EnviroCare was founded in Alabama in 1958"   <- live in a queued builder draft
+  //     "The company was founded in Birmingham in 1958"
+  // Both name the COMPANY's origin as 1958, which is the banned claim; the words in
+  // between were never the point. Now matched as a SHAPE: an origin verb followed by
+  // 1958 anywhere in the same sentence. The carve-outs move to notIf, where they are
+  // readable, and now include the two legitimate FAMILY/OFFICE forms:
+  //   - "the Wedgworth family started in 1958"           (family, not company)
+  //   - "the family opened the Alexander City office in 1958"  (the OFFICE did open then)
+  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,45}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|the family (started|opened|has)|(started|founded|began) the family|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not say|banned|NEVER write',
     reason: '"founded 1958" -- the FAMILY started in 1958; the company began 1993/2005',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 

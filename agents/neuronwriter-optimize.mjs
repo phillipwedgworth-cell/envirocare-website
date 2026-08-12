@@ -50,8 +50,15 @@ HARD RULES — breaking any one makes the output unusable:
 - NEVER use "guarantee" in mosquito copy. Never say "eliminate mosquitoes".
 - NEVER say "100% satisfaction guarantee".
 - NEVER flat-price termite work — termite is always "subject to a free WDO inspection".
-- DO NOT include any dollar-amount damage guarantee. Omit "$1,000,000", "up to $1 million",
-  "million-dollar guarantee" and any similar figure entirely. Describe coverage without a dollar amount.
+- Termite coverage is stated ONLY as "up to $1,000,000 in damage repair coverage, subject to
+  the terms of the agreement". The figure is approved and is on every live page; the QUALIFIER
+  is what makes it usable, so the two travel together and neither appears without the other.
+  Never call it a guarantee and never attribute it to Corteva, Sentricon or "the manufacturer" —
+  the coverage is EnviroCare's own.
+  (Until 2026-08-12 this rule said to omit the figure entirely. That contradicted
+  data/compliance.ts — which calls itself the single source of truth — and
+  agents/lib/compliance.mjs, both of which approve the qualified form. As written it would
+  have stripped a real differentiator out of every page this agent rewrote.)
 - NEVER mention Tuscaloosa (not a service area).
 - NEVER use "Bundle & Save" or frame bundling as a discount — bundling is convenience only.
 - Always write "fourth-generation" / "four generations".
