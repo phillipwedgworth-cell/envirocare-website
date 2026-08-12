@@ -1869,7 +1869,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>If you're seeing more than one wolf spider a week indoors, or you have a finished basement where they keep reappearing, the problem isn't really the spiders — it's that something they hunt has an established population in your home. That's what professional <a href="/services/pest-control">pest control</a> resolves, because it treats the underlying insect activity instead of the spider symptom.</p>
 
-<p>EnviroCare has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
+<p>The Wedgworth family has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
 
 <p><a href="/quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
 

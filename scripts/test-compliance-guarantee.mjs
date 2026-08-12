@@ -93,6 +93,18 @@ const cases = [
   // ...and the legitimate forms that must survive the widening
   ["the Wedgworth family opened the Alexander City office in 1958", false, "the OFFICE did open in 1958"],
   ["Started the family pest control business in 1958 in Alexander City", false, "founder bio — the FAMILY business did start then"],
+  // SIXTH shape, 2026-08-12 (found by the Cowork session, verified here). The rule
+  // above knows only ORIGIN verbs, so a DURATION verb attaching the ENTITY to 1958
+  // slipped it — and all six NW drafts carried it.
+  ["EnviroCare has handled pest control and termite control in Alabama since 1958", true, "entity + duration verb + since 1958"],
+  ["EnviroCare has worked Alabama since 1958", true, "entity + worked since 1958"],
+  ["EnviroCare has protected homes since 1958", true, "entity + protected since 1958"],
+  ["EnviroCare has been doing this for Alabama families since 1958", true, "entity + has been + since 1958"],
+  // ...and the brand shorthand that must survive it. Requiring a duration VERB is
+  // what separates these; without it the rule flagged 93 places, ~60 of them titles.
+  ["EnviroCare — Alabama Pest Control Since 1958", false, "page title, no verb — approved shorthand"],
+  ["EnviroCare · Since 1958", false, "the live header tagline — approved shorthand"],
+  ["The Wedgworth family behind EnviroCare has been doing pest control in Alabama since 1958", false, "family subject must pass"],
   ["the family started doing pest control in Alabama in 1958", false, "FAMILY form must pass"],
   ["the family has been doing pest control in Alabama since 1958", false, "APPROVED phrasing must pass"],
   ["Family-owned since 1958", false, "approved short form must pass"],
