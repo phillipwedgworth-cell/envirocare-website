@@ -15,13 +15,19 @@
 -- Postgres can do this without a table rewrite in recent versions, but on a table
 -- this small it does not matter either way.
 --
--- NOT YET APPLIED as of 2026-08-09. This is production DDL on the live project
--- (dyoujmyleihcpqgeifre, "Phillips Agents"), so it is left for a human to run
--- deliberately rather than executed by an agent as a side effect.
+-- APPLIED 2026-08-11 to dyoujmyleihcpqgeifre ("Phillips Agents"), on Phillip's
+-- explicit go-ahead. Verified two ways:
+--   1. information_schema now reports impact_score/effort_score as `numeric`
+--   2. a probe row inserting 9.5 / 7.5 succeeded and read back exactly; deleted after
 --
--- To apply:
---   Supabase dashboard -> SQL Editor -> paste -> Run
---   or: mcp apply_migration(project_id="dyoujmyleihcpqgeifre", name="widen_discussion_scores_to_numeric")
+-- Kept in the repo as the record of what was run. Do not re-run — it is idempotent
+-- in effect but there is no reason to touch production DDL twice.
+--
+-- Prior note, left for context: this sat unapplied from 2026-08-09 because it is
+-- production DDL and was deliberately reserved for a human rather than executed by
+-- an agent as a side effect. Every seo-monitor finding scored 9.5/8.5/7.5 was
+-- rejected for those two days and is not recoverable — the write failed, so the
+-- finding was never stored anywhere.
 
 alter table public.agent_discussions
   alter column impact_score type numeric using impact_score::numeric;
