@@ -35,7 +35,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'Do I need termite protection at my Lake Martin lake house?',
     answer:
-      'Yes — termite risk at Lake Martin is high. Tallapoosa County\'s sandy-loam soils, high moisture levels from the lake, and the abundance of older wooden structures create ideal conditions for Eastern Subterranean Termites. Pier-and-beam foundations common in lakefront cabins are especially vulnerable. EnviroCare\'s Sentricon® Always Active™ system requires no drilling, protects the full perimeter, and includes up to $1 million in termite damage coverage. Pricing is set after a free WDO inspection. Call (256) 234-6162.',
+      'Yes — termite risk at Lake Martin is high. Tallapoosa County\'s sandy-loam soils, high moisture levels from the lake, and the abundance of older wooden structures create ideal conditions for Eastern Subterranean Termites. Pier-and-beam foundations common in lakefront cabins are especially vulnerable. EnviroCare\'s Sentricon® Always Active™ system requires no drilling, protects the full perimeter, and includes up to $1 million in termite damage coverage, subject to the terms of the agreement. Pricing is set after a free WDO inspection. Call (256) 234-6162.',
   },
   {
     question: 'What pests are common near Lake Martin and Alexander City?',

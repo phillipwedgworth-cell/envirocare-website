@@ -184,7 +184,7 @@ const jsonLd = {
         "name": "Brook Highland, AL"
       },
       "name": "Pest Control Brook Highland",
-      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for Brook Highland homes."
+      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage, subject to the terms of the agreement), and seasonal mosquito and tick yard service for Brook Highland homes."
     },
     {
       "@type": "FAQPage",

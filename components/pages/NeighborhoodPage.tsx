@@ -89,7 +89,13 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
             <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> Sentricon® coverage</span>
             <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>No</strong> Drilling required</span>
             <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>4</strong> Generations · since 1958</span>
-            <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>0</strong> Long-term contracts</span>
+            <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>2</strong> Ways to pay</span>
+          </div>
+          {/* Disclosure for the $1M tile above — a stat tile cannot carry the clause
+              inside itself. Required wherever the figure appears; see the file-scoped
+              $1M rule in data/compliance.ts. */}
+          <div style={{ color: "rgba(255,255,255,.7)", fontSize: 12, marginBottom: "1.5rem" }}>
+            Sentricon® damage repair coverage is up to $1,000,000 on qualifying homes, subject to the terms of the agreement.
           </div>
           <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
             <a href={`tel:${phoneDigits}`} style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>

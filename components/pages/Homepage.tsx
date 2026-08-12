@@ -161,7 +161,7 @@ function TopBanner() {
     {
       key: 'sentricon',
       content: (
-        <><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage · No drilling</>
+        <><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage, subject to the terms of the agreement · No drilling</>
       ),
     },
     {
@@ -323,7 +323,7 @@ function Hero() {
             <span aria-hidden="true">·</span>
             <span>Sentricon® Certified</span>
             <span aria-hidden="true">·</span>
-            <span>Up to $1M Coverage</span>
+            <span>Up to $1M Coverage, subject to the terms of the agreement</span>
             <span aria-hidden="true">·</span>
             <span>Since 1958</span>
           </div>
@@ -391,7 +391,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     key: 'termite', icon: 'termite', name: 'Termite / Sentricon®', dotColor: '#C77A00',
     perservice: { price: 'After free inspection', terms: 'Sentricon® bait system · priced to your home' },
     monthly: { price: 'After free inspection', terms: 'Annual renewal · priced to your home' },
-    bullets: ['Sentricon® Always Active bait system', 'Up to $1M termite damage repair coverage', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
+    bullets: ['Sentricon® Always Active bait system', 'Up to $1M termite damage repair coverage, subject to the terms of the agreement', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
     cta: 'Get Free Termite Inspection', ctaCls: 'ec-cp-cta-outline', fine: 'Priced after inspection',
   },
 ];

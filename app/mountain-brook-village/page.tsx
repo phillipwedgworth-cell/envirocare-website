@@ -32,7 +32,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🪵",
       title: "Sentricon® for the city's oldest homes",
-      body: "As Mountain Brook's founding village, this area carries some of the city's oldest brick, stone, and stucco construction — exactly the kind of home nobody wants drilled into. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, with up to $1M in EnviroCare-backed damage coverage on qualifying homes.",
+      body: "As Mountain Brook's founding village, this area carries some of the city's oldest brick, stone, and stucco construction — exactly the kind of home nobody wants drilled into. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, with up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement.",
     },
     {
       emoji: "🦟",

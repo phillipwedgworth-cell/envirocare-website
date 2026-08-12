@@ -372,7 +372,7 @@ export default function PricingContent() {
             Get your free quote. <em style={{ color: GOLD, fontStyle: "italic" }}>We&rsquo;ll call you back.</em>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
-            No obligation. No hidden fees. The Wedgworth family guarantee.
+            No obligation. No hidden fees. Four generations of the Wedgworth family standing behind the work.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/quote" className="pc-btn" style={{

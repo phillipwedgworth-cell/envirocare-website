@@ -35,7 +35,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🪵",
       "title": "Sentricon® on substantial homes",
-      "body": "Highland Lakes homes are substantial — finished basements, walkout foundations, extensive masonry. Sentricon® Always Active™ in-ground bait stations protect without drilling into any of it. priced after a free WDO inspection, with up to $1M in EnviroCare-backed damage coverage on qualifying homes."
+      "body": "Highland Lakes homes are substantial — finished basements, walkout foundations, extensive masonry. Sentricon® Always Active™ in-ground bait stations protect without drilling into any of it. priced after a free WDO inspection, with up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement."
     },
     {
       "emoji": "🐀",

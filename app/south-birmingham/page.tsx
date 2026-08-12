@@ -71,7 +71,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "Do you pre-treat new construction in Calera and Chelsea?",
-      "a": "Yes. We work with builders on Sentricon® and termite pre-treatment, with up to $1M in damage coverage on qualifying homes."
+      "a": "Yes. We work with builders on Sentricon® and termite pre-treatment, with up to $1M in damage coverage on qualifying homes, subject to the terms of the agreement."
     },
     {
       "q": "What about fire ants?",

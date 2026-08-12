@@ -55,7 +55,7 @@ export default function RealtorPage() {
           <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Rated</div>
           <div className="ti"><div className="ti-chk">✓</div>Official Alabama WDO Report</div>
           <div className="ti"><div className="ti-chk">✓</div>VA / FHA / Conventional Accepted</div>
-          <div className="ti"><div className="ti-chk">✓</div>48-Hour Turnaround</div>
+          <div className="ti"><div className="ti-chk">✓</div>Built Around Your Closing Date</div>
           <div className="ti"><div className="ti-chk">✓</div>$125 Standalone Fee</div>
         </div>
       </div>

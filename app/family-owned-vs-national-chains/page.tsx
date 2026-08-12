@@ -32,7 +32,7 @@ const ROWS: [string, string, string][] = [
   ['Who answers the phone', 'A staffed local office — Alabaster, Alexander City, or Huntsville', 'A regional or national call center'],
   ['Your technician', 'The same local technician on your route, visit after visit when scheduling allows', 'Rotating techs assigned from a larger pool'],
   ['Ownership', 'Fourth-generation Wedgworth family, same family since 1958', 'Corporate or franchise ownership, often multi-state'],
-  ['Termite protection', 'Sentricon® Always Active™ — in-ground bait stations, no drilling; up to $1,000,000 EnviroCare repair coverage on qualifying homes', 'Varies by branch; often liquid-barrier treatments that require drilling'],
+  ['Termite protection', 'Sentricon® Always Active™ — in-ground bait stations, no drilling; up to $1,000,000 EnviroCare repair coverage on qualifying homes, subject to the terms of the agreement', 'Varies by branch; often liquid-barrier treatments that require drilling'],
   ['Pricing', 'Published on the website — $35/month on ACH or $70 per bi-monthly visit for pest control', 'Usually quote-only; pricing varies by branch and promotion'],
   ['Billing', 'Pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement — terms confirmed in writing before service starts', 'Commonly annual service agreements'],
   ['Re-service', 'Unlimited free re-services between scheduled visits', 'Policies vary by branch and plan'],

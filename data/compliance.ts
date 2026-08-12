@@ -23,6 +23,12 @@ export interface BannedTerm {
    *  'chat' = the chatbot prompt/output only (app/api/chat). Use 'chat' for
    *  AI-tell / stylistic rules so they never flag ordinary site punctuation. */
   scope?: 'content' | 'chat';
+  /** 'line' (default) flags each matching line. 'file' flags the FILE only when it
+   *  matches `pattern` somewhere AND fails to match `requires` anywhere — for
+   *  obligations satisfied once per page (a disclosure), not once per sentence. */
+  granularity?: 'line' | 'file';
+  /** Only with granularity 'file': the text whose PRESENCE clears the file. */
+  requires?: string;
   /** 'block' (default) fails the deploy. 'warn' reports for human review without
    *  blocking — for decision-gated language (e.g. discounts, which Phillip may
    *  approve per-offer) and rules with an open business question. */
@@ -183,6 +189,29 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: '(coverage|repair|warrant\\w*)[^.]{0,40}\\b(from|by|backed by|through)\\s+(corteva|the\\s+manufacturer|sentricon)|\\b(corteva|manufacturer)([\'’]s)?\\s+(guarantee|warranty|coverage)\\b',
     reason: 'coverage attributed to the manufacturer',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement (EnviroCare-backed; never attributed to Corteva or Sentricon)' },
+
+  // $1M WITHOUT THE QUALIFIER (added 2026-08-11). The approved phrasing has always
+  // carried "subject to the terms of the agreement", and 29 pages used it correctly
+  // -- so the standard was understood. But nothing CHECKED it, and the sitewide
+  // header band ("Up to $1M repair coverage · No drilling") therefore shipped the
+  // bare figure to all 156 URLs, 158 occurrences, with no qualifier anywhere near it.
+  // Same failure mode as "founded 1958" and the retired $32/mo price: the rule lived
+  // in prose, not in a regex, so the one place it was missing was invisible.
+  // notIf carries the qualifier plus the negative-context forms (the "does NOT claim"
+  // list in llms-full.txt and the chatbot's own banned-phrase prompt).
+  //
+  // GRANULARITY IS 'file', NOT 'line', AND THAT IS THE WHOLE POINT. A line-scoped
+  // version of this rule produced 253 hits and would have been useless: a ribbon
+  // reading `$1M Coverage`, a 60-char page title, and an og:description physically
+  // cannot carry a nine-word clause, so the only way to satisfy a line rule is to
+  // delete the figure everywhere. The obligation is that the QUALIFIER APPEARS ON
+  // THE PAGE -- which is also exactly how the Aug 11 audit tested it ("no qualifier
+  // within 300 characters"). So: if a file states the figure anywhere, that file
+  // must also state the qualifier somewhere. Badges stay; unqualified pages fail.
+  // NOTE: keep pattern, notIf and requires on ONE line -- see the WDO rule comment.
+  { pattern: '\\$1(?:,000,000|M|\\.0M|\\s*million)\\b', granularity: 'file', requires: 'subject to the terms of the agreement', notIf: 'not a Corteva|not the manufacturer|never attribut|NEVER|does not claim|do not say|banned',
+    reason: '$1M coverage figure appears in this file with no "subject to the terms of the agreement" anywhere in it',
+    approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
 
   // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
   // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would

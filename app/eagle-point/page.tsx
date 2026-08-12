@@ -35,7 +35,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🪵",
       "title": "Sentricon® on Eagle Point homes",
-      "body": "Substantial homes, finished basements, and significant brick/stone work mean drilling for termite treatment is a non-starter. Sentricon® Always Active™ in-ground bait stations protect the structure without disrupting any of it. Up to $1M in EnviroCare-backed damage coverage on qualifying homes."
+      "body": "Substantial homes, finished basements, and significant brick/stone work mean drilling for termite treatment is a non-starter. Sentricon® Always Active™ in-ground bait stations protect the structure without disrupting any of it. Up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement."
     },
     {
       "emoji": "🐜",

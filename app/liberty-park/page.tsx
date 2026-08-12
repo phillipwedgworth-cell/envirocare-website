@@ -25,7 +25,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🪵",
       "title": "Sentricon® for Liberty Park homes",
-      "body": "These are the homes Sentricon® was built for — brick, stone, and custom foundation work that nobody wants drilled into. In-ground bait stations around the perimeter, no holes, no disruption to landscape. Up to $1M EnviroCare-backed damage coverage on qualifying homes."
+      "body": "These are the homes Sentricon® was built for — brick, stone, and custom foundation work that nobody wants drilled into. In-ground bait stations around the perimeter, no holes, no disruption to landscape. Up to $1M EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement."
     },
     {
       "emoji": "🦟",

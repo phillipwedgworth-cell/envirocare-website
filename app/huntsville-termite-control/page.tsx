@@ -4,9 +4,9 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
   description:
-    "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
+    "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage, subject to the terms of the agreement. Call (256) 937-7676.",
   alternates: { canonical: "./" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/huntsville-termite-control',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
     description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
     images: ['/og-image.png'],

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Need an exterminator in Huntsville? We fix the problem, then keep it from coming back — bi-monthly protection from $35/mo. (256) 937-7676.",
   alternates: { canonical: "./" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/huntsville-exterminator',
     title: "Exterminator Huntsville AL | EnviroCare — Local Since 1958",
     description: "Need an exterminator in Huntsville? We fix the problem, then keep it from coming back — bi-monthly protection from $35/mo. (256) 937-7676.",
     images: ['/og-image.png'],
@@ -74,7 +74,7 @@ const c: ComboContent = {
     },
     {
       q: "Is termite work separate?",
-      a: "Yes — termites get their own program: Sentricon® bait stations with up to $1M in damage repair coverage, which matters in Madison County where new slabs sit on freshly disturbed, termite-prone soil. The inspection is free.",
+      a: "Yes — termites get their own program: Sentricon® bait stations with up to $1M in damage repair coverage, subject to the terms of the agreement, which matters in Madison County where new slabs sit on freshly disturbed, termite-prone soil. The inspection is free.",
     },
   ],
   office: { name: "Huntsville Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },

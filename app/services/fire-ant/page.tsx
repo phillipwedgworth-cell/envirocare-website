@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Fire ant treatment that reaches the queen, not just the mound. Starts at $150, priced per sq ft. Open to all. Birmingham & across Alabama. (205) 940-6360.",
   alternates: { canonical: "/services/fire-ant" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/services/fire-ant',
     title: "Fire Ant Control | EnviroCare",
     description:
       "Whole-colony fire ant treatment with season-long suppression. Starting at $150, priced by the size of your yard.",

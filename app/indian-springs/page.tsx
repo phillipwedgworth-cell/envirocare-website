@@ -35,7 +35,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🪵",
       "title": "Sentricon® on ridge-top homes",
-      "body": "Homes built into the Indian Springs ridge often have walkout basements, complex foundation grading, and substantial masonry — exactly what Sentricon® Always Active™ is designed for. In-ground bait stations, no drilling, up to $1M in EnviroCare-backed damage coverage on qualifying homes."
+      "body": "Homes built into the Indian Springs ridge often have walkout basements, complex foundation grading, and substantial masonry — exactly what Sentricon® Always Active™ is designed for. In-ground bait stations, no drilling, up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement."
     },
     {
       "emoji": "🐜",

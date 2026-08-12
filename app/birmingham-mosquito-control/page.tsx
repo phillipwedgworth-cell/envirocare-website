@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 991-2882.",
   alternates: { canonical: "./" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/birmingham-mosquito-control',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
     description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 991-2882.",
     images: ['/og-image.png'],

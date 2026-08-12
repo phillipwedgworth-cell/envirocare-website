@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
   alternates: { canonical: "./" },
-  openGraph: {
+  openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
     title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
     description: "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
     images: ['/og-image.png'],

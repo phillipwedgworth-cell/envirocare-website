@@ -60,7 +60,7 @@ const LLMS_TXT = `# EnviroCare
   requires interior treatment.
 - Termite protection: Sentricon® Always Active™ bait system. No flat price — Alabama requires a
   free on-site WDO inspection first, then we quote it exact (based on linear footage and foundation
-  type). No drilling, no tank trucks. Up to $1,000,000 in damage repair coverage. Free inspection.
+  type). No drilling, no tank trucks. Up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Free inspection.
 - Mosquito yard barrier: $45/visit, March through November (9 visits, billed per service — no monthly),
   re-applied every 30 days. Suited to waterfront properties (Lake Martin) — products approved for waterfront use.
 - Mosquito + Tick (chigger coverage): $65/visit, 9 visits March through November (per service, no monthly). Flea is an interior-plan add-on.
@@ -87,7 +87,7 @@ const LLMS_TXT = `# EnviroCare
 Monday–Friday 8am–5pm Central. Closed weekends.
 
 ## Key facts
-- Founded 1958; 68 years in continuous family operation.
+- The Wedgworth family has been doing pest control in Alabama since 1958 — 68 years in continuous family operation.
 - Sentricon® Certified Specialist (Corteva).
 - Licensed by the Alabama Department of Agriculture & Industries; member, Alabama Pest
   Control Association and the Shelby County Home Builders Association.

@@ -97,7 +97,7 @@ const faqLd = {
       name: "Can the buyer get a termite plan at closing?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. We can set up a Sentricon® Always Active termite plan at or after closing. Many buyers include this as part of their negotiated repairs or purchase a plan directly. Up to $1,000,000 repair coverage available.",
+        text: "Yes. We can set up a Sentricon® Always Active termite plan at or after closing. Many buyers include this as part of their negotiated repairs or purchase a plan directly. Up to $1,000,000 repair coverage available, subject to the terms of the agreement.",
       },
     },
   ],

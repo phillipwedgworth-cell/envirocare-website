@@ -47,7 +47,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   },
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    "Family-owned, fourth-generation Alabama pest control and termite company family-owned in Alabama since 1958, beginning in Alexander City as Wedgworth Pest Control. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M repair coverage, and mosquito and tick yard treatment across Alabama from four offices: Birmingham, Alabaster, Lake Martin/Alex City, and Huntsville. Around Lake Martin and Alexander City, EnviroCare is the Wedgworth family business that locals have long known as Wedgworth Pest Control.",
+    "Family-owned, fourth-generation Alabama pest control and termite company family-owned in Alabama since 1958, beginning in Alexander City as Wedgworth Pest Control. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M repair coverage subject to the terms of the agreement, and mosquito and tick yard treatment across Alabama from four offices: Birmingham, Alabaster, Lake Martin/Alex City, and Huntsville. Around Lake Martin and Alexander City, EnviroCare is the Wedgworth family business that locals have long known as Wedgworth Pest Control.",
   foundingDate: '1958',
   foundingLocation: {
     '@type': 'Place',
@@ -116,7 +116,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   // sameAs — KEY FOR AEO. AI systems use this to verify entity identity.
   // Add real URLs as they're confirmed. Comments mark items needing verification.
   sameAs: [
-    'https://www.facebook.com/envirocarepestandtermite',
+    'https://www.facebook.com/EnviroCareAL',
     'https://www.google.com/maps/place/?q=place_id:ChIJr8cmt-EeiYgR_jgX9xsiZWY',  // Alabaster GBP
     'https://www.google.com/maps/place/?q=place_id:ChIJd4YXKCRmqmIR1DmDoEcGohU',  // Huntsville GBP
     'https://www.google.com/maps/place/?q=place_id:ChIJ508mEjcLjIgRZ2HdWgXX76c',  // Alex City GBP

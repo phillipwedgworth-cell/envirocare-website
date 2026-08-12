@@ -61,7 +61,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "My east-metro home is new construction — do I need termite protection?",
-      "a": "Especially then. New slabs sit on disturbed soil that subterranean termites find first. Starting Sentricon® early locks in protection — up to $1M coverage on qualifying homes."
+      "a": "Especially then. New slabs sit on disturbed soil that subterranean termites find first. Starting Sentricon® early locks in protection — up to $1M coverage on qualifying homes, subject to the terms of the agreement."
     }
   ],
   "nearbyClusters": [

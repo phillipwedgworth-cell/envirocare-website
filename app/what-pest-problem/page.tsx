@@ -60,7 +60,7 @@ const CARDS: PestCard[] = [
   },
   {
     emoji: '🪵', name: 'Termites',
-    hook: 'Sentricon® Always Active™ bait stations — no drilling, up to $1,000,000 EnviroCare repair coverage on qualifying homes. Priced after a free WDO inspection.',
+    hook: 'Sentricon® Always Active™ bait stations — no drilling, up to $1,000,000 EnviroCare repair coverage on qualifying homes, subject to the terms of the agreement. Priced after a free WDO inspection.',
     href: '/services/termite-control', linkLabel: 'Termite Control',
   },
   {

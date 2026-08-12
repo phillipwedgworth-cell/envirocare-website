@@ -108,7 +108,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'termite-control',
-    relatedLinks: [{ href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers', note: 'Before you compare our termite protection against another company’s, it is worth reading' }],
+    relatedLinks: [{ href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers, subject to the terms of the agreement', note: 'Before you compare our termite protection against another company’s, it is worth reading' }],
     name: 'Termite Control',
     shortName: 'Termite',
     category: 'core',

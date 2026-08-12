@@ -42,7 +42,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🪵",
       title: "Termites in established mid-century homes",
-      body: "Cherokee Bend's mid-century ranch and split-level homes often sit on crawlspaces over moisture-holding soil — classic Eastern subterranean termite conditions. Sentricon® Always Active™ protects with in-ground bait stations, no drilling, and up to $1M in EnviroCare-backed coverage on qualifying homes.",
+      body: "Cherokee Bend's mid-century ranch and split-level homes often sit on crawlspaces over moisture-holding soil — classic Eastern subterranean termite conditions. Sentricon® Always Active™ protects with in-ground bait stations, no drilling, and up to $1M in EnviroCare-backed coverage on qualifying homes, subject to the terms of the agreement.",
     },
     {
       emoji: "🕷️",

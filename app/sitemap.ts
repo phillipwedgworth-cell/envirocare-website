@@ -87,8 +87,29 @@ const SERVICE_SLUGS = [
   'commercial',
 ];
 
+/**
+ * lastmod policy (2026-08-11)
+ * --------------------------------------------------------------------------
+ * This file used `new Date()` for every entry, so all 156 URLs carried an
+ * IDENTICAL lastmod that also changed on every single build. Google discards a
+ * lastmod that behaves like that — it is indistinguishable from a build stamp,
+ * which is exactly what it was. The signal was worth nothing.
+ *
+ * Two changes:
+ *   1. Blog posts now emit their OWN date (`updatedAt ?? publishedAt`), which is
+ *      real per-URL data already sitting in data/blog-posts.ts.
+ *   2. Everything without a per-item date uses STATIC_LASTMOD — a hand-maintained
+ *      constant, NOT a build stamp. Bump it when the static pages actually change.
+ *      A date that stops moving on rebuilds is believable; one that moves nightly
+ *      is not.
+ *
+ * When pest-library entries gain a date field, give them the same treatment as
+ * the blog rather than folding them back into the constant.
+ */
+const STATIC_LASTMOD = new Date('2026-08-11T00:00:00.000Z');
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const now = STATIC_LASTMOD;
 
   // Main pages — canonical URLs only
   const mainPages: MetadataRoute.Sitemap = [
@@ -167,7 +188,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: now,
+    // Real per-post date — see the lastmod policy note above.
+    lastModified: new Date(post.updatedAt ?? post.publishedAt),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));

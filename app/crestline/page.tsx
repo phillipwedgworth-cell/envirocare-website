@@ -32,7 +32,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🪵",
       title: "Sentricon® for Crestline's historic homes",
-      body: "Crestline's 1920s-to-1950s Tudor, Colonial, and English-cottage homes carry original brick and stone that nobody wants drilled into. Sentricon® Always Active™ uses in-ground bait stations around the perimeter — no holes in the masonry, no tank trucks in the driveway. Up to $1M in EnviroCare-backed damage coverage on qualifying homes.",
+      body: "Crestline's 1920s-to-1950s Tudor, Colonial, and English-cottage homes carry original brick and stone that nobody wants drilled into. Sentricon® Always Active™ uses in-ground bait stations around the perimeter — no holes in the masonry, no tank trucks in the driveway. Up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement.",
     },
     {
       emoji: "🌳",

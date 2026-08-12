@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/wdo-inspection-letters-alabama" },
-  openGraph: { title: TITLE, description: DESC, images: ["/og-image.png"], type: "website" },
+  openGraph: { url: 'https://www.envirocarellc.com/wdo-inspection-letters-alabama', title: TITLE, description: DESC, images: ["/og-image.png"], type: "website" },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og-image.png"] },
 };
 

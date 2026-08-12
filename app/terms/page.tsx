@@ -107,7 +107,7 @@ export default function TermsPage() {
           are registered trademarks of Corteva Agriscience.
         </p>
         <p>
-          EnviroCare provides up to $1,000,000 in repair coverage for active customers under our Sentricon® plan. The actual terms,
+          EnviroCare provides up to $1,000,000 in repair coverage for active customers under our Sentricon® plan, subject to the terms of the agreement. The actual terms,
           limitations, and conditions of that coverage are defined in the signed service agreement issued to each customer. This
           website describes coverage in general terms only; the signed agreement governs.
         </p>

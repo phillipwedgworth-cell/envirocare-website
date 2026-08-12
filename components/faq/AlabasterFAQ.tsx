@@ -35,7 +35,7 @@ const ALABASTER_FAQS = [
   {
     question: 'Do I need termite protection in Alabaster or Shelby County?',
     answer:
-      'Yes. The humid climate and heavily wooded developments throughout Alabaster and Shelby County make Eastern Subterranean Termites a constant threat to home values. EnviroCare installs and monitors the Sentricon® Always Active™ system, which eliminates the entire termite colony with no drilling into your foundation. Pricing is set after a free WDO inspection (Alabama requires it) and includes up to $1 million in termite damage coverage. Call (205) 940-6360.',
+      'Yes. The humid climate and heavily wooded developments throughout Alabaster and Shelby County make Eastern Subterranean Termites a constant threat to home values. EnviroCare installs and monitors the Sentricon® Always Active™ system, which eliminates the entire termite colony with no drilling into your foundation. Pricing is set after a free WDO inspection (Alabama requires it) and includes up to $1 million in termite damage coverage, subject to the terms of the agreement. Call (205) 940-6360.',
   },
   {
     question: 'How does EnviroCare control mosquitoes in Shelby County?',
