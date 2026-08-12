@@ -223,6 +223,29 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: '$1M coverage figure appears in this file with no "subject to the terms of the agreement" anywhere in it',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
 
+  // SIXTH SHAPE, 2026-08-12. Reported by the Cowork session and verified here: the
+  // rule above only knows ORIGIN verbs (founded/started/began/...). It says nothing
+  // about DURATION verbs, so attaching the ENTITY to 1958 with one sailed through:
+  //     "EnviroCare has handled pest control in Alabama since 1958"
+  //     "EnviroCare has worked Alabama since 1958"
+  // Both assert that EnviroCare has been operating since 1958. It has not — the LLC
+  // began 1993 and incorporated 2005; 1958 is the FAMILY, as Wedgworth Pest Control.
+  // Identical claim, different subject and tense, and all six drafts I pushed to the
+  // NeuronWriter editor that morning carried it.
+  // The carve-out is the SUBJECT, not the verb: family/Wedgworth forms are approved
+  // and must keep passing, as must a bare "Family-owned since 1958" with no entity.
+  // NOTE: keep pattern and notIf on ONE line — see the comment on the WDO rule.
+  // A DURATION VERB is required, not bare juxtaposition. Dropping that requirement
+  // produced 93 hits, and most were the approved brand shorthand — the live header
+  // tagline "EnviroCare · Since 1958" and ~60 page titles ending "…Since 1958".
+  // Those state no verb and assert no operating history; "Family-owned since 1958"
+  // is explicitly approved and is the same shape. The claim is the VERB:
+  // "EnviroCare HAS PROTECTED homes since 1958" says the entity was operating, and
+  // that is the part that is untrue.
+  { pattern: '\\bEnviroCare\\b[^.!?]{0,40}?\\b(has|have|had)\\b(\\s+been)?[^.!?]{0,90}?\\bsince\\s+1958\\b', notIf: 'family|Wedgworth|never say|do not say|banned|NEVER write',
+    reason: 'entity attached to 1958 via a duration verb — EnviroCare began 1993/2005; the FAMILY started 1958',
+    approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
+
   // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
   // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would
   // fail every build before that NAP change is approved and made.

@@ -152,7 +152,7 @@ export default function MountainBrookPage() {
               Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service
               between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by
               up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
-              EnviroCare has protected homes since 1958. Call (205)&nbsp;991-2882.
+              The Wedgworth family has protected homes since 1958. Call (205)&nbsp;991-2882.
             </p>
           </div>
         </section>

@@ -20,7 +20,7 @@ const c: ComboContent = {
   h1Accent: "Where the River Sets the Rules.",
   intro: [
     "Decatur lives with the Tennessee River the way other towns live with weather. The river moderates winter — so pest populations here don't die back the way they do even thirty miles south — and it pumps humidity into every summer week, which keeps roaches, camel crickets, and millipedes moving all season. Add Wheeler National Wildlife Refuge wrapping the city's eastern edge, and Decatur has one of North Alabama's most persistent, most renewable pest reservoirs next door.",
-    "That's why our Decatur program is bi-monthly and perimeter-first: a barrier maintained every other month at the foundation, harborage lines treated where the moisture sits, and free re-service between visits when the river weather wins a round anyway. EnviroCare has been doing this for Alabama families since 1958 — four generations, and a real person at the office when you call.",
+    "That's why our Decatur program is bi-monthly and perimeter-first: a barrier maintained every other month at the foundation, harborage lines treated where the moisture sits, and free re-service between visits when the river weather wins a round anyway. The Wedgworth family has been doing this for Alabama families since 1958 — four generations, and a real person at the office when you call.",
   ],
   anglesHeading: "Decatur's pest pressure, neighborhood by neighborhood",
   localAngles: [
