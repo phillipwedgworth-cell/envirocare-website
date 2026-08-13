@@ -277,11 +277,19 @@ const nextConfig: NextConfig = {
 
             // ─── LEGACY ASSET 404 CATCH (post-flip cleanup) ───
             // The old Scorpion site served assets under /images/* and /cms/*.
-            // This repo hosts nothing at those paths (no public/images or
-            // public/cms dir, and no /images//cms references in code), so a
-            // blanket 308 to home retires the legacy 404s without intercepting
-            // any real asset. Revisit if a real /images or /cms route is added.
-            { source: '/images/:path*', destination: '/', permanent: true },
+            // A blanket 308 to home retires those legacy 404s.
+            //
+            // REVISITED 2026-08-13, exactly as the original note said to. That note
+            // read "Revisit if a real /images or /cms route is added" — and PR #92
+            // added public/images/blog/ for the brand graphics. The blanket rule
+            // swallowed them instantly: every file under /images/ 308'd to / and
+            // served the homepage HTML, so the assets were live in the deployment
+            // and unreachable over HTTP at the same time. Caught by fetching the
+            // deployed URLs rather than trusting that the build included them.
+            //
+            // The negative lookahead exempts /images/blog/* and nothing else, so the
+            // legacy catch still covers every real Scorpion path.
+            { source: '/images/:path((?!blog/).*)', destination: '/', permanent: true },
             { source: '/cms/:path*', destination: '/', permanent: true },
                 ];
     },
