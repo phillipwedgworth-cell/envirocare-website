@@ -287,8 +287,23 @@ const nextConfig: NextConfig = {
             // and unreachable over HTTP at the same time. Caught by fetching the
             // deployed URLs rather than trusting that the build included them.
             //
+            // WHY IT HAPPENS, which is the part worth remembering: Next evaluates
+            // redirects BEFORE the filesystem, /public included. A redirect whose
+            // source overlaps a real public/ path always wins, so committing an asset
+            // is not the same as being able to fetch it. `next build` stays green
+            // either way — the file IS in the build — which is exactly why this has
+            // to be checked by serving the URL, not by building.
+            //
             // The negative lookahead exempts /images/blog/* and nothing else, so the
-            // legacy catch still covers every real Scorpion path.
+            // legacy catch still covers every real Scorpion path. Confirmed live
+            // 2026-08-13 — these all still 308: /images/legacy-hero.jpg,
+            // /images/cms/old/photo.png, /images/blogx/thing.webp, and the near-misses
+            // /images/blogpost.jpg, /images/blog-post.jpg, /images/blog.jpg. The
+            // trailing slash in (?!blog/) is load-bearing: without it, "blogpost.jpg"
+            // would be exempted too.
+            //
+            // ADD A MATCHING EXEMPTION HERE before creating any other real directory
+            // under public/images — otherwise it silently disappears the same way.
             { source: '/images/:path((?!blog/).*)', destination: '/', permanent: true },
             { source: '/cms/:path*', destination: '/', permanent: true },
                 ];
