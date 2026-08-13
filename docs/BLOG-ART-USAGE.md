@@ -1,11 +1,29 @@
 # EnviroCare blog graphics — usage + alt text (Aug 12, 2026)
 
-> **STATUS: the six .webp files are NOT in this repo yet.** This document arrived via
-> a patch whose binary blobs were truncated in transit, so the artwork could not be
-> reconstructed. The alt text, placement map and compliance record below are complete
-> and authoritative — they are the part worth keeping. Copy the files into
-> `public/images/blog/` from the Cowork session (or re-export them) before referencing
-> any of these filenames in a component, or the build will ship broken images.
+> **STATUS 2026-08-13 — 2 of 6 .webp files are in the repo. Four are still missing.**
+>
+> | # | asset | in repo |
+> |---|---|---|
+> | 1 | `alabama-pest-pressure-calendar` | ✅ .webp (39,646 b) + .png |
+> | 2 | `termite-swarm-season-alabama-timeline` | ✅ .webp (44,386 b) + .png |
+> | 3 | `how-sentricon-always-active-works` | ⚠️ **.png only** — .webp missing |
+> | 4 | `mosquito-tick-treatment-season-alabama` | ❌ missing |
+> | 5 | `fire-ant-activity-alabama-by-month` | ❌ missing |
+> | 6 | `wdo-letter-alabama-real-estate-explained` | ❌ missing |
+>
+> The originating patch's binary blobs were truncated in transit. Assets 1–3 were
+> recovered from `Desktop/envirocare-stock-pics/`; both recovered .webp files match
+> the patch manifest **byte for byte**, and all three are confirmed 1600×900.
+> Assets 4–6 ("BATCH 2") were never written to disk locally and exist only in the
+> Cowork session.
+>
+> **#3 needs a .webp export** — no WebP encoder is available in this environment
+> (note: `convert` on this machine resolves to `C:\WINDOWS\system32\convert`, the
+> FAT→NTFS filesystem tool, **not** ImageMagick — do not invoke it). Its .png is
+> staged as the archive master per the convention below.
+>
+> **Do not reference assets 3–6 in a component until their .webp lands**, or the
+> build will ship broken images.
 
 Rendered deterministically per BRAND-ASSET-LOCK (Canva generate-design is banned for
 EnviroCare artwork — 8 spec violations on Aug 10 test). Locked palette from
