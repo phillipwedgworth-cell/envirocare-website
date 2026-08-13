@@ -85,9 +85,23 @@ expect it in Local Falcon / BrightLocal location data.
 `'birmingham-downtown'`. ZIP routing in `data/zip-to-office.ts` keys off the
 former — do not rename it.
 
-⚠️ **Open decision:** Birmingham-metro city pages all display the Alabaster line
-(205) 940-6360 (~191 occurrences). Whether they should switch to (205) 991-2882
-is Phillip's call and has NOT been actioned.
+✅ **RULED 2026-08-12 (Phillip) — this is CLOSED. Do not "fix" it.**
+**(205) 940-6360 is the PRIMARY company number.** (205) 991-2882 is the Birmingham
+office direct line. The ~191 Birmingham-metro occurrences of 940-6360 are CORRECT
+and intentional; leave them. This also closes nap-master.md open question #1 — yes,
+940-6360 on all three LSA profiles is deliberate: it is the primary intake line.
+
+Usage rules:
+- **Primary / company-wide contexts** (site header, LSA profiles, general citations
+  with no specific office, service pages not tied to one office): **(205) 940-6360**.
+- **A NAP block's phone must match its address.** `2120 16th Ave S, Ste 302` pairs
+  with **(205) 991-2882**; `2025 Butler Rd` pairs with **(205) 940-6360**. Never
+  cross them. (Audited 2026-08-13 with a proximity scan: zero crossed pairs in the
+  repo. Note a file-level grep is useless here — find-office, offices.ts, layout.tsx
+  and ContactUs all legitimately list every office, so co-occurrence is normal and
+  only same-block adjacency is a defect.)
+- Office direct lines unchanged: Alabaster (205) 940-6360 · Alex City (256) 234-6162
+  · Huntsville (256) 937-7676 · Birmingham (205) 991-2882 · Auburn (334) 332-3321.
 
 ⚠️ **(205) 649-5278 is DEAD.** It still appears on the Thryv directory network
 (YellowPages / YP / DexKnows / Superpages). Never reintroduce it.
