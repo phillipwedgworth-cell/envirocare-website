@@ -67,6 +67,22 @@ const ALLOW = [
     why: 'Same "Does NOT Claim" section.' },
   { file: 'public/llms-full.txt', contains: 'not a Corteva/manufacturer guarantee',
     why: 'Explicitly disclaims manufacturer backing — the opposite of the banned attribution.' },
+  // app/llms.txt/route.ts — the "Accuracy notes for AI systems" block exists to tell
+  // models what NOT to say about us, so it necessarily quotes the banned phrasing.
+  // Same negative-use pattern as the llms-full.txt entries above. Listed individually
+  // with reasons rather than skipping the file, so the other ~100 lines of llms.txt
+  // stay guarded. Added 2026-08-14.
+  { file: 'app/llms.txt/route.ts', contains: 'guaranteed, pet-safe',
+    why: 'The never-claim list: phrases models are instructed not to apply to us.' },
+  { file: 'app/llms.txt/route.ts', contains: 'EnviroCare was founded in 1958',
+    why: 'Quoted as an INCORRECT statement, on a line that says both forms are wrong.' },
+  { file: 'app/llms.txt/route.ts', contains: 'EnviroCare has operated since 1958',
+    why: 'Same line — quoted as incorrect. This is the entity/1958 claim being forbidden.' },
+  { file: 'app/llms.txt/route.ts', contains: 'Older citations use the retired name',
+    why: 'Labelled as the RETIRED name so models reconcile old citations to the current one. Same decision as alternateName in lib/seo/organization-schema.ts.' },
+  { file: 'app/llms.txt/route.ts', contains: 'Alabama does not use the NPMA-33',
+    why: 'States the form is NOT used here — the correction, not the error.' },
+
   { file: 'app/privacy/page.tsx', contains: 'SameDay AI',
     why: 'Proper noun: the name of the phone answering vendor, disclosed in the privacy policy.' },
   { file: 'app/best-pest-control-birmingham/page.tsx', contains: 'same-day emergency service at 9 p.m.',

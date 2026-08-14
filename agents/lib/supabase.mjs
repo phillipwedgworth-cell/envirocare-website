@@ -100,29 +100,32 @@ export async function writeDiscussion({
   effortScore,
 }) {
   if (!supabase) return null;
-  // ── INTERIM GUARD — remove once the migration below is applied ──────────────
-  // agent_discussions.impact_score / effort_score are INTEGER, but agents emit
-  // half-points (9.5, 8.5, 7.5). Every seo-monitor write failed with:
-  //   invalid input syntax for type integer: "9.5"
+  // The interim rounding that used to live here is GONE (2026-08-14).
+  // widen_discussion_scores_to_numeric.sql was applied 2026-08-11, so
+  // impact_score / effort_score are `numeric` and half-points store natively.
   //
-  // Rounding here makes the write succeed TODAY, but it DISCARDS precision the
-  // scoring scale was designed around -- a 9.5 and a 9.0 become the same number,
-  // which is exactly the distinction the half-point scale exists to express.
-  // The real fix is the column type:
-  //   agents/lib/migrations/widen_discussion_scores_to_numeric.sql
-  // That is production DDL and is deliberately left for a human to run.
+  // Its own comment said "WHEN THAT MIGRATION IS APPLIED, DELETE THESE TWO ROUNDS.
+  // Left as-is they become permanent silent lossiness that nobody remembers is
+  // here." That is precisely what happened: the migration was applied and the
+  // guard was not removed, so writes stopped FAILING and the problem looked
+  // solved while every half-point kept being flattened at the call site.
   //
-  // WHEN THAT MIGRATION IS APPLIED, DELETE THESE TWO ROUNDS. Left as-is they
-  // become permanent silent lossiness that nobody remembers is here.
-  const impactInt = impactScore == null ? null : Math.round(Number(impactScore));
-  const effortInt = effortScore == null ? null : Math.round(Number(effortScore));
+  // Measured before removing: 1,122 rows in agent_discussions, ZERO with a
+  // fractional score. The column could hold 9.5 from Aug 11 onward; nothing ever
+  // wrote one. A 9.5 and a 9.0 were indistinguishable for the whole window —
+  // exactly the distinction the half-point scale exists to express.
+  //
+  // Do not reintroduce rounding at the call site. If a write ever fails on these
+  // columns again, check the COLUMN TYPE first.
+  const impactNum = impactScore == null ? null : Number(impactScore);
+  const effortNum = effortScore == null ? null : Number(effortScore);
   const { data, error } = await supabase.from("agent_discussions").insert({
     agent_name: agentName,
     references_agent: referencesAgent,
     references_finding_id: referencesFindingId,
     message,
-    impact_score: impactInt,
-    effort_score: effortInt,
+    impact_score: impactNum,
+    effort_score: effortNum,
     created_at: new Date().toISOString(),
   }).select().single();
   if (error) {
