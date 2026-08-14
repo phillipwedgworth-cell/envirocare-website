@@ -262,7 +262,21 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   //      used this on 2026-08-09, four times per page plus the title, across five
   //      city drafts. An ampersand-only pattern misses it entirely. This is the
   //      FOURTH encoding of one name; assume a fifth exists and match loosely.
-  { pattern: 'EnviroCare Pest (&|&amp;|and) Termite( Services)?', severity: 'warn',
+  // WIDENED 2026-08-14 (ruling, item 3). The rule required the literal "EnviroCare"
+  // immediately before "Pest & Termite", so /services shipped the retired name with a
+  // different word in front of it and the guard never saw it:
+  //     "Alabama Pest & Termite Services | ..."
+  // The retired brand is the PHRASE "Pest & Termite Services"; what precedes it is not
+  // the point. Now matches with any single word before it, or none. FIFTH encoding of
+  // this one name, after literal-&, &amp;, truncated, and spelled-out "and".
+  // TWO ALTERNATIVES, because "Services" can only be optional when "EnviroCare"
+  // anchors it. Dropping the anchor AND keeping Services optional over-matched
+  // immediately: "Pre-Construction Pest and Termite Treatment in Alabama" is a
+  // descriptive H1, not the retired brand, and the first attempt flagged it.
+  //   1. EnviroCare-anchored -> "Services" optional (catches the truncated titles)
+  //   2. any/no prefix       -> "Services" REQUIRED (catches "Alabama Pest & Termite
+  //      Services" while leaving "... Pest and Termite Treatment" alone)
+  { pattern: '\\bEnviroCare Pest (&|&amp;|and) Termite( Services)?\\b|\\bPest (&|&amp;|and) Termite Services\\b', severity: 'warn',
     reason: 'retired name — appears on no sign, plate or letterhead',
     approvedInstead: 'per-location: "EnviroCare" (Alexander City, Alabaster, Huntsville), "EnviroCare Pest Services" (Birmingham)' },
 ];
