@@ -1,0 +1,1012 @@
+{
+  "_comment": "First-party AI-visibility snapshot from agents/ai-citation-probe.mjs. domain_cited_rate is the money metric (does AI cite envirocarellc.com). Compare to NeuronWriter's dashboard. Opportunities feed agents/neuronwriter-content/ai-opportunities.json.",
+  "date": "2026-08-15",
+  "engines": [
+    "openai",
+    "gemini"
+  ],
+  "metrics": {
+    "engine_cells": 25,
+    "brand_mention_rate": 32,
+    "domain_cited_rate": 24,
+    "prompts_cited": 6,
+    "prompts_total": 25
+  },
+  "opportunities": [
+    {
+      "prompt": "Best pest control company in Birmingham AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Best termite control company in Birmingham AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Best mosquito control Birmingham AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Hoover AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "orkin.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Termite control Hoover AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Vestavia Hills AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Termite control Vestavia Hills AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Trussville AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "terminix.com",
+        "orkin.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Termite inspection Birmingham AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Pelham AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "mrbuggs.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Helena AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "orkin.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Chelsea AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "terminix.com",
+        "orkin.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Greystone AL",
+      "brand_mentioned": true,
+      "competitors_cited": [],
+      "gap": "mentioned-not-cited"
+    },
+    {
+      "prompt": "Pest control Huntsville AL",
+      "brand_mentioned": false,
+      "competitors_cited": [],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Termite control Huntsville AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "terminix.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Madison AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "terminix.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Pest control Lake Martin AL",
+      "brand_mentioned": true,
+      "competitors_cited": [],
+      "gap": "mentioned-not-cited"
+    },
+    {
+      "prompt": "Pest control Auburn AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "cookspest.com",
+        "terminix.com"
+      ],
+      "gap": "absent"
+    },
+    {
+      "prompt": "Termite inspection Auburn AL",
+      "brand_mentioned": false,
+      "competitors_cited": [
+        "callwaynes.com",
+        "terminix.com",
+        "orkin.com"
+      ],
+      "gap": "absent"
+    }
+  ],
+  "results": [
+    {
+      "prompt": "Best pest control company in Birmingham AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.vulcantermite.com/contact-us.html/?utm_medium=organic&utm_source=openai",
+            "https://www.acrepest.com/?utm_source=openai",
+            "https://www.alabamatermitepestservices.com/?utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Best termite control company in Birmingham AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.google.com/maps/search/Rid-A-Bug+Pest+Control+%26+Termite%2C+Birmingham%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Blanton+Exterminating+Company%2C+Birmingham%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Red+Mtn.+Pest+%26+Termite%2C+Mountain+Brook%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/TDI+Services+Birmingham%2C+Hoover%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Vulcan+Termite+%26+Pest+Control+Inc.%2C+Pelham%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Alabama+Termite+%26+Pest+Services%2C+Bessemer%2C+AL?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Best mosquito control Birmingham AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.mosquitooasis.com/?utm_source=openai",
+            "https://www.roguepest.com/?utm_source=openai",
+            "https://www.lookoutpestcontrol.com/birmingham/?utm_source=openai",
+            "https://www.mosquito-authority.com/locations/birmingham-al/?utm_source=openai",
+            "http://www.guardianpestandwildlifecontrol.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Hoover AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "orkin.com"
+          ],
+          "urls": [
+            "https://www.davesbugs.com/?utm_source=openai",
+            "https://www.alabamatermitepestservices.com/?utm_source=openai",
+            "http://www.inspirepestcontrol.com/?utm_source=openai",
+            "https://www.orkin.com/locations/alabama-al/hoover-pest-control/branch-106?utm_medium=local&utm_campaign=LCL0003&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Termite control Hoover AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.google.com/maps/search/Hoover+Termite%2C+Hoover%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/TDI+Services+Birmingham%2C+Hoover%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Alabama+Termite+%26+Pest+Services%2C+Hoover%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Hoover+Pest+Control%2C+Hoover%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Orkin+Pest+%26+Termite+Control%2C+Hoover%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Rid-A-Bug+Pest+Control+%26+Termite%2C+Hoover%2C+AL?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Vestavia Hills AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.encorepestcontrol.com/?utm_source=openai",
+            "https://fairwaylawns.com/location/birmingham-al/?utm_medium=organic&utm_campaign=gbp-listing&utm_content=birmingham-branch&utm_source=openai",
+            "https://www.sipseypestsolutions.com/?utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai",
+            "https://www.birminghammosquitocontrol.com/?utm_medium=organic&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Termite control Vestavia Hills AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.google.com/maps/search/Rid-A-Bug+Pest+Control+%26+Termite%2C+Vestavia+Hills%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Spirit+Pest+Control%2C+Vestavia+Hills%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Bro%27s+Pest+Control%2C+Vestavia+Hills%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Fairway+Lawns%2C+Vestavia+Hills%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Terminix+of+Vestavia+Hills%2C+Vestavia+Hills%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/SNAPS+Termite+%26+Pest+Control%2C+Vestavia+Hills%2C+AL?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Mountain Brook AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [],
+          "urls": [
+            "https://peskiespestcontrol.com/?utm_source=openai",
+            "https://www.pestxalabama.com/?utm_source=openai",
+            "https://www.encorepestcontrol.com/?utm_source=openai",
+            "https://www.envirocarellc.com/?utm_source=openai",
+            "http://www.athenapestcontrol.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Mosquito control Mountain Brook AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.envirocarellc.com/?utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai",
+            "https://fairwaylawns.com/location/birmingham-al/?utm_medium=organic&utm_campaign=gbp-listing&utm_content=birmingham-branch&utm_source=openai",
+            "http://www.athenapestcontrol.com/?utm_source=openai",
+            "https://www.mosquitooasis.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Homewood AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "terminix.com",
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "terminix.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://www.orkin.com/locations/alabama-al/hoover-pest-control/branch-106?utm_medium=local&utm_campaign=LCL0003&utm_source=openai",
+            "https://www.terminix.com/exterminators/al/trussville-2015/?utm_medium=organic&utm_campaign=local&utm_term=trussville&utm_source=openai",
+            "https://www.envirocarellc.com/?utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai",
+            "https://ngpest.com/service-areas/birmingham-al-pest-control/?utm_medium=organic&utm_campaign=gbp-birmingham-al&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Trussville AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "terminix.com",
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "terminix.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://www.terminix.com/exterminators/al/trussville-2015/?utm_medium=organic&utm_campaign=local&utm_term=trussville&utm_source=openai",
+            "https://www.dadspestcontrollc.com/?utm_source=openai",
+            "https://www.magiccitypestcontrol.com/?utm_source=openai",
+            "https://www.orkin.com/locations/alabama-al/hoover-pest-control/branch-106?utm_medium=local&utm_campaign=LCL0003&utm_source=openai",
+            "http://marksmanpestcontrol.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Termite inspection Birmingham AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://allypropertyinspections.com/?utm_medium=organic&utm_campaign=google_my_business&utm_source=openai",
+            "http://www.guardianpestandwildlifecontrol.com/?utm_source=openai",
+            "https://www.vulcantermite.com/contact-us.html/?utm_medium=organic&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Sentricon termite protection Birmingham AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.sentricon.com/en-us?utm_source=openai",
+            "https://www.roguepest.com/?utm_source=openai",
+            "https://www.envirocarellc.com/?utm_source=openai",
+            "https://alabamaprofessional.com/?utm_medium=organic&utm_source=openai",
+            "https://www.vulcantermite.com/contact-us.html/?utm_medium=organic&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Alabaster AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "terminix.com",
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "terminix.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://www.terminix.com/exterminators/al/trussville-2015/?utm_medium=organic&utm_campaign=local&utm_term=trussville&utm_source=openai",
+            "https://peskiespestcontrol.com/?utm_source=openai",
+            "https://www.orkin.com/locations/alabama-al/hoover-pest-control/branch-106?utm_medium=local&utm_campaign=LCL0003&utm_source=openai",
+            "https://www.envirocarellc.com/?utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai",
+            "https://www.farmerspestcontrol.com/?utm_medium=organic&utm_source=openai",
+            "https://www.birminghammosquitocontrol.com/?utm_medium=organic&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Pelham AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "mrbuggs.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://www.mrbuggs.com/pest-control-pelham/?utm_medium=GMB&utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai",
+            "https://www.acrepest.com/?utm_source=openai",
+            "https://peskiespestcontrol.com/?utm_source=openai",
+            "https://www.vulcantermite.com/contact-us.html/?utm_medium=organic&utm_source=openai",
+            "http://prowesspestcontrol.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Helena AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "orkin.com"
+          ],
+          "urls": [
+            "https://www.farmerspestcontrol.com/?utm_medium=organic&utm_source=openai",
+            "https://magiccitypestcontrol.com/location/birmingham/?utm_medium=organic&utm_campaign=gbp-pelham-al&utm_source=openai",
+            "https://ironcitypest.com/?utm_source=openai",
+            "https://www.orkin.com/locations/alabama-al/hoover-pest-control/branch-106?utm_medium=local&utm_campaign=LCL0003&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Chelsea AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "terminix.com",
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "terminix.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "http://www.guardianpestandwildlifecontrol.com/?utm_source=openai",
+            "https://www.terminix.com/exterminators/al/trussville-2015/?utm_medium=organic&utm_campaign=local&utm_term=trussville&utm_source=openai",
+            "https://www.orkin.com/locations/alabama-al/hoover-pest-control/branch-106?utm_medium=local&utm_campaign=LCL0003&utm_source=openai",
+            "https://www.roguepest.com/?utm_source=openai",
+            "https://www.pestmaster.com/birmingham?utm_medium=organic&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Greystone AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.google.com/maps/search/EnviroCare+Pest+%26+Termite+Services%2C+Greystone%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Farmers+Pest+Control%2C+Greystone%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Alabama+Termite+%26+Pest+Services%2C+Greystone%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Acre+Pest+Control%2C+Pelham%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Quality+Creative+Landscaping%2C+Mountain+Brook%2C+AL?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Huntsville AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.crownserviceal.com/?utm_medium=organic&utm_campaign=gmb-huntsville&utm_source=openai",
+            "https://www.roguepesthuntsville.com/?utm_source=openai",
+            "https://www.myapluspest.com/?utm_source=openai",
+            "http://goprimepest.com/?utm_medium=google&utm_campaign=gbp&utm_source=openai",
+            "http://bugblasterzllc.com/?utm_source=openai",
+            "https://www.masseyservices.com/huntsville/?utm_medium=search&utm_content=Orlando1&utm_campaign=masseylocalsearch&incoming_offer=FreeInspectionGoogleMyBusiness&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Termite control Huntsville AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "terminix.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "terminix.com"
+          ],
+          "urls": [
+            "http://getsuperiorservices.com/?utm_source=openai",
+            "https://www.terminix.com/exterminators/al/madison-2142/?utm_medium=organic&utm_campaign=local&utm_term=madison&utm_source=openai",
+            "https://www.crownserviceal.com/?utm_medium=organic&utm_campaign=gmb-huntsville&utm_source=openai",
+            "https://www.myapluspest.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Madison AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "terminix.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "terminix.com"
+          ],
+          "urls": [
+            "http://www.atecpestcontrol.com/?utm_source=openai",
+            "https://www.terminix.com/exterminators/al/madison-2142/?utm_medium=organic&utm_campaign=local&utm_term=madison&utm_source=openai",
+            "https://cothrenspest.com/?utm_source=openai",
+            "https://www.jc-pestcontrol.com/?utm_source=openai",
+            "https://www.myapluspest.com/madison/?utm_source=openai",
+            "http://goprimepest.com/?utm_medium=google&utm_campaign=gbp&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Lake Martin AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": false,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.google.com/maps/search/EnviroCare+Pest+%26+Termite+Services%2C+Alexander+City%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/S%26S+Termite+and+Pest+Control%2C+Opelika%2C+AL?utm_source=openai",
+            "https://www.google.com/maps/search/Prewett+Pest+Control%2C+Lake+Martin%2C+AL?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Alexander City AL",
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [],
+          "urls": [
+            "https://www.envirocarellc.com/?utm_source=openai",
+            "https://www.topgunpest.com/?utm_source=openai",
+            "http://www.jjpestawayllc.com/?utm_source=openai",
+            "https://redflagpestcontrol.com/?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Pest control Auburn AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "cookspest.com",
+        "terminix.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "cookspest.com",
+            "terminix.com"
+          ],
+          "urls": [
+            "https://apexauburn.com/?utm_source=openai",
+            "https://www.terminix.com/exterminators/al/auburn-2613/?utm_medium=organic&utm_campaign=local&utm_term=auburn&utm_source=openai",
+            "https://www.prewettpestcontrol.com/?utm_medium=local_seo&utm_campaign=local_listings&utm_source=openai",
+            "https://www.cookspest.com/branches/auburn?utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    },
+    {
+      "prompt": "Termite inspection Auburn AL",
+      "any_brand_mentioned": false,
+      "any_domain_cited": false,
+      "competitors_cited": [
+        "callwaynes.com",
+        "terminix.com",
+        "orkin.com"
+      ],
+      "engines": [
+        {
+          "engine": "openai",
+          "ok": true,
+          "error": null,
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [
+            "callwaynes.com",
+            "terminix.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://apexauburn.com/?utm_source=openai",
+            "https://www.orkin.com/locations/alabama-al/montgomery-pest-control/branch-118?utm_medium=local&utm_campaign=LCL0005&utm_source=openai",
+            "https://www.terminix.com/exterminators/al/auburn-2613/?utm_medium=organic&utm_campaign=local&utm_term=auburn&utm_source=openai",
+            "https://jarrods.net/?utm_source=openai",
+            "https://callwaynes.com/alabama/montgomery-pest-control?utm_medium=organic&utm_campaign=gbp-pike-road-al&utm_source=openai"
+          ]
+        },
+        {
+          "engine": "gemini",
+          "ok": false,
+          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features ",
+          "brand_mentioned": false,
+          "domain_cited": false,
+          "competitors_cited": [],
+          "urls": []
+        }
+      ]
+    }
+  ]
+}
