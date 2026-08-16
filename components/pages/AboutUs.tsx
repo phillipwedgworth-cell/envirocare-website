@@ -3,6 +3,7 @@
 import Header from "@/components/shared/Header";
 import Link from "next/link";
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 /**
  * About Us — four-generation EnviroCare story.
  *
@@ -18,6 +19,7 @@ import Link from "next/link";
 export default function AboutUs() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--white,#fff)" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'About Us', path: '/about-us' }]) }) }} />
 
       <style>{`
         :root {

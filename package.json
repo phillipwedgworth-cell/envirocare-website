@@ -14,7 +14,8 @@
     "test:zombies": "node scripts/test-no-zombie-claims.mjs",
     "test:citynap": "node scripts/test-city-office-nap.mjs",
     "test:source": "node scripts/scan-source-compliance.mjs",
-    "test": "npm run test:compliance && npm run test:source && npm run test:imagery && npm run test:zombies && npm run test:citynap"
+    "test": "npm run test:compliance && npm run test:source && npm run test:imagery && npm run test:zombies && npm run test:citynap && npm run test:breadcrumbs",
+    "test:breadcrumbs": "node scripts/test-breadcrumbs.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

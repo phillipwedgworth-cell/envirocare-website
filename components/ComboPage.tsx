@@ -6,6 +6,7 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import { GREEN, GOLD, DEEP, CREAM, INK, displayFont, bodyFont } from "@/lib/brand";
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export type ComboContent = {
   eyebrow: string;
   h1: string;
@@ -49,6 +50,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
 
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Services', path: '/services' }, { name: c.h1 ?? c.title, path: `/${c.slug}` }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* HERO */}

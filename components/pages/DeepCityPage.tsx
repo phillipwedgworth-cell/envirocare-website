@@ -10,6 +10,7 @@ import type { ReactNode } from "react";
 import { EmojiIcon } from "@/components/shared/PestIcon";
 import CityHeroArt from "@/components/CityHeroArt";
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 /**
  * DeepCityPage — shared layout for wealthy-corridor "deep" city pages
  * (Vestavia Hills, Homewood, Hoover, Mt Laurel, Greystone, Chelsea, Trussville…).
@@ -146,6 +147,7 @@ function buildJsonLd(c: DeepCityConfig) {
 export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: c.name, path: `/service-areas/${c.slug}` }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd(c)) }} />
 
       <main style={{ background: "#fff", color: Ik, ...sans }}>
