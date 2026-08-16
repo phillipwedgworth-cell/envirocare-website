@@ -29,6 +29,7 @@
 import { criticLoop, criticDraft } from "./lib/critic.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { once } from "./lib/run-cache.mjs";
 import { getDailyTrend, getOpportunities } from "./lib/seo-history.mjs";
 import {
   writeFinding,
@@ -253,7 +254,16 @@ async function computeLocation(location_name) {
 // The main tool: compute the live picture, WRITE all findings + state, and
 // return the summary. Doing the writes here (not leaving them to the Haiku
 // worker) guarantees findings land even if the worker skips a step.
-async function analyzeLocation({ location_name }) {
+//
+// SIDE-EFFECTING — it is memoized below as `analyzeLocation`. Call that, not
+// this. Two reasons, both load-bearing:
+//   1. Each critic revision pass re-runs the whole worker tool loop, so this ran
+//      up to MAX_LOOPS + 1 times per run, re-fetching every Local Falcon
+//      campaign and re-writing every finding (5 waves on 2026-08-16).
+//   2. The stateSet below is what the NEXT call reads as `prior`. Unmemoized,
+//      the second pass compared this run's reading against itself and reported
+//      a week-over-week delta of exactly 0.00 — silently, and always.
+async function analyzeLocationUncached({ location_name }) {
   const summary = await computeLocation(location_name);
   if (summary.error || summary.blended_solv === null) {
     // Still surface "no data" as a finding so a silent campaign failure is visible.
@@ -300,6 +310,14 @@ async function analyzeLocation({ location_name }) {
 
   return { ...summary, prior_solv: priorSolv, delta };
 }
+
+// One real analysis per location per process. Keyed on the location name only —
+// it is the sole input, and the whole point is that a repeat call for the same
+// location returns the first pass's result instead of re-running it.
+const analyzeLocation = once(
+  ({ location_name }) => analyzeLocationUncached({ location_name }),
+  { key: ({ location_name }) => `analyze:${location_name}`, label: "analyze_location" },
+);
 
 async function getLastWeekSolv({ location_name }) {
   const prior = await stateGet(`${AGENT_NAME}:solv:${location_name}`);

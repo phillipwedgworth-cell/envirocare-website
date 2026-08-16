@@ -278,7 +278,19 @@ const GPT_LENS = `You are a technical SEO auditor. Read the gathered SEO signals
 
 async function panelReview(gatheredData, screenshots) {
   const context = JSON.stringify(gatheredData, null, 2);
-  const task = "Review envirocarellc.com — 5 key pages — across visual/UX, brand/copy, and SEO/performance dimensions.";
+  // The priority label is not decoration — persistFindings() derives each
+  // finding's severity from it (see severityForRecommendation). The synthesizer
+  // already emitted these labels most of the time; asking for them explicitly
+  // is what turns "most of the time" into a contract, so unlabeled
+  // recommendations stop silently defaulting to info.
+  const task = `Review envirocarellc.com — 5 key pages — across visual/UX, brand/copy, and SEO/performance dimensions.
+
+Every entry in "recommendations" MUST begin with exactly one priority label, followed by a colon:
+  "IMMEDIATE:" fix within 24-48 hrs — actively costing calls, or factually wrong (e.g. a wrong phone number)
+  "HIGH:"      this sprint
+  "MEDIUM:"    next sprint
+  "LOW:"       backlog
+Use the bare label. Do not invent other prefixes, and do not label by topic ("ACCESSIBILITY:", "PROCESS:") — put the topic after the label.`;
 
   // Cap screenshots so we don't blow request size — first 3 pages only.
   const limitedScreenshots = screenshots.slice(0, 3);
@@ -310,6 +322,49 @@ const RUBRIC = `
 
 // ---------- Phase 5: Persist ----------
 
+// Severity comes from the recommendation's OWN leading priority label, never
+// from scanning its prose.
+//
+// The old rule regex-scanned the whole string: /critical|broken|missing schema/
+// then /below|warn|low|slow|poor/. Measured against real 2026-08-16 output, it
+// was wrong more often than right —
+//   "MEDIUM PRIORITY (next sprint): … preload critical assets"  -> CRITICAL
+//   "LOW PRIORITY (backlog): Add a standardized response-time…"  -> WARNING
+//   "HIGH PRIORITY (this sprint): Revise the Termite page H1…"   -> info
+//   "IMMEDIATE (24–48 hrs): Correct the Birmingham phone number" -> info
+//   "ACCESSIBILITY: Fix the yellow-on-light-green contrast…"     -> WARNING
+//                                     ^ matched /low/ inside "yellow"
+// — which is how one day produced 71 criticals that were mostly next-sprint and
+// backlog items, while the genuinely urgent ones filed as info.
+//
+// Anchoring to the START of the string is the whole fix: a label only counts
+// when the synthesizer emitted it as a label. Prose is never consulted, so
+// "critical assets" and "yellow" cannot vote.
+//
+// Observed label vocabulary, all three punctuation styles the synthesizer uses
+// ("LABEL:", "LABEL —", "LABEL (qualifier):"):
+const PRIORITY_LABEL =
+  /^[\s*\-•]*(IMMEDIATE|URGENT|CRITICAL|P0|HIGH|P1|MEDIUM|MED|P2|LOW|BACKLOG|P3)\b(?:\s+PRIORITY)?\s*(?:\([^)]*\))?\s*\**\s*(?::|[—–]|-(?=\s))/i;
+
+// Four label levels folded into the three severities the schema allows. The
+// qualifiers the synthesizer attaches are the tell: IMMEDIATE is "24-48 hrs",
+// HIGH is "this sprint", MEDIUM is "next sprint", LOW is "backlog".
+const SEVERITY_BY_LABEL = {
+  IMMEDIATE: "critical", URGENT: "critical", CRITICAL: "critical", P0: "critical",
+  HIGH: "critical", P1: "critical",
+  MEDIUM: "warning", MED: "warning", P2: "warning",
+  LOW: "info", BACKLOG: "info", P3: "info",
+};
+
+// An unlabeled recommendation ("PROCESS:", "ACCESSIBILITY:", "CONVERSION:" …)
+// is NOT evidence of urgency. It files as info and records label: null, so a
+// synthesizer that stops labeling shows up as an info flood rather than as
+// silently mis-graded findings.
+export function severityForRecommendation(rec) {
+  const label = String(rec ?? "").match(PRIORITY_LABEL)?.[1]?.toUpperCase() ?? null;
+  return { severity: SEVERITY_BY_LABEL[label] ?? "info", label };
+}
+
 async function persistFindings(synthesis, pages) {
   // Recommendations -> findings. Try to attach a URL based on whether the
   // recommendation text mentions a page label or URL.
@@ -326,12 +381,8 @@ async function persistFindings(synthesis, pages) {
         break;
       }
     }
-    const severity = /critical|broken|missing schema|0\/100/i.test(rec)
-      ? "critical"
-      : /below|warn|low|slow|poor/i.test(rec)
-        ? "warning"
-        : "info";
-    await writeFinding(AGENT_NAME, "site-review", severity, url, rec, {});
+    const { severity, label } = severityForRecommendation(rec);
+    await writeFinding(AGENT_NAME, "site-review", severity, url, rec, { priority_label: label });
   }
 
   // First disagreement -> discussion entry (high-signal per CFO playbook).

@@ -13,6 +13,7 @@ import { stateGet, stateSet } from "./lib/kv.mjs";
 import { writeFinding, logAgentRun } from "./lib/supabase.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import { cleanEnv, envWasDirty } from "./lib/env-url.mjs";
+import { once } from "./lib/run-cache.mjs";
 
 const AGENT_NAME = "brightlocal";
 const WORKER_MODEL = "claude-haiku-4-5-20251001";
@@ -211,7 +212,11 @@ async function getLastWeekScore({ location_name }) {
   return prior ?? { score: null, date: null };
 }
 
-async function recordScore({ location_name, score }) {
+// SIDE-EFFECTING — memoized below as `recordScore`. Call that, not this. Each
+// critic revision pass re-runs the whole worker tool loop, so this ran up to
+// MAX_LOOPS + 1 times per run and wrote the same citation-score finding every
+// time (6 waves on 2026-08-16).
+async function recordScoreUncached({ location_name, score }) {
   const loc = findLocation(location_name);
   if (!loc) return { error: `Unknown location: ${location_name}` };
   await stateSet(`${AGENT_NAME}:score:${location_name}`, {
@@ -229,6 +234,14 @@ async function recordScore({ location_name, score }) {
   );
   return { ok: true };
 }
+
+// Keyed on location AND score: re-recording the SAME score is the duplicate we
+// are killing, but a genuinely different score for the same location is new
+// information and must still be written.
+const recordScore = once(
+  ({ location_name, score }) => recordScoreUncached({ location_name, score }),
+  { key: ({ location_name, score }) => `record:${location_name}:${score}`, label: "record_score" },
+);
 
 // ---------- Tool schema seen by the worker ----------
 
