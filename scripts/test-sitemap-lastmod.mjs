@@ -2,7 +2,7 @@
  * scripts/test-sitemap-lastmod.mjs
  * -----------------------------------------------------------------------
  * Guard: STATIC_LASTMOD in app/sitemap.ts must be >= the author-date of
- * the newest git commit that touches app/ or components/.
+ * the newest git commit that touches app/, components/ or data/.
  *
  * Why: STATIC_LASTMOD is a hand-maintained constant (not a build stamp).
  * If someone ships code that changes pages but forgets to bump the date,
@@ -25,29 +25,36 @@ if (!m) {
 const lastmod = new Date(m[1]);
 console.log(`STATIC_LASTMOD = ${m[1]}`);
 
-// ── 2. Find newest commit touching app/ or components/ ──────────────────
+// ── 2. Find newest commit touching app, components, data ──────────────────
 // %aI = strict ISO 8601 author date.  We use author date (not committer
 // date) because rebases/cherry-picks bump committer date but author date
 // reflects when the change was actually written — the semantically
 // meaningful date for "when did a page last change."
 const raw = execSync(
-  'git log -1 --format="%aI" -- app/ components/',
+  'git log -1 --format="%aI" -- app/ components/ data/',
   { encoding: "utf8" }
 ).trim();
 
 if (!raw) {
   // No commits found (empty repo edge case) — nothing to guard against.
-  console.log("No commits touch app/ or components/ — nothing to check.");
+  console.log("No commits touch app/, components/ or data/ — nothing to check.");
   process.exit(0);
 }
 
 // Truncate to midnight UTC for a date-level comparison.  STATIC_LASTMOD
 // is always set at midnight UTC (e.g. 2026-08-11T00:00:00.000Z), so we
 // compare dates, not datetimes.
-const commitDate = new Date(raw);
-const commitDay = new Date(
-  Date.UTC(commitDate.getUTCFullYear(), commitDate.getUTCMonth(), commitDate.getUTCDate())
-);
+//
+// Use the author's LOCAL calendar day — the leading YYYY-MM-DD of %aI —
+// rather than converting through `new Date()`, which shifts the day for
+// commits authored in the evening at a negative UTC offset.  A commit made
+// at 8pm US Central on the 14th is the 15th in UTC, so a dev who correctly
+// set STATIC_LASTMOD to the date they were committing on would get a false
+// STALE.  This repo is committed from Alabama (UTC-5/-6), so that is the
+// common case, not the edge case.
+const commitDayStr = raw.slice(0, 10); // YYYY-MM-DD in the author's local tz
+const [cy, cmo, cd] = commitDayStr.split("-").map(Number);
+const commitDay = new Date(Date.UTC(cy, cmo - 1, cd));
 const lastmodDay = new Date(
   Date.UTC(lastmod.getUTCFullYear(), lastmod.getUTCMonth(), lastmod.getUTCDate())
 );
