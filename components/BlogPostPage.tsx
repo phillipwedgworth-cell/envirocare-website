@@ -13,7 +13,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
 
   return (
     <main className="bpp-main">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Blog', path: '/blog' }, { name: slug }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Blog', path: '/blog' }, { name: post.title, path: `/blog/${slug}` }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: POST_CSS }} />
 
       <article>
