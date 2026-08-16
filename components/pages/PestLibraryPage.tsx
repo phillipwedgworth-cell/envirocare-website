@@ -37,7 +37,7 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
   return (
     <main>
       <style dangerouslySetInnerHTML={{ __html: PL_CSS }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Pest Library', path: '/pest-library' }, { name: slug }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Pest Library', path: '/pest-library' }, { name: pest.name, path: `/pest-library/${slug}` }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* HERO */}
