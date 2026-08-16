@@ -80,7 +80,7 @@ const jsonLd = {
         "Family-owned pest control, termite, mosquito, tick, and commercial service in Mountain Brook, Alabama since 1958. Sentricon® baiting with no drilling and up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. EPA-registered products applied to label directions.",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Pest & Termite Services in Mountain Brook",
+        name: "Pest & Termite Control in Mountain Brook",
         itemListElement: [
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: "Mountain Brook, AL" }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },

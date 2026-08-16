@@ -120,7 +120,7 @@ function buildJsonLd(c: DeepCityConfig) {
         description: c.summary,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: `Pest & Termite Services in ${c.name}`,
+          name: `Pest & Termite Control in ${c.name}`,
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
