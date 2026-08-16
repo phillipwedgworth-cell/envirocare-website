@@ -4,6 +4,7 @@ import Footer from "@/components/shared/Footer";
 
 import { useEffect } from 'react';
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export default function ReviewsPage() {
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -28,6 +29,7 @@ export default function ReviewsPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Reviews', path: '/reviews' }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
 

@@ -24,6 +24,7 @@ import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
 import CityHeroArt from "@/components/CityHeroArt";
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export type NeighborhoodConfig = {
   // Page identity
   name: string;                          // e.g. "Liberty Park"
@@ -70,6 +71,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
 
   return (
     <main style={{ background: "#fff", color: Ik, ...sans }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: cfg.name }]) }) }} />
       {/* HERO */}
       <section style={{ background: `linear-gradient(135deg,${D} 0%,${F} 50%,${G} 100%)`, color: "#fff", padding: "5rem clamp(1.5rem,5vw,4rem)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 20% 50%,rgba(245,168,0,.12) 0%,transparent 55%),radial-gradient(circle at 80% 80%,rgba(134,239,172,.14) 0%,transparent 55%)", pointerEvents: "none" }} />

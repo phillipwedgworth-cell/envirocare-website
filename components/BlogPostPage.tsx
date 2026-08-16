@@ -4,6 +4,7 @@ import { getPostBySlug } from '@/data/blog-posts';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export default function BlogPostPage({ slug }: { slug: string }) {
   const post = getPostBySlug(slug);
   if (!post) {
@@ -12,6 +13,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
 
   return (
     <main className="bpp-main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Blog', path: '/blog' }, { name: slug }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: POST_CSS }} />
 
       <article>
