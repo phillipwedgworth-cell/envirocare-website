@@ -38,27 +38,27 @@ export default function ServicesIndexPage() {
           <p className="section-sub">What every Alabama home should have. Bundle for convenience, never for forced discounts.</p>
 
           <div className="services-grid">
-            <div className="svc-card feat">
+            <a href="/services/pest-control" className="svc-card feat">
               <div className="svc-card-tag">Most Popular</div>
               <div className="svc-card-name">Pest Control</div>
               <div className="svc-card-price">$35/mo ACH · or $70 bi-monthly</div>
               <div className="svc-card-desc">Bi-monthly interior & perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, pay-per-visit available.</div>
-              <a href="/services/pest-control" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
+              <span className="svc-card-link">Learn more →</span>
+            </a>
+            <a href="/services/mosquito" className="svc-card">
               <div className="svc-card-tag">March – November</div>
               <div className="svc-card-name">Mosquito Control</div>
               <div className="svc-card-price">$45/visit · add tick for +$20</div>
               <div className="svc-card-desc">30-day yard barrier March through November. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. EPA-registered products, applied per label directions.</div>
-              <a href="/services/mosquito" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card feat">
+              <span className="svc-card-link">Learn more →</span>
+            </a>
+            <a href="/services/termite-control" className="svc-card feat">
               <div className="svc-card-tag">Most Insurance</div>
               <div className="svc-card-name">Termite Control</div>
               <div className="svc-card-price">Priced after a free WDO inspection</div>
               <div className="svc-card-desc">Sentricon® Always Active™ bait stations. Up to $1,000,000 termite damage repair coverage. No drilling, no concrete cuts.</div>
-              <a href="/services/termite-control" className="svc-card-link">Learn more →</a>
-            </div>
+              <span className="svc-card-link">Learn more →</span>
+            </a>
           </div>
         </div>
       </section>
@@ -70,36 +70,36 @@ export default function ServicesIndexPage() {
           <p className="section-sub">Targeted services for situations that need more than the standard program.</p>
 
           <div className="services-grid">
-            <div className="svc-card">
+            <a href="/services/fire-ant" className="svc-card">
               <div className="svc-card-tag">Lake & Suburban</div>
               <div className="svc-card-name">Fire Ant Control</div>
               <div className="svc-card-desc">Yard-wide elimination, not just spot mound treatment. Critical for barefoot summer and lakefront properties.</div>
-              <a href="/services/fire-ant" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
+              <span className="svc-card-link">Learn more →</span>
+            </a>
+            <a href="/services/flea" className="svc-card">
               <div className="svc-card-tag">Pet Households</div>
               <div className="svc-card-name">Flea Control</div>
               <div className="svc-card-desc">Interior + yard flea treatment, available as an add-on to your recurring pest plan. Priced per property after a quick assessment.</div>
-              <a href="/services/flea" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
+              <span className="svc-card-link">Learn more →</span>
+            </a>
+            <a href="/builders" className="svc-card">
               <div className="svc-card-tag">New Construction</div>
               <div className="svc-card-name">Builder Pre-Treat</div>
               <div className="svc-card-desc">Pre-slab termite treatment plus Sentricon® install. Coordinated with your construction schedule. Builder partnership pricing.</div>
-              <a href="/builders" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
+              <span className="svc-card-link">Learn more →</span>
+            </a>
+            <a href="/services/wdo-letters" className="svc-card">
               <div className="svc-card-tag">Closings</div>
               <div className="svc-card-name">Real Estate / WDO Letters</div>
               <div className="svc-card-desc">The Official Alabama Wood Infestation Inspection Report, lender-ready format. $125 standalone or free annually for active customers.</div>
-              <a href="/services/wdo-letters" className="svc-card-link">Learn more →</a>
-            </div>
-            <div className="svc-card">
+              <span className="svc-card-link">Learn more →</span>
+            </a>
+            <a href="/services/commercial" className="svc-card">
               <div className="svc-card-tag">Business</div>
               <div className="svc-card-name">Commercial Service</div>
               <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
-              <a href="/services/commercial" className="svc-card-link">Learn more →</a>
-            </div>
+              <span className="svc-card-link">Learn more →</span>
+            </a>
             {/* Crawlspace card removed 2026-07-12 — service killed Jun 13 compliance scrub;
                 /services/crawlspace 308s to termite-control. Restore card if Phillip revives the service. */}
           </div>
@@ -522,7 +522,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);o
 
 .services-grid-section{padding:5rem clamp(1.5rem,5vw,4rem);background:var(--cream)}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.6rem;max-width:1180px;margin:2.4rem auto 0}
-.svc-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.8rem 1.7rem;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.8rem 1.7rem;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;position:relative;overflow:hidden;text-decoration:none;color:inherit;cursor:pointer}
 .svc-card::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(180deg,var(--green),var(--green-dk))}
 .svc-card.feat::before{background:linear-gradient(180deg,var(--gold),var(--gold-deep))}
 .svc-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
