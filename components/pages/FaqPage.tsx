@@ -5,6 +5,7 @@ import { ACH_TERMS } from "@/data/pricing";
 
 import { useEffect } from 'react';
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export default function FaqPage() {
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -29,6 +30,7 @@ export default function FaqPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'FAQ', path: '/faq' }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
 

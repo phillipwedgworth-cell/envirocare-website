@@ -28,6 +28,7 @@ import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
 import ScheduleRequest from '@/components/ScheduleRequest';
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 const CITY_ART_SVG: Record<string, string> = {
   'vulcan': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <defs><linearGradient id="vulFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fff" stop-opacity="0.32"/><stop offset="100%" stop-color="#fff" stop-opacity="0.08"/></linearGradient></defs>
@@ -210,6 +211,7 @@ export default function CityPage({ slug }: { slug: string }) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: city.name, path: `/${slug}` }]) }) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCitySchema(city)) }}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { CityData } from "@/data/phase-a-cities";
 import PestIcon from "@/components/shared/PestIcon";
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export default function CityPage({ city }: { city: CityData }) {
   return (
     <>
@@ -291,6 +292,7 @@ export default function CityPage({ city }: { city: CityData }) {
 
 
       {/* ============ JSON-LD ============ */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: city.name, path: `/${city.slug}` }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",

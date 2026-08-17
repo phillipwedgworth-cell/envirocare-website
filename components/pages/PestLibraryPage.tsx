@@ -6,6 +6,7 @@ import Footer from "@/components/shared/Footer";
 import PestIcon from "@/components/shared/PestIcon";
 import { getPest } from "@/data/pest-library";
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 /**
  * PestLibraryPage — shared template for the 12 /pest-library/<pest> profiles.
  * Migrated from the legacy Scorpion pest library at the same URLs to recover
@@ -36,6 +37,7 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
   return (
     <main>
       <style dangerouslySetInnerHTML={{ __html: PL_CSS }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Pest Library', path: '/pest-library' }, { name: pest.name, path: `/pest-library/${slug}` }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* HERO */}

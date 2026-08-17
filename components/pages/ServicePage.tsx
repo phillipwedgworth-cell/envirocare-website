@@ -26,6 +26,7 @@ import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
 
 import { getServiceBySlug, type Service } from '@/data/services';
 
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 const SERVICE_ART_SVG: Record<string, string> = {
   'pest': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <defs><radialGradient id="psFol" cx="50%" cy="40%"><stop offset="0%" stop-color="#fff" stop-opacity="0.35"/><stop offset="100%" stop-color="#fff" stop-opacity="0.12"/></radialGradient></defs>
@@ -231,6 +232,7 @@ export default function ServicePage({ slug }: { slug: string }) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Services', path: '/services' }, { name: service.name, path: `/services/${slug}` }]) }) }} />
       <MultiSchemaScript schemas={serviceSchemas} />
       <style dangerouslySetInnerHTML={{ __html: SERVICE_CSS }} />
 
