@@ -1,4 +1,4 @@
-// app/service-areas/madison/page.tsx
+// app/madison/page.tsx
 // Madison service-area page. Content refresh: killed-crawlspace copy removed,
 // 3rd->4th generation, dead service card swapped for Tick & Chigger Control,
 // footer links canonicalized to live routes.
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare — Since 1958",
   description:
     "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Rainbow Mountain. Sentricon® $1M coverage. Call (256) 937-7676.",
-  alternates: { canonical: "/service-areas/madison" },
+  alternates: { canonical: "/madison" },
   openGraph: {
     images: ["/og/og-madison.png"],
     title: "Pest Control Madison AL | EnviroCare — Since 1958",
     description:
       "Family-owned pest, termite, mosquito & tick control in Madison AL. Serving Heritage Plantation, Madison Crossings, and all 35756–35758 zip codes. Call the Huntsville office.",
-    url: "https://www.envirocarellc.com/service-areas/madison",
+    url: "https://www.envirocarellc.com/madison",
     type: "website",
   },
 };
@@ -39,7 +39,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.envirocarellc.com/service-areas/madison",
+      "@id": "https://www.envirocarellc.com/madison",
       name: "EnviroCare — Huntsville / Madison Office",
       url: "https://www.envirocarellc.com",
       telephone: "+12569377676",

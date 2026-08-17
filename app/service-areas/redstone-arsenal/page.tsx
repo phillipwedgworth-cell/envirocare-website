@@ -225,7 +225,7 @@ export default function RedstoneArsenalPage() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {[
                 ["Huntsville","/huntsville"],
-                ["Madison","/service-areas/madison"],
+                ["Madison","/madison"],
                 ["Athens","/athens"],
                 ["Decatur","/decatur"],
                 ["Hampton Cove","/hampton-cove"],

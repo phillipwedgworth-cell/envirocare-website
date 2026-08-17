@@ -118,7 +118,13 @@ const nextConfig: NextConfig = {
             { source: '/mosquito', destination: '/services/mosquito', permanent: true },
             { source: '/pest-control', destination: '/services/pest-control', permanent: true },
             { source: '/sentricon', destination: '/services/sentricon', permanent: true },
-            { source: '/madison', destination: '/service-areas/madison', permanent: true },  // /madison had no top-level route; consolidate to the maintained service-area page (avoids duplicate content)
+            // REVERSED 2026-08-17 on Phillip's call. /madison is now the real page and
+            // /service-areas/madison redirects to it, so Madison matches every other
+            // city. The previous direction was internally consistent and correctly
+            // self-canonical -- this is a URL-shape decision, not a bug fix. The old
+            // path holds the indexed history (~32k impressions), so the 301 below is
+            // what carries that equity across. Watch GSC for the swap.
+            { source: '/service-areas/madison', destination: '/madison', permanent: true },
             { source: '/pay', destination: 'https://payenvirocare.key7app.com', permanent: false },
 
             // ─── SCORPION CITY URLS → city pages (Birmingham region) ─────────
@@ -167,7 +173,7 @@ const nextConfig: NextConfig = {
 
             // ─── SCORPION CITY URLS (Huntsville region) ─────────────────────
             { source: '/where-we-service/huntsville-al-pest-control', destination: '/huntsville', permanent: true },
-            { source: '/where-we-service/madison-al-pest-control', destination: '/service-areas/madison', permanent: true },
+            { source: '/where-we-service/madison-al-pest-control', destination: '/madison', permanent: true },
             { source: '/where-we-service/athens-al-pest-control', destination: '/athens', permanent: true },
             { source: '/where-we-service/decatur-al-pest-control', destination: '/decatur', permanent: true },
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },

@@ -41,11 +41,13 @@ const CITY_SLUGS = [
   // Birmingham-metro cluster pages (Jul 11, 2026 metro rebuild)
   'over-the-mountain', 'south-birmingham', 'east-birmingham', 'north-birmingham',
   'north-alabama', 'lake-martin-area',
+  // Madison moved out of SERVICE_AREA_SLUGS 2026-08-17 -- it is a city page now.
+  'madison',
 ];
 
 // Cities that live under /service-areas/* (deep pages with self-canonicals).
-// /madison 301s here — see next.config.ts redirects.
-const SERVICE_AREA_SLUGS = ['madison', 'redstone-arsenal'];
+// /service-areas/madison 301s to /madison as of 2026-08-17 (reversed).
+const SERVICE_AREA_SLUGS = ['redstone-arsenal'];
 
 // City×service combo pages (top-level routes)
 const COMBO_SLUGS = [

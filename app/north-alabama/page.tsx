@@ -36,7 +36,7 @@ const cfg: ClusterConfig = {
     },
     {
       "name": "Madison",
-      "href": "/service-areas/madison",
+      "href": "/madison",
       "hook": "Fast-growing subdivisions protected from the slab up."
     },
     {
