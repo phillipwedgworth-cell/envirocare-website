@@ -1,4 +1,5 @@
 import ZipLookup from '@/components/ZipLookup';
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/find-office' },
@@ -27,6 +28,7 @@ export default function FindOfficePage() {
       padding: '80px 24px',
       fontFamily: "var(--font-sans)",
     }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Find Your Office', path: '/find-office' }]) }) }} />
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', marginBottom: 48 }}>
         <div style={{
           fontSize: 13, fontWeight: 600, color: '#0A7935',

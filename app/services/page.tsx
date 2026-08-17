@@ -1,4 +1,5 @@
 import ServicesIndexPage from '@/components/pages/ServicesIndexPage';
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/services' },
@@ -20,5 +21,10 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <ServicesIndexPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Services', path: '/services' }]) }) }} />
+      <ServicesIndexPage />
+    </>
+  );
 }

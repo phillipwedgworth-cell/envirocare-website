@@ -4,6 +4,7 @@
 
 import type { Metadata } from "next";
 import PricingContent from "./PricingContent";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Pest Control Pricing Alabama | From $35/mo | EnviroCare",
@@ -75,6 +76,7 @@ const FAQ_SCHEMA = {
 export default function PricingPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Pricing', path: '/pricing' }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(OFFER_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
       <PricingContent />

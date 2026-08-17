@@ -1,4 +1,5 @@
 import SeasonalPestCalendar from '@/components/SeasonalPestCalendar';
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/pest-calendar' },
@@ -22,6 +23,7 @@ export const metadata = {
 export default function PestCalendarPage() {
   return (
     <main style={{ background: '#FEFDF8', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Pest Calendar', path: '/pest-calendar' }]) }) }} />
       <SeasonalPestCalendar />
     </main>
   );

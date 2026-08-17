@@ -1,4 +1,5 @@
 import ScheduleRequest from '../../components/ScheduleRequest';
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/quote' },
@@ -22,6 +23,7 @@ export const metadata = {
 export default function QuotePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Request a Quote', path: '/quote' }]) }) }} />
       <section style={{ background: '#FEFDF8', padding: '48px 16px 40px' }}>
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 28 }}>

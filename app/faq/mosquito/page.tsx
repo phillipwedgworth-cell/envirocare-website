@@ -4,6 +4,7 @@
 
 import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
@@ -148,6 +149,7 @@ const SEASONDATA = [
 export default function MosquitoFAQ() {
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'FAQ', path: '/faq' }, { name: 'Mosquito FAQ', path: '/faq/mosquito' }]) }) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}

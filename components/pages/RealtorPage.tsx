@@ -8,6 +8,7 @@ import Footer from "@/components/shared/Footer";
  */
 
 import { useEffect } from 'react';
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export default function RealtorPage() {
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function RealtorPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Realtors', path: '/realtor' }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
 

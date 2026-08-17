@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
  * Redstone Arsenal area service page.
@@ -133,6 +134,7 @@ const jsonLd = {
 export default function RedstoneArsenalPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: 'Redstone Arsenal', path: '/service-areas/redstone-arsenal' }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <main style={{ background: "#fff", color: Ik, ...sans }}>

@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare — Since 1958",
@@ -160,6 +161,7 @@ function GoldCTA({ href, text }: { href: string; text: string }) {
 export default function MadisonPage() {
   return (
     <main style={{ background: Cr, minHeight: "100vh", color: Ik, ...sans }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: 'Madison', path: '/service-areas/madison' }]) }) }} />
 
       {/* JSON-LD */}
       <script

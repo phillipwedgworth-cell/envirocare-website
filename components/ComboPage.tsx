@@ -50,7 +50,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
 
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Services', path: '/services' }, { name: c.h1 ?? c.title, path: `/${c.slug}` }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Services', path: '/services' }, { name: c.eyebrow, path: c.canonicalPath }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* HERO */}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Terms of Service | EnviroCare",
@@ -33,6 +34,7 @@ export default function TermsPage() {
 
   return (
     <main style={{ background: CREAM, minHeight: "100vh", color: INK, ...sans }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Terms of Service', path: '/terms' }]) }) }} />
       {/* HERO */}
       <section style={{ background: DEEP, color: "#fff", padding: "56px 24px 40px", textAlign: "center" }}>
         <div style={{ maxWidth: 880, margin: "0 auto" }}>
