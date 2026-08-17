@@ -108,7 +108,24 @@ function allowed(relPosix, line) {
 // state the figure; the page it points at must carry the qualifier. This exemption
 // applies ONLY to file-scoped rules — every line-scoped rule (safety claims,
 // contract-free claims, the retired name) still applies to metadata in full.
-const METADATA_FIELD = /^\s*(?:title|description|metaTitle|metaDescription|excerpt|ogTitle|ogDescription|summary|blurb)\s*:/;
+// NARROWED 2026-08-17. The first version matched any key literally named
+// `description:` — and a schema.org `Service.description` is BODY CONTENT consumed
+// by machines, not a 155-char SERP snippet. lib/schema.tsx:50 shipped
+// "Up to $1 million in termite damage coverage" with no qualifier into the
+// hasOfferCatalog JSON-LD of 30 city pages, and this guard exempted it silently.
+//
+// The rendered page carried the clause in visible copy, so a human reader was
+// covered and the rule's stated intent held. The MACHINE surface was not — and
+// /llms.txt and /llms-full.txt exist precisely because this business courts the
+// answer engines that read JSON-LD independently of the body.
+//
+// Fifth instance of the shape this repo keeps hitting: the regex matched a KEY NAME
+// where it needed to match a POSITION. Now requires the key to sit at metadata
+// indentation (2-4 spaces, i.e. inside `export const metadata = {...}` or its
+// openGraph/twitter sub-objects) rather than the deeper nesting of a schema object
+// literal. Not airtight, but it distinguishes the two real cases in this repo, and
+// a deep `description:` now gets scanned instead of skipped.
+const METADATA_FIELD = /^ {2,4}(?:title|description|metaTitle|metaDescription|excerpt|ogTitle|ogDescription|summary|blurb)\s*:/;
 
 
 // ── Rule extraction ───────────────────────────────────────────────────────────
