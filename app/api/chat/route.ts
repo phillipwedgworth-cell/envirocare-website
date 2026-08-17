@@ -297,22 +297,56 @@ export async function POST(req: NextRequest) {
             .split(",").map((s) => s.trim()).filter(Boolean);
           const to = Array.from(new Set([...baseRecipients, ...envRecipients]));
           const from = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
-          fetch("https://api.resend.com/emails", {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              from,
-              to,
-              subject: `📞 CHAT CALLBACK — ${name} ${phone} — call this customer back`,
-              text:
-                `Scout captured a callback request from the website chat.\n\n` +
-                `Name:  ${name}\nPhone: ${phone}\nEmail: ${email || "(not provided)"}\n` +
-                `Captured: ${new Date().toISOString()}\n\n--- Conversation ---\n${transcript}`,
-            }),
-          }).catch((err) => console.error("Lead email failed:", err));
+          // RETRY ADDED 2026-08-17. This was a bare fire-and-forget fetch whose only
+          // failure path was console.error — so when outbound TLS to Resend dropped
+          // (ECONNRESET, 2 occurrences, last Aug 14 13:04 UTC) the lead was logged
+          // and LOST. Two people asked to be called back and nobody was told.
+          //
+          // The failure was transient network, not application logic, which is
+          // exactly the class a retry fixes. Three attempts with backoff; the
+          // payload is built once so a retry cannot send a different message.
+          //
+          // Still fire-and-forget by design — the visitor must not wait on our
+          // email. But a dropped connection now costs a second, not a customer.
+          const leadPayload = JSON.stringify({
+            from,
+            to,
+            subject: `📞 CHAT CALLBACK — ${name} ${phone} — call this customer back`,
+            text:
+              `Scout captured a callback request from the website chat.\n\n` +
+              `Name:  ${name}\nPhone: ${phone}\nEmail: ${email || "(not provided)"}\n` +
+              `Captured: ${new Date().toISOString()}\n\n--- Conversation ---\n${transcript}`,
+          });
+
+          void (async () => {
+            const delays = [0, 1000, 3000]; // immediate, +1s, +3s
+            for (let attempt = 0; attempt < delays.length; attempt++) {
+              if (delays[attempt]) await new Promise((r) => setTimeout(r, delays[attempt]));
+              try {
+                const res = await fetch("https://api.resend.com/emails", {
+                  method: "POST",
+                  headers: {
+                    Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+                    "Content-Type": "application/json",
+                  },
+                  body: leadPayload,
+                });
+                if (res.ok) return;
+                // 4xx is our bug (bad key, bad address) and will never succeed —
+                // retrying it just delays the log line. 5xx is worth another go.
+                if (res.status < 500) {
+                  console.error(`Lead email rejected ${res.status} — NOT retrying; lead for ${phone} not delivered`);
+                  return;
+                }
+                console.error(`Lead email ${res.status} on attempt ${attempt + 1}/${delays.length}`);
+              } catch (err) {
+                console.error(`Lead email failed (attempt ${attempt + 1}/${delays.length}):`, err);
+              }
+            }
+            // Loud on final failure: this line means a real customer asked for a
+            // callback and no one was notified. It should be alertable.
+            console.error(`LEAD LOST: all ${delays.length} email attempts failed for ${name} ${phone}`);
+          })();
         }
 
         // (2) Formspree forward (legacy/optional) — only if configured.
