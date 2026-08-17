@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
  * Mountain Brook — DEEP PAGE (first wealthy-corridor build).
@@ -107,6 +108,7 @@ const jsonLd = {
 export default function MountainBrookPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: 'Mountain Brook', path: '/mountain-brook' }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <main style={{ background: "#fff", color: Ik, ...sans }}>

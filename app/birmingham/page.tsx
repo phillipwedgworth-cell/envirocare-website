@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
  * Birmingham hub page — DEEP REWRITE.
@@ -188,6 +189,7 @@ const jsonLd = {
 export default function BirminghamPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: 'Birmingham', path: '/birmingham' }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <main style={{ background: "#fff", color: Ik, ...sans }}>
