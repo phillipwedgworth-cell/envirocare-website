@@ -4,6 +4,7 @@ import { Phone, Clock, CheckCircle, Calendar, Truck, Tag } from "lucide-react";
 
 import Header from "@/components/shared/Header";
 import PestIcon, { resolveIconName } from "@/components/shared/PestIcon";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 const G = "#0E8E40";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
@@ -50,6 +51,7 @@ export default function SpecialOffers() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "'Playfair Display', Georgia, serif" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Special Offers', path: '/special-offers' }]) }) }} />
 
       <script type="application/ld+json">{`
         {

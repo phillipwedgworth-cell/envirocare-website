@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PestLibraryIndex from "@/components/pages/PestLibraryIndex";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Alabama Pest Library | Identification & Control Guide | EnviroCare",
@@ -22,5 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PestLibraryIndex />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Pest Library', path: '/pest-library' }]) }) }} />
+      <PestLibraryIndex />
+    </>
+  );
 }

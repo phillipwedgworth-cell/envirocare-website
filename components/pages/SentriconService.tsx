@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Phone, CheckCircle, ChevronDown, Shield, Award, Lightbulb, Check, X, TriangleAlert } from "lucide-react";
 
 import Header from "@/components/shared/Header";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 /* ── BRAND COLORS (confirmed from logo)
    Green:  #0A7935  (forest green — primary)
    Gold:   #F5A800  (sunflower yellow — accents)
@@ -16,6 +17,7 @@ export default function SentriconProtection() {
 
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Services', path: '/services' }, { name: 'Sentricon® Termite System', path: '/services/sentricon' }]) }) }} />
       <script type="application/ld+json">{`
         {
           "@context": "https://schema.org",

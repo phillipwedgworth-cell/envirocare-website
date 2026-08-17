@@ -4,6 +4,7 @@
 
 import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
   title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
@@ -142,6 +143,7 @@ const COMPARE = [
 export default function TermiteWarrantyFAQ() {
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'FAQ', path: '/faq' }, { name: 'Termite Warranty', path: '/faq/termite-warranty' }]) }) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}

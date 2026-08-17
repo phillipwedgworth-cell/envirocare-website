@@ -5,6 +5,7 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/data/blog-posts';
 import { BLOG_CSS } from './blogStyles';
+import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/blog' },
@@ -36,6 +37,7 @@ export default function Page() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Blog', path: '/blog' }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: BLOG_CSS }} />
 
       <section className="page-hero">
