@@ -105,8 +105,13 @@ const SERVICE_SLUGS = [
  *
  * When pest-library entries gain a date field, give them the same treatment as
  * the blog rather than folding them back into the constant.
+ *
+ * `npm run test:lastmod` fails the suite if this constant falls behind the
+ * newest commit touching app/ or components/. Set it to the date you are
+ * committing on, not the date of the previous change — the bump commit itself
+ * touches app/, so an older date is stale the moment it lands.
  */
-const STATIC_LASTMOD = new Date('2026-08-11T00:00:00.000Z');
+const STATIC_LASTMOD = new Date('2026-08-17T00:00:00.000Z');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = STATIC_LASTMOD;

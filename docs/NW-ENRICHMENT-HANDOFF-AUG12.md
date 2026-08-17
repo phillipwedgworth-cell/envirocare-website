@@ -44,6 +44,13 @@ $48.75/mo, chiggers yes fleas no; commercial walkthrough-quoted). City drafts us
 - **Day 0:** merge the graphics branch (images are inert until referenced) and wire
   the two termite/mosquito graphics into their existing posts.
 - **Day 2–3:** enrich `services/tick-control` from NW — peak season now, highest urgency.
+  ✅ **DONE Aug 16** (PR #96, 2 days late). Enriched rather than replaced: the live
+  entry was already compliance-clean with pricing matching `data/pricing.ts`, so only
+  the missing material went in — tick-borne illness (alpha-gal, RMSF, ehrlichiosis),
+  lone star / American dog tick species, and FAQs for what ticks carry and when to
+  start (March). **Did not copy the draft's phone number:** it signs off with the
+  Birmingham direct line (205) 991-2882, but this page spans Birmingham, Huntsville
+  and Lake Martin — a company-wide context, so (205) 940-6360 stays.
 - **Day 5–6:** enrich `services/flea` from NW.
 - **Day 8–10:** enrich `services/commercial` from NW.
 - **Following week:** city-page enrichment, one or two per deploy, and only *after*
@@ -58,6 +65,25 @@ $48.75/mo, chiggers yes fleas no; commercial walkthrough-quoted). City drafts us
    (`mosquito-season-alabama`, `termite-swarmers-in-house`) are already covered on
    main by `alabama-termite-swarm-season`, `termite-season-2026-alabama`,
    `mosquito-season-birmingham-al` and `lake-martin-mosquito-guide`.
+
+   ⚠️ **Correction, Aug 16 — this entry understated the branch.** "Its two topics"
+   describes only the blog commits. The branch actually carries **10+ unmerged
+   commits**: 11 blog posts, the AI chatbot + `/request-quote` form, a header
+   redesign, Huntsville SEO keyword work, city-page LocalBusiness/Service/
+   BreadcrumbList JSON-LD, and a Next 16 tsconfig migration. Anyone reading the
+   original wording would think they were deleting two redundant posts. Re-checked
+   Aug 16: main is at 37 blog posts and carries both replacement topics, so the
+   branch does still look superseded — but the ruling was made against a much
+   smaller-sounding branch than the one that exists.
+
+   **Still not deleted.** Phillip re-confirmed the ruling Aug 16, but deletion
+   cannot be done from the Claude Code web container: the git proxy rejects ref
+   deletions (`send-pack: unexpected disconnect`, 4 attempts with backoff), the
+   GitHub MCP server exposes no delete-branch tool, and there is no `gh` CLI.
+   **Delete it from the GitHub branches UI:**
+   https://github.com/phillipwedgworth-cell/envirocare-website/branches
+   Recovery SHA if it is ever needed back — GitHub restores by SHA for ~90 days:
+   `507d7630c8ca2e4f70867da095bfe68953a39642`
 2. **Guard gap: entity + duration verb + "since 1958"** — CLOSED Aug 12.
    `"EnviroCare has handled … since 1958"` passed `scan-source-compliance` because the
    founded-1958 rule knows only *origin* verbs. Verified, rule added, 4 live
