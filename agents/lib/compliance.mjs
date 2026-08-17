@@ -224,9 +224,26 @@ ALWAYS, when proposing service copy:
 - State termite coverage ONLY as "up to $1,000,000 in damage repair coverage, subject to
   the terms of the agreement". Never as a guarantee, EnviroCare's or the manufacturer's.
 - Remember the monthly plan EXCLUDES fire ant, flea, tick and mosquito. Do not imply coverage.
-- Use the phone number matching the page's city: Birmingham/Alabaster (205) 940-6360,
-  Alexander City/Lake Martin (256) 234-6162, Huntsville (256) 937-7676.
-  (205) 649-5278 is a dead number and is banned sitewide.
+- PHONE NUMBERS — RULED 2026-08-12 by Phillip. This block previously listed Birmingham
+  and Alabaster as sharing one number, which is wrong: they are two separate offices
+  with two separate lines. That error made proposer/orchestrator rank rewriting the
+  Birmingham office line on /birmingham as the #1 site fix for three consecutive
+  cycles. Acting on it would have BROKEN a correct, deliberate pairing. Nothing acted
+  on it — the approval queue caught it — but it burned the top digest slot for days.
+  The correct mapping is below; treat it as authoritative over any older doc.
+    (205) 940-6360 — PRIMARY company number. Use for company-wide contexts: the site
+      header, LSA profiles, general citations with no specific office, and service
+      pages not tied to one location. Also the Alabaster office direct line.
+    (205) 991-2882 — Birmingham office direct line. CORRECT on /birmingham. Do not
+      "fix" it.
+    (256) 234-6162 — Alexander City / Lake Martin.  (256) 937-7676 — Huntsville.
+    (334) 332-3321 — Auburn direct.
+- A NAP BLOCK'S PHONE MUST MATCH ITS ADDRESS. 2120 16th Ave S, Ste 302 pairs with
+  (205) 991-2882; 2025 Butler Rd pairs with (205) 940-6360. Never cross them. Do NOT
+  flag co-occurrence of both numbers in one FILE as a defect — find-office, offices.ts,
+  layout.tsx and ContactUs all legitimately list every office. Only same-block
+  adjacency is a defect. (Audited 2026-08-13: zero crossed pairs exist.)
+- (205) 649-5278 is a dead number and is banned sitewide.
 
 WEIGH & VERIFY:
 - The single biggest real lever is REVIEW VELOCITY (especially Huntsville) — weight
