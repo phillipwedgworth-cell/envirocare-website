@@ -1,14 +1,67 @@
 # EnviroCare — read this first
 
-**Created Aug 9. Corrected Aug 10 (v2). Corrected again Aug 10 (v3) and committed to the
-repo.** Struck-through claims are kept, not deleted, so nobody re-derives them a fourth time.
+**v4 — Aug 11, 2026.** This file replaces the **v2** copy that was sitting in the Claude
+project until today.
 
-> **Why this file is now in the repo.** v1 and v2 lived only in the Claude project and a
-> Downloads folder. A "read this first" document that is not in the repo cannot be read by
-> a scheduled task, cannot be diffed, and cannot be corrected in place — so its stale
-> headline kept circulating after the facts changed. Four documents were cited as
-> authoritative this week while living outside the repo: THE LIST, the name decision, the
-> monitor playbook and this file. Three are now committed.
+> ## 🔴 Why v4 exists — read this part, it explains the recurring problem
+>
+> Until Aug 11 there were **two different files named `00-MANIFEST-READ-FIRST.md`**:
+>
+> | Location | Version | Headline |
+> |---|---|---|
+> | Claude **project** (loaded into every session by default) | **v2 — stale** | *"Nothing built in the last two days is public. Merging PR #74 is the single action that makes any of it real."* |
+> | **Repo**, `claude/00-MANIFEST-READ-FIRST.md` (committed by PR #87) | **v3** | *"PRs #74–#85 are all merged and deployed to production."* |
+>
+> v3 was written **specifically because** v1 and v2 lived only in the project and could not
+> be corrected in place. But **the project copy was never replaced.** So the corrected file
+> went into the repo, where a session has to know to go look for it, and the stale file
+> stayed in the one place every session reads automatically.
+>
+> **Result: the wrong headline kept circulating for a full day after it was corrected.**
+> On Aug 11 a session opened by telling Phillip that PR #74 was still unmerged — reading
+> the project copy, exactly as designed. That is not a one-off. That is the mechanism
+> behind "why does Claude keep making the same mistakes."
+>
+> **Standing rule from this point: this file lives in BOTH places and they must be
+> byte-identical. If you edit one, edit the other in the same session.**
+
+---
+
+## Verified live on Aug 11, 2026
+
+Run in-session; each row names the call that produced it.
+
+| Check | Result | How |
+|---|---|---|
+| `main` HEAD | `7e37cf4` — *Merge PR #87: READ-FIRST manifest v3* | `git log origin/main` |
+| Last commit | **Aug 10, 20:58 -0500** | `git log -1 --format=%ci` |
+| PR #74 commits (`542ecb0`, `14c202c`) in `main` | ✅ **YES, both merged** | `git merge-base --is-ancestor` |
+| Merged PRs | **#74 through #87** — v3 says "#74–#85" and is itself now two behind | `git log --merges` |
+| Pages in `app/` | **117** `page.tsx` files | `find app -name page.tsx \| wc -l` |
+| Repo **read** from this session | ✅ works — public clone succeeds | `git clone` |
+| Repo **write** from this session | 🔴 **BLOCKED** | `git push --dry-run` |
+
+### 🔴 The push block — exact error, exact fix
+
+```
+remote: access denied by the git proxy: phillipwedgworth-cell/envirocare-website
+is not in this session's authorized repository set, so the proxy will not inject
+a credential for it. To fix, add the repository to the session's sources.
+```
+
+**This is a settings action only Phillip can take** — add the repo to the session's
+connected sources. Until then a session can read, analyse and write patches, but
+**cannot land a single change.** Note the asymmetry that makes this so confusing:
+read works perfectly, so everything *looks* fine right up until the push.
+
+This is session-dependent, same as the OneUp caveat below — the session that merged
+#74–#87 had write access. **Check your own push access before promising to ship anything.**
+
+### Standing scope rule — set by Phillip, Aug 11
+
+> **Exhaustive by default.** Every audit sweeps everything — all 117 pages, every
+> connected tool — and ends with an explicit list of **what was NOT checked and why**.
+> No more sampling six pages and calling it a site audit.
 
 ---
 
