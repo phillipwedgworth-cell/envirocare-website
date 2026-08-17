@@ -65,7 +65,7 @@ const GROUPS: Group[] = [
     phone: '(256) 937-7676',
     cities: [
       ['North Alabama (cluster)', '/north-alabama'],
-      ['Huntsville', '/huntsville'], ['Madison', '/service-areas/madison'],
+      ['Huntsville', '/huntsville'], ['Madison', '/madison'],
       ['Athens', '/athens'], ['Harvest', '/harvest'], ['Hampton Cove', '/hampton-cove'],
       ['Decatur', '/decatur'], ['Hartselle', '/hartselle'],
       ['Meridianville', '/meridianville'], ['Redstone Arsenal', '/service-areas/redstone-arsenal'],

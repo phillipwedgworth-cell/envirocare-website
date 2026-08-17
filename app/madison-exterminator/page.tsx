@@ -72,7 +72,7 @@ const c: ComboContent = {
     },
   ],
   office: { name: "North Alabama Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },
-  cityHub: { name: "Madison Service Area", href: "/service-areas/madison" },
+  cityHub: { name: "Madison Service Area", href: "/madison" },
   servicePage: { name: "Pest Control Service", href: "/services/pest-control" },
   schemaName: "EnviroCare Exterminator — Madison, AL",
   canonicalPath: "/madison-exterminator",

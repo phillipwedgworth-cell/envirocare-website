@@ -681,7 +681,7 @@ function FindYourOffice() {
     { name: 'Alex City / Lake Martin', href: '/lake-martin' },
     { name: 'Auburn', href: '/auburn' },
     { name: 'Huntsville', href: '/huntsville' },
-    { name: 'Madison', href: '/service-areas/madison' },
+    { name: 'Madison', href: '/madison' },
   ];
 
   const findOffice = () => {
