@@ -16,7 +16,8 @@
     "test:source": "node scripts/scan-source-compliance.mjs",
     "test:lastmod": "node scripts/test-sitemap-lastmod.mjs",
     "test:breadcrumbs": "node scripts/test-breadcrumbs.mjs",
-    "test": "npm run test:compliance && npm run test:source && npm run test:imagery && npm run test:zombies && npm run test:citynap && npm run test:breadcrumbs && npm run test:lastmod"
+    "test": "npm run test:compliance && npm run test:source && npm run test:generated && npm run test:imagery && npm run test:zombies && npm run test:citynap && npm run test:breadcrumbs && npm run test:lastmod",
+    "test:generated": "node scripts/test-generated-content-compliance.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

@@ -28,6 +28,7 @@
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
+import { compileRules } from './lib/compliance-rules.mjs';
 
 const ROOT = process.cwd();
 
@@ -180,51 +181,11 @@ function isExemptMetadata(line, idx, metaLines) {
 // node and data/compliance.ts is TypeScript. This is the same approach
 // test-compliance-guarantee.mjs uses, and it is why data/compliance.ts carries
 // "keep pattern and notIf on ONE line" warnings — honour them.
-function compileRules() {
-  const src = readFileSync('data/compliance.ts', 'utf8');
-  const body = src.slice(src.indexOf('BANNED_PATTERNS'), src.indexOf('SOFT_RULES'));
-  const rules = [];
-
-  for (const line of body.split('\n')) {
-    if (!line.includes('pattern:')) continue;
-    const dq = line.match(/pattern:\s*"((?:\\.|[^"\\])*)"/);
-    const sq = line.match(/pattern:\s*'((?:\\.|[^'\\])*)'/);
-    if (!dq && !sq) continue;
-
-    // TS string literal -> real string. The single-quote path MUST unescape
-    // backslashes too, or every \\b-anchored rule compiles to a literal backslash
-    // and silently never matches.
-    //
-    // This applies to notIf EXACTLY as much as to pattern, and forgetting it there
-    // is not a theoretical bug: on the first run of this script every one of the
-    // 163 "unlimited" hits was a false positive, because the carve-out
-    // 'unlimited\\s+(free|...)' had compiled to "backslash, s" and matched nothing.
-    // A carve-out that silently never fires turns a working rule into noise, which
-    // is how a guard gets ignored.
-    const unesc = (m, isDouble) =>
-      JSON.parse(`"${isDouble ? m : m.replace(/\\'/g, "'").replace(/"/g, '\\"')}"`);
-
-    const raw = unesc(dq ? dq[1] : sq[1], Boolean(dq));
-
-    const nm = line.match(/notIf:\s*'((?:\\.|[^'\\])*)'/);
-    const sv = line.match(/severity:\s*'(block|warn)'/);
-    const sc = line.match(/scope:\s*'(content|chat)'/);
-    const rs = line.match(/reason:\s*'((?:\\.|[^'\\])*)'/);
-    const gr = line.match(/granularity:\s*'(line|file)'/);
-    const rq = line.match(/requires:\s*'((?:\\.|[^'\\])*)'/);
-
-    rules.push({
-      re: new RegExp(raw, 'gi'),
-      notIf: nm ? new RegExp(unesc(nm[1], false), 'i') : null,
-      severity: sv ? sv[1] : 'block',
-      scope: sc ? sc[1] : 'content',
-      reason: rs ? rs[1] : raw,
-      granularity: gr ? gr[1] : 'line',
-      requires: rq ? new RegExp(unesc(rq[1], false), 'i') : null,
-    });
-  }
-  return rules;
-}
+// compileRules MOVED to scripts/lib/compliance-rules.mjs, 2026-08-18, and imported
+// at the top of this file. It used to live here while scripts/proposer.mjs kept a
+// hand-copied 9-rule subset of the same rules -- which is how six banned claims
+// reached approval_queue flagged compliance_clean = true. One copy now, so the
+// generator and the repo guard cannot disagree about what is banned.
 
 // ── Comment stripping ─────────────────────────────────────────────────────────
 // This repo documents its banned phrases heavily in comments ("NEVER write third
