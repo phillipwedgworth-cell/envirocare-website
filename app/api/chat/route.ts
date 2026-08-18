@@ -7,11 +7,71 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { kv } from "@vercel/kv";
-import { envUrl } from "@/lib/env-url";
+import { envUrl, cleanEnv } from "@/lib/env-url";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
+}
+
+// A recipient is only used if it looks like a real address. Mirrors /api/quote:
+// a malformed or invisible-char-poisoned NOTIFY_EMAIL contributes nothing rather
+// than failing the whole send with a 422.
+const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+// Lazy Supabase client, service-role first so it bypasses RLS on chat_sessions.
+// Same preference order as /api/quote.
+let _supabase: SupabaseClient | null | undefined;
+function getSupabase(): SupabaseClient | null {
+  if (_supabase !== undefined) return _supabase;
+  const url = cleanEnv("SUPABASE_URL");
+  const key = cleanEnv("SUPABASE_SERVICE_ROLE_KEY") || cleanEnv("SUPABASE_KEY");
+  if (!url || !key) {
+    _supabase = null;
+    return null;
+  }
+  try {
+    _supabase = createClient(url, key, { auth: { persistSession: false } });
+  } catch {
+    _supabase = null;
+  }
+  return _supabase;
+}
+
+// DURABILITY, 2026-08-18. A chat callback used to exist ONLY as an email, so a
+// single Resend rejection destroyed it. That is not theoretical: on 2026-08-18
+// at 12:42 UTC a real customer (205-577-6334) asked for a callback, Resend
+// answered 422, the 4xx branch correctly did not retry, and the lead survived
+// only because the phone number happened to be inside a console.error string.
+//
+// /api/quote already had this right: store the lead FIRST, then email as a
+// best-effort notification on top of a stored row. This makes chat match.
+// Written before the email is attempted, so the row exists regardless of what
+// Resend does. Failure here is swallowed -- persistence must never break the
+// visitor's reply -- but it is logged loudly enough to find.
+async function persistChatLead(
+  sessionId: string,
+  messages: Message[],
+  phone: string,
+  lastReply: string,
+): Promise<void> {
+  const sb = getSupabase();
+  if (!sb) {
+    console.error(`[chat] lead ${phone} NOT persisted: Supabase not configured`);
+    return;
+  }
+  try {
+    const { error } = await sb.from("chat_sessions").insert({
+      session_id: sessionId,
+      messages: messages as unknown as Record<string, unknown>[],
+      last_reply: lastReply.slice(0, 4000),
+      captured_phone: phone,
+    });
+    if (error) console.error(`[chat] lead ${phone} NOT persisted: ${error.message}`);
+  } catch (err) {
+    console.error(`[chat] lead ${phone} NOT persisted:`, err);
+  }
 }
 
 const PHONE_RE = /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/;
@@ -290,13 +350,34 @@ export async function POST(req: NextRequest) {
           (lastUserMsg.content || "").slice(0, 400) ||
           "Callback requested via website chat";
 
+        // (0) PERSIST FIRST. The email below is a notification about a lead that
+        // already exists, not the lead itself. Deliberately awaited: a couple of
+        // hundred milliseconds is worth never losing a customer again.
+        // The widget does not send a conversation id (the route parses only
+        // `messages`), so mint one per captured callback: one row per lead.
+        await persistChatLead(
+          globalThis.crypto.randomUUID(),
+          messages as Message[],
+          phone,
+          message,
+        );
+
         // (1) Direct email — Phillip + service (floor), plus any NOTIFY_EMAIL extras.
         if (process.env.RESEND_API_KEY) {
           const baseRecipients = ["phillipwedgworth@gmail.com", "service@envirocarellc.com"];
-          const envRecipients = (process.env.NOTIFY_EMAIL || "")
-            .split(",").map((s) => s.trim()).filter(Boolean);
+          // SANITISED 2026-08-18. This read process.env raw while /api/quote read the
+          // SAME variables through cleanEnv(). cleanEnv strips zero-width/BOM chars,
+          // which is exactly what a value pasted into the Vercel dashboard picks up --
+          // the repo already lost a fetch to an invisible character once. An unclean
+          // address is a validation error at Resend, i.e. a 422 that is never retried.
+          // That asymmetry is the leading suspect for the 2026-08-18 12:42 UTC loss:
+          // the quote form survived it only because it sanitises.
+          const envRecipients = (cleanEnv("NOTIFY_EMAIL") || "")
+            .split(",").map((s) => s.trim()).filter((a) => EMAIL_RE.test(a));
           const to = Array.from(new Set([...baseRecipients, ...envRecipients]));
-          const from = process.env.NOTIFY_FROM || "leads@envirocarellc.com";
+          const fromRaw = cleanEnv("NOTIFY_FROM") || "leads@envirocarellc.com";
+          // If NOTIFY_FROM is corrupt, fall back rather than send an invalid From.
+          const from = EMAIL_RE.test(fromRaw) ? fromRaw : "leads@envirocarellc.com";
           // RETRY ADDED 2026-08-17. This was a bare fire-and-forget fetch whose only
           // failure path was console.error — so when outbound TLS to Resend dropped
           // (ECONNRESET, 2 occurrences, last Aug 14 13:04 UTC) the lead was logged
@@ -335,7 +416,16 @@ export async function POST(req: NextRequest) {
                 // 4xx is our bug (bad key, bad address) and will never succeed —
                 // retrying it just delays the log line. 5xx is worth another go.
                 if (res.status < 500) {
-                  console.error(`Lead email rejected ${res.status} — NOT retrying; lead for ${phone} not delivered`);
+                  // LOG THE REASON, 2026-08-18. The 422 on Aug 18 told us the send
+                  // was rejected but not WHY, because only the status was logged --
+                  // so diagnosing it meant reading source and guessing. Resend puts
+                  // the actual validation error in the body; read it.
+                  const why = await res.text().catch(() => "(body unreadable)");
+                  console.error(
+                    `Lead email rejected ${res.status} — NOT retrying; lead for ${phone} not delivered. ` +
+                      `Resend said: ${why.slice(0, 500)}. from=${from} to=${to.join(",")}. ` +
+                      `Lead IS stored in chat_sessions.`,
+                  );
                   return;
                 }
                 console.error(`Lead email ${res.status} on attempt ${attempt + 1}/${delays.length}`);
