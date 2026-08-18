@@ -21,6 +21,58 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'stink-bugs-lady-beetles-alabama-fall',
+    title: "Stink Bugs and Lady Beetles: Alabama's Fall Home Invaders",
+    excerpt: 'Every September the south side of the house turns into a landing strip. Brown marmorated stink bugs and Asian lady beetles are not after your food or your wood — they want your walls. Here is why they pick certain houses, why killing them indoors makes things worse, and what actually keeps them out.',
+    publishedAt: '2026-08-18',
+    author: 'Kevin Wedgworth',
+    category: 'Seasonal',
+    readMinutes: 6,
+    heroEmoji: '🐞',
+    metaTitle: 'Stink Bugs and Lady Beetles in Alabama Fall | EnviroCare',
+    metaDescription: 'Stink bugs and Asian lady beetles swarm Alabama homes every fall. Why they pick your house, why squishing backfires, and how to stop them.',
+    body: `
+<p class="lede">Every September, usually right around the first week the overnight lows dip below sixty, we start getting the same call from homeowners across the Birmingham metro. There are dozens — sometimes hundreds — of small, shield-shaped brown insects clustered on the sunny side of the house. Or worse, the orange ones that look like ladybugs but are not, and they bite. Both are looking for the same thing: a warm wall to spend the winter inside. They are not after your food, your wood, or your wiring. They want a gap in the siding, a crack around a window frame, and a quiet void where the temperature stays above freezing until March.</p>
+
+<h2>What are they, exactly?</h2>
+
+<p>The brown ones are brown marmorated stink bugs (BMSB), an Asian import that has been building in Alabama for the past decade. The orange-and-black ones are Asian lady beetles — they look like ladybugs but bite, stain walls yellow when crushed, and in large numbers produce a smell that is hard to air out of a room.</p>
+
+<p>Both are overwintering pests, not breeding pests. They are not building a colony inside the wall. They go dormant in cracks, attic soffits, window casings, and wall voids to ride out winter. On warm winter days they wake up confused, crawl toward light, and end up inside the living space. One sunny afternoon in January can put fifty lady beetles on a bedroom ceiling in <a href="/vestavia-hills">Vestavia Hills</a> or a dozen stink bugs on a kitchen window in <a href="/hoover">Hoover</a>.</p>
+
+<h2>Why do they pick certain houses?</h2>
+
+<p>It is not random. Both species orient toward contrast and warmth, so south- and west-facing walls catch the heaviest pressure. Light-colored siding draws more than dark. Homes on high ground with full sun — the kind of lot builders love in <a href="/greystone">Greystone</a>, <a href="/highland-lakes">Highland Lakes</a>, and <a href="/mt-laurel">Mt Laurel</a> — get hammered harder than houses tucked into tree cover.</p>
+
+<p>New construction is not exempt. Any house with soffit vents, ridge vents, weep holes, or a gap under the J-channel has the openings they need. And if the house let them in last October, the pheromone trail they left behind marks it for next year. That is why the same house gets swarmed every fall while the neighbor across the street barely sees one.</p>
+
+<h2>Why squishing and vacuuming indoors backfires</h2>
+
+<p>Stink bugs earned the name. Crush one and it releases a chemical that smells like burnt cilantro and clings to fabric for days. Worse, that chemical is a distress signal that draws more stink bugs toward the area. A regular vacuum just spreads the smell through the motor exhaust. Lady beetles leave a yellow-orange stain on paint and curtains when crushed, plus their own acrid odor.</p>
+
+<p>Once they are inside the wall, individual removal is all you can do — pick them up with a tissue or sealed container and move them outside. There is no indoor spray that fixes the problem, because the problem is not indoors. It is the exterior, and it has to be addressed before they get in.</p>
+
+<h2>When does the window close?</h2>
+
+<p>The massing behavior — the visible clusters on the sunny wall — starts in September across the Birmingham metro and runs into mid-October. Huntsville and the Tennessee Valley usually see it a week or two earlier. By the time you see them on the siding, they are already probing for entry points. The exterior barrier treatment that stops them needs to be in place before that push, ideally in early to mid-September.</p>
+
+<p>This is not a single spray and done. Our <a href="/services/pest-control">bi-monthly exterior perimeter program</a> already covers overwintering pests as part of the regular rotation — the fall application is timed specifically for this pressure. A treated band along the foundation, window frames, door frames, soffits, and eaves creates a contact zone they have to cross to reach the gaps. It does not repel them from the yard, but it keeps the ones that land on the wall from making it inside.</p>
+
+<h2>Exclusion is the other half</h2>
+
+<p>A treated perimeter without exclusion leaves gaps. A sealed house without treatment still gets pressure from the sheer volume that lands. The two together work; either alone disappoints. We covered the full exclusion checklist in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> — weep hole mesh, door sweeps, caulked utility penetrations. For stink bugs and lady beetles, add one item: check attic soffit vents and gable vents for torn or missing screen. Both species fly to the roofline, and a soffit with a quarter-inch gap is the express lane into the attic.</p>
+
+<p>Newer neighborhoods in <a href="/chelsea">Chelsea</a>, <a href="/pelham">Pelham</a>, and <a href="/helena">Helena</a> have tighter envelopes but heavy landscaping and full sun exposure. Older neighborhoods in <a href="/homewood">Homewood</a> and <a href="/mountain-brook">Mountain Brook</a> have more gaps and more tree cover. Different pattern, same outcome.</p>
+
+<h2>Get ahead of it this September</h2>
+
+<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
     slug: 'fall-pest-proofing-alabama',
     title: 'Fall Pest-Proofing in Alabama: Seal Up Before September Ends',
     excerpt: 'The house was fine all summer, then one cool week in October it filled up with crickets and spiders. Nothing changed inside — the temperature changed outside. Here is the exclusion checklist that keeps them out, and why the window closes at the end of September.',
