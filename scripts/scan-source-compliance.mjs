@@ -127,6 +127,53 @@ function allowed(relPosix, line) {
 // a deep `description:` now gets scanned instead of skipped.
 const METADATA_FIELD = /^ {2,4}(?:title|description|metaTitle|metaDescription|excerpt|ogTitle|ogDescription|summary|blurb)\s*:/;
 
+// ── Hardening the above, 2026-08-17 ──────────────────────────────────────────
+// The comment above is right that indentation "distinguishes the two real cases in
+// this repo", and right that it is not airtight. Here is the specific way it is not,
+// because it is worth naming rather than rediscovering:
+//
+//   app/blog/[slug]/page.tsx:30-31   `title:` / `description:` at SIX spaces
+//   app/pest-library/[pest]/page.tsx:25-26   same
+//
+// Those are genuine Next.js metadata, nested one level deeper because they sit inside
+// `generateMetadata`'s `return {`. Under the 2-4 rule they are NO LONGER exempt. They
+// pass today only because their values are variables (`post.metaDescription`), so no
+// literal figure appears on the line. The day a post's metaDescription literal carries
+// the $1M figure — or any future file-scoped rule matches there — that is a FALSE
+// POSITIVE failing the build on correct metadata. The coupling is to whitespace, so a
+// formatter change flips it in either direction, silently.
+//
+// So: keep the indentation test as a fast pre-filter, and additionally require the line
+// to actually sit inside a metadata declaration. Brace-matched from the declaration, so
+// generateMetadata's extra nesting is included and a schema object literal never is.
+// Ambiguity fails CLOSED — no exemption means the rule applies, which is the safe side.
+function metadataLineSet(text) {
+  const lines = text.split('\n');
+  const inMeta = new Set();
+  const DECL = /export\s+(?:const\s+metadata\b|(?:async\s+)?function\s+generateMetadata\b)/;
+  for (let i = 0; i < lines.length; i++) {
+    if (!DECL.test(lines[i])) continue;
+    let depth = 0;
+    let opened = false;
+    for (let j = i; j < lines.length; j++) {
+      for (const ch of lines[j]) {
+        if (ch === '{') { depth++; opened = true; }
+        else if (ch === '}') depth--;
+      }
+      inMeta.add(j);
+      if (opened && depth <= 0) break;
+    }
+  }
+  return inMeta;
+}
+
+// Indentation OR real-metadata-position: the key must look like metadata AND live in a
+// metadata block. `public/*.txt` files have no declarations, so nothing there is exempt,
+// which is correct — those are body copy end to end.
+function isExemptMetadata(line, idx, metaLines) {
+  return METADATA_FIELD.test(line) && metaLines.has(idx);
+}
+
 
 // ── Rule extraction ───────────────────────────────────────────────────────────
 // Parsed line-by-line rather than imported, because this is a .mjs run by plain
@@ -260,6 +307,7 @@ for (const file of files) {
   const isChatFile = relPosix.startsWith('app/api/chat');
   const text = stripComments(raw, rel);
   const lines = text.split('\n');
+  const metaLines = metadataLineSet(text);
 
   for (const rule of rules) {
     // 'chat'-scoped rules apply only to the chatbot prompt/output, and the
@@ -271,8 +319,8 @@ for (const file of files) {
     // occurrence as the anchor — that is where a human starts reading.
     if (rule.granularity === 'file') {
       if (rule.requires && rule.requires.test(text)) continue;
-      const idx = lines.findIndex((l) => {
-        if (METADATA_FIELD.test(l)) return false; // see METADATA_FIELD note
+      const idx = lines.findIndex((l, i) => {
+        if (isExemptMetadata(l, i, metaLines)) return false; // see METADATA_FIELD note
         rule.re.lastIndex = 0;
         return rule.re.test(l) && !(rule.notIf && rule.notIf.test(l));
       });
