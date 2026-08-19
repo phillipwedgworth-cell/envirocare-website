@@ -106,7 +106,7 @@ const STICKY_CSS = `
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(14,26,15,0.18), 0 2px 8px rgba(14,26,15,0.10);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .sc-hidden { transform: translateY(180%); opacity: 0; pointer-events: none; }

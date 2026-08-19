@@ -22,7 +22,7 @@ const CREAM = "#FEFDF8";
 const MINT = "#E8F5EE";
 
 const FONT_STACK =
-  '"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+  'var(--font-sans)';
 
 interface Message {
   role: "user" | "assistant";
@@ -205,7 +205,7 @@ export default function ChatWidget() {
           .ec-scout-tip{position:fixed;bottom:22px;right:84px;z-index:9999;max-width:230px;
             background:#fff;color:#0E1A0F;border:1px solid #E6E0D2;border-left:4px solid #F5A800;border-radius:14px;
             padding:10px 12px 10px 14px;box-shadow:0 12px 34px rgba(14,26,15,0.20);
-            font-family:'DM Sans',system-ui,sans-serif;font-size:13.5px;line-height:1.35;
+            font-family:var(--font-sans);font-size:13.5px;line-height:1.35;
             display:flex;align-items:flex-start;gap:8px;animation:ec-scout-pop .25s ease both;}
           .ec-scout-tip b{color:#0A7935;}
           .ec-scout-tip-x{flex-shrink:0;background:none;border:none;cursor:pointer;color:#8a978c;font-size:16px;line-height:1;padding:0 2px;}

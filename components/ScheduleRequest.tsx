@@ -276,8 +276,8 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   );
 }
 
-const displayFont = "'Playfair Display', Georgia, serif";
-const bodyFont = "'DM Sans', system-ui, -apple-system, sans-serif";
+const displayFont = "var(--font-serif)";
+const bodyFont = "var(--font-sans)";
 const display: React.CSSProperties = { fontFamily: displayFont, fontWeight: 500, color: INK };
 const body: React.CSSProperties = { fontFamily: bodyFont, color: "#374151", lineHeight: 1.6, fontSize: 15 };
 const wrap: React.CSSProperties = {
