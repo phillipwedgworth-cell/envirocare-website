@@ -246,6 +246,31 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'entity attached to 1958 via a duration verb — EnviroCare began 1993/2005; the FAMILY started 1958',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
+  // SEVENTH SHAPE, 2026-08-18. Every 1958 rule above matches the literal DATE.
+  // None match the ARITHMETIC, so the same false claim expressed as an age passed:
+  //     "EnviroCare Pest Services brings 68 years of family pest control expertise"
+  // 2026 - 1958 = 68, which asserts exactly what the six 1958 rules exist to forbid --
+  // that the ENTITY has operated since 1958. It has not; the FAMILY has. Verified by
+  // behaviour before writing this: that sentence returned clean, 0 blocking hits, and
+  // it is live in approval_queue flagged compliance_clean=true. Nothing published it
+  // only because that queue has no executor.
+  //
+  // Sixth instance of the shape this repo keeps hitting: MATCHED A LITERAL WHERE IT
+  // NEEDED TO MATCH A SHAPE. The claim is not the string 1958; it is the assertion of
+  // operating duration, and an age states it without ever naming the year.
+  //
+  // Range is 60-99, not a bare 68: 68 becomes 69 in January and a literal would expire
+  // silently. CALIBRATION -- the first draft of this rule made the very mistake it
+  // exists to catch. It reused the duration rule's carve-out, which matches the bare
+  // WORD family anywhere on the line, so the live sentence was exempted BY ITS OWN
+  // OBJECT ("68 years of FAMILY pest control expertise"). Subject is EnviroCare;
+  // family describes the expertise. 2 of 3 forms fired and the real one passed.
+  // The carve-out now requires family/Wedgworth to be the grammatical SUBJECT.
+  // NOTE: keep pattern and notIf on ONE line -- see the comment on the WDO rule.
+  { pattern: '\\bEnviroCare\\b[^.!?]{0,40}?\\b(brings?|has|have|had|with|offers?|delivers?|provides?|celebrat\\w*)\\b[^.!?]{0,40}?\\b([6-9][0-9])\\s*years\\b|\\b(sixty|seventy|eighty|ninety)[-\\s]?(one|two|three|four|five|six|seven|eight|nine)?\\s*years\\b[^.!?]{0,40}?\\bEnviroCare\\b', notIf: '(the\\s+)?(Wedgworth\\s+)?family\\s+(has|have|had|been|business|is)|Wedgworth\\s+family|family[- ]owned|never say|do not say|banned|NEVER write',
+    reason: 'operating age asserted for the ENTITY (2026-1958=68) - the FAMILY has that history, EnviroCare began 1993/2005',
+    approvedInstead: 'the Wedgworth family has been doing pest control in Alabama for 68 years / family-owned since 1958' },
+
   // RETIRED NAME (decision 2026-08-09). Warn, not block: it is still the sitewide
   // BRAND_NAME in lib/schema.tsx and appears on all 156 pages, so blocking would
   // fail every build before that NAP change is approved and made.

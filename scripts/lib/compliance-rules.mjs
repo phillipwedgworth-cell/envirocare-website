@@ -29,8 +29,32 @@ export function compileRules() {
   const body = src.slice(src.indexOf('BANNED_PATTERNS'), src.indexOf('SOFT_RULES'));
   const rules = [];
 
-  for (const line of body.split('\n')) {
+  // Rules are found per PATTERN LINE, but a rule's prose sits on the lines AFTER it:
+  // this file's own convention is "keep pattern, notIf and requires on ONE line",
+  // which pushes `reason` and `approvedInstead` onto following lines. Parsing a single
+  // line therefore found the pattern and missed the reason, so `reason` fell back to
+  // `raw` -- the regex source itself.
+  //
+  // Measured before this fix: 8 of 29 rules reported a raw regex as their reason.
+  // Those strings are what a HUMAN reads, and since the proposer was wired to this
+  // module they flow into approval_queue.compliance_notes. A blocked row was about to
+  // tell Phillip a lookahead-laden regex instead of "coverage asserted as a
+  // guarantee". A guard nobody can read is a guard nobody acts on -- the same
+  // mechanism by which a drifted 9-rule hand-copy sat unnoticed self-certifying
+  // violations as clean.
+  //
+  // Fix: give each pattern line a WINDOW running to the end of its object literal and
+  // read the prose out of that. Additive only -- single-line rules parse identically,
+  // because the window starts with the pattern line itself.
+  const lines = body.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
     if (!line.includes('pattern:')) continue;
+    for (let j = i + 1; j < lines.length && j <= i + 8; j++) {
+      if (lines[j].includes('pattern:')) break;
+      line += '\n' + lines[j];
+      if (/\}\s*,?\s*$/.test(lines[j])) break;
+    }
     const dq = line.match(/pattern:\s*"((?:\\.|[^"\\])*)"/);
     const sq = line.match(/pattern:\s*'((?:\\.|[^'\\])*)'/);
     if (!dq && !sq) continue;
