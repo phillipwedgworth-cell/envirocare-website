@@ -35,7 +35,13 @@ export function compileRules() {
   // line therefore found the pattern and missed the reason, so `reason` fell back to
   // `raw` -- the regex source itself.
   //
-  // Measured before this fix: 8 of 29 rules reported a raw regex as their reason.
+  // Measured before this fix: 13 of 30 rules reported a raw regex as their reason.
+  // (Re-measured 2026-08-19 by running the pre-fix single-line parser against this
+  // repo own data/compliance.ts: 13 of 30. An earlier draft of this comment said
+  // 8 of 29 -- that came from a regex-SHAPED heuristic over the parsed reasons
+  // rather than counting rules whose reason failed to parse at all, so it
+  // undercounted. Using a proxy where a direct measurement was available is the
+  // same class of error this whole file is about.)
   // Those strings are what a HUMAN reads, and since the proposer was wired to this
   // module they flow into approval_queue.compliance_notes. A blocked row was about to
   // tell Phillip a lookahead-laden regex instead of "coverage asserted as a
