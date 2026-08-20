@@ -113,7 +113,7 @@ const SERVICE_SLUGS = [
  * committing on, not the date of the previous change — the bump commit itself
  * touches app/, so an older date is stale the moment it lands.
  */
-const STATIC_LASTMOD = new Date('2026-08-19T00:00:00.000Z');
+const STATIC_LASTMOD = new Date('2026-08-20T00:00:00.000Z');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = STATIC_LASTMOD;
