@@ -45,6 +45,20 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: 'same[\\s-]?day',        reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   { pattern: 'there today',           reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   { pattern: 'available now',         reason: 'availability claim', approvedInstead: 'prompt scheduling' },
+  // CALLBACK-TIME PROMISE, 2026-08-20. The three rules above match availability
+  // LITERALS (same-day / there today / available now). None matched a promise stated
+  // as a clock, so "We call back within 2 hours" sat live on /contact-us in three
+  // places and the guard returned PASS. Seventh instance of matching a literal where
+  // a shape was needed.
+  //
+  // Deliberately narrow: it requires a RESPONSE VERB near the clock, because
+  // "within 24 hours of your treatment" on /faq/mosquito is legitimate and must keep
+  // passing (see the note further down this file). notIf covers the other real uses --
+  // treatment, re-service, rain delay, inspection report, closing.
+  // NOTE: keep pattern and notIf on ONE line -- see the comment on the WDO rule.
+  { pattern: '\\b(call(ing)?\\s+(you\\s+)?back|respond|reply|get\\s+back\\s+to\\s+you|contact\\s+you|reach\\s+out|be\\s+in\\s+touch)\\b[^.!?]{0,40}?\\bwithin\\s+\\d+\\s*hours?\\b|\\bwithin\\s+\\d+\\s*hours?\\b[^.!?]{0,40}?\\b(call(ing)?\\s+(you\\s+)?back|respond|reply|get\\s+back\\s+to\\s+you|be\\s+in\\s+touch)\\b', notIf: 'treatment|application|re-?service|rain|inspection\\s+report|closing',
+    reason: 'callback-time promise - a clock the office cannot guarantee across four markets',
+    approvedInstead: 'we will call you back as soon as we can during business hours' },
   // "same technician" alone is fine ("real people, same technician on your route"); only a
   // PROMISE of it is a staffing claim. Require an every-time/guaranteed qualifier nearby.
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },

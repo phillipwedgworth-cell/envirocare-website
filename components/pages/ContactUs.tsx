@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/ContactUs.tsx
+// Commit: fix(contact): remove availability promises + bundle wording, repair ContactPage schema
+// Push: main
+// ─────────────────────────────────────
 "use client";
 import { useState } from "react";
 import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-react";
@@ -118,20 +124,15 @@ export default function ContactUs() {
         {
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          "name": "Contact EnviroCare Pest Control",
+          "name": "Contact EnviroCare",
           "url": "https://www.envirocarellc.com/contact-us",
-          "mainEntity": {
-            "@type": "LocalBusiness",
-            "name": "EnviroCare Pest Control",
-            "telephone": "(205) 940-6360",
-            "openingHours": "Mo-Fr 08:00-17:00",
-            "address": [
-              {"@type": "PostalAddress", "streetAddress": "2120 16th Ave S Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205"},
-              {"@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007"},
-              {"@type": "PostalAddress", "streetAddress": "1785 Tallapoosa St", "addressLocality": "Alexander City", "addressRegion": "AL", "postalCode": "35010"},
-              {"@type": "PostalAddress", "streetAddress": "7027 Old Madison Pike Suite 108", "addressLocality": "Huntsville", "addressRegion": "AL", "postalCode": "35806"}
-            ]
-          }
+          "about": { "@id": "https://www.envirocarellc.com/#organization" },
+          "mainEntity": [
+            { "@id": "https://www.envirocarellc.com/#birmingham" },
+            { "@id": "https://www.envirocarellc.com/#alabaster" },
+            { "@id": "https://www.envirocarellc.com/#lake-martin" },
+            { "@id": "https://www.envirocarellc.com/#huntsville" }
+          ]
         }
       `}</script>
 
@@ -268,7 +269,7 @@ export default function ContactUs() {
               />
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, ...sf, fontSize: 13, color: "#374151", display: "flex", flexDirection: "column", gap: 10 }}>
-              <li style={{ display: "flex", gap: 10 }}><span style={{ color: G, fontWeight: 800 }}>1.</span><span>We call back within 2 hours.</span></li>
+              <li style={{ display: "flex", gap: 10 }}><span style={{ color: G, fontWeight: 800 }}>1.</span><span>We call you back as soon as we can during business hours.</span></li>
               <li style={{ display: "flex", gap: 10 }}><span style={{ color: G, fontWeight: 800 }}>2.</span><span>Licensed Alabama tech inspects your property — no obligation.</span></li>
               <li style={{ display: "flex", gap: 10 }}><span style={{ color: G, fontWeight: 800 }}>3.</span><span>Clear written quote, your choice on next steps.</span></li>
             </ul>
@@ -279,7 +280,7 @@ export default function ContactUs() {
             <div style={{ marginBottom: 24 }}>
               <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 14, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Request Service</div>
               <h2 style={{ fontSize: 30, fontWeight: 400, color: DARK, marginBottom: 8 }}>Get Your Free Inspection</h2>
-              <p style={{ fontSize: 15, color: "#4b5563", ...sf }}>We'll call you back within 2 hours during business hours.</p>
+              <p style={{ fontSize: 15, color: "#4b5563", ...sf }}>We'll call you back as soon as we can during business hours.</p>
             </div>
 
           {!submitted ? (
@@ -329,7 +330,7 @@ export default function ContactUs() {
                   <option>Tick Control</option>
                   <option>Fire Ant Control</option>
                   <option>Flea Control</option>
-                  <option>Bundle Package</option>
+                  <option>Multiple Services</option>
                   <option>Commercial Service</option>
                   <option>Not sure — please inspect</option>
                 </select>
@@ -353,7 +354,7 @@ export default function ContactUs() {
             <div style={{ background: "#fff", border: `2px solid ${G}`, borderRadius: 16, padding: "52px 32px", textAlign: "center" }}>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}><CheckCircle size={52} color={G} strokeWidth={1.8} aria-hidden="true" /></div>
               <h3 style={{ fontSize: 24, fontWeight: 400, color: DARK, marginBottom: 10 }}>Thank You, {form.name}!</h3>
-              <p style={{ fontSize: 15, color: "#4b5563", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> within 2 hours.</p>
+              <p style={{ fontSize: 15, color: "#4b5563", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> as soon as we can during business hours.</p>
               <p style={{ fontSize: 14, color: "#4b5563", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>
             </div>
           )}
@@ -370,7 +371,7 @@ export default function ContactUs() {
               ["What are your hours?", "Monday–Friday 8am–5pm, closed weekends. Emergency situations — call us, we'll do our best."],
               ["How quickly can you schedule service?", "Call your nearest office and we will check current availability with you."],
               ["Is the inspection really free?", "Yes. We inspect your property, give you a written assessment and quote, with no obligation to purchase."],
-              ["Do you serve my city?", "We serve 30+ Alabama communities across 4 offices. Call us and we'll confirm whether we cover your area — most of Alabama is yes."],
+              ["Do you serve my city?", "We serve 30+ communities from four offices across the Birmingham metro, Shelby County, North Alabama and the Lake Martin area. Call us and we'll confirm whether we cover your address."],
             ].map(([q, a], i) => (
               <div key={i} style={{ background: "#f7f8f4", border: "1px solid rgba(27,122,60,0.1)", borderRadius: 10, padding: "16px 20px" }}>
                 <div style={{ fontWeight: 700, fontSize: 14, color: DARK, ...sf, marginBottom: 6 }}>{q}</div>
