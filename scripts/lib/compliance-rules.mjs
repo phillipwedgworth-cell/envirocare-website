@@ -121,12 +121,24 @@ export function scanText(text, rules = compileRules()) {
     if (rule.scope === 'chat') continue;
     if (rule.requires && rule.requires.test(body)) continue;
 
-    rule.re.lastIndex = 0;
-    let m;
+    // notIf IS TESTED AGAINST THE ENCLOSING LINE, not the matched words. 2026-08-20.
+    // This previously tested rule.notIf against m[0] -- the match itself -- which made
+    // every context carve-out in data/compliance.ts silently dead here, because a
+    // carve-out describes the SURROUNDING sentence, never the banned phrase. e.g. the
+    // wildlife rule carves out 'not offer', but m[0] is only "wildlife removal", so the
+    // carve-out could never fire and an honest "we do not offer wildlife removal" was
+    // reported as a violation. scan-source-compliance.mjs:286 always tested the whole
+    // line; this module diverged from it the day it was extracted (724317f). Same
+    // semantics now, so the generator and the repo guard agree -- which was the entire
+    // point of having one rule source.
     let hit = null;
-    while ((m = rule.re.exec(body)) !== null) {
-      if (rule.notIf && rule.notIf.test(m[0])) continue;
-      hit = m[0];
+    for (const line of body.split(String.fromCharCode(10))) {
+      rule.re.lastIndex = 0;
+      if (!rule.re.test(line)) continue;
+      if (rule.notIf && rule.notIf.test(line)) continue;
+      rule.re.lastIndex = 0;
+      const m = rule.re.exec(line);
+      hit = m ? m[0] : line.trim();
       break;
     }
     if (!hit) continue;
