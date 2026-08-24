@@ -109,7 +109,7 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // OWNERSHIP — owner is Kevin Wedgworth (gen 3). Flag an "owner" claim naming anyone else.
   // notIf excludes founder/history references (Phillip M. Wedgworth is the gen-1 FOUNDER, not owner).
   // ── Added 2026-07-28 (approval-queue item 9): the 3 classes packs kept sneaking past self-scans ──
-  // Discounts are DECISION-GATED, not always banned (Phillip approves real offers, e.g. the $79
+  // Discounts are DECISION-GATED, not always banned (Phillip approves real offers, e.g. the $75
   // initial promo) — severity 'warn' surfaces them for review instead of blocking the deploy.
   { pattern: '\\d+\\s*%\\s*off|percent\\s+off|half[\\s-]off|\\bdiscount(s|ed)?\\b', notIf: 'NOT discounts|aren.{0,2}t discounts|No promo|not a discount', severity: 'warn', reason: 'discount language — needs per-offer approval', approvedInstead: 'no discount framing unless the specific offer is approved; bundling is convenience only' },
   // RULED 2026-07-28 (Phillip): rodent CONTROL PROGRAMS ARE OFFERED - residential (with
@@ -329,7 +329,7 @@ export const SOFT_RULES: string[] = [
   '$1M coverage is EnviroCareʼs own guarantee — never imply Corteva/manufacturer backing.',
   'Carpenter bees: existing customers only — never marketed to new customers.',
   'Tuscaloosa: NOT serviced — must not appear in any city list, footer, or nav.',
-  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: $150 standard, $79 current promo (do not hardcode the promo price in evergreen copy).',
+  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: $150 standard, $75 current promo (do not hardcode the promo price in evergreen copy).',
 ];
 
 /** Services EnviroCare does NOT offer — must not be marketed. */

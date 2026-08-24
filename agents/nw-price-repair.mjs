@@ -4,7 +4,7 @@
 // WHY (2026-08-06)
 // The Aug-6 compliance rewrite re-authored all 44 live drafts under a rule that
 // declared "$35/$67/$127" the only permitted prices. Those are wrong:
-//   - real tiers are $35 / $69 / ~$100 (+$79 startup) per data/pricing.ts, which
+//   - real tiers are $35 / $69 / ~$100 (+$75 startup) per data/pricing.ts, which
 //     matches the live /pricing page
 //   - $67 is the retired 11-Jun-2026 sheet (Foundation $67); $127 exists nowhere
 // The same pass also called the pest plan "quarterly"; it is BI-MONTHLY (cities.ts

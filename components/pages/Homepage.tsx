@@ -113,7 +113,7 @@ function Stars({ size = 14 }: { size?: number }) {
  * 4. ThreeOffices replaced with FindYourOffice zip finder
  * 5. "No contract" language removed sitewide per owner direction
  * 6. Hero copy: "interior and exterior coverage" replaces "we treat from the outside"
- * 7. Pricing: Pest $79 initial, tick as +$20 add-on, termite priced at free WDO inspection (no flat $/mo)
+ * 7. Pricing: Pest $75 initial, tick as +$20 add-on, termite priced at free WDO inspection (no flat $/mo)
  * 8. Complete tier ~$100/mo (matches data/pricing.ts and city pages)
  */
 
@@ -391,10 +391,10 @@ interface RecurringPlan {
 const RECURRING_PLANS: RecurringPlan[] = [
   {
     key: 'pest', icon: 'pest', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
-    perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $79 initial service fee' },
-    monthly: { price: 'From $35/mo ACH', terms: '$79 initial · equal monthly ACH drafts' },
+    perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $75 initial service fee' },
+    monthly: { price: 'From $35/mo ACH', terms: '$75 initial · equal monthly ACH drafts' },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
-    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$79 initial',
+    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$75 initial',
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
@@ -566,7 +566,7 @@ function ConsolidatedPricing() {
         </div>
 
         <div className="ec-cp-strip">
-          <strong>$79 initial service fee</strong> for new pest customers.
+          <strong>$75 initial service fee</strong> for new pest customers.
           Mosquito and tick have no startup. <em>We never charge twice for the same coverage.</em>
         </div>
         <p style={{ fontSize: '11.5px', lineHeight: 1.5, color: '#6b7d70', margin: '10px 4px 0', textAlign: 'center' }}>{ACH_TERMS}</p>

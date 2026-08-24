@@ -8,7 +8,7 @@
 //
 // House conventions followed: no competitor is named anywhere; comparison rows
 // describe common industry practice only. Pricing uses the canonical wording —
-// $35/month on ACH or $70 per bi-monthly visit, $79 startup, unlimited free
+// $35/month on ACH or $70 per bi-monthly visit, $75 startup, unlimited free
 // re-service. Contract wording states the two billing options positively;
 // or equal monthly ACH payments under a 12-month billing agreement"; the bare
 // phrase "no contract" is banned and must not be reintroduced.
@@ -97,7 +97,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How much does pest control cost in Birmingham, AL?',
-    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $79 startup and unlimited free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
+    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 startup and unlimited free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
   },
   {
     q: 'What should I look for in a Birmingham pest control agreement?',
@@ -222,7 +222,7 @@ export default function BestPestControlBirminghamPage() {
             Family-owned in Alabama since 1958, fourth generation. We are not the largest company
             operating in Birmingham and we do not claim to be. What we do differently maps onto the
             five points above: pricing is published — <strong>$35/month on ACH or $70 per bi-monthly
-            visit</strong>, with a $79 startup and unlimited free re-service between scheduled
+            visit</strong>, with a $75 startup and unlimited free re-service between scheduled
             visits. Termite protection is Sentricon<sup>®</sup> Always Active™, in-ground bait
             stations with no drilling, backed by up to $1,000,000 in EnviroCare repair coverage on
             qualifying homes, subject to the terms of the agreement — repair coverage, not a

@@ -36,7 +36,7 @@
 //     White House") which opened multiple live drafts
 //   - a ban on superiority / comparative claims ("gold standard", "the most
 //     trusted", "no one comes close")
-//   - the real tier structure from data/pricing.ts: $35 / $69 / ~$100 (+$79 startup).
+//   - the real tier structure from data/pricing.ts: $35 / $69 / ~$100 (+$75 startup).
 //     NOTE: the incoming Aug-6 patch asserted $35/$67/$127; $67 is the retired Jun-11
 //     sheet and $127 exists nowhere. Corrected against data/pricing.ts + live /pricing.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -111,8 +111,8 @@ HARD BANS (these get the company in legal/compliance trouble — never use)
 PRICING (only mention when natural; otherwise point to a free inspection / quote)
 - Prices come from data/pricing.ts, which is the declared single source of truth and
   matches the live /pricing page (verified 2026-08-06). The residential plan tiers are:
-      Pest Control            $35/month   ($79 startup)
-      Pest + Mosquito         $69/month   ($79 startup)
+      Pest Control            $35/month   ($75 startup)
+      Pest + Mosquito         $69/month   ($75 startup)
       Complete                ~$100/month ($229 startup)
   Monthly pricing is billed on a 12-month ACH agreement. Pay-per-visit is $70 every
   other month for the pest plan.
@@ -204,7 +204,7 @@ NEVER propose wording containing:
   footer mention for it. (Note: some live city pages already claim it — canonical
   facts §10 open question #5. Do not add more until that is settled.)
 - Any price other than $35/mo, $69/mo, ~$100/mo (plus the verified add-ons and the
-  $79 startup / $70-every-other-month pay-per-visit). No termite price,
+  $75 startup / $70-every-other-month pay-per-visit). No termite price,
   no initial service fee, no promo price, no fire ant minimum, no WDO inspection fee.
   Everything else is "confirmed after a free inspection".
 - Any contract-free claim, including "no long-term contract(s)", which this file

@@ -36,12 +36,12 @@ const OFFER_SCHEMA = {
     {
       "@type": "Offer", name: "Pest Control", priceCurrency: "USD", price: "35",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $79 startup; monthly pricing uses a 12-month ACH billing agreement." },
+      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $75 startup; monthly pricing uses a 12-month ACH billing agreement." },
     },
     {
       "@type": "Offer", name: "Pest + Mosquito", priceCurrency: "USD", price: "69",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "69", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Pest + Seasonal Mosquito", description: "Bimonthly pest control plus seasonal mosquito (March–November). $79 startup. Tick add-on +$20/visit." },
+      itemOffered: { "@type": "Service", name: "Pest + Seasonal Mosquito", description: "Bimonthly pest control plus seasonal mosquito (March–November). $75 startup. Tick add-on +$20/visit." },
     },
     {
       "@type": "Offer", name: "Mosquito", priceCurrency: "USD", price: "45",
@@ -67,7 +67,7 @@ const FAQ_SCHEMA = {
   mainEntity: [
     { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." } },
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
-    { "@type": "Question", name: "What are the startup fees?", acceptedAnswer: { "@type": "Answer", text: "Pest is $79, Pest + Mosquito is $79, and the Complete bundle (which includes termite) is $229. Mosquito and tick booked alone have no startup — they're billed per service." } },
+    { "@type": "Question", name: "What are the startup fees?", acceptedAnswer: { "@type": "Answer", text: "Pest is $75, Pest + Mosquito is $75, and the Complete bundle (which includes termite) is $229. Mosquito and tick booked alone have no startup — they're billed per service." } },
     { "@type": "Question", name: "Can I get mosquito or tick without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, nine rounds March through November, charged at each service. Tick is only offered alongside mosquito." } },
     { "@type": "Question", name: "What's the Sentricon $1M coverage?", acceptedAnswer: { "@type": "Answer", text: "If termites cause structural damage while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement." } },
   ],

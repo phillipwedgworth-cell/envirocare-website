@@ -2,8 +2,8 @@
 >
 > This is the **Jun 11 2026** spec. Its `$67/mo` Pest + Termite tier was superseded and
 > is **not** the live price. The declared single source of truth is **`data/pricing.ts`**,
-> which reads **$35 / $69 / ~$100** with $79 / $79 / $229 startup — matching live
-> `/pricing`, verified 2026-08-10 ($35 x14, $69 x2, $79 x12, $229 x6; no $67 anywhere).
+> which reads **$35 / $69 / ~$100** with $75 / $75 / $229 startup — matching live
+> `/pricing`, verified 2026-08-10 ($35 x14, $69 x2, $75 x12, $229 x6; no $67 anywhere).
 >
 > **This file is why that number keeps coming back.** It has been re-asserted as the approved
 > tier at least three times since Aug 6, and on 2026-08-09 nearly reached five published

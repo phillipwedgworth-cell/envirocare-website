@@ -18,7 +18,7 @@
 ## Core Services & Pricing (locked model — June 2026)
 RULE: termite is NEVER a flat number to customers — always "quoted after a free WDO inspection."
 Mosquito/tick without a pest plan are PER-VISIT only (no monthly). Tick rides with mosquito only.
-- **Pest only**: From $35/mo (bimonthly) · $79 startup · ACH · **12-month agreement, equal averaged payments**; per-visit $70 is contract-free
+- **Pest only**: From $35/mo (bimonthly) · $75 startup · ACH · **12-month agreement, equal averaged payments**; per-visit $70 is contract-free
 - **Pest + Mosquito**: From $69/mo · $99 startup · add tick +$20/visit — LEAD/most popular
 - **Complete (Pest + Termite + Mosquito)**: From ~$100/mo · $229 startup · termite priced upon inspection & approval · add tick +$20/visit — best value
 - **Mosquito**: $45/visit × 9 (Mar–Nov) alone; $34/mo ONLY when bundled with a pest plan (monthly needs a year-round anchor)
