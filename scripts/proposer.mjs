@@ -247,20 +247,35 @@ async function main() {
   // 3 unapproved "unlimited"), growing ~2/day, in the one place Phillip goes to
   // click approve. A queue that contains claims the compliance gate would reject
   // is worse than a shorter queue: it puts the violation one click from live.
-  const fresh = deduped.filter((p) => p.compliance_clean);
+  const clean = deduped.filter((p) => p.compliance_clean);
   const rejected = deduped.filter((p) => !p.compliance_clean);
   if (rejected.length) {
     console.log(`  ✗ ${rejected.length} proposal(s) DISCARDED — banned language, not queued:`);
     for (const r of rejected) console.log(`     - ${r.title}: ${r.compliance_notes}`);
   }
 
+  // A clean row with no action_type can never execute even if Phillip approves
+  // it. Verified live 2026-08-24: 25 of 38 pending rows were in exactly that
+  // state. A queue full of un-actionable rows trains the owner to ignore the
+  // queue, so drop them here rather than parking them in front of him.
+  const deadEnd = clean.filter((p) => !p.action_type);
+  if (deadEnd.length) {
+    console.log(`  ✗ ${deadEnd.length} proposal(s) DROPPED — no action_type, nothing can execute them:`);
+    for (const d of deadEnd) console.log(`     - [${d.category}] ${d.title}`);
+    console.log(`    (to queue '${[...new Set(deadEnd.map((d) => d.category))].join("/")}' again, wire a publisher and map it in CATEGORY_FOR_TYPE)`);
+  }
+
+  const fresh = clean.filter((p) => p.action_type);
+  console.log(`  ${fresh.length} row(s) survive: clean AND executable`);
+
   if (fresh.length === 0) {
     die(
-      rejected.length
-        ? `nothing queueable: ${deduped.length} new proposal(s), all ${rejected.length} ` +
-            "discarded for banned language. The generation prompt and " +
-            "data/compliance.ts disagree — fix the prompt, not the scanner. " +
-            "Exiting non-zero on purpose."
+      rejected.length || deadEnd.length
+        ? `nothing queueable: ${deduped.length} new proposal(s), ${rejected.length} ` +
+            `discarded for banned language, ${deadEnd.length} dropped for having ` +
+            "no action_type. See the lines above for which. If the language scan " +
+            "is the culprit, the generation prompt and data/compliance.ts " +
+            "disagree — fix the prompt, not the scanner. Exiting non-zero on purpose."
         : "every generated proposal duplicates something already pending. " +
             "Clear the queue or widen the prompt. Exiting non-zero on purpose: " +
             "a run that writes nothing is not a success."

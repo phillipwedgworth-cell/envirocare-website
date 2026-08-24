@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/social-poster.mjs
+// Commit: fix(agents): gate social-poster on agent_registry.status
+// Push: main
+// ─────────────────────────────────────
 // agents/social-poster.mjs
 // Posts due items from the social_posts queue to Facebook / Instagram / Google
 // Business Profile, then records the result. Exports run() (orchestrator-compatible)
@@ -12,6 +18,7 @@ import { dirname, join } from "node:path";
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { postToFacebook, postToInstagram } from "./lib/meta.mjs";
 import { postGbp } from "./lib/gbp.mjs";
+import { gateOrSkip } from "./lib/agent-gate.mjs";
 
 const AGENT_NAME = "social-poster";
 
@@ -78,6 +85,11 @@ async function postOne(row, cal) {
 }
 
 export async function run({ nowIso } = {}) {
+  // Retired 2026-08-06, marked 'paused' in agent_registry, still publishing as
+  // of 2026-08-23 because the status column was never enforced.
+  const gate = await gateOrSkip(AGENT_NAME);
+  if (!gate.allowed) return gate.result;
+
   if (!supabase) {
     await logAgentRun(AGENT_NAME, "skipped", "supabase not configured");
     return { agent: AGENT_NAME, status: "skipped", posted: 0, failed: 0, skipped: 0 };

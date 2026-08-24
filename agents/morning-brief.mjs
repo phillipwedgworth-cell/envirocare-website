@@ -46,14 +46,21 @@ function niceDate() {
 
 async function fetchFindings() {
   const since = new Date(Date.now() - 30 * 60 * 60 * 1000).toISOString();
-  const [findings, runs] = await Promise.all([
+  const [findings, runs, actions, queue] = await Promise.all([
     fetch(`${BASE}/agent_findings?created_at=gte.${since}&order=created_at.desc`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/agent_runs?started_at=gte.${since}&order=started_at.desc`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
+    // GROUND TRUTH for "was anything actually done". Verified 2026-08-24:
+    // agent_actions has never contained a single executed row, while the brief
+    // was opening every day with a "HANDLED (autonomous)" section listing site
+    // changes as done. The model was inventing completion from findings alone.
+    fetch(`${BASE}/agent_actions?created_at=gte.${since}&order=created_at.desc&select=agent_name,action,status`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
+    fetch(`${BASE}/approval_queue?status=eq.pending&order=created_at.asc&select=title,category,risk,compliance_clean,action_type,created_at`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
   ]);
-  return { findings: arr(findings), runs: arr(runs) };
+  return { findings: arr(findings), runs: arr(runs), actions: arr(actions), queue: arr(queue) };
 }
 
-function buildContext({ findings, runs }) {
+function buildContext(data) {
+  const { findings, runs } = data;
   const ship = findings.filter((f) => f.panel_verdict === 'SHIP');
   const pool = (ship.length ? ship : findings).slice(0, 30);
   const lines = pool.map((f) => {
@@ -72,7 +79,31 @@ function buildContext({ findings, runs }) {
     totalFindings: findings.length,
     agentsRan,
     findingsBlock: lines.join('\n') || '(no findings in the last 30 hours)',
+    executionBlock: buildExecutionBlock(data),
   };
+}
+
+// A literal, non-negotiable statement of what shipped. The model is told to
+// treat this as the only evidence of completion that exists.
+function buildExecutionBlock({ actions, queue }) {
+  const done = arr(actions).filter((a) => ['executed', 'applied', 'completed', 'done'].includes(String(a.status || '').toLowerCase()));
+  const stuck = arr(queue);
+  const deadEnd = stuck.filter((q) => !q.action_type).length;
+  const dirty = stuck.filter((q) => q.compliance_clean === false).length;
+  const oldestDays = stuck.length
+    ? Math.floor((Date.now() - new Date(stuck[0].created_at).getTime()) / 86400000)
+    : 0;
+
+  const doneLines = done.length
+    ? done.map((a) => `- ${a.agent_name || 'agent'}: ${a.action}`).join('\n')
+    : '(NONE — zero actions executed in this window)';
+
+  return `EXECUTED ACTIONS (agent_actions, the only proof of completion):
+${doneLines}
+
+APPROVAL QUEUE: ${stuck.length} pending, oldest ${oldestDays} day(s).
+  ${deadEnd} have no action_type and can never execute even if approved.
+  ${dirty} failed the compliance scan.`;
 }
 
 const SYSTEM = `You are EnviroCare's marketing STRATEGIST — not a passive reporter. EnviroCare is a family-owned Alabama pest & termite company (since 1958, three offices: Birmingham/Alabaster, Lake Martin/Alex City, Huntsville). You write a concise daily MORNING BRIEF for the owner, Phillip, who is busy and wants to make decisions fast.
@@ -80,9 +111,12 @@ const SYSTEM = `You are EnviroCare's marketing STRATEGIST — not a passive repo
 You are given the STRATEGY BRAIN (knowledge block in the user message): the live scoreboard, decisions Phillip has ALREADY made, ranked priorities, and autonomy rules. USE IT:
 - Never re-ask or re-litigate a decision the brain records as already made.
 - Tie every item to a brain priority (P1 reviews, P2 LSA, P3 Huntsville, P4 suburb organic, P5 AI visibility). Drop findings that serve no priority.
-- Structure the brief in two sections:
-  "HANDLED (autonomous)" — findings agents can execute under the autonomy rules; phrase as what WILL happen today (e.g. "narrator optimizes /hoover").
+- Structure the brief in three sections:
+  "SHIPPED (verified)" — ONLY items that appear in the EXECUTED ACTIONS block of the user message. If that block says NONE, this section must read exactly "Nothing shipped." and nothing else. You may not infer, assume, or describe any change as done, handled, or applied on the basis of a finding, a recommendation, or a previous brief. A finding is a suggestion; it is not work.
+  "QUEUED (waiting on execution)" — items an agent has drafted or proposed but that have NOT run. Phrase these as pending, never as done. Call out the approval-queue backlog, anything that cannot execute for want of a publisher, and anything blocked by compliance.
   "YOUR CALL (money/irreversible)" — only items the rules reserve for Phillip, each with a one-line recommendation and a default ("if you do nothing, we hold").
+
+ABSOLUTE RULE: never write that something was handled, fixed, shipped, or rewritten unless it is listed in EXECUTED ACTIONS. Reporting unfinished work as finished is the single worst failure this brief can have — Phillip has stopped checking things because the brief said they were done. When in doubt, put it in QUEUED.
 - Lead with the 3-5 things that actually matter today, RANKED, most important first.
 - Plain English. No jargon, no filler, no "as an AI". Operator tone.
 - If it's a quiet day, say so in one line and list 1-2 things worth watching.
@@ -126,7 +160,9 @@ Agents that ran in the last 30h: ${ctx.agentsRan.join(', ') || 'none'}
 SHIP-flagged items (need human decision): ${ctx.shipCount}
 Total findings examined: ${ctx.totalFindings}
 ${prevBlock}
-Findings / proposed changes:
+${ctx.executionBlock}
+
+Findings / proposed changes (SUGGESTIONS ONLY — none of these are done):
 ${ctx.findingsBlock}
 
 Write today's Morning Brief.`;

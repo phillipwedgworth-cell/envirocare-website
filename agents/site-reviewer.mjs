@@ -36,6 +36,7 @@ import {
 } from "./lib/supabase.mjs";
 import { runPanel, synthesize } from "../lib/llm-panel.ts";
 import { RECOMMENDATION_GUARDRAILS } from "./lib/compliance.mjs";
+import { gateOrSkip } from "./lib/agent-gate.mjs";
 import { knowledgeBlock } from "./lib/knowledge.mjs";
 
 const AGENT_NAME = "site-reviewer";
@@ -401,6 +402,12 @@ async function persistFindings(synthesis, pages) {
 // ---------- Entry point ----------
 
 export async function run() {
+  // Registry is the kill switch. This agent was marked 'paused' in
+  // agent_registry on 2026-08-21 and kept running 16x/day because nothing
+  // read the column. It does now.
+  const gate = await gateOrSkip(AGENT_NAME);
+  if (!gate.allowed) return gate.result;
+
   const started = Date.now();
   console.log(`[${AGENT_NAME}] Starting (prompt ${PROMPT_VERSION})`);
 

@@ -1,0 +1,45 @@
+# ─── CLAUDE CODE: DEPLOY THIS FILE ───
+# Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+# Path: .github/workflows/seo-snapshot.yml
+# Commit: fix(seo): restore Local Falcon -> seo_metrics feed in Actions
+# Push: main
+# ─────────────────────────────────────
+#
+# seo_metrics stopped receiving rows at 2026-08-21 20:34:51Z — the same second
+# the local Title-Case "SEO Monitor" process last ran. That process, not
+# anything in Actions, was the writer. agents/seo-snapshot.mjs is the supported
+# writer but had no workflow, so nothing ran it.
+#
+# Reads EXISTING campaign reports only (getCampaignReport = 0 scan credits).
+# It never triggers a scan, so this cannot burn Local Falcon credits.
+#
+# Runs Mondays 14:30 UTC — 30 min after seo-monitor, so the SoLV readings the
+# monitor reasons about are already in the table.
+
+name: SEO Snapshot (Local Falcon → seo_metrics)
+
+on:
+  schedule:
+    - cron: '30 14 * * 1'   # Mondays 14:30 UTC (~9:30am CT)
+  workflow_dispatch: {}
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LOCAL_FALCON_API_KEY: ${{ secrets.LOCAL_FALCON_API_KEY }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      DIGEST_TO: ${{ secrets.DIGEST_TO }}
+      DIGEST_FROM: ${{ secrets.DIGEST_FROM }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm ci || npm install
+      - name: Run Local Falcon snapshot
+        run: node agents/run.mjs seo-snapshot

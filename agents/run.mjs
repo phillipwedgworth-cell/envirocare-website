@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/run.mjs
+// Commit: feat(agents): register seo-snapshot as a runnable CLI target
+// Push: main
+// ─────────────────────────────────────
 // agents/run.mjs
 // Local CLI entry point: `node agents/run.mjs [agent-name]`
 //
@@ -38,6 +44,12 @@ const TARGETS = {
   "seo-monitor": "./seo-monitor.mjs",
   "cfo-agent": "./cfo-agent.mjs",
   "neuronwriter-qa": "./neuronwriter-qa.mjs",
+  // seo-snapshot exports run() but had no CLI target and no workflow, so it
+  // never executed in Actions. seo_metrics was being fed by the local
+  // Title-Case "SEO Monitor" process instead; when that was killed on
+  // 2026-08-21 20:34 the table stopped receiving rows the same second.
+  // This is the supported path back.
+  "seo-snapshot": "./seo-snapshot.mjs",
 };
 
 async function main() {

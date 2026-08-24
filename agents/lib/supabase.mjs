@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/lib/supabase.mjs
+// Commit: feat(findings): honor finding_suppression_rules in writeFinding
+// Push: main
+// ─────────────────────────────────────
 // agents/lib/supabase.mjs
 // Shared Supabase client — imported by kv.mjs, orchestrator.mjs, and any agent that logs data
 
@@ -105,9 +111,64 @@ export function findingDedupKey(agentName, category, pageUrl, finding, details =
   return `${norm(agentName) || "unknown"}:${utcDay}:${digest}`;
 }
 
+// ── Finding suppression ───────────────────────────────────────────────────
+// finding_suppression_rules has existed since July and nothing ever read it.
+// Cost of that: seo-monitor re-filed the same 14 "DEAD ZONE" findings 100-120
+// times each between 2026-07-20 and 2026-08-24. Known state is not a finding.
+// Rules are cached for the life of the process — agents are short-lived, and
+// one read per run is plenty.
+let _suppressionCache = null;
+
+async function suppressionRules() {
+  if (_suppressionCache) return _suppressionCache;
+  if (!supabase) return (_suppressionCache = []);
+  try {
+    const { data, error } = await supabase
+      .from("finding_suppression_rules")
+      .select("agent_name,category,pattern,reason")
+      .eq("active", true);
+    if (error) throw new Error(error.message);
+    _suppressionCache = (data ?? []).map((r) => ({
+      agent_name: r.agent_name || null,
+      category: r.category || null,
+      reason: r.reason || "",
+      // Patterns are stored as plain strings and matched case-insensitively as
+      // a substring. Not regex: these are written by hand and a stray "(" in a
+      // keyword must not throw at read time.
+      pattern: String(r.pattern || "").toLowerCase(),
+    })).filter((r) => r.pattern);
+  } catch (e) {
+    // A missing or unreadable table must never block a finding.
+    if (!String(e.message).includes("does not exist")) {
+      console.warn(`[supabase] finding_suppression_rules unreadable: ${e.message}`);
+    }
+    _suppressionCache = [];
+  }
+  return _suppressionCache;
+}
+
+async function isSuppressed(agentName, category, finding) {
+  const rules = await suppressionRules();
+  if (!rules.length) return null;
+  const hay = String(finding || "").toLowerCase();
+  for (const r of rules) {
+    if (r.agent_name && r.agent_name !== agentName) continue;
+    if (r.category && r.category !== category) continue;
+    if (hay.includes(r.pattern)) return r;
+  }
+  return null;
+}
+
 // Write a single finding row — silently no-ops if agent_findings table doesn't exist yet
 export async function writeFinding(agentName, category, severity, pageUrl, finding, details = {}) {
   if (!supabase) return;
+
+  const suppressed = await isSuppressed(agentName, category, finding);
+  if (suppressed) {
+    console.log(`[${agentName}] suppressed finding (${suppressed.reason || "matched rule"}): ${String(finding).slice(0, 80)}`);
+    return;
+  }
+
   const now = new Date();
   const detailsObj = details ?? {};
   const row = {
