@@ -187,10 +187,15 @@ export async function run({ email = true } = {}) {
     });
   }
 
-  // upsert metrics (dedupe on campaign_key,keyword,run_date)
+  // Upsert metrics. The onConflict list must name the live unique index
+  // exactly: seo_metrics_campaign_keyword_date_platform_key is on
+  // (campaign_key, keyword, run_date, platform) NULLS NOT DISTINCT. Omitting
+  // platform made every run die with "no unique or exclusion constraint
+  // matching the ON CONFLICT specification" — verified in Actions run
+  // 32784859638 on 2026-08-24.
   let rowsWritten = 0;
   if (allRows.length) {
-    const { error } = await sb.from("seo_metrics").upsert(allRows, { onConflict: "campaign_key,keyword,run_date" });
+    const { error } = await sb.from("seo_metrics").upsert(allRows, { onConflict: "campaign_key,keyword,run_date,platform" });
     if (error) throw new Error(`seo_metrics upsert: ${error.message}`);
     rowsWritten = allRows.length;
   }

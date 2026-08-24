@@ -128,15 +128,33 @@ async function suppressionRules() {
       .select("agent_name,category,pattern,reason")
       .eq("active", true);
     if (error) throw new Error(error.message);
-    _suppressionCache = (data ?? []).map((r) => ({
-      agent_name: r.agent_name || null,
-      category: r.category || null,
-      reason: r.reason || "",
-      // Patterns are stored as plain strings and matched case-insensitively as
-      // a substring. Not regex: these are written by hand and a stray "(" in a
-      // keyword must not throw at read time.
-      pattern: String(r.pattern || "").toLowerCase(),
-    })).filter((r) => r.pattern);
+    _suppressionCache = (data ?? []).map((r) => {
+      const raw = String(r.pattern || "");
+      // Patterns come in BOTH shapes. The rules seeded before this code existed
+      // are regexes ("bed[ -]?bugs?", "citation score: [0-9]+/100"); the DEAD
+      // ZONE rules are literal text. Verified against the live table
+      // 2026-08-24: 3 of 5 were regex. Substring-only matching would have
+      // silently ignored those three forever, which is the same "table nobody
+      // reads" failure this whole change is here to end.
+      //
+      // So: compile as a case-insensitive regex, and fall back to a substring
+      // match if it doesn't compile. A hand-written rule with a stray "(" must
+      // degrade, never throw.
+      let rx = null;
+      try {
+        rx = new RegExp(raw, "i");
+      } catch {
+        console.warn(`[supabase] suppression rule is not valid regex, matching as literal text: ${raw}`);
+      }
+      return {
+        agent_name: r.agent_name || null,
+        category: r.category || null,
+        reason: r.reason || "",
+        raw,
+        rx,
+        literal: raw.toLowerCase(),
+      };
+    }).filter((r) => r.literal);
   } catch (e) {
     // A missing or unreadable table must never block a finding.
     if (!String(e.message).includes("does not exist")) {
@@ -150,11 +168,13 @@ async function suppressionRules() {
 async function isSuppressed(agentName, category, finding) {
   const rules = await suppressionRules();
   if (!rules.length) return null;
-  const hay = String(finding || "").toLowerCase();
+  const hay = String(finding || "");
+  const lower = hay.toLowerCase();
   for (const r of rules) {
     if (r.agent_name && r.agent_name !== agentName) continue;
     if (r.category && r.category !== category) continue;
-    if (hay.includes(r.pattern)) return r;
+    const hit = r.rx ? r.rx.test(hay) : lower.includes(r.literal);
+    if (hit) return r;
   }
   return null;
 }

@@ -43,3 +43,14 @@ jobs:
       - run: npm ci || npm install
       - name: Run Local Falcon snapshot
         run: node agents/run.mjs seo-snapshot
+
+      # Same guard as ingest-seo. seo_metrics went 3 days without a write
+      # after the local SEO Monitor process was killed and nothing noticed.
+      - name: Report failure
+        if: failure()
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          agent-name: seo-snapshot
+          supabase-url: ${{ secrets.SUPABASE_URL }}
+          supabase-key: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}

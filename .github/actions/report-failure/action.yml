@@ -1,0 +1,95 @@
+# ─── CLAUDE CODE: DEPLOY THIS FILE ───
+# Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+# Path: .github/actions/report-failure/action.yml
+# Commit: feat(ci): record workflow failures as critical agent_findings
+# Push: main
+# ─────────────────────────────────────
+#
+# WHY THIS EXISTS
+# ---------------
+# ingest-seo.yml failed silently on Aug 10, Aug 17, and Aug 24 2026. Three
+# weeks of GSC data lost, and nothing told anyone. The morning brief doesn't
+# know GitHub Actions exists; the watchdog only reads agent_runs, and a
+# workflow that dies before its agent starts never writes an agent_runs row.
+# So a job that fails at the credential step is completely invisible.
+#
+# This composite closes that hole. Add one step with `if: failure()` to any
+# workflow and a failure becomes a critical row in agent_findings — which the
+# morning brief already reads and reports.
+#
+# Deliberately dependency-free (curl + POST). If this step itself fails it
+# must never mask the real failure, hence `continue-on-error` at the caller
+# and `|| true` on the request.
+
+name: Report workflow failure
+description: Write a critical agent_findings row when a workflow step fails.
+
+inputs:
+  agent-name:
+    description: Name recorded in agent_findings.agent_name (use the workflow's agent).
+    required: true
+  supabase-url:
+    description: Supabase project URL.
+    required: true
+  supabase-key:
+    description: Supabase service key.
+    required: true
+  category:
+    description: Finding category.
+    required: false
+    default: infrastructure
+
+runs:
+  using: composite
+  steps:
+    - name: Record failure in agent_findings
+      shell: bash
+      env:
+        SB_URL: ${{ inputs.supabase-url }}
+        SB_KEY: ${{ inputs.supabase-key }}
+        AGENT: ${{ inputs.agent-name }}
+        CATEGORY: ${{ inputs.category }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        WF: ${{ github.workflow }}
+      run: |
+        set +e
+        if [ -z "$SB_URL" ] || [ -z "$SB_KEY" ]; then
+          echo "::warning::Supabase creds absent — failure not recorded"
+          exit 0
+        fi
+
+        # dedup_key collapses repeat failures of the same workflow on the same
+        # day into one row, so a broken cron doesn't flood the brief.
+        DAY=$(date -u +%Y-%m-%d)
+        DEDUP="ci-failure:${WF}:${DAY}"
+
+        FINDING="WORKFLOW FAILED: ${WF} — job did not complete. This is a CI/credential failure, not a content issue. Run log: ${RUN_URL}"
+
+        # Build the JSON with jq, not bash. ${VAR@Q} produces SHELL quoting,
+        # not JSON: a plain value comes back wrapped in single quotes, and a
+        # value holding any non-ASCII character (the arrow in the workflow
+        # name "Local Falcon -> seo_metrics", for one) comes back in bash's
+        # $'...' escape form. Neither is valid JSON. PostgREST would reject
+        # the body and the `|| true` below would swallow the rejection, so
+        # this action would look installed and never write a single row.
+        # jq -n --arg quotes and escapes correctly for every input.
+        BODY=$(jq -nc \
+          --arg agent    "$AGENT" \
+          --arg category "$CATEGORY" \
+          --arg finding  "$FINDING" \
+          --arg dedup    "$DEDUP" \
+          --arg wf       "$WF" \
+          --arg run_url  "$RUN_URL" \
+          '[{agent_name: $agent, category: $category, severity: "critical",
+             finding: $finding, dedup_key: $dedup,
+             details: {workflow: $wf, run_url: $run_url}}]')
+
+        curl -sS -X POST "${SB_URL}/rest/v1/agent_findings" \
+          -H "apikey: ${SB_KEY}" \
+          -H "authorization: Bearer ${SB_KEY}" \
+          -H "content-type: application/json" \
+          -H "Prefer: resolution=merge-duplicates,return=minimal" \
+          -d "$BODY" || true
+
+        echo "Recorded failure for ${WF} — see ${RUN_URL}"
+        exit 0

@@ -41,3 +41,15 @@ jobs:
           git add monitoring/ga4-latest.json monitoring/ga4-history.csv || true
           git commit -m "chore(seo): weekly GA4 snapshot" || echo "no changes"
           git push || echo "nothing to push"
+
+      # Added 2026-08-24. This workflow failed silently on Aug 10, Aug 17 and
+      # Aug 24 (invalid_client on the Google OAuth secret) and nothing
+      # surfaced it. A failure now lands in the morning brief next day.
+      - name: Report failure
+        if: failure()
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          agent-name: ingest-gsc
+          supabase-url: ${{ secrets.SUPABASE_URL }}
+          supabase-key: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
