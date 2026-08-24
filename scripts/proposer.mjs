@@ -136,8 +136,8 @@ Services, a fourth-generation family-owned Alabama pest control company founded
 in 1958. Three offices: Birmingham/Alabaster, Huntsville, Lake Martin/Alexander City.
 
 Facts you may use (do NOT invent others, especially prices):
-- Bi-monthly pest control: $35/month on ACH, or $70 per visit. 30+ pests. Unlimited free re-services.
-- Termite: Sentricon Always Active bait system. No drilling. Up to $1,000,000 repair coverage backed by EnviroCare's own guarantee (never the manufacturer's). Free inspection.
+- Bi-monthly pest control: $35/month on ACH, or $70 per visit. 30+ pests. Unlimited free re-services. Write that phrase in full — "unlimited" alone, or "unlimited service"/"unlimited protection", is a blocked claim. The only accepted forms are "unlimited free re-service" and "unlimited covered re-service".
+- Termite: Sentricon Always Active bait system. No drilling. Free inspection. The damage coverage is EnviroCare-backed, and the ONLY accepted wording is: "up to $1,000,000 in damage repair coverage, subject to the terms of the agreement". Never attribute it to Corteva, Sentricon or a manufacturer, and never call it a guarantee — see the hard bans below.
 - Mosquito: ~$45/treatment, ~9 treatments March-November (~$33.75/mo).
 - Mosquito + Tick: ~$65/treatment. Covers chiggers. Does NOT cover fleas.
 - Phones: Birmingham (205) 940-6360, Huntsville (256) 937-7676, Lake Martin (256) 234-6162.
@@ -149,6 +149,25 @@ or any availability promise; "Bundle & Save" or any discount/% off language;
 review or customer counts; competitor names; "third generation" (always
 fourth); Tuscaloosa; bed bug / wildlife / rodent removal (not offered);
 promising to eliminate mosquitoes ("reduce"/"knock down" only).
+
+MORE HARD BANS — these three are the ones that actually keep getting tripped,
+so read them twice before you write a termite proposal:
+1. NEVER write the coverage as a possessive guarantee. "our guarantee",
+   "our own guarantee", "EnviroCare's guarantee", "EnviroCare's own guarantee",
+   "EnviroCare's Termite Guarantee" are ALL blocked, including in a title.
+   Write "up to $1,000,000 in damage repair coverage, subject to the terms of
+   the agreement" instead. The word "guarantee" after a possessive is the
+   trip-wire; avoid the construction entirely.
+2. If the $1,000,000 figure appears ANYWHERE in a proposal, that same proposal
+   MUST also contain the literal phrase "subject to the terms of the agreement".
+   No exceptions, and it must be in the same proposal, not implied.
+3. Never write "N-day guarantee" / "30-day guarantee" or any time-bounded
+   guarantee. Say the commitment plainly: "if pests return between visits we
+   come back at no charge".
+
+A proposal that trips any of these is discarded, not fixed. It wastes the whole
+cycle, so do not gamble on wording you are unsure of — use the exact approved
+phrases above verbatim.
 
 Today is ${today}. Generate exactly ${MAX_PROPOSALS} proposals appropriate for
 this point in the Alabama pest season.
@@ -218,19 +237,33 @@ async function main() {
     die("could not generate proposals", e);
   }
 
-  const fresh = proposals.filter((p) => !seen.has(p.title.toLowerCase()));
-  console.log(`  ${proposals.length} generated, ${fresh.length} new after dedupe`);
-  const flagged = fresh.filter((p) => !p.compliance_clean);
-  if (flagged.length) {
-    console.log(`  ⚠ ${flagged.length} row(s) flagged by the banned-language scan (still queued, marked not clean):`);
-    for (const f of flagged) console.log(`     - ${f.title}: ${f.compliance_notes}`);
+  const deduped = proposals.filter((p) => !seen.has(p.title.toLowerCase()));
+  console.log(`  ${proposals.length} generated, ${deduped.length} new after dedupe`);
+
+  // Banned language does NOT get queued. It used to: rows landed in
+  // approval_queue with compliance_clean=false and a note, on the theory that a
+  // human would catch them. By 2026-08-23 that had accumulated 13 of 33 pending
+  // rows carrying BLOCKING claims (10 possessive-guarantee, 7 unqualified $1M,
+  // 3 unapproved "unlimited"), growing ~2/day, in the one place Phillip goes to
+  // click approve. A queue that contains claims the compliance gate would reject
+  // is worse than a shorter queue: it puts the violation one click from live.
+  const fresh = deduped.filter((p) => p.compliance_clean);
+  const rejected = deduped.filter((p) => !p.compliance_clean);
+  if (rejected.length) {
+    console.log(`  ✗ ${rejected.length} proposal(s) DISCARDED — banned language, not queued:`);
+    for (const r of rejected) console.log(`     - ${r.title}: ${r.compliance_notes}`);
   }
 
   if (fresh.length === 0) {
     die(
-      "every generated proposal duplicates something already pending. " +
-        "Clear the queue or widen the prompt. Exiting non-zero on purpose: " +
-        "a run that writes nothing is not a success."
+      rejected.length
+        ? `nothing queueable: ${deduped.length} new proposal(s), all ${rejected.length} ` +
+            "discarded for banned language. The generation prompt and " +
+            "data/compliance.ts disagree — fix the prompt, not the scanner. " +
+            "Exiting non-zero on purpose."
+        : "every generated proposal duplicates something already pending. " +
+            "Clear the queue or widen the prompt. Exiting non-zero on purpose: " +
+            "a run that writes nothing is not a success."
     );
   }
 
