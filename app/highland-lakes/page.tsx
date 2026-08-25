@@ -9,11 +9,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = {
   title: "Pest Control Highland Lakes 35242 | EnviroCare",
-  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage. Call (205) 991-2882.",
+  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage. Call (205) 940-6360.",
   alternates: { canonical: "/highland-lakes" },
   openGraph: {
     title: "Pest Control Highland Lakes 35242 | EnviroCare",
-    description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage, two ways to pay. Call (205) 991-2882.",
+    description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/highland-lakes",
     type: "website",
   },
@@ -131,9 +131,9 @@ const cfg: NeighborhoodConfig = {
   ],
   "office": {
     "name": "Birmingham",
-    "phone": "(205) 991-2882",
-    "phoneE164": "+12059912882",
-    "address": "2120 16th Ave S, Ste 302 · Birmingham, AL 35205"
+    "phone": "(205) 940-6360",
+    "phoneE164": "+12059406360",
+    "address": "2025 Butler Rd · Alabaster, AL 35007"
   }
 };
 
@@ -145,10 +145,10 @@ const jsonLd = {
       "@id": "https://www.envirocarellc.com/highland-lakes",
       "name": "EnviroCare — Highland Lakes",
       "url": "https://www.envirocarellc.com",
-      "telephone": "+12059912882",
+      "telephone": "+12059406360",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2120 16th Ave S, Ste 302",
+        "streetAddress": "2025 Butler Rd, Alabaster",
         "addressLocality": "Birmingham",
         "addressRegion": "AL",
         "postalCode": "35205",
@@ -183,7 +183,7 @@ const jsonLd = {
       "provider": {
         "@type": "LocalBusiness",
         "name": "EnviroCare",
-        "address": { "@type": "PostalAddress", "streetAddress": "2120 16th Ave S, Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
+        "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd, Alabaster", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
       },
       "areaServed": {
         "@type": "Place",

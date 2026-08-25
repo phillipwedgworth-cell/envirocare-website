@@ -42,8 +42,8 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             <h2 className="bpp-cta-title">Ready to Schedule?</h2>
             <p className="bpp-cta-sub">Call the EnviroCare office nearest you.</p>
             <div className="bpp-cta-phones">
-              <a href="tel:2059912882" className="bpp-cta-phone">
-                <strong>Birmingham</strong>(205) 991-2882
+              <a href="tel:2059406360" className="bpp-cta-phone">
+                <strong>Birmingham</strong>(205) 940-6360
               </a>
               <a href="tel:2059406360" className="bpp-cta-phone">
                 <strong>Alabaster</strong>(205) 940-6360

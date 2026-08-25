@@ -29,14 +29,14 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  * Pelham, Alabaster, Helena, Chelsea) — internal linking that benefits both
  * directions.
  *
- * Office: Birmingham city office, 2120 16th Ave S Ste 302, (205) 991-2882
+ * Office: Birmingham city office, 2025 Butler Rd, (205) 940-6360
  * (Was Birmingham/Alabaster 940-6360 until the city office opened 2026-08-05.)
  */
 
 export const metadata: Metadata = {
   title: "Pest Control Birmingham AL | Exterminator, Termite & Mosquito | EnviroCare — Since 1958",
   description:
-    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® baiting with $1M EnviroCare termite coverage, subject to the terms of the agreement. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 991-2882.",
+    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® baiting with $1M EnviroCare termite coverage, subject to the terms of the agreement. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 940-6360.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
@@ -75,10 +75,10 @@ const jsonLd = {
       // merges them, so a mismatch is a conflicting name on one entity.
       name: "EnviroCare Pest Services",
       url: "https://www.envirocarellc.com/birmingham",
-      telephone: "+12059912882",
+      telephone: "+12059406360",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "2120 16th Ave S, Ste 302",
+        streetAddress: "2025 Butler Rd, Alabaster",
         addressLocality: "Birmingham",
         addressRegion: "AL",
         postalCode: "35205",
@@ -116,7 +116,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "PestControlService", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
+      provider: { "@type": "PestControlService", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd, Alabaster", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
@@ -160,7 +160,7 @@ const jsonLd = {
           name: "Which Birmingham suburbs do you serve?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Ste 302, with the Alabaster office at 2025 Butler Road covering south Shelby County.",
+            text: "All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2025 Butler Rd, Alabaster, with the Alabaster office at 2025 Butler Road covering south Shelby County.",
           },
         },
         {
@@ -222,8 +222,8 @@ export default function BirminghamPage() {
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>Free</strong> Inspection &amp; quote</span>
             </div>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
-                Call (205) 991-2882 →
+              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
+                Call (205) 940-6360 →
               </a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>
                 See Pricing
@@ -322,7 +322,7 @@ export default function BirminghamPage() {
             <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare has been the Wedgworth family's Birmingham-area exterminator since 1958, now in our fourth generation. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), and our main office is in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
-            <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Ste 302, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
+            <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2025 Butler Rd, Alabaster, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through November in Birmingham. We apply the 30-day yard barrier monthly across those 9 months. $45 per treatment for mosquito only, or $65 per treatment for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
             <Faq q="Are EnviroCare's pest treatments safe for my family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
             <Faq q="Is there a long-term contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
@@ -333,12 +333,12 @@ export default function BirminghamPage() {
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: `linear-gradient(135deg,${D} 0%,#062514 100%)`, color: "#fff", textAlign: "center" }}>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>Birmingham Office</div>
-            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2120 16th Ave S, Ste 302 · Birmingham, AL 35205</h2>
+            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2025 Butler Rd · Alabaster, AL 35007</h2>
             <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.8rem", fontSize: "1.05rem" }}>
               Free inspection, straight pricing, and a real Wedgworth on the other end of the phone.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 991-2882</a>
+              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 940-6360</a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>Get a Free Quote →</Link>
             </div>
           </div>

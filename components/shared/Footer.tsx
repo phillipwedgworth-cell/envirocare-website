@@ -134,7 +134,7 @@ export default function Footer() {
           {/* The footer says "four offices", so list four. The 940-6360 line was
               labelled "Birmingham" back when Alabaster was the only metro office;
               with a real Birmingham office that label is now wrong. */}
-          <a href="tel:2059912882" style={PHONE}><PhoneIcon /> (205) 991-2882 — Birmingham</a>
+          <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Birmingham</a>
           <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Alabaster</a>
           <a href="tel:2562346162" style={PHONE}><PhoneIcon /> (256) 234-6162 — Lake Martin / Alex City</a>
           <a href="tel:2569377676" style={PHONE}><PhoneIcon /> (256) 937-7676 — Huntsville</a>

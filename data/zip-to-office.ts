@@ -30,12 +30,12 @@ export const OFFICES: Record<OfficeId, Office> = {
   'birmingham-downtown': {
     id: 'birmingham-downtown',
     name: 'Birmingham Office',
-    phone: '2059912882',
-    phoneDisplay: '(205) 991-2882',
-    address: '2120 16th Ave S, Ste 302',
-    city: 'Birmingham',
+    phone: '2059406360',
+    phoneDisplay: '(205) 940-6360',
+    address: '2025 Butler Rd, Alabaster',
+    city: 'Alabaster',
     state: 'AL',
-    zip: '35205',
+    zip: '35007',
     cityPageSlug: 'birmingham',
   },
   'auburn': {

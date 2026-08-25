@@ -9,11 +9,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = {
   title: "Pest Control Meadow Brook AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
   alternates: { canonical: "/meadow-brook" },
   openGraph: {
     title: "Pest Control Meadow Brook AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Meadow Brook homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/meadow-brook",
     type: "website",
   },
@@ -87,7 +87,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "Do you do crawlspace inspections in Meadow Brook homes?",
-      "a": "Yes — crawlspace inspection is part of the initial assessment for any home receiving Sentricon® termite service, and many Meadow Brook homes have crawlspaces or partial crawlspaces under additions. Standalone crawlspace work is available; call (205) 991-2882 for current pricing."
+      "a": "Yes — crawlspace inspection is part of the initial assessment for any home receiving Sentricon® termite service, and many Meadow Brook homes have crawlspaces or partial crawlspaces under additions. Standalone crawlspace work is available; call (205) 940-6360 for current pricing."
     },
     {
       "q": "Is there a long-term contract?",
@@ -130,9 +130,9 @@ const cfg: NeighborhoodConfig = {
   ],
   "office": {
     "name": "Birmingham",
-    "phone": "(205) 991-2882",
-    "phoneE164": "+12059912882",
-    "address": "2120 16th Ave S, Ste 302 · Birmingham, AL 35205"
+    "phone": "(205) 940-6360",
+    "phoneE164": "+12059406360",
+    "address": "2025 Butler Rd · Alabaster, AL 35007"
   }
 };
 
@@ -144,10 +144,10 @@ const jsonLd = {
       "@id": "https://www.envirocarellc.com/meadow-brook",
       "name": "EnviroCare — Meadow Brook",
       "url": "https://www.envirocarellc.com",
-      "telephone": "+12059912882",
+      "telephone": "+12059406360",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2120 16th Ave S, Ste 302",
+        "streetAddress": "2025 Butler Rd, Alabaster",
         "addressLocality": "Birmingham",
         "addressRegion": "AL",
         "postalCode": "35205",
@@ -182,7 +182,7 @@ const jsonLd = {
       "provider": {
         "@type": "LocalBusiness",
         "name": "EnviroCare",
-        "address": { "@type": "PostalAddress", "streetAddress": "2120 16th Ave S, Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
+        "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd, Alabaster", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
       },
       "areaServed": {
         "@type": "Place",
@@ -223,7 +223,7 @@ const jsonLd = {
           "name": "Do you do crawlspace inspections in Meadow Brook homes?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — crawlspace inspection is part of the initial assessment for any home receiving Sentricon® termite service, and many Meadow Brook homes have crawlspaces or partial crawlspaces under additions. Standalone crawlspace work is available; call (205) 991-2882 for current pricing."
+            "text": "Yes — crawlspace inspection is part of the initial assessment for any home receiving Sentricon® termite service, and many Meadow Brook homes have crawlspaces or partial crawlspaces under additions. Standalone crawlspace work is available; call (205) 940-6360 for current pricing."
           }
         },
         {

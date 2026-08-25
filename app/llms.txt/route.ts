@@ -72,7 +72,7 @@ const LLMS_TXT = `# EnviroCare
 - Not offered: bed bug treatment, wildlife removal, lawn care.
 
 ## Offices (4)
-- Birmingham office: 2120 16th Ave S, Ste 302, Birmingham, AL 35205 — (205) 991-2882
+- Birmingham office: 2025 Butler Rd, Alabaster, AL 35007 — (205) 940-6360
   Serves Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville,
   Chelsea, Greystone, Mt Laurel, and the Highway 280 / 35242 corridor.
 - Alabaster office: 2025 Butler Rd, Alabaster, AL 35007 — (205) 940-6360

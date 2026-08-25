@@ -4,18 +4,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 991-2882.",
+    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-mosquito-control',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
-    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 991-2882.",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
-    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 991-2882.",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
     images: ['/og-image.png'],
   },
 };
@@ -77,7 +77,7 @@ const c: ComboContent = {
       a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Mosquito + Tick plan adds tick + chigger coverage at $65/visit.",
     },
   ],
-  office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },
+  office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
   servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Birmingham, AL",

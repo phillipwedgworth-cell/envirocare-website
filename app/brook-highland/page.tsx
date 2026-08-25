@@ -3,11 +3,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = {
   title: "Pest Control Brook Highland AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
   alternates: { canonical: "/brook-highland" },
   openGraph: {
     title: "Pest Control Brook Highland AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/brook-highland",
     type: "website",
   },
@@ -82,7 +82,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "What's the response time for a same-week call?",
-      "a": "Most new-customer assessments are scheduled within the same week. Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 991-2882 for the current scheduling window."
+      "a": "Most new-customer assessments are scheduled within the same week. Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 940-6360 for the current scheduling window."
     },
     {
       "q": "Is there a long-term contract?",
@@ -125,9 +125,9 @@ const cfg: NeighborhoodConfig = {
   ],
   "office": {
     "name": "Birmingham",
-    "phone": "(205) 991-2882",
-    "phoneE164": "+12059912882",
-    "address": "2120 16th Ave S, Ste 302 · Birmingham, AL 35205"
+    "phone": "(205) 940-6360",
+    "phoneE164": "+12059406360",
+    "address": "2025 Butler Rd · Alabaster, AL 35007"
   }
 };
 
@@ -139,10 +139,10 @@ const jsonLd = {
       "@id": "https://www.envirocarellc.com/brook-highland",
       "name": "EnviroCare — Brook Highland",
       "url": "https://www.envirocarellc.com",
-      "telephone": "+12059912882",
+      "telephone": "+12059406360",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2120 16th Ave S, Ste 302",
+        "streetAddress": "2025 Butler Rd, Alabaster",
         "addressLocality": "Birmingham",
         "addressRegion": "AL",
         "postalCode": "35205",
@@ -177,7 +177,7 @@ const jsonLd = {
       "provider": {
         "@type": "LocalBusiness",
         "name": "EnviroCare",
-        "address": { "@type": "PostalAddress", "streetAddress": "2120 16th Ave S, Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
+        "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd, Alabaster", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
       },
       "areaServed": {
         "@type": "Place",
@@ -218,7 +218,7 @@ const jsonLd = {
           "name": "What's the response time for a same-week call?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most new-customer assessments are scheduled within the same week. Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 991-2882 for the current scheduling window."
+            "text": "Most new-customer assessments are scheduled within the same week. Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 940-6360 for the current scheduling window."
           }
         },
         {

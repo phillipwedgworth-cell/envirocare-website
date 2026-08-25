@@ -15,13 +15,13 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  * Compliance: no "safe/pet-safe/non-toxic"; mosquito/tick hedged; Sentricon
  * $1M = damage repair coverage, subject to the terms of the agreement (never call
  * it a guarantee); no drilling; no discount language; no
- * review counts. Office: Birmingham/Alabaster, (205) 991-2882.
+ * review counts. Office: Birmingham/Alabaster, (205) 940-6360.
  */
 
 export const metadata: Metadata = {
   title: "Mountain Brook Pest Control & Termite | EnviroCare",
   description:
-    "Pest control, Sentricon® termite & commercial service in Mountain Brook AL — Crestline, English Village, Cahaba Village. From $35/mo. Call (205) 991-2882.",
+    "Pest control, Sentricon® termite & commercial service in Mountain Brook AL — Crestline, English Village, Cahaba Village. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/mountain-brook" },
   openGraph: {
     images: ["/og/og-mountain-brook.png"],
@@ -52,12 +52,12 @@ const jsonLd = {
       name: "EnviroCare — Mountain Brook",
       image: "https://www.envirocarellc.com/logo.png",
       url: "https://www.envirocarellc.com/mountain-brook",
-      telephone: "+12059912882",
+      telephone: "+12059406360",
       email: "service@envirocarellc.com",
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "2120 16th Ave S, Ste 302",
+        streetAddress: "2025 Butler Rd, Alabaster",
         addressLocality: "Birmingham",
         addressRegion: "AL",
         postalCode: "35205",
@@ -97,9 +97,9 @@ const jsonLd = {
       mainEntity: [
         { "@type": "Question", name: "How much is termite treatment in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." } },
         { "@type": "Question", name: "Is there mosquito control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "Yes. EnviroCare treats Mountain Brook yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month spread over the year. Most homeowners see a clear seasonal reduction in mosquito activity." } },
-        { "@type": "Question", name: "Who does commercial pest control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." } },
+        { "@type": "Question", name: "Who does commercial pest control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 940-6360." } },
         { "@type": "Question", name: "What does bi-monthly pest control cover in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." } },
-        { "@type": "Question", name: "Do you serve Crestline, English Village, and Cahaba Village?", acceptedAnswer: { "@type": "Answer", text: "Yes — all of Mountain Brook, including Crestline, English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. Call (205) 991-2882 and we'll confirm your address is on our route." } },
+        { "@type": "Question", name: "Do you serve Crestline, English Village, and Cahaba Village?", acceptedAnswer: { "@type": "Answer", text: "Yes — all of Mountain Brook, including Crestline, English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. Call (205) 940-6360 and we'll confirm your address is on our route." } },
       ],
     },
   ],
@@ -135,8 +135,8 @@ export default function MountainBrookPage() {
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>Free</strong> Inspection &amp; quote</span>
             </div>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
-                Call (205) 991-2882 →
+              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
+                Call (205) 940-6360 →
               </a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>
                 See Pricing
@@ -154,7 +154,7 @@ export default function MountainBrookPage() {
               Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service
               between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by
               up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
-              The Wedgworth family has protected homes since 1958. Call (205)&nbsp;991-2882.
+              The Wedgworth family has protected homes since 1958. Call (205)&nbsp;940-6360.
             </p>
           </div>
         </section>
@@ -230,7 +230,7 @@ export default function MountainBrookPage() {
               <Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link>{" "}
               across Mountain Brook — offices, restaurants, retail, HOA common areas, and country-club facilities —
               on schedules built around your hours and foot traffic. Programs are documented for health-inspection
-              readiness and adjusted seasonally. Call (205)&nbsp;991-2882 for a commercial walkthrough.
+              readiness and adjusted seasonally. Call (205)&nbsp;940-6360 for a commercial walkthrough.
             </Sub>
           </div>
         </section>
@@ -293,9 +293,9 @@ export default function MountainBrookPage() {
             </p>
             <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." />
             <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month spread over the year. Most homeowners see a clear seasonal reduction in mosquito activity." />
-            <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." />
+            <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 940-6360." />
             <Faq q="What does bi-monthly pest control cover in Mountain Brook?" a="EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." />
-            <Faq q="Do you serve Crestline, English Village, and Cahaba Village?" a="Yes — all of Mountain Brook, including Crestline, English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. Call (205) 991-2882 and we'll confirm your address is on our route." />
+            <Faq q="Do you serve Crestline, English Village, and Cahaba Village?" a="Yes — all of Mountain Brook, including Crestline, English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. Call (205) 940-6360 and we'll confirm your address is on our route." />
           </div>
         </section>
 
@@ -303,12 +303,12 @@ export default function MountainBrookPage() {
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: `linear-gradient(135deg,${D} 0%,#062514 100%)`, color: "#fff", textAlign: "center" }}>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase", color: "rgba(255,255,255,.6)", marginBottom: 10 }}>Birmingham Office</div>
-            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2120 16th Ave S, Ste 302 · Birmingham, AL 35205</h2>
+            <h2 style={{ ...serif, fontWeight: 700, fontSize: "clamp(1.6rem,3vw,2.2rem)", margin: "0 0 .4rem" }}>2025 Butler Rd · Alabaster, AL 35007</h2>
             <p style={{ color: "rgba(255,255,255,.85)", marginBottom: "1.8rem", fontSize: "1.05rem" }}>
               Free inspection, straight pricing, and a real Wedgworth on the other end of the phone. M–F 8am–5pm.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".9rem", flexWrap: "wrap" }}>
-              <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 991-2882</a>
+              <a href="tel:2059406360" style={{ background: Au, color: Ik, padding: ".95rem 2.1rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call (205) 940-6360</a>
               <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>Get a Free Quote →</Link>
             </div>
           </div>

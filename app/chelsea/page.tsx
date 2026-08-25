@@ -5,7 +5,7 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 export const metadata: Metadata = {
   title: "Pest Control Chelsea AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Chelsea AL — Chelsea Park, Foothills. From $35/mo, $1M coverage. Call (205) 991-2882.",
+    "Pest control, Sentricon® termite, mosquito & tick service in Chelsea AL — Chelsea Park, Foothills. From $35/mo, $1M coverage. Call (205) 940-6360.",
   alternates: { canonical: "/chelsea" },
   openGraph: {
     images: ["/og/og-chelsea.png"],
@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Pest and termite care for Chelsea's rolling hills and fast-growing neighborhoods — Chelsea Park, Foothills, and Westover. No-drill Sentricon® (including new-construction pre-treat), seasonal mosquito and tick service, all from one local team.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Chelsea, Alabama, including Chelsea Park, Foothills, and Westover. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Chelsea, Alabama, including Chelsea Park, Foothills, and Westover. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
   whyHeadline: "Chelsea's rolling foothills, new construction, and wooded edges drive year-round termite, mosquito, and ant pressure.",
   whySub: "The patterns we treat most across Chelsea's growing neighborhoods.",
   pressureCards: [
@@ -44,14 +44,14 @@ const config: DeepCityConfig = {
     { title: "Mosquito Control in Chelsea", body: (<>Wooded lots and creek drainage hold mosquito pressure spring into fall.{" "}<Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through November — nine treatments at $45 each, about $33.75/month. We never guarantee elimination, but most homeowners see a clear seasonal difference.</>) },
     { title: "Tick Control in Chelsea", body: (<>Foothill tree lines and Westover's wooded lots put ticks close to families and pets. EnviroCare&apos;s{" "}<Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link> adds tick and chigger coverage — $65 per treatment, about $48.75/month across the season. Most products knock back tick activity in treated zones; results vary with habitat.</>) },
     { title: "Ant & Fire Ant Control in Chelsea", body: (<>Carpenter and odorous house ants come in from the woods; the bi-monthly pest plan covers 30+ pests including most household ants — and rodents — with unlimited re-service at no extra charge.{" "}<Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> in fresh sod are priced separately by treated area.</>) },
-    { title: "Commercial Pest Control in Chelsea", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Chelsea — shops, offices, and restaurants along the Highway 280 corridor — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;991-2882 for a walkthrough.</>) },
+    { title: "Commercial Pest Control in Chelsea", body: (<>EnviroCare services{" "}<Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>commercial properties</Link> across Chelsea — shops, offices, and restaurants along the Highway 280 corridor — with documented, inspection-ready service on schedules built around your hours. Call (205)&nbsp;940-6360 for a walkthrough.</>) },
   ],
   faqs: [
     { q: "Do you do new-construction termite pre-treat in Chelsea?", a: "Yes. EnviroCare installs Sentricon® for new Chelsea homes — locking in protection before damage starts, no drilling, up to $1,000,000 in coverage subject to the terms of the agreement. We coordinate around the build." },
     { q: "How much is termite treatment in Chelsea?", a: "Termite protection is priced after a free on-site WDO inspection, using Sentricon baiting with no drilling and coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Is there mosquito control in Chelsea?", a: "Yes. EnviroCare treats Chelsea yards every 30 days from March through November — nine treatments at $45 each, about $33.75 per month. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Chelsea?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Do you serve Chelsea Park, Foothills, and Westover?", a: "Yes — all of Chelsea. Call (205) 991-2882 and we'll confirm your address is on our route." },
+    { q: "Do you serve Chelsea Park, Foothills, and Westover?", a: "Yes — all of Chelsea. Call (205) 940-6360 and we'll confirm your address is on our route." },
   ],
   siblings: [
     ["Mt Laurel", "/mt-laurel"],
@@ -62,10 +62,10 @@ const config: DeepCityConfig = {
     ["Mosquito Control", "/services/mosquito"],
   ],
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
-  officePhone: "(205) 991-2882",
-  officeTel: "2059912882",
+  officePhone: "(205) 940-6360",
+  officeTel: "2059406360",
   officeLabel: "Birmingham",
-  officeStreet: "2120 16th Ave S, Ste 302",
+  officeStreet: "2025 Butler Rd, Alabaster",
   officeLocality: "Birmingham",
   officePostal: "35205",
 };

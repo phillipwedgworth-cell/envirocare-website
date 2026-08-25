@@ -10,11 +10,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = {
   title: "Pest Control Crestline AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Crestline homes. No drilling, $1M termite coverage, two ways to pay. Call (205) 991-2882.",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for Crestline homes. No drilling, $1M termite coverage, two ways to pay. Call (205) 940-6360.",
   alternates: { canonical: "/crestline" },
   openGraph: {
     title: "Pest Control Crestline AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Crestline homes. No drilling, $1M termite coverage, two ways to pay. Call (205) 991-2882.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Crestline homes. No drilling, $1M termite coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/crestline",
     type: "website",
   },
@@ -103,9 +103,9 @@ const cfg: NeighborhoodConfig = {
   ],
   office: {
     name: "Birmingham",
-    phone: "(205) 991-2882",
-    phoneE164: "+12059912882",
-    address: "2120 16th Ave S, Ste 302 · Birmingham, AL 35205",
+    phone: "(205) 940-6360",
+    phoneE164: "+12059406360",
+    address: "2025 Butler Rd · Alabaster, AL 35007",
   },
 };
 
@@ -117,10 +117,10 @@ const jsonLd = {
       "@id": "https://www.envirocarellc.com/crestline",
       name: "EnviroCare — Crestline",
       url: "https://www.envirocarellc.com",
-      telephone: "+12059912882",
+      telephone: "+12059406360",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "2120 16th Ave S, Ste 302",
+        streetAddress: "2025 Butler Rd, Alabaster",
         addressLocality: "Birmingham",
         addressRegion: "AL",
         postalCode: "35205",
@@ -144,7 +144,7 @@ const jsonLd = {
       provider: {
         "@type": "LocalBusiness",
         name: "EnviroCare",
-        address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" },
+        address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd, Alabaster", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" },
       },
       areaServed: { "@type": "Place", name: "Crestline, AL" },
       name: "Pest Control Crestline",

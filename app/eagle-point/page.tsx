@@ -9,11 +9,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = {
   title: "Pest Control Eagle Point AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Eagle Point homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for Eagle Point homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
   alternates: { canonical: "/eagle-point" },
   openGraph: {
     title: "Pest Control Eagle Point AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Eagle Point homes. No drilling, $1M coverage, two ways to pay. Call (205) 991-2882.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Eagle Point homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/eagle-point",
     type: "website",
   },
@@ -88,7 +88,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "Can you handle commercial pest control for the Eagle Point clubhouse or pro shop?",
-      "a": "We service commercial properties throughout the Birmingham metro. For specific clubhouse, pro shop, or HOA facility contracts, call (205) 991-2882 to schedule a commercial walkthrough — pricing is by facility size and service frequency."
+      "a": "We service commercial properties throughout the Birmingham metro. For specific clubhouse, pro shop, or HOA facility contracts, call (205) 940-6360 to schedule a commercial walkthrough — pricing is by facility size and service frequency."
     },
     {
       "q": "Is there a long-term contract?",
@@ -131,9 +131,9 @@ const cfg: NeighborhoodConfig = {
   ],
   "office": {
     "name": "Birmingham",
-    "phone": "(205) 991-2882",
-    "phoneE164": "+12059912882",
-    "address": "2120 16th Ave S, Ste 302 · Birmingham, AL 35205"
+    "phone": "(205) 940-6360",
+    "phoneE164": "+12059406360",
+    "address": "2025 Butler Rd · Alabaster, AL 35007"
   }
 };
 
@@ -145,10 +145,10 @@ const jsonLd = {
       "@id": "https://www.envirocarellc.com/eagle-point",
       "name": "EnviroCare — Eagle Point",
       "url": "https://www.envirocarellc.com",
-      "telephone": "+12059912882",
+      "telephone": "+12059406360",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2120 16th Ave S, Ste 302",
+        "streetAddress": "2025 Butler Rd, Alabaster",
         "addressLocality": "Birmingham",
         "addressRegion": "AL",
         "postalCode": "35205",
@@ -183,7 +183,7 @@ const jsonLd = {
       "provider": {
         "@type": "LocalBusiness",
         "name": "EnviroCare",
-        "address": { "@type": "PostalAddress", "streetAddress": "2120 16th Ave S, Ste 302", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
+        "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd, Alabaster", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
       },
       "areaServed": {
         "@type": "Place",
@@ -224,7 +224,7 @@ const jsonLd = {
           "name": "Can you handle commercial pest control for the Eagle Point clubhouse or pro shop?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We service commercial properties throughout the Birmingham metro. For specific clubhouse, pro shop, or HOA facility contracts, call (205) 991-2882 to schedule a commercial walkthrough — pricing is by facility size and service frequency."
+            "text": "We service commercial properties throughout the Birmingham metro. For specific clubhouse, pro shop, or HOA facility contracts, call (205) 940-6360 to schedule a commercial walkthrough — pricing is by facility size and service frequency."
           }
         },
         {

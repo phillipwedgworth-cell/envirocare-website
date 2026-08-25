@@ -3,10 +3,10 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 export const metadata = {
   alternates: { canonical: '/east-birmingham' },
   title: "East Birmingham Pest Control | EnviroCare",
-  description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 991-2882.",
+  description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
   openGraph: {
     title: "East Birmingham Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 991-2882.",
+    description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
     url: 'https://www.envirocarellc.com/east-birmingham',
     images: ['/og-image.png'],
     type: 'website',
@@ -14,7 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "East Birmingham Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 991-2882.",
+    description: "Pest, termite & mosquito control across east Birmingham — Trussville, Leeds, Moody, Irondale. Family-owned since 1958. Call (205) 940-6360.",
     images: ['/og-image.png'],
   },
 };
@@ -53,7 +53,7 @@ const cfg: ClusterConfig = {
   "faqs": [
     {
       "q": "Do you have routes on the east side of Birmingham?",
-      "a": "Yes — Trussville, Leeds, Moody, and Irondale are on our regular east Birmingham routes from our Birmingham office. Call (205) 991-2882 to confirm your address."
+      "a": "Yes — Trussville, Leeds, Moody, and Irondale are on our regular east Birmingham routes from our Birmingham office. Call (205) 940-6360 to confirm your address."
     },
     {
       "q": "How much does pest control cost in east Birmingham?",

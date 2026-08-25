@@ -62,8 +62,8 @@ export default function BlogPage() {
             Call us. Four offices across Alabama. Family-owned since 1958.
           </p>
           <div className="bp-cta-phones">
-            <a href="tel:2059912882" className="bp-cta-phone">
-              <strong>Birmingham</strong>(205) 991-2882
+            <a href="tel:2059406360" className="bp-cta-phone">
+              <strong>Birmingham</strong>(205) 940-6360
             </a>
             <a href="tel:2059406360" className="bp-cta-phone">
               <strong>Alabaster</strong>(205) 940-6360

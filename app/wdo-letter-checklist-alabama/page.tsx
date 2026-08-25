@@ -127,7 +127,7 @@ const FAQS = [
 // dispatch decision: Jefferson County and the Hwy 280 / 35242 corridor answer
 // from Birmingham; the rest of Shelby answers from Alabaster.
 const OFFICES = [
-  { area: "Birmingham — Jefferson & the Hwy 280 corridor", phone: "(205) 991-2882", tel: "2059912882" },
+  { area: "Birmingham — Jefferson & the Hwy 280 corridor", phone: "(205) 940-6360", tel: "2059406360" },
   { area: "Alabaster — Pelham, Helena, Calera & south Shelby", phone: "(205) 940-6360", tel: "2059406360" },
   { area: "Huntsville — Madison County", phone: "(256) 937-7676", tel: "2569377676" },
   { area: "Lake Martin / Alex City — Tallapoosa & Lee", phone: "(256) 234-6162", tel: "2562346162" },

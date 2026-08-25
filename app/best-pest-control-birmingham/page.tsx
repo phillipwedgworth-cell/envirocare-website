@@ -201,8 +201,8 @@ export default function BestPestControlBirminghamPage() {
             <a href="/pricing" style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>
               See Our Published Pricing →
             </a>
-            <a href="tel:2059912882" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
-              Call (205) 991-2882
+            <a href="tel:2059406360" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
+              Call (205) 940-6360
             </a>
           </div>
 

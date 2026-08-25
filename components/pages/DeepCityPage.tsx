@@ -61,8 +61,8 @@ export type DeepCityConfig = {
    * offices, so the phone could not stay hardcoded once Birmingham opened.
    * Source of truth for the values is data/offices.ts.
    */
-  officePhone?: string;                             // display, e.g. "(205) 991-2882"
-  officeTel?: string;                               // digits, e.g. "2059912882"
+  officePhone?: string;                             // display, e.g. "(205) 940-6360"
+  officeTel?: string;                               // digits, e.g. "2059406360"
   /**
    * Office ADDRESS for the LocalBusiness schema. Omit for Alabaster-served
    * cities. This was hardcoded to Butler Road even after officePhone was made

@@ -131,7 +131,7 @@ export const metadata: Metadata = {
 // BIRMINGHAM_SCHEMA that carried '@id': '.../#birmingham' with the ALABASTER NAP
 // (2025 Butler Rd, +1-205-940-6360, Alabaster's GBP cid) while pointing url at
 // /birmingham. lib/schema.tsx:91 used the SAME '#birmingham' @id with the real
-// Birmingham NAP (2120 16th Ave S, +1-205-991-2882). Google merges nodes by @id,
+// Birmingham NAP (2025 Butler Rd, +1-205-940-6360). Google merges nodes by @id,
 // so every page emitted one business with two addresses and two phone numbers.
 // Live /birmingham showed both: 940-6360 in 6 places, 991-2882 in 10.
 //
@@ -179,11 +179,11 @@ const BIRMINGHAM_SCHEMA = {
   description:
     'Family-owned Birmingham pest control and termite service. Sentricon® termite protection, bi-monthly perimeter service, mosquito and tick yard treatment across the Birmingham metro.',
   url: 'https://www.envirocarellc.com/birmingham',
-  telephone: '+1-205-991-2882',
+  telephone: '+1-205-940-6360',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '2120 16th Ave S, Ste 302',
+    streetAddress: '2025 Butler Rd, Alabaster',
     addressLocality: 'Birmingham',
     addressRegion: 'AL',
     postalCode: '35205',

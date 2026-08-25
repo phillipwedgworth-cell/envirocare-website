@@ -19,13 +19,24 @@ const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
 const OFFERS = [
   {
     headline: "50% OFF",
+    subline: "Initial Service",
+    icon: "🐜",
+    description: "Half off your initial service — $150 down to $75. That first visit is the heavy one: full interior and exterior knockdown, web and nest removal, and setting the barrier your recurring visits maintain. No separate inspection fee.",
+    terms: "New customers only. 50% applies to the initial service (regular price $150), bringing it to $75. Recurring service continues at the regular rate. Mention the offer when you book.",
+    cta: "Claim 50% Off",
+    color: G,
+    label: "MOST POPULAR",
+    includes: ["Full perimeter treatment", "Licensed AL technician", "If pests return between visits, we come back at no charge", "30-day re-treatment included"],
+  },
+  {
+    headline: "50% OFF",
     subline: "First Mosquito Application",
     icon: "🦟",
     description: "Half off your first professional mosquito treatment — normally $150, so you save $75. Peak season is here — protect your yard before it gets bad. Monthly programs keep you protected all season.",
     terms: "Valid for new mosquito program enrollments. 50% discount applied to first application only (regular price $150). Monthly program continues at regular rate.",
     cta: "Claim 50% Off",
     color: "#0d6b5e",
-    label: "MOST POPULAR",
+    label: "PEAK SEASON",
     includes: ["Full yard barrier treatment", "Dock & pier treatment (lake homes)", "Waterfront-approved products", "Dries in about 30 minutes"],
   },
   {
@@ -60,6 +71,7 @@ export default function SpecialOffers() {
             "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
           },
           "itemListElement": [
+            {"@type": "Offer", "name": "50% OFF Initial Service", "description": "Half off the initial service — regular price $150, reduced to $75 for new customers", "price": "75", "priceCurrency": "USD"},
             {"@type": "Offer", "name": "50% OFF First Mosquito Treatment", "description": "Half off first professional mosquito application"},
             {"@type": "Offer", "name": "FREE Termite Inspection", "description": "No-charge termite inspection for Alabama homeowners"}
           ]

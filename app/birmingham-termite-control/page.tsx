@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
   description:
-    "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
+    "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
     title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
-    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
+    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
-    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
+    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
     images: ['/og-image.png'],
   },
 };
@@ -83,7 +83,7 @@ const c: ComboContent = {
       a: "Yes — we issue the official Alabama Wood Infestation Report (WDO letter) accepted by every lender. One per year is free for active termite customers.",
     },
   ],
-  office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },
+  office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
   servicePage: { name: "Termite Control Service", href: "/services/termite-control" },
   schemaName: "EnviroCare Termite Control — Birmingham, AL",

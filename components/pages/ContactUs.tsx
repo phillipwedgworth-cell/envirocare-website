@@ -17,21 +17,7 @@ const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
 
 const OFFICES = [
   {
-    name: "Birmingham Office",
-    address: "2120 16th Ave S, Ste 302",
-    city: "Birmingham, AL 35205",
-    phone: "(205) 991-2882",
-    tel: "2059912882",
-    email: "service@envirocarellc.com",
-    // No Google Business Profile yet — omit `maps` rather than link a wrong pin.
-    maps: "",
-    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
-    serves: "Birmingham · Southside · Highland Park · Forest Park · Crestwood · Avondale · Five Points South",
-    note: "Our Birmingham city office, in Southside off 16th Avenue South.",
-    accent: G,
-  },
-  {
-    name: "Alabaster Office",
+    name: "Birmingham / Alabaster Office",
     address: "2025 Butler Rd",
     city: "Alabaster, AL 35007",
     phone: "(205) 940-6360",
@@ -39,7 +25,7 @@ const OFFICES = [
     email: "service@envirocarellc.com",
     maps: "https://www.google.com/maps?cid=7378341068021381374",
     hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
-    serves: "Birmingham · Hoover · Chelsea · Pelham · Alabaster · Vestavia Hills · Mountain Brook · Homewood · Helena · Calera",
+    serves: "Birmingham · Southside · Highland Park · Forest Park · Crestwood · Avondale · Five Points South · Hoover · Chelsea · Pelham · Alabaster · Vestavia Hills · Mountain Brook · Homewood · Helena · Calera",
     note: "Our Birmingham-area office is physically located in Alabaster — fastest response in Shelby County.",
     accent: G,
   },

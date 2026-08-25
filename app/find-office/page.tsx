@@ -66,10 +66,10 @@ export default function FindOfficePage() {
               showing an Alabaster address — relabelled so both read honestly.
               Alabaster keeps the "(Birmingham metro)" qualifier so metro callers
               still recognise it; no existing number was removed or repointed. */}
-          <a href="tel:2059912882" style={officeCardStyle}>
+          <a href="tel:2059406360" style={officeCardStyle}>
             <strong style={officeLabel}>BIRMINGHAM</strong>
-            <span style={officePhone}>(205) 991-2882</span>
-            <span style={officeAddr}>2120 16th Ave S, Ste 302</span>
+            <span style={officePhone}>(205) 940-6360</span>
+            <span style={officeAddr}>2025 Butler Rd, Alabaster</span>
           </a>
           <a href="tel:2059406360" style={officeCardStyle}>
             <strong style={officeLabel}>ALABASTER (BIRMINGHAM METRO)</strong>

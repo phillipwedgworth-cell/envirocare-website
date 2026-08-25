@@ -94,20 +94,23 @@ const SERVICE_CITY_SLUGS: Record<
 export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   ...HUNTSVILLE_SLUGS.map((s): [string, OfficeId] => [s, 'huntsville']),
   ...LAKE_MARTIN_SLUGS.map((s): [string, OfficeId] => [s, 'lake-martin']),
-  // Birmingham office (opened 2026-08-05). Without an explicit entry a slug
-  // falls through to the 'birmingham' default below — which is the ALABASTER
-  // office — so the sitewide header dialled 940-6360 on pages whose body
-  // advertises 991-2882.
+  // These nine used to route to 'birmingham-downtown' (2120 16th Ave S,
+  // (205) 991-2882) under the Aug-06 Jefferson/Shelby split.
   //
-  // Split per Phillip 2026-08-06: Jefferson County + the Hwy 280 / 35242
-  // corridor answer from Birmingham; the rest of Shelby stays Alabaster.
-  //   Birmingham → birmingham, hoover (35242), vestavia-hills, mountain-brook,
-  //                homewood, trussville, chelsea, greystone (35242),
-  //                mt-laurel (35242)
-  //   Alabaster  → alabaster, pelham, helena, calera  (the default)
+  // RESOLVED 2026-08-24 (Phillip: "940 is the main line"): the whole metro
+  // displays the Butler Rd office, so they route to 'birmingham' — which IS
+  // the Alabaster office, see the naming note in data/offices.ts. Left as an
+  // explicit list rather than deleted, so restoring the split is a one-word
+  // change if the 16th Ave office gets its own Google Business Profile.
+  //
+  // This entry is load-bearing: phoneForPath() reads data/offices.ts by
+  // OfficeId, not the page copy, so leaving these on 'birmingham-downtown'
+  // would have put 991-2882 in the sitewide header of pages whose body says
+  // 940-6360 — the same header-vs-body split this comment used to describe,
+  // just pointed the other way.
   ...(['birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
        'trussville', 'chelsea', 'greystone', 'mt-laurel'] as const)
-      .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
+      .map((s): [string, OfficeId] => [s, 'birmingham']),
 ]);
 
 /**

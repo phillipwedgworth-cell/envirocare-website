@@ -162,7 +162,7 @@ export default function ReviewsPage() {
             ⭐ Leave a Google Review →
           </a>
           <div className="rv-cta-phones">
-            <a href="tel:2059912882" className="rv-cta-phone">Birmingham · (205) 991-2882</a>
+            <a href="tel:2059406360" className="rv-cta-phone">Birmingham · (205) 940-6360</a>
             <a href="tel:2059406360" className="rv-cta-phone">Alabaster · (205) 940-6360</a>
             <a href="tel:2562346162" className="rv-cta-phone">Lake Martin · (256) 234-6162</a>
             <a href="tel:2569377676" className="rv-cta-phone">Huntsville · (256) 937-7676</a>
