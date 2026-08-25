@@ -18,17 +18,6 @@ const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
 
 const OFFERS = [
   {
-    headline: "$50 OFF",
-    subline: "Initial Pest Control",
-    icon: "🐜",
-    description: "New customers get $50 off your first pest control treatment. Full perimeter protection, licensed technician, and unlimited free re-service between visits — $50 less.",
-    terms: "Valid for new customers only. Applies to initial general pest control service. Must mention offer at time of booking.",
-    cta: "Claim $50 Off",
-    color: G,
-    label: "MOST POPULAR",
-    includes: ["Full perimeter treatment", "Licensed AL technician", "If pests return between visits, we come back at no charge", "30-day re-treatment included"],
-  },
-  {
     headline: "50% OFF",
     subline: "First Mosquito Application",
     icon: "🦟",
@@ -36,7 +25,7 @@ const OFFERS = [
     terms: "Valid for new mosquito program enrollments. 50% discount applied to first application only (regular price $150). Monthly program continues at regular rate.",
     cta: "Claim 50% Off",
     color: "#0d6b5e",
-    label: "PEAK SEASON",
+    label: "MOST POPULAR",
     includes: ["Full yard barrier treatment", "Dock & pier treatment (lake homes)", "Waterfront-approved products", "Dries in about 30 minutes"],
   },
   {
@@ -71,7 +60,6 @@ export default function SpecialOffers() {
             "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
           },
           "itemListElement": [
-            {"@type": "Offer", "name": "$50 OFF Initial Pest Control", "description": "New customers save $50 on first pest control treatment"},
             {"@type": "Offer", "name": "50% OFF First Mosquito Treatment", "description": "Half off first professional mosquito application"},
             {"@type": "Offer", "name": "FREE Termite Inspection", "description": "No-charge termite inspection for Alabama homeowners"}
           ]

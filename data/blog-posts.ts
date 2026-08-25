@@ -877,7 +877,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Termites: Start Immediately</h2>
 <p>For termite protection, every month without coverage is a month of potential damage. Alabama is one of the highest-risk states in the country. New homeowners should start immediately — builder soil treatments only last 5–7 years.</p>
 
-<p>EnviroCare offers $50 off initial service. Free re-treatment between visits. Call any of our four offices:</p>
+<p>EnviroCare initial service is $75. Free re-treatment between visits. Call any of our four offices:</p>
 <ul>
 <li>Birmingham — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
