@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/best-pest-control-birmingham/page.tsx
+// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
+// Push: main
+// ─────────────────────────────────────
 // /best-pest-control-birmingham — buyer's-guide landing page for the
 // "best pest control company in birmingham al" query family.
 //
@@ -8,7 +14,7 @@
 //
 // House conventions followed: no competitor is named anywhere; comparison rows
 // describe common industry practice only. Pricing uses the canonical wording —
-// $35/month on ACH or $70 per bi-monthly visit, $75 startup, unlimited free
+// $35/month on ACH or $70 per bi-monthly visit, $75 initial service, unlimited free
 // re-service. Contract wording states the two billing options positively;
 // or equal monthly ACH payments under a 12-month billing agreement"; the bare
 // phrase "no contract" is banned and must not be reintroduced.
@@ -78,9 +84,9 @@ const CRITERIA: { n: string; h: string; body: string }[] = [
 ];
 
 const OFFICES: [string, string, string][] = [
-  ['Alabaster — Birmingham metro', '4.7 ★', '247 Google reviews'],
-  ['Alexander City — Lake Martin', '4.8 ★', '39 Google reviews'],
-  ['Huntsville — North Alabama', '5.0 ★', '34 Google reviews'],
+  ['Alabaster — Birmingham metro', '4.7 ★', 'Google rating'],
+  ['Alexander City — Lake Martin', '4.8 ★', 'Google rating'],
+  ['Huntsville — North Alabama', '5.0 ★', 'Google rating'],
 ];
 
 const NOT_FOR_YOU: string[] = [
@@ -93,11 +99,11 @@ const NOT_FOR_YOU: string[] = [
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'What is the highest-rated pest control company in Birmingham, AL?',
-    a: 'Ratings move, so check Google yourself before you decide — and read the review count alongside the star average, because a 5.0 from eleven reviews tells you far less than a 4.7 from 247. As of August 2026, EnviroCare’s Alabaster office, which runs the Birmingham metro routes, holds 4.7 stars across 247 Google reviews.',
+    a: 'Ratings move, so check Google yourself before you decide — and read the number of reviews alongside the star average, because a perfect score built on a handful of ratings tells you far less than a strong score built on years of them. EnviroCare’s Alabaster office, which runs the Birmingham metro routes, holds 4.7 stars on Google. Open the profile and judge the volume for yourself.',
   },
   {
     q: 'How much does pest control cost in Birmingham, AL?',
-    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 startup and unlimited free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
+    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and unlimited free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
   },
   {
     q: 'What should I look for in a Birmingham pest control agreement?',
@@ -181,7 +187,7 @@ export default function BestPestControlBirminghamPage() {
             re-treatment, whether pricing is published before an in-home visit, what the agreement
             term and cancellation actually say, and whether the same technician works your route.
             EnviroCare is a fourth-generation Alabama family company whose family has been doing pest control in Alabama since 1958, holding
-            4.7 stars across 247 Google reviews at the Alabaster office that runs the Birmingham
+            4.7 stars on Google at the Alabaster office that runs the Birmingham
             metro routes.
           </p>
           <p style={{ fontSize: 16.5, lineHeight: 1.75, maxWidth: 780, marginTop: 10, color: '#4a5750' }}>
@@ -222,7 +228,7 @@ export default function BestPestControlBirminghamPage() {
             Family-owned in Alabama since 1958, fourth generation. We are not the largest company
             operating in Birmingham and we do not claim to be. What we do differently maps onto the
             five points above: pricing is published — <strong>$35/month on ACH or $70 per bi-monthly
-            visit</strong>, with a $75 startup and unlimited free re-service between scheduled
+            visit</strong>, with a $75 initial service and unlimited free re-service between scheduled
             visits. Termite protection is Sentricon<sup>®</sup> Always Active™, in-ground bait
             stations with no drilling, backed by up to $1,000,000 in EnviroCare repair coverage on
             qualifying homes, subject to the terms of the agreement — repair coverage, not a

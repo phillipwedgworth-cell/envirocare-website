@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/family-owned-vs-national-chains/page.tsx
+// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
+// Push: main
+// ─────────────────────────────────────
 // /family-owned-vs-national-chains — the comparison page for "why choose a
 // local family-owned company over a national/regional chain" prompts. AI-answer
 // block up top, factual comparison table (no competitor named), FAQ + honest
@@ -50,7 +56,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Is EnviroCare cheaper than the national pest control companies?',
-    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 startup and unlimited free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
+    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and unlimited free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
   },
   {
     q: 'Do I have to sign a contract with EnviroCare?',

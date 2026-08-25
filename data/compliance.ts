@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/compliance.ts
+// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
+// Push: main
+// ─────────────────────────────────────
 /**
  * data/compliance.ts — SINGLE SOURCE OF TRUTH: compliance & approved language
  *
@@ -329,7 +335,7 @@ export const SOFT_RULES: string[] = [
   '$1M coverage is EnviroCareʼs own guarantee — never imply Corteva/manufacturer backing.',
   'Carpenter bees: existing customers only — never marketed to new customers.',
   'Tuscaloosa: NOT serviced — must not appear in any city list, footer, or nav.',
-  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: $150 standard, $75 current promo (do not hardcode the promo price in evergreen copy).',
+  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: FLAT $75 initial service on every plan (Phillip, Aug 24 2026) — one number, no per-plan variation, no $229 Complete startup.',
 ];
 
 /** Services EnviroCare does NOT offer — must not be marketed. */

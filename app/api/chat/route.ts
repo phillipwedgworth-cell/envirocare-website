@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/api/chat/route.ts
+// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
+// Push: main
+// ─────────────────────────────────────
 // app/api/chat/route.ts
 // Backend for the EnviroCare chat widget. API key stays server-side.
 //
@@ -186,9 +192,9 @@ LANGUAGE RULES (legal — never break these):
    - NEVER say flea is included in the bi-monthly pest plan
 
 PLANS (convenience packages, NOT discounts — never promise "bundle savings"; termite is NEVER a flat number):
-- Pest — From $35/mo (bimonthly) · $75 startup
-- Pest + Mosquito — From $69/mo · $75 startup — MOST POPULAR (lead with this)
-- Complete (Pest + Termite + Mosquito) — From ~$100/mo · $229 startup — best value; termite priced upon inspection & approval
+- Pest — From $35/mo (bimonthly) · $75 initial service
+- Pest + Mosquito — From $69/mo · $75 initial service — MOST POPULAR (lead with this)
+- Complete (Pest + Termite + Mosquito) — From ~$100/mo · $229 initial service — best value; termite priced upon inspection & approval
 - Mosquito: $45/visit alone, OR $34/mo only when bundled with a pest plan. Mosquito + Tick $65/visit (tick rides with mosquito only).
 - Startup fees one-time, ACH. Monthly/ACH requires a year-round anchor (pest or termite) — mosquito/tick can't go monthly on their own.
 - Termite — no flat price; free WDO inspection, service & price upon inspection & approval.

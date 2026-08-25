@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/blog-posts.ts
+// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
+// Push: main
+// ─────────────────────────────────────
 /**
  * Blog posts — seeded with 5 high-value Alabama-specific SEO posts.
  * Real content, ranking-friendly, brand-aligned.
@@ -2061,21 +2067,21 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     readMinutes: 6,
     heroEmoji: '💲',
     metaTitle: 'Pest Control Cost in Huntsville, AL (2026) | EnviroCare',
-    metaDescription: 'What pest control actually costs in Huntsville, AL: monthly plans from $35/mo, $75 first visit, mosquito and termite pricing explained. Family-owned since 1958.',
+    metaDescription: 'What pest control actually costs in Huntsville, AL: monthly plans from $35/mo, $75 initial service, mosquito and termite pricing explained. Family-owned since 1958.',
     body: `
-<p class="lede">If you are shopping for pest control in Huntsville, the first thing you want is a straight number — not a "call for a quote" runaround. So here it is up front: at EnviroCare, recurring pest control in Huntsville starts at <strong>$35/month with a $75 first visit</strong>, and most homes land between $35 and $100 a month depending on which pests you want covered. Below is exactly what goes into that number, what mosquito and termite protection add, and why two houses on the same street can be quoted differently.</p>
+<p class="lede">If you are shopping for pest control in Huntsville, the first thing you want is a straight number — not a "call for a quote" runaround. So here it is up front: at EnviroCare, recurring pest control in Huntsville starts at <strong>$35/month with a $75 initial service</strong>, and most homes land between $35 and $100 a month depending on which pests you want covered. Below is exactly what goes into that number, what mosquito and termite protection add, and why two houses on the same street can be quoted differently.</p>
 
 <h2>How much is monthly pest control in Huntsville?</h2>
 <p>EnviroCare runs three recurring plans out of our Old Madison Pike office, and the pricing is the same across Madison County:</p>
 <ul>
-<li><strong>Pest Control — from $35/month</strong> ($75 first visit). Bi-monthly exterior service with unlimited re-service between visits for the common Huntsville lineup: ants, spiders, roaches, wasps, centipedes, millipedes, and cave crickets.</li>
-<li><strong>Pest + Mosquito — from $69/month</strong> ($75 first visit). Our most popular plan for North Alabama, where the Tennessee Valley humidity keeps mosquito pressure high from spring through fall.</li>
-<li><strong>Complete — from $100/month</strong> ($229 first visit). The broadest year-round coverage in one plan and one invoice.</li>
+<li><strong>Pest Control — from $35/month</strong> ($75 initial service). Bi-monthly exterior service with unlimited re-service between visits for the common Huntsville lineup: ants, spiders, roaches, wasps, centipedes, millipedes, and cave crickets.</li>
+<li><strong>Pest + Mosquito — from $69/month</strong> ($75 initial service). Our most popular plan for North Alabama, where the Tennessee Valley humidity keeps mosquito pressure high from spring through fall.</li>
+<li><strong>Complete — from $100/month</strong> ($229 initial service). The broadest year-round coverage in one plan and one invoice.</li>
 </ul>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments. Prefer not to commit to a plan? You can also pay per visit — see the add-on pricing below.</p>
 
 <h2>What does the first visit cost?</h2>
-<p>The startup (first-service) fee covers the heavier initial treatment — a full interior and exterior knockdown, web and nest removal, and setting up the barrier that the recurring visits then maintain. It is <strong>$75 for the Pest and Pest + Mosquito plans</strong> and <strong>$229 for Complete</strong>. There is no separate "inspection fee" tacked on top; the inspection is part of the visit.</p>
+<p>The startup (first-service) fee covers the heavier initial treatment — a full interior and exterior knockdown, web and nest removal, and setting up the barrier that the recurring visits then maintain. It is <strong>$75 for every plan</strong> and <strong>the same $75 for Complete</strong>. There is no separate "inspection fee" tacked on top; the inspection is part of the visit.</p>
 
 <h2>How much is mosquito control in Huntsville?</h2>
 <p>If you only want mosquitoes handled, we treat on a per-visit basis at <strong>$45 per visit</strong>, or <strong>$34/month when added onto a pest plan</strong> (the bundle just means one tech and one invoice — it is a convenience, not a discount). Tick protection can be added for <strong>$20 per visit</strong> alongside mosquito service. Properties near the river, agricultural irrigation, or heavy tree cover in areas like Hampton Cove and Harvest usually get the most out of a monthly mosquito program. More on that on our <a href="/huntsville-mosquito-control">Huntsville mosquito control</a> page.</p>

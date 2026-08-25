@@ -1,5 +1,14 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/faq/termite-warranty/page.tsx
+// Commit: fix(compliance): $1M is EnviroCare damage repair coverage, not a Corteva warranty
+// Push: main
+// ─────────────────────────────────────
 // app/faq/termite-warranty/page.tsx
-// EnviroCare · Sentricon $1M Termite Warranty FAQ
+// EnviroCare · $1M Termite Damage Repair Coverage FAQ
+// NOTE: the /faq/termite-warranty slug is deliberately unchanged — "warranty"
+// is what people search. Display copy says "damage repair coverage" and names
+// EnviroCare as the provider. The coverage is EnviroCare's, never Corteva's.
 // Server component — no client interactivity needed
 
 import type { Metadata } from "next";
@@ -7,20 +16,20 @@ import Header from "@/components/shared/Header";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
+  title: "$1 Million Termite Damage Coverage FAQ | EnviroCare Alabama",
   description:
-    "How the Sentricon $1,000,000 termite damage warranty works in Alabama — what is covered and how to keep it active. Family-owned since 1958.",
+    "How EnviroCare's up to $1,000,000 termite damage repair coverage works in Alabama — what it covers and how to keep it active. Family-owned since 1958.",
   alternates: { canonical: './' },
   openGraph: { url: 'https://www.envirocarellc.com/faq/termite-warranty',
-    title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
-    description: "How the Sentricon $1,000,000 termite damage warranty works in Alabama — what is covered and how to keep it active. Family-owned since 1958.",
+    title: "$1 Million Termite Damage Coverage FAQ | EnviroCare Alabama",
+    description: "How EnviroCare's up to $1,000,000 termite damage repair coverage works in Alabama — what it covers and how to keep it active. Family-owned since 1958.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Sentricon $1 Million Termite Warranty FAQ | EnviroCare Alabama",
-    description: "How the Sentricon $1,000,000 termite damage warranty works in Alabama — what is covered and how to keep it active. Family-owned since 1958.",
+    title: "$1 Million Termite Damage Coverage FAQ | EnviroCare Alabama",
+    description: "How EnviroCare's up to $1,000,000 termite damage repair coverage works in Alabama — what it covers and how to keep it active. Family-owned since 1958.",
     images: ['/og-image.png'],
   },
 };
@@ -31,7 +40,7 @@ const SCHEMA = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is the Sentricon $1 million termite warranty?",
+      name: "What is the $1 million termite damage repair coverage?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "If termites cause structural damage to your home while it's under active Sentricon® protection, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement — backed by four generations protecting Alabama homes since 1958.",
@@ -39,10 +48,10 @@ const SCHEMA = {
     },
     {
       "@type": "Question",
-      name: "What does the Sentricon warranty cover?",
+      name: "What does the damage repair coverage cover?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The warranty covers structural repair costs caused by subterranean termite damage that occurs while the Sentricon system is active and properly maintained. Coverage requires that annual inspections are completed and the bait stations remain active. Your EnviroCare technician confirms coverage status at each annual inspection.",
+        text: "EnviroCare's coverage pays structural repair costs caused by subterranean termite damage that occurs while the Sentricon system is active and properly maintained. Coverage requires that annual inspections are completed and the bait stations remain active. Your EnviroCare technician confirms coverage status at each annual inspection.",
       },
     },
     {
@@ -50,7 +59,7 @@ const SCHEMA = {
       name: "How much does Sentricon cost at EnviroCare?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare prices Sentricon® after a free on-site WDO inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon Always Active system and the full $1,000,000 warranty, and the inspection is always free with no obligation.",
+        text: "EnviroCare prices Sentricon® after a free on-site WDO inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement, and the inspection is always free with no obligation.",
       },
     },
     {
@@ -85,24 +94,24 @@ const ss = { fontFamily: "'Fraunces', var(--font-serif)" } as const;
 
 const FAQS = [
   {
-    q: "What is the Sentricon $1,000,000 termite warranty?",
+    q: "What is the $1,000,000 termite damage repair coverage?",
     a: "If termites cause structural damage to your home while it's under active Sentricon® Always Active protection, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement, and it's among the strongest in residential termite control.",
   },
   {
-    q: "What exactly does the warranty cover?",
-    a: "Structural repair costs from subterranean termite damage that occurs while the Sentricon system is active and properly maintained. This includes damage to load-bearing walls, floor joists, rafters, and other structural members. The warranty applies as long as your annual inspection is completed and your bait stations remain active with fresh bait.",
+    q: "What exactly does the coverage cover?",
+    a: "EnviroCare pays structural repair costs from subterranean termite damage that occurs while the Sentricon system is active and properly maintained. This includes damage to load-bearing walls, floor joists, rafters, and other structural members. The coverage applies, subject to the terms of the agreement, as long as your annual inspection is completed and your bait stations remain active with fresh bait.",
   },
   {
     q: "What's NOT covered?",
     a: "Cosmetic damage (paint, wallpaper, trim) that isn't structural. Pre-existing damage present before Sentricon installation. Damage from other wood-destroying insects like carpenter ants or wood-boring beetles — Sentricon is specifically for subterranean termites. Your EnviroCare technician will document your home's condition at installation to establish a baseline.",
   },
   {
-    q: "How do I keep the warranty active?",
+    q: "How do I keep the coverage active?",
     a: "Complete your annual inspection every 12 months. EnviroCare schedules and reminds you — you don't need to track it yourself. As long as your account is current and your annual inspection happens, you're covered. If you cancel service and restart, a new inspection and waiting period may apply.",
   },
   {
     q: "How much does Sentricon cost at EnviroCare?",
-    a: "Sentricon® is priced after a free on-site WDO inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon Always Active system and the full $1,000,000 warranty. The inspection is free with no obligation.",
+    a: "Sentricon® is priced after a free on-site WDO inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. The inspection is free with no obligation.",
   },
   {
     q: "Is drilling required to install Sentricon?",
@@ -134,7 +143,7 @@ const COMPARE = [
   { feature: "Method", sentricon: "In-ground bait stations", liquid: "Soil injection barrier" },
   { feature: "Colony elimination", sentricon: "Yes — kills entire colony", liquid: "No — kills workers on contact" },
   { feature: "Drilling required", sentricon: "None", liquid: "Yes — through slab/foundation" },
-  { feature: "Damage warranty", sentricon: "$1,000,000 (Corteva)", liquid: "Varies / none standard" },
+  { feature: "Damage repair coverage", sentricon: "Up to $1,000,000, backed by EnviroCare", liquid: "Varies / none standard" },
   { feature: "EPA recognition", sentricon: "Presidential Green Chemistry Award", liquid: "Standard registration" },
   { feature: "Re-treatment needed", sentricon: "Annual inspection only", liquid: "Every 5–10 years" },
   { feature: "Chemical in soil", sentricon: "Minimal — targeted bait only", liquid: "100+ gallons injected" },
@@ -143,7 +152,7 @@ const COMPARE = [
 export default function TermiteWarrantyFAQ() {
   return (
     <div style={{ minHeight: "100vh", background: CREAM, ...sf }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'FAQ', path: '/faq' }, { name: 'Termite Warranty', path: '/faq/termite-warranty' }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'FAQ', path: '/faq' }, { name: 'Termite Damage Coverage', path: '/faq/termite-warranty' }]) }) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
@@ -193,7 +202,7 @@ export default function TermiteWarrantyFAQ() {
                 textTransform: "uppercase",
               }}
             >
-              Sentricon® · $1,000,000 Warranty · FAQ
+              Sentricon® · Up to $1,000,000 EnviroCare Coverage · FAQ
             </span>
           </div>
           <h1
@@ -207,7 +216,7 @@ export default function TermiteWarrantyFAQ() {
               ...ss,
             }}
           >
-            The Sentricon $1,000,000 Warranty —{" "}
+            Up to $1,000,000 in EnviroCare Damage Coverage —{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>
               What It Really Covers.
             </em>
@@ -222,7 +231,7 @@ export default function TermiteWarrantyFAQ() {
             }}
           >
             Industry’s strongest termite protection. No drilling required.
-            Here's exactly how the warranty works, what it covers, and what it
+            Here's exactly how the coverage works, what it covers, and what it
             costs.
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
@@ -272,7 +281,7 @@ export default function TermiteWarrantyFAQ() {
             {[
               {
                 n: "$1,000,000",
-                label: "Repair warranty",
+                label: "Repair coverage",
                 note: "Subject to the terms of the agreement",
                 color: GOLD,
               },
@@ -464,7 +473,7 @@ export default function TermiteWarrantyFAQ() {
               ...ss,
             }}
           >
-            Termite Warranty FAQ
+            Termite Damage Coverage FAQ
           </h2>
           <div>
             {FAQS.map((item, i) => (

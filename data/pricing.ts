@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/pricing.ts
+// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
+// Push: main
+// ─────────────────────────────────────
 /**
  * data/pricing.ts — SINGLE SOURCE OF TRUTH: pricing & startup fees
  *
@@ -21,28 +27,39 @@ export const PRICING = {
     pest: {
       label: 'Pest Control',
       fromMonthly: 35,           // From $35/mo
-      startup: 75,               // $75 startup
+      startup: 75,               // FLAT $75 initial service — all plans (Phillip, Aug 24 2026)
     },
     pestMosquito: {
       label: 'Pest + Mosquito',
       fromMonthly: 69,           // From $69/mo
-      startup: 75,               // $75 startup
+      startup: 75,               // FLAT $75 initial service — all plans
       badge: 'Most Popular',
     },
     complete: {
       label: 'Complete',
       fromMonthly: 100,          // From ~$100/mo
-      startup: 229,
+      startup: 229,              // NOT the flat $75 — Complete keeps its own
+                                 // initial fee (Phillip, Aug 24 2026)
       badge: 'Best Value',
       // NOTE: "Complete" historically included termite $/mo. If termite stays
       // quote-only, confirm what the ~$100/mo Complete anchor represents.
     },
   },
 
+  // Standard initial-service fee: a flat $75, replacing the old $79 split
+  // (Phillip, Aug 24 2026). Complete is the deliberate exception and stays at
+  // $229 — read plans.<plan>.startup, not this, when a plan is in hand.
+  initialServiceFee: 75,
+  initialServiceFeeExceptions: { complete: 229 },
+
   addOns: {
     mosquito: { perVisit: 45, monthlyWithPestOnly: 34 }, // $34/mo ONLY when paired with pest
-    mosquitoTick: { perVisit: 65 },
-    tick: { perVisitWithMosquitoOnly: 20 }, // +$20/visit, mosquito only
+    // Tick and flea are QUOTED, not listed. They stay off the pricing page as
+    // sellable line items (Phillip, Aug 24 2026) — the service pages remain for
+    // search, but price discovery happens on the phone.
+    mosquitoTick: { perVisit: 65, listOnPricingPage: false },
+    tick: { perVisitWithMosquitoOnly: 20, listOnPricingPage: false },
+    flea: { model: 'Quoted — interior add-on', listOnPricingPage: false },
   },
 
   termite: {
