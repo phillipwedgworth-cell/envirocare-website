@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/indian-springs/page.tsx
+// Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
@@ -184,7 +190,7 @@ const jsonLd = {
         "name": "Indian Springs Village, AL"
       },
       "name": "Pest Control Indian Springs Village",
-      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for Indian Springs Village homes."
+      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M EnviroCare coverage), and seasonal mosquito and tick yard service for Indian Springs Village homes."
     },
     {
       "@type": "FAQPage",

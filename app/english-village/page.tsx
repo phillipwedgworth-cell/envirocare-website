@@ -147,7 +147,7 @@ const jsonLd = {
       },
       areaServed: { "@type": "Place", name: "English Village, AL" },
       name: "Pest Control English Village",
-      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for English Village homes.",
+      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M EnviroCare coverage), and seasonal mosquito and tick yard service for English Village homes.",
     },
     {
       "@type": "FAQPage",

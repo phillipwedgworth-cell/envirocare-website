@@ -1,21 +1,27 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/huntsville-termite-control/page.tsx
+// Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
   title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
   description:
-    "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage, subject to the terms of the agreement. Call (256) 937-7676.",
+    "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® baiting with up to $1M EnviroCare coverage, subject to the terms of the agreement. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-termite-control',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
-    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
+    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® baiting with up to $1M EnviroCare coverage. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
-    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® with up to $1M coverage. Call (256) 937-7676.",
+    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® baiting with up to $1M EnviroCare coverage. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };

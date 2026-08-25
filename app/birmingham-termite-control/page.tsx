@@ -1,21 +1,27 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/birmingham-termite-control/page.tsx
+// Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
+  title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
   description:
-    "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
+    "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
-    title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
-    description: "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
+    title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
+    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Termite Control Birmingham AL | Sentricon® $1M Coverage",
-    description: "Termite control in Birmingham AL — Sentricon® with up to $1M repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
+    title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
+    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };

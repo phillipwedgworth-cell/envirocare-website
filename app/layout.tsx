@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M coverage subject to the terms of the agreement, mosquito and tick yard treatment, subject to the terms of the agreement. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
+    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M EnviroCare coverage subject to the terms of the agreement, mosquito and tick yard treatment, subject to the terms of the agreement. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
   // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
   // it only signals "template site" to anything parsing the markup.
   authors: [{ name: 'EnviroCare, LLC' }],
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     siteName: 'EnviroCare',
     title: 'EnviroCare — Family-Owned Alabama Since 1958',
     description:
-      'Bi-monthly pest control, Sentricon® termite protection with $1M coverage, mosquito and tick yard service. Four offices across Alabama.',
+      'Bi-monthly pest control, Sentricon® termite protection with $1M EnviroCare coverage, mosquito and tick yard service. Four offices across Alabama.',
     images: [
       {
         url: '/og-image.png',
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'EnviroCare — Alabama Since 1958',
     description:
-      'Family-owned bi-monthly pest control, Sentricon® termite protection with $1M coverage. Four Alabama offices.',
+      'Family-owned bi-monthly pest control, Sentricon® termite protection with $1M EnviroCare coverage. Four Alabama offices.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -246,7 +246,7 @@ const HUNTSVILLE_SCHEMA = {
   name: 'EnviroCare — Huntsville',
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    'Family-owned Huntsville pest control and termite service. Sentricon® $1M coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
+    'Family-owned Huntsville pest control and termite service. Sentricon® baiting, $1M EnviroCare coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
   url: 'https://www.envirocarellc.com/huntsville',
   telephone: '+1-256-937-7676',
   priceRange: '$$',

@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/birmingham/page.tsx
+// Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import Link from "next/link";
 import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
@@ -30,7 +36,7 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export const metadata: Metadata = {
   title: "Pest Control Birmingham AL | Exterminator, Termite & Mosquito | EnviroCare — Since 1958",
   description:
-    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® $1M termite coverage, subject to the terms of the agreement. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 991-2882.",
+    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® baiting with $1M EnviroCare termite coverage, subject to the terms of the agreement. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],

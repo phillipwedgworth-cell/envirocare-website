@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/madison/page.tsx
+// Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
+// Push: main
+// ─────────────────────────────────────
 // app/madison/page.tsx
 // Madison service-area page. Content refresh: killed-crawlspace copy removed,
 // 3rd->4th generation, dead service card swapped for Tick & Chigger Control,
@@ -10,7 +16,7 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare — Since 1958",
   description:
-    "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Rainbow Mountain. Sentricon® $1M coverage. Call (256) 937-7676.",
+    "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Rainbow Mountain. Sentricon® baiting, $1M EnviroCare coverage. Call (256) 937-7676.",
   alternates: { canonical: "/madison" },
   openGraph: {
     images: ["/og/og-madison.png"],

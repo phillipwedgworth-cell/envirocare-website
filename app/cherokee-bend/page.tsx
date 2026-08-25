@@ -146,7 +146,7 @@ const jsonLd = {
       },
       areaServed: { "@type": "Place", name: "Cherokee Bend, AL" },
       name: "Pest Control Cherokee Bend",
-      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for Cherokee Bend homes.",
+      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M EnviroCare coverage), and seasonal mosquito and tick yard service for Cherokee Bend homes.",
     },
     {
       "@type": "FAQPage",

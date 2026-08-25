@@ -148,7 +148,7 @@ const jsonLd = {
       },
       areaServed: { "@type": "Place", name: "Crestline, AL" },
       name: "Pest Control Crestline",
-      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for Crestline homes.",
+      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M EnviroCare coverage), and seasonal mosquito and tick yard service for Crestline homes.",
     },
     {
       "@type": "FAQPage",

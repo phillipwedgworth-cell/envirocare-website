@@ -146,7 +146,7 @@ const jsonLd = {
       },
       areaServed: { "@type": "Place", name: "Mountain Brook Village, AL" },
       name: "Pest Control Mountain Brook Village",
-      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for homes around Mountain Brook Village.",
+      description: "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M EnviroCare coverage), and seasonal mosquito and tick yard service for homes around Mountain Brook Village.",
     },
     {
       "@type": "FAQPage",

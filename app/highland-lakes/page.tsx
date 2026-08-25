@@ -1,13 +1,19 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/highland-lakes/page.tsx
+// Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = {
   title: "Pest Control Highland Lakes 35242 | EnviroCare",
-  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage. Call (205) 991-2882.",
+  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage. Call (205) 991-2882.",
   alternates: { canonical: "/highland-lakes" },
   openGraph: {
     title: "Pest Control Highland Lakes 35242 | EnviroCare",
-    description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M coverage, two ways to pay. Call (205) 991-2882.",
+    description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage, two ways to pay. Call (205) 991-2882.",
     url: "https://www.envirocarellc.com/highland-lakes",
     type: "website",
   },
@@ -184,7 +190,7 @@ const jsonLd = {
         "name": "Highland Lakes, AL"
       },
       "name": "Pest Control Highland Lakes",
-      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage), and seasonal mosquito and tick yard service for Highland Lakes homes."
+      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M EnviroCare coverage), and seasonal mosquito and tick yard service for Highland Lakes homes."
     },
     {
       "@type": "FAQPage",
