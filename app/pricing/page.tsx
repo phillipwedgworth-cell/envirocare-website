@@ -13,21 +13,21 @@ import PricingContent from "./PricingContent";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: "Pest Control Prices Alabama | $35/mo, $75 First Visit | Published",
+  title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
   description:
-    "Real numbers, published — no in-home visit required to see them. Pest from $35/month, $75 initial service, mosquito $45/visit March–November. Termite quoted after a free WDO inspection, as Alabama requires.",
+    "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Nov. Termite quoted after a free WDO inspection.",
   alternates: { canonical: "/pricing" },
   openGraph: {
-    title: "Pest Control Prices Alabama | $35/mo, $75 First Visit | Published",
-    description: "Real numbers, published — no in-home visit required to see them. Pest from $35/month, $75 initial service, mosquito $45/visit March–November. Termite quoted after a free WDO inspection, as Alabama requires.",
+    title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
+    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Nov. Termite quoted after a free WDO inspection.",
     url: 'https://www.envirocarellc.com/pricing',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Pest Control Prices Alabama | $35/mo, $75 First Visit | Published",
-    description: "Real numbers, published — no in-home visit required to see them. Pest from $35/month, $75 initial service, mosquito $45/visit March–November. Termite quoted after a free WDO inspection, as Alabama requires.",
+    title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
+    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Nov. Termite quoted after a free WDO inspection.",
     images: ['/og-image.png'],
   },
 };
