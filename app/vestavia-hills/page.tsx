@@ -3,13 +3,13 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Vestavia Hills AL | Termite, Mosquito & Tick — Since 1958",
+  title: "Pest Control Vestavia Hills AL | From $35/mo | Free Inspection",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Vestavia Hills AL — Cahaba Heights, Rocky Ridge. From $35/mo. Call (205) 940-6360.",
+    "Bi-monthly pest control from $35/month across Vestavia Hills — Cahaba Heights, Rocky Ridge, Liberty Park. 30+ pests, re-service at no charge. Free termite inspection. Call (205) 940-6360.",
   alternates: { canonical: "/vestavia-hills" },
   openGraph: {
     images: ["/og/og-vestavia-hills.png"],
-    title: "Pest Control Vestavia Hills AL | EnviroCare — Since 1958",
+    title: "Pest Control Vestavia Hills AL | From $35/mo | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito & tick service across Vestavia Hills. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/vestavia-hills",
