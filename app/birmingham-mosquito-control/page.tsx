@@ -4,18 +4,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
+    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/visit. Call (205) 940-6360.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-mosquito-control',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
-    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/visit. Call (205) 940-6360.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
-    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–November, $45/visit. Call (205) 940-6360.",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/visit. Call (205) 940-6360.",
     images: ['/og-image.png'],
   },
 };
@@ -25,7 +25,7 @@ const c: ComboContent = {
   h1: "Mosquito Control in Birmingham —",
   h1Accent: "Take Your Yard Back.",
   intro: [
-    "Birmingham sits in a humid valley laced with water: the Cahaba River to the south, Village Creek and Valley Creek threading through the city, and storm drainage in every older neighborhood. That geography is why metro mosquito season runs hard from March through November — and why a citronella candle was never going to cut it.",
+    "Birmingham sits in a humid valley laced with water: the Cahaba River to the south, Village Creek and Valley Creek threading through the city, and storm drainage in every older neighborhood. That geography is why metro mosquito season runs hard from March through October — and why a citronella candle was never going to cut it.",
     "The Wedgworth family has been treating Birmingham yards since 1958. Our 30-day barrier program targets where mosquitoes actually rest — shrub lines, eaves, fence rows, shaded foliage — so your porch, deck, and play set stay usable through an Alabama summer.",
   ],
   anglesHeading: "Why Birmingham mosquitoes are a different fight",
@@ -43,14 +43,14 @@ const c: ComboContent = {
       body: "Birmingham's older drainage and clay soil leave standing water after every summer storm. Your technician flags breeding spots — gutters, planters, low corners — and applies larvicide where water can't be drained.",
     },
     {
-      title: "March through November — not 'summer'",
-      body: "Metro mosquito activity starts when overnight temps hold above 50°F, usually late March, and runs into November. Programs that start Memorial Day give mosquitoes a two-month head start.",
+      title: "March through October — not 'summer'",
+      body: "Metro mosquito activity starts when overnight temps hold above 50°F, usually late March, and runs into October. Programs that start Memorial Day give mosquitoes a two-month head start.",
     },
   ],
   price: {
     label: "Birmingham Mosquito Program",
     amount: "$45/visit",
-    sub: "March through November · every 30 days",
+    sub: "March through October · every 30 days",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",

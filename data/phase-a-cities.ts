@@ -75,25 +75,25 @@ const phaseACitiesBase: Record<string, CityData> = {
     heroLede: "Four generations of Wedgworths protecting Mountain Brook homes — from English Village to Cahaba Village, from spring termite swarms to October mosquito holdouts. One technician, one invoice, all four programs.",
     zipPrimary: "35223 · 35213",
     contextTitle: "A village by village pest defense, not a one-size template.",
-    contextLede: "Mountain Brook isn't one neighborhood — it's four villages with four different pest pressures. The mature canopy in English Village invites carpenter ants and termite swarmers. Cahaba Village's creek corridor breeds mosquitoes from March through November. The hillsides behind Crestline create perfect tick harborage. The brick estates around Mountain Brook Village have crawlspaces that need monitoring. Generic pest control doesn't work here.",
+    contextLede: "Mountain Brook isn't one neighborhood — it's four villages with four different pest pressures. The mature canopy in English Village invites carpenter ants and termite swarmers. Cahaba Village's creek corridor breeds mosquitoes from March through October. The hillsides behind Crestline create perfect tick harborage. The brick estates around Mountain Brook Village have crawlspaces that need monitoring. Generic pest control doesn't work here.",
     pests: [
       { emoji: "🐜", title: "Carpenter Ants", description: "Mountain Brook's mature oaks shed limbs and leaves into mulch beds — prime carpenter ant nesting against foundations." },
       { emoji: "🪵", title: "Subterranean Termites", description: "Swarming Feb-May. Older brick homes with crawlspaces are highest-risk. Sentricon® stations stop colonies before they reach the structure." },
-      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Watershed proximity (Watkins Brook, Cahaba River) keeps mosquito pressure high March through November." },
+      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Watershed proximity (Watkins Brook, Cahaba River) keeps mosquito pressure high March through October." },
       { emoji: "🐾", title: "Lone Star & Dog Ticks", description: "Wooded lots adjacent to Jemison Park and Overton Park trails. Critical for families with pets and kids playing outside." }
     ],
     servingLabel: "Our Four-Village Coverage",
     neighborhoods: [
       { name: "Mountain Brook Village", zip: "35223", note: "The historic center near Mountain Brook Country Club. Brick estates, mature hardwoods, and a creek corridor — meaning carpenter ants, swarming termites, and persistent mosquitoes through October.", features: ["Sentricon® priority", "Mosquito barrier", "Crawlspace"] },
       { name: "English Village", zip: "35213", note: "The walkable heart of Mountain Brook with shops, cafes, and tree-lined streets. Older homes need vigilant termite monitoring; mature canopy means more carpenter ant traffic.", features: ["Sentricon®", "Carpenter ant", "Tick yards"] },
-      { name: "Crestline Village", zip: "35213", note: "Family-dense neighborhood with backyards bordering wooded hillsides. Tick and mosquito pressure is highest here March through November.", features: ["Mosquito + Tick", "Sentricon®", "Yard barrier"] },
+      { name: "Crestline Village", zip: "35213", note: "Family-dense neighborhood with backyards bordering wooded hillsides. Tick and mosquito pressure is highest here March through October.", features: ["Mosquito + Tick", "Sentricon®", "Yard barrier"] },
       { name: "Cahaba Village", zip: "35213", note: "The newest of the four villages, near Watkins Brook. Modern construction means fewer termite issues but high mosquito pressure from the creek system.", features: ["Mosquito priority", "Fire ant", "Pest"] }
     ],
     faqs: [
       { q: "Do I need separate service for English Village vs Cahaba Village?", a: "No — one EnviroCare plan covers all four villages. Your technician will adjust the treatment based on your specific property: more mosquito attention near Watkins Brook, more termite focus on older English Village homes, more tick treatment for Crestline yards backing up to woods." },
       { q: "When do termites swarm in Mountain Brook?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older brick homes with crawlspaces are highest-risk. Sentricon® stations protect year-round, and our annual inspection catches early activity before damage occurs." },
       { q: "Is Sentricon® really better than liquid termite treatment?", a: "For Mountain Brook's older homes, yes. Sentricon® doesn't require drilling through hardwood floors or pumping liquid into established landscaping. The Always Active™ bait stations work continuously — and the system is backed by up to $1,000,000 in damage repair coverage, subject to the terms of the agreement." },
-      { q: "When does mosquito season start in Mountain Brook?", a: "Mosquito pressure starts in March with the first warm rains and runs through November. Our 30-day yard barrier program covers the full season — that's up to 9 applications. Crestline and Cahaba Village homes near the creek corridor benefit most." },
+      { q: "When does mosquito season start in Mountain Brook?", a: "Mosquito pressure starts in March with the first warm rains and runs through October. Our 30-day yard barrier program covers the full season — that's up to 9 applications. Crestline and Cahaba Village homes near the creek corridor benefit most." },
       { q: "When can pets and kids go back outside after treatment?", a: "Kids and pets can return once applications dry (typically 30-60 minutes). Your technician will walk you through specific timing during the visit. Our Mountain Brook technicians live in the same neighborhoods you do; we use products we'd use around our own families." },
       { q: "Do you offer one-time service or only contracts?", a: "Both. Free termite inspection is no-obligation. Pest service can be one-time or ongoing. The bi-monthly plan ($35/mo ACH) is most popular because it includes unlimited free re-service if pests come back between visits — monthly pricing uses a 12-month ACH billing agreement, or you can pay per visit. Your service manager confirms the exact terms in writing before anything starts." }
     ],
@@ -125,14 +125,14 @@ const phaseACitiesBase: Record<string, CityData> = {
     pests: [
       { emoji: "🐜", title: "Fire Ants", description: "Irrigated fairways + manicured lawns = perfect fire ant conditions. Treatment available to anyone — starting at $150, priced by yard size." },
       { emoji: "🪵", title: "Subterranean Termites", description: "Swarming Feb-May. Greystone's wood-heavy construction + crawlspaces in older Founders homes = highest-risk profile." },
-      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Lake Cove + course water features = breeding pressure March through November." },
+      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Lake Cove + course water features = breeding pressure March through October." },
       { emoji: "🐾", title: "Lone Star Ticks", description: "Wooded golf course rough + deer presence on the property. Critical for families and dogs." }
     ],
     servingLabel: "Our 35242 Coverage",
     neighborhoods: [
       { name: "Greystone Founders", zip: "35242", note: "The original section. Homes from the late 90s with mature canopy and established landscaping. Termite vigilance and carpenter ant defense are the priorities here.", features: ["Sentricon® priority", "Carpenter ant", "Pest"] },
       { name: "Greystone Legacy", zip: "35242", note: "The newer phase. Premium lots, modern construction, larger backyards. Mosquito + tick bundles are the most common Legacy plan because of outdoor entertaining.", features: ["Mosquito + Tick", "Pest", "Sentricon®"] },
-      { name: "Greystone Cove", zip: "35242", note: "Lakeside lots. Direct water proximity means mosquito pressure runs March through November and tick risk is higher from wooded greenbelt access.", features: ["Mosquito priority", "Tick", "Sentricon®"] },
+      { name: "Greystone Cove", zip: "35242", note: "Lakeside lots. Direct water proximity means mosquito pressure runs March through October and tick risk is higher from wooded greenbelt access.", features: ["Mosquito priority", "Tick", "Sentricon®"] },
       { name: "Greystone Farms", zip: "35244", note: "The Hoover-side section. Family-dense, newer construction, top schools. Pest control is the everyday workhorse; mosquito ramps up May-September for the pool/patio season.", features: ["Pest", "Mosquito seasonal", "Fire ant"] }
     ],
     faqs: [
@@ -171,7 +171,7 @@ const phaseACitiesBase: Record<string, CityData> = {
     pests: [
       { emoji: "🐜", title: "Argentine Ants", description: "Mt Laurel's well-irrigated landscaping plus walkways = perfect Argentine ant trails. Included in your pest plan." },
       { emoji: "🪵", title: "Subterranean Termites", description: "Townhome construction + crawlspaces in older Founders Park homes = elevated termite risk. Sentricon® stations protect year-round." },
-      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Pond features + creek system breed mosquitoes March through November. Yard barrier reclaims your patio and walking trails." },
+      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Pond features + creek system breed mosquitoes March through October. Yard barrier reclaims your patio and walking trails." },
       { emoji: "🐾", title: "Lone Star Ticks", description: "Walking trails + Double Oak Mountain proximity = tick exposure for dogs and kids. Bundled with mosquito program." }
     ],
     servingLabel: "Mt Laurel Coverage",
@@ -185,7 +185,7 @@ const phaseACitiesBase: Record<string, CityData> = {
       { q: "Do you service townhomes and cottages, not just single-family?", a: "Yes — we service every property type in Mt Laurel including townhomes in The Village. Townhome pest control is straightforward; pricing is the same as single-family ($35/mo). For shared-wall pest issues we coordinate with neighbors so the treatment is comprehensive." },
       { q: "When do termites swarm in Mt Laurel?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older Founders Park homes with crawlspaces are highest-risk. Sentricon® stations protect year-round." },
       { q: "Do your mosquito treatments affect the community ponds?", a: "No — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water spots). We don't treat community ponds or common areas. Kids and pets can return once treatments dry (30-60 min)." },
-      { q: "How often do you spray for mosquitos?", a: "Every 30 days during the season (March through November) — that's up to 9 applications per year. Mt Laurel's pond features and Double Oak Mountain proximity make the full seasonal program a strong fit." },
+      { q: "How often do you spray for mosquitos?", a: "Every 30 days during the season (March through October) — that's up to 9 applications per year. Mt Laurel's pond features and Double Oak Mountain proximity make the full seasonal program a strong fit." },
       { q: "What about pets?", a: "Pets can return once applications dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
       { q: "Do I need separate fire ant control?", a: "Fire ant treatment is a standalone service — starting at $150 and priced by the size of your yard, available to anyone. Flea treatment is an add-on to our interior plan; ask the office for details." }
     ],
@@ -216,7 +216,7 @@ const phaseACitiesBase: Record<string, CityData> = {
     contextLede: "Athens is one of the fastest-growing cities in Alabama. The growth brings new builds in East Limestone, Sanderfer, and Tanner — and new pest pressure with them. Older downtown homes face the highest termite risk (brick + crawlspace + mature trees). Agricultural runoff outside town breeds heavy mosquito populations. Rural-residential properties on the Mooresville and Elkmont corridors see real tick traffic from deer and livestock.",
     pests: [
       { emoji: "🪵", title: "Subterranean Termites", description: "Swarming Feb-May. Athens' older downtown homes with crawlspaces are highest-risk. Sentricon® stations stop colonies before they reach the structure." },
-      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Agricultural runoff + ponds + creeks. Mosquito pressure runs March through November in rural Limestone County." },
+      { emoji: "🦟", title: "Asian Tiger Mosquitoes", description: "Agricultural runoff + ponds + creeks. Mosquito pressure runs March through October in rural Limestone County." },
       { emoji: "🐾", title: "Lone Star Ticks", description: "Rural-residential areas around Mooresville, Tanner, and Elkmont have heavy tick presence from deer and livestock. Critical for pets and kids." },
       { emoji: "🕷️", title: "Brown Recluse & Roaches", description: "Older downtown buildings + barns/outbuildings = recurring brown recluse and roach issues. Bi-monthly pest service breaks the cycle." }
     ],
@@ -224,7 +224,7 @@ const phaseACitiesBase: Record<string, CityData> = {
     neighborhoods: [
       { name: "Downtown Athens", zip: "35611", note: "The historic district — older brick homes, mature trees, crawlspaces. Termite vigilance is the #1 priority. Brown recluse and roach issues in older buildings need bi-monthly pest service to break the cycle.", features: ["Sentricon® priority", "Pest", "Brown recluse"] },
       { name: "East Limestone", zip: "35613", note: "The fast-growing exurb. Newer construction, family neighborhoods, top-rated school district. New builds need termite pre-treat verification + early pest control to set the baseline.", features: ["Builder pre-treat", "Pest", "Sentricon®"] },
-      { name: "Tanner / Mooresville Rd", zip: "35613", note: "Rural-residential country properties. Deer and livestock proximity means heavy tick exposure. Mosquito pressure from agricultural runoff is severe March-November.", features: ["Mosquito + Tick priority", "Sentricon®", "Fire ant"] },
+      { name: "Tanner / Mooresville Rd", zip: "35613", note: "Rural-residential country properties. Deer and livestock proximity means heavy tick exposure. Mosquito pressure from agricultural runoff is severe March-October.", features: ["Mosquito + Tick priority", "Sentricon®", "Fire ant"] },
       { name: "Elkmont", zip: "35620", note: "Northern Limestone County exurb. Rural-residential, larger lots. Termite vigilance is key; pest control completes the protection. Mosquito recommended for properties with ponds or creek frontage.", features: ["Sentricon®", "Pest", "Mosquito"] }
     ],
     showCrossSellBanner: true,

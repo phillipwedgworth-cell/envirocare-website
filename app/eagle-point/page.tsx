@@ -84,7 +84,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "How fast will I see mosquito improvement?",
-      "a": "Most Eagle Point yards see a noticeable drop in adult mosquito activity within the first 30-day cycle. Heavier pressure (lake-adjacent or wooded-perimeter properties) typically takes two cycles for the full effect. Service runs March through November."
+      "a": "Most Eagle Point yards see a noticeable drop in adult mosquito activity within the first 30-day cycle. Heavier pressure (lake-adjacent or wooded-perimeter properties) typically takes two cycles for the full effect. Service runs March through October."
     },
     {
       "q": "Can you handle commercial pest control for the Eagle Point clubhouse or pro shop?",
@@ -216,7 +216,7 @@ const jsonLd = {
           "name": "How fast will I see mosquito improvement?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most Eagle Point yards see a noticeable drop in adult mosquito activity within the first 30-day cycle. Heavier pressure (lake-adjacent or wooded-perimeter properties) typically takes two cycles for the full effect. Service runs March through November."
+            "text": "Most Eagle Point yards see a noticeable drop in adult mosquito activity within the first 30-day cycle. Heavier pressure (lake-adjacent or wooded-perimeter properties) typically takes two cycles for the full effect. Service runs March through October."
           }
         },
         {

@@ -123,7 +123,7 @@ export default function FaqPage() {
           <div className="faq-list-wide">
             <details className="faq-item">
               <summary className="faq-q">When does mosquito season run in Alabama?</summary>
-              <div className="faq-a">March through November. Mosquitoes are inactive below 50°F. We may extend earlier or later in warm springs/falls.</div>
+              <div className="faq-a">March through October. Mosquitoes are inactive below 50°F. We may extend earlier or later in warm springs/falls.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How long does a mosquito application last?</summary>

@@ -68,7 +68,7 @@ const c: ComboContent = {
     },
     {
       q: "Does the Madison plan cover mosquitoes, fire ants, or termites?",
-      a: `Those are separate services — mosquito treatment runs seasonally March through November, fire ant control is priced by yard size, and termite protection is quoted after a free WDO inspection. Many Madison customers pair one or more with pest control for one technician and one invoice.`,
+      a: `Those are separate services — mosquito treatment runs seasonally March through October, fire ant control is priced by yard size, and termite protection is quoted after a free WDO inspection. Many Madison customers pair one or more with pest control for one technician and one invoice.`,
     },
   ],
   office: { name: "North Alabama Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },

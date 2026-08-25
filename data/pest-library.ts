@@ -165,7 +165,7 @@ export const PESTS: PestEntry[] = [
       'Populations rebuild fast without ongoing treatment',
     ],
     signs: ['Daytime biting (Asian tiger) or dusk swarms', 'Activity near standing water & shaded shrubs', 'Larvae ("wigglers") in containers of water', 'Heaviest pressure near wooded or lakefront lots'],
-    seasonal: 'Alabama’s mosquito season runs roughly March through November — we recommend starting treatments early rather than waiting for the first bites.',
+    seasonal: 'Alabama’s mosquito season runs roughly March through October — we recommend starting treatments early rather than waiting for the first bites.',
     treatment: 'EnviroCare applies a 30-day yard barrier to the shaded harborage where adults rest, with EPA-registered products per label, and identifies standing-water breeding sites to address. Service runs monthly through the season, with free re-treatment between scheduled visits. Tick protection can be added to any mosquito visit.',
     serviceSlug: 'mosquito',
     serviceLabel: 'Mosquito Control',

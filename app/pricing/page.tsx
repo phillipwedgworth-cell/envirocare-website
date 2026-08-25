@@ -15,11 +15,11 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export const metadata: Metadata = {
   title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
   description:
-    "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Nov. Termite quoted after a free WDO inspection.",
+    "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Oct. Termite quoted after a free WDO inspection.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
-    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Nov. Termite quoted after a free WDO inspection.",
+    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Oct. Termite quoted after a free WDO inspection.",
     url: 'https://www.envirocarellc.com/pricing',
     images: ['/og-image.png'],
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
-    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Nov. Termite quoted after a free WDO inspection.",
+    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/visit Mar–Oct. Termite quoted after a free WDO inspection.",
     images: ['/og-image.png'],
   },
 };
@@ -47,16 +47,16 @@ const OFFER_SCHEMA = {
     {
       "@type": "Offer", name: "Pest + Mosquito", priceCurrency: "USD", price: "69",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "69", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Pest + Seasonal Mosquito", description: "Bimonthly pest control plus seasonal mosquito (March–November). $75 initial service fee. Tick and flea add-ons available, quoted for your property." },
+      itemOffered: { "@type": "Service", name: "Pest + Seasonal Mosquito", description: "Bimonthly pest control plus seasonal mosquito (March–October). $75 initial service fee. Tick and flea add-ons available, quoted for your property." },
     },
     {
       "@type": "Offer", name: "Mosquito", priceCurrency: "USD", price: "45",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "45", priceCurrency: "USD", unitText: "per visit, 9 visits March–November" },
-      itemOffered: { "@type": "Service", name: "Seasonal Mosquito Yard Treatment", description: "30-day yard barrier, billed per service (no monthly). Nine rounds March through November." },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "45", priceCurrency: "USD", unitText: "per visit, 8 visits March–October" },
+      itemOffered: { "@type": "Service", name: "Seasonal Mosquito Yard Treatment", description: "30-day yard barrier, billed per service (no monthly). Nine rounds March through October." },
     },
     {
       "@type": "Offer", name: "Mosquito + Tick", priceCurrency: "USD", price: "65",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "65", priceCurrency: "USD", unitText: "per visit, 9 visits March–November" },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "65", priceCurrency: "USD", unitText: "per visit, 8 visits March–October" },
       itemOffered: { "@type": "Service", name: "Seasonal Mosquito + Tick Yard Treatment", description: "Mosquito + tick yard barrier (covers chiggers), billed per service. Tick is offered only with mosquito." },
     },
     {
@@ -74,7 +74,7 @@ const FAQ_SCHEMA = {
     { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." } },
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
     { "@type": "Question", name: "What is the initial service fee?", acceptedAnswer: { "@type": "Answer", text: "$75 on Pest and on Pest + Mosquito. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment and there is no separate inspection fee. Mosquito booked alone has no initial fee; it is billed per service." } },
-    { "@type": "Question", name: "Can I get mosquito or tick without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, nine rounds March through November, charged at each service. Tick is only offered alongside mosquito." } },
+    { "@type": "Question", name: "Can I get mosquito or tick without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — mosquito alone is $45 per visit and mosquito + tick is $65 per visit, eight rounds March through October, charged at each service. Tick is only offered alongside mosquito." } },
     { "@type": "Question", name: "What's the $1M EnviroCare coverage?", acceptedAnswer: { "@type": "Answer", text: "If termites cause structural damage while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement." } },
   ],
 };

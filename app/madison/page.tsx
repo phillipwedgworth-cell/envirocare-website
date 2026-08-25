@@ -110,7 +110,7 @@ const jsonLd = {
           name: "Is mosquito control worth it in Madison AL?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "For most Madison properties, yes. Big Spring Creek, Turkey Creek, and the Tennessee River tributary system keep mosquito pressure high March through November. Our 30-day barrier spray program runs the full season. We don't guarantee elimination, but regular treatments significantly reduce populations in treated areas.",
+            text: "For most Madison properties, yes. Big Spring Creek, Turkey Creek, and the Tennessee River tributary system keep mosquito pressure high March through October. Our 30-day barrier spray program runs the full season. We don't guarantee elimination, but regular treatments significantly reduce populations in treated areas.",
           },
         },
         {
@@ -277,7 +277,7 @@ export default function MadisonPage() {
             {
               icon: "🦟",
               title: "Tennessee River tributaries keep mosquitoes active",
-              body: "Big Spring Creek, Turkey Creek, and the drainage network feeding the Tennessee create standing-water breeding habitat across Madison. Mosquito pressure typically starts in March and runs through early November — covering the full outdoor entertaining and youth sports season. Our 30-day barrier program covers the complete season.",
+              body: "Big Spring Creek, Turkey Creek, and the drainage network feeding the Tennessee create standing-water breeding habitat across Madison. Mosquito pressure typically starts in March and runs through October — covering the full outdoor entertaining and youth sports season. Our 30-day barrier program covers the complete season.",
             },
             {
               icon: "🐜",
@@ -350,7 +350,7 @@ export default function MadisonPage() {
               icon: "🦟",
               service: "Mosquito Control",
               price: "$45/treatment",
-              priceNote: "Every 30 days · Mar–Nov",
+              priceNote: "Every 30 days · Mar–Oct",
               features: [
                 "9 seasonal treatments",
                 "Barrier spray targets adults & breeding sites",
@@ -459,7 +459,7 @@ export default function MadisonPage() {
               {
                 name: "Clift's Cove / Lake-Adjacent",
                 zip: "35758",
-                note: "Water-adjacent lots with the highest mosquito pressure in Madison. Our 30-day barrier program is strongly recommended March through November here.",
+                note: "Water-adjacent lots with the highest mosquito pressure in Madison. Our 30-day barrier program is strongly recommended March through October here.",
                 tags: ["Mosquito priority", "Tick", "Sentricon®"],
               },
               {
@@ -619,7 +619,7 @@ export default function MadisonPage() {
             },
             {
               q: "Is mosquito control worth it in Madison AL?",
-              a: "For most Madison properties — especially those near Big Spring Creek, Turkey Creek, or any wooded drainage — yes. Mosquito pressure runs March through November across North Alabama. Our 30-day barrier program covers the full season. We don't claim to eliminate all mosquitoes, but regular treatments significantly reduce populations in treated areas.",
+              a: "For most Madison properties — especially those near Big Spring Creek, Turkey Creek, or any wooded drainage — yes. Mosquito pressure runs March through October across North Alabama. Our 30-day barrier program covers the full season. We don't claim to eliminate all mosquitoes, but regular treatments significantly reduce populations in treated areas.",
             },
             {
               q: "Do you offer WDO inspection letters for real estate closings?",
