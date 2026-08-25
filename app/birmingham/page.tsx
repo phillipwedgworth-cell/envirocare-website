@@ -173,7 +173,7 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Are EnviroCare's pest treatments safe for my family and pets?",
+          name: "What precautions do you take around family and pets?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry.",
@@ -324,7 +324,7 @@ export default function BirminghamPage() {
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2025 Butler Rd, Alabaster, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through October in Birmingham. We apply the 30-day yard barrier monthly across those 8 months. $45 per treatment for mosquito only, or $65 per treatment for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
-            <Faq q="Are EnviroCare's pest treatments safe for my family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
+            <Faq q="What precautions do you take around family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
             <Faq q="Is there a long-term contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
           </div>
         </section>

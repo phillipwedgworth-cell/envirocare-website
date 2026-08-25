@@ -30,7 +30,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'How do I get rid of mosquitoes at Lake Martin, Alabama?',
     answer:
-      'Lake Martin\'s 700-mile shoreline, warm water coves, and dense lakeside vegetation create some of the most intense mosquito conditions in central Alabama. EnviroCare provides monthly barrier spray treatments from March through October that kill adult mosquitoes on contact and suppress breeding sites around docks, boat slips, and wooded lots. Their Mosquito + Tick bundle (chiggers covered) is $65/visitnth; flea is an interior-plan add-on. Call (256) 234-6162 to schedule a free yard assessment.',
+      'Lake Martin\'s 700-mile shoreline, warm water coves, and dense lakeside vegetation create some of the most intense mosquito conditions in central Alabama. EnviroCare provides monthly barrier spray treatments from March through October that kill adult mosquitoes on contact and suppress breeding sites around docks, boat slips, and wooded lots. Their Mosquito + Tick bundle (chiggers covered) is $65 per visit; flea is an interior-plan add-on. Call (256) 234-6162 to schedule a free yard assessment.',
   },
   {
     question: 'Do I need termite protection at my Lake Martin lake house?',
