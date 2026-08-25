@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/command-center/page.tsx
+// Commit: feat(command-center): surface approval_queue and execution truth
+// Push: main
+// ─────────────────────────────────────
 /**
  * EnviroCare Command Center — single-pane-of-glass ops cockpit.
  * Gate: /command-center?key=$COMMAND_CENTER_KEY  (set COMMAND_CENTER_KEY in Vercel)
@@ -115,13 +121,36 @@ async function fetchAll() {
     grab<SeoMetric>(sb.from('seo_metrics').select('location,keyword,campaign_key,arp,atrp,solv,run_date').order('run_date', { ascending: false }).limit(300)),
     grab<SeoDigest>(sb.from('seo_digests').select('run_date,summary_text,rows_json,created_at').order('run_date', { ascending: false }).order('created_at', { ascending: false }).limit(12)),
   ]);
+  const [queue, actions] = await Promise.all([
+    grab<QueueRow>(sb.from('approval_queue').select('id,title,category,risk,action_type,compliance_clean,created_at').eq('status', 'pending').order('created_at', { ascending: true }).limit(60)),
+    grab<ActionRow>(sb.from('agent_actions').select('agent_name,action,status,created_at').order('created_at', { ascending: false }).limit(40)),
+  ]);
   const [adDrafts, discussions, socialDrafts] = await Promise.all([
     grab<AdDraftRow>(sb.from('agent_drafts').select('id,title,status,updated_at').eq('status', 'pending-review').order('updated_at', { ascending: false }).limit(20)),
     grab<Discussion>(sb.from('agent_discussions').select('id,agent_name,references_agent,message,impact_score,effort_score,created_at').order('created_at', { ascending: false }).limit(15)),
     grab<SocialDraft>(sb.from('social_posts').select('id,location,platform,post_type,headline,body,cta,scheduled_for').eq('status', 'draft').order('scheduled_for', { ascending: true }).limit(20)),
   ]);
-  return { runs, findings, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts };
+  return { runs, findings, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts, queue, actions };
 }
+
+// Decision queue + execution truth. Added 2026-08-24.
+//
+// The Command Center had a "Needs Your Approval" panel that counted open PRs
+// and drafts — but never read approval_queue, where 38 real decisions were
+// sitting, the oldest 10 days old. And nothing anywhere showed whether an
+// approved item ever actually executed. agent_actions has never contained a
+// single executed row, while the morning brief opened daily with a "HANDLED
+// (autonomous)" section. Both gaps are closed below.
+type QueueRow = {
+  id: number | string;
+  title: string | null;
+  category: string | null;
+  risk: string | null;
+  action_type: string | null;
+  compliance_clean: boolean | null;
+  created_at: string;
+};
+type ActionRow = { agent_name: string | null; action: string | null; status: string | null; created_at: string };
 
 // Open PRs on the (public) repo — the approval queue for agent-written content.
 // GITHUB_TOKEN is optional; it only raises the rate limit.
@@ -197,12 +226,27 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
     );
   }
 
-  const { runs, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts } = data;
+  const { runs, gsc, ga4, gads, cfo, brief, seoMetrics, seoDigests, adDrafts, discussions, socialDrafts, queue, actions } = data;
   const prs = await fetchOpenPrs();
   // Content-review PRs are the ship-gate — surface them first.
   const prSort = (p: OpenPr) => (p.labels.some((l) => l.name === 'content-review') ? 0 : 1);
   const openPrs = [...prs].sort((a, b) => prSort(a) - prSort(b));
-  const approvalsCount = openPrs.length + adDrafts.length + socialDrafts.length;
+  const approvalsCount = openPrs.length + adDrafts.length + socialDrafts.length + queue.length;
+
+  // Split the queue by what can actually be acted on. A row with no action_type
+  // cannot execute even if approved, and a row that failed the compliance scan
+  // will be rejected downstream — showing them next to genuine decisions is how
+  // a queue trains its owner to ignore it.
+  const qLive = queue.filter((r) => r.compliance_clean !== false && !!r.action_type);
+  const qDirty = queue.filter((r) => r.compliance_clean === false);
+  const qDead = queue.filter((r) => r.compliance_clean !== false && !r.action_type);
+  const qOldestDays = queue.length
+    ? Math.floor((Date.now() - new Date(queue[0].created_at).getTime()) / 86400000)
+    : 0;
+
+  const DONE = ['executed', 'applied', 'completed', 'done'];
+  const shipped = actions.filter((a) => DONE.includes(String(a.status ?? '').toLowerCase()));
+  const shippedRecent = shipped.filter((a) => Date.now() - new Date(a.created_at).getTime() < 7 * 86400000);
 
   // Ranking Snapshots — newest run_date, grouped by location (Local Falcon campaigns)
   const snapRunDate = seoMetrics[0]?.run_date ?? null;
@@ -322,6 +366,16 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
           sub={adRows.length ? `${fmt(adConv)} conv` : 'import GAds'} />
         <Kpi label="Open Critical" value={fmt(openCritical)} accent={openCritical ? '#FF6B57' : '#1FAE5A'}
           sub={openCritical ? 'needs attention' : 'all clear'} />
+        {/* The two numbers that were missing. "Shipped" reads agent_actions —
+            the only record of work actually executed. If it says 0 while the
+            queue is deep, the system is producing recommendations nobody can
+            act on, which is exactly what was happening on 2026-08-24. */}
+        <Kpi label="Shipped (7d)" value={fmt(shippedRecent.length)}
+          accent={shippedRecent.length ? '#1FAE5A' : '#FF6B57'}
+          sub={shippedRecent.length ? 'executed actions' : 'nothing executed'} />
+        <Kpi label="Decision Queue" value={fmt(queue.length)}
+          accent={qOldestDays > 7 ? '#FF6B57' : '#F5A800'}
+          sub={queue.length ? `oldest ${qOldestDays}d · ${qLive.length} actionable` : 'empty'} />
       </div>
 
       <div className="cc-grid">
@@ -332,6 +386,30 @@ export default async function CommandCenter({ searchParams }: { searchParams: Pr
             <Empty>Nothing waiting on you. 🎉 Social posts, agent content PRs, and ad drafts appear here the moment they need a decision.</Empty>
           ) : (
             <ul className="cc-findings">
+              {/* approval_queue first — these are real decisions, and they were
+                  invisible on this screen until 2026-08-24. Only actionable
+                  rows are listed; blocked and dead-end counts are summarised
+                  below so the list stays a list of things you can decide. */}
+              {qLive.slice(0, 12).map((r) => (
+                <li key={`q${r.id}`} style={{ borderLeft: `3px solid ${r.risk === 'RED' ? '#FF6B57' : '#F5A800'}` }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <strong>{r.title ?? 'Untitled proposal'}</strong>
+                    <span className="cc-panel-hint">
+                      {' '}{r.category ?? 'general'} · {r.risk ?? 'unrated'} · {Math.floor((Date.now() - new Date(r.created_at).getTime()) / 86400000)}d old
+                    </span>
+                  </div>
+                </li>
+              ))}
+              {(qDirty.length > 0 || qDead.length > 0) && (
+                <li style={{ borderLeft: '3px solid #555' }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <strong>Not shown: {qDirty.length + qDead.length} unactionable rows</strong>
+                    <span className="cc-panel-hint">
+                      {' '}{qDirty.length} blocked by the compliance scan · {qDead.length} have no action_type and cannot execute even if approved
+                    </span>
+                  </div>
+                </li>
+              )}
               {socialDrafts.map((d) => (
                 <li key={d.id} style={{ borderLeft: '3px solid #7B61FF' }}>
                   <div style={{ flex: 1, minWidth: 0 }}>
