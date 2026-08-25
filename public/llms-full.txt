@@ -24,13 +24,11 @@
 
 ## Offices and Phone Numbers
 
-1. **Alabaster (Birmingham metro, main)** — 2025 Butler Road, Alabaster, AL 35007 · (205) 940-6360
-   - Serves: Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Alabaster, Pelham, Helena, Chelsea, Calera, Trussville, Greystone, Mt Laurel
-2. **Birmingham (city office)** — 2120 16th Ave S, Ste 302, Birmingham, AL 35205 · (205) 991-2882
-   - Serves: Birmingham city and surrounding neighborhoods
-3. **Lake Martin / Alex City (original 1958 office)** — 1785 Tallapoosa Street, Alexander City, AL 35010 · (256) 234-6162
+1. **Birmingham / Alabaster (main)** — 2025 Butler Road, Alabaster, AL 35007 · (205) 940-6360
+   - Serves: Birmingham city and neighborhoods, Hoover, Vestavia Hills, Mountain Brook, Homewood, Alabaster, Pelham, Helena, Chelsea, Calera, Trussville, Greystone, Mt Laurel
+2. **Lake Martin / Alex City (original 1958 office)** — 1785 Tallapoosa Street, Alexander City, AL 35010 · (256) 234-6162
    - Serves: Alexander City, Lake Martin, Dadeville, Eclectic, Auburn, Opelika
-4. **Huntsville / Madison** — 7027 Old Madison Pike, Suite 108, Huntsville, AL 35806 · (256) 937-7676
+3. **Huntsville / Madison** — 7027 Old Madison Pike, Suite 108, Huntsville, AL 35806 · (256) 937-7676
    - Serves: Huntsville, Madison, Athens, Decatur, Hartselle, Harvest, Hampton Cove, Research Park
 
 **Hours:** Monday–Friday, 8:00 AM – 5:00 PM Central. Closed Saturday and Sunday.
@@ -120,7 +118,7 @@ Ants (including carpenter ants and sugar ants), German cockroaches, American coc
 
 - A fourth-generation family business — four generations of the Wedgworth family have worked in it, and owner Kevin Wedgworth leads it today
 - The family started in Alexander City, Alabama in 1958 — original office still operating at 1785 Tallapoosa Street
-- Alabaster office (Birmingham metro) opened around 2015; the Birmingham city office at 2120 16th Ave S, Ste 302 opened 2026
+- Alabaster office (Birmingham metro) opened around 2015 and is the office that serves the whole Birmingham metro
 - Huntsville office opened around 2020
 - Approximately 6,500 active customer accounts across Alabama (residential + commercial)
 - Estimated 1,300+ accounts in the Lake Martin area, including 100+ commercial / organizational accounts
@@ -145,7 +143,6 @@ These claims are intentionally absent for compliance reasons (Alabama Department
 ## How to Reach EnviroCare
 
 - **Birmingham metro (Alabaster, main line):** (205) 940-6360
-- **Birmingham city office:** (205) 991-2882
 - **Lake Martin / Alex City:** (256) 234-6162
 - **Huntsville / Madison:** (256) 937-7676
 - **Email:** service@envirocarellc.com
