@@ -1,0 +1,100 @@
+# ─── CLAUDE CODE: DEPLOY THIS FILE ───
+# Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+# Path: .github/workflows/vercel-agent-ingest.yml
+# Commit: feat(ci): pipe Vercel Agent review findings into agent_findings
+# Push: main
+# ─────────────────────────────────────
+#
+# WHY THIS EXISTS
+# ---------------
+# Vercel Agent posts its review findings as GitHub PR comments. Nothing else in
+# this system reads GitHub comments — not the morning brief, not the watchdog,
+# not the proposer. Without this, Agent's output dies in a PR thread that nobody
+# opens after merging, and the money spent on the review buys one read.
+#
+# This makes Agent a contributing member of the fleet: every finding it posts
+# lands in agent_findings, which morning-brief already reports from. Agent's
+# work shows up in the brief the next morning alongside everything else.
+#
+# Deduped per PR per day so a long review thread produces one row, not thirty.
+
+name: Vercel Agent → Supabase
+
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  ingest:
+    # Only Vercel's bot. A human comment on a PR is not a finding.
+    # This repo is PUBLIC and issue_comment runs in the base-repo context with
+    # the Supabase service key in scope, so the sender gate is the only thing
+    # standing between a stranger's comment and a row in agent_findings — a
+    # table the morning brief reads straight to Phillip. The pack's third
+    # clause, contains(login,'vercel'), let any account with "vercel" anywhere
+    # in its name through. Exact bot logins only, and it must actually be a Bot.
+    if: >
+      github.event.sender.type == 'Bot' && (
+        github.event.sender.login == 'vercel[bot]' ||
+        github.event.sender.login == 'vercel-agent[bot]'
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record finding
+        continue-on-error: true
+        env:
+          SB_URL: ${{ secrets.SUPABASE_URL }}
+          SB_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          BODY: ${{ github.event.review.body || github.event.comment.body }}
+          PR_URL: ${{ github.event.pull_request.html_url || github.event.issue.html_url }}
+          PR_NUM: ${{ github.event.pull_request.number || github.event.issue.number }}
+          STATE: ${{ github.event.review.state }}
+        run: |
+          set +e
+          if [ -z "$SB_URL" ] || [ -z "$SB_KEY" ]; then
+            echo "::warning::Supabase creds absent — finding not recorded"; exit 0
+          fi
+          if [ -z "$BODY" ]; then echo "empty body, nothing to record"; exit 0; fi
+
+          # Severity comes from what Agent actually said. A review that requests
+          # changes outranks a passing note; anything touching security or the
+          # EnviroCare compliance canon goes straight to critical.
+          SEV="info"
+          if [ "$STATE" = "CHANGES_REQUESTED" ]; then SEV="warning"; fi
+          if echo "$BODY" | grep -qiE 'security|vulnerab|injection|secret|credential'; then SEV="critical"; fi
+          if echo "$BODY" | grep -qiE 'sentricon|corteva|EPA.approved|pet.safe|1,000,000'; then SEV="critical"; fi
+
+          SNIP=$(echo "$BODY" | tr '\n' ' ' | cut -c1-600)
+
+          # jq builds the JSON so quotes and backticks in a review body cannot
+          # break the payload. Preinstalled on ubuntu-latest.
+          PAYLOAD=$(jq -n \
+            --arg sev  "$SEV" \
+            --arg snip "$SNIP" \
+            --arg pr   "$PR_URL" \
+            --arg num  "$PR_NUM" \
+            --arg day  "$(date -u +%Y-%m-%d)" \
+            --arg st   "${STATE:-comment}" \
+            '[{agent_name:"vercel-agent", category:"code-review", severity:$sev,
+               finding:("Vercel Agent on PR #" + $num + ": " + $snip),
+               page_url:$pr,
+               dedup_key:("vercel-agent:pr" + $num + ":" + $day),
+               details:{pr:$pr, state:$st}}]')
+
+          curl -sS -X POST "${SB_URL}/rest/v1/agent_findings" \
+            -H "apikey: ${SB_KEY}" \
+            -H "authorization: Bearer ${SB_KEY}" \
+            -H "content-type: application/json" \
+            -H "Prefer: resolution=merge-duplicates,return=minimal" \
+            -d "$PAYLOAD" || true
+
+          echo "Recorded ${SEV} finding from PR #${PR_NUM}"
+          exit 0

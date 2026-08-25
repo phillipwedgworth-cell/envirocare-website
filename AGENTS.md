@@ -94,14 +94,22 @@ and intentional; leave them. This also closes nap-master.md open question #1 —
 Usage rules:
 - **Primary / company-wide contexts** (site header, LSA profiles, general citations
   with no specific office, service pages not tied to one office): **(205) 940-6360**.
-- **A NAP block's phone must match its address.** `2120 16th Ave S, Ste 302` pairs
-  with **(205) 991-2882**; `2025 Butler Rd` pairs with **(205) 940-6360**. Never
-  cross them. (Audited 2026-08-13 with a proximity scan: zero crossed pairs in the
+- **A NAP block's phone must match its address.** `2025 Butler Rd` pairs with
+  **(205) 940-6360**. (`2120 16th Ave S, Ste 302` paired with
+  **(205) 991-2882** — see the 2026-08-24 update below; that pairing is no
+  longer published anywhere but `data/offices.ts`.) Never cross them. (Audited 2026-08-13 with a proximity scan: zero crossed pairs in the
   repo. Note a file-level grep is useless here — find-office, offices.ts, layout.tsx
   and ContactUs all legitimately list every office, so co-occurrence is normal and
   only same-block adjacency is a defect.)
-- Office direct lines unchanged: Alabaster (205) 940-6360 · Alex City (256) 234-6162
-  · Huntsville (256) 937-7676 · Birmingham (205) 991-2882 · Auburn (334) 332-3321.
+- Office direct lines: Alabaster (205) 940-6360 · Alex City (256) 234-6162
+  · Huntsville (256) 937-7676 · Auburn (334) 332-3321. Birmingham's
+  (205) 991-2882 was retired from customer-facing pages on 2026-08-24 — see §4.
+
+⚠️ **SUPERSEDED IN PART, 2026-08-24 (Phillip: "940 is the main line").** The
+2026-08-12 ruling above still holds for 940-6360 being primary. What changed:
+the whole Birmingham metro now displays 940-6360 / Butler Rd, so 991-2882 and
+2120 16th Ave S no longer appear on any customer-facing page, in schema, or in
+llms.txt. Butler Rd is the office with an actual Google Business Profile.
 
 ⚠️ **(205) 649-5278 is DEAD.** It still appears on the Thryv directory network
 (YellowPages / YP / DexKnows / Superpages). Never reintroduce it.
@@ -207,3 +215,107 @@ Consequences that look like separate problems but are not:
 **Tooling reality:** Ahrefs and Semrush are connected but have no API access
 (insufficient plan / no units). Backlink and keyword data comes from Google
 Search Console. Local Falcon and BrightLocal are live and have credits.
+
+<!-- BEGIN:vercel-agent-code-review -->
+# Code Review guidelines — EnviroCare compliance canon
+
+Vercel Agent Code Review reads this file automatically. Everything below exists
+because it has actually shipped to production and cost money to unwind. Treat a
+match on any rule here as a **blocking** finding, same severity as a bug.
+
+These are business-correctness rules a linter cannot catch. Bugs, security and
+performance still come first — this is additional context, not a replacement.
+
+## 1. The $1,000,000 termite coverage is EnviroCare's, never Sentricon's
+
+This is the single most repeated error in this codebase. On 2026-08-24 a sweep
+found **123 occurrences across 55 files**, including page `<title>` tags that
+were live in Google results, and one comparison-table row reading
+`sentricon: "$1,000,000 (Corteva)"`.
+
+Sentricon® and Corteva make the bait system. **EnviroCare** backs the damage
+repair coverage. Flag any diff where the dollar figure sits next to Sentricon or
+Corteva without EnviroCare named as the provider in the same sentence.
+
+- ✅ `up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement`
+- ✅ `Sentricon® baiting, $1M EnviroCare coverage`
+- ❌ `Sentricon® $1M coverage`
+- ❌ `$1,000,000 (Corteva)`
+- ❌ any possessive: `Sentricon's guarantee`, `the Sentricon warranty`
+
+Say **damage repair coverage** or **damage coverage**. Never **warranty** or
+**guarantee** attached to the figure. Where the figure appears, `subject to the
+terms of the agreement` should appear too.
+
+## 2. Banned language — flag on sight
+
+- **Safety claims.** No `safe`, `pet-safe`, `child-safe`, `eco-safe`,
+  `non-toxic`, `EPA-approved`. The EPA **registers** pesticides, it does not
+  approve them — "EPA-approved" is both banned and factually false.
+- **Absolute claims.** No `unlimited` in marketing copy. No promise to
+  *eliminate* mosquitoes — only *reduce* or *knock down*.
+- **Availability claims.** No `same-day`, `available now`, `there today`,
+  `24/7 service`. Routes are scheduled; the company cannot promise arrival.
+- **`same technician` every visit.** Use `familiar local team`.
+- **Public review counts.** Star ratings are fine. Counts are not — they drift
+  and go stale (one page said 247 while another said 228 for the same office).
+- **Competitor names.** Never in customer-facing copy.
+- **Generation.** EnviroCare is **fourth generation**. Never third.
+
+## 3. Retired services and areas — a diff reintroducing these is a regression
+
+- **Tuscaloosa** is not a service area.
+- **Crawlspace service** is retired. `/services/crawlspace` 301s to
+  `/services/termite-control`. Do not add crawlspace as a sellable service —
+  describing a crawlspace as a place termites enter is fine.
+- **Bed bug** and **wildlife** are not offered.
+- **Carpenter bee** is existing customers only.
+
+## 4. NAP — phone numbers and addresses
+
+| Market | Phone | Address |
+|---|---|---|
+| Birmingham metro (MAIN) | `(205) 940-6360` | 2025 Butler Rd, Alabaster |
+| Alex City / Lake Martin | `(256) 234-6162` | 1785 Tallapoosa St, Alexander City |
+| Huntsville / North AL | `(256) 937-7676` | 7027 Old Madison Pike Ste 108 |
+
+- ☠️ **`(205) 649-5278` is a dead tracking number.** Any diff adding it is a
+  blocking error.
+- **`(205) 991-2882` and `2120 16th Ave S` are retired from customer-facing
+  pages** as of 2026-08-24. That office has no Google Business Profile;
+  publishing it worked against local rankings. The record survives in
+  `data/offices.ts` only.
+- A Birmingham-region page must never show the Huntsville number, or the
+  reverse. Seven city pages had this wrong in their **meta descriptions**.
+
+## 5. Pricing — `data/pricing.ts` is the only source of truth
+
+Flag any hardcoded price in a component, page, blog post, chatbot prompt, or
+JSON-LD block that contradicts it.
+
+- Pest from **$35/mo** on ACH · **$75 initial service on Pest and on
+  Pest + Mosquito**. **Complete is $229** — Phillip ruled on this directly on
+  2026-08-24 when a pack tried to collapse it to $75. Read
+  `plans.<plan>.startup`, never the bare `initialServiceFee`
+- The $75 initial is **50% off a $150 regular price** — it is not a flat price
+  that another discount can stack onto
+- Mosquito **$45/visit**, nine rounds March–November
+- **Tick and flea are quoted, never priced on-page** (`listOnPricingPage: false`)
+- **Termite is never a flat number.** Always "priced at inspection" or
+  "subject to inspection"
+
+Evergreen metadata should use the standing price (`$35/mo`), not the promo, so
+it does not go stale when a promo ends.
+
+## 6. Schema and metadata count as live copy
+
+JSON-LD, `openGraph`, `twitter`, and meta descriptions are what Google prints.
+Every rule above applies to them exactly as it applies to visible text. The
+worst violations found in the 2026-08-24 sweep were in `<title>` tags and Offer
+schema, not body copy.
+
+## 7. AI imagery
+
+Photorealistic AI depictions of EnviroCare trucks, technicians, or job sites are
+banned. Illustrations, diagrams, and infographics are fine.
+<!-- END:vercel-agent-code-review -->
