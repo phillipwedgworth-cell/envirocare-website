@@ -3,9 +3,9 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Vestavia Hills AL | From $35/mo | Free Inspection",
+  title: "Pest Control Vestavia Hills AL | From $35/mo",
   description:
-    "Bi-monthly pest control from $35/month across Vestavia Hills — Cahaba Heights, Rocky Ridge, Liberty Park. 30+ pests, re-service at no charge. Free termite inspection. Call (205) 940-6360.",
+    "Bi-monthly pest control from $35/mo across Vestavia Hills — Cahaba Heights, Rocky Ridge, Liberty Park. 30+ pests, re-service at no charge. Call (205) 940-6360.",
   alternates: { canonical: "/vestavia-hills" },
   openGraph: {
     images: ["/og/og-vestavia-hills.png"],
