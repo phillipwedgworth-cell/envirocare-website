@@ -358,7 +358,7 @@ export default function MadisonPage() {
               price: "$45/treatment",
               priceNote: "Every 30 days · Mar–Oct",
               features: [
-                "9 seasonal treatments",
+                "8 seasonal treatments",
                 "Barrier spray targets adults & breeding sites",
                 "Add tick/chigger coverage: $65/treatment",
                 "No year-round contract",
