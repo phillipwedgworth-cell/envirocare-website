@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/east-birmingham/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterAreaPage';
 
 export const metadata = {
@@ -25,7 +31,7 @@ const cfg: ClusterConfig = {
   "h1": "Pest Control in East Birmingham — Trussville, Leeds, Moody & Irondale",
   "intro": [
     "The east side of the metro runs from the historic Cahaba Project in Trussville to brand-new subdivisions in Moody — river corridors, railroad towns, and some of the metro's fastest growth. Every one of those conditions feeds a different pest problem.",
-    "EnviroCare's east Birmingham routes cover this whole cluster with the same technician and the same four-pillar program: pest, termite, mosquito, and tick protection, family-owned since 1958."
+    "EnviroCare's east Birmingham routes cover this whole cluster with a familiar local team and the same four-pillar program: pest, termite, mosquito, and tick protection, family-owned since 1958."
   ],
   "pestAngle": "The Cahaba River and Little Cahaba corridors drive mosquito pressure, historic downtown foundations carry termites, and fresh east-metro construction imports fire ants with every pallet of sod.",
   "cities": [

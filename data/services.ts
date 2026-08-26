@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/services.ts
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/services.ts
 // Commit: fix(compliance): remove banned terms from service copy — 'guarantee' on $1M coverage, 'Bundle' wording, 'same tech' promise, 'safe' in FAQs
 // Push: main
 // ───────────────────────────────────
@@ -264,13 +270,13 @@ export const SERVICES: Service[] = [
     category: 'specialty',
     serviceArt: 'fireant',
     metaTitle: 'Fire Ant Control in Alabama | Colony Elimination | EnviroCare',
-    metaDescription: 'Fire ant treatment that reaches the queen, not just the mound. Starts at $150, priced per sq ft. Open to all. Birmingham & across Alabama. (205) 940-6360.',
+    metaDescription: 'Fire ant treatment that reaches the queen, not just the mound. $150 for most yards, one-year warranty. Open to all. Birmingham & across Alabama. (205) 940-6360.',
     heroEyebrow: 'Critical For Lake Homes',
     heroTagline: 'Fire Ant Control',
     heroSubhead: 'Yard-wide elimination, not just spot mound treatment. Built for Alabama families who actually use their yards — kids, dogs, barefoot summer.',
     features: [
       'Yard-wide elimination',
-      'Single application coverage',
+      'Backed by a one-year warranty',
       'Applied per label directions',
       'Pairs with pest control',
       'Especially critical for lake homes',
@@ -287,7 +293,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'How do I get rid of fire ants for good?', a: 'You have to reach the queen and the colony, not just the visible mound. Surface treatments scatter the ants and the queen survives, so the colony rebuilds nearby. Our treatment is carried back into the colony to take out the source.' },
-      { q: 'How much does fire ant control cost?', a: 'It starts at a $150 minimum and is then priced by the square footage of the area treated. Your technician measures the area and gives you the number up front.' },
+      { q: 'How much does fire ant control cost?', a: '$150 covers most yards. Larger properties are quoted by the square footage we treat, and your technician gives you the number up front before any work starts. Every fire ant treatment is backed by a one-year warranty.' },
       { q: 'Do I have to be on a pest plan to get fire ant control?', a: 'No. Fire ant control is a standalone service available to anyone — you don\'t need a recurring plan.' },
       { q: 'Why do my fire ant mounds keep coming back?', a: 'Because DIY methods rarely reach the queen. As long as she\'s alive, the colony just relocates and rebuilds, often only a few feet from the old mound.' },
       { q: 'What about pets and kids with fire ant treatment?', a: 'We use only EPA-registered products and follow the label directions for every application. Your technician will explain any simple, label-directed steps to follow on the day of service.' },

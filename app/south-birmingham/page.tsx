@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/south-birmingham/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterAreaPage';
 
 export const metadata = {
@@ -75,7 +81,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "What about fire ants?",
-      "a": "Whole-colony fire ant treatment is available to anyone — starting at $150, priced by yard size, with unlimited re-service between visits."
+      "a": "Whole-colony fire ant treatment is available to anyone — $150 covers most yards, larger properties quoted by size, backed by a one-year warranty."
     }
   ],
   "nearbyClusters": [
