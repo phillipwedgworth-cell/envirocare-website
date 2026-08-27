@@ -99,15 +99,32 @@ once, and watching for a `/g/collect` request in DevTools → Network.
 1. ✅ **DONE 2026-08-27 (Phillip) — Data retention 2 → 14 months.** Not
    retroactive, so it protects data from that date forward; the pre-existing
    2-month horizon is gone for good. Nothing further to do here.
-2. **Mark Key Events (conversions).** Admin → Events → mark as key event.
-   `DeferredTracking.tsx` already fires `phone_click`, `email_click`, and
+2. ✅ **DONE 2026-08-27 (Phillip) — `phone_click` and `generate_lead` are
+   marked as Key Events.** For a pest control company the phone click *is* the
+   conversion. `DeferredTracking.tsx` fires `phone_click` / `email_click` /
    `data-track` CTA events, and all four lead forms fire `generate_lead`
-   (ScheduleRequest, RequestQuoteForm, ChatWidget, ContactUs) — GA4 just isn't
-   counting them as conversions. For a pest control company the phone click
-   *is* the conversion.
-   ⚠️ **Timing:** an event only appears in that list once GA4 has *received*
-   it. Tracking was dead until 2026-08-27, so give it ~24h of real traffic
-   before looking, or the list will be empty and it will look broken.
+   (ScheduleRequest, RequestQuoteForm, ChatWidget, ContactUs).
+   Deliberately NOT marked: `purchase` (a GA4 placeholder — "no stream data
+   detected"; EnviroCare sells nothing online, so it would be a permanent zero)
+   and `ads_conversion_Contact_Us_1` (an existing Google Ads import — leave it).
+
+   ⚠️ **The navigation trap — this cost a wrong turn on the day.** Admin has
+   two adjacent pages and only one is right:
+   - **Events → "Create event"** *invents a brand-new synthetic event* from a
+     trigger (it asks for a data stream, a source event such as `page_view`,
+     and a URL condition). Naming one `phone_click` here would create a fake
+     duplicate that fires on page views, alongside the real event. **Wrong
+     page.** If you are asked for a stream, a trigger, a URL, or
+     "create with / without code", back out without saving.
+   - **Data display → Key events** is the right page. Existing events are
+     listed; **click the star** next to the event name. `New key event` there
+     asks for a name and nothing else.
+
+   Correction to an earlier note in this file: it claimed an event must be
+   *received* before it can be marked, so you had to wait ~24h. Not so —
+   both events were already listed (they appear under "Streams active in the
+   last 28 days", a window reaching back before the Aug 17 outage), and the
+   Key events page accepts a name that has never been seen anyway.
 3. **Exclude the payment domain from referrals.** Admin → Data Streams → Web →
    Configure tag settings → List unwanted referrals → add
    `payenvirocare.key7app.com`. Otherwise customers returning from paying show
