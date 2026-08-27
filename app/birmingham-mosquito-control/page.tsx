@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/birmingham-mosquito-control/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
@@ -62,7 +68,7 @@ const c: ComboContent = {
   faqs: [
     {
       q: "When should Birmingham homes start mosquito service?",
-      a: "Late March or April — before populations explode. Starting before the first big hatch produces visibly better results all season than starting in June. We run the program through November.",
+      a: "Late March or April — before populations explode. Starting before the first big hatch produces visibly better results all season than starting in June. We run the program through October.",
     },
     {
       q: "Does it work on yards backing up to a creek?",
@@ -74,7 +80,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I bundle mosquito with pest control?",
-      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Mosquito + Tick plan adds tick + chigger coverage at $65/visit.",
+      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with your familiar local team on one schedule. The Mosquito + Tick plan adds tick + chigger coverage at $65/visit.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },

@@ -60,7 +60,7 @@ const c: ComboContent = {
     },
     {
       q: "When should Madison homes start treatment?",
-      a: "March, as overwintering mosquitoes wake with the first warm stretch. Starting early suppresses the first breeding cycle rather than fighting a July population at full strength. The season runs through roughly November here.",
+      a: "March, as overwintering mosquitoes wake with the first warm stretch. Starting early suppresses the first breeding cycle rather than fighting a July population at full strength. The season runs through roughly October here.",
     },
     {
       q: "Is the treatment a fog that drifts away?",

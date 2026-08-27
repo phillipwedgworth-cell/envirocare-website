@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/madison/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/madison/page.tsx
 // Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
 // Push: main
 // ─────────────────────────────────────
@@ -277,7 +283,7 @@ export default function MadisonPage() {
             {
               icon: "🦟",
               title: "Tennessee River tributaries keep mosquitoes active",
-              body: "Big Spring Creek, Turkey Creek, and the drainage network feeding the Tennessee create standing-water breeding habitat across Madison. Mosquito pressure typically starts in March and runs through October — covering the full outdoor entertaining and youth sports season. Our 30-day barrier program covers the complete season.",
+              body: "Big Spring Creek, Turkey Creek, and the drainage network feeding the Tennessee create standing-water breeding habitat across Madison. Mosquito pressure typically starts in March and runs through early October — covering the full outdoor entertaining and youth sports season. Our 30-day barrier program covers the complete season.",
             },
             {
               icon: "🐜",
@@ -352,7 +358,7 @@ export default function MadisonPage() {
               price: "$45/treatment",
               priceNote: "Every 30 days · Mar–Oct",
               features: [
-                "9 seasonal treatments",
+                "8 seasonal treatments",
                 "Barrier spray targets adults & breeding sites",
                 "Add tick/chigger coverage: $65/treatment",
                 "No year-round contract",
@@ -534,7 +540,7 @@ export default function MadisonPage() {
             </p>
             <p style={{ fontSize: 15.5, lineHeight: 1.75, margin: "0 0 28px", color: "#374151" }}>
               We&apos;ve been doing this in North Alabama since 1958. Our Huntsville office services
-              all of Madison — the same technicians, the same family ownership, the same standard
+              all of Madison — a familiar local team, the same family ownership, the same standard
               of service that&apos;s protected hundreds of Huntsville-area homes for four generations.
               No national call center. No franchised techs. The Wedgworth family picks up the phone.
             </p>

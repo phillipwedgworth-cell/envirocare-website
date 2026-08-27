@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/huntsville-mosquito-control/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
@@ -26,7 +32,7 @@ const c: ComboContent = {
   h1Accent: "Built for the Tennessee Valley.",
   intro: [
     "Huntsville's growth has a side effect nobody puts in the relocation brochure: every new subdivision adds retention ponds, and every retention pond feeds the Tennessee Valley's already-relentless mosquito population. Add Beaverdam Creek, the Hampton Cove water features, and Aldridge Creek through south Huntsville, and the season runs hard from March to October.",
-    "EnviroCare's Huntsville office on Old Madison Pike has run mosquito routes across Madison County since the program existed — Providence to Big Cove, Jones Valley to Research Park. One technician, every 30 days, until your yard is yours again.",
+    "EnviroCare's Huntsville office on Old Madison Pike has run mosquito routes across Madison County since the program existed — Providence to Big Cove, Jones Valley to Research Park. A familiar local team, every 30 days through the season.",
   ],
   anglesHeading: "Huntsville's mosquito map, street by street",
   localAngles: [

@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/blog-posts.ts
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/blog-posts.ts
 // Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
 // Push: main
 // ─────────────────────────────────────
@@ -652,7 +658,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>March through October. 8 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65 per visit.</p>
+<p>March through October. 8 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visit.</p>
 
 <h2>What we DON'T recommend</h2>
 
