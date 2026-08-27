@@ -1,0 +1,63 @@
+name: Guards
+
+# Runs the repo's own guard suite (`npm test`) on every pull request and on
+# every push to main.
+#
+# WHY THIS EXISTS
+# -----------------------------------------------------------------------------
+# This repo had accumulated NINE guard scripts — compliance canon, NAP pairing,
+# breadcrumbs, sitemap lastmod, AI imagery, zombie claims, tracking integrity —
+# and not one of them ran automatically. They only fired if a human remembered
+# to type `npm test`. A guard nobody runs is documentation, not a guard.
+#
+# The 2026-08-17 GA4 outage is the case in point: a refactor silently disabled
+# analytics for ten days. `npm run test:tracking` now catches that exact change
+# in under a second, but only if something actually runs it. This is that
+# something.
+#
+# The build step is not optional. Three guards (breadcrumbs, sitemap lastmod,
+# tracking integrity) assert against the BUILT output in .next, because the
+# defects they exist to catch are invisible in source — a `service.title` that
+# doesn't exist, a gtag bootstrap that a refactor rewrote. Without a build they
+# silently downgrade to source-only checks and report a weaker PASS.
+#
+# No secrets are needed: `next build` was verified to complete cleanly with an
+# empty environment (the Resend and Supabase clients are lazily constructed
+# precisely so a secret-less build cannot fail).
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# A newer push to the same branch makes an in-flight run obsolete.
+concurrency:
+  group: guards-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # test:lastmod compares the sitemap's STATIC_LASTMOD against the newest
+          # commit date, which a shallow clone would report wrongly.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24        # matches the Vercel project runtime
+          cache: npm
+
+      - name: Install
+        run: npm ci || npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Guard suite
+        run: npm test

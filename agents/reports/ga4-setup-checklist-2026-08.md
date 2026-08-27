@@ -40,7 +40,18 @@ deleted-stream theory was disproven by Phillip reading it off Admin.
 
 **Lesson for future refactors:** never "modernize" the gtag snippet. Arrow
 functions and rest params both break it, silently. `components/
-DeferredTracking.tsx` now carries a warning comment at that line.
+DeferredTracking.tsx` carries a warning comment at that line — but a comment is
+not a guard, and the comment did not exist when the refactor shipped.
+
+**Enforced 2026-08-27:** `npm run test:tracking`
+(`scripts/test-tracking-integrity.mjs`) now fails the build if the gtag
+bootstrap stops pushing `arguments`, if gtag is bound to anything other than a
+`function`, or if any lead form stops firing `generate_lead`. It asserts against
+the **built bundle** as well as source, because `arguments` is a reserved
+binding that no minifier renames — so its absence from `.next` proves GA4 is
+dead in production. Verified by reintroducing the exact 2026-08-17 change and
+confirming the guard fails. The whole suite runs on every PR via the
+**Guards** workflow.
 
 **Open watch item:** the confirming hit returned HTTP 503 from
 `analytics.google.com/g/collect`. Likely automation throttling (the check ran
@@ -85,13 +96,18 @@ once, and watching for a `/g/collect` request in DevTools → Network.
 
 ## P1 — Settings worth fixing once data flows (all GA4 UI; ~15 min total)
 
-1. **Data retention: 2 months → 14 months.** Admin → Data Settings → Data
-   Retention. GA4 defaults to 2 and silently discards older user-level data —
-   this is the single most commonly missed setting and it is not retroactive.
+1. ✅ **DONE 2026-08-27 (Phillip) — Data retention 2 → 14 months.** Not
+   retroactive, so it protects data from that date forward; the pre-existing
+   2-month horizon is gone for good. Nothing further to do here.
 2. **Mark Key Events (conversions).** Admin → Events → mark as key event.
    `DeferredTracking.tsx` already fires `phone_click`, `email_click`, and
-   `data-track` CTA events — GA4 just isn't counting them as conversions.
-   For a pest control company the phone click *is* the conversion.
+   `data-track` CTA events, and all four lead forms fire `generate_lead`
+   (ScheduleRequest, RequestQuoteForm, ChatWidget, ContactUs) — GA4 just isn't
+   counting them as conversions. For a pest control company the phone click
+   *is* the conversion.
+   ⚠️ **Timing:** an event only appears in that list once GA4 has *received*
+   it. Tracking was dead until 2026-08-27, so give it ~24h of real traffic
+   before looking, or the list will be empty and it will look broken.
 3. **Exclude the payment domain from referrals.** Admin → Data Streams → Web →
    Configure tag settings → List unwanted referrals → add
    `payenvirocare.key7app.com`. Otherwise customers returning from paying show
