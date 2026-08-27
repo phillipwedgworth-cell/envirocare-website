@@ -36,7 +36,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🦟",
       "title": "Mosquitoes around creeks and seasonal water",
-      "body": "Seasonal creeks, drainage swales, and the broader Cahaba watershed mean mosquitoes start early (March) and persist late (November). 30-day yard barrier targets harborage zones — tree lines, ornamental beds, gutters, and shaded back-of-house areas."
+      "body": "Seasonal creeks, drainage swales, and the broader Cahaba watershed mean mosquitoes start early (March) and persist late (October). 30-day yard barrier targets harborage zones — tree lines, ornamental beds, gutters, and shaded back-of-house areas."
     },
     {
       "emoji": "🪵",

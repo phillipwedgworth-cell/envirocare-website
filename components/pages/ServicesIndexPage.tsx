@@ -52,10 +52,10 @@ export default function ServicesIndexPage() {
               <span className="svc-card-link">Learn more →</span>
             </a>
             <a href="/services/mosquito" className="svc-card">
-              <div className="svc-card-tag">March – November</div>
+              <div className="svc-card-tag">March – October</div>
               <div className="svc-card-name">Mosquito Control</div>
               <div className="svc-card-price">$45/visit · add tick for +$20</div>
-              <div className="svc-card-desc">30-day yard barrier March through November. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. EPA-registered products, applied per label directions.</div>
+              <div className="svc-card-desc">30-day yard barrier March through October. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. EPA-registered products, applied per label directions.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             <a href="/services/termite-control" className="svc-card feat">

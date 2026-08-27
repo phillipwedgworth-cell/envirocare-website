@@ -103,13 +103,13 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
       },
       {
         '@type': 'Offer', name: 'Mosquito Yard Barrier', price: '45', priceCurrency: 'USD',
-        priceSpecification: { '@type': 'UnitPriceSpecification', price: '45', priceCurrency: 'USD', unitText: 'per treatment, March through November' },
-        itemOffered: { '@type': 'Service', name: 'Monthly Mosquito Yard Treatment', description: '30-day yard barrier mosquito treatment, applied monthly March through November (9 treatments per year).' },
+        priceSpecification: { '@type': 'UnitPriceSpecification', price: '45', priceCurrency: 'USD', unitText: 'per treatment, March through October' },
+        itemOffered: { '@type': 'Service', name: 'Monthly Mosquito Yard Treatment', description: '30-day yard barrier mosquito treatment, applied monthly March through October (8 treatments per year).' },
       },
       {
         '@type': 'Offer', name: 'Mosquito + Tick Outdoor Pro', price: '65', priceCurrency: 'USD',
-        priceSpecification: { '@type': 'UnitPriceSpecification', price: '65', priceCurrency: 'USD', unitText: 'per treatment, March through November' },
-        itemOffered: { '@type': 'Service', name: 'Mosquito + Tick Yard Treatment', description: 'Combined mosquito and tick yard barrier — covers chiggers. 30-day refresh, March through November.' },
+        priceSpecification: { '@type': 'UnitPriceSpecification', price: '65', priceCurrency: 'USD', unitText: 'per treatment, March through October' },
+        itemOffered: { '@type': 'Service', name: 'Mosquito + Tick Yard Treatment', description: 'Combined mosquito and tick yard barrier — covers chiggers. 30-day refresh, March through October.' },
       },
     ],
   },

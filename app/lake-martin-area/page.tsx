@@ -28,7 +28,7 @@ const cfg: ClusterConfig = {
     "Waterfront homes get a program built for the lake: no-drill Sentricon® termite protection with the free inspection covering the home, crawlspace, dock, pier, and boathouse, plus the 30-day mosquito barrier suited to shoreline living.",
     "The same crew runs east to Auburn and Opelika — Lee County homes get the identical family-owned service, with a direct Auburn line at (334) 332-3321."
   ],
-  "pestAngle": "Lake moisture drives everything here: shoreline mosquito pressure March through November, termites in damp waterfront soil, fire ants in sandy lake lots, and ticks along the wooded edges.",
+  "pestAngle": "Lake moisture drives everything here: shoreline mosquito pressure March through October, termites in damp waterfront soil, fire ants in sandy lake lots, and ticks along the wooded edges.",
   "cities": [
     {
       "name": "Alexander City",

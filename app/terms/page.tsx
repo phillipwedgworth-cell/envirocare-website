@@ -67,7 +67,7 @@ export default function TermsPage() {
         <ul>
           <li>Bi-monthly perimeter pest control (covers 30+ common household pests)</li>
           <li>Sentricon® Always Active™ termite baiting system (licensed by Corteva Agriscience)</li>
-          <li>Mosquito yard barrier treatment (seasonal — March through November)</li>
+          <li>Mosquito yard barrier treatment (seasonal — March through October)</li>
           <li>Tick control</li>
           <li>Pre-construction termite treatment and WDO inspection letters for real estate transactions</li>
         </ul>
@@ -85,7 +85,7 @@ export default function TermsPage() {
         <ul>
           <li>Pest control is billed monthly (ACH) or per-visit at the bi-monthly rate</li>
           <li>Sentricon® is billed monthly or as an annual renewal following installation</li>
-          <li>Mosquito service is seasonal (March–November) and billed monthly during that period</li>
+          <li>Mosquito service is seasonal (March–October) and billed monthly during that period</li>
         </ul>
         <p>
           Prices are subject to change with 30 days' notice. Bundled plans are offered for convenience and do not constitute a

@@ -4,7 +4,7 @@ import { PRICING } from "@/data/pricing";
 
 const TITLE = "Mosquito Control Madison AL | Seasonal Yard Treatment | EnviroCare";
 const DESC =
-  `Mosquito control in Madison AL — ~$${PRICING.addOns.mosquito.perVisit}/treatment, about 9 treatments March–November. Creek-line and greenway yards are the worst hit. Call (256) 937-7676.`;
+  `Mosquito control in Madison AL — ~$${PRICING.addOns.mosquito.perVisit}/treatment, about 8 treatments March–October. Creek-line and greenway yards are the worst hit. Call (256) 937-7676.`;
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -19,7 +19,7 @@ const c: ComboContent = {
   h1: "Mosquito Control in Madison,",
   h1Accent: "Because the Creek Doesn't Care How New Your Deck Is.",
   intro: [
-    "Madison's best-loved features are also its mosquito engines. Bradford Creek and Mill Creek thread the city, the greenway follows the water, and every retention pond behind every new phase holds exactly the still margin water mosquitoes breed in. Add Tennessee Valley humidity from March to November and a brand-new patio doesn't stay usable past dusk without help.",
+    "Madison's best-loved features are also its mosquito engines. Bradford Creek and Mill Creek thread the city, the greenway follows the water, and every retention pond behind every new phase holds exactly the still margin water mosquitoes breed in. Add Tennessee Valley humidity from March to October and a brand-new patio doesn't stay usable past dusk without help.",
     "EnviroCare's seasonal program treats the places mosquitoes actually rest and breed on your property — shaded foliage, under-deck areas, fence lines, standing-water edges — on roughly a monthly cycle through the season. The goal is a serious reduction in the population living in your yard. Anyone promising a mosquito-free yard is promising something the biology doesn't support; what we deliver is a yard you can use again.",
   ],
   anglesHeading: "Where Madison mosquitoes come from",
@@ -44,7 +44,7 @@ const c: ComboContent = {
   price: {
     label: "Seasonal Mosquito Program — Madison",
     amount: `~$${PRICING.addOns.mosquito.perVisit}/treatment`,
-    sub: "about 9 treatments, March–November",
+    sub: "about 8 treatments, March–October",
     bullets: [
       "Barrier treatment of resting + breeding sites",
       "Roughly 30-day cycle through the season",

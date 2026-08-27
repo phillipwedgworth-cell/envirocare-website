@@ -159,7 +159,7 @@ export default function CityPage({ city }: { city: CityData }) {
               desc="Sentricon® Always Active™ stations. No drilling, no tank trucks. Up to $1M damage repair coverage, subject to the terms of the agreement."
               bullets={["Free full-home inspection", "Annual inspection included", "Crawlspace + pier coverage", "Continuous monitoring"]} />
             <ServiceCard ribbon="Mar – Nov" icon="🦟" title="Mosquito Control" price="$45" priceUnit="/mo · seasonal"
-              desc="30-day yard barrier March through November. Reclaim your patio, deck, and outdoor living spaces."
+              desc="30-day yard barrier March through October. Reclaim your patio, deck, and outdoor living spaces."
               bullets={["Up to 9 seasonal applications", "EPA-registered products, applied per label", "Targets harborage zones", "50% off first application"]} />
             <ServiceCard icon="🐾" title="Tick Control" price="$60" priceUnit="/mo · with mosquito"
               desc={`Targeted yard treatments to break the tick lifecycle. Critical for ${city.name} properties.`}

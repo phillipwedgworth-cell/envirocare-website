@@ -476,7 +476,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What professional treatment does differently</h2>
 
-<p>Our technicians use backpack misters that push a fine droplet up into the harborage DIY sprayers miss — the undersides of leaves, the shaded resting zones, fence lines and deck skirting — using EPA-registered products applied per label directions. We treat every three to four weeks, March through November, so the residual never fully lapses. And on each visit the technician walks the property looking for the breeding sites you can't spray your way out of: the gutter, the corrugated drainpipe, the low spot that holds water.</p>
+<p>Our technicians use backpack misters that push a fine droplet up into the harborage DIY sprayers miss — the undersides of leaves, the shaded resting zones, fence lines and deck skirting — using EPA-registered products applied per label directions. We treat every three to four weeks, March through October, so the residual never fully lapses. And on each visit the technician walks the property looking for the breeding sites you can't spray your way out of: the gutter, the corrugated drainpipe, the low spot that holds water.</p>
 
 <p>Here's the honest part, because it matters: professional mosquito control is about significant reduction, not elimination. No treatment removes every mosquito in Alabama, and any company promising otherwise is overselling. What we do promise is to stand behind the service — if mosquitoes bounce back between scheduled visits, we come back and re-treat at no charge.</p>
 
@@ -484,7 +484,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>DIY isn't free. A hose-end concentrate runs $20–25 a month through the season, plus the candles, cartridges, and the zapper gathering moths on the porch — most homeowners spend $150–200 a season for results that fade midweek.</p>
 
-<p>Our <a href="/services/mosquito">seasonal mosquito service</a> is $45 per treatment, March through November. Customers on a pest control plan can add it from $34 a month (monthly pricing requires a 12-month service agreement, billed by ACH auto-draft in equal averaged payments). Timing helps too — as we covered in our <a href="/blog/mosquito-season-birmingham-al">Alabama mosquito season guide</a>, starting earlier in the season keeps the breeding population from ever compounding.</p>
+<p>Our <a href="/services/mosquito">seasonal mosquito service</a> is $45 per treatment, March through October. Customers on a pest control plan can add it from $34 a month (monthly pricing requires a 12-month service agreement, billed by ACH auto-draft in equal averaged payments). Timing helps too — as we covered in our <a href="/blog/mosquito-season-birmingham-al">Alabama mosquito season guide</a>, starting earlier in the season keeps the breeding population from ever compounding.</p>
 
 <h2>When DIY is the right call</h2>
 
@@ -628,9 +628,9 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '🦟',
     metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare Since 1958',
-    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–November. Family-owned, EPA-registered. Reclaim your dock. Call (256) 234-6162.',
+    metaDescription: 'Lake Martin mosquito control. 30-day yard barrier service March–October. Family-owned, EPA-registered. Reclaim your dock. Call (256) 234-6162.',
     body: `
-<p class="lede">Lake Martin is paradise from March through November — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
+<p class="lede">Lake Martin is paradise from March through October — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
 <p>Our Alex City office has been treating lake homes since 1958. Here's what actually works, what doesn't, and how to think about mosquito control if you live (or weekend) on the water.</p>
 
@@ -652,7 +652,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>March through November. 9 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visitnth.</p>
+<p>March through October. 8 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visitnth.</p>
 
 <h2>What we DON'T recommend</h2>
 
@@ -676,7 +676,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Tick and flea bundle</h2>
 
-<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65/visitnth, March through November.</p>
+<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65/visitnth, March through October.</p>
 
 <p>Call our Alex City / Lake Martin office: <strong>(256) 234-6162</strong>.</p>
 `,
@@ -1624,7 +1624,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
   {
     slug: 'mosquito-season-birmingham-al',
     title: 'Mosquito Season in Alabama: When to Start for Best Results',
-    excerpt: 'Alabama mosquito season runs March through November. Starting early — before the population compounds — is the single biggest factor in how well control works.',
+    excerpt: 'Alabama mosquito season runs March through October. Starting early — before the population compounds — is the single biggest factor in how well control works.',
     publishedAt: '2026-03-01',
     updatedAt: '2026-07-23',
     author: 'Kevin Wedgworth',
@@ -1638,7 +1638,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <h2>When is mosquito season in Alabama?</h2>
 
-<p>Alabama mosquito season effectively runs March through November. Mosquitoes become active once temperatures hold consistently above about 50°F, breeding accelerates sharply past 70°F, and activity doesn't meaningfully stop until sustained cold in late fall. That's a nine-month season — considerably longer than most of the country, and the reason our treatment program is built as nine treatments rather than a summer add-on.</p>
+<p>Alabama mosquito season effectively runs March through October. Mosquitoes become active once temperatures hold consistently above about 50°F, breeding accelerates sharply past 70°F, and activity doesn't meaningfully stop until sustained cold in late fall. That's an eight-month season — considerably longer than most of the country, and the reason our treatment program is built as eight treatments rather than a summer add-on.</p>
 
 <h2>Why does starting early matter so much?</h2>
 
@@ -1682,7 +1682,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <h2>What does mosquito service cost in Alabama?</h2>
 
-<p>Our mosquito program runs about $45 per treatment across nine treatments, March through November — roughly $33.75 a month when spread evenly across the year. Adding tick and chigger coverage brings it to about $65 per treatment, or roughly $48.75 a month.</p>
+<p>Our mosquito program runs about $45 per treatment across eight treatments, March through October — roughly $30 a month when spread evenly across the year. Adding tick and chigger coverage brings it to about $65 per treatment, or roughly $43.33 a month.</p>
 
 <p>Both are their own services rather than part of the bi-monthly pest plan, because mosquito work uses different products, different equipment, and a different treatment map than interior and perimeter pest control.</p>
 
@@ -1863,7 +1863,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Yard tick treatment is a targeted barrier application to the places ticks actually occupy — the wood line, fence rows, ivy and ground cover, shaded shrub beds, and leaf litter — rather than a blanket spray of open lawn. Products are EPA-registered and applied according to label directions.</p>
 
-<p>At EnviroCare, tick coverage is part of our <strong>Mosquito &amp; Tick program</strong>, which runs about $65 per treatment across nine treatments from March through November — roughly $48.75 a month when spread across the year. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas; fleas are an interior problem and we handle them separately.</p>
+<p>At EnviroCare, tick coverage is part of our <strong>Mosquito &amp; Tick program</strong>, which runs about $65 per treatment across eight treatments from March through October — roughly $43.33 a month when spread across the year. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas; fleas are an interior problem and we handle them separately.</p>
 
 <p>One important clarification: <strong>ticks are not included in our standard bi-monthly pest plan.</strong> That plan covers 30-plus household pests, but ticks, fleas, and fire ants each require different products and different placement, so they're handled as their own services. We'd rather tell you that up front than have you assume you're covered.</p>
 

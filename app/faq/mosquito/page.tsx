@@ -34,7 +34,7 @@ const SCHEMA = {
       name: "When does mosquito season start in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Mosquito season in Alabama typically begins in late March to early April — when overnight temperatures stay consistently above 50°F. Activity peaks from May through August, then tapers in September and October. EnviroCare's season runs March through November with 30-day treatment cycles.",
+        text: "Mosquito season in Alabama typically begins in late March to early April — when overnight temperatures stay consistently above 50°F. Activity peaks from May through August, then tapers in September and October. EnviroCare's season runs March through October with 30-day treatment cycles.",
       },
     },
     {
@@ -42,7 +42,7 @@ const SCHEMA = {
       name: "How often do you treat for mosquitoes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Every 30 days, March through November. That cycle matches the lifespan of adult mosquitoes and breaks the breeding cycle before the next generation explodes. Customers who start treatment in April consistently see lower pressure all season.",
+        text: "Every 30 days, March through October. That cycle matches the lifespan of adult mosquitoes and breaks the breeding cycle before the next generation explodes. Customers who start treatment in April consistently see lower pressure all season.",
       },
     },
     {
@@ -58,7 +58,7 @@ const SCHEMA = {
       name: "How much does mosquito control cost in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare's mosquito program is $45 per visit, March through November (9 visits, billed per service — no monthly). There's no setup fee and no annual contract. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
+        text: "EnviroCare's mosquito program is $45 per visit, March through October (8 visits, billed per service — no monthly). There's no setup fee and no annual contract. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
       },
     },
     {
@@ -98,7 +98,7 @@ const FAQS = [
   },
   {
     q: "How often do you treat?",
-    a: "Every 30 days, March through November. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
+    a: "Every 30 days, March through October. That cycle matches adult mosquito lifespan and breaks the breeding cycle before the next generation takes over. We'll notify you the day before and leave a door hanger after. You don't need to be home.",
   },
   {
     q: "When can kids and pets go back in the yard?",
@@ -106,7 +106,7 @@ const FAQS = [
   },
   {
     q: "How much does mosquito control cost?",
-    a: "$45 per visit, March through November (9 visits, billed per service — no monthly). No setup fee, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
+    a: "$45 per visit, March through October (8 visits, billed per service — no monthly). No setup fee, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
   },
   {
     q: "Do you serve Lake Martin waterfront homes?",
@@ -355,7 +355,7 @@ export default function MosquitoFAQ() {
               lineHeight: 1.6,
             }}
           >
-            <strong>EnviroCare service season:</strong> March through November.
+            <strong>EnviroCare service season:</strong> March through October.
             30-day treatment cycle. Sign up in April for the best results.
           </div>
         </div>
@@ -427,7 +427,7 @@ export default function MosquitoFAQ() {
             }}
           >
             {[
-              { n: "$45/visit", label: "March–November" },
+              { n: "$45/visit", label: "March–October" },
               { n: "21 days", label: "Treatment cycle" },
               { n: "Free", label: "Re-service between visits" },
               { n: "Since 1958", label: "Family-owned Alabama" },

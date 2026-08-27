@@ -42,7 +42,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🦟",
       title: "Mosquitoes from Lane Park's shaded green space",
-      body: "The green space and creek drainage near Lane Park keeps mosquito pressure elevated from March through November. The 30-day yard barrier targets resting zones in shrub lines and shaded beds.",
+      body: "The green space and creek drainage near Lane Park keeps mosquito pressure elevated from March through October. The 30-day yard barrier targets resting zones in shrub lines and shaded beds.",
     },
     {
       emoji: "🐜",

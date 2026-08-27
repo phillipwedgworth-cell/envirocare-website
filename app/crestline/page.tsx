@@ -42,7 +42,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🦟",
       title: "Mosquitoes off Jemison Park & Shades Creek",
-      body: "The Jemison Park trail and Shades Creek greenway run close to Crestline, and the shaded, damp corridor breeds mosquitoes March through November. The 30-day yard barrier keeps porches and backyards usable through the season.",
+      body: "The Jemison Park trail and Shades Creek greenway run close to Crestline, and the shaded, damp corridor breeds mosquitoes March through October. The 30-day yard barrier keeps porches and backyards usable through the season.",
     },
     {
       emoji: "🕷️",
@@ -86,7 +86,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "What does mosquito service cost for a typical Crestline yard?",
-      a: "Mosquito-only treatment is $45 per visit, applied every 30 days March through November. Many Crestline homes near the Jemison Park tree line choose the Mosquito + Tick plan at $65/visit, since it bundles tick and chigger coverage for shaded, wooded-adjacent yards.",
+      a: "Mosquito-only treatment is $45 per visit, applied every 30 days March through October. Many Crestline homes near the Jemison Park tree line choose the Mosquito + Tick plan at $65/visit, since it bundles tick and chigger coverage for shaded, wooded-adjacent yards.",
     },
     {
       q: "Is there a long-term contract?",

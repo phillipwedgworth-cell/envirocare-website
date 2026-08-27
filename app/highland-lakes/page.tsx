@@ -36,7 +36,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks across the back acreage",
-      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Mosquito + Tick plan ($65/treatment) is the right call here — bundles mosquito + tick + chigger for $48.75/month equivalent over the 9-month season."
+      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Mosquito + Tick plan ($65/treatment) is the right call here — bundles mosquito + tick + chigger for $43.33/month equivalent over the 8-month season."
     },
     {
       "emoji": "🪵",

@@ -37,7 +37,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🦟",
       title: "Mosquitoes from the Shades Creek corridor",
-      body: "The Shades Creek drainage running near Cherokee Bend keeps mosquito pressure elevated from March through November. The 30-day yard barrier targets the shaded resting zones along tree lines and shrub beds.",
+      body: "The Shades Creek drainage running near Cherokee Bend keeps mosquito pressure elevated from March through October. The 30-day yard barrier targets the shaded resting zones along tree lines and shrub beds.",
     },
     {
       emoji: "🪵",

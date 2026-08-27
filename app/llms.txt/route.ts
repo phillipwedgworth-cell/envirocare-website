@@ -28,7 +28,7 @@ const LLMS_TXT = `# EnviroCare
 - [Interior + exterior quarterly plan](https://www.envirocarellc.com/services/interior-pest-control): inside-and-out, 4 visits/year.
 - [Termite control](https://www.envirocarellc.com/services/termite-control): protection with a free on-site inspection.
 - [Sentricon Always Active](https://www.envirocarellc.com/services/sentricon): the bait system we install — no drilling, no tank trucks.
-- [Mosquito yard barrier](https://www.envirocarellc.com/services/mosquito): $45/visit, March–November, waterfront-approved.
+- [Mosquito yard barrier](https://www.envirocarellc.com/services/mosquito): $45/visit, March–October, waterfront-approved.
 - [Tick control](https://www.envirocarellc.com/services/tick-control): paired with mosquito service (Mosquito + Tick $65/visit).
 - [Fire ant treatment](https://www.envirocarellc.com/services/fire-ant): whole-colony treatment, no plan required.
 - [Flea treatment](https://www.envirocarellc.com/services/flea): interior-plan add-on.
@@ -54,16 +54,16 @@ const LLMS_TXT = `# EnviroCare
 - Fire ant treatment: $150 minimum, priced by the square footage of covered area —
   available to anyone in the service area, no plan required. Whole-colony treatment.
 - Tick treatment: only with mosquito (never standalone) — Mosquito + Tick is $65/visit,
-  March through November (9 visits, billed per service). Per visit, no monthly.
+  March through October (8 visits, billed per service). Per visit, no monthly.
 - Interior + exterior quarterly plan: $98/quarter (4 visits/year, inside and outside).
   Flea treatment is an add-on to this plan: +$30/quarter ($128/quarter total) — flea
   requires interior treatment.
 - Termite protection: Sentricon® Always Active™ bait system. No flat price — Alabama requires a
   free on-site WDO inspection first, then we quote it exact (based on linear footage and foundation
   type). No drilling, no tank trucks. Up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Free inspection.
-- Mosquito yard barrier: $45/visit, March through November (9 visits, billed per service — no monthly),
+- Mosquito yard barrier: $45/visit, March through October (8 visits, billed per service — no monthly),
   re-applied every 30 days. Suited to waterfront properties (Lake Martin) — products approved for waterfront use.
-- Mosquito + Tick (chigger coverage): $65/visit, 9 visits March through November (per service, no monthly). Flea is an interior-plan add-on.
+- Mosquito + Tick (chigger coverage): $65/visit, 8 visits March through October (per service, no monthly). Flea is an interior-plan add-on.
 - Plans: Pest from $35/mo · Pest + Mosquito from $69/mo · Pest + Termite from $35/mo + termite quote ·
   Complete (pest + termite + mosquito) from $69/mo + termite quote (most popular). Mosquito alone $45/visit,
   Mosquito + Tick $65/visit — per service only. Plans are conveniences, not discounts.

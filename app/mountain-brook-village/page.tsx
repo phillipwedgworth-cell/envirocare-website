@@ -37,7 +37,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🦟",
       title: "Mosquitoes near the Jemison Creek trailhead",
-      body: "The creek and trail system that gives Mountain Brook its name runs right past the village, and the shaded, damp corridor breeds mosquitoes March through November. The 30-day yard barrier keeps outdoor spaces usable through the season.",
+      body: "The creek and trail system that gives Mountain Brook its name runs right past the village, and the shaded, damp corridor breeds mosquitoes March through October. The 30-day yard barrier keeps outdoor spaces usable through the season.",
     },
     {
       emoji: "🌳",
@@ -84,7 +84,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "When does mosquito season start near the village?",
-      a: "We run the 30-day yard barrier March through November, timed to the creek and trail corridor's mosquito pressure. Tick control adds on with the $65/visit Mosquito + Tick plan.",
+      a: "We run the 30-day yard barrier March through October, timed to the creek and trail corridor's mosquito pressure. Tick control adds on with the $65/visit Mosquito + Tick plan.",
     },
     {
       q: "Is there a long-term contract?",

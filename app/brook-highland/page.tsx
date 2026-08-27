@@ -25,7 +25,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🦟",
       "title": "Mosquito pressure in mature wooded sections",
-      "body": "Original Brook Highland sections sit under mature tree canopy — beautiful, and excellent mosquito harborage. 30-day yard barrier targets shaded resting zones (tree lines, shrub bases, gutters, north-facing walls). $45/treatment, March through November."
+      "body": "Original Brook Highland sections sit under mature tree canopy — beautiful, and excellent mosquito harborage. 30-day yard barrier targets shaded resting zones (tree lines, shrub bases, gutters, north-facing walls). $45/treatment, March through October."
     },
     {
       "emoji": "🐾",

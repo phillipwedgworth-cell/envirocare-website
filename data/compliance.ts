@@ -345,5 +345,5 @@ export const SERVICES_NOT_OFFERED = ['bed bug', 'raccoon', 'squirrel', 'wildlife
 
 /** Locked seasonal facts (the Lake Martin "April–October" mismatch is the bug to fix). */
 export const SEASONS = {
-  mosquito: { label: 'March–November', treatments: 9 },
+  mosquito: { label: 'March–October', treatments: 8 },
 };

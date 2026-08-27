@@ -4,7 +4,7 @@ import { PRICING } from "@/data/pricing";
 
 const TITLE = "Mosquito Control Decatur AL | River & Refuge Yards | EnviroCare";
 const DESC =
-  `Mosquito control in Decatur AL — ~$${PRICING.addOns.mosquito.perVisit}/treatment, about 9 treatments March–November. Built for river-bottom humidity and refuge-edge yards. (256) 937-7676.`;
+  `Mosquito control in Decatur AL — ~$${PRICING.addOns.mosquito.perVisit}/treatment, about 8 treatments March–October. Built for river-bottom humidity and refuge-edge yards. (256) 937-7676.`;
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,7 +20,7 @@ const c: ComboContent = {
   h1Accent: "The Hardest Mosquito Assignment in North Alabama.",
   intro: [
     "Let's be straight about Decatur: a city bordered by the Tennessee River on one side and Wheeler National Wildlife Refuge wetlands on the other is about the most mosquito-productive geography Alabama offers. Point Mallard's creeks, Flint Creek's backwaters, sloughs that hold water into July — the breeding habitat is permanent, protected, and fifty yards from a lot of back fences.",
-    "So here's what honest mosquito control looks like here: we treat your property's resting and breeding sites — shaded foliage, under-deck voids, fence lines, the wet margins you own — on roughly a monthly cycle from March through November. The result is a serious, noticeable reduction in the population living in your yard. Nobody can eliminate mosquitoes next to a wildlife refuge, and anyone who promises that is describing something the biology doesn't support. What you get is your porch back.",
+    "So here's what honest mosquito control looks like here: we treat your property's resting and breeding sites — shaded foliage, under-deck voids, fence lines, the wet margins you own — on roughly a monthly cycle from March through October. The result is a serious, noticeable reduction in the population living in your yard. Nobody can eliminate mosquitoes next to a wildlife refuge, and anyone who promises that is describing something the biology doesn't support. What you get is your porch back.",
   ],
   anglesHeading: "Where Decatur's mosquitoes actually come from",
   localAngles: [
@@ -44,7 +44,7 @@ const c: ComboContent = {
   price: {
     label: "Seasonal Mosquito Program — Decatur",
     amount: `~$${PRICING.addOns.mosquito.perVisit}/treatment`,
-    sub: "about 9 treatments, March–November",
+    sub: "about 8 treatments, March–October",
     bullets: [
       "Barrier treatment of resting + breeding sites you own",
       "Roughly 30-day cycle through the season",
