@@ -638,7 +638,10 @@ function ServiceLinks() {
     { name: 'Flea Control', slug: 'flea', icon: 'flea', accent: '#3F6184' },
     { name: 'Commercial', slug: 'commercial', icon: 'commercial', accent: '#0E1A0F' },
     { name: 'Real Estate / WDO', slug: 'wdo-letters', icon: 'wdo', accent: '#0A7935' },
-    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', icon: 'builder', accent: '#1D5E8C' },
+    // /services/builder-pre-treat 301s to /builders (the canonical builder page,
+    // consolidated 2026-08). Link straight there — an internal link to a
+    // redirect burns a crawl hop for no reason.
+    { name: 'Builder Pre-Treat', slug: 'builder-pre-treat', href: '/builders', icon: 'builder', accent: '#1D5E8C' },
   ];
   return (
     <section className="ec-services-links" style={{ padding: 0, background: '#FEFDF8' }}>
@@ -650,7 +653,7 @@ function ServiceLinks() {
           {services.map(s => (
             <Link
               key={s.slug}
-              href={`/services/${s.slug}`}
+              href={(s as { href?: string }).href ?? `/services/${s.slug}`}
               style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: '1px solid rgba(14,142,64,0.15)', borderLeft: `4px solid ${s.accent}`, borderRadius: 14, padding: '16px 18px', textDecoration: 'none', color: '#0E1A0F', fontWeight: 600, fontSize: 16, minHeight: 58, transition: 'box-shadow 0.2s, transform 0.15s' }}
             >
               <span style={{ display: 'inline-flex', lineHeight: 1 }} aria-hidden="true">

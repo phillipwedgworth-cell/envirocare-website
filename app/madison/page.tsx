@@ -173,7 +173,7 @@ function GoldCTA({ href, text }: { href: string; text: string }) {
 export default function MadisonPage() {
   return (
     <main style={{ background: Cr, minHeight: "100vh", color: Ik, ...sans }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: 'Madison', path: '/service-areas/madison' }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: 'Madison', path: '/madison' }]) }) }} />
 
       {/* JSON-LD */}
       <script
