@@ -271,8 +271,8 @@ export default function BirminghamPage() {
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Unlimited free re-services","Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter on request"]} featured />
-            <Plan name="Mosquito Yard" price="$45" unit="/treatment" features={["30-day yard barrier","March – October (8 visits)","Cuts mosquito pressure dramatically","Tick add-on available"]} />
-            <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger","30-day yard barrier","Best for wooded Birmingham lots","March – October"]} />
+            <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier","March – October (8 visits)","Cuts mosquito pressure dramatically","Tick add-on available"]} />
+            <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger","30-day yard barrier","Best for wooded Birmingham lots","March – October"]} />
           </div>
           <div style={{ maxWidth: 700, margin: "2.5rem auto 0", padding: "1.2rem 1.5rem", background: Cr, border: `1px solid ${G}26`, borderRadius: 12, textAlign: "center", fontSize: ".95rem", color: "#4b5563" }}>
             <strong style={{ color: D }}>Complete coverage</strong> bundles pest, termite and mosquito into roughly $100/month plus your termite quote — one tech, one invoice. Convenience, not a discount: same fair pricing as the standalone services.
