@@ -150,6 +150,22 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         }),
       });
       setState(res.ok ? "done" : "error");
+      // Conversion: GA4 generate_lead + Meta Pixel Lead. This form is the
+      // primary lead path — it renders on /quote AND on every city page — but
+      // it was the only lead form on the site firing no conversion event at
+      // all, so its submissions were invisible in GA4 and Ads. Matches the
+      // pattern already used in RequestQuoteForm.tsx. Optional-chained so a
+      // blocked/absent tag can never break the form itself.
+      if (res.ok && typeof window !== "undefined") {
+        (window as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "generate_lead", {
+          method: "schedule_request",
+          office: city || "",
+          service_type: serviceLabels,
+        });
+        (window as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead", {
+          content_name: "Schedule Request",
+        });
+      }
     } catch {
       setState("error");
     }
