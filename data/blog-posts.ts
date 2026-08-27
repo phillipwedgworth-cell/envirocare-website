@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/blog-posts.ts
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/blog-posts.ts
 // Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
 // Push: main
 // ─────────────────────────────────────
@@ -652,7 +658,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>March through October. 8 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visitnth.</p>
+<p>March through October. 8 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visit.</p>
 
 <h2>What we DON'T recommend</h2>
 
@@ -674,9 +680,9 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>For body protection, picaridin lotion is as effective as DEET and doesn't melt your sunglasses.</li>
 </ol>
 
-<h2>Tick and flea bundle</h2>
+<h2>Adding tick coverage</h2>
 
-<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65/visitnth, March through October.</p>
+<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65 per visit, March through October. It does not cover fleas — fleas are an interior-access service we handle separately.</p>
 
 <p>Call our Alex City / Lake Martin office: <strong>(256) 234-6162</strong>.</p>
 `,
@@ -728,7 +734,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Pricing</h2>
 
-<p>Fire ant control is an add-on to our pest control program, or a one-time service if that's all you need. Bundles with our outdoor program (mosquito + tick + flea) for the most complete summer protection.</p>
+<p>Fire ant control is an add-on to our pest control program, or a one-time service if that's all you need. Pairs with our outdoor Mosquito + Tick program for the most complete summer coverage.</p>
 
 <p>Fast scheduling available. Call our nearest office:</p>
 <ul>

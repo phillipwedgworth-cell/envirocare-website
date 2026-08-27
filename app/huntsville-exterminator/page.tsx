@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/huntsville-exterminator/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
@@ -44,7 +50,7 @@ const c: ComboContent = {
     },
     {
       title: "A local office, not a call center",
-      body: "7027 Old Madison Pike Ste 108 — real people, same technician on your route, and a direct line at (256) 937-7676. We cover Huntsville, Madison, Athens, Harvest, Hampton Cove, and Decatur.",
+      body: "7027 Old Madison Pike Ste 108 — real people, a familiar local team on your route, and a direct line at (256) 937-7676. We cover Huntsville, Madison, Athens, Harvest, Hampton Cove, and Decatur.",
     },
   ],
   price: {
@@ -53,7 +59,7 @@ const c: ComboContent = {
     sub: "on ACH autopay · or $70 per visit",
     bullets: [
       "30+ Alabama pests covered",
-      "Fire ant & tick treatment available from $150",
+      "Fire ant treatment $150 for most yards, one-year warranty",
       "Interior service whenever needed",
       "Unlimited free re-services",
       "Equal monthly ACH payments (12-month agreement)",

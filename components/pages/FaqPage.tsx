@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: components/pages/FaqPage.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 "use client";
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
@@ -130,12 +136,12 @@ export default function FaqPage() {
               <div className="faq-a">21 days, weather depending. Heavy rain can shorten effectiveness — we'll re-treat free if needed.</div>
             </details>
             <details className="faq-item">
-              <summary className="faq-q">Is the spray safe for my dog and kids?</summary>
-              <div className="faq-a">Yes once dry — typically 30 minutes. We use EPA-registered pyrethroids applied per label, same active ingredients as in canine flea/tick prevention products.</div>
+              <summary className="faq-q">What precautions do you take around dogs and kids?</summary>
+              <div className="faq-a">We use EPA-registered products applied strictly according to label directions. Treated exterior surfaces are typically dry in about 30 minutes; your technician will confirm re-entry timing for any interior application.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you treat for ticks?</summary>
-              <div className="faq-a">Yes. Tick control comes with mosquito in the Mosquito + Tick plan ($65/visit) — chiggers covered too. Standalone tick treatment starts at $150. Critical for wooded properties, lake homes, and families with dogs.</div>
+              <div className="faq-a">Yes. Tick control comes with mosquito in the Mosquito + Tick plan ($65/visit) — chiggers covered too. Standalone tick treatment is quoted for your property. Critical for wooded properties, lake homes, and families with dogs.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">What about pollinators like bees and butterflies?</summary>
