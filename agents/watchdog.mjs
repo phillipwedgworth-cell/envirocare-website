@@ -6,8 +6,9 @@
 // ─────────────────────────────────────
 //
 // The watcher of the watchers. Runs daily. Confirms every agent did its job and
-// EMAILS Phillip when one didn't. Now also watches Vercel (deploys + cron health)
-// and the daily AI spend so nothing runs away quietly.
+// EMAILS Phillip when one didn't. Now also watches Vercel (deploys + cron health),
+// the daily AI spend, and the LEAD PIPELINE — the one path here that is actual
+// revenue rather than reporting.
 //
 // Reads the agent_runs ledger:
 //   no recent run -> OVERDUE | ran but bad status -> FAILED | recent + ok -> healthy
@@ -140,6 +141,130 @@ async function anthropicCapCheck(lines, problems) {
       lines.push(`anthropic ok    — no monthly-cap errors in last 24h`);
     }
   } catch (e) { lines.push(`anthropic skipped — ${e.message}`); }
+}
+
+// ── Lead pipeline (the money path) ───────────────────────────────────────────
+// Everything else this watchdog checks is a reporting tool. THIS is revenue:
+// /api/quote stores every website lead in `leads` FIRST, then emails Phillip +
+// service@ and stamps email_status sent|failed. Nothing anywhere read that
+// table back, so three silent failures were possible and invisible:
+//
+//   1. Resend key expires / domain gets suspended -> every lead lands in
+//      Supabase with email_status='failed' and nobody is ever notified.
+//   2. The handler dies between the insert and the email -> rows stay
+//      'pending' forever.
+//   3. A front-end regression breaks the form -> submissions simply stop, and
+//      "no leads today" looks exactly like "quiet week".
+//
+// (3) is the same class of bug as the 2026-08-17 gtag refactor that killed GA4
+// for ten days: no error, no alarm, just a number quietly going to zero.
+const LEAD_SILENCE_DAYS   = Number(process.env.LEAD_SILENCE_DAYS || 7);
+const LEAD_BASELINE_DAYS  = 30;   // window before the silence window
+const LEAD_BASELINE_MIN   = 6;    // leads needed in baseline before silence means anything
+const LEAD_PENDING_STALE_H = 2;   // 'pending' older than this = handler died mid-request
+
+// Does this key actually bypass RLS? The NAME cannot be trusted — watchdog.yml
+// sets SUPABASE_SERVICE_ROLE_KEY to `secrets.SUPABASE_SERVICE_ROLE_KEY ||
+// secrets.SUPABASE_KEY`, so on a repo without the service-role secret the
+// variable holds the ANON key under the service-role name. Inspect the key
+// itself: legacy Supabase keys are JWTs carrying a `role` claim; the new format
+// is prefixed. Anything unrecognised is treated as NOT service-role, because a
+// wrong "yes" here turns an RLS-blocked read into a false "your form is broken".
+function isServiceRoleKey(key) {
+  if (!key) return false;
+  if (key.startsWith('sb_secret_')) return true;
+  if (key.startsWith('sb_publishable_')) return false;
+  const parts = key.split('.');
+  if (parts.length !== 3) return false;
+  try {
+    const payload = JSON.parse(Buffer.from(parts[1], 'base64url').toString('utf8'));
+    return payload.role === 'service_role';
+  } catch { return false; }
+}
+
+async function leadPipelineCheck(lines, problems) {
+  // Read with the SERVICE-ROLE key when it exists. The leads table has RLS on,
+  // so the anon key this file's shared client uses can legitimately read zero
+  // rows even when leads are pouring in — an empty read must never be reported
+  // as "no leads" unless we know RLS wasn't the reason.
+  const svcKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim();
+  let client = supabase, usingServiceRole = false;
+  if (isServiceRoleKey(svcKey) && process.env.SUPABASE_URL) {
+    try {
+      const mod = await import('@supabase/supabase-js');
+      const createClient = mod.createClient ?? mod.default?.createClient ?? mod.default;
+      client = createClient(String(process.env.SUPABASE_URL).trim(), svcKey, { auth: { persistSession: false } });
+      usingServiceRole = true;   // only after the client actually exists
+    } catch { /* fall back to the shared client, and to the cautious reading */ }
+  }
+  if (!client) { lines.push('leads    skipped — no Supabase client'); return; }
+
+  const windowDays = LEAD_SILENCE_DAYS + LEAD_BASELINE_DAYS;
+  const since = new Date(Date.now() - windowDays * 24 * 3.6e6).toISOString();
+
+  let rows;
+  try {
+    const { data, error } = await client.from('leads')
+      .select('id,created_at,email_status,email_error,office')
+      .gte('created_at', since)
+      .order('created_at', { ascending: false })
+      .limit(5000);
+    if (error) { lines.push(`leads    skipped — leads read failed (${error.message})`); return; }
+    rows = data ?? [];
+  } catch (e) { lines.push(`leads    skipped — ${e.message}`); return; }
+
+  // Total silence is ambiguous on the anon key: genuinely-zero and
+  // blocked-by-RLS look identical. Say which, and only alarm when we can tell.
+  if (rows.length === 0) {
+    if (usingServiceRole) {
+      lines.push(`leads    NODATA zero leads in ${windowDays}d — the quote form or /api/quote is very likely broken`);
+      problems.push('zero website leads');
+    } else {
+      lines.push(`leads    skipped — zero rows on the anon key, and the leads table has RLS on, so this cannot`);
+      lines.push(`                  tell "no leads" from "not allowed to read". Add SUPABASE_SERVICE_ROLE_KEY`);
+      lines.push(`                  to the GitHub secrets to turn this check on.`);
+    }
+    return;
+  }
+
+  const status = r => String(r.email_status ?? '').toLowerCase();
+
+  // 1. Notification failures — the lead is safe in Supabase but nobody was told.
+  const failed = rows.filter(r => status(r) === 'failed' && ageH(r.created_at) < 24);
+  if (failed.length) {
+    const why = failed.find(r => r.email_error)?.email_error;
+    lines.push(`CRITICAL ${failed.length} lead(s) in the last 24h saved but NOT emailed to you${why ? ` — ${String(why).slice(0, 120)}` : ''}`);
+    lines.push(`                  They are in Supabase -> leads (email_status='failed'). Check RESEND_API_KEY.`);
+    problems.push(`${failed.length} undelivered lead(s)`);
+  }
+
+  // 2. Stuck 'pending' — inserted, then the request died before the email.
+  const stuck = rows.filter(r => status(r) === 'pending' && ageH(r.created_at) > LEAD_PENDING_STALE_H);
+  if (stuck.length) {
+    lines.push(`CRITICAL ${stuck.length} lead(s) stuck at email_status='pending' (oldest ${Math.round(ageH(stuck[stuck.length - 1].created_at))}h)`);
+    problems.push(`${stuck.length} stuck lead(s)`);
+  }
+
+  // 3. Volume went to zero while history says it shouldn't have.
+  const recent   = rows.filter(r => ageH(r.created_at) <= LEAD_SILENCE_DAYS * 24);
+  const baseline = rows.filter(r => ageH(r.created_at) >  LEAD_SILENCE_DAYS * 24);
+  let stopped = false;
+  if (recent.length === 0 && baseline.length >= LEAD_BASELINE_MIN) {
+    lines.push(`CRITICAL no website leads in ${LEAD_SILENCE_DAYS}d, but ${baseline.length} in the ${LEAD_BASELINE_DAYS}d before that — check the quote form`);
+    problems.push('website leads stopped');
+    stopped = true;
+  }
+
+  // Only add a status line when nothing above already spoke — otherwise the
+  // digest printed "leads stopped" and "quiet, under the alarm floor" together.
+  if (!failed.length && !stuck.length && !stopped) {
+    if (recent.length) {
+      const sent = recent.filter(r => status(r) === 'sent').length;
+      lines.push(`leads    ok    — ${recent.length} lead(s) in ${LEAD_SILENCE_DAYS}d, ${sent} emailed (${baseline.length} in the ${LEAD_BASELINE_DAYS}d prior)`);
+    } else {
+      lines.push(`leads    quiet — 0 in ${LEAD_SILENCE_DAYS}d, ${baseline.length} in the ${LEAD_BASELINE_DAYS}d prior (under the ${LEAD_BASELINE_MIN}-lead alarm floor)`);
+    }
+  }
 }
 
 // ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────
@@ -284,13 +409,14 @@ async function run() {
   }
 
   await budgetCheck(lines, problems);
+  await leadPipelineCheck(lines, problems);
   await vercelCheck(lines, problems);
 
   const body = [
     `EnviroCare agent + infra health — ${new Date().toISOString().slice(0,16).replace('T',' ')} UTC`, ``,
     ...lines, ``,
     problems.length ? `${problems.length} item(s) need attention: ${problems.join(', ')}`
-                    : `All monitored agents, Vercel, and budget healthy.`, ``,
+                    : `All monitored agents, leads, Vercel, and budget healthy.`, ``,
     `Vercel hard budget cap lives in the Vercel dashboard → Settings → Spend Management.`,
     `This watchdog runs daily; you get this digest every Monday as proof it is alive.`,
   ].join('\n');
