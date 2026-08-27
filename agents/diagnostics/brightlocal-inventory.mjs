@@ -98,10 +98,17 @@ console.log("\n=== CITATION BUILDER CAMPAIGNS ===");
 console.log("\n=== LOCATIONS IN BRIGHTLOCAL ===");
 {
   const KNOWN = new Map([[4068335, "Alabaster"], [4068730, "Huntsville"], [4068729, "Alex City"]]);
-  const r = await call(shdrs, "find_locations", { num_per_page: 50 });
+  // No num_per_page: passing 50 returned zero items while the probe's 1
+  // returned four, so the parameter is doing something other than what it looks
+  // like. An empty list here must never be reported as "the location is gone" —
+  // that is a query defect wearing the costume of a finding.
+  const r = await call(shdrs, "find_locations");
   if (r.error) console.log(`  ERROR — ${r.error}`);
   else {
     const items = r.data?.items ?? [];
+    if (!items.length) {
+      console.log(`  QUERY RETURNED NOTHING — not evidence of anything. Raw: ${JSON.stringify(r.data ?? r.text ?? r.raw).slice(0, 400)}`);
+    }
     console.log(`  ${items.length} location(s):`);
     for (const it of items) {
       const L = it.location ?? it;
@@ -110,9 +117,12 @@ console.log("\n=== LOCATIONS IN BRIGHTLOCAL ===");
       const addr = [L.address1, L.city, L.region, L.postcode].filter(Boolean).join(", ");
       console.log(`  - ${id}  ${L.business_name ?? L.name ?? "?"}  ${addr}   ${known}`);
     }
-    const seen = new Set(items.map(i => (i.location ?? i).location_id));
-    for (const [id, nm] of KNOWN) {
-      if (!seen.has(id)) console.log(`  !! ${nm} (${id}) is hardcoded in the agent but NOT returned by BrightLocal`);
+    // Only meaningful when the query actually returned something.
+    if (items.length) {
+      const seen = new Set(items.map(i => (i.location ?? i).location_id));
+      for (const [id, nm] of KNOWN) {
+        if (!seen.has(id)) console.log(`  !! ${nm} (${id}) is hardcoded in the agent but NOT returned by BrightLocal`);
+      }
     }
   }
 }
