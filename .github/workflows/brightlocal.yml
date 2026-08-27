@@ -18,6 +18,10 @@ on:
         description: "true = only run the key/endpoint diagnostic probe"
         default: "false"
         required: false
+      inventory:
+        description: "true = only report credit balances, CB campaigns and locations (read-only)"
+        default: "false"
+        required: false
 
 jobs:
   brightlocal:
@@ -41,7 +45,9 @@ jobs:
           NOTIFY_EMAIL:         ${{ secrets.NOTIFY_EMAIL }}
           NOTIFY_FROM:          ${{ secrets.NOTIFY_FROM }}
         run: |
-          if [ "${{ inputs.probe }}" = "true" ]; then
+          if [ "${{ inputs.inventory }}" = "true" ]; then
+            node agents/diagnostics/brightlocal-inventory.mjs
+          elif [ "${{ inputs.probe }}" = "true" ]; then
             node agents/diagnostics/brightlocal-probe.mjs
           else
             node agents/run.mjs brightlocal
