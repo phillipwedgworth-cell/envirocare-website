@@ -1,187 +1,54 @@
 {
   "report": "envirocare-ga4-weekly",
-  "run_date": "2026-08-24",
+  "run_date": "2026-08-27",
   "status": "ok",
   "property": "G-CELEB90NKX",
   "ga4_property_id": "313205131",
   "site": "envirocarellc.com",
   "data_source": "Google Analytics Data API (direct, no Supermetrics)",
   "period": {
-    "startDate": "2026-08-17",
-    "endDate": "2026-08-23"
+    "startDate": "2026-08-20",
+    "endDate": "2026-08-26"
   },
   "prior_period": {
-    "startDate": "2026-08-10",
-    "endDate": "2026-08-16"
+    "startDate": "2026-08-13",
+    "endDate": "2026-08-19"
   },
   "totals": {
-    "sessions": 51,
-    "users": 41,
-    "engagedSessions": 30,
-    "conversions": 2
+    "sessions": 1,
+    "users": 1,
+    "engagedSessions": 0,
+    "conversions": 0
   },
   "totals_prior": {
-    "sessions": 388,
-    "users": 319,
-    "engagedSessions": 227,
-    "conversions": 46
+    "sessions": 260,
+    "users": 215,
+    "engagedSessions": 159,
+    "conversions": 28
   },
   "channels": [
     {
       "key": "Organic Search",
-      "value": 28
-    },
-    {
-      "key": "Direct",
-      "value": 20
-    },
-    {
-      "key": "Organic Social",
-      "value": 1
-    },
-    {
-      "key": "Paid Search",
-      "value": 1
-    },
-    {
-      "key": "Referral",
       "value": 1
     }
   ],
   "landing_pages": [
     {
       "key": "/",
-      "value": 32
-    },
-    {
-      "key": "(not set)",
-      "value": 7
-    },
-    {
-      "key": "/?fbclid=IwcGRvZgVmZGlkFlDKob-Scw73Rl7r3HuBrbB3S9Q-EJxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe-M8Sm_qdcMvEkhwgWL23MZm_TGNEL5kXsOocOX7-Kh3VaZl9FIrSaetzjZw_aem_RIzeq4yP8tBhPOcMvkrHnA",
-      "value": 1
-    },
-    {
-      "key": "/?sa=X&ved=2ahUKEwi2k_LXgqiWAxWgGVkFHUewKCwQ1Y4JegQIChAt&nis=8&ch=1",
-      "value": 1
-    },
-    {
-      "key": "/about-us",
-      "value": 1
-    },
-    {
-      "key": "/alexander-city",
-      "value": 1
-    },
-    {
-      "key": "/auburn",
-      "value": 1
-    },
-    {
-      "key": "/blog/diy-pest-control-mistakes",
-      "value": 1
-    },
-    {
-      "key": "/blog/pest-control-cost-alabama",
-      "value": 1
-    },
-    {
-      "key": "/command-center?key=1a27264c15871556397552ec5984a0ba",
-      "value": 1
-    },
-    {
-      "key": "/contact-us",
-      "value": 1
-    },
-    {
-      "key": "/find-office",
-      "value": 1
-    },
-    {
-      "key": "/lake-martin",
-      "value": 1
-    },
-    {
-      "key": "/services/sentricon",
       "value": 1
     }
   ],
   "devices": [
     {
-      "key": "desktop",
-      "value": 30
-    },
-    {
       "key": "mobile",
-      "value": 21
+      "value": 1
     }
   ],
   "cities": [
     {
       "key": "(not set)",
-      "value": 6
-    },
-    {
-      "key": "Birmingham",
-      "value": 6
-    },
-    {
-      "key": "Alabaster",
-      "value": 3
-    },
-    {
-      "key": "Chelsea",
-      "value": 3
-    },
-    {
-      "key": "Des Moines",
-      "value": 3
-    },
-    {
-      "key": "Alexander City",
-      "value": 2
-    },
-    {
-      "key": "Columbus",
-      "value": 2
-    },
-    {
-      "key": "Dallas",
-      "value": 2
-    },
-    {
-      "key": "Helena",
-      "value": 2
-    },
-    {
-      "key": "New York",
-      "value": 2
-    },
-    {
-      "key": "Red Hill",
-      "value": 2
-    },
-    {
-      "key": "Vestavia Hills",
-      "value": 2
-    },
-    {
-      "key": "Ashland",
-      "value": 1
-    },
-    {
-      "key": "Auburn",
-      "value": 1
-    },
-    {
-      "key": "Bessemer",
       "value": 1
     }
   ],
-  "conversion_events": [
-    {
-      "key": "ads_conversion_Contact_Us_1",
-      "value": 2
-    }
-  ]
+  "conversion_events": []
 }
