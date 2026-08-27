@@ -127,4 +127,31 @@ console.log("\n=== LOCATIONS IN BRIGHTLOCAL ===");
   }
 }
 
+// ── The exact NAP each campaign would publish ───────────────────────────────
+// This is the part that actually matters before buying credits. A Citation
+// Builder run pushes a location's Name/Address/Phone out across the directory
+// network, and directory listings are far harder to retract than a page edit.
+// On 2026-08-24 Phillip retired 2120 16th Ave S, Ste 302 and (205) 991-2882
+// from customer-facing use, so a campaign still holding that NAP would publish
+// a decision that was deliberately reversed.
+//
+// find_locations returns the ids but its address fields did not match the names
+// guessed here (they printed blank), so get_location is used and the RAW object
+// is dumped — reading the real field names off the wire beats guessing them.
+console.log("\n=== NAP STORED PER LOCATION (what a Citation Builder run would publish) ===");
+{
+  const RETIRED = [/2120\s*16th/i, /991[-\s]?2882/];
+  for (const id of [4068335, 4068730, 4068729, 4130578]) {
+    const r = await call(shdrs, "get_location", { location_id: id });
+    if (r.error) { console.log(`  ${id}: ERROR — ${r.error}`); continue; }
+    const raw = JSON.stringify(r.data ?? r.text ?? r.raw);
+    const hits = RETIRED.filter(re => re.test(raw)).map(re => String(re));
+    console.log(`  --- location ${id} ---`);
+    console.log(`  ${raw.slice(0, 900)}`);
+    if (hits.length) {
+      console.log(`  *** CONTAINS RETIRED NAP (${hits.join(", ")}) — do NOT run this campaign without a decision ***`);
+    }
+  }
+}
+
 console.log("\nRead-only: nothing was ordered, spent, or modified.");
