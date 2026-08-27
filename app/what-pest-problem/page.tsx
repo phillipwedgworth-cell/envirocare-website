@@ -55,7 +55,7 @@ const CARDS: PestCard[] = [
   },
   {
     emoji: '🦟', name: 'Mosquitoes',
-    hook: 'A 30-day yard barrier, March through October — $45 per visit. Add tick coverage in the $65/visit Mosquito + Tick plan.',
+    hook: 'A 30-day yard barrier, March through October — $45 per month. Add tick coverage in the $65/month Mosquito + Tick plan.',
     href: '/services/mosquito', linkLabel: 'Mosquito Control',
   },
   {

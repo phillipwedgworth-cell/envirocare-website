@@ -63,7 +63,7 @@ export const priorityCities: Record<string, CityData> = {
       { q: "How much does pest control cost in Huntsville?", a: "Bi-monthly pest service starts at $35/month on auto-pay (or $70 every other month), covering 30+ common Alabama pests with unlimited re-service on covered pests between visits. The one-time initial service fee is $75." },
       { q: "Do you treat for termites in Huntsville?", a: "Yes. We protect Huntsville homes with the Sentricon® Always Active system — no-drill, in-ground monitoring with up to $1,000,000 in covered structural repair, subject to the terms of the agreement. Monitoring and install are quoted after a free termite inspection." },
       { q: "When should I start mosquito control in Huntsville?", a: "Our mosquito season runs March through October. Starting in early spring, before the first hatch, gives you the strongest season-long knockdown. Treatments reduce mosquito populations around your yard — we don't promise to eliminate them, because no honest company can." },
-      { q: "Are your products safe around pets and kids?", a: "We use EPA-registered products applied strictly according to label directions by licensed Alabama technicians. Always follow your technician's re-entry guidance after a treatment." },
+      { q: "What precautions do you take around pets and kids?", a: "We use EPA-registered products applied strictly according to label directions by licensed Alabama technicians. Always follow your technician's re-entry guidance after a treatment." },
     ],
     reviews: [],
     ctaBlockHeadline: "Get your free Huntsville pest inspection",
@@ -108,7 +108,7 @@ export const priorityCities: Record<string, CityData> = {
     faqs: [
       { q: "How much is pest control in Madison, AL?", a: "Bi-monthly service starts at $35/month on auto-pay (or $70 every other month) and covers 30+ common Alabama pests with unlimited re-service between visits. The one-time initial service fee is $75." },
       { q: "Do new homes in Madison really need termite protection?", a: "Yes — newer construction isn't termite-proof. Irrigation, settled soil, and Valley humidity all create the moisture subterranean termites need. Sentricon® Always Active monitors continuously, with up to $1,000,000 in covered repair, subject to the terms of the agreement." },
-      { q: "What does mosquito control cost in Madison?", a: "Seasonal mosquito service runs March through October at $45 per treatment, which most customers spread across the year. Treatments reduce mosquito populations around your yard; we never promise to eliminate them." },
+      { q: "What does mosquito control cost in Madison?", a: "Seasonal mosquito service runs March through October at $45 per month, which most customers spread across the year. Treatments reduce mosquito populations around your yard; we never promise to eliminate them." },
       { q: "How fast can you get to my Madison home?", a: "Madison is served directly by our Huntsville office. We'll schedule your free inspection promptly — though we never over-promise on timing, because doing the job right matters more than rushing it." },
     ],
     reviews: [],
@@ -152,7 +152,7 @@ export const priorityCities: Record<string, CityData> = {
       { name: "Northwest Decatur", zip: "35601", note: "Mixed older and newer homes — full-plan coverage from our Huntsville office.", features: ["Mixed construction", "Full coverage"] },
     ],
     faqs: [
-      { q: "Why is mosquito control such a big deal in Decatur?", a: "Decatur's position on the Tennessee River and next to Wheeler Refuge means abundant standing water and wetlands — prime mosquito breeding. Our seasonal program (March–October, $45 per treatment) targets resting and breeding areas to reduce the population around your home. We don't claim to eliminate mosquitoes." },
+      { q: "Why is mosquito control such a big deal in Decatur?", a: "Decatur's position on the Tennessee River and next to Wheeler Refuge means abundant standing water and wetlands — prime mosquito breeding. Our seasonal program (March–October, $45 per month) targets resting and breeding areas to reduce the population around your home. We don't claim to eliminate mosquitoes." },
       { q: "How much does pest control cost in Decatur?", a: "Bi-monthly pest service starts at $35/month on auto-pay (or $70 every other month) for 30+ common Alabama pests, with unlimited re-service on covered pests. The one-time initial service fee is $75." },
       { q: "Do you offer termite protection in Decatur?", a: "Yes — Sentricon® Always Active, a no-drill in-ground system with up to $1,000,000 in covered structural repair, subject to the terms of the agreement. Monitoring and install are quoted after a free termite inspection." },
       { q: "Is Decatur within your service area?", a: "Yes. Decatur is served from our Huntsville office, which keeps response times short across Morgan County." },
@@ -198,7 +198,7 @@ export const priorityCities: Record<string, CityData> = {
       { name: "Rocky Ridge", zip: "35216", note: "Family neighborhoods with mature trees — full-plan pest coverage.", features: ["Mature trees", "Full coverage"] },
     ],
     faqs: [
-      { q: "How much does mosquito control cost in Vestavia Hills?", a: "Seasonal mosquito service runs March through October at $45 per treatment, which most homeowners spread over the year. Add tick coverage for wooded lots. Treatments reduce mosquito and tick activity around your yard — we never promise to eliminate them." },
+      { q: "How much does mosquito control cost in Vestavia Hills?", a: "Seasonal mosquito service runs March through October at $45 per month, which most homeowners spread over the year. Add tick coverage for wooded lots. Treatments reduce mosquito and tick activity around your yard — we never promise to eliminate them." },
       { q: "Do you treat for ticks in Vestavia Hills?", a: "Yes. Tick control pairs naturally with mosquito service and is especially worthwhile on the wooded hillside lots common in Cahaba Heights and Liberty Park. Ask about adding it to your seasonal plan." },
       { q: "What about termites on older Vestavia homes?", a: "Established brick homes with mature landscaping are exactly where subterranean termites do quiet damage. Sentricon® Always Active monitors year-round with no drilling and up to $1,000,000 in covered repair, subject to the terms of the agreement. Install is quoted after a free inspection." },
       { q: "How much is general pest control here?", a: "Bi-monthly pest service starts at $35/month on auto-pay (or $70 every other month), covering 30+ common Alabama pests with unlimited re-service. The one-time initial service fee is $75." },
@@ -293,7 +293,7 @@ export const priorityCities: Record<string, CityData> = {
       { q: "How much does pest control cost in Alabaster?", a: "Bi-monthly service starts at $35/month on auto-pay (or $70 every other month), covering 30+ common Alabama pests with unlimited re-service between visits. The one-time initial service fee is $75." },
       { q: "Do you handle cockroaches in Alabaster?", a: "Yes — roach control is one of our most common Alabaster calls. Our bi-monthly exterior barrier keeps roaches outside, and if they appear between scheduled visits, re-service on covered pests is included at no extra charge." },
       { q: "Is termite protection worth it in Shelby County?", a: "Absolutely — local humidity makes subterranean termites a real, ongoing risk. Sentricon® Always Active monitors year-round with no drilling and up to $1,000,000 in covered structural repair, subject to the terms of the agreement. Install is quoted after a free inspection." },
-      { q: "Are your products safe around pets and kids?", a: "We use EPA-registered products applied strictly according to label directions by licensed technicians. Follow your technician's re-entry guidance after each treatment." },
+      { q: "What precautions do you take around pets and kids?", a: "We use EPA-registered products applied strictly according to label directions by licensed technicians. Follow your technician's re-entry guidance after each treatment." },
     ],
     reviews: [],
     ctaBlockHeadline: "Get your free Alabaster inspection",
@@ -384,7 +384,7 @@ export const priorityCities: Record<string, CityData> = {
     faqs: [
       { q: "How much does pest control cost in Birmingham?", a: "Bi-monthly pest service starts at $35/month on auto-pay (or $70 every other month) for 30+ common Alabama pests, with unlimited re-service on covered pests. The one-time initial service fee is $75." },
       { q: "Do you offer termite control across Birmingham?", a: "Yes — Sentricon® Always Active, a no-drill in-ground monitoring system with up to $1,000,000 in covered structural repair, subject to the terms of the agreement. Monitoring and install are quoted after a free termite inspection." },
-      { q: "When should I start mosquito control in Birmingham?", a: "Early spring, before the first hatch. Our season runs March through October at $45 per treatment, which most homeowners spread across the year. Treatments reduce mosquito activity around your yard — we never promise to eliminate them." },
+      { q: "When should I start mosquito control in Birmingham?", a: "Early spring, before the first hatch. Our season runs March through October at $45 per month, which most homeowners spread across the year. Treatments reduce mosquito activity around your yard — we never promise to eliminate them." },
       { q: "How long has EnviroCare served Birmingham?", a: "EnviroCare is a family-owned Alabama company doing pest control in Alabama since 1958, now in its fourth generation. The family expanded into the Birmingham metro in 2002 and has served homes across the area ever since." },
     ],
     reviews: [],

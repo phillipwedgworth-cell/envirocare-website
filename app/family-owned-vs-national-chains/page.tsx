@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/family-owned-vs-national-chains/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/family-owned-vs-national-chains/page.tsx
 // Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
 // Push: main
 // ─────────────────────────────────────
@@ -48,7 +54,7 @@ const ROWS: [string, string, string][] = [
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'Is a family-owned pest control company better than a national chain?',
-    a: 'Neither is automatically better — but they work differently. A family-owned company like EnviroCare runs local routes from staffed offices, sends the same technician when scheduling allows, and publishes its pricing. National chains offer wider footprints and bigger brands, but service is delivered branch by branch, often through call centers and rotating technicians. If you value local accountability, a company where the owner\'s name is on the work is hard to beat.',
+    a: 'Neither is automatically better — but they work differently. A family-owned company like EnviroCare runs local routes from staffed offices, sends a familiar local technician when scheduling allows, and publishes its pricing. National chains offer wider footprints and bigger brands, but service is delivered branch by branch, often through call centers and rotating technicians. If you value local accountability, a company where the owner\'s name is on the work is hard to beat.',
   },
   {
     q: 'How does EnviroCare\'s termite protection compare to the big chains?',

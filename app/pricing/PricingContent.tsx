@@ -14,7 +14,7 @@
 //     Complete         From $69/mo + Termite Quote · $229 initial service
 //   BASE / À LA CARTE:
 //     Pest only        From $35/mo · $75 initial service
-//     Mosquito alone   $45/visit × 8 (no monthly — no pest anchor)
+//     Mosquito alone   $45/month × 8 (no monthly — no pest anchor)
 //     (Tick & flea are QUOTED add-ons — deliberately not priced on-page.)
 //   RULES: termite is NEVER a flat number. Initial service is $75 on
 //   every plan. Tick and flea are quoted on the phone, never priced on-page.
@@ -41,7 +41,7 @@ const LINE = "rgba(14,26,15,0.12)";
 type Plan = {
   name: string;
   tagline: string;
-  priceLabel: string;     // big headline price, e.g. "From $69/mo" or "$45/visit × 8"
+  priceLabel: string;     // big headline price, e.g. "From $69/mo" or "$45/month × 8"
   startup: string;        // e.g. "$75 initial service" or "No monthly — per service"
   note?: string;          // e.g. "Tick and flea quoted" or "Sentricon® priced after free WDO inspection"
   features: string[];
@@ -103,7 +103,7 @@ const ALACARTE_PLANS: Plan[] = [
   {
     name: "Mosquito",
     tagline: "Seasonal yard treatment",
-    priceLabel: "$45/visit × 8",
+    priceLabel: "$45/month × 8",
     startup: "Per service — or $34/mo with a pest plan",
     note: "March–October · monthly only when bundled with pest",
     features: [
@@ -152,7 +152,7 @@ const COMPARE_ROWS = [
   { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
   { plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo", perVisit: "—", included: "Pest plan + seasonal mosquito (Mar–Oct)" },
   { plan: "Complete", startup: "$229", monthly: "From ~$100/mo", perVisit: "—", included: "Pest + mosquito + Sentricon® termite (priced at inspection)" },
-  { plan: "Mosquito (alone)", startup: "—", monthly: "$34/mo with pest", perVisit: "$45/visit × 8", included: "Seasonal yard barrier, Mar–Oct (monthly only when bundled with pest)" },
+  { plan: "Mosquito (alone)", startup: "—", monthly: "$45/mo alone · $34/mo with pest", perVisit: "—", included: "Seasonal yard barrier, Mar–Oct (monthly only when bundled with pest)" },
   { plan: "Tick & Flea (add-on)", startup: "—", monthly: "—", perVisit: "Quoted", included: "Tick rides with mosquito service; flea is an interior add-on" },
   { plan: "Termite", startup: "Free inspection", monthly: "—", perVisit: "—", included: "Sentricon® — service & price provided upon inspection & approval" },
 ];
@@ -293,7 +293,7 @@ export default function PricingContent() {
       {/* À LA CARTE */}
       <section style={{ padding: "44px 36px 0" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-          <GroupLabel text="À la carte" sub="Mosquito without a pest plan is billed per service. Tick and flea are quoted." />
+          <GroupLabel text="À la carte" sub="Mosquito without a pest plan is billed monthly. Tick and flea are quoted." />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18, marginTop: 22 }}>
             {ALACARTE_PLANS.map((p) => <PlanCard key={p.name} plan={p} />)}
           </div>
@@ -364,8 +364,8 @@ export default function PricingContent() {
           <div>
             <FAQ q="Is there a contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
             <FAQ q="Why isn't there a flat termite price?" a="Alabama regulates termite treatment, so we have to do an on-site WDO (wood-destroying organism) inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free, and there's no obligation." />
-            <FAQ q="What is the initial service fee?" a="$75 on Pest and on Pest + Mosquito. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment: full interior and exterior knockdown, web and nest removal, and setting the barrier the recurring visits maintain. There is no separate inspection fee on top. Mosquito booked on its own has no initial fee — it is billed per service." />
-            <FAQ q="Can I get mosquito without a pest plan?" a="Yes — on its own, mosquito is $45 per visit, eight rounds March through October, charged at each service. The $34/mo mosquito rate is only available bundled with a pest plan, since monthly autopay needs a year-round anchor. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." />
+            <FAQ q="What is the initial service fee?" a="$75 on Pest and on Pest + Mosquito. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment: full interior and exterior knockdown, web and nest removal, and setting the barrier the recurring visits maintain. There is no separate inspection fee on top. Mosquito booked on its own has no initial fee — it is billed monthly." />
+            <FAQ q="Can I get mosquito without a pest plan?" a="Yes — on its own, mosquito is $45 per month, eight rounds March through October, charged at each service. The $34/mo mosquito rate is only available bundled with a pest plan, since monthly autopay needs a year-round anchor. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." />
             <FAQ q="Is the bundle a discount?" a="No — bundling is a convenience play, not a discount. One technician, one invoice, one schedule. We keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
             <FAQ q="What does mosquito service cover, and can I add tick?" a="A 30-day yard barrier from March through October targeting mosquito breeding sites and adult populations. Tick treatment can be added alongside it — covering the ticks and chiggers that come with wooded and lakefront lots — and is quoted for your lot. Flea is a separate interior add-on, also quoted." />
             <FAQ q="What's the $1M EnviroCare coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />

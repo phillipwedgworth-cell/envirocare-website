@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/services/fire-ant/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 //
 // WHAT CHANGED (Jun 11, 2026 — per Phillip):
 // 1. PRICING: Fire ant is a PRICED SERVICE — $150 minimum, priced per sq ft
@@ -16,12 +22,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Fire Ant Control in Alabama | Colony Elimination | EnviroCare",
   description:
-    "Fire ant treatment that reaches the queen, not just the mound. Starts at $150, priced per sq ft. Open to all. Birmingham & across Alabama. (205) 940-6360.",
+    "Fire ant treatment that reaches the queen, not just the mound. $150 for most yards, one-year warranty. Open to all. Birmingham & across Alabama. (205) 940-6360.",
   alternates: { canonical: "/services/fire-ant" },
   openGraph: { url: 'https://www.envirocarellc.com/services/fire-ant',
     title: "Fire Ant Control | EnviroCare",
     description:
-      "Whole-colony fire ant treatment with season-long suppression. Starting at $150, priced by the size of your yard.",
+      "Whole-colony fire ant treatment with season-long suppression. $150 for most yards, backed by a one-year warranty.",
     type: "website",
   },
 };
@@ -49,7 +55,7 @@ export default function FireAntPage() {
       address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
     },
     description:
-      "Whole-colony fire ant bait treatment with season-long suppression for Alabama homes and properties. Starting at $150, priced by the square footage of covered area.",
+      "Whole-colony fire ant bait treatment with season-long suppression for Alabama homes and properties. $150 covers most yards; larger properties are quoted by the square footage treated. Backed by a one-year warranty.",
     areaServed: { "@type": "State", name: "Alabama" },
     offers: {
       "@type": "Offer",
@@ -69,7 +75,7 @@ export default function FireAntPage() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Fire ant treatment starts at $150, with final pricing based on the square footage of the area we cover. Larger yards cost more than smaller ones. Call your local EnviroCare office for an exact quote on your property.",
+            "$150 covers most yards. Larger properties are quoted by the square footage we treat, so call your local EnviroCare office for an exact number. Every fire ant treatment is backed by a one-year warranty.",
         },
       },
       {
@@ -134,8 +140,8 @@ export default function FireAntPage() {
 
           {/* PRICE CARD — clear, honest, mobile-legible */}
           <div style={{ display: "inline-block", background: "rgba(255,255,255,0.12)", border: `1px solid rgba(245,168,0,0.5)`, borderRadius: 12, padding: "16px 28px", margin: "8px 0 28px" }}>
-            <div style={{ fontSize: "clamp(26px, 5vw, 34px)", fontWeight: 800, color: GOLD }}>Starting at $150</div>
-            <div style={{ fontSize: 15, opacity: 0.85, marginTop: 4 }}>Priced by the size of your yard</div>
+            <div style={{ fontSize: "clamp(26px, 5vw, 34px)", fontWeight: 800, color: GOLD }}>$150</div>
+            <div style={{ fontSize: 15, opacity: 0.85, marginTop: 4 }}>Covers most yards · one-year warranty</div>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
@@ -253,7 +259,7 @@ export default function FireAntPage() {
         {[
           {
             q: "What does fire ant control cost?",
-            a: "Treatment starts at $150, with final pricing based on the square footage of the area we cover. Larger yards cost more than smaller ones. Call your local office and we'll quote your exact property.",
+            a: "$150 covers most yards. Larger properties are quoted by the square footage we treat, so call your local office and we'll give you an exact number. Every treatment is backed by a one-year warranty.",
           },
           {
             q: "Do I have to be an existing EnviroCare customer?",
@@ -286,7 +292,7 @@ export default function FireAntPage() {
           Ready to get rid of fire ants?
         </h2>
         <p style={{ fontSize: 16, opacity: 0.85, marginBottom: 24, maxWidth: 480, marginLeft: "auto", marginRight: "auto" }}>
-          Starting at $150, priced by your yard size. One call gets you an exact quote.
+          $150 covers most yards, backed by a one-year warranty. One call gets you an exact quote.
         </p>
         <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
           <a

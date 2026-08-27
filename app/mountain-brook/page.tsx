@@ -85,8 +85,8 @@ const jsonLd = {
         itemListElement: [
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: "Mountain Brook, AL" }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "45", description: "Nine seasonal treatments, March–October, ~$30/month." },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage, ~$43.33/month." },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "45", description: "Eight seasonal treatments, March–October." },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage." },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Pest Control", areaServed: "Mountain Brook, AL" } },
         ],
       },
@@ -96,7 +96,7 @@ const jsonLd = {
       speakable: { "@type": "SpeakableSpecification", cssSelector: [".mb-summary", ".mb-faq"] },
       mainEntity: [
         { "@type": "Question", name: "How much is termite treatment in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." } },
-        { "@type": "Question", name: "Is there mosquito control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45 each, about $30 per month spread over the year. Most homeowners see a clear seasonal reduction in mosquito activity." } },
+        { "@type": "Question", name: "Is there mosquito control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." } },
         { "@type": "Question", name: "Who does commercial pest control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 940-6360." } },
         { "@type": "Question", name: "What does bi-monthly pest control cover in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." } },
         { "@type": "Question", name: "Do you serve Crestline, English Village, and Cahaba Village?", acceptedAnswer: { "@type": "Answer", text: "Yes — all of Mountain Brook, including Crestline, English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. Call (205) 940-6360 and we'll confirm your address is on our route." } },
@@ -201,8 +201,7 @@ export default function MountainBrookPage() {
             <Sub title="Mosquito Control in Mountain Brook">
               Shaded, wooded lots along the Shades Creek corridor hold mosquito pressure from spring into fall.{" "}
               <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link>{" "}
-              treats every 30 days, March through October — eight treatments at $45 each, spread evenly at about
-              $30/month over the year. Treatments target resting and breeding areas around the property and
+              treats every 30 days, March through October — eight treatments at $45 a month, spread evenly across the year by ACH. Treatments target resting and breeding areas around the property and
               typically reduce activity noticeably within the season. We never guarantee elimination, but most
               homeowners see a clear difference in how usable the yard becomes.
             </Sub>
@@ -211,8 +210,8 @@ export default function MountainBrookPage() {
               With deer and wooded edges throughout Mountain Brook, ticks are a real concern for families and pets
               using the yard. EnviroCare&apos;s{" "}
               <Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link>{" "}
-              adds tick and chigger coverage to the seasonal schedule — $65 per treatment across the nine-visit
-              season, about $43.33/month. Most products knock back tick activity in treated zones; results vary
+              adds tick and chigger coverage to the seasonal schedule — $65 per month across the nine-visit
+              season. Most products knock back tick activity in treated zones; results vary
               with yard conditions and surrounding habitat.
             </Sub>
 
@@ -292,7 +291,7 @@ export default function MountainBrookPage() {
               , where the older commercial buildings and tight lots change what we look for.
             </p>
             <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." />
-            <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45 each, about $30 per month spread over the year. Most homeowners see a clear seasonal reduction in mosquito activity." />
+            <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." />
             <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 940-6360." />
             <Faq q="What does bi-monthly pest control cover in Mountain Brook?" a="EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." />
             <Faq q="Do you serve Crestline, English Village, and Cahaba Village?" a="Yes — all of Mountain Brook, including Crestline, English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. Call (205) 940-6360 and we'll confirm your address is on our route." />

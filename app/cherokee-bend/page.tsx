@@ -32,7 +32,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🐾",
       title: "Ticks off the wooded, creek-side lots",
-      body: "Many Cherokee Bend properties back up to wooded, creek-cut terrain that carries Lone Star and American dog ticks close to the yard. The Mosquito + Tick plan at $65/visit bundles tick and chigger coverage for exactly this kind of lot.",
+      body: "Many Cherokee Bend properties back up to wooded, creek-cut terrain that carries Lone Star and American dog ticks close to the yard. The Mosquito + Tick plan at $65/month bundles tick and chigger coverage for exactly this kind of lot.",
     },
     {
       emoji: "🦟",
@@ -75,7 +75,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "Do you treat ticks on wooded, creek-side lots?",
-      a: "Yes — tick control targets the wooded edges, leaf litter, and shaded transition zones typical of Cherokee Bend's terrain. It bundles with mosquito service in the $65/visit Mosquito + Tick plan.",
+      a: "Yes — tick control targets the wooded edges, leaf litter, and shaded transition zones typical of Cherokee Bend's terrain. It bundles with mosquito service in the $65/month Mosquito + Tick plan.",
     },
     {
       q: "Can you protect a Cherokee Bend home from termites without drilling?",

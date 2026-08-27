@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/best-pest-control-birmingham/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/best-pest-control-birmingham/page.tsx
 // Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
 // Push: main
 // ─────────────────────────────────────
@@ -114,8 +120,8 @@ const FAQS: { q: string; a: string }[] = [
     a: 'Bi-monthly — every other month — is the Alabama standard, and it is driven by climate rather than by sales strategy. Humidity and mild winters mean pest pressure never fully stops here, so quarterly service tends to leave a gap in late summer when pressure peaks.',
   },
   {
-    q: 'Are pest control treatments safe for pets and kids?',
-    a: 'Yes, when applied at label rate by a licensed technician. Products go in targeted placements around entry points and the perimeter rather than broadcast across living areas. Ask about re-entry intervals for any interior application; routine exterior service generally has none.',
+    q: 'What precautions do you take around pets and kids?',
+    a: 'Our licensed technicians apply EPA-registered products strictly at label rate. Placements are targeted around entry points and the perimeter rather than broadcast across living areas. Ask your technician about re-entry intervals for any interior application; routine exterior service generally has none.',
   },
   {
     q: 'Should I just do it myself?',

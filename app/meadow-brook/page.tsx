@@ -36,7 +36,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks across the older Meadow Brook lots",
-      "body": "Larger established Meadow Brook lots with substantial vegetation carry Lone Star and American dog ticks plus chiggers. Mosquito + Tick plan ($65/treatment) bundles all three plus mosquito — the right plan for most yards here."
+      "body": "Larger established Meadow Brook lots with substantial vegetation carry Lone Star and American dog ticks plus chiggers. Mosquito + Tick plan ($65/month) bundles all three plus mosquito — the right plan for most yards here."
     },
     {
       "emoji": "🪵",

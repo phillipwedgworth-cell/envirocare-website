@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/faq/termite-warranty/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/faq/termite-warranty/page.tsx
 // Commit: fix(compliance): $1M is EnviroCare damage repair coverage, not a Corteva warranty
 // Push: main
 // ─────────────────────────────────────
@@ -131,7 +137,7 @@ const FAQS = [
   },
   {
     q: "Can I add Sentricon to my existing pest control plan?",
-    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free WDO inspection, with the same technician on one schedule. Call any of our four Alabama offices to add termite protection.",
+    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free WDO inspection, with your familiar local team on one schedule. Call any of our four Alabama offices to add termite protection.",
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",

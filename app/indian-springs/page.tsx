@@ -31,7 +31,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🌲",
       "title": "Wooded ridge tick pressure",
-      "body": "Indian Springs Village is essentially a residential community built into the Cahaba River watershed's wooded ridge. That's beautiful — and it's also why the Lone Star tick, American dog tick, and chigger pressure here is among the highest in the metro. Mosquito + Tick plan ($65/treatment) bundles all three plus mosquito coverage."
+      "body": "Indian Springs Village is essentially a residential community built into the Cahaba River watershed's wooded ridge. That's beautiful — and it's also why the Lone Star tick, American dog tick, and chigger pressure here is among the highest in the metro. Mosquito + Tick plan ($65/month) bundles all three plus mosquito coverage."
     },
     {
       "emoji": "🦟",
@@ -76,7 +76,7 @@ const cfg: NeighborhoodConfig = {
   "faqs": [
     {
       "q": "Why is the tick pressure so bad in Indian Springs Village?",
-      "a": "Indian Springs Village sits in the wooded ridge of the Cahaba watershed, with mature hardwood canopy, mast-producing trees, and corridor wildlife (deer, small mammals) that carry ticks. Lone Star, American dog, and chigger pressure is among the highest in any Birmingham-area community. The Mosquito + Tick plan ($65/treatment) bundles tick + chigger + mosquito for that reason — it is the right plan for almost every Indian Springs Village yard."
+      "a": "Indian Springs Village sits in the wooded ridge of the Cahaba watershed, with mature hardwood canopy, mast-producing trees, and corridor wildlife (deer, small mammals) that carry ticks. Lone Star, American dog, and chigger pressure is among the highest in any Birmingham-area community. The Mosquito + Tick plan ($65/month) bundles tick + chigger + mosquito for that reason — it is the right plan for almost every Indian Springs Village yard."
     },
     {
       "q": "Will Sentricon® work on a walkout-basement home built into the ridge?",
@@ -200,7 +200,7 @@ const jsonLd = {
           "name": "Why is the tick pressure so bad in Indian Springs Village?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Indian Springs Village sits in the wooded ridge of the Cahaba watershed, with mature hardwood canopy, mast-producing trees, and corridor wildlife (deer, small mammals) that carry ticks. Lone Star, American dog, and chigger pressure is among the highest in any Birmingham-area community. The Mosquito + Tick plan ($65/treatment) bundles tick + chigger + mosquito for that reason — it is the right plan for almost every Indian Springs Village yard."
+            "text": "Indian Springs Village sits in the wooded ridge of the Cahaba watershed, with mature hardwood canopy, mast-producing trees, and corridor wildlife (deer, small mammals) that carry ticks. Lone Star, American dog, and chigger pressure is among the highest in any Birmingham-area community. The Mosquito + Tick plan ($65/month) bundles tick + chigger + mosquito for that reason — it is the right plan for almost every Indian Springs Village yard."
           }
         },
         {

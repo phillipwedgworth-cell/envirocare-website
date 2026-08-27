@@ -36,12 +36,12 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🦟",
       "title": "Mosquito pressure from the Cahaba corridor",
-      "body": "Liberty Park's eastern edge runs toward the Cahaba River drainage. 30-day yard barrier targets harborage zones — tree lines, ornamental shrubs, mulched beds, and shaded back-of-house areas. $45/treatment, March through October."
+      "body": "Liberty Park's eastern edge runs toward the Cahaba River drainage. 30-day yard barrier targets harborage zones — tree lines, ornamental shrubs, mulched beds, and shaded back-of-house areas. $45/month, March through October."
     },
     {
       "emoji": "🐾",
       "title": "Ticks on the wooded common areas",
-      "body": "The trails, ponds, and wooded amenity spaces inside the community carry Lone Star and American dog ticks. Mosquito + Tick plan at $65/treatment bundles mosquito + tick + chigger — the actual biting trio you deal with on a Liberty Park yard."
+      "body": "The trails, ponds, and wooded amenity spaces inside the community carry Lone Star and American dog ticks. Mosquito + Tick plan at $65/month bundles mosquito + tick + chigger — the actual biting trio you deal with on a Liberty Park yard."
     },
     {
       "emoji": "🐜",
@@ -89,7 +89,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "What does mosquito service for a typical Liberty Park yard cost?",
-      "a": "Mosquito-only treatment is $45 per service, applied monthly March through October (8 treatments per year, averaging ~$30/month). For most Liberty Park homes the Mosquito + Tick plan at $65/treatment is a better fit because it bundles tick and chigger coverage — both are real concerns on the wooded perimeter."
+      "a": "Mosquito-only treatment is $45 per month, applied monthly March through October (8 treatments per year). For most Liberty Park homes the Mosquito + Tick plan at $65/month is a better fit because it bundles tick and chigger coverage — both are real concerns on the wooded perimeter."
     },
     {
       "q": "Is there a long-term contract?",
@@ -225,7 +225,7 @@ const jsonLd = {
           "name": "What does mosquito service for a typical Liberty Park yard cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mosquito-only treatment is $45 per service, applied monthly March through October (8 treatments per year, averaging ~$30/month). For most Liberty Park homes the Mosquito + Tick plan at $65/treatment is a better fit because it bundles tick and chigger coverage — both are real concerns on the wooded perimeter."
+            "text": "Mosquito-only treatment is $45 per month, applied monthly March through October (8 treatments per year). For most Liberty Park homes the Mosquito + Tick plan at $65/month is a better fit because it bundles tick and chigger coverage — both are real concerns on the wooded perimeter."
           }
         },
         {

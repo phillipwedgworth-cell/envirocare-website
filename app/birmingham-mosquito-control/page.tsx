@@ -1,21 +1,27 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/birmingham-mosquito-control/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
   title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/visit. Call (205) 940-6360.",
+    "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/month. Call (205) 940-6360.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-mosquito-control',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
-    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/visit. Call (205) 940-6360.",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/month. Call (205) 940-6360.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
-    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/visit. Call (205) 940-6360.",
+    description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/month. Call (205) 940-6360.",
     images: ['/og-image.png'],
   },
 };
@@ -49,20 +55,20 @@ const c: ComboContent = {
   ],
   price: {
     label: "Birmingham Mosquito Program",
-    amount: "$45/visit",
+    amount: "$45/month",
     sub: "March through October · every 30 days",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick + chigger coverage available in Mosquito + Tick ($65/visit)",
+      "Tick + chigger coverage available in Mosquito + Tick ($65/month)",
       "Unlimited free re-treatment between visits",
     ],
   },
   faqs: [
     {
       q: "When should Birmingham homes start mosquito service?",
-      a: "Late March or April — before populations explode. Starting before the first big hatch produces visibly better results all season than starting in June. We run the program through November.",
+      a: "Late March or April — before populations explode. Starting before the first big hatch produces visibly better results all season than starting in June. We run the program through October.",
     },
     {
       q: "Does it work on yards backing up to a creek?",
@@ -74,7 +80,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I bundle mosquito with pest control?",
-      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with the same technician on one schedule. The Mosquito + Tick plan adds tick + chigger coverage at $65/visit.",
+      a: "Most Birmingham customers do — bi-monthly perimeter pest control plus the mosquito barrier with your familiar local team on one schedule. The Mosquito + Tick plan adds tick + chigger coverage at $65/month.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },

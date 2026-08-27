@@ -37,7 +37,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🐾",
       title: "Ticks on the wooded ravine lots",
-      body: "Many English Village properties sit on Mountain Brook's characteristic wooded, ravine-cut terrain, which carries Lone Star and American dog ticks close to the yard. The Mosquito + Tick plan at $65/visit bundles tick and chigger coverage for exactly this kind of lot.",
+      body: "Many English Village properties sit on Mountain Brook's characteristic wooded, ravine-cut terrain, which carries Lone Star and American dog ticks close to the yard. The Mosquito + Tick plan at $65/month bundles tick and chigger coverage for exactly this kind of lot.",
     },
     {
       emoji: "🦟",
@@ -85,7 +85,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "Do you treat ticks on wooded, ravine-cut lots?",
-      a: "Yes — tick control targets the wooded edges, leaf litter, and shaded transition zones typical of English Village's terrain. It bundles with mosquito service in the $65/visit Mosquito + Tick plan.",
+      a: "Yes — tick control targets the wooded edges, leaf litter, and shaded transition zones typical of English Village's terrain. It bundles with mosquito service in the $65/month Mosquito + Tick plan.",
     },
     {
       q: "Is there a long-term contract?",

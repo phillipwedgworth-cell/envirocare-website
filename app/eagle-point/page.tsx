@@ -36,7 +36,7 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🐾",
       "title": "Ticks on wooded perimeter lots",
-      "body": "Eagle Point properties backing up to wooded common areas carry Lone Star and American dog ticks. The Mosquito + Tick plan ($65/treatment) bundles mosquito + tick + chigger — the actual biting trio you deal with from May through October."
+      "body": "Eagle Point properties backing up to wooded common areas carry Lone Star and American dog ticks. The Mosquito + Tick plan ($65/month) bundles mosquito + tick + chigger — the actual biting trio you deal with from May through October."
     },
     {
       "emoji": "🪵",

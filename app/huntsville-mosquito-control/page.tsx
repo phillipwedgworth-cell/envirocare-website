@@ -1,21 +1,27 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/huntsville-mosquito-control/page.tsx
+// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Push: main
+// ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
   title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/visit. Call (256) 937-7676.",
+    "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-mosquito-control',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
-    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/visit. Call (256) 937-7676.",
+    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
-    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/visit. Call (256) 937-7676.",
+    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };
@@ -26,7 +32,7 @@ const c: ComboContent = {
   h1Accent: "Built for the Tennessee Valley.",
   intro: [
     "Huntsville's growth has a side effect nobody puts in the relocation brochure: every new subdivision adds retention ponds, and every retention pond feeds the Tennessee Valley's already-relentless mosquito population. Add Beaverdam Creek, the Hampton Cove water features, and Aldridge Creek through south Huntsville, and the season runs hard from March to October.",
-    "EnviroCare's Huntsville office on Old Madison Pike has run mosquito routes across Madison County since the program existed — Providence to Big Cove, Jones Valley to Research Park. One technician, every 30 days, until your yard is yours again.",
+    "EnviroCare's Huntsville office on Old Madison Pike has run mosquito routes across Madison County since the program existed — Providence to Big Cove, Jones Valley to Research Park. A familiar local team, every 30 days through the season.",
   ],
   anglesHeading: "Huntsville's mosquito map, street by street",
   localAngles: [
@@ -49,13 +55,13 @@ const c: ComboContent = {
   ],
   price: {
     label: "Huntsville Mosquito Program",
-    amount: "$45/visit",
+    amount: "$45/month",
     sub: "March through October · every 30 days",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick + chigger coverage available in Mosquito + Tick ($65/visit)",
+      "Tick + chigger coverage available in Mosquito + Tick ($65/month)",
       "50% off your first application",
     ],
   },

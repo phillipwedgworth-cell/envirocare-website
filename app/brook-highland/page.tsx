@@ -25,12 +25,12 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "🦟",
       "title": "Mosquito pressure in mature wooded sections",
-      "body": "Original Brook Highland sections sit under mature tree canopy — beautiful, and excellent mosquito harborage. 30-day yard barrier targets shaded resting zones (tree lines, shrub bases, gutters, north-facing walls). $45/treatment, March through October."
+      "body": "Original Brook Highland sections sit under mature tree canopy — beautiful, and excellent mosquito harborage. 30-day yard barrier targets shaded resting zones (tree lines, shrub bases, gutters, north-facing walls). $45/month, March through October."
     },
     {
       "emoji": "🐾",
       "title": "Ticks on the wooded common areas",
-      "body": "Brook Highland's wooded common areas and walking trails carry Lone Star and American dog ticks plus chiggers. Mosquito + Tick plan ($65/treatment) bundles mosquito + tick + chigger and is the right plan for most Brook Highland yards."
+      "body": "Brook Highland's wooded common areas and walking trails carry Lone Star and American dog ticks plus chiggers. Mosquito + Tick plan ($65/month) bundles mosquito + tick + chigger and is the right plan for most Brook Highland yards."
     },
     {
       "emoji": "🪵",
@@ -78,7 +78,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "How does the Mosquito + Tick plan differ from mosquito-only?",
-      "a": "Mosquito + Tick is $65 per treatment and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
+      "a": "Mosquito + Tick is $65 per month and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
     },
     {
       "q": "What's the response time for a same-week call?",
@@ -210,7 +210,7 @@ const jsonLd = {
           "name": "How does the Mosquito + Tick plan differ from mosquito-only?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mosquito + Tick is $65 per treatment and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
+            "text": "Mosquito + Tick is $65 per month and covers mosquitoes + ticks + chiggers, all on the same 30-day cycle. For Brook Highland yards backing up to wooded common areas, the chigger and tick coverage is worth the difference — both are real summer issues here."
           }
         },
         {

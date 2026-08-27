@@ -4,7 +4,7 @@ import { PRICING } from "@/data/pricing";
 
 const TITLE = "Mosquito Control Decatur AL | River & Refuge Yards | EnviroCare";
 const DESC =
-  `Mosquito control in Decatur AL — ~$${PRICING.addOns.mosquito.perVisit}/treatment, about 8 treatments March–October. Built for river-bottom humidity and refuge-edge yards. (256) 937-7676.`;
+  `Mosquito control in Decatur AL — ~$${PRICING.addOns.mosquito.monthly}/month, about 8 treatments March–October. Built for river-bottom humidity and refuge-edge yards. (256) 937-7676.`;
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -38,12 +38,12 @@ const c: ComboContent = {
     },
     {
       title: "Ticks and chiggers ride along",
-      body: `Refuge-edge and creek-line yards can add tick & chigger coverage to the mosquito program — ~$${PRICING.addOns.mosquitoTick.perVisit}/treatment combined. (Fleas are a separate service.)`,
+      body: `Refuge-edge and creek-line yards can add tick & chigger coverage to the mosquito program — ~$${PRICING.addOns.mosquitoTick.monthly}/month combined. (Fleas are a separate service.)`,
     },
   ],
   price: {
     label: "Seasonal Mosquito Program — Decatur",
-    amount: `~$${PRICING.addOns.mosquito.perVisit}/treatment`,
+    amount: `~$${PRICING.addOns.mosquito.monthly}/month`,
     sub: "about 8 treatments, March–October",
     bullets: [
       "Barrier treatment of resting + breeding sites you own",

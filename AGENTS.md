@@ -299,7 +299,14 @@ JSON-LD block that contradicts it.
   `plans.<plan>.startup`, never the bare `initialServiceFee`
 - The $75 initial is **50% off a $150 regular price** — it is not a flat price
   that another discount can stack onto
-- Mosquito **$45/visit**, nine rounds March–November
+- Mosquito **$45/month** for an average-size yard — eight treatments
+  **March–October**, firm price after a free inspection, ACH spreads it evenly
+  across the year. Mosquito + Tick is **$65/month**. Ruled 2026-08-26 (Phillip,
+  with `service_canon.mosquito`); this REPLACES the old "$45/visit, nine rounds
+  March–November" line. Flag any diff that reintroduces a per-visit or
+  per-treatment mosquito price, a ninth treatment, or a derived second monthly
+  figure such as "$30/month" or "$43.33/month" — $45 and $65 ARE the monthly
+  prices now, so a second one contradicts them
 - **Tick and flea are quoted, never priced on-page** (`listOnPricingPage: false`)
 - **Termite is never a flat number.** Always "priced at inspection" or
   "subject to inspection"
