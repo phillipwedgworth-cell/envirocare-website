@@ -30,7 +30,18 @@
 
 import { useEffect } from 'react';
 
-const GA_ID = 'G-CELEB90NKX';
+// GA4 Measurement ID — override via NEXT_PUBLIC_GA_ID (must be NEXT_PUBLIC_
+// since this is a client component; Next.js only inlines that prefix into the
+// browser bundle). Falls back to the ID that's been live since 2026-08-17.
+// 2026-08-27: diagnosed live via headless Chrome — the loader fires, dataLayer
+// populates, zero console/hydration errors, but /g/collect never fires even
+// after forcing consent grant explicitly. gtag/js?id=G-CELEB90NKX still
+// returns a full loaded container (state:2, destinations:["G-CELEB90NKX"]),
+// which rules out a dead/retired ID — the signature instead matches a GA4 web
+// data stream that was deleted and recreated, orphaning this ID. Swapping the
+// env var + redeploy is the fix once the current Measurement ID is confirmed
+// in GA4 → Admin → Data streams → Web.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-CELEB90NKX';
 const FB_PIXEL_ID = '1945518562226719';
 
 // 5 s is long enough that LCP (target < 2.5 s) is always done,
