@@ -1,0 +1,30 @@
+name: GA4 Stream Check
+
+# One-shot READ-ONLY diagnostic: asks the GA4 Admin API which data streams the
+# property actually has and what their Measurement IDs are, then compares that
+# against the ID the live site sends to. Answers "is our tracking pointed at a
+# stream that no longer exists?" — see agents/diagnostics/ga4-streams.mjs.
+#
+# Manual trigger only; lists streams and changes nothing.
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+      # Property id confirmed by Phillip 2026-08-27; secret wins if it is set.
+      GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID || '313205131' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm ci || npm install
+      - name: List GA4 data streams
+        run: node agents/diagnostics/ga4-streams.mjs
