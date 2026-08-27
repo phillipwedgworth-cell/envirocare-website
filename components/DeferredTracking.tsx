@@ -32,15 +32,14 @@ import { useEffect } from 'react';
 
 // GA4 Measurement ID — override via NEXT_PUBLIC_GA_ID (must be NEXT_PUBLIC_
 // since this is a client component; Next.js only inlines that prefix into the
-// browser bundle). Falls back to the ID that's been live since 2026-08-17.
-// 2026-08-27: diagnosed live via headless Chrome — the loader fires, dataLayer
-// populates, zero console/hydration errors, but /g/collect never fires even
-// after forcing consent grant explicitly. gtag/js?id=G-CELEB90NKX still
-// returns a full loaded container (state:2, destinations:["G-CELEB90NKX"]),
-// which rules out a dead/retired ID — the signature instead matches a GA4 web
-// data stream that was deleted and recreated, orphaning this ID. Swapping the
-// env var + redeploy is the fix once the current Measurement ID is confirmed
-// in GA4 → Admin → Data streams → Web.
+// browser bundle).
+//
+// 2026-08-27: G-CELEB90NKX was CONFIRMED CORRECT by Phillip against GA4 →
+// Admin → Data streams (stream id 3496129282, "Envirocare - GA4"). An earlier
+// theory that the data stream had been deleted and recreated is DISPROVEN —
+// the ID never changed. The real cause was the gtag bootstrap below pushing an
+// Array instead of `arguments`. The env override is kept because it is useful
+// on its own merits (staging/preview properties, future stream changes).
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-CELEB90NKX';
 const FB_PIXEL_ID = '1945518562226719';
 
@@ -64,7 +63,19 @@ function loadTracking() {
     document.head.appendChild(gaScript);
 
     (window as any).dataLayer = (window as any).dataLayer || [];
-    function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+    // ⚠️ DO NOT "MODERNIZE" THIS INTO `dataLayer.push(args)` OR AN ARROW FN.
+    // gtag.js identifies a COMMAND (js / config / event / consent) by the
+    // pushed value being an `arguments` object; a real Array is treated as an
+    // ordinary data push and the command is silently ignored. Rewriting this
+    // to rest params on 2026-08-17 is what killed GA4 — the container still
+    // loaded (state:2) and threw no errors, it just never got configured, so
+    // zero /g/collect hits were ever sent. Traffic went 260 sessions
+    // Aug 13-19 -> 1. The pre-2026-08-17 layout.tsx used the form below and
+    // worked. This is Google's canonical snippet; keep it verbatim.
+    const gtag: (...args: unknown[]) => void = function () {
+      // eslint-disable-next-line prefer-rest-params
+      (window as any).dataLayer.push(arguments);
+    };
     (window as any).gtag = gtag;
     gtag('js', new Date());
     gtag('config', GA_ID);
