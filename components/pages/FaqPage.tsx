@@ -130,8 +130,8 @@ export default function FaqPage() {
               <div className="faq-a">21 days, weather depending. Heavy rain can shorten effectiveness — we'll re-treat free if needed.</div>
             </details>
             <details className="faq-item">
-              <summary className="faq-q">Is the spray safe for my dog and kids?</summary>
-              <div className="faq-a">Yes once dry — typically 30 minutes. We use EPA-registered pyrethroids applied per label, same active ingredients as in canine flea/tick prevention products.</div>
+              <summary className="faq-q">What precautions do you take around dogs and kids?</summary>
+              <div className="faq-a">We use EPA-registered products applied strictly according to label directions. Treated exterior surfaces are typically dry in about 30 minutes; your technician will confirm re-entry timing for any interior application.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you treat for ticks?</summary>
