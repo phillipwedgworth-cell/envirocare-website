@@ -16,7 +16,39 @@ is fine and always was — the **Measurement ID** is the one under suspicion.
 
 ---
 
-## P0 — Tracking is dead. Nothing else matters until this is fixed.
+## P0 — RESOLVED 2026-08-27. Root cause was our code, not GA4.
+
+**Confirmed fixed in production.** Live browser evidence after deploying #121:
+
+| | Before | After |
+|---|---|---|
+| `Object.prototype.toString.call(dataLayer[0])` | `[object Array]` | `[object Arguments]` |
+| `/g/collect` requests | 0 (verified 3 ways) | 1 — fires |
+| gtag.js processing | none | `gtm.uniqueEventId`, `gtm.dom`, `gtm.load` present |
+
+The `gtm.uniqueEventId` annotations are the proof: gtag.js stamps those onto
+dataLayer entries it has actually *processed*. Before the fix it read the
+entries and discarded them silently.
+
+**Root cause:** the 2026-08-17 perf refactor (`2dbd173`) rewrote Google's
+canonical `function gtag(){dataLayer.push(arguments)}` as
+`function gtag(...args){dataLayer.push(args)}`. gtag.js identifies a command
+by the pushed value being an `arguments` object; a real Array is treated as an
+ordinary data push and ignored — with no error. The Measurement ID
+(G-CELEB90NKX, stream 3496129282) was correct the whole time; an earlier
+deleted-stream theory was disproven by Phillip reading it off Admin.
+
+**Lesson for future refactors:** never "modernize" the gtag snippet. Arrow
+functions and rest params both break it, silently. `components/
+DeferredTracking.tsx` now carries a warning comment at that line.
+
+**Open watch item:** the confirming hit returned HTTP 503 from
+`analytics.google.com/g/collect`. Likely automation throttling (the check ran
+in an automated browser) rather than a real fault — the request being *sent
+at all* is the fix working. If real-visitor traffic also 503s and Realtime
+stays empty, investigate further.
+
+## (historical) P0 — Tracking is dead. Nothing else matters until this is fixed.
 
 **Evidence (headless Chrome vs. production, 2026-08-27):** the tag loads
 perfectly — gtag defined, dataLayer populated, container fetched (572 KB,
