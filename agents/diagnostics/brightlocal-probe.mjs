@@ -54,3 +54,76 @@ async function mcpSession(label, url, extraHeaders) {
 
 await mcpSession("MCP query-param auth", `https://mcp.brightlocal.com/mcp?api-key=${encodeURIComponent(KEY)}`, {});
 await mcpSession("MCP x-api-key header", "https://mcp.brightlocal.com/mcp", { "x-api-key": KEY });
+
+// ── CAPABILITY + CREDIT DISCOVERY (added 2026-08-27) ─────────────────────────
+// "Which BrightLocal products are out of credits?" could not be answered from
+// this repo: nothing here ever asked. The answer had been carried in chat as an
+// assertion, which is exactly the stale-document failure AGENTS.md rule zero
+// warns about.
+//
+// This does NOT guess endpoint names from memory. It asks the server what it
+// offers (tools/list is authoritative), then tries a small set of REST paths and
+// prints whatever comes back — including the 404s. A 404 here is a RESULT, not a
+// failure of the probe: it tells the next reader that path does not exist, so
+// nobody re-derives it. Read-only throughout; nothing is spent or ordered.
+async function mcpListTools(label, url, extraHeaders) {
+  const hdrs = { "content-type": "application/json", accept: "application/json, text/event-stream", ...extraHeaders };
+  try {
+    const init = await fetch(url, {
+      method: "POST", headers: hdrs,
+      body: JSON.stringify({ jsonrpc: "2.0", id: 0, method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "probe", version: "0" } } }),
+      signal: AbortSignal.timeout(20000),
+    });
+    const sid = init.headers.get("mcp-session-id");
+    if (!sid) { console.log(`${label} tools/list: no session (HTTP ${init.status}) — skipped`); return; }
+    const shdrs = { ...hdrs, "Mcp-Session-Id": sid };
+    await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }), signal: AbortSignal.timeout(20000) });
+    const res = await fetch(url, {
+      method: "POST", headers: shdrs,
+      body: JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} }),
+      signal: AbortSignal.timeout(30000),
+    });
+    const raw = await res.text();
+    // The endpoint may answer as SSE ("data: {...}") or as plain JSON.
+    const jsonText = raw.includes('"jsonrpc"') ? raw.slice(raw.indexOf("{", raw.indexOf('"jsonrpc"') - 40)) : raw;
+    let tools = null;
+    try { tools = JSON.parse(jsonText)?.result?.tools; } catch { /* fall through to raw */ }
+    if (!Array.isArray(tools)) {
+      console.log(`${label} tools/list: HTTP ${res.status} — unparsed: ${raw.slice(0, 300).replace(/\s+/g, " ")}`);
+      return;
+    }
+    console.log(`${label} tools/list: HTTP ${res.status} — ${tools.length} tool(s) available:`);
+    for (const t of tools) {
+      console.log(`    - ${t.name}: ${String(t.description ?? "").replace(/\s+/g, " ").slice(0, 110)}`);
+    }
+    // Call out anything that looks like it reports balance/quota, so the
+    // credits question can be answered directly on the next run.
+    const money = tools.filter(t => /credit|balance|quota|usage|account|subscription|plan/i.test(`${t.name} ${t.description ?? ""}`));
+    console.log(money.length
+      ? `    >> credit/account-related tools: ${money.map(t => t.name).join(", ")}`
+      : `    >> NONE of the exposed tools reports credits — credits are dashboard-only via this key.`);
+  } catch (e) {
+    console.log(`${label} tools/list: FETCH ERROR — ${e.message}`);
+  }
+}
+
+await mcpListTools("MCP query-param auth", `https://mcp.brightlocal.com/mcp?api-key=${encodeURIComponent(KEY)}`, {});
+await mcpListTools("MCP x-api-key header", "https://mcp.brightlocal.com/mcp", { "x-api-key": KEY });
+
+console.log("\n-- REST paths that might carry credit/usage info (404 = does not exist, which is useful) --");
+for (const path of [
+  "manage/v1/account",
+  "manage/v1/credits",
+  "manage/v1/subscription",
+  "v4/credits",
+  "seo-tools/api/v4/credits",
+]) {
+  const url = `https://api.brightlocal.com/${path}`;
+  try {
+    const res = await fetch(url, { headers: { "x-api-key": KEY }, signal: AbortSignal.timeout(15000) });
+    const body = (await res.text()).slice(0, 160).replace(/\s+/g, " ");
+    console.log(`  ${path}: HTTP ${res.status} — ${body}`);
+  } catch (e) {
+    console.log(`  ${path}: FETCH ERROR — ${e.message}`);
+  }
+}
