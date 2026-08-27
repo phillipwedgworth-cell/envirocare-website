@@ -54,7 +54,7 @@ const LLMS_TXT = `# EnviroCare
 - Fire ant treatment: $150 minimum, priced by the square footage of covered area —
   available to anyone in the service area, no plan required. Whole-colony treatment.
 - Tick treatment: only with mosquito (never standalone) — Mosquito + Tick is $65/month,
-  March through October (8 treatments, spread evenly across the year by ACH). Per visit, no monthly.
+  March through October (8 treatments, spread evenly across the year by ACH).
 - Interior + exterior quarterly plan: $98/quarter (4 visits/year, inside and outside).
   Flea treatment is an add-on to this plan: +$30/quarter ($128/quarter total) — flea
   requires interior treatment.

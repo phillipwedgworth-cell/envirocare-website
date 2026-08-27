@@ -230,8 +230,8 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare coverage", "Priced after a free WDO inspection"]} featured />
-            <Plan name="Mosquito Yard" price="$45" unit="/treatment" features={["30-day yard barrier", "March – October (8 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
-            <Plan name="Mosquito + Tick" price="$65" unit="/treatment" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – October"]} />
+            <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier", "March – October (8 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
+            <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – October"]} />
           </div>
         </section>
 
