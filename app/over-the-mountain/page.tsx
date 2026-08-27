@@ -100,7 +100,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "When does mosquito season run here?",
-      "a": "The 30-day yard barrier runs March through October — shaded Over the Mountain yards are exactly where it earns its keep. Tick control bundles in via the $65/visit Mosquito + Tick plan."
+      "a": "The 30-day yard barrier runs March through October — shaded Over the Mountain yards are exactly where it earns its keep. Tick control bundles in via the $65/month Mosquito + Tick plan."
     }
   ],
   "nearbyClusters": [

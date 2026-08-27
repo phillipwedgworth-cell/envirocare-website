@@ -31,12 +31,12 @@ const cfg: NeighborhoodConfig = {
     {
       "emoji": "💧",
       "title": "Lakefront mosquito pressure",
-      "body": "Lake-adjacent properties have the worst mosquito pressure in 35242 — standing water harborage, vegetation along the shoreline, and shaded boathouse / dock structures. The 30-day yard barrier ($45/treatment) targets resting zones; lakefront homes typically see a noticeable drop within the first two cycles."
+      "body": "Lake-adjacent properties have the worst mosquito pressure in 35242 — standing water harborage, vegetation along the shoreline, and shaded boathouse / dock structures. The 30-day yard barrier ($45/month) targets resting zones; lakefront homes typically see a noticeable drop within the first two cycles."
     },
     {
       "emoji": "🐾",
       "title": "Ticks across the back acreage",
-      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Mosquito + Tick plan ($65/treatment) is the right call here — bundles mosquito + tick + chigger for $43.33/month equivalent over the 8-month season."
+      "body": "Highland Lakes' wooded common areas, walking trails, and large rear lots carry Lone Star and American dog ticks plus chiggers. The Mosquito + Tick plan ($65/month) is the right call here — bundles mosquito + tick + chigger for $65/month."
     },
     {
       "emoji": "🪵",

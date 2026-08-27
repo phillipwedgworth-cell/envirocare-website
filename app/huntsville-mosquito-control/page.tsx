@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/visit. Call (256) 937-7676.",
+    "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-mosquito-control',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
-    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/visit. Call (256) 937-7676.",
+    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
-    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/visit. Call (256) 937-7676.",
+    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };
@@ -55,13 +55,13 @@ const c: ComboContent = {
   ],
   price: {
     label: "Huntsville Mosquito Program",
-    amount: "$45/visit",
+    amount: "$45/month",
     sub: "March through October · every 30 days",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
       "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick + chigger coverage available in Mosquito + Tick ($65/visit)",
+      "Tick + chigger coverage available in Mosquito + Tick ($65/month)",
       "50% off your first application",
     ],
   },

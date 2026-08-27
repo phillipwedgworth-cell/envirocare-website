@@ -20,7 +20,7 @@ export default function ServicesIndexPage() {
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">Every Service We Offer</span></div>
           <h1>Core Protection Plus<em>Specialty Service</em></h1>
-          <p className="page-hero-sub">Bi-monthly pest control, seasonal mosquito service (add tick for +$20/treatment), and Sentricon® termite protection with up to $1M coverage, subject to the terms of the agreement — plus specialty options for fire ants, fleas, builders, real estate, crawlspaces, and commercial properties.</p>
+          <p className="page-hero-sub">Bi-monthly pest control, seasonal mosquito service (add tick for +$20/month), and Sentricon® termite protection with up to $1M coverage, subject to the terms of the agreement — plus specialty options for fire ants, fleas, builders, real estate, crawlspaces, and commercial properties.</p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/quote" className="btn-outline-white">See Pricing →</a>
@@ -54,8 +54,8 @@ export default function ServicesIndexPage() {
             <a href="/services/mosquito" className="svc-card">
               <div className="svc-card-tag">March – October</div>
               <div className="svc-card-name">Mosquito Control</div>
-              <div className="svc-card-price">$45/visit · add tick for +$20</div>
-              <div className="svc-card-desc">30-day yard barrier March through October. Add tick protection for +$20/treatment — ideal for wooded lots and lake homes. EPA-registered products, applied per label directions.</div>
+              <div className="svc-card-price">$45/month · add tick for +$20</div>
+              <div className="svc-card-desc">30-day yard barrier March through October. Add tick protection for +$20/month — ideal for wooded lots and lake homes. EPA-registered products, applied per label directions.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             <a href="/services/termite-control" className="svc-card feat">

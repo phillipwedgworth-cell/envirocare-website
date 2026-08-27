@@ -84,7 +84,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "When does mosquito season start near the village?",
-      a: "We run the 30-day yard barrier March through October, timed to the creek and trail corridor's mosquito pressure. Tick control adds on with the $65/visit Mosquito + Tick plan.",
+      a: "We run the 30-day yard barrier March through October, timed to the creek and trail corridor's mosquito pressure. Tick control adds on with the $65/month Mosquito + Tick plan.",
     },
     {
       q: "Is there a long-term contract?",

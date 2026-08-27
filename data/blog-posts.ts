@@ -490,7 +490,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>DIY isn't free. A hose-end concentrate runs $20–25 a month through the season, plus the candles, cartridges, and the zapper gathering moths on the porch — most homeowners spend $150–200 a season for results that fade midweek.</p>
 
-<p>Our <a href="/services/mosquito">seasonal mosquito service</a> is $45 per treatment, March through October. Customers on a pest control plan can add it from $34 a month (monthly pricing requires a 12-month service agreement, billed by ACH auto-draft in equal averaged payments). Timing helps too — as we covered in our <a href="/blog/mosquito-season-birmingham-al">Alabama mosquito season guide</a>, starting earlier in the season keeps the breeding population from ever compounding.</p>
+<p>Our <a href="/services/mosquito">seasonal mosquito service</a> is $45 per month, March through October. Customers on a pest control plan can add it from $34 a month (monthly pricing requires a 12-month service agreement, billed by ACH auto-draft in equal averaged payments). Timing helps too — as we covered in our <a href="/blog/mosquito-season-birmingham-al">Alabama mosquito season guide</a>, starting earlier in the season keeps the breeding population from ever compounding.</p>
 
 <h2>When DIY is the right call</h2>
 
@@ -658,7 +658,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>We treat the perimeter of your property and the harborage zones — the shaded undersides of decks, the boathouse rafters, the hedge lines, the tree canopy up to about 20 feet. The product binds to leaf surfaces and kills mosquitoes that land. After 21 days, UV breakdown degrades it and we come back.</p>
 
-<p>March through October. 8 treatments per season. $45/visit, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/visit.</p>
+<p>March through October. 8 treatments per season. $45/month, or add tick (chiggers covered) in the Mosquito + Tick plan at $65/month.</p>
 
 <h2>What we DON'T recommend</h2>
 
@@ -682,7 +682,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Adding tick coverage</h2>
 
-<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65 per visit, March through October. It does not cover fleas — fleas are an interior-access service we handle separately.</p>
+<p>If you're on the lake, you also have ticks. Every wooded lot in Tallapoosa County has Lone Star ticks and Dog ticks. Our standard recommendation for lake homes is the Outdoor Bundle: mosquito + tick yard treatment with chigger coverage, $65 per month, March through October. It does not cover fleas — fleas are an interior-access service we handle separately.</p>
 
 <p>Call our Alex City / Lake Martin office: <strong>(256) 234-6162</strong>.</p>
 `,
@@ -1578,7 +1578,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <li><strong>Pest + Mosquito — from $69/mo (most popular):</strong> bi-monthly pest plus seasonal mosquito control.</li>
 <li><strong>Complete — from ~$100/mo:</strong> pest, termite, and mosquito together — Sentricon® termite priced after a free WDO inspection, with up to $1,000,000 damage coverage.</li>
 </ul>
-<p>Standalone mosquito control starts at <strong>$45/visit</strong> seasonal. Termite inspections are always free. <a href="/pricing">See full pricing →</a></p>
+<p>Standalone mosquito control starts at <strong>$45/month</strong> seasonal. Termite inspections are always free. <a href="/pricing">See full pricing →</a></p>
 
 <h2>What actually changes the price</h2>
 <p>The published prices cover most single-family homes up to roughly 3,500 square feet. Square footage and outbuildings, crawl space access and condition, and initial vs. ongoing service are the three factors that move the number — and a reputable Alabama company discloses them before service starts, not after.</p>
@@ -1688,7 +1688,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <h2>What does mosquito service cost in Alabama?</h2>
 
-<p>Our mosquito program runs about $45 per treatment across eight treatments, March through October — roughly $30 a month when spread evenly across the year. Adding tick and chigger coverage brings it to about $65 per treatment, or roughly $43.33 a month.</p>
+<p>Our mosquito program runs about $45 per month across eight treatments, March through October, and ACH spreads it evenly across the year. Adding tick and chigger coverage brings it to about $65 per month.</p>
 
 <p>Both are their own services rather than part of the bi-monthly pest plan, because mosquito work uses different products, different equipment, and a different treatment map than interior and perimeter pest control.</p>
 
@@ -1869,7 +1869,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 
 <p>Yard tick treatment is a targeted barrier application to the places ticks actually occupy — the wood line, fence rows, ivy and ground cover, shaded shrub beds, and leaf litter — rather than a blanket spray of open lawn. Products are EPA-registered and applied according to label directions.</p>
 
-<p>At EnviroCare, tick coverage is part of our <strong>Mosquito &amp; Tick program</strong>, which runs about $65 per treatment across eight treatments from March through October — roughly $43.33 a month when spread across the year. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas; fleas are an interior problem and we handle them separately.</p>
+<p>At EnviroCare, tick coverage is part of our <strong>Mosquito &amp; Tick program</strong>, which runs about $65 per month across eight treatments from March through October. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas; fleas are an interior problem and we handle them separately.</p>
 
 <p>One important clarification: <strong>ticks are not included in our standard bi-monthly pest plan.</strong> That plan covers 30-plus household pests, but ticks, fleas, and fire ants each require different products and different placement, so they're handled as their own services. We'd rather tell you that up front than have you assume you're covered.</p>
 
@@ -2090,7 +2090,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>The startup (first-service) fee covers the heavier initial treatment — a full interior and exterior knockdown, web and nest removal, and setting up the barrier that the recurring visits then maintain. It is <strong>$75 for every plan</strong> and <strong>the same $75 for Complete</strong>. There is no separate "inspection fee" tacked on top; the inspection is part of the visit.</p>
 
 <h2>How much is mosquito control in Huntsville?</h2>
-<p>If you only want mosquitoes handled, we treat on a per-visit basis at <strong>$45 per visit</strong>, or <strong>$34/month when added onto a pest plan</strong> (the bundle just means one tech and one invoice — it is a convenience, not a discount). Tick protection can be added for <strong>$20 per visit</strong> alongside mosquito service. Properties near the river, agricultural irrigation, or heavy tree cover in areas like Hampton Cove and Harvest usually get the most out of a monthly mosquito program. More on that on our <a href="/huntsville-mosquito-control">Huntsville mosquito control</a> page.</p>
+<p>If you only want mosquitoes handled, we treat on a per-visit basis at <strong>$45 per month</strong>, or <strong>$34/month when added onto a pest plan</strong> (the bundle just means one tech and one invoice — it is a convenience, not a discount). Tick protection can be added for <strong>$20 a month</strong> alongside mosquito service, which is the $65/month Mosquito + Tick plan. Properties near the river, agricultural irrigation, or heavy tree cover in areas like Hampton Cove and Harvest usually get the most out of a monthly mosquito program. More on that on our <a href="/huntsville-mosquito-control">Huntsville mosquito control</a> page.</p>
 
 <h2>How much does termite control cost?</h2>
 <p>Termite protection is the one service we do not put a flat price on, and that is on purpose. Every home is different — square footage, foundation type, and conducive conditions all change the scope — so we quote it <strong>after a free WDO (wood-destroying organism) inspection</strong> rather than guessing. We install and monitor the Sentricon&reg; system with up to $1,000,000 in repair coverage. The inspection genuinely costs you nothing, and you get a real number for your specific house. Start on the <a href="/huntsville-termite-control">Huntsville termite control</a> page or read how <a href="/services/sentricon">Sentricon</a> works.</p>

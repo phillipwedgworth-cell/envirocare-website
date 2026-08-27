@@ -9,18 +9,18 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export const metadata: Metadata = {
   title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
   description:
-    "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
+    "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/month covers. EnviroCare, family-owned since 1958.",
   alternates: { canonical: './' },
   openGraph: { url: 'https://www.envirocarellc.com/faq/mosquito',
     title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
-    description: "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
+    description: "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/month covers. EnviroCare, family-owned since 1958.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito FAQ Alabama | When Does Season Start? | EnviroCare",
-    description: "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/visit covers. EnviroCare, family-owned since 1958.",
+    description: "Alabama mosquito season FAQ — when it starts, how long it lasts, and what $45/month covers. EnviroCare, family-owned since 1958.",
     images: ['/og-image.png'],
   },
 };
@@ -58,7 +58,7 @@ const SCHEMA = {
       name: "How much does mosquito control cost in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare's mosquito program is $45 per visit, March through October (8 visits, billed per service — no monthly). There's no setup fee and no annual contract. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
+        text: "EnviroCare's mosquito program is $45 per month, March through October (8 treatments, spread evenly across the year by ACH). There's no setup fee and no annual contract. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per month; flea is an interior-plan add-on.",
       },
     },
     {
@@ -106,7 +106,7 @@ const FAQS = [
   },
   {
     q: "How much does mosquito control cost?",
-    a: "$45 per visit, March through October (8 visits, billed per service — no monthly). No setup fee, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per visit; flea is an interior-plan add-on.",
+    a: "$45 per month, March through October (8 treatments, spread evenly across the year by ACH). No setup fee, no initial charge. You can add it to an existing pest or termite plan at any time. Mosquito + Tick (chiggers covered) is $65 per month; flea is an interior-plan add-on.",
   },
   {
     q: "Do you serve Lake Martin waterfront homes?",
@@ -126,7 +126,7 @@ const FAQS = [
   },
   {
     q: "Can I start mid-season in June or July?",
-    a: "Absolutely. We take new customers any time during the season. Starting mid-season means you'll still get three to four treatments in that year. The $45/visit rate is the same regardless of when you start.",
+    a: "Absolutely. We take new customers any time during the season. Starting mid-season means you'll still get three to four treatments in that year. The $45/month rate is the same regardless of when you start.",
   },
   {
     q: "How is EnviroCare different from national mosquito companies?",
@@ -427,7 +427,7 @@ export default function MosquitoFAQ() {
             }}
           >
             {[
-              { n: "$45/visit", label: "March–October" },
+              { n: "$45/month", label: "March–October" },
               { n: "21 days", label: "Treatment cycle" },
               { n: "Free", label: "Re-service between visits" },
               { n: "Since 1958", label: "Family-owned Alabama" },

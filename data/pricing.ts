@@ -53,12 +53,18 @@ export const PRICING = {
   initialServiceFeeExceptions: { complete: 229 },
 
   addOns: {
-    mosquito: { perVisit: 45, monthlyWithPestOnly: 34 }, // $34/mo ONLY when paired with pest
+    // RULED 2026-08-26 (Phillip, with service_canon.mosquito): the mosquito
+    // offer is MONTHLY, not per-visit. $45/month for an average-size yard,
+    // eight treatments March-October, firm price after a free inspection, and
+    // ACH spreads it evenly across the year. The old perVisit:45 read as
+    // $360/season; this reads as $540/year. It is a different offer, not a
+    // rewording — do not "restore" the per-visit shape.
+    mosquito: { monthly: 45, monthlyWithPestOnly: 34 }, // $34/mo ONLY when paired with pest
     // Tick and flea are QUOTED, not listed. They stay off the pricing page as
     // sellable line items (Phillip, Aug 24 2026) — the service pages remain for
     // search, but price discovery happens on the phone.
-    mosquitoTick: { perVisit: 65, listOnPricingPage: false },
-    tick: { perVisitWithMosquitoOnly: 20, listOnPricingPage: false },
+    mosquitoTick: { monthly: 65, listOnPricingPage: false }, // monthly, same ruling
+    tick: { monthlyWithMosquitoOnly: 20, listOnPricingPage: false }, // 65 - 45, derived
     flea: { model: 'Quoted — interior add-on', listOnPricingPage: false },
   },
 

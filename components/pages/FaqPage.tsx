@@ -141,7 +141,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you treat for ticks?</summary>
-              <div className="faq-a">Yes. Tick control comes with mosquito in the Mosquito + Tick plan ($65/visit) — chiggers covered too. Standalone tick treatment is quoted for your property. Critical for wooded properties, lake homes, and families with dogs.</div>
+              <div className="faq-a">Yes. Tick control comes with mosquito in the Mosquito + Tick plan ($65/month) — chiggers covered too. Standalone tick treatment is quoted for your property. Critical for wooded properties, lake homes, and families with dogs.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">What about pollinators like bees and butterflies?</summary>

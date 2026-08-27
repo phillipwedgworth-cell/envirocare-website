@@ -398,10 +398,10 @@ const RECURRING_PLANS: RecurringPlan[] = [
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
-    perservice: { price: '$45/visit · seasonal', terms: 'Monthly service, March–October' },
+    perservice: { price: '$45/month · seasonal', terms: 'Monthly service, March–October' },
     monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
-    addon: 'Add tick control to any visit: +$20/treatment',
+    addon: 'Add tick control to any visit: +$20/month',
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {
@@ -530,7 +530,7 @@ function ConsolidatedPricing() {
             <span className="ec-cp-bundle-price">From $69/mo</span>
           </div>
           <span className="ec-cp-bundle-sub">
-            Year-round pest control plus seasonal mosquito on one invoice. Add tick for +$20/treatment.
+            Year-round pest control plus seasonal mosquito on one invoice. Add tick for +$20/month.
           </span>
           <Link
             href="/quote"

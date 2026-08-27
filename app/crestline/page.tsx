@@ -86,7 +86,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "What does mosquito service cost for a typical Crestline yard?",
-      a: "Mosquito-only treatment is $45 per visit, applied every 30 days March through October. Many Crestline homes near the Jemison Park tree line choose the Mosquito + Tick plan at $65/visit, since it bundles tick and chigger coverage for shaded, wooded-adjacent yards.",
+      a: "Mosquito-only treatment is $45 per month, applied every 30 days March through October. Many Crestline homes near the Jemison Park tree line choose the Mosquito + Tick plan at $65/month, since it bundles tick and chigger coverage for shaded, wooded-adjacent yards.",
     },
     {
       q: "Is there a long-term contract?",

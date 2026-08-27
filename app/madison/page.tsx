@@ -355,12 +355,12 @@ export default function MadisonPage() {
             {
               icon: "🦟",
               service: "Mosquito Control",
-              price: "$45/treatment",
+              price: "$45/month",
               priceNote: "Every 30 days · Mar–Oct",
               features: [
                 "8 seasonal treatments",
                 "Barrier spray targets adults & breeding sites",
-                "Add tick/chigger coverage: $65/treatment",
+                "Add tick/chigger coverage: $65/month",
                 "No year-round contract",
                 "Treatments use EPA-registered products",
               ],
@@ -370,7 +370,7 @@ export default function MadisonPage() {
               icon: "🕷️",
               service: "Tick & Chigger Control",
               price: "Add-on",
-              priceNote: "Pairs with mosquito · $65/treatment",
+              priceNote: "Pairs with mosquito · $65/month",
               features: [
                 "Targets Lone Star ticks & chiggers",
                 "Treated on the same mosquito visit",
