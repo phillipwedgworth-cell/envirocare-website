@@ -17,6 +17,11 @@ jobs:
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
       GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+      # agents/ingest-ga4.mjs gates its ga4_weekly upsert behind this flag. It was
+      # never set here, so the GA4 numbers only ever landed in monitoring/*.json
+      # and the Supabase table stayed empty — which repeatedly got read as
+      # "GA4 isn't collecting". It is; the row just never got written.
+      GA4_WRITE_SUPABASE: "1"
       GSC_SITE_URL: "sc-domain:envirocarellc.com"
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
