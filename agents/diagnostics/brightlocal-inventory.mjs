@@ -161,11 +161,28 @@ console.log("\n=== NAP STORED PER LOCATION (what a Citation Builder run would pu
 // https://www.envirocarellc.com/huntsville, HTTP 200, and against 161/161
 // prerendered pages in .next).
 //
-// The likeliest explanation is the one AGENTS.md already documents costing this
-// project months: an audit pointed at the wrong host. A *.vercel.app preview
-// sits behind Vercel Authentication, so a crawler fetches a login page — which
-// genuinely has no title, description, canonical or viewport. So: print the URL
-// each location actually stores, because that is what gets crawled.
+// HYPOTHESIS RAISED AND DISPROVEN, 2026-08-27. I expected the audit had been
+// pointed at the wrong host — the failure AGENTS.md records costing this project
+// months, where a *.vercel.app preview sits behind Vercel Authentication and a
+// crawler fetches a login page that genuinely has no title, description,
+// canonical or viewport, scoring about 36/100.
+//
+// It is not that. All four locations store the correct public host:
+//   4068335 Alabaster   https://www.envirocarellc.com/
+//   4068730 Huntsville  https://www.envirocarellc.com/
+//   4068729 Alex City   https://www.envirocarellc.com/
+//   4130578 Birmingham  https://www.envirocarellc.com/birmingham
+// Vercel SSO protection is set to all_except_custom_domains, so the custom
+// domain is publicly reachable, and robots.txt blocks only admin paths.
+//
+// So the 36.4 score remains UNEXPLAINED. Recorded as unexplained on purpose:
+// this file exists because a confident wrong answer is worse than an open
+// question, and that applies to my own answer too. A blocked or challenged
+// crawl is the next thing to check, not a conclusion.
+//
+// Side observation, not a defect: three of the four locations point at the
+// homepage rather than their own city page. Only Birmingham points at a city
+// page. Worth a look if citation relevance ever matters.
 console.log("\n=== WEBSITE URL STORED PER LOCATION (this is what BrightLocal audits) ===");
 {
   const GOOD = /^https?:\/\/(www\.)?envirocarellc\.com\/?$/i;
