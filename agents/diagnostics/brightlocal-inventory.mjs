@@ -179,7 +179,10 @@ console.log("\n=== WEBSITE URL STORED PER LOCATION (this is what BrightLocal aud
     (function walk(o, path = "") {
       if (o && typeof o === "object") {
         for (const [k, v] of Object.entries(o)) {
-          if (typeof v === "string" && /^https?:\/\//i.test(v) && /url|site|web/i.test(k)) found.push([`${path}${k}`, v]);
+          // Only the SITE url. Matching /url|site|web/ pulled in every photo,
+          // report and social link — ~30 lines per location that buried the one
+          // field being asked about.
+          if (typeof v === "string" && /^https?:\/\//i.test(v) && /^(website_url|url|site_url|website)$/i.test(k)) found.push([`${path}${k}`, v]);
           else if (v && typeof v === "object") walk(v, `${path}${k}.`);
         }
       }
