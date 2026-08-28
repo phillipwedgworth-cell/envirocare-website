@@ -154,4 +154,42 @@ console.log("\n=== NAP STORED PER LOCATION (what a Citation Builder run would pu
   }
 }
 
+// ── Which URL has BrightLocal been auditing? ────────────────────────────────
+// On 2026-08-27 BrightLocal reported a website health score of 36.4/100 with
+// "every page missing title tags, meta descriptions, canonical tags and the
+// viewport tag". That is false: the live pages carry all four (verified against
+// https://www.envirocarellc.com/huntsville, HTTP 200, and against 161/161
+// prerendered pages in .next).
+//
+// The likeliest explanation is the one AGENTS.md already documents costing this
+// project months: an audit pointed at the wrong host. A *.vercel.app preview
+// sits behind Vercel Authentication, so a crawler fetches a login page — which
+// genuinely has no title, description, canonical or viewport. So: print the URL
+// each location actually stores, because that is what gets crawled.
+console.log("\n=== WEBSITE URL STORED PER LOCATION (this is what BrightLocal audits) ===");
+{
+  const GOOD = /^https?:\/\/(www\.)?envirocarellc\.com\/?$/i;
+  for (const id of [4068335, 4068730, 4068729, 4130578]) {
+    const r = await call(shdrs, "get_location", { location_id: id });
+    if (r.error) { console.log(`  ${id}: ERROR — ${r.error}`); continue; }
+    const obj = r.data ?? {};
+    // Field name is not documented here — collect every key that looks like a URL
+    // rather than guessing one and reporting a false "missing".
+    const found = [];
+    (function walk(o, path = "") {
+      if (o && typeof o === "object") {
+        for (const [k, v] of Object.entries(o)) {
+          if (typeof v === "string" && /^https?:\/\//i.test(v) && /url|site|web/i.test(k)) found.push([`${path}${k}`, v]);
+          else if (v && typeof v === "object") walk(v, `${path}${k}.`);
+        }
+      }
+    })(obj);
+    if (!found.length) { console.log(`  ${id}: no URL-like field found (not proof of absence — raw keys: ${Object.keys(obj).slice(0, 12).join(", ")})`); continue; }
+    for (const [k, v] of found) {
+      const verdict = GOOD.test(v) ? "OK" : (/vercel\.app/i.test(v) ? "*** VERCEL PREVIEW — behind auth, crawls as a login page ***" : "check");
+      console.log(`  ${id}  ${k} = ${v}   ${verdict}`);
+    }
+  }
+}
+
 console.log("\nRead-only: nothing was ordered, spent, or modified.");
