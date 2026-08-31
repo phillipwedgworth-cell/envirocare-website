@@ -1,54 +1,211 @@
 {
   "report": "envirocare-ga4-weekly",
-  "run_date": "2026-08-27",
+  "run_date": "2026-08-31",
   "status": "ok",
   "property": "G-CELEB90NKX",
   "ga4_property_id": "313205131",
   "site": "envirocarellc.com",
   "data_source": "Google Analytics Data API (direct, no Supermetrics)",
   "period": {
-    "startDate": "2026-08-20",
-    "endDate": "2026-08-26"
+    "startDate": "2026-08-24",
+    "endDate": "2026-08-30"
   },
   "prior_period": {
-    "startDate": "2026-08-13",
-    "endDate": "2026-08-19"
+    "startDate": "2026-08-17",
+    "endDate": "2026-08-23"
   },
   "totals": {
-    "sessions": 1,
-    "users": 1,
-    "engagedSessions": 0,
-    "conversions": 0
+    "sessions": 337,
+    "users": 323,
+    "engagedSessions": 121,
+    "conversions": 20
   },
   "totals_prior": {
-    "sessions": 260,
-    "users": 215,
-    "engagedSessions": 159,
-    "conversions": 28
+    "sessions": 51,
+    "users": 41,
+    "engagedSessions": 30,
+    "conversions": 2
   },
   "channels": [
     {
+      "key": "Direct",
+      "value": 284
+    },
+    {
       "key": "Organic Search",
+      "value": 38
+    },
+    {
+      "key": "Referral",
+      "value": 5
+    },
+    {
+      "key": "AI Assistant",
+      "value": 3
+    },
+    {
+      "key": "Organic Social",
+      "value": 3
+    },
+    {
+      "key": "Paid Search",
+      "value": 3
+    },
+    {
+      "key": "Unassigned",
       "value": 1
     }
   ],
   "landing_pages": [
     {
       "key": "/",
-      "value": 1
+      "value": 113
+    },
+    {
+      "key": "/birmingham",
+      "value": 8
+    },
+    {
+      "key": "/contact-us",
+      "value": 5
+    },
+    {
+      "key": "/quote",
+      "value": 5
+    },
+    {
+      "key": "/dadeville",
+      "value": 4
+    },
+    {
+      "key": "/services/tick-control",
+      "value": 4
+    },
+    {
+      "key": "(not set)",
+      "value": 3
+    },
+    {
+      "key": "/blog",
+      "value": 3
+    },
+    {
+      "key": "/blog/cockroach-control-alabama",
+      "value": 3
+    },
+    {
+      "key": "/blog/sentricon-vs-liquid-termite-treatment",
+      "value": 3
+    },
+    {
+      "key": "/builders",
+      "value": 3
+    },
+    {
+      "key": "/chelsea",
+      "value": 3
+    },
+    {
+      "key": "/gardendale",
+      "value": 3
+    },
+    {
+      "key": "/pricing",
+      "value": 3
+    },
+    {
+      "key": "/services/flea",
+      "value": 3
     }
   ],
   "devices": [
     {
+      "key": "desktop",
+      "value": 270
+    },
+    {
       "key": "mobile",
+      "value": 66
+    },
+    {
+      "key": "tablet",
       "value": 1
     }
   ],
   "cities": [
     {
+      "key": "Singapore",
+      "value": 178
+    },
+    {
       "key": "(not set)",
-      "value": 1
+      "value": 31
+    },
+    {
+      "key": "San Jose",
+      "value": 12
+    },
+    {
+      "key": "Birmingham",
+      "value": 10
+    },
+    {
+      "key": "Moses Lake",
+      "value": 10
+    },
+    {
+      "key": "Hoover",
+      "value": 9
+    },
+    {
+      "key": "Des Moines",
+      "value": 8
+    },
+    {
+      "key": "Riyadh",
+      "value": 6
+    },
+    {
+      "key": "Council Bluffs",
+      "value": 5
+    },
+    {
+      "key": "Dallas",
+      "value": 4
+    },
+    {
+      "key": "Glenview",
+      "value": 4
+    },
+    {
+      "key": "Karachi",
+      "value": 4
+    },
+    {
+      "key": "Belo Horizonte",
+      "value": 3
+    },
+    {
+      "key": "Dunwoody",
+      "value": 3
+    },
+    {
+      "key": "Montgomery",
+      "value": 3
     }
   ],
-  "conversion_events": []
+  "conversion_events": [
+    {
+      "key": "ads_conversion_Contact_Us_1",
+      "value": 11
+    },
+    {
+      "key": "phone_click",
+      "value": 6
+    },
+    {
+      "key": "generate_lead",
+      "value": 3
+    }
+  ]
 }
