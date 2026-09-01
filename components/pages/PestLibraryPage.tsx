@@ -54,6 +54,11 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
           <p className="pl-intro">{pest.intro}</p>
           <div className="pl-ctas">
             <a href="tel:2059406360" className="pl-cta-gold">Call (205) 940-6360</a>
+            {/* The identification page is the one that ranks (ticks sits at #2 while
+                /services/tick-control ranks nowhere), so the service page is reached
+                above the fold rather than by a 301 that would risk the position.
+                serviceSlug already exists on every PestEntry. */}
+            <Link href={`/services/${pest.serviceSlug}`} className="pl-cta-outline">Get Professional Treatment →</Link>
             <Link href="/quote" className="pl-cta-outline">Get a Free Quote →</Link>
           </div>
         </div>
