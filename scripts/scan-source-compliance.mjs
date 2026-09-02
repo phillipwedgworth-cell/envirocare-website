@@ -27,6 +27,7 @@
  */
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join, relative, sep } from 'node:path';
 import { compileRules } from './lib/compliance-rules.mjs';
 
@@ -249,10 +250,36 @@ function walk(dir, acc = []) {
 const rules = compileRules();
 console.log(`${rules.length} rules compiled from data/compliance.ts`);
 
+// Files git ignores cannot ship, so they are not live copy. Without this the
+// scanner reads local scratch — data/_newpost_tmp.used.txt, gitignored at
+// .gitignore:25 — as though it were a page, and `npm test` FAILS locally on a
+// file CI never sees. A guard that fails on something unshippable teaches people
+// to ignore BLOCKING output, which is worse than the gap it was closing.
+// Found 2026-09-02 when the new demonstrative-guarantee rule flagged that very
+// file. If git is unavailable, scan everything — a false positive beats a miss.
+// Scoped to SCAN_DIRS on purpose. Unscoped, this command also enumerates every
+// file under .next/ — over a megabyte of output, which exceeds execFileSync's
+// default 1 MB maxBuffer and throws ENOBUFS. The catch then returned an empty
+// set and the filter silently did nothing, which is exactly how this looked
+// when it was still broken. maxBuffer is raised as a second belt.
+function gitIgnored() {
+  try {
+    const out = execFileSync(
+      'git',
+      ['ls-files', '--others', '--ignored', '--exclude-standard', '--', ...SCAN_DIRS],
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 32 * 1024 * 1024 },
+    );
+    return new Set(out.split('\n').filter(Boolean).map((p) => p.split('/').join(sep)));
+  } catch {
+    return new Set();
+  }
+}
+const IGNORED = gitIgnored();
+
 const files = [
   ...SCAN_DIRS.flatMap((d) => walk(join(ROOT, d))),
   ...SCAN_FILES.map((f) => join(ROOT, f.split('/').join(sep))),
-];
+].filter((f) => !IGNORED.has(relative(ROOT, f)));
 
 const blocking = [];
 const warnings = [];

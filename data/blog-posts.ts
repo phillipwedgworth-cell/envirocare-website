@@ -2102,7 +2102,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
 <p>Yes. Our Huntsville team services all of Madison County and the surrounding Tennessee Valley at the same plan pricing, including <a href="/madison">Madison</a>, <a href="/athens">Athens</a>, and <a href="/decatur">Decatur</a>. Same local technicians, same trucks, same rates.</p>
 
 <h2>What you are actually paying for</h2>
-<p>EnviroCare has been a family-owned Alabama company since 1958, now in our fourth generation. When you call the Huntsville office you reach a local team that knows North Alabama pests specifically — not a national call center. Every recurring plan includes unlimited re-service between scheduled visits, so if something comes back before your next visit, we come back out at no extra charge. That "we will make it right" guarantee is a big part of the price, and it is the part the cheapest quote usually leaves out.</p>
+<p>EnviroCare has been a family-owned Alabama company since 1958, now in our fourth generation. When you call the Huntsville office you reach a local team that knows North Alabama pests specifically — not a national call center. Every recurring plan includes unlimited re-service between scheduled visits, so if something comes back before your next visit, we come back out at no extra charge. That unlimited re-service is a big part of the price, and it is the part the cheapest quote usually leaves out.</p>
 
 <h2>Get an exact number for your home</h2>
 <p>The fastest way to a real price is a free quote — tell us your address and what you are seeing, and we will give you a firm number, no pressure. <a href="/quote">Request a free quote</a> or see everything the Huntsville office offers on our <a href="/huntsville">Huntsville pest control</a> page.</p>

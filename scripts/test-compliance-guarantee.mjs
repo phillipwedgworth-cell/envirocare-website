@@ -58,6 +58,15 @@ const cases = [
   ["includes a 30-day guarantee with follow-up", true, "bare duration"],
   ["licensed technician, and our satisfaction guarantee", true, "intervening word"],
   ["our own damage repair guarantee", true, "still catches the original shape"],
+  // the fourth gap, found 2026-08-24 and still live 2026-08-31 on
+  // /blog/pest-control-cost-huntsville. Verbatim, then the shapes around it.
+  ['That "we will make it right" guarantee is a big part of the price', true, "demonstrative + quoted promise — the live blog sentence"],
+  ["That guarantee is a big part of the price", true, "demonstrative, no quotes"],
+  ["This guarantee covers the structure", true, "demonstrative 'this'"],
+  ["the satisfaction guarantee we stand behind", true, "definite article + intervening word"],
+  // and the shape it must NOT swallow — see note (d) in data/compliance.ts
+  ["shall carry a guarantee that if an infestation is found", false, "statutory 'a guarantee' must still pass"],
+  ["No honest company can guarantee that pests never return", false, "negated, 'guarantee' as verb"],
   // must NOT flag - these are the legitimate uses
   ["we can't guarantee zero ticks, because wildlife reintroduces them", false, "negated hedge, contraction"],
   ["We don't guarantee elimination, but treatments reduce activity", false, "negated hedge"],

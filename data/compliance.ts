@@ -101,6 +101,24 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare(?:[’']|&apos;|&#39;|&#x27;|&rsquo;)s)\\s+(own\\s+)?(?:[$\\w,.]+\\s+){0,3}guarantee\\b",
     reason: 'coverage asserted as a guarantee',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
+  //  ── third gap found 2026-08-24, still live 2026-08-31. Same method as (a)-(c):
+  //     check the guard against a page it should have caught.
+  //     (d) DEMONSTRATIVE + QUOTED PHRASE. /blog/pest-control-cost-huntsville has
+  //         read, since 2026-07-24, 'That "we will make it right" guarantee is a
+  //         big part of the price'. There is no possessive and no duration, so the
+  //         two rules above both skip it. The claim is carried by a demonstrative
+  //         pointing back at a promise, with the promise itself in quotes.
+  //         The article matters: "that/this/the guarantee" asserts a specific
+  //         guarantee exists; "A guarantee" does not, which is what keeps the
+  //         statutory quotation in note 2 above passing. Do NOT add "a" here.
+  //         The intervening span deliberately excludes '.' and any negation word:
+  //         without that, "the season. We never guarantee elimination" matched —
+  //         the lookbehind guards the demonstrative, not the verb, so the span
+  //         walked across a sentence boundary into a legitimate hedge. Caught by
+  //         running this rule over data/blog-posts.ts before shipping it.
+  { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(that|this|the)\\s+(?:[\"“”'’][^\"“”]{1,80}[\"“”'’]\\s+)?(?:(?!(?:never|not|cannot|no)\\b)[$\\w,-]+\\s+){0,3}guarantee\\b",
+    reason: 'a specific guarantee asserted by demonstrative — often with the promise in quotes',
+    approvedInstead: 'name the commitment without the word: e.g. "unlimited re-service between scheduled visits, at no extra charge"' },
   // A duration attached to "guarantee" is a claim no matter whose it is:
   // "a 30-day guarantee", "90 day guarantee", "12-month guarantee".
   { pattern: "\\b\\d{1,3}[\\s-]?(day|days|month|months|year|years)\\s+guarantee\\b",
