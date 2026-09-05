@@ -1,14 +1,8 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/blog-posts.ts
-// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
-// Push: main
-// ─────────────────────────────────────
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: data/blog-posts.ts
-// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
-// Push: main
+// Commit: feat(blog): recover 7 legacy Scorpion intents — get-rid-of ants/roaches, German roaches, mosquito dangers, termite FAQ, termite damage signs, tick-bite prevention
+// Push: main (via branch + PR)
 // ─────────────────────────────────────
 /**
  * Blog posts — seeded with 5 high-value Alabama-specific SEO posts.
@@ -32,6 +26,549 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+
+  // ─── Blog recovery batch, 2026-09-04: seven legacy Scorpion intents that were
+  // pooling onto generic 'control' posts (see middleware.ts POST_OVERRIDES). ───
+  {
+    slug: 'how-to-get-rid-of-ants-in-house-alabama',
+    title: 'How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide',
+    excerpt: 'The trail on the counter is the symptom. The colony behind the wall, under the slab, or out in the mulch bed is the problem — and spraying the trail usually makes it bigger. Here is the order of operations that actually clears ants out of an Alabama house, and where it stops being a DIY job.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Ants',
+    readMinutes: 7,
+    heroEmoji: '🐜',
+    metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
+    metaDescription: 'Step-by-step guide to getting rid of ants in an Alabama home: identify the species, stop spraying trails, bait correctly, seal entry points, and know when to call.',
+    body: `
+<p class="lede">Nobody calls us about one ant. They call when the line of them runs from the window over the sink to the dog bowl, and it has been there three mornings in a row despite a full can of spray. That is the most common ant call we take across the Birmingham metro, Lake Martin, and the Tennessee Valley, and the reason the spray did not work is the reason this guide exists: the ants on the counter are not the problem. They are foragers. The problem is a colony you have not seen yet, and getting rid of it is a sequence, not a product.</p>
+
+<h2>Step 1: Figure out which ant you have</h2>
+
+<p>Alabama houses get four ants far more than any other, and the fix is different for each.</p>
+
+<ul>
+<li><strong>Odorous house ants</strong> — the classic "sugar ant." Small, dark, and they smell like rotten coconut when crushed. They nest almost anywhere: under mulch, in wall voids, behind baseboards, under a potted plant. Sweet feeders most of the year. This is the ant in the kitchen in nine calls out of ten. We cover them in detail in <a href="/blog/sugar-ants-in-house-alabama">sugar ants in your Alabama home</a>.</li>
+<li><strong>Argentine ants</strong> — similar size and habits, but they form enormous interconnected colonies with many queens. Spraying an Argentine trail is close to pointless; the colony simply routes around the dead zone.</li>
+<li><strong>Carpenter ants</strong> — large, usually black, and they show up one or two at a time rather than in a line. They nest in damp or previously water-damaged wood. If you see them in spring, especially near a bathroom, a window that leaks, or a deck ledger, the moisture is the real story.</li>
+<li><strong>Fire ants</strong> — outdoors, in mounds, and they sting. They are a yard problem, not a kitchen problem, and they are handled with a separate whole-yard treatment rather than the regular pest plan. See <a href="/blog/fire-ants-alabama-summer">fire ants in Alabama</a> and our <a href="/services/fire-ant">fire ant control</a> page.</li>
+</ul>
+
+<p>If you are not sure, take a clear photo before you do anything else. A crushed ant is much harder to identify.</p>
+
+<h2>Step 2: Stop spraying the trail</h2>
+
+<p>This is the step almost everyone gets backwards. Contact sprays and most hardware-store "ant killers" are repellents. They kill the ants they touch and then leave a chemical barrier the rest of the colony avoids. Two things happen next. The foragers find a new route into the house, so the trail moves from the sink to the pantry. And with odorous house ants and Argentine ants, a stressed colony often <em>buds</em> — splits into two or three smaller colonies with their own queens. You started with one problem and now have several, each a little farther from where you were looking.</p>
+
+<p>Wipe the trail up with soapy water to erase the pheromone line if it bothers you. Do not spray it.</p>
+
+<h2>Step 3: Find and remove what they are eating</h2>
+
+<p>Ants inside a house are almost always there for one of three things: sugar, grease, or water. In summer the sugar trail leads to a fruit bowl, a spill under the toaster, a soda can in the recycling, or a dog bowl. In late winter and early spring the same species often switches to protein and fat, which is why the trail moves to the pet food or the trash can. Water draws them in a drought: a slow drip under the sink, a dishwasher gasket, a pet water bowl on the floor.</p>
+
+<p>Fix the attractant and about a third of ant problems solve themselves within a week. The colony was never in the house. It was outside and commuting.</p>
+
+<h2>Step 4: Bait — and match the bait to the ant</h2>
+
+<p>Bait is the opposite of a spray. It is a slow-acting food the foragers carry back to the nest and share, and it is the only over-the-counter approach that reaches the queen. Two rules make or break it:</p>
+
+<ol>
+<li><strong>Match the food preference.</strong> Sweet gel or liquid bait when the ants are on sugar. Protein or grease bait when they are on pet food or meat. Put a small amount of each next to the trail and watch which one they crowd. Use that one.</li>
+<li><strong>Leave it alone.</strong> The trail will get <em>heavier</em> for two or three days as more foragers recruit to the bait. That is the bait working. Spraying the crowd around the bait station is the single most common way a bait program fails.</li>
+</ol>
+
+<p>Place bait where the trail is, not where you wish it were. Along the baseboard, behind the appliance, at the point where the trail enters the room. Expect a noticeable drop in a week and a clean kitchen in two to three. If the trail is still strong after three weeks of a bait they were clearly taking, the colony is large or has multiple satellites and it is time to call.</p>
+
+<h2>Step 5: Close the door behind them</h2>
+
+<p>While the bait is working, walk the outside of the house at the point closest to the trail. The entry is usually obvious once you look: a gap where a cable or the AC line enters the wall, a window frame where the caulk pulled away, a door sweep with daylight under it, weep holes in the brick, or a shrub branch touching the siding that acts as a bridge over everything else. Seal what you can with caulk or copper mesh. Cut back anything touching the house. Pull mulch back a few inches from the foundation — a mulch bed against the slab is a colony's favorite address in <a href="/hoover">Hoover</a>, <a href="/madison">Madison</a>, and just about every subdivision built in the last twenty years.</p>
+
+<p>For carpenter ants, the exclusion step is different: find the moisture. A carpenter ant nest lives in wood that is or was wet, and until the leak, the failed flashing, or the ground-contact deck post is fixed, they come back. We walk through the full fall checklist in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a>.</p>
+
+<h2>Step 6: Know when it is not a DIY job</h2>
+
+<p>Call a professional when any of these is true:</p>
+
+<ul>
+<li>Bait was clearly being taken and the trail is still strong after three weeks — the colony is larger than one bait station can reach.</li>
+<li>Trails keep appearing in different rooms — classic sign of a large Argentine or odorous house ant network with multiple nests.</li>
+<li>You are seeing large black ants indoors in spring, or finding small piles of coarse sawdust — carpenter ants, and the wood they are in matters.</li>
+<li>You have tried three products from the store and the problem has moved, not shrunk.</li>
+</ul>
+
+<p>A professional program does two things a store bait cannot. It treats the exterior colony sites and entry points with non-repellent materials that ants walk through and carry back rather than avoid, and it puts the whole house on a schedule so the next colony that finds the mulch bed never makes it to the kitchen. Nuisance ants — odorous house, Argentine, pavement, carpenter — are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 initial service and includes unlimited free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
+
+<h2>What about the ants in the yard?</h2>
+
+<p>If the mounds in the lawn are what brought you here, that is a different service. Fire ants are treated with a broadcast application across the whole yard rather than mound by mound, and it is a separate whole-yard treatment — $150 covers most yard sizes, with larger properties quoted by square footage. Details on the <a href="/services/fire-ant">fire ant control</a> page.</p>
+
+<h2>Get the trail off the counter for good</h2>
+
+<p>Identify, stop spraying, remove the food, bait correctly, seal, and call when the math stops working. That order clears the large majority of ant problems in Alabama homes — and the ones it does not clear are exactly the ones that need a technician who can find the nest you cannot. Whether you are in <a href="/alabaster">Alabaster</a>, <a href="/huntsville">Huntsville</a>, or a lake house on <a href="/lake-martin">Lake Martin</a>, the approach is the same.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
+    slug: 'german-cockroaches-alabama',
+    title: 'German Cockroaches in Alabama: Why One Is Never Just One',
+    excerpt: 'The small tan roach with two dark stripes behind its head is not a palmetto bug that wandered in. It is a German cockroach, it lives and breeds indoors, and a single egg case holds up to forty of them. Here is how to tell it from the outdoor species, why it spreads so fast, and what actually gets rid of it.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Roaches',
+    readMinutes: 6,
+    heroEmoji: '🪳',
+    metaTitle: 'German Cockroaches in Alabama: Should You Worry? | EnviroCare',
+    metaDescription: 'German cockroaches breed indoors, spread fast, and resist sprays. How to identify them in an Alabama home, why they are a bigger deal than palmetto bugs, and what works.',
+    body: `
+<p class="lede">Alabama has a lot of roaches, and most of them are not a crisis. The big brown "palmetto bug" that flies at the porch light in <a href="/mountain-brook">Mountain Brook</a> or scuttles across a garage floor in <a href="/decatur">Decatur</a> lives outside and wandered in. The German cockroach is different. It is small, tan, quick, and it does not wander in — it moves in. It lives its entire life indoors, it breeds faster than any other roach in the state, and by the time a homeowner sees one in daylight there are usually dozens more behind the refrigerator. If you have been asking whether the small roaches in your kitchen are something to worry about, the honest answer is yes, and the sooner the better.</p>
+
+<h2>How do you know it is a German cockroach?</h2>
+
+<p>Size and markings. An adult German cockroach is about half an inch long — the size of a fingernail — light brown or tan, with two dark parallel stripes running lengthwise on the shield just behind the head. The nymphs are smaller and darker, almost black, with a pale stripe down the middle of the back. You will see them in the kitchen and bathroom, almost never in the living room or garage.</p>
+
+<p>Compare that to the two outdoor species Alabama homeowners usually see:</p>
+
+<ul>
+<li><strong>American cockroach</strong> ("palmetto bug") — reddish brown, an inch and a half or longer, flies, and lives in sewers, crawlspaces, mulch, and storm drains. Comes indoors in summer heat or after heavy rain.</li>
+<li><strong>Smokybrown cockroach</strong> — dark mahogany, an inch or so, attracted to porch lights, lives in tree holes, gutters, and attics.</li>
+</ul>
+
+<p>Those two are a perimeter problem and the <a href="/services/pest-control">bi-monthly exterior program</a> handles them. The German cockroach is an interior problem and needs interior work.</p>
+
+<h2>Why does it spread so fast?</h2>
+
+<p>Three reasons, and together they explain why a small problem in March is a large one by June.</p>
+
+<p><strong>The egg case.</strong> A female German cockroach carries her egg capsule until it is nearly ready to hatch, protecting it from most treatments, and each capsule holds thirty to forty eggs. She produces several capsules in her life. A pair can become thousands within a year under kitchen conditions.</p>
+
+<p><strong>They hide in a way sprays cannot reach.</strong> Their preferred harborage is a warm, dark, tight crack close to water and food: the gap between the stove and the cabinet, behind the refrigerator compressor, inside the hinge side of a cabinet door, under the sink around the plumbing, inside the dishwasher door panel, behind a wall clock or a picture frame in the kitchen. A can of spray hits the open floor and the roaches are two inches away inside a void.</p>
+
+<p><strong>They resist a lot of what is sold to kill them.</strong> German cockroach populations have developed resistance to several common insecticide classes over decades of exposure, and some populations have even learned to avoid the sugar used in older gel baits. This is a well-documented pest, not a mysterious one, and it is why the products at the checkout aisle so often disappoint.</p>
+
+<h2>Are they actually a health concern?</h2>
+
+<p>More than the outdoor species, yes. German cockroaches live in the same rooms where food is prepared, and they leave droppings, shed skins, and secretions on surfaces and in cabinets. Cockroach allergens are a recognized asthma trigger, especially in children, and are a particular issue in apartments and multi-family housing where a population moves between units. They can also carry bacteria from drains and trash to counters. None of that means a German cockroach infestation is an emergency room situation — it means it is worth taking seriously rather than living with.</p>
+
+<h2>How did they get in?</h2>
+
+<p>German cockroaches almost never walk in from outside. They arrive in something: a used appliance, a cardboard box from a warehouse or a grocery delivery, a bag of returnables, a piece of furniture from a yard sale, or a neighbor's unit in a duplex or apartment building. Students moving into <a href="/auburn">Auburn</a> and military families relocating into <a href="/huntsville">Huntsville</a> see this more than most, simply because a lot of belongings move at once. Inspect cardboard before it comes inside, and break boxes down and get them out promptly.</p>
+
+<h2>What actually gets rid of them?</h2>
+
+<p>Not a fogger. A bug bomb fills the open room with mist that never reaches the crack behind the stove, and the repellent effect drives the population deeper into the walls and into rooms it had not colonized yet. We say this to every roach caller and it is the most important thing on this page.</p>
+
+<p>What works is a combination that reaches where they live and interrupts the breeding cycle:</p>
+
+<ol>
+<li><strong>Sanitation and moisture.</strong> Dry the sink at night, fix the drip, empty the pet bowl, get the grease off the stove hood and the crumbs out from under the toaster. This does not kill roaches, but it makes bait far more attractive and starves the population between treatments.</li>
+<li><strong>Gel bait placed in the harborage.</strong> Small dots of a fresh gel bait in the cracks and voids they actually use — not on open counters. Foragers eat it, return to the harborage, and the colony feeds on them and on the droppings. Rotating bait formulations matters because of the resistance issue above.</li>
+<li><strong>An insect growth regulator.</strong> Professional programs pair bait with a growth regulator that stops nymphs from maturing into breeding adults. Within a few weeks you see distorted, sterile adults and then you stop seeing new nymphs. This is the step that turns a knockdown into a solution.</li>
+<li><strong>A follow-up.</strong> Egg cases protected at the time of the first treatment hatch a couple of weeks later. A follow-up visit catches that generation before it breeds. Skipping it is how a "fixed" kitchen has roaches again in six weeks.</li>
+</ol>
+
+<p>Expect a sharp drop in the first week and a clean kitchen in four to six weeks for a typical home infestation. Heavy, long-established populations — or a unit in a building where the neighbors are not treating — take longer and need the whole structure addressed.</p>
+
+<h2>How EnviroCare handles German cockroaches</h2>
+
+<p>Cockroaches, including German cockroaches, are covered under our <a href="/services/pest-control">bi-monthly pest plan</a>. For a German cockroach problem the first visit is an interior visit: we identify harborage, place bait where they live, apply a growth regulator, and set the follow-up. The regular exterior rotation then keeps the outdoor species from adding to the count. If anything shows up between scheduled visits, we come back out at no extra charge. For homes that want a standing interior schedule regardless, there is a <a href="/services/interior-pest-control">quarterly interior program</a> as well.</p>
+
+<p>For a broader look at all three Alabama species and how we approach each, see <a href="/blog/cockroach-control-alabama">cockroach control in Alabama</a>.</p>
+
+<h2>Do not wait for a second one</h2>
+
+<p>A single German cockroach seen in daylight is the population telling you it has outgrown its hiding places. Two months of waiting turns a two-visit job into a season-long one. Call while it is still small.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
+    slug: 'mosquito-borne-diseases-alabama',
+    title: 'The Hidden Dangers of Mosquitoes in Alabama — and What Actually Lowers the Risk',
+    excerpt: 'Most mosquito bites in Alabama are an itch and nothing more. A small number are not. West Nile, Eastern equine encephalitis, and La Crosse virus are all reported in this state, and heartworm threatens every unprotected dog in it. Here is what the real risks are, which mosquitoes carry them, and what makes a measurable difference in your yard.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 7,
+    heroEmoji: '🦟',
+    metaTitle: 'Mosquito-Borne Diseases in Alabama: Real Risks & Prevention | EnviroCare',
+    metaDescription: 'Which mosquito-borne illnesses are actually reported in Alabama — West Nile, EEE, La Crosse, heartworm — which mosquitoes carry them, and what lowers your risk at home.',
+    body: `
+<p class="lede">A mosquito bite is, almost always, just a bite. It itches, it fades, and by the next evening on the back porch you have forgotten it. But Alabama is a warm, wet state with a nine-month mosquito season, and a handful of the viruses those mosquitoes carry are reported here every year. We are not in the business of scaring people about their own yards. We are in the business of telling them what is real. This is what is real about mosquitoes in Alabama, and what actually lowers the odds.</p>
+
+<h2>Which mosquito-borne illnesses occur in Alabama?</h2>
+
+<p><strong>West Nile virus</strong> is the most commonly reported mosquito-borne disease in Alabama, with human cases confirmed by the state health department most years, typically from mid-summer into October. The large majority of people infected never notice. Roughly one in five develops a fever with headache, body aches, and fatigue. A small fraction — well under one percent — develop the serious neurological form, and that risk rises with age and with certain medical conditions. The carrier is the <em>Culex</em> mosquito: the plain brown one that bites at dusk and dawn and breeds in stagnant, organically rich water like a neglected birdbath, a clogged gutter, or a storm drain.</p>
+
+<p><strong>Eastern equine encephalitis (EEE)</strong> is rare — Alabama sees only occasional human cases — but it is the most serious of the group when it does occur. It is carried by mosquitoes associated with freshwater hardwood swamps and wet woodlands, which describes a great deal of the land around <a href="/lake-martin">Lake Martin</a> and the river bottoms across the state. Horses are affected far more often than people, which is why the disease shows up in the news after a veterinary case.</p>
+
+<p><strong>La Crosse encephalitis</strong> is carried by the eastern treehole mosquito and primarily affects children under sixteen. It is reported most in the southern Appalachians, including north Alabama and the Tennessee Valley around <a href="/huntsville">Huntsville</a>. The breeding site is exactly what the name says: water held in tree holes, and in the artificial equivalent — old tires, buckets, and tarps in wooded yards.</p>
+
+<p><strong>Dengue, Zika, and chikungunya</strong> are carried by <em>Aedes aegypti</em> and <em>Aedes albopictus</em>, the black-and-white striped day-biting mosquitoes, both of which live in Alabama. Cases here are almost always in travelers who were infected elsewhere; local transmission is possible but has not been a sustained problem in this state. The Asian tiger mosquito that bites your ankles at noon is the <em>Aedes albopictus</em>, and it is the most common nuisance mosquito in every subdivision from <a href="/hoover">Hoover</a> to <a href="/madison">Madison</a>.</p>
+
+<p><strong>Heartworm</strong> is the one that affects the most households in Alabama. It is a parasite, not a virus, transmitted to dogs (and less often cats) by a mosquito bite, and Alabama is consistently among the highest-risk states in the country. Every unprotected dog that spends time outdoors is at risk. The prevention is year-round veterinary medication, not yard treatment — but reducing the mosquitoes in the yard reduces the exposure.</p>
+
+<h2>What are the symptoms worth acting on?</h2>
+
+<p>We are pest control, not physicians, so this is deliberately general: for most people a mosquito bite needs nothing. If a fever, severe headache, stiff neck, confusion, or unusual drowsiness develops within about two weeks of heavy mosquito exposure, particularly in late summer, that is worth a call to a doctor and worth mentioning the mosquito exposure. In children in north Alabama, the same applies for La Crosse. Take questions about your own health to a medical professional; the state health department publishes current case information each season.</p>
+
+<h2>Which precautions make a measurable difference?</h2>
+
+<p>Most of the risk is concentrated in a few habits, and they are within reach of every homeowner.</p>
+
+<h3>1. Dump the water. All of it. Weekly.</h3>
+
+<p>Every mosquito in your yard was born in standing water, and the disease-carrying species prefer <em>small</em> containers, not the lake. A mosquito needs about a teaspoon. The saucer under the flowerpot, the tarp over the grill, a kids' toy in the flowerbed, the low corner of a gutter, a bird bath that has not been refilled, a wheelbarrow, a bucket by the hose. Tip them, scrub them, and do it every week because the life cycle from egg to biting adult can run a week in July heat. This single habit removes more mosquitoes than anything you can buy.</p>
+
+<h3>2. Treat the shade, not the air</h3>
+
+<p>Adult mosquitoes do not hover in the open during the day. They rest on the underside of leaves, in ivy beds, in tall grass, under decks, and along the shaded foundation line. That is where a professional barrier application does its work — a residual treatment on the resting surfaces, so the mosquitoes that land there over the following weeks do not get up again. Broadcasting product into the open air does nothing. We explain how the treatment cycle works in <a href="/blog/mosquito-repellent-yard-spray-vs-professional">yard sprays vs. professional mosquito service</a>.</p>
+
+<h3>3. Repellent when it matters</h3>
+
+<p>An EPA-registered repellent — DEET, picaridin, or oil of lemon eucalyptus, used as the label directs — on exposed skin during dusk, dawn, and in wooded areas is the personal-protection layer. Long sleeves and pants at dusk help. This is the step that protects you at the ballfield and on the boat, where yard treatment cannot reach.</p>
+
+<h3>4. Screens, doors, and the porch fan</h3>
+
+<p>Intact window screens, a door that closes behind you, and a ceiling fan on the porch. Mosquitoes are weak fliers; a fan on medium keeps most of them off the seating area, which is why it is the cheapest mosquito control there is.</p>
+
+<h3>5. Heartworm prevention for the dog</h3>
+
+<p>Year-round, from the veterinarian. Not seasonal, not "just in summer." Alabama winters are too mild to give a reliable break.</p>
+
+<h2>What professional mosquito service can and cannot do</h2>
+
+<p>We will be plain about this because some companies are not. A professional yard program knocks the mosquito population in your yard down substantially and keeps it down through the season, treatment after treatment. It does not get rid of every mosquito in an Alabama yard, and anyone promising that is selling you something. Mosquitoes fly in from the neighbor's gutter and the drainage ditch down the street; a treated yard has far fewer, not none. That reduction is exactly what lowers bite count and, with it, exposure.</p>
+
+<p>EnviroCare's <a href="/services/mosquito">seasonal mosquito service</a> runs from spring through fall, treating the resting and breeding zones around the home on a monthly cycle, with tick and chigger coverage available as an add-on for wooded lots. Pricing and plan options are on our <a href="/pricing">pricing page</a>. We never guarantee elimination, and we would rather you know that on day one.</p>
+
+<h2>The short version</h2>
+
+<p>The serious risks are real but uncommon; heartworm is common and preventable; and the household habits — dump the water, treat the shade, use repellent at dusk — do most of the work. If you would like the yard side of that handled on a schedule, we are glad to walk the property with you and show you where the water is hiding.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
+    slug: 'how-to-get-rid-of-roaches-alabama',
+    title: 'How to Get Rid of Roaches in an Alabama House (and Why They Keep Coming Back)',
+    excerpt: 'You sprayed, you bombed, you bought the traps, and there is still one on the kitchen floor at midnight. Getting rid of roaches in Alabama is about which species you have, where it is actually living, and stopping the treatment that scatters them. Here is the order that works.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Roaches',
+    readMinutes: 7,
+    heroEmoji: '🧹',
+    metaTitle: 'How to Get Rid of Roaches in Your House — Alabama Guide | EnviroCare',
+    metaDescription: 'Practical steps to get rid of roaches in an Alabama home: identify the species, cut water and food, bait instead of spray, seal the entry points, and when to call.',
+    body: `
+<p class="lede">The roach on the kitchen floor at midnight is one of the most common reasons anyone in Alabama calls a pest company, and it is also one of the most misunderstood. Most of the products sold to fix it make it worse. Most of the advice online assumes you know which roach you have, and most people do not. So this guide starts there, then walks the steps in the order that actually clears a house — and is honest about which step you cannot do yourself.</p>
+
+<h2>First: which roach is it?</h2>
+
+<p>Alabama homes deal with three, and they do not respond to the same fix.</p>
+
+<ul>
+<li><strong>American cockroach</strong> — the "palmetto bug." Reddish-brown, big (an inch and a half or more), and it flies. It lives outdoors in sewers, storm drains, mulch, crawlspaces, and under decks, and it comes inside when it is very hot, very wet, or the drain trap dried out. You see it in the bathroom, the garage, or the laundry room, one at a time.</li>
+<li><strong>Smokybrown cockroach</strong> — glossy dark brown, an inch, and it comes to porch lights. Lives in tree holes, gutters full of leaves, woodpiles, and attics. Same deal: an outdoor roach that visits.</li>
+<li><strong>German cockroach</strong> — small, tan, two dark stripes behind the head, and it lives and breeds <em>inside</em>, in the kitchen and bathroom. If you see several small roaches, or tiny dark nymphs, this is your roach, and it changes everything about the plan. Read <a href="/blog/german-cockroaches-alabama">German cockroaches in Alabama</a> before you buy anything.</li>
+</ul>
+
+<p>The short version: big roach, occasionally, near a drain or a door — outdoor species, fix the perimeter. Small roaches, in numbers, in the kitchen — German, fix the interior. Our overview of all three species is in <a href="/blog/cockroach-control-alabama">cockroach control in Alabama</a>.</p>
+
+<h2>Step 1: Take away the water</h2>
+
+<p>Roaches can go weeks without food. They cannot go more than a few days without water, and in an Alabama summer the water in your house is the reason they are in it. Fix the drip under the sink. Run water into unused drains and floor drains weekly so the trap does not dry out — a dry trap is an open pipe straight from the sewer to your bathroom floor, and it is how palmetto bugs get into a clean house. Wipe the sink dry at night. Empty the pet water bowl overnight for a couple of weeks. Look at the dishwasher door gasket and the refrigerator drip pan.</p>
+
+<p>If you do nothing else on this list, do this one. It makes every other step work faster.</p>
+
+<h2>Step 2: Cut the food to nearly nothing</h2>
+
+<p>You do not have to live in a sterile kitchen, but roaches are eating something and it is usually not the leftovers in the refrigerator. It is the grease film on the range hood and the side of the stove, the crumbs under the toaster and behind the cutting-board drawer, the pet food left in the bowl, the bag of dog food with the top rolled over, the trash can without a lid, the recycling with a sticky soda can in it, and the cardboard — roaches eat the glue. Boxes stacked in a pantry or garage are food and shelter at once.</p>
+
+<p>Clean the grease, seal the pet food, lid the trash, break down the cardboard. Two evenings of work.</p>
+
+<h2>Step 3: Stop using the fogger</h2>
+
+<p>Bug bombs are the single most common reason a roach problem spreads from the kitchen to the rest of the house. The mist settles on open surfaces, which is where roaches are not. The repellent effect chases them from the crack behind the stove into the wall void and out into rooms they had not colonized. Then the residue on the counters repels them from the bait you put out next week. Aerosol sprays do the same thing on a smaller scale. Use neither.</p>
+
+<h2>Step 4: Bait, in the right places</h2>
+
+<p>Gel bait is the store product that actually works on roaches, and the reason is that it does not repel. The roach eats it, walks back to the harborage, and dies there; other roaches feed on the carcass and the droppings and the bait moves through the population. The rules:</p>
+
+<ul>
+<li><strong>Small dots, many places.</strong> Pea-sized or smaller. Inside the cabinet hinge corners, under the sink at the plumbing penetration, behind the stove where the countertop meets the wall, under the refrigerator, inside the drawer runners, at the back of the pantry shelf.</li>
+<li><strong>Where they live, not where you see them.</strong> A dot on the open counter gets ignored. A dot in the crack they hide in gets eaten.</li>
+<li><strong>Do not spray anywhere near it.</strong> See Step 3.</li>
+<li><strong>Refresh it.</strong> Gel dries out in a couple of weeks and stops being attractive.</li>
+</ul>
+
+<p>For the outdoor species, bait is less central. What matters is the perimeter: a residual treatment along the foundation, around door and garage thresholds, and at the utility penetrations, so the roach that leaves the mulch bed at 2 a.m. dies before it finds the gap under the door.</p>
+
+<h2>Step 5: Close the entry points</h2>
+
+<p>The outdoor roaches are getting in somewhere specific. Walk the house at dusk with a flashlight. Door sweeps with daylight under them. The garage door bottom seal, especially the corners. The gap around the AC line set and the hose bib. Weep holes in the brick — leave them open for drainage, but a stainless mesh insert keeps roaches out. Torn crawlspace vent screens. Dryer vent flap stuck open. Firewood stacked against the siding. Leaf-filled gutters over the porch where smokybrowns nest. Trim any branch touching the roof. Our full checklist is in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a>, and it applies in July just as well.</p>
+
+<h2>Step 6: Give it time, then judge</h2>
+
+<p>For an occasional palmetto bug: water, food, perimeter, and sealing usually end the visits within two or three weeks. For a German cockroach population: bait placed correctly should produce a sharp drop in a week and a clean kitchen in four to six, provided nothing is sprayed and the water is gone. If you are still seeing nymphs after a month of doing everything above, the population is larger than you can reach — likely inside a wall void, an appliance motor housing, or a neighbor's unit — and it needs a growth regulator and a technician who knows where to look.</p>
+
+<h2>When to call</h2>
+
+<ul>
+<li>You are seeing small roaches in the kitchen in daylight. That is a German cockroach population that has outgrown its hiding places.</li>
+<li>You live in a duplex, townhome, or apartment and the problem persists no matter what you do. It is moving between units.</li>
+<li>Palmetto bugs are showing up weekly despite a clean house and a dry sink. There is a source under or beside the house — a broken sewer line, a wet crawlspace, a dense mulch bed against the foundation — and it needs an exterior treatment on a schedule.</li>
+<li>Anyone in the house has asthma. Cockroach allergen is a recognized trigger, and living with the population is not a good option.</li>
+</ul>
+
+<p>Cockroaches are covered under EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a> — $35 a month with a $75 initial service, exterior perimeter on a schedule, interior treatment as needed, and unlimited free re-service between visits if something shows up early. For a German cockroach problem, the first visit is an interior visit with bait, a growth regulator, and a follow-up built in. Whether you are in <a href="/pelham">Pelham</a>, <a href="/athens">Athens</a>, or a lake house in <a href="/dadeville">Dadeville</a>, that is how we clear it.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
+    slug: 'termite-questions-alabama-homeowners',
+    title: 'Termite FAQ: The Questions Alabama Homeowners Ask Us Most',
+    excerpt: 'Do I really have termites or is that a flying ant? Will my insurance cover the damage? Can I treat them myself? How much does it cost and why will nobody quote it over the phone? After nearly seven decades of termite work in Alabama, these are the questions we hear every week — answered plainly.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 8,
+    heroEmoji: '❓',
+    metaTitle: 'Termite Questions Alabama Homeowners Ask Most — Answered | EnviroCare',
+    metaDescription: 'Straight answers to the termite questions Alabama homeowners ask: flying ants vs. termites, insurance, DIY, cost, how fast damage happens, bonds, and what a WDO inspection is.',
+    body: `
+<p class="lede">Termites generate more questions than any other pest we treat, and for good reason: they are the one pest that can cost a homeowner real money, they are hard to see, and the industry around them uses a vocabulary — bonds, baits, barriers, WDO letters — that nobody explains. The Wedgworth family has been doing termite work in Alabama since 1958. These are the questions we hear most often, from <a href="/birmingham">Birmingham</a> to <a href="/lake-martin">Lake Martin</a> to <a href="/huntsville">Huntsville</a>, with the plainest answers we can give.</p>
+
+<h2>Is that a flying ant or a termite?</h2>
+
+<p>Look at three things. A termite swarmer has a straight, thick waist; a flying ant has a pinched waist like a wasp. A termite's two pairs of wings are equal in length and roughly twice the body; an ant's front wings are noticeably longer than the back pair. A termite's antennae are straight and beaded; an ant's are bent at an elbow. Swarmers shed their wings quickly, so a pile of identical small wings on a windowsill in late winter or spring is a strong termite sign even if you never saw the insects. We cover the full identification in <a href="/blog/how-to-identify-termites-alabama">how to identify termites in your Alabama home</a>.</p>
+
+<h2>What kind of termites are in Alabama?</h2>
+
+<p>Almost always the Eastern subterranean termite. It lives in the soil, needs moisture, and reaches wood through mud tubes it builds up foundations, piers, and pipes. Formosan subterranean termites — larger colonies, more aggressive — have been found in parts of the state, mainly toward the coast and along transport corridors. Drywood termites, which live inside the wood itself and need no soil contact, are uncommon here. For practical purposes, if you are in central or north Alabama, you are dealing with subterranean termites, and the treatment strategy follows from that.</p>
+
+<h2>When do termites swarm in Alabama?</h2>
+
+<p>Late February through May, usually on a warm, humid day after rain, often in the afternoon. Swarming is the colony sending out reproductives to start new colonies; it is a sign of a mature colony nearby, and if the swarm is <em>inside</em> the house — coming out of a wall, a window frame, or a bathroom — it is a sign the colony is in the house. Timing and what to do about it are in <a href="/blog/alabama-termite-swarm-season">Alabama termite swarm season</a>.</p>
+
+<h2>How fast do termites do damage?</h2>
+
+<p>Slower than the scary version, faster than you would like. A single subterranean colony in Alabama can number in the hundreds of thousands, and a mature one feeding on a house will cause meaningful damage over a few years, not a few weeks. That is the good news and the bad news together: you have time to act when you find signs, and a house that has gone ten years without an inspection can have serious hidden damage. What the damage looks like is covered in <a href="/blog/termite-damage-signs-alabama">what termite damage looks like</a>.</p>
+
+<h2>Does homeowners insurance cover termite damage?</h2>
+
+<p>Generally, no. Standard homeowners policies treat termite damage as a maintenance issue that develops over time rather than a sudden event, and exclude it. Read your own policy and ask your agent, but do not plan on insurance. This is the main reason a termite protection agreement with damage repair coverage exists as a product.</p>
+
+<h2>Can I treat termites myself?</h2>
+
+<p>You can buy products that kill termites you can see. You cannot, as a practical matter, treat a subterranean termite colony. The colony is in the soil, possibly a hundred feet from the house, and the workers you see in a mud tube are a tiny fraction of it. Effective treatment either establishes a continuous treated zone in the soil around the entire structure or places a bait system the colony carries back and feeds on — both require training, equipment, and in Alabama, a license. Alabama regulates termite work; it has to be done by a licensed company, which is part of why the treatment carries an agreement and coverage.</p>
+
+<h2>What is a WDO inspection and why is it required?</h2>
+
+<p>A wood-destroying organism inspection is a licensed inspector's on-site examination of the structure for evidence of termites and other wood-destroying insects and fungi. Alabama requires one before termite treatment can be priced or sold, because a real quote depends on what the inspection finds: linear footage of the foundation, foundation type, crawlspace versus slab, moisture conditions, existing damage, and conducive conditions like wood-to-soil contact. Our inspection is free and there is no obligation attached to it. The same inspection produces the WDO letter that real estate closings require — see <a href="/blog/real-estate-wdo-letter-explained">the real estate WDO letter, explained</a>.</p>
+
+<h2>Why won't anyone quote termite work over the phone?</h2>
+
+<p>Because they cannot, honestly. See above. Anyone who gives you a termite price without looking at the house is guessing, and the guess is either padded to cover the unknowns or low to get in the door. The inspection takes an hour and costs nothing. We explain what drives the number in <a href="/blog/termite-treatment-cost-alabama">termite treatment cost in Alabama</a>.</p>
+
+<h2>What is the difference between a bait system and a liquid treatment?</h2>
+
+<p>A liquid treatment puts a continuous zone of termiticide in the soil around the foundation; termites tunneling through it pick it up and die. It works by blocking and requires trenching, and often drilling through slabs and porches, around the whole structure. A bait system places stations in the soil around the house; foraging termites find the bait, carry it back, and the colony is eliminated from the inside. Nothing is drilled. Both are legitimate. Which fits a house depends on the construction, the soil, and what the inspection finds. We are a Sentricon® Certified Specialist and use the Sentricon® Always Active™ system; the comparison is in <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon vs. liquid termite treatment</a>.</p>
+
+<h2>What is a termite bond?</h2>
+
+<p>"Bond" is the everyday Alabama word for a termite protection agreement: an ongoing contract under which the company inspects on a schedule, treats as needed, and in many cases provides coverage for damage repair. It renews annually. When a house is sold, the bond is often transferred to the buyer, which is why realtors ask whether a house "has a bond." What it covers and what it does not are in <a href="/blog/termite-bond-alabama-explained">termite bond in Alabama, explained</a>.</p>
+
+<h2>What does EnviroCare's coverage actually mean?</h2>
+
+<p>On qualifying homes, an EnviroCare Sentricon® termite protection agreement carries up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. That coverage is EnviroCare's own — it is written into our agreement, not into any product packaging — and like any such agreement it has terms: the structure has to qualify at inspection, the agreement has to stay in force, and conducive conditions we flag have to be addressed. We will walk through the terms line by line before anything is signed. What we will not do is describe it as more than it is.</p>
+
+<h2>How long does termite treatment last?</h2>
+
+<p>A bait system is continuous protection as long as the agreement is active and the stations are being monitored — that is the point of it. A liquid barrier degrades in the soil over years and typically needs re-treatment. In both cases the annual inspection is what keeps the protection real, which is why it is part of the agreement rather than an add-on.</p>
+
+<h2>If I find termites, what should I do right now?</h2>
+
+<p>Do not tear out the wall, do not spray the tube, and do not panic. Take a photo of what you found, leave it in place so the inspector can see it, and schedule the inspection. Spraying a mud tube kills a few workers and tells the colony to reroute; the inspector learns more from an undisturbed tube. Termite damage is slow enough that a week of waiting for a proper inspection costs nothing, and a rushed decision on a phone quote can cost a great deal.</p>
+
+<h2>The question behind all the questions</h2>
+
+<p>Most termite questions come down to one: <em>do I need to worry about this house?</em> The honest answer for any house in Alabama that has not been inspected in the last year is that you do not know, and a free inspection turns that into an answer either way. That is the whole reason it is free.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
+    slug: 'prevent-tick-bites-alabama',
+    title: 'How to Prevent Tick Bites in Alabama: Yard, Clothing, and the Checks That Matter',
+    excerpt: 'Alabama ticks do not wait in trees. They wait at knee height along the edge of the yard, and the Lone Star tick — our most common one — actively walks toward you. Here is the layered approach that lowers bites: treated clothing, repellent, a yard that gives ticks nowhere to wait, and the two-hour rule.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Ticks',
+    readMinutes: 7,
+    heroEmoji: '🧦',
+    metaTitle: 'How to Prevent Tick Bites in Alabama | EnviroCare',
+    metaDescription: 'Practical tick-bite prevention for Alabama: permethrin-treated clothing, repellents, the yard layout that keeps ticks out, tick checks, and correct removal.',
+    body: `
+<p class="lede">The tick found on a child after an afternoon in the backyard, the one on the dog after a walk along the creek, the one you find on yourself two days after cutting the back line — every one of those started in the same place: a strip of tall grass, leaf litter, or brush at the edge of a mowed area, where the tick climbed up a stem and waited. Preventing tick bites in Alabama is mostly about making that strip a bad place to wait and making yourself a hard target to reach. This is the layered approach, from the yard inward.</p>
+
+<h2>Which ticks are we talking about?</h2>
+
+<p>Four matter in Alabama. The <strong>Lone Star tick</strong> is by far the most common; the female has a single white dot on her back, and unlike most ticks she does not just wait — she detects you and walks toward you. She is the tick behind alpha-gal syndrome, the red-meat allergy, and behind most of the tick-borne illness in this state. The <strong>American dog tick</strong> is larger, mottled, and the primary carrier of Rocky Mountain spotted fever in the Southeast. The <strong>blacklegged (deer) tick</strong> carries Lyme disease; it is less common in Alabama than in the Northeast but it is here, especially in wooded north Alabama. The <strong>Gulf Coast tick</strong> is expanding across the state. Species details, alpha-gal, and how a professional yard treatment works are in <a href="/blog/tick-control-alabama">tick control in Alabama</a>.</p>
+
+<h2>Layer 1: A yard that gives ticks nowhere to wait</h2>
+
+<p>Ticks need humidity and shade. They dry out and die in short, sunlit grass. That single fact drives the whole yard strategy.</p>
+
+<ul>
+<li><strong>Mow, and mow the edges.</strong> Ticks quest from stems at knee height and below. A lawn cut short and kept short has almost none; the unmowed strip along the fence, the tree line, and the drainage ditch has almost all of them.</li>
+<li><strong>Put a barrier between the lawn and the woods.</strong> A three-foot band of wood chips, gravel, or bare mulch between the mowed lawn and the tree line or brush is a dry zone ticks are reluctant to cross. This is the single most effective landscaping change for a wooded lot in <a href="/mt-laurel">Mt Laurel</a>, <a href="/hampton-cove">Hampton Cove</a>, or on <a href="/lake-martin">Lake Martin</a>.</li>
+<li><strong>Move the play set and the seating into the sun.</strong> Swing sets, sandboxes, hammocks, and the fire pit chairs belong in open, sunny lawn, well away from the edge. Not under the shade tree next to the woods.</li>
+<li><strong>Clear the leaf litter.</strong> Leaves piled under shrubs, along the fence, and behind the shed are tick nurseries. Rake them out in fall and again in spring.</li>
+<li><strong>Stack firewood off the ground and in the sun.</strong> Woodpiles shelter the mice that carry the ticks that carry the disease.</li>
+<li><strong>Discourage deer.</strong> Deer carry adult ticks into the yard and drop engorged females that lay thousands of eggs. Fencing where practical, and not planting the hostas and azaleas they love along the property line.</li>
+</ul>
+
+<p>A professional tick treatment reinforces all of that by treating the edge zones — the transition band, the tree line, the shrub beds, the shaded foundation — where ticks actually quest. EnviroCare's <a href="/services/tick-control">Mosquito + Tick program</a> treats those zones on a monthly cycle through the season and covers chiggers as well; tick-only treatment is quoted per property. It reduces the tick population in the treated areas substantially; it does not make a wooded yard tick-free, and we say so.</p>
+
+<h2>Layer 2: Clothing that ticks cannot get through</h2>
+
+<p>This is the layer most people skip, and it is the most effective one for anyone who works or plays at the yard edge, hunts, hikes, or fishes the creek banks.</p>
+
+<ul>
+<li><strong>Permethrin-treated clothing.</strong> Permethrin is an EPA-registered insecticide for fabric — not skin — that kills ticks on contact with the cloth. You can buy pre-treated pants, socks, and shirts, or treat your own with a spray product, following the label. A treatment lasts through several washes. For a family that spends time in the woods, treated socks and pants are the best money you can spend on tick prevention.</li>
+<li><strong>Long pants tucked into socks.</strong> Yes, it looks ridiculous. It forces the tick to climb the outside of your leg where you can see it instead of the inside where you cannot.</li>
+<li><strong>Light colors.</strong> A tick on khaki is visible. A tick on dark jeans is not.</li>
+</ul>
+
+<h2>Layer 3: Repellent on skin</h2>
+
+<p>An EPA-registered repellent — DEET, picaridin, or oil of lemon eucalyptus — on exposed skin, applied as the label directs, for time spent in tall grass, brush, or woods. Picaridin is often preferred because it does not damage synthetic fabrics. Follow the label for children, and do not put repellent on hands, eyes, or mouth. Repellent is the layer for the trail, the deer stand, and the creek; the yard layers above are what make it unnecessary on the patio.</p>
+
+<h2>Layer 4: The two-hour rule and the tick check</h2>
+
+<p>Research on tick-borne disease consistently shows that a tick removed early is far less likely to transmit anything. The habits that make early removal routine:</p>
+
+<ul>
+<li><strong>Shower within two hours</strong> of coming in from the yard edge or the woods. It washes off unattached ticks and gives you a full-body look.</li>
+<li><strong>Check the places they go.</strong> Scalp and hairline, behind and inside the ears, the back of the neck, armpits, the waistband, the groin, the backs of the knees, and between the toes. Ticks seek warm, protected skin. Check children carefully — a Lone Star nymph is the size of a poppy seed.</li>
+<li><strong>Tumble clothes in a dryer on high for ten minutes</strong> before washing. Dry heat kills ticks; a cold wash does not.</li>
+<li><strong>Check the dog every time.</strong> Ears, between the toes, under the collar, around the tail. A dog on a veterinary tick preventive is protected; the ticks it carries into the house are not.</li>
+</ul>
+
+<h2>If you find one attached</h2>
+
+<p>Use fine-tipped tweezers. Grip the tick as close to the skin as possible and pull straight up with steady pressure — no twisting, no burning it, no petroleum jelly, no nail polish. Clean the site with soap and water or alcohol. Note the date. If a rash, fever, headache, or body aches develop over the next few weeks — or, hours after eating red meat, hives or stomach trouble that could point to alpha-gal — see a doctor and mention the tick. We are pest control, not medicine; take questions about symptoms to a physician.</p>
+
+<h2>When the yard is the problem</h2>
+
+<p>If the family is finding ticks after ordinary time in the backyard — not the woods, the yard — the edge zones need treatment on a schedule, and the landscaping changes above need to happen alongside it. That is what we do. We will walk the property with you, show you where the ticks are questing, and treat those zones through the season. Wooded lots in <a href="/chelsea">Chelsea</a>, <a href="/madison">Madison</a>, and around <a href="/dadeville">Dadeville</a> are exactly what the program was built for.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+
+  {
+    slug: 'termite-damage-signs-alabama',
+    title: 'What Termite Damage Looks Like: Early Signs Alabama Homeowners Miss',
+    excerpt: 'Termite damage rarely looks like termite damage. It looks like a door that sticks, a bubble in the paint, a soft spot in the bathroom floor, or a baseboard that dents under a thumb. Here is what subterranean termite damage actually looks like in an Alabama house, where to check first, and how to tell it from water damage.',
+    publishedAt: '2026-09-04',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 7,
+    heroEmoji: '🔍',
+    metaTitle: 'What Termite Damage Looks Like: Early Signs in Alabama Homes | EnviroCare',
+    metaDescription: 'Early termite damage signs Alabama homeowners miss: blistered paint, hollow wood, sticking doors, sagging floors, mud tubes. Where to check and how to tell it from water damage.',
+    body: `
+<p class="lede">Almost no one finds termite damage by seeing termites. They find it because a door that always closed fine now sticks in the frame, or the paint on a window sill bubbled, or a vacuum cleaner went through a baseboard. Subterranean termites — the ones in nearly every Alabama county — eat wood from the inside out and leave the surface intact, so by the time the surface fails, the damage behind it is usually well along. Knowing what the early signs look like, and where to look for them, is how a homeowner catches it while it is still a small repair.</p>
+
+<h2>The signs, in the order homeowners usually notice them</h2>
+
+<h3>Doors and windows that stick</h3>
+
+<p>Often the very first sign, and almost always misread as humidity. Termites eating a door jamb or a window frame produce moisture as they work, and that moisture swells the wood. A door that rubs at the latch side, or a double-hung window that suddenly binds, is worth a close look at the frame — especially if it is a bathroom, a laundry room, or an exterior door on a slab.</p>
+
+<h3>Blistered or bubbling paint</h3>
+
+<p>Termites working just behind a painted surface push moisture into it, and the paint lifts in blisters or peels in a way that looks like a slow water leak. On a wall or trim with no plumbing behind it and no roof above it, that is a termite sign until proven otherwise.</p>
+
+<h3>Wood that sounds hollow or dents</h3>
+
+<p>Tap along baseboards, door trim, window sills, and the bottom of door frames with a screwdriver handle. Sound wood has a solid thunk; termite-eaten wood sounds papery or hollow. Press a thumbnail or the tip of the screwdriver into a suspect spot — a thin painted skin over an empty gallery gives way with almost no pressure. The classic discovery is a baseboard that crumbles when a piece of furniture is moved.</p>
+
+<h3>Sagging or spongy floors</h3>
+
+<p>In a crawlspace house — most of the older housing stock in <a href="/homewood">Homewood</a>, <a href="/mountain-brook">Mountain Brook</a>, and old <a href="/alexander-city">Alexander City</a> — termites reach the floor system through the piers and the sill plate. A soft spot in the floor near a bathroom, a dip along an exterior wall, or laminate that buckled up in a line is often the first sign of a damaged sill or joist below. On a slab house, the same appears as a soft spot at the base of a wall where a stud bottom plate has been eaten.</p>
+
+<h3>Mud tubes</h3>
+
+<p>The one sign that is unambiguous. Subterranean termites build pencil-width tubes of soil and saliva to travel between the ground and the wood without drying out. Look for them on the outside of the foundation, on crawlspace piers and walls, on the inside of the foundation wall in a basement, up the side of a bath trap or a plumbing penetration, and on the framing where a deck or porch attaches. A tube running up a pier is a colony feeding on the house right now. Do not knock it down — leave it for the inspector.</p>
+
+<h3>Discarded wings</h3>
+
+<p>A small pile of identical, translucent wings on a windowsill, in a spider web, or in a light fixture in late winter or spring. The swarm itself happens in minutes and is easy to miss; the wings stay. Indoors, this means the colony is in or under the house.</p>
+
+<h3>Tight, dark lines and pinholes in drywall</h3>
+
+<p>Termites eating the paper on drywall leave faint, meandering lines just under the paint, sometimes with tiny pinholes where they broke through and then plugged the hole with soil. Look low on walls, near the floor, and around window and door openings.</p>
+
+<h2>Termite damage or water damage?</h2>
+
+<p>They overlap, and termites are drawn to wet wood in the first place, so a house can have both. A few tells:</p>
+
+<ul>
+<li><strong>Galleries.</strong> Cut into termite-damaged wood and it is honeycombed with layered tunnels running along the grain, often packed with dried mud. Rotted wood is soft and crumbly through and through, without the tunnel structure.</li>
+<li><strong>Mud.</strong> Termite galleries and tubes contain soil. Water damage does not.</li>
+<li><strong>Location.</strong> Water damage tracks a source — a roof leak, a window, a plumbing line. Termite damage tracks the ground: it starts low and works up, worst at sill plates, bottom plates, door thresholds, and pier tops.</li>
+<li><strong>Frass.</strong> Small piles of dry, sand-like pellets below a hole in wood are drywood termite droppings — uncommon in Alabama. Subterranean termites do not leave frass; they leave mud.</li>
+</ul>
+
+<p>When in doubt, it does not matter which one it is: both need a licensed inspector, and the free WDO inspection identifies both.</p>
+
+<h2>Where to check first in an Alabama house</h2>
+
+<ol>
+<li><strong>The bath trap.</strong> The plumbing access under a slab-house bathtub is an open path from the soil to the framing, and it is the single most common termite entry point in slab construction across <a href="/hoover">Hoover</a>, <a href="/madison">Madison</a>, and every subdivision built since the seventies.</li>
+<li><strong>Crawlspace piers and sill plates.</strong> With a flashlight, from the access door, look for tubes on every pier and along the sill where the house sits on the foundation.</li>
+<li><strong>Exterior door frames and garage door jambs.</strong> Wood in contact with a slab or a stoop.</li>
+<li><strong>Deck and porch ledger boards.</strong> Where the deck bolts to the house, especially if the deck posts sit in or near soil.</li>
+<li><strong>Window sills on the ground floor,</strong> particularly on the shaded, damp side of the house.</li>
+<li><strong>Anywhere wood touches soil.</strong> Fence posts against the house, lattice, a wood stoop, mulch piled above the slab line, siding that runs into the dirt.</li>
+</ol>
+
+<h2>What to do when you find something</h2>
+
+<p>Photograph it, leave it undisturbed, and schedule a WDO inspection. Termite damage is slow — a colony takes years, not weeks, to do serious harm — so there is time to get a proper inspection rather than a rushed decision. Do not spray the tube or tear out the trim; both destroy the evidence the inspector needs to judge how active and how extensive the problem is. Our inspection is free, and it is the same inspection that produces the WDO letter a home sale requires.</p>
+
+<p>If treatment is needed, the Sentricon® Always Active™ bait system protects the structure with in-ground stations and no drilling, and qualifying homes on an EnviroCare protection agreement carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. That is the difference between finding termite damage on a protected house and an unprotected one: on a protected house, the repair is covered. The related questions — insurance, cost, bonds, DIY — are in <a href="/blog/termite-questions-alabama-homeowners">our termite FAQ</a>.</p>
+
+<h2>The house you have not looked at</h2>
+
+<p>The most expensive termite damage we see is in houses that had no signs anyone noticed, because no one was looking. An annual inspection is what turns "we never had a problem" into a fact instead of a hope. If it has been more than a year, let us take a look.</p>
+
+<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
   {
     slug: 'stink-bugs-lady-beetles-alabama-fall',
     title: "Stink Bugs and Lady Beetles: Alabama's Fall Home Invaders",

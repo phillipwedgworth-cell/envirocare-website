@@ -1,7 +1,7 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website
 // Path: middleware.ts
-// Commit: fix(seo): recover 3 legacy blog URLs falling through to /blog index
+// Commit: feat(seo): route 7 legacy Scorpion blog intents to republished recovery posts
 // Push: main
 
 // middleware.ts
@@ -74,6 +74,35 @@ const POST_OVERRIDES: [RegExp, string][] = [
 
   // Swarmers and conducive conditions map to swarm season, not identification.
   [/what-brings-termites|subterranean-termites/, "/blog/alabama-termite-swarm-season"],
+
+  // --- Added 2026-09-04: blog-recovery batch (7 republished articles). ---
+  // Each of these legacy slugs was pooling onto a generic topic bucket; the
+  // matching republished post now owns the intent. Ordered before the generic
+  // ant/roach/termite/tick/mosquito buckets by virtue of living in POST_OVERRIDES.
+
+  // "How do I get rid of ants in my house" cluster — 9 legacy URLs, ~9,200 imps,
+  // all previously landing on the ant-control overview.
+  [/get-rid-of-the-ants|get-rid-of-an-ant|best-way-to-get-rid-of-ants|ants-taking-over|say-good-riddance-to-ants|ant-control-101|ant-control-for-new-homeowners|guide-to-effective-ant-con|diy-ant-control/, "/blog/how-to-get-rid-of-ants-in-house-alabama"],
+
+  // German cockroach — legacy URL still ranked ~pos 8 (893 imps). Dedicated post.
+  [/german-cockroaches/, "/blog/german-cockroaches-alabama"],
+
+  // "How to get rid of roaches" cluster — 4 legacy URLs, ~7,000 imps.
+  [/get-rid-of-roaches|get-rid-of-cockroaches|roach-removal-101/, "/blog/how-to-get-rid-of-roaches-alabama"],
+
+  // Mosquito dangers — legacy URL ranked ~pos 7 (1,394 imps). Disease/risk intent,
+  // not season timing.
+  [/hidden-dangers-mosquitoes/, "/blog/mosquito-borne-diseases-alabama"],
+
+  // Termite FAQ / "how to get rid of termites" / "termite troubles made simple".
+  [/commonly-asked-questions-about-termite|get-rid-of-termites|termite-troubles-made-simple/, "/blog/termite-questions-alabama-homeowners"],
+
+  // Termite damage early signs (3,134 imps, pos ~19). Warning-signs stays on the
+  // identification post; damage/early-signs gets its own.
+  [/understanding-termite-damage/, "/blog/termite-damage-signs-alabama"],
+
+  // Tick-bite prevention (1,399 imps, pos ~15) — personal protection intent.
+  [/prevent-getting-bit-by-ticks/, "/blog/prevent-tick-bites-alabama"],
 ];
 
 export function middleware(req: NextRequest) {
