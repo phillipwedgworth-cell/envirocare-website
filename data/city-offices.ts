@@ -108,8 +108,18 @@ export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   // would have put 991-2882 in the sitewide header of pages whose body says
   // 940-6360 — the same header-vs-body split this comment used to describe,
   // just pointed the other way.
+  // RESTORED 2026-09-05 (Phillip, option B): the 16th Ave office has a verified
+  // GBP (place_id ChIJjXGa0ZsbiYgR1mB0oEKnqUo), so Jefferson + St Clair route to
+  // 'birmingham-downtown' and Shelby stays on 'birmingham' (= Butler Rd, see the
+  // naming note in data/offices.ts). Hoover goes Over-the-Mountain with
+  // Homewood / Mountain Brook / Vestavia per Phillip.
   ...(['birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
-       'trussville', 'chelsea', 'greystone', 'mt-laurel'] as const)
+       'trussville', 'irondale', 'leeds', 'moody', 'fultondale',
+       'crestline', 'english-village', 'cherokee-bend', 'cahaba-heights',
+       'mountain-brook-village', 'liberty-park'] as const)
+      .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
+  ...(['chelsea', 'greystone', 'mt-laurel', 'inverness', 'brook-highland',
+       'meadow-brook', 'eagle-point', 'highland-lakes', 'chelsea-park'] as const)
       .map((s): [string, OfficeId] => [s, 'birmingham']),
 ]);
 

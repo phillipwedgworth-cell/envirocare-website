@@ -30,12 +30,12 @@ export const OFFICES: Record<OfficeId, Office> = {
   'birmingham-downtown': {
     id: 'birmingham-downtown',
     name: 'Birmingham Office',
-    phone: '2059406360',
-    phoneDisplay: '(205) 940-6360',
-    address: '2025 Butler Rd, Alabaster',
-    city: 'Alabaster',
+    phone: '2059912882',
+    phoneDisplay: '(205) 991-2882',
+    address: '2120 16th Ave S, Ste 302',
+    city: 'Birmingham',
     state: 'AL',
-    zip: '35007',
+    zip: '35205',
     cityPageSlug: 'birmingham',
   },
   'auburn': {
@@ -109,7 +109,7 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '35226': 'birmingham-downtown', '35228': 'birmingham', '35229': 'birmingham', '35230': 'birmingham',
   '35231': 'birmingham', '35232': 'birmingham', '35233': 'birmingham', '35234': 'birmingham',
   '35235': 'birmingham-downtown', '35236': 'birmingham', '35237': 'birmingham', '35238': 'birmingham',
-  '35242': 'birmingham-downtown', '35243': 'birmingham-downtown', '35244': 'birmingham-downtown', '35246': 'birmingham',
+  '35242': 'birmingham' /* Greystone/Inverness/Mt Laurel — Shelby */, '35243': 'birmingham-downtown', '35244': 'birmingham-downtown', '35246': 'birmingham',
   '35249': 'birmingham', '35253': 'birmingham', '35254': 'birmingham', '35255': 'birmingham',
   '35259': 'birmingham', '35260': 'birmingham', '35261': 'birmingham', '35266': 'birmingham',
   '35282': 'birmingham', '35283': 'birmingham', '35285': 'birmingham', '35287': 'birmingham',
@@ -122,7 +122,7 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   '35007': 'birmingham', '35114': 'birmingham', '35124': 'birmingham', '35080': 'birmingham',
   '35040': 'birmingham',
   // Chelsea
-  '35043': 'birmingham-downtown',
+  '35043': 'birmingham', // Chelsea is Shelby → Butler Rd
   // Trussville, Clay, Pinson
   '35173': 'birmingham-downtown', '35126': 'birmingham',
   // Leeds, Moody, Springville (St. Clair)
