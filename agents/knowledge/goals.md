@@ -1,93 +1,63 @@
 # EnviroCare Goals & Targets
+# Updated: 2026-09-05 — current metrics from live agent_state + Local Falcon + BrightLocal.
+# Supersedes the May 2026 table that was in this file.
 
-## Current Metrics (as of May 2026)
-| Metric | Current | Target | Deadline |
-|--------|---------|--------|----------|
-| Birmingham SoLV | ~39% | 60% | DNS flip day |
-| Huntsville SoLV | 0% (no Local Falcon data) | 35% | 90 days post-launch |
-| Alex City SoLV | ~50% | 65% | 90 days post-launch |
-| Birmingham citation score | ~24/100 | 80/100 | 6 months |
-| Huntsville citation score | unknown | 80/100 | 6 months |
-| Alex City citation score | unknown | 80/100 | 6 months |
-| Google reviews (Birmingham) | unknown | 50+ new in 6 months | Ongoing |
-| Google reviews (Huntsville) | unknown | 50+ new in 6 months | Ongoing |
-| Google reviews (Alex City) | unknown | 50+ new in 6 months | Ongoing |
-| Mobile PageSpeed | 67/100 | 90+ | Launch |
-| Core Web Vitals | Failing | Passing | Launch |
+## Current Metrics (Sep 5, 2026)
+| Metric | Current | Target | Notes |
+|--------|---------|--------|-------|
+| Alabaster SoLV (9x9/20mi) | 3.39% (Aug 27) | 20% | Single office vs 20-mile grid; proximity wall on outer ring |
+| Birmingham 16th Ave SoLV | first scan Sep 9 | 15% | New campaign created Sep 5 — no data yet |
+| Alex City SoLV | 53.06% (Sep 5) | 55% | Strongest market; defend and grow reviews |
+| Huntsville SoLV | 0.26% (Aug 25) | 10% | Review-volume problem (34 reviews vs competitors at 150+) |
+| BrightLocal citation score — Alabaster | 53 | 75 | Was 24 in May; improved through Aug–Sep citation work |
+| BrightLocal citation score — Huntsville | ~50 | 75 | RM + CT reports running |
+| BrightLocal citation score — Alex City | ~50 | 75 | RM report running; Facebook cross-wire flagged |
+| BrightLocal citation score — Birmingham | active | 75 | Full setup complete Aug 2026; GBP Active Sync on |
+| Google reviews — Alabaster/Birmingham | 240 · 4.7★ | +50 in 6 months | Healthy velocity |
+| Google reviews — Huntsville | 34 · 5.0★ | 75 in 90 days | #1 free lever; Fieldster auto-ask may need toggle check |
+| Google reviews — Alex City | 12 · 4.9★ | 40 in 90 days | Same review-velocity issue |
+| Mobile PageSpeed | passing | maintain | CWV passing since Jul 2026 |
+| Blog posts live | 36 (43 pending merge) | 50 by Oct | 7 recovery articles in unmerged blog pack |
+| City pages live | ~45 | hold | Phase A complete; Phase B deferred |
 
-## DNS Flip Context
-Production domain (post-DNS-flip): envirocarellc.com.
-GitHub repo: envirocare-website; Vercel project: envirocare-web (single project).
-ALL pages are noindex/nofollow until DNS flips to envirocarellc.com.
-Estimated flip date: TBD (when Phillip approves final site).
-On flip day: update metadataBase, all canonicals, robots.ts, enable indexing.
+## Site is LIVE — DNS flipped Jun 29, 2026
+The "DNS flip" checklist from May is DONE. Stop referencing it.
+- envirocarellc.com resolves to Vercel
+- Indexing enabled, sitemap submitted, GSC verified
+- All 3 original GBPs verified; Birmingham 16th Ave GBP verified Sep 2026
 
-## Top 5 Business Goals This Quarter
+## Top 5 Business Priorities This Quarter (Sep–Nov 2026)
 
-### 1. Launch the new site and start ranking
-- DNS flip to envirocarellc.com
-- Submit sitemap to Google Search Console
-- Verify all 3 GBP (Google Business Profile) listings
-- Get first Local Falcon SoLV readings for all locations
+### 1. Reviews in Huntsville and Alex City
+The map pack floor for Huntsville is ~150 reviews; EnviroCare has 34. This is the #1
+free ranking lever and nothing else moves the needle until it's addressed. Alex City
+at 12 reviews has the same problem at smaller scale. The review engine (Fieldster +
+Captivated) is wired but may not be firing — contact Harris Ramm to confirm.
 
-### 2. Win Lake Martin keywords (fastest organic opportunity)
-- No competitor has a dedicated Lake Martin office
-- Target: own top 3 for "Lake Martin pest control", "Lake Martin termite control"
-- Lake Martin pages are already built — need DNS flip + local citations
+### 2. Blog recovery + keyword opportunity pipeline
+Seven articles targeting legacy Scorpion intents are built (pending merge). The new
+keyword-opportunity agent reads GSC striking-distance queries and proposes targets.
+Together they close the content gap that lets Orkin and Cook's dominate informational
+intent in Alabama.
 
-### 3. Close the Huntsville gap
-- Cook's dominates Huntsville — but their weakness is impersonal service
-- Need: H1 on Huntsville pages, local content, GBP optimized
-- Target: SoLV 0% → 35% within 90 days of launch
+### 3. Birmingham office visibility
+The 16th Ave GBP is verified and live (5.0 on 10 reviews). Option B routes 16 Jefferson
+County pages to it. First Local Falcon scan runs Sep 9. The office needs its own
+citation campaign and review velocity to compete with the established players at that
+pin location.
 
-### 4. Improve citation scores (especially Birmingham)
-- Birmingham at 24/100 is critically low
-- Action: BrightLocal citation campaign, NAP consistency audit
-- Target: 80/100 within 6 months
+### 4. Competitor intelligence (now automated)
+local-falcon-ingest + competitor-watcher (in seo-intel pack) replace the laptop crew
+agent that went dark Aug 21. Maps + AI platform visibility, top-5 competitors per
+keyword per market, deterministic alerts for drops and surges.
 
-### 5. Collect 50 new reviews per location
-- Review velocity matters for map pack ranking
-- Strategy: post-service text/email to happy customers
-- Tool: set up review request automation via Resend
+### 5. AI visibility
+Local Falcon AI campaigns (ChatGPT, AI Mode, AI Overviews, Gemini) are running for
+the three original offices. Birmingham 16th Ave needs to be added. The ingest agent
+now stores these alongside Maps scores. NeuronWriter AI monitoring is active ($20/mo).
+llms-full.txt and llms.txt serve the on-site layer.
 
-## What Agents Should Optimize For
-
-### Immediate (next 2 weeks)
-- Fix all H1 tags on service pages (site-auditor finding)
-- Improve trust badge visibility above fold (design-advisor finding)
-- Add pricing page content (content-advisor finding)
-- Ensure NAP consistency across all 3 offices
-
-### Short-term (next 30 days, post-DNS flip)
-- Create /lake-martin/termite-control and /lake-martin/mosquito-control pages
-- Build /pest-control-cost-alabama page
-- Add FAQ page with schema markup
-- Submit to 50 top citation sources per location
-
-### Medium-term (60–90 days)
-- Huntsville-specific blog content targeting Cook's keyword gaps
-- Birmingham comparison pages (us vs Orkin, us vs Terminix)
-- Review collection campaign via Resend emails
-
-## Success Metrics for Each Agent
-
-### design-advisor
-Success = measurable improvement in conversion rate signals:
-- Hero CTA click-through rate increase
-- Time-on-page increase for service pages
-- Mobile bounce rate decrease
-
-### content-advisor  
-Success = new pages ranking in top 10 for target keywords within 60 days
-
-### seo-monitor
-Success = SoLV targets met per location per timeline above
-
-### competitor-watcher / competitor-deep-dive
-Success = actionable "steal this" items implemented within 2 weeks
-
-### site-auditor
-Success = zero H1 violations, zero 404s on sitemap URLs, all meta descriptions under 160 chars
-
-### brightlocal
-Success = citation scores reach 80/100 for all 3 locations
+## AUTONOMY RULES — unchanged from strategy.md
+Agents act on infrastructure, content optimization, and monitoring without asking.
+Agents MUST ask Phillip for: spend, contracts, GBP business-info edits, page
+deletions, redirect changes on money pages, pricing, legal, and refunds.

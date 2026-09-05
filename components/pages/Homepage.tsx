@@ -398,10 +398,10 @@ const RECURRING_PLANS: RecurringPlan[] = [
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
-    perservice: { price: '$45/month · seasonal', terms: 'Monthly service, March–October' },
+    perservice: { price: '$45/treatment · seasonal', terms: '8 treatments, March–October' },
     monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
-    addon: 'Add tick control to any visit: +$20/month',
+    addon: 'Add tick control to any visit: +$20/treatment',
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {

@@ -1,8 +1,8 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/watchdog.mjs
-// Commit: fix(watchdog): zero agent_costs rows is NODATA, not under-budget
-// Push: main
+// Commit: chore(agents): watchdog expects the SEO intel chain
+// Push: main (via branch + PR)
 // ─────────────────────────────────────
 //
 // The watcher of the watchers. Runs daily. Confirms every agent did its job and
@@ -40,6 +40,10 @@ const ANTHROPIC_CAP_SIGNATURE = 'specified API usage limits';
 // Daily agents get 30h (24 + 6 grace); weeklies 192h (7d + 1d grace).
 // Not listed (log nothing yet): ingest-seo — add once it heartbeats.
 const EXPECTED = [
+  // SEO intel chain — Tue/Fri 13:00 UTC (added 2026-09-05)
+  { agent: 'local-falcon-ingest',   maxAgeH: 100,    label: 'Local Falcon ingest (Tue/Fri)' },
+  { agent: 'competitor-watcher',    maxAgeH: 100,    label: 'Competitor watcher (Tue/Fri)' },
+  { agent: 'keyword-opportunity',   maxAgeH: 100,    label: 'Keyword opportunity (Tue/Fri)' },
   // GitHub Actions — daily
   { agent: 'morning-brief',         maxAgeH: 30,     label: 'Morning Brief (daily 13:30 UTC)' },
   { agent: 'daily-rollup',          maxAgeH: 30,     label: 'Daily Rollup (daily 13:00 UTC)' },

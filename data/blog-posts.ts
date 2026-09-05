@@ -578,7 +578,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Seasonal',
     readMinutes: 6,
     heroEmoji: '🐞',
-    metaTitle: 'Stink Bugs and Lady Beetles in Alabama Fall | EnviroCare',
+    metaTitle: "Stink Bugs Everywhere This Fall? Here's Why (Alabama)",
     metaDescription: 'Stink bugs and Asian lady beetles swarm Alabama homes every fall. Why they pick your house, why squishing backfires, and how to stop them.',
     body: `
 <p class="lede">Every September, usually right around the first week the overnight lows dip below sixty, we start getting the same call from homeowners across the Birmingham metro. There are dozens — sometimes hundreds — of small, shield-shaped brown insects clustered on the sunny side of the house. Or worse, the orange ones that look like ladybugs but are not, and they bite. Both are looking for the same thing: a warm wall to spend the winter inside. They are not after your food, your wood, or your wiring. They want a gap in the siding, a crack around a window frame, and a quiet void where the temperature stays above freezing until March.</p>
@@ -753,7 +753,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🟢',
-    metaTitle: 'Green Caps in the Yard? What They Are | EnviroCare',
+    metaTitle: "Green Caps in Your Yard? Don't Pull Them Up (Here's Why)",
     metaDescription: 'Round green caps in the ground around your house are termite bait stations. What they do, why not to remove them, and what happens when you buy the home.',
     body: `
 <p class="lede">You close on a house in <a href="/greystone">Greystone</a>, walk the yard on a Saturday morning, and notice a row of round green plastic caps set flush in the ground every ten feet or so around the foundation. Most people guess irrigation, or leftover landscape lighting, and a few of them try to pry one up. They are almost always termite bait stations, and what you do with them over the next few months matters more than anyone tells you at closing.</p>
@@ -900,7 +900,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 5,
     heroEmoji: '📄',
-    metaTitle: 'What Is a Termite Bond in Alabama? | EnviroCare',
+    metaTitle: 'Termite Bond in Alabama: What It Covers & When It Lapses',
     metaDescription: 'What a termite bond in Alabama covers, how to tell if yours has lapsed, what happens when a home sells, and how Sentricon coverage compares.',
     body: `
 <p class="lede">If your home has ever been treated for termites, somewhere in a drawer there's probably a termite bond — and if you're like most Alabama homeowners, you haven't read it since the day you signed it. That's worth fixing this week, not the week you find mud tubes. A bond that's lapsed, or that covers less than you think it does, is one of the more expensive surprises we see in homes from <a href="/hoover">Hoover</a> to <a href="/chelsea">Chelsea</a>.</p>
@@ -1109,7 +1109,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 5,
     heroEmoji: '🛡️',
-    metaTitle: 'Sentricon vs Liquid Termite Treatment | Honest Comparison',
+    metaTitle: 'Sentricon vs Liquid Termite Treatment: An Honest Comparison',
     metaDescription: 'Alabama Sentricon vs liquid termite barrier — which is better for your home? Real pros and cons from a Sentricon® Certified Specialist since 1958.',
     body: `
 <p class="lede">When a pest control company shows up to inspect your home for termites, you're going to be offered one of two paths: a Sentricon® bait system, or a liquid soil termiticide barrier (Termidor, Premise, Bifen). The salesperson is going to be very confident their option is best. So let me try to be straight with you.</p>
@@ -1513,7 +1513,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Spiders',
     readMinutes: 8,
     heroEmoji: '🕷️',
-    metaTitle: 'Brown Recluse Spiders in Alabama: ID & Prevention | EnviroCare',
+    metaTitle: 'Is It a Brown Recluse? How to Tell in 10 Seconds (Alabama)',
     metaDescription: 'How to identify a brown recluse using the legs and eyes, not the violin marking. Where they hide in Alabama homes, bite guidance, and prevention that works.',
     body: `
 <p class="lede">More spiders get called brown recluse than any other species in Alabama, and the large majority of them aren't. That matters in both directions — unnecessary alarm about harmless house spiders, and occasionally the opposite. Here's how to actually tell.</p>
@@ -1612,7 +1612,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Roaches',
     readMinutes: 8,
     heroEmoji: '🪳',
-    metaTitle: 'Cockroach Control in Alabama: German, American & Smokybrown | EnviroCare',
+    metaTitle: 'Roaches in Your Alabama Home? Why They Keep Coming Back',
     metaDescription: 'How to identify Alabama cockroach species, why German roaches are the serious one, health risks including asthma triggers, and what actually eliminates them.',
     body: `
 <p class="lede">The first question isn't how to kill roaches — it's which roach you have. A palmetto bug wandering in from the mulch bed is a nuisance. German cockroaches breeding in your kitchen are an infestation with a health dimension. Same word, entirely different problems.</p>
@@ -1696,7 +1696,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Spiders',
     readMinutes: 8,
     heroEmoji: '🕸️',
-    metaTitle: 'Spider Control in Alabama: Widows, Recluses & What Works | EnviroCare',
+    metaTitle: 'Spiders in Your Alabama Home: What Actually Gets Rid of Them',
     metaDescription: 'How to identify Alabama black widows and brown recluses, why spider season peaks in fall, and why lasting spider control means removing their food supply.',
     body: `
 <p class="lede">Alabama is home to dozens of spider species, and the honest truth is that the overwhelming majority are harmless — even useful, since they eat the insects you like even less. But two of them are medically significant, and effective spider control isn't about spraying every web you see. It's about cutting off what spiders come inside for in the first place: food.</p>
@@ -1804,7 +1804,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Ants',
     readMinutes: 8,
     heroEmoji: '🐜',
-    metaTitle: 'Ant Control in Alabama: Fire, Carpenter & House Ants | EnviroCare',
+    metaTitle: "Ants Won't Go Away? Why Spraying Makes It Worse (Alabama)",
     metaDescription: 'Identify Alabama ant species, why spraying trails backfires, how bait reaches the queen, and which ants need separate treatment from a standard pest plan.',
     body: `
 <p class="lede">Here's the thing almost every homeowner gets wrong about ants: the ants you can see are the least important part of the problem. They're foragers — maybe five percent of the colony. Kill every one of them and the queen keeps producing replacements. That's why the spray under your sink stops working after a week.</p>
@@ -2099,7 +2099,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Pricing',
     readMinutes: 7,
     heroEmoji: '💵',
-    metaTitle: 'How Much Does Pest Control Cost in Alabama? | EnviroCare',
+    metaTitle: 'Pest Control Cost in Alabama (2026): $35/mo, No Hidden Fees',
     metaDescription: 'How much does pest control cost in Alabama? Real 2026 pricing — pest from $35/mo, pest + mosquito from $69/mo, Complete from ~$100/mo. No hidden fees.',
     body: `
 <p class="lede">Real numbers, no sales call required. Here's what pest control actually costs in Alabama in 2026 — what's included at each price point, why the national chains hide their pricing, and how to tell whether a monthly plan or a one-time treatment is the right call for your home.</p>
@@ -2174,7 +2174,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Mosquitoes',
     readMinutes: 8,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Season in Alabama: When to Start Treatment | EnviroCare',
+    metaTitle: "Alabama Mosquito Season Starts in March — Here's Why",
     metaDescription: 'When Alabama mosquito season starts, why early treatment outperforms mid-season, how barrier treatment works, and what mosquito control can and cannot do.',
     body: `
 <p class="lede">Most people call us about mosquitoes in late June, standing in a backyard they've stopped using. By then the population has been doubling on itself since March. Starting earlier isn't a sales pitch — it's the single biggest variable in how well the whole season goes.</p>
@@ -2255,7 +2255,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Termites',
     readMinutes: 9,
     heroEmoji: '🪵',
-    metaTitle: 'How to Identify Termites in Your Alabama Home | EnviroCare',
+    metaTitle: "5 Signs You Have Termites (Alabama Homeowner's Guide)",
     metaDescription: 'Mud tubes, discarded wings, hollow-sounding wood, and swarmers — the signs of termites in Alabama homes, how to tell termites from flying ants, and what to do next.',
     body: `
 <p class="lede">Alabama sits in the "very heavy" termite pressure zone — the highest category on the national termite infestation probability map. Your homeowners insurance almost certainly excludes the damage, because insurers classify termite activity as preventable maintenance. That combination is why knowing the signs matters more here than almost anywhere else.</p>
@@ -2353,7 +2353,7 @@ Free inspections. No setup fee. Fast scheduling available.</p>
     category: 'Ticks',
     readMinutes: 8,
     heroEmoji: '🕷️',
-    metaTitle: 'Tick Control in Alabama: Lone Star Ticks & Alpha-Gal | EnviroCare',
+    metaTitle: 'Alabama Ticks: The Lone Star Threat & How to Protect Your Yard',
     metaDescription: 'Alabama tick species, alpha-gal syndrome from lone star tick bites, how to remove a tick correctly, and why yard treatment focuses on the wood line.',
     body: `
 <p class="lede">Ticks don't wander into open lawn. They wait at the edge — the strip where mowed grass meets woods, ivy, or tall brush — and they climb onto whatever brushes past. In Alabama, where a huge share of homes back up to trees, that edge is often twenty feet from where your kids play.</p>
