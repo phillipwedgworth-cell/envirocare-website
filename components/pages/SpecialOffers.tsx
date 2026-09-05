@@ -32,8 +32,20 @@ const OFFERS = [
     headline: "50% OFF",
     subline: "First Mosquito Application",
     icon: "🦟",
-    description: "Half off your first professional mosquito treatment — normally $150, so you save $75. Peak season is here — protect your yard before it gets bad. Monthly programs keep you protected all season.",
-    terms: "Valid for new mosquito program enrollments. 50% discount applied to first application only (regular price $150). Monthly program continues at regular rate.",
+    // RULED 2026-09-05 (Phillip): mosquito is 50% off the FIRST APPLICATION and
+    // has NO initial service fee. The "$150 → $75" belongs to the pest control
+    // initial service, a separate offer; it had been folded in here as though
+    // mosquito had a $150 first treatment. Nothing in data/pricing.ts has ever
+    // carried that figure — mosquito is { monthly: 45, monthlyWithPestOnly: 34 }
+    // — so the page was advertising a $75 saving against a price that does not
+    // exist. AGENTS.md §5 makes data/pricing.ts the only source of truth, which
+    // makes a contradicting hardcoded price blocking.
+    //
+    // Survived the Aug-26 per-visit -> per-month conversion untouched because
+    // that sweep matched on "$45" and "$65"; this block only ever said "$150"
+    // and "$75". Quote no dollar figure here that pricing.ts cannot support.
+    description: "Half off your first professional mosquito application. Peak season is here — protect your yard before it gets bad. There is no separate initial service fee on the mosquito program, and monthly service keeps you covered all season.",
+    terms: "Valid for new mosquito program enrollments. The 50% discount applies to the first application only; the monthly program continues at the regular rate. Mosquito has no initial service fee — the 50%-off initial service is a separate offer on pest control.",
     cta: "Claim 50% Off",
     color: "#0d6b5e",
     label: "PEAK SEASON",
