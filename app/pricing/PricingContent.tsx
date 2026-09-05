@@ -109,7 +109,7 @@ const ALACARTE_PLANS: Plan[] = [
     features: [
       "30-day yard barrier treatment",
       "Breeding sites + adult mosquitoes targeted",
-      "9 rounds, March through October",
+      "8 rounds, March through October",
       "$34/mo rate available only with a pest plan",
     ],
     cta: "Get my quote",

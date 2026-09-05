@@ -57,7 +57,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🔥",
       title: "Fire ants on landscaped lots",
-      body: "Recent landscape work and lawn renovation on established properties disturbs soil and draws fire ants. Whole-yard fire ant treatment is a separate service available to any homeowner, starting at $150 and priced by yard size.",
+      body: "Recent landscape work and lawn renovation on established properties disturbs soil and draws fire ants. Whole-yard fire ant treatment is a separate service available to any homeowner, $150 covers most yard sizes, with larger properties quoted by square footage.",
     },
   ],
   landmarksLabel: "Areas of English Village We Serve",
@@ -120,9 +120,9 @@ const jsonLd = {
       address: {
         "@type": "PostalAddress",
         streetAddress: "2025 Butler Rd, Alabaster",
-        addressLocality: "Birmingham",
+        addressLocality: "Alabaster",
         addressRegion: "AL",
-        postalCode: "35205",
+        postalCode: "35007",
         addressCountry: "US",
       },
       areaServed: [{ "@type": "Place", name: "English Village, AL (Mountain Brook)" }],
@@ -143,7 +143,7 @@ const jsonLd = {
       provider: {
         "@type": "LocalBusiness",
         name: "EnviroCare",
-        address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd, Alabaster", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" },
+        address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
       },
       areaServed: { "@type": "Place", name: "English Village, AL" },
       name: "Pest Control English Village",
