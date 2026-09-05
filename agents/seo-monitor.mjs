@@ -4,7 +4,7 @@
 // Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
 // Push: main (via branch + PR)
 // ─────────────────────────────────────
-gents/seo-monitor.mjs
+// agents/seo-monitor.mjs
 // Local Falcon SoLV / rankings agent for EnviroCare (3 Alabama locations).
 //
 // Same agentic pattern as agents/brightlocal.mjs:

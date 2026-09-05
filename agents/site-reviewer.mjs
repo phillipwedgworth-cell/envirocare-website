@@ -4,7 +4,7 @@
 // Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
 // Push: main (via branch + PR)
 // ─────────────────────────────────────
-gents/site-reviewer.mjs
+// agents/site-reviewer.mjs
 // Site reviewer — visual + performance + SEO/content in one agent.
 //
 // Architecture (CHUNKED — the whole cycle no longer fits one 300s invocation):
