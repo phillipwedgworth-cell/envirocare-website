@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/lib/supabase-client.mjs
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 /**
  * Supabase write helpers for AEO-Watch.
  *
@@ -48,6 +54,26 @@ export async function endRun(runId, summary) {
       summary,
     }),
   });
+}
+
+// Close a run as failed. Called from aeo-watch's fatal handler so a crash
+// never leaves a 'running' row behind (three of them accumulated Sep 2–4 2026;
+// the watchdog treats a stale 'running' as a crash only after IN_FLIGHT_GRACE_H).
+export async function failRun(runId, error) {
+  if (!runId) return;
+  try {
+    await fetch(`${BASE}/agent_runs?id=eq.${runId}`, {
+      method: 'PATCH',
+      headers: headers(),
+      body: JSON.stringify({
+        status: 'failed',
+        ended_at: new Date().toISOString(),
+        summary: `FATAL: ${String(error?.stack ?? error?.message ?? error).slice(0, 1500)}`,
+      }),
+    });
+  } catch (e) {
+    console.error(`[supabase-client] failRun could not close run ${runId}: ${e.message}`);
+  }
 }
 
 export async function getLastRunAt() {

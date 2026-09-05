@@ -1,9 +1,9 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/seo-monitor.mjs
-// Commit: fix(seo-monitor): read campaign reports, not the scan list; re-baseline for v3 grid
-// Push: main
-// ─────────────────────────────────
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // agents/seo-monitor.mjs
 // Local Falcon SoLV / rankings agent for EnviroCare (3 Alabama locations).
 //
@@ -80,10 +80,21 @@ const LOCATIONS = [
 // other two. The per-campaign baseline string is built from live grid_size +
 // radius; stored week-over-week state is discarded only when ITS campaign's
 // baseline changes.
-function baselineOf(meta) {
-  const g = meta?.grid_size ?? "?";
-  const r = meta?.radius ?? "?";
-  return `${g}x${g}-${r}mi`;
+// Last-resort baselines for the three live v3 campaigns, verified against the
+// Local Falcon API on 2026-07-23 (9x9 grid @ 20 mi). Used only when the
+// campaign list fetch fails, so a SoLV number is never stored with the
+// "?x?-?mi" tag that makes it incomparable to every other reading.
+const KNOWN_BASELINES = {
+  a58db3090ac9ab0: "9x9-20mi", // Huntsville
+  "4ee47a23fc4793e": "9x9-20mi", // Birmingham / Alabaster
+  a99dae3fd51a462: "9x9-20mi", // Lake Martin / Alex City
+};
+function baselineOf(meta, campaignKey) {
+  const g = meta?.grid_size ?? meta?.grid ?? null;
+  const r = meta?.radius ?? meta?.radius_miles ?? null;
+  if (g && r) return `${g}x${g}-${r}mi`;
+  if (campaignKey && KNOWN_BASELINES[campaignKey]) return KNOWN_BASELINES[campaignKey];
+  return "?x?-?mi";
 }
 
 // Campaign list metadata (grid_size, radius, status per key). 0 scan credits.
@@ -199,7 +210,7 @@ async function computeLocation(location_name) {
       note: `Campaign ${loc.campaign} status="${m.status}" (not scheduled) — refusing to read frozen numbers.`,
     };
   }
-  const baseline = baselineOf(m);
+  const baseline = baselineOf(m, loc.campaign);
 
   let campaign;
   try {

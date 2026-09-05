@@ -1,9 +1,9 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/site-reviewer.mjs
-// Commit: fix(site-reviewer): load compliance guardrails + knowledge into CLAUDE_LENS
-// Push: main
-// ─────────────────────────────────
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // agents/site-reviewer.mjs
 // Site reviewer — visual + performance + SEO/content in one agent.
 //
@@ -352,7 +352,9 @@ const PRIORITY_LABEL =
 // HIGH is "this sprint", MEDIUM is "next sprint", LOW is "backlog".
 const SEVERITY_BY_LABEL = {
   IMMEDIATE: "critical", URGENT: "critical", CRITICAL: "critical", P0: "critical",
-  HIGH: "critical", P1: "critical",
+  // HIGH is "this sprint", not "24-48 hrs". Filing it as critical is what made
+  // the Aug 24 run look like every page was on fire.
+  HIGH: "warning", P1: "warning",
   MEDIUM: "warning", MED: "warning", P2: "warning",
   LOW: "info", BACKLOG: "info", P3: "info",
 };
@@ -374,7 +376,22 @@ async function persistFindings(synthesis, pages) {
     if (p.url) urlLookup.set(p.label?.toLowerCase() ?? "", p.url);
   }
 
+  // The synthesizer sometimes emits the same recommendation twice with two
+  // labels ("IMMEDIATE: fix X" and "HIGH: fix X"). Both used to persist, because
+  // priority_label sat inside `details` and therefore inside the dedup key —
+  // every rec filed twice on 2026-08-24, which is why the agent was paused.
+  // Collapse within the run on the label-stripped text, keep the stronger label.
+  const RANK = { critical: 3, warning: 2, info: 1 };
+  const byText = new Map();
   for (const rec of synthesis.recommendations ?? []) {
+    const stripped = String(rec ?? "").replace(PRIORITY_LABEL, "").replace(/\s+/g, " ").trim().toLowerCase();
+    if (!stripped) continue;
+    const cur = severityForRecommendation(rec);
+    const prev = byText.get(stripped);
+    if (!prev || RANK[cur.severity] > RANK[prev.severity]) byText.set(stripped, { rec, ...cur });
+  }
+
+  for (const { rec, severity, label } of byText.values()) {
     let url = null;
     for (const [label, u] of urlLookup.entries()) {
       if (label && rec.toLowerCase().includes(label)) {
@@ -382,8 +399,11 @@ async function persistFindings(synthesis, pages) {
         break;
       }
     }
-    const { severity, label } = severityForRecommendation(rec);
-    await writeFinding(AGENT_NAME, "site-review", severity, url, rec, { priority_label: label });
+    // priority_label is kept OUT of the dedup identity: the same text with a
+    // different label is the same finding. It rides in details for display via
+    // the second object; findingDedupKey only sees the first.
+    await writeFinding(AGENT_NAME, "site-review", severity, url, rec, {});
+    if (label) console.log(`[${AGENT_NAME}] ${severity.toUpperCase()} (${label}) ${String(rec).slice(0, 90)}`);
   }
 
   // First disagreement -> discussion entry (high-signal per CFO playbook).
