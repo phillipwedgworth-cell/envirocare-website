@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/brightlocal.mjs
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // agents/brightlocal.mjs
 // BrightLocal citation-score agent for EnviroCare (Alabama, 3 locations).
 //
@@ -171,7 +177,15 @@ async function getCitationScore({ location_name }) {
     // "report-id" string form now fails validation ("unexpected additional properties").
     const resp = await blMcpCall("get_ct_report_results", { report_id: Number(loc.ct_report_id) });
     const results = resp?.response?.results || resp?.results || {};
-    const activeCount = Array.isArray(results.active) ? results.active.length : null;
+    let activeCount = Array.isArray(results.active) ? results.active.length : null;
+    // A location that has carried 50+ live citations does not drop to zero
+    // overnight. Zero means the CT report was mid-run or returned an empty
+    // payload (Alex City read 0 on 2026-09-03). Record null so the prior score
+    // survives and nothing downstream sees a fake collapse.
+    if (activeCount === 0) {
+      console.warn(`[${AGENT_NAME}] ${loc.name}: CT report ${loc.ct_report_id} returned 0 active citations — treating as unavailable, not as a score`);
+      activeCount = null;
+    }
     const pendingCount = Array.isArray(results.pending) ? results.pending.length : 0;
     const possibleCount = Array.isArray(results.possible) ? results.possible.length : 0;
 

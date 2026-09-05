@@ -1,8 +1,8 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: agents/lib/supabase.mjs
-// Commit: feat(findings): honor finding_suppression_rules in writeFinding
-// Push: main
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
 // ─────────────────────────────────────
 // agents/lib/supabase.mjs
 // Shared Supabase client — imported by kv.mjs, orchestrator.mjs, and any agent that logs data
@@ -46,11 +46,16 @@ if (url && key) {
 export async function logAgentRun(agentName, status, output) {
   if (!supabase) return;
   try {
+    const now = new Date().toISOString();
     await supabase.from("agent_runs").insert({
       agent_name: agentName,
+      agent: agentName,
       status,
       output: typeof output === "string" ? output : JSON.stringify(output),
-      created_at: new Date().toISOString(),
+      // Single end-of-run log: stamp both timestamps (see lib/run-log.mjs note).
+      started_at: now,
+      ended_at: now,
+      created_at: now,
     });
   } catch (e) {
     console.error(`[supabase] logAgentRun failed: ${e.message}`);

@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/aeo-watch.mjs
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 /**
  * AEO-Watch — monitors AEO/SEO/schema/AI-search/pest-industry news and surfaces
  * what matters to EnviroCare. One agent, scheduled daily via GitHub Actions.
@@ -18,6 +24,7 @@ import { readFile } from 'node:fs/promises';
 import { panel } from './lib/llm-panel.mjs';
 import {
   startRun,
+  failRun,
   endRun,
   upsertFinding,
   recordPanel,
@@ -126,9 +133,11 @@ Should the owner see this in their daily digest? Decide SHIP (yes, take action o
 }
 
 // ───── Main ───────────────────────────────────────────────────────────────
+let currentRunId = null;
 async function main() {
   const config = await loadConfig();
   const runId = await startRun();
+  currentRunId = runId;
   const log = (msg) => console.log(`[aeo-watch] ${msg}`);
 
   let totalChecked = 0;
@@ -227,7 +236,8 @@ async function main() {
   log(`done. ${totalChecked} items, ${candidates} panel calls, ${shipped} SHIP`);
 }
 
-main().catch((e) => {
+main().catch(async (e) => {
   console.error('[aeo-watch] FATAL:', e);
+  await failRun(currentRunId, e);
   process.exit(1);
 });

@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/lib/run-log.mjs
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // agents/lib/run-log.mjs
 // Dependency-free agent_runs heartbeat writer for scripts that don't use
 // lib/supabase.mjs (morning-brief, daily-rollup, neuronwriter-narrator auth
@@ -29,8 +35,15 @@ export async function logRunREST(agentName, status, output) {
       },
       body: JSON.stringify([{
         agent_name: agentName,
+        agent: agentName,
         status,
         output: String(output ?? "").slice(0, 2000),
+        // This logger fires once, at the end of a run. Stamp start AND end so
+        // readers that filter on started_at (the watchdog's cadence check, ad-hoc
+        // audits) see the row. Sep 4 2026: rows with started_at NULL made a
+        // healthy fleet look like 3 agents.
+        started_at: new Date().toISOString(),
+        ended_at: new Date().toISOString(),
         created_at: new Date().toISOString(),
       }]),
     });

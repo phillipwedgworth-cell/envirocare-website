@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/lib/neuronwriter.mjs
+// Commit: fix(agents): fleet at top form — cost_usd/usd_cost unified, run rows always dated, site-reviewer dedup+unpause, aeo-watch failure finalizer, NeuronWriter hard budget, BrightLocal false-zero guard, seo-monitor baseline fallback, crew on schedule
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // agents/lib/neuronwriter.mjs
 // Thin HTTP client for the NeuronWriter content intelligence API.
 // Auth: X-API-KEY header pulled from env at call time.
@@ -135,6 +141,16 @@ async function markOrphanQuery(queryId) {
 // evaluate-content only returns { status, content_score }; missing/underused
 // terms are computed locally against the query's content_basic term list.
 // Returns { queryId, score, missing, underused, questions }
+// 60 of the 75-analysis plan is the fleet's ceiling; the remaining 15 are
+// Phillip's for manual use. Billing renews on the 10th (NEURONWRITER_RENEWAL_DAY).
+const MONTHLY_BUDGET = Math.max(1, Number(process.env.NEURONWRITER_MONTHLY_BUDGET ?? 60) || 60);
+const RENEWAL_DAY = Math.min(28, Math.max(1, Number(process.env.NEURONWRITER_RENEWAL_DAY ?? 10) || 10));
+function billingCycleTag(now = new Date()) {
+  const y = now.getUTCFullYear(), m = now.getUTCMonth(), d = now.getUTCDate();
+  const start = d >= RENEWAL_DAY ? new Date(Date.UTC(y, m, RENEWAL_DAY)) : new Date(Date.UTC(y, m - 1, RENEWAL_DAY));
+  return start.toISOString().slice(0, 10);
+}
+
 export async function analyzePageContent(keyword, content, opts = {}) {
   const html = typeof content === 'string' ? content : content.html;
   const text = typeof content === 'string' ? content : (content.text ?? content.html);
@@ -156,6 +172,21 @@ export async function analyzePageContent(keyword, content, opts = {}) {
 
   let createdThisRun = false;
   let scored = false;
+
+  // HARD BUDGET. Every gate so far lived in a caller (weekly → first-Monday →
+  // renewal-day) and every one was bypassed by a different caller: 20 new
+  // queries were minted Aug 31–Sep 1 2026 (27% of the 75/month plan in two
+  // days). This lives in the one function that spends quota, so no caller can
+  // route around it. Counter key rolls with the billing cycle.
+  if (!queryId) {
+    const budgetKey = `neuronwriter:budget:${billingCycleTag()}`;
+    const used = Number((await stateGet(budgetKey)) ?? 0);
+    if (used >= MONTHLY_BUDGET) {
+      throw new Error(`NeuronWriter budget: ${used}/${MONTHLY_BUDGET} new analyses already used this cycle (${budgetKey}); refusing to create "${keyword}". Raise NEURONWRITER_MONTHLY_BUDGET only with Phillip's OK.`);
+    }
+    await stateSet(budgetKey, used + 1);
+    console.log(`[neuronwriter] budget ${used + 1}/${MONTHLY_BUDGET} after "${keyword}"`);
+  }
 
   // create → poll → score wrapped so a failure anywhere never leaves a silent
   // orphan: the finally marks the shell for cleanup and clears any bad cache id.
