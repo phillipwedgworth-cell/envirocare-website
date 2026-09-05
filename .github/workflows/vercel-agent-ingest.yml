@@ -63,6 +63,21 @@ jobs:
             echo "::warning::Supabase creds absent — finding not recorded"; exit 0
           fi
           if [ -z "$BODY" ]; then echo "empty body, nothing to record"; exit 0; fi
+          # vercel[bot] posts a deployment-preview stub on EVERY PR whose body is
+          # "[vc]: #<base64>" — not a review. 25 of these were ingested as
+          # findings Aug 27–Sep 2 2026 and zero real Agent reviews. Skip them.
+          case "$BODY" in
+            "[vc]:"*|"<!-- vc"*) echo "vercel deployment stub, not an Agent review — skipping"; exit 0 ;;
+          esac
+          # Second net, for status comments that are not the [vc]: stub. LENGTH-GATED
+          # on purpose: unanchored, `deployment.*(preview|ready)` matches anywhere in
+          # the body, so a genuine Agent review saying "the deployment preview never
+          # becomes ready" was silently dropped — the exact failure this workflow
+          # exists to prevent, inverted. Verified against that sentence before gating.
+          # Deployment stubs are a few hundred characters; a real review is not.
+          if [ "${#BODY}" -lt 600 ] && echo "$BODY" | grep -qiE '^[[:space:]]*\[?vc\]?:|deployment.*(preview|ready)|Visit Preview'; then
+            echo "vercel deployment status comment — skipping"; exit 0
+          fi
 
           # Severity comes from what Agent actually said. A review that requests
           # changes outranks a passing note; anything touching security or the
