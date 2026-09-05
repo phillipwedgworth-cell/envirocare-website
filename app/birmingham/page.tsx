@@ -311,6 +311,39 @@ export default function BirminghamPage() {
           </div>
         </section>
 
+        {/* Common pests — NeuronWriter term coverage for "pest control birmingham al" (added 2026-09-05).
+            The page over-indexed on mosquito/tick and never said rodent, cockroach, wasp, infestation,
+            or "pest control service" once. This block closes 16 of 20 basic-term misses. */}
+        <section style={{ padding: "4.5rem 1.25rem", background: "#fff" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ display: "inline-block", fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: G, fontWeight: 700, marginBottom: 14 }}>Common Household Pests</div>
+            <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.8rem,3.6vw,2.6rem)", color: Ik, margin: "0 0 .85rem" }}>
+              What a Birmingham pest control service actually handles
+            </h2>
+            <p style={{ color: "#4b5563", maxWidth: 720, marginBottom: "1.25rem", lineHeight: 1.7 }}>
+              Most pest control companies in the Birmingham area treat the same short list, because the same short list is what shows up in Jefferson County homes. A pest problem here is rarely one insect. It is a cockroach in the kitchen in July, yellow jackets under the deck in August, a wasp nest in the soffit by September, and rats and mice testing the garage door as soon as the nights drop. Our bi-monthly pest control service is built for that rotation: a residential and commercial program that treats the exterior on a schedule so an infestation never gets started inside.
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
+              {[
+                ["Roaches", "American and smokybrown roaches come in from mulch, storm drains, and crawlspaces in summer heat. German cockroaches breed indoors and need interior work. Both are covered."],
+                ["Ants", "Odorous house ants and Argentine ants trail into kitchens; carpenter ants nest in damp wood; fire ants are a separate whole-yard treatment."],
+                ["Rodents", "Rats and mice move toward the house in October. Exclusion at entry points — garage seals, utility penetrations, vent screens — is part of every visit."],
+                ["Spiders", "Wolf spiders, brown recluses, and black widows follow the insects they eat. Reducing the food supply is how spider pressure drops."],
+                ["Wasps & yellow jackets", "Paper wasps in soffits and yellow jackets in the ground peak in late summer. Nests within reach of the structure are treated on routine visits."],
+                ["Fleas & ticks", "Flea treatment is an interior add-on; tick control rides with the seasonal mosquito program for wooded lots."],
+              ].map(([t, b]) => (
+                <div key={t} style={{ background: "#F7FBF8", border: `1.5px solid ${G}26`, borderRadius: 14, padding: "1.1rem 1.2rem" }}>
+                  <div style={{ ...serif, fontWeight: 800, fontSize: "1.05rem", color: Ik, marginBottom: 6 }}>{t}</div>
+                  <div style={{ fontSize: 14.5, color: "#4b5563", lineHeight: 1.6 }}>{b}</div>
+                </div>
+              ))}
+            </div>
+            <p style={{ color: "#4b5563", maxWidth: 720, lineHeight: 1.7 }}>
+              Every new account starts with a thorough inspection to identify the source of the problem — the entry points, the moisture, the harborage — rather than treating the symptom you saw. That is what separates effective pest control from a can of spray: preventative treatment plans that prevent future infestations, and a technician who knows your home or business. Termite control is a separate inspection under Sentricon®; a tick or flea issue is added to the plan that fits. If you have tried DIY pest control and the problem keeps coming back, that is usually the moment to call. Peace of mind for Birmingham families is the whole product.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
           <div style={{ maxWidth: 880, margin: "0 auto" }}>

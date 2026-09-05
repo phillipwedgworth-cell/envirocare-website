@@ -1,136 +1,79 @@
 # EnviroCare Strategy Brain — CURRENT STATE & AUTONOMY RULES
+# Updated: 2026-09-05 — supersedes Jul 9 version.
 
 > **This file is the single source of strategic truth for every agent.**
-> It supersedes stale metrics elsewhere (e.g. goals.md May-2026 table).
+> It supersedes stale metrics in goals.md (now also updated).
 > Agents: read this BEFORE recommending. Do not re-ask Phillip questions
-> this file already answers. Updated: 2026-07-09 (Local Falcon + BrightLocal audit).
+> this file already answers.
 
-## Live scoreboard (Jul 9, 2026 — Local Falcon grid scans)
-| Market | SoLV | Reviews | Status |
-|---|---|---|---|
-| Birmingham (Alabaster office) | 53.9% | 240 · 4.7★ | WINNING — defend & expand north |
-| Lake Martin (Alex City office) | 47.5% | 19 · 4.9★ | Strong but review-starved |
-| Huntsville | 0.67% | 28 · 5.0★ | INVISIBLE — turnaround market |
-| Mountain Brook / Trussville / Auburn | 0.0% (not in any grid point) | — | Proximity wall — see below |
+## Live scoreboard (Sep 5, 2026 — Local Falcon + BrightLocal)
+| Market | SoLV | Citation score | Reviews | Status |
+|---|---|---|---|---|
+| Birmingham / Alabaster (Butler Rd) | 3.39% | 53 | 240 · 4.7★ | Proximity wall on 20-mi grid from a single Shelby Co. office |
+| Birmingham (16th Ave) | first scan Sep 9 | active | 10 · 5.0★ | NEW GBP verified; campaign created Sep 5 |
+| Lake Martin / Alex City | 53.06% | ~50 | 12 · 4.9★ | Strongest market — defend; review-starved |
+| Huntsville | 0.26% | ~50 | 34 · 5.0★ | INVISIBLE — review velocity is the lever |
+
+## Four offices (not three — updated Aug 2026)
+| Office | Address | Phone | GBP verified | Local Falcon campaign |
+|---|---|---|---|---|
+| Alabaster | 2025 Butler Rd, 35007 | (205) 940-6360 | Yes | `4ee47a23fc4793e` |
+| Birmingham | 2120 16th Ave S Ste 302, 35205 | (205) 991-2882 | Yes (Sep 2026) | `e9348fff16b95fa` |
+| Alex City | 1785 Tallapoosa St, 35010 | (256) 234-6162 | Yes | `a99dae3fd51a462` |
+| Huntsville | 7027 Old Madison Pike Ste 108, 35806 | (256) 937-7676 | Yes | `a58db3090ac9ab0` |
+
+Auburn is a SERVICE AREA of Alex City — never claim an Auburn office.
 
 ## The proximity wall (hard fact — do not propose around it)
 The Google map pack is proximity-driven. Suburbs 18–35 mi from an office
-(Mountain Brook, Vestavia, Homewood, Trussville, Auburn, Opelika, Athens)
 CANNOT be won in the map pack from current offices. They are won by:
-1. Organic suburb landing pages (already built — ~45 city pages live),
-2. Google LSA (targets by ZIP, not proximity — this is the workaround),
-3. Eventually a real staffed office (see Office Scout below).
-Do NOT recommend "more GBP optimization" as a fix for these suburbs' map-pack absence.
+1. Organic suburb landing pages (~45 city pages live),
+2. Google LSA (targets by ZIP, not proximity),
+3. A real staffed office (Birmingham 16th Ave now fills the Jefferson County gap).
+Do NOT recommend "more GBP optimization" as a fix for distant suburbs' map-pack absence.
 
 ## Decisions Phillip has ALREADY MADE (don't re-ask)
-- Budget: **$200/office/month, concentrated into Google LSA** (Birmingham, Huntsville, Alex City). Feature mosquito (peak season) + termite/Sentricon.
-- Local Falcon: Basic plan, 15,150 credits/mo. Weekly 7×7/9×9 campaigns per metro + monthly AI-visibility campaign (ChatGPT/Gemini/AI Mode/AIO). AI insights emailed after every scan.
-- Keep Local Falcon (radar) + BrightLocal (citations/reputation only). No new rank trackers, no Podium/Birdeye — reviews run through the existing field-service (Fieldster) text/email flow.
-- Shadowed pages resolved per SHADOWED-PAGES-RECOMMENDATION.md: /services, /special-offers, /realtor live; /bundle-services, /services/crawlspace, /services/real-estate-wdo stay 301s.
-- Auburn is a SERVICE AREA of the Alex City office — never claim an Auburn office/location anywhere (GBP, schema, copy). 3 real offices only: Alabaster, Alexander City, Huntsville.
-- NeuronWriter optimizes the top-20 target list (agents/neuronwriter-targets.json) — money suburbs Hoover/Vestavia/Mountain Brook are priority 1.
-- NeuronWriter **Advanced AI Monitoring add-on is ACTIVE** (purchased Jul 11, 2026 — $20/mo, ~50 AI-monitored questions across ChatGPT/Perplexity/Google AI Overviews/AI Mode). Subscription + analysis quota renew on the **10th** of each month (75 content analyses/mo; ~55 pages still pending optimization). Baseline Jul 11: SoV 35% · brand-in-answers 40% · domain-cited 30% · Google Top-10 20%. Working plan: agents/reports/ai-visibility-action-plan-2026-07.md — goal is domain CITATIONS ≥ brand mentions in 90 days; Phillip exports the ~20 Opportunity prompts from the dashboard on the 15th monthly (module data is dashboard-only, NOT in the NeuronWriter API — no agent can pull it automatically).
-
-## Office Scout results (Jul 9 head-to-head grid scans)
-| Candidate | Active competitors | Top rival SoLV | Verdict |
-|---|---|---|---|
-| Vulcan / 35209 | 24 | 51% | RECOMMENDED — central to Homewood+Mtn Brook+Vestavia; our 240 reviews beat most rivals |
-| Cahaba Heights / 35243 | 20 | 63% | Skip — dominant incumbent |
-| Eagle Point / 35242 | 13 | 49% | Easiest entry — owns 280 corridor (Inverness/Greystone/Chelsea) |
-Note: proximity is measured by map pin, not ZIP. A Birmingham-ZIP address next to
-Homewood ranks in Homewood identically. Any new office MUST be genuinely staffed
-(virtual offices get GBP-suspended, and it can cascade to the other listings).
+- Initial service = flat $75 on all plans, Complete tier startup $229 (Aug 24 2026). $150/$99/$79 are RETIRED.
+- Mosquito season = March–October, 8 treatments at $45 each (Sep 4 2026). NOT March–November, NOT 9 visits.
+- Option B for Birmingham-metro NAP: Jefferson County pages → 16th Ave / 991-2882; Shelby County → Butler Rd / 940-6360. Hoover goes with Over-the-Mountain (Sep 5 2026).
+- Budget: $200/office/month, concentrated into Google Ads (not LSA — LSA is ON HOLD per Jul 5 ruling).
+- Local Falcon: Basic plan, 15,150 credits/mo. Biweekly campaigns per metro + AI-visibility campaigns.
+- Keep Local Falcon + BrightLocal. No new rank trackers, no Podium/Birdeye.
+- NeuronWriter Advanced AI Monitoring active ($20/mo, renewal 10th). 75 analyses/mo; fleet budget 60.
+- Crawlspace encapsulation KILLED — 301 to /services/termite-control.
+- No bed bug, wildlife, raccoon, or lawn services. No Tuscaloosa.
+- Social: OneUp for Facebook + GBP posting. Shared Google Sheet is the content calendar.
 
 ## Priorities (ranked — spend effort top-down)
-1. **Reviews velocity in Huntsville (28) & Alex City (19)** — fix the Fieldster after-service ask; one-tap Google link; reply to every review. #1 free ranking lever.
-2. **LSA live in all 3 metros** — $200/city; answer every call (missed calls tank LSA rank).
-3. **Huntsville turnaround** — GBP polish + citations (Citation Builder campaign 978223 built, awaiting credits) + review push.
-4. **Suburb organic** — NeuronWriter top-20 content; internal links; honest service-area schema.
-5. **AI visibility** — monthly ChatGPT/Gemini/AI Mode scans now live; grow presence in AI answers.
+1. **Reviews velocity in Huntsville (34) & Alex City (12)** — the #1 free ranking lever.
+2. **Birmingham 16th Ave visibility** — first scan Sep 9; citation campaign needed; review push.
+3. **Blog recovery + keyword pipeline** — 7 articles pending merge; keyword-opportunity agent now reads GSC.
+4. **Competitor intelligence** — local-falcon-ingest + competitor-watcher now in-repo.
+5. **AI visibility** — Maps + ChatGPT/AI Mode/AI Overviews/Gemini scans running; NeuronWriter monitoring active.
+6. **Suburb organic** — NeuronWriter top-20 content; internal links; service-area schema.
 
 ## AUTONOMY RULES — what agents do WITHOUT asking vs. MUST ask
-**Act autonomously (do it, then report in the brief):**
-- Generate/optimize page content for targets in neuronwriter-targets.json.
-- Draft + publish GBP posts (seasonal: mosquito Mar–Nov, termite year-round, rodent Oct–Feb).
-- Respond to Google reviews (positive: warm thanks + service mention; negative: draft for Phillip if refund/legal, else empathetic resolution + phone number).
+**Act autonomously (do it, then report):**
+- Generate/optimize page content for existing target pages.
+- Draft + schedule GBP posts (seasonal: mosquito Mar–Oct, termite year-round, rodent Oct–Feb).
+- Respond to Google reviews (positive: warm thanks; negative: draft for Phillip if refund/legal).
 - Run/adjust Local Falcon scans within the credit budget (≤15,150/mo).
-- Fix technical SEO (broken links, missing meta, H1s, schema errors) via PR.
-- Update this strategy file's scoreboard when fresh scan data lands.
+- Fix technical SEO via PR (broken links, missing meta, H1s, schema errors).
+- Update this file's scoreboard when fresh scan data lands.
 
 **MUST ask Phillip first (money / irreversible / brand):**
-- Any new spend or subscription change (plans, credits, ad budget changes).
-- Signing/committing to anything (leases, contracts, vendors).
+- Any new spend or subscription change.
 - Editing live GBP business info (name, address, phone, categories, description).
-- Deleting pages or content; changing redirects on money pages.
+- Deleting pages or changing redirects on money pages.
 - Anything legal, pricing-change, or customer-refund related.
-
-## OPEN LOOPS (as of Jul 12, 2026 — check these before proposing new work)
-- **Full key/secret audit run Jul 12 (Vercel `/api/agents/health` + live GH
-  Actions job logs — see below for how to re-check):**
-  - `COMMAND_CENTER_KEY` **MISSING in Vercel production** — the live
-    `/api/agents/health` endpoint reports it false. The Command Center page
-    (incl. the Jul 11 approve/skip buttons) fails closed without it — set it
-    in Vercel → envirocare-web project → Settings → Environment Variables,
-    any random value, then redeploy.
-  - **Social poster has zero live publish destinations.** GitHub secrets
-    `META_PAGE_ID` / `META_PAGE_TOKEN` / `IG_BUSINESS_ID` (Facebook/Instagram)
-    and `GBP_ACCOUNT_ID` + all three `GBP_LOCATION_*` (Google Business
-    Profile) are all blank in the repo's Actions secrets — confirmed via live
-    Jul 11 16:00 UTC job log — even though Google OAuth itself
-    (CLIENT_ID/SECRET/REFRESH_TOKEN) is set. The agent no-ops silently
-    (`skipped:true`) rather than erroring, so approved posts just sit forever
-    with nowhere to go. Needs a Facebook Page token+ID and the 3 GBP
-    location IDs added as GitHub Actions secrets before the approve buttons
-    do anything real.
-  - **BrightLocal Citation Builder credits: 0** (confirmed live via
-    `get_cb_credits`). This is the tool meant to fix Huntsville's near-zero
-    SoLV — priority #1 in this file — and it's stalled at 0 credits, unable
-    to run. Needs credits purchased in BrightLocal.
-  - Local Falcon credits: healthy, 12,121 of 15,150 remaining this cycle —
-    no action needed.
-  - Confirmed fine (both GitHub + Vercel): BrightLocal API key, Local Falcon,
-    PageSpeed, Anthropic, Supabase, OpenAI, Gemini, Resend, Vercel token.
-  - Re-audit method: `mcp__Vercel__web_fetch_vercel_url` on
-    `https://envirocare-web.vercel.app/api/agents/health` for the Vercel
-    side (returns `missingRequired`/`missingOptional` JSON); for GitHub
-    Actions secrets, read the `env:` block in a recent job log (masked ***
-    = set, blank = missing) — there is no direct "list secret names" API.
-- **BrightLocal services EMPTY on all 3 locations** (`services_or_products: []`,
-  IDs 4068335 Alabaster / 4068729 Alex City / 4068730 Huntsville). NOT a Google
-  rejection — zero sync errors; the services were never saved. Phillip must
-  re-enter them in each location's dashboard (API/MCP is read-only). Paste list:
-  Pest Control · Termite Control (Sentricon®) · Free Termite/WDO Inspection ·
-  Mosquito Control · Tick & Flea Control · Fire Ant Control · Interior Pest
-  Control · Commercial Pest Control · Builder Pre-Treat.
-- **GBP data problems found in BrightLocal (Phillip-only edits — live GBP):**
-  (a) Alex City profile's Facebook link points to facebook.com/3Dandstlprobables
-  — wrong page entirely; should be facebook.com/EnviroCareAL.
-  (b) Birmingham + Huntsville GBP descriptions claim "locations also in
-  Alexander City, Auburn, and Huntsville" — the AUBURN OFFICE CLAIM violates
-  the standing rule (Auburn = service area only). Reword when editing.
-  (c) Birmingham description says "Bundle & Save" — compliance: bundles are a
-  convenience, never a discount; drop "Save" wording.
-  (d) Alex City appointment link uses old /contact.php — site now 301s it
-  (Jul 12), but update the profile link to /contact-us when in there.
-- review-responder: erroring since Jul 6; next run Mon Jul 14 carries the
-  fail-fast fix — verify it succeeds or emails the cause.
-- neuronwriter-qa: resumes Mon Jul 14 with fresh quota (renewal-day fix
-  shipped Jul 11; renewal is the 10th). 55-page optimization backlog.
-- NOTION_REVIEW_HUB_PAGE_ID repo secret: value 393202ee7a7181d889c8ccef8f4c5daf
-  given to Phillip Jul 11 — confirm it's added (content-reviewer Notion posts
-  silently skip until then).
-- GSC: sitemap.xml resubmission after the malformed entry — confirm "Success".
-- GBP 20-service-area lists per office — Phillip manual task, lists on request.
-- AI Visibility: monitoring live (30 prompts, 4 engines). Opportunities export
-  due ~Aug 15 → competitor-replacement fixes.
-- Roadmap P2–P6 pending (seo-operating-system-roadmap-2026-07.md): risk-report
-  lead funnel → nurture emails (copy needs sign-off) → Monday consolidated
-  report → page-decay monitor → market scorecard. P1 pest picker DONE Jul 12.
-- Call tracking by region: undecided — Phillip-only (spend + NAP risk).
-- Fieldster review-ask: HANDLED by Phillip (his statement Jul 12) — do not
-  re-propose.
+- LSA setup or changes (ON HOLD).
 
 ## Contacts / plumbing
-- Owner: Phillip Wedgworth — phillipwedgworth@gmail.com (all briefs + scan insights go here).
-- Site: envirocare-website repo → Vercel `envirocare-web` → envirocarellc.com (post-flip). Live: envirocare-web.vercel.app.
-- Growth Plan (human-readable twin of this file): Claude artifact "EnviroCare Local Growth Plan".
+- Owner: Phillip Wedgworth — phillipwedgworth@gmail.com
+- Site: phillipwedgworth-cell/envirocare-website → Vercel → www.envirocarellc.com
+- Supabase: project `dyoujmyleihcpqgeifre`
+- Field service: Fieldster/Key7 (contact Harris Ramm)
+- AI phone: SameDay AI (contact Colin)
+- Citations: BrightLocal (read-only MCP; edits need Chrome)
+- Rank tracking: Local Falcon (MCP with approval gate for writes)
+- Social: OneUp (dashboard at https://www.oneupapp.io/login)

@@ -1,5 +1,5 @@
 # Competitor Intelligence
-
+# Updated: 2026-09-05 — warranty→coverage wording, 4 offices.
 ## Cook's Pest Control
 - **URL**: https://www.cookspest.com
 - **Founded**: 1928, Decatur AL (family-owned like us, but larger)
@@ -37,7 +37,7 @@
   - Reviews often mention "technician changed every time"
   - Slow response time on non-emergency calls
 - **Steal this**: Their "termite guarantee" messaging is clear and prominent
-- **Beat them on**: Price transparency (we show prices, they don't), two ways to pay, local human answers, $1M Sentricon warranty vs their own warranty
+- **Beat them on**: Price transparency (we show prices, they don't), two ways to pay, local human answers, $1M EnviroCare damage repair coverage vs their own warranty
 
 ## Orkin
 - **URL**: https://www.orkin.com
@@ -69,7 +69,7 @@
   - Newer company, no legacy
   - Limited geographic reach vs us
   - No termite warranty comparable to Sentricon
-- **Beat them on**: Track record, three offices, Sentricon certification
+- **Beat them on**: Track record, four offices, Sentricon certification
 
 ## Competitive Keyword Gaps (where we must rank)
 | Keyword | Current #1 | Our Position | Priority |
@@ -84,7 +84,7 @@
 
 ## Key Insight for Agents
 Cook's is our most dangerous competitor because they are also local and family-owned.
-The way to beat Cook's: emphasize that we serve Lake Martin (they don't), we have Sentricon $1M warranty, and our starting price is lower.
+The way to beat Cook's: emphasize that we serve Lake Martin (they don't), we have Sentricon with $1M EnviroCare coverage, and our starting price is lower.
 
 Terminix and Orkin are beatable on LOCAL trust signals — customers who care about family businesses will switch if we make the case clearly.
 

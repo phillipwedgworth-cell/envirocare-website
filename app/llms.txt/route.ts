@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/llms.txt/route.ts
+// Commit: fix(llms): mosquito billed per treatment, not monthly ACH — matches data/pricing.ts Aug 26 ruling; drop 'approved' product wording
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // app/llms.txt/route.ts — plain-text company summary for AI crawlers
 // (GPTBot, ClaudeBot, PerplexityBot, etc.). Keeps AI-generated answers about
 // EnviroCare accurate: real pricing, real phones, real service model.
@@ -28,8 +34,8 @@ const LLMS_TXT = `# EnviroCare
 - [Interior + exterior quarterly plan](https://www.envirocarellc.com/services/interior-pest-control): inside-and-out, 4 visits/year.
 - [Termite control](https://www.envirocarellc.com/services/termite-control): protection with a free on-site inspection.
 - [Sentricon Always Active](https://www.envirocarellc.com/services/sentricon): the bait system we install — no drilling, no tank trucks.
-- [Mosquito yard barrier](https://www.envirocarellc.com/services/mosquito): $45/month, March–October, waterfront-approved.
-- [Tick control](https://www.envirocarellc.com/services/tick-control): paired with mosquito service (Mosquito + Tick $65/month).
+- [Mosquito yard barrier](https://www.envirocarellc.com/services/mosquito): $45 per treatment, 8 treatments March–October, billed per service ($34/mo when bundled with a pest plan). Products labeled for use near water, applied per label directions.
+- [Tick control](https://www.envirocarellc.com/services/tick-control): paired with mosquito service (Mosquito + Tick $65 per treatment).
 - [Fire ant treatment](https://www.envirocarellc.com/services/fire-ant): whole-colony treatment, no plan required.
 - [Flea treatment](https://www.envirocarellc.com/services/flea): interior-plan add-on.
 - [WDO letters](https://www.envirocarellc.com/services/wdo-letters): Alabama Wood Infestation Reports for real estate.
@@ -61,9 +67,10 @@ const LLMS_TXT = `# EnviroCare
 - Termite protection: Sentricon® Always Active™ bait system. No flat price — Alabama requires a
   free on-site WDO inspection first, then we quote it exact (based on linear footage and foundation
   type). No drilling, no tank trucks. Up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Free inspection.
-- Mosquito yard barrier: $45/month, March through October (8 treatments, spread evenly across the year by ACH),
-  re-applied every 30 days. Suited to waterfront properties (Lake Martin) — products approved for waterfront use.
-- Mosquito + Tick (chigger coverage): $65/month, 8 visits March through October (per service, no monthly). Flea is an interior-plan add-on.
+- Mosquito yard barrier: $45 per treatment, 8 treatments March through October, billed per service — no monthly
+  billing unless bundled with a pest plan ($34/mo with pest). Re-applied every 30 days. Suited to waterfront
+  properties (Lake Martin) — products labeled for use near water, applied per label directions. We never guarantee mosquito elimination.
+- Mosquito + Tick (chigger coverage): $65 per treatment, 8 treatments March through October, billed per service. Flea is an interior-plan add-on.
 - Plans: Pest from $35/mo · Pest + Mosquito from $69/mo · Pest + Termite from $35/mo + termite quote ·
   Complete (pest + termite + mosquito) from $69/mo + termite quote (most popular). Mosquito alone $45/month,
   Mosquito + Tick $65/month — per service only. Plans are conveniences, not discounts.

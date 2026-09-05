@@ -1,5 +1,8 @@
 -- agents/sql/0005-fleet-top-form.sql
--- Sep 4 2026. Run once in Supabase SQL editor (project dyoujmyleihcpqgeifre)
+-- Sep 4 2026 (jsonb fix Sep 5). ALREADY RUN Sep 5 2026 for sections (a)(b)(c)(e) via Claude MCP —
+-- idempotent, safe to re-run. Section (d) site-reviewer unpause is the only part still
+-- pending: run this whole file once AFTER the code merges.
+-- Run once in Supabase SQL editor (project dyoujmyleihcpqgeifre)
 -- or via Claude Code's direct write access. Idempotent.
 --
 -- Makes two recurring failures structurally impossible:
@@ -55,8 +58,9 @@ CREATE TRIGGER trg_agent_runs_stamp BEFORE INSERT ON agent_runs
   FOR EACH ROW EXECUTE FUNCTION agent_runs_stamp();
 
 -- (c) close the three aeo-watch 'running' rows that crashed without finalizing
+-- NOTE: agent_runs.summary is jsonb — cast the text (Sep 5 2026 fix; first run failed on this line).
 UPDATE agent_runs SET status = 'failed', ended_at = now(),
-  summary = 'closed by 0005 migration: run never finalized (crash before endRun; failRun handler added Sep 4 2026)'
+  summary = to_jsonb('closed by 0005 migration: run never finalized (crash before endRun; failRun handler added Sep 4 2026)'::text)
 WHERE status = 'running' AND COALESCE(started_at, created_at) < now() - interval '6 hours';
 
 -- (d) site-reviewer: dedup fix shipped in agents/site-reviewer.mjs → unpause

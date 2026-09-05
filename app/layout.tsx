@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with $1M EnviroCare coverage subject to the terms of the agreement, mosquito and tick yard treatment, subject to the terms of the agreement. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
+    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with up to $1M EnviroCare coverage (subject to the terms of the agreement), mosquito and tick yard treatment. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
   // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
   // it only signals "template site" to anything parsing the markup.
   authors: [{ name: 'EnviroCare, LLC' }],

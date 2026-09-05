@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: agents/lib/critic.mjs
+// Commit: chore(agents): critic/site-reviewer Claude leg Haiku → Sonnet
+// Push: main (via branch + PR)
+// ─────────────────────────────────────
 // agents/lib/critic.mjs
 // Universal critic/judge agent — CHIEF STRATEGY OFFICER persona
 // Receives worker output + rubric, returns revised output after up to MAX_LOOPS passes
@@ -20,7 +26,9 @@ if (process.env.ANTHROPIC_API_KEY) {
 const MAX_LOOPS = 3;
 // Default to Haiku to keep spend low; override via CRITIC_MODEL env (e.g. opus
 // for a one-off deep review). A low Anthropic cap will catch any Opus creep fast.
-const CRITIC_MODEL = process.env.CRITIC_MODEL || "claude-haiku-4-5-20251001";
+// Upgraded 2026-09-05: the critic judges compliance and synthesizes site-review
+// recommendations. Haiku produced duplicate/over-graded recs (Aug 24). ~$3/mo delta.
+const CRITIC_MODEL = process.env.CRITIC_MODEL || "claude-sonnet-4-6";
 const CRITIC_TEMPERATURE = 0.4;
 
 const CRITIC_SYSTEM = `You are the Chief Strategy Officer reviewing AI-generated recommendations for EnviroCare Pest Control.
