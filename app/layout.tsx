@@ -179,27 +179,19 @@ const BIRMINGHAM_SCHEMA = {
   description:
     'Family-owned Birmingham pest control and termite service. Sentricon® termite protection, bi-monthly perimeter service, mosquito and tick yard treatment across the Birmingham metro.',
   url: 'https://www.envirocarellc.com/birmingham',
-  telephone: '+1-205-940-6360',
+  telephone: '+1-205-991-2882',
   priceRange: '$$',
-  // Was streetAddress '2025 Butler Rd, Alabaster' / addressLocality 'Birmingham'
-  // / postalCode '35205' — Alabaster's street and phone with Birmingham's city
-  // and ZIP, the same mashup this pack just removed from 21 metro pages. Left
-  // here it would have contradicted every page it appears on, in JSON-LD, which
-  // AGENTS.md §6 counts as live copy. §4 already settles which way it resolves:
-  // (205) 991-2882 and 2120 16th Ave S are retired from customer-facing pages
-  // (2026-08-24) because that office has no GBP, so Alabaster is the only NAP
-  // this node can carry. telephone below was already 940-6360.
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '2025 Butler Rd',
-    addressLocality: 'Alabaster',
+    streetAddress: '2120 16th Ave S, Ste 302',
+    addressLocality: 'Birmingham',
     addressRegion: 'AL',
-    postalCode: '35007',
+    postalCode: '35205',
     addressCountry: 'US',
   },
-  // No `geo` and no Google Maps `sameAs`: this office has NO Google Business
-  // Profile yet. Do not invent coordinates and do not point sameAs at another
-  // office's listing — that is what created the collision this block just fixed.
+  // GBP verified 2026-09-05 (place_id ChIJjXGa0ZsbiYgR1mB0oEKnqUo). geo from Places.
+  geo: { '@type': 'GeoCoordinates', latitude: 33.4968567, longitude: -86.7916696 },
+  sameAs: ['https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo'],
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],

@@ -43,18 +43,22 @@ export const OFFICES: Record<OfficeId, Office> = {
     googleBusinessProfile: 'https://www.google.com/maps?cid=7378341068021381374',
   },
   // Birmingham city office — CONFIRMED by Phillip 2026-08-05, incl. Suite 302.
-  // NOT yet a Google Business Profile listing (he plans to create one), so there
-  // is deliberately no googleBusinessProfile link and it is not GBP-verified.
+  // GBP verified 2026-09-05 (place_id ChIJjXGa0ZsbiYgR1mB0oEKnqUo), so the
+  // googleBusinessProfile link below is now populated. It was deliberately
+  // absent for as long as no profile existed.
   //
-  // ⚠️ OPEN — Phillip's call, do not assume: which number Birmingham-metro pages
-  // should display. Every metro city page currently shows the Alabaster line
-  // (205) 940-6360 (~191 occurrences). This office's line is NEW and appears
-  // nowhere else on the site; swapping the metro pages over is a deliberate
-  // business decision, not a cleanup, so nothing else was repointed.
+  // ✅ SETTLED 2026-09-05 (Phillip: "Hoover goes to Birmingham as Over the
+  // Mountain"). The question this comment used to leave open — which number
+  // Birmingham-metro pages display — is answered: Jefferson County pages point
+  // at this office, Shelby County pages stay on Alabaster. data/city-offices.ts
+  // holds the split. The 2026-08-24 retirement of this line was conditional on
+  // there being no GBP; that condition no longer holds.
   'birmingham-downtown': {
     id: 'birmingham-downtown',
     name: 'Birmingham',
     address: { street: '2120 16th Ave S, Ste 302', city: 'Birmingham', region: 'AL', postalCode: '35205' },
+    // Verified GBP, confirmed live 2026-09-05: 5.0 / 10 reviews, hours M–F 8–5.
+    googleBusinessProfile: 'https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo',
     phone: '(205) 991-2882',
     phoneHref: 'tel:+12059912882',
     servesMarkets: ['birmingham-metro'],

@@ -5,7 +5,7 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 export const metadata: Metadata = {
   title: "Pest Control Cahaba Heights AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service for Cahaba Heights homes near Vestavia Hills AL (35243). From $35/mo. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito & tick service for Cahaba Heights homes near Vestavia Hills AL (35243). From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/cahaba-heights" },
   openGraph: {
     title: "Pest Control Cahaba Heights AL | EnviroCare — Since 1958",
@@ -27,7 +27,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Full pest, termite, and mosquito protection for Cahaba Heights — Dolly Ridge, Overton, and the village core. From original ranches to the new custom rebuilds, EnviroCare protects every home with no-drill Sentricon® and a 30-day mosquito and tick barrier built for these wooded, creek-fed lots.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Cahaba Heights near Vestavia Hills, Alabama (35243), including Dolly Ridge, Overton, and the Cahaba Heights village. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Cahaba Heights near Vestavia Hills, Alabama (35243), including Dolly Ridge, Overton, and the Cahaba Heights village. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 991-2882.",
   whyHeadline: "Cahaba Heights's mix of original homes and new rebuilds, plus creek-fed lots, keeps pest pressure working year-round.",
   whySub: "The patterns we treat most across Dolly Ridge, Overton, and the village.",
   pressureCards: [
@@ -43,14 +43,14 @@ const config: DeepCityConfig = {
     { title: "Mosquito Control in Cahaba Heights", body: (<>The Cahaba River and Little Shades Creek corridor plus deeply shaded Dolly Ridge lots keep mosquito pressure high. <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through October — $45 a month. Results vary with habitat, but shaded creek-side yards see the biggest difference.</>) },
     { title: "Tick Control in Cahaba Heights", body: (<>The wooded ravines and the river greenway carry ticks and chiggers right to the property line. The <Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>Mosquito + Tick program</Link> bundles tick and chigger coverage in at $65 a month.</>) },
     { title: "Ant &amp; Perimeter Pest in Cahaba Heights", body: (<>Carpenter and odorous house ants come off the old village canopy into eaves and trim; the bi-monthly plan covers 30+ pests with unlimited re-service. <Link href="/services/fire-ant" style={{ color: G, fontWeight: 600 }}>Fire ants</Link> on freshly sodded rebuild lots are priced separately by yard size.</>) },
-    { title: "Commercial Pest Control in Cahaba Heights", body: (<>EnviroCare keeps the <Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>shops, restaurants, and offices</Link> along Cahaba Heights Road protected with quiet, documented service scheduled around business hours. Call (205)&nbsp;940-6360.</>) },
+    { title: "Commercial Pest Control in Cahaba Heights", body: (<>EnviroCare keeps the <Link href="/services/commercial" style={{ color: G, fontWeight: 600 }}>shops, restaurants, and offices</Link> along Cahaba Heights Road protected with quiet, documented service scheduled around business hours. Call (205)&nbsp;991-2882.</>) },
   ],
   faqs: [
     { q: "How much is termite treatment in Cahaba Heights?", a: "EnviroCare termite protection in Cahaba Heights is priced after a free on-site WDO inspection. It uses Sentricon baiting with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." },
     { q: "Can you protect a Cahaba Heights home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching — with up to $1M coverage subject to the terms of the agreement. The inspection is free." },
     { q: "Is there mosquito control in Cahaba Heights?", a: "Yes. EnviroCare treats Cahaba Heights yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Cahaba Heights?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with unlimited re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Do you serve Dolly Ridge, Overton, and the Cahaba Heights village?", a: "Yes — all of Cahaba Heights. Call (205) 940-6360 and we'll confirm your address is on our route." }
+    { q: "Do you serve Dolly Ridge, Overton, and the Cahaba Heights village?", a: "Yes — all of Cahaba Heights. Call (205) 991-2882 and we'll confirm your address is on our route." }
   ],
   siblings: [
     ["Over the Mountain", "/over-the-mountain"],
@@ -62,12 +62,12 @@ const config: DeepCityConfig = {
     ["Termite Control", "/services/termite-control"],
   ],
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
-  officePhone: "(205) 940-6360",
-  officeTel: "2059406360",
+  officePhone: "(205) 991-2882",
+  officeTel: "2059912882",
   officeLabel: "Birmingham",
-  officeStreet: "2025 Butler Rd, Alabaster",
-  officeLocality: "Alabaster",
-  officePostal: "35007",
+  officeStreet: "2120 16th Ave S, Ste 302",
+  officeLocality: "Birmingham",
+  officePostal: "35205",
 };
 
 export default function CahabaHeightsPage() {

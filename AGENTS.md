@@ -67,18 +67,21 @@ instead of live data. On Jul 25 alone, five confident conclusions were wrong:
   generation (Wedgworth family). Formerly "Lex Wedgworth Pest Control Inc."
 - Canonical brand name: **EnviroCare, LLC**. Not "Envirocare", not "Enviro Care".
 
-### Four locations (the first three GBP-verified as of Jul 25 2026)
+### Four locations (all four now GBP-verified — the first three Jul 25 2026, Birmingham Sep 5 2026)
 
 | Office | Address | Phone | Store code |
 |---|---|---|---|
 | Alabaster (Birmingham metro) | 2025 Butler Rd, Alabaster, AL 35007 | (205) 940-6360 | 62134 |
 | Alexander City | 1785 Tallapoosa St, Alexander City, AL 35010 | (256) 234-6162 | 62135 |
 | Huntsville | 7027 Old Madison Pike NW Ste 108, Huntsville, AL 35806 | (256) 937-7676 | 63766 |
-| **Birmingham** (added 2026-08-05) | **2120 16th Ave S, Ste 302, Birmingham, AL 35205** | **(205) 991-2882** | — no GBP yet |
+| **Birmingham** (added 2026-08-05) | **2120 16th Ave S, Ste 302, Birmingham, AL 35205** | **(205) 991-2882** | — GBP verified 2026-09-05 |
 
-⚠️ **The Birmingham office has NO Google Business Profile yet** — Phillip is
-creating one. Until it exists, do not describe it as GBP-verified and do not
-expect it in Local Falcon / BrightLocal location data.
+✅ **The Birmingham office IS now GBP-verified** (was not, until Sep 2026).
+Confirmed live via the Places API 2026-09-05: `EnviroCare` · 2120 16th Ave S Ste
+302, Birmingham, AL 35205 · (205) 991-2882 · OPERATIONAL · 5.0 from 10 reviews ·
+place_id `ChIJjXGa0ZsbiYgR1mB0oEKnqUo`. It is not yet in Local Falcon (the
+Birmingham/Alabaster campaign `4ee47a23fc4793e` still tracks the Butler Rd GBP);
+BrightLocal Birmingham location 4130578 needs its NAP confirmed against it.
 
 ⚠️ **Naming trap in `data/offices.ts`:** the OfficeId `'birmingham'` is the
 **Alabaster** office (named for the metro it serves). The city office is
@@ -87,29 +90,58 @@ former — do not rename it.
 
 ✅ **RULED 2026-08-12 (Phillip) — this is CLOSED. Do not "fix" it.**
 **(205) 940-6360 is the PRIMARY company number.** (205) 991-2882 is the Birmingham
-office direct line. The ~191 Birmingham-metro occurrences of 940-6360 are CORRECT
-and intentional; leave them. This also closes nap-master.md open question #1 — yes,
+office direct line. This also closes nap-master.md open question #1 — yes,
 940-6360 on all three LSA profiles is deliberate: it is the primary intake line.
+
+> ⚠️ One clause of this ruling has since been overtaken. It used to read "the
+> ~191 Birmingham-metro occurrences of 940-6360 are CORRECT and intentional;
+> leave them." As of 2026-09-05 the Jefferson County city pages carry 991-2882
+> instead — see the 09-05 note below. Everything else in this ruling stands.
 
 Usage rules:
 - **Primary / company-wide contexts** (site header, LSA profiles, general citations
   with no specific office, service pages not tied to one office): **(205) 940-6360**.
 - **A NAP block's phone must match its address.** `2025 Butler Rd` pairs with
-  **(205) 940-6360**. (`2120 16th Ave S, Ste 302` paired with
-  **(205) 991-2882** — see the 2026-08-24 update below; that pairing is no
-  longer published anywhere but `data/offices.ts`.) Never cross them. (Audited 2026-08-13 with a proximity scan: zero crossed pairs in the
-  repo. Note a file-level grep is useless here — find-office, offices.ts, layout.tsx
-  and ContactUs all legitimately list every office, so co-occurrence is normal and
-  only same-block adjacency is a defect.)
+  **(205) 940-6360**; `2120 16th Ave S, Ste 302` pairs with **(205) 991-2882**.
+  Both pairings are published again as of 2026-09-05 — see the update below.
+  Never cross them. (Re-audited 2026-09-05 with a per-record proximity scan
+  across 229 tracked `.ts`/`.tsx`/`.txt` files: zero crossed pairs. Note a
+  file-level grep is useless here — find-office, offices.ts, layout.tsx and
+  ContactUs all legitimately list every office, so co-occurrence is normal and
+  only same-block adjacency is a defect. A line-window grep is useless too:
+  `data/cities.ts` holds one whole city record per line, so neighbouring
+  records land inside any window. Scan per record.)
 - Office direct lines: Alabaster (205) 940-6360 · Alex City (256) 234-6162
-  · Huntsville (256) 937-7676 · Auburn (334) 332-3321. Birmingham's
-  (205) 991-2882 was retired from customer-facing pages on 2026-08-24 — see §4.
+  · Huntsville (256) 937-7676 · Birmingham (205) 991-2882 · Auburn
+  (334) 332-3321.
 
 ⚠️ **SUPERSEDED IN PART, 2026-08-24 (Phillip: "940 is the main line").** The
 2026-08-12 ruling above still holds for 940-6360 being primary. What changed:
 the whole Birmingham metro now displays 940-6360 / Butler Rd, so 991-2882 and
 2120 16th Ave S no longer appear on any customer-facing page, in schema, or in
 llms.txt. Butler Rd is the office with an actual Google Business Profile.
+
+✅ **SUPERSEDED IN TURN, 2026-09-05 (Phillip: "Hoover goes to Birmingham as
+Over the Mountain").** Read the 08-24 note above as history, not as current
+practice. Its stated reason — "Butler Rd is the office with an actual Google
+Business Profile" — expired when the 16th Ave GBP was verified (confirmed live
+via the Places API 2026-09-05, see above). 940-6360 remains the primary
+company-wide number; what changed is which office the metro *city pages* point
+at, now split by county:
+
+- **Jefferson / St Clair → Birmingham, 2120 16th Ave S, (205) 991-2882:**
+  birmingham, hoover, homewood, mountain-brook, vestavia-hills, trussville,
+  irondale, leeds, moody, fultondale, crestline, english-village,
+  cherokee-bend, cahaba-heights, mountain-brook-village, liberty-park.
+- **Shelby → Alabaster, 2025 Butler Rd, (205) 940-6360:** alabaster, pelham,
+  helena, calera, chelsea, greystone, mt-laurel, inverness, brook-highland,
+  meadow-brook, eagle-point, highland-lakes, chelsea-park.
+
+`data/city-offices.ts` holds the split; ZIP 35244 (Hoover/Riverchase) stays
+Birmingham per the ruling, while 35043 and 35242 moved to Alabaster. Shipped in
+the Sep 5 compliance+B pack. **Not yet reflected downstream:** Local Falcon
+campaign `4ee47a23fc4793e` still tracks the Butler Rd GBP, and BrightLocal
+location 4130578 needs its NAP re-pointed.
 
 ⚠️ **(205) 649-5278 is DEAD.** It still appears on the Thryv directory network
 (YellowPages / YP / DexKnows / Superpages). Never reintroduce it.
