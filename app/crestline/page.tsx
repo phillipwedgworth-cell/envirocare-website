@@ -52,7 +52,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🐜",
       title: "Fire ants on freshly graded lots",
-      body: "Renovation and landscape work on established Crestline properties disturbs soil and draws fire ants to the fresh dirt. Whole-colony fire ant treatment is available to any homeowner, starting at $150 and priced by yard size.",
+      body: "Renovation and landscape work on established Crestline properties disturbs soil and draws fire ants to the fresh dirt. Whole-colony fire ant treatment is available to any homeowner, $150 covers most yard sizes, with larger properties quoted by square footage.",
     },
     {
       emoji: "🪲",
@@ -121,9 +121,9 @@ const jsonLd = {
       address: {
         "@type": "PostalAddress",
         streetAddress: "2025 Butler Rd, Alabaster",
-        addressLocality: "Birmingham",
+        addressLocality: "Alabaster",
         addressRegion: "AL",
-        postalCode: "35205",
+        postalCode: "35007",
         addressCountry: "US",
       },
       areaServed: [{ "@type": "Place", name: "Crestline, AL (Mountain Brook)" }],
@@ -144,7 +144,7 @@ const jsonLd = {
       provider: {
         "@type": "LocalBusiness",
         name: "EnviroCare",
-        address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd, Alabaster", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" },
+        address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
       },
       areaServed: { "@type": "Place", name: "Crestline, AL" },
       name: "Pest Control Crestline",

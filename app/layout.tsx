@@ -181,12 +181,20 @@ const BIRMINGHAM_SCHEMA = {
   url: 'https://www.envirocarellc.com/birmingham',
   telephone: '+1-205-940-6360',
   priceRange: '$$',
+  // Was streetAddress '2025 Butler Rd, Alabaster' / addressLocality 'Birmingham'
+  // / postalCode '35205' — Alabaster's street and phone with Birmingham's city
+  // and ZIP, the same mashup this pack just removed from 21 metro pages. Left
+  // here it would have contradicted every page it appears on, in JSON-LD, which
+  // AGENTS.md §6 counts as live copy. §4 already settles which way it resolves:
+  // (205) 991-2882 and 2120 16th Ave S are retired from customer-facing pages
+  // (2026-08-24) because that office has no GBP, so Alabaster is the only NAP
+  // this node can carry. telephone below was already 940-6360.
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '2025 Butler Rd, Alabaster',
-    addressLocality: 'Birmingham',
+    streetAddress: '2025 Butler Rd',
+    addressLocality: 'Alabaster',
     addressRegion: 'AL',
-    postalCode: '35205',
+    postalCode: '35007',
     addressCountry: 'US',
   },
   // No `geo` and no Google Maps `sameAs`: this office has NO Google Business

@@ -70,7 +70,7 @@ const CARDS: PestCard[] = [
   },
   {
     emoji: '🔥', name: 'Fire Ants',
-    hook: 'Whole-colony fire ant treatment, starting at $150 and priced by yard size — available to anyone, no plan required.',
+    hook: 'Whole-colony fire ant treatment, $150 covers most yard sizes, with larger properties quoted by square footage — available to anyone, no plan required.',
     href: '/services/fire-ant', linkLabel: 'Fire Ant Control',
   },
   {

@@ -58,9 +58,9 @@ const jsonLd = {
       address: {
         "@type": "PostalAddress",
         streetAddress: "2025 Butler Rd, Alabaster",
-        addressLocality: "Birmingham",
+        addressLocality: "Alabaster",
         addressRegion: "AL",
-        postalCode: "35205",
+        postalCode: "35007",
         addressCountry: "US",
       },
       areaServed: {

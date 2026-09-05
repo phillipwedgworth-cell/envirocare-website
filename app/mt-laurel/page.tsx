@@ -65,8 +65,8 @@ const config: DeepCityConfig = {
   officeTel: "2059406360",
   officeLabel: "Birmingham",
   officeStreet: "2025 Butler Rd, Alabaster",
-  officeLocality: "Birmingham",
-  officePostal: "35205",
+  officeLocality: "Alabaster",
+  officePostal: "35007",
 };
 
 export default function MtLaurelPage() {

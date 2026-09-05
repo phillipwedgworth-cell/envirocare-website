@@ -9,7 +9,7 @@
 // /services/builder and /services/builder-pre-treat 301 here (see next.config.ts).
 // Compliance fixes vs the old version:
 //   - removed "Same- or next-day" availability claim (banned)
-//   - "$1M Sentricon® Repair Coverage" → "$1M EnviroCare-Backed Damage Coverage"
+//   - "$1M EnviroCare damage coverage" → "$1M EnviroCare-Backed Damage Coverage"
 //     ($1M is EnviroCare-backed damage repair coverage, subject to the terms of the
 //     agreement -- never attributed to the manufacturer, and never called a guarantee)
 //   - removed "Volume discounts" / bundle-savings framing (banned; bundling =

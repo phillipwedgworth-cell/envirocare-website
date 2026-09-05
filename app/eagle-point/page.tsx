@@ -148,10 +148,10 @@ const jsonLd = {
       "telephone": "+12059406360",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2025 Butler Rd, Alabaster",
-        "addressLocality": "Birmingham",
+        "streetAddress": "2025 Butler Rd",
+        "addressLocality": "Alabaster",
         "addressRegion": "AL",
-        "postalCode": "35205",
+        "postalCode": "35007",
         "addressCountry": "US"
       },
       "areaServed": [
@@ -183,7 +183,7 @@ const jsonLd = {
       "provider": {
         "@type": "LocalBusiness",
         "name": "EnviroCare",
-        "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd, Alabaster", "addressLocality": "Birmingham", "addressRegion": "AL", "postalCode": "35205", "addressCountry": "US" }
+        "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
       },
       "areaServed": {
         "@type": "Place",
