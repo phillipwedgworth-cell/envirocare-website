@@ -1,0 +1,39 @@
+name: NeuronWriter pull (scored drafts → site → PR)
+on:
+  workflow_dispatch:
+    inputs:
+      force: { description: 'Re-pull even if already loaded', default: 'false' }
+  schedule:
+    - cron: '30 13 * * 3'   # Wednesdays — picks up anything the optimize/narrator agents scored that week
+permissions: { contents: write, pull-requests: write }
+concurrency: neuronwriter-pull
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: '22' }
+      - run: npm ci || npm install
+      - name: Pull + scrub + load
+        env:
+          NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+        run: node agents/neuronwriter-pull.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+      - id: check
+        run: if git diff --quiet; then echo "changed=false" >> $GITHUB_OUTPUT; else echo "changed=true" >> $GITHUB_OUTPUT; fi
+      - name: Compliance gate
+        if: steps.check.outputs.changed == 'true'
+        run: npm run test:source && npm run test:generated
+      - name: PR
+        if: steps.check.outputs.changed == 'true'
+        env: { GH_TOKEN: ${{ github.token }} }
+        run: |
+          BR="content/neuronwriter-pull-$(date -u +%Y-%m-%d)"
+          git config user.name "envirocare-neuronwriter-pull"; git config user.email "agents@envirocarellc.com"
+          git checkout -b "$BR"; git add data/cities.ts agents/neuronwriter-content; git commit -m "content(cities): load scrubbed NeuronWriter drafts"; git push -u origin "$BR"
+          gh pr create --base main --head "$BR" --title "NeuronWriter drafts → site ($(date -u +%b\ %-d))" --body "Scored drafts pulled from NeuronWriter, scrubbed against every compliance lock, loaded into City records. Custom pages got a .scrubbed.html in agents/neuronwriter-content for section placement. Compliance scanner passed. Vercel preview on this PR."

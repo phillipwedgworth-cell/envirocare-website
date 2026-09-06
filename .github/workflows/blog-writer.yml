@@ -1,0 +1,56 @@
+name: Blog writer (2 articles/day → PR → Vercel preview → Phillip merges)
+on:
+  schedule:
+    - cron: '0 12 * * *'   # daily 12:00 UTC (7am CT)
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Articles to write this run'
+        default: '2'
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: blog-writer
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v5
+        with: { node-version: '22' }
+      - run: npm ci || npm install
+      - name: Write articles
+        env:
+          ANTHROPIC_API_KEY:         ${{ secrets.ANTHROPIC_API_KEY }}
+          NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          BLOG_ARTICLES_PER_RUN:     ${{ github.event.inputs.count || '2' }}
+        run: node agents/blog-writer.mjs
+      - name: Nothing written? stop cleanly
+        id: check
+        run: |
+          if git diff --quiet -- data/blog-posts.ts; then echo "changed=false" >> $GITHUB_OUTPUT; else echo "changed=true" >> $GITHUB_OUTPUT; fi
+      - name: Compliance gate (a violating draft never becomes a PR)
+        if: steps.check.outputs.changed == 'true'
+        run: npm run test:source && npm run test:generated
+      - name: Sitemap lastmod = today
+        if: steps.check.outputs.changed == 'true'
+        run: sed -i -E "s/STATIC_LASTMOD = new Date\('[0-9-]+T/STATIC_LASTMOD = new Date('$(date -u +%Y-%m-%d)T/" app/sitemap.ts
+      - name: Branch, commit, PR
+        if: steps.check.outputs.changed == 'true'
+        env: { GH_TOKEN: ${{ github.token }} }
+        run: |
+          BR="content/blog-$(date -u +%Y-%m-%d)"
+          git config user.name "envirocare-blog-writer"; git config user.email "agents@envirocarellc.com"
+          git checkout -b "$BR"
+          git add data/blog-posts.ts app/sitemap.ts middleware.ts
+          TITLES=$(node -e "const m=require('./agents/.blog-writer-manifest.json');console.log(m.posts.map(p=>'- **'+p.title+'** — /blog/'+p.slug+' · '+p.keyword+' · NeuronWriter '+(p.nwScore??'n/a')+' · publishes '+p.publishedAt).join('\n'))")
+          git commit -m "content(blog): $(node -e "console.log(require('./agents/.blog-writer-manifest.json').posts.map(p=>p.slug).join(', '))")"
+          git push -u origin "$BR"
+          gh pr create --base main --head "$BR" --title "Blog: $(date -u +%b\ %-d) — $(node -e "console.log(require('./agents/.blog-writer-manifest.json').posts.length)") articles" \
+            --body "$(printf 'Written by blog-writer. Compliance scanner passed. Vercel preview builds on this PR — open it, read the two posts, merge if good.\n\n%s\n\nPost-dated so the index releases them one per day after merge.' "$TITLES")"

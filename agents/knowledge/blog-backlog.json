@@ -1,0 +1,919 @@
+{
+ "_readme": "Backlog for agents/blog-writer.mjs. The agent takes the first N topics whose slug is not in data/blog-posts.ts, writes them, and moves on. Add topics anywhere; order is priority. Never add: bed bugs, wildlife/raccoon/squirrel removal, lawn care, crawlspace encapsulation, Tuscaloosa, carpenter-bee marketing, competitor names. Topics with `legacyPath` are old Scorpion URLs still earning impressions: the writer adds a middleware 301 from legacyPath to the new post when it publishes one.",
+ "topics": [
+  {
+   "slug": "keeping-the-wolf-spiders-in-birmingham-outside-w",
+   "keyword": "keeping the wolf spiders in Alabama outside",
+   "category": "Spiders",
+   "angle": "Legacy Scorpion post (8291 impressions, pos 17). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/july/keeping-the-wolf-spiders-in-birmingham-outside-w/",
+   "impressions": 8291
+  },
+  {
+   "slug": "struggling-to-get-rid-of-the-ticks-around-your-b",
+   "keyword": "struggling to get rid of the ticks around your",
+   "category": "Ticks",
+   "angle": "Legacy Scorpion post (4089 impressions, pos 41). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/august/struggling-to-get-rid-of-the-ticks-around-your-b/",
+   "impressions": 4089
+  },
+  {
+   "slug": "what-to-do-about-mosquitoes-in-birmingham",
+   "keyword": "what to do about mosquitoes in Alabama",
+   "category": "Mosquitoes",
+   "angle": "Legacy Scorpion post (3732 impressions, pos 27). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/june/what-to-do-about-mosquitoes-in-birmingham/",
+   "impressions": 3732
+  },
+  {
+   "slug": "warning-signs-of-a-termite-infestation-every-hom",
+   "keyword": "warning signs of a termite infestation every hom",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (3479 impressions, pos 22). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2025/july/warning-signs-of-a-termite-infestation-every-hom/",
+   "impressions": 3479
+  },
+  {
+   "slug": "pest-spotlight-brown-recluse-spiders-around-your",
+   "keyword": "pest spotlight brown recluse spiders around your",
+   "category": "Spiders",
+   "angle": "Legacy Scorpion post (3374 impressions, pos 18). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/january/pest-spotlight-brown-recluse-spiders-around-your/",
+   "impressions": 3374
+  },
+  {
+   "slug": "birmingham-property-owners-complete-guide-to-eff",
+   "keyword": "Alabama property owners complete guide to eff",
+   "category": "Tips",
+   "angle": "Legacy Scorpion post (2259 impressions, pos 36). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/february/birmingham-property-owners-complete-guide-to-eff/",
+   "impressions": 2259
+  },
+  {
+   "slug": "diy-pest-control-mistakes-that-often-make-proble",
+   "keyword": "diy pest control mistakes that often make proble",
+   "category": "Tips",
+   "angle": "Legacy Scorpion post (2165 impressions, pos 34). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2026/january/diy-pest-control-mistakes-that-often-make-proble/",
+   "impressions": 2165
+  },
+  {
+   "slug": "common-winter-pest-problems-in-alabama",
+   "keyword": "common winter pest problems in alabama",
+   "category": "Seasonal",
+   "angle": "Legacy Scorpion post (2101 impressions, pos 9). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2025/january/common-winter-pest-problems-in-alabama/",
+   "impressions": 2101
+  },
+  {
+   "slug": "spiders-be-gone-expert-tips-for-effective-spider",
+   "keyword": "spiders be gone expert tips for effective spider",
+   "category": "Spiders",
+   "angle": "Legacy Scorpion post (1797 impressions, pos 36). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/august/spiders-be-gone-expert-tips-for-effective-spider/",
+   "impressions": 1797
+  },
+  {
+   "slug": "a-guide-to-effective-silverfish-control-in-birmi",
+   "keyword": "a guide to effective silverfish control in birmi",
+   "category": "Pests",
+   "angle": "Legacy Scorpion post (1655 impressions, pos 19). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/january/a-guide-to-effective-silverfish-control-in-birmi/",
+   "impressions": 1655
+  },
+  {
+   "slug": "pest-spotlight-tackling-a-cricket-problem-in-bir",
+   "keyword": "pest spotlight tackling a cricket problem in bir",
+   "category": "Pests",
+   "angle": "Legacy Scorpion post (1523 impressions, pos 20). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/october/pest-spotlight-tackling-a-cricket-problem-in-bir/",
+   "impressions": 1523
+  },
+  {
+   "slug": "choosing-the-right-termite-baits-and-traps-a-bir",
+   "keyword": "choosing the right termite baits and traps a bir",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (1371 impressions, pos 54). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2024/january/choosing-the-right-termite-baits-and-traps-a-bir/",
+   "impressions": 1371
+  },
+  {
+   "slug": "tips-and-tricks-to-keep-spiders-away-from-your-b",
+   "keyword": "tips and tricks to keep spiders away from your",
+   "category": "Spiders",
+   "angle": "Legacy Scorpion post (1350 impressions, pos 29). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/march/tips-and-tricks-to-keep-spiders-away-from-your-b/",
+   "impressions": 1350
+  },
+  {
+   "slug": "what-brings-termites-into-your-home",
+   "keyword": "what brings termites into your home",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (984 impressions, pos 24). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2024/october/what-brings-termites-into-your-home-/",
+   "impressions": 984
+  },
+  {
+   "slug": "mosquitoes-in-birmingham-an-all-inclusive-preven",
+   "keyword": "mosquitoes in Alabama an all inclusive preven",
+   "category": "Mosquitoes",
+   "angle": "Legacy Scorpion post (883 impressions, pos 11). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/october/mosquitoes-in-birmingham-an-all-inclusive-preven/",
+   "impressions": 883
+  },
+  {
+   "slug": "keeping-crickets-at-bay-effective-prevention-tec",
+   "keyword": "keeping crickets at bay effective prevention tec",
+   "category": "Pests",
+   "angle": "Legacy Scorpion post (720 impressions, pos 35). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/september/keeping-crickets-at-bay-effective-prevention-tec/",
+   "impressions": 720
+  },
+  {
+   "slug": "how-to-kill-the-fire-ants-surrounding-your-birmi",
+   "keyword": "how to kill the fire ants surrounding your birmi",
+   "category": "Ants",
+   "angle": "Legacy Scorpion post (545 impressions, pos 41). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/july/how-to-kill-the-fire-ants-surrounding-your-birmi/",
+   "impressions": 545
+  },
+  {
+   "slug": "why-professional-termite-control-is-a-must-have",
+   "keyword": "why professional termite control is a must have",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (506 impressions, pos 50). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/february/why-professional-termite-control-is-a-must-have-/",
+   "impressions": 506
+  },
+  {
+   "slug": "are-you-struggling-to-deal-with-crickets-in-birm",
+   "keyword": "are you struggling to deal with crickets in birm",
+   "category": "Pests",
+   "angle": "Legacy Scorpion post (485 impressions, pos 24). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/november/are-you-struggling-to-deal-with-crickets-in-birm/",
+   "impressions": 485
+  },
+  {
+   "slug": "pest-spotlight-subterranean-termites-in-birmingh",
+   "keyword": "pest spotlight subterranean termites in birmingh",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (339 impressions, pos 33). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/may/pest-spotlight-subterranean-termites-in-birmingh/",
+   "impressions": 339
+  },
+  {
+   "slug": "are-you-having-a-hard-time-dealing-with-fire-ant",
+   "keyword": "are you having a hard time dealing with fire ant",
+   "category": "Ants",
+   "angle": "Legacy Scorpion post (196 impressions, pos 10). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/december/are-you-having-a-hard-time-dealing-with-fire-ant/",
+   "impressions": 196
+  },
+  {
+   "slug": "dont-risk-diy-pest-control-in-birmingham",
+   "keyword": "dont risk diy pest control in Alabama",
+   "category": "Tips",
+   "angle": "Legacy Scorpion post (190 impressions, pos 62). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/february/dont-risk-diy-pest-control-in-birmingham/",
+   "impressions": 190
+  },
+  {
+   "slug": "the-abcs-of-spider-prevention-how-to-keep-your-b",
+   "keyword": "the abcs of spider prevention how to keep your",
+   "category": "Spiders",
+   "angle": "Legacy Scorpion post (173 impressions, pos 24). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/december/the-abcs-of-spider-prevention-how-to-keep-your-b/",
+   "impressions": 173
+  },
+  {
+   "slug": "the-easiest-way-to-repel-mosquitoes-in-birmingha",
+   "keyword": "the easiest way to repel mosquitoes in birmingha",
+   "category": "Mosquitoes",
+   "angle": "Legacy Scorpion post (96 impressions, pos 14). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/september/the-easiest-way-to-repel-mosquitoes-in-birmingha/",
+   "impressions": 96
+  },
+  {
+   "slug": "how-to-protect-your-birmingham-home-from-termite",
+   "keyword": "how to protect your Alabama home from termite",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (86 impressions, pos 31). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/april/how-to-protect-your-birmingham-home-from-termite/",
+   "impressions": 86
+  },
+  {
+   "slug": "how-to-keep-mosquitoes-away-from-your-birmingham",
+   "keyword": "how to keep mosquitoes away from your Alabama",
+   "category": "Mosquitoes",
+   "angle": "Legacy Scorpion post (79 impressions, pos 18). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/april/how-to-keep-mosquitoes-away-from-your-birmingham/",
+   "impressions": 79
+  },
+  {
+   "slug": "is-professional-termite-control-an-absolute-nece",
+   "keyword": "is professional termite control an absolute nece",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (67 impressions, pos 53). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/december/is-professional-termite-control-an-absolute-nece/",
+   "impressions": 67
+  },
+  {
+   "slug": "a-useful-spider-prevention-guide-for-your-birmin",
+   "keyword": "a useful spider prevention guide for your birmin",
+   "category": "Spiders",
+   "angle": "Legacy Scorpion post (60 impressions, pos 23). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/march/a-useful-spider-prevention-guide-for-your-birmin/",
+   "impressions": 60
+  },
+  {
+   "slug": "termites-be-gone-proven-techniques-for-successfu",
+   "keyword": "termites be gone proven techniques for successfu",
+   "category": "Termites",
+   "angle": "Legacy Scorpion post (22 impressions, pos 10). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2023/september/termites-be-gone-proven-techniques-for-successfu/",
+   "impressions": 22
+  },
+  {
+   "slug": "the-benefits-of-professional-pest-control-for-yo",
+   "keyword": "the benefits of professional pest control for",
+   "category": "Pests",
+   "angle": "Legacy Scorpion post (18 impressions, pos 21). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/february/the-benefits-of-professional-pest-control-for-yo/",
+   "impressions": 18
+  },
+  {
+   "slug": "the-secret-to-effective-mosquito-control-for-you",
+   "keyword": "the secret to effective mosquito control for you",
+   "category": "Mosquitoes",
+   "angle": "Legacy Scorpion post (11 impressions, pos 19). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
+   "legacyPath": "/blog/2022/june/the-secret-to-effective-mosquito-control-for-you/",
+   "impressions": 11
+  },
+  {
+   "slug": "odorous-house-ants-coconut-smell",
+   "keyword": "ants that smell like coconut when crushed",
+   "category": "Ants",
+   "angle": "odorous house ant ID by smell, why they bud, kitchen baiting"
+  },
+  {
+   "slug": "pavement-ants-alabama-driveway",
+   "keyword": "small ants in driveway cracks alabama",
+   "category": "Ants",
+   "angle": "pavement ants, sidewalk mounds, when they move indoors"
+  },
+  {
+   "slug": "ants-in-bathroom-alabama",
+   "keyword": "why are there ants in my bathroom",
+   "category": "Ants",
+   "angle": "moisture-seeking ants, drains, what it signals"
+  },
+  {
+   "slug": "fire-ants-after-rain-alabama",
+   "keyword": "fire ant mounds after rain",
+   "category": "Fire Ants",
+   "angle": "why mounds pop up after storms, broadcast vs mound treatment"
+  },
+  {
+   "slug": "fire-ant-sting-treatment-yard",
+   "keyword": "fire ant stings what to do",
+   "category": "Fire Ants",
+   "angle": "first aid basics, when to see a doctor, yard prevention"
+  },
+  {
+   "slug": "smokybrown-cockroach-alabama",
+   "keyword": "smokybrown cockroach",
+   "category": "Roaches",
+   "angle": "the porch-light roach: gutters, tree holes, attics"
+  },
+  {
+   "slug": "palmetto-bug-vs-cockroach",
+   "keyword": "palmetto bug vs cockroach",
+   "category": "Roaches",
+   "angle": "same insect, why it comes inside, drain traps"
+  },
+  {
+   "slug": "roaches-in-apartment-alabama",
+   "keyword": "roaches in apartment what to do",
+   "category": "Roaches",
+   "angle": "multi-unit spread, tenant steps, building-wide treatment"
+  },
+  {
+   "slug": "baby-roaches-in-kitchen",
+   "keyword": "tiny roaches in kitchen",
+   "category": "Roaches",
+   "angle": "nymphs = breeding population, German roach signal"
+  },
+  {
+   "slug": "wolf-spider-vs-brown-recluse",
+   "keyword": "wolf spider vs brown recluse",
+   "category": "Spiders",
+   "angle": "side-by-side ID, fiddle mark myths, which matters"
+  },
+  {
+   "slug": "spiders-in-garage-alabama-fall",
+   "keyword": "spiders in garage in fall",
+   "category": "Spiders",
+   "angle": "why garages fill up in October, food supply logic"
+  },
+  {
+   "slug": "spider-webs-on-porch-every-morning",
+   "keyword": "spider webs on porch every morning",
+   "category": "Spiders",
+   "angle": "orb weavers, porch lights, harmless vs not"
+  },
+  {
+   "slug": "termite-swarmers-inside-house",
+   "keyword": "termite swarmers inside house",
+   "category": "Termites",
+   "angle": "indoor swarm = colony in structure, what to do that day"
+  },
+  {
+   "slug": "mud-tubes-on-foundation",
+   "keyword": "mud tubes on foundation",
+   "category": "Termites",
+   "angle": "what a tube means, active vs old, do not knock down"
+  },
+  {
+   "slug": "termites-in-slab-house-alabama",
+   "keyword": "termites in slab foundation house",
+   "category": "Termites",
+   "angle": "bath traps, expansion joints, how they enter a slab"
+  },
+  {
+   "slug": "termite-inspection-what-happens",
+   "keyword": "what happens during a termite inspection",
+   "category": "Termites",
+   "angle": "walkthrough of a WDO inspection, crawlspace, time"
+  },
+  {
+   "slug": "termite-treatment-how-long",
+   "keyword": "how long does termite treatment last",
+   "category": "Termites",
+   "angle": "bait vs liquid longevity, annual renewal, monitoring"
+  },
+  {
+   "slug": "termites-new-construction-alabama",
+   "keyword": "termites in new construction",
+   "category": "Termites",
+   "angle": "disturbed soil, irrigation, pre-treat, builder pages"
+  },
+  {
+   "slug": "drywood-vs-subterranean-termites",
+   "keyword": "drywood vs subterranean termites",
+   "category": "Termites",
+   "angle": "frass vs mud, why drywood is rare in Alabama"
+  },
+  {
+   "slug": "termite-bait-stations-how-they-work",
+   "keyword": "how do termite bait stations work",
+   "category": "Termites",
+   "angle": "Sentricon mechanism, foraging, colony effect"
+  },
+  {
+   "slug": "termites-and-mulch-alabama",
+   "keyword": "does mulch attract termites",
+   "category": "Termites",
+   "angle": "mulch depth, distance from slab, what actually matters"
+  },
+  {
+   "slug": "termites-in-deck-alabama",
+   "keyword": "termites in deck",
+   "category": "Termites",
+   "angle": "ledger boards, posts in soil, ground contact"
+  },
+  {
+   "slug": "termite-warranty-vs-bond",
+   "keyword": "termite warranty vs bond",
+   "category": "Termites",
+   "angle": "terminology, coverage types, what transfers (EnviroCare coverage, never manufacturer)"
+  },
+  {
+   "slug": "mosquito-larvae-standing-water",
+   "keyword": "mosquito larvae in standing water",
+   "category": "Mosquitoes",
+   "angle": "the 7-day cycle, container list, what to dump"
+  },
+  {
+   "slug": "mosquitoes-in-october-alabama",
+   "keyword": "mosquitoes in october",
+   "category": "Mosquitoes",
+   "angle": "why the season runs to October, last treatment"
+  },
+  {
+   "slug": "asian-tiger-mosquito-alabama",
+   "keyword": "asian tiger mosquito",
+   "category": "Mosquitoes",
+   "angle": "the daytime biter, container breeder, what works"
+  },
+  {
+   "slug": "mosquito-fogging-vs-barrier",
+   "keyword": "mosquito fogging vs barrier treatment",
+   "category": "Mosquitoes",
+   "angle": "why fogging fades in a day, why barrier lasts weeks"
+  },
+  {
+   "slug": "mosquito-control-for-events-alabama",
+   "keyword": "mosquito control for outdoor wedding",
+   "category": "Mosquitoes",
+   "angle": "timing a treatment before an event, what to expect"
+  },
+  {
+   "slug": "heartworm-mosquitoes-alabama-dogs",
+   "keyword": "heartworm mosquitoes alabama",
+   "category": "Mosquitoes",
+   "angle": "why AL is high risk, vet prevention plus yard reduction"
+  },
+  {
+   "slug": "lone-star-tick-alabama",
+   "keyword": "lone star tick",
+   "category": "Ticks",
+   "angle": "the white dot, aggressive questing, alpha-gal"
+  },
+  {
+   "slug": "alpha-gal-syndrome-alabama-ticks",
+   "keyword": "alpha gal syndrome alabama",
+   "category": "Ticks",
+   "angle": "red-meat allergy from tick bite, prevention, factual/medical-hedged"
+  },
+  {
+   "slug": "tick-season-alabama-timeline",
+   "keyword": "tick season alabama",
+   "category": "Ticks",
+   "angle": "month-by-month, nymph peak, when yard treatment matters"
+  },
+  {
+   "slug": "ticks-on-dogs-alabama-yard",
+   "keyword": "ticks on dogs in yard",
+   "category": "Ticks",
+   "angle": "dog as tick transport, yard edge treatment, vet products"
+  },
+  {
+   "slug": "flea-infestation-house-no-pets",
+   "keyword": "fleas in house with no pets",
+   "category": "Fleas",
+   "angle": "previous pets, wildlife under deck, how it happens"
+  },
+  {
+   "slug": "flea-treatment-how-long-to-work",
+   "keyword": "how long does flea treatment take to work",
+   "category": "Fleas",
+   "angle": "egg/larva/pupa, why 2-4 weeks, IGR"
+  },
+  {
+   "slug": "flea-bites-vs-bed-bug-bites",
+   "keyword": "flea bites on ankles",
+   "category": "Fleas",
+   "angle": "ankle pattern, jump height, what fleas do (no bed bug service — refer to doctor for bite ID)"
+  },
+  {
+   "slug": "silverfish-in-bathroom",
+   "keyword": "silverfish in bathroom",
+   "category": "Pests",
+   "angle": "humidity, paper, what they eat"
+  },
+  {
+   "slug": "earwigs-in-house-alabama",
+   "keyword": "earwigs in house",
+   "category": "Pests",
+   "angle": "moisture invader, mulch, harmless myths"
+  },
+  {
+   "slug": "millipedes-in-house-after-rain",
+   "keyword": "millipedes in house",
+   "category": "Pests",
+   "angle": "the rain migration, why they die inside, perimeter"
+  },
+  {
+   "slug": "centipedes-in-house-alabama",
+   "keyword": "centipede in house",
+   "category": "Pests",
+   "angle": "house centipedes eat other pests, moisture"
+  },
+  {
+   "slug": "springtails-in-house",
+   "keyword": "springtails in house",
+   "category": "Pests",
+   "angle": "tiny jumping bugs in sinks, moisture fix"
+  },
+  {
+   "slug": "kudzu-bugs-on-house",
+   "keyword": "kudzu bugs on house",
+   "category": "Seasonal",
+   "angle": "fall aggregation on light siding, exterior timing"
+  },
+  {
+   "slug": "asian-lady-beetles-vs-ladybugs",
+   "keyword": "asian lady beetles vs ladybugs",
+   "category": "Seasonal",
+   "angle": "the M mark, the smell, fall invasion"
+  },
+  {
+   "slug": "boxelder-bugs-alabama",
+   "keyword": "boxelder bugs",
+   "category": "Seasonal",
+   "angle": "red-black bugs on sunny walls in fall"
+  },
+  {
+   "slug": "crickets-in-basement-chirping",
+   "keyword": "cricket in house chirping at night",
+   "category": "Pests",
+   "angle": "camel crickets vs field crickets, moisture"
+  },
+  {
+   "slug": "carpet-beetles-alabama",
+   "keyword": "carpet beetles",
+   "category": "Pests",
+   "angle": "the closet pest, larvae, wool and lint"
+  },
+  {
+   "slug": "pantry-moths-alabama",
+   "keyword": "pantry moths",
+   "category": "Pests",
+   "angle": "Indian meal moth, source in the pantry, sealing"
+  },
+  {
+   "slug": "fruit-flies-vs-drain-flies",
+   "keyword": "fruit flies vs drain flies",
+   "category": "Pests",
+   "angle": "where each breeds, drain cleaning, not a spray job"
+  },
+  {
+   "slug": "gnats-in-house-plants",
+   "keyword": "gnats in house plants",
+   "category": "Pests",
+   "angle": "fungus gnats, overwatering, dry-out"
+  },
+  {
+   "slug": "yellow-jackets-in-ground-alabama",
+   "keyword": "yellow jacket nest in ground",
+   "category": "Pests",
+   "angle": "the hole, aggression, why not gasoline"
+  },
+  {
+   "slug": "paper-wasp-nest-under-eave",
+   "keyword": "paper wasp nest under eave",
+   "category": "Pests",
+   "angle": "umbrella nest, dusk treatment, ladder risk"
+  },
+  {
+   "slug": "mud-daubers-harmless",
+   "keyword": "mud dauber nest",
+   "category": "Pests",
+   "angle": "the harmless one, what the tubes are"
+  },
+  {
+   "slug": "rats-in-attic-alabama",
+   "keyword": "rats in attic",
+   "category": "Rodents",
+   "angle": "roof rats, tree access, noise at night, wiring"
+  },
+  {
+   "slug": "mouse-droppings-vs-roach-droppings",
+   "keyword": "mouse droppings vs roach droppings",
+   "category": "Rodents",
+   "angle": "size and shape, where found"
+  },
+  {
+   "slug": "rodents-in-garage-alabama",
+   "keyword": "mice in garage",
+   "category": "Rodents",
+   "angle": "door seals, pet food, the October wave"
+  },
+  {
+   "slug": "seal-house-from-mice",
+   "keyword": "how to seal house from mice",
+   "category": "Rodents",
+   "angle": "pencil-width rule, copper mesh, the six gaps"
+  },
+  {
+   "slug": "rodent-bait-stations-safety",
+   "keyword": "rodent bait stations",
+   "category": "Rodents",
+   "angle": "tamper-resistant exterior stations, why not loose bait"
+  },
+  {
+   "slug": "pest-control-birmingham-historic-homes",
+   "keyword": "pest control old house",
+   "category": "Local",
+   "angle": "crawlspaces, pier foundations, Sentricon no-drill"
+  },
+  {
+   "slug": "pest-control-hoover-al-guide",
+   "keyword": "pest control hoover al",
+   "category": "Local",
+   "angle": "Hoover-specific: Riverchase, Ross Bridge, Bluff Park pests"
+  },
+  {
+   "slug": "pest-control-madison-al-guide",
+   "keyword": "pest control madison al",
+   "category": "Local",
+   "angle": "new subdivisions, red clay, Madison County pressure"
+  },
+  {
+   "slug": "pest-control-vestavia-hills-guide",
+   "keyword": "pest control vestavia hills",
+   "category": "Local",
+   "angle": "Over-the-Mountain wooded lots, ticks, older homes"
+  },
+  {
+   "slug": "pest-control-mountain-brook-guide",
+   "keyword": "pest control mountain brook",
+   "category": "Local",
+   "angle": "historic homes, no-drill termite, wooded lots"
+  },
+  {
+   "slug": "pest-control-trussville-guide",
+   "keyword": "pest control trussville al",
+   "category": "Local",
+   "angle": "Cahaba corridor, new builds, east metro"
+  },
+  {
+   "slug": "pest-control-decatur-al-guide",
+   "keyword": "pest control decatur al",
+   "category": "Local",
+   "angle": "Tennessee River humidity, Morgan County"
+  },
+  {
+   "slug": "pest-control-alabaster-guide",
+   "keyword": "pest control alabaster al",
+   "category": "Local",
+   "angle": "HQ market, Shelby County, the Butler Rd office"
+  },
+  {
+   "slug": "lake-martin-pest-control-weekend-house",
+   "keyword": "pest control for weekend lake house",
+   "category": "Local",
+   "angle": "empty-house problems, outbuildings, scheduling"
+  },
+  {
+   "slug": "auburn-pest-control-student-rentals",
+   "keyword": "pest control auburn al rentals",
+   "category": "Local",
+   "angle": "student housing turnover, roaches, landlord service"
+  },
+  {
+   "slug": "pest-control-cost-birmingham",
+   "keyword": "pest control cost birmingham al",
+   "category": "Pricing",
+   "angle": "local pricing, $35/mo, what is included, no termite flat price"
+  },
+  {
+   "slug": "pest-control-cost-lake-martin",
+   "keyword": "pest control cost lake martin",
+   "category": "Pricing",
+   "angle": "lake pricing, outbuildings, mosquito add-on"
+  },
+  {
+   "slug": "is-pest-control-worth-it",
+   "keyword": "is pest control worth it",
+   "category": "Pricing",
+   "angle": "honest cost/benefit, when DIY is fine, when it is not"
+  },
+  {
+   "slug": "pest-control-contract-vs-per-visit",
+   "keyword": "pest control contract vs per visit",
+   "category": "Pricing",
+   "angle": "12-month ACH vs $70 per visit, no long-term pest contract when per-visit"
+  },
+  {
+   "slug": "diy-pest-control-what-works",
+   "keyword": "diy pest control that works",
+   "category": "Tips",
+   "angle": "the honest list: what DIY handles, what it does not"
+  },
+  {
+   "slug": "pest-control-myths-alabama",
+   "keyword": "pest control myths",
+   "category": "Tips",
+   "angle": "ultrasonic repellers, dryer sheets, cedar, what is real"
+  },
+  {
+   "slug": "vinegar-for-ants-does-it-work",
+   "keyword": "does vinegar get rid of ants",
+   "category": "Tips",
+   "angle": "erases trail, does not touch colony"
+  },
+  {
+   "slug": "diatomaceous-earth-pest-control",
+   "keyword": "diatomaceous earth for pests",
+   "category": "Tips",
+   "angle": "where it helps, where it fails, dust in air"
+  },
+  {
+   "slug": "essential-oils-pest-control",
+   "keyword": "essential oils for pest control",
+   "category": "Tips",
+   "angle": "repellent effect only, short duration, no colony effect"
+  },
+  {
+   "slug": "ultrasonic-pest-repellers-work",
+   "keyword": "do ultrasonic pest repellers work",
+   "category": "Tips",
+   "angle": "the evidence, why not"
+  },
+  {
+   "slug": "pest-proof-garage-alabama",
+   "keyword": "pest proof garage",
+   "category": "Tips",
+   "angle": "door seals, storage, pet food, the corners"
+  },
+  {
+   "slug": "pest-proof-crawlspace-alabama",
+   "keyword": "pest proof crawlspace",
+   "category": "Tips",
+   "angle": "vents, moisture, access door (no encapsulation service)"
+  },
+  {
+   "slug": "pests-attracted-to-porch-lights",
+   "keyword": "bugs attracted to porch light",
+   "category": "Tips",
+   "angle": "warm-color bulbs, smokybrowns, what changes"
+  },
+  {
+   "slug": "pests-in-firewood-alabama",
+   "keyword": "bugs in firewood",
+   "category": "Tips",
+   "angle": "stack away from house, bring in only what you burn"
+  },
+  {
+   "slug": "gutters-and-pests-alabama",
+   "keyword": "clogged gutters and pests",
+   "category": "Tips",
+   "angle": "mosquito nursery, roach harborage, moisture on the sill"
+  },
+  {
+   "slug": "pest-control-before-moving-in",
+   "keyword": "pest control before moving into new house",
+   "category": "Real Estate",
+   "angle": "the empty-house treatment, what to check first"
+  },
+  {
+   "slug": "buying-house-with-termite-history",
+   "keyword": "buying a house with termite damage history",
+   "category": "Real Estate",
+   "angle": "what a prior treatment means, transferable coverage"
+  },
+  {
+   "slug": "termite-clearance-letter-closing",
+   "keyword": "termite clearance letter for closing",
+   "category": "Real Estate",
+   "angle": "what clears a finding, timeline, who orders"
+  },
+  {
+   "slug": "vacation-rental-pest-control-lake-martin",
+   "keyword": "pest control for vacation rental",
+   "category": "Real Estate",
+   "angle": "guest reviews, turnover schedule, mosquito for the deck"
+  },
+  {
+   "slug": "commercial-pest-control-restaurants-birmingham",
+   "keyword": "restaurant pest control birmingham",
+   "category": "Pests",
+   "angle": "health inspections, documentation, monthly schedule"
+  },
+  {
+   "slug": "commercial-pest-control-warehouses-alabama",
+   "keyword": "warehouse pest control",
+   "category": "Pests",
+   "angle": "rodents at dock doors, bait station maps"
+  },
+  {
+   "slug": "pest-control-churches-schools-alabama",
+   "keyword": "pest control for churches",
+   "category": "Pests",
+   "angle": "kitchens, nurseries, scheduling around use"
+  },
+  {
+   "slug": "pest-control-hoa-neighborhood-alabama",
+   "keyword": "hoa pest control",
+   "category": "Pests",
+   "angle": "common areas, pool houses, group service"
+  },
+  {
+   "slug": "january-pests-alabama",
+   "keyword": "pests in winter alabama",
+   "category": "Seasonal",
+   "angle": "rodents, roaches indoors, termites still active"
+  },
+  {
+   "slug": "march-pest-calendar-alabama",
+   "keyword": "march pests alabama",
+   "category": "Seasonal",
+   "angle": "termite swarm start, mosquito season opens, ants wake"
+  },
+  {
+   "slug": "may-pest-calendar-alabama",
+   "keyword": "may pests alabama",
+   "category": "Seasonal",
+   "angle": "ticks peak, wasp nests grow, fire ants"
+  },
+  {
+   "slug": "july-pest-calendar-alabama",
+   "keyword": "july pests alabama",
+   "category": "Seasonal",
+   "angle": "roaches indoors, mosquito peak, spiders"
+  },
+  {
+   "slug": "september-pest-calendar-alabama",
+   "keyword": "september pests alabama",
+   "category": "Seasonal",
+   "angle": "fall invaders decide, rodents scout, yellow jackets peak"
+  },
+  {
+   "slug": "november-pest-calendar-alabama",
+   "keyword": "november pests alabama",
+   "category": "Seasonal",
+   "angle": "rodents in, wasps die, termites underground"
+  },
+  {
+   "slug": "pests-during-drought-alabama",
+   "keyword": "pests during drought",
+   "category": "Seasonal",
+   "angle": "water-seeking ants, roaches at AC drips"
+  },
+  {
+   "slug": "pests-after-hurricane-alabama",
+   "keyword": "pests after hurricane",
+   "category": "Seasonal",
+   "angle": "flooding, displaced rodents, mosquitoes in debris"
+  },
+  {
+   "slug": "stinging-insect-allergy-yard-safety",
+   "keyword": "wasp allergy yard",
+   "category": "Pests",
+   "angle": "identify nests early, professional removal only, doctor for plan"
+  },
+  {
+   "slug": "pest-control-and-kids-what-to-ask",
+   "keyword": "pest control with kids in house",
+   "category": "Tips",
+   "angle": "EPA-registered per label, re-entry timing, targeted placement (no safe claims)"
+  },
+  {
+   "slug": "pest-control-and-dogs-cats",
+   "keyword": "pest control with pets",
+   "category": "Tips",
+   "angle": "label directions, what to ask the technician, pet food storage"
+  },
+  {
+   "slug": "pest-control-vegetable-garden",
+   "keyword": "pest control near vegetable garden",
+   "category": "Tips",
+   "angle": "perimeter vs garden, what is not treated"
+  },
+  {
+   "slug": "pest-control-beehives-nearby",
+   "keyword": "pest control near bee hives",
+   "category": "Tips",
+   "angle": "targeted placement, timing, communicating with beekeeper"
+  },
+  {
+   "slug": "pest-control-koi-pond",
+   "keyword": "pest control near pond",
+   "category": "Tips",
+   "angle": "labeled products near water, mosquito reduction without touching pond"
+  },
+  {
+   "slug": "why-pests-come-back-after-treatment",
+   "keyword": "why do pests come back after treatment",
+   "category": "Tips",
+   "angle": "barrier decay, exterior pressure, free re-service"
+  },
+  {
+   "slug": "more-bugs-after-pest-control",
+   "keyword": "more bugs after pest control",
+   "category": "Tips",
+   "angle": "the flush-out effect, 3-5 days, do not spray on top"
+  },
+  {
+   "slug": "switching-pest-control-companies",
+   "keyword": "switching pest control companies",
+   "category": "Tips",
+   "angle": "what to ask, what transfers, no competitor names"
+  },
+  {
+   "slug": "pest-control-technician-questions",
+   "keyword": "questions to ask pest control company",
+   "category": "Tips",
+   "angle": "license, products per label, re-service, agreement terms"
+  },
+  {
+   "slug": "sentricon-certified-specialist-means",
+   "keyword": "sentricon certified specialist",
+   "category": "Termites",
+   "angle": "what the designation is, training, why it matters"
+  },
+  {
+   "slug": "termite-monitoring-vs-treatment",
+   "keyword": "termite monitoring vs treatment",
+   "category": "Termites",
+   "angle": "always-active bait vs monitor-only, why active"
+  },
+  {
+   "slug": "termites-in-winter-alabama",
+   "keyword": "termites in winter",
+   "category": "Termites",
+   "angle": "active year-round underground, no swarms, inspection still matters"
+  }
+ ]
+}

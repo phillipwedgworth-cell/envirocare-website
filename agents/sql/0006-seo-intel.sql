@@ -32,3 +32,11 @@ ON CONFLICT (agent_name) DO UPDATE SET description = EXCLUDED.description, statu
 
 -- Retire the Title-Case crew duplicate so the watchdog stops expecting it from the laptop.
 UPDATE agent_registry SET status = 'paused', muted_reason = 'Replaced by in-repo competitor-watcher 2026-09-05', updated_at = now() WHERE agent_name = 'Competitor Watcher';
+
+-- blog-writer (added 2026-09-05)
+INSERT INTO agent_registry (agent_name, description, status, expected_cadence_hours)
+VALUES ('blog-writer', 'Writes 2 articles/day from agents/knowledge/blog-backlog.json + keyword-opportunity findings; NeuronWriter-scored; compliance-gated; opens a PR for Phillip to merge.', 'active', 30)
+ON CONFLICT (agent_name) DO UPDATE SET description = EXCLUDED.description, status = 'active', expected_cadence_hours = 30, updated_at = now();
+INSERT INTO agent_registry (agent_name, description, status, expected_cadence_hours)
+VALUES ('neuronwriter-pull', 'Pulls scored drafts out of NeuronWriter, scrubs compliance locks, loads City records, opens PR. Weekly + on demand.', 'active', 200)
+ON CONFLICT (agent_name) DO UPDATE SET description = EXCLUDED.description, status = 'active', updated_at = now();
