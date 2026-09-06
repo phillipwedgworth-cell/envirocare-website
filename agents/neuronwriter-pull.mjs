@@ -32,6 +32,7 @@ import path from "node:path";
 import { logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { stateGet, stateSet } from "./lib/kv.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
+import { compileRules, scanText } from "../scripts/lib/compliance-rules.mjs";
 
 const AGENT_NAME = "neuronwriter-pull";
 const ROOT = process.cwd();
@@ -41,6 +42,8 @@ const OUT_DIR = path.join(ROOT, "agents/neuronwriter-content");
 const NW_API = process.env.NEURONWRITER_API_URL || "https://app.neuronwriter.com/neuron-api/0.5/writer";
 const NW_KEY = process.env.NEURONWRITER_API_KEY;
 const FORCE = process.argv.includes("--force");
+// Same rule source the repo guard and proposer.mjs use — never a hand-copied subset.
+const RULES = compileRules();
 
 // ── the lock list, as text rewrites (order matters) ─────────────────────────
 const SCRUB = [
@@ -140,6 +143,20 @@ export async function run() {
       const clean = scrub(html);
       if (item.type === "city") {
         const d = parseDraft(clean);
+        // Scan BEFORE loading. The workflow's compliance gate runs in a later step,
+        // after this process has already written state — so a draft that fails the
+        // gate used to be marked pulled while its file changes were thrown away with
+        // the failed job, stranding it forever behind the `skipped` branch above.
+        // 41 drafts were stranded exactly this way on 2026-09-06. Blocked drafts now
+        // get a finding and NO state write, so a later run retries them once the
+        // SCRUB list learns the phrasing.
+        const scan = scanText([d.intro, d.whyHere, ...d.pestContext.map((p) => `${p.title} ${p.body}`), ...d.faqs.map((f) => `${f.q} ${f.a}`)].join(String.fromCharCode(10)), RULES);
+        if (!scan.clean) {
+          fs.writeFileSync(path.join(OUT_DIR, `${item.slug}.blocked.html`), clean);
+          summary.flagged.push(`${item.slug} (blocked: ${scan.blocking.map((b) => b.match).join("; ")})`);
+          await writeFinding(AGENT_NAME, "compliance", "high", item.target ?? null, `NeuronWriter draft for ${item.slug} not loaded — ${scan.notes}. Scrubbed copy parked at agents/neuronwriter-content/${item.slug}.blocked.html; no state written, so it retries once SCRUB covers the phrasing.`, { query: item.query, blocking: scan.blocking });
+          continue;
+        }
         if (loadCity(item.slug, d)) { summary.loaded.push(`${item.slug} (${d.pestContext.length}p/${d.faqs.length}f/${d.whyHere.split(" ").length}w)`); await stateSet(key, { query: item.query, score: item.score, at: new Date().toISOString() }); continue; }
       }
       fs.writeFileSync(path.join(OUT_DIR, `${item.slug}.scrubbed.html`), clean);
