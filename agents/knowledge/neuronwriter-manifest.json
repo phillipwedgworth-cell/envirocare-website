@@ -1,0 +1,292 @@
+{
+ "_readme": "Best-scoring NeuronWriter draft per keyword (Sep 5 2026 audit). type=city \u2192 written into data/cities.ts; page/service \u2192 scrubbed HTML saved for section placement. 'crawl space encapsulation' deliberately excluded \u2014 killed service.",
+ "entries": [
+  {
+   "query": "694f16db9cb26dcb",
+   "score": 90,
+   "slug": "lake-martin",
+   "type": "city",
+   "target": "/lake-martin"
+  },
+  {
+   "query": "c91a56714adbfadb",
+   "score": 87,
+   "slug": "indian-springs",
+   "type": "city",
+   "target": "/indian-springs"
+  },
+  {
+   "query": "94fc3ba735b024ee",
+   "score": 86,
+   "slug": "eagle-point",
+   "type": "page",
+   "target": "/eagle-point"
+  },
+  {
+   "query": "8c10eeab1c3fa8f7",
+   "score": 86,
+   "slug": "mt-laurel",
+   "type": "city",
+   "target": "/mt-laurel"
+  },
+  {
+   "query": "86ef531030749b92",
+   "score": 86,
+   "slug": "alexander-city",
+   "type": "city",
+   "target": "/alexander-city"
+  },
+  {
+   "query": "3fe5b1d01f9fca7a",
+   "score": 85,
+   "slug": "brook-highland",
+   "type": "page",
+   "target": "/brook-highland"
+  },
+  {
+   "query": "6c690d9da9fa7c93",
+   "score": 84,
+   "slug": "homewood",
+   "type": "page",
+   "target": "/homewood"
+  },
+  {
+   "query": "3c27cd4f15912ffa",
+   "score": 83,
+   "slug": "auburn",
+   "type": "city",
+   "target": "/auburn"
+  },
+  {
+   "query": "547d69710cae2d3b",
+   "score": 83,
+   "slug": "fire-ant",
+   "type": "service",
+   "target": "/services/fire-ant"
+  },
+  {
+   "query": "0feceb0c6ccf219f",
+   "score": 82,
+   "slug": "liberty-park",
+   "type": "page",
+   "target": "/liberty-park"
+  },
+  {
+   "query": "8ef70fe4a69eedcc",
+   "score": 82,
+   "slug": "huntsville",
+   "type": "page",
+   "target": "/huntsville"
+  },
+  {
+   "query": "094c561ed15202ee",
+   "score": 82,
+   "slug": "birmingham",
+   "type": "page",
+   "target": "/birmingham"
+  },
+  {
+   "query": "0638c72612858aad",
+   "score": 81,
+   "slug": "chelsea",
+   "type": "city",
+   "target": "/chelsea"
+  },
+  {
+   "query": "61332555358fe835",
+   "score": 81,
+   "slug": "alabaster",
+   "type": "city",
+   "target": "/alabaster"
+  },
+  {
+   "query": "dc110e0d4c72767f",
+   "score": 81,
+   "slug": "trussville",
+   "type": "page",
+   "target": "/trussville"
+  },
+  {
+   "query": "806aca3db2352594",
+   "score": 81,
+   "slug": "mountain-brook",
+   "type": "page",
+   "target": "/mountain-brook"
+  },
+  {
+   "query": "baa5aa5fd9b48cbb",
+   "score": 81,
+   "slug": "best-pest-control-birmingham",
+   "type": "page",
+   "target": "/best-pest-control-birmingham"
+  },
+  {
+   "query": "54881fe05e4c6ffa",
+   "score": 81,
+   "slug": "birmingham-mosquito-control",
+   "type": "page",
+   "target": "/birmingham-mosquito-control"
+  },
+  {
+   "query": "007b68fa1fca87be",
+   "score": 81,
+   "slug": "termite-control",
+   "type": "service",
+   "target": "/services/termite-control"
+  },
+  {
+   "query": "d69905f43412684d",
+   "score": 81,
+   "slug": "madison",
+   "type": "city",
+   "target": "/madison"
+  },
+  {
+   "query": "b0edf7f9926f80ce",
+   "score": 81,
+   "slug": "athens",
+   "type": "city",
+   "target": "/athens"
+  },
+  {
+   "query": "a85b23a9aea578e1",
+   "score": 80,
+   "slug": "highland-lakes",
+   "type": "page",
+   "target": "/highland-lakes"
+  },
+  {
+   "query": "8510c96c6dcbdc01",
+   "score": 80,
+   "slug": "helena",
+   "type": "city",
+   "target": "/helena"
+  },
+  {
+   "query": "a5ab58a34341fed8",
+   "score": 80,
+   "slug": "wdo-letters",
+   "type": "service",
+   "target": "/services/wdo-letters"
+  },
+  {
+   "query": "470c9a67d2e806c1",
+   "score": 79,
+   "slug": "tick-control",
+   "type": "service",
+   "target": "/services/tick-control"
+  },
+  {
+   "query": "3a1a7781cefeaeb2",
+   "score": 78,
+   "slug": "sylacauga",
+   "type": "city",
+   "target": "/sylacauga"
+  },
+  {
+   "query": "dd6cfc96a49a7ac1",
+   "score": 78,
+   "slug": "flea",
+   "type": "service",
+   "target": "/services/flea"
+  },
+  {
+   "query": "1c4fb530fb279944",
+   "score": 77,
+   "slug": "meadow-brook",
+   "type": "page",
+   "target": "/meadow-brook"
+  },
+  {
+   "query": "38acb2ce2c2ca9f3",
+   "score": 77,
+   "slug": "vestavia-hills",
+   "type": "page",
+   "target": "/vestavia-hills"
+  },
+  {
+   "query": "863b86a9f61303de",
+   "score": 77,
+   "slug": "sentricon",
+   "type": "service",
+   "target": "/services/sentricon"
+  },
+  {
+   "query": "7caf174fef24a20c",
+   "score": 76,
+   "slug": "builders",
+   "type": "page",
+   "target": "/builders"
+  },
+  {
+   "query": "d9f7f56731684c0c",
+   "score": 76,
+   "slug": "commercial",
+   "type": "service",
+   "target": "/services/commercial"
+  },
+  {
+   "query": "34cb05aa899eaa26",
+   "score": 75,
+   "slug": "greystone",
+   "type": "city",
+   "target": "/greystone"
+  },
+  {
+   "query": "9ada25dd3b56aaff",
+   "score": 73,
+   "slug": "huntsville-termite",
+   "type": "page",
+   "target": "/huntsville-termite"
+  },
+  {
+   "query": "708eb25e92eb483e",
+   "score": 73,
+   "slug": "hoover",
+   "type": "page",
+   "target": "/hoover"
+  },
+  {
+   "query": "190872e48bdffb3e",
+   "score": 72,
+   "slug": "pelham",
+   "type": "city",
+   "target": "/pelham"
+  },
+  {
+   "query": "00840a609166aaa5",
+   "score": 72,
+   "slug": "huntsville-mosquito-control",
+   "type": "page",
+   "target": "/huntsville-mosquito-control"
+  },
+  {
+   "query": "c15fec13fdda0990",
+   "score": 59,
+   "slug": "mccalla",
+   "type": "city",
+   "target": "/mccalla"
+  },
+  {
+   "query": "76cfc114e678967c",
+   "score": 56,
+   "slug": "gardendale",
+   "type": "city",
+   "target": "/gardendale"
+  },
+  {
+   "query": "21d41c2926735743",
+   "score": 55,
+   "slug": "bessemer",
+   "type": "city",
+   "target": "/bessemer"
+  },
+  {
+   "query": "508dcd3056241d2d",
+   "score": 49,
+   "slug": "meridianville",
+   "type": "city",
+   "target": "/meridianville"
+  }
+ ]
+}

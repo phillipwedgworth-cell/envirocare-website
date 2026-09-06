@@ -114,7 +114,7 @@ export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   // naming note in data/offices.ts). Hoover goes Over-the-Mountain with
   // Homewood / Mountain Brook / Vestavia per Phillip.
   ...(['birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
-       'trussville', 'irondale', 'leeds', 'moody', 'fultondale',
+       'trussville', 'irondale', 'leeds', 'moody', 'fultondale', 'bessemer', 'mccalla', 'gardendale',
        'crestline', 'english-village', 'cherokee-bend', 'cahaba-heights',
        'mountain-brook-village', 'liberty-park'] as const)
       .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
