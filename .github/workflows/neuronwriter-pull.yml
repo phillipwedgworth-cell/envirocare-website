@@ -19,6 +19,7 @@ jobs:
       - name: Pull + scrub + load
         env:
           NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT:      9d0bec3a70f4743c   # envirocarellc.com project ID (not the domain)
           SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
           SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
