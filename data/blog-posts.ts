@@ -26,6 +26,72 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog-writer 2026-09-06 ───
+  {
+    slug: 'keeping-the-wolf-spiders-in-birmingham-outside-w',
+    title: 'Wolf Spiders in Alabama: How to Keep Them Outside Where They Belong',
+    excerpt: 'Wolf spiders are one of the most common spiders Alabama homeowners find on the floor at night — big, fast, and startling even if they\'re not dangerous. Understanding why they come inside is the first step to keeping them out. Here\'s what actually works.',
+    publishedAt: '2026-10-07',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    metaTitle: 'Wolf Spiders in Alabama: Keep Them Outside',
+    metaDescription: 'Wolf spiders are common across Alabama. Learn where they come from, why they push inside, and what actually works to keep them out of your home.',
+    body: `<p class="lede">You're walking through the kitchen at night, you flip on the light, and something large sprints across the floor toward the baseboard. That's almost certainly a wolf spider. They're thick across Alabama — in the red clay of the Birmingham suburbs, along the creek banks around Lake Martin, in the pine straw beds of Huntsville neighborhoods, and in the sandy soil near the fall line. They're not rare. They're just usually outside, and when they're not, people want to know why.</p>
+
+<h2>What wolf spiders look like and how to tell them apart</h2>
+<p>Wolf spiders in Alabama run large. Most are brown or gray with darker stripes or markings, hairy, and built low to the ground. Adults range from about half an inch to over an inch and a half in body length — some of the larger females look alarming up close. They don't build webs. They hunt on foot, which is why you see them moving across floors, patios, and garage slabs.</p>
+<p>The two species Alabama homeowners encounter most are the <em>Hogna carolinensis</em> (Carolina wolf spider, one of the largest in North America) and several smaller <em>Tigrosa</em> species. Females carry their egg sac attached to their spinnerets, then carry the spiderlings on their backs after hatching — which is unsettling to find inside but is actually normal wolf spider behavior.</p>
+<p>People sometimes confuse wolf spiders with brown recluses. They are not the same. Brown recluses are smaller, plain tan or light brown, and have a violin-shaped marking on their back. Wolf spiders are bigger, patterned, and their eyes are distinctive — two large eyes facing forward in the middle row, four smaller eyes on the bottom row, and two medium eyes on top. If you shine a flashlight at a wolf spider in the dark, their eyes reflect green. Brown recluses do not do that.</p>
+
+<h2>Why Alabama is full of them</h2>
+<p>Alabama's climate is close to ideal for wolf spiders. Mild winters mean populations don't crash the way they would further north. Wet springs fill the ground with insects — prey the spiders follow. Our mix of hardwood leaf litter, pine straw, landscaping mulch, creek margins, and weedy field edges gives wolf spiders exactly the habitat they want: cover, moisture, and food.</p>
+<p>They're especially thick in areas with:</p>
+<ul>
+  <li>Heavy mulch beds against a foundation</li>
+  <li>Ground-level wood piles, railroad ties, or landscape timbers</li>
+  <li>Dense grass or unmowed buffer strips</li>
+  <li>Creek drainages — anywhere from the Cahaba watershed to the fingers of Lake Martin</li>
+  <li>Red clay yards that stay moist after rain</li>
+</ul>
+<p>Alabama gets enough rain that the soil rarely dries out enough to push wolf spider populations down for long. After a wet spell in July or a soggy October, it's common to see them surging.</p>
+
+<h2>Why they come inside</h2>
+<p>Wolf spiders don't prefer your house. They end up inside because a gap existed and conditions outside pushed them toward it. The most common reasons:</p>
+<ul>
+  <li><strong>Cool weather.</strong> As temperatures drop in September and October, wolf spiders search for warmer ground. Gaps under doors, around pipe penetrations, and along garage thresholds let them in.</li>
+  <li><strong>Following prey.</strong> If your house has a cricket or roach problem, wolf spiders will show up hunting. Fix the prey, and fewer spiders follow.</li>
+  <li><strong>Harborage right against the foundation.</strong> Mulch piled against the wall, dense ground cover, or stored firewood gives them a place to live three feet from your door.</li>
+  <li><strong>Light at night.</strong> Exterior lights draw insects. Insects draw wolf spiders. Porch lights, garage floods, and security lights all create insect buffets right at your entry points.</li>
+</ul>
+
+<h2>What you can actually do on your own</h2>
+<p>Some of this is straightforward maintenance. It makes a real difference:</p>
+<ol>
+  <li><strong>Pull mulch back from the foundation.</strong> Aim for a six-inch gap between mulch and your siding or brick. This is not glamorous advice, but it matters more than any spray.</li>
+  <li><strong>Move firewood away from the house.</strong> Stacked wood is a wolf spider apartment complex. Stack it away from the structure and off the ground if you can.</li>
+  <li><strong>Seal gaps.</strong> Door sweeps, foam backer around pipe penetrations, and threshold seals on the garage door stop wolf spiders and everything else. A wolf spider can squeeze through a surprisingly small opening.</li>
+  <li><strong>Switch to yellow or sodium vapor bulbs outside.</strong> They attract fewer insects than white or blue-tinted LED lights. Fewer insects means fewer spiders hunting at your door.</li>
+  <li><strong>Reduce clutter in the garage.</strong> Cardboard boxes on the floor, stacked pots, tarps, and old lawn equipment all give wolf spiders a place to shelter.</li>
+</ol>
+<p>Sticky traps placed along interior baseboards and in corners will tell you how many are getting in and roughly where. They won't solve the problem on their own, but they're a useful monitoring tool.</p>
+
+<h2>What doesn't work</h2>
+<p>People try a lot of things that don't move the needle much. Essential oils — peppermint, tea tree, whatever's popular right now — don't provide meaningful, lasting control outdoors. Spiders are not repelled the way the social media posts suggest. Diatomaceous earth works slowly and only when it stays dry, which is hard to count on in Alabama humidity. And foggers are poor choices for spiders specifically — wolf spiders don't sit in the air column where the fog drifts; they're on the floor, in corners, against baseboards.</p>
+<p>Over-the-counter sprays can kill a wolf spider you hit directly. They don't address why the spider is there or prevent the next one.</p>
+
+<h2>What a bite actually means</h2>
+<p>Wolf spiders are venomous — almost all spiders are — but their venom is not considered medically significant for most people. A bite typically causes local pain, some redness, and swelling that resolves in a few days. They bite when pressed against skin or when handled; they're not aggressive. If you're bitten and have symptoms beyond mild local irritation, or if you have any doubt about what bit you, see a doctor. We are pest control, not medicine, and individual reactions vary.</p>
+
+<h2>How professional pest control helps</h2>
+<p>EnviroCare's <a href="/services/pest-control">general pest control service</a> addresses wolf spiders as part of a broader perimeter and interior treatment. We apply EPA-registered products per label directions along the foundation, in harborage areas, and at entry points — the places where wolf spiders actually travel. Because wolf spiders follow insect populations, we also target the prey that brings them close to the house. That perimeter work, done consistently, is what keeps interior encounters rare.</p>
+<p>Our pest plan runs <strong>$35 per month on a 12-month ACH agreement</strong> (or $70 per visit), with a $75 initial service. We serve homeowners across <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, <a href="/alabaster">Alabaster</a>, <a href="/lake-martin">Lake Martin</a>, and communities throughout central and north Alabama. If wolf spiders have become a regular part of life inside your home, that's a sign the perimeter needs attention — and that's exactly what we're here for.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
 
   // ─── Content batch, 2026-09-05: 15 articles on uncovered intents (rodents, wasps,
   // carpenter ants vs termites, Argentine ants, chiggers, foggers, frequency, Formosans,
