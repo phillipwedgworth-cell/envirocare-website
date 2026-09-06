@@ -1,0 +1,102 @@
+name: Agent findings cleanup (vercel[bot] stubs)
+
+# One-shot maintenance. #130 stopped the workflow RECORDING vercel[bot]'s
+# deployment-preview stubs as Agent findings, but the ~25 rows it already wrote
+# between Aug 27 and Sep 2 are still in agent_findings, so anything reading that
+# table still sees them.
+#
+# DRY RUN BY DEFAULT. It counts and prints the matching rows and deletes
+# nothing. To actually delete, dispatch it with mode = delete.
+#
+# Deliberately narrow: agent_name = 'vercel-agent' AND the title or finding
+# contains the literal "[vc]: #", which is the base64 stub marker and appears in
+# no real Agent review. It cannot match a genuine finding.
+#
+# DDL is NOT possible here — PostgREST does CRUD only, so agents/sql/0005 and
+# 0006 still need the Supabase SQL editor or the MCP connector.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (count only) or delete'
+        required: true
+        default: 'dry-run'
+        type: choice
+        options: [dry-run, delete]
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Count, then optionally delete
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          set -u
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_KEY" ]; then
+            echo "::error::SUPABASE_URL or key secret is empty"; exit 1
+          fi
+          H_APIKEY="apikey: $SUPABASE_KEY"
+          H_AUTH="Authorization: Bearer $SUPABASE_KEY"
+          # or= needs the two like filters grouped; PostgREST spells it or=(a,b)
+          FILTER="agent_name=eq.vercel-agent&or=(title.like.*%5Bvc%5D:%20%23*,finding.like.*%5Bvc%5D:%20%23*)"
+
+          echo "--- matching rows (exact-count header) ---"
+          code=$(curl -s -o /tmp/body -w "%{http_code}" \
+            -H "$H_APIKEY" -H "$H_AUTH" -H "Prefer: count=exact" -H "Range: 0-4" \
+            -D /tmp/hdr "$SUPABASE_URL/rest/v1/agent_findings?$FILTER&select=id,agent_name,title")
+          echo "HTTP $code"
+          grep -i '^content-range' /tmp/hdr || true
+          head -c 900 /tmp/body; echo
+          if [ "$code" != "200" ] && [ "$code" != "206" ]; then
+            echo "::error::read failed — not deleting"; exit 1
+          fi
+
+          if [ "$MODE" != "delete" ]; then
+            echo "DRY RUN — nothing deleted. Re-dispatch with mode=delete to remove these."
+            exit 0
+          fi
+
+          echo "--- deleting ---"
+          code=$(curl -s -o /tmp/del -w "%{http_code}" -X DELETE \
+            -H "$H_APIKEY" -H "$H_AUTH" -H "Prefer: return=representation" \
+            "$SUPABASE_URL/rest/v1/agent_findings?$FILTER")
+          echo "HTTP $code"
+          head -c 400 /tmp/del; echo
+          [ "$code" = "200" ] || [ "$code" = "204" ] || { echo "::error::delete failed"; exit 1; }
+
+          echo "--- remaining after delete (want 0) ---"
+          curl -s -H "$H_APIKEY" -H "$H_AUTH" -H "Prefer: count=exact" -H "Range: 0-0" \
+            -D /tmp/hdr2 -o /dev/null "$SUPABASE_URL/rest/v1/agent_findings?$FILTER&select=id"
+          grep -i '^content-range' /tmp/hdr2 || true
+
+      - name: Has 0006 been applied, and does 0005 still have work to do?
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+        run: |
+          set -u
+          # 0006-seo-intel.sql creates exactly one table, lf_visibility (plus an
+          # index). If it 404s, local-falcon-ingest.mjs from #136 will fail on
+          # its first run and 0006 still needs applying by hand — PostgREST does
+          # CRUD only, so DDL cannot be issued from here.
+          code=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: $SUPABASE_KEY" -H "Authorization: Bearer $SUPABASE_KEY" \
+            "$SUPABASE_URL/rest/v1/lf_visibility?select=*&limit=1")
+          [ "$code" = "200" ] && echo "TABLE_OK      lf_visibility — 0006 applied" \
+                              || echo "TABLE_MISSING lf_visibility (HTTP $code) — 0006 NOT applied"
+
+          # 0005-fleet-top-form.sql is UPDATEs only, no DDL — but they set columns
+          # from other columns with CASE arithmetic, which PATCH cannot express,
+          # so it also needs the SQL editor. This just reports whether the split
+          # it repairs is still present.
+          code=$(curl -s -o /tmp/c -w "%{http_code}" \
+            -H "apikey: $SUPABASE_KEY" -H "Authorization: Bearer $SUPABASE_KEY" \
+            -H "Prefer: count=exact" -H "Range: 0-0" -D /tmp/ch \
+            "$SUPABASE_URL/rest/v1/agent_costs?select=id&or=(cost_usd.is.null,cost_usd.eq.0)&usd_cost=gt.0")
+          echo "agent_costs rows with usd_cost set but cost_usd empty (0005 target):"
+          grep -i '^content-range' /tmp/ch || echo "  HTTP $code"
