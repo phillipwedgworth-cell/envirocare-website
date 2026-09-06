@@ -43,7 +43,8 @@ jobs:
         run: sed -i -E "s/STATIC_LASTMOD = new Date\('[0-9-]+T/STATIC_LASTMOD = new Date('$(date -u +%Y-%m-%d)T/" app/sitemap.ts
       - name: Branch, commit, PR
         if: steps.check.outputs.changed == 'true'
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           BR="content/blog-$(date -u +%Y-%m-%d)"
           git config user.name "envirocare-blog-writer"; git config user.email "agents@envirocarellc.com"

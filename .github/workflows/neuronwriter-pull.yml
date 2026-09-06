@@ -31,7 +31,8 @@ jobs:
         run: npm run test:source && npm run test:generated
       - name: PR
         if: steps.check.outputs.changed == 'true'
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           BR="content/neuronwriter-pull-$(date -u +%Y-%m-%d)"
           git config user.name "envirocare-neuronwriter-pull"; git config user.email "agents@envirocarellc.com"
