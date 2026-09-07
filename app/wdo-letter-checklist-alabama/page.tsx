@@ -23,8 +23,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const TITLE = "Alabama WDO Letter Checklist for Realtors | EnviroCare";
+// 158 chars (was 221).
 const DESC =
-  "A practical pre-inspection checklist for Alabama real estate closings: what to have ready, what delays a WDO letter, and what to do when the report finds activity. Free reference for agents, closing attorneys and lenders.";
+  "A pre-inspection checklist for Alabama closings: what to have ready, what delays a WDO letter, and what to do when the report finds termite activity.";
 
 export const metadata: Metadata = {
   title: TITLE,

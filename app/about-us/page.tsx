@@ -75,7 +75,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'Where is EnviroCare located?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'EnviroCare has four Alabama offices. Our original 1958 office is at 1785 Tallapoosa Street in Alexander City, serving Lake Martin and East Alabama. Our Birmingham office is at 2025 Butler Road in Alabaster. Our Huntsville office is at 7027 Old Madison Pike, Suite 108. Each office has its own technicians and direct phone number.',
+        text: 'EnviroCare has four Alabama offices. Our original 1958 office is at 1785 Tallapoosa Street in Alexander City, serving Lake Martin and East Alabama. Our Birmingham office is at 2120 16th Avenue South, Suite 302, serving Jefferson County. Our Alabaster office is at 2025 Butler Road, serving Shelby County. Our Huntsville office is at 7027 Old Madison Pike, Suite 108. Each office has its own technicians and direct phone number.',
       },
     },
     {

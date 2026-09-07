@@ -6,15 +6,23 @@
 import { GREEN, FOREST, DEEP, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
 import { OFFICES, type OfficeId } from "@/data/offices";
 
-// Order and labels only — the phone and tel: href come from data/offices.ts.
-// NOTE the naming trap documented there: the id 'birmingham' is the ALABASTER
-// office; the city office is 'birmingham-downtown'.
-const FOOTER_OFFICES: { id: OfficeId; label: string }[] = [
-  { id: "birmingham-downtown", label: "Birmingham" },
-  { id: "birmingham", label: "Alabaster" },
-  { id: "lake-martin", label: "Lake Martin / Alex City" },
-  { id: "huntsville", label: "Huntsville" },
-];
+/** Footer office list, derived from data/offices.ts. Order is fixed here; the
+ *  address, phone and tel: href always come from the source of truth. */
+const FOOTER_LABELS: Record<OfficeId, string> = {
+  'birmingham-downtown': "Birmingham",
+  birmingham: "Alabaster",
+  'lake-martin': "Lake Martin / Alex City",
+  huntsville: "Huntsville",
+};
+
+const FOOTER_OFFICES = (
+  ['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'] as OfficeId[]
+).map((id) => ({
+  id,
+  phone: OFFICES[id].phone,
+  phoneHref: OFFICES[id].phoneHref,
+  footerLabel: FOOTER_LABELS[id],
+}));
 
 const TEXT = "#4a5750";
 const MUTED = "#7a887e";
@@ -142,19 +150,17 @@ export default function Footer() {
           <p style={{ ...LINK, color: MUTED, lineHeight: 1.7, marginBottom: 14 }}>
             {HERITAGE} of the Wedgworth family. Serving Alabama from four offices.
           </p>
-          {/* Rendered from data/offices.ts. These four lines used to be hard-coded,
-              and printed (205) 940-6360 TWICE — once labelled "Birmingham", once
-              "Alabaster" — which dated from when Alabaster was the only metro
-              office. The real Birmingham number appeared nowhere in the footer.
-              Sourcing them means a NAP change lands here automatically. */}
-          {FOOTER_OFFICES.map(({ id, label }) => {
-            const o = OFFICES[id];
-            return (
-              <a key={id} href={o.phoneHref} style={PHONE}>
-                <PhoneIcon /> {o.phone} — {label}
-              </a>
-            );
-          })}
+          {/* Rendered from data/offices.ts — the single source of truth.
+              Until 2026-09-06 these four lines were hard-coded and the first two
+              BOTH read "(205) 940-6360", one labelled Birmingham and one
+              Alabaster, while the real Birmingham office ((205) 991-2882,
+              2120 16th Ave S) appeared only in JSON-LD. Deriving the list means
+              adding or moving an office can never again leave the footer stale. */}
+          {FOOTER_OFFICES.map((o) => (
+            <a key={o.id} href={o.phoneHref} style={PHONE}>
+              <PhoneIcon /> {o.phone} — {o.footerLabel}
+            </a>
+          ))}
         </div>
         <div>
           <div style={COL_HEAD}>Core Services</div>

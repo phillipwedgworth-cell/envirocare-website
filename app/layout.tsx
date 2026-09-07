@@ -75,7 +75,11 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection with up to $1M EnviroCare coverage (subject to the terms of the agreement), mosquito and tick yard treatment. Four offices: Birmingham, Alabaster, Lake Martin, Huntsville. Call (205) 940-6360.',
+    // 155 chars. Was 293 — Google truncates around 160, so the office list and the
+    // coverage disclaimer never rendered. The $1M figure is deliberately NOT here:
+    // data/compliance.ts requires it be qualified wherever it appears, and the
+    // qualifier does not fit a snippet. It stays on the pages that can carry it.
+    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection, mosquito and tick yard treatment. Call (205) 940-6360.',
   // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
   // it only signals "template site" to anything parsing the markup.
   authors: [{ name: 'EnviroCare, LLC' }],
@@ -91,7 +95,7 @@ export const metadata: Metadata = {
     siteName: 'EnviroCare',
     title: 'EnviroCare — Family-Owned Alabama Since 1958',
     description:
-      'Bi-monthly pest control, Sentricon® termite protection with $1M EnviroCare coverage, mosquito and tick yard service. Four offices across Alabama.',
+      'Bi-monthly pest control, Sentricon® termite protection, mosquito and tick yard service. Four Alabama offices, family-owned since 1958.',
     images: [
       {
         url: '/og-image.png',
@@ -105,7 +109,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'EnviroCare — Alabama Since 1958',
     description:
-      'Family-owned bi-monthly pest control, Sentricon® termite protection with $1M EnviroCare coverage. Four Alabama offices.',
+      'Family-owned bi-monthly pest control, Sentricon® termite protection, mosquito and tick yard service. Four Alabama offices.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -191,12 +195,15 @@ const BIRMINGHAM_SCHEMA = {
   },
   // GBP verified 2026-09-05 (place_id ChIJjXGa0ZsbiYgR1mB0oEKnqUo). geo from Places.
   geo: { '@type': 'GeoCoordinates', latitude: 33.4968567, longitude: -86.7916696 },
-  // Both entries live in ONE sameAs. This object previously declared sameAs
-  // twice — here, and again after parentOrganization — and the later key wins
-  // in JS, so the shipped JSON-LD carried only the homepage URL and dropped the
-  // GBP link on the one office whose GBP association matters most. tsc reports
-  // that as TS1117, but next.config.ts sets ignoreBuildErrors, so no build ever
-  // failed on it. Keep this as a single key.
+  // ONE sameAs. This object used to declare `sameAs` twice — here with the GBP
+  // link, and again 16 lines below with just the website. A duplicate key in an
+  // object literal is not an error at runtime, the LAST one simply wins, so the
+  // verified Google Business Profile link was silently discarded and the shipped
+  // JSON-LD read `"sameAs":["https://www.envirocarellc.com"]` — the one office
+  // whose GBP association matters most had no GBP link in its schema. The other
+  // three offices (Alabaster, Lake Martin, Huntsville) each carry site + GBP in
+  // a single array; Birmingham now matches them. tsc flagged this as TS1117, but
+  // next.config.ts sets ignoreBuildErrors, so the build never surfaced it.
   sameAs: [
     'https://www.envirocarellc.com',
     'https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo',
@@ -216,7 +223,6 @@ const BIRMINGHAM_SCHEMA = {
     name: 'EnviroCare Pest Services',
     url: 'https://www.envirocarellc.com/',
   },
-
 };
 
 const LAKE_MARTIN_SCHEMA = {
@@ -254,7 +260,13 @@ const HUNTSVILLE_SCHEMA = {
   name: 'EnviroCare — Huntsville',
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    'Family-owned Huntsville pest control and termite service. Sentricon® baiting, $1M EnviroCare coverage, bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
+    // The qualifier is stated HERE rather than relying on the site-wide meta
+    // description to carry it. data/compliance.ts scopes the $1M rule per FILE,
+    // so this schema passed only because an unrelated string 180 lines above
+    // happened to contain the clause — shortening that string turned this line
+    // into a blocking hit. Schema is live copy (AGENTS.md §6); it states its own
+    // terms. The other three office schemas do not cite the figure at all.
+    'Family-owned Huntsville pest control and termite service. Sentricon® baiting with up to $1M in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. Bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
   url: 'https://www.envirocarellc.com/huntsville',
   telephone: '+1-256-937-7676',
   priceRange: '$$',

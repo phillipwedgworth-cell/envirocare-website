@@ -109,9 +109,9 @@ export default function ServiceAreasPage() {
             nearest you.
           </p>
           <p style={{ fontSize: 15.5, lineHeight: 1.7, maxWidth: 760, marginTop: 10, color: '#5A6660' }}>
-            One note on how we work: these are service areas, not storefronts. We have three
-            staffed offices — Alabaster, Alexander City, and Huntsville — and our local crews
-            serve every community listed here as part of their regular routes.
+            One note on how we work: these are service areas, not storefronts. We have four
+            staffed offices — Birmingham, Alabaster, Alexander City, and Huntsville — and our
+            local crews serve every community listed here as part of their regular routes.
           </p>
 
           {/* OFFICES SHOWCASE — Birmingham city office still needs a card + photo */}

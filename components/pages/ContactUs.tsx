@@ -10,63 +10,74 @@ import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-rea
 
 import Header from "@/components/shared/Header";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
-import { OFFICES as SOURCE_OFFICES, type OfficeId } from '@/data/offices';
+import { OFFICES as OFFICE_DATA, type OfficeId } from "@/data/offices";
 const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
 
-// This page renders from data/offices.ts. It used to carry its own hard-coded
-// array of THREE offices while the badge above it read "Our 4 Offices" and this
-// same page's JSON-LD published a fourth — Birmingham at 2120 16th Ave S with
-// (205) 991-2882, a number that appeared nowhere in the visible copy. Visible
-// NAP contradicted structured data on one URL. Only presentation lives here
-// now; every address and phone comes from the source of truth.
-const PRESENTATION: Record<OfficeId, { email: string; hours: string; serves: string; note: string; accent: string }> = {
+/**
+ * The office CARDS below are derived from data/offices.ts — the declared single
+ * source of truth for name, street address, city/ZIP, phone and Maps link.
+ *
+ * WHY (found live 2026-09-06): this file used to carry its own hard-coded
+ * three-office array. data/offices.ts had grown to four offices and the page's
+ * own JSON-LD already published a separate Birmingham entity at 2120 16th Ave S
+ * with (205) 991-2882 — but the visible page still showed three cards, and the
+ * footer printed (205) 940-6360 twice, once labelled "Birmingham" and once
+ * "Alabaster". Visible NAP contradicted the structured data on the same URL.
+ *
+ * scripts/test-city-office-nap.mjs did not catch it: that guard reads only
+ * data/cities.ts. It reported clean the whole time. Only the copy that is
+ * PRESENTATIONAL (blurb, service-area line, accent colour) lives here now;
+ * anything a customer could dial or drive to comes from the source of truth.
+ */
+const OFFICE_ORDER: OfficeId[] = ['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'];
+
+const PRESENTATION: Record<OfficeId, { label: string; serves: string; note: string; accent: string }> = {
   'birmingham-downtown': {
-    email: "service@envirocarellc.com",
-    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
-    // Jefferson / St Clair — the split recorded in data/city-offices.ts.
-    serves: "Birmingham · Southside · Highland Park · Forest Park · Crestwood · Avondale · Five Points South · Homewood · Mountain Brook · Vestavia Hills · Hoover · Trussville · Irondale · Leeds · Crestline · English Village · Cahaba Heights · Liberty Park",
-    note: "Our Birmingham city office, on 16th Avenue South — serving Jefferson and St Clair County.",
+    label: "Birmingham Office",
+    // Jefferson + St Clair County routes, per data/city-offices.ts.
+    serves: "Birmingham · Southside · Five Points South · Highland Park · Forest Park · Crestwood · Avondale · Homewood · Mountain Brook · Vestavia Hills · Hoover · Trussville · Irondale · Leeds · Bessemer · McCalla · Gardendale",
+    note: "Our Birmingham city office on 16th Avenue South, serving Jefferson County and Over the Mountain.",
     accent: G,
   },
   birmingham: {
-    email: "service@envirocarellc.com",
-    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
-    // Shelby — the split recorded in data/city-offices.ts.
-    serves: "Alabaster · Pelham · Helena · Calera · Chelsea · Greystone · Mt Laurel · Inverness · Brook Highland · Meadow Brook · Eagle Point · Highland Lakes · Chelsea Park",
-    note: "Physically located in Alabaster — fastest response in Shelby County.",
-    accent: "#0A6B30",
+    label: "Alabaster Office",
+    // Shelby County routes, per data/city-offices.ts.
+    serves: "Alabaster · Pelham · Helena · Calera · Chelsea · Greystone · Mt Laurel · Inverness · Highland Lakes · Eagle Point · Brook Highland · Meadow Brook",
+    note: "Our Shelby County office on Butler Road — fastest response south of the mountain.",
+    accent: "#0E8E40",
   },
   'lake-martin': {
-    email: "service@envirocarellc.com",
-    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
-    serves: "Lake Martin · Alexander City · Dadeville · Eclectic · Auburn · Opelika · Wetumpka",
+    label: "Alexander City / Lake Martin",
+    serves: "Lake Martin · Alexander City · Dadeville · Eclectic · Auburn · Opelika · Sylacauga",
     note: "Our original office since 1958. The Wedgworth family's home base on Lake Martin.",
     accent: "#0d6b5e",
   },
   huntsville: {
-    email: "service@envirocarellc.com",
-    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
+    label: "Huntsville Office",
     serves: "Huntsville · Madison · Athens · Decatur · Hartselle · Hampton Cove · Harvest · North Alabama",
     note: "Serving North Alabama's fastest growing market — Huntsville, Madison County, and beyond.",
     accent: "#1a5276",
   },
 };
 
-const DISPLAY_ORDER: OfficeId[] = ['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'];
-
-const OFFICES = DISPLAY_ORDER.map((id) => {
-  const o = SOURCE_OFFICES[id];
+const OFFICES = OFFICE_ORDER.map((id) => {
+  const o = OFFICE_DATA[id];
+  const p = PRESENTATION[id];
   return {
-    name: o.name,
+    name: p.label,
     address: o.address.street,
     city: `${o.address.city}, ${o.address.region} ${o.address.postalCode}`,
     phone: o.phone,
-    tel: o.phoneHref.replace(/^tel:\+?1?/, ''),
-    maps: o.googleBusinessProfile ?? '',
-    ...PRESENTATION[id],
+    tel: o.phoneHref.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, ""),
+    email: "service@envirocarellc.com",
+    maps: o.googleBusinessProfile,
+    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
+    serves: p.serves,
+    note: p.note,
+    accent: p.accent,
   };
 });
 
@@ -159,7 +170,7 @@ export default function ContactUs() {
       <section style={{ padding: "56px 40px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 12, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Our 4 Offices</div>
+            <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 12, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Our {OFFICES.length} Offices</div>
             <h2 style={{ fontSize: 30, fontWeight: 400, color: DARK }}>Find Your Nearest Location</h2>
           </div>
 

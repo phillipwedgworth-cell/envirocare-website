@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
   description:
-    "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® baiting with up to $1M EnviroCare coverage, subject to the terms of the agreement. Call (256) 937-7676.",
+    "Termite control in Huntsville AL — Sentricon® in-ground baiting, no drilling. New construction on disturbed soil is termite-prone. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-termite-control',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
-    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® baiting with up to $1M EnviroCare coverage. Call (256) 937-7676.",
+    description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, no drilling. New construction on disturbed soil is termite-prone. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
-    description: "Termite control in Huntsville AL — new construction on disturbed soil is termite-prone. Sentricon® baiting with up to $1M EnviroCare coverage. Call (256) 937-7676.",
+    description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, no drilling. New construction on disturbed soil is termite-prone. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };
@@ -59,7 +59,7 @@ const c: ComboContent = {
     sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 damage repair coverage",
+      "Up to $1,000,000 damage repair coverage, subject to the terms of the agreement",
       "Annual inspection + station service",
       "Free WDO letter yearly for active customers",
       "Free termite inspection to start — no obligation",
