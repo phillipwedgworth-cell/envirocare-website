@@ -66,7 +66,12 @@ const SCRUB = [
   [/\bmosquito[- ]free\b/gi, "mosquito-light"],
   [/\beliminat(e|es|ing|ion)\b(?=[^.]{0,80}mosquito)/gi, "reduc$1"],
   [/\$99 (startup|initial)/g, "$75 initial service"],
-  [/\$150 initial service/g, "$75 initial service"],
+  // NOTE (Phillip, Sep 7 2026): $150 is the REGULAR initial price and $75 is 50% off it
+  // (AGENTS.md §5, /special-offers, PRICING.initialServiceRegular). The old rule here
+  // rewrote "$150 initial service" -> "$75 initial service", which silently destroyed the
+  // anchor and republished the promo price as if it were the everyday price — the exact
+  // defect that keeps reappearing in drafts. Preserve the anchor instead of flattening it.
+  [/\$150 initial service(?! \(50% off)/g, "$150 initial service (50% off — currently $75)"],
   [/\$79 (startup|initial)/g, "$75 initial service"],
 ];
 // FAQ questions that are availability / scheduling promises — dropped entirely
