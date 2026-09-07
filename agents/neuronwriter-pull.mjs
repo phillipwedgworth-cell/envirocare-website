@@ -27,6 +27,7 @@
  * Idempotent: a record whose whyHere already came from NeuronWriter (marker in
  * agent_state) is skipped unless --force.
  */
+import { pathToFileURL } from "node:url";
 import fs from "node:fs";
 import path from "node:path";
 import { logAgentRun, writeFinding } from "./lib/supabase.mjs";
@@ -176,4 +177,7 @@ export async function run() {
 }
 
 export const _test = { scrub, parseDraft, loadCity };
-if (import.meta.url === `file://${process.argv[1]}`) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
+// pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is
+// `C:\…` and import.meta.url is `file:///c:/…`, so the POSIX form never matches
+// and running this directly exits 0 having done nothing and printed nothing.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });

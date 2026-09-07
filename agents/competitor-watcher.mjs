@@ -17,6 +17,7 @@
  * Comparisons are made ONLY between two runs that share the same
  * grid_baseline. A grid change makes SoLV numbers non-comparable.
  */
+import { pathToFileURL } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
@@ -134,4 +135,7 @@ export async function run() {
   return summary;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
+// pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is
+// `C:\…` and import.meta.url is `file:///c:/…`, so the POSIX form never matches
+// and running this directly exits 0 having done nothing and printed nothing.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
