@@ -12,9 +12,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const TITLE = "WDO Letters for Alabama Closings — Agent & Attorney Direct | EnviroCare";
+// TITLE 58 chars (was 71), DESC 156 (was 230). The old description used three
+// em-dashes and buried the loan types Google never rendered.
+const TITLE = "WDO Letters for Alabama Closings | EnviroCare";
 const DESC =
-  "Order Alabama WDO inspection letters — the Official Alabama Wood Infestation Inspection Report — for your closings — VA, FHA, conventional & refi accepted. Direct scheduling for agents, closing attorneys & lenders. (205) 940-6360.";
+  "Order Alabama WDO inspection letters for your closings — VA, FHA, conventional and refi accepted. Direct scheduling for agents and attorneys. (205) 940-6360.";
 
 export const metadata: Metadata = {
   title: TITLE,

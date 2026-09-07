@@ -4,6 +4,25 @@
 // phones, services, areas, legal links.
 
 import { GREEN, FOREST, DEEP, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
+import { OFFICES, type OfficeId } from "@/data/offices";
+
+/** Footer office list, derived from data/offices.ts. Order is fixed here; the
+ *  address, phone and tel: href always come from the source of truth. */
+const FOOTER_LABELS: Record<OfficeId, string> = {
+  'birmingham-downtown': "Birmingham",
+  birmingham: "Alabaster",
+  'lake-martin': "Lake Martin / Alex City",
+  huntsville: "Huntsville",
+};
+
+const FOOTER_OFFICES = (
+  ['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'] as OfficeId[]
+).map((id) => ({
+  id,
+  phone: OFFICES[id].phone,
+  phoneHref: OFFICES[id].phoneHref,
+  footerLabel: FOOTER_LABELS[id],
+}));
 
 const TEXT = "#4a5750";
 const MUTED = "#7a887e";
@@ -131,13 +150,17 @@ export default function Footer() {
           <p style={{ ...LINK, color: MUTED, lineHeight: 1.7, marginBottom: 14 }}>
             {HERITAGE} of the Wedgworth family. Serving Alabama from four offices.
           </p>
-          {/* The footer says "four offices", so list four. The 940-6360 line was
-              labelled "Birmingham" back when Alabaster was the only metro office;
-              with a real Birmingham office that label is now wrong. */}
-          <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Birmingham</a>
-          <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Alabaster</a>
-          <a href="tel:2562346162" style={PHONE}><PhoneIcon /> (256) 234-6162 — Lake Martin / Alex City</a>
-          <a href="tel:2569377676" style={PHONE}><PhoneIcon /> (256) 937-7676 — Huntsville</a>
+          {/* Rendered from data/offices.ts — the single source of truth.
+              Until 2026-09-06 these four lines were hard-coded and the first two
+              BOTH read "(205) 940-6360", one labelled Birmingham and one
+              Alabaster, while the real Birmingham office ((205) 991-2882,
+              2120 16th Ave S) appeared only in JSON-LD. Deriving the list means
+              adding or moving an office can never again leave the footer stale. */}
+          {FOOTER_OFFICES.map((o) => (
+            <a key={o.id} href={o.phoneHref} style={PHONE}>
+              <PhoneIcon /> {o.phone} — {o.footerLabel}
+            </a>
+          ))}
         </div>
         <div>
           <div style={COL_HEAD}>Core Services</div>

@@ -313,10 +313,23 @@ terms of the agreement` should appear too.
 
 - ☠️ **`(205) 649-5278` is a dead tracking number.** Any diff adding it is a
   blocking error.
-- **`(205) 991-2882` and `2120 16th Ave S` are retired from customer-facing
-  pages** as of 2026-08-24. That office has no Google Business Profile;
-  publishing it worked against local rankings. The record survives in
-  `data/offices.ts` only.
+- ✅ **`(205) 991-2882` and `2120 16th Ave S, Ste 302` are PUBLISHED again**, per
+  the 2026-09-05 ruling recorded at the top of this file. The 2026-08-24
+  retirement of that pairing rested on one stated premise — "that office has no
+  Google Business Profile" — and the premise expired when the 16th Ave GBP was
+  verified live via the Places API on 2026-09-05 (place_id
+  `ChIJjXGa0ZsbiYgR1mB0oEKnqUo`, OPERATIONAL, 5.0 from 10 reviews). Jefferson and
+  St Clair County pages carry this pairing; Shelby County stays on Butler Rd /
+  (205) 940-6360. `data/city-offices.ts` holds the split.
+  Do NOT flag a diff that publishes this office — flag one that removes it.
+  (This bullet said the opposite until 2026-09-06. Two sections of this one file
+  disagreed for a day: the ruling at the top was current, this rule was not.
+  A guard that reads only this section would have blocked the correct change.)
+- **Four offices means four.** `data/offices.ts` is the source of truth for every
+  office name, street address, phone and `tel:` href. `components/pages/ContactUs.tsx`
+  and `components/shared/Footer.tsx` render FROM it — flag any diff that
+  reintroduces a hard-coded office list to either, and any copy asserting
+  "three staffed offices".
 - A Birmingham-region page must never show the Huntsville number, or the
   reverse. Seven city pages had this wrong in their **meta descriptions**.
 

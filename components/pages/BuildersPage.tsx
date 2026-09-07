@@ -30,7 +30,7 @@ export default function BuildersPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">For Home Builders & GCs</span></div>
-          <h1>Pre-Slab Termite<em>Done Right</em></h1>
+          <h1>Pre-Slab Termite{" "}<em>Done Right</em></h1>
           <p className="page-hero-sub">
             Code-compliant soil treatment before pour. Sentricon® install at landscape phase. WDO letter at closing. One vendor, coordinated to your construction schedule — so your buyer takes possession with active protection from day one.
           </p>

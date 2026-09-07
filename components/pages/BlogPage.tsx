@@ -20,7 +20,7 @@ export default function BlogPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">EnviroCare Pest Journal</span></div>
-          <h1>Real Alabama<em>Pest Knowledge</em></h1>
+          <h1>Real Alabama{" "}<em>Pest Knowledge</em></h1>
           <p className="page-hero-sub">68 years of field experience, distilled into articles. Coming soon — seasonal pest guides, Sentricon® deep-dives, and Alabama-specific advice you won\'t find in big-box pest control marketing.</p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
