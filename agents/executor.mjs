@@ -67,20 +67,39 @@ const SHIP = MODE === "ship";
 const FIXTURE = argOf("fixture");
 
 // GBP listings, keyed the way action_payload.location is keyed. `phone` is the
-// number of the LISTING a post publishes to, which is not always the number of
-// the nominal city — see the Birmingham note. Mirrors the route table in
-// agents/oneup-push.mjs; the account ids themselves are resolved at runtime
-// from OneUp so a reconnect or a new listing needs no edit here.
+// number of the LISTING a post publishes to. `match` is a substring of the
+// OneUp account's full_name; the account ids themselves are resolved at runtime
+// from OneUp so a reconnect needs no edit here.
+//
+// EVERY PAIRING BELOW WAS VERIFIED AGAINST OneUp listsocialaccounts on
+// 2026-09-07. All four GBP listings are connected with is_expired = 0:
+//   Envirocare (2025 Butler Rd, Alabaster, Alabama, US)
+//   Envirocare (1785 Tallapoosa Street, Alexander City, Alabama, US)
+//   EnviroCare (7027 Old Madison Pike NW, Huntsville, Alabama, US)
+//   EnviroCare (2120 16th Ave S, Birmingham, AL, US)
+//
+// THE BIRMINGHAM ROUTE IS NOT A FALLBACK, as of 2026-09-07. An earlier draft of
+// this file sent Birmingham-metro posts to the Alabaster listing carrying
+// (205) 940-6360, on the stated assumption that OneUp had no connection to the
+// 16th Ave S profile. That assumption was never checked, and it was wrong: the
+// listing is connected and healthy. Two independent sources now agree it should
+// be published — AGENTS.md's 2026-09-05 county ruling (Jefferson / St Clair →
+// 2120 16th Ave S, (205) 991-2882; Shelby → 2025 Butler Rd, (205) 940-6360) and
+// PR #146, which reinstated that pairing sitewide and says in terms: "Do NOT
+// flag a diff that publishes this office — flag one that removes it."
+//
+// Phones must match data/offices.ts ('birmingham-downtown' is the 16th Ave S
+// office; the OfficeId 'birmingham' is ALABASTER — see the naming trap in
+// AGENTS.md). They are literals here rather than an import because this is a
+// .mjs agent and data/offices.ts is TypeScript; the NAP guard in evaluateRow is
+// what makes a drift here loud instead of silent.
 const ROUTES = {
   huntsville: { match: "old madison pike", phone: "(256) 937-7676", listing: "Huntsville GBP" },
   lake_martin: { match: "tallapoosa", phone: "(256) 234-6162", listing: "Alex City GBP" },
+  // Shelby County. Also the primary company-wide line.
   alabaster: { match: "butler rd", phone: "(205) 940-6360", listing: "Alabaster GBP" },
-  // The 16th Ave S profile was GBP-verified 2026-09-05, but OneUp is not
-  // connected to it (verify with listsocialaccounts before changing this).
-  // Until it is, Birmingham-metro posts publish to the Alabaster listing and
-  // must therefore carry Alabaster's number — 940-6360, which is also the
-  // primary company line. Flagged as a fallback so the log says so out loud.
-  birmingham: { match: "butler rd", phone: "(205) 940-6360", listing: "Alabaster GBP", fallback: true },
+  // Jefferson / St Clair County.
+  birmingham: { match: "16th ave", phone: "(205) 991-2882", listing: "Birmingham GBP" },
 };
 
 // ── OneUp ────────────────────────────────────────────────────────────────────
@@ -248,7 +267,7 @@ export function evaluateRow(row, { prohibitions, canonRows, now, leadDays = LEAD
   const phones = [...new Set(copy.match(/\(\d{3}\)\s?\d{3}-\d{4}/g) ?? [])];
   const wrong = phones.filter((p) => p !== route.phone);
   if (wrong.length) {
-    gate.blocking.push({ rule: "nap:listing-mismatch", match: wrong.join(", "), reason: `publishes to ${route.listing} (${route.phone})${route.fallback ? " — a FALLBACK route, this location has no OneUp-connected GBP" : ""} but the copy says ${wrong.join(", ")}` });
+    gate.blocking.push({ rule: "nap:listing-mismatch", match: wrong.join(", "), reason: `publishes to ${route.listing} (${route.phone}) but the copy says ${wrong.join(", ")}` });
     gate.clean = false;
   }
 
@@ -353,7 +372,7 @@ export async function run() {
   for (const [i, d] of shipped.entries()) {
     const route = accounts?.[d.location] ?? ROUTES[d.location];
     if (!SHIP) {
-      console.log(`[${AGENT_NAME}] WOULD SHIP ${d.row.id} → ${d.location} (${route.listing})${route.fallback ? " [fallback route]" : ""}: ${d.row.title}`);
+      console.log(`[${AGENT_NAME}] WOULD SHIP ${d.row.id} → ${d.location} (${route.listing}): ${d.row.title}`);
       if (d.gate?.warnings?.length) {
         for (const w of d.gate.warnings) console.log(`[${AGENT_NAME}]   warn — ${w.rule}: ${w.reason} ("${String(w.match).slice(0, 60)}")`);
       }
