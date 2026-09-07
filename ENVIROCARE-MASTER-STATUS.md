@@ -112,10 +112,18 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 
 - Bi-monthly pest: $35/mo ACH · $70/visit · $108 quarterly · initial $150 (ask about $99). Covers 30+ pests. Fire ant/flea/tick NOT included.
 - Fire ant: $150 minimum, priced per sq ft of covered area. Standalone, open to anyone. Locked copy: "Starting at $150 — priced by the size of your yard."
-- Tick: $150 minimum standalone, OR +$20/treatment with mosquito ($65 total) = **Outdoor Pro $49/mo** ($65 × 9 treatments Mar–Nov billed evenly across 12 months). Chigger coverage included. NO flea in Outdoor.
-- Mosquito alone: $45/mo, 9 treatments Mar–Nov, 30-day cycle.
+- Tick: $150 minimum standalone, OR +$20/treatment with mosquito ($65 total) = **Outdoor Pro $49/mo** ($65 × 8 treatments Mar–Oct billed evenly across 12 months). Chigger coverage included. NO flea in Outdoor.
+- Mosquito alone: $45/treatment, ~8 treatments Mar–Oct, 30-day cycle.
 - Interior + exterior quarterly plan: $98/quarter. Flea = +$30/quarter add-on REQUIRING it ($128/quarter). Page: /services/interior-pest-control.
-- Sentricon: $32/mo OR $325 install (includes year-1 guarantee) + $380/yr renewal. Up to $1M coverage.
+- Sentricon: $325 install (includes year-1 guarantee), renewal **as low as $30/mo — $360/yr — always subject to inspection**. Up to $1M coverage, subject to the terms of the agreement.
+
+> ⚠️ Corrected 2026-09-07. The three lines above previously read "9 treatments
+> Mar–Nov", "$45/mo" and "$32/mo … $380/yr renewal". Mosquito season was ruled
+> **March–October, about 8 treatments** on 2026-08-26, and $32/$380 are the
+> retracted termite figures traced to pre-2026 website data. They were still
+> stated here as current fact, and this file is one an agent reads. All four
+> values are now regexes in `data/compliance.ts`, so a diff reintroducing them
+> fails `npm run test:source` instead of surviving in prose.
 - ~~Plans: Essential $35 · Foundation $67 · Outdoor Pro $49 · **Complete $116**~~ **SUPERSEDED — these are Jun-11 spec numbers, not live prices. data/pricing.ts reads $35 / $69 / ~$100. Do not implement.** Original for history:
 
 ## DO NOT
