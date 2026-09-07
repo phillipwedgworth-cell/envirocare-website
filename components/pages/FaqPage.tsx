@@ -27,7 +27,7 @@ export default function FaqPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">Frequently Asked Questions</span></div>
-          <h1>Real Answers To<em>Real Questions</em></h1>
+          <h1>Real Answers To{" "}<em>Real Questions</em></h1>
           <p className="page-hero-sub">
             68 years of customer questions, organized. If you don&rsquo;t see your question here, call us at (205) 940-6360 — a real person answers.
           </p>

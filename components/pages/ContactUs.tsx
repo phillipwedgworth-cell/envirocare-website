@@ -10,52 +10,65 @@ import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-rea
 
 import Header from "@/components/shared/Header";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import { OFFICES as SOURCE_OFFICES, type OfficeId } from '@/data/offices';
 const G = "#0A7935";
 const GOLD = "#F5A800";
 const DARK = "#0E1A0F";
 const sf = { fontFamily: "system-ui, -apple-system, sans-serif" };
 
-const OFFICES = [
-  {
-    name: "Birmingham / Alabaster Office",
-    address: "2025 Butler Rd",
-    city: "Alabaster, AL 35007",
-    phone: "(205) 940-6360",
-    tel: "2059406360",
+// This page renders from data/offices.ts. It used to carry its own hard-coded
+// array of THREE offices while the badge above it read "Our 4 Offices" and this
+// same page's JSON-LD published a fourth — Birmingham at 2120 16th Ave S with
+// (205) 991-2882, a number that appeared nowhere in the visible copy. Visible
+// NAP contradicted structured data on one URL. Only presentation lives here
+// now; every address and phone comes from the source of truth.
+const PRESENTATION: Record<OfficeId, { email: string; hours: string; serves: string; note: string; accent: string }> = {
+  'birmingham-downtown': {
     email: "service@envirocarellc.com",
-    maps: "https://www.google.com/maps?cid=7378341068021381374",
     hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
-    serves: "Birmingham · Southside · Highland Park · Forest Park · Crestwood · Avondale · Five Points South · Hoover · Chelsea · Pelham · Alabaster · Vestavia Hills · Mountain Brook · Homewood · Helena · Calera",
-    note: "Our Birmingham-area office is physically located in Alabaster — fastest response in Shelby County.",
+    // Jefferson / St Clair — the split recorded in data/city-offices.ts.
+    serves: "Birmingham · Southside · Highland Park · Forest Park · Crestwood · Avondale · Five Points South · Homewood · Mountain Brook · Vestavia Hills · Hoover · Trussville · Irondale · Leeds · Crestline · English Village · Cahaba Heights · Liberty Park",
+    note: "Our Birmingham city office, on 16th Avenue South — serving Jefferson and St Clair County.",
     accent: G,
   },
-  {
-    name: "Alexander City / Lake Martin",
-    address: "1785 Tallapoosa St",
-    city: "Alexander City, AL 35010",
-    phone: "(256) 234-6162",
-    tel: "2562346162",
+  birmingham: {
     email: "service@envirocarellc.com",
-    maps: "https://www.google.com/maps?cid=12101127141767078247",
+    hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
+    // Shelby — the split recorded in data/city-offices.ts.
+    serves: "Alabaster · Pelham · Helena · Calera · Chelsea · Greystone · Mt Laurel · Inverness · Brook Highland · Meadow Brook · Eagle Point · Highland Lakes · Chelsea Park",
+    note: "Physically located in Alabaster — fastest response in Shelby County.",
+    accent: "#0A6B30",
+  },
+  'lake-martin': {
+    email: "service@envirocarellc.com",
     hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
     serves: "Lake Martin · Alexander City · Dadeville · Eclectic · Auburn · Opelika · Wetumpka",
     note: "Our original office since 1958. The Wedgworth family's home base on Lake Martin.",
     accent: "#0d6b5e",
   },
-  {
-    name: "Huntsville Office",
-    address: "7027 Old Madison Pike, Suite 108",
-    city: "Huntsville, AL 35806",
-    phone: "(256) 937-7676",
-    tel: "2569377676",
+  huntsville: {
     email: "service@envirocarellc.com",
-    maps: "https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8",
     hours: "Mon–Fri 8am–5pm · Sat & Sun Closed",
     serves: "Huntsville · Madison · Athens · Decatur · Hartselle · Hampton Cove · Harvest · North Alabama",
     note: "Serving North Alabama's fastest growing market — Huntsville, Madison County, and beyond.",
     accent: "#1a5276",
   },
-];
+};
+
+const DISPLAY_ORDER: OfficeId[] = ['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'];
+
+const OFFICES = DISPLAY_ORDER.map((id) => {
+  const o = SOURCE_OFFICES[id];
+  return {
+    name: o.name,
+    address: o.address.street,
+    city: `${o.address.city}, ${o.address.region} ${o.address.postalCode}`,
+    phone: o.phone,
+    tel: o.phoneHref.replace(/^tel:\+?1?/, ''),
+    maps: o.googleBusinessProfile ?? '',
+    ...PRESENTATION[id],
+  };
+});
 
 export default function ContactUs() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", city: "", service: "", message: "" });

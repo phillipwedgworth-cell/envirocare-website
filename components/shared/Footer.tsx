@@ -4,6 +4,17 @@
 // phones, services, areas, legal links.
 
 import { GREEN, FOREST, DEEP, displayFont, bodyFont, TAGLINE, HERITAGE } from "@/lib/brand";
+import { OFFICES, type OfficeId } from "@/data/offices";
+
+// Order and labels only — the phone and tel: href come from data/offices.ts.
+// NOTE the naming trap documented there: the id 'birmingham' is the ALABASTER
+// office; the city office is 'birmingham-downtown'.
+const FOOTER_OFFICES: { id: OfficeId; label: string }[] = [
+  { id: "birmingham-downtown", label: "Birmingham" },
+  { id: "birmingham", label: "Alabaster" },
+  { id: "lake-martin", label: "Lake Martin / Alex City" },
+  { id: "huntsville", label: "Huntsville" },
+];
 
 const TEXT = "#4a5750";
 const MUTED = "#7a887e";
@@ -131,13 +142,19 @@ export default function Footer() {
           <p style={{ ...LINK, color: MUTED, lineHeight: 1.7, marginBottom: 14 }}>
             {HERITAGE} of the Wedgworth family. Serving Alabama from four offices.
           </p>
-          {/* The footer says "four offices", so list four. The 940-6360 line was
-              labelled "Birmingham" back when Alabaster was the only metro office;
-              with a real Birmingham office that label is now wrong. */}
-          <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Birmingham</a>
-          <a href="tel:2059406360" style={PHONE}><PhoneIcon /> (205) 940-6360 — Alabaster</a>
-          <a href="tel:2562346162" style={PHONE}><PhoneIcon /> (256) 234-6162 — Lake Martin / Alex City</a>
-          <a href="tel:2569377676" style={PHONE}><PhoneIcon /> (256) 937-7676 — Huntsville</a>
+          {/* Rendered from data/offices.ts. These four lines used to be hard-coded,
+              and printed (205) 940-6360 TWICE — once labelled "Birmingham", once
+              "Alabaster" — which dated from when Alabaster was the only metro
+              office. The real Birmingham number appeared nowhere in the footer.
+              Sourcing them means a NAP change lands here automatically. */}
+          {FOOTER_OFFICES.map(({ id, label }) => {
+            const o = OFFICES[id];
+            return (
+              <a key={id} href={o.phoneHref} style={PHONE}>
+                <PhoneIcon /> {o.phone} — {label}
+              </a>
+            );
+          })}
         </div>
         <div>
           <div style={COL_HEAD}>Core Services</div>

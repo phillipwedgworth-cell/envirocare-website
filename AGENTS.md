@@ -307,16 +307,24 @@ terms of the agreement` should appear too.
 
 | Market | Phone | Address |
 |---|---|---|
-| Birmingham metro (MAIN) | `(205) 940-6360` | 2025 Butler Rd, Alabaster |
+| Company-wide / primary intake | `(205) 940-6360` | — |
+| Shelby County (Alabaster) | `(205) 940-6360` | 2025 Butler Rd, Alabaster |
+| Jefferson / St Clair (Birmingham) | `(205) 991-2882` | 2120 16th Ave S, Ste 302, Birmingham |
 | Alex City / Lake Martin | `(256) 234-6162` | 1785 Tallapoosa St, Alexander City |
 | Huntsville / North AL | `(256) 937-7676` | 7027 Old Madison Pike Ste 108 |
 
 - ☠️ **`(205) 649-5278` is a dead tracking number.** Any diff adding it is a
   blocking error.
-- **`(205) 991-2882` and `2120 16th Ave S` are retired from customer-facing
-  pages** as of 2026-08-24. That office has no Google Business Profile;
-  publishing it worked against local rankings. The record survives in
-  `data/offices.ts` only.
+- **`(205) 991-2882` and `2120 16th Ave S` are PUBLISHED again** as of
+  2026-09-05, on the Jefferson County city pages and in the `#birmingham`
+  schema node. This reverses the 2026-08-24 retirement, whose sole stated
+  reason — that the office had no Google Business Profile — expired when that
+  profile was verified. See the dated notes under "Business facts" above for
+  the county split and the Places API confirmation.
+  ⚠️ This bullet previously still read "retired from customer-facing pages …
+  that office has no Google Business Profile", contradicting the top of this
+  same file for two days after the change shipped. If you change the NAP rules,
+  change them in BOTH places.
 - A Birmingham-region page must never show the Huntsville number, or the
   reverse. Seven city pages had this wrong in their **meta descriptions**.
 

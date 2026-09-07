@@ -20,7 +20,7 @@ export default function ReviewsPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">What Alabama Says About Us</span></div>
-          <h1>Five-Star<em>Google Reviews</em></h1>
+          <h1>Five-Star{" "}<em>Google Reviews</em></h1>
           <p className="page-hero-sub">68 years. Four generations of the Wedgworth family. Thousands of Alabama homes treated. Here&rsquo;s what our customers say — verified on Google.</p>
           <div className="page-hero-cta">
             <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read All Google Reviews →</a>
