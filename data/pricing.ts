@@ -27,12 +27,15 @@ export const PRICING = {
     pest: {
       label: 'Pest Control',
       fromMonthly: 35,           // From $35/mo
-      startup: 75,               // FLAT $75 initial service — all plans (Phillip, Aug 24 2026)
+      startup: 75,               // WHAT THE CUSTOMER PAYS TODAY — this is the 50%-off
+                                 // promo price, not the regular price. Pages render this
+                                 // figure, so it must stay 75 while the offer is live.
+                                 // The $150 anchor lives in initialServiceRegular.
     },
     pestMosquito: {
       label: 'Pest + Mosquito',
       fromMonthly: 69,           // From $69/mo
-      startup: 75,               // FLAT $75 initial service — all plans
+      startup: 75,               // promo price actually charged — see initialServiceRegular
       badge: 'Most Popular',
     },
     complete: {
@@ -46,11 +49,29 @@ export const PRICING = {
     },
   },
 
-  // Standard initial-service fee: a flat $75, replacing the old $79 split
-  // (Phillip, Aug 24 2026). Complete is the deliberate exception and stays at
-  // $229 — read plans.<plan>.startup, not this, when a plan is in hand.
+  // Effective initial-service fee — the number pages render. $75 today because
+  // the 50%-off offer is live. Complete is the deliberate exception at $229
+  // (Phillip, Aug 24 2026) — read plans.<plan>.startup when a plan is in hand.
   initialServiceFee: 75,
   initialServiceFeeExceptions: { complete: 229 },
+
+  // THE ANCHOR (Phillip, Sep 7 2026 — reconciles this file with AGENTS.md §5 and
+  // /special-offers, which already documented it). The $75 is 50% off a $150
+  // REGULAR price; it is not a flat price and no other discount may stack on it.
+  // Customer-facing copy must carry the anchor and a promo label — e.g.
+  // "$150 standard, currently $75 with 50% off your initial pest service."
+  // A bare "$75 initial service fee" presented as the everyday price loses the
+  // anchor and is prohibited. $79 is retired.
+  initialServiceRegular: 150,
+  initialServicePromo: {
+    active: true,
+    price: 75,
+    percentOff: 50,
+    appliesTo: ['pest', 'pestMosquito'],
+    label: '50% off your initial pest service',
+    // ⚠️ OPEN: does the offer extend to Complete ($229)? Unconfirmed — ask before
+    // showing promo framing on Complete.
+  },
 
   addOns: {
     // RULED 2026-08-26 (Phillip, with service_canon.mosquito): the mosquito

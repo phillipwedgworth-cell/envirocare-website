@@ -3,7 +3,7 @@
 // posts (previously orphaned behind a hardcoded "Coming Soon" placeholder) are
 // listed and linkable. Styling carried via BLOG_CSS (see blogStyles.ts).
 import Link from 'next/link';
-import { getAllPosts } from '@/data/blog-posts';
+import { getPublishedPosts } from '@/data/blog-posts';
 import { BLOG_CSS } from './blogStyles';
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
@@ -33,7 +33,10 @@ function fmtDate(iso: string) {
 }
 
 export default function Page() {
-  const posts = [...getAllPosts()].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  // getPublishedPosts() already sorts newest-first and drops anything dated in
+  // the future. Do NOT swap this back to getAllPosts(): on 2026-09-07 this index
+  // was publicly serving fifteen posts dated up to Oct 6.
+  const posts = getPublishedPosts();
 
   return (
     <>

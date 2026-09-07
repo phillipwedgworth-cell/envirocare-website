@@ -46,6 +46,7 @@
 //       node agents/oneup-push.mjs --live     # actually schedules in OneUp
 //       node agents/oneup-push.mjs --audit    # NAP-check everything already scheduled
 
+import { pathToFileURL } from "node:url";
 import { supabase, logAgentRun } from "./lib/supabase.mjs";
 
 const AGENT_NAME = "oneup-push";
@@ -316,6 +317,9 @@ export async function run() {
   return { pushed, results, summary };
 }
 
-if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith("oneup-push.mjs")) {
+// pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is
+// `C:\…` and import.meta.url is `file:///c:/…`, so the POSIX form never matches
+// and running this directly exits 0 having done nothing and printed nothing.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   run().catch((e) => { console.error(e); process.exit(1); });
 }

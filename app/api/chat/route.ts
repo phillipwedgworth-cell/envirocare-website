@@ -160,7 +160,7 @@ SERVICES & REAL PRICING (be confident — these are the actual numbers):
    - Unlimited free re-service between visits if pests come back
 
 2. SENTRICON® TERMITE PROTECTION
-   - NO flat monthly price to the customer — Alabama requires a free WDO inspection first, then we quote it exact. (Internal facts only, never quote as a monthly: $325 install incl. year-1 guarantee, then $380/yr renewal.)
+   - NO flat monthly price to the customer — Alabama requires a free WDO inspection first, then we quote it exact. (Internal facts only, never quote as a monthly: $325 install incl. year-1 guarantee, then renewal as low as $360/yr — $30/mo — always subject to inspection.)
    - Always Active bait stations — no drilling, no liquid chemicals around the house
    - Eliminates the entire colony, not just the workers
    - Up to $1,000,000 in damage repair coverage

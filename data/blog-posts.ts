@@ -26,6 +26,61 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog-writer 2026-09-07 ───
+  {
+    slug: 'keeping-the-wolf-spiders-in-birmingham-outside-w',
+    title: 'Wolf Spiders in Alabama: How to Keep Them Outside Where They Belong',
+    excerpt: 'Wolf spiders are one of the most common spiders in Alabama, and they\'re fast, big, and startling when they show up inside your house. They\'re not looking to live with you — they follow food and moisture — but that doesn\'t make them welcome. Here\'s how to think about the problem and what actually helps.',
+    publishedAt: '2026-10-07',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    metaTitle: 'Wolf Spiders in Alabama: Keep Them Outside',
+    metaDescription: 'Wolf spiders are common across Alabama and will move indoors when conditions change. Here\'s what draws them in and how to keep them out.',
+    body: `<p class="lede">Walk across your patio on a warm September evening in Hoover or Helena, shine a flashlight toward the grass, and you'll likely see eyes reflecting back at you. That's a wolf spider. They're everywhere in Alabama — in the red clay, along the creek banks, in the pine straw under your shrubs — and most of the time they stay outside doing exactly what we'd want them to do. The problem is when they don't. When temperatures swing, rain pushes them up out of low spots, or a garage door gets left open, they come inside. And a wolf spider moving fast across your living room floor is not something most people take calmly.</p>
+
+<h2>What wolf spiders actually look like</h2>
+<p>People mistake wolf spiders for brown recluses more than almost any other spider in Alabama, and the two are not the same animal. Wolf spiders are thick-bodied and large — a full-grown female can be an inch and a half long not counting the legs. They're brown and gray with darker banding or striping, and they tend to be hairy in a way that makes them look even bigger than they are. Their eyes are one of their best identifiers: wolf spiders have eight eyes arranged in three rows, with the middle row having two that are noticeably large. Shine a light at one in the dark and those big eyes glow back at you.</p>
+<p>They don't build webs. They chase down prey on foot, which is why you see them running rather than sitting in a corner. A female wolf spider carries her egg sac attached to her abdomen, and once eggs hatch, the spiderlings ride on her back for a short time. If you ever squash a female and a dozen tiny spiders scatter — that's what happened.</p>
+
+<h2>Why Alabama has so many of them</h2>
+<p>Alabama is good wolf spider habitat in almost every way. The soil here — whether it's the sandy loam in Shelby County, the dark bottomland soil along the Coosa, or the rocky clay up around Huntsville — gives wolf spiders all the burrowing and hiding structure they need. We also have the insects they eat: crickets, small roaches, beetles, and other ground-level bugs are abundant from March through October, sometimes longer. Add in the moisture from our creek systems and the humidity that sits on neighborhoods from May through September, and you have conditions that support a very healthy wolf spider population.</p>
+<p>Communities built near wooded edges — which covers a lot of the Birmingham metro, the Lake Martin area, and neighborhoods across Madison County — tend to see more wolf spider pressure. More edge habitat means more prey, which means more spiders working those edges.</p>
+
+<h2>What brings them inside</h2>
+<p>Wolf spiders come inside for the same reasons most pests do: something outside changed, and inside looks better. The most common triggers in Alabama are:</p>
+<ul>
+  <li><strong>Heavy rain.</strong> When we get the kind of multi-day soaking rain systems that stall over North Alabama or push up from the Gulf, low spots flood and ground-dwelling spiders move uphill — sometimes right into a garage or under a door.</li>
+  <li><strong>Temperature drops in fall.</strong> Late October and November cool-downs push a lot of ground insects (and the spiders that eat them) toward heat. A gap under a door or an unweathered threshold is an invitation.</li>
+  <li><strong>Construction or landscaping disturbance.</strong> Tilling a garden bed, turning mulch, or pulling up landscape timbers can displace spiders that were settled.</li>
+  <li><strong>Light and prey inside.</strong> If insects are getting inside — drawn to porch lights or gaps around windows — wolf spiders will follow the food.</li>
+</ul>
+
+<h2>What you can do yourself</h2>
+<p>A lot of wolf spider control is physical, not chemical, and the physical steps work better anyway. Here's what actually makes a difference:</p>
+<ul>
+  <li>Replace worn door sweeps and threshold seals, especially on garage doors. That's the most common entry point we see.</li>
+  <li>Keep mulch pulled back six inches or more from the foundation. Thick mulch right against the slab is warm, damp, and full of insects — exactly what a wolf spider is looking for.</li>
+  <li>Move firewood, lumber piles, and ground-level clutter away from the house. Wolf spiders love stacked material.</li>
+  <li>Fix exterior lighting. Porch lights draw moths and beetles. Switching to yellow-tinted bulbs or moving lights away from doorways reduces the insect crowd that attracts spiders.</li>
+  <li>Trim back shrubs and ground cover that touches the exterior wall. Dense vegetation against the house is essentially a bridge.</li>
+  <li>Check window screens. Wolf spiders won't squeeze through a tiny gap the way a small insect will, but a torn or poorly fitted screen is a real entry point.</li>
+</ul>
+<p>Inside the house, sticky traps placed along walls and in garage corners will catch wolf spiders. They won't solve an outdoor population problem, but they'll tell you where spiders are coming in, which helps you find the gaps.</p>
+
+<h2>What about the bite — should you worry?</h2>
+<p>Wolf spiders can and will bite if handled or cornered, but they are not considered medically significant in the way a brown recluse is. Most bites result in localized pain, redness, and swelling. If you're bitten and develop symptoms beyond that — significant swelling, spreading redness, fever, or anything that concerns you — see a doctor. We do pest control, not medicine, and that call belongs with a healthcare provider.</p>
+<p>The bigger concern for most Alabama families is just the surprise factor. Wolf spiders are startling, and in homes with young children or people with a serious fear of spiders, that matters even if the medical risk is low.</p>
+
+<h2>When a professional treatment actually helps</h2>
+<p>If you're seeing wolf spiders inside regularly — not once in a while, but repeatedly — that's a sign that something is drawing them in and the exclusion work alone isn't closing the gap. A perimeter treatment using <strong>EPA-registered products applied per label directions</strong> creates a barrier along the foundation, around entry points, and through the areas where spiders are most active. It won't reach every spider in your yard or woods, and no treatment will, but it reduces what makes it through to the inside.</p>
+<p>Wolf spider control is part of our standard <a href="/services/interior-pest-control">interior pest control service</a>. Our pest plan is <strong>$35 per month on a 12-month ACH agreement</strong> ($75 initial visit, $70 per visit otherwise), and it covers the recurring perimeter and interior treatments that keep pressure down throughout the year — not just a one-time visit when things get bad. If you're in the <a href="/birmingham">Birmingham area</a>, around <a href="/lake-martin">Lake Martin</a>, or up in <a href="/huntsville">Huntsville</a>, one of our offices can get you scheduled. We've been doing this work in Alabama since 1958, and wolf spiders are not a new conversation for us.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
 
   // ─── Content batch, 2026-09-05: 15 articles on uncovered intents (rodents, wasps,
   // carpenter ants vs termites, Argentine ants, chiggers, foggers, frequency, Formosans,
@@ -3224,5 +3279,36 @@ export function getAllPosts(): BlogPost[] {
   return [...BLOG_POSTS].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
+}
+
+/**
+ * Posts whose publishedAt has actually arrived — this is what the PUBLIC blog
+ * index and the public /blog/[slug] route must use. getAllPosts() returns
+ * everything including future-dated drafts and is for internal/admin use only.
+ *
+ * WHY (verified live 2026-09-07): the index sorted getAllPosts() but never
+ * filtered, so fifteen future-dated articles were publicly reachable — the top
+ * of the blog read "Oct 6, 2026" on September 7th. Sorting descending actually
+ * makes it worse: the furthest-future post lands first.
+ *
+ * Compared as calendar dates in America/Chicago, not by timestamp. publishedAt
+ * is a bare YYYY-MM-DD, so `new Date(s)` parses it as UTC midnight — a post
+ * dated today would be treated as ~6 hours in the future all Alabama morning
+ * and vanish from the index until 6am. Do not "simplify" this to a Date compare.
+ */
+export function todayInAlabama(now: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Chicago',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(now); // en-CA gives YYYY-MM-DD
+}
+
+export function getPublishedPosts(now: Date = new Date()): BlogPost[] {
+  const today = todayInAlabama(now);
+  return getAllPosts().filter((p) => p.publishedAt.slice(0, 10) <= today);
+}
+
+export function isPublished(post: BlogPost, now: Date = new Date()): boolean {
+  return post.publishedAt.slice(0, 10) <= todayInAlabama(now);
 }
 
