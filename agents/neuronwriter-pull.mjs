@@ -27,6 +27,7 @@
  * Idempotent: a record whose whyHere already came from NeuronWriter (marker in
  * agent_state) is skipped unless --force.
  */
+import { pathToFileURL } from "node:url";
 import fs from "node:fs";
 import path from "node:path";
 import { logAgentRun, writeFinding } from "./lib/supabase.mjs";
@@ -66,7 +67,12 @@ const SCRUB = [
   [/\bmosquito[- ]free\b/gi, "mosquito-light"],
   [/\beliminat(e|es|ing|ion)\b(?=[^.]{0,80}mosquito)/gi, "reduc$1"],
   [/\$99 (startup|initial)/g, "$75 initial service"],
-  [/\$150 initial service/g, "$75 initial service"],
+  // NOTE (Phillip, Sep 7 2026): $150 is the REGULAR initial price and $75 is 50% off it
+  // (AGENTS.md §5, /special-offers, PRICING.initialServiceRegular). The old rule here
+  // rewrote "$150 initial service" -> "$75 initial service", which silently destroyed the
+  // anchor and republished the promo price as if it were the everyday price — the exact
+  // defect that keeps reappearing in drafts. Preserve the anchor instead of flattening it.
+  [/\$150 initial service(?! \(50% off)/g, "$150 initial service (50% off — currently $75)"],
   [/\$79 (startup|initial)/g, "$75 initial service"],
 ];
 // FAQ questions that are availability / scheduling promises — dropped entirely
@@ -171,4 +177,7 @@ export async function run() {
 }
 
 export const _test = { scrub, parseDraft, loadCity };
-if (import.meta.url === `file://${process.argv[1]}`) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
+// pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is
+// `C:\…` and import.meta.url is `file:///c:/…`, so the POSIX form never matches
+// and running this directly exits 0 having done nothing and printed nothing.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });

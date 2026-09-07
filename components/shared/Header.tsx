@@ -135,7 +135,15 @@ export default function Header() {
           <Flower2 size={14} className="sh-banner-sun" aria-hidden="true" />
           <div className="sh-banner-rotator" aria-live="off">
             <span className="sh-banner-msg"><span className="sh-banner-gold">Family-owned since 1958</span> · Four generations of the Wedgworth family</span>
-            <span className="sh-banner-msg"><span className="sh-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage, subject to the terms of the agreement · No drilling</span>
+            {/* The $1M figure is deliberately NOT in this band (removed 2026-09-07).
+                It shipped as "Up to $1M repair coverage, subject to the terms of the
+                agreement" — the SHORT qualifier, missing "inspection, approval, and",
+                on every page of the site. The full clause does not fit a scrolling
+                banner, and a coverage figure with an incomplete qualifier is worse
+                than no figure at all. The claim lives on the pages that can carry it
+                in full: /services/termite-control, /services/sentricon, and the city
+                termite pages. Do not reintroduce a dollar figure here. */}
+            <span className="sh-banner-msg"><span className="sh-banner-gold">Sentricon® termite protection</span> · No drilling, no tank trucks · Free termite inspection</span>
             <span className="sh-banner-msg"><span className="sh-banner-gold">Realtors &amp; closings:</span> WDO inspection letters · Fast, lender-ready turnaround</span>
           </div>
         </div>

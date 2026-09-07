@@ -163,6 +163,36 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'cancel-anytime claim',
     approvedInstead: 'terms are confirmed in writing before service starts' },
 
+  // ── Added 2026-09-07 after the SameDay outbound audit ────────────────────────
+  // The AI phone campaign's Launch Day script read "That's EnviroCare's own
+  // guarantee — up to $1,000,000 …", plus "$380 a year" and "$32 a month" for
+  // termite renewal. It had already run against 47 customers.
+  //
+  // The possessive-guarantee rule and the $1M rule DID both match that line when
+  // tested against it — those two were doing their job; SameDay simply is not a
+  // surface anything scans. The three rules below are the ones that were missing
+  // entirely: the retracted renewal figures, the superseded mosquito season and
+  // the superseded fire-ant minimum all passed clean.
+  //
+  // The $32/mo price is called "retired" twice in this file's own comments (see
+  // above and the AEO block) and was never encoded. That is the failure mode this
+  // file exists to end: a rule that lives in prose is not a rule.
+  { pattern: '\\$\\s?380(\\.00)?\\b[^.\\n]{0,40}\\b(year|yr|annual|renewal)|\\b(renewal|termite)\\b[^.\\n]{0,40}\\$\\s?380(\\.00)?\\b',
+    reason: 'retracted termite renewal price ($380/yr) — traced to pre-2026 website data',
+    approvedInstead: 'as low as $360/year, always subject to inspection' },
+  { pattern: '\\$\\s?32(\\.00)?\\s*(a|per|/)\\s*month|\\$\\s?32(\\.00)?\\s*/\\s*mo\\b',
+    reason: 'retracted termite renewal price ($32/mo) — traced to pre-2026 website data',
+    approvedInstead: 'as low as $30/month, always subject to inspection' },
+  // Season canon: Phillip ruled 2026-08-26 that mosquito runs March–October, about
+  // 8 treatments. The repo was already uniformly Mar–Oct; the inbound phone agent
+  // was not, and nothing here would have caught it.
+  { pattern: '\\bmarch\\b[^.\\n]{0,24}\\bnovember\\b|\\bmar\\b[^.\\n]{0,12}\\bnov\\b',
+    reason: 'superseded mosquito season (March–November) — replaced 2026-08-26',
+    approvedInstead: 'March through October, about 8 treatments' },
+  { pattern: '\\bfire\\s?ant[^.\\n]{0,60}\\$\\s?200\\b|\\$\\s?200\\b[^.\\n]{0,40}\\bfire\\s?ant',
+    reason: 'superseded fire ant minimum ($200) — the real minimum is $150',
+    approvedInstead: '$150 minimum, priced by yard size, with a year of coverage and re-service included' },
+
   // TURNAROUND-TIME PROMISES on WDO/termite work. Matches the PROMISE SHAPE (a
   // deliverable + a clock), never a bare time reference — "if heavy rain falls
   // within 24 hours of your treatment" on /faq/mosquito is legitimate and must
@@ -353,7 +383,7 @@ export const SOFT_RULES: string[] = [
   '$1M coverage is EnviroCareʼs own guarantee — never imply Corteva/manufacturer backing.',
   'Carpenter bees: existing customers only — never marketed to new customers.',
   'Tuscaloosa: NOT serviced — must not appear in any city list, footer, or nav.',
-  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: FLAT $75 initial service on every plan (Phillip, Aug 24 2026) — one number, no per-plan variation, no $229 Complete startup.',
+  'Contract/pricing: NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime" anywhere. Agreement practice is not uniform — some per-visit customers sign one, some do not. The $35/mo plan is a 12-month ACH billing agreement. State the two billing options only, and say terms are confirmed in writing before service starts. Initial fee: $150 is the REGULAR initial pest service price and $75 is 50% off it — not a flat price, and no other discount may stack on it (Phillip, Sep 7 2026; matches AGENTS.md §5 and /special-offers, and corrects the "flat $75" wording of Aug 24 2026). Whenever the $75 appears it must carry the anchor and a promo label, e.g. "$150 regular, currently $75 with 50% off your initial pest service." A bare "$75 initial service fee" presented as the everyday price is PROHIBITED. Complete keeps its own $229 startup. $79 and $99 are retired. Read PRICING.plans.<plan>.startup for the effective price and PRICING.initialServiceRegular for the anchor — never hardcode either in copy.',
 ];
 
 /** Services EnviroCare does NOT offer — must not be marketed. */

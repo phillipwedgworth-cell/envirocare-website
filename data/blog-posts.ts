@@ -3281,3 +3281,34 @@ export function getAllPosts(): BlogPost[] {
   );
 }
 
+/**
+ * Posts whose publishedAt has actually arrived — this is what the PUBLIC blog
+ * index and the public /blog/[slug] route must use. getAllPosts() returns
+ * everything including future-dated drafts and is for internal/admin use only.
+ *
+ * WHY (verified live 2026-09-07): the index sorted getAllPosts() but never
+ * filtered, so fifteen future-dated articles were publicly reachable — the top
+ * of the blog read "Oct 6, 2026" on September 7th. Sorting descending actually
+ * makes it worse: the furthest-future post lands first.
+ *
+ * Compared as calendar dates in America/Chicago, not by timestamp. publishedAt
+ * is a bare YYYY-MM-DD, so `new Date(s)` parses it as UTC midnight — a post
+ * dated today would be treated as ~6 hours in the future all Alabama morning
+ * and vanish from the index until 6am. Do not "simplify" this to a Date compare.
+ */
+export function todayInAlabama(now: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Chicago',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(now); // en-CA gives YYYY-MM-DD
+}
+
+export function getPublishedPosts(now: Date = new Date()): BlogPost[] {
+  const today = todayInAlabama(now);
+  return getAllPosts().filter((p) => p.publishedAt.slice(0, 10) <= today);
+}
+
+export function isPublished(post: BlogPost, now: Date = new Date()): boolean {
+  return post.publishedAt.slice(0, 10) <= todayInAlabama(now);
+}
+

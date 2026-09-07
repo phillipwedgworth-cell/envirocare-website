@@ -28,6 +28,7 @@
  *   - Idempotent: re-running does nothing if today's posts already exist.
  *   - Route allow-list for links is read from the repo, not hard-coded.
  */
+import { pathToFileURL } from "node:url";
 import fs from "node:fs";
 import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
@@ -142,7 +143,12 @@ function complianceIssues(post) {
   const m = text.match(BANNED); if (m) issues.push(`banned phrase: "${m[0]}"`);
   if (/mosquito[^.]{0,80}\beliminat/i.test(text) || /\beliminat[^.]{0,80}mosquito/i.test(text)) issues.push("mosquito elimination claim");
   if (/\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b[^.]{0,60}termite|termite[^.]{0,60}\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b/i.test(text)) issues.push("termite price stated");
-  if (/\$\s?(99|79|150)\b[^.]{0,30}(initial|startup|start)/i.test(text)) issues.push("retired initial-service price");
+  // $99 and $79 are retired. $150 is NOT retired — it is the REGULAR initial price that
+  // the $75 promo is 50% off (Phillip, Sep 7 2026; AGENTS.md §5; /special-offers). Flagging
+  // $150 as retired was pushing writers to state a bare $75 as the everyday price.
+  if (/\$\s?(99|79)\b[^.]{0,30}(initial|startup|start)/i.test(text)) issues.push("retired initial-service price");
+  // A $75 initial with no $150 anchor nearby loses the offer framing.
+  if (/\$\s?75\b[^.]{0,40}(initial|startup)/i.test(text) && !/\$\s?150/.test(text)) issues.push("$75 initial stated without the $150 anchor / promo label");
   if (/1,?000,?000[^.]{0,120}(sentricon|corteva|manufacturer)/i.test(text) && !/envirocare/i.test(text.match(/1,?000,?000[^.]{0,120}/i)?.[0] ?? "")) issues.push("coverage attributed to manufacturer");
   if (/<a href="(?!\/)/.test(post.body)) issues.push("external link");
   return issues;
@@ -238,4 +244,7 @@ export async function run() {
   return summary;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
+// pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is
+// `C:\…` and import.meta.url is `file:///c:/…`, so the POSIX form never matches
+// and running this directly exits 0 having done nothing and printed nothing.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });

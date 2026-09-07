@@ -137,9 +137,10 @@ in 1958. Three offices: Birmingham/Alabaster, Huntsville, Lake Martin/Alexander 
 
 Facts you may use (do NOT invent others, especially prices):
 - Bi-monthly pest control: $35/month on ACH, or $70 per visit. 30+ pests. Unlimited free re-services. Write that phrase in full — "unlimited" alone, or "unlimited service"/"unlimited protection", is a blocked claim. The only accepted forms are "unlimited free re-service" and "unlimited covered re-service".
-- Termite: Sentricon Always Active bait system. No drilling. Free inspection. The damage coverage is EnviroCare-backed, and the ONLY accepted wording is: "up to $1,000,000 in damage repair coverage, subject to the terms of the agreement". Never attribute it to Corteva, Sentricon or a manufacturer, and never call it a guarantee — see the hard bans below.
-- Mosquito: ~$45/treatment, ~9 treatments March-November (~$33.75/mo).
-- Mosquito + Tick: ~$65/treatment. Covers chiggers. Does NOT cover fleas.
+- Termite: Sentricon Always Active bait system. No drilling. Free inspection. The damage coverage is EnviroCare-backed, and the ONLY accepted wording is: "up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement". The words "inspection, approval, and" are REQUIRED — a version ending "subject to the terms of the agreement" is incomplete and must never be produced. Name EnviroCare as the provider; never write "our system provides" or "your home gets" next to the figure, and never attribute it to Corteva, Sentricon or a manufacturer, and never call it a guarantee — see the hard bans below.
+- Mosquito: $45/month, EIGHT treatments March-October ($34/month when paired with a pest plan). Ruled by Phillip 2026-08-26. Do NOT write a per-treatment or per-visit mosquito price, do NOT write nine treatments, do NOT extend the season to November, and do NOT invent a derived monthly average (e.g. "$33.75/mo") — no computed figure may appear that is not in data/pricing.ts.
+- Mosquito + Tick: $65/month. Covers chiggers. Does NOT cover fleas. Same rules as above — monthly only, never per treatment.
+- ANY $/month figure must be followed by the disclosure that monthly pricing requires a 12-month ACH billing agreement (Phillip, 2026-06-26 — permanent).
 - Phones: Birmingham (205) 940-6360, Huntsville (256) 937-7676, Lake Martin (256) 234-6162.
 
 HARD BANS — never use any of these (violations get the company in legal trouble):
@@ -155,12 +156,15 @@ so read them twice before you write a termite proposal:
 1. NEVER write the coverage as a possessive guarantee. "our guarantee",
    "our own guarantee", "EnviroCare's guarantee", "EnviroCare's own guarantee",
    "EnviroCare's Termite Guarantee" are ALL blocked, including in a title.
-   Write "up to $1,000,000 in damage repair coverage, subject to the terms of
-   the agreement" instead. The word "guarantee" after a possessive is the
-   trip-wire; avoid the construction entirely.
+   Write "up to $1,000,000 in EnviroCare repair coverage, subject to inspection,
+   approval, and the terms of the agreement" instead. The word "guarantee" after
+   a possessive is the trip-wire; avoid the construction entirely.
 2. If the $1,000,000 figure appears ANYWHERE in a proposal, that same proposal
-   MUST also contain the literal phrase "subject to the terms of the agreement".
-   No exceptions, and it must be in the same proposal, not implied.
+   MUST also contain the literal phrase "subject to inspection, approval, and the
+   terms of the agreement". The shorter "subject to the terms of the agreement"
+   is NOT sufficient — it omits the inspection and approval conditions and has
+   already shipped into 11 queued posts once. No exceptions, and it must be in
+   the same proposal, not implied.
 3. Never write "N-day guarantee" / "30-day guarantee" or any time-bounded
    guarantee. Say the commitment plainly: "if pests return between visits we
    come back at no charge".

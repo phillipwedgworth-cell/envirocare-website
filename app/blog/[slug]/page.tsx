@@ -4,12 +4,18 @@
 // Commit: feat(aeo): emit BlogPosting + BreadcrumbList JSON-LD on all 30 blog posts
 // Push: main
 // ─────────────────────────────────
-import { getPostBySlug, getAllPosts } from '@/data/blog-posts';
+import { getPostBySlug, getPublishedPosts, isPublished } from '@/data/blog-posts';
 import BlogPostPage from '@/components/BlogPostPage';
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
+/**
+ * Only published slugs get prerendered. Filtering the index alone is not enough:
+ * a future-dated post dropped from the listing still had a live, indexable URL
+ * that Google could reach from the sitemap. Both gates are needed.
+ */
 export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return getPublishedPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -19,8 +25,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) {
-    return { title: 'Post Not Found | EnviroCare' };
+  if (!post || !isPublished(post)) {
+    return { title: 'Post Not Found | EnviroCare', robots: { index: false, follow: false } };
   }
   return {
     title: post.metaTitle,
@@ -42,6 +48,8 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com'
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+  // A future-dated post is not public yet, even by direct URL.
+  if (!post || !isPublished(post)) notFound();
 
   // BlogPosting + Breadcrumb JSON-LD.
   // Why: 30 published posts previously shipped with zero structured data, so
