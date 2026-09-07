@@ -40,6 +40,7 @@
  */
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
@@ -501,6 +502,13 @@ async function markQueue(id, status, note) {
   if (error) console.error(`[${AGENT_NAME}] queue update ${id} → ${status} failed: ${error.message}`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith("executor.mjs")) {
+// pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is `C:\…`
+// and import.meta.url is `file:///c:/…`, so the POSIX form never matches and
+// running this directly exits 0 having done nothing. #151 removed that pattern
+// from five agents; this one is written to the fixed convention rather than
+// reintroducing it. The old `endsWith("executor.mjs")` fallback is gone with
+// it — it papered over the same bug and would misfire for any other script
+// whose path happens to end that way.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
 }
