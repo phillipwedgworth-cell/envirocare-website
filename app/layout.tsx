@@ -191,7 +191,16 @@ const BIRMINGHAM_SCHEMA = {
   },
   // GBP verified 2026-09-05 (place_id ChIJjXGa0ZsbiYgR1mB0oEKnqUo). geo from Places.
   geo: { '@type': 'GeoCoordinates', latitude: 33.4968567, longitude: -86.7916696 },
-  sameAs: ['https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo'],
+  // Both entries live in ONE sameAs. This object previously declared sameAs
+  // twice — here, and again after parentOrganization — and the later key wins
+  // in JS, so the shipped JSON-LD carried only the homepage URL and dropped the
+  // GBP link on the one office whose GBP association matters most. tsc reports
+  // that as TS1117, but next.config.ts sets ignoreBuildErrors, so no build ever
+  // failed on it. Keep this as a single key.
+  sameAs: [
+    'https://www.envirocarellc.com',
+    'https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo',
+  ],
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
@@ -207,7 +216,6 @@ const BIRMINGHAM_SCHEMA = {
     name: 'EnviroCare Pest Services',
     url: 'https://www.envirocarellc.com/',
   },
-  sameAs: ['https://www.envirocarellc.com'],
 
 };
 

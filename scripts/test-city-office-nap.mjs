@@ -29,11 +29,33 @@ const starts = [
   ...[...src.matchAll(/\{ slug: '([a-z-]+)'/g)].map((m) => ({ i: m.index, slug: m[1] })),
 ].sort((a, b) => a.i - b.i);
 
+// Most records do not carry office fields literally — they SPREAD a shared
+// constant (`{ slug: 'hoover', ...BHM_CITY }`). Resolve those constants first,
+// or the scan below skips every record that uses one.
+//
+// This is what went wrong before 2026-09-07: the scan looked for a literal
+// `officePhone:` inside each record, which appears only in the four constant
+// definitions, so it reported "ok 2 city records" out of 26+ and passed clean
+// while /contact-us and the footer were both publishing the wrong NAP. A guard
+// grading 2 of 26 is not a guard. The coverage floor at the bottom is there so
+// that failure mode is loud instead of silent.
+const CONSTANTS = Object.fromEntries(
+  [...src.matchAll(/^const ([A-Z_]+) = \{([^}]*officePhone[^}]*)\};/gm)].map(([, name, body]) => {
+    const f = (k) => (body.match(new RegExp(`${k}\\s*:\\s*'([^']+)'`)) || [])[1];
+    return [name, { phone: f("officePhone"), tel: f("officeTel"), addr: f("officeAddress") }];
+  })
+);
+
 let checked = 0, bad = 0;
 starts.forEach((c, n) => {
   const rec = src.slice(c.i, n + 1 < starts.length ? starts[n + 1].i : src.length);
   const grab = (k) => (rec.match(new RegExp(`"?${k}"?\\s*:\\s*["']([^"']+)["']`)) || [])[1];
-  const phone = grab("officePhone"), tel = grab("officeTel"), addr = grab("officeAddress");
+  // Inline fields win over the spread, matching JS object semantics.
+  const spread = (rec.match(/\.\.\.([A-Z_]+)/) || [])[1];
+  const base = (spread && CONSTANTS[spread]) || {};
+  const phone = grab("officePhone") ?? base.phone;
+  const tel = grab("officeTel") ?? base.tel;
+  const addr = grab("officeAddress") ?? base.addr;
   if (!phone || !tel) return;
   checked++;
 
@@ -49,6 +71,16 @@ starts.forEach((c, n) => {
     bad++;
   }
 });
+
+// Coverage floor. The previous version silently graded 2 records and exited 0;
+// a scan that stops finding records must fail loudly rather than report "ok".
+const FLOOR = 20;
+if (!bad && checked < FLOOR) {
+  console.log(`\nFAIL: only ${checked} city record(s) checked, expected at least ${FLOOR}.`);
+  console.log("The record or constant syntax in data/cities.ts probably changed and this");
+  console.log("scan is no longer resolving it. Fix the scan — do not lower the floor.");
+  process.exit(1);
+}
 
 console.log(bad ? `\n${bad} inconsistent of ${checked} city records with office fields`
                 : `  ok   ${checked} city records — phone, tel and address agree`);

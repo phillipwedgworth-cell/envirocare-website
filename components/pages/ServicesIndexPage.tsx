@@ -19,7 +19,7 @@ export default function ServicesIndexPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">Every Service We Offer</span></div>
-          <h1>Core Protection Plus<em>Specialty Service</em></h1>
+          <h1>Core Protection Plus{" "}<em>Specialty Service</em></h1>
           <p className="page-hero-sub">Bi-monthly pest control, seasonal mosquito service (add tick for +$20/month), and Sentricon® termite protection with up to $1M coverage, subject to the terms of the agreement — plus specialty options for fire ants, fleas, builders, real estate, crawlspaces, and commercial properties.</p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>

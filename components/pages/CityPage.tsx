@@ -200,7 +200,7 @@ export default function CityPage({ slug }: { slug: string }) {
         <div className="city-hero-inner">
           <div>
             <div className="city-eyebrow"><span className="city-eyebrow-txt">Serving {city.county} County · Since 1958</span></div>
-            <h1>{city.name} Pest Control<em>& Termite Service</em></h1>
+            <h1>{city.name} Pest Control{" "}<em>& Termite Service</em></h1>
             <p className="city-hero-sub">{city.intro}</p>
             <div className="city-stats">
               <div className="city-stat"><div className="city-stat-n">{city.yearsServed}+</div><div className="city-stat-l">Years Serving AL</div></div>
