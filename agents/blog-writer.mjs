@@ -142,7 +142,12 @@ function complianceIssues(post) {
   const m = text.match(BANNED); if (m) issues.push(`banned phrase: "${m[0]}"`);
   if (/mosquito[^.]{0,80}\beliminat/i.test(text) || /\beliminat[^.]{0,80}mosquito/i.test(text)) issues.push("mosquito elimination claim");
   if (/\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b[^.]{0,60}termite|termite[^.]{0,60}\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b/i.test(text)) issues.push("termite price stated");
-  if (/\$\s?(99|79|150)\b[^.]{0,30}(initial|startup|start)/i.test(text)) issues.push("retired initial-service price");
+  // $99 and $79 are retired. $150 is NOT retired — it is the REGULAR initial price that
+  // the $75 promo is 50% off (Phillip, Sep 7 2026; AGENTS.md §5; /special-offers). Flagging
+  // $150 as retired was pushing writers to state a bare $75 as the everyday price.
+  if (/\$\s?(99|79)\b[^.]{0,30}(initial|startup|start)/i.test(text)) issues.push("retired initial-service price");
+  // A $75 initial with no $150 anchor nearby loses the offer framing.
+  if (/\$\s?75\b[^.]{0,40}(initial|startup)/i.test(text) && !/\$\s?150/.test(text)) issues.push("$75 initial stated without the $150 anchor / promo label");
   if (/1,?000,?000[^.]{0,120}(sentricon|corteva|manufacturer)/i.test(text) && !/envirocare/i.test(text.match(/1,?000,?000[^.]{0,120}/i)?.[0] ?? "")) issues.push("coverage attributed to manufacturer");
   if (/<a href="(?!\/)/.test(post.body)) issues.push("external link");
   return issues;

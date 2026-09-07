@@ -167,7 +167,10 @@ function TopBanner() {
     {
       key: 'sentricon',
       content: (
-        <><span className="ec-banner-gold">Sentricon® termite protection</span> · Up to $1M repair coverage, subject to the terms of the agreement · No drilling</>
+        {/* $1M figure removed 2026-09-07 — see the note in components/shared/Header.tsx.
+            The banner carried the incomplete qualifier ("subject to the terms of the
+            agreement", missing "inspection, approval, and") sitewide. */}
+        <><span className="ec-banner-gold">Sentricon® termite protection</span> · No drilling, no tank trucks · Free termite inspection</>
       ),
     },
     {

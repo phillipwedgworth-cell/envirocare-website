@@ -12,7 +12,7 @@
  */
 
 import type { MetadataRoute } from 'next';
-import { BLOG_POSTS } from '@/data/blog-posts';
+import { getPublishedPosts } from '@/data/blog-posts';
 import { getAllPests } from '@/data/pest-library';
 
 // Update this when you flip DNS from envirocarellc.com (flipped)
@@ -193,7 +193,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+  // Published posts ONLY. BLOG_POSTS includes future-dated drafts, and listing
+  // one here hands Google a URL that /blog/[slug] now 404s — a self-inflicted
+  // soft-404 in the sitemap. Verified 2026-09-07: fifteen posts were dated ahead
+  // of today, the furthest a month out.
+  const blogPages: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     // Real per-post date — see the lastmod policy note above.
     lastModified: new Date(post.updatedAt ?? post.publishedAt),
