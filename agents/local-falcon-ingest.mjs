@@ -26,6 +26,7 @@
  *  - Campaign keys are stable; scan report_keys are transient and stored only
  *    as provenance, never as a lookup key.
  */
+import { pathToFileURL } from "node:url";
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
 
@@ -83,10 +84,45 @@ function isFresh(dateStr) {
 }
 
 // ── campaign list (stable keys) ─────────────────────────────────────────────
+//
+// SEEDED, NOT DISCOVERED. `GET /v1/campaigns` returns `{"success":true,"data":[]}`
+// for this API key — verified live 2026-09-07 — while `/campaigns/{key}/report`
+// returns full data for every key below. Discovery therefore yields nothing, the
+// `status === "scheduled"` filter then has nothing to pass, and the agent logged
+// "0 campaigns → 0 rows" on every run while reporting success. Two runs went green
+// that way before anyone read the count.
+//
+// So the keys are the input, and discovery is treated as optional enrichment: if
+// the list endpoint ever starts returning rows, they are merged in and win on
+// metadata (platforms, place_ids, grid) because those fields are richer there.
+//
+// HELD DELIBERATELY: 4ee47a23fc4793e ("EnviroCare Birmingham Core"). It still
+// tracks the Butler Rd GBP, and since 2026-09-05 the site routes Jefferson County
+// to the 16th Ave office — ingesting it would baseline the wrong profile. Add it
+// only once a campaign exists against the 16th Ave GBP.
+const SEEDED_CAMPAIGNS = [
+  { campaign_key: "1822923e68f74d1", name: "EnviroCare Huntsville - Weekly v2" },
+  { campaign_key: "b6d42c9c19856f2", name: "EnviroCare Birmingham - Weekly v2" },
+  { campaign_key: "7d2a6df072df6f8", name: "EnviroCare Lake Martin - Weekly v2" },
+];
+
 async function listScheduledCampaigns() {
-  const json = await lfFetch("campaigns", { fieldmask: "campaign_key,name,status,platforms,grid_size,radius,measurement,keywords,place_ids,last_run,next_run,locations" });
-  const rows = first(json?.data?.campaigns, json?.data, []);
-  return (Array.isArray(rows) ? rows : Object.values(rows)).filter((c) => c && (c.status ?? "scheduled") === "scheduled");
+  let discovered = [];
+  try {
+    const json = await lfFetch("campaigns", { fieldmask: "campaign_key,name,status,platforms,grid_size,radius,measurement,keywords,place_ids,last_run,next_run,locations" });
+    const rows = first(json?.data?.campaigns, json?.data, []);
+    discovered = (Array.isArray(rows) ? rows : Object.values(rows)).filter((c) => c && (c.status ?? "scheduled") === "scheduled");
+  } catch {
+    // A dead list endpoint must not stop the seeded reads.
+    discovered = [];
+  }
+  const byKey = new Map(SEEDED_CAMPAIGNS.map((c) => [c.campaign_key, { ...c }]));
+  for (const c of discovered) {
+    const key = first(c.campaign_key, c.key);
+    if (!key) continue;
+    byKey.set(key, { ...(byKey.get(key) ?? {}), ...c, campaign_key: key });
+  }
+  return [...byKey.values()];
 }
 
 // ── campaign report: headline + per-keyword + per-scan provenance ───────────
@@ -195,4 +231,12 @@ export async function run() {
   return summary;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
+// `file://${process.argv[1]}` only matches on POSIX. On Windows argv[1] is
+// `C:\…\local-falcon-ingest.mjs`, which never equals import.meta.url
+// (`file:///c:/…`), so running this directly exits 0 having done NOTHING and
+// printed NOTHING — silent success, the failure mode this agent already had.
+// pathToFileURL normalises both drive letter and separators. Five other agents
+// still carry the POSIX-only form; they work in CI (ubuntu) and no-op locally.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  run().catch((e) => { console.error(`[${AGENT_NAME}] FATAL`, e); process.exit(1); });
+}
