@@ -166,10 +166,14 @@ function TopBanner() {
     },
     {
       key: 'sentricon',
+      // $1M figure removed 2026-09-07 — see the note in components/shared/Header.tsx.
+      // The banner carried the incomplete qualifier ("subject to the terms of the
+      // agreement", missing "inspection, approval, and") sitewide.
+      //
+      // This note is a plain JS comment, not `{/* … */}`. A JSX comment is only
+      // valid as a CHILD of an element; placed inside the parentheses ahead of
+      // the fragment it is a syntax error, which is how this file first arrived.
       content: (
-        {/* $1M figure removed 2026-09-07 — see the note in components/shared/Header.tsx.
-            The banner carried the incomplete qualifier ("subject to the terms of the
-            agreement", missing "inspection, approval, and") sitewide. */}
         <><span className="ec-banner-gold">Sentricon® termite protection</span> · No drilling, no tank trucks · Free termite inspection</>
       ),
     },
