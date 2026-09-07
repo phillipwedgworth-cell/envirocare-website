@@ -41,7 +41,7 @@ export const metadata = {
 const BASE = 'https://www.envirocarellc.com';
 
 const ROWS: [string, string, string][] = [
-  ['Who answers the phone', 'A staffed local office — Alabaster, Alexander City, or Huntsville', 'A regional or national call center'],
+  ['Who answers the phone', 'A staffed local office — Birmingham, Alabaster, Alexander City, or Huntsville', 'A regional or national call center'],
   ['Your technician', 'The same local technician on your route, visit after visit when scheduling allows', 'Rotating techs assigned from a larger pool'],
   ['Ownership', 'Fourth-generation Wedgworth family, same family since 1958', 'Corporate or franchise ownership, often multi-state'],
   ['Termite protection', 'Sentricon® Always Active™ — in-ground bait stations, no drilling; up to $1,000,000 EnviroCare repair coverage on qualifying homes, subject to the terms of the agreement', 'Varies by branch; often liquid-barrier treatments that require drilling'],
@@ -70,7 +70,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Where does EnviroCare actually have offices?',
-    a: 'Three staffed Alabama offices: Alabaster (Birmingham metro), Alexander City (Lake Martin — the original 1958 office), and Huntsville (North Alabama). Every community we serve is covered as a service area on regular routes from one of these three real offices — we never claim offices we don\'t have.',
+    a: 'Four staffed Alabama offices: Birmingham (2120 16th Avenue South, Jefferson County), Alabaster (2025 Butler Road, Shelby County), Alexander City (Lake Martin — the original 1958 office), and Huntsville (North Alabama). Every community we serve is covered as a service area on regular routes from one of these four real offices — we never claim offices we don\'t have.',
   },
 ];
 

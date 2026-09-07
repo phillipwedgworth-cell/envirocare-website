@@ -40,9 +40,13 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  */
 
 export const metadata: Metadata = {
-  title: "Pest Control Birmingham AL | Exterminator, Termite & Mosquito | EnviroCare — Since 1958",
+  // Title was 87 chars, description 285 — both truncated in the SERP.
+  // The $1M figure moved OUT of the description and into the visible page copy
+  // below: the qualifier data/compliance.ts requires was living only in this meta
+  // tag, i.e. nowhere a customer could ever read it.
+  title: "Pest Control Birmingham AL | Termite & Mosquito | EnviroCare",
   description:
-    "Family-owned Birmingham pest control and exterminator since 1958. Bi-monthly from $35/mo. Sentricon® baiting with $1M EnviroCare termite coverage, subject to the terms of the agreement. Mosquito & tick yard treatment. Mountain Brook · Vestavia · Hoover · Homewood. Call (205) 991-2882.",
+    "Family-owned Birmingham pest control since 1958. Bi-monthly from $35/mo, Sentricon® termite baiting, mosquito and tick yard service. Call (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
@@ -249,7 +253,7 @@ export default function BirminghamPage() {
               The six pest patterns we see most across the Birmingham metro — and how each program handles them.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.1rem" }}>
-              <Card icon="termite" color="#C77A00" title="Termites in historic Birmingham homes" body="Mountain Brook, Forest Park, Highland Park, Five Points South — the older the home, the more vulnerable the foundation. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, no drilling into original brick or masonry. Up to $1M in EnviroCare-backed damage coverage." />
+              <Card icon="termite" color="#C77A00" title="Termites in historic Birmingham homes" body="Mountain Brook, Forest Park, Highland Park, Five Points South — the older the home, the more vulnerable the foundation. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, no drilling into original brick or masonry. Up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement." />
               <Card icon="ant" color="#0E8E40" title="Carpenter ants &amp; sugar ants" body="Older homes in Crestline, English Village, and Hollywood see seasonal carpenter ant invasions tracing moisture pathways. Bi-monthly perimeter service ($35/mo) covers the entire ant family — carpenter, sugar, odorous house ants, pavement ants — plus 30+ other Alabama pests." />
               <Card icon="mosquito" color="#0E7490" title="Mosquitoes along the Cahaba" body="Properties anywhere near the Cahaba River, Patton Creek, or Shades Creek see consistent mosquito pressure March–October. 30-day yard barrier at $45/month, or the Mosquito + Tick plan at $65/month which adds tick coverage and chiggers." />
               <Card icon="spider" color="#3F6184" title="Brown recluse in garages &amp; basements" body="Older Birmingham housing stock — particularly Forest Park, Highland Avenue, and the southside — harbors brown recluse in garages, storage areas, and undisturbed crawlspaces. Our interior/perimeter program targets cracks, voids, and the dark zones recluses actually nest in." />

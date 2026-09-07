@@ -28,6 +28,25 @@ import Footer from '@/components/shared/Footer';
 import ScheduleRequest from '@/components/ScheduleRequest';
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+/**
+ * The eight hero scenes below were drawn WHITE-ON-DARK for a deep-green panel.
+ * The panel is cream now (see .city-art-box), so every shape is re-tinted once,
+ * here, instead of hand-editing 64 fills across eight scenes and eight gradients.
+ *
+ * Ordering is load-bearing: the cut-out colours must be swapped to cream BEFORE
+ * #fff becomes forest, or the second pass would recolour shapes the first pass
+ * had just produced.
+ */
+const ART_INK = '#0A7935';   // forest green — the silhouettes themselves
+const ART_CUT = '#FEFDF8';   // cream — details knocked OUT of a silhouette
+function forCreamPanel(svg: string): string {
+  return svg
+    .replace(/#0A7935/g, ART_CUT)
+    .replace(/#0F5C2E/g, ART_CUT)
+    .replace(/#0A1A0E/g, ART_CUT)
+    .replace(/#fff/g, ART_INK);
+}
+
 const CITY_ART_SVG: Record<string, string> = {
   'vulcan': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <defs><linearGradient id="vulFade" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fff" stop-opacity="0.32"/><stop offset="100%" stop-color="#fff" stop-opacity="0.08"/></linearGradient></defs>
@@ -184,7 +203,7 @@ export default function CityPage({ slug }: { slug: string }) {
   // City-specific phone (Auburn has direct line; everyone else uses office)
   const phone = city.directPhone || city.officePhone;
   const tel = city.directTel || city.officeTel;
-  const svg = CITY_ART_SVG[city.cityArt] || CITY_ART_SVG['community'];
+  const svg = forCreamPanel(CITY_ART_SVG[city.cityArt] || CITY_ART_SVG['community']);
 
   return (
     <>
@@ -636,8 +655,8 @@ body{font-family:var(--font-sans);background:var(--white);color:var(--ink);overf
 }
 
 /* ─── CITY HERO */
-.city-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-dk) 50%,var(--green) 100%);padding:5rem clamp(1.5rem,5vw,4rem) 5rem;color:#fff}
-.city-hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'%3E%3Cpath d='M30 0 Q30 30 60 30'/%3E%3Cpath d='M0 30 Q30 30 30 60'/%3E%3C/g%3E%3C/svg%3E") repeat;opacity:.7;pointer-events:none}
+.city-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-dk) 100%);padding:5rem clamp(1.5rem,5vw,4rem) 5rem;color:#fff}
+.city-hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'%3E%3Cpath d='M30 0 Q30 30 60 30'/%3E%3Cpath d='M0 30 Q30 30 30 60'/%3E%3C/g%3E%3C/svg%3E") repeat;opacity:.28;pointer-events:none}
 .city-hero-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
 .city-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:.4rem 1rem;margin-bottom:1.4rem;backdrop-filter:blur(8px)}
 .city-eyebrow-txt{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.92)}
@@ -649,9 +668,9 @@ body{font-family:var(--font-sans);background:var(--white);color:var(--ink);overf
 .city-stat-n{font-family:var(--font-serif);font-size:1.85rem;font-weight:700;color:#fff;line-height:1}
 .city-stat-l{font-size:10.5px;color:rgba(255,255,255,.75);letter-spacing:.05em;margin-top:3px;text-transform:uppercase;font-weight:600}
 .city-cta-row{display:flex;gap:.9rem;flex-wrap:wrap}
-.city-art-box{position:relative;border-radius:24px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);aspect-ratio:5/4;backdrop-filter:blur(4px)}
+.city-art-box{position:relative;border-radius:24px;overflow:hidden;background:var(--cream,#FEFDF8);border:1px solid rgba(255,255,255,.28);aspect-ratio:5/4;box-shadow:0 18px 44px rgba(4,40,20,.28)}
 .city-art-box svg{position:absolute;inset:0;width:100%;height:100%}
-.city-art-name{position:absolute;bottom:1.4rem;left:1.6rem;font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:.5px;z-index:3;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.city-art-name{position:absolute;bottom:1.4rem;left:1.6rem;font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--green-deep,#07642B);letter-spacing:.5px;z-index:3;text-shadow:none}
 
 /* ─── NEIGHBORHOODS */
 .nbhd-section{padding:5rem clamp(1.5rem,5vw,4rem);background:var(--cream)}

@@ -21,7 +21,11 @@ export const metadata: Metadata = {
     siteName: 'EnviroCare',
     title: 'EnviroCare — Family-Owned Alabama Since 1958',
     description:
-      'Bi-monthly pest control, Sentricon® termite protection with up to $1M EnviroCare coverage (subject to the terms of the agreement), mosquito and tick yard service. Four offices across Alabama.',
+      // Shortened 2026-09-06. The homepage previously carried the $1M figure and
+      // its required qualifier in BOTH the layout description and this og
+      // description — the same 40-character disclaimer twice on one page, in tags
+      // Google truncates long before reaching it.
+      'Bi-monthly pest control, Sentricon® termite protection, mosquito and tick yard service. Four Alabama offices, family-owned since 1958.',
     images: [
       {
         url: '/og-image.png',

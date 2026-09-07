@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 
 const G = "#0E8E40";
@@ -46,15 +46,30 @@ function readServiceParam(): string[] {
 
 type Day = { iso: string; dow: string; day: number; mon: string; date: Date };
 
-function upcomingWeekdays(count: number, includeToday: boolean): Day[] {
+/**
+ * Local (not UTC) calendar date as YYYY-MM-DD.
+ *
+ * WHY NOT toISOString(): this used to be `d.toISOString().slice(0, 10)`, which
+ * converts to UTC first. For a Central-time visitor after 7pm (midnight UTC)
+ * every chip submitted the FOLLOWING day's date while the chip on screen showed
+ * today's number — the office got a request for a day the customer never picked.
+ * Central is UTC-5/-6, so this misfired every evening, year round.
+ */
+function localISO(d: Date): string {
+  const p = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+function upcomingWeekdays(count: number, includeToday: boolean, from: Date): Day[] {
   const days: Day[] = [];
-  const d = new Date();
+  const d = new Date(from);
+  d.setHours(0, 0, 0, 0);
   if (!includeToday) d.setDate(d.getDate() + 1);
   while (days.length < count) {
     const dow = d.getDay();
     if (dow !== 0 && dow !== 6) {
       days.push({
-        iso: d.toISOString().slice(0, 10),
+        iso: localISO(d),
         dow: d.toLocaleDateString("en-US", { weekday: "short" }),
         day: d.getDate(),
         mon: d.toLocaleDateString("en-US", { month: "short" }),
@@ -75,13 +90,37 @@ function windowStart(day: Day, startHour: number) {
 export default function ScheduleRequest({ city }: { city?: string }) {
   const windows = WINDOWS_NEW;
 
-  // Never same-day — day strip starts tomorrow
-  const days = useMemo(() => upcomingWeekdays(8, false), []);
-  const now = useMemo(() => new Date(), []);
+  /**
+   * THE DATE STRIP IS CLIENT-ONLY, ON PURPOSE.
+   *
+   * Found live 2026-09-05: the Huntsville page offered September 3 and 4 — dates
+   * two days in the past. The logic below was always correct; the problem was
+   * WHERE it ran. Every city page is statically prerendered (○ Static in the
+   * build output), so `new Date()` evaluated at BUILD time and the chips were
+   * baked into the HTML. Between deploys that HTML never changes, so the strip
+   * silently aged: build on the 2nd, and on the 5th the page is still offering
+   * the 3rd. Hydration corrected it a beat later in the browser, which is why
+   * nobody clicking around ever noticed — but the served HTML, and therefore
+   * every crawler and every pre-hydration paint, showed dates that had passed.
+   *
+   * `mounted` keeps the strip out of the prerender entirely. `now` is read in
+   * the effect, so it is the VISITOR's clock in the VISITOR's timezone, not the
+   * build machine's — which is what the audit asked for.
+   */
+  const [mounted, setMounted] = useState(false);
+  const [now, setNow] = useState<Date | null>(null);
+  useEffect(() => {
+    setNow(new Date());
+    setMounted(true);
+  }, []);
 
-  // Window must start at least LEAD_HOURS_NEW from now
+  // Never same-day — day strip starts tomorrow, counted from the visitor's today.
+  const days = useMemo(() => (now ? upcomingWeekdays(8, false, now) : []), [now]);
+
+  // Window must start at least LEAD_HOURS_NEW from now. With no clock yet (the
+  // prerender), nothing qualifies — so no date can be offered before mount.
   const windowOK = (d: Day, startHour: number) =>
-    windowStart(d, startHour).getTime() - now.getTime() >= LEAD_HOURS_NEW * 3600_000;
+    !!now && windowStart(d, startHour).getTime() - now.getTime() >= LEAD_HOURS_NEW * 3600_000;
 
   const availableDays = days.filter((d) =>
     windows.some((w) => windowOK(d, w.startHour))
@@ -103,6 +142,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [zip, setZip] = useState("");
   const [address, setAddress] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [confirmedSlot, setConfirmedSlot] = useState("");
 
   const toggleService = (key: string) =>
     setServices((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
@@ -118,8 +158,13 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     !!activeWin;
 
   async function submit() {
-    if (!valid || state === "sending") return;
+    if (!valid || state === "sending" || !activeDate || !activeWin) return;
     setState("sending");
+
+    // Captured now, so the confirmation screen quotes what was actually sent
+    // even if the day strip re-derives (it depends on `now`, which is state).
+    const slotLabel = `${activeDate.dow}, ${activeDate.mon} ${activeDate.day} — ${activeWin.hours}`;
+    setConfirmedSlot(slotLabel);
 
     const serviceLabels = services
       .map((k) => SERVICES.find((s) => s.key === k)?.label ?? k)
@@ -180,7 +225,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
             Got it, {name.split(" ")[0]} — request received.
           </h3>
           <p style={{ ...body, maxWidth: 470, margin: "0 auto 6px" }}>
-            You told us <strong>{activeDate.dow}, {activeDate.mon} {activeDate.day} — {activeWin.hours}</strong> works best.
+            You told us <strong>{confirmedSlot}</strong> works best.
             A member of our team will call or text <strong>{phone}</strong> to lock in a visit that fits your schedule.
           </p>
           <p style={{ ...body, fontSize: 13.5, color: "#5b6f60", maxWidth: 470, margin: "0 auto" }}>
@@ -204,6 +249,21 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         Pick a day that&rsquo;s convenient <span style={{ color: "#8a948c", fontWeight: 400 }}>(we&rsquo;ll work around you)</span>
       </p>
       <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 6, marginBottom: 14 }}>
+        {/* Pre-mount placeholder. Same footprint as the real chips, so the strip
+            does not jump when the visitor's dates arrive — and, critically, no
+            date is ever printed into the prerendered HTML. */}
+        {!mounted &&
+          Array.from({ length: 5 }).map((_, i) => (
+            <div
+              key={`ph-${i}`}
+              aria-hidden="true"
+              style={{
+                ...chip, minWidth: 64, flexDirection: "column", gap: 2,
+                background: "#fff", borderColor: "#E4E0D4", height: 66,
+                opacity: 0.45, pointerEvents: "none",
+              }}
+            />
+          ))}
         {availableDays.map((d) => {
           const on = d.iso === activeDate?.iso;
           return (
