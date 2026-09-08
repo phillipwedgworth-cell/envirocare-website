@@ -26,6 +26,62 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog-writer 2026-09-08 ───
+  {
+    slug: 'struggling-to-get-rid-of-the-ticks-around-your-b',
+    title: 'Struggling to Get Rid of Ticks Around Your Alabama Home? Here\'s Why They Keep Coming Back',
+    excerpt: 'Ticks in Alabama are not a random nuisance — they follow deer, small animals, and the kind of brushy, shaded edges that our climate grows fast. If you\'ve sprayed the yard and still find ticks on your kids or your dog, there\'s usually a reason. Here\'s what to look at.',
+    publishedAt: '2026-10-08',
+    author: 'Kevin Wedgworth',
+    category: 'Ticks',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    metaTitle: 'Can\'t Get Rid of Ticks? What Alabama Homeowners Need to Know',
+    metaDescription: 'Ticks in your Alabama yard aren\'t bad luck — they follow a pattern. Learn what draws them in, what actually works, and when to call for help.',
+    body: `<p class="lede">If you've pulled ticks off your dog three times this week, or found one on your child after an afternoon in the backyard, you're not imagining things getting worse. Ticks in Alabama have expanded their range, their season, and their numbers over the past decade. The warm winters and wet springs we've been getting across the Birmingham metro, up into Madison County, and down around Lake Martin have been good for ticks. Not so good for the rest of us.</p>
+
+<h2>Why Alabama Is Especially Tick-Heavy</h2>
+<p>Alabama has the habitat ticks love: thick tree cover, creek bottoms, high humidity, mild winters, and an abundance of deer and small rodents. The black-legged tick (often called the deer tick), the American dog tick, and the lone star tick are all common here. In places like the wooded neighborhoods around <a href="/cahaba-heights">Cahaba Heights</a>, the creek corridors near <a href="/helena">Helena</a>, or the lakeside properties at <a href="/lake-martin">Lake Martin</a>, you've got exactly the conditions these ticks need — shade, moisture, leaf litter, and plenty of hosts moving through.</p>
+<p>Ticks don't jump or fly. They sit at the tips of grass blades and low brush and wait for a warm-blooded host to walk past — a behavior called questing. That means the edge where your mowed lawn meets the tree line, the shrubs along your fence, and the leaf piles against your foundation are the hot spots. Not the middle of the yard.</p>
+
+<h2>What's Actually Attracting Ticks to Your Property</h2>
+<p>Before you treat anything, it helps to understand why your yard is drawing ticks in the first place. The usual suspects:</p>
+<ul>
+  <li><strong>Deer and wildlife paths.</strong> If deer are crossing your property — even at night — they are dropping ticks as they go. This is one of the biggest drivers in rural and semi-rural areas across Shelby County, Tallapoosa County, and the counties north of Huntsville.</li>
+  <li><strong>Tall grass and brush piles.</strong> Unmowed edges, stacked firewood, leaf piles, and low-hanging shrubs all give ticks a place to rest and quest from.</li>
+  <li><strong>Creek access.</strong> Properties that back up to creeks or drainage ditches — common all over central Alabama — tend to have higher tick pressure because small animals move along those corridors constantly.</li>
+  <li><strong>Rodents.</strong> Mice and voles are major tick hosts, especially for the juvenile stages. If you have a rodent problem, you may have a tick problem attached to it.</li>
+  <li><strong>Your own pets.</strong> Dogs that go in and out of wooded or brushy areas carry ticks back to the yard repeatedly.</li>
+</ul>
+
+<h2>What Homeowners Try That Usually Doesn't Work Well</h2>
+<p>Most people start with a store-bought granular or spray product. Sometimes that takes the edge off. But there are real limits to the DIY approach with ticks, and it's worth being straight about them.</p>
+<p>First, coverage. Tick populations concentrate in specific spots — that shady edge, those overgrown corners — and treating only the open lawn often misses them entirely. Second, timing. A single treatment in May doesn't hold through a full Alabama summer. Ticks are active here from roughly late February or March all the way through October, and a one-time application wears off well before the season ends. Third, the wildlife problem. If deer and raccoons are moving through your yard weekly, they are reintroducing ticks faster than most DIY treatments can knock them down.</p>
+<p>Guinea fowl get mentioned a lot online as a natural tick control method. They do eat ticks. They also eat your garden, make considerable noise, attract predators, and don't respect property lines. They're not really a practical solution for most suburban Alabama homeowners.</p>
+
+<h2>Yard Changes That Actually Reduce Tick Pressure</h2>
+<p>Treatment alone works better when you've also addressed the habitat. These steps make a real difference:</p>
+<ol>
+  <li>Mow regularly and keep grass short, especially along fence lines and the edge of wooded areas.</li>
+  <li>Move firewood piles and debris away from the house and off the ground if possible.</li>
+  <li>Clear leaf litter from around the foundation in fall and early spring.</li>
+  <li>Consider a 3-foot wood chip or gravel barrier between your lawn and any adjacent woods or brush — ticks are reluctant to cross dry, sunny open ground.</li>
+  <li>Talk to your vet about tick prevention products for your dogs. Treating the yard and the dog together is much more effective than either alone.</li>
+  <li>Check yourself and your family after time outdoors — especially the hairline, behind the ears, and the backs of the knees. A tick that hasn't attached yet can be brushed off. Catching them early matters.</li>
+</ol>
+
+<h2>What About Tick-Borne Illness — Should You Be Worried?</h2>
+<p>This is worth saying clearly: ticks in Alabama can carry diseases including Rocky Mountain spotted fever, ehrlichiosis, and others. If you find an attached tick and develop a fever, rash, headache, or muscle aches in the days that follow, see a doctor promptly. Don't wait it out. We're pest control, not medicine — but we do want you to take this seriously. The Alabama Department of Public Health has good resources on tick-borne illness if you want to read further.</p>
+
+<h2>What Professional Tick Treatment Looks Like</h2>
+<p>A professional application targets the places ticks actually live: the leaf litter, the transition zones, the low brush, the shaded areas along fences and foundations. The timing matters too — early treatments in March or April, before populations build, make the rest of the season easier to manage. Retreatments through October keep pressure down as new ticks hatch and as wildlife continues to move through.</p>
+<p>At EnviroCare, we offer a combined <a href="/services/mosquito">Mosquito + Tick</a> treatment at $65 per visit that also covers chiggers — because in Alabama you're rarely dealing with just one of these things. We run treatments through the active season, March through October. If you're already on one of our pest plans, adding mosquito and tick coverage comes out to $34 per month.</p>
+<p>We've been doing this in Alabama since 1958 — four generations of the Wedgworth family working in the same communities, knowing the same creek bottoms and clay soils and neighborhoods. Our <a href="/services/tick-control">tick control service</a> is available from our offices in Alabaster, Birmingham, Huntsville, and Alexander City. If you're ready to talk through what your yard needs, <a href="/quote">request a quote here</a>.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
   // ─── blog-writer 2026-09-07 ───
   {
     slug: 'keeping-the-wolf-spiders-in-birmingham-outside-w',

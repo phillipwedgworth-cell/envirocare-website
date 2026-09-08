@@ -104,6 +104,7 @@ const POST_OVERRIDES: [RegExp, string][] = [
   // Tick-bite prevention (1,399 imps, pos ~15) — personal protection intent.
   [/prevent-getting-bit-by-ticks/, "/blog/prevent-tick-bites-alabama"],
   [/keeping-the-wolf-spiders-in-birmingham-outside-w/, "/blog/keeping-the-wolf-spiders-in-birmingham-outside-w"], // legacy /blog/2022/july/keeping-the-wolf-spiders-in-birmingham-outside-w/ (blog-writer 2026-09-07)
+  [/struggling-to-get-rid-of-the-ticks-around-your-b/, "/blog/struggling-to-get-rid-of-the-ticks-around-your-b"], // legacy /blog/2022/august/struggling-to-get-rid-of-the-ticks-around-your-b/ (blog-writer 2026-09-08)
 ];
 
 export function middleware(req: NextRequest) {
