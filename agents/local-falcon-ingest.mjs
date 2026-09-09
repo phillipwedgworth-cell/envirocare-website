@@ -33,7 +33,18 @@ import { gateOrSkip } from "./lib/agent-gate.mjs";
 const AGENT_NAME = "local-falcon-ingest";
 const LF_API = process.env.LOCAL_FALCON_API_URL || "https://api.localfalcon.com/v1";
 const LF_KEY = process.env.LOCAL_FALCON_API_KEY;
-const LOOKBACK_DAYS = Number(process.env.LF_INGEST_LOOKBACK_DAYS ?? 21);
+// 45, not 21. The v3 campaigns are BIWEEKLY, and their scans slip: on 2026-09-08
+// the last runs were Huntsville 27d, Alabaster 25d, Lake Martin 16d. A 21-day
+// window therefore dropped the two WEAKEST markets (0.26% and 3.39% SoLV) as
+// "stale" and ingested only Lake Martin, which is the one market already at
+// target — the window silently inverted the priority order.
+//
+// The window has to exceed the real inter-scan interval, not the nominal cadence.
+// 45 covers biweekly plus slippage while still catching a genuinely dead campaign:
+// the retired v2 set is 60+ days out and stays excluded. Staleness is not lost by
+// widening — every row carries run_date and grid_baseline, so age stays visible in
+// the data rather than being enforced by dropping the row.
+const LOOKBACK_DAYS = Number(process.env.LF_INGEST_LOOKBACK_DAYS ?? 45);
 const TOP_N = 5;
 
 // Verified against the Local Falcon API 2026-07-23; used only when a campaign
@@ -96,14 +107,31 @@ function isFresh(dateStr) {
 // the list endpoint ever starts returning rows, they are merged in and win on
 // metadata (platforms, place_ids, grid) because those fields are richer there.
 //
-// HELD DELIBERATELY: 4ee47a23fc4793e ("EnviroCare Birmingham Core"). It still
-// tracks the Butler Rd GBP, and since 2026-09-05 the site routes Jefferson County
-// to the 16th Ave office — ingesting it would baseline the wrong profile. Add it
-// only once a campaign exists against the 16th Ave GBP.
+// THESE ARE THE v3 CAMPAIGNS. agents/knowledge/local-falcon-baseline.md is the
+// authority for this list — read it before changing anything here.
+//
+// Corrected 2026-09-08. The first version of this seed used 1822923e68f74d1,
+// b6d42c9c19856f2 and 7d2a6df072df6f8, which are the **v2** campaigns: retired,
+// paused since 2026-06-30, last run 2026-07-07, and listed as retired in that
+// baseline file. Seeding them replaced "0 campaigns" with three campaigns that
+// could never yield a current row. Both the SoLV epoch and the grid differ, so
+// their numbers are not comparable to v3 either.
+//
+// 4ee47a23fc4793e is the ALABASTER / Butler Rd campaign and belongs here. An
+// earlier note said to hold it because it tracks the Butler Rd GBP rather than
+// 16th Ave — that was about which office the SITE routes Jefferson County to,
+// which is a separate question from which GBP a scan measures. Butler Rd is a
+// real office with a real profile and its own SoLV; e9348fff16b95fa covers
+// 16th Ave separately.
 const SEEDED_CAMPAIGNS = [
-  { campaign_key: "1822923e68f74d1", name: "EnviroCare Huntsville - Weekly v2" },
-  { campaign_key: "b6d42c9c19856f2", name: "EnviroCare Birmingham - Weekly v2" },
-  { campaign_key: "7d2a6df072df6f8", name: "EnviroCare Lake Martin - Weekly v2" },
+  { campaign_key: "a58db3090ac9ab0", name: "EnviroCare Huntsville — Biweekly" },
+  { campaign_key: "4ee47a23fc4793e", name: "EnviroCare Birmingham Core (Alabaster / Butler Rd) — Biweekly" },
+  { campaign_key: "a99dae3fd51a462", name: "EnviroCare Lake Martin — Biweekly" },
+  // Created 2026-09-05, FIRST RUN 2026-09-09. Until then the report endpoint
+  // answers success=false and this key contributes one entry to summary.errors
+  // per run. That is expected, not a regression — the run still stores rows for
+  // the other three, and status only flips to "failed" if nothing at all lands.
+  { campaign_key: "e9348fff16b95fa", name: "EnviroCare Birmingham 16th Ave (Jefferson Co.) — Biweekly" },
 ];
 
 async function listScheduledCampaigns() {
