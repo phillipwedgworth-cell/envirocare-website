@@ -31,7 +31,7 @@ const ALEX_CITY_FAQS = [
   {
     question: 'How much does pest control cost in Alexander City, AL?',
     answer:
-      'EnviroCare\'s bi-monthly pest control starts at $35/month and covers 30+ pests — ants, roaches, spiders, and more — with unlimited re-service. Fire ant and flea treatment are priced separately. Sentricon® termite protection is quoted at your free WDO inspection. Mosquito yard barrier treatments run $45/month, March through October. No annual contract required. Call the Alexander City office at (256) 234-6162.',
+      'EnviroCare\'s bi-monthly pest control starts at $35/month and covers 30+ pests — ants, roaches, spiders, and more — with unlimited re-service. Fire ant and flea treatment are priced separately. Sentricon® termite protection is quoted at your free WDO inspection. Mosquito yard barrier treatments run $45/month, March through October. Call the Alexander City office at (256) 234-6162.',
   },
   {
     question: 'How do I get rid of mosquitoes at Lake Martin, Alabama?',

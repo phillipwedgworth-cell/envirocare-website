@@ -138,7 +138,14 @@ export default function PestLibraryPage({ slug }: { slug: string }) {
           {/* CLOSE CTA */}
           <section className="pl-close">
             <h2 className="pl-close-h">Dealing with {pest.name.toLowerCase()}? Let’s handle it.</h2>
-            <p>Family-owned in Alabama since 1958. Licensed technicians, EPA-registered products, no long-term pest control contract.</p>
+            {/* "no long-term pest control contract" removed 2026-09-07. data/compliance.ts:
+                NEVER claim "no contract", "no long-term contract", "no agreement" or
+                "cancel anytime" anywhere — agreement practice is not uniform, and the
+                $35/mo plan IS a 12-month ACH billing agreement. This is a SHARED
+                template, so the banned phrase was rendering on all 13 pest library
+                pages. The sitewide sweep noted in Homepage.tsx and
+                best-pest-control-birmingham/page.tsx missed this file. */}
+            <p>Family-owned in Alabama since 1958. Licensed technicians, EPA-registered products applied exactly as the label directs. Terms are confirmed in writing before service starts.</p>
             <div className="pl-ctas">
               <a href="tel:2059406360" className="pl-cta-gold">Call (205) 940-6360</a>
               <Link href="/quote" className="pl-cta-outline">Get a Free Quote →</Link>

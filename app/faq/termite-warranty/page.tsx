@@ -300,7 +300,7 @@ export default function TermiteWarrantyFAQ() {
               {
                 n: "Quote",
                 label: "Starting price",
-                note: "No setup fee, no initial charge, no annual contract",
+                note: "No setup fee, no initial charge",
                 color: G,
               },
               {

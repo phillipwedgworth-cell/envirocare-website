@@ -2118,7 +2118,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: bi-monthly pest control from $35/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
 
 <p><strong>7027 Old Madison Pike, Suite 108 · Huntsville, AL 35806</strong><br/>
-Free inspections. No setup fee. Fast scheduling available.</p>
+Free inspections. Terms are confirmed in writing before service starts.</p>
 
 <p>Call: <strong>(256) 937-7676</strong></p>
 `,
