@@ -21,7 +21,8 @@
     "test:tracking": "node scripts/test-tracking-integrity.mjs",
     "test:similarity": "node scripts/test-page-similarity.mjs",
     "test:captivated": "node scripts/test-captivated-templates.mjs",
-    "audit:captivated": "node agents/captivated-audit.mjs"
+    "audit:captivated": "node agents/captivated-audit.mjs",
+    "captivated:dryrun": "node agents/captivated-send.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
