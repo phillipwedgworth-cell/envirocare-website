@@ -26,6 +26,62 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog-writer 2026-09-09 ───
+  {
+    slug: 'struggling-to-get-rid-of-the-ticks-around-your-b',
+    title: 'Struggling to Get Rid of Ticks Around Your Alabama Home? Here\'s What Actually Works',
+    excerpt: 'Ticks in Alabama don\'t take much time off. If you\'re finding them on the dog, on the kids, or on yourself after a walk through the backyard, the yard itself is usually the problem — not just bad luck. Here\'s what\'s drawing them in and what you can actually do about it.',
+    publishedAt: '2026-10-08',
+    author: 'Kevin Wedgworth',
+    category: 'Ticks',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    metaTitle: 'Can\'t Get Rid of Ticks in Your Alabama Yard?',
+    metaDescription: 'Ticks in Alabama yards are a real problem from February through October. Learn what actually works, what doesn\'t, and when to call a professional.',
+    body: `<p class="lede">If you've been pulling ticks off yourself, your kids, or your dog on a regular basis, the yard is almost certainly where they're coming from. Alabama's humidity, mild winters, and heavy ground cover create some of the best tick habitat in the country — and if you live anywhere near a creek bottom, a wood line, or a neighborhood that backs up to undeveloped land, you already know that. The good news is that tick pressure in a yard is something you can actually reduce. The bad news is that most of the advice floating around online either doesn't work or only works halfway.</p>
+
+<h2>Why Alabama Yards Are So Bad for Ticks</h2>
+<p>It comes down to moisture and wildlife. Alabama's clay soils hold water, and the humidity lingers long after rain. Ticks need that moisture to survive — they dry out and die in hot, dry, exposed areas, which is why you almost never pick one up walking across a sunny concrete driveway.</p>
+<p>What you do pick up ticks from:</p>
+<ul>
+<li>Tall grass and weedy edges along fence lines and property borders</li>
+<li>Leaf piles and thick ground cover under trees</li>
+<li>Shaded creek banks — anywhere near a drainage ditch or seasonal stream</li>
+<li>Wood piles stacked against the house or fence</li>
+<li>The transition zone between your mowed lawn and the woods or brush behind it</li>
+</ul>
+<p>Deer, rabbits, squirrels, and feral cats carry ticks in and drop them as they move through your property. In neighborhoods around Greystone, Chelsea, and the Lake Martin area, deer pressure is especially high. The same goes for any lot in Huntsville's outlying areas or along the creek corridors that run through older Birmingham neighborhoods.</p>
+
+<h2>What Time of Year Are Ticks Actually Active in Alabama?</h2>
+<p>Most people think ticks slow down in winter. In Alabama, not really. Adult ticks — especially the blacklegged tick, also called the deer tick — are actually most active in fall and late winter. Lone star ticks, which are by far the most common tick you'll encounter in Alabama, stay active any time temperatures are above about 40 degrees. That means February through October is prime season, and even warm spells in December and January can put ticks on the move.</p>
+<p>The American dog tick is another one you'll run into, particularly in grassy, open areas. It peaks in spring and early summer. All three species are capable of transmitting different diseases, so if you've been bitten and develop a fever, rash, or flu-like symptoms, see a doctor promptly. That's not something to wait out.</p>
+
+<h2>Yard Changes That Actually Reduce Tick Numbers</h2>
+<p>There's no single fix, but a few habitat changes make a real difference:</p>
+<ol>
+<li><strong>Mow and keep it short.</strong> Ticks don't like open, sunny, short grass. The more of your yard you keep mowed, the fewer places they have to hide.</li>
+<li><strong>Clear the leaf litter.</strong> Ticks overwinter in leaves. Raking and bagging or composting away from the house removes a huge portion of that population before spring.</li>
+<li><strong>Create a buffer at the wood line.</strong> A strip of wood chips or gravel three feet wide between your lawn and any wooded area slows tick migration considerably. It dries out fast and ticks won't cross it willingly.</li>
+<li><strong>Move wood piles away from the house.</strong> Stack firewood in a dry, sunny spot rather than against the fence or foundation.</li>
+<li><strong>Don't let ground cover get out of hand.</strong> Pachysandra, ivy, and other dense plantings close to the house are tick habitat. Keep them trimmed back and thinned out.</li>
+</ol>
+<p>None of these will get you to zero ticks, especially if wildlife is moving through regularly. But they change the environment enough that treatments actually stick.</p>
+
+<h2>What Doesn't Work (And Why)</h2>
+<p>Home remedies come up a lot in this conversation. Diatomaceous earth, cedar chips, garlic spray, essential oil blends — people try all of these. Some have a limited effect in a very small area under very dry conditions. None of them hold up across a full Alabama yard through a rainy spring or summer. They break down fast, they don't penetrate ground cover, and they don't address where ticks are actually resting and waiting.</p>
+<p>Tick tubes — cardboard tubes stuffed with permethrin-treated cotton that mice carry back to their nests — are an interesting concept and have some research behind them, but they work slowly and only address one part of the tick life cycle. They're not a standalone fix.</p>
+<p>Over-the-counter sprays from a hardware store can kill ticks on contact, but getting the coverage, timing, and dilution right across a full property is harder than it looks. And without addressing the habitat, you're treating the same yard over and over with diminishing returns.</p>
+
+<h2>When Professional Treatment Makes Sense</h2>
+<p>If you've made the habitat changes and you're still pulling ticks off regularly, or if your yard has a lot of wooded edges, heavy ground cover, or regular wildlife traffic, professional treatment is the most reliable next step.</p>
+<p>A trained technician knows where ticks concentrate — those shaded, humid transition zones, the underside of leaf piles, the base of brush along a fence line — and applies EPA-registered products per label directions to those specific areas. Timing matters too. Treating in late winter before larvae become nymphs, and again in late summer when adults are active, hits the population at two vulnerable points.</p>
+<p>Our <a href="/services/tick-control">tick control service</a> is built into our Mosquito + Tick plan, which runs $65 per treatment and also covers chiggers. It runs on the same March through October schedule as our mosquito program, which puts treatments where they matter most during Alabama's peak tick season. If you're already on a pest plan, adding mosquito and tick coverage is $34 a month.</p>
+<p>We serve homeowners across central and north Alabama, including <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, <a href="/lake-martin">Lake Martin</a>, and <a href="/alabaster">Alabaster</a>. If you're dealing with tick pressure in your yard and want to know what a treatment plan would look like for your property, we're glad to take a look.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
   // ─── blog-writer 2026-09-07 ───
   {
     slug: 'keeping-the-wolf-spiders-in-birmingham-outside-w',
@@ -2118,7 +2174,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Our Huntsville office on Old Madison Pike serves all of Madison County with local technicians who know North Alabama specifically. Same services as Birmingham and Lake Martin: bi-monthly pest control from $35/month, Sentricon termite protection, monthly mosquito treatments, and tick control.</p>
 
 <p><strong>7027 Old Madison Pike, Suite 108 · Huntsville, AL 35806</strong><br/>
-Free inspections. No setup fee. Fast scheduling available.</p>
+Free inspections. Terms are confirmed in writing before service starts.</p>
 
 <p>Call: <strong>(256) 937-7676</strong></p>
 `,

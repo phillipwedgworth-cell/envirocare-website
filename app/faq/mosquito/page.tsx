@@ -58,7 +58,7 @@ const SCHEMA = {
       name: "How much does mosquito control cost in Alabama?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare's mosquito program is $45 per month, March through October (8 treatments, spread evenly across the year by ACH). There's no setup fee and no annual contract. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per month; flea is an interior-plan add-on.",
+        text: "EnviroCare's mosquito program is $45 per month, March through October (8 treatments, spread evenly across the year by ACH). There's no setup fee on the mosquito program. You can add it to an existing pest or termite plan anytime. Mosquito + Tick (chiggers covered) is $65 per month; flea is an interior-plan add-on.",
       },
     },
     {
@@ -499,7 +499,13 @@ export default function MosquitoFAQ() {
               lineHeight: 1.7,
             }}
           >
-            No long-term pest control contract. No setup fee. Local Alabama family since 1958.
+            {/* Removed 2026-09-07 — TWO violations in one line.
+                1. "No long-term pest control contract" is banned outright by
+                   data/compliance.ts; the $35/mo plan IS a 12-month ACH agreement.
+                2. "No setup fee" contradicts the initial pest service fee entirely
+                   ($150 regular, currently $75 with 50% off — Phillip, 2026-09-07).
+                   Mosquito service is $45/month, eight treatments March–October. */}
+            Two ways to pay: per treatment, or monthly by ACH. Terms are confirmed in writing before service starts. Local Alabama family since 1958.
             Start before May for the best results all season.
           </p>
           <div

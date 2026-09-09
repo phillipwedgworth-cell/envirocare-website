@@ -26,7 +26,7 @@ const HUNTSVILLE_FAQS = [
   {
     question: 'How much does pest control cost in Huntsville, Alabama?',
     answer:
-      'EnviroCare offers pest control in Huntsville starting at $35/month for bi-monthly service, which covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. Adding Sentricon® termite protection is priced at a free WDO inspection. Mosquito yard barrier treatments start at $45/month and run March through October. No annual contracts required.',
+      'EnviroCare offers pest control in Huntsville starting at $35/month for bi-monthly service, which covers 30+ pests including ants, roaches, and spiders, with unlimited re-service visits. Adding Sentricon® termite protection is priced at a free WDO inspection. Mosquito yard barrier treatments start at $45/month and run March through October. Terms are confirmed in writing before service starts.',
   },
   {
     question: 'How do I get rid of mosquitoes in Huntsville, Alabama?',
