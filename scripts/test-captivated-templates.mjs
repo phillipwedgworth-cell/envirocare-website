@@ -111,14 +111,16 @@ async function main() {
     }
     scanned++;
     const scan = scanText(body, rules);
-    if (!scan.clean) {
-      if (scan.blocking?.length) {
-        failures.push({ name, hits: scan.blocking });
-      }
-      if (scan.warnings?.length) {
-        warned.push({ name, hits: scan.warnings });
-      }
-    }
+    // NOTE: scan.clean is `blocking.length === 0`, so it is true even when a
+    // template has non-blocking warnings. Collect warnings independent of
+    // scan.clean, otherwise warning-only templates are silently dropped and the
+    // guard's "deliberately loud" warning output never fires.
+        if (scan.blocking?.length) {
+      failures.push({ name, hits: scan.blocking });
+        }
+        if (scan.warnings?.length) {
+      warned.push({ name, hits: scan.warnings });
+        }
   }
 
   // A template whose body we cannot find is unscanned, and unscanned is not
