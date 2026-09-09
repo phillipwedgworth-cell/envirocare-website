@@ -149,9 +149,19 @@ async function main() {
   return 0;
 }
 
+// Set exitCode and let Node drain, rather than process.exit().
+//
+// process.exit() while fetch's socket handle is still closing trips a libuv
+// assertion on Windows — "!(handle->flags & UV_HANDLE_CLOSING), src\win\async.c"
+// — and the process dies with 127 instead of the intended 1. Observed 2026-09-09
+// on the real HTTP 500 path. The FAIL message still printed, but 127 conventionally
+// means "command not found", so a CI log would send whoever reads it looking for a
+// missing binary rather than at the guard's own output.
 main()
-  .then((code) => process.exit(code))
+  .then((code) => {
+    process.exitCode = code;
+  })
   .catch((e) => {
     console.error(`captivated-templates: FAIL — unexpected error: ${e?.stack || e}`);
-    process.exit(1);
+    process.exitCode = 1;
   });

@@ -255,6 +255,10 @@ async function run() {
 run().catch((e) => {
   const msg = e instanceof CaptivatedError ? `${e.message}` : e?.stack || String(e);
   console.error(`[${AGENT_NAME}] FAILED: ${msg}`);
-  logRunREST(AGENT_NAME, "error", { error: msg }).catch(() => {});
-  process.exit(1);
+  // exitCode, not exit(): process.exit() here would kill the process before the
+  // logRunREST POST above lands, so the failure would be reported on the console
+  // and NOT recorded in agent_runs — the one place a watchdog would look for it.
+  // It also trips a libuv assertion on Windows when a socket is mid-close, which
+  // turns a clean exit 1 into a 127 (see scripts/test-captivated-templates.mjs).
+  process.exitCode = 1;
 });
