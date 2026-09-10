@@ -118,15 +118,29 @@ export async function blMcpCall(toolName, args) {
     body: JSON.stringify({ jsonrpc: "2.0", method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "envirocare-agent", version: "1.0" } }, id: 0 }),
   });
   if (!initResp.ok) throw await blHttpError(initResp, `${toolName} init`);
-  const sessionId = initResp.headers.get("mcp-session-id");
+  let sessionId = initResp.headers.get("mcp-session-id");
   if (!sessionId) {
-    // 200 but no session header is almost always a key rejection returned as text.
     const raw = await initResp.text().catch(() => "");
     if (looksLikeKeyRejection(raw)) throw new BrightLocalKeyError(raw);
-    throw new Error(`BL MCP ${toolName}: no session ID returned${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+    // 2026-09-10: a 200 with no session header used to mean "key rejected as
+    // text". It no longer does. BrightLocal's MCP now answers initialize with
+    // a complete JSON-RPC result (capabilities, tools) and NO Mcp-Session-Id --
+    // stateless Streamable HTTP, which the spec permits. The review-responder
+    // hit this on 2026-09-07 across all three RM reports and the listings
+    // guard hit it on PR #171, both reporting a healthy key as broken. So:
+    // accept a valid initialize result as the handshake and carry on without
+    // the header; keep failing on anything that is neither a result nor a
+    // recognisable rejection.
+    const dataLine = raw.split("\n").find((l) => l.startsWith("data: "));
+    let init = null;
+    try { init = JSON.parse((dataLine ? dataLine.slice(6) : raw).trim()); } catch { init = null; }
+    if (!init || init.error || !init.result) {
+      throw new Error(`BL MCP ${toolName}: initialize returned neither a session ID nor a result${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+    }
+    sessionId = null;
   }
 
-  const shdrs = { ...hdrs, "Mcp-Session-Id": sessionId };
+  const shdrs = sessionId ? { ...hdrs, "Mcp-Session-Id": sessionId } : { ...hdrs };
 
   // 2. Notify initialized
   await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) });

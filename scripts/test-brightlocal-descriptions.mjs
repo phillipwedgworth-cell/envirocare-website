@@ -75,8 +75,8 @@ async function main() {
     payload = await blMcpCall("find_locations");
   } catch (e) {
     console.error(`brightlocal-descriptions: FAIL — find_locations failed: ${e.message}`);
-    console.error("  Note: 'no session ID returned' is how a rejected/expired key presents.");
-    console.error("  The review-responder hit exactly this on 2026-09-07 across all three RM reports.");
+    console.error("  A rejected key throws BrightLocalKeyError. Anything else here is the MCP");
+    console.error("  handshake or the call itself -- see blMcpCall in agents/brightlocal.mjs.");
     return 1;
   }
 
