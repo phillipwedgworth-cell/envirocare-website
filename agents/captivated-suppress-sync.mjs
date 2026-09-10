@@ -57,6 +57,11 @@ const KEY = cleanEnv("FIELDSTER_API_TOKEN") || cleanEnv("FIELDSTER_API_KEY");
 // 401s, so the error carries no signal. See scripts/build_collections.py.
 const AUTH_HEADER = cleanEnv("FIELDSTER_API_HEADER") || "Key7-Authentication";
 
+// Written directly over PostgREST rather than through lib/kv.mjs, because this is
+// a real table the Vercel send route queries, not a KV blob.
+const SUPABASE_URL = (cleanEnv("SUPABASE_URL") || "").replace(/\/+$/, "");
+const SUPABASE_KEY = cleanEnv("SUPABASE_SERVICE_ROLE_KEY") || cleanEnv("SUPABASE_KEY");
+
 // Phrasings found live in Fieldster customer notes. Deliberately broad: a false
 // positive costs one unsent review request, a false negative texts someone who
 // has been sent to collections.
@@ -92,6 +97,8 @@ async function run() {
     emails_added: 0,
     suppression_total: 0,
     suppression_email_total: 0,
+    dnc_rows: 0,
+    dnc_upserted: 0,
     samples: [],
     errors: [],
   };
@@ -134,6 +141,46 @@ async function run() {
     }
   }
 
+  // ── collections_do_not_contact ────────────────────────────────────────────
+  // The Vercel route app/api/collections/send-batch-text reads THIS table, not
+  // the KV lists — it screens by account number, which is what the workbook and
+  // the call list are keyed on. On 2026-09-10 that table was EMPTY while 25 of
+  // the 26 Fieldster-flagged accounts sat on the 192-row textable call list. So
+  // the same notes that feed the KV lists also populate it here, keyed the way
+  // that route needs.
+  const dncRows = [];
+  for (const c of customers.values()) {
+    if (!DO_NOT_CONTACT_RE.test(String(c.notes || ""))) continue;
+    if (!c.customer_number) continue;
+    dncRows.push({
+      account: c.customer_number,
+      customer: c.customer_name ?? null,
+      no_text: true,
+      no_call: true,
+      reason: `Fieldster note: ${String(c.notes).replace(/\s+/g, " ").trim().slice(0, 120)}`,
+      updated_at: new Date().toISOString(),
+    });
+  }
+  out.dnc_rows = dncRows.length;
+  if (!DRY && dncRows.length) {
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/collections_do_not_contact`, {
+        method: "POST",
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          "Content-Type": "application/json",
+          Prefer: "resolution=merge-duplicates,return=minimal",
+        },
+        body: JSON.stringify(dncRows),
+      });
+      if (!res.ok) out.errors.push(`collections_do_not_contact: HTTP ${res.status} ${(await res.text()).slice(0, 160)}`);
+      else out.dnc_upserted = dncRows.length;
+    } catch (e) {
+      out.errors.push(`collections_do_not_contact: ${e.message}`);
+    }
+  }
+
   const beforePhones = await loadSuppressedPhones();
   const beforeEmails = await loadSuppressedEmails();
   if (DRY) {
@@ -155,6 +202,7 @@ async function run() {
   console.log(`  do-not-contact notes     : ${out.flagged} (${out.flagged_without_phone} no phone, ${out.flagged_without_email} no email)`);
   console.log(`  phones ${DRY ? "WOULD add" : "added"}            : ${out.phones_added}  (list now ${out.suppression_total}${DRY ? ", unchanged — dry run" : ""})`);
   console.log(`  emails ${DRY ? "WOULD add" : "added"}            : ${out.emails_added}  (list now ${out.suppression_email_total}${DRY ? ", unchanged — dry run" : ""})`);
+  console.log(`  collections_do_not_contact: ${out.dnc_upserted}/${out.dnc_rows} account rows upserted${DRY ? " (dry run — none written)" : ""}`);
   for (const s of out.samples) console.log(`    ${s.account}  "${s.note}"`);
 
   // A flagged customer with no phone cannot be screened by phone, so the sender
