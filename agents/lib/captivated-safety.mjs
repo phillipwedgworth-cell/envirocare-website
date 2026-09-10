@@ -166,6 +166,85 @@ export async function mergeSuppressed(newIds) {
   return { total: existing.size, added, set: existing };
 }
 
+// ── Suppression by PHONE NUMBER ─────────────────────────────────────────────
+//
+// WHY A SECOND LIST, KEYED DIFFERENTLY. The list above holds Captivated contact
+// ids and is fed by polling conversations for STOP replies. That covers people
+// who opted out *by text*. It does not cover the other two places EnviroCare
+// records "do not contact", and both of them predate Captivated:
+//
+//   · Fieldster customer notes — "COLLECTIONS DO NOT CALL", "HAS BEEN SENT TO
+//     COLLECTIONS. DO NOT CALL." Measured 2026-09-10: 26 of 699 past-due
+//     customers carry one, and all 26 have a phone number on file.
+//   · The collections workbook's "Do Not Contact" tab, typed by staff, which
+//     COLLECTIONS_STAFF_GUIDE.md describes as "what will keep any future
+//     bulk-text tool from ever messaging someone who opted out".
+//
+// Neither of those knows a Captivated contact id, and Captivated does not know
+// a Fieldster account number. The only identifier both sides hold is the phone
+// number — Fieldster stores primary_phone/primary_mobile, Captivated stores
+// phone_numbers[].phone_number as E.164 ("+12568616611"). So suppression by
+// phone is the bridge, and it is normalised to the last 10 digits so that
+// "+1 256 861 6611", "(256) 861-6611" and "2568616611" are one person.
+//
+// Without this, the workbook's Do Not Contact tab is decorative: the sender
+// screens on contact id, so someone Sabrena adds there is still textable.
+
+const SUPPRESSED_PHONES_KEY = "captivated:suppressed_phones";
+
+/** Last 10 digits, or null. US/CA numbers only, which is all four offices. */
+export function normalisePhone(value) {
+  const digits = String(value ?? "").replace(/\D/g, "");
+  if (digits.length < 10) return null;
+  return digits.slice(-10);
+}
+
+/** Every normalised phone on a Captivated contact record. */
+export function phonesOf(contact) {
+  const out = new Set();
+  const add = (v) => {
+    const n = normalisePhone(v);
+    if (n) out.add(n);
+  };
+  for (const p of contact?.phone_numbers ?? []) {
+    add(typeof p === "string" ? p : p?.phone_number ?? p?.number ?? p?.value);
+  }
+  add(contact?.phone);
+  add(contact?.primary_phone);
+  add(contact?.primary_mobile);
+  return out;
+}
+
+export async function loadSuppressedPhones() {
+  const raw = await stateGet(SUPPRESSED_PHONES_KEY);
+  const list = Array.isArray(raw?.phones) ? raw.phones : Array.isArray(raw) ? raw : [];
+  return new Set(list.map((p) => normalisePhone(p)).filter(Boolean));
+}
+
+/**
+ * Additive, like mergeSuppressed. `sources` is recorded so a later reader can
+ * see WHERE a number came from without re-deriving it.
+ */
+export async function mergeSuppressedPhones(newPhones, source = "unknown") {
+  const existing = await loadSuppressedPhones();
+  let added = 0;
+  for (const p of newPhones) {
+    const n = normalisePhone(p);
+    if (n && !existing.has(n)) {
+      existing.add(n);
+      added++;
+    }
+  }
+  if (added > 0) {
+    await stateSet(SUPPRESSED_PHONES_KEY, {
+      phones: [...existing],
+      updated_at: new Date().toISOString(),
+      last_source: source,
+    });
+  }
+  return { total: existing.size, added, set: existing };
+}
+
 // ── Per-contact send history / dedup ────────────────────────────────────────
 
 const historyKey = (campaign) => `captivated:lastsent:${campaign}`;
@@ -195,10 +274,29 @@ export function tooSoon(history, contactId, minDays = MIN_DAYS_BETWEEN_SENDS, no
  * Returns { ok, reason }. Callers log the reason for every excluded contact so
  * a shrinking audience is explained rather than mysterious.
  */
-export function screenContact(contactId, { suppressed, history, minDays = MIN_DAYS_BETWEEN_SENDS, now = new Date() }) {
+export function screenContact(
+  contactId,
+  { suppressed, history, minDays = MIN_DAYS_BETWEEN_SENDS, now = new Date(), suppressedPhones, contact } = {},
+) {
   const id = String(contactId);
   if (!id) return { ok: false, reason: "no contact id" };
   if (suppressed?.has(id)) return { ok: false, reason: "opted out" };
+
+  // Phone-based suppression. Checked even when the contact id is unknown to the
+  // STOP list, because Fieldster and the collections workbook record "do not
+  // contact" against a phone/account, never against a Captivated id.
+  //
+  // If suppressedPhones was not supplied, this check is SKIPPED rather than
+  // silently passing everyone — the caller is responsible for loading it, and
+  // captivated-send.mjs refuses to build an audience without it.
+  if (suppressedPhones && contact) {
+    for (const p of phonesOf(contact)) {
+      if (suppressedPhones.has(p)) {
+        return { ok: false, reason: "do-not-contact (phone)" };
+      }
+    }
+  }
+
   if (tooSoon(history, id, minDays, now)) return { ok: false, reason: `contacted within ${minDays} days` };
   return { ok: true, reason: null };
 }
@@ -215,6 +313,10 @@ export default {
   collectOptOuts,
   loadSuppressed,
   mergeSuppressed,
+  normalisePhone,
+  phonesOf,
+  loadSuppressedPhones,
+  mergeSuppressedPhones,
   loadSendHistory,
   recordSends,
   tooSoon,

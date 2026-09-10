@@ -22,7 +22,8 @@
     "test:similarity": "node scripts/test-page-similarity.mjs",
     "test:captivated": "node scripts/test-captivated-templates.mjs",
     "audit:captivated": "node agents/captivated-audit.mjs",
-    "captivated:dryrun": "node agents/captivated-send.mjs"
+    "captivated:dryrun": "node agents/captivated-send.mjs",
+    "captivated:suppress": "node agents/captivated-suppress-sync.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
