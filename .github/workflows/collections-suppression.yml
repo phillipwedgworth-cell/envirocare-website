@@ -1,0 +1,64 @@
+name: Collections suppression sync
+
+# Keeps the do-not-contact lists current, BEFORE staff start calling and texting.
+#
+# WHY THIS EXISTS
+# -----------------------------------------------------------------------------
+# On 2026-09-10 collections_do_not_contact held ZERO rows while
+# collections_call_list held 192 — and 25 of the 26 customers whose Fieldster
+# notes read "COLLECTIONS DO NOT CALL" were sitting on that textable call list,
+# every one with a phone number. The protection existed in code and protected
+# nobody, because nothing populated it.
+#
+# It was populated by hand that day. By hand is not a control: the daily 7am
+# rebuild refreshes the CALL LIST every weekday, so the list of people to contact
+# grows while the list of people not to contact stays frozen at whenever someone
+# last remembered. That gap widens silently and in the dangerous direction.
+#
+# So this runs on the same cadence as the rebuild, and slightly ahead of it.
+#
+# TIMING. 11:30 UTC = 6:30am Central, half an hour before the 7am Task Scheduler
+# rebuild on the office machine. Protection is refreshed before the call list it
+# protects is regenerated, not after.
+#
+# SAFETY. The agent is READ-ONLY against Fieldster (GET only) and additive
+# against Supabase — it never removes a suppression. A failure here is loud:
+# the agent exits 1, this job goes red, and agents/captivated-send.mjs plus the
+# send-batch-text route both REFUSE to send against an empty list rather than
+# treating "no rows" as "nobody is flagged".
+
+on:
+  schedule:
+    - cron: '30 11 * * 1-5'   # weekdays 11:30 UTC = 6:30am CT
+  workflow_dispatch: {}
+
+# A newer run makes an in-flight one pointless.
+concurrency:
+  group: collections-suppression
+  cancel-in-progress: true
+
+jobs:
+  suppress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install
+        run: npm ci || npm install
+
+      - name: Sync do-not-contact from Fieldster notes
+        env:
+          # Fieldster auth header is Key7-Authentication — the agent defaults to
+          # it. FIELDSTER_API_HEADER only needs setting if that ever changes.
+          FIELDSTER_API_TOKEN:       ${{ secrets.FIELDSTER_API_TOKEN || secrets.FIELDSTER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+        run: npm run captivated:suppress
