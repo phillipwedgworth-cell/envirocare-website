@@ -264,8 +264,34 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // GBP posts scheduled for 2026-08-13 carried "damage repair coverage from
   // Corteva" across all three locations. Being a Sentricon Certified Specialist is
   // a real credential and is deliberately NOT matched here; only the attribution is.
-  { pattern: '(coverage|repair|warrant\\w*)[^.]{0,40}\\b(from|by|backed by|through)\\s+(corteva|the\\s+manufacturer|sentricon)|\\b(corteva|manufacturer)([\'’]s)?\\s+(guarantee|warranty|coverage)\\b',
-    reason: 'coverage attributed to the manufacturer',
+  //
+  // EIGHTH SHAPE, 2026-09-09. The rule above knew two constructions -- PASSIVE
+  // ("backed by Corteva") and POSSESSIVE ("Corteva's warranty"). It knew nothing
+  // about ACTIVE VOICE, and so returned PASS over two live blog pages:
+  //
+  //   data/blog-posts.ts:1699  "Corteva BACKS Sentricon with damage repair coverage"
+  //   data/blog-posts.ts:2585  "Corteva -- the manufacturer -- UPDATED THEIR WARRANTY
+  //                             terms ... your $1,000,000 damage warranty may no
+  //                             longer be active"
+  //
+  // The first is subject-verb-object with the party first; the second puts an
+  // appositive between the party and the noun, so neither adjacency test fired.
+  // Same literal-vs-shape failure documented for the retired name, AI imagery,
+  // "founded 1958" and the callback promise. So the rule now also matches:
+  //   (a) the party as SUBJECT of a backing verb  -- Corteva backs/provides/offers/
+  //       stands behind/guarantees/warrants/covers -- with a coverage/warranty noun
+  //       downstream in the same sentence. The verb must FOLLOW the party (<=2
+  //       filler words), so "Sentricon is made by Corteva, and EnviroCare backs
+  //       every installation" is NOT matched: EnviroCare is the subject there.
+  //       The noun is required too, so coverage-agnostic verbs ("Corteva updated
+  //       the EPA registration") do not trip it. (Vercel Agent caught both
+  //       over-matches on PR #171; the first draft had neither constraint.)
+  //   (b) the party and the coverage noun separated by an appositive or dash --
+  //       "Corteva -- the manufacturer -- updated THEIR WARRANTY terms"
+  // notIf keeps the corrective sentences legal: the site says, correctly and in
+  // several places, that the coverage is "not Corteva's and not the manufacturer's".
+  { pattern: '(coverage|repair|warrant\\w*)[^.]{0,40}\\b(from|by|backed by|through)\\s+(corteva|the\\s+manufacturer|sentricon)|\\b(corteva|manufacturer)([\'’]s)?\\s+(guarantee|warranty|coverage)\\b|\\b(corteva|the\\s+manufacturer)\\s+(?:\\w+\\s+){0,2}(backs|back|backed|provides|offers|stands\\s+behind|guarantees|warrants|covers)\\b[^.]{0,40}\\b(coverage|repair|warrant\\w*|guarantee)\\b|\\b(corteva|the\\s+manufacturer)\\b[^.]{0,40}\\b(their|its)\\s+(guarantee|warranty|coverage)\\b', notIf: 'not (a )?corteva|not the manufacturer|never attribut|rather than the manufacturer|EnviroCare[\'’]s own|banned|do not say|NEVER',
+    reason: 'coverage attributed to the manufacturer (passive, possessive or active voice)',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement (EnviroCare-backed; never attributed to Corteva or Sentricon)' },
 
   // $1M WITHOUT THE QUALIFIER (added 2026-08-11). The approved phrasing has always
