@@ -1,6 +1,6 @@
 -- ─── CLAUDE CODE: DEPLOY THIS FILE ───
 -- Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
--- Path: agents/sql/0007-executor.sql
+-- Path: agents/sql/0008-executor.sql
 -- Commit: feat(agents): executor — ship approved approval_queue rows to GBP via OneUp
 -- Push: main (via branch + PR)
 -- ─────────────────────────────────────
