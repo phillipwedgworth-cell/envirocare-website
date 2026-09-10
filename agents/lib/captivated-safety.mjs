@@ -245,6 +245,78 @@ export async function mergeSuppressedPhones(newPhones, source = "unknown") {
   return { total: existing.size, added, set: existing };
 }
 
+// ── Suppression by EMAIL ────────────────────────────────────────────────────
+//
+// WHY THIS IS NOT DONE IN FIELDSTER. The obvious-sounding fix — "take them off
+// the email list in Fieldster" — is not available, and the nearest thing to it
+// is actively harmful. Checked against the published API 2026-09-10:
+// /api/customers/update accepts customer_id, first_name, last_name,
+// business_name, customer_type, address1-3, city, state, zip, email,
+// mobile_phone, home_phone, work_phone. There is NO opt-out field, no
+// do-not-email flag, no marketing preference. The read schema has none either.
+//
+// So the only API-shaped way to remove someone from "the email list" is to blank
+// their `email`. That destroys the address (the API has no history, so it is not
+// recoverable) and it stops TRANSACTIONAL mail too — invoices, statements,
+// receipts, WDO letters. For someone in collections those are the messages that
+// most need to keep arriving. Suppressing a debtor's invoices to stop marketing
+// them is a cure worse than the disease.
+//
+// The correct split is by PURPOSE, not by address:
+//   · transactional — invoices, statements, service notices, WDO letters → SEND
+//   · marketing     — review requests, promos, newsletters               → SUPPRESS
+//
+// which is a property of the SENDER, not of the customer record. So suppression
+// lives here, next to the phone list, and Fieldster is left read-only.
+//
+// (This module is named for Captivated but the two suppression lists are
+// channel-generic. Any future marketing sender should read them.)
+
+const SUPPRESSED_EMAILS_KEY = "captivated:suppressed_emails";
+
+export function normaliseEmail(value) {
+  const s = String(value ?? "").trim().toLowerCase();
+  return /^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(s) ? s : null;
+}
+
+export function emailsOf(contact) {
+  const out = new Set();
+  const add = (v) => {
+    const n = normaliseEmail(v);
+    if (n) out.add(n);
+  };
+  add(contact?.email);
+  add(contact?.primary_email);
+  for (const e of contact?.emails ?? []) add(typeof e === "string" ? e : e?.email ?? e?.address);
+  return out;
+}
+
+export async function loadSuppressedEmails() {
+  const raw = await stateGet(SUPPRESSED_EMAILS_KEY);
+  const list = Array.isArray(raw?.emails) ? raw.emails : Array.isArray(raw) ? raw : [];
+  return new Set(list.map((e) => normaliseEmail(e)).filter(Boolean));
+}
+
+export async function mergeSuppressedEmails(newEmails, source = "unknown") {
+  const existing = await loadSuppressedEmails();
+  let added = 0;
+  for (const e of newEmails) {
+    const n = normaliseEmail(e);
+    if (n && !existing.has(n)) {
+      existing.add(n);
+      added++;
+    }
+  }
+  if (added > 0) {
+    await stateSet(SUPPRESSED_EMAILS_KEY, {
+      emails: [...existing],
+      updated_at: new Date().toISOString(),
+      last_source: source,
+    });
+  }
+  return { total: existing.size, added, set: existing };
+}
+
 // ── Per-contact send history / dedup ────────────────────────────────────────
 
 const historyKey = (campaign) => `captivated:lastsent:${campaign}`;
@@ -276,7 +348,15 @@ export function tooSoon(history, contactId, minDays = MIN_DAYS_BETWEEN_SENDS, no
  */
 export function screenContact(
   contactId,
-  { suppressed, history, minDays = MIN_DAYS_BETWEEN_SENDS, now = new Date(), suppressedPhones, contact } = {},
+  {
+    suppressed,
+    history,
+    minDays = MIN_DAYS_BETWEEN_SENDS,
+    now = new Date(),
+    suppressedPhones,
+    suppressedEmails,
+    contact,
+  } = {},
 ) {
   const id = String(contactId);
   if (!id) return { ok: false, reason: "no contact id" };
@@ -293,6 +373,16 @@ export function screenContact(
     for (const p of phonesOf(contact)) {
       if (suppressedPhones.has(p)) {
         return { ok: false, reason: "do-not-contact (phone)" };
+      }
+    }
+  }
+
+  // Same, by email. A person can be reachable on either, and being flagged on
+  // one is a flag on the person, not on the channel.
+  if (suppressedEmails && contact) {
+    for (const e of emailsOf(contact)) {
+      if (suppressedEmails.has(e)) {
+        return { ok: false, reason: "do-not-contact (email)" };
       }
     }
   }
@@ -317,6 +407,10 @@ export default {
   phonesOf,
   loadSuppressedPhones,
   mergeSuppressedPhones,
+  normaliseEmail,
+  emailsOf,
+  loadSuppressedEmails,
+  mergeSuppressedEmails,
   loadSendHistory,
   recordSends,
   tooSoon,
