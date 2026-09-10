@@ -61,6 +61,7 @@ import {
   loadSuppressed,
   mergeSuppressed,
   loadSuppressedPhones,
+  loadSuppressedEmails,
   loadSendHistory,
   recordSends,
   screenContact,
@@ -220,7 +221,9 @@ async function run() {
   // never run — and those are indistinguishable from here. Guessing the
   // flattering one is how you text 26 people who were sent to collections.
   const suppressedPhones = await loadSuppressedPhones();
+  const suppressedEmails = await loadSuppressedEmails();
   out.opt_outs.suppressed_phones = suppressedPhones.size;
+  out.opt_outs.suppressed_emails = suppressedEmails.size;
   if (suppressedPhones.size === 0) {
     out.refusals.push(
       "phone suppression list is empty — run `npm run captivated:suppress` first",
@@ -256,6 +259,7 @@ async function run() {
       history,
       minDays: MIN_DAYS_BETWEEN_SENDS,
       suppressedPhones,
+      suppressedEmails,
       contact: c,
     });
     if (!screen.ok) { exclude(screen.reason); continue; }

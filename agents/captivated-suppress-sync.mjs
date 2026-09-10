@@ -42,6 +42,9 @@ import {
   normalisePhone,
   loadSuppressedPhones,
   mergeSuppressedPhones,
+  normaliseEmail,
+  loadSuppressedEmails,
+  mergeSuppressedEmails,
 } from "./lib/captivated-safety.mjs";
 
 const AGENT_NAME = "captivated-suppress-sync";
@@ -84,8 +87,11 @@ async function run() {
     customers_scanned: 0,
     flagged: 0,
     flagged_without_phone: 0,
+    flagged_without_email: 0,
     phones_added: 0,
+    emails_added: 0,
     suppression_total: 0,
+    suppression_email_total: 0,
     samples: [],
     errors: [],
   };
@@ -110,15 +116,16 @@ async function run() {
   out.customers_scanned = customers.size;
 
   const phones = new Set();
+  const emails = new Set();
   for (const c of customers.values()) {
     if (!DO_NOT_CONTACT_RE.test(String(c.notes || ""))) continue;
     out.flagged++;
     const p = normalisePhone(c.primary_phone) || normalisePhone(c.primary_mobile);
-    if (!p) {
-      out.flagged_without_phone++;
-      continue;
-    }
-    phones.add(p);
+    const e = normaliseEmail(c.primary_email);
+    if (p) phones.add(p);
+    else out.flagged_without_phone++;
+    if (e) emails.add(e);
+    else out.flagged_without_email++;
     if (out.samples.length < 5) {
       out.samples.push({
         account: c.customer_number,
@@ -127,23 +134,27 @@ async function run() {
     }
   }
 
-  const before = await loadSuppressedPhones();
+  const beforePhones = await loadSuppressedPhones();
+  const beforeEmails = await loadSuppressedEmails();
   if (DRY) {
-    let wouldAdd = 0;
-    for (const p of phones) if (!before.has(p)) wouldAdd++;
-    out.phones_added = wouldAdd;
-    out.suppression_total = before.size;
+    out.phones_added = [...phones].filter((p) => !beforePhones.has(p)).length;
+    out.emails_added = [...emails].filter((e) => !beforeEmails.has(e)).length;
+    out.suppression_total = beforePhones.size;
+    out.suppression_email_total = beforeEmails.size;
   } else {
-    const merged = await mergeSuppressedPhones(phones, "fieldster-notes");
-    out.phones_added = merged.added;
-    out.suppression_total = merged.total;
+    const mp = await mergeSuppressedPhones(phones, "fieldster-notes");
+    const me = await mergeSuppressedEmails(emails, "fieldster-notes");
+    out.phones_added = mp.added;
+    out.emails_added = me.added;
+    out.suppression_total = mp.total;
+    out.suppression_email_total = me.total;
   }
 
   console.log(`\n[${AGENT_NAME}] ${out.mode}`);
   console.log(`  customers with a balance : ${out.customers_scanned}`);
-  console.log(`  do-not-contact notes     : ${out.flagged} (${out.flagged_without_phone} with no phone on file)`);
-  console.log(`  phones ${DRY ? "that WOULD be added" : "added"}      : ${out.phones_added}`);
-  console.log(`  suppression list total   : ${out.suppression_total}${DRY ? " (unchanged — dry run)" : ""}`);
+  console.log(`  do-not-contact notes     : ${out.flagged} (${out.flagged_without_phone} no phone, ${out.flagged_without_email} no email)`);
+  console.log(`  phones ${DRY ? "WOULD add" : "added"}            : ${out.phones_added}  (list now ${out.suppression_total}${DRY ? ", unchanged — dry run" : ""})`);
+  console.log(`  emails ${DRY ? "WOULD add" : "added"}            : ${out.emails_added}  (list now ${out.suppression_email_total}${DRY ? ", unchanged — dry run" : ""})`);
   for (const s of out.samples) console.log(`    ${s.account}  "${s.note}"`);
 
   // A flagged customer with no phone cannot be screened by phone, so the sender
