@@ -16,7 +16,7 @@
     "test:source": "node scripts/scan-source-compliance.mjs",
     "test:lastmod": "node scripts/test-sitemap-lastmod.mjs",
     "test:breadcrumbs": "node scripts/test-breadcrumbs.mjs",
-    "test": "npm run test:compliance && npm run test:source && npm run test:generated && npm run test:imagery && npm run test:zombies && npm run test:citynap && npm run test:breadcrumbs && npm run test:lastmod && npm run test:tracking && npm run test:similarity && npm run test:captivated && npm run test:captivated-safety",
+    "test": "npm run test:compliance && npm run test:source && npm run test:blogposts && npm run test:generated && npm run test:imagery && npm run test:zombies && npm run test:citynap && npm run test:breadcrumbs && npm run test:lastmod && npm run test:tracking && npm run test:similarity && npm run test:captivated && npm run test:captivated-safety && npm run test:listings",
     "test:generated": "node scripts/test-generated-content-compliance.mjs",
     "test:tracking": "node scripts/test-tracking-integrity.mjs",
     "test:similarity": "node scripts/test-page-similarity.mjs",
@@ -24,7 +24,9 @@
     "test:captivated-safety": "node scripts/test-captivated-safety.mjs",
     "audit:captivated": "node agents/captivated-audit.mjs",
     "captivated:dryrun": "node agents/captivated-send.mjs",
-    "captivated:suppress": "node agents/captivated-suppress-sync.mjs"
+    "captivated:suppress": "node agents/captivated-suppress-sync.mjs",
+    "test:blogposts": "node scripts/test-blog-post-compliance.mjs",
+    "test:listings": "node scripts/test-brightlocal-descriptions.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
