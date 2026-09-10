@@ -60,6 +60,8 @@ import {
   collectOptOuts,
   loadSuppressed,
   mergeSuppressed,
+  loadSuppressedPhones,
+  loadSuppressedEmails,
   loadSendHistory,
   recordSends,
   screenContact,
@@ -210,6 +212,28 @@ async function run() {
   const suppressed = await loadSuppressed();
   const history = await loadSendHistory(CAMPAIGN);
 
+  // Phone-keyed do-not-contact, populated by agents/captivated-suppress-sync.mjs
+  // from Fieldster notes ("COLLECTIONS DO NOT CALL"). The STOP list above only
+  // covers people who opted out BY TEXT; this covers everyone recorded elsewhere.
+  //
+  // An EMPTY list is treated as a refusal, not as "nobody is suppressed". The
+  // list is empty both when genuinely nobody is flagged and when the sync has
+  // never run — and those are indistinguishable from here. Guessing the
+  // flattering one is how you text 26 people who were sent to collections.
+  const suppressedPhones = await loadSuppressedPhones();
+  const suppressedEmails = await loadSuppressedEmails();
+  out.opt_outs.suppressed_phones = suppressedPhones.size;
+  out.opt_outs.suppressed_emails = suppressedEmails.size;
+  if (suppressedPhones.size === 0) {
+    out.refusals.push(
+      "phone suppression list is empty — run `npm run captivated:suppress` first",
+    );
+    console.error(`[${AGENT_NAME}] REFUSED — ${out.refusals[out.refusals.length - 1]}`);
+    console.error("  An empty list cannot be told apart from a sync that never ran.");
+    await logRunREST(AGENT_NAME, "skipped", out).catch(() => {});
+    return out;
+  }
+
   // ── Build the audience ────────────────────────────────────────────────────
   let contacts = [];
   try {
@@ -230,7 +254,14 @@ async function run() {
     const id = contactId(c);
     if (!id) { exclude("no contact id"); continue; }
 
-    const screen = screenContact(id, { suppressed, history, minDays: MIN_DAYS_BETWEEN_SENDS });
+    const screen = screenContact(id, {
+      suppressed,
+      history,
+      minDays: MIN_DAYS_BETWEEN_SENDS,
+      suppressedPhones,
+      suppressedEmails,
+      contact: c,
+    });
     if (!screen.ok) { exclude(screen.reason); continue; }
 
     const body = render(c);
