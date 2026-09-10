@@ -1724,7 +1724,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🪵',
     metaTitle: 'Alabama Termite Swarm Season Guide | EnviroCare Since 1958',
-    metaDescription: 'Alabama termite swarm season peaks March–May. Spot the signs, protect your home with Sentricon® $1M coverage. Free inspection. Call (205) 940-6360.',
+    metaDescription: 'Alabama termite swarm season peaks March–May. Spot the signs and protect your home with Sentricon® baiting — no drilling. Free inspection. Call (205) 940-6360.',
     body: `
 <p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork — sometime between mid-March and late May, on the first warm humid afternoon after a soaking rain. Hundreds of winged insects boiling up out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
 
@@ -1807,7 +1807,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>No drilling.</strong> We don't punch holes through your stamped concrete patio, your finished basement floor, or your driveway.</li>
 <li><strong>No tank trucks.</strong> No 300-gallon tank parked in your driveway pumping chemicals into the soil under your kids' swing set.</li>
 <li><strong>Colony elimination, not just deterrence.</strong> Liquid creates a barrier — if the colony moves around it (and they do), you have a new infestation. Sentricon kills the source.</li>
-<li><strong>$1,000,000 repair warranty.</strong> Corteva backs Sentricon with damage repair coverage that most liquid products simply don't offer.</li>
+<li><strong>Damage repair coverage.</strong> Sentricon installations we service carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. That coverage is EnviroCare's own — not the manufacturer's — and most liquid products simply don't offer an equivalent.</li>
 <li><strong>Slow learning curve for termites.</strong> Modern termiticides like Termidor are non-repellent — termites can't detect them. That sounds great. But it means termites will continue to forage through treated soil for weeks until they die, sometimes finding gaps in the barrier first.</li>
 </ul>
 
@@ -2020,7 +2020,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>About warranty transfers</h2>
 
-<p>If you're buying a home that already has a Sentricon® bait system installed (look for the round green caps in the soil around the foundation), the existing warranty can transfer to you for a small fee — usually $50 to $100. That's almost always worth doing. A transferred Sentricon warranty preserves your $1,000,000 damage coverage with the home.</p>
+<p>If you're buying a home that already has a Sentricon® bait system installed (look for the round green caps in the soil around the foundation), the existing warranty can transfer to you for a small fee — usually $50 to $100. That's almost always worth doing. A transferred Sentricon agreement preserves the damage repair coverage with the home — up to $1,000,000, subject to the terms of the agreement.</p>
 
 <p>If the home has a liquid termite treatment instead, those warranties also transfer but check the remaining years carefully — most liquid warranties expire 5 years after the original treatment date.</p>
 
@@ -2657,7 +2657,7 @@ Free inspections. Terms are confirmed in writing before service starts.</p>
     readMinutes: 6,
     heroEmoji: '🪵',
     metaTitle: 'Termite Season 2026 Alabama: What Homeowners Need to Know | EnviroCare',
-    metaDescription: 'Termite season 2026 is underway across Alabama — warm soil means elevated swarm activity. Sentricon® $1M coverage. Free inspection. (205) 940-6360.',
+    metaDescription: 'Termite season 2026 is underway across Alabama — warm soil means elevated swarm activity. Sentricon® baiting, no drilling. Free inspection. (205) 940-6360.',
     body: `
 <p class="lede">By late April 2026, our technicians had already logged more termite swarm calls than we typically see through the end of May in a normal year. If you've seen wings on your windowsill or swarmers boiling out of a mulch bed, you're not alone — and you're not too late to protect your home.</p>
 
@@ -2693,7 +2693,7 @@ Free inspections. Terms are confirmed in writing before service starts.</p>
 
 <p>We've always recommended Sentricon® Always Active™ as our primary termite protection for Alabama homes. That hasn't changed. What has changed this year is our urgency about inspecting homes that have gone 5 or more years without a current Sentricon warranty.</p>
 
-<p>Corteva — the manufacturer — updated their warranty terms in early 2026 to require re-inspection for any system that went more than 18 months between technician visits. If you have an existing Sentricon system on your home and your last service visit was more than 18 months ago, your $1,000,000 damage warranty may no longer be active. Call us — we'll inspect and reactivate the warranty at no charge for existing customers.</p>
+<p>Coverage follows the agreement. If a Sentricon system has gone a long stretch without a service visit, the agreement behind it may have lapsed — and the damage repair coverage lapses with it. That coverage is up to $1,000,000, subject to the terms of the agreement, and it is EnviroCare's own rather than the manufacturer's. If your last service visit was more than 18 months ago, call us. We'll inspect and bring it current at no charge for existing customers.</p>
 
 <h2>For homeowners who don't have termite protection</h2>
 
