@@ -64,7 +64,15 @@ async function main() {
 
   let payload;
   try {
-    payload = await blMcpCall("find_locations", { num_per_page: 15 });
+    // Bare call, on purpose. agents/diagnostics/brightlocal-inventory.mjs found
+    // that passing num_per_page: 50 returned ZERO items while the bare call
+    // returned all four -- the parameter is validated to 1-15 and an out-of-range
+    // value fails as an empty list, not an error. The bare call (default 10) was
+    // re-verified 2026-09-10 through the BrightLocal connector: 4 items, each with
+    // active_sync_data.{gmb,bing,apple_maps,facebook}.description populated and
+    // metadata.active_sync.<channel>.active_sync_enabled -- the exact paths read
+    // below. total_count is checked so growth past one page fails loudly.
+    payload = await blMcpCall("find_locations");
   } catch (e) {
     console.error(`brightlocal-descriptions: FAIL — find_locations failed: ${e.message}`);
     console.error("  Note: 'no session ID returned' is how a rejected/expired key presents.");
@@ -73,6 +81,12 @@ async function main() {
   }
 
   const items = asItems(payload);
+  const total = Number(payload?.total_count ?? items.length);
+  if (Number.isFinite(total) && total > items.length) {
+    console.error(`brightlocal-descriptions: FAIL — BrightLocal reports ${total} locations but only ${items.length} were returned.`);
+    console.error("  The account outgrew one page. Add paging here before trusting this guard again.");
+    return 1;
+  }
   if (items.length < MIN_LOCATIONS) {
     console.error(`brightlocal-descriptions: FAIL — ${items.length} location(s) returned (floor ${MIN_LOCATIONS}).`);
     console.error("  Either locations were removed, or the response shape changed and most are unscanned.");
