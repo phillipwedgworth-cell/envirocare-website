@@ -26,6 +26,64 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog-writer 2026-09-11 ───
+  {
+    slug: 'what-to-do-about-mosquitoes-in-birmingham',
+    title: 'Mosquitoes in Alabama: What Works, What Doesn\'t, and How to Take Back Your Yard',
+    excerpt: 'Alabama\'s heat, humidity, and rainfall make it one of the best breeding grounds for mosquitoes in the country. If you feel like the biting gets worse every summer, you\'re not imagining it. Here\'s what\'s driving the problem and what you can actually do about it.',
+    publishedAt: '2026-10-09',
+    author: 'Kevin Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 6,
+    heroEmoji: '🦟',
+    metaTitle: 'How to Control Mosquitoes in Alabama | EnviroCare',
+    metaDescription: 'Alabama mosquitoes are bad. Here\'s what actually reduces them — yard habits, standing water, and professional treatment — from a family company since 1958.',
+    body: `<p class="lede">Mosquitoes in Alabama aren't just a nuisance. They cut your time outdoors in half, they leave mosquito bites that itch for days, and they can transmit diseases that land people in the hospital. If you've got a yard near a creek bottom, a low-lying neighborhood, or a lake lot out on Lake Martin, you already know how fast these insects can ruin a cookout. The good news is that you can do a lot to reduce the population around your home — if you know where to look and what to fix.</p>
+
+<h2>Why Alabama Is Such Good Mosquito Country</h2>
+<p>The short answer is water, warmth, and time. Alabama averages 55 to 60 inches of rain a year — more than Seattle, more than Miami. Our clay-heavy soils don't drain fast, so puddles sit. Our temperatures stay warm from March through October, which is the full active season for mosquitoes here. And we have no real winter to speak of. A February warm snap can wake up overwintering eggs before most folks even think about the problem.</p>
+<p>Female mosquitoes are the biters. They need a blood meal to lay eggs, and they'll travel up to a mile to get one. But they prefer to lay eggs close to where they feed, so the source of your problem is usually within a few hundred feet of your back door. One bottle cap of standing water can produce dozens of larvae. A clogged gutter can produce thousands.</p>
+
+<h2>The Most Common Breeding Spots Around Alabama Homes</h2>
+<p>Before you call anyone or buy anything, walk your yard and look for these. Most people are surprised by what they find.</p>
+<ul>
+  <li><strong>Clogged gutters.</strong> This is the number-one overlooked source. A gutter packed with leaves holds water for weeks. The larva stage only needs a few days of standing water to develop. Clean your gutters in spring and again in fall.</li>
+  <li><strong>Low spots in the lawn.</strong> If your yard has a place where water pools after rain, mosquitoes will find it before it dries out. Grading or filling those spots helps more than most sprays.</li>
+  <li><strong>Birdbaths, pet bowls, and plant saucers.</strong> Change the water twice a week. That's enough to break the breeding cycle.</li>
+  <li><strong>Tarps and trash.</strong> A folded tarp or an upturned trash can lid collects a surprising amount of water. Same goes for old tires, which are a well-known breeding hotspot and nearly impossible to treat.</li>
+  <li><strong>Ornamental ponds and rain barrels.</strong> These aren't bad to have, but they need either a pump that keeps water moving or a mosquito dunk (a biological larvicide) to keep larvae from developing.</li>
+  <li><strong>Overgrown areas.</strong> Adult mosquitoes rest during the day in cool, shaded spots — tall grass, dense shrubs, ivy beds. Keep your grass trimmed and scrub out any thick, weedy borders along fences or creek banks.</li>
+</ul>
+
+<h2>What Mosquito-Borne Diseases Are Actually Present in Alabama?</h2>
+<p>This is worth taking seriously. Mosquitoes transmit diseases, and several mosquito-borne illnesses are documented in Alabama every year. The CDC tracks these, and the list includes West Nile virus, Eastern equine encephalitis, and La Crosse encephalitis — all present in our state. Dengue is not common in Alabama but has shown up in travelers returning from elsewhere. Other mosquito-borne diseases, like Zika, remain a concern depending on travel history.</p>
+<p>We are pest control professionals, not doctors. If you or a family member develops a fever, severe headache, joint pain, or a rash after mosquito bites, see a physician. Don't wait it out. What we can tell you is that reducing the number of mosquitoes around your home is one of the practical things you can do to lower exposure to mosquito-borne illness.</p>
+
+<h2>What You Can Do Yourself to Prevent Mosquitoes</h2>
+<p>You can't prevent mosquitoes entirely — not in Alabama, not anywhere. But you can make your yard a much less attractive place for them to breed and rest. Here's what actually moves the needle:</p>
+<ol>
+  <li>Dump standing water every 72 hours or less. That includes anything that holds even a tablespoon — bottle caps, toys, buckets, low spots on pool covers.</li>
+  <li>Keep your grass trimmed short and cut back thick vegetation along property edges, especially near any drainage ditch or creek bank.</li>
+  <li>Scrub out birdbaths and pet water dishes when you refill them. The eggs stick to the sides.</li>
+  <li>Fix your gutters. Check them after every heavy rain.</li>
+  <li>Use fans on your porch or patio. Mosquitoes are weak fliers and a basic box fan does more than most candles or traps.</li>
+  <li>Wear long sleeves and EPA-registered repellent when you're outside at dawn and dusk, when the adult mosquito population is most active.</li>
+</ol>
+<p>Be honest with yourself about what doesn't work. Bug zappers kill moths and beetles, not mosquitoes. Citronella candles help only if you're sitting directly in the smoke. Ultrasonic devices have no credible evidence behind them. Backyard mosquito traps can catch a lot of insects, but research consistently shows they don't reduce biting pressure in any meaningful way when used alone.</p>
+
+<h2>When Professional Mosquito Control Actually Makes Sense</h2>
+<p>If you've done the yard work and you're still getting eaten alive every time you step outside, professional treatment is worth considering. The same goes if you have a large property, a yard that backs up to woods or water, or a lake house where breeding pressure from the surrounding shoreline is constant.</p>
+<p>Professional mosquito control uses EPA-registered products applied per label directions, targeting the places where adult mosquitoes rest during the day — the undersides of leaves, shaded shrub borders, the edges of your lawn. A good technician will also look for larval sources and point out things you may have missed. What professional treatment does is reduce the adult population to a manageable level. It won't stop every mosquito from every direction, but it makes a real difference in how usable your outdoor space is.</p>
+<p>Timing matters. Mosquito season runs March through October in Alabama. Starting treatments early in spring, before populations build, keeps the pressure lower all season rather than playing catch-up in July.</p>
+
+<h2>EnviroCare's Mosquito Service</h2>
+<p>EnviroCare has been treating Alabama properties since 1958, across four generations of the Wedgworth family. Our mosquito program runs eight treatments from March through October at <strong>$45 per treatment</strong>, or <strong>$34 per month</strong> when paired with a pest plan. If you also want tick and chigger coverage — which makes a lot of sense for properties near wooded areas or lake lots — we offer a combined Mosquito + Tick treatment at <strong>$65 per treatment</strong>.</p>
+<p>We serve homeowners across the Birmingham area, Huntsville, Alabaster, and the Alexander City and Lake Martin region. If you're ready to get your yard back this season, <a href="/services/mosquito">learn more about our mosquito control service</a> or <a href="/quote">request a quote online</a>. We'll take a look at what you're dealing with and give you a straight answer about what's likely to help.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
   // ─── blog-writer 2026-09-09 ───
   {
     slug: 'struggling-to-get-rid-of-the-ticks-around-your-b',
