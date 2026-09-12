@@ -194,7 +194,7 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: '\\$\\s?(45|65)(\\.00)?\\b[^.\\n]{0,40}\\b(per[\\s-]+(treatment|visit|service)|each)\\b',
     reason: 'superseded per-treatment mosquito pricing',
     approvedInstead: '$45/month for mosquito or $65/month for Mosquito + Tick; 8 treatments March–October with equal monthly ACH payments across the year' },
-  { pattern: '\\b(mosquito|tick)\\b[^.\\n]{0,180}\\b(per[\\s-]?visit basis|billed per service|charged at each service|per service only|per visit,? no monthly)\\b',
+  { pattern: '\\b(mosquito|tick)\\b[^.\\n]{0,180}\\b(per[\\s-]?visit basis|billed per service|charged at each service|per service only|per visit,? no monthly|monthly only when bundled with pest)\\b',
     reason: 'superseded per-service mosquito billing model',
     approvedInstead: 'monthly pricing with 8 treatments March–October and equal monthly ACH payments across the year' },
   { pattern: '\\b(nine|9)[\\s-]+(visit|treatment|round)s?\\b',
