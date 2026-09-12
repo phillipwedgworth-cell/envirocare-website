@@ -26,6 +26,69 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog-writer 2026-09-12 ───
+  {
+    slug: 'what-to-do-about-mosquitoes-in-birmingham',
+    title: 'Mosquitoes in Alabama: What Works, What Doesn\'t, and How to Take Your Yard Back',
+    excerpt: 'Alabama\'s heat, humidity, and standing water make it one of the worst states in the country for mosquitoes. Knowing how the insect lives and breeds is the first step toward actually doing something about it. Here\'s what works, what doesn\'t, and when to call in help.',
+    publishedAt: '2026-10-09',
+    author: 'Kevin Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 6,
+    heroEmoji: '🦟',
+    metaTitle: 'How to Control Mosquitoes in Alabama | EnviroCare',
+    metaDescription: 'Alabama mosquito season runs March through October. Learn how to prevent mosquitoes, kill mosquitoes, and protect your family from mosquito-borne diseases.',
+    body: `<p class="lede">If you've ever tried to eat supper on the back porch in June and given up by the second plate, you already understand Alabama's mosquito problem. The heat, the afternoon thunderstorms, the creek bottoms, the red clay that holds water for days — all of it adds up to a state where mosquito season stretches from <strong>March through October</strong> and barely lets up. This article covers the full picture: the life cycle, the diseases, what you can do yourself, and what actually requires professional treatment.</p>
+
+<h2>Why Alabama Is So Hard on Mosquitoes</h2>
+<p>Mosquitoes need two things above everything else: warmth and standing water. Alabama has both in abundance. Our clay soils don't drain fast, so a Tuesday afternoon storm can leave shallow puddles sitting in your yard through the weekend. Creeks and drainage ditches — the kind you see threading through older Birmingham neighborhoods and along the back sides of Lake Martin lots — provide constant, shaded breeding habitat. Add in the humidity that keeps adult mosquito populations flying longer each day, and you've got conditions that are close to ideal for these insects from spring through fall.</p>
+<p>Mosquito season here starts as early as late February in a warm year. By May it's in full swing. August and September are usually the worst months, especially after a wet summer. October still sees real activity before the first hard frost finally brings things down.</p>
+
+<h2>The Life Cycle: Where Mosquitoes Actually Come From</h2>
+<p>Understanding the <strong>life cycle</strong> matters because it tells you where to focus your effort. A female mosquito — and it's only the female that bites — will lay eggs on or near still water. A bottle cap with a half-inch of rainwater is enough. The eggs hatch into larva within a couple of days in warm weather. The larva feeds and develops in the water, then becomes a pupa, and finally emerges as an adult mosquito ready to fly, feed, and reproduce. The entire cycle from egg to biting adult can take as little as seven to ten days in Alabama summer heat.</p>
+<p>That's why standing water is the single most important thing to address. You can treat adult mosquitoes all season and still have a bad yard if you're letting water sit and giving females a place to lay eggs every few days.</p>
+
+<h2>What You Can Do Around Your Property</h2>
+<p>Some of the most effective steps to prevent mosquitoes don't cost anything. Walk your yard after every rain and look for water sitting where it shouldn't be. Common spots people miss:</p>
+<ul>
+  <li><strong>Birdbaths</strong> — dump and refill them every two or three days, or add a small circulator to keep the water moving</li>
+  <li>Clogged gutters holding leaf debris and water</li>
+  <li>Tarps, buckets, and kids' toys left outside</li>
+  <li>Low spots in the lawn that pond after rain</li>
+  <li>Old tires, which hold water and are notoriously productive breeding sites</li>
+  <li>Potted plant saucers</li>
+  <li>Any spot where your downspout discharges onto flat ground</li>
+</ul>
+<p>Beyond water management, keep your <strong>grass trimmed</strong> and <strong>scrub</strong> back any overgrown areas along fence lines or the edge of the woods. Adult mosquitoes rest in tall grass and shaded vegetation during the heat of the day. A tidy yard gives them fewer places to sit. It won't stop them entirely, but it reduces harborage noticeably.</p>
+
+<h2>Repellent: What the CDC Actually Recommends</h2>
+<p>When you're going to be outside, use a <strong>repellent</strong> that contains <strong>DEET</strong>. The <strong>CDC</strong> recommends DEET as one of the most effective options for preventing mosquito bites, and the research behind that recommendation is solid. Products with 20–30% DEET concentration work well for most outdoor activities. Apply it to exposed skin and the outside of clothing, follow the label directions, and reapply as directed if you're sweating or out for several hours.</p>
+<p>Other CDC-recognized active ingredients include picaridin, IR3535, and oil of lemon eucalyptus. If you're using sunscreen too, apply sunscreen first and repellent second. And if you're in a wooded area near water — say, a creek bottom behind your house in Cahaba Heights or a dock at Lake Martin — take it seriously. Alabama has the mosquito pressure to back up that caution.</p>
+
+<h2>Mosquito-Borne Diseases in Alabama: The Real Risk</h2>
+<p>Mosquitoes <strong>transmit diseases</strong>, and that's not a scare tactic — it's the reason public health agencies take these insects as seriously as they do. In Alabama, the diseases that <strong>transmit</strong> through mosquito bites include West Nile virus, Eastern equine encephalitis, and La Crosse encephalitis. <strong>Dengue</strong> is not currently common here, but the <em>Aedes albopictus</em> mosquito — the tiger mosquito you've probably seen, small and striped — that can carry <strong>dengue</strong> and other <strong>mosquito-borne</strong> viruses is present throughout the state.</p>
+<p><strong>Mosquito-borne illness</strong> and <strong>mosquito-borne diseases</strong> range from mild flu-like symptoms to serious neurological conditions. If you or someone in your family develops a fever, headache, or other symptoms after mosquito exposure, see a doctor. We're pest control — that part is outside our lane — but we want to be clear that the risk is real and the bite is the transmission point. Reducing the number of bites matters.</p>
+<p>For current disease surveillance data, the CDC's website and the Alabama Department of Public Health both publish regular updates.</p>
+
+<h2>What Doesn't Work (And What People Waste Money On)</h2>
+<p>A few things are worth addressing directly because they get sold hard and deliver very little:</p>
+<ul>
+  <li><strong>Citronella candles</strong> — they provide minimal protection and only in a very tight area with no breeze</li>
+  <li><strong>Bug zappers</strong> — they kill a lot of insects, but mosquitoes aren't especially attracted to UV light; you end up killing beneficial insects more than mosquitoes</li>
+  <li><strong>Mosquito-repelling plants</strong> — lemongrass and lavender are nice to have, but the volatile compounds that repel mosquitoes don't release in meaningful quantities just by the plant sitting there</li>
+  <li><strong>Backyard propane traps</strong> — can help in low-pressure situations but rarely keep up with Alabama's breeding density on their own</li>
+</ul>
+<p>None of these things will kill mosquitoes effectively or reduce a real infestation. They might take the edge off on a low-pressure evening. They won't fix a yard that has standing water and heavy adult populations.</p>
+
+<h2>Professional Mosquito Treatment: How It Works and What It Costs</h2>
+<p>Professional treatment targets adult mosquitoes in their resting areas using <strong>EPA-registered products applied per label directions</strong>, and addresses larval habitat with larvicides where standing water can't be removed. A trained technician knows where mosquitoes concentrate on your specific property — the shaded fence line, the low corner near the AC unit, the edge of the tree line — and treats those zones directly.</p>
+<p>At EnviroCare, <a href="/services/mosquito">mosquito treatment</a> runs $45 per treatment across eight visits from March through October. If you pair it with a pest plan, the price drops to $34 per month. We also offer a combined <a href="/services/tick-control">Mosquito + Tick treatment</a> at $65 per treatment, which also covers chiggers. Four generations of the Wedgworth family have been working Alabama yards since 1958, and our technicians know this state's specific conditions — the neighborhoods, the creek drainages, the soil types — in a way that makes a real difference in where and how we treat.</p>
+<p>If you're ready to get a handle on your yard before the season peaks, <a href="/quote">request a quote online</a> or <a href="/contact-us">reach out to your nearest office</a> in Alabaster, Birmingham, Huntsville, or Alexander City.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
   // ─── blog-writer 2026-09-09 ───
   {
     slug: 'struggling-to-get-rid-of-the-ticks-around-your-b',
