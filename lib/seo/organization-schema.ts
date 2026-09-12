@@ -117,6 +117,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   // Add real URLs as they're confirmed. Comments mark items needing verification.
   sameAs: [
     'https://www.facebook.com/EnviroCareAL',
+    'https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo',  // Birmingham GBP
     'https://www.google.com/maps/place/?q=place_id:ChIJr8cmt-EeiYgR_jgX9xsiZWY',  // Alabaster GBP
     'https://www.google.com/maps/place/?q=place_id:ChIJd4YXKCRmqmIR1DmDoEcGohU',  // Huntsville GBP
     'https://www.google.com/maps/place/?q=place_id:ChIJ508mEjcLjIgRZ2HdWgXX76c',  // Alex City GBP
@@ -125,7 +126,8 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   slogan: 'No One Cares Like EnviroCare',
   award: 'Sentricon® Certified Specialist',
   contactPoint: [
-    { '@type': 'ContactPoint', telephone: '+1-205-940-6360', contactType: 'customer service', areaServed: ['Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Trussville', 'Chelsea', 'Greystone', 'Mt Laurel', 'Alabaster', 'Pelham', 'Helena', 'Calera'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
+    { '@type': 'ContactPoint', telephone: '+1-205-991-2882', contactType: 'customer service', areaServed: ['Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Trussville', 'Irondale', 'Leeds', 'Moody', 'Fultondale', 'Gardendale', 'Bessemer', 'McCalla', 'Crestline', 'English Village', 'Cherokee Bend', 'Cahaba Heights', 'Mountain Brook Village', 'Liberty Park'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
+    { '@type': 'ContactPoint', telephone: '+1-205-940-6360', contactType: 'customer service', areaServed: ['Alabaster', 'Pelham', 'Helena', 'Calera', 'Chelsea', 'Greystone', 'Mt Laurel', 'Inverness', 'Brook Highland', 'Meadow Brook', 'Eagle Point', 'Highland Lakes', 'Chelsea Park'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
     { '@type': 'ContactPoint', telephone: '+1-256-234-6162', contactType: 'customer service', areaServed: ['Alexander City', 'Lake Martin', 'Dadeville', 'Eclectic', 'Auburn', 'Opelika'], availableLanguage: 'English' },
     { '@type': 'ContactPoint', telephone: '+1-256-937-7676', contactType: 'customer service', areaServed: ['Huntsville', 'Madison', 'Athens', 'Decatur', 'Hartselle', 'Harvest', 'Hampton Cove'], availableLanguage: 'English' },
   ],

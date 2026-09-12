@@ -166,9 +166,8 @@ const ALABASTER_SCHEMA = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
-  // Shelby County minus Chelsea and the Hwy 280 / 35242 corridor, which route to
-  // the city office. Matches the ...BHM cities in data/cities.ts.
-  areaServed: ['Alabaster','Pelham','Helena','Calera'],
+  // Shelby County markets route to the Alabaster office.
+  areaServed: ['Alabaster','Pelham','Helena','Calera','Chelsea','Greystone','Mt Laurel','Inverness','Brook Highland','Meadow Brook','Eagle Point','Highland Lakes','Chelsea Park'],
   sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=7378341068021381374'],
 
 };
@@ -211,8 +210,8 @@ const BIRMINGHAM_SCHEMA = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
-  // The ...BHM_CITY cities in data/cities.ts.
-  areaServed: ['Birmingham','Homewood','Mountain Brook','Vestavia Hills','Hoover','Chelsea','Trussville','Greystone','Mt Laurel'],
+  // Jefferson and St. Clair County markets route to the Birmingham office.
+  areaServed: ['Birmingham','Homewood','Mountain Brook','Vestavia Hills','Hoover','Trussville','Irondale','Leeds','Moody','Fultondale','Gardendale','Bessemer','McCalla','Crestline','English Village','Cherokee Bend','Cahaba Heights','Mountain Brook Village','Liberty Park'],
   parentOrganization: {
     '@type': 'Organization',
     '@id': 'https://www.envirocarellc.com/#organization',

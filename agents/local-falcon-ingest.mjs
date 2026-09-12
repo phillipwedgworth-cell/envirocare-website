@@ -29,6 +29,11 @@
 import { pathToFileURL } from "node:url";
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
+import {
+  LOCAL_FALCON_CAMPAIGNS,
+  localFalconBaseline,
+  localFalconCampaign,
+} from "./lib/local-falcon-campaigns.mjs";
 
 const AGENT_NAME = "local-falcon-ingest";
 const LF_API = process.env.LOCAL_FALCON_API_URL || "https://api.localfalcon.com/v1";
@@ -47,21 +52,6 @@ const LF_KEY = process.env.LOCAL_FALCON_API_KEY;
 const LOOKBACK_DAYS = Number(process.env.LF_INGEST_LOOKBACK_DAYS ?? 45);
 const TOP_N = 5;
 
-// Verified against the Local Falcon API 2026-07-23; used only when a campaign
-// report omits grid metadata so a row is never stored with an unknown baseline.
-const KNOWN_BASELINES = {
-  a58db3090ac9ab0: "9x9-20mi",   // Huntsville
-  "4ee47a23fc4793e": "9x9-20mi", // Birmingham / Alabaster (Butler Rd)
-  a99dae3fd51a462: "9x9-20mi",   // Lake Martin / Alex City
-  e9348fff16b95fa: "9x9-20mi",   // Birmingham 16th Ave (created 2026-09-05)
-};
-const MARKET_BY_PLACE = {
-  ChIJr8cmt: "Alabaster",   // 2025 Butler Rd
-  ChIJjXGa0: "Birmingham",  // 2120 16th Ave S
-  ChIJd4YXK: "Huntsville",
-  ChIJ508mE: "Alex City",
-};
-
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : null; };
 const first = (...vals) => vals.find((v) => v !== undefined && v !== null && v !== "");
 
@@ -77,16 +67,9 @@ async function lfFetch(endpoint, params = {}) {
   return json;
 }
 
-function marketFor(placeId) {
-  for (const [prefix, market] of Object.entries(MARKET_BY_PLACE)) if (String(placeId || "").startsWith(prefix)) return market;
-  return "Unknown";
-}
-
-function baselineOf(meta, campaignKey) {
-  const g = first(meta?.grid_size, meta?.size, meta?.grid);
-  const r = first(meta?.radius, meta?.radius_miles);
-  if (g && r) return `${g}x${g}-${r}mi`;
-  return KNOWN_BASELINES[campaignKey] ?? "unknown";
+function marketFor(placeId, campaignKey) {
+  const byPlace = LOCAL_FALCON_CAMPAIGNS.find((campaign) => campaign.placeId === placeId);
+  return byPlace?.location ?? localFalconCampaign(campaignKey)?.location ?? "Unknown";
 }
 
 function isFresh(dateStr) {
@@ -123,16 +106,15 @@ function isFresh(dateStr) {
 // which is a separate question from which GBP a scan measures. Butler Rd is a
 // real office with a real profile and its own SoLV; e9348fff16b95fa covers
 // 16th Ave separately.
-const SEEDED_CAMPAIGNS = [
-  { campaign_key: "a58db3090ac9ab0", name: "EnviroCare Huntsville — Biweekly" },
-  { campaign_key: "4ee47a23fc4793e", name: "EnviroCare Birmingham Core (Alabaster / Butler Rd) — Biweekly" },
-  { campaign_key: "a99dae3fd51a462", name: "EnviroCare Lake Martin — Biweekly" },
-  // Created 2026-09-05, FIRST RUN 2026-09-09. Until then the report endpoint
-  // answers success=false and this key contributes one entry to summary.errors
-  // per run. That is expected, not a regression — the run still stores rows for
-  // the other three, and status only flips to "failed" if nothing at all lands.
-  { campaign_key: "e9348fff16b95fa", name: "EnviroCare Birmingham 16th Ave (Jefferson Co.) — Biweekly" },
-];
+const SEEDED_CAMPAIGNS = LOCAL_FALCON_CAMPAIGNS.map((campaign) => ({
+  campaign_key: campaign.key,
+  name: campaign.campaignName,
+  status: "scheduled",
+  place_ids: [campaign.placeId],
+  platforms: ["google"],
+  grid_size: campaign.gridSize,
+  radius: campaign.radiusMiles,
+}));
 
 async function listScheduledCampaigns() {
   let discovered = [];
@@ -211,7 +193,7 @@ export async function run() {
       const runDate = new Date(rep.runDate).toISOString().slice(0, 10);
       const placeIds = Array.isArray(c.place_ids) ? c.place_ids : (Array.isArray(c.locations) ? c.locations.map((l) => l.place_id ?? l) : []);
       const platforms = Array.isArray(c.platforms) ? c.platforms : ["google"];
-      const baseline = baselineOf(c, key);
+      const baseline = localFalconBaseline(c, key);
       const rows = [];
 
       // Path A: per-scan provenance available → competitors per keyword/platform.
@@ -224,9 +206,9 @@ export async function run() {
           const metricIsSolv = ["google", "apple", "native"].includes(platform);
           const selfScore = comp?.self?.score ?? num(first(s.solv, s.saiv));
           rows.push({
-            campaign_key: key, campaign_name: c.name ?? null, market: marketFor(first(s.place_id, placeIds[0])),
+            campaign_key: key, campaign_name: c.name ?? null, market: marketFor(first(s.place_id, placeIds[0]), key),
             place_id: first(s.place_id, placeIds[0], null), platform, keyword: first(comp?.self?.keyword, s.keyword, "(campaign)"),
-            run_date: runDate, grid_baseline: comp?.grid?.grid_size && comp?.grid?.radius ? `${comp.grid.grid_size}x${comp.grid.grid_size}-${comp.grid.radius}mi` : baseline,
+            run_date: runDate, grid_baseline: comp?.grid?.grid_size && comp?.grid?.radius ? localFalconBaseline(comp.grid, key) : baseline,
             solv: metricIsSolv ? selfScore : null, saiv: metricIsSolv ? null : selfScore,
             arp: comp?.self?.arp ?? num(s.arp), atrp: comp?.self?.atrp ?? num(s.atrp),
             top_competitors: comp?.top ?? null, report_key: rk,
@@ -238,7 +220,7 @@ export async function run() {
         for (const k of rep.byKeyword) {
           const metricIsSolv = platforms.length === 1 && ["google", "native"].includes(platforms[0]);
           rows.push({
-            campaign_key: key, campaign_name: c.name ?? null, market: marketFor(placeIds[0]), place_id: placeIds[0] ?? null,
+            campaign_key: key, campaign_name: c.name ?? null, market: marketFor(placeIds[0], key), place_id: placeIds[0] ?? null,
             platform: metricIsSolv ? "google" : platforms.join("+"), keyword: k.keyword, run_date: runDate, grid_baseline: baseline,
             solv: metricIsSolv ? num(k.solv) : null, saiv: metricIsSolv ? null : num(first(k.saiv, k.solv)),
             arp: num(k.arp), atrp: num(k.atrp), top_competitors: null, report_key: null,

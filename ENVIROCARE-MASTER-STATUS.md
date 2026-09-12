@@ -1,6 +1,6 @@
 # EnviroCare — MASTER STATUS
 
-**Updated:** July 23, 2026
+**Updated:** September 12, 2026
 **Rule:** Read this first every session. One source of truth. No other handoff files.
 
 ---
@@ -9,9 +9,9 @@
 
 **Local path:** `C:\Users\pwedg\Desktop\Envirocare Stuf\envirocare-website-deploy\`
 **GitHub:** `https://github.com/phillipwedgworth-cell/envirocare-website`
-**Vercel project:** `envirocare-web` · `prj_bD63HstQIuOMn5cEGDK4RAW7yM2F` · team `envirocare-50d39ae8`
-**Live URL:** `https://envirocare-web.vercel.app` (no custom domain — Phase 6)
-**Current HEAD:** `7fdd49a` (July 23, 2026 — SEO Local Falcon fix + blog updates, deployed green)
+**Vercel project:** `envirocare-web-only-testing` · `prj_bD63HstQIuOMn5cEGDK4RAW7yM2F` · team `team_e56vlWMynAPn6B3dI83AzgAD`
+**Live URL:** `https://www.envirocarellc.com`
+**Main before the Sep 12 routing/monitoring fix:** `fc34e89`
 
 **Old repo clone** `Desktop\Envirocare Stuf\envirocare-web\` is the ARCHIVED repo — never push there. Recommend archiving the folder.
 
@@ -23,9 +23,10 @@ The company is **fourth-generation** (founded 1958). **Kevin Wedgworth is the th
 
 ---
 
-## RECENT WORK (July 23, 2026)
+## RECENT WORK
 
-- **SEO Local Falcon fix (commit `a599592`)** — both SoLV agents were reading the wrong source and the 2026-07-22 "EnviroCare is invisible, every keyword at 0%" digest was a BUG, never true. `seo-snapshot.mjs` pointed at v2 campaign keys paused since 6/30 (frozen numbers for 23 days); `seo-monitor.mjs` polled the scan list where campaign scans never appear. Both now read `GET /v1/campaigns/{key}/report` (0 scan credits) against the live v3 campaigns. Targets re-baselined for the v3 9x9@20mi grid (Alabaster 20 / Alex City 40 / Huntsville 10). Source of truth: `agents/knowledge/local-falcon-baseline.md` — any SoLV-touching agent reads it first. **🔴 REQUIRES a Supabase migration** — `agents/lib/migrations/add_seo_metrics_baseline_grid.sql` must be run in the Supabase SQL editor (project `dyoujmyleihcpqgeifre`) or the daily 09:00 UTC snapshot throws PGRST204. Confirm via `/command-center` → Ranking Snapshots after the next cron run.
+- **Sep 12 office-routing + measurement repair** — homepage ZIP routing now reads the central ZIP/office map instead of an obsolete three-office list; all four staffed offices are shown; Birmingham/Jefferson/St. Clair ZIPs route to the verified 16th Ave office while Shelby stays with Alabaster. All Local Falcon consumers now read one four-campaign configuration with the real per-market grids and current targets, including the new Birmingham campaign.
+- **SEO Local Falcon fix (commit `a599592`, configuration corrected Sep 12)** — both SoLV agents had been reading the wrong source and the 2026-07-22 "EnviroCare is invisible, every keyword at 0%" digest was a BUG, never true. All three Local Falcon readers now use `GET /v1/campaigns/{key}/report` (0 scan credits) and the shared four-campaign configuration. Targets: Birmingham 15 / Alabaster 20 / Alex City 55 / Huntsville 10; Alex City and Huntsville remain flagged for target review because their grids are 7x7 rather than 9x9. Source of truth: `agents/knowledge/local-falcon-baseline.md` plus `agents/lib/local-falcon-campaigns.mjs`. **🔴 REQUIRES a Supabase migration** — `agents/lib/migrations/add_seo_metrics_baseline_grid.sql` must be run in the Supabase SQL editor (project `dyoujmyleihcpqgeifre`) or the daily 09:00 UTC snapshot throws PGRST204. Confirm via `/command-center` after the next cron run.
 - **Blog (commit `7fdd49a`)** — new post `fleas-in-house-no-pets`; `spider-control-alabama` expanded 584 → ~1,384 words. Added optional `updatedAt` to the BlogPost interface (emits dateModified in Article schema).
 - **CFO / growth analysis (separate repo `envirocare-cfo`)** — full FY2025 baseline: revenue $2.16M, net income $147K, ~54% GM. Growth is ~16% billed / ~5–6% organic net of churn. CY2025 churn $217,788 (~11% dollar). Rep concentration (one rep 57% of credited ACV) and 76% blank marketing attribution are the two structural caps. Forecast out-years not credible (COGS modeled to fall while revenue doubles). Docs live in `Desktop\Envirocare-System\`.
 
@@ -58,8 +59,8 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 
 - **Lighthouse**: desktop 92 perf / 100 SEO / 93 a11y · mobile 65 (LCP 7.1s = the one real issue; 8 images compressed Jun 11, fonts→next/font still queued)
 - **NeuronWriter** (project `9d0bec3a70f4743c`, ~25 of 75 monthly queries used): 22 pages tracked, leaders birmingham-mosquito 66 / huntsville 60; floor crawlspace 15, commercial 25 — those two need full Stage-2 builds. Re-scoring is FREE via `agents/rescore-all.mjs` (evaluate-content costs no quota).
-- **Local (v3 grid, re-baselined 2026-07-23)**: SoLV now read from live v3 campaigns (9x9@20mi) — do NOT compare against pre-7/23 v2 numbers (5x5@15mi), different denominator. Latest: Birmingham/Alabaster ~2.7%, Lake Martin/Alex City ~44%, Huntsville ~0.2%. Huntsville is genuinely weak (review-volume problem, real on both grids). Alex City still 0/100 citations, NO Citation Tracker campaign — must be created in BrightLocal dashboard.
-- envirocarellc.com DNS still points at old Scorpion host — nothing new shows there until Phase 6
+- **Local (per-campaign v3 grids, corrected 2026-09-08)**: never compare across grid changes or markets. Alabaster 3.39% (9x9/20mi, Aug 27); Alex City 53.06% (7x7/10mi, Sep 5); Huntsville 0.26% (7x7/7mi, Aug 25); Birmingham 16th Ave is a separate 9x9/20mi campaign with its first run scheduled Sep 9. Huntsville is genuinely weak. Alex City still has no Citation Tracker campaign in BrightLocal.
+- envirocarellc.com and www.envirocarellc.com are attached to the production Vercel project.
 
 ---
 
@@ -87,7 +88,7 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 
 1. Homepage v2 ✅  2. Auburn + Termite ✅  3. Cities/services v2 ✅ (deep content ongoing)
 4. GSC + sitemap ✅  5. Google Ads — build sheet ready, blocked on Supermetrics auth or Chrome Claude
-6. DNS flip — LAST
+6. DNS / production-domain cutover ✅
 
 ---
 
@@ -95,8 +96,8 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 
 - All required agent env vars present in Vercel (health: `/api/agents/health`). Only NOTION_TOKEN missing; NOTIFY_FROM set to alerts@envirocarellc.com (Resend domain VERIFIED).
 - NeuronWriter: key + project in Vercel and `.env.local`; project `9d0bec3a70f4743c`
-- Local Falcon CAMPAIGN keys (v3 live, 9x9@20mi — store these, NOT scan report_keys which expire): Huntsville `a58db3090ac9ab0` · Birmingham/Alabaster `4ee47a23fc4793e` · Lake Martin/Alex City `a99dae3fd51a462`. Read via `GET /v1/campaigns/{key}/report` (0 scan credits). Dead: report_keys `cd64365e1dab32f`/`7febc8908039d6d`/`644c1bcec9e3b67` and v2 campaigns `1822923e68f74d1`/`b6d42c9c19856f2`/`7d2a6df072df6f8` (paused 6/30).
-- Place IDs: Alabaster `ChIJr8cmt-EeiYgR_jgX9xsiZWY` · Huntsville `ChIJd4YXKCRmqmIR1DmDoEcGohU` · Alex City `ChIJ508mEjcLjIgRZ2HdWgXX76c`
+- Local Falcon CAMPAIGN keys (v3 live; store these, not expiring scan report keys): Birmingham `e9348fff16b95fa` (9x9/20mi) · Alabaster `4ee47a23fc4793e` (9x9/20mi) · Alex City `a99dae3fd51a462` (7x7/10mi) · Huntsville `a58db3090ac9ab0` (7x7/7mi). Read via `GET /v1/campaigns/{key}/report` (0 scan credits). Canonical config: `agents/lib/local-falcon-campaigns.mjs`.
+- Place IDs: Birmingham `ChIJjXGa0ZsbiYgR1mB0oEKnqUo` · Alabaster `ChIJr8cmt-EeiYgR_jgX9xsiZWY` · Huntsville `ChIJd4YXKCRmqmIR1DmDoEcGohU` · Alex City `ChIJ508mEjcLjIgRZ2HdWgXX76c`
 - BrightLocal RM reports: Alabaster 630345 · Huntsville 630846 · Alex City 631866 · location IDs 4068335/4068730/4068729
 - Google Ads account: `6799827884` — all 37 campaigns PAUSED
 - Formspree: `xwvypjal` (working — do not touch) · second form `xzdozjdk` unused/reserved
@@ -106,7 +107,7 @@ The 9 broken links are redirected in next.config.ts and all 8 page templates now
 
 ## PRICING MODEL
 
-**⚠️ SUPERSEDED (2026-07-24): `data/pricing.ts` is now the single source of truth and the live /pricing page matches it.** Current plan set: Pest **$35/mo** ($75 startup) · Pest + Mosquito **$69/mo** ($75 startup, Most Popular) · Complete **~$100/mo** ($229 startup, Best Value). Termite has NO flat price (quoted after free WDO inspection; `monthlyAnchor` is an OPEN Phillip decision). Mosquito add-on $45/visit ($34/mo only when paired with pest); Mosquito+Tick $65/visit. The $116 Complete and the Jun-11 card set below are HISTORICAL — do not quote them. ($127 and $60-Outdoor remain retired.)
+**⚠️ SUPERSEDED (2026-07-24): `data/pricing.ts` is now the single source of truth and the live /pricing page matches it.** Current plan set: Pest **$35/mo** ($150 standard initial service, currently $75 with the 50%-off promotion) · Pest + Mosquito **$69/mo** (same initial-service promotion, Most Popular) · Complete **~$100/mo** ($229 startup, Best Value). Termite has NO flat price (quoted after a free WDO inspection; `monthlyAnchor` is an OPEN Phillip decision). Mosquito is $45/month ($34/mo only when paired with pest), with eight March–October treatments and equal ACH drafts across the year; Mosquito+Tick is $65/month. The $116 Complete and the Jun-11 card set below are HISTORICAL — do not quote them.
 
 ## OLD PRICING MODEL (locked Jun 11 — superseded, kept for history)
 

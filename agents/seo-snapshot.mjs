@@ -16,6 +16,11 @@
 // Routing: SEO digest is INTERNAL (Phillip only) -> DIGEST_TO.
 
 import { createClient } from "@supabase/supabase-js";
+import {
+  LOCAL_FALCON_CAMPAIGNS,
+  localFalconBaseline,
+  localFalconGridLabel,
+} from "./lib/local-falcon-campaigns.mjs";
 
 const AGENT_NAME = "seo-snapshot";
 const LF_API = "https://api.localfalcon.com/v1";
@@ -23,20 +28,16 @@ const LF_API = "https://api.localfalcon.com/v1";
 // campaign_key -> location label (1 location per campaign; "Hoover"/"Pelham" etc. are keywords)
 //
 // GRID GEOMETRY IS READ FROM THE API, NOT ASSERTED HERE (2026-07-24).
-// The previous version hardcoded all three v3 campaigns as 9x9 @ 20mi. Live
-// API says only Birmingham is; Huntsville is 7x7 @ 7mi and Lake Martin is
-// 7x7 @ 10mi. Hardcoding geometry meant a grid edit in the Local Falcon UI
+// The previous version hardcoded the v3 campaigns as 9x9 @ 20mi. Live API says
+// Birmingham and Alabaster are 9x9 @ 20mi, Huntsville is 7x7 @ 7mi, and Lake
+// Martin is 7x7 @ 10mi. Hardcoding geometry meant a grid edit in Local Falcon
 // silently desynced the code.
 //
 // WHY THIS MATTERS: a wider/denser grid adds outer points a single office can
 // never rank in, so SoLV falls for reasons unrelated to ranking. Birmingham
 // read 53.86% on v2 (5x5/15mi) and 2.71% on v3 (9x9/20mi) with no real change.
 // NEVER compare SoLV across different `baseline` values.
-const CAMPAIGNS = [
-  { key: "a58db3090ac9ab0", location: "Huntsville" },
-  { key: "4ee47a23fc4793e", location: "Birmingham/Alabaster" },
-  { key: "a99dae3fd51a462", location: "Lake Martin/Alex City" },
-];
+const CAMPAIGNS = LOCAL_FALCON_CAMPAIGNS;
 
 // Retired — paused, never fetched. Kept so a stale key is recognizable.
 // Re-paused 2026-07-24 after an accidental resume.
@@ -49,14 +50,6 @@ const RETIRED_CAMPAIGNS = {
 // runs weekly and is NOT tracked here. Its AI legs report `saiv`, not `solv`,
 // so ingesting it into seo_metrics would write junk zeros. Phillip decides:
 // pause it (it burns credits weekly) or we add a saiv-aware reader.
-
-// Per-campaign baseline built from LIVE geometry. Any consumer joining across
-// a change in this string must treat it as a new series.
-function baselineOf(meta) {
-  const g = meta?.grid_size ?? "?";
-  const r = meta?.radius ?? "?";
-  return `${g}x${g}-${r}mi`;
-}
 
 // Campaign list metadata (grid_size, radius, status per key). 0 scan credits.
 // Defensive on response shape and key field; a failure here degrades to
@@ -152,9 +145,16 @@ export async function run({ email = true } = {}) {
       perLocation.push({ location: c.location, campaign_key: c.key, skipped: `status=${m.status}`, keywords: [] });
       continue;
     }
-    const baseline = baselineOf(m);
-    const grid = m?.grid_size ? `${m.grid_size}x${m.grid_size}` : null;
-    const data = await lfCampaign(c.key);
+    const baseline = localFalconBaseline(m, c.key);
+    const grid = localFalconGridLabel(m?.grid_size) ?? `${c.gridSize}x${c.gridSize}`;
+    let data;
+    try {
+      data = await lfCampaign(c.key);
+    } catch (error) {
+      console.warn(`[${AGENT_NAME}] SKIP ${c.location}: ${error.message}`);
+      perLocation.push({ location: c.location, campaign_key: c.key, skipped: error.message, keywords: [] });
+      continue;
+    }
     const rd = data.run_data || {};
     const date = rd.run || null;
     if (date && !runDate) runDate = date;
@@ -180,7 +180,7 @@ export async function run({ email = true } = {}) {
       campaign_key: c.key,
       baseline,
       grid,
-      radius_mi: m?.radius ?? null,
+      radius_mi: m?.radius ?? c.radiusMiles,
       run_date: date,
       agg_solv: n2(data.solv),
       keywords: rows.map((r) => ({ keyword: r.keyword, arp: r.arp, solv: r.solv })),

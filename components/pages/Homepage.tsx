@@ -16,7 +16,9 @@ import {
 } from 'lucide-react';
 import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
-import { ACH_TERMS } from '@/data/pricing';
+import { ACH_TERMS, PRICING } from '@/data/pricing';
+import { OFFICES as STAFFED_OFFICES } from '@/data/offices';
+import { isInServiceArea, officeForZip } from '@/data/zip-to-office';
 
 /* ============================================================
    ICONS — professional line icons (lucide) + custom insects
@@ -347,7 +349,7 @@ function Hero() {
             <span aria-hidden="true">·</span>
             <span>Sentricon® Certified</span>
             <span aria-hidden="true">·</span>
-            <span>Up to $1M Coverage, subject to the terms of the agreement</span>
+            <span>Up to $1M EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement</span>
             <span aria-hidden="true">·</span>
             <span>Since 1958</span>
           </div>
@@ -398,24 +400,24 @@ interface RecurringPlan {
 const RECURRING_PLANS: RecurringPlan[] = [
   {
     key: 'pest', icon: 'pest', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
-    perservice: { price: '$70/visit bimonthly', terms: '6 visits a year · $75 initial service fee' },
-    monthly: { price: 'From $35/mo ACH', terms: '$75 initial · equal monthly ACH drafts' },
+    perservice: { price: '$70/visit bimonthly', terms: `6 visits a year · $${PRICING.initialServiceRegular} standard initial pest service, currently $${PRICING.plans.pest.startup}` },
+    monthly: { price: `From $${PRICING.plans.pest.fromMonthly}/mo ACH`, terms: `$${PRICING.initialServiceRegular} standard initial pest service, currently $${PRICING.plans.pest.startup} · equal monthly ACH drafts` },
     bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
-    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: '$75 initial',
+    cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: `${PRICING.initialServicePromo.percentOff}% off initial pest service: $${PRICING.plans.pest.startup} today (regularly $${PRICING.initialServiceRegular})`,
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
-    perservice: { price: '$45/treatment · seasonal', terms: '8 treatments, March–October' },
-    monthly: { price: 'From $34/mo with a pest plan', terms: 'Seasonal mosquito, paired with pest' },
+    perservice: { price: `$${PRICING.addOns.mosquito.monthly}/mo ACH`, terms: 'Monthly-only service · 8 treatments March–October · equal averaged drafts all year' },
+    monthly: { price: `$${PRICING.addOns.mosquito.monthly}/mo ACH`, terms: `$${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo only when paired with pest · 8 treatments March–October` },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
-    addon: 'Add tick control to any visit: +$20/treatment',
+    addon: `Add tick control with mosquito: +$${PRICING.addOns.tick.monthlyWithMosquitoOnly}/month`,
     cta: 'Choose Mosquito', ctaCls: 'ec-cp-cta-outline', fine: 'No startup fee',
   },
   {
     key: 'termite', icon: 'termite', name: 'Termite / Sentricon®', dotColor: '#C77A00',
     perservice: { price: 'After free inspection', terms: 'Sentricon® bait system · priced to your home' },
     monthly: { price: 'After free inspection', terms: 'Annual renewal · priced to your home' },
-    bullets: ['Sentricon® Always Active bait system', 'Up to $1M termite damage repair coverage, subject to the terms of the agreement', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
+    bullets: ['Sentricon® Always Active bait system', 'Up to $1M EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement', 'No drilling or trenching in your yard', 'Free WDO inspection included'],
     cta: 'Get Free Termite Inspection', ctaCls: 'ec-cp-cta-outline', fine: 'Priced after inspection',
   },
 ];
@@ -573,7 +575,7 @@ function ConsolidatedPricing() {
         </div>
 
         <div className="ec-cp-strip">
-          <strong>$75 initial service fee</strong> for new pest customers.
+          <strong>50% off the $150 standard initial pest service — currently $75</strong> for qualifying new pest customers.
           Mosquito and tick have no startup. <em>We never charge twice for the same coverage.</em>
         </div>
         <p style={{ fontSize: '11.5px', lineHeight: 1.5, color: '#6b7d70', margin: '10px 4px 0', textAlign: 'center' }}>{ACH_TERMS}</p>
@@ -680,15 +682,6 @@ function FindYourOffice() {
   const [zip, setZip] = useState('');
   const [result, setResult] = useState<string | null>(null);
 
-  const offices = [
-    { name: 'Birmingham / Alabaster', phone: '(205) 940-6360', phoneHref: 'tel:2059406360',
-      zips: ['35004','35007','35022','35023','35040','35041','35042','35043','35051','35060','35061','35062','35064','35068','35071','35073','35078','35080','35085','35094','35111','35114','35115','35116','35117','35118','35119','35120','35124','35126','35127','35128','35130','35131','35133','35135','35139','35142','35143','35144','35146','35147','35148','35150','35160','35173','35176','35180','35185','35186','35188','35201','35202','35203','35204','35205','35206','35207','35208','35209','35210','35211','35212','35213','35214','35215','35216','35217','35218','35219','35220','35221','35222','35223','35224','35225','35226','35228','35229','35231','35232','35233','35234','35235','35236','35237','35238','35242','35243','35244','35246','35249','35253','35254','35255','35259','35260','35261','35263','35266','35277','35278','35279','35280','35281','35282','35283','35285','35287','35288','35289','35290','35291','35292','35293','35294','35295','35296','35297','35298'] },
-    { name: 'Alexander City / Lake Martin', phone: '(256) 234-6162', phoneHref: 'tel:2562346162',
-      zips: ['35010','35072','35089','35096','36003','36008','36064','36067','36075','36078','36080','36830','36832'] },
-    { name: 'Huntsville', phone: '(256) 937-7676', phoneHref: 'tel:2569377676',
-      zips: ['35601','35602','35603','35611','35613','35614','35620','35630','35631','35640','35649','35670','35671','35672','35673','35674','35739','35741','35748','35749','35750','35751','35752','35755','35756','35757','35758','35759','35760','35761','35762','35763','35764','35765','35766','35768','35769','35771','35772','35773','35774','35775','35776','35801','35802','35803','35804','35805','35806','35807','35808','35809','35810','35811','35812','35813','35814','35815','35816','35824','35893','35894','35895','35896','35897','35898','35899'] },
-  ];
-
   // Crawlable service-area links (routes verified to exist in the repo).
   const popularAreas = [
     { name: 'Birmingham', href: '/birmingham' },
@@ -714,9 +707,9 @@ function FindYourOffice() {
   const findOffice = () => {
     const z = zip.trim();
     if (!z || z.length < 5) { setResult('Please enter a 5-digit ZIP code.'); return; }
-    const match = offices.find(o => o.zips.includes(z));
-    if (match) {
-      setResult(`Your office: ${match.name} — ${match.phone}`);
+    if (isInServiceArea(z)) {
+      const match = officeForZip(z);
+      setResult(`Your office: ${match.name} — ${match.phoneDisplay}`);
     } else {
       setResult('We may serve your area! Call (205) 940-6360 to check.');
     }
@@ -746,9 +739,10 @@ function FindYourOffice() {
         </div>
         {result && <div className="ec-fo-result">{result}</div>}
         <div className="ec-fo-phones">
-          <a href="tel:2059406360"><Phone size={15} aria-hidden="true" /> (205) 940-6360 — Birmingham</a>
-          <a href="tel:2562346162"><Phone size={15} aria-hidden="true" /> (256) 234-6162 — Alex City / Lake Martin</a>
-          <a href="tel:2569377676"><Phone size={15} aria-hidden="true" /> (256) 937-7676 — Huntsville</a>
+          {(['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'] as const).map((officeId) => {
+            const office = STAFFED_OFFICES[officeId];
+            return <a key={office.id} href={office.phoneHref}><Phone size={15} aria-hidden="true" /> {office.phone} — {office.name}</a>;
+          })}
         </div>
         <div className="ec-fo-areas">
           <div className="ec-fo-areas-label">Popular service areas</div>
