@@ -1,5 +1,23 @@
 import ZipLookup from '@/components/ZipLookup';
+import Link from 'next/link';
+import { OFFICES, type OfficeId } from '@/data/offices';
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+
+const OFFICE_ORDER: OfficeId[] = ['birmingham-downtown', 'birmingham', 'lake-martin', 'huntsville'];
+
+const OFFICE_PRESENTATION: Record<OfficeId, { label: string; page: string }> = {
+  'birmingham-downtown': { label: 'Birmingham', page: '/birmingham' },
+  birmingham: { label: 'Alabaster', page: '/alabaster' },
+  'lake-martin': { label: 'Alexander City / Lake Martin', page: '/lake-martin' },
+  huntsville: { label: 'Huntsville', page: '/huntsville' },
+};
+
+const OFFICE_SCHEMA_IDS: Record<OfficeId, string> = {
+  'birmingham-downtown': 'https://www.envirocarellc.com/#birmingham',
+  birmingham: 'https://www.envirocarellc.com/#alabaster',
+  'lake-martin': 'https://www.envirocarellc.com/#lake-martin',
+  huntsville: 'https://www.envirocarellc.com/#huntsville',
+};
 
 export const metadata = {
   alternates: { canonical: '/find-office' },
@@ -21,6 +39,29 @@ export const metadata = {
 };
 
 export default function FindOfficePage() {
+  const offices = OFFICE_ORDER.map((id) => ({
+    ...OFFICES[id],
+    ...OFFICE_PRESENTATION[id],
+  }));
+
+  const pageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': 'https://www.envirocarellc.com/find-office#page',
+    name: 'Find Your Local EnviroCare Office',
+    url: 'https://www.envirocarellc.com/find-office',
+    about: { '@id': 'https://www.envirocarellc.com/#organization' },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: offices.length,
+      itemListElement: OFFICE_ORDER.map((id, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: { '@id': OFFICE_SCHEMA_IDS[id] },
+      })),
+    },
+  };
+
   return (
     <main style={{
       minHeight: '100vh',
@@ -29,6 +70,7 @@ export default function FindOfficePage() {
       fontFamily: "var(--font-sans)",
     }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Find Your Office', path: '/find-office' }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', marginBottom: 48 }}>
         <div style={{
           fontSize: 13, fontWeight: 600, color: '#0A7935',
@@ -52,6 +94,37 @@ export default function FindOfficePage() {
         </p>
       </div>
       <ZipLookup variant="card" />
+
+      <section aria-labelledby="office-map-heading" style={{ maxWidth: 1100, margin: '64px auto 0' }}>
+        <div style={{ textAlign: 'center', marginBottom: 24 }}>
+          <h2 id="office-map-heading" style={{
+            fontFamily: "var(--font-serif)", fontSize: 'clamp(28px, 4vw, 40px)',
+            color: '#0E1A0F', margin: '0 0 10px',
+          }}>
+            Four Local Offices Across Alabama
+          </h2>
+          <p style={{ fontSize: 16, color: '#5A6660', maxWidth: 680, margin: '0 auto', lineHeight: 1.55 }}>
+            Use the map to compare locations, or choose an office below for local service details,
+            directions, and the correct direct phone number.
+          </p>
+        </div>
+        <div style={{
+          overflow: 'hidden', borderRadius: 16, border: '1px solid #D9E5DC',
+          background: '#fff', boxShadow: '0 8px 28px rgba(14, 26, 15, 0.08)',
+        }}>
+          <iframe
+            src="https://storage.googleapis.com/maps-solutions-obw98gniv9/locator-plus/5g4e/locator-plus.html"
+            title="Map of EnviroCare's four Alabama pest control offices"
+            width="100%"
+            height="520"
+            style={{ border: 0, display: 'block' }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+      </section>
+
       <div style={{ maxWidth: 900, margin: '64px auto 0', textAlign: 'center' }}>
         <p style={{ fontSize: 15, color: '#5A6660', marginBottom: 24 }}>
           Or call any office directly:
@@ -61,31 +134,25 @@ export default function FindOfficePage() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: 16,
         }}>
-          {/* Birmingham city office, opened 2026-08-05. The card below it is the
-              Alabaster office, which was previously labelled "BIRMINGHAM" while
-              showing an Alabaster address — relabelled so both read honestly.
-              Alabaster keeps the "(Birmingham metro)" qualifier so metro callers
-              still recognise it; no existing number was removed or repointed. */}
-          <a href="tel:2059406360" style={officeCardStyle}>
-            <strong style={officeLabel}>BIRMINGHAM</strong>
-            <span style={officePhone}>(205) 940-6360</span>
-            <span style={officeAddr}>2025 Butler Rd, Alabaster</span>
-          </a>
-          <a href="tel:2059406360" style={officeCardStyle}>
-            <strong style={officeLabel}>ALABASTER (BIRMINGHAM METRO)</strong>
-            <span style={officePhone}>(205) 940-6360</span>
-            <span style={officeAddr}>2025 Butler Rd, Alabaster</span>
-          </a>
-          <a href="tel:2562346162" style={officeCardStyle}>
-            <strong style={officeLabel}>LAKE MARTIN / ALEX CITY</strong>
-            <span style={officePhone}>(256) 234-6162</span>
-            <span style={officeAddr}>1785 Tallapoosa St, Alexander City</span>
-          </a>
-          <a href="tel:2569377676" style={officeCardStyle}>
-            <strong style={officeLabel}>HUNTSVILLE</strong>
-            <span style={officePhone}>(256) 937-7676</span>
-            <span style={officeAddr}>7027 Old Madison Pike, Ste 108</span>
-          </a>
+          {offices.map((office) => (
+            <article key={office.id} style={officeCardStyle}>
+              <strong style={officeLabel}>{office.label.toUpperCase()}</strong>
+              <address style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <a href={office.phoneHref} style={officePhone}>{office.phone}</a>
+                <span style={officeAddr}>
+                  {office.address.street}, {office.address.city}, {office.address.region} {office.address.postalCode}
+                </span>
+              </address>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 14, marginTop: 8, flexWrap: 'wrap' }}>
+                <Link href={office.page} style={officeLink}>Local services</Link>
+                {office.googleBusinessProfile ? (
+                  <a href={office.googleBusinessProfile} target="_blank" rel="noreferrer" style={officeLink}>
+                    Directions
+                  </a>
+                ) : null}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </main>
@@ -114,8 +181,17 @@ const officePhone = {
   fontFamily: "var(--font-serif)",
   fontSize: 22,
   fontWeight: 700,
+  color: '#0E1A0F',
+  textDecoration: 'none',
 };
 const officeAddr = {
   fontSize: 13,
   color: '#5A6660',
+};
+const officeLink = {
+  fontSize: 13,
+  fontWeight: 700,
+  color: '#0A7935',
+  textDecoration: 'underline',
+  textUnderlineOffset: 3,
 };
