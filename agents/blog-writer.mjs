@@ -14,7 +14,8 @@
  *      locks INSIDE the prompt, internal links only to routes that exist.
  *   4. Scores each draft in NeuronWriter (one analysis per article — 2/day ≈ 60/mo,
  *      which is the fleet budget) and stores the score in the post's details.
- *      A miss below MIN_NW_SCORE gets one rewrite pass with the missing terms.
+ *      A miss below MIN_NW_SCORE gets one rewrite pass with the missing terms;
+ *      a second miss is recorded and withheld from publication.
  *   5. Appends the posts to data/blog-posts.ts, post-dated so the index releases
  *      them on a cadence, and writes a manifest the workflow uses for the PR body.
  *   The workflow (.github/workflows/blog-writer.yml) then runs the compliance
@@ -120,7 +121,7 @@ BODY RULES: 800-1100 words. Start with <p class="lede">. Then 4-6 <h2> sections 
 HARD COMPLIANCE RULES (violations fail the build):
 - Never write: safe, pet-safe, kid-safe, eco-friendly, non-toxic, natural (as a product claim), EPA-approved, guarantee, guaranteed, warranty, same-day, eliminate/elimination for mosquitoes (use reduce/control), pest-free, "no contract", "cancel anytime".
 - Products are "EPA-registered products applied per label directions."
-- Pricing, only these, only if relevant: pest plan $35/month on a 12-month ACH agreement or $70 per visit, $75 initial service; mosquito $45 per treatment, 8 treatments March–October, $34/month with a pest plan; Mosquito + Tick $65 per treatment (covers chiggers, not fleas); fire ant $150 covers most yards, larger properties quoted by square footage. TERMITE IS NEVER A PRICE — "quoted after a free WDO inspection."
+- Pricing, only these, only if relevant: pest plan $35/month on a 12-month ACH agreement or $70 per visit; its $150 regular initial service is currently $75 with the approved 50%-off promotion. Mosquito is $45/month for an average-size yard, 8 treatments March–October, with a firm price after a free inspection and equal monthly ACH payments across the year; $34/month applies only with a pest plan. Mosquito + Tick is $65/month (covers chiggers, not fleas); standalone tick and flea work is quoted. Fire ant $150 covers most yards, with larger properties quoted by square footage. TERMITE IS NEVER A PRICE — "quoted after a free WDO inspection."
 - Termite coverage: "up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement" — EnviroCare's own, never the manufacturer's.
 - Mosquito season is March through October. Never November.
 - No competitor names. No review counts. No "third-generation". Say "four generations" or "since 1958", never a year count.
@@ -142,6 +143,10 @@ function complianceIssues(post) {
   const issues = [];
   const m = text.match(BANNED); if (m) issues.push(`banned phrase: "${m[0]}"`);
   if (/mosquito[^.]{0,80}\beliminat/i.test(text) || /\beliminat[^.]{0,80}mosquito/i.test(text)) issues.push("mosquito elimination claim");
+  if (/\$\s?(45|65)\b[^.]{0,30}\b(per[ -](treatment|visit|service)|each)\b/i.test(text)) issues.push("superseded per-treatment mosquito pricing");
+  if (/\b(mosquito|tick)[^.]{0,180}\b(per-visit basis|billed per service|charged at each service|per service only|per visit,? no monthly)\b/i.test(text)) issues.push("superseded per-service mosquito billing");
+  if (/\b(nine|9)[ -](visit|treatment|round)s?\b/i.test(text)) issues.push("superseded nine-treatment mosquito season");
+  if (/\btick\b[^.]{0,100}\$\s?20\b|\$\s?20\b[^.]{0,100}\btick\b/i.test(text)) issues.push("derived tick price must be quoted");
   if (/\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b[^.]{0,60}termite|termite[^.]{0,60}\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b/i.test(text)) issues.push("termite price stated");
   // $99 and $79 are retired. $150 is NOT retired — it is the REGULAR initial price that
   // the $75 promo is 50% off (Phillip, Sep 7 2026; AGENTS.md §5; /special-offers). Flagging
@@ -220,7 +225,16 @@ export async function run() {
       let nw = await scoreInNeuronWriter(topic, post);
       if (nw.score !== null && nw.score < MIN_NW_SCORE && nw.missing?.length) {
         post = await draft(anthropic, topic, routes, recentTitles, nw.missing.slice(0, 25).join(", "));
-        if (complianceIssues(post).length === 0) nw = await scoreInNeuronWriter(topic, post);
+        const rewriteIssues = complianceIssues(post);
+        if (rewriteIssues.length) {
+          await writeFinding(AGENT_NAME, "blog", "warning", null, `NeuronWriter rewrite for "${topic.keyword}" failed compliance: ${rewriteIssues.join("; ")} — skipped`, { topic, nw });
+          continue;
+        }
+        nw = await scoreInNeuronWriter(topic, post);
+      }
+      if (nw.score !== null && nw.score < MIN_NW_SCORE) {
+        await writeFinding(AGENT_NAME, "blog", "warning", null, `Draft "${topic.keyword}" scored ${nw.score}, below the ${MIN_NW_SCORE} NeuronWriter threshold after rewrite — withheld`, { topic, nw });
+        continue;
       }
       nextDay = new Date(nextDay.getTime() + 86400000);
       const publishedAt = nextDay.toISOString().slice(0, 10);

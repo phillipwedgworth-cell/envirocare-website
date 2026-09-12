@@ -49,6 +49,15 @@ const cases = [
   ["the official WDIIR-100 letter", true, "nonexistent designation"],
   ["Alabama uses its OWN report — it is not the NPMA-33 industry form", false, "the carve-out comment"],
   ["The Official Alabama Wood Infestation Inspection Report, lender-ready.", false, "the correct name"],
+  // --- mosquito/tick pricing canon ---
+  ["Mosquito service is $45 per treatment for eight treatments.", true, "retired per-treatment mosquito price"],
+  ["Mosquito + Tick is $65 per visit.", true, "retired per-visit combo price"],
+  ["Mosquito is $45/month, charged at each service.", true, "retired per-service billing shape"],
+  ["The mosquito program has a nine-visit season.", true, "retired nine-treatment season"],
+  ["Add tick for $20/month.", true, "derived standalone tick price"],
+  ["Mosquito service is $45/month for an average-size yard, with eight treatments March through October and equal monthly ACH payments across the year.", false, "current mosquito price and billing"],
+  ["Mosquito + Tick is $65/month; standalone tick work is quoted for the property.", false, "current combo and standalone tick wording"],
+  ["Pest service is $70 per visit.", false, "legitimate per-visit pest price"],
   // --- guarantee (existing rule, must still behave) ---
   ["we never guarantee elimination", false, "negated hedge"],
   ["backed by EnviroCare's own guarantee", true, "guarantee claim"],
