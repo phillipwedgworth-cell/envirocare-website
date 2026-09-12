@@ -1,0 +1,59 @@
+name: Executor (approval queue → GBP)
+
+# Ships approved approval_queue rows to Google Business Profile via OneUp.
+#
+# THE SCHEDULED RUN IS A DRY RUN AND ALWAYS WILL BE. It reads the queue,
+# re-checks every approved row against compliance_prohibitions + service_canon
+# at today's rules (never trusting compliance_clean), files a finding for each
+# row that fails, and publishes nothing. That is the point: the queue has been
+# dammed since 2026-07-25 and nobody could see WHY without opening 16 rows by
+# hand.
+#
+# Publishing to a live Business Profile happens only on a manual
+# workflow_dispatch with mode=ship, and even then the agent caps itself at 3
+# posts per run and one per office. `mode` defaults to 'dry' on the dispatch
+# form too, so a mis-click publishes nothing.
+
+on:
+  schedule:
+    - cron: '30 13 * * *'   # daily 13:30 UTC (~8:30am CT) — after the 09:00 orchestrator run has refilled the queue
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry = report only (default). ship = actually publish to GBP.'
+        required: true
+        default: 'dry'
+        type: choice
+        options: [dry, ship]
+
+concurrency:
+  group: executor          # never two publishers at once
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  executor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm ci || npm install
+
+      - name: Run executor
+        env:
+          # Anything other than the exact string 'ship' is a dry run, and the
+          # scheduled trigger supplies no input at all, so `inputs.mode` is
+          # empty there and the agent stays dry.
+          EXECUTOR_MODE: ${{ inputs.mode }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_KEY || secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          ONEUP_API:                 ${{ secrets.ONEUP_API }}
+          ANTHROPIC_API_KEY:         ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node agents/executor.mjs

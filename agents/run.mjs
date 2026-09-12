@@ -50,6 +50,9 @@ const TARGETS = {
   // 2026-08-21 20:34 the table stopped receiving rows the same second.
   // This is the supported path back.
   "seo-snapshot": "./seo-snapshot.mjs",
+  // Dry run by default here too — `node agents/run.mjs executor` reports and
+  // publishes nothing. Publishing needs --mode=ship or EXECUTOR_MODE=ship.
+  executor: "./executor.mjs",
 };
 
 async function main() {
