@@ -53,9 +53,11 @@ const cases = [
   ["Mosquito service is $45 per treatment for eight treatments.", true, "retired per-treatment mosquito price"],
   ["Mosquito + Tick is $65 per visit.", true, "retired per-visit combo price"],
   ["Mosquito is $45/month, charged at each service.", true, "retired per-service billing shape"],
+  ["Mosquito is monthly only when bundled with pest.", true, "retired bundle-only monthly claim"],
   ["The mosquito program has a nine-visit season.", true, "retired nine-treatment season"],
   ["Add tick for $20/month.", true, "derived standalone tick price"],
   ["Mosquito service is $45/month for an average-size yard, with eight treatments March through October and equal monthly ACH payments across the year.", false, "current mosquito price and billing"],
+  ["The $34/month mosquito price applies only when paired with a pest plan.", false, "current reduced rate qualifier"],
   ["Mosquito + Tick is $65/month; standalone tick work is quoted for the property.", false, "current combo and standalone tick wording"],
   ["Pest service is $70 per visit.", false, "legitimate per-visit pest price"],
   // --- guarantee (existing rule, must still behave) ---

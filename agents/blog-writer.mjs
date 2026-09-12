@@ -144,7 +144,7 @@ function complianceIssues(post) {
   const m = text.match(BANNED); if (m) issues.push(`banned phrase: "${m[0]}"`);
   if (/mosquito[^.]{0,80}\beliminat/i.test(text) || /\beliminat[^.]{0,80}mosquito/i.test(text)) issues.push("mosquito elimination claim");
   if (/\$\s?(45|65)\b[^.]{0,30}\b(per[ -](treatment|visit|service)|each)\b/i.test(text)) issues.push("superseded per-treatment mosquito pricing");
-  if (/\b(mosquito|tick)[^.]{0,180}\b(per-visit basis|billed per service|charged at each service|per service only|per visit,? no monthly)\b/i.test(text)) issues.push("superseded per-service mosquito billing");
+  if (/\b(mosquito|tick)[^.]{0,180}\b(per-visit basis|billed per service|charged at each service|per service only|per visit,? no monthly|monthly only when bundled with pest)\b/i.test(text)) issues.push("superseded per-service mosquito billing");
   if (/\b(nine|9)[ -](visit|treatment|round)s?\b/i.test(text)) issues.push("superseded nine-treatment mosquito season");
   if (/\btick\b[^.]{0,100}\$\s?20\b|\$\s?20\b[^.]{0,100}\btick\b/i.test(text)) issues.push("derived tick price must be quoted");
   if (/\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b[^.]{0,60}termite|termite[^.]{0,60}\$\s?(1,?[0-9]{3}|[2-9][0-9]{2})\b/i.test(text)) issues.push("termite price stated");

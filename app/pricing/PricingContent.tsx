@@ -42,7 +42,7 @@ type Plan = {
   name: string;
   tagline: string;
   priceLabel: string;     // big headline price, e.g. "From $69/mo" or "$45/month × 8"
-  startup: string;        // e.g. "$75 initial service" or "No monthly — per service"
+  startup: string;        // e.g. "$75 initial service" or "Firm price after inspection"
   note?: string;          // e.g. "Tick and flea quoted" or "Sentricon® priced after free WDO inspection"
   features: string[];
   cta: string;
@@ -153,7 +153,7 @@ const COMPARE_ROWS = [
   { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
   { plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo", perVisit: "—", included: "Pest plan + seasonal mosquito (Mar–Oct)" },
   { plan: "Complete", startup: "$229", monthly: "From ~$100/mo", perVisit: "—", included: "Pest + mosquito + Sentricon® termite (priced at inspection)" },
-  { plan: "Mosquito (alone)", startup: "—", monthly: "$45/mo alone · $34/mo with pest", perVisit: "—", included: "Seasonal yard barrier, Mar–Oct (monthly only when bundled with pest)" },
+  { plan: "Mosquito (alone)", startup: "—", monthly: "$45/mo alone · $34/mo with pest", perVisit: "—", included: "8 treatments, Mar–Oct · equal monthly ACH payments across the year" },
   { plan: "Tick & Flea (add-on)", startup: "—", monthly: "—", perVisit: "Quoted", included: "Tick rides with mosquito service; flea is an interior add-on" },
   { plan: "Termite", startup: "Free inspection", monthly: "—", perVisit: "—", included: "Sentricon® — service & price provided upon inspection & approval" },
 ];
