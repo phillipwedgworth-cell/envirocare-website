@@ -3,7 +3,8 @@
  * Generated May 18, 2026
  *
  * Four offices serve different regions of Alabama:
- * - Birmingham (BIR): Jefferson, Shelby, St. Clair, Walker, Blount
+ * - Birmingham city office: Jefferson and St. Clair
+ * - Alabaster office: Shelby
  * - Lake Martin / Alex City (LKM): Tallapoosa, Elmore, Coosa, Lee (Auburn), Chambers, Russell
  * - Huntsville (HSV): Madison, Limestone, Morgan, Marshall, Jackson
  */
@@ -100,22 +101,22 @@ export const OFFICES: Record<OfficeId, Office> = {
 export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   // ===== BIRMINGHAM METRO =====
   // Birmingham proper
-  '35201': 'birmingham', '35202': 'birmingham', '35203': 'birmingham-downtown', '35204': 'birmingham-downtown',
-  '35205': 'birmingham-downtown', '35206': 'birmingham-downtown', '35207': 'birmingham', '35208': 'birmingham',
-  '35209': 'birmingham-downtown', '35210': 'birmingham-downtown', '35211': 'birmingham', '35212': 'birmingham-downtown',
-  '35213': 'birmingham-downtown', '35214': 'birmingham', '35215': 'birmingham-downtown', '35216': 'birmingham-downtown',
-  '35217': 'birmingham', '35218': 'birmingham', '35219': 'birmingham', '35220': 'birmingham',
-  '35221': 'birmingham', '35222': 'birmingham-downtown', '35223': 'birmingham-downtown', '35224': 'birmingham',
-  '35226': 'birmingham-downtown', '35228': 'birmingham', '35229': 'birmingham', '35230': 'birmingham',
-  '35231': 'birmingham', '35232': 'birmingham', '35233': 'birmingham', '35234': 'birmingham',
-  '35235': 'birmingham-downtown', '35236': 'birmingham', '35237': 'birmingham', '35238': 'birmingham',
-  '35242': 'birmingham' /* Greystone/Inverness/Mt Laurel — Shelby */, '35243': 'birmingham-downtown', '35244': 'birmingham-downtown', '35246': 'birmingham',
-  '35249': 'birmingham', '35253': 'birmingham', '35254': 'birmingham', '35255': 'birmingham',
-  '35259': 'birmingham', '35260': 'birmingham', '35261': 'birmingham', '35266': 'birmingham',
-  '35282': 'birmingham', '35283': 'birmingham', '35285': 'birmingham', '35287': 'birmingham',
-  '35288': 'birmingham', '35290': 'birmingham', '35291': 'birmingham', '35292': 'birmingham',
-  '35293': 'birmingham', '35294': 'birmingham', '35295': 'birmingham', '35296': 'birmingham',
-  '35297': 'birmingham', '35298': 'birmingham', '35299': 'birmingham',
+  '35201': 'birmingham-downtown', '35202': 'birmingham-downtown', '35203': 'birmingham-downtown', '35204': 'birmingham-downtown',
+  '35205': 'birmingham-downtown', '35206': 'birmingham-downtown', '35207': 'birmingham-downtown', '35208': 'birmingham-downtown',
+  '35209': 'birmingham-downtown', '35210': 'birmingham-downtown', '35211': 'birmingham-downtown', '35212': 'birmingham-downtown',
+  '35213': 'birmingham-downtown', '35214': 'birmingham-downtown', '35215': 'birmingham-downtown', '35216': 'birmingham-downtown',
+  '35217': 'birmingham-downtown', '35218': 'birmingham-downtown', '35219': 'birmingham-downtown', '35220': 'birmingham-downtown',
+  '35221': 'birmingham-downtown', '35222': 'birmingham-downtown', '35223': 'birmingham-downtown', '35224': 'birmingham-downtown',
+  '35226': 'birmingham-downtown', '35228': 'birmingham-downtown', '35229': 'birmingham-downtown', '35230': 'birmingham-downtown',
+  '35231': 'birmingham-downtown', '35232': 'birmingham-downtown', '35233': 'birmingham-downtown', '35234': 'birmingham-downtown',
+  '35235': 'birmingham-downtown', '35236': 'birmingham-downtown', '35237': 'birmingham-downtown', '35238': 'birmingham-downtown',
+  '35242': 'birmingham' /* Greystone/Inverness/Mt Laurel — Shelby */, '35243': 'birmingham-downtown', '35244': 'birmingham-downtown', '35246': 'birmingham-downtown',
+  '35249': 'birmingham-downtown', '35253': 'birmingham-downtown', '35254': 'birmingham-downtown', '35255': 'birmingham-downtown',
+  '35259': 'birmingham-downtown', '35260': 'birmingham-downtown', '35261': 'birmingham-downtown', '35266': 'birmingham-downtown',
+  '35282': 'birmingham-downtown', '35283': 'birmingham-downtown', '35285': 'birmingham-downtown', '35287': 'birmingham-downtown',
+  '35288': 'birmingham-downtown', '35290': 'birmingham-downtown', '35291': 'birmingham-downtown', '35292': 'birmingham-downtown',
+  '35293': 'birmingham-downtown', '35294': 'birmingham-downtown', '35295': 'birmingham-downtown', '35296': 'birmingham-downtown',
+  '35297': 'birmingham-downtown', '35298': 'birmingham-downtown', '35299': 'birmingham-downtown',
   // Hoover (35226, 35244) — covered under Birmingham proper above
   // Vestavia Hills, Mountain Brook, Homewood (35209/35213/35216/35223/35243) — covered above
   // Alabaster (HQ), Pelham, Helena, Calera
@@ -124,16 +125,16 @@ export const ZIP_TO_OFFICE: Record<string, OfficeId> = {
   // Chelsea
   '35043': 'birmingham', // Chelsea is Shelby → Butler Rd
   // Trussville, Clay, Pinson
-  '35173': 'birmingham-downtown', '35126': 'birmingham',
+  '35173': 'birmingham-downtown', '35126': 'birmingham-downtown',
   // Leeds, Moody, Springville (St. Clair)
-  '35094': 'birmingham', '35004': 'birmingham', '35146': 'birmingham',
+  '35094': 'birmingham-downtown', '35004': 'birmingham-downtown', '35146': 'birmingham-downtown',
   // Gardendale, Fultondale, Center Point (35215 covered above)
-  '35071': 'birmingham', '35068': 'birmingham',
+  '35071': 'birmingham-downtown', '35068': 'birmingham-downtown',
   // Bessemer, Hueytown, Pleasant Grove
-  '35020': 'birmingham', '35021': 'birmingham', '35022': 'birmingham', '35023': 'birmingham',
-  '35127': 'birmingham',
+  '35020': 'birmingham-downtown', '35021': 'birmingham-downtown', '35022': 'birmingham-downtown', '35023': 'birmingham-downtown',
+  '35127': 'birmingham-downtown',
   // McCalla
-  '35111': 'birmingham',
+  '35111': 'birmingham-downtown',
   // Greystone (35242) — covered above
   // Mt Laurel (35114) — covered above
   // (Tuscaloosa metro removed Jun 14 — not serviced)

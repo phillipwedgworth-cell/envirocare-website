@@ -5,7 +5,7 @@
 // Push: main (via branch + PR)
 // ─────────────────────────────────────
 // agents/seo-monitor.mjs
-// Local Falcon SoLV / rankings agent for EnviroCare (3 Alabama locations).
+// Local Falcon SoLV / rankings agent for EnviroCare (4 Alabama locations).
 //
 // Same agentic pattern as agents/brightlocal.mjs:
 //   - Worker (Haiku) is given tools and a goal, decides what to call
@@ -32,6 +32,11 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 import { once } from "./lib/run-cache.mjs";
 import { getDailyTrend, getOpportunities } from "./lib/seo-history.mjs";
 import {
+  LOCAL_FALCON_CAMPAIGNS,
+  localFalconBaseline,
+  localFalconLocation,
+} from "./lib/local-falcon-campaigns.mjs";
+import {
   writeFinding,
   writeDiscussion,
   readDiscussions,
@@ -42,7 +47,7 @@ import {
 const AGENT_NAME = "seo-monitor";
 const WORKER_MODEL = "claude-haiku-4-5-20251001";
 const MAX_TURNS = 15;
-const PROMPT_VERSION = "2026-07-19";
+const PROMPT_VERSION = "2026-09-12";
 
 const LF_KEY = process.env.LOCAL_FALCON_API_KEY;
 const LF_API = "https://api.localfalcon.com/v1";
@@ -54,25 +59,26 @@ const LF_API = "https://api.localfalcon.com/v1";
 const DEAD_ZONE_SOLV = 5;
 // Below this (but above dead-zone) a keyword is "weak" — worth surfacing.
 const WEAK_SOLV = 20;
-// How far back to look for scans. Campaigns run weekly, so 14d guarantees at
-// least one run of every campaign keyword even if a run slips a day.
-const LOOKBACK_DAYS = 14;
+// The campaigns are biweekly and have slipped by nearly two weeks. Keep the
+// same 45-day freshness window as local-falcon-ingest so weak markets do not
+// disappear from the brief merely because a scheduled scan ran late.
+const LOOKBACK_DAYS = 45;
 
 // Each location reads its own weekly CAMPAIGN report. See the note in
 // seo-snapshot.mjs: campaign scans do NOT appear in the /reports scan list, so
 // the previous /reports polling saw almost nothing and reported phantom dead
 // zones across every market while the campaigns were healthy.
 //
-// Targets are grid-dependent — a tighter grid scores higher SoLV for identical
-// rankings. These were set assuming 9x9/20mi for all three, which live API
-// (2026-07-24) says is only true for Birmingham; Huntsville is 7x7 @ 7mi and
-// Lake Martin is 7x7 @ 10mi. Huntsville/Alex City targets need re-derivation
-// against their actual geometry — marked needsReview until Phillip confirms.
-const LOCATIONS = [
-  { name: "Alabaster",  placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", campaign: "4ee47a23fc4793e", target: 20, needsReview: false }, // 9x9 @ 20mi — target valid
-  { name: "Alex City",  placeId: "ChIJ508mEjcLjIgRZ2HdWgXX76c", campaign: "a99dae3fd51a462", target: 40, needsReview: true  }, // 7x7 @ 10mi — currently ~44.9, target likely too low
-  { name: "Huntsville", placeId: "ChIJd4YXKCRmqmIR1DmDoEcGohU", campaign: "a58db3090ac9ab0", target: 10, needsReview: true  }, // 7x7 @ 7mi — currently ~0.2, target likely too lenient
-];
+// Targets and stable keys come from one shared source used by all Local Falcon
+// readers. Huntsville/Alex City retain needsReview because their targets were
+// set against different geometry than their live 7x7 grids.
+const LOCATIONS = LOCAL_FALCON_CAMPAIGNS.map((campaign) => ({
+  name: campaign.location,
+  placeId: campaign.placeId,
+  campaign: campaign.key,
+  target: campaign.target,
+  needsReview: campaign.targetNeedsReview,
+}));
 
 // GRID GEOMETRY IS READ FROM THE API, NOT ASSERTED. A single global epoch
 // string was wrong for three campaigns with three different geometries — a
@@ -80,23 +86,6 @@ const LOCATIONS = [
 // other two. The per-campaign baseline string is built from live grid_size +
 // radius; stored week-over-week state is discarded only when ITS campaign's
 // baseline changes.
-// Last-resort baselines for the three live v3 campaigns, verified against the
-// Local Falcon API on 2026-07-23 (9x9 grid @ 20 mi). Used only when the
-// campaign list fetch fails, so a SoLV number is never stored with the
-// "?x?-?mi" tag that makes it incomparable to every other reading.
-const KNOWN_BASELINES = {
-  a58db3090ac9ab0: "9x9-20mi", // Huntsville
-  "4ee47a23fc4793e": "9x9-20mi", // Birmingham / Alabaster
-  a99dae3fd51a462: "9x9-20mi", // Lake Martin / Alex City
-};
-function baselineOf(meta, campaignKey) {
-  const g = meta?.grid_size ?? meta?.grid ?? null;
-  const r = meta?.radius ?? meta?.radius_miles ?? null;
-  if (g && r) return `${g}x${g}-${r}mi`;
-  if (campaignKey && KNOWN_BASELINES[campaignKey]) return KNOWN_BASELINES[campaignKey];
-  return "?x?-?mi";
-}
-
 // Campaign list metadata (grid_size, radius, status per key). 0 scan credits.
 // Cached per process; failure degrades to "?x?-?mi" with a loud warning.
 let _campaignMeta = null;
@@ -145,7 +134,8 @@ async function lfFetch(endpoint, params = {}) {
 }
 
 function findLocation(name) {
-  return LOCATIONS.find((l) => l.name === name);
+  const campaign = localFalconLocation(name);
+  return campaign ? LOCATIONS.find((l) => l.name === campaign.location) : null;
 }
 
 const num = (v) => {
@@ -210,7 +200,7 @@ async function computeLocation(location_name) {
       note: `Campaign ${loc.campaign} status="${m.status}" (not scheduled) — refusing to read frozen numbers.`,
     };
   }
-  const baseline = baselineOf(m, loc.campaign);
+  const baseline = localFalconBaseline(m, loc.campaign);
 
   let campaign;
   try {
@@ -358,17 +348,17 @@ async function postDiscussion({ message, referencesAgent = null, impactScore, ef
 const tools = [
   {
     name: "list_locations",
-    description: "List all 3 EnviroCare locations with their blended-SoLV targets.",
+    description: "List all 4 EnviroCare locations with their blended-SoLV targets.",
     input_schema: { type: "object", properties: {} },
   },
   {
     name: "analyze_location",
     description:
-      "Pull the LIVE last-14-day Google-Maps scans for one location, compute blended SoLV, best/worst keywords, and dead zones (keywords at/near 0%). This also records the finding(s) and the week-over-week baseline. Call once per location. Returns blended_solv, delta, worst[], dead_zones[], weak[], best.",
+      "Pull the latest Google-Maps campaign scan within the 45-day freshness window for one location, compute blended SoLV, best/worst keywords, and dead zones (keywords at/near 0%). This also records the finding(s) and the week-over-week baseline. Call once per location. Returns blended_solv, delta, worst[], dead_zones[], weak[], best.",
     input_schema: {
       type: "object",
       properties: {
-        location_name: { type: "string", enum: ["Alabaster", "Alex City", "Huntsville"] },
+        location_name: { type: "string", enum: LOCAL_FALCON_CAMPAIGNS.map((campaign) => campaign.location) },
       },
       required: ["location_name"],
     },
@@ -430,14 +420,14 @@ async function callTool(name, input) {
 
 // ---------- Worker ----------
 
-const WORKER_SYSTEM = `You are the Local Falcon SEO analyst for EnviroCare Pest Control (Alabama, 3 locations: Alabaster, Alex City, Huntsville). Blended-SoLV targets are Alabaster 65%, Alex City 50%, Huntsville 35%.
+const WORKER_SYSTEM = `You are the Local Falcon SEO analyst for EnviroCare Pest Control (Alabama, 4 locations: Birmingham, Alabaster, Alex City, Huntsville). Blended-SoLV targets are Birmingham 15%, Alabaster 20%, Alex City 55%, Huntsville 10%. Alex City and Huntsville targets need review because their live grid geometry differs from the geometry used when those targets were set.
 
 YOUR JOB
 Produce the weekly Monday SoLV brief. A single blended number "on target" is NOT good enough — your most valuable output is finding DEAD ZONES: individual keywords/areas where EnviroCare is at or near 0% even when the average looks fine.
 
 APPROACH (you choose order, skip if irrelevant)
 1. read_peer_findings to see what BrightLocal / site-reviewer flagged this week.
-2. analyze_location for EACH of the 3 locations. This returns blended SoLV, the week-over-week delta, the 3 worst keywords, and any dead_zones/weak keywords. It also records the findings — you do not need a separate record step.
+2. analyze_location for EACH of the 4 locations. This returns blended SoLV, the week-over-week delta, the 3 worst keywords, and any dead_zones/weak keywords. It also records the findings — you do not need a separate record step.
 3. If a location has dead zones AND brightlocal flagged it for citations on the same location, post_discussion linking the two (impact 8+, effort 3-5).
 4. Self-check: does your draft name the specific weak/dead keywords (not just the blended average)? If it only cites blended numbers, go back and pull the worst[] and dead_zones[] into the brief.
 5. Emit the final brief.
@@ -529,7 +519,7 @@ export async function run() {
 
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
-    task: "Weekly Local Falcon SoLV brief for EnviroCare's 3 Alabama locations",
+    task: "Weekly Local Falcon SoLV brief for EnviroCare's 4 Alabama locations",
     output: draft,
     rubric,
     revise: (fb) => workerDraft(fb),

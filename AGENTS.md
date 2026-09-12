@@ -79,9 +79,10 @@ instead of live data. On Jul 25 alone, five confident conclusions were wrong:
 ✅ **The Birmingham office IS now GBP-verified** (was not, until Sep 2026).
 Confirmed live via the Places API 2026-09-05: `EnviroCare` · 2120 16th Ave S Ste
 302, Birmingham, AL 35205 · (205) 991-2882 · OPERATIONAL · 5.0 from 10 reviews ·
-place_id `ChIJjXGa0ZsbiYgR1mB0oEKnqUo`. It is not yet in Local Falcon (the
-Birmingham/Alabaster campaign `4ee47a23fc4793e` still tracks the Butler Rd GBP);
-BrightLocal Birmingham location 4130578 needs its NAP confirmed against it.
+place_id `ChIJjXGa0ZsbiYgR1mB0oEKnqUo`. Local Falcon campaign
+`e9348fff16b95fa` tracks this office separately from Alabaster; its first run was
+scheduled for 2026-09-09. BrightLocal Birmingham location 4130578 still needs
+its NAP confirmed against it.
 
 ⚠️ **Naming trap in `data/offices.ts`:** the OfficeId `'birmingham'` is the
 **Alabaster** office (named for the metro it serves). The city office is
@@ -139,9 +140,10 @@ at, now split by county:
 
 `data/city-offices.ts` holds the split; ZIP 35244 (Hoover/Riverchase) stays
 Birmingham per the ruling, while 35043 and 35242 moved to Alabaster. Shipped in
-the Sep 5 compliance+B pack. **Not yet reflected downstream:** Local Falcon
-campaign `4ee47a23fc4793e` still tracks the Butler Rd GBP, and BrightLocal
-location 4130578 needs its NAP re-pointed.
+the Sep 5 compliance+B pack. Local Falcon intentionally keeps separate campaigns
+for both profiles: `e9348fff16b95fa` for Birmingham and `4ee47a23fc4793e` for
+Alabaster. **Not yet reflected downstream:** BrightLocal location 4130578 needs
+its NAP re-pointed.
 
 ⚠️ **(205) 649-5278 is DEAD.** It still appears on the Thryv directory network
 (YellowPages / YP / DexKnows / Superpages). Never reintroduce it.
@@ -307,7 +309,8 @@ terms of the agreement` should appear too.
 
 | Market | Phone | Address |
 |---|---|---|
-| Birmingham metro (MAIN) | `(205) 940-6360` | 2025 Butler Rd, Alabaster |
+| Birmingham / Jefferson / St. Clair | `(205) 991-2882` | 2120 16th Ave S, Ste 302, Birmingham |
+| Alabaster / Shelby County (company main line) | `(205) 940-6360` | 2025 Butler Rd, Alabaster |
 | Alex City / Lake Martin | `(256) 234-6162` | 1785 Tallapoosa St, Alexander City |
 | Huntsville / North AL | `(256) 937-7676` | 7027 Old Madison Pike Ste 108 |
 

@@ -46,15 +46,17 @@ campaign key — it is stable across runs.
 **2. Never compare across a grid change.** SoLV is the share of grid points where
 the business appears. Widen the grid and SoLV falls without any real change.
 
-Code marks the epoch as `BASELINE = "v3-9x9-20mi"`. Rows with a different baseline
-are discarded rather than compared. Bump on any future geometry change.
+Code stores a per-campaign baseline such as `9x9-20mi`, `7x7-10mi`, or
+`7x7-7mi` on every row. Week-over-week state is discarded when that campaign's
+baseline changes. The canonical keys, geometry, place IDs, and targets live in
+`agents/lib/local-falcon-campaigns.mjs`.
 
 ## Retired — do not read
 
 `1822923e68f74d1` (Huntsville v2) · `b6d42c9c19856f2` (Birmingham v2) ·
 `7d2a6df072df6f8` (Lake Martin v2). All paused since 2026-06-30.
 
-## Targets (v3 grid — 9x9 / 20 mi)
+## Targets (per-market v3 baseline)
 
 | Market | Target | Current |
 |---|---|---|

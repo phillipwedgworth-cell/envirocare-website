@@ -89,25 +89,20 @@ const DEFAULT_POSTAL = "35007";
 const DEFAULT_LABEL = "Alabaster";
 
 function buildJsonLd(c: DeepCityConfig) {
+  const providerId = c.officeTel === "2059912882" ? "birmingham" : "alabaster";
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
-        "@id": `https://www.envirocarellc.com/${c.slug}`,
-        name: `EnviroCare — ${c.name}`,
+        "@type": "Service",
+        "@id": `https://www.envirocarellc.com/${c.slug}#service`,
+        name: `Pest Control & Termite Service in ${c.name}`,
         image: "https://www.envirocarellc.com/logo.png",
         url: `https://www.envirocarellc.com/${c.slug}`,
-        telephone: `+1${c.officeTel ?? DEFAULT_TEL}`,
-        email: "service@envirocarellc.com",
-        priceRange: "$$",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: c.officeStreet ?? DEFAULT_STREET,
-          addressLocality: c.officeLocality ?? DEFAULT_LOCALITY,
-          addressRegion: "AL",
-          postalCode: c.officePostal ?? DEFAULT_POSTAL,
-          addressCountry: "US",
+        serviceType: "Pest Control",
+        provider: {
+          "@type": "PestControlService",
+          "@id": `https://www.envirocarellc.com/#${providerId}`,
         },
         areaServed: {
           "@type": "City",
@@ -115,17 +110,14 @@ function buildJsonLd(c: DeepCityConfig) {
           containsPlace: c.neighborhoods.map((n) => ({ "@type": "Place", name: n })),
           address: { "@type": "PostalAddress", addressLocality: c.name, addressRegion: "AL", postalCode: c.zip, addressCountry: "US" },
         },
-        openingHoursSpecification: [
-          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "17:00" },
-        ],
         description: c.summary,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: `Pest & Termite Control in ${c.name}`,
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "45", description: "Eight seasonal treatments, March–October." },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting with no drilling. Qualifying homes may receive up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "45", description: "$45 per month via ACH, with eight treatments March–October and payments averaged equally across the year." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Pest Control", areaServed: `${c.name}, AL` } },
           ],
@@ -147,7 +139,7 @@ function buildJsonLd(c: DeepCityConfig) {
 export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: c.name, path: `/service-areas/${c.slug}` }]) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Service Areas', path: '/service-areas' }, { name: c.name, path: `/${c.slug}` }]) }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd(c)) }} />
 
       <main style={{ background: "#fff", color: Ik, ...sans }}>
@@ -167,7 +159,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: "2rem", color: "rgba(255,255,255,.85)", fontSize: ".95rem" }}>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>68+</strong> Years serving AL</span>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>4</strong> Generations of Wedgworths</span>
-              <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> Sentricon® coverage</span>
+              <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> EnviroCare damage coverage*</span>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>Free</strong> Inspection &amp; quote</span>
             </div>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
@@ -229,7 +221,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />
-            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare coverage", "Priced after a free WDO inspection"]} featured />
+            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare damage repair coverage on qualifying homes, subject to agreement terms", "Priced after a free WDO inspection"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier", "March – October (8 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – October"]} />
           </div>
