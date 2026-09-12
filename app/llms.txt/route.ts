@@ -34,8 +34,8 @@ const LLMS_TXT = `# EnviroCare
 - [Interior + exterior quarterly plan](https://www.envirocarellc.com/services/interior-pest-control): inside-and-out, 4 visits/year.
 - [Termite control](https://www.envirocarellc.com/services/termite-control): protection with a free on-site inspection.
 - [Sentricon Always Active](https://www.envirocarellc.com/services/sentricon): the bait system we install — no drilling, no tank trucks.
-- [Mosquito yard barrier](https://www.envirocarellc.com/services/mosquito): $45 per treatment, 8 treatments March–October, billed per service ($34/mo when bundled with a pest plan). Products labeled for use near water, applied per label directions.
-- [Tick control](https://www.envirocarellc.com/services/tick-control): paired with mosquito service (Mosquito + Tick $65 per treatment).
+- [Mosquito yard barrier](https://www.envirocarellc.com/services/mosquito): $45/month for an average-size yard, 8 treatments March–October, with equal monthly ACH payments across the year. The price is $34/month only when paired with a pest plan. Firm price after a free inspection. Products labeled for use near water, applied per label directions.
+- [Tick control](https://www.envirocarellc.com/services/tick-control): paired with mosquito service (Mosquito + Tick $65/month); standalone tick work is quoted for the property.
 - [Fire ant treatment](https://www.envirocarellc.com/services/fire-ant): whole-colony treatment, no plan required.
 - [Flea treatment](https://www.envirocarellc.com/services/flea): interior-plan add-on.
 - [WDO letters](https://www.envirocarellc.com/services/wdo-letters): Alabama Wood Infestation Reports for real estate.
@@ -50,8 +50,8 @@ const LLMS_TXT = `# EnviroCare
 ## Service model
 - Exterior-first protection: the home perimeter is treated every other month (bi-monthly,
   6 visits/year) so pests never make it inside. Most visits do not require the customer home.
-- One technician handles every service — pest, termite, mosquito, tick — one invoice.
-- Unlimited free re-services between visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.
+- A familiar local team handles pest, termite, mosquito, and tick service on one schedule and invoice.
+- Re-service between scheduled pest visits is included at no extra charge. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.
 - Flat monthly pricing, published openly.
 
 ## Services & pricing (exact, current)
@@ -67,13 +67,13 @@ const LLMS_TXT = `# EnviroCare
 - Termite protection: Sentricon® Always Active™ bait system. No flat price — Alabama requires a
   free on-site WDO inspection first, then we quote it exact (based on linear footage and foundation
   type). No drilling, no tank trucks. Up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Free inspection.
-- Mosquito yard barrier: $45 per treatment, 8 treatments March through October, billed per service — no monthly
-  billing unless bundled with a pest plan ($34/mo with pest). Re-applied every 30 days. Suited to waterfront
+- Mosquito yard barrier: $45/month for an average-size yard, 8 treatments March through October, with equal
+  monthly ACH payments across the year. The price is $34/month only when paired with a pest plan. Re-applied every 30 days. Suited to waterfront
   properties (Lake Martin) — products labeled for use near water, applied per label directions. We never guarantee mosquito elimination.
-- Mosquito + Tick (chigger coverage): $65 per treatment, 8 treatments March through October, billed per service. Flea is an interior-plan add-on.
+- Mosquito + Tick (chigger coverage): $65/month, 8 treatments March through October. Standalone tick treatment and flea service are quoted for the property.
 - Plans: Pest from $35/mo · Pest + Mosquito from $69/mo · Pest + Termite from $35/mo + termite quote ·
   Complete (pest + termite + mosquito) from $69/mo + termite quote (most popular). Mosquito alone $45/month,
-  Mosquito + Tick $65/month — per service only. Plans are conveniences, not discounts.
+  Mosquito + Tick $65/month. Plans are conveniences, not discounts.
 - WDO letters (Alabama Wood Infestation Report): $125 standalone; one free per year for
   active termite customers. Builder pre-treats and commercial IPM/HACCP programs available.
 - Not offered: bed bug treatment, wildlife removal, lawn care.

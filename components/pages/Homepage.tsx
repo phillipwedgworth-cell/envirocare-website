@@ -115,7 +115,7 @@ function Stars({ size = 14 }: { size?: number }) {
  * 4. ThreeOffices replaced with FindYourOffice zip finder
  * 5. "No contract" language removed sitewide per owner direction
  * 6. Hero copy: "interior and exterior coverage" replaces "we treat from the outside"
- * 7. Pricing: Pest $75 initial, tick as +$20 add-on, termite priced at free WDO inspection (no flat $/mo)
+ * 7. Pricing: Pest $75 promotional initial, tick quoted, termite priced at free WDO inspection (no flat $/mo)
  * 8. Complete tier ~$100/mo (matches data/pricing.ts and city pages)
  */
 
@@ -539,7 +539,7 @@ function ConsolidatedPricing() {
             <span className="ec-cp-bundle-price">From $69/mo</span>
           </div>
           <span className="ec-cp-bundle-sub">
-            Year-round pest control plus seasonal mosquito on one invoice. Add tick for +$20/month.
+            Year-round pest control plus seasonal mosquito on one invoice. Ask about quoted tick coverage.
           </span>
           <Link
             href="/quote"

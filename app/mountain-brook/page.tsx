@@ -210,7 +210,7 @@ export default function MountainBrookPage() {
               With deer and wooded edges throughout Mountain Brook, ticks are a real concern for families and pets
               using the yard. EnviroCare&apos;s{" "}
               <Link href="/services/tick-control" style={{ color: G, fontWeight: 600 }}>mosquito-plus-tick program</Link>{" "}
-              adds tick and chigger coverage to the seasonal schedule — $65 per month across the nine-visit
+              adds tick and chigger coverage to the seasonal schedule — $65 per month across the eight-treatment
               season. Most products knock back tick activity in treated zones; results vary
               with yard conditions and surrounding habitat.
             </Sub>

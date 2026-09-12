@@ -122,8 +122,10 @@ PRICING (only mention when natural; otherwise point to a free inspection / quote
 - The pest plan is BI-MONTHLY (every other month, six visits a year) — never "quarterly".
   It covers 30+ Alabama pests with re-service between scheduled visits at no extra charge,
   and EXCLUDES fire ant, flea, tick and mosquito (separate add-ons).
-- Verified add-on prices (data/pricing.ts): mosquito $45/visit, or $34/month ONLY when
-  paired with pest; Mosquito + Tick $65/visit; tick +$20/visit with mosquito only.
+- Verified seasonal prices (data/pricing.ts): mosquito $45/month for an average-size
+  yard, eight treatments March through October, with a firm price after a free inspection
+  and equal monthly ACH payments across the year. The $34/month price applies ONLY when
+  paired with pest. Mosquito + Tick is $65/month; standalone tick and flea work is quoted.
   Fire ant starts at $150, priced by yard size.
 - Termite: Sentricon Always Active. NEVER state ANY termite price — no install price and
   no monthly monitoring price. The old $32/mo monitoring quote is RETIRED and was WRONG,

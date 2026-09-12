@@ -30,6 +30,8 @@ const LEAKED = [
   ["Aug 18 Lake Martin", "EnviroCare Pest & Termite Services brings 68 years of family pest control expertise to Lake Martin and Alexander City. Our Sentricon Always Active termite defense uses no drilling and includes EnviroCare's own $1,000,000 repair guarantee."],
   ["Jul 25 Birmingham", "Termite Defense: No Drilling, Full Coverage Guarantee. Our proprietary guarantee covers repairs up to $1,000,000 and is backed by EnviroCare, not the manufacturer."],
   ["unqualified $1M alone", "Termite damage accelerates in late summer heat. Coverage up to $1,000,000 is included."],
+  ["retired mosquito billing", "Mosquito service is $45 per treatment, billed per service across a nine-visit season."],
+  ["derived tick price", "Add tick protection for $20 per month."],
 ];
 for (const [label, text] of LEAKED) {
   const r = scanText(text, rules);
@@ -40,6 +42,7 @@ for (const [label, text] of LEAKED) {
 const GOOD = [
   ["qualified $1M", "Termite service includes up to $1,000,000 in damage repair coverage, subject to the terms of the agreement, and is priced after a free on-site inspection."],
   ["plain service copy", "Our licensed technicians treat the exterior perimeter on a bi-monthly schedule, and re-service between scheduled visits is included at no extra charge."],
+  ["current mosquito billing", "Mosquito service is $45 per month for an average-size yard, with eight treatments March through October and equal monthly ACH payments across the year."],
 ];
 for (const [label, text] of GOOD) {
   const r = scanText(text, rules);

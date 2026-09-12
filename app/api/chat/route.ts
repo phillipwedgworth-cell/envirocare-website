@@ -184,7 +184,7 @@ LANGUAGE RULES (legal — never break these):
 
 5. TICK CONTROL
    - Only sold WITH mosquito — never standalone.
-   - Mosquito + tick is $65/month, March through October (mosquito $45 + tick $20). Per visit, no monthly.
+   - Mosquito is $45/month for an average-size yard; Mosquito + Tick is $65/month. Both run March through October (8 treatments), with equal monthly ACH payments across the year. Standalone tick work is quoted for the property.
 
 6. INTERIOR + EXTERIOR QUARTERLY PLAN
    - $98/quarter — inside and outside treatment, 4 visits/year
