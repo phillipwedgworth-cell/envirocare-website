@@ -114,14 +114,7 @@ const jsonLd = {
       ],
       priceRange: "$$",
       parentOrganization: {
-        "@type": "Organization",
         "@id": "https://www.envirocarellc.com/#organization",
-        // Must match lib/seo/organization-schema.ts EXACTLY -- this shares the
-        // '#organization' @id with it, so a different name here merges into one
-        // entity carrying two names. That is the same defect just fixed on
-        // '#birmingham'. legalName lives on the Organization node, not here.
-        name: "EnviroCare Pest Services",
-        url: "https://www.envirocarellc.com/",
       },
       description:
         "Family-owned Birmingham pest control, exterminator, termite, and mosquito service. EnviroCare has served the Birmingham metro since 1958. Four generations of the Wedgworth family, Sentricon® Certified Specialist, EPA-registered products applied to label directions.",
