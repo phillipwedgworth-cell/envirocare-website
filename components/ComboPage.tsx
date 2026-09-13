@@ -32,7 +32,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
       telephone: c.office.phone,
       address: { "@type": "PostalAddress", streetAddress: c.office.address, addressRegion: "AL", addressCountry: "US" },
       url: `https://www.envirocarellc.com${c.canonicalPath}`,
-      parentOrganization: { "@type": "Organization", name: "EnviroCare", foundingDate: "1958" },
+      parentOrganization: { "@id": "https://www.envirocarellc.com/#organization" },
     },
     {
       "@context": "https://schema.org",
