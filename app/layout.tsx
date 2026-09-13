@@ -213,14 +213,7 @@ const BIRMINGHAM_SCHEMA = {
   // Jefferson and St. Clair County markets route to the Birmingham office.
   areaServed: ['Birmingham','Homewood','Mountain Brook','Vestavia Hills','Hoover','Trussville','Irondale','Leeds','Moody','Fultondale','Gardendale','Bessemer','McCalla','Crestline','English Village','Cherokee Bend','Cahaba Heights','Mountain Brook Village','Liberty Park'],
   parentOrganization: {
-    '@type': 'Organization',
     '@id': 'https://www.envirocarellc.com/#organization',
-    // Must match lib/seo/organization-schema.ts EXACTLY -- this shares the
-    // '#organization' @id with it, so a different name here merges into one
-    // entity carrying two names. That is the same defect just fixed on
-    // '#birmingham'. legalName lives on the Organization node, not here.
-    name: 'EnviroCare Pest Services',
-    url: 'https://www.envirocarellc.com/',
   },
 };
 

@@ -224,10 +224,7 @@ export default function ServicePage({ slug }: { slug: string }) {
     url: `https://www.envirocarellc.com/services/${service.slug}`,
     description: service.metaDescription,
     provider: {
-      '@type': 'Organization',
-      name: 'EnviroCare',
-      telephone: '+1-205-940-6360',
-      url: 'https://www.envirocarellc.com',
+      '@id': 'https://www.envirocarellc.com/#organization',
     },
     areaServed: { '@type': 'State', name: 'Alabama' },
   };
