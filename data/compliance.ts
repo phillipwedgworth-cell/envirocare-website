@@ -42,15 +42,33 @@ export interface BannedTerm {
 }
 
 export const BANNED_PATTERNS: BannedTerm[] = [
-  { pattern: 'pet[\\s-]?safe',        reason: 'safety claim',  approvedInstead: 'EPA-registered, applied per label directions' },
-  { pattern: 'kid[\\s-]?safe',        reason: 'safety claim',  approvedInstead: 'EPA-registered, applied per label directions' },
-  { pattern: 'child[\\s-]?safe',      reason: 'safety claim',  approvedInstead: 'EPA-registered, applied per label directions' },
-  { pattern: 'non[\\s-]?toxic',       reason: 'safety claim',  approvedInstead: 'EPA-registered products' },
-  { pattern: 'eco[\\s-]?(safe|friendly)', reason: 'safety/green claim', approvedInstead: 'EPA-registered products' },
-  { pattern: 'safe once dry',         reason: 'safety claim',  approvedInstead: 'allow applications to dry per label directions' },
-  { pattern: 'same[\\s-]?day',        reason: 'availability claim', approvedInstead: 'prompt scheduling' },
-  { pattern: 'there today',           reason: 'availability claim', approvedInstead: 'prompt scheduling' },
-  { pattern: 'available now',         reason: 'availability claim', approvedInstead: 'prompt scheduling' },
+  // NEGATIVE CONTEXT, 2026-09-13. These nine rules matched LITERALS with no notIf,
+  // so the one register of copy that exists to DISCLAIM them tripped every one.
+  // app/llms.txt/route.ts:64 is the whole case:
+  //     "EnviroCare does not claim guaranteed pest elimination, same-day service,
+  //      pet-safe, kid-safe, non-toxic, or automatic bundle discounts."
+  // That single line produced FOUR blocking hits. public/llms-full.txt:80 --
+  // "Do not promise same-day service unless a current scheduling source explicitly
+  // confirms it" -- produced a fifth. These files are instructions TO AI crawlers
+  // telling them not to make the claim; flagging them inverts their meaning.
+  //
+  // Five of the eleven blocking hits on main were this. A guard suite that is red
+  // on false positives is a guard suite nobody reads, which is how a REAL defect
+  // ships into an already-failing build. The carve-out is the same shape the
+  // wildlife rule below has always used ('not\\s+offer'), generalised to the verbs
+  // this repo's disclaimer register actually uses. It is deliberately NOT an ALLOW
+  // entry in scan-source-compliance.mjs: allow entries are anchored to a substring
+  // and rot the moment the copy is reworded — 7 of that list's 14 anchors were
+  // already dead when this was written, which is what let these hits through.
+  { pattern: 'pet[\\s-]?safe',        notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'safety claim',  approvedInstead: 'EPA-registered, applied per label directions' },
+  { pattern: 'kid[\\s-]?safe',        notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'safety claim',  approvedInstead: 'EPA-registered, applied per label directions' },
+  { pattern: 'child[\\s-]?safe',      notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'safety claim',  approvedInstead: 'EPA-registered, applied per label directions' },
+  { pattern: 'non[\\s-]?toxic',       notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'safety claim',  approvedInstead: 'EPA-registered products' },
+  { pattern: 'eco[\\s-]?(safe|friendly)', notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'safety/green claim', approvedInstead: 'EPA-registered products' },
+  { pattern: 'safe once dry',         notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'safety claim',  approvedInstead: 'allow applications to dry per label directions' },
+  { pattern: 'same[\\s-]?day',        notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'availability claim', approvedInstead: 'prompt scheduling' },
+  { pattern: 'there today',           notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'availability claim', approvedInstead: 'prompt scheduling' },
+  { pattern: 'available now',         notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   // CALLBACK-TIME PROMISE, 2026-08-20. The three rules above match availability
   // LITERALS (same-day / there today / available now). None matched a promise stated
   // as a clock, so "We call back within 2 hours" sat live on /contact-us in three
@@ -141,7 +159,10 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // The old 'rodent removal' entry in SERVICES_NOT_OFFERED conflated rodent control with
   // wildlife removal and caused false scrubs. Rodent marketing is legitimate; only
   // WILDLIFE removal (raccoon/squirrel/bat) stays banned - and now hard-blocks:
-  { pattern: 'wildlife\\s+(removal|control|trapping)', notIf: 'not\\s+offer|refuge|exclud|no raccoons', reason: 'wildlife service marketing — not offered', approvedInstead: 'do not market wildlife services' },
+  // notIf widened 2026-09-13: public/llms-full.txt:51 says "EnviroCare does not
+  // currently market bed-bug treatment, wildlife removal, or lawn-care service" --
+  // the disclaimer itself. 'not\\s+offer' could not see "does not currently market".
+  { pattern: 'wildlife\\s+(removal|control|trapping)', notIf: 'not\\s+(currently\\s+)?(offer|market|advertis)|refuge|exclud|no raccoons', reason: 'wildlife service marketing — not offered', approvedInstead: 'do not market wildlife services' },
   // 'unlimited' is approved ONLY in the re-service/re-treatment phrasings. Anything else
   // ('unlimited protection', 'unlimited treatments') is a service-scope overpromise. BLOCKS.
   { pattern: '\\bunlimited\\b', notIf: 'unlimited\\s+(free|covered|visits|pest|re-?servic|re-?treatment)', reason: 'unapproved unlimited claim', approvedInstead: 'unlimited (free) re-service / re-treatment is the only approved unlimited phrasing' },
@@ -268,7 +289,24 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // readable, and now include the two legitimate FAMILY/OFFICE forms:
   //   - "the Wedgworth family started in 1958"           (family, not company)
   //   - "the family opened the Alexander City office in 1958"  (the OFFICE did open then)
-  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,45}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|the family (started|opened|has)|(started|founded|began) the family|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not say|banned|NEVER write',
+  // WIDENED AGAIN 2026-09-13, and for the same reason as every other time: the
+  // carve-outs matched PHRASINGS, and the approved sentence was reworded into a
+  // shape none of them covered. Three blocking hits on main, all of them the
+  // APPROVED family form written possessively with the subject noun in between:
+  //     "The Wedgworth family's Alabama pest-control history began in Alexander
+  //      City in 1958"                       <- app/llms.txt/route.ts:54,
+  //                                             public/llms-full.txt:10
+  //     "led by the Wedgworth family, whose pest-control history in Alabama began
+  //      in Alexander City in 1958"          <- lib/seo/organization-schema.ts:37
+  // 'family (has|been)? (started|doing|opened)' cannot reach either: the verb is
+  // 'began', its subject is 'history', and 'family' is possessive.
+  // The new carve-out requires all three of family + (pest-control|Alabama) history
+  // + began on the same sentence, so it exempts the family-history form WITHOUT
+  // exempting a bare company-origin claim ("EnviroCare was founded in 1958" still
+  // blocks -- it has no 'family ... history' span).
+  // Also: 'do not say' did not cover 'Do not state', which is how llms.txt:55 and
+  // llms-full.txt:11 phrase the SAME prohibition they exist to state.
+  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,45}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|the family (started|opened|has)|(started|founded|began) the family|family[^.]{0,60}(pest[\\s-]control|Alabama)\\s+history[^.]{0,30}began|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not (say|state)|does not state|banned|NEVER write',
     reason: '"founded 1958" -- the FAMILY started in 1958; the company began 1993/2005',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
