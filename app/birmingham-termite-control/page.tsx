@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
   description:
-    "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
+    "Termite control in Birmingham, AL — Sentricon® baiting, no drilling, and up to $1M in EnviroCare repair coverage on qualifying homes. Call (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
     title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
-    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
+    description: "Termite control in Birmingham, AL — Sentricon® baiting, no drilling, and up to $1M in EnviroCare repair coverage on qualifying homes. Call (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
-    description: "Termite control in Birmingham AL — Sentricon® baiting with up to $1M EnviroCare repair coverage, no drilling. Family-owned since 1958. Call (205) 940-6360.",
+    description: "Termite control in Birmingham, AL — Sentricon® baiting, no drilling, and up to $1M in EnviroCare repair coverage on qualifying homes. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
@@ -32,7 +32,7 @@ const c: ComboContent = {
   h1Accent: "Protect the House, Not Just Treat It.",
   intro: [
     "Birmingham is one of the heaviest subterranean termite markets in America: a city of pre-1980 homes standing on moist red clay, in a climate that never gets cold enough to slow a colony down. Eastern subterranean termites cause more damage in Alabama each year than fire and storms combined — and homeowner's insurance doesn't cover a dollar of it.",
-    "EnviroCare has protected Birmingham homes since 1958 — four generations of the Wedgworth family, Sentricon® Certified Specialists, with up to $1,000,000 in damage repair coverage standing behind the work.",
+    "The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Today, EnviroCare serves Birmingham from its 16th Ave S office as a Sentricon® Certified Specialist, with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement.",
   ],
   anglesHeading: "Why Birmingham homes are termite targets",
   localAngles: [
@@ -83,7 +83,7 @@ const c: ComboContent = {
       a: "Yes — we issue the official Alabama Wood Infestation Report (WDO letter) accepted by every lender. One per year is free for active termite customers.",
     },
   ],
-  office: { name: "Birmingham Office", phone: "(205) 940-6360", tel: "2059406360", address: "2025 Butler Rd, Alabaster, AL 35007" },
+  office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
   servicePage: { name: "Termite Control Service", href: "/services/termite-control" },
   schemaName: "EnviroCare Termite Control — Birmingham, AL",
