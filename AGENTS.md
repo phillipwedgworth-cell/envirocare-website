@@ -74,15 +74,21 @@ instead of live data. On Jul 25 alone, five confident conclusions were wrong:
 | Alabaster (Birmingham metro) | 2025 Butler Rd, Alabaster, AL 35007 | (205) 940-6360 | 62134 |
 | Alexander City | 1785 Tallapoosa St, Alexander City, AL 35010 | (256) 234-6162 | 62135 |
 | Huntsville | 7027 Old Madison Pike NW Ste 108, Huntsville, AL 35806 | (256) 937-7676 | 63766 |
-| **Birmingham** (added 2026-08-05) | **2120 16th Ave S, Ste 302, Birmingham, AL 35205** | **(205) 991-2882** | — GBP verified 2026-09-05 |
+| **Birmingham** (added 2026-08-05) | **2120 16th Ave S, Ste 302, Birmingham, AL 35205** | **(205) 991-2882** | 62136 — GBP verified 2026-09-05 |
 
 ✅ **The Birmingham office IS now GBP-verified** (was not, until Sep 2026).
 Confirmed live via the Places API 2026-09-05: `EnviroCare` · 2120 16th Ave S Ste
 302, Birmingham, AL 35205 · (205) 991-2882 · OPERATIONAL · 5.0 from 10 reviews ·
 place_id `ChIJjXGa0ZsbiYgR1mB0oEKnqUo`. Local Falcon campaign
 `e9348fff16b95fa` tracks this office separately from Alabaster; its first run was
-scheduled for 2026-09-09. BrightLocal Birmingham location 4130578 still needs
-its NAP confirmed against it.
+scheduled for 2026-09-09.
+
+✅ **BrightLocal Birmingham location `4130578` is confirmed against it** — checked
+live through the BrightLocal Management API 2026-09-13: `EnviroCare` · 2120 16th
+Ave S · Ste 302 · Birmingham 35205 · (205) 991-2882 · store code 62136 · place_id
+`ChIJjXGa0ZsbiYgR1mB0oEKnqUo` · cid `5380015134472429782` · website
+`/birmingham` · GMB Active Sync ON. This line used to read "still needs its NAP
+confirmed against it"; it does not.
 
 ⚠️ **Naming trap in `data/offices.ts`:** the OfficeId `'birmingham'` is the
 **Alabaster** office (named for the metro it serves). The city office is
@@ -142,8 +148,9 @@ at, now split by county:
 Birmingham per the ruling, while 35043 and 35242 moved to Alabaster. Shipped in
 the Sep 5 compliance+B pack. Local Falcon intentionally keeps separate campaigns
 for both profiles: `e9348fff16b95fa` for Birmingham and `4ee47a23fc4793e` for
-Alabaster. **Not yet reflected downstream:** BrightLocal location 4130578 needs
-its NAP re-pointed.
+Alabaster. ✅ **Reflected downstream:** BrightLocal location 4130578 carries the
+16th Ave NAP — verified live 2026-09-13, see the Birmingham note above. (This
+read "Not yet reflected downstream … needs its NAP re-pointed" until then.)
 
 ⚠️ **(205) 649-5278 is DEAD.** It still appears on the Thryv directory network
 (YellowPages / YP / DexKnows / Superpages). Never reintroduce it.
@@ -234,6 +241,17 @@ Consequences that look like separate problems but are not:
 4. Thryv directory record still publishing the dead phone number
 5. Pending unreviewed Google update on the Huntsville GBP
 6. `thepestadvice.com` lists the pre-rebrand name at the Alex City address
+7. **BrightLocal listing copy carries 8 banned phrases, live on Google/Bing**
+   (found 2026-09-13, re-verified the same day against the Management API):
+   `(March through November)` in seven description fields — Alex City 4068729
+   (gmb+bing), Huntsville 4068730 (gmb+bing), Alabaster 4068335 (gmb+bing),
+   Birmingham 4130578 (gmb) — and `EnviroCare's own damage repair guarantee` in
+   Birmingham 4130578 (gmb). Every one sits on a channel with Active Sync **ON**.
+   Season was ruled March–October on 2026-08-26 (§5); "guarantee" is banned (§1).
+   **Not fixable from the repo** — the BrightLocal MCP connector is read-only, so
+   this needs the BrightLocal UI or `agents/brightlocal.mjs` with the API key.
+   PR #171 adds the guard that catches it and stays red until this is cleared,
+   by design. Exact before/after: `Desktop\Envirocare Stuf\BRIGHTLOCAL-FIX-Sep13.md`.
 
 ---
 
