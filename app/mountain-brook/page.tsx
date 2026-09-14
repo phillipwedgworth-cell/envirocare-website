@@ -62,7 +62,10 @@ const jsonLd = {
       name: "EnviroCare Pest Services",
       image: "https://www.envirocarellc.com/logo.png",
       url: "https://www.envirocarellc.com/mountain-brook",
-      telephone: "+12059912882",
+      // Formatted to match app/layout.tsx:185 exactly. This node shares the
+      // '#birmingham' @id with it, so "+12059912882" and "+1-205-991-2882" are two
+      // different strings for one entity's telephone — the same dilution as two names.
+      telephone: "+1-205-991-2882",
       email: "service@envirocarellc.com",
       priceRange: "$$",
       address: {

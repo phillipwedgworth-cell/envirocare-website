@@ -196,7 +196,25 @@ const OFFICE_SCHEMA_BY_TEL: Record<string, { id: string; name: string }> = {
 };
 
 function buildCitySchema(city: City) {
-  const tel = city.directTel || city.officeTel;
+  // Declared before `office` is resolved below, so the telephone decision can
+  // depend on it — see the note at `tel`.
+  const officeNode = OFFICE_SCHEMA_BY_TEL[city.officeTel];
+  // The schema telephone follows the OFFICE, not the city's routing line,
+  // whenever this page resolves to a canonical office entity.
+  //
+  // Auburn is the only city with a `directTel` (334-332-3321). Keying the @id by
+  // officeTel correctly lands it on '#lake-martin', but pairing that shared @id
+  // with Auburn's routing line made ONE entity resolve to TWO phone numbers —
+  // 256-234-6162 everywhere else, 334 here — which is the same dilution this
+  // function was just changed to remove, reintroduced one field over. It also
+  // broke the AGENTS.md NAP rule: the node's address is 1785 Tallapoosa St,
+  // Alexander City, and a NAP block's phone must match its address.
+  //
+  // Caught by Vercel Agent Review on PR #180 before merge.
+  //
+  // This is schema only. The visible Auburn page still shows the 334 line — that
+  // is `city.directPhone` in the component body below, and it is untouched.
+  const tel = officeNode ? city.officeTel : (city.directTel || city.officeTel);
   const telFormatted = `+1-${tel.slice(0, 3)}-${tel.slice(3, 6)}-${tel.slice(6)}`;
   const parts = city.officeAddress.split(', ');
   const stateZip = parts[parts.length - 1];
@@ -210,7 +228,7 @@ function buildCitySchema(city: City) {
   // served by (officeTel), never from the city slug and never from directTel —
   // a city-specific routing line (Auburn's 334 number is the only one) is not
   // an office and would mint an entity for a building that does not exist.
-  const office = OFFICE_SCHEMA_BY_TEL[city.officeTel];
+  const office = officeNode;
   if (!office && process.env.NODE_ENV !== 'production') {
     // Fail loudly in dev rather than silently minting a duplicate entity, which
     // is exactly how 36 of these accumulated unnoticed.
