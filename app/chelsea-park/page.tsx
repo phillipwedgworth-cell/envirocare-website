@@ -27,7 +27,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Full pest, termite, and mosquito protection for the Chelsea Park community — the lakes, the ridge, and the newer sections. Fresh construction on disturbed Shelby County soil needs termite pre-treat and fire-ant control from day one, and the community lakes bring mosquito pressure all season. EnviroCare does it all, one team.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Chelsea Park community of Chelsea, Alabama (35043), including the Chelsea Park lakes and ridge neighborhoods. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Chelsea Park community of Chelsea, Alabama (35043), including the Chelsea Park lakes and ridge neighborhoods. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
   whyHeadline: "Chelsea Park's new construction, community lakes, and rolling wooded lots keep pest pressure high year-round.",
   whySub: "The patterns we treat most across Chelsea Park.",
   pressureCards: [

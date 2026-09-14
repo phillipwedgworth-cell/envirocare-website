@@ -83,7 +83,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'Is EnviroCare a family-owned business?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Yes. EnviroCare has been family-owned by the Wedgworth family since 1958, when it started as Wedgworth Pest Control. Four generations on, we are not a franchise and not part of a national pest-control chain — when you call, you reach a Wedgworth, not a call center.",
+        text: "Yes. The Wedgworth family has been in Alabama pest control since 1958, when it started as Wedgworth Pest Control. Four generations on, we are not a franchise and not part of a national pest-control chain — when you call, you reach a Wedgworth, not a call center.",
       },
     },
     {

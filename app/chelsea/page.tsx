@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Pest and termite care for Chelsea's rolling hills and fast-growing neighborhoods — Chelsea Park, Foothills, and Westover. No-drill Sentricon® (including new-construction pre-treat), seasonal mosquito and tick service, all from one local team.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Chelsea, Alabama, including Chelsea Park, Foothills, and Westover. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Chelsea, Alabama, including Chelsea Park, Foothills, and Westover. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
   whyHeadline: "Chelsea's rolling foothills, new construction, and wooded edges drive year-round termite, mosquito, and ant pressure.",
   whySub: "The patterns we treat most across Chelsea's growing neighborhoods.",
   pressureCards: [

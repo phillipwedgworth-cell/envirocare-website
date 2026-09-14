@@ -3330,7 +3330,7 @@ Free inspections. Terms are confirmed in writing before service starts.</p>
 
 <h2>The local part</h2>
 
-<p>EnviroCare has serviced Birmingham homes since 1958, run by the fourth generation of the Wedgworth family, from our office on Butler Road in Alabaster — covering the whole metro from Alabaster and Pelham up through Hoover, Vestavia, Mountain Brook, and Homewood. See <a href="/birmingham">pest control in Birmingham</a>, our <a href="/services/pest-control">pest control program</a>, or <a href="/services/termite-control">termite protection</a>.</p>
+<p>The Wedgworth family has serviced Birmingham homes since 1958, now run by its fourth generation, from our office on Butler Road in Alabaster — covering the whole metro from Alabaster and Pelham up through Hoover, Vestavia, Mountain Brook, and Homewood. See <a href="/birmingham">pest control in Birmingham</a>, our <a href="/services/pest-control">pest control program</a>, or <a href="/services/termite-control">termite protection</a>.</p>
 
 <p><a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
 `,
@@ -3374,7 +3374,7 @@ Free inspections. Terms are confirmed in writing before service starts.</p>
 <p>Yes. Our Huntsville team services all of Madison County and the surrounding Tennessee Valley at the same plan pricing, including <a href="/madison">Madison</a>, <a href="/athens">Athens</a>, and <a href="/decatur">Decatur</a>. Same local technicians, same trucks, same rates.</p>
 
 <h2>What you are actually paying for</h2>
-<p>EnviroCare has been a family-owned Alabama company since 1958, now in our fourth generation. When you call the Huntsville office you reach a local team that knows North Alabama pests specifically — not a national call center. Every recurring plan includes unlimited re-service between scheduled visits, so if something comes back before your next visit, we come back out at no extra charge. That unlimited re-service is a big part of the price, and it is the part the cheapest quote usually leaves out.</p>
+<p>The Wedgworth family has run this Alabama company since 1958, now in our fourth generation. When you call the Huntsville office you reach a local team that knows North Alabama pests specifically — not a national call center. Every recurring plan includes unlimited re-service between scheduled visits, so if something comes back before your next visit, we come back out at no extra charge. That unlimited re-service is a big part of the price, and it is the part the cheapest quote usually leaves out.</p>
 
 <h2>Get an exact number for your home</h2>
 <p>The fastest way to a real price is a free quote — tell us your address and what you are seeing, and we will give you a firm number, no pressure. <a href="/quote">Request a free quote</a> or see everything the Huntsville office offers on our <a href="/huntsville">Huntsville pest control</a> page.</p>
