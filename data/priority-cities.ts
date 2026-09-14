@@ -363,7 +363,7 @@ export const priorityCities: Record<string, CityData> = {
     heroTitle: "Pest Control in Birmingham,",
     heroTitleEm: "Four Generations Strong",
     heroLede:
-      "From historic Southside bungalows to new builds across the metro, Birmingham's humidity and mature neighborhoods keep pests working year-round. EnviroCare has protected Alabama homes since 1958 — bi-monthly pest service, Sentricon® termite monitoring, and seasonal mosquito control, all from a family-owned company that's now in its fourth generation.",
+      "From historic Southside bungalows to new builds across the metro, Birmingham's humidity and mature neighborhoods keep pests working year-round. The Wedgworth family has protected Alabama homes since 1958 — bi-monthly pest service, Sentricon® termite monitoring, and seasonal mosquito control, all from a family-owned company that's now in its fourth generation.",
     zipPrimary: "35209",
     contextTitle: "Metro-wide pest pressure, handled locally",
     contextLede:

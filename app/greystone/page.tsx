@@ -29,7 +29,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "The gold standard in pest protection for the Greystone golf community — Founders, Legacy, and Farms. No-drill Sentricon® that won't disturb your landscaping, plus a 30-day mosquito and tick barrier built for wooded, water-feature lots.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Greystone community of Hoover, Alabama, including Greystone Founders, Legacy, and Farms. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. A family-owned Alabama company, EnviroCare has protected homes since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Greystone community of Hoover, Alabama, including Greystone Founders, Legacy, and Farms. Bi-monthly pest control is $35/month and covers 30+ common household pests with unlimited re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
   whyHeadline: "Greystone's wooded lots, golf-course water features, and established homes keep pest pressure working year-round.",
   whySub: "The patterns we treat most across Founders, Legacy, and Farms.",
   pressureCards: [

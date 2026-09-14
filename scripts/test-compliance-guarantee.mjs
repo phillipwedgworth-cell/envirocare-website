@@ -19,7 +19,21 @@ for (const line of body.split("\n")) {
   // assert what a string means STANDING ALONE, so a string that already carries
   // the required text is not a violation — same effect as notIf here.
   const rq = line.match(/requires:\s*'((?:\\.|[^'\\])*)'/);
-  const exempt = [nm && nm[1], rq && rq[1]].filter(Boolean).join("|");
+  // notIf and requires MUST go through the same TS-literal unescape as `pattern`
+  // above. They did not, and the omission is the same defect the comment at the
+  // top of this block warns about — just one variable over.
+  //
+  // Consequence, found 2026-09-14: any carve-out containing a backslash escape
+  // compiled to a regex expecting a LITERAL backslash, so it never matched and
+  // the rule behaved here as if it had no carve-out at all. It stayed invisible
+  // only because every notIf in this file happened to be backslash-free; the
+  // first one to use `\\s` (the 1958 subject carve-out) failed this suite while
+  // behaving correctly in scan-source-compliance.mjs, which does unescape.
+  // A guard-on-the-guard that silently ignores carve-outs reports the wrong
+  // answer with authority — the same failure mode as the drifted hand-copy that
+  // scripts/lib/compliance-rules.mjs was created to end.
+  const unescape = (s) => JSON.parse(`"${s.replace(/\\'/g, "'").replace(/"/g, '\\"')}"`);
+  const exempt = [nm && nm[1], rq && rq[1]].filter(Boolean).map(unescape).join("|");
   rules.push({ re: new RegExp(raw, "i"), notIf: exempt ? new RegExp(exempt, "i") : null, raw });
 }
 console.log(`${rules.length} rules compiled OK\n`);
