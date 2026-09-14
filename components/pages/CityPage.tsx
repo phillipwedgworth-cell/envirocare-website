@@ -118,7 +118,13 @@ const CITY_ART_SVG: Record<string, string> = {
 // Physical office geo + verified Google Business Profile, keyed by office phone (digits).
 // Coordinates mirror app/layout.tsx; GBP links mirror data/offices.ts. Keep all three in sync.
 const OFFICE_NAP: Record<string, { lat: number; lng: number; gbp: string }> = {
-  '2059406360': { lat: 33.2106, lng: -86.8164, gbp: 'https://www.google.com/maps?cid=7378341068021381374' },   // Birmingham / Alabaster
+  // Added 2026-09-13: the Birmingham CITY office (16th Ave) was missing entirely,
+  // so every Jefferson / St Clair page routed to it shipped with no geo and no GBP
+  // sameAs — 13 of the 39 city records. Values copied from app/layout.tsx:196/208
+  // and data/offices.ts:61 (GBP verified 2026-09-05, place_id
+  // ChIJjXGa0ZsbiYgR1mB0oEKnqUo).
+  '2059912882': { lat: 33.4968567, lng: -86.7916696, gbp: 'https://www.google.com/maps/place/?q=place_id:ChIJjXGa0ZsbiYgR1mB0oEKnqUo' }, // Birmingham (16th Ave)
+  '2059406360': { lat: 33.2106, lng: -86.8164, gbp: 'https://www.google.com/maps?cid=7378341068021381374' },   // Alabaster (Butler Rd)
   '2562346162': { lat: 32.9539, lng: -85.9536, gbp: 'https://www.google.com/maps?cid=12101127141767078247' },  // Alexander City / Lake Martin
   '2569377676': { lat: 34.7121, lng: -86.6867, gbp: 'https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8' },             // Huntsville
 };
@@ -132,26 +138,83 @@ const OFFICE_NAP: Record<string, { lat: number; lng: number; gbp: string }> = {
 // carries both the office NAP and this page's hasOfferCatalog.
 // The name is aligned to the layout node's name for the same reason: one entity
 // should not resolve to two names.
-// Non-office city pages are unaffected and keep their own per-city @id.
 // Verified against the live page 2026-07-30: /huntsville emitted both
-// '.../#huntsville' and '.../huntsville'. Keep this map in sync with app/layout.tsx.
-const OFFICE_SCHEMA: Record<string, { id: string; name: string }> = {
-  'birmingham': {
+// '.../#huntsville' and '.../huntsville'.
+//
+// ── WIDENED 2026-09-13. The diagnosis above was right; the fix reached 3 pages. ──
+//
+// This map used to be keyed by CITY SLUG and held exactly three entries
+// ('birmingham', 'lake-martin', 'huntsville'). Every other city fell through to
+// the fallback below and minted a brand-new LocalBusiness entity keyed on its
+// own page URL — precisely the entity dilution the comment above describes.
+//
+// Measured against main@f66be0c on 2026-09-13 by loading data/cities.ts:
+// 39 city records, 3 of which matched the slug map. The other 36 were each
+// minting a page-URL @id. /alabaster was the clearest case — it shipped a full
+// LocalBusiness at '.../alabaster' (name "EnviroCare — Alabaster", tel
+// 940-6360, addr 2025 Butler Rd) sitting alongside the canonical '#alabaster'
+// node that app/layout.tsx:149 already emits on every page. Two entities, one
+// office, one address.
+//
+// Keying by OFFICE PHONE instead of city slug fixes the whole class at once and
+// cannot drift: every one of the 39 records carries an `officeTel` that is one
+// of these four (verified, zero exceptions), and it is the same key OFFICE_NAP
+// uses for geo/GBP just above. A new city page inherits the correct canonical
+// office automatically — there is no per-city list to forget to update, which is
+// how this reached 36.
+//
+// ⚠️ NAMING TRAP — the schema ids do NOT match data/offices.ts OfficeIds:
+//     schema '#birmingham' = the Birmingham CITY office, 2120 16th Ave, 991-2882
+//     schema '#alabaster'  = the Alabaster office,       2025 Butler Rd, 940-6360
+//   In data/offices.ts the OfficeId 'birmingham' is the ALABASTER office (see
+//   AGENTS.md). The two conventions are inverted. Key off the phone and neither
+//   can be confused.
+//
+// Names are copied verbatim from the layout nodes (app/layout.tsx:150/180/231/259)
+// because one @id resolving to two names is the same dilution by another route.
+// The old map had 'birmingham' → "EnviroCare — Birmingham" while the layout node
+// says "EnviroCare Pest Services"; that mismatch is corrected here.
+//
+// Keep in sync with app/layout.tsx.
+const OFFICE_SCHEMA_BY_TEL: Record<string, { id: string; name: string }> = {
+  '2059912882': {
     id: 'https://www.envirocarellc.com/#birmingham',
-    name: 'EnviroCare — Birmingham',
+    name: 'EnviroCare Pest Services', // layout.tsx:180 — the 16th Ave door sign
   },
-  'lake-martin': {
+  '2059406360': {
+    id: 'https://www.envirocarellc.com/#alabaster',
+    name: 'EnviroCare — Alabaster', // layout.tsx:150
+  },
+  '2562346162': {
     id: 'https://www.envirocarellc.com/#lake-martin',
-    name: 'EnviroCare — Alex City / Lake Martin',
+    name: 'EnviroCare — Alex City / Lake Martin', // layout.tsx:231
   },
-  'huntsville': {
+  '2569377676': {
     id: 'https://www.envirocarellc.com/#huntsville',
-    name: 'EnviroCare — Huntsville',
+    name: 'EnviroCare — Huntsville', // layout.tsx:259
   },
 };
 
 function buildCitySchema(city: City) {
-  const tel = city.directTel || city.officeTel;
+  // Declared before `office` is resolved below, so the telephone decision can
+  // depend on it — see the note at `tel`.
+  const officeNode = OFFICE_SCHEMA_BY_TEL[city.officeTel];
+  // The schema telephone follows the OFFICE, not the city's routing line,
+  // whenever this page resolves to a canonical office entity.
+  //
+  // Auburn is the only city with a `directTel` (334-332-3321). Keying the @id by
+  // officeTel correctly lands it on '#lake-martin', but pairing that shared @id
+  // with Auburn's routing line made ONE entity resolve to TWO phone numbers —
+  // 256-234-6162 everywhere else, 334 here — which is the same dilution this
+  // function was just changed to remove, reintroduced one field over. It also
+  // broke the AGENTS.md NAP rule: the node's address is 1785 Tallapoosa St,
+  // Alexander City, and a NAP block's phone must match its address.
+  //
+  // Caught by Vercel Agent Review on PR #180 before merge.
+  //
+  // This is schema only. The visible Auburn page still shows the 334 line — that
+  // is `city.directPhone` in the component body below, and it is untouched.
+  const tel = officeNode ? city.officeTel : (city.directTel || city.officeTel);
   const telFormatted = `+1-${tel.slice(0, 3)}-${tel.slice(3, 6)}-${tel.slice(6)}`;
   const parts = city.officeAddress.split(', ');
   const stateZip = parts[parts.length - 1];
@@ -161,7 +224,19 @@ function buildCitySchema(city: City) {
   // geo + verified GBP key off the physical office (officeTel), not a city-specific routing line.
   const nap = OFFICE_NAP[city.officeTel];
   const sameAs = nap ? ['https://www.envirocarellc.com', nap.gbp] : ['https://www.envirocarellc.com'];
-  const office = OFFICE_SCHEMA[city.slug];
+  // Resolve the canonical office entity from the PHYSICAL office this city is
+  // served by (officeTel), never from the city slug and never from directTel —
+  // a city-specific routing line (Auburn's 334 number is the only one) is not
+  // an office and would mint an entity for a building that does not exist.
+  const office = officeNode;
+  if (!office && process.env.NODE_ENV !== 'production') {
+    // Fail loudly in dev rather than silently minting a duplicate entity, which
+    // is exactly how 36 of these accumulated unnoticed.
+    console.warn(
+      `[CityPage] ${city.slug}: officeTel ${city.officeTel} is not in OFFICE_SCHEMA_BY_TEL — ` +
+        `falling back to a page-URL @id. Add the office or fix data/cities.ts.`,
+    );
+  }
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',

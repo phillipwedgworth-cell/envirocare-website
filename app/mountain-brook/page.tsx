@@ -48,16 +48,29 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.envirocarellc.com/mountain-brook",
-      name: "EnviroCare — Mountain Brook",
+      // Bound to the canonical Birmingham office entity 2026-09-13, for the same
+      // reason CityPage was (see components/pages/CityPage.tsx). This node carries
+      // the Birmingham office's own address and phone — 2120 16th Ave S,
+      // (205) 991-2882 — so under a page-URL @id it stood up a SECOND business at
+      // an address that already has one, on the '#birmingham' node app/layout.tsx
+      // emits on every page. Two entities, one office, one address.
+      // This page is a self-contained route rather than a CityPage wrapper, which
+      // is why the CityPage fix could not reach it. Name matches layout.tsx:180 —
+      // one @id must not resolve to two names. The city stays in areaServed below,
+      // which is where the Mountain Brook signal actually belongs.
+      "@id": "https://www.envirocarellc.com/#birmingham",
+      name: "EnviroCare Pest Services",
       image: "https://www.envirocarellc.com/logo.png",
       url: "https://www.envirocarellc.com/mountain-brook",
-      telephone: "+12059912882",
+      // Formatted to match app/layout.tsx:185 exactly. This node shares the
+      // '#birmingham' @id with it, so "+12059912882" and "+1-205-991-2882" are two
+      // different strings for one entity's telephone — the same dilution as two names.
+      telephone: "+1-205-991-2882",
       email: "service@envirocarellc.com",
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "2120 16th Ave S, Birmingham",
+        streetAddress: "2120 16th Ave S, Ste 302",
         addressLocality: "Birmingham",
         addressRegion: "AL",
         postalCode: "35205",

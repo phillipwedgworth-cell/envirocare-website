@@ -10,6 +10,26 @@ const nextConfig: NextConfig = {
     typescript: {
           ignoreBuildErrors: true,
     },
+    // Added 2026-09-13 alongside the eslint.config.mjs repair, and REQUIRED by it.
+    //
+    // Until today `next build` could not load the flat config at all — it printed
+    //   ⨯ ESLint: Cannot find module '…/eslint-config-next/core-web-vitals'
+    // and carried on to exit 0. Lint has therefore been silently absent from every
+    // build for as long as that config has been broken, and 243 violations
+    // accumulated underneath it (mostly no-explicit-any and no-unused-vars).
+    //
+    // Repairing the config makes ESLint run for real, which turns those 243
+    // pre-existing errors into a HARD BUILD FAILURE — verified locally 2026-09-13:
+    // broken config → exit 0; fixed config alone → build fails. Shipping the repair
+    // without this flag would have taken production deploys down on the next push.
+    //
+    // So lint moves to where it can be read and fixed deliberately — `npm run lint`
+    // — instead of gating deploys on a backlog nobody has triaged. This mirrors the
+    // stance `typescript.ignoreBuildErrors` above already takes. Remove this flag
+    // once the backlog is cleared, not before.
+    eslint: {
+          ignoreDuringBuilds: true,
+    },
     // Agents read agents/knowledge/*.md at RUNTIME via readdirSync (see
     // agents/lib/knowledge.mjs). Next's tracer only bundles statically-imported
     // files, so on Vercel those .md files were absent and every agent invoked
