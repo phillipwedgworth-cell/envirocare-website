@@ -98,27 +98,56 @@ const DOC_EDITS = [
 // documented anywhere in this repo, so probe mode tries the documented shapes and
 // reports which one answers rather than assuming.
 const BL_KEY = env('BRIGHTLOCAL_API_KEY');
-const BL_BASE = 'https://tools.brightlocal.com/seo-tools/api';
+
+// The FIRST probe (2026-09-14) tried four REST shapes and got HTTP 404 on all
+// four — "The requested resource was not found." A 404 is not an auth failure, so
+// concluding "the key is MCP-only" from it was wrong: it only proved the PATHS
+// were guessed wrong. BrightLocal's current docs live in a JS-only developer
+// portal that cannot be read from here, so guessing more paths is a poor bet.
+//
+// The better question is what the MCP endpoint itself offers. agents/brightlocal.mjs
+// authenticates to https://mcp.brightlocal.com/mcp with the SAME `?api-key=` query
+// param the REST docs describe, so the credential is almost certainly a normal
+// BrightLocal API key. And the claude.ai connector exposes a read-only SUBSET of
+// whatever that server implements — the raw `tools/list` is the authority on
+// whether a write tool exists at all.
+const BL_MCP = 'https://mcp.brightlocal.com/mcp';
+
+async function mcpToolsList() {
+  const url = `${BL_MCP}?api-key=${encodeURIComponent(BL_KEY)}`;
+  const hdrs = { 'content-type': 'application/json', accept: 'application/json, text/event-stream' };
+  const init = await fetch(url, {
+    method: 'POST',
+    headers: hdrs,
+    body: JSON.stringify({
+      jsonrpc: '2.0', id: 0, method: 'initialize',
+      params: { protocolVersion: '2024-11-05', capabilities: {}, clientInfo: { name: 'envirocare-extfix', version: '1.0' } },
+    }),
+  });
+  const sid = init.headers.get('mcp-session-id');
+  const raw = await init.text();
+  if (!init.ok) throw new Error(`initialize ${init.status}: ${raw.slice(0, 160)}`);
+  const shdrs = sid ? { ...hdrs, 'mcp-session-id': sid } : hdrs;
+  if (sid) await fetch(url, { method: 'POST', headers: shdrs, body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }) });
+
+  const r = await fetch(url, { method: 'POST', headers: shdrs, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list', params: {} }) });
+  const body = await r.text();
+  if (!r.ok) throw new Error(`tools/list ${r.status}: ${body.slice(0, 160)}`);
+  // The endpoint may answer as SSE; pull the first JSON object either way.
+  const jsonText = body.startsWith('{') ? body : (body.match(/^data:\s*(\{.*\})\s*$/m)?.[1] ?? body);
+  const parsed = JSON.parse(jsonText);
+  return (parsed?.result?.tools ?? []).map((t) => t.name);
+}
 
 async function blProbe() {
   if (!BL_KEY) return { ok: false, why: 'BRIGHTLOCAL_API_KEY is not set' };
-  const attempts = [
-    { label: 'v4 header x-api-key', url: `${BL_BASE}/v4/location?page=1`, init: { headers: { 'x-api-key': BL_KEY, accept: 'application/json' } } },
-    { label: 'v4 header api-key', url: `${BL_BASE}/v4/location?page=1`, init: { headers: { 'api-key': BL_KEY, accept: 'application/json' } } },
-    { label: 'v4 bearer', url: `${BL_BASE}/v4/location?page=1`, init: { headers: { authorization: `Bearer ${BL_KEY}`, accept: 'application/json' } } },
-    { label: 'v2 query api-key', url: `${BL_BASE}/v2/clients?api-key=${encodeURIComponent(BL_KEY)}`, init: {} },
-  ];
-  const results = [];
-  for (const a of attempts) {
-    try {
-      const r = await fetch(a.url, { ...a.init, redirect: 'manual' });
-      const body = (await r.text()).slice(0, 160).replace(/\s+/g, ' ');
-      results.push({ label: a.label, status: r.status, body });
-    } catch (e) {
-      results.push({ label: a.label, status: 'ERR', body: String(e.message).slice(0, 120) });
-    }
+  try {
+    const tools = await mcpToolsList();
+    const writey = tools.filter((n) => /update|create|set|edit|save|patch|put|write|delete|add/i.test(n));
+    return { ok: true, tools, writey };
+  } catch (e) {
+    return { ok: false, why: String(e.message).slice(0, 200) };
   }
-  return { ok: true, results };
 }
 
 // ── Google ──────────────────────────────────────────────────────────────────
@@ -189,11 +218,15 @@ export async function run() {
   if (!bl.ok) {
     console.log(`  SKIP — ${bl.why}`);
   } else {
-    for (const r of bl.results) console.log(`  [${r.label}] HTTP ${r.status}  ${r.body}`);
-    const working = bl.results.find((r) => r.status === 200);
-    console.log(working ? `  → REST API reachable via "${working.label}"` : '  → no REST shape authenticated; the key is MCP-only and listings must be fixed in the UI');
-    if (DRY && working) {
-      console.log('  (dry/ship for listings is not wired until a shape is confirmed — rerun probe output is the input to that work)');
+    console.log(`  MCP authenticated. ${bl.tools.length} tool(s) exposed to this key:`);
+    for (const n of bl.tools) console.log(`    ${n}`);
+    if (bl.writey.length) {
+      console.log(`  → WRITE-CAPABLE TOOLS PRESENT: ${bl.writey.join(', ')}`);
+      console.log('    The listing fix is reachable from here. Wire dry/ship against these.');
+    } else {
+      console.log('  → no write/update tool on this MCP endpoint for this key.');
+      console.log('    That is the authority, not the claude.ai connector subset: the server itself');
+      console.log('    offers no mutation. Listings must be fixed in the BrightLocal UI.');
     }
   }
 
