@@ -53,19 +53,23 @@ export const OWNER_RULINGS = [
     // "re-service included" or "unlimited" — dropped sitewide 2026-08-26
     // (PR #114)'.
     //
-    // data/compliance.ts DISAGREES with this and its carve-out wins there:
-    // rule 147 is `\bunlimited\b` with notIf
+    // data/compliance.ts DISAGREES with this and its carve-out wins there.
+    // The rule is the one whose pattern is `\bunlimited\b`, carrying notIf
     // `unlimited\s+(free|covered|visits|pest|re-?servic|re-?treatment)`, which
     // permits the exact phrase "unlimited free re-services". That carve-out
     // predates PR #114 and is now stale. Five approved rows say "unlimited
     // free re-services" and layer (a) passes every one of them.
     //
+    // Cite it by its pattern, never by line number: it sat at line 147 when
+    // this was written and moved to 168 within a week (#178 inserted rules
+    // above it). The rule itself has not changed.
+    //
     // Reconciling data/compliance.ts is a sitewide content change with its own
     // guard tests, so it is NOT done here. This ruling blocks the copy at the
-    // publish boundary; the follow-up is to retire rule 147's carve-out.
+    // publish boundary; the follow-up is to retire that carve-out.
     id: "unlimited",
     re: /\bunlimited\b/i,
-    reason: 'AGENTS.md §2 bans "unlimited" in marketing copy (dropped sitewide 2026-08-26, PR #114). data/compliance.ts rule 147 still carves out "unlimited free re-service" — that carve-out is stale.',
+    reason: 'AGENTS.md §2 bans "unlimited" in marketing copy (dropped sitewide 2026-08-26, PR #114). The data/compliance.ts `\\bunlimited\\b` rule still carves out "unlimited free re-service" — that carve-out is stale.',
   },
   {
     // Owner direction recorded in agents/oneup-push.mjs (2026-08-07): agreement
