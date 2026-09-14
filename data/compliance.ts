@@ -362,7 +362,40 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // is explicitly approved and is the same shape. The claim is the VERB:
   // "EnviroCare HAS PROTECTED homes since 1958" says the entity was operating, and
   // that is the part that is untrue.
-  { pattern: '\\bEnviroCare\\b[^.!?]{0,40}?\\b(has|have|had)\\b(\\s+been)?[^.!?]{0,90}?\\bsince\\s+1958\\b', notIf: 'family|Wedgworth|never say|do not say|banned|NEVER write',
+  // CARVE-OUT TIGHTENED 2026-09-14. `notIf: 'family|Wedgworth'` exempted the line
+  // if those words appeared ANYWHERE on it — including after the claim, where they
+  // cannot possibly be its subject. So the approved-sounding tail defeated the rule:
+  //
+  //   "EnviroCare has been treating Alabama properties since 1958, across four
+  //    generations of the Wedgworth family."        <- PASSED. It should not.
+  //
+  // That is the entity claim this rule exists to catch, wearing the family clause as
+  // a shield. Not hypothetical: it shipped in the Sep 11 blog pack (#172) and the
+  // same shape sits in app/birmingham-termite-control/page.tsx:35.
+  //
+  // The carve-out now requires the family to be the SUBJECT — family/Wedgworth
+  // followed by the duration verb — which is what the approved forms all look like
+  // ("the Wedgworth family has been doing pest control in Alabama since 1958",
+  // "Four generations of the Wedgworth family have been working Alabama yards
+  // since 1958", "Our family has been doing pest control in Alabama since 1958").
+  // A trailing family mention no longer exempts anything.
+  //
+  // The negative lookahead is the second half of the same idea. Without it,
+  // "A family-owned Alabama company, EnviroCare has protected homes since 1958"
+  // still passed — "family" does precede the verb, but EnviroCare sits between
+  // them and is the actual subject. That exact sentence was in 12 city-page
+  // summaries.
+  //
+  // It keys on the COMMA, not on EnviroCare alone, and that is load-bearing.
+  // A bare `(?!...EnviroCare)` also killed an approved form that
+  // test:compliance asserts must pass:
+  //   "The Wedgworth family BEHIND EnviroCare has been doing pest control in
+  //    Alabama since 1958"     — family is still the subject; EnviroCare is
+  //                              inside a prepositional phrase.
+  // `, EnviroCare` is the appositive that actually re-subjects the clause
+  // ("A family-owned Alabama company, EnviroCare has ..."), so that is what
+  // the lookahead refuses. Caught by test:compliance at 76/77, not by review.
+  { pattern: '\\bEnviroCare\\b[^.!?]{0,40}?\\b(has|have|had)\\b(\\s+been)?[^.!?]{0,90}?\\bsince\\s+1958\\b', notIf: '(family|Wedgworth)(?![^.!?]{0,60},\\s*EnviroCare)[^.!?]{0,60}\\b(has|have|had)\\b|never say|do not (say|state)|does not state|banned|NEVER write',
     reason: 'entity attached to 1958 via a duration verb — EnviroCare began 1993/2005; the FAMILY started 1958',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
