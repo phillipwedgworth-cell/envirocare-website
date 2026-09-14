@@ -1,72 +1,80 @@
 {
   "report": "envirocare-ga4-weekly",
-  "run_date": "2026-09-07",
+  "run_date": "2026-09-14",
   "status": "ok",
   "property": "G-CELEB90NKX",
   "ga4_property_id": "313205131",
   "site": "envirocarellc.com",
   "data_source": "Google Analytics Data API (direct, no Supermetrics)",
   "period": {
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-13"
+  },
+  "prior_period": {
     "startDate": "2026-08-31",
     "endDate": "2026-09-06"
   },
-  "prior_period": {
-    "startDate": "2026-08-24",
-    "endDate": "2026-08-30"
-  },
   "totals": {
+    "sessions": 429,
+    "users": 374,
+    "engagedSessions": 278,
+    "conversions": 91
+  },
+  "totals_prior": {
     "sessions": 586,
     "users": 492,
     "engagedSessions": 397,
     "conversions": 72
   },
-  "totals_prior": {
-    "sessions": 337,
-    "users": 323,
-    "engagedSessions": 121,
-    "conversions": 20
-  },
   "channels": [
     {
       "key": "Direct",
-      "value": 414
+      "value": 271
     },
     {
       "key": "Organic Search",
-      "value": 139
+      "value": 119
     },
     {
       "key": "Paid Search",
-      "value": 21
-    },
-    {
-      "key": "AI Assistant",
-      "value": 9
+      "value": 22
     },
     {
       "key": "Referral",
-      "value": 3
+      "value": 10
+    },
+    {
+      "key": "AI Assistant",
+      "value": 5
+    },
+    {
+      "key": "Organic Social",
+      "value": 1
     }
   ],
   "landing_pages": [
     {
       "key": "/",
-      "value": 450
-    },
-    {
-      "key": "(not set)",
-      "value": 29
-    },
-    {
-      "key": "/birmingham",
-      "value": 18
+      "value": 285
     },
     {
       "key": "/contact-us",
-      "value": 13
+      "value": 14
     },
     {
-      "key": "/about-us",
+      "key": "(not set)",
+      "value": 11
+    },
+    {
+      "key": "/birmingham",
+      "value": 11
+    },
+    {
+      "key": "/quote",
+      "value": 7
+    },
+    {
+      "key": "/blog/cockroach-control-alabama",
       "value": 6
     },
     {
@@ -74,130 +82,126 @@
       "value": 6
     },
     {
-      "key": "/quote",
+      "key": "/pricing",
+      "value": 6
+    },
+    {
+      "key": "/pest-library/centipedes",
       "value": 5
     },
     {
-      "key": "/blog",
+      "key": "/services/pest-control",
+      "value": 5
+    },
+    {
+      "key": "/approve?k=envirocare2026",
       "value": 4
     },
     {
-      "key": "/chelsea",
+      "key": "/blog/fleas-in-house-no-pets",
       "value": 4
     },
     {
-      "key": "/pricing",
-      "value": 4
-    },
-    {
-      "key": "/pest-library",
+      "key": "/alexander-city",
       "value": 3
     },
     {
-      "key": "/pest-library/crickets",
+      "key": "/blog/how-to-identify-termites-alabama",
       "value": 3
     },
     {
-      "key": "/alabaster",
-      "value": 2
-    },
-    {
-      "key": "/auburn",
-      "value": 2
-    },
-    {
-      "key": "/blog/brown-recluse-spiders-alabama",
-      "value": 2
+      "key": "/blog/sentricon-vs-liquid-termite-treatment",
+      "value": 3
     }
   ],
   "devices": [
     {
       "key": "desktop",
-      "value": 355
+      "value": 256
     },
     {
       "key": "mobile",
-      "value": 225
+      "value": 166
     },
     {
       "key": "tablet",
-      "value": 5
+      "value": 7
     }
   ],
   "cities": [
     {
       "key": "(not set)",
-      "value": 65
+      "value": 49
     },
     {
       "key": "Birmingham",
-      "value": 43
-    },
-    {
-      "key": "Hoover",
-      "value": 28
-    },
-    {
-      "key": "Moses Lake",
-      "value": 28
-    },
-    {
-      "key": "Des Moines",
-      "value": 24
-    },
-    {
-      "key": "San Jose",
-      "value": 18
-    },
-    {
-      "key": "Alexander City",
-      "value": 15
+      "value": 33
     },
     {
       "key": "Atlanta",
-      "value": 11
-    },
-    {
-      "key": "Chicago",
-      "value": 9
+      "value": 17
     },
     {
       "key": "Vestavia Hills",
+      "value": 15
+    },
+    {
+      "key": "Chicago",
+      "value": 12
+    },
+    {
+      "key": "Mountain Brook",
+      "value": 11
+    },
+    {
+      "key": "Alabaster",
       "value": 9
     },
     {
-      "key": "Chelsea",
+      "key": "San Jose",
+      "value": 9
+    },
+    {
+      "key": "Alexander City",
       "value": 8
     },
     {
       "key": "Pelham",
+      "value": 8
+    },
+    {
+      "key": "Singapore",
+      "value": 8
+    },
+    {
+      "key": "Chelsea",
+      "value": 7
+    },
+    {
+      "key": "Des Moines",
+      "value": 7
+    },
+    {
+      "key": "Hoover",
       "value": 7
     },
     {
       "key": "Flint Hill",
       "value": 6
-    },
-    {
-      "key": "Huntsville",
-      "value": 6
-    },
-    {
-      "key": "Bessemer",
-      "value": 5
     }
   ],
   "conversion_events": [
     {
       "key": "ads_conversion_Contact_Us_1",
-      "value": 34
+      "value": 61
     },
     {
       "key": "phone_click",
-      "value": 34
+      "value": 22
     },
     {
       "key": "generate_lead",
-      "value": 4
+      "value": 8
     }
   ]
 }
