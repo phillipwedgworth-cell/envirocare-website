@@ -143,7 +143,13 @@ async function blProbe() {
   if (!BL_KEY) return { ok: false, why: 'BRIGHTLOCAL_API_KEY is not set' };
   try {
     const tools = await mcpToolsList();
-    const writey = tools.filter((n) => /update|create|set|edit|save|patch|put|write|delete|add/i.test(n));
+    // Match the VERB at the start of the tool name, not a substring anywhere in it.
+    // The first version was a bare substring alternation and reported
+    // `get_cb_credits` / `get_lsg_credits` as write-capable — "cr-EDIT-s". A
+    // diagnostic that cries wolf is worse than no diagnostic, and this one's whole
+    // job is to answer "can CI write to BrightLocal or not".
+    const MUTATING = /^(update|create|set|edit|save|patch|put|write|delete|remove|add|post|send|publish|sync|push)(_|$)/i;
+    const writey = tools.filter((n) => MUTATING.test(n));
     return { ok: true, tools, writey };
   } catch (e) {
     return { ok: false, why: String(e.message).slice(0, 200) };
