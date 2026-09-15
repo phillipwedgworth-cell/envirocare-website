@@ -7,8 +7,8 @@
 // in-house version of NeuronWriter's AI-Tracker — we own the data, no vendor API.
 //
 // Engines (each optional — runs whichever keys exist):
-//   OpenAI    web-search model  (OPENAI_API_KEY)      — default model gpt-4o-search-preview
-//   Gemini    Google Search grounding (GEMINI_API_KEY) — default gemini-2.0-flash
+//   OpenAI    web-search model  (OPENAI_API_KEY)      — default gpt-5-search-api (gpt-4o-search-preview shut down 2026-07-23)
+//   Gemini    Google Search grounding (GEMINI_API_KEY) — default gemini-flash-latest (gemini-2.0-flash shut down 2026-06-01)
 //   Perplexity sonar (PERPLEXITY_API_KEY)              — inherently web-grounded
 //
 //   node agents/ai-citation-probe.mjs            # all prompts, all available engines
@@ -28,8 +28,8 @@ const OUT = join(__dir, "reports", "ai-citations-latest.json");
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
 const PPLX_KEY = process.env.PERPLEXITY_API_KEY;
-const OPENAI_MODEL = process.env.OPENAI_SEARCH_MODEL || "gpt-4o-search-preview";
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const OPENAI_MODEL = process.env.OPENAI_SEARCH_MODEL || "gpt-5-search-api";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
 const STAMP = process.env.PROBE_DATE || ""; // pass an ISO date in CI; Date.* avoided for determinism
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -74,7 +74,9 @@ async function askGemini(prompt) {
     const text = (cand.content?.parts || []).map((p) => p.text || "").join(" ");
     const chunks = cand.groundingMetadata?.groundingChunks || [];
     const gUrls = chunks.map((c) => c?.web?.uri).filter(Boolean);
-    return { engine: "gemini", ok: true, text, urls: [...new Set([...gUrls, ...urlsFromText(text)])], error: null };
+    // grounding URIs are vertexaisearch redirects — the source domain lives in web.title
+    const gTitles = chunks.map((c) => c?.web?.title).filter(Boolean);
+    return { engine: "gemini", ok: true, text: text + " " + gTitles.join(" "), urls: [...new Set([...gUrls, ...urlsFromText(text)])], error: null };
   } catch (e) { return { engine: "gemini", ok: false, text: "", urls: [], error: e.message }; }
 }
 
@@ -130,6 +132,24 @@ for (const prompt of PROMPTS) {
   // Opportunity = we are not cited on any engine (mentioned-but-not-cited is the priority gap).
   if (!anyCited) opportunities.push({ prompt, brand_mentioned: anyMention, competitors_cited: comps, gap: anyMention ? "mentioned-not-cited" : "absent" });
   console.log(`  ${anyCited ? "✅ cited" : anyMention ? "🟡 mentioned" : "❌ absent"}  ${prompt}${comps.length ? `   (competitors: ${comps.join(", ")})` : ""}`);
+}
+
+const attempted = rows.reduce((n, r) => n + r.engines.length, 0);
+if (cells === 0 || cells < attempted / 2) {
+  const errs = [...new Set(rows.flatMap((r) => r.engines.filter((e) => !e.ok).map((e) => `${e.engine}: ${e.error}`)))].slice(0, 6);
+  const msg = `PROBE BROKEN — ${cells}/${attempted} engine calls succeeded. Metrics NOT written.\n` + errs.join("\n");
+  console.error(msg);
+  writeFileSync(OUT.replace(/\.json$/, "-FAILED.json"), JSON.stringify({ date: STAMP || null, attempted, succeeded: cells, errors: errs }, null, 2) + "\n");
+  if (process.env.RESEND_API_KEY && (process.env.NOTIFY_EMAIL || "").trim()) {
+    try {
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from: process.env.NOTIFY_FROM || "EnviroCare AI Visibility <onboarding@resend.dev>", to: process.env.NOTIFY_EMAIL.split(",").map((s) => s.trim()).filter(Boolean), subject: `⚠️ AI-citation probe BROKEN (${cells}/${attempted} calls ok) — ignore any 0% numbers`, html: `<pre>${msg}</pre>` }),
+      });
+    } catch {}
+  }
+  process.exit(1);
 }
 
 const metrics = {
