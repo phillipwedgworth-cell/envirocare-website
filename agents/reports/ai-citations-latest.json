@@ -1,58 +1,47 @@
 {
   "_comment": "First-party AI-visibility snapshot from agents/ai-citation-probe.mjs. domain_cited_rate is the money metric (does AI cite envirocarellc.com). Compare to NeuronWriter's dashboard. Opportunities feed agents/neuronwriter-content/ai-opportunities.json.",
-  "date": "2026-09-15",
+  "date": "2026-09-16",
   "engines": [
     "openai",
     "gemini"
   ],
   "metrics": {
-    "engine_cells": 0,
-    "brand_mention_rate": 0,
-    "domain_cited_rate": 0,
-    "prompts_cited": 0,
+    "engine_cells": 28,
+    "brand_mention_rate": 57,
+    "domain_cited_rate": 57,
+    "prompts_cited": 15,
     "prompts_total": 25
   },
   "opportunities": [
     {
       "prompt": "Best pest control company in Birmingham AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Best termite control company in Birmingham AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "mrbuggs.com"
+      ],
       "gap": "absent"
     },
     {
       "prompt": "Best mosquito control Birmingham AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "mrbuggs.com",
+        "mosquitojoe.com"
+      ],
       "gap": "absent"
     },
     {
       "prompt": "Pest control Hoover AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Termite control Hoover AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Vestavia Hills AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Termite control Vestavia Hills AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "orkin.com",
+        "mrbuggs.com"
+      ],
       "gap": "absent"
     },
     {
@@ -68,99 +57,48 @@
       "gap": "absent"
     },
     {
-      "prompt": "Pest control Homewood AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Trussville AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Termite inspection Birmingham AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Sentricon termite protection Birmingham AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Alabaster AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Pelham AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Helena AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Chelsea AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Greystone AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
       "prompt": "Pest control Huntsville AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "orkin.com",
+        "mrbuggs.com"
+      ],
       "gap": "absent"
     },
     {
       "prompt": "Termite control Huntsville AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "cookspest.com"
+      ],
       "gap": "absent"
     },
     {
       "prompt": "Pest control Madison AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Lake Martin AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
-      "gap": "absent"
-    },
-    {
-      "prompt": "Pest control Alexander City AL",
-      "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "terminix.com"
+      ],
       "gap": "absent"
     },
     {
       "prompt": "Pest control Auburn AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "orkin.com"
+      ],
       "gap": "absent"
     },
     {
       "prompt": "Termite inspection Auburn AL",
       "brand_mentioned": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "orkin.com"
+      ],
       "gap": "absent"
     }
   ],
@@ -169,38 +107,67 @@
       "prompt": "Best pest control company in Birmingham AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
-          "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://birminghamtoprated.com/pest-control/?utm_source=openai",
+            "https://www.expertise.com/home-improvement/pest-control/alabama/birmingham?utm_source=openai",
+            "https://reviews.birdeye.com/d/pest-control/birmingham-al/?utm_source=openai",
+            "https://threebestrated.com/pest-control-companies-in-birmingham-al?utm_source=openai",
+            "https://www.reddit.com/r/Birmingham/comments/1fp2s6g?utm_source=openai",
+            "https://www.reddit.com/r/Birmingham/comments/1rui4sh/anyone_have_recommendations_for_a_rodent_removal/?utm_source=openai"
+          ]
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "callwaynes.com",
+            "cookspest.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsRVtcj1gAl3djZhEyFDBudprS_0sNfRFHFA-cetz6bllVoyNpBNrd3sH0XFR_oH8PgS48Esa4-JRxcJy6kH_wwL1PSSG2VoBAURzI_ltn5-ozSVJj4WFVEbD8py02jwZx7JOeW3qkX068OU3ARYTj-QCsXz6sHlBvVDI5ORBBEBmh9uFkJ9FPS9E0dwD6NlnghipjFW6pcJl51zzl9zQm622nCEw=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBz44CPxCbwL7HUA-2j4ps3WK144wfK5HbbrpxY7FATIfd-6hJW6bIqvQVLE-PL0qkAdiFRIWIy9ZZm2B6RmAQY9V83C46IS6Js0wS5jYUuPR4rjYtdg0OsIWoOdIa0OfACwDlpsCJYwj2QmdeLBxXHHU0dHkcIGYNf0X_NYQeqU-TDRBfdlM7Mygjz2I0tp-6FAeiF67XaU3--1-IbBSdSebz_7KV49bAStoH_CY=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVBZEkWEXOYJgmwHCLkIeAUc0pi9P9Y23rJfgtEx8SfQKUX2v9k1fWHmVZNQU-fyd86-Ls0u_awxMJd4wREY0qCvhyWK2b5bjLh8zltuu2ICHgybarX791finhxOiuVnP2EWt3htUAPcK8la50CpPJwIyieRaLkorB5U3ZRs-Sk1GYgB7LYpqU3RLoh6hl28G9p3Qrrbbp",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHnYOpBoqx_QdjqluIclIgq5HWHuey6vr9lmROg5r_vZWK8q_gqb54ahK_yn7Y3wxAv4QnJ_cSU9y3FmY867N8nnuBY7z-3dDZGnzOuEnuTw1POpw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqMLG8Rda5lBvZDj9MnUfoxCcm2196pW7mEd6wZ0xas4qHg2w8-DSo_xk0W3vDHHsyI8378d7voPLUktGs7JB2UUrfOw1lV3Ds6Fdp7rxh3-kgeQpplbVyrYwFSAYJqJk_PUuxuCVvVdKKBHQO",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqh4Q8voAhL48MITaUvCARHr9gqkZWPws4o6vXL6K_UxlaON-BSBoRqwMfRydjeE89tHodKW_dZeQI3q9P9vUBRtxTKb1s8hPX_FChWDi20EwjLfqS81yFM6Hq-8pnj7f9jFfRHU_g_zwRE6s6pKaC7D5b9c6jaVyW-g==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5STQnwBhzhlvT8HVjV-gqNd3glwvO3r60EzyV-OomehLE0kRcp5oM6Sz2GCXfUGwCbp9T9cBV_D8xyYAWdNlEoVaWA-wz9ua5Tm0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdx9bLowwtx5l4s4Wvntlm3U1Agf7vQM2PVQWFSRBA23PZ4MuryKpA6_iO-XyVWFAxZEabTlQt-UPul-oNflY6iEUJMg52LB9fOSL2DGE1O8eeSakUiOOP5wtvh-HyGw8lGgh4zK-H8RN0M6S2PLzz288A5gF4o5A07KNQLSiCE8hza4FBMs8xPXdV1WF3tw=="
+          ]
         }
       ]
     },
     {
       "prompt": "Best termite control company in Birmingham AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "terminix.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -208,12 +175,26 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com",
+            "cookspest.com",
+            "terminix.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwxEp-OEh6YX2h70WH2DKJaq8ACxvnXPWCcprxd9G4xyLhc23E9BEn5OMheaWXqF0stHGd4fzO27glDGxB4OUXJ7FyfMJdpwjSCmOZbULobEsZTP8hVZ6dtfumogdBphW7aouISd6Gia9Wb3z42V5SSq4LkrkunmgqPns=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpyNybtP9AlSmCLxvP9fzwnw5l3I09VCgtzi5Mbo1HCBExE0ZqeN6aJLz6XBynHFLUC3yqhgBLLKidtWcA_ACttCV6LIH7-qbfF4Ine7NjVnqmCwEdiMwU-bZkZLSDpOuydedHG0lm",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF2SvzwxG6FYZhaDJKRarVZ4oYd3RJYMuNGNR8s_9IpbfVjMaPL5QRdV5vAAqD8u282J2BPhWHkCYC3aOV_wB36q5bO3JSxoEiG3mshNLB_EGnmUg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEp1fUzMMk1GL8Kcfazuzzes573iUMrKjxvFJKTry73yBYzccPW_CptUTRigr0XJTFO7XENImRuIYGEpfFMfdSJTnjtrwvVQDkopxnAqyfyJ5ttzTSVprrwo_1H2H9yoJ23tw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH88IMwVNSltTYDDPH_EuyJ3A1gBJabl4F9BKQJXkMQYT29SUKZvXlwFzWk25BmhflYnadypy-ixakT3mrduh5fvzXi3AqAFAnHtjSFcO8FBBCYIHkJn7tCNxmZeWzq-Mk=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmuU_VApRvgVwvdCEo0BNcVWTrHeftOQX4L_NPFcHEcnSJWlEL8ucr4fDl_1vwCKliTrNfm6_2nTFtCqW46lcMpn7xqKITkvak8fjyRwwpJ1x5fMclXgVQmE0ouAf1R-pTTmP2FvMl6Cs=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHdUHjKoErkJ5RlokrcMN4-x8NDXB30gbVWeRNaM_OVzG_PE9PyyAqtp0Uc8V40jTIs_J2aRFXjsfWabtXL39-EaOCWJthHuvmiOA-yaL5TiB_gbFbpS7RhBlSFNtSUvNNXuxl3tr3UU3r3WEfS3-koX08daOrFjvzd1axEAs=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFhebVnYPnMm5j05uoY2926ybAENB3-un4i357dcC2QRw7sHuDeL4fNK38Om8ITga5SWdr-6eEeQj2q9Nnns_S5DZmXNP0O7YNUnUoH9_gX9SD81h7nmhunsBk0i1-O7OaFBI="
+          ]
         }
       ]
     },
@@ -221,12 +202,17 @@
       "prompt": "Best mosquito control Birmingham AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "mrbuggs.com",
+        "mosquitojoe.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -234,12 +220,26 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "callwaynes.com",
+            "cookspest.com",
+            "mrbuggs.com",
+            "mosquitojoe.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESMGirw6amuS-aX3tx6ajbPB0zLfdBoKSnk4xuJuxWc4onO4gmkcd1Avr5buyV3H7XLCgDvojQsmpEKvnthVCZ_yU57pvb23PNQSecvMS-E0N3F8I5-fQSfwkCufyeJUKnr0CTSOKR",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHCQyCUhv1ymc1Km1SpnyyV_1d07fXdqGJPn5wvWnMcaqnPFEFT4jSlFas5TqTskcPt9NWAtIVG8vjjap7CESey9qSe63HBvBH-LNEepos-XJw11ldQVvyeYyeBLUA5X6Kn39s=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFkJ0Y3IC7o6dRC5G75_fT-PoRt1pQrVqmZ0KgxENwL9pcbupzfL3X3WeAvRlOcPTFYi6vMPiDp47R4m1D8Kdx_hXXs2Wlo3_cY-DeinGRRVJAQHYGRcml8wLWcHEkY6uYxZtKaeHMt",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9hIaT3Pg7z56Xu5G0RFpJm1RFFXdKQf3boze_003_Wdgdf5_XcDK7srOGeXY7BXgbSL76KjsMGGzUkKuqqtr2MAAUt7cuU4u5qgwujYddMiabckdxyZy12PexVZyoy8k=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBpEzryfp826TjEL31Dv6JEjFhcS-XlA_Sm7T5gWbqcrIrEGvJwzaIKSEsJ6x8jZ-BX8jsTBSCAu_yHBMMisQY2KAezrTbJoWrh3XZl0oYtLikvIqbprvwKR4nk0aBXUmuI1sIZ8nCf_r0TOZiwinu0Y_jllQ=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDw6f6Ao1StPEfvjY4Qt5S2y4yRFIOEJN2zalRhxsfcmEgp9xYj1JUsPj43I4KLL4N-TBuba2Mf638xCHUf-YvPlvCe0IY7SIcWA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgsCH-HZwtSHHoPHOqTtdaGXJEq4L-ryHQtj4TxsUAj94ChzvZWPTXM0DDmbM_dNS0WCXPJazvk-OS_R-Kt68V5B9dotjpo5lHO3JhKWAdJZuJE7pTrG69sLxpegbcAzeeGB-L",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUQarTc9SzGhTvTCYRgK4K1-ztFwrP4RQiW8nWQ6drdYoY8H3e-eSQ7sH2KJT2UwoVX6EyJc_mrn7IJc_7PdWieqqLwS_4alrmnc7BEc1PTHTQZVcu_Pc1fusPD717BNjUxs5EY5ZU3AjybyMbVf_8b_ELew4QObj7xYSJSNLN3o4WutoHHUaQHF70nQFks3IwRA=="
+          ]
         }
       ]
     },
@@ -247,12 +247,16 @@
       "prompt": "Pest control Hoover AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "orkin.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -260,25 +264,41 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "callwaynes.com",
+            "orkin.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTUN48HU0PkYfDTkryn61frIMxEdRb4fYGg6km5Bed5-ntmpBjc47OsuS_cdRF0RfPb-CCqS6OQwFHPKXZ2lTvl7tYkXAf78nUPa0HAjEaAR-Mf7g=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwseJcMxvohMromTJckk7DEPQVgA89KSOxfBUkbwMxD30LZ-MEEohe98_V4B-aMc28OglG9c8sc-cWQDM3FqPMoBgt-ECOXvGID--vScSmvZEZ90RyUS9E9Lm_YAeybe8=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmd5QLQKdLUdmjsd2R_C-ifubG3GGTlmz2zeTCiV-VS2aOe2RFzV-YV-TfMTwdSeLgwlSRpYnUGTE1hV4HfcTg1mrtTMPiFdjhO-ObYikoj316mGjo_v8gVSDpEs9vNguIQV4D-CbcF_F6c6HDPg5FfWCUTw8=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzlvaatAyAUNgHLqajQaO4QpaA8a3sa0nkgU9vOXkSeYUV6SrZYvgY0Ypzp-H499DX0uO8XN2SpHOYUlCB62B2op9bPXvZsibyUcVA",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH7CMGrY7BJODz8h6OHvqXNcvo1OKEbEtZaHLW1a1HKAl8oUpo0KifNvnYf0wyzuZ3s10g1IP1t2m4DfTbwoP1lCg-1cXIbxfcuf-_VeslzwWM8cDPLFkxv1nYRh1XSuvJ8jzHGUaQlcn_DGDGU0PswJ3kcXxB7I2Pw",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGERbZZWK3Z7CjXQJwtRKZsRe6hVq6Vk_D77N8L5P7JDsnXS57mle7uRKVkNShwxeuI5vluE6AMi_bdb9g24nfEbF0ZayHwU4NI7FZY5VWjav5ZY8zzYcJTbS7w5urkfSuHWFMkaTU=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEjFq4iDFPTqRPG9T48Agjs3SW-5Oe0jgi-RVnupqpVf2ksJlASwAtZ_MbdaT6ZC7ob2qGCarmJrV0X0H44GOrD_SC6pSFBkKsnVqrzI03tj8so8MD4KFEu0_JEMogaKQjwWilZxLRU_wbhN8PYDJbmlOCqFfiH6FMGjk7cm8M=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhQMDBPoiqyPDa3AE78uT_8m8rzh_50Df3GRZxiDOFNOcJodtZatvMqZHu1ZNHRYMuFYiiKObbvL8wRZvn545PVbz5KLsH__rCr5z_RppHFclwDhEEkLwK2N6ERyh2MXHa"
+          ]
         }
       ]
     },
     {
       "prompt": "Termite control Hoover AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com",
+        "orkin.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -286,25 +306,39 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuGc9x2LDLS3otj_swSBbMUHsjAGT66-L1mjSCRhmd5P1vkCpA62y3n1XlAnX1XgW2pSSWNFVeEUZ4QqyE8n1giSxt9F5OGCmsuNyJYGut2CfjwDFzCf35VMg=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuF-3p05C7RJc34Ah1bSsyQckiQ771r6KaR_RphW-RsDqJ6xpfpIAfRCnur1a0IT3gFtSQt19G6cbNvt7JRmFfYYhbwCEh1V64aVMWT__l4CKQGz0dJpdpOv-KX5b020ilNlHyJ_1tvoyCN08=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFz28UR6n3pSQ7O7vjQOQ2jIqKOatT6rPHwYBsefl3qcbuIdOYRH-HiKdayQ4D8Ypeq8DzaPlXOHVYOI2VkitBTPdLuIYPMGZxeWZ2_au4lWa6XbaDLzDXvdus_6VMFAEvh8tiWPqa3pm56cbmP08e9PQOA2g==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFaw72xA-WCrN0VeHKEH5njvxDxgsUle8_IizLb5viemfTuG9O8qdS_Gnmo-8d7tqNHlOLzrfmehJHIn89a9lixqBRqIH8r3P8WBCpNxfPfpUm93Y_gLb76dL2Af3XpFYTvd62dDzkV62j0G_7xBM4NMkjbEBztfhpGQ==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHaCRFQIY-A8oFPjvwPR8HWYezSu--c3arAZQbR5fOjVlR9usY_1NY-ANIL1LQPbeERxEiBZMc1E7nwHEJk-wuV1F4LMcHkdZI-mFKNq6hwC685s8650fIF1ic9OpNf-Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnIwEd6qrz7V00DFxoJkmSG-lmEu96KxfNC4d26Z1vTVIw4oq1uKhWOiMihb85lh4wkEza7sIJaqDOynJFcTLb95WYENjW819BgntuYUdrH2Ti5o1C6ISNKODo2KdXR1TqWOYFdev-QDNtDk1__frcTPMsk4I=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHz1oHLdsai1oHCqDz3NG_XqfasRcvmHBzP4XyhPpQPYyv-lU-iFxP7IyKSiCvnoIoFFNSF6UqoHmRV56qvj6Zt7hAcCcD64IZna0PM4rOqYFCzHEAem-emMpcJizmte8kgdUb5uY_nW-g=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGK9PO2dkDuj7QccnYlfobBpj_ZAS77WUrD9LdlPLItAKV3n_SO6c6fYMHXGEZp7BOg5qUrkZpx4VWEAI5-bqtJ-vFNhy1i0h8Yv7IiYtYljXi_fvf5DAUWaU_N-f-MraENiEtRlOZKi5HUN2s="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Vestavia Hills AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -312,38 +346,71 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfHHzMtp4RgEz66FNgUMSL30PmQCMJjriVSxOK4YFeKhDYignypE-kGgb14CeEUL86vmo6jy6pfFpCzXnGSDSfRdDniNuftAmnFHOVJe6cWlJePEs5jv9T_UxBZjhUeduaNuosVyecm2cNYcvNET1qCaNv53vF9LQ=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHbdwW8OSc_Ox5bMQUSZuWcDY6Q8idgfwSrywxw9u2g3GzIERl0QA6W8fNUVJkYzhjVu02g5iRSVxwsh6JYANK3qqC9ZwxALCWiT8qSeFsQDI4YT7YimpHhIqO0ORravK8kw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKIwYIo90sI5qotw_Arj0z4R1wYL3ZXJmqxa7lOxRVAsJiFVPLsTkDwh1EBWirlAQKsruDNwU3Y1DktvSqtwN-X6DXR36TLwx7iL_9H2qlcu5s7fcfkHcfltytL53p6QWEtZv5eWnX6JBkYzg3pG0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSyW-SHmsHEm7NxVFjehJLgghmorRwpY77tdYM2HaOr_pQyjVc5IZSnRldLI2LjBgJnMV4jlgjJPaltmYt7a-VvwYiKW_T9FreXp29b-0SEL4KAOoHf_rRS0pZB99Vdb4CZbX1i7KjkOPipouJDbUfjboG7jI-1FW1k92437ewx8As4XY=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZDq4l7geQmREsI38dsjIT0XsHrJTvXzj-ujcnmi6Ef-mdoWddkeBu1VHPNJaOj3UbK5EFBWZodb-3DOU2GPJRPplQ7sTsvVAVnfIFDl4SbaQOrP9AybBACUgE1O4A6VOWsQguAM6mYVGO",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYwXVprdJ07QlkTf5CXrFNTv0WCidqFYRqJE6f5JwIST632MoY6lSRixJxpVIpRFfB1O0SI-NehG2Lfng1pzhYORPI5Y_GK6Lio_70GqTTq8BRTU-7DVu1I_F0T2wKtDJlQ-0-vFImAXQkFYxOvsTAe9rmxStAQSn3cZlsU8qwsODQhjX6TC30ZOu-tFKybFPuliMaNldCkcAzUg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0T9FLNC4ynL9jLi2KfniLYL_NVMw-aZY9VC_VG8Unj1A6Be7v8w7QKn1WkSjlZML8KitISEPfwR_3rPuYpenpdRYwJY6bHrbI5vIkHO4R6Gcnw0RV-6uVDrkZdCb8tR7vy8E79nCsDrKlWZ-S2Cid8lkVgt_R9THYzVNIinXzo4HqQz4eOww="
+          ]
         }
       ]
     },
     {
       "prompt": "Termite control Vestavia Hills AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
-          "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
-          "brand_mentioned": false,
-          "domain_cited": false,
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://www.ecofirstpestcontrol.com/alabama/vestaviahills-al/termite-control?utm_source=openai",
+            "https://www.envirocarellc.com/vestavia-hills?utm_source=openai",
+            "https://peskiespestcontrol.com/vestavia-hills-pest-control/?utm_source=openai",
+            "https://ngpest.com/service-areas/vestavia-hills-al-termite-control/?utm_source=openai",
+            "https://redmountainpest.com/?utm_source=openai"
+          ]
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com",
+            "cookspest.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZU26n8vOD_0CPObsiD8_qUGr0Jjy_MTDHM4UU4jT8BcIAhi_NEqRsdLlSL9nBpuYh3BE4ZePUU6YfcVpDAdkUBVuN0zi3pIxE178QkMx83uu-XLT7dx7q-qM1she4SZd0aCp8VIaxPH_WXEn5QSWhCHmItWYXkrM=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFu0oo3O-fG1u3ueGM7q0pmvvSQs4sif56txckiaDerqOlRRuuAc-Kxy_WstGwjDzjRk6DC8rXGvLAQAJENV8r-yj7OMhFzJWKG1dgbB2uWsdU0mbO3rKw5MJ9R3n54uRHW3Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbx3xF_7cVPpJ_xB7kLVTWAZCoh7m3nkNs8sMoq4nvPrImeKa18SZM7RvfZ5Vye3u62e4pB05QVIcMy7WjEP3rdCBjKJT2PjtQQb9i6gGIYVUo01TBDGy7B2E7d3gIV25-vMo6RbsWq_Al9NEtj912",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxJpy5DKTcX4qNY5NIotBWu9f9GiIOKAJ2qVjBHmFQjrLtDC-nHUrsSAn304ws9eu0wDhpepJIb1nvtCTNMRV6g40OAgdrCQ-WdarBorbSQ-KVWllNCD5IG5h1roVBzYu0gK0DP1fMidTjaXMZ",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFP1VLgqvwmXLAggy8qNRQa4utaB-G9Ooh1VLop8D0p2xF647WiPR41wjXNyoMqJQYzc7FMGMeog3y8-uMI9TQETsBOC3Yl0rsNWSw6roAEgdPBvctLGNPXzqwBkIpcktih7daeGub_VOUB",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFrBNMqltG6r_equSJpWJZxyvLc9pNf9KMogQoNlHA5vbw3cYICAAC3L7AOXntirRq_-uYtv7ZAC934PDa77-2yrVHwOGRDkeQ00GJBhE4F3bw-tkQmdgOdczQjGc6W-Tstll9JjtQ3Y7kB1zDQqUmleGRxKBoAlbUPLY96Lyq64TvQ5zs=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlWqsOizDA8jdZbpPBuMjImHp5dzNEr4a6HLH0nLp_nTcsMXzjQVmxO4VC6_clfhz4wFL46ha19pgot-zJqF93XK8TWYcfC-oRCtVXYx_T_aHzOLbxmWyAacZZT5lwA0V6kfgQDWVR6ZYeTpGr5fo=",
+            "https://www.envirocarellc.com"
+          ]
         }
       ]
     },
@@ -356,7 +423,7 @@
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -364,12 +431,14 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://agi.alabama.gov/"
+          ]
         }
       ]
     },
@@ -382,7 +451,7 @@
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -390,25 +459,37 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfO59puWVA0tMB0o5DbpGmM5lTryXXxNwtw3hF-5xvsfD48CppaN9Kg3zdFNX43qz-_HeaQFcPYpTIymkTYMMSioSHh8tBX1SP43WX5Y2wMWJVwueAeQRI3mkN0k_ZJ1YUc9cgmJxfRkq_mqd5qmYw2cabFmIZ6nxrluwI4TJQq-ibmP25NLM=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHA6UUtP4n8w7-H0zJubrCDJf-aa7eHddMF40kQ1CvYK6-EbAca2jter9L7HpCy2YPh6Hvkkg43Wr9fKdcANhiIBjTk8-c2LpIg9OA1-85X1ZitBX3K5q7ylultacFTUUVAHdkl4s4rE3EaKW4yS1sP5Arl6qKVc-XpPbPiSKsA2tC7p40=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsw3MgwnzJFZNgwpgTSwbyr4gVUss-YTCkmu3AvbGTYick_5Q7P0oNVpwi7sgTVTD8SHKnoOSilU-rfkjZUTgreAvsPgYDqFfLijoKKQpV8lqHRuTnIa-e9trsnDL9j_D-FccNtzx-",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNS8u7Qs9F_B0-fse6b4euCRzB3QmYrPju-8UjKcrufLMckFx-i6T6CKHEoXVcoLd0QbFjCqJi0Q3XvCUKgDBEEt9b42VaOcVMZKpQakKZix5Ivy6yyiWnvKoMT4youR9ILb-U4XNXYgnn9gG4jIErlw3Dt7zMpiBLY1LgES5wPnB4733dzG_ZOh5_3gP0ZAI=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE35KjXN0t-ws20SQuijraVzeofCwBPmEaxQ46f8ogOwfyDsFBtnyB3CyDWhCXCekx0xaageuJanDQsDZ3gEyGrDrr_eNpmQocfScPEPu0H26hZ3aeGVMkuXam4eBpXXZJMNUJfxB_iYQKOrG1vDJpXIbtx9-OG4K0UpqewNom-HGMBQ9lo03GUqr6SRF8jJpPaLs9lFqSMrrqDqZSIE3hECNXPV_Ow0yyBT0iFXaMVSeXV",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDotzdnO5PZvi6chbHZKBMfheIYssdwYjeCpXEFrFQQn1HeOJfSaHFV6WGntUkLe52Her1eD9Map0F4AD43brkywpAmQPFtV4cdD0rMJn8F2eA4ksoJsnlUfm-E8fquqZhbVV3odZ5eS2bDlx37_WoaCK12YQ=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhzoGq6OCTfOgT6nIWB9REIaZmi4XvanCF81KjJ9MLqpcJdve0xee2lA1V8r8PyB1Q-bhh1C5ULH52zspmKy63s2zbEnxuXtz91ebEnKv_8fQYAWotWFzELiTo5M-F_BIsJrnhig==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHct6jGo4IgY7zw6T8gl5vA3ujAf7ubulUro9vlk3kXemC6BpuAfDfJSyOcHLmrpgNKdmKMH9z2mzDgfiex2nggh0_dlVxk-69UmqHk7c3sEcVnXQlbsg=="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Homewood AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com",
+        "orkin.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -416,25 +497,40 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFIgpaZ4CbcJOfbn20PyQqPlbEn5udi3kffuIxSNFKC0WT1vCk95PNGBmxizDz6K1mJw0_vMDkRQAFrrXXvPrbXqCv2Mv03HRDFtgnUpxPlM2_cCa-qJtjVOi_THzMc6nXdCEpV7sfZO69Qcb76Nn0Y92A=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHRAubJCprn1ILV5gGLYEYUa6fr6Hl4pWtEaMUTlzkSDVMIQlv1nirVBJWMhXnmCJF42nF1EfGChGkT1G0xIMMMMV1GZPuosyGhszL2hUbPVhoDJbDsgc__qUxnHw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHLnY-ili8n3fOH14SLSI2clAmNgKAJfLSmLW-vGW7rVJlZr6vl7CIGyi5RfSQFL6sr9wjZgVP7ckIScTTTLvsMxfIUmJ-RnwWWVpiV0rNeRKxaYH44E9hYtlDZvR9XxO62NJ5Sj9bp6d4mHodqpHwcJWNG0cPfXOs=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFs6YkcCQ04QW3dYV_71aV64EVuhjkPX8wiYXkKYWsNWwUTnWj3G8AqUeeKZ3t_kIN09-O4RFsxzrcvCFwHBIXHY0H3pZ2ksTxqBTpqQtVCvV7qhRC71I9Qh4GG9qEupx8=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFrfhCYn9MeW7qe6PnnK8NpMJ6RGaownBe3hd0Lk89WeiT2WqCQX69o0KRNO3KYkRafkY8Bf5zUN9Br1_kDrxImoYox0aKSfRYN6_Ouhvko48iIissbTXhPOptISp8ZfFeV5HZ9mYDDyQcp_IhgmD1XVMeDGDlBMNpuhOoemIE=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1OtrNFF-53_BlBmi0pPqcMjkTbSTlPip7LaYis4h9zT08oanXiEbWdEtvhhEChOW3H9MwMl4lyu61XNB9NiC-10o99msgYhWdJognvbkM0YCeJpYiITnZUi87ZVkWs8q-Sz54zAbV7GcNVszA",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHTbjzuMzbiJv0IIzvfsSimZhpvqifqn0pxo4LndX6rK-Ou_cg7vk7YyWFBJLjFx-mRQK_O8b-YhMyKXrsjli_yjMwKc29fjADiQ_KYzRDtQQuUQqjmdgwblZL363PcILhdLki85Q4l28cr4HceQAI60svcv3eOh8S7KfugUNw=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHASbMYetpKXogqEUdCh4PMbwL0bHJzWYQw_MVA2jDmVQ7trhsEMOqiWXlN1Hl9yRasD2TGgY_k4ZhoPPA9khqyUtY9TC2g7-kHDt1htJR2kZxjPozY_TdKyowcsaQhNqv55QBFNg6jYydUTB2NqVAk-lS4Gyb6"
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Trussville AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "cookspest.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -442,25 +538,37 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "cookspest.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHGG_7IeATT7mDA71N921Mn7otkCvbIXLBVc1xarTtx8U0Nx2DAHZezkdL-ZPSU7hzjYrME4Zn_Lku1EPBkcRNX4KQGxsiLDuBNXv_5RcsG_yljUcA=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjcqNFsms6FbVsmENLCxsLeZkGDP61QSKuBPrkxemmnOvyehe1WYLzCwDcozC2ZpbX_P6xA1Rm1foqm4ELIgB4K972GWA0eqC5xO_IVbTHGqlYrlRy1ywnxmZ7vOS_wKMn8XlFEnS-GLO3nQPeeyeBl6CVATi8BZckSg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGS7Q83HA0KNEyiYIdqeuKTZJtfy7XguKIt9ZD3MoV5FjMGHO6CgCBLZNA7X1wGUCaPsML7pKtp2vr_4BkstTmUpXcfM30sJQhuH2_WJGCDBH3lulQdNLX1i4kiYh4AWK2Bn0eL",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbyBbdQvlyiPurbkuck2zdptmePmUz5_DNq-EcQosizzHk_-i9Ug-RkEekS-iNZ9KVR5upofhqeJLOqkBYSpeDtt4-sDyA_OnR5mfRkzY6nV4BK220ORZVDNmO7PG6Ih0ZVA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUDLbShSdjtpOON6YkrgSSEwdyAClIw4_gb9XRzq6ObxAT8agw2yg_tcUzDpctEHA6Tm-zP89C10LlQaxbblhy-xHSG4AoTPEfBCGe77uZ1-wxBjfjT_vjkqE3PivOjRXvAXyULHUk7c0pO2dUzdEI",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEsZUvQf3siuZ8s9wuQVv1F4_LP-xU3h66hLiUJMC6gGOpiKUtykVefD6zEtLnqAOqAtk5q5U3sTgSKn1uFSOPoelM1vVMIIOPj2Qy2D6P3ezCh4qFavArinssSNBvM"
+          ]
         }
       ]
     },
     {
       "prompt": "Termite inspection Birmingham AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -468,25 +576,36 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOaahQsl4IyFcfdSU2fEgqXVnS3_5b41VLwe0qTQKO8qoT3-wbQ5yLZkeKFSEC7m_HpCburSBhiZ3JU23imrPZW-hmvGWU1GR8VU_0K86imkHxudHagkuF-ZvpovZX_WBXtZDd6lMmXdJg4pY=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdCn3bZElhN0h967LQmocPvxjU61wl_LtaxOFD7FkrltSMGEmTY-h2peDIljcPeLsgyM4d4LBWb5GXrl1Cs0EcGcaYIdN-0K1AG8nEWA-8qGL1NJdka_yIjFrDrABKzg5Z4xwWF2xH_35v-IEs_p3-ZG-H",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGj78q3NuCyTYu-wxM6ZNbW0I7h9x_9YoZaJ6bdXVYG5ubRfymSuuOxmZjxCQ6nRYZhCYAa6OMMKPGHdXuD__8aN1seRDsLTCzwU5vvL2pr-6SUP4w=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_Q4nNIoGrexkkpCsfKKoURFKFEpS-FeyPIKVpVtmdayLiPt85FcjKIuGwYxJODOkpOnd1AauGPf0DyvgtxfF26l7cIOGlCOQmrZvNeM5MSQ20SFLNhk8ZoTlbrIBACwXzfrsaieEE-yP43JBx4K1n",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEC9h18BHAZBvhh0QJG62KTysf2alFDujnn1wfAdlmYspuNOg_Z4tOhszRMU-8umsiu_l8euJ9JZPqMlAnxSTfGMTb6C844D0u0jQ4HFo-1dcpfoFgrL1PxTerzHuH2xA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGArWh4ZtWYIV4yoQVPvDMs4nsKqzeQPSKAUOw_UPlMh6ZsjSbF2Q7jYG03fFuQHXoHrtHUqB3UsBMeZu0j4pHLAWtZWfwip9u_Pjk3tDqiaBAt-JxuSXDe8aZLvAiknMROaBzCywvtyRqSg9thxu6Q",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ9FFbhYPzDU5UtlH3mMEXvYBew5z8w18XxaL7YOEz_EMNC4wjJTM3ZIw9pvUq1q-oF8AvDfYSK19VaM-d7Jfu3XWT_94mXzQU-r51FaB4BuI6ah_v75ATvyz7VuSLn38yvrweNNyku9icqc_D_g0YtVsVXnA3UlU6-GcQ3pXFf2Sr_Xw=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEONDCrkISd2Do4HXPD2CjxEKcr4D8vLAVG9Tb-5qVEQGjXEpuiehjt-xabgpabkOOAv5uGHQl7-l8UJACpfQzJMDmVDr6s2rCEM4INPKStUc6RpjkDr8xswqVWOzXxxsl2DPDdEKk7nmae0ZUFwvTdFw=="
+          ]
         }
       ]
     },
     {
       "prompt": "Sentricon termite protection Birmingham AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
       "competitors_cited": [],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -494,25 +613,37 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzTkNwG_ttNBSVE6My39mwpGkMrasGzmGhFmcK_oR0IL5DyWSwET42GbIui8TWmo2kcc89qF4cjtRZAnd4RbVcXA8-1fpofZqKM7bJ3LNGjGFelDCeR_wvfnJIjS5yXB3_pM-7X9BS-yjFMZw=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKBweR-byu92nv5vS-qtwkEwgF0XcRMpTnJZEmpKoLW4fZdQ0l8lBHw8BTK56jiq4u3QukJsTk9k08DFHo6L-xfUuQVfJTJochzOJJrYyKD612xXvxz-Fd0rYNWXwflSELOOEfldb7jUM2UDwA6Pdgi_rLaFBNbqRNvJAJGe9-QxgDKnOerVvhmaRCzcaFh2IovMqs",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFuCPKwL9O-SKF8qLOjFUCSqXzicLXLAEFa4OkyGelNk8d-JZpO1xLi-D6TKaymigiZFHzWgc-AXj__hTrVX3s5J05po7DYTsnBleW9q06Lvq0pnRoJR7knuxxhRfOiQ0vYC5hfxJ4=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH-pZfjcd7lQmYbSQYYYCojPcg3Y2CSgQo8lyKQrNFRXsc0n1CkPzPZ4tWglOrcT2zwQi3xxfjzliC9JlltSVzMGV1Uc_1IL-ahTvrWpoTBl6lYUuth",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsoQ4q7kQwTwN9OmvJbmqF4XWK_CfD_uPTgfpDC0pUOeubCLjtJG1yWcIhdh6kEcHQGTRzkh0a3WtEpwVuE4Haz2aWCz3yB-nIAx4lTzp1MhHTosJzJL71g3JPEpJnDF6g3zfxTiZOE8Acn3dg89-Oa1sN",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkaML-2uP6_7OoEzpdWDkfxxFoU8un7sM_tLBeJuAozONAzKs287SkTnRnXpvOf-ON7EZid72QKpHPaP7cMK7Nu8m5DSUYXjQ8sbzX-9gI2HYho0nITWJ3wUDhm_yA",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwRSf_BxDM4X2MSsDBjV_ZoQrOl4YufiKo8gc1wGFO2g6AE7_d-ZgWHFgL8NjLtQyJAQgz4ztulF530XiaoBPxc_Y2eJtGejA3G5igtTHwT7FJ-WT4jwxLLcmyO4B0wY3AsQTd_RonLcctR49cfpS5rFCVMV4s_ZVydRMMu4gGAg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQdaREXrOEMeVsQZQI1Mt5i_1-uS4I5zy0CngyhBHS0xLHXJMBu2q6_WfIhauzvYleeNPsDt5Vect2yxyPJvr_TueKe1u0Z43sJ3S8SbgXmkJxJhX7V2PwGwnIED0nWBya_Sn44ofVoquohmsY5UJexHs="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Alabaster AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "cookspest.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -520,25 +651,41 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "cookspest.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFe43wwYPO51CkL-cbZnCirUHpthtWnLVQsf2yRzvZzFxP9iQF7hRY9wqju0W7wgZoHMHJ2m2P366AIf1yACw6pEpN4TzP8FmPZ_6PHkr24v5AUA067kco0oJtCz4QMpBcp",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuZcMg27PgbObP3-i3SbPDF4f42wC6zwQchQ7zpZIHpo7GiM3VvlaEk4zufK5y4YAHVZUfNUq7Ln9OBX2_gVekt1BhtRo4f1zasVbtk19AB9YsAKRPJdQja4wMCdCaI1J70YOrAJr3Rz3Gel2wlFMdGxoH",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrCwgvs3SSCR2YZKxLXUTX5Li0aFxigKwwxf7F8JTuTsI4yhOi3g1TaRLljrIWYTNrZkYHs8FBb34OKzuM7lRLCk3SKWCsgVS3xO30mGLOcczutjQ_xU2rj2wKLjsmVCcdcfpE68JMbQwM",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqvONMTpnxvMSR-F4KiaCj7B1xf_7GHDRbxUi-dN57DO3sEDqzd97xIi8B71h9xSioPFGpqiABevdIk079jB7ByTY8pH5tBkSlXwSOJA7qZSZION7P0vkZtElaoQLr8C75IcplyrgoY3kcBz94bK5czKogp1DkzxPG",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMseGAW4DksxEbftX9L1Nxq6BfXj29zmLgVa8_jvOW565hDzElKi6yTeasuGSiCC78rewzcQ9xFEqBwc-NtqybmQhV3XZgFFE9VEp34fG-E1wTcHpV9wk=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqKsR4qQyvnrg3uOi-8KRPUaK3fjyRR4tZ0K9Ee4VJ5KHGguqWPR2sIT2wejyvYzAwvHW0cgn2WVnjim4ybaKt6BIntJXuHIakwjHdpWMKuWs3ujFE-zH-vECg5lcFFB8Rb2I=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF1Q_Hzyjxcdeqj_RerfXW3EqzhJ2xGEzpVyMuosbkjzE965AvRpKqknBz5I6PXiWG2ekHNXCVcw_WhWv7s1BjYQPrbXtc6gNN8wh--lh5_DEhv41ZGpwS9bX3vc6RI79aexpAXJ-4eWghuvolNu68=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4Q45gmUkzUflw2R3NsLyq4uc2U1Hcx-qCbYp2hphq135l2H6HJWHL5n6uzNKNJ16gmn46FtrxdEioIO8OMVBDM2BFnAD6laMwuB-krUH5lg8JdLs="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Pelham AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -546,51 +693,85 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com",
+            "cookspest.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFj7rrPRfVKUAnOlijxSptTPNhpPpg2H8yS0b1hOoTeu7e5iS9oHCOspQ_84k2V-3z4zSdczny73ilRi7Fr3qYTzP9Qd_Xn3kgUxPKufAtcz4C94uG7iPgT_G9Ni34=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqg8NpUiQKlQhmKdJsCE3IOZ991ZGpmYYU9VAs2YDel0GuAibT90ahvrirIDsybJkI6BgAZPEKoioPjDSsUKD4L3BElFH6rxghd8yxEGwMRJUwCww_hUXoAuG31WQJvA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGLC0eaOd5x2OMiOrwFGaq6e8CTJ2NvOsS-FiFwcdhIa5kpDROqK9XpyYZCAkWChdNs3EoJcg2Lq2t_eYDALHcvvpyMh3_K2KfHtJJsyIWyz_9qNHZ43PbZTg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlXxFBieWrDdzlzIRCBc4cmMBXY2KyhYDfakr_bYU3CH9NpWyOGU4-s6Vyfi2ftfLetZ4KubNXmTPVUreZ11lkj8URvGZrR8DbuGYCvqoi",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYsmFXTElxOKgc2_c-V5JMqeU76ORkC4-EU23G03IxJ9UEitnvyvh_RK4cmC2TvBAgPzYxcwW5PVELKv2PyHHTjfJkBln0KrqjodDxHinVVhQYIl1tIV1AsBToepducJ2oOUGlnednp3pzlUawGCE=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtb5g-XeGWjstSVOYOy6Wp3ueCxJWFuTL1Am20CDMtqe7TG6N0wWNV-P_b2FAyjfvKyi-plgsbzOcvWQACxPgmGLE-TE2TANhGW8KdgzQlHHfLlH0="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Helena AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "cookspest.com"
+      ],
       "engines": [
         {
           "engine": "openai",
-          "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://www.bestprosintown.com/al/helena/iron-city-pest-/?utm_source=openai",
+            "https://www.bestprosintown.com/al/helena/empower-pest-solutions-/?utm_source=openai",
+            "https://www.connellspest.com/service-areas/shelby-county/helena-al/?utm_source=openai",
+            "https://reviews.birdeye.com/d/home-services/helena-al/?utm_source=openai",
+            "https://www.pests.org/Terminix/AL/Helena.html?utm_source=openai",
+            "https://www.angi.com/companylist/us/al/helena/pest-control.htm?utm_source=openai",
+            "https://www.bbb.org/us/al/helena/category/pest-control/accredited?utm_source=openai",
+            "https://pro.porch.com/helena-al/pest-control-contractors/cp?utm_source=openai"
+          ]
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "cookspest.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFP8PnhKNAim0pcljIGgRc9KxGxjuM9DeKCmhahlpKlMOgLwPMFWZsy7ltjAWLq7grHbdsFZyli6ly83cjhhLZR-2DShhyESioyPtD---FRY2D-f8RU3UOX9Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGbVkAADjmtC0q9xV13YbB32dj1LgLy7EmBTjEA9I7ktRV6aRZ1GrrFLPU1iEL4xXkwuxlqgNcQ9881MWmEIkp0l0dLt2mkBryJmiqORzhoLE3_rvOPtZFiVtyyOHl0EkHMhObl8yDGeRgrzCvnPPZQ",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuzbPe4j39O2g9B2r3lcUWA148CeNYN0xh6tb29hL9Yn01rOU4zx6Rs5-9EL-xlsp2P0QU-QyH9e5tf6y709C0hulqU01Peh9jjP8UQhZFDd2nBkPu0ro=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuk_0rN6ga8fVgP-cku6ayFkQ9v569QlxWA0i1W6wJNC7iloaPU9cPEWB_mfjgz-36ouwE01j0IGeGyrRNmOreDYlphTqpZQpAmhDrQjJJkntvCpg-xXOywZc=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHifHmY9L5gipJUZCatOG8XXmaTSv56LvQEweWmFumnyJg_OUKK22J2cwWYuMgieQ2fFgCmjs4JeIZppDvahSEJcyt54337oEitDB0Rd4QSM8sdsq5yjkRdqQgzHN1c2HOcXJHBYDsJCAbhjS_vv2QnCdqqz_5S",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7lzLoZnbc2NJ-o3O3_zXPWBbYAKB6vXwTqaRo0ZjfDcLpQDS6us8mELftjnR3srkrU5g1zgpCdocmTHOecMpcShlBs9d2l7zMiILkLz9Rw0diO6rwUt1UASOK1e1ZiCs=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPsTHAZBW5xp2uKt4H-C39VxXBt77vYrShUVKnuvjcBnkXc3yqxniGNU-SLTPW2JtqpiRgoTJPjs59My0iqkT8032bsloWC93daydZSa62aRcAYyzG6Rams0z-3RZkFwQOIkFWUJ-pnsCkT0q_oYkU"
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Chelsea AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "cookspest.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -598,25 +779,36 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "cookspest.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGl8khTAwkgz6r87MQvmn_AkfrnWxsFmQBl0bTIRKveZ_3AUKVIQ2Gjq3gA1Ut47I9d1nYL3Y7ygfiXCjv9iGPivQgKLDBScs6x2WUH2KGeErQX4p9v93Bv6nVQBcuNj0H9ay93DXGbYoQ5-nRQ7CPXIw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXVUq1f_VQG70Xy0SqIyEb2nLVhTc80vtfdwwf_tdbELMWAue1lT4rnGhfGhtSwphn83zgYR08JOd6cQkiU93bpx6OLBz7gNjT879TL3IWlrpRvyfY-r5lvZEZue75mOmX",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_zLVCb0HZKlQtixc0BURHxEizgggaNsT34S16PISoCTSCZpAzR6VwsnlS4lUX8GL2qlvMwBQ8ysUMqSXWnI6o9NHYiOCbsgtSeRiBtAk-K3y8RmGCL-WD_LnT",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBNz8uSEgrc781uEjWsYWMmxwgKB7bWa7prgM_z_TDGBrOsNbADFvHSoFuP8mF-hobIGroDzC4mdBY3FN-bSAmEsEd1a0ZV0fRW26EDT02WC7ucNCHc9H23zq43v-0pfalg8nRmFQKSPGzDG9yCMEqyz48tGVpLC0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEy8_Ndh1LDCm3Yuc4oBb7pwnvnKxTfB-u4oLL-k5QyvnTb9rmav55RQ1Gf2FvZWzoZA2Syw2u0UuDmhxkUqRvCW0nIqWIT3TU8FHsQPw9c2hAiRvF2wvQ76pp4L4l51qIvLWd6WpSeb0CL4MOUl4LpzKLM3sRFuA=="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Greystone AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
-      "competitors_cited": [],
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
+      "competitors_cited": [
+        "callwaynes.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -624,12 +816,24 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
+          "competitors_cited": [
+            "callwaynes.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEMG093L1htjnE4udNrBY9yMEAMjdoEsK0aVzoqkdbqHppyCWjMKyvVEvGPcFHlgsvVumU9TX_UAALSfZR6HrbHgFiDxGoRbancKqzmB8Y68Op8iLDE-yUBcFk1MwA=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFCWMrDQ8M9Cb9SmvqCfLnAbZA5ULU_kdQFnCjJFgeCQKJz2a36YrX3p73MatIgIs7rRInlQtEEnG4g2MvTYL2_eUrAKyywAKh-v8YOSZvTrbl9OsRfTNpSfcHHHd5XBxgD",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQELbLEUhjSNKo4Z5YrXPGUobRARKWUHcLLX12wm0bmx3gN5J1TPokjwuuuTa5MZaUvtpOnBEvj8AILoCcpw22Uf0nGptukNB8J6-LYOVZlWmjvY2yNe1B7LhtjnsP660YZBgL4Bpg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvfqi6kkAzEyvRJuAoCc8r_cjqWKMfk19jxypuTdmLcMzLW639k9Vt7hV3VvZ-fxCwxb6bQ-C5td3GWelLosq4bH5RvsMK5mV1pRroEJuGB1qk_2aOGGwqQEdD_nErc8VKS2xsAd43Yh2JXwBq",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFBUjcqNbTK546I7VS_AjbvtaVjC8owjb_cLqm1s96N1i3N8ckl7djM2UvvKt6Pu4CXEn6Vd9lcQrYMMAlzeqtoNMdCax6JjeVHctBC3ZFJiA5GAp_k",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4otFF7vmz_gE-tcB2f6JoXCPcvltocJ9lBrlbSmfXEyMoJNTavKaYYE3rkSI96BbM6FmVdtja1Rwre6TDti-VwRVUrbehUmGOrDQXXtzh2zdpjGUVLUxa7wam-YpINnpqRQ==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_jG6soE4PdDHMjCQD8kvEebG5AgqOuiLOvEvMIbigcjyJeVXqjRECQWyIzIZ0GJTBZTXjOoZg1mQc7G9_BbS5j6qq1kNOcj8HSI3SYPjJNHg3jkjHrpBtW5GQQCYBBUP2InHaP09v",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpiZzfSYPAh5tk0fXh9xT1RqLS-TG-Q5GeAx2jGXEblxwcpKb60vdDlvSFj0hoqrB_rhaI3EivVov97iHrV_AJVKWoN8dzv0VapIKY9dTNac-7ovaWR_ZyKvh0NjMFJgIqudkHCj8-aGa__e5rEE4z"
+          ]
         }
       ]
     },
@@ -637,12 +841,17 @@
       "prompt": "Pest control Huntsville AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "cookspest.com",
+        "orkin.com",
+        "mrbuggs.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -650,12 +859,26 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "callwaynes.com",
+            "cookspest.com",
+            "orkin.com",
+            "mrbuggs.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGyA94cZIJgvqOCBeDFwAydXKWZQPzTopWle1dUCJAyh5AHw2zBpnIQCc0Yx9xKW9_BtwwbLlsENhOHGjmqADzfrohM30UK5PytXyxTf0VirQHSvG-rhzEX3TI883ysBKsI3_SgpYmcxL7LNpMk4jo=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYE26CfK1GuMm-5hTxKcrJBf65pL6RVjQERd1DGSeMwMpBe7zhcv8pOdMaJvYdk0HydBor5uPDV2Z6Ozk7kM4Q9iUti4fPidHZF0hQ0j73ZNsrT0cnG_2FXY80HiCmuugDTw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfBEqtbSViA8m42dL_phgE19upnuMS_b3GGB50Nq7qzyDXvCuOdCsQZC68gtDUkv1FTfZsQz_IQSrZJD-1tyl4pKrA4sEeyf6fcYzZPPIAGiXS2Pffuxf8zOKYVogXmSMo6Ggw",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZYs14bawnTn9DU23GjCM0lAIhdrGCCuFZjhC-TLifY4m7H9WV2F5IjoTpyG6KJnitVegX2ICCb2tt057rO0kf2LSAFkAJTNB8RU0SFa1tg6f7J4Ggp4eJY0Rrxz-zPmR8AJ4P4j8NzVmS",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECMPDqg72cWXaMVOvAGOpMxDNwUT_71EtVScv56nSbP9wHZxxg9oomY0F2gdIyK-ncFfpa08PNtLzONXYK93fQFPwZoWW29C2pwfR9JI6LrxXrwKYB3teWtPHIijEXRuaeuLmvwJNiHaPQ5klI",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHb1hfMU-zJUOhJkfCQrjZS9K9aKGQwoTYBHd94GnqnmjHxao9JLfmbPBZO6u52FPPxSEnYq0kqQ0ngPGFI_mwSE6y855-fDKGTG-FGHA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVvPVLtCw8YxMcfCLGRftSwrOzKbPMRmnlaieyCzQh1NncysriT1KbfIiSncblPxPgdApRfWAfBUfNPUi0nFdouuC6-UTudp_Q-BfDYcphLGz7HKvEnQfem5Gys5LNeq2xkpVbUSqLtffDxj-d",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr19IvXJUGF1f9vwjY6Y5M0Q7wbOsFLvpF4EzbQdO6xel9287-e9OjpRcoFMEt42J3bTJTHx4NyxDEo3Kxcb-cJ3eRLvuaZs3fk4Lt4p2mvHWFIw3FrM9J3Bb0rud6wBZmvVHTlSTNCSgQGmAJmVJvJLfJl0glrXJX-rmMRQStCMtYXg=="
+          ]
         }
       ]
     },
@@ -663,12 +886,14 @@
       "prompt": "Termite control Huntsville AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "cookspest.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -676,12 +901,23 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "cookspest.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-vTxyLyLrtq1d61gDX_mM9IZxOF3YPLlrpZlqUh673u7_8L5AKX3pxmCtXQN6FgGDBJ5-Kiay7pKOpSuxG0rJly9QA6USa12rSwHFTgL2JO1LKdLNorK_FXUpbdzv7z-rHc56rQ8WYKO6tklZcuxP68tQIvUQDtmOlgRjImIOPH_3zx5zgQ==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdyaz2Xb5qksOPNN5ib8q5HNnJntyTEPEk0b4t0G13ANE1tSwHcWfEBnJY1e1qAKDB1DMgoKzibBcqrYe_6f0R4JtVLnUGgOl45RfBQYQC7COWiaMorAkMLiDuRNgps6NDIEsE",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtQIyIzsLckUArsro3fg9XZShGqVyHGygmJFK4FQQjZVGEyjfLoET4NprbDkvwfTuxW8MK29_TUzOzi0GhWavFiAXnc7Z6-6VQ4wD5",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcOzS42gtERy11jORInz_71eqmm4G6VkQoXCxTBX1e-TcK11szyK2J6QYmLKM38_6lqRxZHwJ4AT_K4nMTGjE5oR-NOckr1VuF668ZvfizDZxQeSSSYwQN1fn0",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxxgRyvE-0UBW-zrDynqEZtYFaDgkaMjU-DL6sSoukwRBTU91Pbg-__YRPoJSvfXpCZazkwGsRAFIUt487g444uqGjSF1BNEa7JGjuo1u81hLy7S4ThzASWBANfAajTfJLs4vh6OdS0Vzqmds_bnpHZi8zi_ZtKzwngvQ7j8KkUA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAg0v2C_VbXfCa1Mb0pYLooWFsgRcyCOx5shDlLqgFX9u2RPv8cXYm5wmaujdN9K1M8lfZjI1YmsST4OO7IZy25Phw9IqEG0_FfwH7YdK-HWFw1vRara-NboLYwqSuw5Tw0LOlljlWZ_TCK54Y76oMrMl91oPXEdYgTqpHjuoyb8US",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEy_MlpNG3jcDhmuKjMjparm2Kk2715btW_QOHZXIU-xtv0RPh38FQvzNnSjFyvpGPLTsKTPCZgYbJM3k9hX84fmoJNhXzt7RPqUFvQ9psPIuMULJuwnUqOOFSh2mQkaIbEvFj38S8FSpNBRQcHkQylvKg9TZn4weklJurnMUNqQJ1Yn9Ee",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFY57Nn6SNfuEZ303DebIoBH7FLg-ymFimX7N68PSk-geQWdwCK5vCgXvcvKv12x_F4a_Z0BCARlzguTqHKmrb_MTsHNQAzH2v9108Yq1WjVLYwZm-1I8k1HY0AgxJtXW2S0a-ef1BRh8Wug9HSbAb-Guzjp4wHwbPkQbN0qMonwwrOW-hwZJmWbh1HCA=="
+          ]
         }
       ]
     },
@@ -689,12 +925,15 @@
       "prompt": "Pest control Madison AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "terminix.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -702,25 +941,36 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "callwaynes.com",
+            "terminix.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF7_BYtrIf6p_CuGfjIjGjIacAqcfRTq3j4dKCu98V43VUetpaAdJ5j4QdaHCiD1x_qNZXQcIpK_4f0Y8vAv5KMw_A1jHEnAw8kU1WOeAtuOcF7ErmY86QWWVYR2Cg_WJXRBKwV6YbIw6ldErSVseJVnuddKpay1K2VArtPVnrw5ZUxzgT_04gigS1v8t5Ns-VcGgjCsUSLkWZ_",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGy-zYLk5Lp79mk8cfaLGccWbuH2zvpu7e5GsWpRFaDBpqZt2ckjdOIsb0vFfqjvRQBoDjF3aAG3m2xA11K4Jf7pbdGDDdcQw_1sW0sf-b7SMoEFgkS6QUNmMqxJ4l0lCkydPfVcxCDj7skn5_deg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH2VVJ1Q0K5Y-Er3GIYP4gaOE4gwQBu58HgwdOyOUS-is1OyyFGz6_lyFdqHyY3ZfhKCD6qbXTSJW1eelAHUKq-5vm62ZkwQtPrP9GboVsLjzopthjGusbW7LY=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNXRDpJridZndtDD_-CcQCIwyqJfhVvz9a8jz86yLQ6MIkfZGBIsPd3IsQ0kP0WilymzYwjp0I1_20-AMdpDm8sKY6NhlZ_Tw9z56afQPoYQ==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECTa51FNLfQahz7oS7W95xEsUjHg1QOTHo9zcXIpogJ1kEozixtOIRRUR1_Ye0d_Z_RSok3P10josUGc1PQ7jOldsxf2j-kES01toPz-gDnylyxEc60rRVWXEkkj3JR2wEgaJYdrbL9DdP",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF9aeFaxDhYbF5SOEUOt4qjUoSDamFCDyNEU3veajZp1cngr19j8MFurj4g0CwNDxZRelMtxJg68phJUtuhZ8tNB-qP_UpfABcULTT_YfJocABsFvJmHURuFIBqNmcLuFAVfneXyQkeqxITVc6y",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGv6gwOzTif7ynXtWmckaINra5Kp2GDDt0lOsZ7zms-fsBAb2jckouOzuv-Xxb4zpfkoWnbIdmFyYSKm8lTLMXlxQjmfCQJGlk6ZhlKODsltmkilttjpEJ-jPrlqgYBSnK-T5NK2DDaGPsiEyURpHNGCVV5vVPF3A=="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Lake Martin AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
       "competitors_cited": [],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -728,25 +978,33 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfjaLH9yWupEvqTSLvDk9VLa3bYW8TraGu6ZvNUppI3td3dPHH949xwc7QppGYbM9CIl3ef2KgXsGWColztMoQDBYH-ExgDdMfsOOHyFvoHUUkTHSpd8EMr6Glj1Sv8fCJEg8Z",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_HjhXGmGmug82DxTtLdMoyn-qqdZh5vRlCZfuVC5OURPgftqAeWMmGpczqhcJmKaFi1VqBS4MpjGNCDc3F_5VckAdtzuoo5K6U_r8jGSOd-cdFyjdGE660V43SkdaGw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvvx5jydfNdv_0q7LkGISuiARE05AjNYkXkePg5CuwFnT4Mgj_V8cFn7c0nxt9AsMBsph-fyVvA8FO8QweXz1BRBCb0-ir-yIEfO2Td8Y-sPxxlNbx96UiaNIx5emiMuMJMnhZplVibu5uF7gotu5Q7qlIz2AfxuS-Bs_0ji9mul0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuvsogyVHnJw4JtqJXg-f_ESV346gK-soKjtYi5Sivjz4k3rDqoefKSTQqlDeWiufeEszq7dTpoJ7p6BZ-up4lFPQE1YzfUUqU1jKSzJjplRlQD0NuZ6wTjpLzJzhQB0jl4eMF9vV-eHqwc4DqseHLaK3YQko=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEKcj0tCsZh_pNf0g3aDFh_Yz6iCsPkO9DMf1TM5QBlg5RTeJauQz-uumIof7gVeQBE7YhWao-L2XokaLZf0BrWn__NAEFgX6jiBNC_clSOoAxcUO0FNxhBPD9K6cQJF_I_rmHOgICeAA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZbna3qLgQ2HNvAN1XHrDVrceVtCzhyqMQpbcm2tI9gRbRrDs7onMUUL2IJXB9vp0xPMAzQ7FHcebasrRITDWRO6IbbIvkj1qAGwmDLTwKVHSwDGoSC_43LAj9TZ2nQB-RY3QIfIx_oXkHki5Z81UykNRgS8NK",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzTzpy6ntvFLkDQq6_J2QgAsWh9x2_ywMbbPNOzeICORGJviMq9B-v8zee9JNPiaBdsY1izmcu0j5ITV6o7dYNgfEyNKxmLeY5DmB8Fs-WtNFiTg=="
+          ]
         }
       ]
     },
     {
       "prompt": "Pest control Alexander City AL",
-      "any_brand_mentioned": false,
-      "any_domain_cited": false,
+      "any_brand_mentioned": true,
+      "any_domain_cited": true,
       "competitors_cited": [],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -754,12 +1012,21 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
-          "brand_mentioned": false,
-          "domain_cited": false,
+          "ok": true,
+          "error": null,
+          "brand_mentioned": true,
+          "domain_cited": true,
           "competitors_cited": [],
-          "urls": []
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6KTX7pB_tlVr6RhubGF8hn_cYnIglcUdMclF13UID0skH1YV89PliVddd5rDOfLPWQh_BIf3HWsZOnCEIHoYOVSRMNmnehZyXYqGFAFZazd0fu8OGg3LdueU8YbakpfdGLA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmGbPPFg5yrYpd5nPhHZV1vVkk5fxB5seUl7npFEJ9nrZPJ__Mi1T6uKbmoBb4ZjmWXIMzv2IvulnQrnW797pA_eB5_4XLbECNEC_k_JCK1C0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjqYkses7__2r6eysuIE77pPAwZOfApfEQhR5rI6_JjF9VvpQ1ClVti5rUkExIvVKJ1fXXKs_blvXTbP-78UWU4MDUrLGtuaCaxu6pz_nsRCTpYY8=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF94fJLNgBz5auuyEhYuaxosKpfTHbYlZvOG6RBxXok_jtxp7mhE3OD8afFDGmCIl8RsAbueQrc_Bw-JrCZxe1vzDGlMsT5TwZZUUYajba9SOPDyRbYE8seZxq24rmhIHzmPHlM5DsWddA5UMsay6sm",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlajSsOTT3wYHHwU9nS1YQCxZulrST2VShmh9T3HbLO_CRrl47Ut54_1tt8P6KtoPrIXazELdRseOTpKeC6frGR7DnoQ079vua9bUdlGEnFbH9I-ZmiGh4uTyKzWvpteWVm04IVAr45Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEWDMhRIJIeSckoBB2hZKmtITfFY1L8SgHoahxB8wqwrV567BI8AG5C1oduQ1bnf_DK0AGodUw1L6TAQ7ZUwK-4dyWwzYU6k6K3PgdJijkgMiwOg7Degw5uEA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEk5Juoi5DZ8Hzbb4XhtHLbjPgl6pCCA6ijokHN1GDuHlrNkzEO6BBY-d275G3STzqItGkf0DDs12qgvuMhhHEwhSzSFyyTV4aWAsaord0-HTpIJJ9a6QFR7Ww1yjP6XXN9C-aXX6_ghk2VUZpJEd00huzo3k5ALftW",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpQtKkUBeuV6bub9gVjG7SDEhajK9HHgxZ7XWxvFLkxJfiBX_uY5IYnrzfLAtU4Rgn1zc_3qC4q1p8kmO8NMYfn3u5GgVbydcCbPt-Fd9QTyXe5nyhlxIfVv4iIzWvKfqdwdzflF5ykJven4r5nJh-nf7wszeOLSCJehW7q68="
+          ]
         }
       ]
     },
@@ -767,12 +1034,14 @@
       "prompt": "Pest control Auburn AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "orkin.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -780,12 +1049,21 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "orkin.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG8eU7eRTXJUpRLAKkujZY0-25iTKJnR0vsfKofRNhq3VDNfAsj_emu420BgxpZ3horb3c-EjtAAifCwMD78D0rGP-157zBtDrF41yYpS48QcOu9XeOpWuHBFwzk3j9i6pOMyQ7UFU3YbiQwiI-A3nM",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNa2ciOdcs6vYQ1zxtd-oAFz80LD3DaMSqr69wOFmOwfy3NK0HQrMHqMkc2IkMreBZq0xCA_YSk7MYyGajJGQaUm4iGPtfC965jhvmnLjvt4zta3ajGq0SxEBKXqMxLexLnVGQy0aT1HTs-CE2Zjgi1BbtCPghBFfyGKwoUdS5c6D0P2GcNfE=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEejF3EX2I2-4cYy0fE4kesTRRxy9NtwaXA2HiGHiFWocXFHHfi-uGj4EOadg2ElOteHJNxvBYNRLz2bUqRiVa-znTdDfpT5NmrBfGu05gnGeRoJaFqrEiHzeFfGslBSFNcn1YxZR8AchzGB_nfw0FY2z07Bvmt",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6X6B0NmGn5cw2WR2PZTttY8yUCvLcTX9ItQPmGCRqeSyslosjLUkdXJJMq6b2sP2cdkBAQ3PD3vIFDqsjKY13ma9CVIsH7g_KrMdCSs-nKskChouR0Da7",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5UIhHJYyCfnzws5u3MAbcLJaDpJnw2sthhxrvni7_EQApNhu651kYEWUai9XVuFTuJ26UjvQLFtx19Ge0DrYy0dnP5r1g6JhnyBNtmP0yr4Ro74RAdVluXP4snAdOdA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhhG_Yx816c0DGOs3-Yyj8Jfa_uzamtp52WoyjMufifP1_XrHToP_2I9xXY6QmPSe0rQqxRLVXEQV6eKpCzAj5vWK0J3Qkvs3MqidiV922Vjv-vB2SBrS4jkSYdZAyB99DOX-mzrzrDob7in8kp0M_fO8DBQ=="
+          ]
         }
       ]
     },
@@ -793,12 +1071,15 @@
       "prompt": "Termite inspection Auburn AL",
       "any_brand_mentioned": false,
       "any_domain_cited": false,
-      "competitors_cited": [],
+      "competitors_cited": [
+        "callwaynes.com",
+        "orkin.com"
+      ],
       "engines": [
         {
           "engine": "openai",
           "ok": false,
-          "error": "404: {\"error\":{\"message\":\"The model `gpt-4o-search-preview` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations\",\"type\":\"invalid_requ",
+          "error": "429: {\"error\":{\"message\":\"Rate limit reached for gpt-5-search-api in organization org-cFUc4Yv22uJChgQaJkRb0dHB on tokens per min (TPM): Limit 6000, Used 6000, Reques",
           "brand_mentioned": false,
           "domain_cited": false,
           "competitors_cited": [],
@@ -806,12 +1087,23 @@
         },
         {
           "engine": "gemini",
-          "ok": false,
-          "error": "404: {\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest",
+          "ok": true,
+          "error": null,
           "brand_mentioned": false,
           "domain_cited": false,
-          "competitors_cited": [],
-          "urls": []
+          "competitors_cited": [
+            "callwaynes.com",
+            "orkin.com"
+          ],
+          "urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpMfDnGxLbCEDg-zOQSvPqHINSwhgsJWeflapWvTvFbSmsBqfbO-JD0LsojnJELdO_cqPeLUjOjgu0SMS1hotkdmlHD2yzlv0OMpGdtYWFJRHiqsES4waozDh8EwmQRusFPuI6FE7uureace4=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPWLUZ5l8YrloKxC7RG81TUY3DpwpwuuMYh-uP5s7renaPfPM7PmL0AbNryU-ar9FRsZWMjNOt4vhQS8YFsKKkN6R2nPuO4lVLDT2lV4UDIC1ew-MS9d4t",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHODk8ix2a5FvyCHYuUV_OEvYmRSuCnFNodYyqiLUNdQxo3spFaOutbwNLys-UxSI_cZddnt2l-ki2PkSnE5WxJCAMsEfnif-GL1LvRMGsG8agzukbNCs0NTcGhSNPiFA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEglJcJfxBktG25vjq1l72otb2zPQE-fvBWxyw7UYEJCuwR9hacelvU0A0O9Yanhr5o6v7faVnobKhc-AzFEfAKgwFjfIvAdzsdJxShv2YnZDr2N_0j8kWbmHCRRhRpTtciBC3S0-xiffmUrH9pztGtzz5IDuHAgsFI6uRfGn8K3mH7",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtdxY9G7HYYxpjjGiK35X314Qfb5R6cjWrUxg9wqptGFIt-UqlrLS0Gl7Bdx7V-RXgd953fiJkDBCkB111g7oWj--20GXhb34xWqwxhM7oSC7H_4a05nn1s1CNHnLrEbAoL-RCgPnXXN5PXvU=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH03MvTbTIyga7MXqKWi2n0i3X6yI2bMGqaBe6mvpifIlbBToahDJ8P5gopW1gNKhy2oGYamCr56P5mZ_mvdg0TN1T6lygY-x4QZd7K6NhSAI7tjmiAbMA8cpON8z85xjFqM6ih9DUVJC2V01Aqc5WJqJ7eSA1t",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHF_XCqWw1ariyvheKpzgprg6i5v77Xogy0_CU4NI9CeamMGcT_6Fu5BkzTXPgw9yq0Ux1W_c11bdP6T6dFwpkRCQxno0Em7SLJpM3JDlYnAfEAQI5X39LAD04Q7QVKbdfLnkKoEChq1SEVLewjd9PbaGDrBw=="
+          ]
         }
       ]
     }
