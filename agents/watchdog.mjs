@@ -15,6 +15,8 @@
 // Emails on any problem immediately; emails a green digest every Monday so Phillip
 // knows the watchdog itself is alive (no Monday email = watchdog down = backstop).
 
+import { pathToFileURL } from 'node:url';
+import { google } from 'googleapis';
 import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { sendEmail } from './lib/notify.mjs';
 
@@ -274,6 +276,80 @@ async function leadPipelineCheck(lines, problems) {
 // ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────
 // Non-destructive: reads the deployments API only. Never GET-pings work routes,
 // never triggers the orchestrator. Flags failed deploys + runaway deploy volume.
+// ── GA4 COLLECTION ───────────────────────────────────────────────────────────
+// Did the site record any visits yesterday? Added 2026-09-16 after GA4 collected
+// ~0 sessions from Aug 18 to Aug 26 2026 and nobody noticed for three weeks. The
+// gap only surfaced when someone pulled the numbers by hand.
+//
+// TWO TRAPS THIS CHECK IS BUILT AROUND, both of which already burned us:
+//
+//   1. GA4 RETURNS NO ROW FOR A DAY WITH NO DATA. It does not return 0. Code that
+//      reads rows[0] and skips when absent reports "no data" and moves on, which
+//      is the exact opposite of the alarm that should fire. A missing row IS zero
+//      and is treated as zero here.
+//   2. NEVER TEST THIS ON WEEKLY DATA. Weekly buckets hide the outage completely:
+//      W34 summed to 101 and W35 to 291 purely from the surviving days either side
+//      of the hole, which read as an ordinary dip. Only the `date` dimension shows
+//      it. That misreading is why this check exists.
+//
+// An API failure is NOT a tag failure. If the call itself errors we report that
+// separately, because telling Phillip to "check the site tag" when the real
+// problem is an expired refresh token sends him to the wrong place.
+const GA4_MIN_SESSIONS = Number(process.env.GA4_MIN_SESSIONS || 10);
+
+// CI has GOOGLE_REFRESH_TOKEN (same OAuth credentials ingest-ga4.mjs uses).
+// Falling back to Application Default Credentials lets this be run locally
+// against a service account, which is how it was tested before deploy.
+function ga4Auth() {
+  if (process.env.GOOGLE_REFRESH_TOKEN) {
+    const c = new google.auth.OAuth2(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET);
+    c.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
+    return c;
+  }
+  return new google.auth.GoogleAuth({ scopes: ['https://www.googleapis.com/auth/analytics.readonly'] });
+}
+
+// Sessions for ONE day, 'YYYY-MM-DD'. Returns a number; a day GA4 has no row for
+// is zero, not unknown. Throws only if the API call itself fails.
+async function ga4SessionsOn(dateISO) {
+  const data = google.analyticsdata({ version: 'v1beta', auth: ga4Auth() });
+  const res = await data.properties.runReport({
+    property: `properties/${process.env.GA4_PROPERTY_ID || '313205131'}`,
+    requestBody: {
+      dimensions: [{ name: 'date' }],
+      metrics: [{ name: 'sessions' }],
+      dateRanges: [{ startDate: dateISO, endDate: dateISO }],
+    },
+  });
+  const rows = res.data.rows ?? [];
+  if (!rows.length) return 0;                       // no row == no visits, see trap 1
+  return Number(rows[0].metricValues?.[0]?.value ?? 0);
+}
+
+export async function ga4Check(lines, problems, opts = {}) {
+  // opts.date lets the test harness pin a known-good and known-bad day.
+  const date = opts.date || new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+  if (!process.env.GOOGLE_REFRESH_TOKEN && !process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    lines.push('ga4      skipped — no GOOGLE_REFRESH_TOKEN; GA4 collection is UNMONITORED');
+    return;
+  }
+  let sessions;
+  try {
+    sessions = await ga4SessionsOn(date);
+  } catch (e) {
+    // Deliberately NOT the tag alert — this is our access breaking, not the site.
+    lines.push(`ga4      CHECK FAILED for ${date} — ${e.message} (this is an API/credentials problem, not necessarily the tag)`);
+    problems.push('GA4 check could not run');
+    return;
+  }
+  if (sessions < GA4_MIN_SESSIONS) {
+    lines.push(`ga4      ${sessions} session(s) on ${date} — below ${GA4_MIN_SESSIONS}`);
+    problems.push('GA4 recorded almost no visits yesterday — check the site tag');
+  } else {
+    lines.push(`ga4      ok — ${sessions} sessions on ${date}`);
+  }
+}
+
 async function vercelCheck(lines, problems) {
   const token = process.env.VERCEL_TOKEN;
   const project = process.env.VERCEL_PROJECT_ID || 'prj_bD63HstQIuOMn5cEGDK4RAW7yM2F';
@@ -415,6 +491,7 @@ async function run() {
   await budgetCheck(lines, problems);
   await leadPipelineCheck(lines, problems);
   await vercelCheck(lines, problems);
+  await ga4Check(lines, problems);
 
   const body = [
     `EnviroCare agent + infra health — ${new Date().toISOString().slice(0,16).replace('T',' ')} UTC`, ``,
@@ -439,8 +516,16 @@ async function run() {
   return { problems, emailed };
 }
 
-run().catch(async e => {
-  console.error(`[watchdog] ${e.message}`);
-  await sendEmail('⛔ EnviroCare watchdog crashed', `The watchdog could not complete:\n\n${e.message}`).catch(() => {});
-  process.exit(1);
-});
+// Run only when invoked as a script (`node agents/watchdog.mjs`, which is exactly
+// how .github/workflows/watchdog.yml calls it) -- behaviour there is unchanged.
+// Previously run() fired on IMPORT, so the module could not be loaded to exercise
+// one check in isolation: importing it ran the whole watchdog, hit Supabase and
+// tried to send mail. This guard is what let ga4Check be tested against two known
+// dates before deploying.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  run().catch(async e => {
+    console.error(`[watchdog] ${e.message}`);
+    await sendEmail('⛔ EnviroCare watchdog crashed', `The watchdog could not complete:\n\n${e.message}`).catch(() => {});
+    process.exit(1);
+  });
+}
