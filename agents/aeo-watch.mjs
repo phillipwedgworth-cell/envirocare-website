@@ -195,7 +195,7 @@ async function main() {
         tags: src.tags,
         panelResult,
       });
-      if (!finding.inserted) continue; // dup, already surfaced previously
+      if (!finding?.inserted || !finding.id) continue; // dup, already surfaced previously
 
       await recordPanel(finding.id, panelResult);
 

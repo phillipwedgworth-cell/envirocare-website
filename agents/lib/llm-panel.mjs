@@ -21,7 +21,7 @@
  */
 
 const CLAUDE_MODEL = process.env.PANEL_CLAUDE_MODEL || 'claude-haiku-4-5-20251001';  // Haiku default keeps panel spend low; override via PANEL_CLAUDE_MODEL
-const GEMINI_MODEL = 'gemini-2.5-pro';         // Google's flagship — strong on factual recall
+const GEMINI_MODEL = process.env.PANEL_GEMINI_MODEL || 'gemini-pro-latest'; // gemini-2.5-pro shut down 2026-06-17; alias tracks current Pro
 const OPENAI_MODEL = 'gpt-5';                  // OpenAI's flagship reasoning model
 
 // USD per 1M tokens. Claude is authoritative (Opus 4.8 = $5 in / $25 out).
