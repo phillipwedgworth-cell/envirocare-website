@@ -273,12 +273,9 @@ async function leadPipelineCheck(lines, problems) {
   }
 }
 
-// ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────
-// Non-destructive: reads the deployments API only. Never GET-pings work routes,
-// never triggers the orchestrator. Flags failed deploys + runaway deploy volume.
 // ── GA4 COLLECTION ───────────────────────────────────────────────────────────
 // Did the site record any visits yesterday? Added 2026-09-16 after GA4 collected
-// ~0 sessions from Aug 18 to Aug 26 2026 and nobody noticed for three weeks. The
+// ~0 sessions from 2026-08-17 to 2026-08-27 and nobody noticed for three weeks. The
 // gap only surfaced when someone pulled the numbers by hand.
 //
 // TWO TRAPS THIS CHECK IS BUILT AROUND, both of which already burned us:
@@ -331,6 +328,9 @@ export async function ga4Check(lines, problems, opts = {}) {
   const date = opts.date || new Date(Date.now() - 864e5).toISOString().slice(0, 10);
   if (!process.env.GOOGLE_REFRESH_TOKEN && !process.env.GOOGLE_APPLICATION_CREDENTIALS) {
     lines.push('ga4      skipped — no GOOGLE_REFRESH_TOKEN; GA4 collection is UNMONITORED');
+    // Silence here is the failure mode that let August run nine days unseen, so an
+    // unmonitored check is itself a problem worth an email — not a quiet log line.
+    problems.push('GA4 monitoring is OFF — credentials missing');
     return;
   }
   let sessions;
@@ -350,6 +350,9 @@ export async function ga4Check(lines, problems, opts = {}) {
   }
 }
 
+// ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────
+// Non-destructive: reads the deployments API only. Never GET-pings work routes,
+// never triggers the orchestrator. Flags failed deploys + runaway deploy volume.
 async function vercelCheck(lines, problems) {
   const token = process.env.VERCEL_TOKEN;
   const project = process.env.VERCEL_PROJECT_ID || 'prj_bD63HstQIuOMn5cEGDK4RAW7yM2F';
