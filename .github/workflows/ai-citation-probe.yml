@@ -16,7 +16,10 @@ permissions:
 jobs:
   ai-citation-probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 45, not 20: gpt-5-search-api allows ~6000 tokens/min and one web-search answer
+    # spends nearly all of it, so 25 prompts pace out to roughly a call a minute once
+    # the 429 backoff is honoured -- which does not fit in 20.
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -30,8 +33,10 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts
 
+      # No continue-on-error: the probe now judges its own run. One engine down still
+      # exits 0 and commits partial results; it exits 1 only when the run is junk --
+      # too few cells overall, or any single engine below half its own calls.
       - name: Run AI citation probe
-        continue-on-error: true   # an engine outage shouldn't red the run; partial results still commit
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
@@ -39,7 +44,6 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}   # optional — probe skips Perplexity if unset
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
           NOTIFY_FROM: ${{ secrets.NOTIFY_FROM }}
@@ -61,6 +65,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ai-citations-report
-          path: agents/reports/ai-citations-latest.json
+          path: |
+            agents/reports/ai-citations-latest.json
+            agents/reports/ai-citations-latest-FAILED.json
           retention-days: 90
           if-no-files-found: ignore
