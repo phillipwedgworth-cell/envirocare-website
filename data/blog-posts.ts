@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/blog-posts.ts
+// Commit: feat(seo): internal links from cost/mosquito/roach posts into /pricing, /services/mosquito, /services/commercial
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/blog-posts.ts
 // Commit: feat(blog): recover 7 legacy Scorpion intents — get-rid-of ants/roaches, German roaches, mosquito dangers, termite FAQ, termite damage signs, tick-bite prevention
 // Push: main (via branch + PR)
 // ─────────────────────────────────────
@@ -905,7 +911,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>A follow-up.</strong> Egg cases protected at the time of the first treatment hatch a couple of weeks later. A follow-up visit catches that generation before it breeds. Skipping it is how a "fixed" kitchen has roaches again in six weeks.</li>
 </ol>
 
-<p>Expect a sharp drop in the first week and a clean kitchen in four to six weeks for a typical home infestation. Heavy, long-established populations — or a unit in a building where the neighbors are not treating — take longer and need the whole structure addressed.</p>
+<p>Expect a sharp drop in the first week and a clean kitchen in four to six weeks for a typical home infestation. Heavy, long-established populations — or a unit in a building where the neighbors are not treating — take longer and need the whole structure addressed; restaurants and multi-unit buildings are handled under <a href="/services/commercial">commercial pest control</a>.</p>
 
 <h2>How EnviroCare handles German cockroaches</h2>
 
@@ -1910,7 +1916,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: `
 <p class="lede">Lake Martin is paradise from March through October — until the sun goes down. Then it's a no-fly zone unless you're a mosquito, in which case it's an all-you-can-eat buffet.</p>
 
-<p>Our Alex City office has been treating lake homes since 1958. Here's what actually works, what doesn't, and how to think about mosquito control if you live (or weekend) on the water.</p>
+<p>Our Alex City office has been treating lake homes since 1958. Here's what actually works, what doesn't, and how to think about <a href="/services/mosquito">mosquito control</a> if you live (or weekend) on the water.</p>
 
 <h2>Why Lake Martin is worse</h2>
 
@@ -3350,7 +3356,7 @@ Free inspections. Terms are confirmed in writing before service starts.</p>
 <p class="lede">If you are shopping for pest control in Huntsville, the first thing you want is a straight number — not a "call for a quote" runaround. So here it is up front: at EnviroCare, recurring pest control in Huntsville starts at <strong>$35/month with a $75 initial service</strong>, and most homes land between $35 and $100 a month depending on which pests you want covered. Below is exactly what goes into that number, what mosquito and termite protection add, and why two houses on the same street can be quoted differently.</p>
 
 <h2>How much is monthly pest control in Huntsville?</h2>
-<p>EnviroCare runs three recurring plans out of our Old Madison Pike office, and the pricing is the same across Madison County:</p>
+<p>EnviroCare runs three recurring plans out of our Old Madison Pike office, and the pricing is the same across Madison County (the full <a href="/pricing">pest control price list</a> is published, no visit required):</p>
 <ul>
 <li><strong>Pest Control — from $35/month</strong> ($75 initial service). Bi-monthly exterior service with unlimited re-service between visits for the common Huntsville lineup: ants, spiders, roaches, wasps, centipedes, millipedes, and cave crickets.</li>
 <li><strong>Pest + Mosquito — from $69/month</strong> ($75 initial service). Our most popular plan for North Alabama, where the Tennessee Valley humidity keeps mosquito pressure high from spring through fall.</li>

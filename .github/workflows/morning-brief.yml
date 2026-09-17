@@ -23,6 +23,9 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          # Read-only: lets the brief list OPEN pull requests instead of
+          # guessing PR state from findings (it called merged PRs "Day 8 unmerged").
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node agents/morning-brief.mjs
 
       # Added 2026-08-24. This workflow failed silently on Aug 10, Aug 17 and
