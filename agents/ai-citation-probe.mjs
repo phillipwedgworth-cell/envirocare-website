@@ -9,7 +9,8 @@
 // Engines (each optional — runs whichever keys exist):
 //   OpenAI    web-search model  (OPENAI_API_KEY)      — default gpt-5-search-api (gpt-4o-search-preview shut down 2026-07-23)
 //   Gemini    Google Search grounding (GEMINI_API_KEY) — default gemini-flash-latest (gemini-2.0-flash shut down 2026-06-01)
-//   Perplexity sonar (PERPLEXITY_API_KEY)              — inherently web-grounded
+//
+// Perplexity was a third engine until 2026-09-16; removed, we have no account.
 //
 //   node agents/ai-citation-probe.mjs            # all prompts, all available engines
 //   node agents/ai-citation-probe.mjs --limit 5  # first 5 prompts (cheap smoke test)
@@ -27,7 +28,6 @@ const OUT = join(__dir, "reports", "ai-citations-latest.json");
 
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const PPLX_KEY = process.env.PERPLEXITY_API_KEY;
 const OPENAI_MODEL = process.env.OPENAI_SEARCH_MODEL || "gpt-5-search-api";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
 const STAMP = process.env.PROBE_DATE || ""; // pass an ISO date in CI; Date.* avoided for determinism
@@ -43,15 +43,35 @@ const URL_RE = /https?:\/\/[^\s"')<>\]]+/gi;
 const urlsFromText = (t) => (String(t || "").match(URL_RE) || []).map((u) => u.replace(/[.,]$/, ""));
 
 // ---- engines: each returns { engine, ok, text, urls, error } ----------------
+// gpt-5-search-api is capped at 6000 tokens/min on this org and one web-search answer
+// very nearly spends the whole minute. That makes this a PACING problem, not a retry
+// problem -- firing immediately and then backing off still lands inside the window it
+// just exhausted. PROVEN 2026-09-17 (run 35179665317): 21 of 25 OpenAI calls 429'd and
+// the month came back Gemini-only while still looking healthy enough to publish. So hold
+// to roughly one call a minute, and treat a short Retry-After as optimistic: a
+// tokens-per-minute window is a minute wide.
+const OPENAI_MIN_GAP_MS = Number(process.env.OPENAI_MIN_GAP_MS || 60000);
+const RETRY_FLOOR_MS = 20000;
+let openaiNextAllowedAt = 0;   // Date.now() is fine here; only the report STAMP is kept deterministic
+
 async function askOpenAI(prompt) {
   if (!OPENAI_KEY) return null;
   try {
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${OPENAI_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ model: OPENAI_MODEL, messages: [{ role: "user", content: prompt }] }),
-    });
-    const j = await res.json();
+    let res, j;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const wait = openaiNextAllowedAt - Date.now();
+      if (wait > 0) await sleep(wait);
+      openaiNextAllowedAt = Date.now() + OPENAI_MIN_GAP_MS;
+      res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${OPENAI_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ model: OPENAI_MODEL, messages: [{ role: "user", content: prompt }] }),
+      });
+      j = await res.json();
+      if (res.status !== 429 || attempt === 2) break;
+      const hinted = Number(res.headers.get("retry-after")) * 1000;
+      await sleep(Math.max(Number.isFinite(hinted) && hinted > 0 ? hinted + 1000 : 0, RETRY_FLOOR_MS));
+    }
     if (!res.ok) return { engine: "openai", ok: false, text: "", urls: [], error: `${res.status}: ${JSON.stringify(j).slice(0, 160)}` };
     const msg = j.choices?.[0]?.message || {};
     const text = msg.content || "";
@@ -80,22 +100,6 @@ async function askGemini(prompt) {
   } catch (e) { return { engine: "gemini", ok: false, text: "", urls: [], error: e.message }; }
 }
 
-async function askPerplexity(prompt) {
-  if (!PPLX_KEY) return null;
-  try {
-    const res = await fetch("https://api.perplexity.ai/chat/completions", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${PPLX_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ model: process.env.PPLX_MODEL || "sonar", messages: [{ role: "user", content: prompt }] }),
-    });
-    const j = await res.json();
-    if (!res.ok) return { engine: "perplexity", ok: false, text: "", urls: [], error: `${res.status}: ${JSON.stringify(j).slice(0, 160)}` };
-    const text = j.choices?.[0]?.message?.content || "";
-    const cites = j.citations || j.choices?.[0]?.message?.citations || [];
-    return { engine: "perplexity", ok: true, text, urls: [...new Set([...cites, ...urlsFromText(text)])], error: null };
-  } catch (e) { return { engine: "perplexity", ok: false, text: "", urls: [], error: e.message }; }
-}
-
 // ---- analysis ----------------------------------------------------------------
 function analyze(r) {
   const hay = lc(r.text + " " + r.urls.join(" "));
@@ -106,13 +110,18 @@ function analyze(r) {
 }
 
 // ---- run ---------------------------------------------------------------------
-const engines = [askOpenAI, askGemini, askPerplexity];
-const active = [OPENAI_KEY && "openai", GEMINI_KEY && "gemini", PPLX_KEY && "perplexity"].filter(Boolean);
-if (!active.length) { console.error("No engine keys set (need OPENAI_API_KEY, GEMINI_API_KEY, or PERPLEXITY_API_KEY)."); process.exit(1); }
+const engines = [askOpenAI, askGemini];
+const active = [OPENAI_KEY && "openai", GEMINI_KEY && "gemini"].filter(Boolean);
+if (!active.length) { console.error("No engine keys set (need OPENAI_API_KEY or GEMINI_API_KEY)."); process.exit(1); }
 console.log(`AI-citation probe — ${PROMPTS.length} prompts × [${active.join(", ")}]\n`);
 
 const rows = [];
 let cells = 0, mentioned = 0, cited = 0;
+// Per-engine tallies. An aggregate pass rate hides the case that actually misleads:
+// one engine fully alive and the other fully dead still clears a half-of-total bar,
+// and the survivors' rate is not comparable to a month measured on the other engine.
+const byEngine = {};
+const tally = (name) => (byEngine[name] = byEngine[name] || { attempted: 0, ok: 0, mentioned: 0, cited: 0 });
 const opportunities = [];
 
 for (const prompt of PROMPTS) {
@@ -122,7 +131,13 @@ for (const prompt of PROMPTS) {
     if (!r) continue;
     const a = r.ok ? analyze(r) : { brand_mentioned: false, domain_cited: false, competitors_cited: [] };
     engineResults.push({ engine: r.engine, ok: r.ok, error: r.error, ...a, urls: r.urls.slice(0, 8) });
-    if (r.ok) { cells++; if (a.brand_mentioned) mentioned++; if (a.domain_cited) cited++; }
+    const t = tally(r.engine);
+    t.attempted++;
+    if (r.ok) {
+      cells++; t.ok++;
+      if (a.brand_mentioned) { mentioned++; t.mentioned++; }
+      if (a.domain_cited) { cited++; t.cited++; }
+    }
     await sleep(600);
   }
   const anyCited = engineResults.some((e) => e.domain_cited);
@@ -135,11 +150,16 @@ for (const prompt of PROMPTS) {
 }
 
 const attempted = rows.reduce((n, r) => n + r.engines.length, 0);
-if (cells === 0 || cells < attempted / 2) {
+// An engine that answered fewer than half its own prompts did not measure this month.
+// Publishing the survivors' rate as THE rate is how "24% in August, 59% in September"
+// reads as a gain when it is really two different instruments.
+const blind = Object.entries(byEngine).filter(([, v]) => v.ok * 2 < v.attempted).map(([k]) => k);
+if (cells === 0 || cells < attempted / 2 || blind.length) {
+  const per = Object.entries(byEngine).map(([k, v]) => `${k} ${v.ok}/${v.attempted}`).join(", ");
   const errs = [...new Set(rows.flatMap((r) => r.engines.filter((e) => !e.ok).map((e) => `${e.engine}: ${e.error}`)))].slice(0, 6);
-  const msg = `PROBE BROKEN — ${cells}/${attempted} engine calls succeeded. Metrics NOT written.\n` + errs.join("\n");
+  const msg = `PROBE BROKEN — ${cells}/${attempted} engine calls succeeded (${per}).${blind.length ? ` Engine(s) below half their own calls: ${blind.join(", ")}.` : ""} Metrics NOT written.\n` + errs.join("\n");
   console.error(msg);
-  writeFileSync(OUT.replace(/\.json$/, "-FAILED.json"), JSON.stringify({ date: STAMP || null, attempted, succeeded: cells, errors: errs }, null, 2) + "\n");
+  writeFileSync(OUT.replace(/\.json$/, "-FAILED.json"), JSON.stringify({ date: STAMP || null, attempted, succeeded: cells, by_engine: byEngine, blind, errors: errs }, null, 2) + "\n");
   if (process.env.RESEND_API_KEY && (process.env.NOTIFY_EMAIL || "").trim()) {
     try {
       await fetch("https://api.resend.com/emails", {
@@ -158,6 +178,11 @@ const metrics = {
   domain_cited_rate: cells ? Math.round((cited / cells) * 100) : 0,
   prompts_cited: rows.filter((r) => r.any_domain_cited).length,
   prompts_total: rows.length,
+  // Per-engine, so a month measured on a different engine mix is visibly different
+  // rather than silently different.
+  by_engine: Object.fromEntries(Object.entries(byEngine).map(([k, v]) => [k, {
+    ...v, domain_cited_rate: v.ok ? Math.round((v.cited / v.ok) * 100) : 0,
+  }])),
 };
 
 const report = {
