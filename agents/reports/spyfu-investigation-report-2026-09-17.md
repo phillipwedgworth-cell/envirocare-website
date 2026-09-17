@@ -20,7 +20,14 @@ estimated data vs. real GSC numbers.
    keywords must describe the real bi-monthly service.
 3. Rodent/mice/ant demand (item #7) is a legitimate content gap, not a scope
    question — those pests are already covered under the standard $35/mo Pest
-   plan. Wasps should be spot-checked the same way before writing content.
+   plan.
+4. **Wasps are different — checked `data/services.ts`.** It explicitly states
+   "NO bee/wasp removal" as a standalone service; wasps/hornets/carpenter bees
+   are an add-on available only to existing pest customers, for an additional
+   charge — same bucket as AGENTS.md's "carpenter bee is existing customers
+   only" rule. Content targeting "wasp removal near me" (2,700/mo in the gap
+   theme list) must not imply EnviroCare does standalone wasp removal for new
+   callers.
 
 ## What is most actionable now
 
@@ -30,7 +37,7 @@ estimated data vs. real GSC numbers.
 4. ~~Tuscaloosa needs a dedicated local landing strategy.~~ **Not actionable — see correction #1 above.**
 5. **The Sentricon/termite content cluster is proven but under-optimized.** Wayne's ranks #6 for `does sentricon work`; EnviroCare ranks #16 with its Sentricon comparison article. (Reminder: the $1M coverage is EnviroCare's, never Sentricon's/Corteva's, per AGENTS.md §1.)
 6. **Alabama pest education is a competitor moat worth attacking selectively.** Magic City ranks #1 for `cockroaches in alabama` and `ants of alabama`, while EnviroCare already has relevant pest-library/blog assets that rank lower.
-7. **Rodent, mice, wasp and ant service demand deserves dedicated review.** A broad Magic City gap pull surfaced large `near me` demand and strong CPCs, especially rodent/mice terms. These are market-wide signals, not Alabama-only forecasts, and the services are already offered — see correction #3.
+7. **Rodent, mice and ant service demand deserves dedicated review; wasp demand needs different handling.** A broad Magic City gap pull surfaced large `near me` demand and strong CPCs, especially rodent/mice terms. These are market-wide signals, not Alabama-only forecasts. Rodents/mice/ants are already offered under the standard plan (correction #3); wasps are add-on-only for existing customers, not a standalone service (correction #4) — content for "wasp removal near me" needs to reflect that.
 
 ## 90-day operating plan
 
@@ -45,8 +52,8 @@ estimated data vs. real GSC numbers.
 - Rebuild/expand Birmingham and Huntsville landing experiences. ~~and Tuscaloosa~~
 - Expand termite-bond and termite-treatment copy around real service details.
 - Add a rodent-control / exclusion commercial hub — service is confirmed already offered (see correction #3).
-- Improve internal links from Alabama pest-library articles to relevant local/service pages.
-- Refresh cockroach, ant, spider, wasp/hornet and Sentricon content using competitor gaps.
+- Improve internal links from Alabama pest-library articles to relevant local/service pages. (Spot-checked 2026-09-17: `/pest-library/ants` and `/blog/cockroach-control-alabama` both already link to `/services/pest-control` — this page/post pair doesn't have the gap; the ranking deficit there is content depth, not linking. Worth re-checking other pages before assuming this is a broad problem.)
+- Refresh cockroach, ant, spider and Sentricon content using competitor gaps. Any wasp/hornet content must say it's an add-on for existing customers only (correction #4), not a standalone offer.
 
 ### Weeks 7–12
 - Build unique local proof into priority city pages: reviews, cases, service specifics, neighborhoods, office/staff information where factual.

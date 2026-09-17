@@ -84,12 +84,19 @@ Do NOT recommend "more GBP optimization" as a fix for distant suburbs' map-pack 
   `termite bond birmingham al` (#2 vs #13) and `pest control birmingham`
   (#1 vs #25); Magic City owns Alabama pest-education topics EnviroCare
   already has assets for (`cockroaches in alabama`, `ants of alabama`); a
-  large rodent/mice/wasp "near me" keyword gap exists for services already
+  large rodent/mice/ant "near me" keyword gap exists for services already
   offered under the $35/mo plan. **Tuscaloosa targeting in this package is
   not actionable** (it's baked into the package's own config, not just this
   one pull — corrected in every saved copy). "Quarterly pest control"
   keyword targeting must describe the real bi-monthly cadence, not imply a
-  quarterly plan.
+  quarterly plan. **Wasps are add-on-only for existing customers**
+  (`data/services.ts`: "NO bee/wasp removal" as standalone — same bucket as
+  carpenter bee) — "wasp removal near me" content must reflect that, not
+  offer standalone wasp service. Spot-checked the internal-linking
+  recommendation against `/pest-library/ants` and the cockroach blog post —
+  both already link to `/services/pest-control` via the shared template, so
+  that specific "fix" doesn't apply there; the real gap is content depth vs.
+  Magic City, not linking.
 
 ## Contacts / plumbing
 - Owner: Phillip Wedgworth — phillipwedgworth@gmail.com
