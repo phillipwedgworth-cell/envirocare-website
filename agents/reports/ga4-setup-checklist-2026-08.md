@@ -38,6 +38,25 @@ ordinary data push and ignored — with no error. The Measurement ID
 (G-CELEB90NKX, stream 3496129282) was correct the whole time; an earlier
 deleted-stream theory was disproven by Phillip reading it off Admin.
 
+**Re-verified live in GA4 2026-09-16 (Phillip).** Property 313205131 recorded
+**1 session for Aug 20–26 2026, and zero for Aug 21–26**. That agrees exactly with
+the Supabase `ga4_weekly` row (id 1, 1 session).
+
+So, to close a question that has been re-opened more than once:
+
+- **The `ga4_weekly` row is CORRECT. There is no ingest bug. Do not "change" or
+  "fix" `agents/ingest-ga4.mjs`.** A 1 in that table is the outage above being
+  recorded faithfully, not a collection or reporting fault. An agent that sees a
+  suspiciously low number here and starts repairing the ingest is fixing the
+  thermometer.
+- The Sep 16 GA4 read (Aug 20–26) sits **inside** the Aug 17–27 window documented
+  above and in `d759c77`; it narrows that window, it does not contradict it.
+- The cause is **not** open. It is the gtag Array/`arguments` defect named above,
+  with before/after browser evidence, fixed in #121 and guarded by
+  `npm run test:tracking` (#124). "Site or tag problem fixed around Aug 26–27" is
+  the same conclusion, stated less precisely — kept here in its precise form
+  because the vague version is what invites a re-investigation.
+
 **Lesson for future refactors:** never "modernize" the gtag snippet. Arrow
 functions and rest params both break it, silently. `components/
 DeferredTracking.tsx` carries a warning comment at that line — but a comment is
