@@ -68,6 +68,14 @@ Do NOT recommend "more GBP optimization" as a fix for distant suburbs' map-pack 
 - Anything legal, pricing-change, or customer-refund related.
 - LSA setup or changes (ON HOLD).
 
+## External research on file
+- `agents/reports/spyfu-marketing-intelligence-2026-09-17.md` — SpyFu
+  competitor/keyword pull (inferred, not a live crawl). Confirms the Sentricon
+  comparison blog post and Huntsville/Birmingham/Decatur pages as ranking
+  assets worth strengthening (ties to priority 3 above). Flags Tuscaloosa as
+  a detected ranking signal — **ignore that; "No Tuscaloosa" above stands.**
+  Named SEO competitors for internal research only, never public copy.
+
 ## Contacts / plumbing
 - Owner: Phillip Wedgworth — phillipwedgworth@gmail.com
 - Site: phillipwedgworth-cell/envirocare-website → Vercel → www.envirocarellc.com
