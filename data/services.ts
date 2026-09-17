@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/services.ts
+// Commit: feat(seo): money-page titles/H1s target the queries GSC already shows them for
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/services.ts
 // Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
 // Push: main
 // ─────────────────────────────────────
@@ -181,7 +187,7 @@ export const SERVICES: Service[] = [
     metaTitle: 'Mosquito Control in Birmingham & Huntsville, AL | EnviroCare',
     metaDescription: 'Seasonal mosquito control across EnviroCare service areas in Alabama, with 8 scheduled treatments from March through October. Free inspection and local service.',
     heroEyebrow: 'Take Back Your Yard',
-    heroTagline: 'Mosquito Barrier Treatment',
+    heroTagline: 'Seasonal Mosquito Control',
     heroSubhead: '30-day yard barrier treatments March through October. Make your patio livable and your evenings outdoor again.',
     features: [
       '30-day refresh cycle',
@@ -455,11 +461,11 @@ export const SERVICES: Service[] = [
     shortName: 'Commercial',
     category: 'specialty',
     serviceArt: 'commercial',
-    metaTitle: 'Commercial Pest Control in Birmingham, AL | EnviroCare',
+    metaTitle: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
     metaDescription: 'Discreet commercial pest control for Alabama restaurants, retail, offices & multi-family. Flexible scheduling & inspection-ready logs. (205) 940-6360.',
     heroEyebrow: 'IPM & HACCP Programs',
-    heroTagline: 'Commercial Service',
-    heroSubhead: 'Restaurants, offices, warehouses, and multi-unit properties across Alabama. Discrete scheduling, full compliance documentation, IPM and HACCP support.',
+    heroTagline: 'Commercial Pest Control',
+    heroSubhead: 'Restaurants, offices, warehouses, and multi-unit properties across Birmingham, Huntsville, and Alabama. Discreet scheduling, full compliance documentation, IPM and HACCP support.',
     features: [
       'IPM (Integrated Pest Management) programs',
       'HACCP food service compliance',

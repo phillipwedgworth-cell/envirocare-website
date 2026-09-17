@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/birmingham/page.tsx
+// Commit: feat(seo): money-page titles/H1s target the queries GSC already shows them for
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/birmingham/page.tsx
 // Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
 // Push: main
 // ─────────────────────────────────────
@@ -44,9 +50,12 @@ export const metadata: Metadata = {
   // The $1M figure moved OUT of the description and into the visible page copy
   // below: the qualifier data/compliance.ts requires was living only in this meta
   // tag, i.e. nowhere a customer could ever read it.
-  title: "Pest Control Birmingham AL | Termite & Mosquito | EnviroCare",
+  // GSC Aug 21–Sep 14 2026: "pest control birmingham (al)" 868 impr at pos 31-34,
+  // "exterminator birmingham (al)" 190 with no page naming it, "birmingham termite
+  // control" 98 at pos 11. Title adds Exterminator; description keeps the office line.
+  title: "Pest Control & Exterminator Birmingham AL | Termite & Mosquito | EnviroCare",
   description:
-    "Family-owned Birmingham pest control since 1958. Bi-monthly from $35/mo, Sentricon® termite baiting, mosquito and tick yard service. Call (205) 991-2882.",
+    "Birmingham exterminator & pest control, family-owned since 1958. Bi-monthly from $35/mo, Sentricon® termite protection, mosquito & tick yard service. Office at 2120 16th Ave S. (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
