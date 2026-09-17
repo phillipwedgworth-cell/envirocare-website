@@ -414,6 +414,11 @@ export async function run() {
       scheduled_date_time: fmtDateTime(when),
       content: String(d.row.preview).trim(),
       google_post_type: "update",
+      // Google bans phone numbers in post bodies and offers the Call button as
+      // the sanctioned alternative — it draws the number from the verified
+      // profile, so no URL is needed and the listing can never disagree with
+      // the copy. See the phone-in-body ruling in lib/publish-canon.mjs.
+      cta_button: "CALL",
     };
 
     try {

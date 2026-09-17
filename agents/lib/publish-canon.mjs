@@ -86,19 +86,29 @@ export const OWNER_RULINGS = [
     reason: "absence-of-contract framing is inaccurate (owner direction 2026-08-07) — state the ACH and per-service billing options positively instead",
   },
   {
-    // Google rejects a Business Profile post whose BODY carries a phone number,
-    // and the post silently fails to go live. Recorded in oneup-push.mjs.
+    // Google rejects a Business Profile post whose BODY carries a phone number.
+    // Recorded in oneup-push.mjs 2026-08-06, and BLOCKING since 2026-09-17.
     //
-    // NOT BLOCKING, deliberately, and this is the one judgement call in this
-    // file. Every approved GBP row in the queue carries its office phone, so
-    // blocking would take the shippable count to zero on the strength of a
-    // claim this session could not verify against Google's live API. It is
-    // reported on every run instead, and the NAP check below still blocks the
-    // dangerous version of it (a phone that contradicts the listing).
+    // It was warn-only until then, on the stated grounds that the claim was
+    // "unverified this session". It is verified now. Google publishes the rule
+    // under the name "phone stuffing" on its posts content policy page
+    // (support.google.com/business/answer/7213077): "To avoid the risk of
+    // abuse, we do not allow your post content to include a phone number. You
+    // can make your phone number available on your Business Profile or
+    // website." The sanctioned alternative is a Call button on the post, which
+    // draws the number from the verified profile — so enforcing this loses no
+    // call-to-action, and the executor now sends cta_button: "CALL".
+    //
+    // Note the detection is broader than a formatted phone: Google reads any
+    // digit run of the right length as one. The regex here is narrower and so
+    // can under-report; it never over-reports.
+    //
+    // This takes the shippable count to zero until the two remaining rows have
+    // the number lifted out of their body copy. That is the correct outcome:
+    // a post that never goes live is worse than one held back.
     id: "phone-in-body",
     re: /\(?\b\d{3}\)?[.\-\s]\d{3}[.\-\s]\d{4}\b/,
-    reason: "GBP post bodies carrying a phone number are rejected by Google (agents/oneup-push.mjs, 2026-08-06) — unverified this session, so reported not blocked",
-    warnOnly: true,
+    reason: 'Google bans phone numbers in GBP post bodies ("phone stuffing", support.google.com/business/answer/7213077) — the post does not go live. Move the number to the post\'s Call button.',
   },
 ];
 
