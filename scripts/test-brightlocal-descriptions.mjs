@@ -99,7 +99,37 @@ async function main() {
   const warned = [];
 
   for (const item of items) {
-    const loc = item.location ?? item;
+    let loc = item.location ?? item;
+
+    // HYDRATE PER LOCATION, added 2026-09-17.
+    //
+    // find_locations STOPPED returning active_sync_data. The comment above records
+    // it verified on 2026-09-10 with every description populated; re-checked live
+    // 2026-09-17 and the same bare call now returns NAP, coordinates, phone and
+    // URLs only -- no active_sync_data at all, on any of the four locations. The
+    // payload shape changed underneath this guard.
+    //
+    // The effect was worse than a miss. The guard read zero descriptions, so it
+    // reported "4 locations returned but 0 descriptions were readable" while
+    // Birmingham's GMB description still carried BOTH banned phrases verbatim. It
+    // failed closed rather than green, which is the only reason this was caught --
+    // but a guard that cannot see its surface is not guarding it.
+    //
+    // get_location DOES still return active_sync_data, so fetch per location id.
+    // The inline path is kept first: if find_locations starts returning the data
+    // again, this costs nothing and keeps working either way.
+    if (!loc.active_sync_data && loc.location_id != null) {
+      try {
+        const full = await blMcpCall("get_location", { location_id: Number(loc.location_id) });
+        const hydrated = full?.location ?? full;
+        if (hydrated?.active_sync_data) loc = hydrated;
+      } catch (e) {
+        // A location we cannot read is an unscanned surface. Say so and fail below
+        // via the scanned === 0 / coverage checks rather than skipping quietly.
+        console.error(`  warn  get_location ${loc.location_id} failed: ${e.message}`);
+      }
+    }
+
     const name = `${loc.business_name ?? loc.name ?? "?"} / ${loc.address?.city ?? "?"} (${loc.location_id ?? "?"})`;
     const sync = loc.active_sync_data?.metadata?.active_sync ?? {};
 
