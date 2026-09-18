@@ -469,7 +469,7 @@ export const SERVICES: Service[] = [
     features: [
       'IPM (Integrated Pest Management) programs',
       'HACCP food service compliance',
-      'Discrete scheduling (after-hours available)',
+      'Discreet scheduling (after-hours available)',
       'Full audit-ready documentation',
       'Multi-unit & multi-location coordination',
       'Custom contracts',
@@ -477,7 +477,7 @@ export const SERVICES: Service[] = [
     includes: [
       { title: 'IPM Program Design', desc: 'Custom integrated pest management plan based on facility type, layout, and risk profile.' },
       { title: 'HACCP Documentation', desc: 'Full service logs, treatment records, and audit-ready binder for food service inspections.' },
-      { title: 'Discrete After-Hours Service', desc: 'Restaurants, retail, and medical facilities get service after closing — your customers never see us.' },
+      { title: 'Discreet After-Hours Service', desc: 'Restaurants, retail, and medical facilities get service after closing — your customers never see us.' },
       { title: 'Multi-Location Coordination', desc: 'Single point of contact for chains and franchises across our Alabama footprint.' },
     ],
     wedgePoints: [
