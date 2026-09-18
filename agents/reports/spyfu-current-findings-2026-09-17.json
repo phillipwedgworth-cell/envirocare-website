@@ -1,0 +1,134 @@
+{
+  "_source": "envirocare_ai_research_hub package, saved 2026-09-17",
+  "_corrections": [
+    "high_confidence_findings[7] (Tuscaloosa) \u2014 Tuscaloosa is not a service area (strategy.md: 'No Tuscaloosa'; AGENTS.md: retired). Rank 60 from the homepage is incidental ranking signal, not evidence of unmet local demand worth pursuing. Do not build a Tuscaloosa landing page from this finding.",
+    "high_confidence_findings[5] (quarterly pest control) \u2014 EnviroCare's actual cadence is bi-monthly, not quarterly (app/services/pest-control/page.tsx). Any content targeting this keyword must describe the real bi-monthly service, never imply a quarterly plan that doesn't exist."
+  ],
+  "as_of_conversation": "2026-09-17",
+  "target": "envirocarellc.com",
+  "high_confidence_findings": [
+    {
+      "finding": "Wayne's substantially outranks EnviroCare for Huntsville pest control.",
+      "keyword": "huntsville pest control",
+      "competitor": "callwaynes.com",
+      "competitor_rank": 4,
+      "envirocare_rank": 33,
+      "search_volume": 75,
+      "envirocare_url": "https://www.envirocarellc.com/huntsville"
+    },
+    {
+      "finding": "Wayne's outranks EnviroCare for Birmingham termite-bond intent.",
+      "keyword": "termite bond birmingham al",
+      "competitor": "callwaynes.com",
+      "competitor_rank": 2,
+      "envirocare_rank": 13,
+      "search_volume": 70,
+      "envirocare_url": "https://www.envirocarellc.com/termite-control/"
+    },
+    {
+      "finding": "Wayne's outranks EnviroCare for Birmingham pest-control intent.",
+      "keyword": "pest control birmingham",
+      "competitor": "callwaynes.com",
+      "competitor_rank": 1,
+      "envirocare_rank": 25,
+      "search_volume": 26,
+      "broad_cpc": 11.28,
+      "envirocare_url": "https://www.envirocarellc.com/services/pest-control"
+    },
+    {
+      "finding": "Magic City leads a valuable Alabama cockroach topic that EnviroCare already partially ranks for.",
+      "keyword": "cockroaches in alabama",
+      "competitor": "magiccitypestcontrol.com",
+      "competitor_rank": 1,
+      "envirocare_rank": 13,
+      "search_volume": 165,
+      "envirocare_url": "https://www.envirocarellc.com/blog/cockroach-control-alabama"
+    },
+    {
+      "finding": "Magic City leads the 'ants of Alabama' topic.",
+      "keyword": "ants of alabama",
+      "competitor": "magiccitypestcontrol.com",
+      "competitor_rank": 1,
+      "envirocare_rank": 22,
+      "search_volume": 150,
+      "envirocare_url": "https://www.envirocarellc.com/pest-library/ants"
+    },
+    {
+      "finding": "Quarterly pest control is an existing service-page expansion opportunity. CORRECTION: capture the search intent, describe EnviroCare's actual bi-monthly cadence \u2014 do not imply a quarterly plan.",
+      "keyword": "quarterly pest control service",
+      "competitor": "magiccitypestcontrol.com",
+      "competitor_rank": 11,
+      "envirocare_rank": 41,
+      "search_volume": 100,
+      "envirocare_url": "https://www.envirocarellc.com/services/pest-control"
+    },
+    {
+      "finding": "The Sentricon comparison cluster is validated by Wayne's outranking EnviroCare on related informational intent.",
+      "keyword": "does sentricon work",
+      "competitor": "callwaynes.com",
+      "competitor_rank": 6,
+      "envirocare_rank": 16,
+      "search_volume": 135,
+      "envirocare_url": "https://www.envirocarellc.com/blog/sentricon-vs-liquid-termite-treatment"
+    },
+    {
+      "finding": "NOT ACTIONABLE \u2014 Tuscaloosa is not a service area (see _corrections above). Original finding text: 'Tuscaloosa needs a stronger dedicated local landing experience.'",
+      "keyword": "exterminator tuscaloosa",
+      "competitor": "callwaynes.com",
+      "competitor_rank": 5,
+      "envirocare_rank": 60,
+      "search_volume": 39,
+      "envirocare_url": "https://www.envirocarellc.com/"
+    }
+  ],
+  "broad_gap_themes_from_magic_city_kombat": [
+    {
+      "keyword": "rodent control near me",
+      "search_volume": 10200,
+      "broad_cpc": 12.68,
+      "keyword_difficulty": 45
+    },
+    {
+      "keyword": "mouse exterminator near me",
+      "search_volume": 4400,
+      "broad_cpc": 10.3,
+      "keyword_difficulty": 48
+    },
+    {
+      "keyword": "rodent exterminator near me",
+      "search_volume": 3600,
+      "broad_cpc": 10.96,
+      "keyword_difficulty": 45
+    },
+    {
+      "keyword": "pest removal near me",
+      "search_volume": 3600,
+      "broad_cpc": 7.2,
+      "keyword_difficulty": 40
+    },
+    {
+      "keyword": "ant exterminator near me",
+      "search_volume": 3100,
+      "broad_cpc": 11.15,
+      "keyword_difficulty": 39
+    },
+    {
+      "keyword": "wasp removal near me",
+      "search_volume": 2700,
+      "broad_cpc": 8.19,
+      "keyword_difficulty": 21
+    },
+    {
+      "keyword": "mice removal near me",
+      "search_volume": 1800,
+      "broad_cpc": 15.07,
+      "keyword_difficulty": 51
+    },
+    {
+      "keyword": "rodent exclusion services near me",
+      "search_volume": 1300,
+      "keyword_difficulty": 24
+    }
+  ],
+  "caveat": "Broad 'near me' volumes are market-wide opportunity signals. They are not Alabama-specific demand estimates and should be localized/validated before forecasting. Rodents/mice/ants are already covered under the standard $35/mo Pest plan (verified against app/services/pest-control/page.tsx) \u2014 this is a content/ranking gap, not a new-service-scope question. Wasps are DIFFERENT: verified against data/services.ts, wasps/hornets/carpenter bees are explicitly NOT a standalone public service ('NO bee/wasp removal') \u2014 they're an add-on available only to existing pest customers, for an additional charge, same bucket as AGENTS.md's 'carpenter bee is existing customers only' rule. Any content targeting 'wasp removal near me' must not imply standalone wasp service for new customers."
+}

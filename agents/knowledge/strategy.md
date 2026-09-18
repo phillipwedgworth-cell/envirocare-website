@@ -68,6 +68,36 @@ Do NOT recommend "more GBP optimization" as a fix for distant suburbs' map-pack 
 - Anything legal, pricing-change, or customer-refund related.
 - LSA setup or changes (ON HOLD).
 
+## External research on file
+- `agents/reports/spyfu-marketing-intelligence-2026-09-17.md` — SpyFu
+  competitor/keyword pull (inferred, not a live crawl). Confirms the Sentricon
+  comparison blog post and Huntsville/Birmingham/Decatur pages as ranking
+  assets worth strengthening (ties to priority 3 above). Flags Tuscaloosa as
+  a detected ranking signal — **ignore that; "No Tuscaloosa" above stands.**
+  Named SEO competitors for internal research only, never public copy.
+- `agents/reports/spyfu-current-findings-2026-09-17.json` +
+  `spyfu-investigation-report-2026-09-17.md` — deeper SpyFu pull from the
+  external `envirocare_ai_research_hub` package (config/prompts saved to
+  `agents/prompts/`; the Python collector itself hasn't been delivered, so
+  nothing here is automated yet). Real findings worth acting on: Wayne's
+  outranks EnviroCare badly on `huntsville pest control` (#4 vs #33),
+  `termite bond birmingham al` (#2 vs #13) and `pest control birmingham`
+  (#1 vs #25); Magic City owns Alabama pest-education topics EnviroCare
+  already has assets for (`cockroaches in alabama`, `ants of alabama`); a
+  large rodent/mice/ant "near me" keyword gap exists for services already
+  offered under the $35/mo plan. **Tuscaloosa targeting in this package is
+  not actionable** (it's baked into the package's own config, not just this
+  one pull — corrected in every saved copy). "Quarterly pest control"
+  keyword targeting must describe the real bi-monthly cadence, not imply a
+  quarterly plan. **Wasps are add-on-only for existing customers**
+  (`data/services.ts`: "NO bee/wasp removal" as standalone — same bucket as
+  carpenter bee) — "wasp removal near me" content must reflect that, not
+  offer standalone wasp service. Spot-checked the internal-linking
+  recommendation against `/pest-library/ants` and the cockroach blog post —
+  both already link to `/services/pest-control` via the shared template, so
+  that specific "fix" doesn't apply there; the real gap is content depth vs.
+  Magic City, not linking.
+
 ## Contacts / plumbing
 - Owner: Phillip Wedgworth — phillipwedgworth@gmail.com
 - Site: phillipwedgworth-cell/envirocare-website → Vercel → www.envirocarellc.com
