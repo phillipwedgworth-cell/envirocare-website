@@ -153,11 +153,18 @@ async function buildAccountMap() {
   // Each route carries the phone of the LISTING it publishes to, not of the
   // nominal location. See the mismatch guard in run().
   return {
-    // NOTE: there is no Birmingham GBP listing yet — Phillip is creating one.
-    // Until it exists, Birmingham-metro GBP posts go to the ALABASTER listing,
-    // which is the metro's verified profile. That makes Birmingham a FALLBACK
-    // route, so its posts must carry Alabaster's number.
-    "birmingham:google": { id: byCity("butler rd"), phone: "(205) 940-6360", listing: "Alabaster GBP", fallback: true },
+    // Birmingham publishes to its OWN listing. This route sent Birmingham-metro
+    // posts to the ALABASTER listing until 2026-09-17, on the premise that no
+    // Birmingham GBP existed. That premise has expired twice over:
+    //   - AGENTS.md records 2120 16th Ave S, Ste 302 as GBP-verified 2026-09-05,
+    //     confirmed live via the Places API (place_id ChIJjXGa0ZsbiYgR1mB0oEKnqUo,
+    //     OPERATIONAL, 5.0 from 10 reviews).
+    //   - OneUp listsocialaccounts, read live 2026-09-07, returns the listing
+    //     "EnviroCare (2120 16th Ave S, Birmingham, AL, US)" with is_expired: 0.
+    // The old state was self-consistent — Alabaster listing paired with Alabaster's
+    // number, so the NAP guard never fired — which is why misrouting an entire
+    // metro's content went unnoticed. Matches agents/executor.mjs (PR #144).
+    "birmingham:google": { id: byCity("16th ave"), phone: "(205) 991-2882", listing: "Birmingham GBP" },
     "alabaster:google": { id: byCity("butler rd"), phone: "(205) 940-6360", listing: "Alabaster GBP" },
     "huntsville:google": { id: byCity("old madison pike"), phone: "(256) 937-7676", listing: "Huntsville GBP" },
     "lake_martin:google": { id: byCity("tallapoosa"), phone: "(256) 234-6162", listing: "Alex City GBP" },
@@ -199,7 +206,12 @@ function scheduleFor(iso, pastDueIndex) {
  */
 async function auditScheduled() {
   const posts = await oneup("getscheduledposts");
+  // One entry per GBP listing. A listing missing here is SKIPPED by the
+  // `if (!rule) continue` below, so an omission silently exempts that listing
+  // from the audit rather than failing loudly — Birmingham was missing until
+  // 2026-09-17 because its posts went to the Alabaster listing.
   const expected = [
+    [/16th ave/i, "(205) 991-2882", "Birmingham"],
     [/butler/i, "(205) 940-6360", "Alabaster"],
     [/madison pike/i, "(256) 937-7676", "Huntsville"],
     [/tallapoosa/i, "(256) 234-6162", "Alex City"],
@@ -269,13 +281,14 @@ export async function run() {
     // different office's number, that listing now carries a conflicting phone —
     // exactly the inconsistency the citation cleanup exists to remove.
     // This bit on 2026-08-07: two Birmingham posts were pushed carrying
-    // (205) 991-2882 while routing to the Alabaster listing, because Birmingham
-    // has no GBP of its own yet.
+    // (205) 991-2882 while routing to the Alabaster listing, which at the time
+    // was where Birmingham-metro posts went. Since 2026-09-17 they route to the
+    // Birmingham listing, which carries 991-2882 — so that exact pairing is now
+    // correct and the guard fires on the reverse (940-6360 on a Birmingham post).
     if (route.phone && content.includes("(") && !content.includes(route.phone)) {
       const shown = (content.match(/\(\d{3}\)\s?\d{3}-\d{4}/g) || []).join(", ") || "none";
       console.error(
-        `[${AGENT_NAME}] BLOCKED ${r.id} — publishes to ${route.listing} (${route.phone}) but the copy says ${shown}.` +
-        (route.fallback ? " This is a fallback route: no GBP exists for this location yet." : "")
+        `[${AGENT_NAME}] BLOCKED ${r.id} — publishes to ${route.listing} (${route.phone}) but the copy says ${shown}.`
       );
       results.push({ id: r.id, skipped: `NAP mismatch: ${route.listing} vs ${shown}` });
       continue;
