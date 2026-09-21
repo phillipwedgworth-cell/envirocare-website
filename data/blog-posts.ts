@@ -847,7 +847,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Identify, stop spraying, remove the food, bait correctly, seal, and call when the math stops working. That order clears the large majority of ant problems in Alabama homes — and the ones it does not clear are exactly the ones that need a technician who can find the nest you cannot. Whether you are in <a href="/alabaster">Alabaster</a>, <a href="/huntsville">Huntsville</a>, or a lake house on <a href="/lake-martin">Lake Martin</a>, the approach is the same.</p>
 
-<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -993,7 +993,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>The serious risks are real but uncommon; heartworm is common and preventable; and the household habits — dump the water, treat the shade, use repellent at dusk — do most of the work. If you would like the yard side of that handled on a schedule, we are glad to walk the property with you and show you where the water is hiding.</p>
 
-<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1149,7 +1149,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Most termite questions come down to one: <em>do I need to worry about this house?</em> The honest answer for any house in Alabama that has not been inspected in the last year is that you do not know, and a free inspection turns that into an answer either way. That is the whole reason it is free.</p>
 
-<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1221,7 +1221,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>If the family is finding ticks after ordinary time in the backyard — not the woods, the yard — the edge zones need treatment on a schedule, and the landscaping changes above need to happen alongside it. That is what we do. We will walk the property with you, show you where the ticks are questing, and treat those zones through the season. Wooded lots in <a href="/chelsea">Chelsea</a>, <a href="/madison">Madison</a>, and around <a href="/dadeville">Dadeville</a> are exactly what the program was built for.</p>
 
-<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1356,7 +1356,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Get ahead of it this September</h2>
 
-<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
+<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1417,7 +1417,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Do it once, in September</h2>
 
-<p>Sweeps, sealant, mesh, and an afternoon of yard cleanup will do more for your October than anything in a spray bottle. If you would rather have someone walk the foundation with you, that is part of a free inspection. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> before the weather turns.</p>
+<p>Sweeps, sealant, mesh, and an afternoon of yard cleanup will do more for your October than anything in a spray bottle. If you would rather have someone walk the foundation with you, that is part of a free inspection. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> before the weather turns.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1479,7 +1479,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Products are EPA-registered and applied per label directions. Program details are on our <a href="/services/termite-control">termite control service page</a>.</p>
 
-<p>If you want a real number for your house, call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676. The inspection is free and the quote is yours to keep.</p>
+<p>If you want a real number for your house, call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676. The inspection is free and the quote is yours to keep.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1535,7 +1535,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>If you have caps in the yard and no idea who put them there, we will come look. A standard termite inspection is free, and our <a href="/services/sentricon">Sentricon service page</a> explains how we price a system after we have seen the structure — there is no flat termite price, because a crawlspace ranch and a slab-on-grade two-story are not the same job. Our broader <a href="/services/termite-control">termite control service</a> covers the rest.</p>
 
-<p>Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1585,7 +1585,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>And if it does not settle down, call us. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> includes unlimited re-service between scheduled visits, so if something is still working two weeks out, we come back and treat again at no additional charge. Products are EPA-registered and applied per label directions, and a second application targeted at the spot that is still active is a normal part of the process, not an admission that anything went wrong. Our guide on <a href="/blog/prepare-home-for-pest-control">preparing your home for service</a> is worth a read before that visit, since access is often the difference between a two-week flush and a four-week one.</p>
 
-<p>Questions about what you are seeing? Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
+<p>Questions about what you are seeing? Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -1629,7 +1629,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Bites around the ankles and lower legs are the classic flea complaint, but we've walked into plenty of "flea" calls that turned out to be carpet beetle larvae, chiggers tracked in from the yard, or straightforward skin irritation with no pest behind it. A flea comb pulled through a pet's coat, or a white sock dragged across carpet near baseboards, is a quick way to confirm live fleas before spending money treating for the wrong thing. If you're not sure, that's exactly what a professional inspection is for.</p>
 
-<p>If you're seeing bites and can't find the source, don't guess at it with another fogger. Call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/quote">request a free quote online</a> and we'll figure out what's actually biting and where it's coming from. No One Cares Like EnviroCare.</p>
+<p>If you're seeing bites and can't find the source, don't guess at it with another fogger. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676 — or <a href="/quote">request a free quote online</a> and we'll figure out what's actually biting and where it's coming from. No One Cares Like EnviroCare.</p>
 `,
   },
   {
@@ -1774,7 +1774,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>If you have a small patio, use it occasionally, and don't back up to woods or water — a spatial repellent, a box fan (genuinely underrated; mosquitoes are weak fliers), and a weekly walk to dump standing water may be all you need. If you're backing up to a creek in Hoover, a wooded lot in Hampton Cove, or shoreline at Lake Martin, the physics are against you, and a barrier program is the difference between owning your yard in August and surrendering it. Whatever you choose, skip the <a href="/blog/diy-pest-control-mistakes">DIY moves that make things worse</a>.</p>
 
-<p><a href="/quote">Request a free quote</a> or call the office nearest you — Birmingham (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
+<p><a href="/quote">Request a free quote</a> or call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, Huntsville (256) 937-7676. No One Cares Like EnviroCare.</p>
 `,
   },
 

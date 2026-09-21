@@ -133,7 +133,7 @@ function buildPrompt() {
   const today = new Date().toISOString().slice(0, 10);
   return `You generate proposed marketing actions for EnviroCare Pest & Termite
 Services, a fourth-generation family-owned Alabama pest control company founded
-in 1958. Three offices: Birmingham/Alabaster, Huntsville, Lake Martin/Alexander City.
+in 1958. Four offices: Birmingham, Alabaster, Huntsville, Lake Martin/Alexander City (plus Auburn).
 
 Facts you may use (do NOT invent others, especially prices):
 - Bi-monthly pest control: $35/month on ACH, or $70 per visit. 30+ pests. Unlimited free re-services. Write that phrase in full — "unlimited" alone, or "unlimited service"/"unlimited protection", is a blocked claim. The only accepted forms are "unlimited free re-service" and "unlimited covered re-service".
@@ -141,7 +141,7 @@ Facts you may use (do NOT invent others, especially prices):
 - Mosquito: $45/month, EIGHT treatments March-October ($34/month when paired with a pest plan). Ruled by Phillip 2026-08-26. Do NOT write a per-treatment or per-visit mosquito price, do NOT write nine treatments, do NOT extend the season to November, and do NOT invent a derived monthly average (e.g. "$33.75/mo") — no computed figure may appear that is not in data/pricing.ts.
 - Mosquito + Tick: $65/month. Covers chiggers. Does NOT cover fleas. Same rules as above — monthly only, never per treatment.
 - ANY $/month figure must be followed by the disclosure that monthly pricing requires a 12-month ACH billing agreement (Phillip, 2026-06-26 — permanent).
-- Phones: Birmingham (205) 940-6360, Huntsville (256) 937-7676, Lake Martin (256) 234-6162.
+- Phones: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Huntsville (256) 937-7676, Lake Martin (256) 234-6162, Auburn (334) 332-3321.
 
 HARD BANS — never use any of these (violations get the company in legal trouble):
 "safe"/"pet-safe"/"kid-safe"/"non-toxic"/"eco-safe"/"chemical-free" (say
