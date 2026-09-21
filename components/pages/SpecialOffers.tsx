@@ -182,8 +182,10 @@ export default function SpecialOffers() {
           <p style={{ fontSize: 14, color: "#6b7280", ...sf, marginBottom: 32 }}>Mention the offer when you call and we'll take care of the rest.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
             {[
-              ["Birmingham Office", "(205) 940-6360", "2059406360", "Serving greater Birmingham, Hoover, Chelsea, Pelham, Alabaster"],
-              ["Alexander City / Lake Martin", "(256) 234-6162", "2562346162", "Serving Lake Martin, Alexander City, Dadeville, Eclectic, Auburn"],
+              ["Birmingham Office", "(205) 991-2882", "2059912882", "Serving Birmingham, Hoover, Vestavia Hills, Mountain Brook, Homewood, Trussville"],
+              ["Alabaster Office", "(205) 940-6360", "2059406360", "Serving Alabaster, Pelham, Helena, Calera, Chelsea, Shelby County"],
+              ["Alexander City / Lake Martin", "(256) 234-6162", "2562346162", "Serving Lake Martin, Alexander City, Dadeville, Eclectic"],
+              ["Auburn / Opelika", "(334) 332-3321", "3343323321", "Serving Auburn, Opelika, Lee County"],
               ["Huntsville Office", "(256) 937-7676", "2569377676", "Serving Huntsville, Madison, Athens, Decatur, North Alabama"],
             ].map(([name, phone, tel, serves]) => (
               <div key={tel} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 14, padding: "22px 18px" }}>
@@ -212,7 +214,7 @@ export default function SpecialOffers() {
             <div style={{ padding: "22px" }}>
               <p style={{ fontSize: 13, color: "#6b7280", ...sf, marginBottom: 14, lineHeight: 1.6 }}>Mention <strong>"{OFFERS[claiming].headline} {OFFERS[claiming].subline}"</strong> when you call. No coupon code needed.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 }}>
-                {[["Birmingham / Hoover / Chelsea / Pelham", "(205) 940-6360", "2059406360"], ["Lake Martin / Alexander City / Auburn", "(256) 234-6162", "2562346162"], ["Huntsville / Madison / Athens / Decatur", "(256) 937-7676", "2569377676"]].map(([label, phone, tel]) => (
+                {[["Birmingham / Hoover / Vestavia Hills", "(205) 991-2882", "2059912882"], ["Alabaster / Pelham / Chelsea / Shelby Co.", "(205) 940-6360", "2059406360"], ["Auburn / Opelika", "(334) 332-3321", "3343323321"], ["Lake Martin / Alexander City", "(256) 234-6162", "2562346162"], ["Huntsville / Madison / Athens / Decatur", "(256) 937-7676", "2569377676"]].map(([label, phone, tel]) => (
                   <a key={tel} href={`tel:${tel}`} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", border: "1.5px solid rgba(27,122,60,0.15)", borderRadius: 10, textDecoration: "none" }}
                     onMouseEnter={(e: React.MouseEvent<HTMLElement>) => e.currentTarget.style.borderColor = G}
                     onMouseLeave={(e: React.MouseEvent<HTMLElement>) => e.currentTarget.style.borderColor = "rgba(27,122,60,0.15)"}>

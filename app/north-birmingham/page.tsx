@@ -3,10 +3,10 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 export const metadata = {
   alternates: { canonical: '/north-birmingham' },
   title: "North Birmingham Pest Control — Gardendale, Fultondale | EnviroCare",
-  description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 940-6360.",
+  description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 991-2882.",
   openGraph: {
     title: "North Birmingham Pest Control — Gardendale, Fultondale | EnviroCare",
-    description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 940-6360.",
+    description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 991-2882.",
     url: 'https://www.envirocarellc.com/north-birmingham',
     images: ['/og-image.png'],
     type: 'website',
@@ -14,7 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "North Birmingham Pest Control — Gardendale, Fultondale | EnviroCare",
-    description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 940-6360.",
+    description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
@@ -48,7 +48,7 @@ const cfg: ClusterConfig = {
   "faqs": [
     {
       "q": "Do you serve north Jefferson County?",
-      "a": "Yes — Gardendale, Fultondale, and the surrounding north Jefferson communities are on our regular north Birmingham routes. Call (205) 940-6360 to confirm your address."
+      "a": "Yes — Gardendale, Fultondale, and the surrounding north Jefferson communities are on our regular north Birmingham routes. Call (205) 991-2882 to confirm your address."
     },
     {
       "q": "How much does pest control cost in north Birmingham?",

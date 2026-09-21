@@ -169,7 +169,9 @@ const ALABASTER_SCHEMA = {
   // Shelby County markets route to the Alabaster office.
   areaServed: ['Alabaster','Pelham','Helena','Calera','Chelsea','Greystone','Mt Laurel','Inverness','Brook Highland','Meadow Brook','Eagle Point','Highland Lakes','Chelsea Park'],
   sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=7378341068021381374'],
-
+  parentOrganization: {
+    '@id': 'https://www.envirocarellc.com/#organization',
+  },
 };
 
 const BIRMINGHAM_SCHEMA = {
@@ -219,7 +221,7 @@ const BIRMINGHAM_SCHEMA = {
 
 const LAKE_MARTIN_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'PestControlService',
   '@id': 'https://www.envirocarellc.com/#lake-martin',
   name: 'EnviroCare — Alex City / Lake Martin',
   image: 'https://www.envirocarellc.com/og-image.png',
@@ -242,12 +244,14 @@ const LAKE_MARTIN_SCHEMA = {
   ],
   areaServed: ['Lake Martin','Alexander City','Dadeville','Eclectic','Auburn','Opelika'],
   sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=12101127141767078247'],
-
+  parentOrganization: {
+    '@id': 'https://www.envirocarellc.com/#organization',
+  },
 };
 
 const HUNTSVILLE_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'PestControlService',
   '@id': 'https://www.envirocarellc.com/#huntsville',
   name: 'EnviroCare — Huntsville',
   image: 'https://www.envirocarellc.com/og-image.png',
@@ -276,7 +280,9 @@ const HUNTSVILLE_SCHEMA = {
   ],
   areaServed: ['Huntsville','Madison','Athens','Decatur','Hartselle','Harvest','Hampton Cove'],
   sameAs: ['https://www.envirocarellc.com','https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8'],
-
+  parentOrganization: {
+    '@id': 'https://www.envirocarellc.com/#organization',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
