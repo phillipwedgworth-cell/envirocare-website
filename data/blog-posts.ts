@@ -32,6 +32,117 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── sentricon-worth-it — NeuronWriter score 77, keyword "is sentricon worth it" (510/mo, KD 18) ───
+  {
+    slug: 'is-sentricon-worth-it',
+    title: 'Is Sentricon Worth It? A Certified Specialist Breaks Down the Cost, Effectiveness, and What Homeowners Should Know',
+    excerpt: 'As a Certified Sentricon Specialist who has installed and monitored these systems across Alabama for decades, here\'s the honest answer on cost, effectiveness, and whether the investment makes sense for your home.',
+    publishedAt: '2026-09-20',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 8,
+    heroEmoji: '🛡️',
+    metaTitle: 'Is Sentricon Worth It? Cost, Effectiveness & Honest Review | EnviroCare',
+    metaDescription: 'Is Sentricon worth the cost? A Certified Sentricon Specialist breaks down Sentricon bait station pricing, how it compares to Termidor, DIY vs professional installation, and whether it\'s the right choice for Alabama homeowners.',
+    body: `
+<p class="lede">If you're a homeowner in Alabama, you've probably heard about Sentricon termite bait stations — and you've probably also heard wildly different opinions about whether they're worth the investment. As a <a href="/services/sentricon">Certified Sentricon Specialist</a> who has installed and monitored these systems across central and north Alabama for decades, we're going to give you the honest answer: what Sentricon does well, where it falls short compared to liquid treatments, and whether the cost makes sense for your home.</p>
+
+<h2>How the Sentricon System Works to Eliminate Termite Colonies</h2>
+
+<p>The Sentricon system takes a fundamentally different approach to termite treatment than traditional methods. Instead of creating a chemical barrier around your home's perimeter, the Sentricon bait system uses strategically placed bait stations installed in the ground around your property. Each station contains a cellulose material that attracts foraging termites — the worker insects that leave the colony to find food sources like the wood in your home.</p>
+
+<p>When termites discover a station, they consume the active ingredient — noviflumuron — and carry it back to their colony. Because termites share food through a process called trophallaxis, the termiticide spreads throughout the entire colony, including to the queen. This process effectively kills the colony over a period of weeks to months. This is what sets Sentricon apart from other termiticides: it doesn't just repel or kill the bug on contact — it eliminates the entire termite colony.</p>
+
+<p>Sentricon Always Active technology means the termite baiting system is working from the moment of installation. There's no waiting period where your home is unprotected. The Sentricon stations are checked on a regular schedule by your pest control company, and bait is replenished as needed to maintain continuous protection around your property's perimeter. If you've seen <a href="/blog/green-caps-in-yard-sentricon">round green caps in the ground around a house</a>, those are the station lids.</p>
+
+<h2>Sentricon vs. Termidor: Which Termite Treatment Is Better?</h2>
+
+<p>This is the question we hear most often, and the honest answer is: it depends on your situation. We wrote a <a href="/blog/sentricon-vs-liquid-termite-treatment">full comparison of Sentricon vs. liquid termite treatment</a> if you want the deep dive, but here's the summary.</p>
+
+<p><strong>Termidor</strong> (fipronil) is a liquid barrier treatment applied to the soil around and under your home's foundation. It works by creating a treated zone that termites cannot detect — they walk through it, pick up the chemical, and transfer it to other colony members. Termidor is highly effective and typically costs less upfront, with installation running $800 to $2,500 for most homes.</p>
+
+<p><strong>Sentricon bait stations</strong>, on the other hand, typically cost $1,500 to $3,800 for initial installation, plus $300 to $500 annually for monitoring and maintenance. Over a 10-year period, the total cost runs $5,000 to $7,500.</p>
+
+<p>So why would anyone choose the more expensive option? Here's how Sentricon works differently and why that matters:</p>
+
+<p><strong>Colony elimination vs. barrier.</strong> Termidor creates a barrier that degrades over time (typically 5-10 years). Sentricon actively targets and eliminates termite colonies in your yard, reducing the source of the problem rather than just blocking entry points.</p>
+
+<p><strong>No drilling or trenching.</strong> Liquid treatments require trenching around your foundation and often drilling through concrete slabs, garage floors, and porches. This can be disruptive to your landscaping, driveways, and hardscaping. Sentricon stations are small, installed flush with the ground, and cause minimal disruption to your landscape.</p>
+
+<p><strong>Ongoing monitoring.</strong> With Sentricon, a pest control technician regularly inspects every station, giving you an early warning system for termite activity. A liquid treatment provides no visibility into whether termites are probing your perimeter.</p>
+
+<p><strong>When Termidor makes more sense:</strong> If you have an active termite infestation and need immediate knockdown, a professional termite treatment with liquid provides faster initial protection. Many pest control companies, including ours, sometimes recommend a combined approach — liquid treatment to stop an active problem, with Sentricon stations installed and maintained for long-term colony elimination and monitoring.</p>
+
+<h2>What Does a Sentricon System Cost?</h2>
+
+<p>Cost varies based on the size of your home, the number of bait stations required, and your region. Here's what homeowners in Alabama typically see:</p>
+
+<p><strong>Initial installation:</strong> $1,500 to $3,800. Most homes need 12 to 20 in-ground stations, spaced approximately 10 feet apart around the perimeter. Larger homes or properties with complex foundations need more stations.</p>
+
+<p><strong>Annual renewal and upkeep:</strong> $300 to $500 per year. This covers quarterly inspections, bait replenishment, and any station replacements. In areas with heavy Formosan termite pressure, renewal costs can run $400 to $700. For more on <a href="/blog/formosan-termites-alabama">Formosan termites in Alabama</a>, we have a dedicated post.</p>
+
+<p>Is that a lot? Consider this: subterranean termites cause over $5 billion in property damage across the United States every year, and most homeowner insurance policies don't cover termite damage. A single termite colony can contain hundreds of thousands of workers, and they can infest and cause significant structural damage to your home before you ever see a sign. The cost of a Sentricon bait system is a fraction of what a major repair would run. Our post on <a href="/blog/termite-treatment-cost-alabama">termite treatment cost in Alabama</a> covers pricing in more detail.</p>
+
+<h2>How Long Do Sentricon Bait Stations Last?</h2>
+
+<p>The stations themselves are durable and designed for long-term use in the ground. The bait inside — Sentricon Always Active — remains effective and attractive to termites for extended periods, but your Certified Sentricon Specialist will inspect and replace bait as part of your regular service visits.</p>
+
+<p>This ongoing upkeep is actually one of Sentricon's strengths. Unlike a liquid treatment that gradually loses effectiveness with no visible indicator, the bait station system gives your technician a way to directly monitor for termite activity at every visit. If foraging termites are feeding on a station, you know exactly where they are and that the system is actively working to eliminate the entire colony.</p>
+
+<h2>DIY Termite Bait Stations vs. Professional Sentricon Installation</h2>
+
+<p>You can find DIY termite bait products at hardware stores and online — brands like Spectracide Terminate and others. These are significantly cheaper than professional Sentricon installation. So are they worth it?</p>
+
+<p>In our professional opinion: DIY bait stations are better than nothing, but they're not comparable to a professional Sentricon system. Here's why:</p>
+
+<p>Sentricon is only available through Certified Sentricon Specialists — pest control professionals who have completed specialized training. The system's active ingredient, noviflumuron, is not available in retail products. DIY baits typically use less effective active ingredients and don't include the professional monitoring that catches problems early. Without a trained pest professional checking your stations, you won't know whether termites — or even ants or other insects — are what you're seeing in a station.</p>
+
+<p>Station placement also matters more than most homeowners realize. A trained technician from a local company knows to look for conducive conditions — moisture problems, wood-to-soil contact, cracks in the foundation — and place stations strategically based on how termites actually forage. Random spacing around a perimeter misses high-risk areas. For more on <a href="/blog/termite-damage-signs-alabama">signs of termite damage</a>, check our guide.</p>
+
+<p>If budget is a genuine constraint, DIY stations provide some level of awareness. But for actual termite protection you can rely on, professional installation and monitoring makes the difference.</p>
+
+<h2>Pros and Cons of the Sentricon Bait System</h2>
+
+<p><strong>What we like about Sentricon:</strong></p>
+
+<p>It eliminates termite colonies, not just individual termites. The inspection schedule gives you ongoing visibility into termite pressure around your home. There's no drilling, trenching, or disruption to your property and landscape. The system provides continuous, around-the-clock termite protection. And over 30 independent university studies have validated its effectiveness — this isn't just a marketing claim.</p>
+
+<p><strong>Where Sentricon falls short:</strong></p>
+
+<p>It costs more upfront and ongoing than a one-time liquid barrier treatment. Colony elimination takes weeks to months, so it's not an instant fix for active infestations. And it requires commitment to the annual service plan — if you skip inspections, the system's effectiveness drops because bait isn't being replenished and termite activity isn't being caught early.</p>
+
+<h2>So, Is Sentricon Worth It?</h2>
+
+<p>For most Alabama homeowners, yes — Sentricon is worth the investment. Our state's warm, humid climate makes us one of the highest-risk regions in the country for subterranean termites. The question isn't whether termites will find your home, but when. If you're not sure what to look for, start with our guide to <a href="/blog/termite-questions-alabama-homeowners">common termite questions Alabama homeowners ask</a>.</p>
+
+<p>Sentricon gives you three things a liquid barrier treatment doesn't: colony elimination, ongoing monitoring, and peace of mind from knowing a trained professional is checking your property regularly. The cost difference between Sentricon and a liquid treatment is real, but it's small compared to the cost of structural repairs from an undetected termite problem.</p>
+
+<p>At EnviroCare Pest Services, we've been protecting Alabama homes for four generations. As a Certified Sentricon Specialist, we install, monitor, and maintain Sentricon systems across <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, the <a href="/lake-martin">Lake Martin area</a>, and central Alabama. If you're weighing your termite protection options, we're happy to do a free inspection and give you an honest recommendation — even if that means a liquid treatment is the better fit for your situation.</p>
+
+<h2>Frequently Asked Questions About Sentricon</h2>
+
+<p><strong>Do Sentricon bait stations attract termites to my home?</strong></p>
+<p>No. The stations don't attract termites from outside your property — they intercept the foraging termites that are already searching for food near your home. Termites forage constantly and will naturally encounter the stations as they explore the soil around your foundation.</p>
+
+<p><strong>Is Sentricon better than Termidor?</strong></p>
+<p>Both are excellent termite control options. Sentricon vs Termidor comes down to your priorities: Sentricon kills the colony and provides ongoing monitoring, while Termidor creates an immediate barrier. Your pest control company can help you decide based on your home's specific risk factors and whether termites currently infest the structure.</p>
+
+<p><strong>Can I install Sentricon stations myself?</strong></p>
+<p>No. The Sentricon system is only available through Certified Sentricon Specialists. The DIY vs pro difference here is significant — the professional system uses noviflumuron, a termiticide not available in retail products. DIY termite bait stations from hardware stores use different, less effective active ingredients.</p>
+
+<p><strong>What does a <a href="/blog/termite-bond-alabama-explained">termite bond</a> cover with Sentricon?</strong></p>
+<p>A termite bond is an annual service agreement that keeps your system monitored and your coverage active. Our Sentricon installations carry up to $1,000,000 in damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
+
+<p>Contact us to schedule a termite inspection and learn whether Sentricon is the right choice for your home.</p>
+<ul>
+<li>Birmingham — (205) 991-2882</li>
+<li>Alabaster — (205) 940-6360</li>
+<li>Lake Martin / Alex City — (256) 234-6162</li>
+<li>Huntsville — (256) 937-7676</li>
+</ul>
+`,
+  },
+
   // ─── blog-writer 2026-09-11 ───
   {
     slug: 'what-to-do-about-mosquitoes-in-birmingham',
