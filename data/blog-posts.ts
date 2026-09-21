@@ -32,6 +32,78 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── blog/sentricon-worth-it 2026-09-21 ───
+  {
+    slug: 'is-sentricon-worth-it',
+    title: 'Is Sentricon Worth It? An Honest Look at the Yearly Cost',
+    excerpt: 'Sentricon costs more in year one and keeps costing every year after. Here\'s who that math works for, who it doesn\'t, and what you\'re actually buying with the renewal.',
+    publishedAt: '2026-09-21',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '💰',
+    metaTitle: 'Is Sentricon Worth It? The Yearly Cost, Honestly | EnviroCare',
+    metaDescription: 'Is Sentricon worth the annual renewal in Alabama? An honest breakdown of what you pay for, who it suits, and who it doesn\'t. Family-owned since 1958.',
+    body: `
+<p class="lede">People do not usually ask whether Sentricon® <em>works</em>. They ask whether it is worth paying for every single year, forever, when the termites never showed up in the first place. That is a fair question and it deserves a straighter answer than most of our industry gives it.</p>
+
+<h2>What you are actually paying for</h2>
+
+<p>A Sentricon installation is two costs, not one. There is the install — stations placed every 10 to 15 feet around your foundation — and then there is the annual renewal that keeps the system monitored and keeps your coverage in force.</p>
+
+<p>The renewal is the part people question, so let us be plain about what it buys:</p>
+
+<ul>
+<li><strong>Somebody physically comes and checks.</strong> A technician opens the stations, looks for activity, replaces spent bait, and notes what is happening around your foundation.</li>
+<li><strong>The coverage stays live.</strong> Sentricon installations we service carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That coverage is ours, not the manufacturer's. It lapses if the renewal lapses.</li>
+<li><strong>You get a paper trail.</strong> Alabama regulates termite work, and a documented, continuously serviced system is what a buyer's attorney wants to see when you sell.</li>
+</ul>
+
+<p>We do not publish a flat termite number, because there is not one. Linear footage, foundation type, and what the inspection turns up all move it. Pricing is set after a free <a href="/services/termite-control">termite inspection</a>.</p>
+
+<h2>Who it is worth it for</h2>
+
+<p><strong>If you plan to stay in the house.</strong> The renewal is cheap relative to one termite repair bill. Alabama has subterranean termites in essentially every county, and the damage is slow and hidden — by the time you see it in a baseboard, it has been happening for a while.</p>
+
+<p><strong>If you are going to sell in the next few years.</strong> A continuously serviced system with records behind it removes a negotiation point at closing. A lapsed one creates one.</p>
+
+<p><strong>If your house is hard to treat by other means.</strong> Stamped concrete, a finished basement floor, a pool deck — anything you would rather not drill through. That is covered in more detail in our <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon versus liquid comparison</a>.</p>
+
+<p><strong>If you have had termites before.</strong> Conducive conditions rarely change on their own. The house that got them once is the house that gets them again.</p>
+
+<h2>Who it is probably not worth it for</h2>
+
+<p>We would rather tell you this up front than sell you something you will resent paying for.</p>
+
+<ul>
+<li><strong>You are selling this year and the buyer will start fresh.</strong> Sometimes the right move is a current inspection letter, not a new system you will hand over in four months.</li>
+<li><strong>The structure is not worth protecting.</strong> A detached shed or an outbuilding you would tear down before repairing does not need a monitored system around it.</li>
+<li><strong>You will not keep the renewal current.</strong> A system nobody services is a row of plastic caps in your yard. If the renewal is not realistic for your budget, say so and we will talk about what else makes sense — a lapsed system protects nothing.</li>
+</ul>
+
+<h2>The question nobody asks, but should</h2>
+
+<p>"What happens in year six?"</p>
+
+<p>Soil treatments degrade. That is not marketing, it is chemistry — the termiticide breaks down in the soil over a period of years, and the barrier thins out whether or not anyone tells you. A monitored bait system does not have that clock, because the bait is replaced as it is consumed and somebody is looking at your foundation on a schedule.</p>
+
+<p>That is the real argument for the renewal. You are not paying every year because termites are chewing on your house every year. You are paying so that the year they do show up is not also the year you discover your protection quietly expired.</p>
+
+<h2>What we would tell you at your kitchen table</h2>
+
+<p>Our family has been doing pest control in Alabama since 1958, and EnviroCare is fourth generation now. We have installed both kinds of termite protection for a long time. When someone asks whether the renewal is worth it, the answer depends on how long you are staying and what the house is worth to you — not on which system we would rather sell.</p>
+
+<p>Get the free inspection first. Decide after you have a real number in front of you.</p>
+
+<ul>
+<li>Birmingham — 2120 16th Ave S, Ste 302 — (205) 991-2882</li>
+<li>Alabaster / Shelby County — 2025 Butler Rd — (205) 940-6360</li>
+<li>Alexander City / Lake Martin — 1785 Tallapoosa St — (256) 234-6162</li>
+<li>Huntsville — 7027 Old Madison Pike, Ste 108 — (256) 937-7676</li>
+</ul>
+`,
+  },
+
   // ─── blog-writer 2026-09-11 ───
   {
     slug: 'what-to-do-about-mosquitoes-in-birmingham',
