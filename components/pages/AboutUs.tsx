@@ -400,7 +400,7 @@ export default function AboutUs() {
               <a href="tel:2059912882" className="ab-off-phone">(205) 991-2882</a>
             </div>
             <div className="ab-off-card">
-              <img className="ab-off-img" src="/birmingham-vulcan.webp" srcSet="/birmingham-vulcan-mobile.webp 800w, /birmingham-vulcan.webp 1200w" sizes="(max-width: 768px) 100vw, 360px" alt="EnviroCare Alabaster office on Butler Road" width={1200} height={800} loading="lazy" decoding="async" /><div className="ab-off-tag">Main · Since 1958</div>
+              <img className="ab-off-img" src="/home-southern.jpg" alt="A Southern home in Shelby County, Alabama, served by EnviroCareʼs Alabaster office" width={859} height={859} loading="lazy" decoding="async" /><div className="ab-off-tag">Main · Since 1958</div>
               <div className="ab-off-name">Alabaster</div>
               <div className="ab-off-addr">
                 2025 Butler Road<br />Alabaster, AL 35007
