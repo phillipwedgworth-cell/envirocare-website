@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   // control" 98 at pos 11. Title adds Exterminator; description keeps the office line.
   title: "Pest Control & Exterminator Birmingham AL | Termite & Mosquito | EnviroCare",
   description:
-    "Birmingham exterminator & pest control, family-owned since 1958. Bi-monthly from $35/mo, Sentricon® termite protection, mosquito & tick yard service. Office at 2120 16th Ave S. (205) 991-2882.",
+    "Birmingham exterminator & pest control, family-owned since 1958. From $35/mo, Sentricon® termite, mosquito & tick service. (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],

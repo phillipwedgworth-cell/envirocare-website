@@ -33,7 +33,8 @@ const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 
 const OFFICES = [
-  { area: "Birmingham metro — Jefferson & Shelby", phone: "(205) 940-6360", tel: "2059406360" },
+  { area: "Birmingham — Jefferson & St. Clair", phone: "(205) 991-2882", tel: "2059912882" },
+  { area: "Alabaster — Shelby County", phone: "(205) 940-6360", tel: "2059406360" },
   { area: "Huntsville — Madison County", phone: "(256) 937-7676", tel: "2569377676" },
   { area: "Lake Martin / Alex City — Tallapoosa & Lee", phone: "(256) 234-6162", tel: "2562346162" },
 ];

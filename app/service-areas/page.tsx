@@ -138,11 +138,22 @@ export default function ServiceAreasPage() {
             <div className="wws-office-grid">
               <div className="wws-office-card">
                 <div className="wws-office-imgwrap">
-                  <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Birmingham / Alabaster office service area" />
-                  <span className="wws-office-badge">Main · Birmingham Metro</span>
+                  <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Birmingham office near Vulcan statue" />
+                  <span className="wws-office-badge">Birmingham Metro</span>
                 </div>
                 <div className="wws-office-body">
-                  <div className="wws-office-name">Birmingham / Alabaster</div>
+                  <div className="wws-office-name">Birmingham</div>
+                  <div className="wws-office-addr">2120 16th Ave S, Ste 302<br />Birmingham, AL 35205</div>
+                  <a className="wws-office-phone" href="tel:2059912882">📞 (205) 991-2882</a>
+                </div>
+              </div>
+              <div className="wws-office-card">
+                <div className="wws-office-imgwrap">
+                  <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Alabaster office service area" />
+                  <span className="wws-office-badge">Main · Since 1958</span>
+                </div>
+                <div className="wws-office-body">
+                  <div className="wws-office-name">Alabaster</div>
                   <div className="wws-office-addr">2025 Butler Road<br />Alabaster, AL 35007</div>
                   <a className="wws-office-phone" href="tel:2059406360">📞 (205) 940-6360</a>
                 </div>

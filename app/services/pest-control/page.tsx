@@ -11,10 +11,10 @@ export const metadata = {
   // GSC Aug 21–Sep 14 2026: "pest control plans" 512 impr at pos 27.7 with no page
   // targeting it; "pest control services" 309 at pos 5.9. Title now carries both.
   title: 'Pest Control Plans & Services in Alabama | From $35/mo | EnviroCare',
-  description: 'Bi-monthly pest control plans from $35/mo covering ants, roaches, spiders, rodents and 30+ pests, with free re-service between visits. Four local Alabama offices: Birmingham, Alabaster, Huntsville, Lake Martin.',
+  description: 'Bi-monthly pest control from $35/mo — ants, roaches, spiders, rodents and 30+ pests with unlimited free re-service. Four Alabama offices. (205) 940-6360.',
   openGraph: {
     title: 'Pest Control Plans & Services in Alabama | From $35/mo | EnviroCare',
-    description: 'Bi-monthly pest control plans from $35/mo covering ants, roaches, spiders, rodents and 30+ pests, with free re-service between visits. Four local Alabama offices: Birmingham, Alabaster, Huntsville, Lake Martin.',
+    description: 'Bi-monthly pest control from $35/mo — ants, roaches, spiders, rodents and 30+ pests with unlimited free re-service. Four Alabama offices. (205) 940-6360.',
     url: 'https://www.envirocarellc.com/services/pest-control',
     images: ['/og-image.png'],
     type: 'website',
@@ -22,7 +22,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Pest Control Plans & Services in Alabama | From $35/mo | EnviroCare',
-    description: 'Bi-monthly pest control plans from $35/mo covering ants, roaches, spiders, rodents and 30+ pests, with free re-service between visits. Four local Alabama offices: Birmingham, Alabaster, Huntsville, Lake Martin.',
+    description: 'Bi-monthly pest control from $35/mo — ants, roaches, spiders, rodents and 30+ pests with unlimited free re-service. Four Alabama offices. (205) 940-6360.',
     images: ['/og-image.png'],
   },
 };

@@ -254,7 +254,8 @@ export default function InteriorPestControlPage() {
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: 14, maxWidth: 820, margin: "0 auto" }}>
             {[
-              { city: "Birmingham", phone: "(205) 940-6360", tel: "2059406360" },
+              { city: "Birmingham", phone: "(205) 991-2882", tel: "2059912882" },
+              { city: "Alabaster", phone: "(205) 940-6360", tel: "2059406360" },
               { city: "Alex City / Lake Martin", phone: "(256) 234-6162", tel: "2562346162" },
               { city: "Huntsville", phone: "(256) 937-7676", tel: "2569377676" },
               { city: "Auburn", phone: "(334) 332-3321", tel: "3343323321" },

@@ -13,10 +13,10 @@ export const metadata = {
   // warehouse / office pest control (Bessemer) at pos 8–9. Title and H1 now name the
   // service and the two metros that can actually win it; termite inspections added.
   title: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
-  description: 'Commercial pest control & termite inspections for restaurants, warehouses, offices & multi-family across Birmingham, Huntsville & Alabama. Audit-ready logs, after-hours scheduling. (205) 940-6360.',
+  description: 'Commercial pest control & termite inspections for restaurants, offices & multi-family in Birmingham & Huntsville AL. Audit-ready logs. (205) 940-6360.',
   openGraph: {
     title: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
-    description: 'Commercial pest control & termite inspections for restaurants, warehouses, offices & multi-family across Birmingham, Huntsville & Alabama. Audit-ready logs, after-hours scheduling. (205) 940-6360.',
+    description: 'Commercial pest control & termite inspections for restaurants, offices & multi-family in Birmingham & Huntsville AL. Audit-ready logs. (205) 940-6360.',
     url: 'https://www.envirocarellc.com/services/commercial',
     images: ['/og-image.png'],
     type: 'website',
@@ -24,7 +24,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
-    description: 'Commercial pest control & termite inspections for restaurants, warehouses, offices & multi-family across Birmingham, Huntsville & Alabama. Audit-ready logs, after-hours scheduling. (205) 940-6360.',
+    description: 'Commercial pest control & termite inspections for restaurants, offices & multi-family in Birmingham & Huntsville AL. Audit-ready logs. (205) 940-6360.',
     images: ['/og-image.png'],
   },
 };

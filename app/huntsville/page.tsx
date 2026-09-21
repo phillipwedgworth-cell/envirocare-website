@@ -14,7 +14,7 @@ export const metadata = {
   // huntsville" 272, Madison 309. Title leads with the biggest query; description
   // names Madison and the three services people actually search for here.
   title: 'Exterminator & Pest Control Huntsville AL | Termite, Mosquito | EnviroCare',
-  description: 'Huntsville & Madison exterminator for ants, roaches, spiders and rodents, plus Sentricon® termite protection and seasonal mosquito & tick control. Local office on Old Madison Pike. (256) 937-7676.',
+  description: 'Huntsville & Madison exterminator — ants, roaches, spiders, rodents. Sentricon® termite, mosquito & tick control. Local office. (256) 937-7676.',
 };
 
 export default function HuntsvillePage() {

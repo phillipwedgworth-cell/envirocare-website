@@ -106,7 +106,8 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   contactPoint: [
     { '@type': 'ContactPoint', telephone: '+1-205-991-2882', contactType: 'customer service', areaServed: ['Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood', 'Trussville', 'Irondale', 'Leeds', 'Moody', 'Fultondale', 'Gardendale', 'Bessemer', 'McCalla', 'Crestline', 'English Village', 'Cherokee Bend', 'Cahaba Heights', 'Mountain Brook Village', 'Liberty Park'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
     { '@type': 'ContactPoint', telephone: '+1-205-940-6360', contactType: 'customer service', areaServed: ['Alabaster', 'Pelham', 'Helena', 'Calera', 'Chelsea', 'Greystone', 'Mt Laurel', 'Inverness', 'Brook Highland', 'Meadow Brook', 'Eagle Point', 'Highland Lakes', 'Chelsea Park'], availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' } },
-    { '@type': 'ContactPoint', telephone: '+1-256-234-6162', contactType: 'customer service', areaServed: ['Alexander City', 'Lake Martin', 'Dadeville', 'Eclectic', 'Auburn', 'Opelika'], availableLanguage: 'English' },
+    { '@type': 'ContactPoint', telephone: '+1-256-234-6162', contactType: 'customer service', areaServed: ['Alexander City', 'Lake Martin', 'Dadeville', 'Eclectic'], availableLanguage: 'English' },
+    { '@type': 'ContactPoint', telephone: '+1-334-332-3321', contactType: 'customer service', areaServed: ['Auburn', 'Opelika'], availableLanguage: 'English' },
     { '@type': 'ContactPoint', telephone: '+1-256-937-7676', contactType: 'customer service', areaServed: ['Huntsville', 'Madison', 'Athens', 'Decatur', 'Hartselle', 'Harvest', 'Hampton Cove'], availableLanguage: 'English' },
   ],
 };
@@ -115,7 +116,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
 export const SPEAKABLE_HOMEPAGE = {
   '@context': 'https://schema.org',
   '@type': 'SpeakableSpecification',
-  cssSelector: ['h1', '.hero-sub', '.section-title', '[itemprop=speakable]'],
+  cssSelector: ['h1', '.ec-hero-sub', '.ec-section-h2', '[itemprop=speakable]'],
 };
 
 export const WEBSITE_SCHEMA = {
