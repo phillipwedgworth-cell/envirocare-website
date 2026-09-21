@@ -2573,7 +2573,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Call our nearest office:</p>
 <ul>
-<li>Birmingham — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -2684,7 +2684,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Call the office nearest you:</p>
 <ul>
-<li>Birmingham — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -2806,7 +2806,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Fast scheduling available. Call our nearest office:</p>
 <ul>
-<li>Birmingham — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -2975,7 +2975,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Call your nearest EnviroCare office:</p>
 <ul>
-<li>Birmingham — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -3009,7 +3009,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>EnviroCare initial service is $75. Free re-treatment between visits. Call any of our four offices:</p>
 <ul>
-<li>Birmingham — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -3047,7 +3047,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Questions before your service? Call your nearest EnviroCare office:</p>
 <ul>
-<li>Birmingham — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -4777,7 +4777,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 5,
     heroEmoji: '❄️',
     metaTitle: 'Common Winter Pest Problems in Alabama | EnviroCare',
-    metaDescription: 'Alabama winters do not kill pests — rodents, ants, and roaches move indoors for warmth. What Birmingham homeowners face Dec–Feb. (205) 940-6360.',
+    metaDescription: 'Alabama winters do not kill pests — rodents, ants, and roaches move indoors for warmth. What Birmingham homeowners face Dec–Feb. (205) 991-2882.',
     body: `
 <p class="lede">Up north, winter does a lot of pest control for you. In Alabama it doesn't. Our winters are mild and short, so instead of dying off, pests simply move where it's warm — which is your house. That's why "the cold will take care of it" is one of the more expensive myths we hear around Birmingham and the Tennessee Valley.</p>
 
