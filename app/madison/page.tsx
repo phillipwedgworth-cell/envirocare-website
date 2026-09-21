@@ -50,7 +50,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "PestControlService",
       "@id": "https://www.envirocarellc.com/madison",
       name: "EnviroCare — Huntsville / Madison Office",
       url: "https://www.envirocarellc.com",
@@ -78,7 +78,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "LocalBusiness", name: "EnviroCare", address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" } },
+      provider: { "@type": "PestControlService", name: "EnviroCare — Huntsville", "@id": "https://www.envirocarellc.com/#huntsville", address: { "@type": "PostalAddress", streetAddress: "7027 Old Madison Pike, Ste 108", addressLocality: "Huntsville", addressRegion: "AL", postalCode: "35806", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Madison", addressRegion: "AL" },
       name: "Pest Control Madison AL",
       description:

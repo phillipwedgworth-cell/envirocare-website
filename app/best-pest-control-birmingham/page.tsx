@@ -36,11 +36,11 @@ export const metadata = {
   alternates: { canonical: '/best-pest-control-birmingham' },
   title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
   description:
-    'How to choose the best pest control company in Birmingham — what to check on licensing, termite repair coverage, published pricing and agreements, plus where EnviroCare fits and where it does not.',
+    'How to choose the best pest control in Birmingham — licensing, termite coverage, published pricing and where EnviroCare fits. (205) 991-2882.',
   openGraph: {
     title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
     description:
-      'What to check before hiring a Birmingham pest control company — licensing, termite repair coverage, published pricing, agreement terms, and who actually shows up.',
+      'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     url: 'https://www.envirocarellc.com/best-pest-control-birmingham',
     images: ['/og-image.png'],
     type: 'website',
@@ -49,7 +49,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
     description:
-      'What to check before hiring a Birmingham pest control company — licensing, termite repair coverage, published pricing, agreement terms, and who actually shows up.',
+      'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     images: ['/og-image.png'],
   },
 };
