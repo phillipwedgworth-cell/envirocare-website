@@ -1,7 +1,7 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/sitemap.ts
-// Commit: fix(sitemap): STATIC_LASTMOD to 2026-09-18
+// Commit: fix(sitemap): STATIC_LASTMOD to 2026-09-21
 // Push: main
 // ─────────────────────────────────────
 /**
@@ -119,7 +119,7 @@ const SERVICE_SLUGS = [
  * committing on, not the date of the previous change — the bump commit itself
  * touches app/, so an older date is stale the moment it lands.
  */
-const STATIC_LASTMOD = new Date('2026-09-18T00:00:00.000Z');
+const STATIC_LASTMOD = new Date('2026-09-21T00:00:00.000Z');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = STATIC_LASTMOD;

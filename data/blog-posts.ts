@@ -2333,7 +2333,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Protect your home — start with a free inspection</h2>
 
-<p>If you are not sure what you are holding, bring it to us. We will do a free termite inspection and read the bond with you — what is covered, what is excluded, whether it is still in force, and what it would take to ensure your home has the right protection if it does not. EnviroCare has been taking care of any termite problems Alabama homes face since 1958 — four generations of the Wedgworth family, with the years of experience and local knowledge to help you choose the right bond for your home and your budget.</p>
+<p>If you are not sure what you are holding, bring it to us. We will do a free termite inspection and read the bond with you — what is covered, what is excluded, whether it is still in force, and what it would take to ensure your home has the right protection if it does not. The Wedgworth family has been taking care of the termite problems Alabama homes face since 1958 — four generations of it, with the years of experience and local knowledge to help you choose the right bond for your home and your budget.</p>
 
 <p>Call the office nearest you — <a href="/birmingham">Birmingham</a> (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, <a href="/huntsville">Huntsville</a> (256) 937-7676 — or <a href="/quote">request your free termite inspection online</a>.</p>
 
@@ -2444,8 +2444,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Common termite inspection questions Alabama home buyers ask</h2>
 
-<h2>What is the NPMA-33 form?</h2>
-<p>The NPMA-33 is the national wood-destroying organism inspection report form used in many states. In Alabama, the state uses its own Official Alabama Wood Infestation Inspection Report rather than the NPMA-33. The Alabama form serves the same purpose — documenting the findings of a wood-destroying organism inspection for real estate transactions — but is specific to Alabama's licensing and regulatory requirements under the Alabama Department of Agriculture and Industries. Your lender may refer to either form; in Alabama, the state form is the one a licensed WDO inspector issues.</p>
+<h2>Alabama's WDO form is not the NPMA-33</h2>
+<p>What Alabama issues is not the NPMA-33 that many other states use. The instrument here is the Official Alabama Wood Infestation Inspection Report — Exhibit A to Ala. Admin. Code r. 80-10-9-.18, obtained from the Commissioner. The Alabama form serves the same purpose — documenting the findings of a wood-destroying organism inspection for real estate transactions — but is specific to Alabama's licensing and regulatory requirements under the Alabama Department of Agriculture and Industries. Your lender may refer to either form; in Alabama, the state form is the one a licensed WDO inspector issues.</p>
 
 <h2>Can I do a termite inspection myself?</h2>
 <p>You can look for signs of termites on your own — mud tubes on foundation walls, discarded swarmer wings near windows, hollow-sounding wood, bubbling paint — but a self-inspection does not satisfy a lender's requirement for a termite letter, and it is no substitute for a thorough inspection by a licensed WDO inspector. Termites work inside walls, under floors, in crawl spaces, and in areas a homeowner cannot easily access or evaluate. A licensed inspector knows what conducive conditions to look for, where hidden damage concentrates, and how to read the signs that indicate an active infestation versus old damage.</p>
@@ -2850,7 +2850,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Attic</strong> — if accessible, roof framing and sheathing for signs of wood-boring beetles or termite activity.</li>
 </ul>
 
-<p>The inspector documents everything in the official inspection report, including areas that were inaccessible or obstructed. The Alabama wood infestation inspection report uses the NPMA-33 format and must be completed by a licensed pest control professional — this is not an inspection a homeowner or general home inspector can complete on their own.</p>
+<p>The inspector documents everything in the official inspection report, including areas that were inaccessible or obstructed. The Official Alabama Wood Infestation Inspection Report must be completed by a licensed pest control professional — this is not an inspection a homeowner or general home inspector can complete on their own.</p>
 
 <h2>What does a WDO report include?</h2>
 
@@ -2893,7 +2893,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How much does a WDO inspection cost?</h2>
 
-<p>Standalone WDO inspections start at <strong>$125</strong> at EnviroCare. The price covers the on-site visual inspection, the completed Official Alabama Wood Infestation Inspection Report (NPMA-33), and delivery of the report to your lender, your agent, and you. The cost of a WDO inspection may increase for larger properties, properties with multiple structures, or properties that require extended crawlspace inspection.</p>
+<p>Standalone WDO inspections start at <strong>$125</strong> at EnviroCare. The price covers the on-site visual inspection, the completed Official Alabama Wood Infestation Inspection Report, and delivery of the report to your lender, your agent, and you. The cost of a WDO inspection may increase for larger properties, properties with multiple structures, or properties that require extended crawlspace inspection.</p>
 
 <p>If you are already an active EnviroCare customer on our general pest control or termite program, your first WDO letter each year is <strong>free</strong> — the inspection is part of your ongoing pest management program.</p>
 
@@ -2935,7 +2935,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>No. Alabama law requires that the WDO inspection and the official wood infestation report be completed by a licensed pest control professional holding WDC certification from the Alabama Department of Agriculture and Industries. A homeowner inspection, no matter how thorough, cannot substitute for the official inspection report that lenders require.</p>
 
 <h2>What does a WDO report look like?</h2>
-<p>The Official Alabama Wood Infestation Inspection Report follows the NPMA-33 format — a standardized multi-section document that records the inspector's findings for each category of wood-destroying organism, any visible damage, conducive conditions, and inaccessible areas. The report identifies the property, the inspector, and the date, and provides a clear record of the inspection findings that the lender uses to determine whether the property meets their requirements for funding.</p>
+<p>The Official Alabama Wood Infestation Inspection Report is a standardized multi-section document that records the inspector's findings for each category of wood-destroying organism, any visible damage, conducive conditions, and inaccessible areas. The report identifies the property, the inspector, and the date, and provides a clear record of the inspection findings that the lender uses to determine whether the property meets their requirements for funding.</p>
 
 <h2>Schedule a WDO inspection for your Alabama real estate closing</h2>
 
@@ -3150,7 +3150,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Pest control FAQs: frequently asked questions about pest control in Huntsville</h2>
 
 <h2>Which company is the best for pest control in Huntsville, AL?</h2>
-<p>The best pest control company in Huntsville is one that inspects your home before quoting, identifies the specific pest species you are dealing with, and applies a treatment plan tailored to your property and your pest problem. Look for a local pest control company with a long track record in North Alabama, technicians who know Huntsville's specific pest challenges, and a service guarantee that includes re-treatment between scheduled visits at no additional cost. EnviroCare has served Alabama since 1958 and operates a dedicated Huntsville office on Old Madison Pike.</p>
+<p>The best pest control company in Huntsville is one that inspects your home before quoting, identifies the specific pest species you are dealing with, and applies a treatment plan tailored to your property and your pest problem. Look for a local pest control company with a long track record in North Alabama, technicians who know Huntsville's specific pest challenges, and a service guarantee that includes re-treatment between scheduled visits at no additional cost. The Wedgworth family has been doing pest control in Alabama since 1958, and EnviroCare operates a dedicated Huntsville office on Old Madison Pike.</p>
 
 <h2>How much does pest control cost per month in Huntsville?</h2>
 <p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with unlimited re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pricing is confirmed in writing before any service begins.</p>
