@@ -214,11 +214,16 @@ export default function ChatWidget() {
           /* Clear the sitewide MobileActionBar (2026-09-22). That bar is a
              full-width fixed strip at bottom:0 on viewports <=980px — the same
              breakpoint the header uses — so at the FAB's default bottom:16px the
-             launcher sat on top of it. Offset is the bar's ~56px row plus the iOS
-             safe area. Keep these in sync if the bar's height changes. */
+             launcher sat on top of it.
+
+             --mab-height is published by MobileActionBar from its own measured
+             offsetHeight, so this follows the bar if it ever renders taller (a
+             wrapped phone number, font scaling, a deeper safe-area inset). It
+             already includes the safe-area padding. The 56px is only a fallback
+             for first paint, before the observer runs. */
           @media (max-width:980px){
-            .ec-scout-fab{bottom:calc(72px + env(safe-area-inset-bottom, 0px));}
-            .ec-scout-tip{bottom:calc(142px + env(safe-area-inset-bottom, 0px));}
+            .ec-scout-fab{bottom:calc(var(--mab-height, 56px) + 16px);}
+            .ec-scout-tip{bottom:calc(var(--mab-height, 56px) + 86px);}
           }
         `}} />
         {nudge && (

@@ -44,12 +44,58 @@ import { phoneForPath } from '../data/city-offices';
 // The single internal pay URL. app/pay/page.tsx redirects it to the Key7 portal.
 const PAY_BILL_URL = '/pay';
 
+/**
+ * Analytics goes through window.ecTrack — the helper DeferredTracking.tsx
+ * installs — and NOT through window.dataLayer directly.
+ *
+ * Pushing to dataLayer by hand is the one thing not to do here. gtag.js
+ * identifies a command by the pushed value being an `arguments` object; a real
+ * Array is treated as an ordinary data push and silently ignored. Rewriting
+ * that bootstrap on 2026-08-17 took GA4 from 260 sessions to 1 over a week with
+ * no error and a container that still reported loaded. DeferredTracking.tsx
+ * carries a "DO NOT MODERNIZE THIS" warning over the correct form. ecTrack
+ * wraps it properly and also mirrors to the Meta pixel.
+ *
+ * ecTrack does not exist until loadTracking() runs, which is deferred until
+ * first interaction or 5s idle — and a tap on this bar can BE that first
+ * interaction, so the helper may not be installed yet at the moment of the tap.
+ * Hence the bounded queue: hold the event, flush when ecTrack appears, give up
+ * after ~10s rather than leak a timer.
+ *
+ * Note the Call button also produces the global `phone_click` event, which
+ * DeferredTracking auto-fires on every tel: link. That is intentional and not
+ * double counting the same event, but do not sum call_click and phone_click.
+ */
+type EcWindow = Window & { ecTrack?: (name: string, params?: Record<string, unknown>) => void };
+
+const queued: string[] = [];
+let flushTimer: ReturnType<typeof setInterval> | null = null;
+let attempts = 0;
+
+function flush() {
+  const w = window as EcWindow;
+  if (typeof w.ecTrack !== 'function') {
+    if (++attempts > 20 && flushTimer) { clearInterval(flushTimer); flushTimer = null; queued.length = 0; }
+    return;
+  }
+  while (queued.length) {
+    const action = queued.shift() as string;
+    try { w.ecTrack(action, { placement: 'mobile_bar' }); } catch { /* never break the tap */ }
+  }
+  if (flushTimer) { clearInterval(flushTimer); flushTimer = null; }
+}
+
 function trackClick(action: string) {
+  if (typeof window === 'undefined') return;
   try {
-    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-    if (typeof window !== 'undefined' && typeof w.gtag === 'function') {
-      w.gtag('event', action, { placement: 'mobile_bar' });
+    const w = window as EcWindow;
+    if (typeof w.ecTrack === 'function') {
+      w.ecTrack(action, { placement: 'mobile_bar' });
+      return;
     }
+    queued.push(action);
+    attempts = 0;
+    if (!flushTimer) flushTimer = setInterval(flush, 500);
   } catch {
     // analytics must never break the tap
   }
@@ -58,6 +104,7 @@ function trackClick(action: string) {
 export default function MobileActionBar() {
   const pathname = usePathname();
   const office = phoneForPath(pathname ?? '/');
+  const barRef = useRef<HTMLElement | null>(null);
 
   const [fieldHidden, setFieldHidden] = useState(false);
   const [scrolledAway, setScrolledAway] = useState(false);
@@ -100,10 +147,42 @@ export default function MobileActionBar() {
     };
   }, []);
 
+  /**
+   * Publish the bar's REAL height as --mab-height on <html>, so anything that
+   * has to sit clear of it measures rather than guesses.
+   *
+   * My first pass hardcoded 72px into the chat launcher's offset, assuming a
+   * ~56px row. That is a guess, and it drifts the moment anything changes the
+   * row height — a longer phone number wrapping, the visitor's font-scaling
+   * setting, a taller safe-area inset on a different handset. Measuring keeps
+   * the launcher and the body padding correct on devices neither of us has.
+   *
+   * Reads offsetHeight (not the observer's contentRect) so the safe-area
+   * padding-bottom is included. The 56px fallback in each consumer's calc()
+   * covers first paint, before this runs.
+   */
+  useEffect(() => {
+    const el = barRef.current;
+    if (!el) return;
+    const publish = () => {
+      document.documentElement.style.setProperty('--mab-height', `${el.offsetHeight}px`);
+    };
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    window.addEventListener('orientationchange', publish);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('orientationchange', publish);
+      document.documentElement.style.removeProperty('--mab-height');
+    };
+  }, []);
+
   const hidden = fieldHidden || scrolledAway;
 
   return (
     <nav
+      ref={barRef}
       className={`mab-bar${hidden ? ' mab-hidden' : ''}`}
       aria-label="Quick actions"
     >
