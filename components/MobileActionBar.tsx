@@ -20,10 +20,10 @@
  *     phoneForPath(), the same source the header uses, so the two can never
  *     disagree again.
  *
- *  3. Pay Bill points at PAY_BILL_URL (the Key7 portal), matching both places
- *     the header links it. NOT /pay — that route is a list of office phone
- *     numbers to call, not a payment page, and sending a "Pay Bill" tap there
- *     would be a dead end.
+ *  3. Pay Bill points at /pay, the single internal pay URL. That route is a
+ *     server-side redirect to the Key7 portal (app/pay/page.tsx), so if the
+ *     processor ever changes, one file changes and no button, QR code or text
+ *     template has to be reissued.
  *
  * BEHAVIOUR PORTED FROM StickyCallButton — do not drop these in a rewrite.
  * Both were explicit Phillip requests (Jul 2026, "reduce mobile clutter"):
@@ -41,8 +41,8 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { phoneForPath } from '../data/city-offices';
 
-// Same destination the header uses in both places (Header.tsx:31).
-const PAY_BILL_URL = 'https://payenvirocare.key7app.com/User/Login';
+// The single internal pay URL. app/pay/page.tsx redirects it to the Key7 portal.
+const PAY_BILL_URL = '/pay';
 
 function trackClick(action: string) {
   try {
@@ -121,11 +121,9 @@ export default function MobileActionBar() {
 
       <a
         href={PAY_BILL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
         className="mab-item mab-pay"
         onClick={() => trackClick('pay_bill_click')}
-        aria-label="Pay my bill (opens the customer portal in a new tab)"
+        aria-label="Pay my bill"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
