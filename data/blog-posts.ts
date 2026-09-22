@@ -32,6 +32,89 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // ─── emergency-pest-control — keyword "emergency pest control", flagged as a genuine
+  //     content gap in the 2026-09-22 NeuronWriter salvage pass. Written here rather than
+  //     imported: the salvage session's HTML was never delivered to disk.
+  //     COMPLIANCE NOTE: this topic is the highest-risk one in the canon for §2
+  //     availability claims. No "same-day", "there today", "available now", "24/7", and
+  //     no callback clock. The honesty about scheduling IS the angle — do not let a
+  //     later rewrite "improve" this by adding an arrival promise.
+  {
+    slug: 'emergency-pest-control-alabama',
+    title: 'Emergency Pest Control: What Actually Counts, and What to Do First',
+    excerpt: 'Most "pest emergencies" are not emergencies, and a few things people shrug off really are. Here is how we triage a panicked phone call, what you can do in the first hour, and what we will not promise you about timing.',
+    publishedAt: '2026-09-22',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 6,
+    heroEmoji: '🚨',
+    metaTitle: 'Emergency Pest Control in Alabama: What to Do First | EnviroCare',
+    metaDescription: 'What counts as a real pest emergency in Alabama, what to do in the first hour, and how scheduling actually works. Family-owned, four Alabama offices.',
+    body: `
+<p class="lede">People call us upset. A swarm in the living room, roaches pouring out from under a dishwasher, a wasp nest by the back door and a kid with a bee allergy. Some of those are genuine emergencies. Some are unpleasant but can wait until your next scheduled visit. Knowing which is which saves you money and saves you a bad night.</p>
+
+<h2>What we will not tell you</h2>
+
+<p>We are not going to promise you a truck in your driveway this afternoon. Our technicians run scheduled routes across four offices and a lot of Alabama, and any company that promises an arrival time before looking at the route is guessing.</p>
+
+<p>What we will do is take the call, ask enough questions to tell whether this needs prompt scheduling or your regular visit, and tell you honestly where you land. If it is urgent we work it in as soon as the route allows. If it is not, we would rather say so than sell you a trip charge.</p>
+
+<h2>What actually counts as urgent</h2>
+
+<ul>
+<li><strong>Stinging insects near a door, a walkway, or anyone with an allergy.</strong> This is the one we treat most seriously. A wasp or hornet nest in a doorway is a medical risk, not a nuisance.</li>
+<li><strong>A termite swarm indoors.</strong> Swarmers inside mean an active colony in the structure, not near it. The damage is already underway. See <a href="/blog/alabama-termite-swarm-season">what a swarm actually means</a>.</li>
+<li><strong>Rodents in a kitchen or a food-prep area.</strong> Contamination and gnawed wiring are both real, and a rodent problem compounds fast.</li>
+<li><strong>Roaches in a commercial kitchen.</strong> A health inspection does not care that it started last week.</li>
+<li><strong>Fire ants where small children play.</strong> Multiple stings from a disturbed mound put people in urgent care every summer in this state.</li>
+</ul>
+
+<h2>What usually is not urgent, even though it feels like it</h2>
+
+<ul>
+<li><strong>One or two roaches.</strong> Unpleasant, not an emergency. It does tell you something is going on, so mention it at your next service.</li>
+<li><strong>Spiders.</strong> Alabama has two medically significant spiders and neither goes looking for you. Most of what people find is harmless.</li>
+<li><strong>Ants on a countertop.</strong> Annoying, and a sign of a trail worth finding, but it will keep.</li>
+<li><strong>Swarmers outside, in spring.</strong> Termites swarming in the yard in March is normal Alabama weather behavior. Indoors is the problem.</li>
+</ul>
+
+<h2>Two things we do not handle</h2>
+
+<p>Worth saying plainly, because people call about both in a panic and we would rather not waste your time:</p>
+
+<p><strong>Bed bugs.</strong> Not a service we offer. If that is what you are dealing with, you need a company that specializes in it.</p>
+
+<p><strong>Raccoons, squirrels and bats.</strong> Not ours either. Those need an operator licensed for nuisance animals, and in some cases a licensed rehabilitator.</p>
+
+<h2>What to do in the first hour</h2>
+
+<p><strong>Stinging insects:</strong> go inside and stay there. Do not knock the nest down, do not spray it with a garden hose, and do not do it at dusk when the whole colony is home. Close the door nearest the nest and use another one until it is treated.</p>
+
+<p><strong>Termite swarmers indoors:</strong> vacuum them up, but keep a dozen in a bag or a jar. Identification matters — swarming ants and swarming termites look similar to most people and the treatment is completely different. Do not spray the area. Repelling them scatters the colony and makes the treatment harder.</p>
+
+<p><strong>Rodents:</strong> get food into sealed containers tonight, including pet food in the garage. Look for the gap they are using — under a garage door seal, around a dryer vent, where a pipe enters the wall. Most rodent problems are an opening problem before they are a rodent problem.</p>
+
+<p><strong>Roaches:</strong> pull everything out from under the sink and check for a slow leak. German cockroaches need water more urgently than food, and a dripping trap is often the whole reason they are there.</p>
+
+<p><strong>Anything you cannot identify:</strong> take a photo before you kill it, ideally next to a coin for scale. It is the single most useful thing you can hand a technician.</p>
+
+<h2>How the call actually goes</h2>
+
+<p>Call the office nearest you and describe what you are seeing, where, and how many. We will ask whether anyone in the house has a sting allergy, whether it is a home or a business, and whether you have seen it before. Then we will tell you where you fall in the list above and what the scheduling looks like.</p>
+
+<p>If you are already a pest customer, re-service between regular visits is included in your plan — call and we will get you on the route. If you are not, a new pest service starts at $75 for the initial visit, which is 50% off the regular $150, and then $35 a month on ACH. Termite work is priced after an inspection, always, because linear footage and foundation type decide it and no honest number exists before someone looks.</p>
+
+<p>Four generations of the Wedgworth family have been doing this in Alabama since 1958. We have taken a lot of these calls. Describe it plainly and we will tell you straight whether it can wait.</p>
+
+<ul>
+<li>Birmingham — 2120 16th Ave S, Ste 302 — (205) 991-2882</li>
+<li>Alabaster / Shelby County — 2025 Butler Rd — (205) 940-6360</li>
+<li>Alexander City / Lake Martin — 1785 Tallapoosa St — (256) 234-6162</li>
+<li>Huntsville — 7027 Old Madison Pike, Ste 108 — (256) 937-7676</li>
+</ul>
+`,
+  },
+
   // ─── sentricon-worth-it — NeuronWriter score 77, keyword "is sentricon worth it" (510/mo, KD 18) ───
   {
     slug: 'is-sentricon-worth-it',
