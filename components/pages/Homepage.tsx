@@ -14,7 +14,6 @@ import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
   Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
 } from 'lucide-react';
-import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
 import { ACH_TERMS, PRICING } from '@/data/pricing';
 import { OFFICES as STAFFED_OFFICES } from '@/data/offices';
@@ -139,7 +138,11 @@ export default function Homepage() {
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
-      <StickyCallButton />
+      {/* StickyCallButton removed 2026-09-22 — superseded by the sitewide
+          <MobileActionBar /> in app/layout.tsx, which adds Pay Bill, uses the
+          location-aware number instead of a hardcoded one, and reaches every
+          route rather than only this page. Its scroll-away and field-focus
+          behaviour were ported over, not dropped. */}
     </main>
   );
 }

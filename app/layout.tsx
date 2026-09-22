@@ -32,6 +32,7 @@ import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidgetLazy from '../components/ChatWidgetLazy';
 import DeferredTracking from '../components/DeferredTracking';
+import MobileActionBar from '../components/MobileActionBar';
 import Header from '../components/shared/Header';
 import America250Banner from '../components/America250Banner';
 import Footer from '../components/shared/Footer';
@@ -337,6 +338,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+        {/*
+          SITEWIDE MOBILE ACTION BAR (2026-09-22): Call / Pay Bill / Quote, mounted
+          here for the same reason <Header /> is — it has to reach city, service and
+          blog pages, not just the homepage. Replaces StickyCallButton, which was
+          mounted inside Homepage.tsx and so never appeared anywhere else.
+        */}
+        <MobileActionBar />
         <ChatWidgetLazy />
 
         {/* GA4 + Meta Pixel — deferred until first user interaction or 5 s idle.
