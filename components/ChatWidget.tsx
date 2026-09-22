@@ -211,6 +211,15 @@ export default function ChatWidget() {
           .ec-scout-tip-x{flex-shrink:0;background:none;border:none;cursor:pointer;color:#8a978c;font-size:16px;line-height:1;padding:0 2px;}
           .ec-scout-tip-x:hover{color:#0E1A0F;}
           @media (max-width:600px){.ec-scout-tip{right:12px;bottom:86px;left:auto;max-width:72vw;}}
+          /* Clear the sitewide MobileActionBar (2026-09-22). That bar is a
+             full-width fixed strip at bottom:0 on viewports <=980px — the same
+             breakpoint the header uses — so at the FAB's default bottom:16px the
+             launcher sat on top of it. Offset is the bar's ~56px row plus the iOS
+             safe area. Keep these in sync if the bar's height changes. */
+          @media (max-width:980px){
+            .ec-scout-fab{bottom:calc(72px + env(safe-area-inset-bottom, 0px));}
+            .ec-scout-tip{bottom:calc(142px + env(safe-area-inset-bottom, 0px));}
+          }
         `}} />
         {nudge && (
           <div className="ec-scout-tip" role="status">
