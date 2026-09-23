@@ -6,7 +6,7 @@ import { chromium } from 'playwright-core';
 const OUT = 'C:/Users/pwedg/Desktop/Envirocare Stuf/monitoring/screenshots-2026-06-10';
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const page = await browser.newPage({ viewport: { width: 380, height: 800 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
-await page.goto('https://envirocare-web.vercel.app/', { waitUntil: 'networkidle', timeout: 60000 });
+await page.goto('https://www.envirocarellc.com/', { waitUntil: 'networkidle', timeout: 60000 });
 await page.waitForTimeout(2500);
 
 const checks = await page.evaluate(() => {
