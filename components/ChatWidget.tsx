@@ -211,6 +211,20 @@ export default function ChatWidget() {
           .ec-scout-tip-x{flex-shrink:0;background:none;border:none;cursor:pointer;color:#8a978c;font-size:16px;line-height:1;padding:0 2px;}
           .ec-scout-tip-x:hover{color:#0E1A0F;}
           @media (max-width:600px){.ec-scout-tip{right:12px;bottom:86px;left:auto;max-width:72vw;}}
+          /* Clear the sitewide MobileActionBar (2026-09-22). That bar is a
+             full-width fixed strip at bottom:0 on viewports <=980px — the same
+             breakpoint the header uses — so at the FAB's default bottom:16px the
+             launcher sat on top of it.
+
+             --mab-height is published by MobileActionBar from its own measured
+             offsetHeight, so this follows the bar if it ever renders taller (a
+             wrapped phone number, font scaling, a deeper safe-area inset). It
+             already includes the safe-area padding. The 56px is only a fallback
+             for first paint, before the observer runs. */
+          @media (max-width:980px){
+            .ec-scout-fab{bottom:calc(var(--mab-height, 56px) + 16px);}
+            .ec-scout-tip{bottom:calc(var(--mab-height, 56px) + 86px);}
+          }
         `}} />
         {nudge && (
           <div className="ec-scout-tip" role="status">
