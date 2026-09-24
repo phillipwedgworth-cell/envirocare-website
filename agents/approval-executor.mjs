@@ -62,15 +62,19 @@ const SLOT_HOUR_UTC = 14;    // ~9am CT, the slot the calendar already used
 // approval_queue location -> the GBP listing it publishes to, matched against
 // OneUp's listsocialaccounts full_name.
 //
-// DECISION FOR PHILLIP — "birmingham". The proposer tags metro posts
-// "birmingham", which in this codebase has historically meant the ALABASTER
-// listing (data/offices.ts: OfficeId 'birmingham' IS Butler Rd — a documented
-// naming trap), and oneup-push.mjs routes it there too. The 16th Ave Birmingham
-// GBP has existed since 2026-09-05. 50 of the 68 approved posts are "birmingham".
-// Kept on Alabaster to match every existing route; change to "16th ave" here to
-// send them to the Birmingham listing instead.
+// "birmingham" -> the 16th Ave BIRMINGHAM listing, per the 2026-09-05 county
+// ruling (AGENTS.md §4) and the post writer's split into birmingham (Jefferson)
+// and alabaster (Shelby) markets. Note the naming trap this avoids:
+// data/offices.ts OfficeId 'birmingham' IS the Alabaster office, and the retired
+// oneup-push.mjs still routes birmingham -> Butler Rd. That predates the
+// Birmingham GBP (verified 2026-09-05) and is not followed here.
+//
+// There is deliberately NO FALLBACK. If the 16th Ave listing is not connected in
+// OneUp, the row goes to 'fix' — never silently onto Alabaster's profile.
+// The "16th ave" needle is matched against OneUp's listing name and has not been
+// confirmed live; if the first --live run reports it "not connected", adjust it.
 const ROUTES = {
-  birmingham: { needle: "butler rd", listing: "Alabaster GBP (Butler Rd)" },
+  birmingham: { needle: "16th ave", listing: "Birmingham GBP (16th Ave S)" },
   alabaster: { needle: "butler rd", listing: "Alabaster GBP (Butler Rd)" },
   huntsville: { needle: "old madison pike", listing: "Huntsville GBP" },
   lake_martin: { needle: "tallapoosa", listing: "Alex City GBP" },
