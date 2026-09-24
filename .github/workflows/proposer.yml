@@ -2,11 +2,15 @@ name: Proposer
 
 on:
   schedule:
-    # Mondays 06:30 CT (11:30 UTC during CDT), 30 min before the weekly
-    # orchestrator digest (vercel.json, Mon 12:00 UTC) that leads with this
-    # list. Was daily: it produced near-duplicate seasonal posts every day
-    # that piled up unshipped in approval_queue (81 approved, 0 shipped on
-    # 2026-09-24).
+    # Mondays 06:30 CT (11:30 UTC during CDT). Was daily: it produced
+    # near-duplicate seasonal posts every day that piled up unshipped in
+    # approval_queue (81 approved, 0 shipped on 2026-09-24).
+    #
+    # NOTE — this runs scripts/proposer.mjs, the GBP POST WRITER. It is NOT the
+    # same program as agents/proposer.mjs, which the orchestrator runs to turn
+    # findings into a site/SEO change list and which never touches
+    # approval_queue. They share a name, not a job; do not dedupe one against the
+    # other. (A 2026-09-24 commit briefly did exactly that and was reverted.)
     - cron: "30 11 * * 1"
   workflow_dispatch: {}
 

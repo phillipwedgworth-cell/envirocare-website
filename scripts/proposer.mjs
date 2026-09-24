@@ -29,8 +29,14 @@ const PENDING = "pending";
 const MODEL = "claude-haiku-4-5-20251001";
 const MAX_PROPOSALS = 6;
 
+// One entry per GBP listing. "birmingham" used to be "Birmingham / Alabaster" on
+// (205) 940-6360 — one market for two offices. Split 2026-09-24 to match the
+// 2026-09-05 county ruling (AGENTS.md §4): Jefferson/St Clair -> Birmingham,
+// 2120 16th Ave S, (205) 991-2882; Shelby -> Alabaster, 2025 Butler Rd,
+// (205) 940-6360. Each now has its own verified GBP to post to.
 const LOCATIONS = [
-  { key: "birmingham", label: "Birmingham / Alabaster", phone: "(205) 940-6360" },
+  { key: "birmingham", label: "Birmingham", phone: "(205) 991-2882" },
+  { key: "alabaster", label: "Alabaster", phone: "(205) 940-6360" },
   { key: "huntsville", label: "Huntsville", phone: "(256) 937-7676" },
   { key: "lake_martin", label: "Lake Martin / Alexander City", phone: "(256) 234-6162" },
 ];
@@ -49,6 +55,12 @@ const CATEGORY_FOR_TYPE = { gbp_post: "post", content_brief: "web", seasonal_cam
 // PASS with authority. There is now ONE source: scripts/lib/compliance-rules.mjs
 // reads data/compliance.ts directly, and the repo guard uses the same function.
 import { compileRules, scanText } from "./lib/compliance-rules.mjs";
+// GBP posts must ALSO pass the publisher's gate. The canon above allows a phone
+// number in copy — correct for web pages — but Google rejects a GBP post whose
+// body carries one, and oneup-push's gate blocks it. Checking only the canon here
+// is how all 28 recent approved posts reached the queue unpublishable. Same gate
+// the executor runs, imported, not copied.
+import { scan as gbpGate } from "../agents/oneup-push.mjs";
 
 const COMPLIANCE_RULES = compileRules();
 
@@ -131,9 +143,13 @@ async function claude(prompt) {
 
 function buildPrompt() {
   const today = new Date().toISOString().slice(0, 10);
-  return `You generate proposed marketing actions for EnviroCare Pest & Termite
-Services, a fourth-generation family-owned Alabama pest control company founded
-in 1958. Four offices: Birmingham, Alabaster, Huntsville, Lake Martin/Alexander City (plus Auburn).
+  return `You generate proposed marketing actions for EnviroCare, a family-owned
+Alabama pest control company. The Wedgworth family has done pest control in
+Alabama since 1958 and EnviroCare is the fourth generation. Attach 1958 to the
+FAMILY, never to the company ("the Wedgworth family since 1958" — never
+"EnviroCare since 1958" or "founded in 1958"). Call the company "EnviroCare"; never
+"EnviroCare Pest & Termite Services", which is a retired name.
+Four offices: Birmingham, Alabaster, Huntsville, Lake Martin/Alexander City (plus Auburn).
 
 Facts you may use (do NOT invent others, especially prices):
 - Bi-monthly pest control: $35/month on ACH, or $70 per visit. 30+ pests. Unlimited free re-services. Write that phrase in full — "unlimited" alone, or "unlimited service"/"unlimited protection", is a blocked claim. The only accepted forms are "unlimited free re-service" and "unlimited covered re-service".
@@ -141,7 +157,20 @@ Facts you may use (do NOT invent others, especially prices):
 - Mosquito: $45/month, EIGHT treatments March-October ($34/month when paired with a pest plan). Ruled by Phillip 2026-08-26. Do NOT write a per-treatment or per-visit mosquito price, do NOT write nine treatments, do NOT extend the season to November, and do NOT invent a derived monthly average (e.g. "$33.75/mo") — no computed figure may appear that is not in data/pricing.ts.
 - Mosquito + Tick: $65/month. Covers chiggers. Does NOT cover fleas. Same rules as above — monthly only, never per treatment.
 - ANY $/month figure must be followed by the disclosure that monthly pricing requires a 12-month ACH billing agreement (Phillip, 2026-06-26 — permanent).
-- Phones: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Huntsville (256) 937-7676, Lake Martin (256) 234-6162, Auburn (334) 332-3321.
+- Phones (content briefs and campaigns ONLY — see the GBP rule below): Birmingham (205) 991-2882, Alabaster (205) 940-6360, Huntsville (256) 937-7676, Lake Martin (256) 234-6162, Auburn (334) 332-3321.
+- Mosquito + Tick has NO paired price. The $34/month paired price is for mosquito
+  ALONE. Never write "Mosquito + Tick" or "mosquito and tick" at $34.
+
+GBP POSTS ("gbp_post") — NO PHONE NUMBERS IN THE BODY. Google rejects a Business
+Profile post whose text contains a phone number; the listing's own Call button
+carries it. Instead close with: "Request a free quote at
+https://www.envirocarellc.com/quote". A gbp_post containing any phone number is
+discarded.
+
+LOCATIONS: "birmingham" means Birmingham and Jefferson County (Homewood, Mountain
+Brook, Vestavia Hills, Hoover, Trussville). "alabaster" means Shelby County
+(Alabaster, Pelham, Helena, Chelsea, Calera, Greystone). Keep each post's
+neighborhoods inside its own county.
 
 HARD BANS — never use any of these (violations get the company in legal trouble):
 "safe"/"pet-safe"/"kid-safe"/"non-toxic"/"eco-safe"/"chemical-free" (say
@@ -179,7 +208,7 @@ this point in the Alabama pest season.
 Return ONLY a JSON array. No preamble, no markdown fences. Each object:
 {
   "type": "gbp_post" | "content_brief" | "seasonal_campaign",
-  "location": "birmingham" | "huntsville" | "lake_martin",
+  "location": "birmingham" | "alabaster" | "huntsville" | "lake_martin",
   "title": "short label, under 60 chars, specific and unique",
   "body": "the actual draft copy or brief, ready for a human to approve",
   "context": "one sentence on why this is worth doing now"
@@ -212,6 +241,14 @@ function parseProposals(raw) {
       // rendered page: a $1M figure is qualified if the copy states the terms
       // anywhere in it, not only on the same line.
       const scan = scanText([p.title, body, context].join(String.fromCharCode(10)), COMPLIANCE_RULES);
+      // GBP posts must also clear the publisher's gate (phone numbers in the body,
+      // retired name, founder claims). Title + body only: the context is internal.
+      const isGbp = (p.type || "gbp_post") === "gbp_post";
+      const gbpHits = isGbp ? gbpGate([p.title, body].join(String.fromCharCode(10))) : [];
+      if (gbpHits.length) {
+        scan.clean = false;
+        scan.notes = [scan.notes, `GBP gate: ${gbpHits.length} hit(s) — e.g. phone number in body`].filter(Boolean).join(" | ");
+      }
       return {
         title: `${loc.label.split(" /")[0]}: ${String(p.title).trim()}`.slice(0, 120),
         category: CATEGORY_FOR_TYPE[p.type] || "post",

@@ -7,9 +7,14 @@
 name: NeuronWriter Optimize
 
 on:
-  schedule:
-    - cron: '0 13 * * 2'   # Every Tuesday 13:00 UTC = 7am CT (day after QA)
-  workflow_dispatch: {}      # also run on demand from the Actions tab
+  # SCHEDULE RETIRED — 2026-09-24. Every scheduled run since 2026-08-04 was
+  # CANCELLED by timeout-minutes: 20 (eight Tuesdays in a row). Each run paid
+  # for ~24 model calls (agent_costs: 189 calls, Jul 28 – Sep 22) and was killed
+  # before logAgentRun, so agent_runs shows nothing after Jul 7 and no draft
+  # ever reached a PR. Retired per the fleet spec rather than raising the
+  # timeout: it was spending money every week with zero output. Code unchanged;
+  # manual runs still work from the Actions tab.
+  workflow_dispatch: {}      # run on demand from the Actions tab
 
 permissions:
   contents: write          # needed to push the draft branch
