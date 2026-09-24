@@ -11,6 +11,7 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 // silently weren't in the bundle and every agent reported "skipped" at
 // runtime. Each agent module exports { run }.
 import { run as runReviewResponder } from "./review-responder.mjs";
+import { run as runSeoMonitor } from "./seo-monitor.mjs";
 import { run as runNeuronwriterQa } from "./neuronwriter-qa.mjs";
 import { run as runProposer } from "./proposer.mjs";
 
@@ -19,24 +20,32 @@ const PROMPT_VERSION = "2026-05-28";
 
 // Order matters for digest readability but not correctness.
 //
-// REMOVED 2026-09-24 — each already runs on its own schedule, so running it here
-// too was a duplicate paid run:
-//   brightlocal    vercel.json /api/brightlocal/run (Mon 08:00) + brightlocal.yml
-//   seo-monitor    vercel.json /api/seo-monitor/run (Mon 14:00) + seo-monitor.yml
-//   site-reviewer  vercel.json /api/site-reviewer/run (daily 06:00)
+// REMOVED 2026-09-24 — each has its own WORKING schedule (confirmed in agent_runs),
+// so running it here too was a duplicate paid run:
+//   brightlocal    vercel.json /api/brightlocal/run (Mon 08:00) — ran 08:01 on 09-21
+//   site-reviewer  vercel.json /api/site-reviewer/run (daily 06:00) — runs daily
 //   cfo-agent      retired from the schedule per the 2026-09-24 fleet spec. This
 //                  was its only scheduled trigger; it still runs ON DEMAND via
 //                  /api/cfo/run and the command center. Code unchanged.
-// Their FINDINGS still reach this digest — see FINDINGS_WINDOW_HOURS below.
+//
+// KEPT — seo-monitor. Do not remove it on the assumption that it runs elsewhere:
+//   - .github/workflows/seo-monitor.yml runs agents/seo-SNAPSHOT.mjs, a different
+//     agent, despite its name.
+//   - vercel.json /api/seo-monitor/run (Mon 14:00) left no agent_runs row on
+//     2026-09-21. As of that date this registry was the ONLY path that actually
+//     ran seo-monitor.
+// Findings from the removed agents still reach this digest — see
+// FINDINGS_WINDOW_HOURS below.
 const AGENT_REGISTRY = [
   { name: "review-responder", run: runReviewResponder },  // Mondays only; drafts to Notion Review Response Station
+  { name: "seo-monitor",     run: runSeoMonitor },
   { name: "neuronwriter-qa", run: runNeuronwriterQa },  // content QA; skips gracefully if key absent
 ];
 
 // The digest used to read the last 24h of findings, which was right when this ran
-// daily. It is weekly now (vercel.json, Mon 12:00 UTC), and the agents above run on
-// their own schedules — seo-monitor even runs two hours AFTER this. A 24h window
-// would silently drop most of the week from the Monday digest. Read the full week.
+// daily. It is weekly now (vercel.json, Mon 12:00 UTC), and brightlocal and
+// site-reviewer run on their own schedules. A 24h window would silently drop most
+// of the week from the Monday digest. Read the full week.
 const FINDINGS_WINDOW_HOURS = 24 * 7;
 
 let anthropic = null;
