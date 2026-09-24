@@ -10,26 +10,34 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 // strings — Next.js doesn't trace those at build time, so the files
 // silently weren't in the bundle and every agent reported "skipped" at
 // runtime. Each agent module exports { run }.
-import { run as runBrightlocal } from "./brightlocal.mjs";
 import { run as runReviewResponder } from "./review-responder.mjs";
-import { run as runSeoMonitor } from "./seo-monitor.mjs";
 import { run as runNeuronwriterQa } from "./neuronwriter-qa.mjs";
-import { run as runCfoAgent } from "./cfo-agent.mjs";
-import { run as runSiteReviewer } from "./site-reviewer.mjs";
 import { run as runProposer } from "./proposer.mjs";
 
 const ORCHESTRATOR_MODEL = "claude-sonnet-4-6";
 const PROMPT_VERSION = "2026-05-28";
 
 // Order matters for digest readability but not correctness.
+//
+// REMOVED 2026-09-24 — each already runs on its own schedule, so running it here
+// too was a duplicate paid run:
+//   brightlocal    vercel.json /api/brightlocal/run (Mon 08:00) + brightlocal.yml
+//   seo-monitor    vercel.json /api/seo-monitor/run (Mon 14:00) + seo-monitor.yml
+//   site-reviewer  vercel.json /api/site-reviewer/run (daily 06:00)
+//   cfo-agent      retired from the schedule per the 2026-09-24 fleet spec. This
+//                  was its only scheduled trigger; it still runs ON DEMAND via
+//                  /api/cfo/run and the command center. Code unchanged.
+// Their FINDINGS still reach this digest — see FINDINGS_WINDOW_HOURS below.
 const AGENT_REGISTRY = [
-  { name: "brightlocal",      run: runBrightlocal },
   { name: "review-responder", run: runReviewResponder },  // Mondays only; drafts to Notion Review Response Station
-  { name: "seo-monitor",     run: runSeoMonitor },
   { name: "neuronwriter-qa", run: runNeuronwriterQa },  // content QA; skips gracefully if key absent
-  { name: "cfo-agent",       run: runCfoAgent },
-  { name: "site-reviewer",   run: runSiteReviewer },
 ];
+
+// The digest used to read the last 24h of findings, which was right when this ran
+// daily. It is weekly now (vercel.json, Mon 12:00 UTC), and the agents above run on
+// their own schedules — seo-monitor even runs two hours AFTER this. A 24h window
+// would silently drop most of the week from the Monday digest. Read the full week.
+const FINDINGS_WINDOW_HOURS = 24 * 7;
 
 let anthropic = null;
 let anthropicInitError = null;
@@ -233,8 +241,8 @@ export async function run() {
   const outputs = await runAllAgents();
 
   // Round 2: read what everyone wrote to the shared tables.
-  const findings = await readFindings([], 24);
-  const discussions = await readDiscussions([], 24);
+  const findings = await readFindings([], FINDINGS_WINDOW_HOURS);
+  const discussions = await readDiscussions([], FINDINGS_WINDOW_HOURS);
 
   // Round 2b: Proposer reads findings and produces a ranked change list.
   let proposerOut = null;
