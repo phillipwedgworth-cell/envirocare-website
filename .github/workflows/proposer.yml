@@ -1,13 +1,17 @@
 name: Proposer
 
 on:
-  # NO SCHEDULE — 2026-09-24. The orchestrator already runs the proposer itself
-  # (agents/orchestrator.mjs, "Round 2b"), right after the agents run and on
-  # their fresh findings, then leads the Monday digest with it. A separate
-  # Mon 11:30 cron here proposed from last week's findings and was then re-run
-  # 30 minutes later by the orchestrator: two proposal batches every Monday —
-  # the same near-duplicate problem that piled 81 approved, 0 shipped rows into
-  # approval_queue. (Before that it ran daily.) Manual runs still work below.
+  schedule:
+    # Mondays 06:30 CT (11:30 UTC during CDT). Was daily: it produced
+    # near-duplicate seasonal posts every day that piled up unshipped in
+    # approval_queue (81 approved, 0 shipped on 2026-09-24).
+    #
+    # NOTE — this runs scripts/proposer.mjs, the GBP POST WRITER. It is NOT the
+    # same program as agents/proposer.mjs, which the orchestrator runs to turn
+    # findings into a site/SEO change list and which never touches
+    # approval_queue. They share a name, not a job; do not dedupe one against the
+    # other. (A 2026-09-24 commit briefly did exactly that and was reverted.)
+    - cron: "30 11 * * 1"
   workflow_dispatch: {}
 
 concurrency:
