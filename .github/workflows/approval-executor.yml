@@ -1,0 +1,41 @@
+name: Approval executor (dry run)
+
+# Previews what agents/approval-executor.mjs would do with approval_queue rows
+# Phillip has approved: expire stale ones, merge near-duplicates, re-run the
+# compliance gates, and schedule the survivors to OneUp.
+#
+# DRY RUN ONLY, deliberately, and twice over:
+#   1. It never passes --live, so the script writes nothing to Supabase or OneUp.
+#   2. It is not given ONEUP_API. Even if someone added --live here, the script
+#      refuses to schedule without that key — it cannot publish from this file.
+# The plan lands on the run's Summary page. To apply it, run the script by hand:
+#   node agents/approval-executor.mjs --live
+# with SUPABASE_URL, SUPABASE_KEY and ONEUP_API set.
+
+on:
+  schedule:
+    - cron: '0 13 * * 1-5' # weekdays 13:00 UTC (~8am CT)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: approval-executor
+  cancel-in-progress: false
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci || npm install
+      - name: Plan (dry run — writes nothing)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node agents/approval-executor.mjs
