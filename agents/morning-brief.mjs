@@ -42,7 +42,7 @@ import { createMessage } from './lib/llm-with-logging.mjs';
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
 const BASE = `https://${PROJECT_REF}.supabase.co/rest/v1`;
 const TZ = 'America/Chicago';
-const MODEL = process.env.BRIEF_MODEL || 'claude-sonnet-4-6';
+const MODEL = process.env.BRIEF_MODEL || 'claude-haiku-4-5'; // fleet policy: Haiku for daily production routes
 
 function sbHeaders(extra = {}) {
   return {
