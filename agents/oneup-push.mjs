@@ -122,7 +122,10 @@ const BANNED = [
   /205[.\-\s)]*649[.\-\s]*5278/,     // dead Scorpion line
 ].filter((r) => r instanceof RegExp);
 
-function scan(text) {
+// Exported so agents/approval-executor.mjs runs the SAME GBP gate rather than a
+// hand-copied subset — a copied subset is how banned claims previously reached
+// approval_queue marked compliance_clean = true.
+export function scan(text) {
   return BANNED.filter((re) => re.test(text)).map((re) => re.source);
 }
 
@@ -320,6 +323,8 @@ export async function run() {
 // pathToFileURL, not `file://${process.argv[1]}`: on Windows argv[1] is
 // `C:\…` and import.meta.url is `file:///c:/…`, so the POSIX form never matches
 // and running this directly exits 0 having done nothing and printed nothing.
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+// argv[1] is undefined when this module is IMPORTED from `node -e`, a REPL or a
+// bundler — pathToFileURL(undefined) throws, so check it exists first.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   run().catch((e) => { console.error(e); process.exit(1); });
 }
