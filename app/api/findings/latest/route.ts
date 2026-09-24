@@ -1,10 +1,27 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
+import { timingSafeEqual } from "node:crypto";
+import { cleanEnv } from "@/lib/env-url";
 
 export const runtime = "nodejs";
 export const maxDuration = 15;
 
-export async function GET() {
+// Internal agent runs/findings. Was publicly readable (found 2026-09-24).
+// Requires `Authorization: Bearer <FINDINGS_READ_KEY>`; fails closed when the
+// env var is unset. Header, not query string, so the key stays out of logs.
+function authorized(req: Request): boolean {
+  const expected = cleanEnv("FINDINGS_READ_KEY");
+  const got = (req.headers.get("authorization") ?? "").replace(/^Bearer\s+/i, "").trim();
+  if (!expected || !got) return false;
+  const a = Buffer.from(got);
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
+export async function GET(req: Request) {
+  if (!authorized(req)) {
+    return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
+  }
   try {
     const supabase = createClient(
       process.env.SUPABASE_URL!,
@@ -48,7 +65,7 @@ export async function GET() {
       state: state ?? [],
     });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "unknown error";
-    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+    console.error("[findings/latest]", err instanceof Error ? err.message : err);
+    return NextResponse.json({ ok: false, error: "internal error" }, { status: 500 });
   }
 }
