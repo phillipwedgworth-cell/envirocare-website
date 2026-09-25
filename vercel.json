@@ -16,16 +16,8 @@
       "schedule": "15 9 * * *"
     },
     {
-      "path": "/api/brightlocal/run",
-      "schedule": "0 8 * * 1"
-    },
-    {
       "path": "/api/site-reviewer/run",
       "schedule": "0 6 * * *"
-    },
-    {
-      "path": "/api/seo-monitor/run",
-      "schedule": "0 14 * * 1"
     },
     {
       "path": "/api/watchdog/run",

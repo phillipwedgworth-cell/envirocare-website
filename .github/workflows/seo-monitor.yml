@@ -4,9 +4,15 @@ name: SEO Monitor (Local Falcon)
 # works even when the Vercel cron (/api/seo-monitor/run) is blocked by an unset
 # CRON_SECRET. If you rely on the Vercel cron instead, disable this to avoid a
 # duplicate weekly digest email.
+# NO SCHEDULE — 2026-09-25. Despite its name this runs agents/seo-SNAPSHOT.mjs,
+# not agents/seo-monitor.mjs, and seo-snapshot had FOUR Monday triggers: this
+# workflow (14:00), .github/workflows/seo-snapshot.yml (14:30), and the Vercel
+# cron /api/seo-monitor/run (14:00) firing once on EACH of two Vercel projects.
+# agent_runs showed 4 seo-snapshot runs every Monday. The one kept is
+# seo-snapshot.yml: same agent, same keys, plus failure reporting. The Vercel cron
+# was removed from vercel.json. (The seo-monitor AGENT itself runs once a week,
+# inside the orchestrator.) Manual runs still work below.
 on:
-  schedule:
-    - cron: '0 14 * * 1'   # Mondays 14:00 UTC (~9am CT)
   workflow_dispatch: {}
 
 jobs:
