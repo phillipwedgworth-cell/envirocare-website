@@ -55,7 +55,8 @@ const config: DeepCityConfig = {
       body: (
         <>
           The creek corridors through Cahaba Heights and Vestavia East hold mosquito pressure spring into fall.{" "}
-          <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through October — eight treatments at $45/month, spread evenly across the year by ACH. Treatments target resting and breeding areas; we never guarantee elimination, but most homeowners see a clear difference in how usable the yard becomes.
+          <Link href="/services/mosquito" style={{ color: G, fontWeight: 600 }}>Mosquito control</Link> treats every 30 days, March through October — eight treatments at $45/month, spread evenly across the year by ACH. Treatments target resting and breeding areas; we never guarantee elimination, but most homeowners see a clear difference in how usable the yard becomes. See{" "}
+          <Link href="/vestavia-hills-mosquito-control" style={{ color: G, fontWeight: 600 }}>mosquito control in Vestavia Hills</Link> for how the program works on creek-side and wooded lots.
         </>
       ),
     },
@@ -103,6 +104,7 @@ const config: DeepCityConfig = {
     ["Birmingham", "/birmingham"],
     ["Termite Control", "/services/termite-control"],
     ["Mosquito Control", "/services/mosquito"],
+    ["Vestavia Hills Mosquito Control", "/vestavia-hills-mosquito-control"],
   ],
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
   officePhone: "(205) 991-2882",
