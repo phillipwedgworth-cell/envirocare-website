@@ -4271,7 +4271,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'pest-control-cost-alabama',
     title: 'How Much Does Pest Control Cost in Alabama? Pest Control Costs, Pest Control Prices, and Pest Control Services for Alabama Homeowners',
-    excerpt: 'How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and $229 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
+    excerpt: 'How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
     publishedAt: '2026-05-26',
     updatedAt: '2026-09-21',
     author: 'Kevin Wedgworth',
@@ -4281,14 +4281,14 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'How Much Does Pest Control Cost in Alabama? Pest Control Costs, Pest Control Prices, and Pest Control Services for Alabama Homeowners',
     metaDescription: 'How much does pest control cost in Alabama? Real 2026 pest control prices and pest control costs — bi-monthly pest control service from $35/mo, mosquito control, termite treatment, and one-time pest control treatment costs for Birmingham, Huntsville, and Alabama homes and businesses. Reliable pest control company pricing.',
     body: `
-<p class="lede">How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and $229 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Birmingham, Huntsville, and across Alabama, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
+<p class="lede">How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Birmingham, Huntsville, and across Alabama, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
 
 <h2>How much does pest control cost in Alabama in 2026?</h2>
 
 <p>Pest control costs in Alabama depend on the service, the size of the property, the type of pest, and whether you need ongoing pest control or a one-time treatment. Here is what pest control services cost at EnviroCare in 2026 — published pricing, no sales call required.</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, fleas, silverfish, centipedes, and crickets, with unlimited re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, and crickets, with unlimited re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
@@ -4363,7 +4363,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Yes. Alabama keeps pest pressure on twelve months a year — the climate does not produce a hard enough freeze to stop pest activity over winter. The average cost of $35 a month for bi-monthly pest control service is $420 a year for year-round coverage, which is usually less than two or three one-time exterminator visits for individual pest problems. Termites, ants, cockroaches, spiders, and rodents remain active in Alabama homes year-round, and skipping pest control allows pest populations to build into a larger infestation that costs more to control.</p>
 
 <h2>What is the average cost of pest control in Alabama?</h2>
-<p>The average cost of pest control in Alabama for a single-family home runs $35 to $229 per month depending on the pest control services included. Basic bi-monthly pest control starts at $35 a month. Adding mosquito control brings the average costs higher. The Complete plan with pest, termite, and mosquito protection is $229 initial. One-time pest control treatments for a specific pest problem typically cost $150 to $600 depending on the type of pest and severity of the infestation.</p>
+<p>The average cost of pest control in Alabama for a single-family home runs $35 to about $100 per month depending on the pest control services included. Basic bi-monthly pest control starts at $35 a month. Adding mosquito control brings the average costs higher. The Complete plan with pest, termite, and mosquito protection is $229 initial. One-time pest control treatments for a specific pest problem typically cost $150 to $600 depending on the type of pest and severity of the infestation.</p>
 
 <h2>How much does termite treatment cost in Alabama?</h2>
 <p>Termite treatment cost in Alabama is always quoted after a free on-site inspection because the price depends on the foundation type, linear footage, and severity of the termite infestation. Termite inspections are free at EnviroCare. Termites are among the most destructive pests in Alabama, and termite damage can cost thousands of dollars to repair if left unchecked. Every Alabama homeowner should have a termite inspection regardless of whether they have seen termite activity.</p>
@@ -5043,7 +5043,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'pest-control-cost-huntsville',
     title: 'How Much Does Pest Control Cost in Huntsville, AL? Pest Control Costs, Pest Control Prices, and Pest Control Services for Huntsville Alabama Homeowners',
-    excerpt: 'How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and $229 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
+    excerpt: 'How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
     publishedAt: '2026-07-24',
     updatedAt: '2026-09-21',
     author: 'Kevin Wedgworth',
@@ -5053,14 +5053,14 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'How Much Does Pest Control Cost in Huntsville, AL? Pest Control Costs, Pest Control Prices, and Pest Control Services for Huntsville Alabama Homeowners',
     metaDescription: 'How much does pest control cost in Huntsville, AL? Real 2026 pest control prices and pest control costs — bi-monthly pest control service from $35/mo, mosquito control, termite treatment, and one-time pest control treatment costs for Huntsville and Madison County homes and businesses. Reliable pest control company pricing.',
     body: `
-<p class="lede">How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and $229 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Huntsville and across Madison County, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
+<p class="lede">How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Huntsville and across Madison County, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
 
 <h2>How much does pest control cost in Huntsville in 2026?</h2>
 
 <p>Pest control costs in Huntsville depend on the service, the size of the property, the type of pest, and whether you need ongoing pest control or a one-time treatment. Here is what pest control services cost at EnviroCare in 2026 — published pricing, no sales call required.</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, fleas, silverfish, centipedes, millipedes, cave crickets, and crickets, with unlimited re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with unlimited re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
@@ -5129,7 +5129,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Yes. Alabama keeps pest pressure on twelve months a year — the climate does not produce a hard enough freeze to stop pest activity over winter. Huntsville's limestone geology adds centipedes, millipedes, and cave crickets to the standard pest lineup that most Alabama homes face. The average cost of $35 a month for bi-monthly pest control service is $420 a year for year-round coverage, which is usually less than two or three one-time exterminator visits for individual pest problems.</p>
 
 <h2>What is the average cost of pest control in Huntsville?</h2>
-<p>The average cost of pest control in Huntsville for a single-family home runs $35 to $229 per month depending on the pest control services included. Basic bi-monthly pest control starts at $35 a month. Adding mosquito control brings the average costs higher. The Complete plan with pest, termite, and mosquito protection is $229 initial. One-time pest control treatments for a specific pest problem typically cost $150 to $600 depending on the type of pest and severity of the infestation.</p>
+<p>The average cost of pest control in Huntsville for a single-family home runs $35 to about $100 per month depending on the pest control services included. Basic bi-monthly pest control starts at $35 a month. Adding mosquito control brings the average costs higher. The Complete plan with pest, termite, and mosquito protection is $229 initial. One-time pest control treatments for a specific pest problem typically cost $150 to $600 depending on the type of pest and severity of the infestation.</p>
 
 <h2>How much does termite treatment cost in Huntsville?</h2>
 <p>Termite treatment cost in Huntsville is always quoted after a free on-site inspection because the price depends on the foundation type, linear footage, and severity of the termite infestation. Termite inspections are free at EnviroCare. Termites are among the most destructive pests in Alabama, and termite damage can cost thousands of dollars to repair if left unchecked. Every Huntsville homeowner should have a termite inspection regardless of whether they have seen termite activity.</p>

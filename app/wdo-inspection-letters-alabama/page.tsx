@@ -77,13 +77,9 @@ const schema = [
     name: "Alabama WDO Inspection Letters (Real Estate Closings)",
     serviceType: "Wood-Destroying Organism Inspection Report",
     audience: { "@type": "BusinessAudience", name: "Real estate agents, closing attorneys, and mortgage lenders" },
-    provider: {
-      "@type": "LocalBusiness",
-      name: "EnviroCare",
-      telephone: "+1-205-940-6360",
-      address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
-      parentOrganization: { "@type": "Organization", name: "EnviroCare", foundingDate: "1958" },
-    },
+    // The Alabaster office node (full NAP, parentOrganization) is emitted
+    // sitewide by app/layout.tsx; reference it instead of restating it.
+    provider: { "@id": "https://www.envirocarellc.com/#alabaster" },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Jefferson County, Alabama" },
       { "@type": "AdministrativeArea", name: "Shelby County, Alabama" },

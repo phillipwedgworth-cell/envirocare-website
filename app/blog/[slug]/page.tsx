@@ -75,14 +75,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             author: {
               '@type': 'Person',
               name: post.author,
-              worksFor: { '@type': 'Organization', name: 'EnviroCare' },
+              worksFor: { '@id': 'https://www.envirocarellc.com/#organization' },
             },
-            publisher: {
-              '@type': 'Organization',
-              name: 'EnviroCare',
-              url: SITE,
-              logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` },
-            },
+            // Reference the canonical Organization node emitted by app/layout.tsx
+            // (name, legalName, logo) instead of a partial node with a
+            // different name. Same fix as #179 on service/office pages.
+            publisher: { '@id': 'https://www.envirocarellc.com/#organization' },
             isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog#blog`, name: 'EnviroCare Pest Control Blog' },
           },
           {
