@@ -73,7 +73,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
     name: 'EnviroCare',
     itemListElement: [
       {
-        '@type': 'Offer', name: 'Essential Pest Control', price: '35', priceCurrency: 'USD',
+        '@type': 'Offer', name: 'Pest Control', price: '35', priceCurrency: 'USD',
         priceSpecification: { '@type': 'UnitPriceSpecification', price: '35', priceCurrency: 'USD', unitText: 'per month, billed monthly via ACH' },
         itemOffered: { '@type': 'Service', name: 'Bi-Monthly Exterior Pest Control', description: 'Bi-monthly perimeter exterior treatment covering 30+ common Alabama pests with unlimited free re-services between scheduled visits.' },
       },
