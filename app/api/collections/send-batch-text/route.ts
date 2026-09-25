@@ -12,9 +12,21 @@
 // where a staff-triggered route belongs — but reachability is not the reason.
 //
 // This route has NO access to the local Collections workbook. Its data
-// comes from Supabase (collections_call_list, collections_do_not_contact),
-// which build_collections.py refreshes every weekday morning. If those
-// tables are stale, this route is stale too — check collections_snapshots.
+// comes from Supabase (collections_call_list, collections_do_not_contact).
+//
+// HISTORY — READ THIS BEFORE TRUSTING THE FRESHNESS OF THIS ROUTE.
+// This comment used to assert that build_collections.py refreshed
+// collections_call_list every weekday morning. That was never true. That
+// script wrote only the local .xlsx; nothing wrote this table. It was
+// hand-seeded 2026-09-09 and was still serving those same 192 rows on
+// 2026-09-14 while the workbook had moved on daily — five-day-old balances,
+// including customers who had already paid. Fixed 2026-09-14 by adding
+// push_to_supabase() to build_collections.py.
+//
+// So: this route is only as fresh as the last successful build_collections.py
+// run. Check collections_snapshots.snapshot_date before a large batch — if it
+// is not today's date, the 7am job did not complete and you are about to text
+// stale balances.
 //
 // SAFETY
 //   - Every recipient is checked against collections_do_not_contact before

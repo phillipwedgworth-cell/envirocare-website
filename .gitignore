@@ -24,3 +24,7 @@ _img_originals_precompress_*
 _newpost_tmp*
 data/_newpost_tmp*
 data/*.bak-precontent-*
+
+# Python bytecode from local script runs
+__pycache__/
+*.pyc
