@@ -119,14 +119,30 @@ export async function blMcpCall(toolName, args) {
   });
   if (!initResp.ok) throw await blHttpError(initResp, `${toolName} init`);
   const sessionId = initResp.headers.get("mcp-session-id");
+
+  // BrightLocal's MCP server is STATELESS: initialize returns 200 with a valid
+  // result and NO Mcp-Session-Id header. That is allowed by the MCP streamable-HTTP
+  // spec — a server that issues no session ID just takes each request on its own.
+  //
+  // This used to treat a missing session ID as fatal ("almost always a key
+  // rejection"). It is not: the diagnostic probe on 2026-09-25 got HTTP 200 from
+  // the Manage REST API with the same key (key valid) AND a well-formed initialize
+  // result with no session header, by query-param and by x-api-key header alike.
+  // Every brightlocal run — Vercel cron, orchestrator, GitHub — had been dying on
+  // this line and reporting "API session error" in an 'ok' run log since at least
+  // 2026-09-14.
+  //
+  // So: no session header + a genuine initialize RESULT = stateless, proceed
+  // without the header. No session header + anything else = still an error.
   if (!sessionId) {
-    // 200 but no session header is almost always a key rejection returned as text.
     const raw = await initResp.text().catch(() => "");
     if (looksLikeKeyRejection(raw)) throw new BrightLocalKeyError(raw);
-    throw new Error(`BL MCP ${toolName}: no session ID returned${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+    if (!/"result"\s*:/.test(raw)) {
+      throw new Error(`BL MCP ${toolName}: no session ID and no initialize result${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+    }
   }
 
-  const shdrs = { ...hdrs, "Mcp-Session-Id": sessionId };
+  const shdrs = sessionId ? { ...hdrs, "Mcp-Session-Id": sessionId } : hdrs;
 
   // 2. Notify initialized
   await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) });

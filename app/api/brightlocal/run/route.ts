@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { skipIfDuplicateProject } from "@/lib/cron-guard";
 import { run as runBrightLocalAgent } from "@/agents/brightlocal.mjs";
 
 async function execute(req: NextRequest) {
+  const duplicate = skipIfDuplicateProject("brightlocal"); // see lib/cron-guard.ts
+  if (duplicate) return duplicate;
   const secret = process.env.CRON_SECRET;
   if (secret && req.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
