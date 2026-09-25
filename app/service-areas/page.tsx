@@ -45,6 +45,7 @@ const GROUPS: Group[] = [
       ['Irondale', '/irondale'], ['Leeds', '/leeds'], ['Moody', '/moody'],
       ['Birmingham Exterminator', '/birmingham-exterminator'],
       ['Birmingham Mosquito Control', '/birmingham-mosquito-control'],
+      ['Vestavia Hills Mosquito Control', '/vestavia-hills-mosquito-control'],
       ['Birmingham Termite Control', '/birmingham-termite-control'],
     ],
   },

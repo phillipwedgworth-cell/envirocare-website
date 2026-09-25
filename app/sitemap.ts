@@ -75,6 +75,8 @@ const COMBO_SLUGS = [
   'decatur-mosquito-control',
   'decatur-exterminator',
   'decatur-termite-control',
+  // 2026-09-25 — gap from the NeuronWriter Optimize audit (query c97f28b04ed3004b).
+  'vestavia-hills-mosquito-control',
 ];
 
 // Service pages that exist as REAL routes (no redirect sources here).
