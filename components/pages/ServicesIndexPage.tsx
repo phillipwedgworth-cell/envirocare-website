@@ -103,7 +103,7 @@ export default function ServicesIndexPage() {
             <a href="/services/commercial" className="svc-card">
               <div className="svc-card-tag">Business</div>
               <div className="svc-card-name">Commercial Service</div>
-              <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
+              <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discreet scheduling, full audit-ready documentation.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             {/* Crawlspace card removed 2026-07-12 — service killed Jun 13 compliance scrub;
