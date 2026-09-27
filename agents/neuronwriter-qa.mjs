@@ -354,6 +354,9 @@ export async function run() {
   // so a blocked run short-circuits instead of burning all 3 revision loops.
   const toolErrors = results.filter(r => r.error).map(r => r.error);
 
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const critic = anthropic ? await criticLoop({
     workerName: AGENT_NAME,
     task: 'NeuronWriter content quality QA report for 16 EnviroCare service and city pages',
@@ -363,7 +366,7 @@ export async function run() {
     toolErrors,
     onEscalate: async out => {
       console.warn(`[${AGENT_NAME}] critic escalated — accepting best draft`);
-      await logAgentRun(AGENT_NAME, 'escalated', out).catch(() => {});
+      escalated = true;
     },
   }) : draft;
 
@@ -381,7 +384,7 @@ export async function run() {
   const final = critic;
   await writeReport(final, results).catch(e => console.error(`[${AGENT_NAME}] writeReport error: ${e.message}`));
   await appendWeeklyResult(results).catch(e => console.error(`[${AGENT_NAME}] Notion post error: ${e.message}`));
-  await logAgentRun(AGENT_NAME, 'ok', final).catch(() => {});
+  await logAgentRun(AGENT_NAME, escalated ? 'escalated' : 'ok', final).catch(() => {});
 
   const failCount = results.filter(r => !r.error && r.score < SCORE_PASS).length;
   console.log(`[${AGENT_NAME}] Done. ${failCount} page(s) below threshold.`);

@@ -365,8 +365,8 @@ async function workerDraft(feedback = null) {
   if (!anthropic) throw new Error("ANTHROPIC_API_KEY is not set");
 
   const initialUser = feedback
-    ? `Run the weekly Monday citation brief again, addressing this critic feedback before emitting:\n\n${feedback}`
-    : "Run the weekly Monday citation brief.";
+    ? `Run the weekly Monday citation brief again, addressing this critic feedback before emitting:\n\n${feedback}\n\nToday is ${new Date().toISOString().slice(0, 10)} (UTC). Use exactly this date wherever a date appears; never write any other date as the report date.`
+    : `Run the weekly Monday citation brief. Today is ${new Date().toISOString().slice(0, 10)} (UTC). Use exactly this date wherever a date appears; never write any other date as the report date.`;
 
   const messages = [{ role: "user", content: initialUser }];
 
@@ -431,6 +431,9 @@ export async function run() {
 - No vague phrases ("improve citations", "monitor closely") without numbers
 - Under 200 words, no preamble, no sign-off`;
 
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const critic = await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly BrightLocal citation brief for EnviroCare's 3 Alabama locations",
@@ -440,7 +443,7 @@ export async function run() {
     toolErrors: runToolErrors,
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
-      await logAgentRun(AGENT_NAME, "escalated", output);
+      escalated = true;
     },
   });
 
@@ -454,7 +457,7 @@ export async function run() {
   }
 
   const final = critic;
-  await logAgentRun(AGENT_NAME, "ok", final);
+  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final);
   console.log(`[${AGENT_NAME}] Done`);
   return final;
 }

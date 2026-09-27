@@ -42,26 +42,35 @@ const ANTHROPIC_CAP_SIGNATURE = 'specified API usage limits';
 // Daily agents get 30h (24 + 6 grace); weeklies 192h (7d + 1d grace).
 // Not listed (log nothing yet): ingest-seo — add once it heartbeats.
 const EXPECTED = [
-  // SEO intel chain — Tue/Fri 13:00 UTC (added 2026-09-05)
-  { agent: 'local-falcon-ingest',   maxAgeH: 100,    label: 'Local Falcon ingest (Tue/Fri)' },
-  { agent: 'competitor-watcher',    maxAgeH: 100,    label: 'Competitor watcher (Tue/Fri)' },
-  { agent: 'keyword-opportunity',   maxAgeH: 100,    label: 'Keyword opportunity (Tue/Fri)' },
+  // Schedules re-read from .github/workflows/*.yml and vercel.json on 2026-09-27
+  // (Sunday audit N7). Removed: social-poster (deleted 08-06), seo-watch (paused),
+  // neuronwriter-optimize (its workflow has no cron — it only runs by hand).
+  // Moved to weekly: orchestrator/proposer (#205), brightlocal (#207).
+  // Added: agents that were scheduled but never watched.
+  // SEO intel chain — Tue/Fri 13:00 UTC
+  { agent: 'local-falcon-ingest',   maxAgeH: 100,     label: 'Local Falcon ingest (Tue/Fri)' },
+  { agent: 'competitor-watcher',    maxAgeH: 100,     label: 'Competitor watcher (Tue/Fri)' },
+  { agent: 'keyword-opportunity',   maxAgeH: 100,     label: 'Keyword opportunity (Tue/Fri)' },
   // GitHub Actions — daily
-  { agent: 'morning-brief',         maxAgeH: 30,     label: 'Morning Brief (daily 13:30 UTC)' },
-  { agent: 'daily-rollup',          maxAgeH: 30,     label: 'Daily Rollup (daily 13:00 UTC)' },
-  { agent: 'aeo-watch',             maxAgeH: 30,     label: 'AEO watch (daily 12:00 UTC)' },
-  { agent: 'neuronwriter-narrator', maxAgeH: 30,     label: 'Neuron Narrator (daily 13:00 UTC score)' },
-  { agent: 'social-poster',         maxAgeH: 30,     label: 'Social poster (daily 15:00 UTC)' },
-  // GitHub Actions — weekly
-  { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8, label: 'Weekly QA (Mon 7am CT)' },
-  { agent: 'neuronwriter-optimize', maxAgeH: 24 * 8, label: 'Weekly optimize (Tue 7am CT)' },
-  { agent: 'seo-watch',             maxAgeH: 24 * 8, label: 'SEO watch (Mon 13:00 UTC)' },
-  { agent: 'seo-monitor',           maxAgeH: 24 * 8, label: 'SEO monitor (Mon)' },
-  // Vercel cron routes — these agents already call logAgentRun() internally:
-  { agent: 'orchestrator',          maxAgeH: 30,     label: 'Orchestrator (daily 09:00 UTC, Vercel cron)' },
-  { agent: 'review-responder',      maxAgeH: 24 * 8, label: 'Review responder (Mon, via orchestrator)' },
-  { agent: 'brightlocal',           maxAgeH: 12,     label: 'BrightLocal (4x/day)' },
-  { agent: 'site-reviewer',         maxAgeH: 12,     label: 'Site reviewer (4x/day)' },
+  { agent: 'morning-brief',         maxAgeH: 30,      label: 'Morning Brief (daily 13:30 UTC)' },
+  { agent: 'daily-rollup',          maxAgeH: 30,      label: 'Daily Rollup (daily 13:00 UTC)' },
+  { agent: 'aeo-watch',             maxAgeH: 30,      label: 'AEO watch (daily 12:00 UTC)' },
+  { agent: 'neuronwriter-narrator', maxAgeH: 30,      label: 'Neuron Narrator (daily 13:00 UTC score)' },
+  { agent: 'blog-writer',           maxAgeH: 30,      label: 'Blog writer (daily 12:00 UTC)' },
+  { agent: 'content-reviewer',      maxAgeH: 30,      label: 'Content reviewer (daily 11:00 UTC)' },
+  { agent: 'captivated-suppress-sync', maxAgeH: 80,   label: 'Captivated suppression sync (weekdays 11:30 UTC)' },
+  // GitHub Actions — weekly / monthly
+  { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8,  label: 'Weekly QA (Mon 13:00 UTC)' },
+  { agent: 'neuronwriter-pull',     maxAgeH: 24 * 8,  label: 'NeuronWriter pull (Wed 13:30 UTC)' },
+  { agent: 'seo-snapshot',          maxAgeH: 24 * 8,  label: 'SEO snapshot (Mon 14:30 UTC)' },
+  { agent: 'proposer',              maxAgeH: 24 * 8,  label: 'Proposer (Mon 11:30 UTC)' },
+  { agent: 'brightlocal',           maxAgeH: 24 * 8,  label: 'BrightLocal (Mon 13:30 UTC)' },
+  { agent: 'ai-citation-probe',     maxAgeH: 24 * 32, label: 'AI citation probe (15th monthly)' },
+  // Vercel cron routes
+  { agent: 'orchestrator',          maxAgeH: 24 * 8,  label: 'Orchestrator (Mon 12:00 UTC, Vercel cron)' },
+  { agent: 'seo-monitor',           maxAgeH: 24 * 8,  label: 'SEO monitor (Mon, via orchestrator)' },
+  { agent: 'review-responder',      maxAgeH: 24 * 8,  label: 'Review responder (Mon, via orchestrator)' },
+  { agent: 'site-reviewer',         maxAgeH: 30,      label: 'Site reviewer (daily 06:00 UTC, Vercel cron)' },
 ];
 
 const healthy = s => HEALTHY.has(String(s ?? '').toLowerCase());
