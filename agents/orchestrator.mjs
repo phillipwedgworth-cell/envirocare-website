@@ -150,7 +150,7 @@ async function synthesizeDigest(outputs, findings, discussions, proposerOut = nu
 
 OUTPUT FORMAT — Markdown, this exact structure:
 
-# Monday Digest — [today's date]
+# Monday Digest — ${new Date().toISOString().slice(0, 10)}
 
 ## TL;DR (3 lines)
 The most important things to know before opening anything else.
@@ -191,7 +191,13 @@ ${discussionBlock || "[none]"}`;
       system,
       messages: [{ role: "user", content: prompt }],
     }, { agentName: 'orchestrator', role: 'worker' });
-    const text = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
+    const runDate = new Date().toISOString().slice(0, 10);
+    const raw = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
+    // The model has invented heading dates (05-28, 09-15, 09-28..30 — Sep 27
+    // audit N2). The heading date is set by code, never by the model.
+    const text = /^# Monday Digest[^\n]*/.test(raw)
+      ? raw.replace(/^# Monday Digest[^\n]*/, `# Monday Digest — ${runDate}`)
+      : `# Monday Digest — ${runDate}\n\n${raw}`;
     return { brief: text, raw_outputs: outputs };
   } catch (e) {
     return {

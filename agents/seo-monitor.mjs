@@ -441,8 +441,8 @@ async function workerDraft(feedback = null, gscContext = '') {
   if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
 
   const base = feedback
-    ? `Run the weekly Monday SoLV brief again, addressing this critic feedback before emitting:\n\n${feedback}`
-    : "Run the weekly Monday SoLV brief.";
+    ? `Run the weekly Monday SoLV brief again, addressing this critic feedback before emitting:\n\n${feedback}\n\nToday is ${new Date().toISOString().slice(0, 10)} (UTC). Use exactly this date wherever a date appears; never write any other date as the report date.`
+    : `Run the weekly Monday SoLV brief. Today is ${new Date().toISOString().slice(0, 10)} (UTC). Use exactly this date wherever a date appears; never write any other date as the report date.`;
   const initial = gscContext ? `${base}\n\n${gscContext}\n\nInclude a one-line GSC organic note at the end of your brief (click delta + top opportunity).` : base;
 
   const messages = [{ role: "user", content: initial }];
@@ -517,6 +517,9 @@ export async function run() {
 - No vague phrases ("monitor", "continue efforts") without numbers
 - Under 220 words, no preamble, no sign-off`;
 
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly Local Falcon SoLV brief for EnviroCare's 4 Alabama locations",
@@ -525,11 +528,11 @@ export async function run() {
     revise: (fb) => workerDraft(fb),
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
-      await logAgentRun(AGENT_NAME, "escalated", output);
+      escalated = true;
     },
   }));
 
-  await logAgentRun(AGENT_NAME, "ok", final);
+  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final);
   console.log(`[${AGENT_NAME}] Done`);
   return final;
 }

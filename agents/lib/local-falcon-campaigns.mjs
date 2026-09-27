@@ -5,11 +5,29 @@
  * runtime. SoLV is only comparable within the same grid/radius baseline.
  * See agents/knowledge/local-falcon-baseline.md before changing these values.
  */
+// Re-verified against the live Local Falcon account 2026-09-27:
+//   4ee47a23fc4793e  Its 2026-09-18 scans measured the ALABASTER profile
+//                    (2025 Butler Rd, ChIJr8cmt…) — so every row already in
+//                    lf_visibility labelled "Alabaster" for this key is CORRECT.
+//                    The campaign has since been renamed "Birmingham Core —
+//                    Biweekly (9x9, 22kw, Birmingham GBP)" and a placeId filter
+//                    now returns it for the 16th Ave BIRMINGHAM profile, so from
+//                    its next run (2026-10-02) it measures Birmingham.
+//                    The SoLV series breaks there: do not compare across it.
+//   51d824c315edded  "Alabaster Core — Biweekly (7x7, 17kw, Alabaster GBP)" takes
+//                    over Butler Rd from 2026-10-02 (first run). Before this
+//                    change it was not seeded, so Alabaster would have dropped
+//                    out of every brief after 10-02.
+//   e9348fff16b95fa  is a MONTHLY 5x5/10mi Birmingham/Hoover/OTM campaign (the
+//                    old entry said 9x9/20mi biweekly). Superseded as Birmingham's
+//                    core by 4ee47a23 from 10-02.
+// The ingest labels rows by the SCAN's place_id first (marketFor), so rows follow
+// the profile actually measured, whichever key produced them.
 export const LOCAL_FALCON_CAMPAIGNS = Object.freeze([
   Object.freeze({
-    key: "e9348fff16b95fa",
+    key: "4ee47a23fc4793e",
     location: "Birmingham",
-    campaignName: "EnviroCare Birmingham 16th Ave (Jefferson Co.) — Biweekly",
+    campaignName: "EnviroCare Birmingham Core — Biweekly (9x9, 22kw, Birmingham GBP)",
     placeId: "ChIJjXGa0ZsbiYgR1mB0oEKnqUo",
     gridSize: 9,
     radiusMiles: 20,
@@ -17,14 +35,14 @@ export const LOCAL_FALCON_CAMPAIGNS = Object.freeze([
     targetNeedsReview: false,
   }),
   Object.freeze({
-    key: "4ee47a23fc4793e",
+    key: "51d824c315edded",
     location: "Alabaster",
-    campaignName: "EnviroCare Birmingham Core (Alabaster / Butler Rd) — Biweekly",
+    campaignName: "EnviroCare Alabaster Core — Biweekly (7x7, 17kw, Alabaster GBP)",
     placeId: "ChIJr8cmt-EeiYgR_jgX9xsiZWY",
-    gridSize: 9,
-    radiusMiles: 20,
+    gridSize: 7,
+    radiusMiles: 10,
     target: 20,
-    targetNeedsReview: false,
+    targetNeedsReview: true,
   }),
   Object.freeze({
     key: "a99dae3fd51a462",

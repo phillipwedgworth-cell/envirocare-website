@@ -106,7 +106,8 @@ const num = (x) => (x == null || x === '' ? null : Number(x));
 const fmtDelta = (a, b, digits = 0) => (a == null || b == null ? '' : ` (${a - b >= 0 ? '+' : ''}${(a - b).toFixed(digits)})`);
 
 async function fetchScoreboard() {
-  const since14 = new Date(Date.now() - 14 * 86400000).toISOString().slice(0, 10);
+  // 35 days, so a lagging ingest still leaves two full weeks to compare.
+  const since14 = new Date(Date.now() - 35 * 86400000).toISOString().slice(0, 10);
   const since7 = new Date(Date.now() - 7 * 86400000).toISOString();
   const [daily, pageRows, leads, lf] = await Promise.all([
     fetch(`${BASE}/gsc_daily?date=gte.${since14}&order=date.asc&select=date,clicks,impressions,position`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
@@ -115,14 +116,23 @@ async function fetchScoreboard() {
     fetch(`${BASE}/lf_visibility?order=run_date.desc&limit=400&select=market,keyword,solv,run_date,campaign_name`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
   ]);
 
-  // Clicks / impressions: last 7 days vs the 7 before.
-  const d = arr(daily);
-  const cut = new Date(Date.now() - 7 * 86400000).toISOString().slice(0, 10);
+  // Clicks / impressions: the latest 7 days OF DATA vs the 7 before them.
+  // Windowing on today's date turned an ingest lag into a fake collapse: with
+  // gsc_daily ending 09-18, the brief reported "0 clicks (−99) · −9,901
+  // impressions — sustained collapse" on 09-25..27 (Sunday audit 2026-09-27).
+  const d = arr(daily).slice().sort((a, b) => String(a.date).localeCompare(String(b.date)));
   const sum = (rows, k) => rows.reduce((t, r) => t + (num(r[k]) || 0), 0);
-  const last7 = d.filter((r) => r.date >= cut), prev7 = d.filter((r) => r.date < cut);
+  const dayShift = (iso, n) => new Date(Date.parse(iso) + n * 86400000).toISOString().slice(0, 10);
+  const lastDate = d.length ? String(d[d.length - 1].date).slice(0, 10) : null;
+  const lagDays = lastDate ? Math.floor((Date.now() - Date.parse(lastDate)) / 86400000) : null;
+  const last7 = lastDate ? d.filter((r) => r.date > dayShift(lastDate, -7)) : [];
+  const prev7 = lastDate ? d.filter((r) => r.date <= dayShift(lastDate, -7) && r.date > dayShift(lastDate, -14)) : [];
+  const staleNote = lagDays != null && lagDays > 4
+    ? ` — DATA ENDS ${lastDate} (${lagDays} days old): this is an ingest/reporting lag, NOT a traffic change. Do not call it a drop or collapse.`
+    : '';
   const clicksLine = d.length
-    ? `Organic clicks, last 7d: ${sum(last7, 'clicks')}${fmtDelta(sum(last7, 'clicks'), sum(prev7, 'clicks'))} · impressions ${sum(last7, 'impressions')}${fmtDelta(sum(last7, 'impressions'), sum(prev7, 'impressions'))} (gsc_daily; rows in window: ${d.length})`
-    : 'Organic clicks: gsc_daily has no rows in the last 14 days — ingest may be down.';
+    ? `Organic clicks, 7 days ending ${lastDate}: ${sum(last7, 'clicks')}${fmtDelta(sum(last7, 'clicks'), sum(prev7, 'clicks'))} · impressions ${sum(last7, 'impressions')}${fmtDelta(sum(last7, 'impressions'), sum(prev7, 'impressions'))} vs the 7 days before (gsc_daily)${staleNote}`
+    : 'Organic clicks: gsc_daily has no rows in the last 35 days — ingest is down. Do not report a click figure.';
 
   // Money pages: latest snapshot vs the one before it.
   const rows = arr(pageRows);

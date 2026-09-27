@@ -100,12 +100,10 @@ function isFresh(dateStr) {
 // could never yield a current row. Both the SoLV epoch and the grid differ, so
 // their numbers are not comparable to v3 either.
 //
-// 4ee47a23fc4793e is the ALABASTER / Butler Rd campaign and belongs here. An
-// earlier note said to hold it because it tracks the Butler Rd GBP rather than
-// 16th Ave — that was about which office the SITE routes Jefferson County to,
-// which is a separate question from which GBP a scan measures. Butler Rd is a
-// real office with a real profile and its own SoLV; e9348fff16b95fa covers
-// 16th Ave separately.
+// 2026-09-27: 4ee47a23fc4793e measured the Alabaster / Butler Rd profile through
+// its 2026-09-18 run (verified from the scan payload). It has been re-pointed to
+// the Birmingham 16th Ave profile from 2026-10-02, and 51d824c315edded is now the
+// Alabaster campaign. See agents/lib/local-falcon-campaigns.mjs.
 const SEEDED_CAMPAIGNS = LOCAL_FALCON_CAMPAIGNS.map((campaign) => ({
   campaign_key: campaign.key,
   name: campaign.campaignName,
