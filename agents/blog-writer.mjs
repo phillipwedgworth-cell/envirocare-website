@@ -105,13 +105,17 @@ async function opportunityTopics(skip) {
 const REJECT_LIMIT = 2;
 async function rejectedKeywords() {
   if (!supabase) return new Set();
-  const { data } = await supabase.from("agent_findings").select("details,times_seen")
+  // One row per rejection per day: writeFinding's dedup_key includes the date,
+  // so counting rows counts rejection-days. (No times_seen column exists; the
+  // first draft selected one, which would have errored and parked nothing.)
+  const { data, error } = await supabase.from("agent_findings").select("details")
     .eq("agent_name", AGENT_NAME).eq("severity", "warning")
     .gte("created_at", new Date(Date.now() - 14 * 86400000).toISOString()).limit(500);
+  if (error) console.warn(`[${AGENT_NAME}] rejectedKeywords query failed: ${error.message}`);
   const counts = new Map();
   for (const f of data ?? []) {
     const k = f.details?.topic?.keyword; if (!k) continue;
-    counts.set(k, (counts.get(k) ?? 0) + Math.max(1, Number(f.times_seen) || 1));
+    counts.set(k, (counts.get(k) ?? 0) + 1);
   }
   return new Set([...counts].filter(([, n]) => n >= REJECT_LIMIT).map(([k]) => k));
 }
