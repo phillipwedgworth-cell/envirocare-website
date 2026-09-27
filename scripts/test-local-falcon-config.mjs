@@ -10,10 +10,13 @@ assert.equal(LOCAL_FALCON_CAMPAIGNS.length, 4, "all four verified offices must b
 assert.equal(new Set(LOCAL_FALCON_CAMPAIGNS.map((c) => c.key)).size, 4, "campaign keys must be unique");
 assert.equal(new Set(LOCAL_FALCON_CAMPAIGNS.map((c) => c.placeId)).size, 4, "place IDs must be unique");
 assert.ok(LOCAL_FALCON_CAMPAIGNS.some((c) => c.location === "Birmingham"), "new Birmingham office campaign is required");
+// Each market's campaign must scan THAT market's profile (verified live 2026-09-27).
+const PLACE = { Birmingham: "ChIJjXGa0ZsbiYgR1mB0oEKnqUo", Alabaster: "ChIJr8cmt-EeiYgR_jgX9xsiZWY", "Alex City": "ChIJ508mEjcLjIgRZ2HdWgXX76c", Huntsville: "ChIJd4YXKCRmqmIR1DmDoEcGohU" };
+for (const c of LOCAL_FALCON_CAMPAIGNS) assert.equal(c.placeId, PLACE[c.location], `${c.key} is labelled ${c.location} but scans another office's profile`);
 
 const expectedBaselines = new Map([
-  ["e9348fff16b95fa", "9x9-20mi"],
   ["4ee47a23fc4793e", "9x9-20mi"],
+  ["51d824c315edded", "7x7-10mi"],
   ["a99dae3fd51a462", "7x7-10mi"],
   ["a58db3090ac9ab0", "7x7-7mi"],
 ]);
