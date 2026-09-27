@@ -16,8 +16,8 @@ name: AEO-Watch
 # Using 12:00 UTC — runs at 7am during summer, 6am during winter. Close enough.
 # Manual trigger always available via the Actions tab.
 on:
-  schedule:
-    - cron: '0 12 * * *'
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
   workflow_dispatch: {}
 
 jobs:

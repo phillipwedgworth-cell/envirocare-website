@@ -3,8 +3,8 @@ name: Social Poster + Suggester
 # and runs the multi-model suggester weekly (Mondays). Platform clients no-op
 # until their tokens exist, so this is safe to enable now.
 on:
-  schedule:
-    - cron: '0 15 * * *'   # daily 15:00 UTC (~10am CT)
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
   workflow_dispatch: {}
 
 jobs:

@@ -13,8 +13,8 @@ name: Approval executor (dry run)
 # with SUPABASE_URL, SUPABASE_KEY and ONEUP_API set.
 
 on:
-  schedule:
-    - cron: '0 13 * * 1-5' # weekdays 13:00 UTC (~8am CT)
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
   workflow_dispatch: {}
 
 permissions:

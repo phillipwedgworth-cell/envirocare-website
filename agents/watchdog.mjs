@@ -16,6 +16,7 @@
 // knows the watchdog itself is alive (no Monday email = watchdog down = backstop).
 
 import { pathToFileURL } from 'node:url';
+import { readFileSync } from 'node:fs';
 import { google } from 'googleapis';
 import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { sendEmail } from './lib/notify.mjs';
@@ -41,37 +42,14 @@ const ANTHROPIC_CAP_SIGNATURE = 'specified API usage limits';
 // row was simply absent and the old latest-run check stayed green).
 // Daily agents get 30h (24 + 6 grace); weeklies 192h (7d + 1d grace).
 // Not listed (log nothing yet): ingest-seo — add once it heartbeats.
-const EXPECTED = [
-  // Schedules re-read from .github/workflows/*.yml and vercel.json on 2026-09-27
-  // (Sunday audit N7). Removed: social-poster (deleted 08-06), seo-watch (paused),
-  // neuronwriter-optimize (its workflow has no cron — it only runs by hand).
-  // Moved to weekly: orchestrator/proposer (#205), brightlocal (#207).
-  // Added: agents that were scheduled but never watched.
-  // SEO intel chain — Tue/Fri 13:00 UTC
-  { agent: 'local-falcon-ingest',   maxAgeH: 100,     label: 'Local Falcon ingest (Tue/Fri)' },
-  { agent: 'competitor-watcher',    maxAgeH: 100,     label: 'Competitor watcher (Tue/Fri)' },
-  { agent: 'keyword-opportunity',   maxAgeH: 100,     label: 'Keyword opportunity (Tue/Fri)' },
-  // GitHub Actions — daily
-  { agent: 'morning-brief',         maxAgeH: 30,      label: 'Morning Brief (daily 13:30 UTC)' },
-  { agent: 'daily-rollup',          maxAgeH: 30,      label: 'Daily Rollup (daily 13:00 UTC)' },
-  { agent: 'aeo-watch',             maxAgeH: 30,      label: 'AEO watch (daily 12:00 UTC)' },
-  { agent: 'neuronwriter-narrator', maxAgeH: 30,      label: 'Neuron Narrator (daily 13:00 UTC score)' },
-  { agent: 'blog-writer',           maxAgeH: 30,      label: 'Blog writer (daily 12:00 UTC)' },
-  { agent: 'content-reviewer',      maxAgeH: 30,      label: 'Content reviewer (daily 11:00 UTC)' },
-  { agent: 'captivated-suppress-sync', maxAgeH: 80,   label: 'Captivated suppression sync (weekdays 11:30 UTC)' },
-  // GitHub Actions — weekly / monthly
-  { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8,  label: 'Weekly QA (Mon 13:00 UTC)' },
-  { agent: 'neuronwriter-pull',     maxAgeH: 24 * 8,  label: 'NeuronWriter pull (Wed 13:30 UTC)' },
-  { agent: 'seo-snapshot',          maxAgeH: 24 * 8,  label: 'SEO snapshot (Mon 14:30 UTC)' },
-  { agent: 'proposer',              maxAgeH: 24 * 8,  label: 'Proposer (Mon 11:30 UTC)' },
-  { agent: 'brightlocal',           maxAgeH: 24 * 8,  label: 'BrightLocal (Mon 13:30 UTC)' },
-  { agent: 'ai-citation-probe',     maxAgeH: 24 * 32, label: 'AI citation probe (15th monthly)' },
-  // Vercel cron routes
-  { agent: 'orchestrator',          maxAgeH: 24 * 8,  label: 'Orchestrator (Mon 12:00 UTC, Vercel cron)' },
-  { agent: 'seo-monitor',           maxAgeH: 24 * 8,  label: 'SEO monitor (Mon, via orchestrator)' },
-  { agent: 'review-responder',      maxAgeH: 24 * 8,  label: 'Review responder (Mon, via orchestrator)' },
-  { agent: 'site-reviewer',         maxAgeH: 30,      label: 'Site reviewer (daily 06:00 UTC, Vercel cron)' },
-];
+// Built from agents/ROSTER.json — the one list of scheduled automations, enforced
+// by `npm run test:roster`. The hand-kept table that used to live here drifted
+// from the real schedules twice (Sunday audits 2026-09-27). maxAgeH comes from the roster.
+const ROSTER = JSON.parse(readFileSync(new URL("./ROSTER.json", import.meta.url), "utf8"));
+const EXPECTED = [...Object.entries(ROSTER.workflows), ...Object.entries(ROSTER.vercel)]
+  .flatMap(([source, entry]) => Object.entries(entry.agents ?? {})
+    .filter(([, maxAgeH]) => Number.isFinite(maxAgeH))
+    .map(([agent, maxAgeH]) => ({ agent, maxAgeH, label: `${source} (${entry.job})` })));
 
 const healthy = s => HEALTHY.has(String(s ?? '').toLowerCase());
 const ageH = ts => (Date.now() - new Date(ts).getTime()) / 3.6e6;
