@@ -23,7 +23,7 @@ const PROMPT_VERSION = "2026-05-28";
 // REMOVED 2026-09-24 — each has its own WORKING schedule (confirmed in agent_runs),
 // so running it here too was a duplicate paid run:
 //   brightlocal    vercel.json /api/brightlocal/run (Mon 08:00) — ran 08:01 on 09-21
-//   site-reviewer  vercel.json /api/site-reviewer/run (daily 06:00) — runs daily
+//   site-reviewer  RETIRED 2026-09-27 (cron removed; see agents/ROSTER.json)
 //   cfo-agent      retired from the schedule per the 2026-09-24 fleet spec. This
 //                  was its only scheduled trigger; it still runs ON DEMAND via
 //                  /api/cfo/run and the command center. Code unchanged.

@@ -12,10 +12,6 @@
       "schedule": "0 12 * * 1"
     },
     {
-      "path": "/api/site-reviewer/run",
-      "schedule": "0 6 * * *"
-    },
-    {
       "path": "/api/watchdog/run",
       "schedule": "30 */6 * * *"
     }

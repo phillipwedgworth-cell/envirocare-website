@@ -1,8 +1,8 @@
 name: AI Citation Probe
 
 on:
-  schedule:
-    - cron: '0 13 15 * *'   # 15th of each month, 13:00 UTC = 7am CT (matches the AI-visibility monthly cadence)
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
   workflow_dispatch:
     inputs:
       limit:
