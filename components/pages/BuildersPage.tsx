@@ -123,7 +123,7 @@ export default function BuildersPage() {
         <div className="container">
           <div className="section-eyebrow">Where We Build With You</div>
           <h2 className="section-title">Four Offices, <span>All Of Central & North Alabama</span></h2>
-          <p className="section-sub">Crews run out of Birmingham/Alabaster, Huntsville, and Alexander City — so a superintendent in Chelsea, a GC in Madison, and a custom builder on Lake Martin all get the same response.</p>
+          <p className="section-sub">Crews run out of Birmingham, Alabaster, Huntsville, and Alexander City — so a superintendent in Chelsea, a GC in Madison, and a custom builder on Lake Martin all get the same response.</p>
           <div className="wedge-grid">
             <div className="wedge-card">
               <div className="wedge-lead"><a href="/birmingham">Birmingham Metro</a></div>

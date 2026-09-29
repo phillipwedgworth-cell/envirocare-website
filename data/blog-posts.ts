@@ -406,6 +406,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Mice and Rats in Alabama Homes: Why October Is When They Move In',
     excerpt: 'The first mouse in the pantry almost always shows up in October, and it did not pick your house at random. Here is how rodents choose a home, the entry points they use, how to tell mice from rats by the evidence, and why traps alone rarely end it.',
     publishedAt: '2026-09-08',
+    updatedAt: '2026-09-29',
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 7,
@@ -413,160 +414,33 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Mice & Rats in Alabama Homes: Why They Move In Every October',
     metaDescription: 'Why rodents enter Alabama homes in fall, how to tell mice from rats by droppings and damage, the entry points they use, and what exclusion actually means.',
     body: `
-<p class="lede">Alabama averages 55 to 60 inches of rain a year — more than Seattle — and our clay soils hold every drop. Combine that rainfall with temperatures that stay warm from March through October, and you get one of the best mosquito breeding environments in the country. Mosquitoes in Alabama are not just a nuisance: they transmit diseases including West Nile virus, Eastern equine encephalitis, and La Crosse encephalitis, all documented in our state. This guide covers how bad mosquitoes are in Alabama, when mosquito season starts, what mosquito-borne diseases are present here, where mosquitoes breed in your yard, what repellents and plants mosquitoes hate, how to prevent mosquitoes around your home, how to kill mosquitoes inside your home, and how professional mosquito control services from EnviroCare reduce mosquito populations on your property throughout the season.</p>
+<p class="lede">The call comes the first cool week of October, almost to the day: droppings in the pantry, a chewed corner on a bag of dog food, scratching in the wall behind the bed at 2 a.m. A mouse did not stumble into your house. As soon as the nights drop into the fifties, every mouse and rat within a hundred yards starts testing structures for a warm place with food, and a house in Alabama offers both. Understanding how they pick a house is how you keep them out of yours.</p>
 
-<h2>How bad are mosquitoes in Alabama?</h2>
+<h2>Mouse or rat? The evidence tells you</h2>
+<p>You will almost never see the animal. You will see what it leaves. House mouse droppings are the size of a grain of rice with pointed ends, scattered wherever the mouse traveled. Norway rat droppings are three times that size, blunt, and concentrated near a runway or a food source. Roof rats — common in Alabama, especially near trees and in attics — leave droppings in between, with pointed ends, usually in the attic or on top of the wall plates. Gnaw marks tell you too: a mouse leaves tiny paired grooves; a rat leaves rough, larger tooth marks and can go through plastic, wood, and even soft metal. Grease marks along a baseboard or a rafter are a rat highway. A musky smell in an enclosed space is rats.</p>
 
-<p>Alabama is one of the worst states in the country for mosquitoes. The combination of heavy rainfall, high humidity, mild winters, and an abundance of standing water in both urban and rural areas creates ideal mosquito breeding conditions across the entire state. The Alabama Department of Public Health (ADPH) monitors mosquito-borne diseases year-round, and the Centers for Disease Control and Prevention (CDC) consistently includes Alabama in the region with the highest mosquito activity in the nation.</p>
+<h2>Where they get in</h2>
+<p>A mouse fits through a gap the width of a pencil. A rat needs about a quarter — the coin. Every house in <a href="/hoover">Hoover</a> or <a href="/madison">Madison</a> has a dozen openings that size, and they are the same on every house: the bottom corners of the garage door where the seal has lifted, the gap around the AC line set and the hose bib, the dryer vent with a broken flap, a crawlspace vent screen rusted through, weep holes in the brick, the gap under an exterior door with a worn sweep, and anywhere a branch touches the roofline and gives a roof rat a ramp to the soffit. Firewood, lumber, or dock gear stacked against siding is a covered runway to whichever of those openings is nearest.</p>
 
-<p>What makes Alabama's mosquito problem worse than many other states is timing. Mosquito season in Alabama runs from March through October — roughly eight months of sustained mosquito activity. In most northern states, mosquitoes are active for four to five months. That extended season means mosquito populations have more time to build, more generations to reproduce, and more opportunities to bite. Alabama homeowners who live near creek bottoms, lake lots, or neighborhoods with poor drainage face mosquito pressure that starts early and does not let up until fall temperatures finally drop.</p>
+<h2>Why traps alone rarely end it</h2>
+<p>Traps catch the animals that are already inside. They do nothing about the opening they came through, so the population outside keeps sending replacements. A house that catches a mouse every week in November does not have a mouse problem; it has a hole. The order that works is: find and close the entry points, reduce what draws them (pet food in a sealed bin, bird seed off the garage floor, the grill drip tray cleaned), and then trap what is left inside. Bait outside the structure, in tamper-resistant stations, handles the population before it reaches the wall. Loose bait inside a house is how you end up with a dead rat in a wall void in January, and we will not do it.</p>
 
-<p>There are different types of mosquitoes in Alabama, and each species behaves slightly differently. The Asian tiger mosquito — the aggressive daytime biter most people recognize — is established across the state. The common house mosquito (Culex pipiens and related species) is the primary vector for West Nile virus in Alabama. Southern house mosquitoes are active from dusk through dawn, which is why mosquito bites often happen during evening cookouts and after-dark porch sitting. Understanding which mosquitoes are present helps explain why mosquitoes seem to bite at all hours in Alabama — because different species cover different parts of the day.</p>
+<h2>The Alabama specifics</h2>
+<p>Three things make rodent pressure higher here than in most states. The mild winter means the outdoor population never crashes; a January warm spell sends them right back out. The housing stock is heavy on crawlspaces and pier foundations, which give rodents a protected route to the sill plate and the plumbing chases. And the amount of land in row crops and pasture — around <a href="/hartselle">Hartselle</a>, <a href="/harvest">Harvest</a>, and <a href="/calera">Calera</a> especially — means that when fields are cut in September, the entire field population moves toward the nearest subdivision at once.</p>
 
-<h2>When is mosquito season in Alabama?</h2>
-
-<p>Mosquito season in Alabama starts in March and runs through October. Mosquito activity peaks in June, July, and August, when temperatures and humidity are highest and rainfall is frequent. But mosquitoes are most active any time temperatures stay above 50 degrees Fahrenheit, which in Alabama means early spring warmups can trigger mosquito emergence well before most homeowners start thinking about the problem.</p>
-
-<p>The mosquito season starts earlier in southern and central Alabama — Birmingham, the Lake Martin area, and Alabaster typically see the first mosquito activity in early to mid-March. In Huntsville and north Alabama, mosquito season starts a few weeks later, usually late March. The end of the season depends on when sustained cool weather arrives, typically mid to late October across most of the state.</p>
-
-<p>One important point: mosquitoes do not disappear overnight when temperatures drop. Adult mosquitoes die off gradually, and some species overwinter as eggs or larvae that hatch with the first warm spell. A warm February weekend in Alabama can produce a brief burst of mosquito activity months before the main season. Starting mosquito control early — before populations build — keeps pressure lower all season rather than playing catch-up in July.</p>
-
-<h2>The mosquito life cycle: why standing water is the problem</h2>
-
-<p>Every mosquito starts in water. Female mosquitoes lay eggs on or near standing water, and the entire mosquito life cycle — egg, larva, pupa, adult — depends on water for the first three stages. A single female mosquito can lay 100 to 300 eggs at a time, and those eggs can develop into biting adult mosquitoes in as little as seven to ten days under warm Alabama conditions. That rapid life cycle is why mosquito populations explode so fast after rain.</p>
-
-<p>Female mosquitoes bite because they need a blood meal to produce eggs. Male mosquitoes do not bite — they feed on nectar. Female mosquitoes bite humans and animals alike, and they can travel up to a mile to find a blood meal, though most stay within a few hundred feet of where they breed. That means the source of your mosquito problem is almost always close to your home — usually in your own yard or an immediate neighbor's property.</p>
-
-<p>Mosquitoes lay eggs near any water that sits undisturbed for more than a few days. It does not take much: one bottle cap of standing water can produce dozens of larvae. A clogged gutter can produce thousands. The larva stage develops entirely underwater, feeding on organic matter, before pupating and emerging as a flying adult mosquito. Breaking that life cycle at the water stage — by eliminating standing water or treating it with a larvicide — is the single most effective thing any homeowner can do to reduce mosquito populations around their home.</p>
-
-<h2>What diseases do mosquitoes carry in Alabama?</h2>
-
-<p>Mosquitoes transmit several serious diseases in Alabama. Mosquito-borne diseases in Alabama that are monitored by the Alabama Department of Public Health and the CDC include:</p>
-
+<h2>What to do this week</h2>
 <ul>
-<li><strong>West Nile virus.</strong> West Nile virus is the most common mosquito-borne disease in Alabama and across the United States. It is transmitted when a person is bitten by an infected mosquito — primarily the Culex species. Most people bitten by an infected mosquito do not develop symptoms, but roughly one in five develops West Nile fever, and about one in 150 develops a severe neurological illness. The CDC reports West Nile virus activity in Alabama every year. There is no vaccine and no specific treatment — prevention means reducing mosquito bites.</li>
-<li><strong>Eastern equine encephalitis (EEE).</strong> EEE is rare but severe — the case fatality rate is approximately 30 percent. Alabama has documented EEE cases in both humans and animals. EEE is transmitted by mosquitoes that breed in freshwater swamps, making rural and semi-rural Alabama properties near wetlands or creek bottoms higher risk.</li>
-<li><strong>La Crosse encephalitis.</strong> La Crosse encephalitis primarily affects children and is transmitted by the treehole mosquito, which breeds in small, natural water-holding containers like tree holes and discarded tires. Alabama reports La Crosse cases regularly, and the disease is more common in the Appalachian region of the state.</li>
-<li><strong>Other mosquito-borne illnesses.</strong> Dengue, Zika, and chikungunya are not currently transmitted locally in Alabama but remain a concern for travelers returning from affected areas. A person bitten by an infected mosquito abroad can carry the virus, and if local mosquitoes bite that person, limited local transmission is theoretically possible — which is another reason vector control matters even in areas where these diseases are not established.</li>
+<li>Walk the exterior at dusk with a flashlight. Look at every corner of the garage door, every pipe through the wall, every vent.</li>
+<li>Seal gaps with copper mesh and sealant, not foam alone — rats chew through foam.</li>
+<li>Get pet food, bird seed, and grass seed into sealed bins.</li>
+<li>Move firewood and anything stacked against the house at least a few feet off the siding.</li>
+<li>Trim any branch within six feet of the roof.</li>
 </ul>
 
-<p>The practical takeaway: mosquito-borne illness is a real public health concern in Alabama, not a hypothetical. Disease prevention starts with mosquito prevention — reducing the mosquito population around your home reduces the chance that anyone in your family is bitten by an infected mosquito. If you or a family member develops a fever, severe headache, joint pain, or a rash after mosquito bites, see a physician promptly.</p>
+<h2>Rodents are covered on the pest plan</h2>
+<p>Rodent control is included in EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a>: exclusion at entry points on every exterior visit, exterior bait stations where the population warrants it, and interior trapping when something has already made it in. If you are hearing it in the wall at night, that is not a wait-and-see situation — a mouse population doubles in about six weeks indoors. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a>.</p>
 
-<h2>What smell or plants do mosquitoes hate?</h2>
-
-<p>Certain plants produce compounds that mosquitoes find repellent, and planting them around outdoor living areas can contribute to a less mosquito-friendly environment. Plants that mosquitoes tend to avoid include citronella grass (the actual grass, not the candle), lavender, rosemary, basil, catnip, marigolds, and lemon eucalyptus. Catnip in particular contains nepetalactone, which some research suggests is more repellent to mosquitoes than DEET in isolated lab tests — though the effect in a real yard is much weaker than a controlled experiment.</p>
-
-<p>Here is the honest version: planting mosquito-repellent plants around your porch is a reasonable complementary measure, but no plant will meaningfully reduce mosquito bites by itself. The repellent compounds in these plants are present in the leaves at low concentrations — you would need to crush the leaves and rub them on your skin to get a noticeable effect. A rosemary bush on your patio smells nice and may deter a few mosquitoes in its immediate vicinity, but it will not protect you from the mosquitoes breeding in the clogged gutter twenty feet away. Use plants as one layer in a broader mosquito prevention approach, not as a standalone solution.</p>
-
-<h2>What repellents do mosquitoes hate? Personal mosquito bite prevention</h2>
-
-<p>EPA-registered insect repellents are the most effective personal protection against mosquito bites. The active ingredients with the strongest evidence behind them are DEET, picaridin, IR3535, and oil of lemon eucalyptus (OLE). The CDC recommends using EPA-registered insect repellents when spending time outdoors during mosquito season, and these products are the standard recommendation from public health agencies including the Alabama Department of Public Health.</p>
-
-<ul>
-<li><strong>DEET.</strong> DEET is the most widely studied mosquito repellent and remains the benchmark. Products with 20 to 30 percent DEET provide several hours of protection. Higher concentrations last longer but do not repel more effectively.</li>
-<li><strong>Picaridin.</strong> Picaridin is as effective as DEET in most studies and has a lighter feel on the skin — no oily residue. Products with 20 percent picaridin provide protection comparable to 20 percent DEET.</li>
-<li><strong>Oil of lemon eucalyptus (OLE).</strong> OLE is the only plant-derived repellent recommended by the CDC. It provides moderate protection — roughly two hours per application — and should not be used on children under three years old.</li>
-<li><strong>Permethrin-treated clothing.</strong> Permethrin is not a skin repellent — it is applied to clothing, shoes, and gear. It kills mosquitoes and ticks on contact and remains effective through multiple washings. Permethrin-treated clothing paired with a skin repellent is the most effective personal protection combination for extended outdoor activity.</li>
-</ul>
-
-<p>What does not work well: wristbands and clip-on repellent devices provide minimal protection beyond a few inches. Citronella candles help only if you are sitting directly in the smoke. Ultrasonic devices have no credible scientific evidence behind them. Body lotions with trace amounts of repellent compounds marketed as "natural" mosquito repellent rarely provide meaningful protection for more than 20 to 30 minutes.</p>
-
-<h2>Where mosquitoes breed in your yard: common breeding sites</h2>
-
-<p>Before you call anyone or buy anything, walk your yard and look for standing water. Most Alabama homeowners are surprised by what they find. Mosquitoes lay eggs near any water that sits undisturbed, and eliminating these breeding sites is the most effective way to reduce mosquito populations around your yard:</p>
-
-<ul>
-<li><strong>Clogged gutters.</strong> This is the number-one overlooked mosquito breeding source. A gutter packed with leaves holds water for weeks — long enough for multiple generations of mosquito larvae to develop. Clean your gutters in spring and again in fall, and check them after every heavy rain.</li>
-<li><strong>Low spots in the lawn.</strong> If your yard has a place where water pools after rain, mosquitoes will find it before it dries out. Grading or filling those low spots helps more than most sprays.</li>
-<li><strong>Birdbaths, pet bowls, and plant saucers.</strong> Empty and scrub birdbaths and pet water dishes at least twice a week. The eggs stick to the sides, so simply dumping and refilling is not enough — scrub the interior surfaces to remove attached eggs.</li>
-<li><strong>Tarps, trash can lids, and toys.</strong> A folded tarp, an upturned trash can lid, or a forgotten toy collects a surprising amount of water. Walk your yard after rain and flip, drain, or remove anything that holds water.</li>
-<li><strong>Old tires.</strong> Tires are one of the most productive mosquito breeding sites in existence. The curved shape holds water, the dark rubber warms it, and the interior is protected from wind and predators. If you have old tires on your property, remove them.</li>
-<li><strong>Rain barrels and ornamental ponds.</strong> These are not bad to have, but they need either a fine-mesh screen to prevent mosquitoes from laying eggs, a pump that keeps water moving, or a mosquito dunk — a biological larvicide containing Bti (Bacillus thuringiensis israelensis) — to prevent larva development.</li>
-<li><strong>Overgrown areas and dense vegetation.</strong> Adult mosquitoes rest during the day in cool, shaded spots — tall grass, dense shrubs, ivy beds, and unmaintained areas along fence lines. Keeping vegetation trimmed reduces the resting habitat that sustains adult mosquito populations between blood meals.</li>
-</ul>
-
-<h2>How to prevent mosquitoes around your home</h2>
-
-<p>You cannot prevent mosquitoes entirely — not in Alabama, not anywhere. But you can make your yard a much less attractive place for them to breed and rest. Here is what actually moves the needle for Alabama homeowners:</p>
-
-<ul>
-<li><strong>Eliminate standing water.</strong> Dump, drain, or treat every container of standing water on your property every 72 hours or less. That includes anything that holds even a tablespoon — bottle caps, buckets, toys, pool covers, wheelbarrows, and low spots on flat surfaces.</li>
-<li><strong>Maintain your gutters.</strong> Clean gutters in spring and fall, and check them after heavy rains. A single clogged gutter section can produce more mosquitoes than every puddle in your yard combined.</li>
-<li><strong>Keep grass trimmed and vegetation managed.</strong> Mow regularly and cut back thick vegetation along property edges, especially near any drainage ditch, creek bank, or wooded area. Short grass and open beds dry faster and provide fewer resting spots for adult mosquitoes.</li>
-<li><strong>Use fans on porches and patios.</strong> Mosquitoes are weak fliers. A basic box fan or oscillating fan on your porch does more to keep mosquitoes away from your seating area than most candles, coils, or traps.</li>
-<li><strong>Use larvicide in water features.</strong> Mosquito dunks (Bti larvicide) placed in rain barrels, ornamental ponds, and any standing water you cannot eliminate kill mosquito larvae without harming pets, birds, or beneficial insects.</li>
-<li><strong>Wear insect repellents during peak activity.</strong> Apply EPA-registered repellent containing DEET or picaridin when spending time outdoors, especially at dawn and dusk when mosquitoes are most active.</li>
-</ul>
-
-<h2>Natural ways to kill or deter mosquitoes</h2>
-
-<p>Several natural approaches can help control mosquitoes as part of a broader mosquito management strategy, though none of them replace eliminating standing water or professional treatment on their own:</p>
-
-<ul>
-<li><strong>Bti larvicide (mosquito dunks).</strong> Bti is a naturally occurring bacterium that kills mosquito larvae in standing water. It is the single most effective natural mosquito control method available to homeowners. Mosquito dunks are sold at hardware stores and treat standing water for 30 days per dunk. They do not harm fish, pets, birds, or other wildlife.</li>
-<li><strong>Encourage natural predators.</strong> Bats eat large numbers of insects, including mosquitoes. Installing a bat house in your yard can contribute to mosquito control over time. Dragonflies are also effective mosquito predators — a small garden pond with native plants can attract dragonflies that feed on both mosquito larvae and adult mosquitoes.</li>
-<li><strong>Mosquito-repellent plants.</strong> Citronella grass, lavender, rosemary, basil, and marigolds produce compounds mosquitoes dislike. Plant them around porches and outdoor seating areas as a complementary measure.</li>
-<li><strong>Garlic spray and essential oils.</strong> Some homeowners spray garlic-based solutions or essential oil blends around their yards. These products may provide brief deterrence in a small area but break down quickly in Alabama's heat and humidity and need frequent reapplication. They are not a reliable primary mosquito control method.</li>
-</ul>
-
-<p>Be honest with yourself about what does not work. Bug zappers kill moths and beetles far more than mosquitoes — studies show mosquitoes make up less than one percent of a typical bug zapper catch. Backyard mosquito traps can capture significant numbers of insects, but research consistently shows they do not reduce biting pressure in any meaningful way when used alone. Ultrasonic devices have no credible evidence behind them.</p>
-
-<h2>How to kill mosquitoes inside your home</h2>
-
-<p>If mosquitoes are getting inside your home, the priority is finding out how they are getting in and where they may be breeding indoors. Kill mosquitoes inside your home by addressing these common entry points and indoor breeding sources:</p>
-
-<ul>
-<li><strong>Check window and door screens.</strong> Even a small tear in a screen lets mosquitoes in. Repair or replace damaged screens — this is the single most effective way to keep mosquitoes out of your home.</li>
-<li><strong>Close doors promptly.</strong> Mosquitoes follow the CO2 plume from your breath and body heat right through an open door. If you are going in and out frequently, consider a screen door.</li>
-<li><strong>Check indoor plants.</strong> Overwatered houseplants with standing water in their saucers can serve as indoor mosquito breeding sites. Empty and wipe plant saucers regularly.</li>
-<li><strong>Check floor drains and AC drip pans.</strong> Standing water in floor drains, HVAC condensate pans, or sump pits can breed mosquitoes indoors. Ensure these drain properly or treat them with Bti.</li>
-<li><strong>Use a flyswatter or indoor insect spray.</strong> For the occasional mosquito that gets inside, a flyswatter is the simplest solution. Indoor insect sprays labeled for flying insects will kill mosquitoes on contact — use them in well-ventilated areas per label directions.</li>
-</ul>
-
-<h2>Are mosquitoes active in Alabama during winter?</h2>
-
-<p>Most mosquito species in Alabama become inactive when sustained temperatures drop below 50 degrees Fahrenheit, which typically happens in November. However, Alabama winters are mild and inconsistent — a warm spell in December, January, or February can temporarily reactivate overwintering adult mosquitoes or trigger eggs to hatch. The Asian tiger mosquito overwinters as eggs that are remarkably cold-hardy, hatching with the first sustained warm temperatures in late winter or early spring.</p>
-
-<p>For practical purposes, most Alabama homeowners experience little to no mosquito activity from November through February. But the mosquitoes are not gone — they are waiting. Eggs laid in fall survive the winter in leaf litter, tree holes, and any container that held water. That is why early-season mosquito control, starting in March before the first generation of spring mosquitoes emerges, is more effective than waiting until the population is already established.</p>
-
-<h2>How does professional mosquito control work?</h2>
-
-<p>Professional mosquito control targets the places where adult mosquitoes rest during the day — the undersides of leaves, shaded shrub borders, fence lines, the edges of the lawn, and any dense vegetation along property boundaries. Products are applied according to label directions to these specific resting areas, reducing the adult mosquito population in the zones where people actually spend time outdoors.</p>
-
-<p>A thorough mosquito control program also addresses larval sources. A trained technician inspects the property for standing water, identifies breeding sites the homeowner may have missed, and treats water features that cannot be eliminated with larvicide. This two-pronged approach — reducing adult mosquitoes and eliminating breeding sites — is the most effective mosquito management strategy for Alabama's climate.</p>
-
-<p>Timing matters. Professional mosquito control is most effective when treatments begin early in the season, before mosquito populations build. Starting in March and maintaining regular treatments through October keeps mosquito activity suppressed all season rather than reacting to a population that has already exploded.</p>
-
-<h2>How much does professional mosquito control cost?</h2>
-
-<p>At EnviroCare, our mosquito program runs <strong>$45 per month</strong> for an average-size yard, covering eight treatments from March through October. The monthly cost is spread evenly across the year on ACH billing. If you also want tick and chigger coverage — which makes a lot of sense for properties near wooded areas, lake lots, or anywhere with heavy ground cover — we offer the combined Mosquito &amp; Tick program at <strong>$65 per month</strong>.</p>
-
-<p>One important clarification: <strong>mosquitoes are not included in our standard bi-monthly pest plan.</strong> That plan covers 30-plus household pests — ants, roaches, spiders, and the rest — but mosquitoes require different products, different application methods, and a different treatment schedule, so mosquito control is handled as its own service. We would rather tell you that up front than have you assume you are covered.</p>
-
-<p>The exact cost for your property may vary — larger lots, heavily wooded properties, or properties with extensive water features may be quoted differently after a free inspection. The inspection is free, and there is no obligation.</p>
-
-<h2>Mosquito control FAQ: common questions about mosquitoes in Alabama</h2>
-
-<h2>What time of day are mosquitoes most active?</h2>
-<p>Mosquitoes are most active at dawn and dusk in Alabama. The common house mosquito (Culex species) feeds primarily from dusk through dawn. The Asian tiger mosquito is an aggressive daytime biter, most active in shaded areas during morning and late afternoon. Between the two, Alabama homeowners can encounter mosquito bites at essentially any hour — which is why both personal repellent and yard mosquito control matter.</p>
-
-<h2>Do mosquito traps actually work?</h2>
-<p>Mosquito traps capture mosquitoes, but research consistently shows that traps alone do not reduce biting pressure in a meaningful way for a typical residential property. They can be useful as one component of a broader mosquito management plan, but they are not a substitute for eliminating breeding sites or professional mosquito control treatment.</p>
-
-<h2>Will a bat house help with mosquitoes?</h2>
-<p>Bats do eat mosquitoes, but mosquitoes typically make up a small percentage of a bat's diet — bats prefer larger, slower insects like moths and beetles. A bat house is a worthwhile addition to your yard for ecological reasons, but it will not solve a mosquito problem on its own.</p>
-
-<h2>Can mosquitoes breed in swimming pools?</h2>
-<p>A properly chlorinated and filtered swimming pool will not support mosquito larvae. However, a pool that has been neglected — with standing water that has turned green — is an excellent mosquito breeding site. Pool covers that collect rainwater on top are also a common overlooked breeding spot. If you have a pool, maintain it or cover and drain it completely.</p>
-
-<h2>How far do mosquitoes travel?</h2>
-<p>Most mosquitoes stay within a few hundred feet of where they breed, though some species can travel up to a mile. That means the source of your mosquito problem is almost always on your property or a neighboring property — not blowing in from miles away. Addressing the breeding sites on and immediately around your property has a direct impact on the mosquito population you experience.</p>
-
-<h2>Professional mosquito control services for Alabama from EnviroCare</h2>
-
-<p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides professional mosquito control services for Alabama homes across Huntsville, Birmingham, Alabaster, and the Lake Martin area. Our mosquito management program targets the specific mosquito resting and breeding areas on your property with scheduled treatments throughout mosquito season to control the mosquito population and reduce mosquito bites in the areas where your family spends time outdoors.</p>
-
-<p>Call the office nearest you — Huntsville <a href="tel:+12569377676">(256) 937-7676</a>, Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a> — or <a href="/quote">request a free quote online</a>.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -3142,7 +3016,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Pest Control in Huntsville, AL: Trusted Pest Control Services, Termite Control, and Pest Solutions for Huntsville Homes and Businesses',
     excerpt: 'Huntsville sits in a pest control environment unlike anywhere else in Alabama. Limestone geology, Tennessee Valley moisture, and rapid suburban development shape which pests are active. Local guide from EnviroCare\'s Huntsville office.',
     publishedAt: '2026-05-20',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-09-29',
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 15,
@@ -3233,7 +3107,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Pest control FAQs: frequently asked questions about pest control in Huntsville</h2>
 
 <h2>Which company is the best for pest control in Huntsville, AL?</h2>
-<p>The best pest control company in Huntsville is one that inspects your home before quoting, identifies the specific pest species you are dealing with, and applies a treatment plan tailored to your property and your pest problem. Look for a local pest control company with a long track record in North Alabama, technicians who know Huntsville's specific pest challenges, and a service guarantee that includes re-treatment between scheduled visits at no additional cost. The Wedgworth family has been doing pest control in Alabama since 1958, and EnviroCare operates a dedicated Huntsville office on Old Madison Pike.</p>
+<p>The best pest control company in Huntsville is one that inspects your home before quoting, identifies the specific pest species you are dealing with, and applies a treatment plan tailored to your property and your pest problem. Look for a local pest control company with a long track record in North Alabama, technicians who know Huntsville's specific pest challenges, and a service commitment that includes re-treatment between scheduled visits at no additional cost. The Wedgworth family has been doing pest control in Alabama since 1958, and EnviroCare operates a dedicated Huntsville office on Old Madison Pike.</p>
 
 <h2>How much does pest control cost per month in Huntsville?</h2>
 <p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with unlimited re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pricing is confirmed in writing before any service begins.</p>
@@ -4064,6 +3938,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Termite Season 2026 in Alabama: What's Coming and How to Stay Ahead",
     excerpt: "Spring 2026 is shaping up as a heavy termite year. Heavy winter rainfall, warm soil temperatures, and record swarm reports across Central and North Alabama. Here's what you need to know now.",
     publishedAt: '2026-05-23',
+    updatedAt: '2026-09-29',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
@@ -4124,7 +3999,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Office numbers:</p>
 <ul>
-<li>Birmingham / Alabaster — (205) 940-6360</li>
+<li>Birmingham — (205) 991-2882</li> <li>Alabaster — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>

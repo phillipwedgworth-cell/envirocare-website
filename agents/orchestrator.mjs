@@ -259,19 +259,31 @@ export async function run() {
   const findings = await readFindings([], FINDINGS_WINDOW_HOURS);
   const discussions = await readDiscussions([], FINDINGS_WINDOW_HOURS);
 
-  // Round 2b: Proposer reads findings and produces a ranked change list.
-  let proposerOut = null;
-  try {
-    proposerOut = await runProposer();
-  } catch (e) {
-    console.error("[orchestrator] proposer failed:", e.message);
+  // Rounds 2b–4 (proposer → Sonnet digest → email) are RETIRED by the Sep 27
+  // consolidation plan (claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md):
+  // proposer's rows fed an approval queue nothing ships, and the digest was the
+  // top Sonnet spend (~$1.50/wk) with made-up dates. The Monday sweep replaces
+  // it. Set ORCHESTRATOR_DIGEST=on to bring the old behaviour back.
+  const digestOn = String(process.env.ORCHESTRATOR_DIGEST || "").toLowerCase() === "on";
+  let brief, raw_outputs, emailResult;
+  if (digestOn) {
+    let proposerOut = null;
+    try {
+      proposerOut = await runProposer();
+    } catch (e) {
+      console.error("[orchestrator] proposer failed:", e.message);
+    }
+    ({ brief, raw_outputs } = await synthesizeDigest(outputs, findings, discussions, proposerOut));
+    emailResult = await sendDigest(brief);
+  } else {
+    raw_outputs = outputs;
+    const status = Object.entries(outputs).map(([k, v]) =>
+      `${k}: ${v.skipped ? "skipped" : v.blocked ? `blocked (${v.reason})` : v.error ? `error (${v.error})` : "ok"}`);
+    brief = `Orchestrator runner — ${new Date().toISOString().slice(0, 10)}\n` +
+      `${status.join("\n")}\nfindings in window: ${findings.length}\n` +
+      `(digest + proposer retired 2026-09-27; see the weekly sweep)`;
+    emailResult = { sent: false, reason: "digest retired (ORCHESTRATOR_DIGEST not on)" };
   }
-
-  // Round 3: Sonnet synthesizes the Monday digest.
-  const { brief, raw_outputs } = await synthesizeDigest(outputs, findings, discussions, proposerOut);
-
-  // Round 4: email it.
-  const emailResult = await sendDigest(brief);
   console.log(`[orchestrator] email: ${JSON.stringify(emailResult)}`);
 
   await logAgentRun("orchestrator", "ok", brief);

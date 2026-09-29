@@ -2,7 +2,7 @@
   "_comment": "EnviroCare social + local content calendar. Drives content-generator/meta-poster/gbp-poster. Captions are compliance-safe (correct office phone per location; the banned legacy Scorpion tracking number must never appear). Dates are seed values — the generator rolls them forward weekly.",
   "locations": {
     "huntsville":  { "gbp_place_id": "ChIJd4YXKCRmqmIR1DmDoEcGohU", "phone": "(256) 937-7676", "label": "Huntsville" },
-    "birmingham":  { "gbp_place_id": "ChIJr8cmt-EeiYgR_jgX9xsiZWY", "phone": "(205) 940-6360", "label": "Birmingham / Alabaster" },
+    "birmingham":  { "gbp_place_id": "ChIJr8cmt-EeiYgR_jgX9xsiZWY", "phone": "(205) 940-6360", "label": "Alabaster" },
     "lake_martin": { "gbp_place_id": "ChIJ508mEjcLjIgRZ2HdWgXX76c", "phone": "(256) 234-6162", "label": "Lake Martin / Alex City" }
   },
   "defaults": { "status": "draft", "cta": "Call for a free quote", "utm": "?utm_source=gbp&utm_medium=post" },

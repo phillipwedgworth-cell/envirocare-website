@@ -27,26 +27,35 @@ type Group = { office: string; phone: string; cities: [string, string][] };
 
 const GROUPS: Group[] = [
   {
-    office: 'Birmingham / Alabaster Office',
-    phone: '(205) 940-6360',
+    // Jefferson + St Clair counties route to the 16th Ave S Birmingham office
+    // (data/city-offices.ts, Phillip 2026-09-05). Split from the Alabaster group
+    // 2026-09-29: this list used to show every Birmingham city under 940-6360.
+    office: 'Birmingham Office',
+    phone: '(205) 991-2882',
     cities: [
-      ['Over the Mountain (cluster)', '/over-the-mountain'], ['South Birmingham (cluster)', '/south-birmingham'],
+      ['Over the Mountain (cluster)', '/over-the-mountain'],
       ['East Birmingham (cluster)', '/east-birmingham'], ['North Birmingham (cluster)', '/north-birmingham'],
-      ['Birmingham', '/birmingham'], ['Hoover', '/hoover'], ['Alabaster', '/alabaster'],
-      ['Pelham', '/pelham'], ['Helena', '/helena'], ['Calera', '/calera'],
-      ['Chelsea', '/chelsea'], ['Vestavia Hills', '/vestavia-hills'],
+      ['Birmingham', '/birmingham'], ['Hoover', '/hoover'], ['Vestavia Hills', '/vestavia-hills'],
       ['Mountain Brook', '/mountain-brook'], ['Homewood', '/homewood'],
-      ['Indian Springs', '/indian-springs'], ['Trussville', '/trussville'],
-      ['Mt Laurel', '/mt-laurel'], ['Greystone', '/greystone'],
-      ['Brook Highland', '/brook-highland'], ['Eagle Point', '/eagle-point'],
-      ['Liberty Park', '/liberty-park'], ['Meadow Brook', '/meadow-brook'],
-      ['Highland Lakes', '/highland-lakes'], ['Fultondale', '/fultondale'],
-      ['Bessemer', '/bessemer'], ['McCalla', '/mccalla'], ['Gardendale', '/gardendale'],
-      ['Irondale', '/irondale'], ['Leeds', '/leeds'], ['Moody', '/moody'],
+      ['Trussville', '/trussville'], ['Liberty Park', '/liberty-park'],
+      ['Fultondale', '/fultondale'], ['Bessemer', '/bessemer'], ['McCalla', '/mccalla'],
+      ['Gardendale', '/gardendale'], ['Irondale', '/irondale'], ['Leeds', '/leeds'], ['Moody', '/moody'],
       ['Birmingham Exterminator', '/birmingham-exterminator'],
       ['Birmingham Mosquito Control', '/birmingham-mosquito-control'],
       ['Vestavia Hills Mosquito Control', '/vestavia-hills-mosquito-control'],
       ['Birmingham Termite Control', '/birmingham-termite-control'],
+    ],
+  },
+  {
+    office: 'Alabaster Office',
+    phone: '(205) 940-6360',
+    cities: [
+      ['South Birmingham (cluster)', '/south-birmingham'],
+      ['Alabaster', '/alabaster'], ['Pelham', '/pelham'], ['Helena', '/helena'], ['Calera', '/calera'],
+      ['Chelsea', '/chelsea'], ['Indian Springs', '/indian-springs'],
+      ['Mt Laurel', '/mt-laurel'], ['Greystone', '/greystone'],
+      ['Brook Highland', '/brook-highland'], ['Eagle Point', '/eagle-point'],
+      ['Meadow Brook', '/meadow-brook'], ['Highland Lakes', '/highland-lakes'],
     ],
   },
   {

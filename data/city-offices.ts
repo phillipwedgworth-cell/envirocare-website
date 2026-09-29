@@ -116,7 +116,14 @@ export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   ...(['birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
        'trussville', 'irondale', 'leeds', 'moody', 'fultondale', 'bessemer', 'mccalla', 'gardendale',
        'crestline', 'english-village', 'cherokee-bend', 'cahaba-heights',
-       'mountain-brook-village', 'liberty-park'] as const)
+       'mountain-brook-village', 'liberty-park',
+       // Added 2026-09-29 (sweep 0008). Each of these renders (205) 991-2882 in its
+       // own body copy but was unmapped, so the sitewide header fell back to the
+       // 940-6360 default -- header and body disagreeing on the same page.
+       'best-pest-control-birmingham', 'birmingham-exterminator',
+       'birmingham-mosquito-control', 'birmingham-termite-control',
+       'east-birmingham', 'north-birmingham', 'over-the-mountain',
+       'vestavia-hills-mosquito-control'] as const)
       .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
   ...(['chelsea', 'greystone', 'mt-laurel', 'inverness', 'brook-highland',
        'meadow-brook', 'eagle-point', 'highland-lakes', 'chelsea-park'] as const)

@@ -85,6 +85,13 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     approvedInstead: 'we will call you back as soon as we can during business hours' },
   // "same technician" alone is fine ("real people, same technician on your route"); only a
   // PROMISE of it is a staffing claim. Require an every-time/guaranteed qualifier nearby.
+  // Added 2026-09-29 (sweep 0008). Both shipped live in data/cities.ts and neither
+  // rule existed, so nothing caught them.
+  // 'contract-free' is a no-contract claim (ruled out 2026-08-08).
+  { pattern: 'contract[\\s-]?free', reason: 'no-contract claim', approvedInstead: 'plans you can cancel in writing per the agreement' },
+  // A 'flat $75' initial contradicts pricing canon twice: the $75 is 50% off a $150
+  // regular price, not a flat rate, and a mosquito-only plan has no $75 startup.
+  { pattern: 'flat\\s+\\$\\s?75', reason: 'pricing claim ($75 is 50% off $150, not a flat price; mosquito-only has no $75 startup)', approvedInstead: '$75 initial service, 50% off the $150 regular price (Pest and Pest + Mosquito only)' },
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
