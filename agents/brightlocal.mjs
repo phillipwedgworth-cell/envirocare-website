@@ -5,7 +5,7 @@
 // Push: main (via branch + PR)
 // ─────────────────────────────────────
 // agents/brightlocal.mjs
-// BrightLocal citation-score agent for EnviroCare (Alabama, 3 locations).
+// BrightLocal citation agent for EnviroCare (Alabama, 4 offices).
 //
 // Pattern:
 //   1. Worker (Haiku, tool-use) decides what to fetch and produces a draft brief.
@@ -47,7 +47,11 @@ const BL_MCP = "https://mcp.brightlocal.com/mcp";
 const LOCATIONS = [
   { name: "Alabaster", id: 4068335, ct_report_id: 2418430, rm_report_id: 630345, target: 85 },
   { name: "Huntsville", id: 4068730, ct_report_id: 2419690, rm_report_id: 630846, target: 85 },
-  { name: "Alex City", id: 4068729, ct_report_id: null, rm_report_id: 631866, target: 85 }, // RM campaign added 2026-06-10; CT still pending
+  // CT 2422541 exists (BrightLocal find_ct_reports, 2026-09-28). It was null here,
+  // so every brief said "Alex City — NO CAMPAIGN".
+  { name: "Alex City", id: 4068729, ct_report_id: 2422541, rm_report_id: 631866, target: 85 },
+  // Birmingham office (2120 16th Ave S), added 2026-09-29. CT 2448082, RM 644662.
+  { name: "Birmingham", id: 4130578, ct_report_id: 2448082, rm_report_id: 644662, target: 85 },
 ];
 
 let anthropic = null;
@@ -259,7 +263,8 @@ async function recordScoreUncached({ location_name, score }) {
     "seo",
     belowTarget ? "warning" : "info",
     null,
-    `${loc.name} citation score: ${score}/100 (target ${loc.target})`,
+    // A COUNT of active citations, not a 0–100 score (suppression rule 3 blocks the old "/100" wording).
+    `${loc.name} active citations: ${score} (target ${loc.target})`,
     { location: loc.name, score, target: loc.target, below_target: belowTarget },
   );
   return { ok: true };
@@ -278,12 +283,12 @@ const recordScore = once(
 const tools = [
   {
     name: "list_locations",
-    description: "List all 3 EnviroCare locations and their citation-score targets.",
+    description: "List all 4 EnviroCare offices and their active-citation targets.",
     input_schema: { type: "object", properties: {} },
   },
   {
     name: "get_citation_score",
-    description: "Pull the current BrightLocal citation score (out of 100) for one location.",
+    description: "Pull the current number of ACTIVE citations for one location from its BrightLocal Citation Tracker report. This is a COUNT of listings, not a score out of 100 — never write it as 'N/100'.",
     input_schema: {
       type: "object",
       properties: {
@@ -347,7 +352,7 @@ async function callTool(name, input) {
 
 // ---------- Worker (tool-use loop) ----------
 
-const WORKER_SYSTEM = `You are the BrightLocal citation analyst for EnviroCare Pest Control (Alabama, 3 locations: Alabaster, Huntsville, Alex City). All three target a citation score of 85/100.
+const WORKER_SYSTEM = `You are the BrightLocal citation analyst for EnviroCare (Alabama, 4 offices: Alabaster, Huntsville, Alex City, Birmingham). The number per office is a COUNT of active citations in its BrightLocal Citation Tracker report — NOT a score out of 100. Never write it as "N/100" or call it a score. Target: 85 active citations per office.
 
 Your job: write the weekly Monday citation brief.
 
@@ -359,7 +364,7 @@ Approach (you choose order, skip steps if irrelevant):
 5. Self-check before emitting: is the draft specific (numbers, deltas, named locations) or vague? If vague, gather more data first.
 6. Emit the final brief.
 
-Final brief format: 5-7 bullets. Lead with the biggest movers. Every bullet has a specific number and a delta vs last week (or "no prior data" if first run). Flag any score < 85 as BELOW TARGET with the gap to target. No preamble, no sign-off.`;
+Final brief format: 5-7 bullets. Lead with the biggest movers. Every bullet has a specific number and a delta vs last week (or "no prior data" if first run). Flag any count below 85 as BELOW TARGET with the gap to target. Date the brief with the run date only. No preamble, no sign-off.`;
 
 async function workerDraft(feedback = null) {
   if (!anthropic) throw new Error("ANTHROPIC_API_KEY is not set");

@@ -352,7 +352,8 @@ export default function WDOLettersPage() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
             {[
-              { city: "Birmingham / Alabaster", phone: "(205) 940-6360", href: "tel:2059406360" },
+              { city: "Birmingham", phone: "(205) 991-2882", href: "tel:2059912882" },
+              { city: "Alabaster", phone: "(205) 940-6360", href: "tel:2059406360" },
               { city: "Alex City / Lake Martin", phone: "(256) 234-6162", href: "tel:2562346162" },
               { city: "Huntsville", phone: "(256) 937-7676", href: "tel:2569377676" },
             ].map((o) => (

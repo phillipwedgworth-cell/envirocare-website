@@ -45,6 +45,7 @@ const RM_REPORTS = [
   { name: "Alabaster", report_id: 630345 },
   { name: "Huntsville", report_id: 630846 },
   { name: "Alex City", report_id: 631866 },
+  { name: "Birmingham", report_id: 644662 }, // added 2026-09-29 (sweep F2)
 ];
 
 // Phillip's direct line offered on negative reviews. Using the main office

@@ -133,7 +133,7 @@ export default function MountainBrookPage() {
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Mountain Brook &amp; Jefferson County · Since 1958</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
-              Mountain Brook Pest Control<br />
+              Mountain Brook Pest Control{" "}<br />
               <span style={{ color: Au, fontStyle: "italic", fontWeight: 700 }}>&amp; Termite Service</span>
             </h1>
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 640, marginBottom: "2rem" }}>
