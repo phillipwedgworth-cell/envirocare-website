@@ -1,10 +1,11 @@
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 // NOTE: no per-city OG image yet (public/og/og-greystone.png missing) — inherits
 // the sitewide default OG from app/layout.tsx. Add og-greystone.png later.
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Greystone AL | Termite & Mosquito | EnviroCare",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service for Greystone homes in Hoover AL — Founders, Legacy. From $35/mo. Call (205) 940-6360.",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/greystone",
     type: "website",
   },
-};
+});
 
 const G = "#0A7935";
 

@@ -1,3 +1,4 @@
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
@@ -12,13 +13,13 @@ const TITLE = "Mosquito Control Vestavia Hills AL | Seasonal Yard Treatment | En
 const DESC =
   `Mosquito control in Vestavia Hills AL — ~$${PRICING.addOns.mosquito.monthly}/month, eight treatments March–October for Cahaba Heights, Rocky Ridge & Liberty Park yards. Call (205) 991-2882.`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "./" },
   openGraph: { url: "https://www.envirocarellc.com/vestavia-hills-mosquito-control", title: TITLE, description: DESC, type: "website" },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC },
-};
+});
 
 const c: ComboContent = {
   eyebrow: "Mosquito Control · Vestavia Hills, Alabama",

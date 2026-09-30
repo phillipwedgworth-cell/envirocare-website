@@ -4,9 +4,11 @@
 // Commit: feat(seo): money-page titles/H1s target the queries GSC already shows them for
 // Push: main
 // ─────────────────────────────────────
+import type { Metadata } from 'next';
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import CityPage from '@/components/pages/CityPage';
 
-export const metadata = {
+export const metadata: Metadata = withOpenGraph({
   alternates: { canonical: '/huntsville' },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville', images: ['/og/og-huntsville.png'] },
   // GSC Aug 21–Sep 14 2026: "exterminator huntsville" 539 impr at pos 8.8 (largest
@@ -15,7 +17,7 @@ export const metadata = {
   // names Madison and the three services people actually search for here.
   title: 'Exterminator & Pest Control Huntsville AL | Termite, Mosquito | EnviroCare',
   description: 'Huntsville & Madison exterminator — ants, roaches, spiders, rodents. Sentricon® termite, mosquito & tick control. Local office. (256) 937-7676.',
-};
+});
 
 export default function HuntsvillePage() {
   return <CityPage slug="huntsville" />;

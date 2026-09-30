@@ -4,10 +4,11 @@
 // Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
 // Push: main
 // ─────────────────────────────────────
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Highland Lakes 35242 | EnviroCare",
   description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage. Call (205) 940-6360.",
   alternates: { canonical: "/highland-lakes" },
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/highland-lakes",
     type: "website",
   },
-};
+});
 
 const cfg: NeighborhoodConfig = {
   "name": "Highland Lakes",
