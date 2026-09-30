@@ -1,7 +1,8 @@
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from 'next';
 import AboutUs from '@/components/pages/AboutUs';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: 'About EnviroCare — Alabama Pest Control Since 1958',
   description:
     "EnviroCare is the Wedgworth family — doing pest control in Alabama since 1958, starting in Alexander City, now four generations on. Four Alabama offices, two ways to pay.",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     url: '/about-us',
     type: 'website',
   },
-};
+});
 
 // AboutPage + AEO Person schemas. These tell AI answer engines who runs the
 // company, when it was founded, and the family lineage — the exact data a

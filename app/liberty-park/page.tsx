@@ -4,10 +4,11 @@
 // Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
 // Push: main
 // ─────────────────────────────────────
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Liberty Park AL | EnviroCare Since 1958",
   description: "Family-owned pest, Sentricon® termite, and mosquito service for Liberty Park homes. No drilling, $1M coverage, two ways to pay. (205) 991-2882.",
   alternates: { canonical: "/liberty-park" },
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/liberty-park",
     type: "website",
   },
-};
+});
 
 const cfg: NeighborhoodConfig = {
   "name": "Liberty Park",

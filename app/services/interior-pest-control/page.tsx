@@ -10,10 +10,11 @@
 // $100–$175/visit; Terminix leads with interior+exterior framing. $98 is a
 // price-leadership position — this page says so without naming competitors.
 
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Interior + Exterior Pest Control in Alabama | EnviroCare",
   description:
     "Quarterly inside-and-outside pest control for Alabama homes — $98 per quarter. Add flea treatment for $30 more. Family-owned since 1958.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
       "Quarterly inside-and-outside protection — $98/quarter. Flea treatment add-on available.",
     type: "website",
   },
-};
+});
 
 const BRAND_GREEN = "#0A7935";
 const FOREST = "#0A7935";

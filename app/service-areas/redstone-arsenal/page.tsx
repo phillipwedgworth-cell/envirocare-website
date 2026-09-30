@@ -1,3 +1,4 @@
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
@@ -20,7 +21,7 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  * Office: Huntsville, (256) 937-7676
  */
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Near Redstone Arsenal | Cummings Research Park",
   description:
     "Commercial pest control for businesses near Redstone Arsenal and Cummings Research Park. Family-owned since 1958. Call (256) 937-7676.",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/service-areas/redstone-arsenal",
     type: "website",
   },
-};
+});
 
 const G = "#0A7935";
 const D = "#07642B";
