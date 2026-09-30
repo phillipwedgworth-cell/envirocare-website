@@ -307,6 +307,23 @@ export default function ServicePage({ slug }: { slug: string }) {
         </section>
       )}
 
+      {service.nearYou && service.nearYou.links.length > 0 && (
+        <section className="svc-intro" aria-labelledby="near-you-heading">
+          <div className="container">
+            <h2 id="near-you-heading" className="section-title">{service.nearYou.heading}</h2>
+            <p className="svc-intro-p">{service.nearYou.lede}</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "1.25rem 0 0", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: ".75rem" }}>
+              {service.nearYou.links.map((l) => (
+                <li key={l.href} style={{ border: "1px solid rgba(14,142,64,.18)", borderRadius: 12, padding: ".85rem 1rem", background: "#FEFDF8" }}>
+                  <Link href={l.href} style={{ color: "var(--green, #0A7935)", fontWeight: 700 }}>Pest control in {l.label}</Link>
+                  <div style={{ fontSize: 13.5, color: "#4b5563", marginTop: 4 }}>{l.note}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="includes">
         <div className="container">
           <div className="section-eyebrow">What's Included</div>
