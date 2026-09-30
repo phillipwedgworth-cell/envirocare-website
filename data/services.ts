@@ -110,7 +110,7 @@ export const SERVICES: Service[] = [
     pestsFeatured: [
       { name: 'Millipede Control', desc: 'Slow, many-legged invaders that pour indoors by the dozen after heavy Alabama rain — along garages, baseboards, and foundation lines. Our perimeter barrier stops them at the door.' },
       { name: 'Centipede Control', desc: 'Fast, leggy hunters that turn up in bathrooms, basements, and crawlspaces chasing other insects. We treat the harborage points where they enter.' },
-      { name: 'Cricket Control', desc: 'House and camel crickets that chirp through walls and chew paper and fabric — common in Birmingham garages and crawlspaces. Treated at every bi-monthly visit.' },
+      { name: 'Cricket Control', desc: 'House and camel crickets that chirp through walls and chew paper and fabric — common in Alabama garages and crawlspaces. Treated at every bi-monthly visit.' },
       { name: 'Earwig Control', desc: 'Pincer-tailed insects that gather under mulch, pots, and door thresholds, then slip inside during dry spells. We knock down the outdoor population before they get in.' },
       { name: 'Spider Control', desc: 'House spiders, wolf spiders, and their webs knocked down at eaves, corners, and entry points on every visit, plus the perimeter treated to cut off their food source.' },
       { name: 'Silverfish Control', desc: 'Moisture-loving insects that damage books, wallpaper, and stored paper in closets, attics, and bathrooms. Targeted where they hide and breed.' },

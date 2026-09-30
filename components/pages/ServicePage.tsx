@@ -344,7 +344,7 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="container">
             <div className="section-eyebrow">30+ Pests Covered</div>
             <h2 className="section-title">Pests We <span>Treat</span></h2>
-            <p className="pests-intro">Your bi-monthly plan covers 30+ common Alabama pests — including the specific invaders Birmingham and Lake Martin homeowners search for most. Fire ants, fleas, and our mosquito and tick yard service are handled by separate programs.</p>
+            <p className="pests-intro">Your bi-monthly plan covers 30+ common Alabama pests — including the invaders homeowners search for most. Fire ants, fleas, and our mosquito and tick yard service are handled by separate programs.</p>
             <div className="pests-grid">
               {service.pestsFeatured.map((p, i) => (
                 <div key={i} className="pest-card">
