@@ -113,7 +113,7 @@ async function fetchScoreboard() {
     fetch(`${BASE}/gsc_daily?date=gte.${since14}&order=date.asc&select=date,clicks,impressions,position`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/gsc_pages?order=snapshot_date.desc&limit=2000&select=page,clicks,impressions,position,snapshot_date`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/leads?created_at=gte.${since7}&select=id,office,service_type`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
-    fetch(`${BASE}/lf_visibility?order=run_date.desc&limit=400&select=market,keyword,solv,run_date,campaign_name`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
+    fetch(`${BASE}/lf_visibility?platform=eq.google&solv=not.is.null&order=run_date.desc&limit=400&select=market,place_id,keyword,solv,run_date,campaign_name`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
   ]);
 
   // Clicks / impressions: the latest 7 days OF DATA vs the 7 before them.
@@ -152,7 +152,11 @@ async function fetchScoreboard() {
   for (const r of lfRows) {
     const m = r.market || r.campaign_name || '?';
     if (!markets[m]) markets[m] = { date: r.run_date, vals: [] };
-    if (r.run_date === markets[m].date) markets[m].vals.push(num(r.solv) || 0);
+    // Google rows with a measured SoLV only (query filters both). The old read
+    // mixed AI-platform rows (solv null) in as "0%" via `|| 0`, dragging every
+    // market's mean toward zero. Missing is not zero.
+    const v = num(r.solv);
+    if (r.run_date === markets[m].date && v !== null && Number.isFinite(v)) markets[m].vals.push(v);
   }
   const lfLines = Object.entries(markets).map(([m, v]) => `  ${m.padEnd(14)} SoLV ${(v.vals.reduce((a, b) => a + b, 0) / (v.vals.length || 1)).toFixed(1)}% across ${v.vals.length} keywords (run ${v.date})`);
 

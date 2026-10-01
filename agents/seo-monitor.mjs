@@ -34,7 +34,10 @@ import { getDailyTrend, getOpportunities } from "./lib/seo-history.mjs";
 import {
   LOCAL_FALCON_CAMPAIGNS,
   localFalconBaseline,
+  localFalconComparison,
   localFalconLocation,
+  localFalconNumber,
+  localFalconRunIdentity,
 } from "./lib/local-falcon-campaigns.mjs";
 import {
   writeFinding,
@@ -47,7 +50,7 @@ import {
 const AGENT_NAME = "seo-monitor";
 const WORKER_MODEL = "claude-haiku-4-5-20251001";
 const MAX_TURNS = 15;
-const PROMPT_VERSION = "2026-09-12";
+const PROMPT_VERSION = "2026-09-30";
 
 const LF_KEY = process.env.LOCAL_FALCON_API_KEY;
 const LF_API = "https://api.localfalcon.com/v1";
@@ -138,10 +141,9 @@ function findLocation(name) {
   return campaign ? LOCATIONS.find((l) => l.name === campaign.location) : null;
 }
 
-const num = (v) => {
-  const n = Number(v);
-  return Number.isFinite(n) ? n : null;
-};
+// Never Number(): Number(null) and Number("") are 0, which reported missing
+// keyword data as "0% — dead zone". Missing stays null; measured 0 stays 0.
+const num = localFalconNumber;
 
 // ---------- Data layer (reads the weekly CAMPAIGN report) ----------
 
@@ -157,8 +159,12 @@ async function fetchCampaignKeywords(campaignKey) {
   const rd = json?.data?.run_data ?? {};
   const runDate = rd.run ?? null;
   const rows = Array.isArray(rd.by_keyword) ? rd.by_keyword : [];
+  // The profile this run measured, if the payload says so. Absent → identity
+  // falls back to dated legacy rules, then config (localFalconRunIdentity).
+  const scanPlaceId = rd.place_id ?? json?.data?.place_id ?? null;
   return {
     runDate,
+    scanPlaceId,
     agg_solv: num(json?.data?.solv),
     keywords: rows
       .filter((k) => k && k.keyword)
@@ -209,6 +215,23 @@ async function computeLocation(location_name) {
     return { location: loc.name, error: `Local Falcon campaign ${loc.campaign} failed: ${e.message}` };
   }
 
+  // A run of this key that measured ANOTHER office (or predates this market's
+  // series) is not this market's data. 4ee47a23's 09-18 run measured Alabaster
+  // and was reported as "Birmingham 13.36%, +11.58 w/w" (finding 9769).
+  const identity = localFalconRunIdentity(loc.campaign, campaign.runDate, campaign.scanPlaceId);
+  if (!identity.inSeries) {
+    const start = localFalconLocation(loc.name)?.seriesStart;
+    return {
+      location: loc.name,
+      target: loc.target,
+      blended_solv: null,
+      keyword_count: 0,
+      pending: true,
+      latest_date: identity.runDate,
+      note: `No ${loc.name} reading yet — this series starts with the first completed ${loc.name}-profile run${start ? ` (scheduled ${start})` : ""}. The latest run on campaign ${loc.campaign} (${identity.runDate ?? "never run"}) measured ${identity.location === loc.name ? "a run before the series start" : identity.location}, not ${loc.name}. Pending, not 0%.`,
+    };
+  }
+
   const kws = campaign.keywords.filter((k) => k.solv !== null);
   if (kws.length === 0) {
     return {
@@ -240,11 +263,14 @@ async function computeLocation(location_name) {
     target_needs_review: loc.needsReview === true,
     baseline,
     campaign_key: loc.campaign,
+    series_id: identity.seriesId,
+    place_id: identity.placeId,
+    keyword_solv: Object.fromEntries(kws.map((k) => [k.keyword, k.solv])),
     campaign_solv: campaign.agg_solv,
     blended_solv: blended,
     below_target: blended < loc.target,
     keyword_count: kws.length,
-    latest_date: campaign.runDate,
+    latest_date: identity.runDate,
     best: sorted[sorted.length - 1],
     worst: sorted.slice(0, 3),
     dead_zones: deadZones.map((k) => ({ keyword: k.keyword, solv: k.solv })),
@@ -269,34 +295,49 @@ async function analyzeLocationUncached({ location_name }) {
   if (summary.error || summary.blended_solv === null) {
     // Still surface "no data" as a finding so a silent campaign failure is visible.
     if (summary.note) {
-      await writeFinding(AGENT_NAME, "seo", "warning", null,
-        `${summary.location}: ${summary.note}`, { location: summary.location });
+      await writeFinding(AGENT_NAME, "seo", summary.pending ? "info" : "warning", null,
+        `${summary.location}: ${summary.note}`, { location: summary.location, pending: summary.pending === true, run_date: summary.latest_date ?? null });
     }
     return summary;
   }
 
   // Week-over-week delta from stored blended SoLV.
   const prior = await stateGet(`${AGENT_NAME}:solv:${location_name}`);
-  // A prior reading from a different grid (per-campaign baseline mismatch, or a
-  // "?x?-?mi" unknown) is not comparable — treat it as absent rather than
-  // reporting a -51pt "collapse" that is pure geometry.
-  const comparable =
-    prior && prior.baseline && prior.baseline === summary.baseline && !summary.baseline.includes("?");
-  const priorSolv = comparable ? (prior.solv ?? null) : null;
-  const delta = priorSolv === null ? null : Math.round((summary.blended_solv - priorSolv) * 100) / 100;
-  await stateSet(`${AGENT_NAME}:solv:${location_name}`, {
-    baseline: summary.baseline,
-    solv: summary.blended_solv,
-    date: new Date().toISOString(),
-  });
+  // Comparable only within ONE series (same campaign, same measured profile,
+  // same series start), the same known grid, and a NEWER run. Priors written
+  // before 2026-09-30 carry no series_id and are treated as absent — the
+  // Birmingham prior was Alabaster data. Biweekly runs read by a weekly agent
+  // used to produce a silent "+0.00 w/w" every other week; same run → no delta.
+  // Changed keyword cohorts are diffed over common keywords only, disclosed.
+  const current = { seriesId: summary.series_id, baseline: summary.baseline, runDate: summary.latest_date ?? null, keywords: summary.keyword_solv };
+  const cmp = localFalconComparison(
+    prior ? { seriesId: prior.series_id, baseline: prior.baseline, runDate: prior.run_date, keywords: prior.keywords } : null,
+    current,
+  );
+  const delta = cmp.comparable ? cmp.delta : null;
+  const priorSolv = cmp.comparable ? (prior.solv ?? null) : null;
+  const deltaText = cmp.comparable
+    ? `, ${delta >= 0 ? "+" : ""}${delta} pts vs run ${cmp.since}${cmp.cohortChanged ? ` (${cmp.commonKeywords} common keywords; cohort changed)` : ""}`
+    : ` (no comparison: ${cmp.reason})`;
+  if (!cmp.sameRun) {
+    await stateSet(`${AGENT_NAME}:solv:${location_name}`, {
+      baseline: summary.baseline,
+      series_id: summary.series_id,
+      place_id: summary.place_id,
+      run_date: current.runDate,
+      solv: summary.blended_solv,
+      keywords: summary.keyword_solv,
+      date: new Date().toISOString(),
+    });
+  }
 
   // Per-location blended finding (warning if below target).
   await writeFinding(
     AGENT_NAME, "seo",
     summary.below_target ? "warning" : "info",
     null,
-    `${summary.location} blended SoLV ${summary.blended_solv}% (target ${summary.target}%, ${summary.keyword_count} keywords)${delta === null ? "" : `, ${delta >= 0 ? "+" : ""}${delta} w/w`}`,
-    { location: summary.location, solv: summary.blended_solv, target: summary.target, below_target: summary.below_target, delta },
+    `${summary.location} blended SoLV ${summary.blended_solv}% on run ${current.runDate} (target ${summary.target}%, ${summary.keyword_count} keywords)${deltaText}`,
+    { location: summary.location, solv: summary.blended_solv, target: summary.target, below_target: summary.below_target, delta, run_date: current.runDate, series_id: summary.series_id, comparison: cmp },
   );
 
   // One CRITICAL finding per dead-zone keyword — this is the thing the old
@@ -309,7 +350,7 @@ async function analyzeLocationUncached({ location_name }) {
     );
   }
 
-  return { ...summary, prior_solv: priorSolv, delta };
+  return { ...summary, prior_solv: priorSolv, delta, comparison: cmp };
 }
 
 // One real analysis per location per process. Keyed on the location name only —
@@ -433,7 +474,13 @@ APPROACH (you choose order, skip if irrelevant)
 5. Emit the final brief.
 
 FINAL BRIEF FORMAT
-5-8 bullets. Lead with dead zones (name the keyword, the location, and the SoLV %). Then blended SoLV per location with week-over-week delta. Flag URGENT for any location whose blended SoLV is at or near 0%. End with the single highest-value action. No preamble, no sign-off.
+5-8 bullets. Lead with dead zones (name the keyword, the location, and the SoLV %). Then blended SoLV per location with its change and the run date it came from (latest_date). Flag URGENT for any location whose blended SoLV is at or near 0%. End with the single highest-value action. No preamble, no sign-off.
+
+DATA RULES (non-negotiable)
+- Always state the source run date for every number; it is often not this week.
+- delta is null when the reading is not comparable (comparison.reason says why: no new run since the last brief, a different measured profile, a new series, a grid change). Then say "no comparison" and give the reason — never invent a change and never write "+0.00".
+- A location with pending=true has NO reading yet. Say "pending first run" with its note. It is NOT 0% and NOT a dead zone.
+- If comparison.cohortChanged is true, say the change covers only the common keywords.
 
 PROMPT VERSION: ${PROMPT_VERSION}`;
 
