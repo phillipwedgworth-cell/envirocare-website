@@ -101,9 +101,21 @@ async function main() {
     }));
   }
 
+  // This file is committed to a PUBLIC repo. Query strings can carry secrets
+  // (the /approve?k=... console key leaked this way, found 2026-10-01), so the
+  // landing-page breakdown drops everything after "?" and merges the counts.
+  function stripQuery(rows) {
+    const merged = new Map();
+    for (const { key, value } of rows) {
+      const path = String(key ?? "").split("?")[0] || "(not set)";
+      merged.set(path, (merged.get(path) || 0) + value);
+    }
+    return [...merged].map(([key, value]) => ({ key, value })).sort((a, b) => b.value - a.value);
+  }
+
   const [channels, landingPages, devices, cities, conversionEvents] = await Promise.all([
     breakdown("sessionDefaultChannelGroup"),
-    breakdown("landingPagePlusQueryString"),
+    breakdown("landingPagePlusQueryString").then(stripQuery),
     breakdown("deviceCategory"),
     breakdown("city"),
     breakdown("eventName", "conversions"),
