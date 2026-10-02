@@ -40,6 +40,12 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author],
+      // Per-post link-preview card. Without this every post fell back to the
+      // site-wide /og-image.png (withOpenGraph default), so shared articles all
+      // looked identical. Posts with no heroImage still get that default.
+      ...(post.heroImage
+        ? { images: [{ url: post.heroImage.og, width: 1200, height: 630, alt: post.heroImage.alt }] }
+        : {}),
     },
   });
 }
@@ -67,6 +73,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
             headline: post.title.slice(0, 110),
             description: post.metaDescription,
+            ...(post.heroImage ? { image: `${SITE}${post.heroImage.og}` } : {}),
             articleSection: post.category,
             wordCount: post.body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
             timeRequired: `PT${post.readMinutes}M`,
