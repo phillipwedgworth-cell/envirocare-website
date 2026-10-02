@@ -20,54 +20,9 @@ export async function runWatchdog({
 }) {
   const canary = await runCanary(anthropicApiKey);
   const logs = await getRecentAgentErrors({ supabaseUrl, supabaseServiceRoleKey });
-  const stale = await getStaleAgents({ supabaseUrl, supabaseServiceRoleKey });
   const findings = dedupeLogs(logs, canary);
-  const alerted = await alertIfNeeded({ findings, stale, canary, alertEmail, resendApiKey, fromEmail });
-  return { canary, findings, stale, alerted };
-}
-
-// Max hours between runs before an agent counts as stale. Keyed to the
-// schedules in vercel.json and .github/workflows as of 2026-10-01: weekly
-// agents get 8 days (one missed Monday), daily agents 30 hours.
-// Add an agent here when you schedule it; remove it when you retire it.
-const EXPECTED_MAX_HOURS = {
-  orchestrator: 8 * 24,
-  "seo-monitor": 8 * 24,
-  "review-responder": 8 * 24,
-  "neuronwriter-qa": 8 * 24,
-  brightlocal: 8 * 24,
-  "seo-snapshot": 8 * 24,
-  "neuronwriter-narrator": 8 * 24,
-  "neuronwriter-pull": 8 * 24,
-  "morning-brief": 30,
-  "captivated-suppress-sync": 3 * 24, // weekdays only
-};
-
-async function getStaleAgents({ supabaseUrl, supabaseServiceRoleKey }) {
-  if (!supabaseUrl || !supabaseServiceRoleKey) {
-    // Can't check means can't vouch: report it rather than return a clean [].
-    return [{ agent: "(staleness check)", lastRun: null, reason: "SUPABASE_URL or service key missing" }];
-  }
-  const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
-  const url = `${supabaseUrl.replace(/\/+$/, "")}/rest/v1/agent_runs`
-    + `?select=created_at,agent_name,agent&created_at=gte.${since}&order=created_at.desc&limit=2000`;
-  let rows;
-  try {
-    const res = await fetch(url, { headers: { apikey: supabaseServiceRoleKey, Authorization: `Bearer ${supabaseServiceRoleKey}` } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    rows = await res.json();
-  } catch (e) {
-    return [{ agent: "(staleness check)", lastRun: null, reason: `agent_runs read failed: ${e.message}` }];
-  }
-  const last = {};
-  for (const r of rows) {
-    const who = r.agent_name ?? r.agent;
-    if (who && !last[who]) last[who] = r.created_at;
-  }
-  const now = Date.now();
-  return Object.entries(EXPECTED_MAX_HOURS)
-    .filter(([agent, maxH]) => !last[agent] || (now - Date.parse(last[agent])) / 3.6e6 > maxH)
-    .map(([agent, maxH]) => ({ agent, lastRun: last[agent] ?? null, reason: `no run in ${maxH}h` }));
+  const alerted = await alertIfNeeded({ findings, canary, alertEmail, resendApiKey, fromEmail });
+  return { canary, findings, alerted };
 }
 
 async function runCanary(apiKey) {
@@ -149,12 +104,9 @@ function dedupeLogs(logs, canary) {
   return entries;
 }
 
-async function alertIfNeeded({ findings, stale = [], canary, alertEmail, resendApiKey, fromEmail }) {
+async function alertIfNeeded({ findings, canary, alertEmail, resendApiKey, fromEmail }) {
   const fleetIssue = !canary.ok && ERROR_KIND_FLEET_WIDE.has(canary.kind);
-  // The watchdog fires ~5x/day (Vercel 30 */6 + the GH workflow). Staleness only
-  // emails from the 12:30 UTC Vercel run (7:30am CT) so it lands once a day.
-  const staleIssue = stale.length > 0 && new Date().getUTCHours() === 12;
-  if (!fleetIssue && !staleIssue) return false;
+  if (!fleetIssue) return false;
 
   const recipients = String(alertEmail || "")
     .split(",").map(s => s.trim()).filter(Boolean);
@@ -163,12 +115,8 @@ async function alertIfNeeded({ findings, stale = [], canary, alertEmail, resendA
   const body = {
     from: fromEmail,
     to: recipients,
-    subject: fleetIssue ? `[WATCHDOG] Fleet alert: ${canary.kind}` : `[WATCHDOG] ${stale.length} agent(s) missed their schedule`,
-    text: (fleetIssue
-      ? `Fleet watchdog detected a fleet-wide agent failure.\n\nCanary kind: ${canary.kind}\nStatus: ${canary.status}\nMessage: ${canary.body?.error?.message ?? JSON.stringify(canary.body)}\n\n`
-      : "")
-      + (stale.length ? `Stale agents:\n${stale.map(s => `- ${s.agent}: last run ${s.lastRun ?? "never (30d window)"} (${s.reason})`).join("\n")}\n\n` : "")
-      + `Recent failed runs:\n${findings.map(f => `- ${f.source}: ${f.agent_name || f.kind} ${f.message}`).join("\n") || "- none"}`,
+    subject: `[WATCHDOG] Fleet alert: ${canary.kind}`,
+    text: `Fleet watchdog detected a fleet-wide agent failure.\n\nCanary kind: ${canary.kind}\nStatus: ${canary.status}\nMessage: ${canary.body?.error?.message ?? JSON.stringify(canary.body)}\n\nRecent findings:\n${findings.map(f => `- ${f.source}: ${f.agent_name || f.kind} ${f.message}`).join("\n")}`,
   };
 
   const res = await fetch("https://api.resend.com/emails", {
