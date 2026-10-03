@@ -26,6 +26,21 @@ export interface BlogPost {
   category: string;
   readMinutes: number;
   heroEmoji: string;
+  /**
+   * Optional article artwork. When set it replaces heroEmoji on the blog card and
+   * article header, and its og file becomes the post's link-preview image
+   * (og:image) and BlogPosting.image. Files live under /images/blog/ — the ONLY
+   * /images/* path exempt from the legacy-Scorpion redirect in next.config.
+   * Illustrations only: photorealistic AI depictions of trucks, technicians or job
+   * sites are banned (AGENTS.md §7, scripts/test-no-ai-imagery.mjs).
+   */
+  heroImage?: {
+    src: string;   // 1600×900 WebP, /images/blog/<name>.webp
+    og: string;    // 1200×630 JPEG, /images/blog/<name>-og.jpg
+    width: number;
+    height: number;
+    alt: string;
+  };
   metaTitle: string;
   metaDescription: string;
   body: string; // HTML
@@ -125,6 +140,13 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 8,
     heroEmoji: '🛡️',
+    heroImage: {
+      src: '/images/blog/envirocare-sentricon-alabama-home.webp',
+      og: '/images/blog/envirocare-sentricon-alabama-home-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustration of a brick home with a golden house outline and an EnviroCare sunflower-wrapped truck in the driveway.',
+    },
     metaTitle: 'Is Sentricon Worth It? Cost, Effectiveness & Honest Review | EnviroCare',
     metaDescription: 'Is Sentricon worth the cost? A Certified Sentricon Specialist breaks down Sentricon bait station pricing, how it compares to Termidor, DIY vs professional installation, and whether it\'s the right choice for Alabama homeowners.',
     body: `
@@ -1918,19 +1940,27 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'fall-pest-proofing-alabama',
-    title: 'Fall Pest-Proofing in Alabama: Seal Up Before September Ends',
-    excerpt: 'The house was fine all summer, then one cool week in October it filled up with crickets and spiders. Nothing changed inside — the temperature changed outside. Here is the exclusion checklist that keeps them out, and why the window closes at the end of September.',
+    title: 'Fall Pest-Proofing in Alabama: Seal Up Before the First Cold Nights',
+    excerpt: 'The house was fine all summer, then one cool week in October it filled up with crickets and spiders. Nothing changed inside — the temperature changed outside. Here is the exclusion checklist that keeps them out, and why it pays to finish it before the first real cool-down.',
     publishedAt: '2026-08-11',
+    updatedAt: '2026-10-02',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
     readMinutes: 6,
     heroEmoji: '🍂',
+    heroImage: {
+      src: '/images/blog/envirocare-fall-pest-prevention-alabama.webp',
+      og: '/images/blog/envirocare-fall-pest-prevention-alabama-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustration of a miniature brick home beside weatherstripping, a caulk gun, a flashlight, storage bins and an EnviroCare truck.',
+    },
     metaTitle: 'Fall Pest-Proofing Your Alabama Home | EnviroCare',
-    metaDescription: 'Fall pest-proofing in Alabama: door sweeps, weep holes, foundation gaps, and firewood. The exclusion checklist to finish before September ends.',
+    metaDescription: 'Fall pest-proofing in Alabama: door sweeps, weep holes, foundation gaps, and firewood. The exclusion checklist to finish before the first cold nights.',
     body: `
-<p class="lede">Every fall we take the same call, and it always sounds a little surprised. The house was fine all summer. Then one cool week in October it filled up with crickets, spiders, and something brown that ran under the baseboard. Nothing changed inside — what changed was outside. The first real drop in overnight temperatures pushes everything living in your mulch beds and leaf litter toward warmth, and your foundation is the nearest warm thing. The work that keeps them out is not spraying. It is sealing, and the window closes at the end of September.</p>
+<p class="lede">Every fall we take the same call, and it always sounds a little surprised. The house was fine all summer. Then one cool week in October it filled up with crickets, spiders, and something brown that ran under the baseboard. Nothing changed inside — what changed was outside. The first real drop in overnight temperatures pushes everything living in your mulch beds and leaf litter toward warmth, and your foundation is the nearest warm thing. The work that keeps them out is not spraying. It is sealing, and it works best when it is done before overnight lows drop into the 40s.</p>
 
-<h2>Why does the end of September matter?</h2>
+<h2>Why does the timing matter in the fall?</h2>
 
 <p>Alabama does not get the hard freeze that ends the season further north. What we get is a slow slide — nights in the 50s by late September, the first 40s in mid-October — and that slide is the trigger. Insects that were perfectly content under a pine straw bed in <a href="/hoover">Hoover</a> or beneath a deck in <a href="/chelsea">Chelsea</a> start moving toward heat, and the warm air leaking out of a foundation line, a door frame, or an unsealed garage jamb reads to them as an open door.</p>
 
@@ -1949,7 +1979,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Window and door frames.</strong> Failed caulk joints, worst on the south and west elevations where sealant bakes and pulls away.</li>
 </ul>
 
-<h2>What is worth doing this month?</h2>
+<h2>What is worth doing now?</h2>
 
 <p>Work the perimeter once, slowly, with a caulk gun and a flashlight. Exterior-grade silicone or polyurethane for gaps under about a quarter inch; copper or stainless mesh packed in first for anything larger, then sealed over. Foam alone gets chewed through and does not hold up to Alabama sun and moisture.</p>
 
@@ -1967,9 +1997,9 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Honest answer: exclusion cuts pressure, it does not zero it. A house has dozens of penetrations, some behind finished surfaces, and no amount of caulk closes all of them. Good sealing shrinks the ways in far enough that a treated perimeter can hold the rest — which is why the two together work and either alone disappoints.</p>
 
-<p>It also will not fix a population already inside the wall. If you are seeing activity indoors now, in August, that is a different job, and it starts with where they are living rather than where they are entering. Our <a href="/services/pest-control">perimeter pest control</a> program is built around the exterior for that reason, using EPA-registered products applied per label directions. When the weather turns, these same pests become the ones in our guide to <a href="/blog/winter-pests-alabama">common winter pest problems in Alabama</a> — and the instinct to cancel service once it gets cold is exactly backwards.</p>
+<p>It also will not fix a population already inside the wall. If you are already seeing activity indoors, that is a different job, and it starts with where they are living rather than where they are entering. Our <a href="/services/pest-control">perimeter pest control</a> program is built around the exterior for that reason, using EPA-registered products applied per label directions. When the weather turns, these same pests become the ones in our guide to <a href="/blog/winter-pests-alabama">common winter pest problems in Alabama</a> — and the instinct to cancel service once it gets cold is exactly backwards.</p>
 
-<h2>Do it once, in September</h2>
+<h2>Do it once, before the weather turns</h2>
 
 <p>Sweeps, sealant, mesh, and an afternoon of yard cleanup will do more for your October than anything in a spray bottle. If you would rather have someone walk the foundation with you, that is part of a free inspection. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> before the weather turns.</p>
 
@@ -2646,6 +2676,72 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Huntsville — (256) 937-7676</li>
 </ul>
 <p>Or <a href="/quote">request a free termite inspection</a> and we will take it from there.</p>
+`,
+  },
+
+  {
+    slug: 'lake-martin-home-pest-checklist',
+    title: 'Lake Martin Home Checklist: Before You Leave for the Week',
+    excerpt: 'A lake house sits empty more than it sits full, and that is when small problems settle in. Here is the five-minute departure routine we would hand any Lake Martin or Dadeville homeowner: kitchen, standing water, a note for next time, and your service paperwork.',
+    publishedAt: '2026-10-02',
+    author: 'Kevin Wedgworth',
+    category: 'Seasonal',
+    readMinutes: 4,
+    heroEmoji: '🏡',
+    heroImage: {
+      src: '/images/blog/envirocare-lake-martin-home-checklist.webp',
+      og: '/images/blog/envirocare-lake-martin-home-checklist-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustration of a lakeside cottage, wooded cove and dock, with a green EnviroCare service truck.',
+    },
+    metaTitle: 'Lake Martin Home Pest Checklist | EnviroCare',
+    metaDescription: 'Leaving your Lake Martin home between visits? A practical departure checklist for kitchen cleanup, standing water, access notes, and service records.',
+    body: `
+<p class="lede">Before you lock up the lake house, give yourself one short routine: put the food away, check anything outside that holds water, leave a note about what you saw, and know which service is scheduled next. Whether you are at <a href="/lake-martin">Lake Martin</a> every weekend or gone for a month at a time, the house you come back to depends on the ten minutes before you leave.</p>
+
+<h2>Why does an empty lake house need a routine?</h2>
+
+<p>A house that is lived in gets noticed. Someone sees the ant trail on the counter the day it starts. A weekend house does not get that attention, so whatever is left out on Sunday has five quiet days to work. The EPA's own <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control" target="_blank" rel="noopener">pest-prevention guidance</a> comes down to the same three things we talk about on every lake property: food, water, and shelter. Take those away before you go and most of the problem never starts.</p>
+
+<h2>What should I do in the kitchen before I leave?</h2>
+
+<p>Make the kitchen the last job, not the first, so a late snack does not undo it. Put food away, wipe up spills and crumbs, and take the trash out of the house rather than leaving a bag by the door. Keep pantry goods and pet food in sealed containers. If the whole family shares the house, give one person the pantry and another the trash cans. A checklist with names on it gets done.</p>
+
+<h2>What about everything outside that holds water?</h2>
+
+<p>Walk the deck and the yard once. Flowerpot saucers, buckets, kids' toys, a kayak left upright, a tarp that sags. Each one holds rainwater, and standing water is where mosquitoes breed. The CDC recommends emptying, scrubbing, turning over, or covering water-holding containers once a week (<a href="https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html" target="_blank" rel="noopener">CDC home mosquito guidance</a>).</p>
+
+<p>Here is the catch for a lake house: once a week means after every rain, not just the day you leave. If you will be gone a while, put this on the list for whoever checks on the place. For the yard itself, our <a href="/services/mosquito">mosquito service</a> runs on a regular schedule from March through October, and it works best alongside this kind of cleanup. Treatment reduces mosquito activity; it does not replace dumping the bucket.</p>
+
+<h2>What should I write down for next time?</h2>
+
+<p>Keep a simple property log on the fridge or in your phone: the date, the room or spot, and a photo if you saw something. "A few ants by the pantry window, Sunday" is far more useful to us than "bugs everywhere." You do not need to know the species. A clear description of where and when tells us more than a guess.</p>
+
+<p>If a service visit falls while you are away, confirm access with the office ahead of time: gate codes, a locked screen porch, a dog at the neighbor's. Use your normal account contact for that, and keep entry details out of social posts and public reviews.</p>
+
+<h2>Which services actually cover the lake house?</h2>
+
+<p>General <a href="/services/pest-control">pest control</a>, <a href="/services/termite-control">termite protection</a>, and mosquito service are three different programs with three different jobs. Check your paperwork to see which ones are active at the lake property. That is not always the same as your home in town. If you rent the house out or share it with family, keep a copy where whoever manages it can find it.</p>
+
+<p>It matters the day someone says, "Wasn't the house just treated?" The useful answer names which service was done and what was reported, instead of assuming one visit covers everything.</p>
+
+<h2>The departure checklist</h2>
+
+<ul>
+<li>Food put away; counters wiped.</li>
+<li>Trash out of the house; can lids closed.</li>
+<li>Water-holding containers outside emptied or turned over.</li>
+<li>Anything new photographed and dated in the property log.</li>
+<li>Next service date and access instructions confirmed.</li>
+<li>Termite and other service paperwork easy to find.</li>
+</ul>
+
+<h2>Want a plan built around how you use the house?</h2>
+
+<p>Tell us whether the house is lived in full time, used on weekends, or turned over between guests, and we will match the service to it. Call our Lake Martin / Alex City office at (256) 234-6162, see our <a href="/dadeville">Dadeville</a> and <a href="/alexander-city">Alexander City</a> pages, or <a href="/quote">request a free inspection</a>.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
