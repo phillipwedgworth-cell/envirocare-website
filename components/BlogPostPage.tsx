@@ -200,6 +200,9 @@ const POST_CSS = `
 }
 .bpp-body strong { color: #0E1A0F; }
 .bpp-body em { font-style: italic; }
+.bpp-body .post-fig { margin: 1.8em 0 2em; }
+.bpp-body .post-fig img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid #E3E8E4; }
+.bpp-body .post-fig figcaption { margin-top: 8px; font-size: 13px; line-height: 1.5; color: #5A6660; }
 .bpp-body a {
   color: #0A7935;
   font-weight: 600;
