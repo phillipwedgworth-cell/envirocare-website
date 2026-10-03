@@ -2528,6 +2528,11 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>In Birmingham, that combination usually shows up in the second or third week of March. Down in Auburn it can hit a week earlier. In Huntsville, sometimes a week later. But by April, every county we serve is in peak swarm.</p>
 
+<figure class="post-fig">
+<img src="/images/blog/alabama-pest-pressure-calendar.webp" width="1600" height="900" loading="lazy" alt="Chart of pest pressure by month in central and north Alabama. Termite pressure peaks March through May, mosquitoes and ticks June through August, fire ants and fleas May through September." />
+<figcaption>Typical pest pressure by month across central and north Alabama. Termite swarms peak March through May.</figcaption>
+</figure>
+
 <h2>What you'll actually see</h2>
 
 <p>A termite swarmer looks almost identical to a flying ant — about half an inch long, dark brown, with four wings. The easy tell: termite wings are all the same length, and they break off easily. If you find a pile of identical translucent wings on a windowsill or near a baseboard, you have termites. Not "you might." You do.</p>
@@ -4071,6 +4076,11 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>If you find wings: on a windowsill, near a baseboard, on a door threshold, or around a light fixture — you have an active colony nearby. Not potentially nearby. Present.</p>
 
 <p>The workers, meanwhile, are underground and have been feeding since last fall. The swarm doesn't start the infestation — it's the colony announcing itself after it's already been established for years.</p>
+
+<figure class="post-fig">
+<img src="/images/blog/termite-swarm-season-alabama-timeline.webp" width="1600" height="900" loading="lazy" alt="Timeline of Alabama termite swarm season: first subterranean swarms in February, peak subterranean swarms March through May, Formosan termite swarms May into June." />
+<figcaption>When Alabama termites swarm. The swarm is the part you can see; the workers have been feeding all along.</figcaption>
+</figure>
 
 <h2>What changed about our Sentricon recommendations in 2026</h2>
 
