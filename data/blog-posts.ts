@@ -222,7 +222,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Sentricon gives you three things a liquid barrier treatment doesn't: colony elimination, ongoing monitoring, and peace of mind from knowing a trained professional is checking your property regularly. The cost difference between Sentricon and a liquid treatment is real, but it's small compared to the cost of structural repairs from an undetected termite problem.</p>
 
-<p>At EnviroCare Pest Services, we've been protecting Alabama homes for four generations. As a Certified Sentricon Specialist, we install, monitor, and maintain Sentricon systems across <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, the <a href="/lake-martin">Lake Martin area</a>, and central Alabama. If you're weighing your termite protection options, we're happy to do a free inspection and give you an honest recommendation — even if that means a liquid treatment is the better fit for your situation.</p>
+<p>At EnviroCare Pest Services, we've been protecting Alabama homes for four generations. As a Certified Sentricon Specialist, we install, monitor, and maintain Sentricon systems as part of our <a href="/services/termite-control">termite control service</a> across <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, the <a href="/lake-martin">Lake Martin area</a>, and central Alabama. If you're weighing your termite protection options, we're happy to do a free inspection and give you an honest recommendation — even if that means a liquid treatment is the better fit for your situation.</p>
 
 <h2>Frequently Asked Questions About Sentricon</h2>
 
@@ -2574,7 +2574,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Sentricon vs. Liquid Termite Treatment: Which Is Best for Your Alabama Home?',
     excerpt: 'Sentricon bait systems and liquid barrier treatments both protect against termites, but they work in very different ways. Here is an honest comparison from a fourth-generation pest control company that has used both.',
     publishedAt: '2026-02-18',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-09-30',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 9,
@@ -2635,6 +2635,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>What we do not recommend is a full liquid barrier treatment combined with a bait system. A complete liquid treatment around the entire perimeter can actually interfere with the bait stations — if the liquid barrier kills foraging termites before they reach the bait, the Sentricon system cannot do its job of eliminating the entire termite colony.</p>
 
+<p>If cost is the sticking point, we walk through the numbers — install, monitoring, and what the coverage protects — in <a href="/blog/is-sentricon-worth-it">Is Sentricon worth it?</a> And if you want to see how a Sentricon program is set up on your home, start with our <a href="/services/termite-control">termite control service</a>.</p>
+
 <h2>How to choose the right termite treatment for your home</h2>
 
 <p>The right termite treatment depends on a few things a pest control professional needs to see in person: whether you have active termite activity, what type of foundation your home sits on, whether there is existing termite damage, and how the soil around the structure drains. Here is the general framework we use:</p>
@@ -2672,6 +2674,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Call the office nearest you:</p>
 <ul>
 <li>Birmingham — (205) 991-2882</li>
+<li>Alabaster / Shelby County — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
