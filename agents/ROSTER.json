@@ -1,7 +1,6 @@
 {
   "_comment": "THE list of automations allowed to run on a schedule. Created 2026-09-27 (claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md). `npm run test:roster` fails the build if any workflow cron or Vercel cron is not listed here, or if an entry here no longer exists. agents/watchdog.mjs builds its expected-run table from `agents` below. To add a scheduled automation: add it here first. maxAgeH = schedule interval + grace; null = not logged to agent_runs (a data/tool step).",
   "workflows": {
-    "blog-writer.yml":            { "job": "content",     "agents": { "blog-writer": 30 } },
     "brightlocal.yml":            { "job": "rankings",    "agents": { "brightlocal": 192 } },
     "collections-suppression.yml":{ "job": "collections", "agents": { "captivated-suppress-sync": 80 } },
     "indexnow.yml":               { "job": "tool",        "agents": {} },
@@ -33,5 +32,9 @@
     "_comment": "Unscheduled 2026-09-27. Files kept so a manual run still works.",
     "workflows": ["aeo-watch.yml", "content-reviewer.yml", "ai-citation-probe.yml", "proposer.yml", "daily-rollup.yml", "approval-executor.yml", "social-poster.yml", "seo-watch.yml", "neuronwriter-qa.yml (orchestrator runs it)"],
     "vercel": ["/api/site-reviewer/run", "/api/promoter/run"]
+  },
+  "paused": {
+    "_comment": "Schedule commented out, meant to come back. Move back to `workflows` when re-enabled.",
+    "workflows": ["blog-writer.yml (paused 2026-10-01: 0 articles since Sep 23, failing since Sep 28; re-enable after a manual run writes >= 1 article)"]
   }
 }
