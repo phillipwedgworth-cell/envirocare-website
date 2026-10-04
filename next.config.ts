@@ -196,6 +196,9 @@ const nextConfig: NextConfig = {
             { source: '/where-we-service/madison-al-pest-control', destination: '/madison', permanent: true },
             { source: '/where-we-service/athens-al-pest-control', destination: '/athens', permanent: true },
             { source: '/where-we-service/decatur-al-pest-control', destination: '/decatur', permanent: true },
+            // 2026-10-04: duplicate of /decatur (GSC: 0 clicks, 24 impr vs /decatur 4,547). Its one
+            // unique FAQ moved into the Decatur record in data/cities.ts.
+            { source: '/decatur-pest-control', destination: '/decatur', permanent: true },
             { source: '/where-we-service/harvest-al-pest-control', destination: '/harvest', permanent: true },
 
             // Tuscaloosa — NOT serviced (confirmed Jun 14).

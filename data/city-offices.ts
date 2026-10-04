@@ -38,7 +38,6 @@ const HUNTSVILLE_SLUGS = [
   'madison-mosquito-control',
   'madison-termite-control',
   'madison-commercial-pest-control',
-  'decatur-pest-control',
   'decatur-exterminator',
   'decatur-mosquito-control',
   'decatur-termite-control',
