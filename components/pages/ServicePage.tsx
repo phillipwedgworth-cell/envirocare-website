@@ -281,6 +281,16 @@ export default function ServicePage({ slug }: { slug: string }) {
         </div>
       </div>
 
+      {service.intro && service.intro.length > 0 && (
+        <section className="svc-intro">
+          <div className="container">
+            {service.intro.map((para, i) => (
+              <p key={i} className="svc-intro-p">{para}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       {service.relatedLinks && service.relatedLinks.length > 0 && (
         <section className="svc-intro" aria-label="Related reading">
           <div className="container">
@@ -292,16 +302,6 @@ export default function ServicePage({ slug }: { slug: string }) {
                 </Link>
                 .
               </p>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {service.intro && service.intro.length > 0 && (
-        <section className="svc-intro">
-          <div className="container">
-            {service.intro.map((para, i) => (
-              <p key={i} className="svc-intro-p">{para}</p>
             ))}
           </div>
         </section>
