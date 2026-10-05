@@ -286,7 +286,10 @@ export async function run() {
   }
   console.log(`[orchestrator] email: ${JSON.stringify(emailResult)}`);
 
-  await logAgentRun("orchestrator", "ok", brief);
+  // A digest that was built but never delivered is not "ok" (09-28: "Invalid
+  // `to` field", logged ok). Only applies while ORCHESTRATOR_DIGEST is on.
+  const digestUndelivered = digestOn && emailResult && emailResult.sent === false;
+  await logAgentRun("orchestrator", digestUndelivered ? "partial" : "ok", brief);
 
   console.log("[orchestrator] Done");
   return {
