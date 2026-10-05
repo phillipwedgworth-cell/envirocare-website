@@ -238,7 +238,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p><strong>What does a <a href="/blog/termite-bond-alabama-explained">termite bond</a> cover with Sentricon?</strong></p>
 <p>A termite bond is an annual service agreement that keeps your system monitored and your coverage active. Our Sentricon installations carry up to $1,000,000 in damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
 
-<p>Contact us to schedule a termite inspection and learn whether Sentricon is the right choice for your home.</p>
+<p>Contact us to schedule a free termite inspection and learn whether Sentricon is the right choice for your home — see <a href="/birmingham-termite-control">termite inspections in Birmingham</a>, <a href="/huntsville-termite-control">termite inspections in Huntsville</a>, or the <a href="/services/termite-control">termite control overview</a>.</p>
 <ul>
 <li>Birmingham — (205) 991-2882</li>
 <li>Alabaster — (205) 940-6360</li>

@@ -17,6 +17,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
+import LocalExamples from "@/components/shared/LocalExamples";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
@@ -599,6 +600,10 @@ export default function MadisonPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
+
+      <LocalExamples slug="madison" cityName="Madison" officeName="Huntsville office" />
 
       <SectionDivider />
 
