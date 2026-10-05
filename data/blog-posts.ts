@@ -4084,7 +4084,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What changed about our Sentricon recommendations in 2026</h2>
 
-<p>We've always recommended Sentricon® Always Active™ as our primary termite protection for Alabama homes. That hasn't changed. What has changed this year is our urgency about inspecting homes that have gone 5 or more years without a current Sentricon warranty.</p>
+<p>We've always recommended Sentricon® Always Active™ as our primary termite protection for Alabama homes. That hasn't changed. What has changed this year is our urgency about inspecting homes that have gone 5 or more years without an active termite protection agreement.</p>
 
 <p>Coverage follows the agreement. If a Sentricon system has gone a long stretch without a service visit, the agreement behind it may have lapsed — and the damage repair coverage lapses with it. That coverage is up to $1,000,000, subject to the terms of the agreement, and it is EnviroCare's own rather than the manufacturer's. If your last service visit was more than 18 months ago, call us. We'll inspect and bring it current at no charge for existing customers.</p>
 

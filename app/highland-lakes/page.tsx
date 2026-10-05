@@ -88,8 +88,8 @@ const cfg: NeighborhoodConfig = {
       "a": "Yes. Lake-adjacent treatments focus on harborage zones away from the water itself — shrub bases, tree lines, mulched beds, gutters, and shaded back-of-house areas. We use only EPA-registered products and apply them according to label directions, including any aquatic-buffer language on the labels."
     },
     {
-      "q": "How does the Sentricon® warranty work on a Highland Lakes home?",
-      "a": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
+      "q": "How does EnviroCare's termite damage repair coverage work on a Highland Lakes home?",
+      "a": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair, subject to inspection and the terms of the agreement. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
     },
     {
       "q": "Is there a long-term contract?",
@@ -222,10 +222,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          "name": "How does the Sentricon® warranty work on a Highland Lakes home?",
+          "name": "How does EnviroCare's termite damage repair coverage work on a Highland Lakes home?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
+            "text": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair, subject to inspection and the terms of the agreement. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
           }
         },
         {
