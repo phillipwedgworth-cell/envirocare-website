@@ -74,7 +74,7 @@ export const SERVICES: Service[] = [
     metaDescription: 'Bi-monthly home pest control for ants, roaches, spiders and more across EnviroCare service areas in Alabama. Four local offices serving surrounding communities.',
     heroEyebrow: 'Year-Round Pest Defense',
     heroTagline: 'Bi-Monthly Pest Control',
-    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, two ways to pay, family-owned since 1958.',
+    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Free re-services, two ways to pay, family-owned since 1958.',
     features: [
       'Bi-monthly exterior treatment',
       '30+ common pests covered',

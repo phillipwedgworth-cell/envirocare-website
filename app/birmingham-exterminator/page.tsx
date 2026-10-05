@@ -61,7 +61,7 @@ const c: ComboContent = {
       "30+ Alabama pests covered",
       "Fire ant treatment $150 for most yards, one-year warranty",
       "Interior service whenever needed",
-      "Unlimited free re-services",
+      "Free re-services",
       "Equal monthly ACH payments (12-month agreement)",
     ],
   },

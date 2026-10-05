@@ -73,7 +73,7 @@ export default function FaqPage() {
           <div className="faq-list-wide">
             <details className="faq-item">
               <summary className="faq-q">How much does pest control cost?</summary>
-              <div className="faq-a">Bi-monthly perimeter pest control is $35/mo on ACH autopay, or $70 per visit if you prefer pay-as-you-go bi-monthly. That covers 30+ common pests with unlimited free re-services between visits. {ACH_TERMS}</div>
+              <div className="faq-a">Bi-monthly perimeter pest control is $35/mo on ACH autopay, or $70 per visit if you prefer pay-as-you-go bi-monthly. That covers 30+ common pests with free re-services between visits. {ACH_TERMS}</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>

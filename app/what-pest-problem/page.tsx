@@ -40,7 +40,7 @@ type PestCard = {
 const CARDS: PestCard[] = [
   {
     emoji: '🐜', name: 'Ants',
-    hook: 'Nuisance ants are covered in the bi-monthly pest program — $35/month on ACH, or $70 per bi-monthly visit, with unlimited free re-service between visits.',
+    hook: 'Nuisance ants are covered in the bi-monthly pest program — $35/month on ACH, or $70 per bi-monthly visit, with free re-service between visits.',
     href: '/services/pest-control', linkLabel: 'Pest Control',
   },
   {

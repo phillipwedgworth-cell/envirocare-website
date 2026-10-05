@@ -60,7 +60,7 @@ const MONTHLY_PLANS: Plan[] = [
     features: [
       "Bimonthly perimeter pest treatment",
       "Seasonal mosquito (March–October)",
-      "Unlimited free pest re-service",
+      "Free pest re-service",
       "Equal monthly ACH payments (12-month agreement)",
     ],
     cta: "Get my quote",
@@ -90,7 +90,7 @@ const MONTHLY_PLANS: Plan[] = [
     features: [
       "Bimonthly perimeter treatment",
       "30+ common Alabama pests, incl. mice & rats",
-      "Unlimited free re-service between visits",
+      "Free re-service between visits",
       "Applied per label directions once dry",
       "Equal monthly ACH payments (12-month agreement)",
     ],
@@ -150,7 +150,7 @@ const ALACARTE_PLANS: Plan[] = [
 
 // Plan-comparison table (AEO / featured-snippet play). Termite = quote, never a flat number.
 const COMPARE_ROWS = [
-  { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
+  { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; free re-service" },
   { plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo", perVisit: "—", included: "Pest plan + seasonal mosquito (Mar–Oct)" },
   { plan: "Complete", startup: "$229", monthly: "From ~$100/mo", perVisit: "—", included: "Pest + mosquito + Sentricon® termite (priced at inspection)" },
   { plan: "Mosquito (alone)", startup: "—", monthly: "$45/mo alone · $34/mo with pest", perVisit: "—", included: "8 treatments, Mar–Oct · equal monthly ACH payments across the year" },

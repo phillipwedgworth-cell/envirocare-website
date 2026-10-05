@@ -75,7 +75,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
       {
         '@type': 'Offer', name: 'Pest Control', price: '35', priceCurrency: 'USD',
         priceSpecification: { '@type': 'UnitPriceSpecification', price: '35', priceCurrency: 'USD', unitText: 'per month, billed monthly via ACH' },
-        itemOffered: { '@type': 'Service', name: 'Bi-Monthly Exterior Pest Control', description: 'Bi-monthly perimeter exterior treatment covering 30+ common Alabama pests with unlimited free re-services between scheduled visits.' },
+        itemOffered: { '@type': 'Service', name: 'Bi-Monthly Exterior Pest Control', description: 'Bi-monthly perimeter exterior treatment covering 30+ common Alabama pests with free re-services between scheduled visits.' },
       },
       {
         // Termite carries NO flat price — Alabama requires an on-site WDO inspection first.

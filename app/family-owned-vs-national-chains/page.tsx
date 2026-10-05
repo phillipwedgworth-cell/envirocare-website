@@ -47,7 +47,7 @@ const ROWS: [string, string, string][] = [
   ['Termite protection', 'Sentricon® Always Active™ — in-ground bait stations, no drilling; up to $1,000,000 EnviroCare repair coverage on qualifying homes, subject to the terms of the agreement', 'Varies by branch; often liquid-barrier treatments that require drilling'],
   ['Pricing', 'Published on the website — $35/month on ACH or $70 per bi-monthly visit for pest control', 'Usually quote-only; pricing varies by branch and promotion'],
   ['Billing', 'Pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement — terms confirmed in writing before service starts', 'Commonly annual service agreements'],
-  ['Re-service', 'Unlimited free re-services between scheduled visits', 'Policies vary by branch and plan'],
+  ['Re-service', 'Free re-services between scheduled visits', 'Policies vary by branch and plan'],
   ['Local knowledge', 'Routes worked since 1958 — techs know which pest shows up on which street', 'Coverage maps span several states'],
 ];
 
@@ -62,11 +62,11 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Is EnviroCare cheaper than the national pest control companies?',
-    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and unlimited free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
+    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
   },
   {
     q: 'Do I have to sign a contract with EnviroCare?',
-    a: 'Pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Terms are confirmed in writing before service starts. Either way, unlimited free re-service between scheduled visits is included.',
+    a: 'Pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Terms are confirmed in writing before service starts. Either way, free re-service between scheduled visits is included.',
   },
   {
     q: 'Where does EnviroCare actually have offices?',
@@ -116,7 +116,7 @@ export default function FamilyOwnedVsChainsPage() {
             EnviroCare is a fourth-generation, family-owned Alabama
             pest control company doing pest control in Alabama since 1958, with four staffed offices in Birmingham, Alabaster,
             Alexander City, and Huntsville. Unlike national chains, EnviroCare publishes its
-            pricing, sends the same local technician on your route, includes unlimited free
+            pricing, sends the same local technician on your route, includes free
             re-service, and protects homes with no-drill Sentricon® termite bait systems
             backed by up to $1,000,000 in repair coverage on qualifying homes.
           </p>

@@ -180,7 +180,7 @@ export default function InteriorPestControlPage() {
               <li>Full exterior perimeter every visit</li>
               <li>30+ Alabama pests covered</li>
               <li>You don't need to be home</li>
-              <li>Unlimited re-service between visits</li>
+              <li>Free re-service between visits</li>
             </ul>
             <Link
               href="/services/pest-control"
