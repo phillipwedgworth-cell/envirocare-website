@@ -244,7 +244,7 @@ export default function ServicePage({ slug }: { slug: string }) {
         <div className="svc-hero-inner">
           <div>
             <div className="city-eyebrow"><span className="city-eyebrow-txt">{service.heroEyebrow}</span></div>
-            <h1>{service.heroTagline.split(' ').slice(0, -1).join(' ')}<em>{service.heroTagline.split(' ').slice(-1)[0]}</em></h1>
+            <h1>{service.heroTagline.split(' ').slice(0, -1).join(' ')}{' '}<em>{service.heroTagline.split(' ').slice(-1)[0]}</em></h1>
             <p className="svc-hero-sub">{service.heroSubhead}</p>
 
             {service.price && (

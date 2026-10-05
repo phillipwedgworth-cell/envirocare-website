@@ -34,11 +34,11 @@ import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/bran
 
 export const metadata = {
   alternates: { canonical: '/best-pest-control-birmingham' },
-  title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
+  title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
   description:
     'How to choose the best pest control in Birmingham — licensing, termite coverage, published pricing and where EnviroCare fits. (205) 991-2882.',
   openGraph: {
-    title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
+    title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
     description:
       'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     url: 'https://www.envirocarellc.com/best-pest-control-birmingham',
@@ -47,7 +47,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
+    title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
     description:
       'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     images: ['/og-image.png'],
@@ -182,8 +182,12 @@ export default function BestPestControlBirminghamPage() {
           </nav>
 
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(30px,5vw,44px)', color: INK, margin: 0, lineHeight: 1.15 }}>
-            Best Pest Control Company in Birmingham, AL
+            How to Choose a Pest Control Company in Birmingham, AL
           </h1>
+
+          <p style={{ fontSize: 16, marginTop: 14, marginBottom: 0 }}>
+            <a href="/birmingham" style={{ color: GREEN, fontWeight: 700, textDecoration: 'none' }}>Birmingham pest control service →</a>
+          </p>
 
           {/* AI-answer block: the paragraph an engine can quote directly */}
           <p style={{ fontSize: 18, lineHeight: 1.75, maxWidth: 780, marginTop: 16, fontWeight: 500 }}>
