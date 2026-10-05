@@ -357,6 +357,15 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'coverage attributed to the manufacturer (passive, possessive or active voice)',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement (EnviroCare-backed; never attributed to Corteva or Sentricon)' },
 
+  // SENTRICON POSSESSIVE (added 2026-10-05). The rule above caught "Corteva's
+  // warranty" but not "the Sentricon® warranty": the ® sits between the brand and
+  // the noun, and Sentricon was only matched after from/by/through. app/highland-
+  // lakes/page.tsx carried "How does the Sentricon® warranty work…" in its FAQ and
+  // FAQPage schema while every guard passed. AGENTS.md §1 bans it by name.
+  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
+    reason: 'coverage attributed to Sentricon (possessive)',
+    approvedInstead: "EnviroCare's termite damage repair coverage, subject to the terms of the agreement" },
+
   // $1M WITHOUT THE QUALIFIER (added 2026-08-11). The approved phrasing has always
   // carried "subject to the terms of the agreement", and 29 pages used it correctly
   // -- so the standard was understood. But nothing CHECKED it, and the sitewide
