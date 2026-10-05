@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useOfficePhone } from "../lib/use-office-phone";
 
 const G = "#0E8E40";
 const GOLD = "#F5A800";
@@ -126,14 +128,19 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     windows.some((w) => windowOK(d, w.startHour))
   );
 
+  // Scheduling is OPTIONAL (2026-10-05). Nothing is booked from this form — the
+  // office calls back — so a day and window are only sent when the visitor picks
+  // one. No default selection: a pre-highlighted chip would be quoted back as a
+  // "preference" the visitor never expressed.
+  const [showWhen, setShowWhen] = useState(false);
   const [date, setDate] = useState("");
-  const activeDate = availableDays.find((d) => d.iso === date) ?? availableDays[0];
+  const activeDate = availableDays.find((d) => d.iso === date);
   const availableWindows = windows.filter(
     (w) => activeDate && windowOK(activeDate, w.startHour)
   );
 
   const [win, setWin] = useState("");
-  const activeWin = availableWindows.find((w) => w.id === win) ?? availableWindows[0];
+  const activeWin = availableWindows.find((w) => w.id === win);
 
   const [services, setServices] = useState<string[]>(() => readServiceParam());
   const [name, setName] = useState("");
@@ -144,26 +151,29 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [confirmedSlot, setConfirmedSlot] = useState("");
 
+  // The visitor's office (remembers the city page they came from on /quote).
+  const office = useOfficePhone(usePathname() ?? "/");
+
   const toggleService = (key: string) =>
     setServices((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
 
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  // Required: name, phone, ZIP — the same minimum /api/quote enforces.
+  // Email is optional, but if typed it must look like an email.
+  const emailOk = email.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   const valid =
     name.trim().length > 1 &&
     emailOk &&
     /\d{3}.*\d{3}.*\d{4}/.test(phone) &&
-    /^\d{5}$/.test(zip.trim()) &&
-    services.length > 0 &&
-    !!activeDate &&
-    !!activeWin;
+    /^\d{5}$/.test(zip.trim());
 
   async function submit() {
-    if (!valid || state === "sending" || !activeDate || !activeWin) return;
+    if (!valid || state === "sending") return;
     setState("sending");
 
-    // Captured now, so the confirmation screen quotes what was actually sent
-    // even if the day strip re-derives (it depends on `now`, which is state).
-    const slotLabel = `${activeDate.dow}, ${activeDate.mon} ${activeDate.day} — ${activeWin.hours}`;
+    // Captured now, so the confirmation screen quotes what was actually sent.
+    const slotLabel = activeDate
+      ? `${activeDate.dow}, ${activeDate.mon} ${activeDate.day}${activeWin ? ` — ${activeWin.hours}` : ""}`
+      : "";
     setConfirmedSlot(slotLabel);
 
     const serviceLabels = services
@@ -172,7 +182,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     const [firstName, ...rest] = name.trim().split(/\s+/);
     const lastName = rest.join(" ");
     const notes = [
-      `Preferred: ${activeDate.dow} ${activeDate.mon} ${activeDate.day} — ${activeWin.hours}`,
+      slotLabel ? `Preferred: ${slotLabel}` : "Preferred: no preference given — call to schedule",
       city ? `Page city: ${city}` : "",
       `Submitted from: ${typeof window !== "undefined" ? window.location.pathname : ""}`,
     ]
@@ -195,11 +205,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         }),
       });
       setState(res.ok ? "done" : "error");
-      // Conversion: GA4 generate_lead + Meta Pixel Lead. This form is the
-      // primary lead path — it renders on /quote AND on every city page — but
-      // it was the only lead form on the site firing no conversion event at
-      // all, so its submissions were invisible in GA4 and Ads. Matches the
-      // pattern already used in RequestQuoteForm.tsx. Optional-chained so a
+      // Conversion: GA4 generate_lead + Meta Pixel Lead. Optional-chained so a
       // blocked/absent tag can never break the form itself.
       if (res.ok && typeof window !== "undefined") {
         (window as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "generate_lead", {
@@ -225,12 +231,12 @@ export default function ScheduleRequest({ city }: { city?: string }) {
             Got it, {name.split(" ")[0]} — request received.
           </h3>
           <p style={{ ...body, maxWidth: 470, margin: "0 auto 6px" }}>
-            You told us <strong>{confirmedSlot}</strong> works best.
-            A member of our team will call or text <strong>{phone}</strong> to lock in a visit that fits your schedule.
+            {confirmedSlot ? <>You told us <strong>{confirmedSlot}</strong> works best. </> : null}
+            A member of our team will call or text <strong>{phone}</strong> to set up a visit that fits your schedule.
           </p>
           <p style={{ ...body, fontSize: 13.5, color: "#5b6f60", maxWidth: 470, margin: "0 auto" }}>
-            Most visits are exterior-only, so you don&rsquo;t need to be home. Need us sooner? Call{" "}
-            <a href="tel:2059406360" style={{ color: G, fontWeight: 700 }}>(205) 940-6360</a>.
+            Most visits are exterior-only, so you don&rsquo;t need to be home. Prefer to talk now? Call{" "}
+            <a href={office.phoneHref} style={{ color: G, fontWeight: 700 }}>{office.phone}</a>.
           </p>
         </div>
       </div>
@@ -239,113 +245,123 @@ export default function ScheduleRequest({ city }: { city?: string }) {
 
   return (
     <div style={wrap}>
-      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
-        <h3 style={{ ...display, fontSize: 24, margin: 0 }}>Tell us when works best</h3>
-        <span style={{ ...body, fontSize: 13, color: "#5b6f60" }}>Our office calls to set it up — nothing is booked yet</span>
+      <div style={{ marginBottom: 14 }}>
+        <h3 style={{ ...display, fontSize: 24, margin: "0 0 4px" }}>Request a free quote</h3>
+        <span style={{ ...body, fontSize: 13.5, color: "#5b6f60" }}>Leave your number and our office calls you back — nothing is booked yet.</span>
       </div>
 
-      {/* Day strip */}
-      <p style={{ ...body, fontSize: 13.5, fontWeight: 600, color: INK, margin: "0 0 8px" }}>
-        Pick a day that&rsquo;s convenient <span style={{ color: "#8a948c", fontWeight: 400 }}>(we&rsquo;ll work around you)</span>
-      </p>
-      <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 6, marginBottom: 14 }}>
-        {/* Pre-mount placeholder. Same footprint as the real chips, so the strip
-            does not jump when the visitor's dates arrive — and, critically, no
-            date is ever printed into the prerendered HTML. */}
-        {!mounted &&
-          Array.from({ length: 5 }).map((_, i) => (
-            <div
-              key={`ph-${i}`}
-              aria-hidden="true"
-              style={{
-                ...chip, minWidth: 64, flexDirection: "column", gap: 2,
-                background: "#fff", borderColor: "#E4E0D4", height: 66,
-                opacity: 0.45, pointerEvents: "none",
-              }}
-            />
-          ))}
-        {availableDays.map((d) => {
-          const on = d.iso === activeDate?.iso;
-          return (
-            <button key={d.iso} onClick={() => { setDate(d.iso); setWin(""); }} aria-pressed={on} style={{
-              ...chip, minWidth: 64, flexDirection: "column", gap: 2,
-              background: on ? INK : "#fff", color: on ? "#fff" : INK, borderColor: on ? INK : "#E4E0D4",
-            }}>
-              <span style={{ fontSize: 11, fontWeight: 600, opacity: 0.75 }}>{d.dow}</span>
-              <span style={{ fontSize: 18, fontWeight: 700 }}>{d.day}</span>
-              <span style={{ fontSize: 10.5, opacity: 0.7 }}>{d.mon}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Time windows — only those clearing the lead-time rule */}
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
-        {availableWindows.map((w) => {
-          const on = w.id === activeWin?.id;
-          return (
-            <button key={w.id} onClick={() => setWin(w.id)} aria-pressed={on} style={{
-              ...chip, flex: "1 1 140px", flexDirection: "column", gap: 2, padding: "12px 10px",
-              background: on ? GOLD : "#fff", borderColor: on ? GOLD : "#E4E0D4", color: INK,
-              boxShadow: on ? "0 2px 10px rgba(245,168,0,0.35)" : "none",
-            }}>
-              <span style={{ fontWeight: 700, fontSize: 14 }}>{w.label}</span>
-              <span style={{ fontSize: 12.5, opacity: 0.75 }}>{w.hours}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Services — choose any combination */}
-      <p style={{ ...body, fontSize: 13.5, fontWeight: 600, color: INK, margin: "4px 0 8px" }}>
-        Which services are you interested in? <span style={{ color: "#8a948c", fontWeight: 400 }}>(choose any)</span>
-      </p>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-        {SERVICES.map((s) => {
-          const on = services.includes(s.key);
-          return (
-            <button
-              key={s.key}
-              type="button"
-              onClick={() => toggleService(s.key)}
-              aria-pressed={on}
-              style={{
-                ...chip, padding: "9px 14px", fontSize: 13.5, fontWeight: 600,
-                background: on ? G : "#fff", color: on ? "#fff" : INK,
-                borderColor: on ? G : "#E4E0D4",
-              }}
-            >
-              {on ? "✓ " : ""}{s.label}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Details — wrapped in a real <form> with name/id so browser autofill fires */}
+      {/* Contact first — a real <form> with name/id so browser autofill fires */}
       <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
-          <input name="name" id="sr-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" style={field} />
-          <input name="email" id="sr-email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" type="email" inputMode="email" aria-label="Email" autoComplete="email" style={field} />
-          <input name="tel" id="sr-tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" aria-label="Phone" autoComplete="tel" style={field} />
-          <input name="postal-code" id="sr-zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" style={field} />
-          <input name="street-address" id="sr-address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
+          <input name="name" id="sr-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" required style={field} />
+          <input name="tel" id="sr-tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" aria-label="Phone" autoComplete="tel" required style={field} />
+          <input name="postal-code" id="sr-zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" required style={field} />
+          <input name="email" id="sr-email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email (optional)" type="email" inputMode="email" aria-label="Email (optional)" autoComplete="email" style={field} />
+          <input name="street-address" id="sr-address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address (optional)" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
         </div>
+
+        {/* Services — optional */}
+        <p style={{ ...body, fontSize: 13.5, fontWeight: 600, color: INK, margin: "4px 0 8px" }}>
+          What can we help with? <span style={{ color: "#8a948c", fontWeight: 400 }}>(optional)</span>
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
+          {SERVICES.map((s) => {
+            const on = services.includes(s.key);
+            return (
+              <button
+                key={s.key}
+                type="button"
+                onClick={() => toggleService(s.key)}
+                aria-pressed={on}
+                style={{
+                  ...chip, padding: "10px 14px", fontSize: 14, fontWeight: 600, minHeight: 44,
+                  background: on ? G : "#fff", color: on ? "#fff" : INK,
+                  borderColor: on ? G : "#E4E0D4",
+                }}
+              >
+                {on ? "✓ " : ""}{s.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Preferred day/time — optional, collapsed by default */}
+        <button
+          type="button"
+          onClick={() => setShowWhen((v) => !v)}
+          aria-expanded={showWhen}
+          aria-controls="sr-when"
+          style={{ ...body, background: "none", border: "none", padding: "6px 0", minHeight: 44, color: G, fontWeight: 700, fontSize: 14.5, cursor: "pointer", marginBottom: showWhen ? 8 : 12 }}
+        >
+          {showWhen ? "− Hide preferred day & time" : "+ Add a preferred day & time (optional)"}
+        </button>
+
+        {showWhen && (
+          <div id="sr-when">
+            <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 6, marginBottom: 12 }}>
+              {/* Pre-mount placeholder: no date is ever printed into prerendered HTML. */}
+              {!mounted &&
+                Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={`ph-${i}`}
+                    aria-hidden="true"
+                    style={{
+                      ...chip, minWidth: 64, flexDirection: "column", gap: 2,
+                      background: "#fff", borderColor: "#E4E0D4", height: 66,
+                      opacity: 0.45, pointerEvents: "none",
+                    }}
+                  />
+                ))}
+              {availableDays.map((d) => {
+                const on = d.iso === activeDate?.iso;
+                return (
+                  <button key={d.iso} type="button" onClick={() => { setDate(on ? "" : d.iso); setWin(""); }} aria-pressed={on} style={{
+                    ...chip, minWidth: 64, flexDirection: "column", gap: 2,
+                    background: on ? INK : "#fff", color: on ? "#fff" : INK, borderColor: on ? INK : "#E4E0D4",
+                  }}>
+                    <span style={{ fontSize: 12, fontWeight: 600, opacity: 0.75 }}>{d.dow}</span>
+                    <span style={{ fontSize: 18, fontWeight: 700 }}>{d.day}</span>
+                    <span style={{ fontSize: 12, opacity: 0.7 }}>{d.mon}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {activeDate && (
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
+                {availableWindows.map((w) => {
+                  const on = w.id === activeWin?.id;
+                  return (
+                    <button key={w.id} type="button" onClick={() => setWin(on ? "" : w.id)} aria-pressed={on} style={{
+                      ...chip, flex: "1 1 140px", flexDirection: "column", gap: 2, padding: "12px 10px",
+                      background: on ? GOLD : "#fff", borderColor: on ? GOLD : "#E4E0D4", color: INK,
+                      boxShadow: on ? "0 2px 10px rgba(245,168,0,0.35)" : "none",
+                    }}>
+                      <span style={{ fontWeight: 700, fontSize: 14 }}>{w.label}</span>
+                      <span style={{ fontSize: 13, opacity: 0.75 }}>{w.hours}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
 
         <button type="submit" disabled={!valid || state === "sending"} style={{
           width: "100%", padding: "15px 24px", borderRadius: 999, border: "none",
           background: valid ? G : "#C9D4CC", color: "#fff", fontWeight: 700, fontSize: 16,
           cursor: valid ? "pointer" : "not-allowed", fontFamily: bodyFont, transition: "background 0.15s",
         }}>
-          {state === "sending" ? "Sending…" : "Send my request — office will call"}
+          {state === "sending" ? "Sending…" : "Request my callback"}
         </button>
       </form>
 
       {state === "error" && (
         <p style={{ ...body, color: "#B4231F", fontSize: 13.5, marginTop: 10, textAlign: "center" }}>
-          That didn&rsquo;t go through. Call <a href="tel:2059406360" style={{ color: G, fontWeight: 700 }}>(205) 940-6360</a> and we&rsquo;ll set it up directly.
+          That didn&rsquo;t go through. Call <a href={office.phoneHref} style={{ color: G, fontWeight: 700 }}>{office.phone}</a> and we&rsquo;ll set it up directly.
         </p>
       )}
-      <p style={{ ...body, fontSize: 12, color: "#8a948c", marginTop: 10, textAlign: "center" }}>
+      <p style={{ ...body, fontSize: 12, color: "#6b7280", marginTop: 10, textAlign: "center" }}>
         By submitting, you agree EnviroCare may call or text you about your inquiry at the number provided. Consent is not a condition of purchase. Msg / data rates may apply. Reply STOP to opt out.
       </p>
     </div>
