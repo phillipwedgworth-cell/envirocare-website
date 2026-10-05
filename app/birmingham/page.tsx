@@ -19,6 +19,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
+import LocalExamples from "@/components/shared/LocalExamples";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
@@ -57,7 +58,9 @@ export const metadata: Metadata = {
   // "pest control birmingham al" as its primary query; the title leads with it verbatim
   // (was cut at ~60 chars mid-"Termite") and the description adds the street address —
   // a local signal the SERP snippet did not carry. Exterminator stays secondary.
-  title: "Pest Control Birmingham AL | Local Exterminator Since 1958 | EnviroCare",
+  // Oct 5 2026: "Local … Since 1958" dropped — the family's history began in Alexander
+  // City; the Birmingham office opened in 2026. Head term and "Exterminator" kept.
+  title: "Pest Control Birmingham AL | Exterminator & Termite | EnviroCare",
   description:
     "Pest control in Birmingham, AL from our 16th Ave S office. Bi-monthly service from $35/mo, Sentricon® termite & mosquito programs. (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
@@ -367,6 +370,8 @@ export default function BirminghamPage() {
             </p>
           </div>
         </section>
+
+        <LocalExamples slug="birmingham" cityName="Birmingham" officeName="Birmingham office" />
 
         {/* FAQ */}
         <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>

@@ -23,6 +23,7 @@
 import { getCityBySlug, type City } from '@/data/cities';
 import { SERVICE_CATALOG } from '@/lib/schema';
 import CityDepth from '@/components/CityDepth';
+import LocalExamples from '@/components/shared/LocalExamples';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
 import ScheduleRequest from '@/components/ScheduleRequest';
@@ -383,6 +384,8 @@ export default function CityPage({ slug }: { slug: string }) {
       </section>
 
       <CityDepth city={city} />
+
+      <LocalExamples slug={city.slug} cityName={city.name} officeName={city.officeName} />
 
       <section className="office-cta">
         <div className="office-cta-inner">

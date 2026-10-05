@@ -19,8 +19,13 @@ export const metadata: Metadata = withOpenGraph({
   // huntsville" 106 at pos 5.7, "pest control huntsville al" 68 at pos 13.8. The page
   // owns general Huntsville pest-control intent, so the title now leads with the head
   // term and keeps "Exterminator" as the secondary phrase that already ranks.
-  title: 'Pest Control Huntsville AL | Local Exterminator Since 1958 | EnviroCare',
-  description: 'Pest control in Huntsville, AL from our Old Madison Pike office. Ants, roaches, rodents, Sentricon® termite & mosquito service. (256) 937-7676.',
+  // Oct 5 2026: "Local Exterminator Since 1958" dropped — the Huntsville office is not
+  // local since 1958; the family's history began in Alexander City (approved form in
+  // AGENTS.md / data/compliance.ts). Description now names Madison and the three
+  // services the Local Falcon AI scans showed Huntsville losing on (pest, termite,
+  // commercial).
+  title: 'Pest Control Huntsville AL | Exterminator & Termite | EnviroCare',
+  description: 'Pest control in Huntsville & Madison, AL from our Old Madison Pike office: recurring home service, Sentricon® termite protection and commercial programs. (256) 937-7676.',
 });
 
 export default function HuntsvillePage() {
