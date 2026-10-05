@@ -142,7 +142,7 @@ const jsonLd = {
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
-        "Bi-monthly exterior perimeter pest control for Birmingham homes — $35/month on ACH or $70 per visit. Covers 30+ Alabama pests with unlimited free re-services between visits.",
+        "Bi-monthly exterior perimeter pest control for Birmingham homes — $35/month on ACH or $70 per visit. Covers 30+ Alabama pests with free re-services between visits.",
       offers: {
         "@type": "Offer",
         price: "35",
@@ -158,7 +158,7 @@ const jsonLd = {
           name: "How much does pest control cost in Birmingham?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.",
+            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.",
           },
         },
         {
@@ -289,7 +289,7 @@ export default function BirminghamPage() {
             <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked Birmingham pricing. Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
-            <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Unlimited free re-services","Quarterly interior on request"]} />
+            <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Free re-services","Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter on request"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier","March – October (8 visits)","Cuts mosquito pressure dramatically","Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger","30-day yard barrier","Best for wooded Birmingham lots","March – October"]} />
@@ -387,7 +387,7 @@ export default function BirminghamPage() {
               </Link>{" "}
               &mdash; including the cases where we tell you to call someone else.
             </p>
-            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
+            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare is the Wedgworth family's Birmingham-area exterminator, now in our fourth generation. The family has been in Alabama pest control since 1958. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), with our Birmingham office at 2120 16th Ave S and our main office in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Birmingham, with the Alabaster office at 2025 Butler Road covering south Shelby County." />

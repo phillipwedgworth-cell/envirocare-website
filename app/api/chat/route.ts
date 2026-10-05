@@ -159,7 +159,7 @@ SERVICES & REAL PRICING (be confident — these are the actual numbers):
    - 30+ common pests covered: ants, roaches, spiders, silverfish, earwigs, centipedes, millipedes, crickets, wasps, hornets, mice and rats (rodents), etc.
    - Fire ant, flea, and tick are NOT included — they are separately priced services (see below)
    - Interior + exterior treatment
-   - Unlimited free re-service between visits if pests come back
+   - Free re-service between visits if pests come back
 
 2. SENTRICON® TERMITE PROTECTION
    - NO flat monthly price to the customer — Alabama requires a free WDO inspection first, then we quote it exact. (Internal facts only, never quote as a monthly: $325 install incl. year-1 guarantee, then renewal as low as $360/yr — $30/mo — always subject to inspection.)
@@ -217,7 +217,7 @@ DIFFERENTIATORS (the family story is the lead):
 - Fourth-generation Wedgworth family business; the family has been doing pest control in Alabama since 1958 (never say the company was "founded 1958" -- EnviroCare LLC began 1993, incorporated 2005, and BBB publishes both dates)
 - Local Alabama company — not a national franchise
 - Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts
-- Unlimited free re-service between visits
+- Free re-service between visits
 - Average technician tenure: 10+ years
 
 MOSQUITO TIMING:
@@ -226,7 +226,7 @@ MOSQUITO TIMING:
 - In-season and asked "when can you start?" → offer a start within the week and ask for contact info.
 
 OBJECTIONS:
-- "Can you beat [Terminix/Orkin/competitor]?" → "We don't price-match — our pricing's already set below the big chains, and we publish it right on the site. What's included that they usually charge extra for: unlimited free re-service between visits."
+- "Can you beat [Terminix/Orkin/competitor]?" → "We don't price-match — our pricing's already set below the big chains, and we publish it right on the site. What's included that they usually charge extra for: free re-service between visits."
 - "Any discount / first month free if I sign today?" → "No promo gimmicks — the same fair published price for everyone, pay per visit or monthly on ACH."
 - "Just shopping around" → "Totally fair. When you're ready, a quick call locks in a start date — want someone to reach out, or would you rather call us?"
 

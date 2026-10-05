@@ -373,7 +373,7 @@ export default function AboutUs() {
               <div className="ab-vcard">
                 <div className="ab-vcard-num">04</div>
                 <h3>We come back until it's right</h3>
-                <p>Unlimited free re-services between scheduled visits — no per-trip fees, no quibbling. If something's still there, we come back.</p>
+                <p>Free re-services between scheduled visits — no per-trip fees, no quibbling. If something's still there, we come back.</p>
               </div>
             </div>
           </div>

@@ -1177,7 +1177,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>You see ants in the kitchen again within days of cleaning — the colony has a satellite nest inside the wall or under the slab, and surface treatments cannot reach it.</li>
 </ul>
 
-<p>A professional pest control program does two things a store bait or a vinegar spray bottle cannot. It treats the exterior colony sites and entry points with non-repellent materials that ants walk through and carry back to their nest rather than avoid, and it puts the whole house on a schedule so the next colony that finds the mulch bed never makes it to the kitchen counter. Nuisance ants — odorous house, Argentine, pavement, carpenter — are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 initial service and includes unlimited free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
+<p>A professional pest control program does two things a store bait or a vinegar spray bottle cannot. It treats the exterior colony sites and entry points with non-repellent materials that ants walk through and carry back to their nest rather than avoid, and it puts the whole house on a schedule so the next colony that finds the mulch bed never makes it to the kitchen counter. Nuisance ants — odorous house, Argentine, pavement, carpenter — are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 initial service and includes free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
 
 <h2>What about the ants in the yard?</h2>
 
@@ -1318,7 +1318,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>For a German cockroach infestation, the first visit is an interior visit: we identify harborage, place gel bait where cockroaches are active, apply an insect growth regulator in treated areas, and set the follow-up. The regular bi-monthly exterior rotation from our <a href="/services/pest-control">bi-monthly perimeter plan</a> then keeps the outdoor cockroach species — American and smokybrown — from adding to the count. If anything shows up between scheduled visits, we come back out at no extra charge. For homes that want a standing interior schedule regardless, there is a <a href="/services/interior-pest-control">quarterly interior program</a> as well.</p>
 
-<p>Our bi-monthly pest plan covers cockroaches, German cockroaches, and 30-plus other common Alabama household pests, starting at $35 a month with a $75 initial service and unlimited re-service between visits. For homes dealing with a German cockroach infestation, interior treatment targeting the specific cabinets, appliances, and cracks and crevices where roaches are active is what makes the difference between temporary relief and professional pest control services that deliver effective control.</p>
+<p>Our bi-monthly pest plan covers cockroaches, German cockroaches, and 30-plus other common Alabama household pests, starting at $35 a month with a $75 initial service and free re-service between visits. For homes dealing with a German cockroach infestation, interior treatment targeting the specific cabinets, appliances, and cracks and crevices where roaches are active is what makes the difference between temporary relief and professional pest control services that deliver effective control.</p>
 
 <p>For a broader look at all three Alabama cockroach species and how we approach each, see <a href="/blog/cockroach-control-alabama">cockroach control in Alabama</a>.</p>
 
@@ -1543,7 +1543,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>For outdoor cockroach species — American cockroaches, smokybrown cockroaches, and oriental roaches — the cockroach control solution is a perimeter barrier treatment along the foundation, around door and garage thresholds, and at utility penetrations, combined with granular treatment in mulch beds and exterior harborage areas.</p>
 
-<p>EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a> covers cockroaches and 30-plus other common Alabama pests, starting at $35 a month with a $75 initial service and unlimited re-service between visits. Perimeter treatment intercepts outdoor cockroach species before they reach your entry points. For homes dealing with a German cockroach infestation, the first visit is an interior visit targeting the specific cabinets, appliances, and cracks and crevices where roaches are active. If anything shows up between scheduled visits, we come back at no extra charge.</p>
+<p>EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a> covers cockroaches and 30-plus other common Alabama pests, starting at $35 a month with a $75 initial service and free re-service between visits. Perimeter treatment intercepts outdoor cockroach species before they reach your entry points. For homes dealing with a German cockroach infestation, the first visit is an interior visit targeting the specific cabinets, appliances, and cracks and crevices where roaches are active. If anything shows up between scheduled visits, we come back at no extra charge.</p>
 
 <h2>How to keep roaches out of your Alabama home for good</h2>
 
@@ -2167,7 +2167,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Leave the treated surfaces alone. Do not mop or wipe baseboards and exterior foundation lines for a couple of days, since the residual is what keeps working after we leave. Vacuum what you find rather than spraying it, especially near baseboards and window tracks. Keep a rough note of where you are seeing activity and on what days, because that pattern tells the technician far more on a return visit than a general report that bugs are still around.</p>
 
-<p>And if it does not settle down, call us. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> includes unlimited re-service between scheduled visits, so if something is still working two weeks out, we come back and treat again at no additional charge. Products are EPA-registered and applied per label directions, and a second application targeted at the spot that is still active is a normal part of the process, not an admission that anything went wrong. Our guide on <a href="/blog/prepare-home-for-pest-control">preparing your home for service</a> is worth a read before that visit, since access is often the difference between a two-week flush and a four-week one.</p>
+<p>And if it does not settle down, call us. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> includes free re-service between scheduled visits, so if something is still working two weeks out, we come back and treat again at no additional charge. Products are EPA-registered and applied per label directions, and a second application targeted at the spot that is still active is a normal part of the process, not an admission that anything went wrong. Our guide on <a href="/blog/prepare-home-for-pest-control">preparing your home for service</a> is worth a read before that visit, since access is often the difference between a two-week flush and a four-week one.</p>
 
 <p>Questions about what you are seeing? Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
 
@@ -3185,7 +3185,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control pricing in Huntsville depends on the service, the size of the property, and the pest problem. Here is what EnviroCare's Huntsville pest control services cost:</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests with unlimited re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is $65 a month.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and we will not quote a termite job we have not inspected.</li>
 </ul>
@@ -3214,7 +3214,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The best pest control company in Huntsville is one that inspects your home before quoting, identifies the specific pest species you are dealing with, and applies a treatment plan tailored to your property and your pest problem. Look for a local pest control company with a long track record in North Alabama, technicians who know Huntsville's specific pest challenges, and a service commitment that includes re-treatment between scheduled visits at no additional cost. The Wedgworth family has been doing pest control in Alabama since 1958, and EnviroCare operates a dedicated Huntsville office on Old Madison Pike.</p>
 
 <h2>How much does pest control cost per month in Huntsville?</h2>
-<p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with unlimited re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pricing is confirmed in writing before any service begins.</p>
+<p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with free re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pricing is confirmed in writing before any service begins.</p>
 
 <h2>What are the most common pests in Huntsville homes?</h2>
 <p>The most common pests in Huntsville homes include ants (fire ants, carpenter ants, and odorous house ants), termites, spiders (including brown recluse), cockroaches (German and American), mosquitoes, rodents, wasps, fleas, ticks, and silverfish. Huntsville's limestone geology also makes centipedes, millipedes, and cave crickets more common here than in other parts of Alabama.</p>
@@ -3462,7 +3462,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Professional cockroach control starts with identification — the cockroach species determines the cockroach treatment approach. A pest management professional inspects the interior and exterior of the Alabama home, identifies nesting sites and entry points, and develops a customized cockroach control plan based on what species is present and how established the cockroach infestation is.</p>
 
-<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers roaches along with 30-plus common Alabama pests, starting at $35 a month with a $75 initial service and unlimited re-service between visits. That pest control service handles the outdoor cockroach species — American and smokybrown — very well, because the work happens where they originate: the perimeter, the entry points, and the harborage areas outside.</p>
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers roaches along with 30-plus common Alabama pests, starting at $35 a month with a $75 initial service and free re-service between visits. That pest control service handles the outdoor cockroach species — American and smokybrown — very well, because the work happens where they originate: the perimeter, the entry points, and the harborage areas outside.</p>
 
 <p>An established German cockroach population is a different job. It requires interior access and targeted placement inside the kitchen and bathrooms — gel bait in harborage points, insect growth regulators to break the reproductive cycle, and follow-up to confirm the cockroach population is collapsing. What we will not do is tell you a perimeter treatment will clear a German roach infestation in a kitchen. It will not, and you would rightly be annoyed with us in six weeks. Contact a professional pest control service when DIY cockroach control methods have failed or when seeing roaches in your home during daylight hours.</p>
 
@@ -3627,7 +3627,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Call a professional pest control company for spider control when you are seeing spiders frequently, when you are finding spider egg sacs or persistent spider webs in multiple areas, or when you have identified a venomous spider — a black widow spider or a brown recluse spider — in or around your home. A single harmless spider does not require professional treatment, but repeated spider sightings indicate an insect population that is worth addressing with professional pest control.</p>
 
-<p>Professional spider control from EnviroCare targets the root cause — the insect prey population that spiders feed on. Our bi-monthly pest control plan includes perimeter treatment that reduces the ants, roaches, crickets, and other insects spiders prey on, crack-and-crevice treatment at entry points and harborage areas, and web removal along eaves, soffits, and corners. Remove the food and the spiders lose their reason to stay. The bi-monthly plan covers 30-plus Alabama pests — including spiders and the insects that attract them — starting at $35 a month on ACH with a $75 initial service, and includes unlimited re-service between scheduled visits. If spiders come back between visits, we come back at no extra charge.</p>
+<p>Professional spider control from EnviroCare targets the root cause — the insect prey population that spiders feed on. Our bi-monthly pest control plan includes perimeter treatment that reduces the ants, roaches, crickets, and other insects spiders prey on, crack-and-crevice treatment at entry points and harborage areas, and web removal along eaves, soffits, and corners. Remove the food and the spiders lose their reason to stay. The bi-monthly plan covers 30-plus Alabama pests — including spiders and the insects that attract them — starting at $35 a month on ACH with a $75 initial service, and includes free re-service between scheduled visits. If spiders come back between visits, we come back at no extra charge.</p>
 
 <h2>Spider control FAQ: frequently asked questions about spiders in Alabama</h2>
 
@@ -3747,7 +3747,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>For most household ant species, treatment includes targeted bait placement inside your home, crack-and-crevice pest control treatments along baseboards and around plumbing penetrations, and an exterior perimeter application that creates a barrier at the entry points ants use to enter your home. Carpenter ants require additional attention to moisture sources and may need targeted treatments in wall voids where colonies have established.</p>
 
-<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers 30-plus household pests, including odorous house ants, Argentine ants, carpenter ants, acrobat ants, and the other nuisance species that come inside. It starts at $35 a month with a $75 initial service and includes unlimited re-service between scheduled visits. <strong>Fire ants are not included</strong> — they are a separate yard treatment with a different product and application method.</p>
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers 30-plus household pests, including odorous house ants, Argentine ants, carpenter ants, acrobat ants, and the other nuisance species that come inside. It starts at $35 a month with a $75 initial service and includes free re-service between scheduled visits. <strong>Fire ants are not included</strong> — they are a separate yard treatment with a different product and application method.</p>
 
 <p>Carpenter bees, which people often ask about alongside carpenter ants, are a service we provide for existing customers.</p>
 
@@ -3893,7 +3893,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Call a professional pest control company when you are seeing silverfish regularly, when you are finding damage to books, clothing, or wallpaper, or when DIY methods have not resolved the silverfish problem. A single silverfish now and then may not require professional treatment, but repeated sightings — especially during the day — indicate a population that is beyond what traps and sprays from the hardware store can handle.</p>
 
-<p>Professional silverfish control is included in EnviroCare's bi-monthly pest control plan, which covers 30-plus pests including silverfish and other moisture-loving pests like centipedes, millipedes, and crickets. The plan starts at $35 a month on ACH with a $75 initial service, and includes unlimited re-service between scheduled visits. If silverfish show up between visits, we come back at no extra charge.</p>
+<p>Professional silverfish control is included in EnviroCare's bi-monthly pest control plan, which covers 30-plus pests including silverfish and other moisture-loving pests like centipedes, millipedes, and crickets. The plan starts at $35 a month on ACH with a $75 initial service, and includes free re-service between scheduled visits. If silverfish show up between visits, we come back at no extra charge.</p>
 
 <h2>Silverfish control FAQ: frequently asked questions</h2>
 
@@ -3994,7 +3994,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Professional cricket control starts with identifying the species and locating the entry points and harborage areas where crickets are concentrating. A pest management technician inspects the exterior perimeter, foundation, and the damp areas indoors where crickets harbor — basements, crawl spaces, garages, and utility rooms — to develop a targeted treatment plan.</p>
 
-<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> provides year-round protection against crickets and 30-plus other common Alabama pests, starting at $35 a month with a $75 initial service and unlimited re-service between visits. Perimeter barrier treatment intercepts crickets before they reach your entry points. Granular treatment in mulch beds, garden areas, and exterior harborage areas reduces the outdoor cricket population at the source. For homes with heavy cricket pressure — especially during the late summer and fall invasion season — interior treatment in basements, crawl spaces, and garages targets the crickets that have already moved indoors.</p>
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> provides year-round protection against crickets and 30-plus other common Alabama pests, starting at $35 a month with a $75 initial service and free re-service between visits. Perimeter barrier treatment intercepts crickets before they reach your entry points. Granular treatment in mulch beds, garden areas, and exterior harborage areas reduces the outdoor cricket population at the source. For homes with heavy cricket pressure — especially during the late summer and fall invasion season — interior treatment in basements, crawl spaces, and garages targets the crickets that have already moved indoors.</p>
 
 <p>Cricket control is part of whole-home pest management. A home with a cricket problem often has the moisture and entry point conditions that attract other pests too — spiders, camel crickets, and other moisture-loving insects that share the same damp areas and crawl spaces. Addressing the underlying conditions provides home protection against a range of pest problems, not just crickets.</p>
 
@@ -4208,7 +4208,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>A pest management technician also identifies contributing moisture issues during the inspection. Drainage problems, clogged gutters, and poor ventilation in crawl spaces are the most common causes of heavy centipede and millipede pressure in Alabama homes, and fixing these conditions is as important as the pest control treatment itself.</p>
 
-<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers centipedes, millipedes, and 30-plus other common Alabama household pests, starting at $35 a month with a $75 initial service and unlimited re-service between visits. For homes with persistent centipede pressure — especially in North Alabama's limestone areas — interior treatment in the specific damp areas where centipedes harbor makes the difference between occasional sightings and effective long-term centipede control.</p>
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> covers centipedes, millipedes, and 30-plus other common Alabama household pests, starting at $35 a month with a $75 initial service and free re-service between visits. For homes with persistent centipede pressure — especially in North Alabama's limestone areas — interior treatment in the specific damp areas where centipedes harbor makes the difference between occasional sightings and effective long-term centipede control.</p>
 
 <h2>Signs of a centipede or millipede infestation in damp areas of your home</h2>
 
@@ -4272,7 +4272,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control costs in Alabama depend on the service, the size of the property, the type of pest, and whether you need ongoing pest control or a one-time treatment. Here is what pest control services cost at EnviroCare in 2026 — published pricing, no sales call required.</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, and crickets, with unlimited re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, and crickets, with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
@@ -4320,7 +4320,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Monthly pest control vs. one-time treatment: which costs less?</h2>
 
-<p>For Alabama homeowners, the math on monthly pest control service almost always favors the ongoing plan over one-time treatments. The bi-monthly pest control plan at $35 a month is $420 a year for year-round perimeter treatment covering 30-plus pests, with unlimited free re-service between visits if a pest problem shows up early. A single one-time treatment for a cockroach infestation or wasp nest runs $150 to $400 — and in Alabama's climate, pest problems are not a one-time event. Two or three one-time exterminator visits a year costs more than the bi-monthly pest control plan and leaves gaps in coverage between treatments where pest populations rebuild.</p>
+<p>For Alabama homeowners, the math on monthly pest control service almost always favors the ongoing plan over one-time treatments. The bi-monthly pest control plan at $35 a month is $420 a year for year-round perimeter treatment covering 30-plus pests, with free re-service between visits if a pest problem shows up early. A single one-time treatment for a cockroach infestation or wasp nest runs $150 to $400 — and in Alabama's climate, pest problems are not a one-time event. Two or three one-time exterminator visits a year costs more than the bi-monthly pest control plan and leaves gaps in coverage between treatments where pest populations rebuild.</p>
 
 <p>Catching a termite colony early through regular inspection is the difference between a termite treatment and a $15,000 sill-plate replacement from termite damage. Ongoing pest control service is an investment in prevention rather than a reaction to each pest problem as it appears.</p>
 
@@ -4341,7 +4341,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Alabama pest control costs FAQ: frequently asked questions</h2>
 
 <h2>How much does pest control cost per month in Alabama?</h2>
-<p>Bi-monthly pest control in Alabama starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with unlimited re-service between scheduled visits. Mosquito control is $45 a month. The Complete plan including pest, termite, and mosquito service is $229 initial. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
+<p>Bi-monthly pest control in Alabama starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with free re-service between scheduled visits. Mosquito control is $45 a month. The Complete plan including pest, termite, and mosquito service is $229 initial. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
 
 <h2>Is pest control worth the cost in Alabama?</h2>
 <p>Yes. Alabama keeps pest pressure on twelve months a year — the climate does not produce a hard enough freeze to stop pest activity over winter. The average cost of $35 a month for bi-monthly pest control service is $420 a year for year-round coverage, which is usually less than two or three one-time exterminator visits for individual pest problems. Termites, ants, cockroaches, spiders, and rodents remain active in Alabama homes year-round, and skipping pest control allows pest populations to build into a larger infestation that costs more to control.</p>
@@ -4981,7 +4981,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control pricing in Birmingham depends on the service, the size of the property, and the pest problem. Here is what EnviroCare's Birmingham pest control services cost:</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests with unlimited re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is $65 a month.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and we will not quote a termite job we have not inspected.</li>
 </ul>
@@ -5001,7 +5001,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Pest control FAQs: frequently asked questions about pest control in Birmingham</h2>
 
 <h2>How much is pest control in Birmingham?</h2>
-<p>Bi-monthly pest control in Birmingham starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with unlimited re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
+<p>Bi-monthly pest control in Birmingham starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with free re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
 
 <h2>What are the most common pests in Birmingham homes?</h2>
 <p>The most common pests in Birmingham homes include termites, ants (fire ants, carpenter ants, and odorous house ants), cockroaches (German and American), spiders (including brown recluse), mosquitoes, rodents, wasps, fleas, and ticks. Birmingham's clay soil and humid climate make pest infestations a year-round pest problem for homeowners across the Birmingham area.</p>
@@ -5044,7 +5044,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control costs in Huntsville depend on the service, the size of the property, the type of pest, and whether you need ongoing pest control or a one-time treatment. Here is what pest control services cost at EnviroCare in 2026 — published pricing, no sales call required.</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with unlimited re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
@@ -5086,7 +5086,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Monthly pest control vs. one-time treatment in Huntsville: which costs less?</h2>
 
-<p>For Huntsville homeowners, the math on monthly pest control service almost always favors the ongoing plan over one-time treatments. The bi-monthly pest control plan at $35 a month is $420 a year for year-round perimeter treatment covering 30-plus pests, with unlimited free re-service between visits if a pest problem shows up early. A single one-time treatment for a cockroach infestation or wasp nest runs $150 to $400 — and in Alabama's climate, pest problems are not a one-time event. Two or three one-time exterminator visits a year costs more than the bi-monthly pest control plan and leaves gaps in coverage between treatments where pest populations rebuild.</p>
+<p>For Huntsville homeowners, the math on monthly pest control service almost always favors the ongoing plan over one-time treatments. The bi-monthly pest control plan at $35 a month is $420 a year for year-round perimeter treatment covering 30-plus pests, with free re-service between visits if a pest problem shows up early. A single one-time treatment for a cockroach infestation or wasp nest runs $150 to $400 — and in Alabama's climate, pest problems are not a one-time event. Two or three one-time exterminator visits a year costs more than the bi-monthly pest control plan and leaves gaps in coverage between treatments where pest populations rebuild.</p>
 
 <p>Catching a termite colony early through regular inspection is the difference between a termite treatment and a sill-plate replacement from termite damage. Ongoing pest control service is an investment in prevention rather than a reaction to each pest problem as it appears.</p>
 
@@ -5107,7 +5107,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Huntsville pest control costs FAQ: frequently asked questions</h2>
 
 <h2>How much does pest control cost per month in Huntsville?</h2>
-<p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with unlimited re-service between scheduled visits. Mosquito control is $45 a month. The Complete plan including pest, termite, and mosquito service is $229 initial. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
+<p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with free re-service between scheduled visits. Mosquito control is $45 a month. The Complete plan including pest, termite, and mosquito service is $229 initial. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
 
 <h2>Is pest control worth the cost in Huntsville?</h2>
 <p>Yes. Alabama keeps pest pressure on twelve months a year — the climate does not produce a hard enough freeze to stop pest activity over winter. Huntsville's limestone geology adds centipedes, millipedes, and cave crickets to the standard pest lineup that most Alabama homes face. The average cost of $35 a month for bi-monthly pest control service is $420 a year for year-round coverage, which is usually less than two or three one-time exterminator visits for individual pest problems.</p>

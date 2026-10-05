@@ -45,7 +45,7 @@ export const SERVICE_CATALOG = {
   name: 'Pest & Termite Control Services',
   itemListElement: [
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pest Control',
-      description: 'Monthly pest control covering 30+ pests — ants, roaches, spiders, silverfish, and more. Includes unlimited re-service visits. Starting at $35/month.' } },
+      description: 'Monthly pest control covering 30+ pests — ants, roaches, spiders, silverfish, and more. Includes free re-service visits. Starting at $35/month.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Termite Control',
       description: 'Sentricon® Always Active™ termite bait system. No drilling into your foundation. Up to $1 million in termite damage repair coverage, subject to the terms of the agreement. Pricing is determined after a free on-site WDO inspection, as Alabama requires.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mosquito Control',

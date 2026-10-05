@@ -351,7 +351,7 @@ export default function CityPage({ slug }: { slug: string }) {
           <div className="prog-grid">
             <div className="prog-card"><div className="prog-art prog-art-1"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Pest Control</div><div className="prog-desc">Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>30+ pests covered</li><li><span className="prog-chk">✓</span>Unlimited re-services</li><li><span className="prog-chk">✓</span>Familiar local team</li></ul>
+                <ul className="prog-features"><li><span className="prog-chk">✓</span>30+ pests covered</li><li><span className="prog-chk">✓</span>Free re-services</li><li><span className="prog-chk">✓</span>Familiar local team</li></ul>
                 <a href="/services/pest-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-2"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">Sentricon® Always Active™ bait stations, no drilling — with $1M EnviroCare repair coverage.</div>

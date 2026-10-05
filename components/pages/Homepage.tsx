@@ -405,7 +405,7 @@ const RECURRING_PLANS: RecurringPlan[] = [
     key: 'pest', icon: 'pest', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
     perservice: { price: '$70/visit bimonthly', terms: `6 visits a year · $${PRICING.initialServiceRegular} standard initial pest service, currently $${PRICING.plans.pest.startup}` },
     monthly: { price: `From $${PRICING.plans.pest.fromMonthly}/mo ACH`, terms: `$${PRICING.initialServiceRegular} standard initial pest service, currently $${PRICING.plans.pest.startup} · equal monthly ACH drafts` },
-    bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
+    bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Free re-service between visits', 'EPA-registered products, applied per label directions'],
     cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: `${PRICING.initialServicePromo.percentOff}% off initial pest service: $${PRICING.plans.pest.startup} today (regularly $${PRICING.initialServiceRegular})`,
   },
   {
