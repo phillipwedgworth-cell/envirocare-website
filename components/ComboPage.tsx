@@ -21,6 +21,12 @@ export type ComboContent = {
   servicePage: { name: string; href: string };
   schemaName: string;
   canonicalPath: string;
+  /** Optional deeper sections rendered after the local angles. Pages without them render as before. */
+  sections?: { heading: string; paras: string[]; list?: string[] }[];
+  /** Optional areas served, emitted as LocalBusiness.areaServed and listed on the page. */
+  areaServed?: { name: string; href?: string }[];
+  /** Optional further-reading links shown with the cross links. */
+  related?: { name: string; href: string }[];
 };
 
 export default function ComboPage({ c }: { c: ComboContent }) {
@@ -33,6 +39,7 @@ export default function ComboPage({ c }: { c: ComboContent }) {
       address: { "@type": "PostalAddress", streetAddress: c.office.address, addressRegion: "AL", addressCountry: "US" },
       url: `https://www.envirocarellc.com${c.canonicalPath}`,
       parentOrganization: { "@id": "https://www.envirocarellc.com/#organization" },
+      ...(c.areaServed?.length ? { areaServed: c.areaServed.map((a) => ({ "@type": "City", name: `${a.name}, AL` })) } : {}),
     },
     {
       "@context": "https://schema.org",
@@ -88,6 +95,37 @@ export default function ComboPage({ c }: { c: ComboContent }) {
         </div>
       </section>
 
+      {/* DEEPER SECTIONS (optional) */}
+      {c.sections?.map((sec, si) => (
+        <section key={si} style={{ padding: "48px clamp(20px,5vw,64px)", background: si % 2 ? "#fff" : CREAM }}>
+          <div style={{ maxWidth: 760, margin: "0 auto" }}>
+            <h2 style={{ ...ss, fontSize: "clamp(1.4rem,2.6vw,1.85rem)", fontWeight: 600, color: INK, margin: "0 0 16px" }}>{sec.heading}</h2>
+            {sec.paras.map((p, i) => (
+              <p key={i} style={{ fontSize: 15.5, color: "#374151", lineHeight: 1.75, margin: "0 0 14px" }}>{p}</p>
+            ))}
+            {sec.list && (
+              <ul style={{ margin: "4px 0 0", paddingLeft: 20, color: "#374151", fontSize: 15, lineHeight: 1.7 }}>
+                {sec.list.map((li, i) => <li key={i} style={{ marginBottom: 6 }}>{li}</li>)}
+              </ul>
+            )}
+          </div>
+        </section>
+      ))}
+
+      {/* AREAS SERVED (optional) */}
+      {c.areaServed?.length ? (
+        <section style={{ padding: "40px clamp(20px,5vw,64px)", background: "#fff" }}>
+          <div style={{ maxWidth: 760, margin: "0 auto" }}>
+            <h2 style={{ ...ss, fontSize: "clamp(1.3rem,2.4vw,1.6rem)", fontWeight: 600, color: INK, margin: "0 0 14px" }}>Areas served from the {c.office.name}</h2>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {c.areaServed.map((a) => a.href
+                ? <a key={a.name} href={a.href} style={{ border: "1px solid rgba(14,142,64,0.25)", borderRadius: 999, padding: "8px 14px", color: DEEP, fontSize: 14, textDecoration: "none", background: CREAM }}>{a.name}</a>
+                : <span key={a.name} style={{ border: "1px solid rgba(14,142,64,0.15)", borderRadius: 999, padding: "8px 14px", color: "#374151", fontSize: 14, background: CREAM }}>{a.name}</span>)}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* PRICING */}
       <section style={{ padding: "56px clamp(20px,5vw,64px)", background: CREAM }}>
         <div style={{ maxWidth: 560, margin: "0 auto", background: "#fff", border: `1px solid rgba(14,142,64,0.2)`, borderRadius: 16, padding: "32px 30px", textAlign: "center" }}>
@@ -126,6 +164,9 @@ export default function ComboPage({ c }: { c: ComboContent }) {
           <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginTop: 14 }}>
             <a href={c.cityHub.href} style={{ border: `1px solid rgba(14,142,64,0.3)`, borderRadius: 999, padding: "9px 18px", color: DEEP, fontWeight: 600, fontSize: 14, textDecoration: "none", background: "#fff" }}>{c.cityHub.name} →</a>
             <a href={c.servicePage.href} style={{ border: `1px solid rgba(14,142,64,0.3)`, borderRadius: 999, padding: "9px 18px", color: DEEP, fontWeight: 600, fontSize: 14, textDecoration: "none", background: "#fff" }}>{c.servicePage.name} →</a>
+            {c.related?.map((r) => (
+              <a key={r.href} href={r.href} style={{ border: `1px solid rgba(14,142,64,0.3)`, borderRadius: 999, padding: "9px 18px", color: DEEP, fontWeight: 600, fontSize: 14, textDecoration: "none", background: "#fff" }}>{r.name} →</a>
+            ))}
           </div>
         </div>
       </section>
