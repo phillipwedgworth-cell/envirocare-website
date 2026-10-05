@@ -73,6 +73,9 @@ eq(classifyInquiry({ customerType: 'unknown', reason: '', summary: 'The call was
 eq(classifyInquiry({ customerType: 'new', reason: 'hiring process', summary: 'called to follow up on a job application' }), 'other', 'job applicants are not sales');
 eq(ownerFor('huntsville', 'billing').owner, 'Billing queue', 'billing goes to billing whatever the office');
 ok(ownerFor(undefined, 'sales').owner.includes('unrouted'), 'no office → main office triage, never unowned');
+// Every OfficeId the ZIP router can return must have its own owner (Vercel review, PR #234).
+const { OFFICES: ZIP_OFFICES } = await import('../data/zip-to-office.ts');
+for (const id of Object.keys(ZIP_OFFICES)) ok(!ownerFor(id, 'sales').owner.includes('unrouted'), `office "${id}" has an owner`);
 
 // ── deadlines (America/Chicago, M–F 8–5) ─────────────────────────────────
 const at = (iso) => new Date(iso);

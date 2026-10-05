@@ -50,7 +50,7 @@ export function routeOffice(zip: string, address = ''): { officeId: string; offi
 export type IngestResult =
   | { ok: true; id: string; created: boolean; kind: LeadKind; officeId: string; owner: string; due: string }
   | { ok: true; ignored: string }
-  | { ok: false; error: string };
+  | { ok: false; error: string; permanent?: boolean };
 
 // One Sameday notification email -> one lead row. Idempotent on the Sameday
 // conversation id, so the relay can safely re-send.
@@ -63,8 +63,8 @@ export async function ingestSamedayEmail(input: {
 
   const call = parseSamedayEmail(input.body);
   const externalId = call.conversationId || (input.messageId ? `gmail:${input.messageId}` : '');
-  if (!externalId) return { ok: false, error: 'no Sameday conversation id or message id — cannot de-duplicate' };
-  if (!call.phone) return { ok: false, error: 'no phone number in the Sameday email' };
+  // Permanent: retrying the same email can never fix it, so the relay must not loop on it.
+  if (!externalId) return { ok: false, permanent: true, error: 'no Sameday conversation id or message id — cannot de-duplicate' };
 
   const existing = await sb.from('leads').select('id, kind, office_id, owner, callback_due')
     .eq('source', 'sameday').eq('external_id', externalId).maybeSingle();
@@ -81,6 +81,8 @@ export async function ingestSamedayEmail(input: {
   const owner = ownerFor(office.officeId, kind);
   const due = callbackDue(receivedAt).toISOString();
   const alerts = alertsFor(call);
+  // A blocked caller ID still leaves a real inquiry. Store it, never drop it.
+  if (!call.phone) alerts.unshift('no callback number in the Sameday email — open the call in Sameday');
   const auto = autoOutcome(call);
   const [firstName = '', ...rest] = (call.customerName || call.callerName).split(/\s+/).filter(Boolean);
 
