@@ -15,8 +15,12 @@ export const metadata: Metadata = withOpenGraph({
   // non-brand query in the market), "mosquito control huntsville" 392, "termite control
   // huntsville" 272, Madison 309. Title leads with the biggest query; description
   // names Madison and the three services people actually search for here.
-  title: 'Exterminator & Pest Control Huntsville AL | Termite, Mosquito | EnviroCare',
-  description: 'Huntsville & Madison exterminator — ants, roaches, spiders, rodents. Sentricon® termite, mosquito & tick control. Local office. (256) 937-7676.',
+  // Sep 30 2026 (GSC Sep 20–26): /huntsville 675 impr at pos 17.7; "exterminator
+  // huntsville" 106 at pos 5.7, "pest control huntsville al" 68 at pos 13.8. The page
+  // owns general Huntsville pest-control intent, so the title now leads with the head
+  // term and keeps "Exterminator" as the secondary phrase that already ranks.
+  title: 'Pest Control Huntsville AL | Local Exterminator Since 1958 | EnviroCare',
+  description: 'Pest control in Huntsville, AL from our Old Madison Pike office. Ants, roaches, rodents, Sentricon® termite & mosquito service. (256) 937-7676.',
 });
 
 export default function HuntsvillePage() {

@@ -53,9 +53,13 @@ export const metadata: Metadata = {
   // GSC Aug 21–Sep 14 2026: "pest control birmingham (al)" 868 impr at pos 31-34,
   // "exterminator birmingham (al)" 190 with no page naming it, "birmingham termite
   // control" 98 at pos 11. Title adds Exterminator; description keeps the office line.
-  title: "Pest Control & Exterminator Birmingham AL | Termite & Mosquito | EnviroCare",
+  // Sep 30 2026 (GSC Sep 20–26): 955 impr, pos 19.2 → 15.6, CTR 0.21%. This page owns
+  // "pest control birmingham al" as its primary query; the title leads with it verbatim
+  // (was cut at ~60 chars mid-"Termite") and the description adds the street address —
+  // a local signal the SERP snippet did not carry. Exterminator stays secondary.
+  title: "Pest Control Birmingham AL | Local Exterminator Since 1958 | EnviroCare",
   description:
-    "Birmingham exterminator & pest control, family-owned since 1958. From $35/mo, Sentricon® termite, mosquito & tick service. (205) 991-2882.",
+    "Pest control in Birmingham, AL from our 16th Ave S office. Bi-monthly service from $35/mo, Sentricon® termite & mosquito programs. (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
@@ -229,13 +233,17 @@ export default function BirminghamPage() {
               The Wedgworth family has been Birmingham's family-owned pest control company since 1958.
               Bi-monthly perimeter service, Sentricon® termite protection, and seasonal mosquito and tick
               treatment — from Mountain Brook to Hoover, Vestavia to Pelham, the city to the foothills.
+              Our Birmingham office is at 2120 16th Ave S, Ste 302.
             </p>
             <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: "2rem", color: "rgba(255,255,255,.85)", fontSize: ".95rem" }}>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>68+</strong> Years serving AL</span>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>4</strong> Generations of Wedgworths</span>
-              <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> Sentricon® coverage</span>
+              <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> EnviroCare termite coverage</span>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>Free</strong> Inspection &amp; quote</span>
             </div>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,.75)", margin: "-1.2rem 0 1.6rem" }}>
+              Up to $1,000,000 in termite damage repair coverage provided by EnviroCare on qualifying Sentricon® homes, subject to the terms of the agreement.
+            </p>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
               <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
                 Call (205) 991-2882 →
@@ -286,6 +294,13 @@ export default function BirminghamPage() {
           <div style={{ maxWidth: 700, margin: "2.5rem auto 0", padding: "1.2rem 1.5rem", background: Cr, border: `1px solid ${G}26`, borderRadius: 12, textAlign: "center", fontSize: ".95rem", color: "#4b5563" }}>
             <strong style={{ color: D }}>Complete coverage</strong> bundles pest, termite and mosquito into roughly $100/month plus your termite quote — one tech, one invoice. Convenience, not a discount: same fair pricing as the standalone services.
           </div>
+          <p style={{ maxWidth: 760, margin: "1.75rem auto 0", textAlign: "center", color: "#4b5563", lineHeight: 1.7 }}>
+            Looking for one service in detail? Read about{" "}
+            <Link href="/birmingham-termite-control" style={{ color: F, fontWeight: 700 }}>termite control in Birmingham</Link>,{" "}
+            <Link href="/birmingham-mosquito-control" style={{ color: F, fontWeight: 700 }}>Birmingham mosquito control</Link>,{" "}
+            our <Link href="/services/pest-control" style={{ color: F, fontWeight: 700 }}>pest control plans</Link>, or{" "}
+            <Link href="/services/commercial" style={{ color: F, fontWeight: 700 }}>commercial pest control</Link> for Birmingham businesses.
+          </p>
         </section>
 
         {/* BIRMINGHAM SUBURBS — internal links to deep pages */}

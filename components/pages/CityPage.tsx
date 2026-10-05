@@ -299,14 +299,14 @@ export default function CityPage({ slug }: { slug: string }) {
             <div className="city-stats">
               <div className="city-stat"><div className="city-stat-n">{city.yearsServed}+</div><div className="city-stat-l">Years Serving AL</div></div>
               <div className="city-stat"><div className="city-stat-n">★★★★★</div><div className="city-stat-l">Google Rating</div></div>
-              <div className="city-stat"><div className="city-stat-n">$1M</div><div className="city-stat-l">Sentricon® Coverage</div></div>
+              <div className="city-stat"><div className="city-stat-n">$1M</div><div className="city-stat-l">EnviroCare Termite Coverage</div></div>
               <div className="city-stat"><div className="city-stat-n">30+</div><div className="city-stat-l">Pests Covered</div></div>
             </div>
             {/* A stat tile cannot carry the clause inside itself, so the disclosure
                 sits directly beneath the band. Required on every page stating the
                 figure — see the file-scoped $1M rule in data/compliance.ts. */}
             <div className="city-stat-fine" style={{ fontSize: 12, opacity: 0.75, marginTop: 8 }}>
-              Sentricon® damage repair coverage is up to $1,000,000 on qualifying homes, subject to the terms of the agreement.
+              Termite damage repair coverage of up to $1,000,000 is provided by EnviroCare on qualifying Sentricon® homes, subject to the terms of the agreement.
             </div>
             <div className="city-cta-row">
               <a href={`tel:${tel}`} className="btn-gold" style={{overflow:'visible'}}>Call {phone}</a>
@@ -350,11 +350,11 @@ export default function CityPage({ slug }: { slug: string }) {
           <div className="prog-grid">
             <div className="prog-card"><div className="prog-art prog-art-1"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Pest Control</div><div className="prog-desc">Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>30+ pests covered</li><li><span className="prog-chk">✓</span>Unlimited re-services</li><li><span className="prog-chk">✓</span>Same-week scheduling</li></ul>
+                <ul className="prog-features"><li><span className="prog-chk">✓</span>30+ pests covered</li><li><span className="prog-chk">✓</span>Unlimited re-services</li><li><span className="prog-chk">✓</span>Familiar local team</li></ul>
                 <a href="/services/pest-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-2"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">Sentricon® Always Active™ — bait stations, $1M repair coverage, no drilling.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>$1M repair coverage</li><li><span className="prog-chk">✓</span>No drilling, no tanks</li><li><span className="prog-chk">✓</span>Annual WDO letter</li></ul>
+              <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">Sentricon® Always Active™ bait stations, no drilling — with $1M EnviroCare repair coverage.</div>
+                <ul className="prog-features"><li><span className="prog-chk">✓</span>$1M EnviroCare coverage</li><li><span className="prog-chk">✓</span>No drilling, no tanks</li><li><span className="prog-chk">✓</span>Annual WDO letter</li></ul>
                 <a href="/services/termite-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">30-day yard barrier March–October. Make your outdoor space livable again.</div>
@@ -365,6 +365,7 @@ export default function CityPage({ slug }: { slug: string }) {
                 <ul className="prog-features"><li><span className="prog-chk">✓</span>Lone Star, Dog & Deer ticks</li><li><span className="prog-chk">✓</span>Harborage-zone targeting</li><li><span className="prog-chk">✓</span>Runs with your mosquito visit</li></ul>
                 <a href="/services/tick-control" className="prog-link">Learn more →</a></div></div>
           </div>
+          <p className="section-sub" style={{ marginTop: '2rem' }}>Own or manage a business in {city.name}? See our <a href="/services/commercial" style={{ color: 'var(--green-dk)', fontWeight: 700 }}>commercial pest control</a> programs for restaurants, offices, warehouses, and data facilities.</p>
         </div>
       </section>
 
