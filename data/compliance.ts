@@ -362,8 +362,7 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // the noun, and Sentricon was only matched after from/by/through. app/highland-
   // lakes/page.tsx carried "How does the Sentricon® warranty work…" in its FAQ and
   // FAQPage schema while every guard passed. AGENTS.md §1 bans it by name.
-  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties)\\b',
-    notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
+  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
     reason: 'coverage attributed to Sentricon (possessive)',
     approvedInstead: "EnviroCare's termite damage repair coverage, subject to the terms of the agreement" },
 
