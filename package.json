@@ -34,7 +34,8 @@
     "test:blogposts": "node scripts/test-blog-post-compliance.mjs",
     "test:listings": "node scripts/test-brightlocal-descriptions.mjs",
     "test:brief": "node scripts/test-brief-sanitizer.mjs",
-    "test:page-refresh": "node scripts/test-page-refresh.mjs"
+    "test:page-refresh": "node scripts/test-page-refresh.mjs",
+    "test:leads": "node --no-warnings scripts/test-lead-coordinator.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

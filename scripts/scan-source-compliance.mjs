@@ -87,6 +87,18 @@ const ALLOW = [
 
   { file: 'app/privacy/page.tsx', contains: 'SameDay AI',
     why: 'Proper noun: the name of the phone answering vendor, disclosed in the privacy policy.' },
+  // Lead Coordinator (2026-10-05). Internal code that parses the vendor's
+  // notification emails: "Sameday" is the vendor's name, not an availability
+  // claim. None of these files renders public copy (/lead-desk is key-gated,
+  // noindex and disallowed in robots). Scoped to lines naming the vendor only.
+  { file: 'lib/leads/core.ts', contains: 'ameday',
+    why: 'Proper noun: parser for the Sameday phone vendor\'s notification emails. Internal, never rendered.' },
+  { file: 'lib/leads/server.ts', contains: 'ameday',
+    why: 'Proper noun: stores leads from the Sameday phone vendor. Internal, never rendered.' },
+  { file: 'app/api/leads/ingest/route.ts', contains: 'ameday',
+    why: 'Proper noun: API endpoint that receives Sameday vendor emails. Not a page.' },
+  { file: 'app/lead-desk/LeadDeskClient.tsx', contains: 'Open call in Sameday',
+    why: 'Proper noun: staff-only link to the call in the Sameday vendor app. Key-gated, noindex.' },
   { file: 'app/best-pest-control-birmingham/page.tsx', contains: 'same-day emergency service at 9 p.m.',
     why: 'The "when NOT to choose us" section — states a competitor beats us on this. Not a claim.' },
   { file: 'data/offices.ts', contains: 'BANNED_PHONE_NUMBERS',
