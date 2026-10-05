@@ -87,7 +87,6 @@ const GROUPS: Group[] = [
       ['Madison Mosquito Control', '/madison-mosquito-control'],
       ['Madison Termite Control', '/madison-termite-control'],
       ['Madison Commercial Pest Control', '/madison-commercial-pest-control'],
-      ['Decatur Pest Control', '/decatur-pest-control'],
       ['Decatur Exterminator', '/decatur-exterminator'],
       ['Decatur Mosquito Control', '/decatur-mosquito-control'],
       ['Decatur Termite Control', '/decatur-termite-control'],
