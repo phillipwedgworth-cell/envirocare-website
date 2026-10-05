@@ -27,7 +27,9 @@ export async function POST(request: Request) {
     receivedAt: String(payload.receivedAt ?? ''),
     messageId: payload.messageId ? String(payload.messageId) : undefined,
   });
-  // 200 for created / already-had-it / not-a-call, so the relay labels the email
-  // and moves on. 500 only when the lead could not be stored — the relay retries.
-  return NextResponse.json(result, { status: result.ok ? 200 : 500 });
+  // 200: created / already had it / not a call → the relay labels it and moves on.
+  // 422: this email can never be stored (permanent) → the relay labels it as failed, no retry loop.
+  // 500: storage failed (database down) → the relay retries next minute.
+  const status = result.ok ? 200 : 'permanent' in result && result.permanent ? 422 : 500;
+  return NextResponse.json(result, { status });
 }

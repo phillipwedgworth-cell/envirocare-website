@@ -20,6 +20,9 @@ export const LEAD_OWNERS: Record<string, LeadOwner> = {
   'birmingham-downtown': { owner: 'Birmingham office queue', email: OFFICE_QUEUE },
   'huntsville':          { owner: 'Huntsville office queue', email: OFFICE_QUEUE },
   'lake-martin':         { owner: 'Lake Martin office queue', email: OFFICE_QUEUE },
+  // data/zip-to-office.ts routes Auburn/Opelika ZIPs here. It is a service area,
+  // not a staffed office, so it gets its own queue rather than "unrouted".
+  'auburn':              { owner: 'Auburn / Opelika area queue', email: OFFICE_QUEUE },
   // No ZIP / unknown area: the main office triages it.
   'unrouted':            { owner: 'Alabaster office queue (unrouted)', email: OFFICE_QUEUE },
 };
