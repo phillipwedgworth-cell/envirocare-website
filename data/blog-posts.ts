@@ -4411,6 +4411,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: 'Alabama mosquito season runs March through October. Mosquito control services and pest control from EnviroCare — mosquito spray treatments to control mosquitoes in Huntsville, Birmingham, and across Alabama. Mosquito life cycle, mosquito infestation prevention, and mosquito control treatments.',
     body: `
 <p class="lede">Alabama mosquito season runs March through October — an eight-month stretch that makes mosquito control a necessity for homes and businesses across Birmingham, Huntsville, and every community in between. Starting mosquito control early, before mosquito populations compound through spring and summer, is the single biggest factor in how well the whole season goes. This guide covers when mosquito season starts in Alabama, how mosquito spray treatments work, the types of mosquitoes in Alabama, mosquito breeding sites to eliminate, what mosquito control costs, and why professional pest control delivers results that DIY mosquito management cannot match.</p>
+<p><strong>Looking for mosquito control near you?</strong> See <a href="/birmingham-mosquito-control">mosquito control in Birmingham</a> (Jefferson County, served from our 16th Ave S office) or <a href="/huntsville-mosquito-control">mosquito control in Huntsville</a> for local details, the March–October treatment schedule and pricing.</p>
 
 <h2>When is mosquito season in Alabama?</h2>
 

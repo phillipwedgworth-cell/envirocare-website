@@ -130,6 +130,8 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare(?:[’']|&apos;|&#39;|&#x27;|&rsquo;)s)\\s+(own\\s+)?(?:[$\\w,.]+\\s+){0,3}guarantee\\b",
     reason: 'coverage asserted as a guarantee',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
+  //  ── 2026-10-05: "up to $1,000,000 in property coverage" was live on 12 city pages and no rule caught it. The figure is DAMAGE REPAIR coverage (AGENTS.md §1).
+  { pattern: '\\$\\s?1(,000,000|\\s?(m|million))\\b[^.]{0,40}\\bproperty\\s+coverage', reason: '$1M described as property coverage', approvedInstead: 'up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement' },
   //  ── third gap found 2026-08-24, still live 2026-08-31. Same method as (a)-(c):
   //     check the guard against a page it should have caught.
   //     (d) DEMONSTRATIVE + QUOTED PHRASE. /blog/pest-control-cost-huntsville has
