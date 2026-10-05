@@ -241,7 +241,10 @@ export async function run() {
 
   if (summary.stale.length) await writeFinding(AGENT_NAME, "local-falcon", "warning", null, `Local Falcon campaigns with no run in ${LOOKBACK_DAYS}d (paused or failing): ${summary.stale.join("; ")}`, { stale: summary.stale });
   if (summary.shape_warnings.length) await writeFinding(AGENT_NAME, "local-falcon", "warning", null, `Local Falcon report shape returned no keyword rows — check API response fields: ${summary.shape_warnings.join("; ")}`, { warnings: summary.shape_warnings });
-  const status = summary.errors.length && summary.rows === 0 ? "failed" : "ok";
+  // Any campaign error is visible in the status, not just a total wipe-out. On
+  // 2026-09-29 an HTTP 400 on one campaign was logged "ok" (Sunday audit 10-04).
+  // "partial" is not in the watchdog's HEALTHY set, so it surfaces as FAILED.
+  const status = summary.errors.length ? (summary.rows === 0 ? "failed" : "partial") : "ok";
   await logAgentRun(AGENT_NAME, status, summary);
   console.log(`[${AGENT_NAME}] ${summary.campaigns} campaigns → ${summary.rows} rows; stale ${summary.stale.length}; errors ${summary.errors.length}`);
   return summary;

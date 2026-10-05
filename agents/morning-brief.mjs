@@ -37,6 +37,7 @@
 
 import { logRunREST } from './lib/run-log.mjs';
 import { knowledgeBlock } from './lib/knowledge.mjs';
+import { stripCrossSeriesClaims } from './lib/brief-sanitize.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
 
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
@@ -263,7 +264,8 @@ ABSOLUTE RULE: never write that something was handled, fixed, shipped, or rewrit
 - Lead with the 3-5 things that actually matter today, RANKED, most important first.
 - Plain English. No jargon, no filler, no "as an AI". Operator tone.
 - If it's a quiet day, say so in one line and list 1-2 things worth watching.
-- Keep the whole brief under ~400 words including the scoreboard. Short lines, not big paragraphs.`;
+- Keep the whole brief under ~400 words including the scoreboard. Short lines, not big paragraphs.
+- SoLV CHANGES: quote each market's current SoLV from the SCOREBOARD block only. Never compute or state a SoLV change against any figure from the knowledge base or a previous brief — those were measured on different grids and campaigns, so the difference is not a real movement. No "up X pts since <date>", no "surge", no "jump".`;
 
 // Read-before-act (agents/BEST-PRACTICES.md, retrieve→act→distill): pull the
 // most recent prior brief so today's brief reports DELTAS instead of
@@ -342,10 +344,12 @@ async function main() {
   const ctx = buildContext(data, repeatDays);
   const content = await generateBrief(ctx, prevBrief, scoreboard, buildPRBlock(prs));
   if (!content) throw new Error('empty brief from model');
-  await upsertBrief(content);
+  const { text: cleaned, removed } = stripCrossSeriesClaims(content);
+  if (removed) console.warn(`[morning-brief] removed ${removed} cross-series SoLV line(s)`);
+  await upsertBrief(cleaned);
   const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings; open PRs: ${prs.ok ? prs.prs.length : 'unknown'}).`;
   console.log(summary);
-  console.log('---\n' + content);
+  console.log('---\n' + cleaned);
   return summary;
 }
 

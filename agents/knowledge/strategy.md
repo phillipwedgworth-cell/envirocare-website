@@ -14,6 +14,15 @@
 | Lake Martin / Alex City | 53.06% | ~50 | 12 · 4.9★ | Strongest market — defend; review-starved |
 | Huntsville | 0.26% | ~50 | 34 · 5.0★ | INVISIBLE — review velocity is the lever |
 
+> ⚠️ **History only — do not compute changes from these SoLV figures (2026-10-05).**
+> They were measured on grids and campaigns that have since been replaced:
+> Alabaster's 3.39% is the old 9x9 / 20-mile grid on `4ee47a23fc4793e`
+> (Alabaster through 2026-09-18, Birmingham from 2026-10-02); Alabaster's current
+> series is `51d824c315edded`, starting 2026-10-02. Subtracting one from the other
+> produced the false "Alabaster +25 pts" brief on 10-02 and 10-03. Current SoLV
+> comes only from the brief's SCOREBOARD block (`lf_visibility`, latest run).
+
+
 ## Four offices (not three — updated Aug 2026)
 | Office | Address | Phone | GBP verified | Local Falcon campaign |
 |---|---|---|---|---|
