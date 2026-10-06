@@ -166,7 +166,14 @@ async function buildAccountMap() {
     //     "EnviroCare (2120 16th Ave S, Birmingham, AL, US)" with is_expired: 0.
     // The old state was self-consistent — Alabaster listing paired with Alabaster's
     // number, so the NAP guard never fired — which is why misrouting an entire
-    // metro's content went unnoticed. Matches agents/executor.mjs (PR #144).
+    // metro's content went unnoticed.
+    //
+    // SCOPE, so nobody overstates this fix: nothing currently calls run(), so this
+    // table publishes nothing today. oneup-push is live only as a LIBRARY — its
+    // scan() gate is imported by agents/approval-executor.mjs and
+    // scripts/proposer.mjs. approval-executor keeps its OWN ROUTES table, which
+    // already pointed Birmingham at 16th Ave; the two tables disagreed, and this is
+    // the wrong one. Fixed so re-enabling run() cannot silently misroute a metro.
     "birmingham:google": { id: byCity("16th ave"), phone: "(205) 991-2882", listing: "Birmingham GBP" },
     "alabaster:google": { id: byCity("butler rd"), phone: "(205) 940-6360", listing: "Alabaster GBP" },
     "huntsville:google": { id: byCity("old madison pike"), phone: "(256) 937-7676", listing: "Huntsville GBP" },
