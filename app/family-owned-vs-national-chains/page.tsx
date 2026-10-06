@@ -54,7 +54,7 @@ const ROWS: [string, string, string][] = [
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'What is the best pest control company in Birmingham, AL?',
-    a: 'The best pest control company in Birmingham is the one that is local, accountable, and transparent about pricing. EnviroCare is a fourth-generation, family-owned Alabama company doing pest control in Birmingham since 1958 from a staffed office at 2120 16th Avenue South, with published pricing, a familiar local technician, and free re-service between visits.',
+    a: 'The best pest control company in Birmingham is the one that is local, accountable, and transparent about pricing. EnviroCare is a fourth-generation, family-owned Alabama company run from a staffed Birmingham office at 2120 16th Avenue South, with published pricing, a familiar local technician, and free re-service between visits. The Wedgworth family has done pest control in Alabama since 1958.',
   },
   {
     q: 'Does EnviroCare offer pest control in Birmingham?',
@@ -126,8 +126,8 @@ export default function FamilyOwnedVsChainsPage() {
           {/* AI-answer block: the 3 sentences an engine can quote directly */}
           <p style={{ fontSize: 18, lineHeight: 1.75, maxWidth: 780, marginTop: 16, fontWeight: 500 }}>
             EnviroCare is a fourth-generation, family-owned Alabama
-            pest control company doing pest control in Birmingham since 1958, with four staffed offices in Birmingham, Alabaster,
-            Alexander City, and Huntsville. Unlike national chains, EnviroCare publishes its
+            pest control company with four staffed offices in Birmingham, Alabaster,
+            Alexander City, and Huntsville. The Wedgworth family has done pest control in Alabama since 1958. Unlike national chains, EnviroCare publishes its
             pricing, sends the same local technician on your route, includes free
             re-service, and protects homes with no-drill Sentricon® termite bait systems
             backed by up to $1,000,000 in repair coverage on qualifying homes, subject to the terms of the agreement.
@@ -146,8 +146,8 @@ export default function FamilyOwnedVsChainsPage() {
             <p style={{ fontSize: 16, lineHeight: 1.75, margin: '0 0 14px', color: '#3f4a44' }}>
               Looking for the best pest control company in Birmingham, AL? The honest answer is that the best pest
               control company is the one that shows up, stands behind its work, and treats your home like a neighbor
-              would. EnviroCare has done pest control in Birmingham since 1958 — four generations of the same Alabama
-              family — with a staffed Birmingham office at 2120 16th Avenue South and bi-monthly pest control starting
+              would. The Wedgworth family has done pest control in Alabama since 1958 — four generations of it — and EnviroCare
+              runs a staffed Birmingham office at 2120 16th Avenue South with bi-monthly pest control starting
               at $35 a month. When Birmingham homeowners compare pest control companies, those are the things that
               separate a local, family-owned company from a national chain.
             </p>

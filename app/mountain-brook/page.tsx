@@ -179,19 +179,20 @@ export default function MountainBrookPage() {
               Pest control in Mountain Brook, AL
             </h2>
             <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
-              EnviroCare has handled pest control in Mountain Brook since 1958, and the pests here track the landscape:
-              historic homes, a mature hardwood canopy, and the Shades Creek corridor. That mix keeps ants, spiders,
-              cockroaches, and wasps active around Mountain Brook homes much of the year, while rodents like rats and
-              mice work toward the warmth indoors as fall arrives. Our bi-monthly pest control treats the exterior
-              perimeter and the entry points where pests get in, so most problems are stopped before they reach the
-              living space.
+              The Wedgworth family has been doing pest control in Alabama since 1958, and in Mountain Brook the pests
+              track the landscape: historic homes, a mature hardwood canopy, and the Shades Creek corridor. That mix
+              keeps ants, spiders, cockroaches, and wasps active around Mountain Brook homes much of the year, while
+              rodents like rats and mice work toward the warmth indoors as fall arrives. EnviroCare&apos;s bi-monthly
+              pest control treats the exterior perimeter and the entry points where pests get in, so most problems are
+              stopped before they reach the living space.
             </p>
             <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
               As a family-owned pest control company serving Mountain Brook and the wider Birmingham area — not a
               national chain exterminator — EnviroCare keeps the plan simple and discreet. Bi-monthly pest control
               covers 30+ common household pests for $35 a month, with free re-service if a pest problem shows up between
-              visits. There is no long-term contract when you pay per visit, and you can add no-drill Sentricon® termite
-              protection or seasonal mosquito and tick service whenever your Mountain Brook home needs it.
+              visits. You can pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing
+              agreement, and you can add no-drill Sentricon® termite protection or seasonal mosquito and tick service
+              whenever your Mountain Brook home needs it.
             </p>
             <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
               Mountain Brook&apos;s older foundations and shaded lots bring specific pressure: subterranean termites
