@@ -343,6 +343,17 @@ export default function CityPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {city.body && city.body.length > 0 && (
+        <section className="whyhere">
+          <div className="whyhere-inner">
+            <h2>Pest Control in <span>{city.name}, AL</span></h2>
+            {city.body.map((para, i) => (
+              <p key={i} style={{ marginTop: i === 0 ? undefined : '1rem' }}>{para}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="programs" id="programs">
         <div className="container">
           <div className="section-eyebrow">Our Core Services</div>
