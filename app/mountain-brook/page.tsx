@@ -19,13 +19,13 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  */
 
 export const metadata: Metadata = {
-  title: "Mountain Brook Pest Control & Termite | EnviroCare",
+  title: "Mountain Brook Pest Control & Termite | Exterminator | EnviroCare",
   description:
     "Pest control, Sentricon® termite & commercial service in Mountain Brook AL — Crestline, English Village, Cahaba Village. From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/mountain-brook" },
   openGraph: {
     images: ["/og/og-mountain-brook.png"],
-    title: "Mountain Brook Pest Control & Termite | EnviroCare",
+    title: "Mountain Brook Pest Control & Termite | Exterminator | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito, tick & commercial service for Mountain Brook homes and businesses. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/mountain-brook",
@@ -139,7 +139,7 @@ export default function MountainBrookPage() {
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 640, marginBottom: "2rem" }}>
               Refined, discreet pest and termite care for Mountain Brook&apos;s established homes — Crestline,
               English Village, Mountain Brook Village, Cahaba Village, and Cherokee Bend. No-drill Sentricon®,
-              seasonal mosquito and tick service, and commercial programs for the Village storefronts.
+              seasonal mosquito and tick service, and commercial pest control for the Village storefronts.
             </p>
             <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: "2rem", color: "rgba(255,255,255,.85)", fontSize: ".95rem" }}>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>68+</strong> Years serving AL</span>
@@ -168,6 +168,44 @@ export default function MountainBrookPage() {
               between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by
               up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
               The Wedgworth family has protected homes since 1958. Call (205)&nbsp;991-2882.
+            </p>
+          </div>
+        </section>
+
+        {/* LONG-FORM BODY — pest-control depth for the city query */}
+        <section style={{ padding: "2.5rem clamp(1.5rem,5vw,4rem) 0", background: "#fff" }}>
+          <div style={{ maxWidth: 900, margin: "0 auto" }}>
+            <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.6rem,3vw,2.2rem)", color: Ik, margin: "0 0 1rem" }}>
+              Pest control in Mountain Brook, AL
+            </h2>
+            <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
+              EnviroCare has handled pest control in Mountain Brook since 1958, and the pests here track the landscape:
+              historic homes, a mature hardwood canopy, and the Shades Creek corridor. That mix keeps ants, spiders,
+              cockroaches, and wasps active around Mountain Brook homes much of the year, while rodents like rats and
+              mice work toward the warmth indoors as fall arrives. Our bi-monthly pest control treats the exterior
+              perimeter and the entry points where pests get in, so most problems are stopped before they reach the
+              living space.
+            </p>
+            <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
+              As a family-owned pest control company serving Mountain Brook and the wider Birmingham area — not a
+              national chain exterminator — EnviroCare keeps the plan simple and discreet. Bi-monthly pest control
+              covers 30+ common household pests for $35 a month, with free re-service if a pest problem shows up between
+              visits. There is no long-term contract when you pay per visit, and you can add no-drill Sentricon® termite
+              protection or seasonal mosquito and tick service whenever your Mountain Brook home needs it.
+            </p>
+            <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
+              Mountain Brook&apos;s older foundations and shaded lots bring specific pressure: subterranean termites
+              along damp crawlspaces in Crestline and Cherokee Bend, black widow and brown recluse spiders in stone
+              foundations and detached garages, carpenter ants in the oak canopy, cockroaches and rodents seeking
+              shelter indoors, and mosquitoes off Shades Creek from March through October. A recurring pest control
+              service treats these harborage zones on schedule, so the barrier is working when pests are most active.
+            </p>
+            <p style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>
+              Mountain Brook sits in the heart of the Birmingham metro&apos;s Over-the-Mountain corridor, and the same
+              local team that handles pest control here also serves nearby Vestavia Hills, Homewood, and Hoover. If
+              cockroaches turn up in an older kitchen, if rats or mice get into a basement or attic, or if wasps build
+              under the eaves, EnviroCare&apos;s bi-monthly pest control and targeted treatments handle it — refined,
+              reliable pest control that protects the home and gives you year-round peace of mind.
             </p>
           </div>
         </section>
@@ -304,6 +342,7 @@ export default function MountainBrookPage() {
               , where the older commercial buildings and tight lots change what we look for.
             </p>
             <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." />
+            <Faq q="Is EnviroCare a local Mountain Brook exterminator?" a="Yes. EnviroCare is a family-owned, professional pest control company and local exterminator serving Mountain Brook and the Birmingham area since 1958, with comprehensive pest control solutions for homes and businesses." />
             <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." />
             <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." />
             <Faq q="What does bi-monthly pest control cover in Mountain Brook?" a="EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." />
