@@ -14,9 +14,18 @@ name: Executor (approval queue → GBP)
 # posts per run and one per office. `mode` defaults to 'dry' on the dispatch
 # form too, so a mis-click publishes nothing.
 
+# NO SCHEDULE, as of 2026-10-06. This workflow had a daily 13:30 UTC cron until
+# main shipped agents/approval-executor.mjs + approval-executor.yml in #206
+# (2026-09-24) — a second executor over the same approval_queue rows, flipping
+# the same `status` column. The two do NOT serialise: the concurrency groups are
+# `executor` here and `approval-executor` there, so GitHub would happily run both
+# publishers at once.
+#
+# Disarming the cron is the minimum safe state, not the fix. The real question —
+# whether this executor should exist at all now that #206 is merged — is
+# Phillip's to answer; see the PR body. Manual dispatch is left in place so the
+# dry-run report still works while that is decided.
 on:
-  schedule:
-    - cron: '30 13 * * *'   # daily 13:30 UTC (~8:30am CT) — after the 09:00 orchestrator run has refilled the queue
   workflow_dispatch:
     inputs:
       mode:
