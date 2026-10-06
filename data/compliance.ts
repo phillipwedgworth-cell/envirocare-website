@@ -85,6 +85,17 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     approvedInstead: 'we will call you back as soon as we can during business hours' },
   // "same technician" alone is fine ("real people, same technician on your route"); only a
   // PROMISE of it is a staffing claim. Require an every-time/guaranteed qualifier nearby.
+  // Added 2026-09-29 (sweep 0008). Both shipped live in data/cities.ts and neither
+  // rule existed, so nothing caught them.
+  // 'contract-free' is a no-contract claim (ruled out 2026-08-08). The replacement is
+  // the house phrase, NOT a cancellation promise: nobody has approved one, and
+  // approvedInstead is fed verbatim into the drafting prompt by
+  // agents/lib/build-drafting-prompt.mjs, so a promise written here becomes copy.
+  // It also has to agree with the existing cancel-anytime rule below.
+  { pattern: 'contract[\\s-]?free', reason: 'no-contract claim', approvedInstead: 'terms confirmed in writing before service starts' },
+  // A 'flat $75' initial contradicts pricing canon twice: the $75 is 50% off a $150
+  // regular price, not a flat rate, and a mosquito-only plan has no $75 startup.
+  { pattern: 'flat\\s+\\$\\s?75', reason: 'pricing claim ($75 is 50% off $150, not a flat price; mosquito-only has no $75 startup)', approvedInstead: '$75 initial service, 50% off the $150 regular price (Pest and Pest + Mosquito only)' },
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
@@ -316,9 +327,44 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // GBP posts scheduled for 2026-08-13 carried "damage repair coverage from
   // Corteva" across all three locations. Being a Sentricon Certified Specialist is
   // a real credential and is deliberately NOT matched here; only the attribution is.
-  { pattern: '(coverage|repair|warrant\\w*)[^.]{0,40}\\b(from|by|backed by|through)\\s+(corteva|the\\s+manufacturer|sentricon)|\\b(corteva|manufacturer)([\'’]s)?\\s+(guarantee|warranty|coverage)\\b',
-    reason: 'coverage attributed to the manufacturer',
+  //
+  // EIGHTH SHAPE, 2026-09-09. The rule above knew two constructions -- PASSIVE
+  // ("backed by Corteva") and POSSESSIVE ("Corteva's warranty"). It knew nothing
+  // about ACTIVE VOICE, and so returned PASS over two live blog pages:
+  //
+  //   data/blog-posts.ts:1699  "Corteva BACKS Sentricon with damage repair coverage"
+  //   data/blog-posts.ts:2585  "Corteva -- the manufacturer -- UPDATED THEIR WARRANTY
+  //                             terms ... your $1,000,000 damage warranty may no
+  //                             longer be active"
+  //
+  // The first is subject-verb-object with the party first; the second puts an
+  // appositive between the party and the noun, so neither adjacency test fired.
+  // Same literal-vs-shape failure documented for the retired name, AI imagery,
+  // "founded 1958" and the callback promise. So the rule now also matches:
+  //   (a) the party as SUBJECT of a backing verb  -- Corteva backs/provides/offers/
+  //       stands behind/guarantees/warrants/covers -- with a coverage/warranty noun
+  //       downstream in the same sentence. The verb must FOLLOW the party (<=2
+  //       filler words), so "Sentricon is made by Corteva, and EnviroCare backs
+  //       every installation" is NOT matched: EnviroCare is the subject there.
+  //       The noun is required too, so coverage-agnostic verbs ("Corteva updated
+  //       the EPA registration") do not trip it. (Vercel Agent caught both
+  //       over-matches on PR #171; the first draft had neither constraint.)
+  //   (b) the party and the coverage noun separated by an appositive or dash --
+  //       "Corteva -- the manufacturer -- updated THEIR WARRANTY terms"
+  // notIf keeps the corrective sentences legal: the site says, correctly and in
+  // several places, that the coverage is "not Corteva's and not the manufacturer's".
+  { pattern: '(coverage|repair|warrant\\w*)[^.]{0,40}\\b(from|by|backed by|through)\\s+(corteva|the\\s+manufacturer|sentricon)|\\b(corteva|manufacturer)([\'’]s)?\\s+(guarantee|warranty|coverage)\\b|\\b(corteva|the\\s+manufacturer)\\s+(?:\\w+\\s+){0,2}(backs|back|backed|provides|offers|stands\\s+behind|guarantees|warrants|covers)\\b[^.]{0,40}\\b(coverage|repair|warrant\\w*|guarantee)\\b|\\b(corteva|the\\s+manufacturer)\\b[^.]{0,40}\\b(their|its)\\s+(guarantee|warranty|coverage)\\b', notIf: 'not (a )?corteva|not the manufacturer|never attribut|rather than the manufacturer|EnviroCare[\'’]s own|banned|do not say|NEVER',
+    reason: 'coverage attributed to the manufacturer (passive, possessive or active voice)',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement (EnviroCare-backed; never attributed to Corteva or Sentricon)' },
+
+  // SENTRICON POSSESSIVE (added 2026-10-05). The rule above caught "Corteva's
+  // warranty" but not "the Sentricon® warranty": the ® sits between the brand and
+  // the noun, and Sentricon was only matched after from/by/through. app/highland-
+  // lakes/page.tsx carried "How does the Sentricon® warranty work…" in its FAQ and
+  // FAQPage schema while every guard passed. AGENTS.md §1 bans it by name.
+  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
+    reason: 'coverage attributed to Sentricon (possessive)',
+    approvedInstead: "EnviroCare's termite damage repair coverage, subject to the terms of the agreement" },
 
   // $1M WITHOUT THE QUALIFIER (added 2026-08-11). The approved phrasing has always
   // carried "subject to the terms of the agreement", and 29 pages used it correctly

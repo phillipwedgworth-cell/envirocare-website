@@ -21,9 +21,27 @@ name: Guards
 # doesn't exist, a gtag bootstrap that a refactor rewrote. Without a build they
 # silently downgrade to source-only checks and report a weaker PASS.
 #
-# No secrets are needed: `next build` was verified to complete cleanly with an
-# empty environment (the Resend and Supabase clients are lazily constructed
+# The BUILD needs no secrets: `next build` was verified to complete cleanly with
+# an empty environment (the Resend and Supabase clients are lazily constructed
 # precisely so a secret-less build cannot fail).
+#
+# THE GUARD SUITE NOW DOES, 2026-09-09. One guard in `npm test` reads a surface
+# that lives OUTSIDE the repo and therefore needs a credential:
+#
+#   test:listings    BrightLocal listing descriptions  -> BRIGHTLOCAL_API_KEY
+#
+# (test:captivated was moved out of `npm test` by #177 -- it is a live API
+# integration check, run on its own, and needs no secret here.)
+#
+# It exists because the same banned phrase reached Google through a BrightLocal
+# description and survived two hand-written sweeps (2026-08-31, 2026-09-09) while
+# ten repo guards passed. Without the env block below it still runs -- and skips,
+# loudly, checking nothing. That is precisely the failure this workflow's own
+# header complains about, so wire the secret or the guard is documentation again.
+#
+# On a pull_request from a FORK, GitHub withholds secrets by design. The guard
+# prints an explicit "checks nothing right now / that is not a pass" line in that
+# case rather than reporting a clean run.
 
 on:
   pull_request:
@@ -60,4 +78,9 @@ jobs:
         run: npm run build
 
       - name: Guard suite
+        env:
+          # Named exactly as agents/lib/*.mjs reads them. BRIGHTLOCAL_API_KEY is
+          # the same secret .github/workflows/brightlocal.yml already consumes --
+          # one name, one secret, no new value to create.
+          BRIGHTLOCAL_API_KEY: ${{ secrets.BRIGHTLOCAL_API_KEY }}
         run: npm test

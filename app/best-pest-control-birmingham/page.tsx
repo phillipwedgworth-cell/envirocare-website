@@ -34,22 +34,22 @@ import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/bran
 
 export const metadata = {
   alternates: { canonical: '/best-pest-control-birmingham' },
-  title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
+  title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
   description:
-    'How to choose the best pest control company in Birmingham — what to check on licensing, termite repair coverage, published pricing and agreements, plus where EnviroCare fits and where it does not.',
+    'How to choose the best pest control in Birmingham — licensing, termite coverage, published pricing and where EnviroCare fits. (205) 991-2882.',
   openGraph: {
-    title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
+    title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
     description:
-      'What to check before hiring a Birmingham pest control company — licensing, termite repair coverage, published pricing, agreement terms, and who actually shows up.',
+      'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     url: 'https://www.envirocarellc.com/best-pest-control-birmingham',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Pest Control Company in Birmingham, AL: How to Choose | EnviroCare',
+    title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
     description:
-      'What to check before hiring a Birmingham pest control company — licensing, termite repair coverage, published pricing, agreement terms, and who actually shows up.',
+      'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     images: ['/og-image.png'],
   },
 };
@@ -109,11 +109,11 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How much does pest control cost in Birmingham, AL?',
-    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and unlimited free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
+    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
   },
   {
     q: 'What should I look for in a Birmingham pest control agreement?',
-    a: 'Four things, all in writing: the term length, what renewal looks like, what cancelling costs, and whether the termite warranty covers repairs or only re-treatment. With EnviroCare you can pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Whichever you pick, the terms are confirmed in writing before service starts. Either way, unlimited free re-service between scheduled visits is included.',
+    a: 'Four things, all in writing: the term length, what renewal looks like, what cancelling costs, and whether the termite warranty covers repairs or only re-treatment. With EnviroCare you can pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Whichever you pick, the terms are confirmed in writing before service starts. Either way, free re-service between scheduled visits is included.',
   },
   {
     q: 'How often do I need pest control service in Birmingham?',
@@ -182,8 +182,12 @@ export default function BestPestControlBirminghamPage() {
           </nav>
 
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(30px,5vw,44px)', color: INK, margin: 0, lineHeight: 1.15 }}>
-            Best Pest Control Company in Birmingham, AL
+            How to Choose a Pest Control Company in Birmingham, AL
           </h1>
+
+          <p style={{ fontSize: 16, marginTop: 14, marginBottom: 0 }}>
+            <a href="/birmingham" style={{ color: GREEN, fontWeight: 700, textDecoration: 'none' }}>Birmingham pest control service →</a>
+          </p>
 
           {/* AI-answer block: the paragraph an engine can quote directly */}
           <p style={{ fontSize: 18, lineHeight: 1.75, maxWidth: 780, marginTop: 16, fontWeight: 500 }}>
@@ -234,7 +238,7 @@ export default function BestPestControlBirminghamPage() {
             Family-owned in Alabama since 1958, fourth generation. We are not the largest company
             operating in Birmingham and we do not claim to be. What we do differently maps onto the
             five points above: pricing is published — <strong>$35/month on ACH or $70 per bi-monthly
-            visit</strong>, with a $75 initial service and unlimited free re-service between scheduled
+            visit</strong>, with a $75 initial service and free re-service between scheduled
             visits. Termite protection is Sentricon<sup>®</sup> Always Active™, in-ground bait
             stations with no drilling, backed by up to $1,000,000 in EnviroCare repair coverage on
             qualifying homes, subject to the terms of the agreement — repair coverage, not a

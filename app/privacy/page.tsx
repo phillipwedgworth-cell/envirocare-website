@@ -152,7 +152,10 @@ export default function PrivacyPage() {
         <p>Questions about this policy? Reach out to the EnviroCare office that serves your area:</p>
         <ul>
           <li>
-            <strong>Birmingham:</strong> (205) 940-6360 — 2025 Butler Rd, Alabaster, AL 35007
+            <strong>Birmingham:</strong> (205) 991-2882 — 2120 16th Ave S, Ste 302, Birmingham, AL 35205
+          </li>
+          <li>
+            <strong>Alabaster:</strong> (205) 940-6360 — 2025 Butler Rd, Alabaster, AL 35007
           </li>
           <li>
             <strong>Alex City / Lake Martin:</strong> (256) 234-6162 — 1785 Tallapoosa St, Alexander City, AL 35010

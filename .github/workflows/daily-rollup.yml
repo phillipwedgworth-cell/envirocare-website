@@ -3,8 +3,9 @@ name: Daily Rollup
 # Runs at 8am CT (13:00 UTC during CDT) — AFTER AEO-Watch's 7am run,
 # so it captures the latest agent activity in the rollup.
 on:
-  schedule:
-    - cron: '0 13 * * *'
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
+  # (Superseded by the morning brief; the rollup emailed "all quiet" beside a watchdog alarm.)
   workflow_dispatch: {}
 
 jobs:

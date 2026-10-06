@@ -392,8 +392,10 @@ export default function SentriconProtection() {
             </div>
             <div className="p-6 space-y-3">
               {[
-                { label: "Birmingham / Hoover / Chelsea / Shelby County", phone: "(205) 940-6360", tel: "2059406360" },
-                { label: "Lake Martin / Alexander City / Auburn area", phone: "(256) 234-6162", tel: "2562346162" },
+                { label: "Birmingham / Hoover / Vestavia Hills", phone: "(205) 991-2882", tel: "2059912882" },
+                { label: "Alabaster / Pelham / Chelsea / Shelby County", phone: "(205) 940-6360", tel: "2059406360" },
+                { label: "Auburn / Opelika", phone: "(334) 332-3321", tel: "3343323321" },
+                { label: "Lake Martin / Alexander City", phone: "(256) 234-6162", tel: "2562346162" },
                 { label: "Huntsville / Madison / Athens / Decatur", phone: "(256) 937-7676", tel: "2569377676" },
               ].map((o, i) => (
                 <a key={i} href={`tel:${o.tel}`}

@@ -32,7 +32,8 @@ import { gateOrSkip } from "./lib/agent-gate.mjs";
 import {
   LOCAL_FALCON_CAMPAIGNS,
   localFalconBaseline,
-  localFalconCampaign,
+  localFalconNumber,
+  localFalconRunIdentity,
 } from "./lib/local-falcon-campaigns.mjs";
 
 const AGENT_NAME = "local-falcon-ingest";
@@ -52,7 +53,9 @@ const LF_KEY = process.env.LOCAL_FALCON_API_KEY;
 const LOOKBACK_DAYS = Number(process.env.LF_INGEST_LOOKBACK_DAYS ?? 45);
 const TOP_N = 5;
 
-const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : null; };
+// Number(null) and Number("") are 0 — that fabricated "0% SoLV" rows from
+// absent fields. localFalconNumber keeps missing as null, measured 0 as 0.
+const num = localFalconNumber;
 const first = (...vals) => vals.find((v) => v !== undefined && v !== null && v !== "");
 
 async function lfFetch(endpoint, params = {}) {
@@ -67,9 +70,11 @@ async function lfFetch(endpoint, params = {}) {
   return json;
 }
 
-function marketFor(placeId, campaignKey) {
-  const byPlace = LOCAL_FALCON_CAMPAIGNS.find((campaign) => campaign.placeId === placeId);
-  return byPlace?.location ?? localFalconCampaign(campaignKey)?.location ?? "Unknown";
+// Identity of ONE run: the scan's own place_id wins, then a dated legacy rule,
+// then current config. Falling back to today's config for an old run is how a
+// re-pointed key relabels history (4ee47a23's pre-10-02 runs are Alabaster).
+function identityFor(campaignKey, runDate, scanPlaceId) {
+  return localFalconRunIdentity(campaignKey, runDate, scanPlaceId || null);
 }
 
 function isFresh(dateStr) {
@@ -100,12 +105,10 @@ function isFresh(dateStr) {
 // could never yield a current row. Both the SoLV epoch and the grid differ, so
 // their numbers are not comparable to v3 either.
 //
-// 4ee47a23fc4793e is the ALABASTER / Butler Rd campaign and belongs here. An
-// earlier note said to hold it because it tracks the Butler Rd GBP rather than
-// 16th Ave — that was about which office the SITE routes Jefferson County to,
-// which is a separate question from which GBP a scan measures. Butler Rd is a
-// real office with a real profile and its own SoLV; e9348fff16b95fa covers
-// 16th Ave separately.
+// 2026-09-27: 4ee47a23fc4793e measured the Alabaster / Butler Rd profile through
+// its 2026-09-18 run (verified from the scan payload). It has been re-pointed to
+// the Birmingham 16th Ave profile from 2026-10-02, and 51d824c315edded is now the
+// Alabaster campaign. See agents/lib/local-falcon-campaigns.mjs.
 const SEEDED_CAMPAIGNS = LOCAL_FALCON_CAMPAIGNS.map((campaign) => ({
   campaign_key: campaign.key,
   name: campaign.campaignName,
@@ -144,7 +147,8 @@ async function readCampaignReport(campaignKey) {
   const byKeyword = Array.isArray(rd.by_keyword) ? rd.by_keyword : [];
   // Some report shapes list individual scans with platform + report_key.
   const scans = Array.isArray(rd.scans) ? rd.scans : Array.isArray(d.scans) ? d.scans : [];
-  return { runDate, headline: { solv: num(d.solv), saiv: num(d.saiv), arp: num(d.arp), atrp: num(d.atrp) }, byKeyword, scans };
+  const scanPlaceId = first(rd.place_id, d.place_id, null);
+  return { runDate, scanPlaceId, headline: { solv: num(d.solv), saiv: num(d.saiv), arp: num(d.arp), atrp: num(d.atrp) }, byKeyword, scans };
 }
 
 // ── scan report: competitors for one scan (fieldmasked, ~few KB) ────────────
@@ -191,7 +195,6 @@ export async function run() {
       const rep = await readCampaignReport(key);
       if (!isFresh(rep.runDate)) { summary.stale.push(`${c.name} (last run ${rep.runDate ?? "never"})`); continue; }
       const runDate = new Date(rep.runDate).toISOString().slice(0, 10);
-      const placeIds = Array.isArray(c.place_ids) ? c.place_ids : (Array.isArray(c.locations) ? c.locations.map((l) => l.place_id ?? l) : []);
       const platforms = Array.isArray(c.platforms) ? c.platforms : ["google"];
       const baseline = localFalconBaseline(c, key);
       const rows = [];
@@ -205,9 +208,10 @@ export async function run() {
           const comp = await readScanCompetitors(rk, platform);
           const metricIsSolv = ["google", "apple", "native"].includes(platform);
           const selfScore = comp?.self?.score ?? num(first(s.solv, s.saiv));
+          const who = identityFor(key, runDate, first(s.place_id, null));
           rows.push({
-            campaign_key: key, campaign_name: c.name ?? null, market: marketFor(first(s.place_id, placeIds[0]), key),
-            place_id: first(s.place_id, placeIds[0], null), platform, keyword: first(comp?.self?.keyword, s.keyword, "(campaign)"),
+            campaign_key: key, campaign_name: c.name ?? null, market: who.location,
+            place_id: who.placeId, platform, keyword: first(comp?.self?.keyword, s.keyword, "(campaign)"),
             run_date: runDate, grid_baseline: comp?.grid?.grid_size && comp?.grid?.radius ? localFalconBaseline(comp.grid, key) : baseline,
             solv: metricIsSolv ? selfScore : null, saiv: metricIsSolv ? null : selfScore,
             arp: comp?.self?.arp ?? num(s.arp), atrp: comp?.self?.atrp ?? num(s.atrp),
@@ -217,10 +221,12 @@ export async function run() {
       } else {
         // Path B: per-keyword aggregate only (no competitors) — still worth storing.
         if (!rep.byKeyword.length) summary.shape_warnings.push(`${c.name}: no by_keyword and no scans in report`);
+        // c.place_ids is TODAY's config, not necessarily what this run measured.
+        const who = identityFor(key, runDate, rep.scanPlaceId);
         for (const k of rep.byKeyword) {
           const metricIsSolv = platforms.length === 1 && ["google", "native"].includes(platforms[0]);
           rows.push({
-            campaign_key: key, campaign_name: c.name ?? null, market: marketFor(placeIds[0], key), place_id: placeIds[0] ?? null,
+            campaign_key: key, campaign_name: c.name ?? null, market: who.location, place_id: who.placeId,
             platform: metricIsSolv ? "google" : platforms.join("+"), keyword: k.keyword, run_date: runDate, grid_baseline: baseline,
             solv: metricIsSolv ? num(k.solv) : null, saiv: metricIsSolv ? null : num(first(k.saiv, k.solv)),
             arp: num(k.arp), atrp: num(k.atrp), top_competitors: null, report_key: null,
@@ -235,7 +241,10 @@ export async function run() {
 
   if (summary.stale.length) await writeFinding(AGENT_NAME, "local-falcon", "warning", null, `Local Falcon campaigns with no run in ${LOOKBACK_DAYS}d (paused or failing): ${summary.stale.join("; ")}`, { stale: summary.stale });
   if (summary.shape_warnings.length) await writeFinding(AGENT_NAME, "local-falcon", "warning", null, `Local Falcon report shape returned no keyword rows — check API response fields: ${summary.shape_warnings.join("; ")}`, { warnings: summary.shape_warnings });
-  const status = summary.errors.length && summary.rows === 0 ? "failed" : "ok";
+  // Any campaign error is visible in the status, not just a total wipe-out. On
+  // 2026-09-29 an HTTP 400 on one campaign was logged "ok" (Sunday audit 10-04).
+  // "partial" is not in the watchdog's HEALTHY set, so it surfaces as FAILED.
+  const status = summary.errors.length ? (summary.rows === 0 ? "failed" : "partial") : "ok";
   await logAgentRun(AGENT_NAME, status, summary);
   console.log(`[${AGENT_NAME}] ${summary.campaigns} campaigns → ${summary.rows} rows; stale ${summary.stale.length}; errors ${summary.errors.length}`);
   return summary;

@@ -17,6 +17,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
+import LocalExamples from "@/components/shared/LocalExamples";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
@@ -50,7 +51,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "PestControlService",
       "@id": "https://www.envirocarellc.com/madison",
       name: "EnviroCare — Huntsville / Madison Office",
       url: "https://www.envirocarellc.com",
@@ -78,11 +79,11 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "LocalBusiness", name: "EnviroCare", address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" } },
+      provider: { "@type": "PestControlService", name: "EnviroCare — Huntsville", "@id": "https://www.envirocarellc.com/#huntsville", address: { "@type": "PostalAddress", streetAddress: "7027 Old Madison Pike, Ste 108", addressLocality: "Huntsville", addressRegion: "AL", postalCode: "35806", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Madison", addressRegion: "AL" },
       name: "Pest Control Madison AL",
       description:
-        "Bi-monthly exterior perimeter service covering 30+ household pests. $35/month. Interior included quarterly. Unlimited re-service between visits.",
+        "Bi-monthly exterior perimeter service covering 30+ household pests. $35/month. Interior included quarterly. Free re-service between visits.",
     },
     {
       "@type": "FAQPage",
@@ -108,7 +109,7 @@ const jsonLd = {
           name: "How much does pest control cost in Madison AL?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® is priced after a free on-site WDO inspection.",
+            text: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® is priced after a free on-site WDO inspection.",
           },
         },
         {
@@ -132,7 +133,7 @@ const jsonLd = {
           name: "How do I cancel pest service?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Monthly plans use a 12-month ACH billing agreement, which spreads the year's cost into equal payments. Per-visit terms are confirmed in writing before service starts. Call (256) 937-7676 or email service@envirocarellc.com and we'll walk you through the options on your account. Most customers stay because of the unlimited free re-service between visits — if pests come back, we come back at no charge.",
+            text: "Monthly plans use a 12-month ACH billing agreement, which spreads the year's cost into equal payments. Per-visit terms are confirmed in writing before service starts. Call (256) 937-7676 or email service@envirocarellc.com and we'll walk you through the options on your account. Most customers stay because of the free re-service between visits — if pests come back, we come back at no charge.",
           },
         },
       ],
@@ -333,7 +334,7 @@ export default function MadisonPage() {
                 "30+ household pests covered",
                 "Exterior perimeter every other month",
                 "Interior included quarterly",
-                "Unlimited free re-service",
+                "Free re-service",
                 "Fire ant — separate add-on",
               ],
               cta: "/services/pest-control",
@@ -602,6 +603,10 @@ export default function MadisonPage() {
 
       <SectionDivider />
 
+      <LocalExamples slug="madison" cityName="Madison" officeName="Huntsville office" />
+
+      <SectionDivider />
+
       {/* ── FAQ ── */}
       <section style={{ padding: "72px 24px", maxWidth: 800, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 44 }}>
@@ -621,7 +626,7 @@ export default function MadisonPage() {
             },
             {
               q: "How much does pest control cost in Madison?",
-              a: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with unlimited free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® is priced after a free on-site WDO inspection.",
+              a: "Our bi-monthly exterior perimeter program is $35/month (ACH) or $70 per visit. That covers 30+ household pests with free re-service between visits. Interior service is $98/quarter. Termite protection via Sentricon® is priced after a free on-site WDO inspection.",
             },
             {
               q: "Is mosquito control worth it in Madison AL?",

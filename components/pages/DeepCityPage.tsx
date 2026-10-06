@@ -52,6 +52,13 @@ export type DeepCityConfig = {
   pressureCards: { emoji: string; title: string; body: string }[];
   services: { title: string; body: ReactNode }[];   // 5 city-named subsections
   faqs: { q: string; a: string }[];                 // plain text → also FAQPage schema
+  /**
+   * Optional long-form SEO body copy, rendered as paragraphs after the quotable
+   * summary. Added 2026-10-06 so city pages can carry enough on-topic depth to
+   * clear their NeuronWriter target band without keyword-stuffing the summary or
+   * FAQs. Omit entirely to keep a page unchanged.
+   */
+  body?: string[];
   siblings: [string, string][];                     // [name, href] internal links
   /**
    * Which office answers this city. OMIT for Alabaster-served cities — the
@@ -115,7 +122,7 @@ function buildJsonLd(c: DeepCityConfig) {
           "@type": "OfferCatalog",
           name: `Pest & Termite Control in ${c.name}`,
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with unlimited re-service. $35/month." },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with free re-service. $35/month." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting with no drilling. Qualifying homes may receive up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "45", description: "$45 per month via ACH, with eight treatments March–October and payments averaged equally across the year." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage." },
@@ -152,7 +159,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>{c.badge}</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
-              {c.name} Pest Control<br />
+              {c.name} Pest Control{" "}<br />
               <span style={{ color: Au, fontStyle: "italic", fontWeight: 700 }}>&amp; Termite Service</span>
             </h1>
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 640, marginBottom: "2rem" }}>{c.heroIntro}</p>
@@ -175,6 +182,20 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "#2b3a2f", margin: 0 }}>{c.summary}</p>
           </div>
         </section>
+
+        {/* LONG-FORM BODY (optional) */}
+        {c.body && c.body.length > 0 && (
+          <section style={{ padding: "2.5rem clamp(1.5rem,5vw,4rem) 0", background: "#fff" }}>
+            <div style={{ maxWidth: 900, margin: "0 auto" }}>
+              <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.6rem,3vw,2.2rem)", color: Ik, margin: "0 0 1rem" }}>
+                Pest control in {c.name}, AL
+              </h2>
+              {c.body.map((para, i) => (
+                <p key={i} style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>{para}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* PRESSURE CARDS */}
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
@@ -220,7 +241,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
-            <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Unlimited free re-services", "Quarterly interior on request"]} />
+            <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Free re-services", "Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare damage repair coverage on qualifying homes, subject to agreement terms", "Priced after a free WDO inspection"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier", "March – October (8 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – October"]} />

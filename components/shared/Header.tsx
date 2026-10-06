@@ -28,7 +28,11 @@ import { useEffect, useState } from "react";
 import { Phone, Menu, X, Sparkles, User, Flower2 } from "lucide-react";
 import { phoneForPath } from "../../data/city-offices";
 
-const PAY_BILL_URL = "https://payenvirocare.key7app.com/User/Login";
+// The one internal Pay Bill URL. app/pay/page.tsx redirects it to the Key7
+// portal, so if the processor ever changes, that file changes and nothing here
+// does — same destination for the desktop button, the mobile menu item, the
+// footer link and the mobile action bar.
+const PAY_BILL_URL = "/pay";
 
 function openScout(message?: string) {
   if (typeof window !== "undefined") {
@@ -162,7 +166,7 @@ export default function Header() {
             <button type="button" className="sh-ask" onClick={() => openScout()}>
               <Sparkles size={16} aria-hidden="true" /> <span>Ask an Expert</span>
             </button>
-            <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-pay">
+            <a href={PAY_BILL_URL} className="sh-pay">
               <span>Pay Bill</span>
             </a>
             <Link href="/quote" className="sh-quote">
@@ -187,6 +191,19 @@ export default function Header() {
             <button type="button" className="sh-panel-close" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
           </div>
           <div className="sh-panel-links">
+            {/*
+              PAY BILL FIRST (2026-09-22). This used to sit at the very bottom of
+              the panel, below the Services and Service Areas accordions AND below
+              the quote/ask CTA block — so once a visitor expanded either accordion
+              on a phone, billing was pushed well off screen. Paying a bill is a
+              high-frequency existing-customer task; it should not be competing for
+              scroll position with marketing nav. Labelled for what it does, since
+              "Customer Login" never said "Pay Bill" anywhere in the mobile UI.
+            */}
+            <a href={PAY_BILL_URL} className="sh-panel-login" onClick={() => setMenuOpen(false)}>
+              <User size={17} aria-hidden="true" /> Pay My Bill / Customer Login
+            </a>
+
             <details className="sh-group">
               <summary className="sh-group-sum">Services</summary>
               <div className="sh-group-body">
@@ -223,9 +240,6 @@ export default function Header() {
               <Sparkles size={16} aria-hidden="true" /> Ask an Expert
             </button>
           </div>
-          <a href={PAY_BILL_URL} target="_blank" rel="noopener noreferrer" className="sh-panel-login" onClick={() => setMenuOpen(false)}>
-            <User size={17} aria-hidden="true" /> Customer Login
-          </a>
           <div className="sh-panel-foot">Family-Owned · Fourth Generation · Birmingham · Lake Martin · Huntsville</div>
         </nav>
       </div>
@@ -376,7 +390,7 @@ const SH_CSS = `
     .sh-group-sum, .sh-group-sum::after, .sh-sub { transition: none; }
   }
   .sh-panel-login {
-    margin-top: 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 4px 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     padding: 13px 18px; border-radius: 999px; background: #0A7935; color: #fff !important;
     font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 4px 14px rgba(10,121,53,0.28);
   }

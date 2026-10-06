@@ -1,5 +1,13 @@
 > # SUPERSEDED — 2026-08-10. DO NOT IMPLEMENT THESE PRICES.
 >
+> **Mosquito, also superseded — 2026-08-26 ruling.** Everything below that prices mosquito
+> or mosquito + tick **per treatment** ($65/treatment, "$49/mo" as a treatment average) is
+> retired. Current: **Mosquito $45/month**, **Mosquito + Tick $65/month**, **eight treatments,
+> March–October**, monthly only (`data/pricing.ts`). The season and treatment count below
+> were corrected on 2026-09-25, but the per-treatment arithmetic around them was left as
+> historical record — do not recompute a monthly figure from it ($65 × 8 ÷ 12 = $43.33 is a
+> banned derived price).
+>
 > This is the **Jun 11 2026** spec. Its `$67/mo` Pest + Termite tier was superseded and
 > is **not** the live price. The declared single source of truth is **`data/pricing.ts`**,
 > which reads **$35 / $69 / ~$100** with $75 / $75 / $229 startup — matching live
@@ -37,15 +45,15 @@ Toggle labels: `Per Service` | `Monthly Plan` (already exists on page — keep, 
 - Bullets unchanged ($1M coverage etc.)
 
 ### Outdoor Pro — Mosquito + Tick
-- Monthly: **$49/mo** · "($65/treatment × 9 treatments, billed evenly across 12 months)"
-- Per Service: **$65 per treatment** · "9 treatments · every 30 days · March–November"
+- Monthly: **$49/mo** · "($65/treatment × 8 treatments, billed evenly across 12 months)"
+- Per Service: **$65 per treatment** · "8 treatments · every 30 days · March–October"
 - Bullets: ✓ Mosquito barrier reduction program · ✓ Tick + **chigger** coverage — built for lake & wooded lots · ✓ Free re-treatment between visits if biting pests return · ✓ $0 initial fee
 - NEVER: elimination/mosquito-free claims. REMOVE flea from this card entirely.
 
 ### Complete — All Four
 - Monthly: **$116/mo** · "exact standalone math: $35 + $32 + $49. Zero bundle markup."
 - Per Service: "Pest $70/visit + Termite $325/$380yr + Outdoor $65/treatment"
-- Bullets: ✓ Everything in Foundation · ✓ Mosquito + tick + chigger program (9 treatments Mar–Nov) · ✓ One technician learns your property · ✓ Priority same-week response
+- Bullets: ✓ Everything in Foundation · ✓ Mosquito + tick + chigger program (8 treatments Mar–Oct) · ✓ One technician learns your property · ✓ Priority same-week response
 - REMOVE: "Tick included / Flea included" lines.
 
 ## Trust strip (replaces promo trio or sits under it)
@@ -65,7 +73,7 @@ Toggle labels: `Per Service` | `Monthly Plan` (already exists on page — keep, 
 4. "Chigger coverage" — unique Lake Martin/wooded-lot hook nobody local is saying.
 
 ## Also update when shipping
-- /services/mosquito-control: 9 treatments (not 12), re-treatment promise, no elimination language
+- /services/mosquito-control: 8 treatments (not 12), re-treatment promise, no elimination language
 - /services/tick-control: "+$20/treatment with mosquito ($65 total)" not "free"
 - /services/flea: interior add-on +$30/quarter
 - /services/termite-control: $325 install incl yr-1 / $380 renewal

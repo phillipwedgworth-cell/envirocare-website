@@ -1,11 +1,13 @@
+import type { Metadata } from 'next';
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import CityPage from '@/components/pages/CityPage';
 
-export const metadata = {
+export const metadata: Metadata = withOpenGraph({
   alternates: { canonical: '/eclectic' },
   openGraph: { url: 'https://www.envirocarellc.com/eclectic', images: ['/og/og-eclectic.png'] },
   title: 'Eclectic Pest Control & Termite Service | EnviroCare Since 1958',
   description: 'Eclectic, AL pest control. Lake Martin south-shore service. Family-owned. Call (256) 234-6162.',
-};
+});
 
 export default function EclecticPage() {
   return <CityPage slug="eclectic" />;

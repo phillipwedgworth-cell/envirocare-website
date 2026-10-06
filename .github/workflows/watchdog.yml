@@ -27,5 +27,13 @@ jobs:
           VERCEL_TOKEN:         ${{ secrets.VERCEL_TOKEN }}        # optional: enables Vercel deploy/cost check
           VERCEL_PROJECT_ID:    prj_bD63HstQIuOMn5cEGDK4RAW7yM2F
           VERCEL_TEAM_ID:       envirocare-50d39ae8
+          # GA4 daily-collection check (ga4Check in agents/watchdog.mjs). Same OAuth
+          # credentials agents/ingest-ga4.mjs uses. WITHOUT these the check does not
+          # fail — it reports "skipped — GA4 collection is UNMONITORED", which is the
+          # state that let the Aug 2026 outage run ~9 days unnoticed.
+          GOOGLE_CLIENT_ID:     ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GA4_PROPERTY_ID:      ${{ secrets.GA4_PROPERTY_ID }}
           DAILY_USD_BUDGET:     "5"
           DEPLOY_ANOMALY:       "12"

@@ -33,7 +33,7 @@ export default function ReviewsPage() {
         <div className="trust-inner">
           <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Reviews</div>
           <div className="ti"><div className="ti-chk">✓</div>Verified Reviews</div>
-          <div className="ti"><div className="ti-chk">✓</div>3 Office Locations</div>
+          <div className="ti"><div className="ti-chk">✓</div>4 Office Locations</div>
           <div className="ti"><div className="ti-chk">✓</div>68 Years Family-Owned</div>
           <div className="ti"><div className="ti-chk">✓</div>27 Cities Served</div>
         </div>

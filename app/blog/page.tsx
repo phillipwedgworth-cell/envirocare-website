@@ -2,6 +2,7 @@
 // Blog index — server-rendered. Wires the index to data/blog-posts so the real
 // posts (previously orphaned behind a hardcoded "Coming Soon" placeholder) are
 // listed and linkable. Styling carried via BLOG_CSS (see blogStyles.ts).
+import Image from 'next/image';
 import Link from 'next/link';
 import { getPublishedPosts } from '@/data/blog-posts';
 import { BLOG_CSS } from './blogStyles';
@@ -62,7 +63,19 @@ export default function Page() {
           <div className="blog-grid">
             {posts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card" style={{ textDecoration: 'none' }}>
-                <div className="blog-thumb"><div className="blog-thumb-icon" aria-hidden="true">{post.heroEmoji}</div></div>
+                <div className="blog-thumb">
+                  {post.heroImage ? (
+                    <Image
+                      src={post.heroImage.src}
+                      alt={post.heroImage.alt}
+                      fill
+                      sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  ) : (
+                    <div className="blog-thumb-icon" aria-hidden="true">{post.heroEmoji}</div>
+                  )}
+                </div>
                 <div className="blog-body">
                   <div className="blog-cat">{post.category}</div>
                   <div className="blog-title">{post.title}</div>

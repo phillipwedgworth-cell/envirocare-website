@@ -35,7 +35,11 @@ export interface Office {
 export const OFFICES: Record<OfficeId, Office> = {
   birmingham: {
     id: 'birmingham',
-    name: 'Birmingham / Alabaster',
+    // NAME is 'Alabaster' (the 2025 Butler Rd office). The ID stays 'birmingham'
+    // because ZIP routing keys off it -- see the naming trap in AGENTS.md.
+    // Renamed 2026-09-29: as 'Birmingham / Alabaster' it put the Birmingham name
+    // next to (205) 940-6360 in the header and every mobile call button.
+    name: 'Alabaster',
     address: { street: '2025 Butler Rd', city: 'Alabaster', region: 'AL', postalCode: '35007' },
     phone: '(205) 940-6360', // real MAIN line
     phoneHref: 'tel:+12059406360',

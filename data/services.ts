@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: data/services.ts
+// Commit: feat(seo): money-page titles/H1s target the queries GSC already shows them for
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: data/services.ts
 // Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
 // Push: main
 // ─────────────────────────────────────
@@ -45,6 +51,13 @@ export type Service = {
    * sitemap while being linked from nowhere in the codebase.
    */
   relatedLinks?: { href: string; label: string; note: string }[];
+  /**
+   * "Near you" hub links — crawlable anchors from a statewide service page to the
+   * local pages that own city-level intent (added 2026-09-30). The service is
+   * explained once here; each local page supplies the city-specific detail, so
+   * this list is links plus a one-line office note, never duplicated copy.
+   */
+  nearYou?: { heading: string; lede: string; links: { href: string; label: string; note: string }[] };
 };
 
 export const SERVICES: Service[] = [
@@ -57,11 +70,11 @@ export const SERVICES: Service[] = [
     serviceArt: 'pest',
     price: '$35/mo ACH',
     priceSub: 'or $70 bi-monthly',
-    metaTitle: 'Pest Control in Birmingham, AL | Bi-Monthly Service | EnviroCare',
+    metaTitle: 'Pest Control Services & Plans in Alabama | From $35/mo | EnviroCare',
     metaDescription: 'Bi-monthly home pest control for ants, roaches, spiders and more across EnviroCare service areas in Alabama. Four local offices serving surrounding communities.',
     heroEyebrow: 'Year-Round Pest Defense',
     heroTagline: 'Bi-Monthly Pest Control',
-    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, two ways to pay, family-owned since 1958.',
+    heroSubhead: 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests. Free re-services, two ways to pay, family-owned since 1958.',
     features: [
       'Bi-monthly exterior treatment',
       '30+ common pests covered',
@@ -84,7 +97,7 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: 'Why bi-monthly instead of quarterly?', a: 'Exterior barrier products typically wear down after about 60 days. A quarterly (90-day) plan leaves roughly a month each cycle with no active barrier — which is when pests return. Bi-monthly re-treats every 60 days, right as the previous application wears off, so there\'s no gap.' },
       { q: 'What pests does the regular service cover?', a: 'Ants, cockroaches, spiders, silverfish, crickets, earwigs, and the common occasional invaders. Fire ants, fleas, and ticks are handled as separate targeted treatments, and stinging insects like wasps, hornets, and carpenter bees are available to pest customers as an add-on for an additional charge.' },
-      { q: 'How much does pest control cost?', a: 'About $35/month on auto-draft, or $70 per bi-monthly service. There\'s a quarterly option around $98, and the one-time initial service fee is $75.' },
+      { q: 'How much does pest control cost?', a: 'About $35/month on auto-draft, or $70 per bi-monthly service. There\'s a quarterly option around $98. The one-time initial service is $150 standard — $75 while our 50%-off initial-service offer runs.' },
       { q: 'What if pests show up between visits?', a: 'Let us know and we\'ll come back out between scheduled services.' },
       { q: 'Do you treat inside the home?', a: 'Our standard service focuses on the exterior perimeter to stop pests before they get in, and we treat interior areas as needed. Fleas specifically require a dedicated interior service.' },
     ],
@@ -92,12 +105,12 @@ export const SERVICES: Service[] = [
       'Most pest problems aren\'t a one-time event — they\'re constant pressure from outside trying to get in. The real question isn\'t whether your home gets treated, it\'s whether the protective barrier is still working when the bugs show up. That\'s where EnviroCare\'s bi-monthly service is built differently, across Birmingham, Huntsville, Lake Martin, and Auburn.',
       'Here\'s something most homeowners are never told: the exterior barrier products that keep pests out typically break down after about 60 days — sooner in Alabama heat, sun, and rain. A standard quarterly plan treats every 90 days, which leaves roughly a month each cycle where the barrier has worn off and nothing new has been applied. That gap is when the ants and roaches come back. Our bi-monthly service treats every 60 days, re-applying the barrier right as the previous treatment wears off, so there\'s no open window for pests to exploit.',
       'Our regular service handles the common household pests that pressure Alabama homes — ants (excluding fire ants), cockroaches, spiders, silverfish, crickets, earwigs, and wasps around the exterior. We treat the exterior perimeter — entry points, foundation, eaves, and the zones where pests get in — so we\'re stopping them before they\'re inside. If something does show up between visits, we\'ll come back out. Some pests need their own targeted treatment and aren\'t part of the standard plan: fire ants, fleas (an interior service), and ticks (a seasonal yard treatment).',
-      'Straightforward pricing: about $35/month on auto-draft (ACH), or $70 per bi-monthly service. A quarterly option runs about $98, and the one-time initial service fee is $75. We serve Birmingham, Alabaster, Hoover, Mountain Brook, Vestavia Hills, Homewood, Trussville, and Chelsea; Huntsville, Madison, and Athens; and Alexander City, Lake Martin, and Auburn. A familiar local team handles your home whenever possible.',
+      'Straightforward pricing: about $35/month on auto-draft (ACH), or $70 per bi-monthly service. A quarterly option runs about $98. The one-time initial service is $150 standard — $75 while our 50%-off initial-service offer runs. We serve Birmingham, Alabaster, Hoover, Mountain Brook, Vestavia Hills, Homewood, Trussville, and Chelsea; Huntsville, Madison, and Athens; and Alexander City, Lake Martin, and Auburn. A familiar local team handles your home whenever possible.',
     ],
     pestsFeatured: [
       { name: 'Millipede Control', desc: 'Slow, many-legged invaders that pour indoors by the dozen after heavy Alabama rain — along garages, baseboards, and foundation lines. Our perimeter barrier stops them at the door.' },
       { name: 'Centipede Control', desc: 'Fast, leggy hunters that turn up in bathrooms, basements, and crawlspaces chasing other insects. We treat the harborage points where they enter.' },
-      { name: 'Cricket Control', desc: 'House and camel crickets that chirp through walls and chew paper and fabric — common in Birmingham garages and crawlspaces. Treated at every bi-monthly visit.' },
+      { name: 'Cricket Control', desc: 'House and camel crickets that chirp through walls and chew paper and fabric — common in Alabama garages and crawlspaces. Treated at every bi-monthly visit.' },
       { name: 'Earwig Control', desc: 'Pincer-tailed insects that gather under mulch, pots, and door thresholds, then slip inside during dry spells. We knock down the outdoor population before they get in.' },
       { name: 'Spider Control', desc: 'House spiders, wolf spiders, and their webs knocked down at eaves, corners, and entry points on every visit, plus the perimeter treated to cut off their food source.' },
       { name: 'Silverfish Control', desc: 'Moisture-loving insects that damage books, wallpaper, and stored paper in closets, attics, and bathrooms. Targeted where they hide and breed.' },
@@ -111,38 +124,59 @@ export const SERVICES: Service[] = [
       'House flies','Fruit flies','Gnats',
       'House mice','Roof rats','Norway rats',
     ],
+    nearYou: {
+      heading: 'Pest Control Near You',
+      lede: 'The service above is the same everywhere we work. What changes by town is the pest pressure, the neighborhoods, and the office that answers the phone — each local page covers that detail.',
+      links: [
+        { href: '/birmingham', label: 'Birmingham', note: 'Jefferson County · 2120 16th Ave S · (205) 991-2882' },
+        { href: '/alabaster', label: 'Alabaster', note: 'Shelby County · 2025 Butler Rd · (205) 940-6360' },
+        { href: '/chelsea', label: 'Chelsea', note: 'Shelby County · Alabaster office' },
+        { href: '/trussville', label: 'Trussville', note: 'Jefferson / St. Clair · Birmingham office' },
+        { href: '/huntsville', label: 'Huntsville', note: 'North Alabama · 7027 Old Madison Pike · (256) 937-7676' },
+        { href: '/madison', label: 'Madison', note: 'North Alabama · Huntsville office' },
+        { href: '/decatur', label: 'Decatur', note: 'Morgan County · Huntsville office' },
+        { href: '/alexander-city', label: 'Alexander City', note: 'Lake Martin · 1785 Tallapoosa St · (256) 234-6162' },
+        { href: '/lake-martin', label: 'Lake Martin', note: 'Lake homes and cabins · Alex City office' },
+        { href: '/auburn', label: 'Auburn', note: 'Lee County · (334) 332-3321' },
+        { href: '/opelika', label: 'Opelika', note: 'Lee County · (334) 332-3321' },
+      ],
+    },
   },
   {
     slug: 'termite-control',
-    relatedLinks: [{ href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers, subject to the terms of the agreement', note: 'Before you compare our termite protection against another company’s, it is worth reading' }],
+    relatedLinks: [
+      { href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers, subject to the terms of the agreement', note: 'Before you compare our termite protection against another company’s, it is worth reading' },
+      { href: '/blog/is-sentricon-worth-it', label: 'Is Sentricon worth it?', note: 'Weighing the cost of a bait system against what it protects? A Certified Sentricon Specialist answers' },
+      { href: '/blog/sentricon-vs-liquid-termite-treatment', label: 'Sentricon vs. liquid termite treatment', note: 'If you have been quoted a trench-and-drill liquid barrier instead, compare the two in' },
+    ],
     name: 'Termite Control',
     shortName: 'Termite',
     category: 'core',
     serviceArt: 'termite',
     price: 'Free inspection',
     priceSub: 'Sentricon® quote provided after free WDO inspection & approval',
-    metaTitle: 'Alabama Termite Control & Sentricon® | EnviroCare $1M Coverage',
-    metaDescription: 'Sentricon® termite protection with in-ground bait stations and no drilling. Free WDO inspection; termite service is quoted after inspection in EnviroCare service areas.',
+    metaTitle: 'Termite Control in Birmingham, AL & Sentricon® | EnviroCare $1M Coverage',
+    metaDescription: 'Termite control in Birmingham, AL with the Sentricon® bait system — no drilling, no tank trucks. Free WDO termite inspection; Sentricon® is quoted after inspection in EnviroCare service areas.',
     heroEyebrow: 'Sentricon® Certified Specialist',
-    heroTagline: 'Sentricon® Termite Protection',
-    heroSubhead: 'Sentricon® Always Active™ bait stations protect your home from subterranean termites — with up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval. No drilling, no tank trucks, no concrete cutting.',
+    heroTagline: 'Termite Control in Birmingham, AL — Sentricon® Protection',
+    heroSubhead: 'Sentricon® Always Active™ bait stations protect your Birmingham home from subterranean termites — with up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. No drilling, no tank trucks, no concrete cutting.',
     features: [
-      'Sentricon® Always Active™ system',
-      'Up to $1,000,000 EnviroCare repair coverage',
-      'Annual termite inspection',
+      'Sentricon® Always Active™ termite control system',
+      'Up to $1,000,000 EnviroCare damage repair coverage',
+      'Annual termite inspection in the Birmingham area',
       'WDO inspection letter (1/yr)',
       'No drilling, no tank trucks',
       'No concrete cutting',
     ],
     includes: [
-      { title: 'Initial Installation', desc: 'Sentricon® bait stations placed around your home perimeter. No drilling, no mess, no disruption to landscaping.' },
-      { title: 'Ongoing Monitoring', desc: 'Stations checked annually. Bait is always active — termites encountering it carry the lethal dose back to the colony.' },
-      { title: '$1M Damage Repair Coverage', desc: 'Backed by EnviroCare directly. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1M.' },
-      { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling.' },
+      { title: 'Initial Installation', desc: 'Sentricon® bait stations placed around your Birmingham home\'s perimeter. No drilling, no mess, no disruption to landscaping.' },
+      { title: 'Ongoing Monitoring', desc: 'Stations checked annually. Bait is always active — termites encountering the bait carry the lethal dose back to the colony.' },
+      { title: '$1M Damage Repair Coverage', desc: 'Backed by EnviroCare directly. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1,000,000, subject to the terms of the agreement.' },
+      { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling a Birmingham home.' },
     ],
     wedgePoints: [
-      { lead: 'Sentricon® > liquid barriers', body: 'Liquid treatments require drilling concrete, retreating every 5–7 years, and have shrinking effectiveness as they break down. Sentricon® bait stations eliminate the entire colony, not just the perimeter.' },
-      { lead: '$1M is real coverage', body: 'Real EnviroCare-backed coverage, not a vague promise. If termites damage your home while protected, you get fixed, not finger-pointed.' },
+      { lead: 'Sentricon® > liquid barriers', body: 'Liquid termite control services require drilling concrete, retreating every 5–7 years, and lose effectiveness as they break down. Sentricon® bait stations eliminate the entire colony, not just the perimeter.' },
+      { lead: '$1M is real coverage', body: 'Real EnviroCare-backed damage repair coverage, subject to the terms of the agreement — not a vague promise. If termites damage your home while protected, you get fixed, not finger-pointed.' },
       { lead: 'No drilling means no damage', body: 'Liquid barrier installations drill every 12 inches through your slab, patio, driveway. Sentricon® stations go in the ground around the perimeter. No concrete touched.' },
     ],
     faqs: [
@@ -150,16 +184,19 @@ export const SERVICES: Service[] = [
       { q: 'What does the $1M coverage actually cover?', a: 'If subterranean termites cause damage to your home while you\'re on the Sentricon® Always Active™ system and we\'ve been maintaining it, EnviroCare covers repair costs up to $1,000,000. That coverage is backed by EnviroCare directly.' },
       { q: 'Will Sentricon® mess up my landscaping?', a: 'No. Bait stations are small (about the size of a soda can) and installed flush with the ground around your home perimeter. No drilling, no concrete cuts, no torn-up flowerbeds.' },
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
+      { q: 'How much does termite control cost in Birmingham, AL?', a: 'Sentricon® termite control is priced at inspection, never as a flat number, because no two Birmingham homes need the same system. What sets the price: the length of the foundation perimeter (which sets how many bait stations go in), the construction and slab type, whether termites are already active, and the ongoing monitoring that keeps the system working. The WDO termite inspection is free, and you get a written quote for your home before anything is installed.' },
+      { q: 'What are common signs of a termite infestation?', a: 'The most common signs are mud tubes running up foundation or crawlspace walls, wood that sounds hollow when tapped or looks rippled, discarded swarmer wings near windows after a spring swarm, and frass. A free termite inspection confirms whether you have an active termite infestation in your Birmingham home.' },
       { q: 'Do I need to be a current customer?', a: 'No. We install Sentricon® for any Alabama home in our service area. Many customers add bi-monthly pest control after experiencing our termite service.' },
       { q: 'What about during a real estate transaction?', a: 'We provide WDO (Wood-Destroying Organism) inspection letters for refinancing and home sales. One included per year on active accounts; otherwise $125 standalone fee.' },
-      { q: 'What if I already have an active termite infestation?', a: 'Sentricon® handles an active infestation as well as prevention — the colony feeds on the bait and collapses from the inside. Unlike termite control services that only treat what you can see, colony elimination stops the damage at its source.' },
+      { q: 'What if I already have an active termite infestation?', a: 'Sentricon® handles an active infestation as well as prevention — the colony feeds on the bait and collapses from the inside. Unlike termite control services that only treat what you can see, colony elimination stops the damage at its source in your Birmingham home.' },
     ],
     intro: [
-      'For termite control in Alabama, EnviroCare installs the Sentricon® Always Active™ bait system — a method that eliminates the entire subterranean termite colony rather than only treating the soil you can see. Most liquid termite control services create a chemical barrier that requires drilling through your slab, patio, and driveway, then loses strength and needs retreatment every five to seven years. Sentricon® stations sit in the ground around your home perimeter, so there is no drilling, no concrete cutting, and no tank trucks in the yard.',
-      'Termites cause damage quietly, and an active infestation can go unnoticed until it reaches structural wood. With Sentricon®, foraging termites carry the bait back to the colony, collapsing it from the inside — which stops both an existing infestation and future ones. Every protected home includes annual monitoring and one Wood-Destroying Organism (WDO) inspection letter per year, the document lenders require for refinancing or selling.',
-      'Behind it stands EnviroCare-backed coverage: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection. That coverage is backed by EnviroCare directly. Installation takes most homes one to two hours, and you do not need to be an existing pest control customer to start.',
-      'Alabama\'s humidity, mild winters, and clay-heavy soil make it one of the most active subterranean termite regions in the country. A single colony can number in the hundreds of thousands and forage silently through floor joists, sills, and framing for years before any sign shows. By the time you notice mud tubes, hollow-sounding wood, or discarded wings on a windowsill, the damage is often already done — which is why protection has to be continuous rather than a one-time treatment you hope holds.',
-      'Watch for the early warning signs of termites: mud tubes running up your foundation, piers, or crawlspace walls; wood that sounds hollow when tapped or paint that looks rippled or bubbled; discarded wings near windows and doors after a spring swarm; doors or windows that suddenly stick from subtle warping; and frass or visible galleries in damaged wood. If you spot any of these, schedule a free WDO inspection — early action is the difference between a monitoring plan and a repair bill.',
+      'For termite control in Birmingham, AL, EnviroCare installs the Sentricon® Always Active™ bait system — a termite control method that eliminates the entire subterranean termite colony rather than only treating the soil you can see. Most liquid termite treatment services create a chemical barrier that requires drilling through your slab, patio, and driveway, then loses strength and needs retreatment every five to seven years. Across the Birmingham area, Sentricon® bait stations sit in the ground around your home\'s perimeter, so there is no drilling, no concrete cutting, and no tank trucks in the yard.',
+      'EnviroCare is a locally owned, professional pest control company serving Birmingham and the surrounding metro. Beyond termite treatment, our technicians handle residential pest control and commercial pest control services, so one local pest control team can protect your home or business from termites and common household pests alike. For many Birmingham homeowners, a thorough termite inspection is the first step toward year-round peace of mind — and a preventative plan that protects your home before termites can cause structural damage. Among Birmingham pest control companies, our comprehensive termite protection pairs Sentricon® bait with annual termite inspections, giving you professional termite services and termite treatment options rather than a one-size exterminator visit.',
+      'Termites cause damage quietly, and an active termite infestation can go unnoticed until it reaches structural wood. With Sentricon®, foraging termites carry the bait back to the colony, collapsing it from the inside — which stops both an existing infestation and future ones. Every protected Birmingham home includes an annual termite inspection and one Wood-Destroying Organism (WDO) inspection letter per year, the document lenders require for refinancing or selling.',
+      'Behind it stands EnviroCare-backed coverage: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection, subject to the terms of the agreement. Installation takes most Birmingham homes one to two hours, and you do not need to be an existing pest control customer to start — though many Birmingham families add bi-monthly pest control after their termite inspection.',
+      'Birmingham\'s humidity, mild winters, and clay-heavy soil make the metro one of the most active subterranean termite regions in the country. Jefferson and Shelby County homes sit in heavy termite pressure: a single colony can number in the hundreds of thousands and forage silently through floor joists, sills, and framing for years before any sign shows. That is why Birmingham termite protection has to be continuous monitoring rather than a one-time treatment you hope holds.',
+      'Watch for the early warning signs of a termite infestation: mud tubes running up your foundation, piers, or crawlspace walls; wood that sounds hollow when tapped or paint that looks rippled or bubbled; discarded wings near windows and doors after a spring swarm; doors or windows that suddenly stick from subtle warping; and frass or visible galleries in damaged wood. If you spot any of these at your Birmingham home, schedule a free WDO termite inspection — early action is the difference between a monitoring plan and a repair bill.',
     ],
   },
   {
@@ -181,7 +218,7 @@ export const SERVICES: Service[] = [
     metaTitle: 'Mosquito Control in Birmingham & Huntsville, AL | EnviroCare',
     metaDescription: 'Seasonal mosquito control across EnviroCare service areas in Alabama, with 8 scheduled treatments from March through October. Free inspection and local service.',
     heroEyebrow: 'Take Back Your Yard',
-    heroTagline: 'Mosquito Barrier Treatment',
+    heroTagline: 'Seasonal Mosquito Control',
     heroSubhead: '30-day yard barrier treatments March through October. Make your patio livable and your evenings outdoor again.',
     features: [
       '30-day refresh cycle',
@@ -444,44 +481,60 @@ export const SERVICES: Service[] = [
     slug: 'commercial',
     intro: [
       'A pest problem at your business isn\'t just a nuisance — it\'s a threat to your reputation, your health-inspection score, and your bottom line. EnviroCare provides discreet, dependable commercial pest control for Alabama businesses, with the documentation and flexible scheduling that operators and property managers actually need, across Birmingham, Huntsville, Lake Martin, and Auburn.',
-      'We work with a wide range of commercial properties — restaurants and food service, retail and grocery, offices and professional buildings, warehouses and distribution, property management and multi-family, and medical and assisted-living facilities. Every facility is different, so every commercial program starts with a walkthrough of your property rather than a one-size-fits-all package.',
+      'We work with a wide range of commercial properties — restaurants and food service, retail and grocery, offices and professional buildings, warehouses and distribution, data centers and technology facilities, property management and multi-family, and medical and assisted-living facilities. Every facility is different, so every commercial program starts with a walkthrough of your property rather than a one-size-fits-all package.',
+      'Integrated Pest Management (IPM) is how every commercial program here is built. IPM means finding out why pests are getting in and what is feeding them, fixing the conditions where we can, and using the most targeted treatment that will do the job — not spraying on a calendar because it is Tuesday. In practice that is inspection and monitoring first, then exclusion and sanitation recommendations, then mechanical controls such as traps and glue boards, and targeted materials only where monitoring shows activity. Every step goes into the service record, so you can see what was found, what was done, and whether activity is trending down.',
+      'Data centers, server rooms, and technology facilities need a different program than a restaurant. Routine aerosol and broadcast spraying is a poor fit around raised floors, cooling equipment, and sensitive electronics, and many facility managers restrict it outright. For these sites EnviroCare designs a low-aerosol IPM program: exclusion work at dock doors, cable and conduit penetrations, and roof and wall gaps; tamper-resistant rodent monitoring stations and mechanical traps on the exterior and in approved interior locations; pheromone and sticky monitors to detect insect activity early; and precise gel-bait placements in cracks and crevices where monitoring shows a problem. The program is documented station by station, and treatment methods are agreed with your facility team before work begins. The same approach suits labs, clean offices, and any building where you would rather not have routine spraying inside.',
+      'Warehouses and distribution centers are mostly a rodent and exclusion problem. Dock doors, trailer seals, pallets, and stored goods give mice and rats cover and food. We map exterior and interior monitoring stations, seal the entry points we can reach, recommend door-sweep and dock-seal repairs where they are the real fix, and log activity at every station so a trend shows up before product damage does. Offices, retail, and property management work the other way — the pressure is ants, roaches, and occasional invaders around break rooms, trash rooms, and units — and multi-family programs are coordinated with management so vacant and turnover units are handled before the next resident moves in.',
       'Service includes a program built around your facility, flexible scheduling that works around your hours so service never disrupts customers or operations, service documentation and pest logs to support health inspections and audits, discreet professional technicians, and EPA-registered products applied strictly according to label directions. A familiar local team handles your account whenever possible, so the people servicing your property actually know your facility.',
       'We\'re a four-generation Alabama family company, and commercial accounts get the same responsiveness our residential customers count on — direct local phone numbers, real technicians, and follow-through. For restaurants, food handling, healthcare, and multi-family properties, we keep clear service records and pest activity logs so you\'re ready for a health inspection or third-party audit at any time. Every commercial program is quoted after a walkthrough of your property.',
       'What actually shows up in a commercial building: cockroaches follow food and moisture into kitchens, break rooms, and floor drains. Rodents — mice and rats both — come in through dock doors and utility penetrations as nights cool, and they chew what they find. Ants work dumpster pads and kitchens through mild Alabama winters. Wasps and yellow jackets build at entries and signage, right where they meet your customers. Mosquitoes hold patios and outdoor dining from March through October. And termites work commercial buildings the same way they work houses — quietly, from the soil up.',
-      'Commercial termite protection is handled the same way it is on a home, and it is worth asking about separately: termites work every building in Jefferson County from the soil up, quietly, and a commercial slab gives no warning before the damage is structural. EnviroCare is a Sentricon Certified Specialist, and commercial buildings on Sentricon Always Active bait stations carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. No drilling through finished floors and no tank trucks in the parking lot — the stations go into the soil around the building and are monitored on a schedule. Priced after the same free walkthrough.',
+      'Commercial termite protection is handled the same way it is on a home, and it is worth asking about separately: termites work every building in Jefferson County from the soil up, quietly, and a commercial slab gives no warning before the damage is structural. EnviroCare is a Sentricon Certified Specialist, and commercial buildings on Sentricon Always Active bait stations carry up to $1,000,000 in damage repair coverage provided by EnviroCare, subject to the terms of the agreement. No drilling through finished floors and no tank trucks in the parking lot — the stations go into the soil around the building and are monitored on a schedule. Priced after the same free walkthrough.',
       'How an account gets set up: a licensed technician walks the building first — kitchens, storage, dock, roofline, dumpster pad, landscaping — and identifies the pressure points before anything is quoted. You get a written scope and schedule matched to your industry, your building, and your inspection requirements; monthly and bi-monthly are both common, and food service usually runs more frequent. Treatment is exterior-first at entry points, the foundation line, and the perimeter, with interior work where the situation calls for it. Re-service between scheduled visits is included, so if activity returns you call and we come back out. A 1,200-square-foot cafe and a 40,000-square-foot warehouse are not the same job, which is why nobody should quote either one sight unseen.',
+      'Where we service commercial accounts: the Birmingham metro from our Birmingham office at 2120 16th Ave S, Ste 302 ((205) 991-2882) and Shelby County from our Alabaster office at 2025 Butler Rd ((205) 940-6360); Huntsville, Madison, Research Park, Decatur, and Athens from our Huntsville office at 7027 Old Madison Pike, Ste 108 ((256) 937-7676); and Lake Martin and Alexander City from 1785 Tallapoosa St ((256) 234-6162). Paperwork your vendor file needs — license information, a certificate of insurance, and product labels and safety data sheets for the materials in your program — is available on request.',
+    ],
+    relatedLinks: [
+      { href: '/birmingham', label: 'pest control in Birmingham', note: 'Commercial accounts in Birmingham, Hoover, Homewood, and the rest of Jefferson County are served from our 16th Ave S office — see' },
+      { href: '/huntsville', label: 'pest control in Huntsville', note: 'North Alabama facilities, including Research Park and the Madison corridor, are served from our Old Madison Pike office — see' },
+      { href: '/madison-commercial-pest-control', label: 'commercial pest control in Madison', note: 'For Madison businesses specifically, read' },
+      { href: '/services/termite-control', label: 'termite control and Sentricon® protection', note: 'Commercial buildings need termite protection too — see' },
     ],
     name: 'Commercial Service',
     shortName: 'Commercial',
     category: 'specialty',
     serviceArt: 'commercial',
-    metaTitle: 'Commercial Pest Control in Birmingham, AL | EnviroCare',
-    metaDescription: 'Discreet commercial pest control for Alabama restaurants, retail, offices & multi-family. Flexible scheduling & inspection-ready logs. (205) 940-6360.',
+    metaTitle: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
+    metaDescription: 'Commercial pest control for restaurants, warehouses, offices & data centers in Birmingham & Huntsville AL. IPM, low-aerosol programs, audit-ready logs.',
     heroEyebrow: 'IPM & HACCP Programs',
-    heroTagline: 'Commercial Service',
-    heroSubhead: 'Restaurants, offices, warehouses, and multi-unit properties across Alabama. Discrete scheduling, full compliance documentation, IPM and HACCP support.',
+    heroTagline: 'Commercial Pest Control',
+    heroSubhead: 'Restaurants, warehouses, offices, data centers, and multi-unit properties across Birmingham, Huntsville, and Alabama. Integrated Pest Management, low-aerosol programs for sensitive facilities, and documentation ready for your auditor.',
     features: [
       'IPM (Integrated Pest Management) programs',
+      'Low-aerosol programs for data centers & sensitive spaces',
       'HACCP food service compliance',
-      'Discrete scheduling (after-hours available)',
+      'Discreet scheduling (after-hours available)',
       'Full audit-ready documentation',
       'Multi-unit & multi-location coordination',
-      'Custom contracts',
     ],
     includes: [
       { title: 'IPM Program Design', desc: 'Custom integrated pest management plan based on facility type, layout, and risk profile.' },
+      { title: 'Low-Aerosol Programs', desc: 'For data centers, server rooms, and labs: exclusion, mechanical controls, pheromone monitors, and targeted gel bait instead of routine spraying.' },
+      { title: 'Rodent Monitoring & Exclusion', desc: 'Mapped, numbered monitoring stations and sealing of the entry points rodents actually use — docks, doors, and utility penetrations.' },
       { title: 'HACCP Documentation', desc: 'Full service logs, treatment records, and audit-ready binder for food service inspections.' },
-      { title: 'Discrete After-Hours Service', desc: 'Restaurants, retail, and medical facilities get service after closing — your customers never see us.' },
+      { title: 'Discreet After-Hours Service', desc: 'Restaurants, retail, and medical facilities get service after closing — your customers never see us.' },
       { title: 'Multi-Location Coordination', desc: 'Single point of contact for chains and franchises across our Alabama footprint.' },
     ],
     wedgePoints: [
-      { lead: 'Audit-ready', body: 'Health inspectors and brand auditors want documentation. Our binders satisfy every audit we\'ve seen.' },
+      { lead: 'Audit-ready', body: 'Health inspectors and brand auditors want documentation. Service logs, station maps, treatment records, and activity trends are kept in one place, ready to hand over.' },
+      { lead: 'Treatment matched to the building', body: 'A kitchen, a warehouse dock, and a server room are three different problems. We design the program around the facility — including low-aerosol IPM where spraying is restricted or unwanted.' },
       { lead: 'No franchise overhead', body: 'Family-owned means you talk to the people doing the work, not a regional manager three states away.' },
     ],
     faqs: [
-      { q: 'What commercial pest control services are available in Birmingham, AL?', a: 'EnviroCare covers the Birmingham metro from our Alabaster office at 2025 Butler Rd — call (205) 940-6360. Commercial work is a scheduled perimeter and interior program built around your facility: routine service on a set frequency, monitoring and documentation for inspections, Sentricon® Always Active™ termite protection, and rodent work built around exclusion rather than bait alone. The Wedgworth family has served Alabama businesses since 1958, now in the fourth generation.' },
+      { q: 'Can you service a data center without routine aerosol spraying?', a: 'Yes. For data centers, server rooms, and other technology facilities we build a low-aerosol Integrated Pest Management program: exclusion at dock doors and cable, conduit, and wall penetrations; tamper-resistant rodent monitoring stations and mechanical traps; pheromone and sticky monitors for early insect detection; and targeted gel-bait placements only where monitoring shows activity. Methods and approved interior locations are agreed with your facility team before work starts, and every station and treatment is logged.' },
+      { q: 'What is Integrated Pest Management (IPM)?', a: 'IPM is a way of running a pest program, not a product. It starts with inspection and monitoring to find where pests are and why, fixes conditions through exclusion and sanitation recommendations, uses mechanical controls such as traps where they work, and applies targeted materials only where they are needed. The result is fewer applications, better documentation, and a program that addresses the cause instead of the symptom.' },
+      { q: 'Do you provide commercial pest control in Huntsville?', a: 'Yes. Huntsville, Madison, Research Park, Decatur, Athens, and the rest of North Alabama are served from our Huntsville office at 7027 Old Madison Pike, Ste 108 — call (256) 937-7676. Programs are quoted after a free walkthrough of the facility.' },
+      { q: 'What commercial pest control services are available in Birmingham, AL?', a: 'Birmingham and Jefferson County accounts are served from our Birmingham office at 2120 16th Ave S, Ste 302 — (205) 991-2882 — and Shelby County from our Alabaster office at 2025 Butler Rd — (205) 940-6360. Commercial work is a scheduled perimeter and interior program built around your facility: routine service on a set frequency, monitoring and documentation for inspections, Sentricon® Always Active™ termite protection, and rodent work built around exclusion rather than bait alone. The Wedgworth family has served Alabama businesses since 1958, now in the fourth generation.' },
       { q: 'What pests do commercial pest control services treat?', a: 'The full Alabama commercial range: German cockroaches in kitchens, break rooms and floor drains; ants; rodents entering through dock doors and utility penetrations; spiders; wasps and hornets on the exterior; stored-product pests in dry goods; and subterranean termites in the structure itself. German roach work is a two-step job — a clean-out followed by a mandatory return visit — because a single treatment does not clear an established population.' },
-      { q: 'How do I schedule a commercial pest inspection or get an estimate?', a: 'Call the Birmingham office at (205) 940-6360 and a licensed technician walks the facility before anyone quotes a number. Commercial pricing depends on square footage, the type of operation and the service frequency, so there is no list price — the inspection is what produces a firm figure, and it is free. You get the number in writing before work starts.' },
+      { q: 'How do I schedule a commercial pest inspection or get an estimate?', a: 'Call (205) 940-6360 and a licensed technician walks the facility before anyone quotes a number. Commercial pricing depends on square footage, the type of operation and the service frequency, so there is no list price — the inspection is what produces a firm figure, and it is free. You get the number in writing before work starts.' },
       { q: 'What should I look for when choosing a commercial pest control company?', a: 'Four things. A licensed technician who inspects before quoting rather than pricing over the phone. Written service records and pest activity logs you can hand an inspector. A named local office you can reach, not a call-center queue. And an integrated approach that fixes conditions — sanitation, exclusion, moisture — instead of only spraying. Ask any company how they handle a failed treatment between visits before you sign.' },
       { q: 'How often does a commercial property need pest control?', a: 'Most Birmingham facilities run monthly. Food service, healthcare and anything under a health inspection regime almost always do, because the documentation trail matters as much as the treatment. Lower-risk offices, retail and warehouse space often run quarterly or bi-monthly. The inspection sets the frequency — the goal is service often enough that problems never establish between visits.' },
       { q: 'How much does commercial pest control cost?', a: 'It depends on the facility — the size, the type of business, and the pest pressure. We quote every commercial program after walking the property so the number reflects your actual needs.' },

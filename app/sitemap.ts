@@ -1,3 +1,9 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/sitemap.ts
+// Commit: fix(sitemap): STATIC_LASTMOD to 2026-09-25
+// Push: main
+// ─────────────────────────────────────
 /**
  * app/sitemap.ts — EnviroCare site sitemap
  * Rebuilt 2026-06-10 (speed/SEO audit): the old map listed redirect SOURCES
@@ -65,10 +71,11 @@ const COMBO_SLUGS = [
   'madison-mosquito-control',
   'madison-exterminator',
   'madison-commercial-pest-control',
-  'decatur-pest-control',
   'decatur-mosquito-control',
   'decatur-exterminator',
   'decatur-termite-control',
+  // 2026-09-25 — gap from the NeuronWriter Optimize audit (query c97f28b04ed3004b).
+  'vestavia-hills-mosquito-control',
 ];
 
 // Service pages that exist as REAL routes (no redirect sources here).
@@ -113,7 +120,7 @@ const SERVICE_SLUGS = [
  * committing on, not the date of the previous change — the bump commit itself
  * touches app/, so an older date is stale the moment it lands.
  */
-const STATIC_LASTMOD = new Date('2026-09-14T00:00:00.000Z');
+const STATIC_LASTMOD = new Date('2026-10-05T00:00:00.000Z');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = STATIC_LASTMOD;
@@ -140,6 +147,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/wdo-inspection-letters-alabama`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/wdo-letter-checklist-alabama`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
     { url: `${BASE_URL}/what-pest-problem`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE_URL}/pest-calendar`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     // ADDED 2026-07-25 (live-site audit): these five were linked in the global
     // nav/footer and returned 200, but were absent from the sitemap. The header
     // comment above lists /services and /realtor as "redirect SOURCES" — that was

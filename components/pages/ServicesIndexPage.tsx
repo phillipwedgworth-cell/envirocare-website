@@ -48,7 +48,7 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">Most Popular</div>
               <div className="svc-card-name">Pest Control</div>
               <div className="svc-card-price">$35/mo ACH · or $70 bi-monthly</div>
-              <div className="svc-card-desc">Bi-monthly interior & perimeter service against ants, roaches, spiders & 30+ pests. Unlimited free re-services, pay-per-visit available.</div>
+              <div className="svc-card-desc">Bi-monthly interior & perimeter service against ants, roaches, spiders & 30+ pests. Free re-services, pay-per-visit available.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             <a href="/services/mosquito" className="svc-card">
@@ -103,7 +103,7 @@ export default function ServicesIndexPage() {
             <a href="/services/commercial" className="svc-card">
               <div className="svc-card-tag">Business</div>
               <div className="svc-card-name">Commercial Service</div>
-              <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discrete scheduling, full audit-ready documentation.</div>
+              <div className="svc-card-desc">IPM and HACCP programs for restaurants, offices, warehouses. Discreet scheduling, full audit-ready documentation.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             {/* Crawlspace card removed 2026-07-12 — service killed Jun 13 compliance scrub;

@@ -36,9 +36,11 @@ async function mcpSession(label, url, extraHeaders) {
     });
     const sid = init.headers.get("mcp-session-id");
     const ibody = (await init.text()).slice(0, 120).replace(/\s+/g, " ");
-    console.log(`${label} init: HTTP ${init.status}, session=${sid ? "YES" : "NO"} — ${ibody}`);
-    if (!sid) return;
-    const shdrs = { ...hdrs, "Mcp-Session-Id": sid };
+    console.log(`${label} init: HTTP ${init.status}, session=${sid ? "YES" : "NO (stateless server — continuing)"} — ${ibody}`);
+    // BrightLocal's MCP server is stateless (no session header). This used to
+    // `return` here, so the probe never got as far as a tool call and could not
+    // tell "stateless" apart from "broken". Continue without the header.
+    const shdrs = sid ? { ...hdrs, "Mcp-Session-Id": sid } : hdrs;
     await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }), signal: AbortSignal.timeout(20000) });
     const call = await fetch(url, {
       method: "POST", headers: shdrs,
@@ -75,8 +77,9 @@ async function mcpListTools(label, url, extraHeaders) {
       signal: AbortSignal.timeout(20000),
     });
     const sid = init.headers.get("mcp-session-id");
-    if (!sid) { console.log(`${label} tools/list: no session (HTTP ${init.status}) — skipped`); return; }
-    const shdrs = { ...hdrs, "Mcp-Session-Id": sid };
+    await init.text().catch(() => "");
+    // Stateless server: no session header is normal. Continue without it.
+    const shdrs = sid ? { ...hdrs, "Mcp-Session-Id": sid } : hdrs;
     await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }), signal: AbortSignal.timeout(20000) });
     const res = await fetch(url, {
       method: "POST", headers: shdrs,

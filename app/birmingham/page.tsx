@@ -1,6 +1,12 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/birmingham/page.tsx
+// Commit: feat(seo): money-page titles/H1s target the queries GSC already shows them for
+// Push: main
+// ─────────────────────────────────────
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/birmingham/page.tsx
 // Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
 // Push: main
 // ─────────────────────────────────────
@@ -13,6 +19,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
+import LocalExamples from "@/components/shared/LocalExamples";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
@@ -44,9 +51,18 @@ export const metadata: Metadata = {
   // The $1M figure moved OUT of the description and into the visible page copy
   // below: the qualifier data/compliance.ts requires was living only in this meta
   // tag, i.e. nowhere a customer could ever read it.
-  title: "Pest Control Birmingham AL | Termite & Mosquito | EnviroCare",
+  // GSC Aug 21–Sep 14 2026: "pest control birmingham (al)" 868 impr at pos 31-34,
+  // "exterminator birmingham (al)" 190 with no page naming it, "birmingham termite
+  // control" 98 at pos 11. Title adds Exterminator; description keeps the office line.
+  // Sep 30 2026 (GSC Sep 20–26): 955 impr, pos 19.2 → 15.6, CTR 0.21%. This page owns
+  // "pest control birmingham al" as its primary query; the title leads with it verbatim
+  // (was cut at ~60 chars mid-"Termite") and the description adds the street address —
+  // a local signal the SERP snippet did not carry. Exterminator stays secondary.
+  // Oct 5 2026: "Local … Since 1958" dropped — the family's history began in Alexander
+  // City; the Birmingham office opened in 2026. Head term and "Exterminator" kept.
+  title: "Pest Control Birmingham AL | Exterminator & Termite | EnviroCare",
   description:
-    "Family-owned Birmingham pest control since 1958. Bi-monthly from $35/mo, Sentricon® termite baiting, mosquito and tick yard service. Call (205) 991-2882.",
+    "Pest control in Birmingham, AL from our 16th Ave S office. Bi-monthly service from $35/mo, Sentricon® termite & mosquito programs. (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
@@ -126,7 +142,7 @@ const jsonLd = {
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
-        "Bi-monthly exterior perimeter pest control for Birmingham homes — $35/month on ACH or $70 per visit. Covers 30+ Alabama pests with unlimited free re-services between visits.",
+        "Bi-monthly exterior perimeter pest control for Birmingham homes — $35/month on ACH or $70 per visit. Covers 30+ Alabama pests with free re-services between visits.",
       offers: {
         "@type": "Offer",
         price: "35",
@@ -142,7 +158,7 @@ const jsonLd = {
           name: "How much does pest control cost in Birmingham?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.",
+            text: "EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts.",
           },
         },
         {
@@ -213,20 +229,24 @@ export default function BirminghamPage() {
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Birmingham &amp; Jefferson County · Since 1958</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
-              Birmingham Pest Control<br />
+              Birmingham Pest Control{" "}<br />
               <span style={{ color: Au, fontStyle: "italic", fontWeight: 700 }}>&amp; Exterminator Service</span>
             </h1>
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 620, marginBottom: "2rem" }}>
               The Wedgworth family has been Birmingham's family-owned pest control company since 1958.
               Bi-monthly perimeter service, Sentricon® termite protection, and seasonal mosquito and tick
               treatment — from Mountain Brook to Hoover, Vestavia to Pelham, the city to the foothills.
+              Our Birmingham office is at 2120 16th Ave S, Ste 302.
             </p>
             <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: "2rem", color: "rgba(255,255,255,.85)", fontSize: ".95rem" }}>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>68+</strong> Years serving AL</span>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>4</strong> Generations of Wedgworths</span>
-              <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> Sentricon® coverage</span>
+              <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>$1M</strong> EnviroCare termite coverage</span>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>Free</strong> Inspection &amp; quote</span>
             </div>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,.75)", margin: "-1.2rem 0 1.6rem" }}>
+              Up to $1,000,000 in termite damage repair coverage provided by EnviroCare on qualifying Sentricon® homes, subject to the terms of the agreement.
+            </p>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
               <a href="tel:2059912882" style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>
                 Call (205) 991-2882 →
@@ -269,7 +289,7 @@ export default function BirminghamPage() {
             <p style={{ color: "#4b5563", maxWidth: 620, margin: "0 auto 3rem" }}>Locked Birmingham pricing. Pay per visit, or equal monthly payments on a 12-month ACH agreement.</p>
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
-            <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Unlimited free re-services","Quarterly interior on request"]} />
+            <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Free re-services","Quarterly interior on request"]} />
             <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter on request"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier","March – October (8 visits)","Cuts mosquito pressure dramatically","Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger","30-day yard barrier","Best for wooded Birmingham lots","March – October"]} />
@@ -277,6 +297,13 @@ export default function BirminghamPage() {
           <div style={{ maxWidth: 700, margin: "2.5rem auto 0", padding: "1.2rem 1.5rem", background: Cr, border: `1px solid ${G}26`, borderRadius: 12, textAlign: "center", fontSize: ".95rem", color: "#4b5563" }}>
             <strong style={{ color: D }}>Complete coverage</strong> bundles pest, termite and mosquito into roughly $100/month plus your termite quote — one tech, one invoice. Convenience, not a discount: same fair pricing as the standalone services.
           </div>
+          <p style={{ maxWidth: 760, margin: "1.75rem auto 0", textAlign: "center", color: "#4b5563", lineHeight: 1.7 }}>
+            Looking for one service in detail? Read about{" "}
+            <Link href="/birmingham-termite-control" style={{ color: F, fontWeight: 700 }}>termite control in Birmingham</Link>,{" "}
+            <Link href="/birmingham-mosquito-control" style={{ color: F, fontWeight: 700 }}>Birmingham mosquito control</Link>,{" "}
+            our <Link href="/services/pest-control" style={{ color: F, fontWeight: 700 }}>pest control plans</Link>, or{" "}
+            <Link href="/services/commercial" style={{ color: F, fontWeight: 700 }}>commercial pest control</Link> for Birmingham businesses.
+          </p>
         </section>
 
         {/* BIRMINGHAM SUBURBS — internal links to deep pages */}
@@ -344,6 +371,8 @@ export default function BirminghamPage() {
           </div>
         </section>
 
+        <LocalExamples slug="birmingham" cityName="Birmingham" officeName="Birmingham office" />
+
         {/* FAQ */}
         <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
           <div style={{ maxWidth: 880, margin: "0 auto" }}>
@@ -358,7 +387,7 @@ export default function BirminghamPage() {
               </Link>{" "}
               &mdash; including the cases where we tell you to call someone else.
             </p>
-            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes unlimited free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
+            <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
             <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare is the Wedgworth family's Birmingham-area exterminator, now in our fourth generation. The family has been in Alabama pest control since 1958. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), with our Birmingham office at 2120 16th Ave S and our main office in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
             <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free WDO inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Birmingham, with the Alabaster office at 2025 Butler Road covering south Shelby County." />

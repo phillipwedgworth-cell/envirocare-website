@@ -1,7 +1,8 @@
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Brook Highland AL | EnviroCare Since 1958",
   description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
   alternates: { canonical: "/brook-highland" },
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/brook-highland",
     type: "website",
   },
-};
+});
 
 const cfg: NeighborhoodConfig = {
   "name": "Brook Highland",

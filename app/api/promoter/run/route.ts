@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import { skipIfDuplicateProject } from "@/lib/cron-guard";
 
 // Placeholder ceiling until the promoter agent is wired in; keep in line
 // with the other agent run routes when the real implementation lands.
 export const maxDuration = 60;
 
 async function execute(req: NextRequest) {
+  const duplicate = skipIfDuplicateProject("promoter"); // see lib/cron-guard.ts
+  if (duplicate) return duplicate;
   const secret = process.env.CRON_SECRET;
   if (secret && req.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

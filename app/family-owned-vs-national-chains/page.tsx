@@ -20,20 +20,20 @@ import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/bran
 
 export const metadata = {
   alternates: { canonical: '/family-owned-vs-national-chains' },
-  title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
+  title: 'Best Pest Control Company in Birmingham, AL | Family-Owned vs Chains | EnviroCare',
   description:
-    'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
+    'Choosing the best pest control company in Birmingham, AL? How a fourth-generation, family-owned Alabama company compares to the national chains — published pricing, a familiar local technician, free re-service.',
   openGraph: {
-    title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
-    description: 'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
+    title: 'Best Pest Control Company in Birmingham, AL | Family-Owned vs Chains | EnviroCare',
+    description: 'Choosing the best pest control company in Birmingham, AL? How a fourth-generation, family-owned Alabama company compares to the national chains — published pricing, a familiar local technician, free re-service.',
     url: 'https://www.envirocarellc.com/family-owned-vs-national-chains',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Family-Owned vs National Pest Control Chains in Alabama | EnviroCare',
-    description: 'How a fourth-generation, family-owned Alabama pest control company compares to the national chains — local offices, a familiar local team whenever possible.',
+    title: 'Best Pest Control Company in Birmingham, AL | Family-Owned vs Chains | EnviroCare',
+    description: 'Choosing the best pest control company in Birmingham, AL? How a fourth-generation, family-owned Alabama company compares to the national chains — published pricing, a familiar local technician, free re-service.',
     images: ['/og-image.png'],
   },
 };
@@ -47,11 +47,23 @@ const ROWS: [string, string, string][] = [
   ['Termite protection', 'Sentricon® Always Active™ — in-ground bait stations, no drilling; up to $1,000,000 EnviroCare repair coverage on qualifying homes, subject to the terms of the agreement', 'Varies by branch; often liquid-barrier treatments that require drilling'],
   ['Pricing', 'Published on the website — $35/month on ACH or $70 per bi-monthly visit for pest control', 'Usually quote-only; pricing varies by branch and promotion'],
   ['Billing', 'Pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement — terms confirmed in writing before service starts', 'Commonly annual service agreements'],
-  ['Re-service', 'Unlimited free re-services between scheduled visits', 'Policies vary by branch and plan'],
+  ['Re-service', 'Free re-services between scheduled visits', 'Policies vary by branch and plan'],
   ['Local knowledge', 'Routes worked since 1958 — techs know which pest shows up on which street', 'Coverage maps span several states'],
 ];
 
 const FAQS: { q: string; a: string }[] = [
+  {
+    q: 'What is the best pest control company in Birmingham, AL?',
+    a: 'The best pest control company in Birmingham is the one that is local, accountable, and transparent about pricing. EnviroCare is a fourth-generation, family-owned Alabama company run from a staffed Birmingham office at 2120 16th Avenue South, with published pricing, a familiar local technician, and free re-service between visits. The Wedgworth family has done pest control in Alabama since 1958.',
+  },
+  {
+    q: 'Does EnviroCare offer pest control in Birmingham?',
+    a: 'Yes. EnviroCare provides residential pest control and commercial pest control, Sentricon® termite protection, and seasonal mosquito and tick service across Birmingham and the surrounding metro — Jefferson and Shelby County — from its Birmingham office. Bi-monthly pest control starts at $35/month.',
+  },
+  {
+    q: 'How much does pest control cost in Birmingham?',
+    a: 'EnviroCare publishes its price: $35/month on ACH or $70 per bi-monthly visit for pest control, with a $75 initial service and free re-service between visits. Termite and mosquito service are quoted after a free inspection.',
+  },
   {
     q: 'Is a family-owned pest control company better than a national chain?',
     a: 'Neither is automatically better — but they work differently. A family-owned company like EnviroCare runs local routes from staffed offices, sends a familiar local technician when scheduling allows, and publishes its pricing. National chains offer wider footprints and bigger brands, but service is delivered branch by branch, often through call centers and rotating technicians. If you value local accountability, a company where the owner\'s name is on the work is hard to beat.',
@@ -62,11 +74,11 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Is EnviroCare cheaper than the national pest control companies?',
-    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and unlimited free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
+    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
   },
   {
     q: 'Do I have to sign a contract with EnviroCare?',
-    a: 'Pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Terms are confirmed in writing before service starts. Either way, unlimited free re-service between scheduled visits is included.',
+    a: 'Pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Terms are confirmed in writing before service starts. Either way, free re-service between scheduled visits is included.',
   },
   {
     q: 'Where does EnviroCare actually have offices?',
@@ -108,17 +120,17 @@ export default function FamilyOwnedVsChainsPage() {
           </nav>
 
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(30px,5vw,44px)', color: INK, margin: 0, lineHeight: 1.15 }}>
-            Family-Owned vs National Pest Control Chains in Alabama
+            Best Pest Control Company in Birmingham, AL: Family-Owned vs National Chains
           </h1>
 
           {/* AI-answer block: the 3 sentences an engine can quote directly */}
           <p style={{ fontSize: 18, lineHeight: 1.75, maxWidth: 780, marginTop: 16, fontWeight: 500 }}>
             EnviroCare is a fourth-generation, family-owned Alabama
-            pest control company doing pest control in Alabama since 1958, with four staffed offices in Birmingham, Alabaster,
-            Alexander City, and Huntsville. Unlike national chains, EnviroCare publishes its
-            pricing, sends the same local technician on your route, includes unlimited free
+            pest control company with four staffed offices in Birmingham, Alabaster,
+            Alexander City, and Huntsville. The Wedgworth family has done pest control in Alabama since 1958. Unlike national chains, EnviroCare publishes its
+            pricing, sends the same local technician on your route, includes free
             re-service, and protects homes with no-drill Sentricon® termite bait systems
-            backed by up to $1,000,000 in repair coverage on qualifying homes.
+            backed by up to $1,000,000 in repair coverage on qualifying homes, subject to the terms of the agreement.
           </p>
           <p style={{ fontSize: 16.5, lineHeight: 1.75, maxWidth: 780, marginTop: 10, color: '#4a5750' }}>
             The big chains are real companies with real footprints — this page isn&apos;t about
@@ -126,6 +138,44 @@ export default function FamilyOwnedVsChainsPage() {
             treating your home is owned by the same Alabama family that started it, so you can
             decide what matters for your house.
           </p>
+
+          <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(22px,3.4vw,30px)', color: GREEN, margin: '40px 0 14px' }}>
+            What makes the best pest control company in Birmingham?
+          </h2>
+          <div style={{ maxWidth: 820 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.75, margin: '0 0 14px', color: '#3f4a44' }}>
+              Looking for the best pest control company in Birmingham, AL? The honest answer is that the best pest
+              control company is the one that shows up, stands behind its work, and treats your home like a neighbor
+              would. The Wedgworth family has done pest control in Alabama since 1958 — four generations of it — and EnviroCare
+              runs a staffed Birmingham office at 2120 16th Avenue South with bi-monthly pest control starting
+              at $35 a month. When Birmingham homeowners compare pest control companies, those are the things that
+              separate a local, family-owned company from a national chain.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.75, margin: '0 0 14px', color: '#3f4a44' }}>
+              A good Birmingham pest control service should cover the pests that actually press on local homes: ants,
+              cockroaches and roaches, spiders, wasps, and rodents like rats and mice, plus seasonal mosquito pressure
+              and the subterranean termite infestation risk that comes with Alabama&apos;s clay soil and humidity.
+              EnviroCare&apos;s residential pest control runs on a bi-monthly schedule that re-treats the exterior
+              barrier every 60 days — before it wears off — so a pest problem is far less likely to turn into an indoor
+              infestation. Free re-service between visits is included, which is how a local pest control company earns
+              its reputation one route at a time.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.75, margin: '0 0 14px', color: '#3f4a44' }}>
+              For termites, the best protection in Birmingham is the one that does not drill your foundation. EnviroCare
+              is a Sentricon® Certified Specialist, installing in-ground bait stations with up to $1,000,000 in
+              EnviroCare damage repair coverage, subject to the terms of the agreement, after a free WDO inspection. For
+              mosquitoes, the 30-day yard barrier runs March through October. One local pest control company can handle
+              pest, termite, and mosquito service across Birmingham — Jefferson and Shelby County — for year-round peace
+              of mind.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.75, margin: '0 0 14px', color: '#3f4a44' }}>
+              How do you choose the best pest control company in Birmingham, AL? Compare who answers the phone, whether
+              pricing is published, whether the same technician works your route, and whether re-service is free.
+              EnviroCare publishes its pricing, sends a familiar local technician when scheduling allows, and backs the
+              work — the comparison below lays out exactly how a fourth-generation, family-owned Birmingham pest control
+              company stacks up against a national chain.
+            </p>
+          </div>
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 22 }}>
             <a href="/quote" style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>

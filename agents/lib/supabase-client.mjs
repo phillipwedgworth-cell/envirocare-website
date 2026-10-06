@@ -126,7 +126,29 @@ export async function upsertFinding({ dedupKey, source, title, url, summary, tag
     if (r.status === 409) return { inserted: false, id: null };
     throw new Error(`insert finding ${r.status}: ${await r.text()}`);
   }
-  const [row] = await r.json();
+  // The insert succeeded (2xx). It does NOT follow that a row came back.
+  //
+  // CRASHED IN PRODUCTION 2026-09-16, aeo-watch run 35123838102:
+  //   FATAL: TypeError: Cannot read properties of undefined (reading 'id')
+  //       at upsertFinding (agents/lib/supabase-client.mjs:130:36)
+  // `const [row] = await r.json()` destructured an empty array, so `row.id` threw and
+  // took the whole run down after it had already fetched every feed.
+  //
+  // PostgREST returns an empty representation on a successful write in more than one
+  // ordinary case — a row filtered by a SELECT policy, or a conflict resolved
+  // server-side. Neither is an error, and neither should be fatal: without an id there
+  // is simply no finding to hang a panel row off, which is exactly the case the caller
+  // already handles. aeo-watch.mjs guards on `!finding?.inserted || !finding.id` and
+  // skips, so reporting the non-representation as a non-insert lets the run continue
+  // through the remaining findings instead of aborting.
+  //
+  // Reading the body defensively (not destructuring) is the whole fix — an empty body,
+  // a bare object and the normal array all resolve without throwing.
+  const body = await r.json().catch(() => null);
+  const row = Array.isArray(body) ? body[0] : body;
+  if (!row || row.id === undefined || row.id === null) {
+    return { inserted: false, id: null };
+  }
   return { inserted: true, id: row.id };
 }
 

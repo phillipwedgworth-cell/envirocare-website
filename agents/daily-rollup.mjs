@@ -31,35 +31,54 @@ function supabaseHeaders() {
 
 async function fetchLastDay() {
   const since = new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(); // 26h window to cover any cron drift
-  const [runs, findings, discussions] = await Promise.all([
+  const [runs, findings, discussions, costs, watchdog] = await Promise.all([
     fetch(`${BASE}/agent_runs?started_at=gte.${since}&order=started_at.desc`, { headers: supabaseHeaders() }).then((r) => r.json()),
     fetch(`${BASE}/agent_findings?created_at=gte.${since}&order=created_at.desc`, { headers: supabaseHeaders() }).then((r) => r.json()),
     fetch(`${BASE}/agent_discussions?created_at=gte.${since}&order=created_at.desc`, { headers: supabaseHeaders() }).then((r) => r.json()),
+    // Real spend lives in agent_costs.usd_cost. The rollup used to sum only
+    // agent_discussions.cost_usd and reported $0.0000 on a $2.01 day (Sep 27 audit N4).
+    fetch(`${BASE}/agent_costs?created_at=gte.${since}&select=agent_name,usd_cost,cost_usd`, { headers: supabaseHeaders() }).then((r) => r.json()),
+    // Latest watchdog verdict, so "all quiet" can never contradict it (Sep 27 audit R4).
+    fetch(`${BASE}/agent_runs?agent_name=eq.watchdog&order=started_at.desc&limit=1`, { headers: supabaseHeaders() }).then((r) => r.json()),
   ]);
-  return { runs: arr(runs), findings: arr(findings), discussions: arr(discussions) };
+  return { runs: arr(runs), findings: arr(findings), discussions: arr(discussions), costs: arr(costs), watchdog: arr(watchdog)[0] ?? null };
 }
 function arr(x) { return Array.isArray(x) ? x : []; }
 
-function aggregate({ runs, findings, discussions }) {
+const blank = () => ({ runs: 0, findings: 0, ship: 0, skip: 0, hold: 0, costUSD: 0, bad: 0 });
+const BAD_STATUS = new Set(['escalated', 'error', 'failed', 'blocked']);
+
+function aggregate({ runs, findings, costs }) {
   const byAgent = {};
   for (const r of runs) {
-    byAgent[r.agent] = byAgent[r.agent] || { runs: 0, findings: 0, ship: 0, skip: 0, hold: 0, costUSD: 0 };
-    byAgent[r.agent].runs++;
+    const a = r.agent_name || r.agent || 'unknown';
+    byAgent[a] = byAgent[a] || blank();
+    byAgent[a].runs++;
+    if (BAD_STATUS.has(r.status)) byAgent[a].bad++;
   }
   for (const f of findings) {
-    byAgent[f.agent] = byAgent[f.agent] || { runs: 0, findings: 0, ship: 0, skip: 0, hold: 0, costUSD: 0 };
-    byAgent[f.agent].findings++;
+    const a = f.agent_name || f.agent || 'unknown';
+    byAgent[a] = byAgent[a] || blank();
+    byAgent[a].findings++;
     const verdict = f.panel_verdict;
-    if (verdict === 'SHIP') byAgent[f.agent].ship++;
-    else if (verdict === 'SKIP') byAgent[f.agent].skip++;
-    else if (verdict === 'HOLD') byAgent[f.agent].hold++;
+    if (verdict === 'SHIP') byAgent[a].ship++;
+    else if (verdict === 'SKIP') byAgent[a].skip++;
+    else if (verdict === 'HOLD') byAgent[a].hold++;
   }
-  for (const d of discussions) {
-    const a = d.agent || 'unknown';
-    byAgent[a] = byAgent[a] || { runs: 0, findings: 0, ship: 0, skip: 0, hold: 0, costUSD: 0 };
-    byAgent[a].costUSD += Number(d.cost_usd || 0);
+  for (const c of costs) {
+    const a = c.agent_name || 'unknown';
+    byAgent[a] = byAgent[a] || blank();
+    byAgent[a].costUSD += Number(c.usd_cost ?? c.cost_usd ?? 0);
   }
   return byAgent;
+}
+
+function watchdogProblems(row) {
+  if (!row?.output) return [];
+  try {
+    const o = typeof row.output === 'string' ? JSON.parse(row.output) : row.output;
+    return Array.isArray(o?.problems) ? o.problems : [];
+  } catch { return []; }
 }
 
 function fmtDate() {
@@ -114,8 +133,28 @@ async function main() {
       tags: f.tags,
     }));
 
+  const problems = watchdogProblems(data.watchdog);
+  const troubled = Object.entries(byAgent).filter(([, s]) => s.bad > 0).map(([a, s]) => `${a} (${s.bad} escalated/failed)`);
+
   if (shipFindings.length) {
     await emailDigest({ agent: 'Daily Rollup', findings: shipFindings });
+  } else if (problems.length || troubled.length) {
+    // Never say "all quiet" while the watchdog or the run ledger says otherwise.
+    await emailDigest({
+      agent: 'Daily Rollup',
+      findings: [
+        {
+          title: `${fmtDate()} — ${problems.length + troubled.length} need attention`,
+          source: 'system',
+          summary: [
+            problems.length ? `Watchdog: ${problems.join(', ')}.` : '',
+            troubled.length ? `Escalated/failed runs: ${troubled.join(', ')}.` : '',
+            `Spend last 24h: $${totalCost.toFixed(2)}.`,
+          ].filter(Boolean).join(' '),
+          tags: ['rollup', 'attention'],
+        },
+      ],
+    });
   } else {
     // Quiet day — send a much shorter "all quiet" email so Phillip knows the system ran
     await emailDigest({

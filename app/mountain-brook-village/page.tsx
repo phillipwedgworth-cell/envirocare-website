@@ -5,10 +5,11 @@
 // Push: main
 // ───────────────────────────────────
 
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Mountain Brook Village AL | EnviroCare",
   description: "Family-owned pest, Sentricon® termite, and mosquito service for homes around Mountain Brook Village. No drilling, $1M coverage. (205) 991-2882.",
   alternates: { canonical: "/mountain-brook-village" },
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/mountain-brook-village",
     type: "website",
   },
-};
+});
 
 const cfg: NeighborhoodConfig = {
   name: "Mountain Brook Village",

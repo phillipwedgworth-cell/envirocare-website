@@ -42,7 +42,7 @@ const OFFER_SCHEMA = {
     {
       "@type": "Offer", name: "Pest Control", priceCurrency: "USD", price: "35",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with unlimited free re-service. $75 initial service fee; monthly pricing uses a 12-month ACH billing agreement." },
+      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with free re-service. $75 initial service fee; monthly pricing uses a 12-month ACH billing agreement." },
     },
     {
       "@type": "Offer", name: "Pest + Mosquito", priceCurrency: "USD", price: "69",

@@ -31,7 +31,8 @@
 // the exact thing nobody is watching. So this version asserts its own coverage
 // and fails when it drops.
 // ─────────────────────────────────────────────────────────────────────────────
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { join } from "node:path";
 
 const cities = readFileSync("data/cities.ts", "utf8");
 const officesSrc = readFileSync("data/offices.ts", "utf8");
@@ -169,6 +170,79 @@ if (checked < MIN_RECORDS) {
     `(expected at least ${MIN_RECORDS}). The record shape probably changed and ` +
     `this guard has gone blind — fix the parser, do not lower the floor.`
   );
+}
+
+// -- 6. Birmingham is never labelled with the Alabaster number ---------------
+// Added 2026-09-29 (sweep 0008). "Birmingham / Alabaster -- (205) 940-6360" was
+// rendering in the sitewide header, every mobile call button, /service-areas,
+// /services/wdo-letters, the /reviews button and several FAQs. Birmingham is
+// 2120 16th Ave S / (205) 991-2882; 940-6360 is Alabaster (2025 Butler Rd) and
+// the company main line. Putting the Birmingham NAME next to 940-6360 is the
+// defect -- 940-6360 alone on an office-neutral page is correct and must not be
+// flagged, or this guard would fight the canon it exists to enforce.
+{
+  const NL = String.fromCharCode(10);
+  const ROOTS = ["app", "components", "data", "lib", "public"];
+  const SKIP = /node_modules|[.]next|[.]git/;
+  const EXT = /[.](ts|tsx|js|jsx|mjs|json|txt)$/;
+  const INTERNAL = /command-center/;   // noindex + disallowed in robots.txt
+  const isComment = (line) => {
+    const t = line.trim();
+    return t.startsWith("//") || t.startsWith("*") || t.startsWith("/*") || t.startsWith("#");
+  };
+  const walk = (dir, out = []) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, e.name);
+      if (SKIP.test(full)) continue;
+      if (e.isDirectory()) walk(full, out);
+      else if (EXT.test(e.name)) out.push(full);
+    }
+    return out;
+  };
+  // TWO shapes only, because a proximity rule is useless here: plenty of correct
+  // copy names the metro and gives the main line in the same sentence ("serving
+  // Birmingham ... call (205) 940-6360" on an office-neutral page is CANON, not a
+  // defect). What is wrong is LABELLING the Birmingham office with that number.
+  const COMBINED = /Birmingham *[/] *Alabaster/;
+  const NUM = /([(]205[)] *940-6360|2059406360)/;
+  // Connector words allowed between the name and the number in a label.
+  const CONNECTORS = ["office", "phone", "at", "tel", "href", "dials", "call", "envirocare"];
+  const labelled = (line) => {
+    let from = 0;
+    for (;;) {
+      const i = line.indexOf("Birmingham", from);
+      if (i < 0) return false;
+      from = i + 10;
+      const after = line.slice(i + 10, i + 10 + 40);
+      const m = after.match(NUM);
+      if (!m) continue;
+      // Everything between the name and the number must be separators plus
+      // connector words -- no other prose.
+      const gap = after.slice(0, m.index).toLowerCase();
+      const words = gap.match(/[a-z]+/g) || [];
+      if (words.every((w) => CONNECTORS.includes(w))) return true;
+    }
+  };
+  let scanned = 0;
+  for (const root of ROOTS) {
+    if (!existsSync(root)) continue;
+    for (const file of walk(root)) {
+      if (INTERNAL.test(file)) continue;
+      scanned++;
+      readFileSync(file, "utf8").split(NL).forEach((line, n) => {
+        if (isComment(line)) return;
+        const where = file + ":" + (n + 1);
+        if (COMBINED.test(line)) {
+          note(where + ': "Birmingham / Alabaster" is not an office -- Birmingham is 2120 16th Ave S / (205) 991-2882, Alabaster is 2025 Butler Rd / (205) 940-6360');
+        } else if (labelled(line)) {
+          note(where + ": Birmingham labelled with (205) 940-6360 -- that is the Alabaster line; Birmingham dials (205) 991-2882");
+        }
+      });
+    }
+  }
+  if (scanned < 100) {
+    note("COVERAGE: section 6 scanned only " + scanned + " files -- the walker has gone blind; fix it rather than lowering the floor");
+  }
 }
 
 if (fail.length) {

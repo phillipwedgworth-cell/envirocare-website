@@ -81,7 +81,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>{parentLine} · Since 1958</span>
           </div>
           <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
-            Pest &amp; Termite Service<br />
+            Pest &amp; Termite Service{" "}<br />
             <span style={{ color: Au, fontStyle: "italic", fontWeight: 700 }}>in {cfg.name}</span>
           </h1>
           <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 640, marginBottom: "1.6rem" }}>
@@ -143,7 +143,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
         </div>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
           <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M coverage","Annual WDO letter"]} featured />
-          <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter","30+ Alabama pests","Unlimited re-services","Interior on request"]} />
+          <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter","30+ Alabama pests","Free re-services","Interior on request"]} />
           <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger","30-day yard barrier","Mar–Oct (8 visits)","Best for wooded lots"]} />
           <Plan name="Mosquito Only" price="$45" unit="/month" features={["30-day yard barrier","Mar–Oct","Add tick anytime","Big-yard friendly"]} />
         </div>

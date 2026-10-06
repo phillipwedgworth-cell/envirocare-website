@@ -1,0 +1,51 @@
+name: Fix external copy (BrightLocal + content Doc)
+
+# The two compliance defects that live OUTSIDE this repo, so no guard here can
+# reach them. See scripts/fix-external-copy.mjs for what and why.
+#
+# THERE IS NO SCHEDULE. This workflow only ever runs when a human dispatches it.
+# Nothing about it is automatic, and `mode` defaults to `probe`, so a mis-click
+# authenticates and reports and writes nothing.
+#
+#   probe (default) — which credential works, which scopes, is each target reachable
+#   dry             — fetch live content, print the exact before/after, write nothing
+#   ship            — apply
+#
+# Anything other than the exact string "ship" is read-only, the same contract
+# agents/executor.mjs uses.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'probe = credentials only (default). dry = show the diff. ship = apply.'
+        required: true
+        default: 'probe'
+        type: choice
+        options: [probe, dry, ship]
+
+concurrency:
+  group: fix-external-copy     # never two writers at once
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  extfix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Fix external copy
+        env:
+          EXTFIX_MODE: ${{ inputs.mode }}
+          BRIGHTLOCAL_API_KEY:  ${{ secrets.BRIGHTLOCAL_API_KEY }}
+          GOOGLE_CLIENT_ID:     ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+        run: node scripts/fix-external-copy.mjs

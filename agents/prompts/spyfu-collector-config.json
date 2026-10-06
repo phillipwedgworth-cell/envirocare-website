@@ -1,0 +1,54 @@
+{
+  "_source": "envirocare_ai_research_hub package, saved 2026-09-17",
+  "_correction": "Original priority_locations included 'Tuscaloosa'. strategy.md says 'No Tuscaloosa' and AGENTS.md's Code Review canon lists it as a retired service area, so it's removed here. Do not re-add it if this config is used to run the actual collector.",
+  "target": {
+    "domain": "envirocarellc.com",
+    "countryCode": "US",
+    "business": "Pest control / termite / mosquito / pest services",
+    "market": "Alabama"
+  },
+  "competitors": [
+    "magiccitypestcontrol.com",
+    "callwaynes.com",
+    "alabamatermite.com",
+    "prewettpestcontrol.com",
+    "cookspest.com",
+    "starkexterminators.com",
+    "mrbuggs.com",
+    "roguepest.com",
+    "safespraypestcontrol.com",
+    "alabamapestpros.us"
+  ],
+  "priority_locations": [
+    "Birmingham",
+    "Huntsville",
+    "Decatur",
+    "Auburn",
+    "Opelika",
+    "Chelsea",
+    "Trussville",
+    "Hoover",
+    "Pelham",
+    "Madison",
+    "Vestavia Hills",
+    "Alabaster",
+    "Gardendale",
+    "Calera"
+  ],
+  "keyword_seeds": [
+    "pest control Birmingham AL",
+    "pest control Huntsville AL",
+    "termite control Birmingham AL",
+    "termite bond Birmingham AL",
+    "mosquito control Alabama",
+    "rodent control Alabama"
+  ],
+  "collection": {
+    "pageSize": 100,
+    "gapPageSize": 25,
+    "relatedPageSize": 25,
+    "collect_questions": true,
+    "collect_transactions": true,
+    "collect_ad_history": true
+  }
+}

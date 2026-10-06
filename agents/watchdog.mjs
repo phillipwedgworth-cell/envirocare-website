@@ -15,6 +15,9 @@
 // Emails on any problem immediately; emails a green digest every Monday so Phillip
 // knows the watchdog itself is alive (no Monday email = watchdog down = backstop).
 
+import { pathToFileURL } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { google } from 'googleapis';
 import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { sendEmail } from './lib/notify.mjs';
 
@@ -39,29 +42,16 @@ const ANTHROPIC_CAP_SIGNATURE = 'specified API usage limits';
 // row was simply absent and the old latest-run check stayed green).
 // Daily agents get 30h (24 + 6 grace); weeklies 192h (7d + 1d grace).
 // Not listed (log nothing yet): ingest-seo — add once it heartbeats.
-const EXPECTED = [
-  // SEO intel chain — Tue/Fri 13:00 UTC (added 2026-09-05)
-  { agent: 'local-falcon-ingest',   maxAgeH: 100,    label: 'Local Falcon ingest (Tue/Fri)' },
-  { agent: 'competitor-watcher',    maxAgeH: 100,    label: 'Competitor watcher (Tue/Fri)' },
-  { agent: 'keyword-opportunity',   maxAgeH: 100,    label: 'Keyword opportunity (Tue/Fri)' },
-  // GitHub Actions — daily
-  { agent: 'morning-brief',         maxAgeH: 30,     label: 'Morning Brief (daily 13:30 UTC)' },
-  { agent: 'daily-rollup',          maxAgeH: 30,     label: 'Daily Rollup (daily 13:00 UTC)' },
-  { agent: 'aeo-watch',             maxAgeH: 30,     label: 'AEO watch (daily 12:00 UTC)' },
-  { agent: 'neuronwriter-narrator', maxAgeH: 30,     label: 'Neuron Narrator (daily 13:00 UTC score)' },
-  { agent: 'social-poster',         maxAgeH: 30,     label: 'Social poster (daily 15:00 UTC)' },
-  // GitHub Actions — weekly
-  { agent: 'neuronwriter-qa',       maxAgeH: 24 * 8, label: 'Weekly QA (Mon 7am CT)' },
-  { agent: 'neuronwriter-optimize', maxAgeH: 24 * 8, label: 'Weekly optimize (Tue 7am CT)' },
-  { agent: 'seo-watch',             maxAgeH: 24 * 8, label: 'SEO watch (Mon 13:00 UTC)' },
-  { agent: 'seo-monitor',           maxAgeH: 24 * 8, label: 'SEO monitor (Mon)' },
-  // Vercel cron routes — these agents already call logAgentRun() internally:
-  { agent: 'orchestrator',          maxAgeH: 30,     label: 'Orchestrator (daily 09:00 UTC, Vercel cron)' },
-  { agent: 'review-responder',      maxAgeH: 24 * 8, label: 'Review responder (Mon, via orchestrator)' },
-  { agent: 'brightlocal',           maxAgeH: 12,     label: 'BrightLocal (4x/day)' },
-  { agent: 'site-reviewer',         maxAgeH: 12,     label: 'Site reviewer (4x/day)' },
-];
+// Built from agents/ROSTER.json — the one list of scheduled automations, enforced
+// by `npm run test:roster`. The hand-kept table that used to live here drifted
+// from the real schedules twice (Sunday audits 2026-09-27). maxAgeH comes from the roster.
+const ROSTER = JSON.parse(readFileSync(new URL("./ROSTER.json", import.meta.url), "utf8"));
+const EXPECTED = [...Object.entries(ROSTER.workflows), ...Object.entries(ROSTER.vercel)]
+  .flatMap(([source, entry]) => Object.entries(entry.agents ?? {})
+    .filter(([, maxAgeH]) => Number.isFinite(maxAgeH))
+    .map(([agent, maxAgeH]) => ({ agent, maxAgeH, label: `${source} (${entry.job})` })));
 
+const OFF_ROSTER_WINDOW_H = 48;
 const healthy = s => HEALTHY.has(String(s ?? '').toLowerCase());
 const ageH = ts => (Date.now() - new Date(ts).getTime()) / 3.6e6;
 
@@ -271,6 +261,83 @@ async function leadPipelineCheck(lines, problems) {
   }
 }
 
+// ── GA4 COLLECTION ───────────────────────────────────────────────────────────
+// Did the site record any visits yesterday? Added 2026-09-16 after GA4 collected
+// ~0 sessions from 2026-08-17 to 2026-08-27 and nobody noticed for three weeks. The
+// gap only surfaced when someone pulled the numbers by hand.
+//
+// TWO TRAPS THIS CHECK IS BUILT AROUND, both of which already burned us:
+//
+//   1. GA4 RETURNS NO ROW FOR A DAY WITH NO DATA. It does not return 0. Code that
+//      reads rows[0] and skips when absent reports "no data" and moves on, which
+//      is the exact opposite of the alarm that should fire. A missing row IS zero
+//      and is treated as zero here.
+//   2. NEVER TEST THIS ON WEEKLY DATA. Weekly buckets hide the outage completely:
+//      W34 summed to 101 and W35 to 291 purely from the surviving days either side
+//      of the hole, which read as an ordinary dip. Only the `date` dimension shows
+//      it. That misreading is why this check exists.
+//
+// An API failure is NOT a tag failure. If the call itself errors we report that
+// separately, because telling Phillip to "check the site tag" when the real
+// problem is an expired refresh token sends him to the wrong place.
+const GA4_MIN_SESSIONS = Number(process.env.GA4_MIN_SESSIONS || 10);
+
+// CI has GOOGLE_REFRESH_TOKEN (same OAuth credentials ingest-ga4.mjs uses).
+// Falling back to Application Default Credentials lets this be run locally
+// against a service account, which is how it was tested before deploy.
+function ga4Auth() {
+  if (process.env.GOOGLE_REFRESH_TOKEN) {
+    const c = new google.auth.OAuth2(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET);
+    c.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
+    return c;
+  }
+  return new google.auth.GoogleAuth({ scopes: ['https://www.googleapis.com/auth/analytics.readonly'] });
+}
+
+// Sessions for ONE day, 'YYYY-MM-DD'. Returns a number; a day GA4 has no row for
+// is zero, not unknown. Throws only if the API call itself fails.
+async function ga4SessionsOn(dateISO) {
+  const data = google.analyticsdata({ version: 'v1beta', auth: ga4Auth() });
+  const res = await data.properties.runReport({
+    property: `properties/${process.env.GA4_PROPERTY_ID || '313205131'}`,
+    requestBody: {
+      dimensions: [{ name: 'date' }],
+      metrics: [{ name: 'sessions' }],
+      dateRanges: [{ startDate: dateISO, endDate: dateISO }],
+    },
+  });
+  const rows = res.data.rows ?? [];
+  if (!rows.length) return 0;                       // no row == no visits, see trap 1
+  return Number(rows[0].metricValues?.[0]?.value ?? 0);
+}
+
+export async function ga4Check(lines, problems, opts = {}) {
+  // opts.date lets the test harness pin a known-good and known-bad day.
+  const date = opts.date || new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+  if (!process.env.GOOGLE_REFRESH_TOKEN && !process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    lines.push('ga4      skipped — no GOOGLE_REFRESH_TOKEN; GA4 collection is UNMONITORED');
+    // Silence here is the failure mode that let August run nine days unseen, so an
+    // unmonitored check is itself a problem worth an email — not a quiet log line.
+    problems.push('GA4 monitoring is OFF — credentials missing');
+    return;
+  }
+  let sessions;
+  try {
+    sessions = await ga4SessionsOn(date);
+  } catch (e) {
+    // Deliberately NOT the tag alert — this is our access breaking, not the site.
+    lines.push(`ga4      CHECK FAILED for ${date} — ${e.message} (this is an API/credentials problem, not necessarily the tag)`);
+    problems.push('GA4 check could not run');
+    return;
+  }
+  if (sessions < GA4_MIN_SESSIONS) {
+    lines.push(`ga4      ${sessions} session(s) on ${date} — below ${GA4_MIN_SESSIONS}`);
+    problems.push('GA4 recorded almost no visits yesterday — check the site tag');
+  } else {
+    lines.push(`ga4      ok — ${sessions} sessions on ${date}`);
+  }
+}
+
 // ── Vercel health (VERCEL_TOKEN-gated — graceful skip if absent) ──────────────
 // Non-destructive: reads the deployments API only. Never GET-pings work routes,
 // never triggers the orchestrator. Flags failed deploys + runaway deploy volume.
@@ -370,6 +437,46 @@ async function runtimeErrorCheck(lines, problems, { token, project, team, deps }
   }
 }
 
+// ── Search Console freshness (Sunday audit 2026-10-04, R7) ────────────────────
+// ingest-seo runs daily and exits green even when Google returns no new final
+// days, so gsc_daily can go stale with nothing red anywhere. Google's "final"
+// data normally lags 2-3 days; past GSC_MAX_LAG_DAYS every organic number in
+// the brief and the sweep is old, and the reader must be told.
+const GSC_MAX_LAG_DAYS = 5;
+export async function gscFreshnessCheck(lines, problems) {
+  if (!supabase) { lines.push('gsc      skipped — no Supabase client'); return; }
+  const { data, error } = await supabase.from('gsc_daily').select('date').order('date', { ascending: false }).limit(1);
+  if (error) { lines.push(`gsc      CHECK FAILED — ${error.message}`); problems.push('GSC freshness check could not run'); return; }
+  const latest = data?.[0]?.date;
+  if (!latest) { lines.push('gsc      gsc_daily is EMPTY'); problems.push('no Search Console data'); return; }
+  const lagDays = Math.floor((Date.now() - new Date(`${latest}T00:00:00Z`).getTime()) / 86400000);
+  if (lagDays > GSC_MAX_LAG_DAYS) {
+    lines.push(`gsc      STALE — newest day ${latest} (${lagDays}d old, allowed ${GSC_MAX_LAG_DAYS}). Organic numbers end there.`);
+    problems.push(`Search Console data ${lagDays}d old`);
+  } else {
+    lines.push(`gsc      ok — newest day ${latest} (${lagDays}d)`);
+  }
+}
+
+// ── seo-snapshot data age (Sunday audit 2026-10-04, R8) ───────────────────────
+// seo-snapshot "succeeded" on 09-28 with run_date 2026-09-18 — a green run over
+// 10-day-old rankings. A run is only healthy if the data it summarised is recent.
+const SNAPSHOT_MAX_DATA_AGE_DAYS = 8;
+export async function snapshotFreshnessCheck(lines, problems) {
+  if (!supabase) return;
+  const { data, error } = await supabase.from('agent_runs').select('output,created_at')
+    .eq('agent_name', 'seo-snapshot').order('created_at', { ascending: false }).limit(1);
+  if (error || !data?.[0]) return;
+  let runDate = null;
+  try { runDate = JSON.parse(data[0].output)?.run_date ?? null; } catch { /* non-JSON output */ }
+  if (!runDate) return;
+  const ageDays = Math.floor((new Date(data[0].created_at).getTime() - new Date(`${String(runDate).slice(0, 10)}T00:00:00Z`).getTime()) / 86400000);
+  if (ageDays > SNAPSHOT_MAX_DATA_AGE_DAYS) {
+    lines.push(`snapshot STALE DATA — seo-snapshot ran ${String(data[0].created_at).slice(0, 10)} on rankings dated ${runDate} (${ageDays}d old)`);
+    problems.push(`seo-snapshot data ${ageDays}d old`);
+  }
+}
+
 async function run() {
   const { latest, latestHealthy } = await latestPerAgent();
   const lines = [], problems = [];
@@ -409,12 +516,21 @@ async function run() {
   for (const [name, r] of latest) {
     if (expected.has(name)) continue;
     if (name === 'watchdog') continue;   // never self-monitor via the ledger — reading its own last row created a false "watchdog failed" loop
-    if (!healthy(r.status) && !inFlight(r)) { lines.push(`FAILED   ${name} — status="${r.status}"`); problems.push(name); }
+    // Off-roster agents (retired, paused, deleted) are only news when they ran
+    // recently. Without this window a weeks-old failed row from a paused agent
+    // was re-reported every day (social-poster 09-27, captivated-send 09-10,
+    // captivated-audit 09-09 -> 3 of 7 "need attention" items were noise, which
+    // trains the reader to ignore the email). Sunday audit 2026-10-04.
+    if (ageH(r.created_at) > OFF_ROSTER_WINDOW_H) continue;
+    if (!healthy(r.status) && !inFlight(r)) { lines.push(`FAILED   ${name} — status="${r.status}" (not on the roster)`); problems.push(name); }
   }
 
   await budgetCheck(lines, problems);
   await leadPipelineCheck(lines, problems);
   await vercelCheck(lines, problems);
+  await ga4Check(lines, problems);
+  await gscFreshnessCheck(lines, problems);
+  await snapshotFreshnessCheck(lines, problems);
 
   const body = [
     `EnviroCare agent + infra health — ${new Date().toISOString().slice(0,16).replace('T',' ')} UTC`, ``,
@@ -439,8 +555,16 @@ async function run() {
   return { problems, emailed };
 }
 
-run().catch(async e => {
-  console.error(`[watchdog] ${e.message}`);
-  await sendEmail('⛔ EnviroCare watchdog crashed', `The watchdog could not complete:\n\n${e.message}`).catch(() => {});
-  process.exit(1);
-});
+// Run only when invoked as a script (`node agents/watchdog.mjs`, which is exactly
+// how .github/workflows/watchdog.yml calls it) -- behaviour there is unchanged.
+// Previously run() fired on IMPORT, so the module could not be loaded to exercise
+// one check in isolation: importing it ran the whole watchdog, hit Supabase and
+// tried to send mail. This guard is what let ga4Check be tested against two known
+// dates before deploying.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  run().catch(async e => {
+    console.error(`[watchdog] ${e.message}`);
+    await sendEmail('⛔ EnviroCare watchdog crashed', `The watchdog could not complete:\n\n${e.message}`).catch(() => {});
+    process.exit(1);
+  });
+}

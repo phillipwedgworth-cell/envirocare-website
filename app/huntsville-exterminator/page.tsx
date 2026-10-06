@@ -1,27 +1,27 @@
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: app/huntsville-exterminator/page.tsx
-// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
+// Commit: fix(huntsville): recurring-program copy; drop one-time, same-day/priority and 'unlimited' claims; EnviroCare-attributed $1M coverage
 // Push: main
 // ─────────────────────────────────────
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Exterminator Huntsville AL | EnviroCare — Local Since 1958",
+  title: "Exterminator Huntsville AL | EnviroCare — Family-Owned Since 1958",
   description:
-    "Need an exterminator in Huntsville? We fix the problem, then keep it from coming back — bi-monthly protection from $35/mo. (256) 937-7676.",
+    "Huntsville pest control with scheduled perimeter visits and interior re-service for covered pests. Monthly ACH option from $35/mo. (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-exterminator',
-    title: "Exterminator Huntsville AL | EnviroCare — Local Since 1958",
-    description: "Need an exterminator in Huntsville? We fix the problem, then keep it from coming back — bi-monthly protection from $35/mo. (256) 937-7676.",
+    title: "Exterminator Huntsville AL | EnviroCare — Family-Owned Since 1958",
+    description: "Huntsville pest control with scheduled perimeter visits and interior re-service for covered pests. Monthly ACH option from $35/mo. (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Exterminator Huntsville AL | EnviroCare — Local Since 1958",
-    description: "Need an exterminator in Huntsville? We fix the problem, then keep it from coming back — bi-monthly protection from $35/mo. (256) 937-7676.",
+    title: "Exterminator Huntsville AL | EnviroCare — Family-Owned Since 1958",
+    description: "Huntsville pest control with scheduled perimeter visits and interior re-service for covered pests. Monthly ACH option from $35/mo. (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
 const c: ComboContent = {
   eyebrow: "Exterminator · Huntsville, Alabama",
   h1: "Need an Exterminator in Huntsville?",
-  h1Accent: "Fix It Today. Keep It Fixed.",
+  h1Accent: "Treatment and Ongoing Protection.",
   intro: [
-    "Whether it's roaches in a Jones Valley kitchen, sugar ants marching through a Providence new-build, or a brown recluse in the garage, an exterminator visit handles today's emergency. Our licensed technicians treat the active problem on visit one — interior included — and free re-visits back the work until it's done.",
-    "Then we do the thing a one-time exterminator can't: stop the next problem before it starts. EnviroCare treats your home from the outside every other month, sealing Huntsville's pest pressure out at the perimeter. Family-owned since 1958, dispatched from our own office on Old Madison Pike.",
+    "Pest problems in a Jones Valley kitchen, a Providence new-build, or a Huntsville garage need a plan that fits the pest and the property. Our initial general pest service includes interior and exterior treatment, followed by scheduled exterior perimeter visits.",
+    "Our recurring program treats the exterior every other month, with free interior re-service for covered pest activity between scheduled visits. Family-owned since 1958, our local team is dispatched from the Old Madison Pike office.",
   ],
   anglesHeading: "What a Huntsville exterminator call looks like with us",
   localAngles: [
     {
-      title: "Today's problem, treated today",
-      body: "First visit hits the active infestation — kitchen roach treatment, ant trail sourcing, spider harborage in garages and crawlspaces. Madison County's new-construction ant problems are practically a specialty at this point.",
+      title: "Start with the initial service",
+      body: "The initial visit addresses covered pest activity inside and around the home. Our team explains the recommended service and identifies pests, such as German roaches or fire ants, that need separate treatment.",
     },
     {
       title: "New-build pests are different",
@@ -46,7 +46,7 @@ const c: ComboContent = {
     },
     {
       title: "The exterior-first difference",
-      body: "Six perimeter treatments a year keep pests from ever reaching the kitchen. You usually don't need to be home, and the $35/month autopay price doesn't spike when something extra shows up — re-service is free.",
+      body: "Scheduled perimeter treatments help manage covered pests around your home. After the initial service, pay $70 every other month or $35 per month on automatic ACH with a 12-month billing agreement. Interior re-service for covered pest activity between scheduled visits is included.",
     },
     {
       title: "A local office, not a call center",
@@ -56,31 +56,31 @@ const c: ComboContent = {
   price: {
     label: "Bi-Monthly Pest Program — Huntsville",
     amount: "$35/mo",
-    sub: "on ACH autopay · or $70 per visit",
+    sub: "on ACH autopay · or $70 every other month; initial service separate",
     bullets: [
       "30+ Alabama pests covered",
       "Fire ant treatment $150 for most yards, one-year warranty",
-      "Interior service whenever needed",
-      "Unlimited free re-services",
+      "Interior re-service for covered pest activity",
+      "Free re-service for covered pests between scheduled visits",
       "Equal monthly ACH payments (12-month agreement)",
     ],
   },
   faqs: [
     {
       q: "Do you do one-time exterminator visits in Huntsville?",
-      a: "Yes — $70 for a single licensed-technician visit, with a follow-up at no charge if pests return within 30 days. Most folks roll it into the bi-monthly program afterward since the per-visit price is the same and the pests stop returning.",
+      a: "No. Our general pest service is a recurring program: an initial interior and exterior treatment, followed by exterior perimeter service every other month. Pay $70 per scheduled visit or $35 per month on automatic ACH with a 12-month billing agreement. The initial service is separate.",
     },
     {
       q: "How quickly can someone come out?",
-      a: "Routes run across Madison County daily from the Old Madison Pike office. Call (256) 937-7676 — most new services schedule within a few days, and active infestations get priority placement.",
+      a: "Call the Huntsville office at (256) 937-7676 to discuss the pest problem and available appointments. Service is scheduled through our local team.",
     },
     {
       q: "What do Huntsville exterminator calls usually involve?",
-      a: "Sugar ants and fire ants in newer subdivisions, German roaches in older rentals, brown recluse in Jones Valley garages and storage, wasps at the eaves, and October's stink-bug wave off Monte Sano. All covered by the program.",
+      a: "Common concerns include ants, roaches, spiders, wasps, and seasonal invaders. Coverage depends on the pest and service plan. German roach treatment requires a separate quote, and whole-yard fire ant treatment is separate from the recurring general pest program.",
     },
     {
       q: "Is termite work separate?",
-      a: "Yes — termites get their own program: Sentricon® bait stations with up to $1M in damage repair coverage, subject to the terms of the agreement, which matters in Madison County where new slabs sit on freshly disturbed, termite-prone soil. The inspection is free.",
+      a: "Yes. Termite protection is a separate service using the Sentricon® baiting system. Up to $1,000,000 in termite damage repair coverage is provided by EnviroCare, subject to the terms of the agreement and to inspection and approval. Pricing is determined after a free inspection.",
     },
   ],
   office: { name: "Huntsville Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },
