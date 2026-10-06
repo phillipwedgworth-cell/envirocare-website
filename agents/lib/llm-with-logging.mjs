@@ -49,24 +49,59 @@ export async function createMessage(anthropic, params, { agentName, runId = null
   const outputTokens = resp.usage?.output_tokens ?? 0;
   const usdCost = computeCost(params.model, inputTokens, outputTokens);
 
-  // Fire-and-forget — never block the caller on a logging failure
+  // AWAITED, NOT FIRE-AND-FORGET. 2026-09-06.
+  //
+  // This used to be `.insert(...).then(...)` with no await, on the reasoning
+  // that a logging write must never block the caller. That reasoning is sound
+  // and the implementation was still wrong, because an unawaited promise is not
+  // "non-blocking" — in a serverless invocation it is CANCELLED.
+  //
+  // What it cost: agent_costs took its last row at 2026-08-23 09:05 and then
+  // nothing at all for thirteen days, while the agents kept running and kept
+  // producing output. Measured 2026-09-06 — 8,052 rows total, and the last five
+  // agents to write one (brightlocal 09:02, seo-monitor 09:02, site-reviewer
+  // 09:03, proposer 09:04, orchestrator 09:05) all stopped within the SAME
+  // three minutes of the SAME run. That is not five agents breaking; it is one
+  // host changing behaviour.
+  //
+  // The host is Vercel. vercel.json runs /api/orchestrator/run on cron at 09:00
+  // UTC, and that route awaits runOrchestrator() and returns a response. When
+  // the response returns, the invocation is frozen and any I/O still in flight
+  // is discarded. Everything this fleet AWAITS survived that (agent_runs rows
+  // for proposer/seo-monitor/orchestrator are still landing daily, written by
+  // logAgentRun in the same client from the same process); the one write that
+  // was not awaited is the one that vanished. The only agent still logging
+  // costs — morning-brief, which wrote a row on 2026-09-06 — is the one that
+  // runs as a plain GitHub Actions process that lives on past the call.
+  //
+  // Ruled out on the way here, so nobody re-checks them: the table is not
+  // missing (8,052 rows), the client is not null (logAgentRun writes from it),
+  // RLS is not blocking (agent_runs has RLS on and zero policies and still
+  // accepts inserts, so the key is service_role), and no column is missing.
+  //
+  // Awaiting costs ~100ms per LLM call. The catch keeps the original promise:
+  // a logging failure still cannot break a caller, it just cannot silently
+  // disappear either.
   if (supabase && agentName) {
-    supabase.from('agent_costs').insert({
-      agent_name:    agentName,
-      run_id:        runId,
-      model:         params.model,
-      role,
-      input_tokens:  inputTokens,
-      output_tokens: outputTokens,
-      // agent_costs carries BOTH cost_usd (what every reader sums) and usd_cost
-      // (what this writer historically filled). Write both; migration 0005 adds
-      // a trigger that keeps them equal so this split can never reopen.
-      cost_usd:      usdCost,
-      usd_cost:      usdCost,
-      duration_ms:   durationMs,
-    }).then(({ error }) => {
+    try {
+      const { error } = await supabase.from('agent_costs').insert({
+        agent_name:    agentName,
+        run_id:        runId,
+        model:         params.model,
+        role,
+        input_tokens:  inputTokens,
+        output_tokens: outputTokens,
+        // agent_costs carries BOTH cost_usd (what every reader sums) and usd_cost
+        // (what this writer historically filled). Write both; migration 0005 adds
+        // a trigger that keeps them equal so this split can never reopen.
+        cost_usd:      usdCost,
+        usd_cost:      usdCost,
+        duration_ms:   durationMs,
+      });
       if (error) console.warn(`[llm-with-logging] cost insert failed: ${error.message}`);
-    });
+    } catch (e) {
+      console.warn(`[llm-with-logging] cost insert threw: ${e.message}`);
+    }
   }
 
   return resp;
