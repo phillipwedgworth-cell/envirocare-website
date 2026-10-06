@@ -52,6 +52,13 @@ export type DeepCityConfig = {
   pressureCards: { emoji: string; title: string; body: string }[];
   services: { title: string; body: ReactNode }[];   // 5 city-named subsections
   faqs: { q: string; a: string }[];                 // plain text → also FAQPage schema
+  /**
+   * Optional long-form SEO body copy, rendered as paragraphs after the quotable
+   * summary. Added 2026-10-06 so city pages can carry enough on-topic depth to
+   * clear their NeuronWriter target band without keyword-stuffing the summary or
+   * FAQs. Omit entirely to keep a page unchanged.
+   */
+  body?: string[];
   siblings: [string, string][];                     // [name, href] internal links
   /**
    * Which office answers this city. OMIT for Alabaster-served cities — the
@@ -175,6 +182,20 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "#2b3a2f", margin: 0 }}>{c.summary}</p>
           </div>
         </section>
+
+        {/* LONG-FORM BODY (optional) */}
+        {c.body && c.body.length > 0 && (
+          <section style={{ padding: "2.5rem clamp(1.5rem,5vw,4rem) 0", background: "#fff" }}>
+            <div style={{ maxWidth: 900, margin: "0 auto" }}>
+              <h2 style={{ ...serif, fontWeight: 900, fontSize: "clamp(1.6rem,3vw,2.2rem)", color: Ik, margin: "0 0 1rem" }}>
+                Pest control in {c.name}, AL
+              </h2>
+              {c.body.map((para, i) => (
+                <p key={i} style={{ fontSize: "1.02rem", lineHeight: 1.75, color: "#4b5563", margin: "0 0 1.1rem" }}>{para}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* PRESSURE CARDS */}
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
