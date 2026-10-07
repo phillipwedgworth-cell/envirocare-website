@@ -140,6 +140,9 @@ async function main() {
       const live = sync?.[ch]?.active_sync_enabled === true;
       const scan = scanText(desc, rules);
       for (const h of scan.blocking || []) blocked.push({ name, ch, live, ...h });
+      const idWarn = [];
+      for (const h of identityHits(desc, ch, loc, idWarn)) blocked.push({ name, ch, live, ...h });
+      for (const h of idWarn) warned.push({ name, ch, live, ...h });
       for (const h of scan.warnings || []) warned.push({ name, ch, live, ...h });
     }
   }
@@ -170,6 +173,38 @@ async function main() {
   console.log(`  ok   ${scanned} listing description(s) across ${items.length} locations — no blocking hits`);
   if (warned.length) console.log(`  ${warned.length} non-blocking warning(s) above`);
   return 0;
+}
+
+// ── Listing identity (added 2026-10-05) ─────────────────────────────────────
+// The compliance phrase list cannot catch copy that is clean but about the
+// WRONG business. On 2026-10-04/05 Huntsville's GMB field (Active Sync ON)
+// held third-party text: "has served Birmingham … locations also in Alexander
+// City, Auburn, and Huntsville … Call them today" — no phone, Auburn presented
+// as an office. This guard passed it. These checks fail on that shape:
+//   1. BLOCKING: no description may present Auburn as an office/location
+//      (Auburn is a service area of Alex City — AGENTS.md);
+//   2. BLOCKING: a description may not carry ANOTHER office's phone number;
+//   3. WARNING: a Google/Bing description without the listing's own phone.
+//      (Warning, not blocking: Birmingham's GMB copy has no phone on 2026-10-05
+//      and Google's own rules on phones in descriptions were not checked.)
+const OFFICE_PHONES = ["2059406360", "2569377676", "2562346162", "2059912882"];
+const IDENTITY_CHANNELS = new Set(["gmb", "bing"]);
+const AUBURN_OFFICE = /\b(?:locations?|offices?)\b[^.]{0,80}\bAuburn\b|\bAuburn\s+(?:office|location)\b/i;
+function identityHits(desc, ch, loc, warn = []) {
+  const hits = [];
+  const am = desc.match(AUBURN_OFFICE);
+  if (am) hits.push({ match: am[0], reason: "presents Auburn as an office; Auburn is a service area of Alex City" });
+  if (IDENTITY_CHANNELS.has(ch)) {
+    const phone = String(loc.telephone ?? loc.contact?.telephone ?? "").replace(/\D/g, "").slice(-10);
+    const digits = desc.replace(/\D/g, "");
+    for (const other of OFFICE_PHONES) {
+      if (other !== phone && digits.includes(other)) hits.push({ match: other, reason: `carries another office's phone; this listing is ${loc.telephone}` });
+    }
+    if (phone.length === 10 && !digits.includes(phone)) {
+      warn.push({ match: desc.slice(0, 60) + "…", reason: `no phone in the description (this listing is ${loc.telephone})` });
+    }
+  }
+  return hits;
 }
 
 main()
