@@ -8,20 +8,20 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
+  title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
   description:
-    "Termite control in Birmingham, AL — Sentricon® baiting, no drilling, and up to $1M in EnviroCare repair coverage on qualifying homes. Call (205) 991-2882.",
+    "Termite control in Birmingham, AL: a free termite inspection, then Sentricon® baiting with no drilling and up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement. (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
-    title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
-    description: "Termite control in Birmingham, AL — Sentricon® baiting, no drilling, and up to $1M in EnviroCare repair coverage on qualifying homes. Call (205) 991-2882.",
+    title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
+    description: "Termite control in Birmingham, AL: a free termite inspection, then Sentricon® baiting with no drilling and up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement. (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Termite Control Birmingham AL | $1M EnviroCare Coverage",
-    description: "Termite control in Birmingham, AL — Sentricon® baiting, no drilling, and up to $1M in EnviroCare repair coverage on qualifying homes. Call (205) 991-2882.",
+    title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
+    description: "Termite control in Birmingham, AL: a free termite inspection, then Sentricon® baiting with no drilling and up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement. (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
@@ -31,7 +31,7 @@ const c: ComboContent = {
   h1: "Termite Control in Birmingham —",
   h1Accent: "Protect the House, Not Just Treat It.",
   intro: [
-    "Birmingham is one of the heaviest subterranean termite markets in America: a city of pre-1980 homes standing on moist red clay, in a climate that never gets cold enough to slow a colony down. Eastern subterranean termites cause more damage in Alabama each year than fire and storms combined — and homeowner's insurance doesn't cover a dollar of it.",
+    "Birmingham is hard on houses when it comes to termites: a city of pre-1980 homes standing on moist red clay, in a climate that never gets cold enough to slow a colony down. Eastern subterranean termites stay active here most of the year, and standard homeowner's insurance policies generally exclude termite damage.",
     "The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Today, EnviroCare serves Birmingham from its 16th Ave S office as a Sentricon® Certified Specialist, with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement.",
   ],
   anglesHeading: "Why Birmingham homes are termite targets",
@@ -80,12 +80,71 @@ const c: ComboContent = {
     },
     {
       q: "I'm buying or selling a home — can you handle the termite letter?",
-      a: "Yes — we issue the official Alabama Wood Infestation Report (WDO letter) accepted by every lender. One per year is free for active termite customers.",
+      a: "Yes — we issue the official Alabama Wood Infestation Report (the WDO letter) used in real-estate closings. One per year is free for active termite customers.",
+    },
+    {
+      q: "How much does termite treatment cost in Birmingham?",
+      a: "Termite work is never priced over the phone. The price depends on the house: the length of the foundation, slab or crawlspace construction, whether termites are active now, and moisture conditions. After the free inspection you get the price in writing before any work starts.",
+    },
+    {
+      q: "Do you do termite control in Hoover, Homewood, Mountain Brook and Vestavia Hills?",
+      a: "Yes. Jefferson County and St. Clair County homes, including Hoover, Homewood, Mountain Brook, Vestavia Hills and Trussville, are served from the Birmingham office at 2120 16th Ave S. Shelby County homes are served from the Alabaster office.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
   servicePage: { name: "Termite Control Service", href: "/services/termite-control" },
+  sections: [
+    {
+      heading: "What the free termite inspection covers",
+      paras: [
+        "A termite inspection in Birmingham is a look at every place a subterranean colony can reach wood from the soil. The technician works around the outside first, then the crawlspace or slab edges, then the inside.",
+      ],
+      list: [
+        "Foundation walls, piers and slab edges, checked for mud tubes",
+        "Crawlspace sill plates, joists and any wood touching soil",
+        "Porches, steps, decks and expansion joints at garage and patio slabs",
+        "Plumbing penetrations, bath traps and areas with moisture",
+        "Interior baseboards and door frames on outside walls, plus attic access where reachable",
+        "Anything that could feed or hide activity: mulch against siding, gutters draining at the foundation, wood debris",
+      ],
+    },
+    {
+      heading: "How termite treatment is priced in Birmingham",
+      paras: [
+        "Termite treatment is always priced after the inspection, never over the phone. Two Birmingham houses on the same street can differ a lot: a 1920s crawlspace house in Forest Park and a newer slab home in Hoover need different station layouts and different amounts of work.",
+        "What sets the price: the linear footage around the foundation, slab or crawlspace construction, whether termites are active now or this is protection for a clean house, and moisture conditions. The quote is in writing before anything is installed. Our guide to pest control cost in Alabama explains what is and is not included in typical plans.",
+      ],
+    },
+    {
+      heading: "Termite bonds in Birmingham",
+      paras: [
+        "In Alabama, \"termite bond\" is the everyday name for a termite protection agreement: the company inspects on a schedule, treats as needed, and the agreement renews each year. Buyers and lenders often ask whether a house has a bond, which is why a bond is commonly transferred when a house is sold.",
+        "EnviroCare's Sentricon® protection agreements include ongoing station service and up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. What a bond does and does not cover is explained in our termite bond guide.",
+      ],
+    },
+  ],
+  areaServed: [
+    { name: "Birmingham", href: "/birmingham" },
+    { name: "Hoover", href: "/hoover" },
+    { name: "Homewood", href: "/homewood" },
+    { name: "Mountain Brook", href: "/mountain-brook" },
+    { name: "Vestavia Hills", href: "/vestavia-hills" },
+    { name: "Trussville", href: "/trussville" },
+    { name: "Irondale", href: "/irondale" },
+    { name: "Leeds", href: "/leeds" },
+    { name: "Moody", href: "/moody" },
+    { name: "Fultondale", href: "/fultondale" },
+    { name: "Crestline", href: "/crestline" },
+    { name: "Cahaba Heights", href: "/cahaba-heights" },
+    { name: "Liberty Park", href: "/liberty-park" },
+  ],
+  related: [
+    { name: "Termite bonds in Alabama", href: "/blog/termite-bond-alabama-explained" },
+    { name: "Is Sentricon worth it?", href: "/blog/is-sentricon-worth-it" },
+    { name: "Pest control cost in Alabama", href: "/blog/pest-control-cost-alabama" },
+    { name: "WDO letters", href: "/wdo-inspection-letters-alabama" },
+  ],
   schemaName: "EnviroCare Termite Control — Birmingham, AL",
   canonicalPath: "/birmingham-termite-control",
 };
