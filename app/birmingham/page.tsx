@@ -88,7 +88,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "PestControlService",
+      "@type": "LocalBusiness",
       // Reuses the site-wide Birmingham office @id from app/layout.tsx so this page's
       // LocalBusiness node MERGES with it instead of reading as a second business at
       // the same address. Was '.../birmingham' — a distinct @id with identical NAP,
@@ -138,7 +138,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "PestControlService", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
+      provider: { "@type": "LocalBusiness", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:

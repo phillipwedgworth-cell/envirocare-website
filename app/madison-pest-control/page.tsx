@@ -4,7 +4,7 @@ import { PRICING } from "@/data/pricing";
 
 const TITLE = "Pest Control Madison AL | Bi-Monthly Service | EnviroCare";
 const DESC =
-  `Pest control in Madison AL from $${PRICING.plans.pest.fromMonthly}/mo — bi-monthly perimeter service covering 30+ pests, free re-service between visits. Family-owned since 1958. Call (256) 937-7676.`;
+  `Pest control in Madison, AL from $${PRICING.plans.pest.fromMonthly}/mo: bi-monthly perimeter service for 30+ pests, free re-service between visits. (256) 937-7676.`;
 
 export const metadata: Metadata = {
   title: TITLE,

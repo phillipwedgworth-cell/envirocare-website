@@ -20,20 +20,20 @@ import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/bran
 
 export const metadata = {
   alternates: { canonical: '/family-owned-vs-national-chains' },
-  title: 'Best Pest Control Company in Birmingham, AL | Family-Owned vs Chains | EnviroCare',
+  title: 'Family-Owned vs National Pest Control Chains | EnviroCare',
   description:
-    'Choosing the best pest control company in Birmingham, AL? How a fourth-generation, family-owned Alabama company compares to the national chains — published pricing, a familiar local technician, free re-service.',
+    'Choosing a pest control company in Birmingham, AL? How a fourth-generation, family-owned company compares to the national chains on pricing and service.',
   openGraph: {
-    title: 'Best Pest Control Company in Birmingham, AL | Family-Owned vs Chains | EnviroCare',
-    description: 'Choosing the best pest control company in Birmingham, AL? How a fourth-generation, family-owned Alabama company compares to the national chains — published pricing, a familiar local technician, free re-service.',
+    title: 'Family-Owned vs National Pest Control Chains | EnviroCare',
+    description: 'Choosing a pest control company in Birmingham, AL? How a fourth-generation, family-owned company compares to the national chains on pricing and service.',
     url: 'https://www.envirocarellc.com/family-owned-vs-national-chains',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Pest Control Company in Birmingham, AL | Family-Owned vs Chains | EnviroCare',
-    description: 'Choosing the best pest control company in Birmingham, AL? How a fourth-generation, family-owned Alabama company compares to the national chains — published pricing, a familiar local technician, free re-service.',
+    title: 'Family-Owned vs National Pest Control Chains | EnviroCare',
+    description: 'Choosing a pest control company in Birmingham, AL? How a fourth-generation, family-owned company compares to the national chains on pricing and service.',
     images: ['/og-image.png'],
   },
 };

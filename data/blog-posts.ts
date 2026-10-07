@@ -147,8 +147,8 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 900,
       alt: 'Illustration of a brick home with a golden house outline and an EnviroCare sunflower-wrapped truck in the driveway.',
     },
-    metaTitle: 'Is Sentricon Worth It? Cost, Effectiveness & Honest Review | EnviroCare',
-    metaDescription: 'Is Sentricon worth the cost? A Certified Sentricon Specialist breaks down Sentricon bait station pricing, how it compares to Termidor, DIY vs professional installation, and whether it\'s the right choice for Alabama homeowners.',
+    metaTitle: 'Is Sentricon Worth It? Cost & Honest Review | EnviroCare',
+    metaDescription: 'Is Sentricon worth it for an Alabama home? Cost, how the bait system works, how it compares to liquid treatment, and what to ask before you sign.',
     body: `
 <p class="lede">If you're a homeowner in Alabama, you've probably heard about Sentricon termite bait stations — and you've probably also heard wildly different opinions about whether they're worth the investment. As a <a href="/services/sentricon">Certified Sentricon Specialist</a> who has installed and monitored these systems across central and north Alabama for decades, we're going to give you the honest answer: what Sentricon does well, where it falls short compared to liquid treatments, and whether the cost makes sense for your home.</p>
 
@@ -259,8 +259,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 25,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquitoes in Alabama: Mosquito Control, Mosquito Bites, Repellents, Prevention, and Pest Control Services',
-    metaDescription: 'Alabama mosquito season runs March through October with heavy mosquito activity. Learn about mosquito-borne diseases like West Nile virus, which insect repellents control mosquitoes, the mosquito life cycle, how to prevent mosquitoes around your yard, and how professional mosquito control services reduce mosquito activity on your property.',
+    metaTitle: 'Mosquitoes in Birmingham: Bites, Prevention & Control',
+    metaDescription: 'Birmingham mosquito season runs March through October. West Nile risk, repellents that work, yard prevention, and how treatment reduces bites.',
     body: `<p class="lede">Mosquitoes in Alabama aren't just a nuisance. They cut your time outdoors in half, they leave mosquito bites that itch for days, and they can transmit diseases that land people in the hospital. If you've got a yard near a creek bottom, a low-lying neighborhood, or a lake lot out on Lake Martin, you already know how fast these insects can ruin a cookout. The good news is that you can do a lot to reduce the population around your home — if you know where to look and what to fix.</p>
 
 <h2>Why Alabama Is Such Good Mosquito Country</h2>
@@ -477,7 +477,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 7,
     heroEmoji: '🐝',
     metaTitle: 'Wasps vs Yellow Jackets vs Hornets in Alabama: ID & What to Do',
-    metaDescription: 'How to identify paper wasps, yellow jackets, and bald-faced hornets in Alabama, where each one nests, when they peak, and which nests need professional treatment.',
+    metaDescription: 'How to tell paper wasps, yellow jackets, and bald-faced hornets apart in Alabama, where each nests, and which nests need professional treatment.',
     body: `
 <p class="lede">Every August the same three calls come in, and people use the three names interchangeably. They are not the same insect, they do not nest in the same places, and the one that puts people in urgent care is usually not the one on the porch. Knowing which one you have decides whether you knock it down with a can of spray on a cool evening or leave it alone and call someone.</p>
 
@@ -548,7 +548,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🐜',
     metaTitle: 'Argentine Ants in Alabama: Why They Keep Coming Back',
-    metaDescription: 'Argentine ants form supercolonies with hundreds of queens across Alabama subdivisions. Why sprays fail, how to identify them, and what actually reduces the trails.',
+    metaDescription: 'Argentine ants form supercolonies across Alabama subdivisions. How to identify them, why sprays fail, and what actually reduces the trails.',
     body: `
 <p class="lede">The trail runs along the kitchen baseboard to the dog bowl. You spray it, wipe it up, and by Thursday there is a new trail from the window frame instead. A week later it is in the bathroom. This is not three separate ant problems. It is one colony that may extend under your yard, your neighbor's yard, and the whole street, and Alabama subdivisions built in the last thirty years are full of it.</p>
 
@@ -582,7 +582,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🧦',
     metaTitle: 'Chiggers in Alabama: What They Are & How to Keep Them Out of Your Yard',
-    metaDescription: 'What chiggers actually are, why the bites cluster at the sock line and waistband, where they live in Alabama yards, and what yard treatment and habits reduce them.',
+    metaDescription: 'What chiggers are, why bites cluster at the sock line and waistband, where they live in Alabama yards, and what reduces them.',
     body: `
 <p class="lede">Nobody sees a chigger. They are the larval stage of a mite, smaller than the period at the end of this sentence, and they wait on grass stems and leaf litter for something warm to walk by. Hours later you have a cluster of intensely itchy welts at the sock line, behind the knees, or at the waistband, and the myths start: they burrow into the skin, nail polish suffocates them, they came from the Spanish moss. None of that is true. Here is what is.</p>
 
@@ -622,7 +622,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🧴',
     metaTitle: 'Do Bug Bombs Work? Why Foggers Make Pest Problems Worse',
-    metaDescription: 'Total-release foggers mist open surfaces, miss the cracks where pests live, scatter roaches into walls, and leave residue that repels bait. What to do instead in an Alabama home.',
+    metaDescription: 'Foggers miss the cracks where pests live, scatter roaches into walls, and leave residue that repels bait. What to do instead in an Alabama home.',
     body: `
 <p class="lede">The fogger is on the shelf at every hardware store in Alabama, it costs less than a pizza, and the box says it clears a whole room. We get the call about six weeks after someone uses one, and the problem is almost always bigger than before. A bug bomb is the single most common way a manageable roach or flea problem turns into one that has spread through the house. Here is why, and what works instead.</p>
 
@@ -655,8 +655,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '📅',
-    metaTitle: 'How Often Should Pest Control Come in Alabama? (Bi-Monthly vs Quarterly)',
-    metaDescription: 'Why exterior pest barriers break down in about 60 days in Alabama heat and rain, what quarterly service leaves uncovered, and when bi-monthly, monthly, or one-time treatment fits.',
+    metaTitle: 'How Often Should You Get Pest Control in Alabama?',
+    metaDescription: 'Why exterior pest barriers break down in about 60 days in Alabama heat and rain, and how bi-monthly service compares with quarterly.',
     body: `
 <p class="lede">Most pest control in the country is sold quarterly, because most of the country has a winter. Alabama has a mild one, a long humid summer, and fifty-plus inches of rain a year, and the products applied to the outside of a house do not last as long here as the quarterly schedule assumes. The frequency question is really a question about how long the barrier holds.</p>
 
@@ -690,8 +690,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 14,
     heroEmoji: '🪵',
-    metaTitle: 'Formosan Termites in Alabama: Termite Species, Termite Swarms, and Pest Control Services | EnviroCare',
-    metaDescription: 'Formosan subterranean termites have spread from Mobile and Baldwin County inland across Alabama. Learn about Eastern subterranean termites, Formosan termites, and drywood termites in Alabama homes — when termites swarm in Alabama, signs of termite activity, how to tell termite swarmers from ants, termite inspection, and professional pest control services for Alabama homeowners in Birmingham and Huntsville.',
+    metaTitle: 'Formosan Termites in Alabama: Signs & Swarms | EnviroCare',
+    metaDescription: 'Formosan termites are spreading inland from Mobile across Alabama. How to tell them from native subterranean termites, when they swarm, and what to do.',
     body: `
 <p class="lede">Alabama sits in one of the highest termite infestation probability zones in the United States, and the Formosan subterranean termite is the reason that risk keeps growing. While the Eastern subterranean termite has been the dominant termite species in Alabama homes for generations, the spread of Formosan termites northward from Mobile and Baldwin County along the interstates means Alabama homeowners now face two subterranean termite threats — one native, one introduced, both capable of causing serious structural damage. Understanding which termite species are active in your area and what signs of termite activity look like is the first step toward protecting your home.</p>
 
@@ -825,7 +825,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🌧️',
     metaTitle: 'Why Pests Get Worse After Heavy Rain in Alabama',
-    metaDescription: 'Flooded nests push ants and roaches indoors, standing water hatches mosquitoes in a week, millipedes and centipedes surface — what a big Alabama rain does to pests and the week-after checklist.',
+    metaDescription: 'Heavy rain floods ant and roach nests, hatches mosquitoes within a week, and brings up millipedes. What it does to pests and a week-after checklist.',
     body: `
 <p class="lede">Alabama gets its rain in bursts — three inches in an afternoon, a tropical system that sits for two days — and every one of them is followed by the same wave of calls. Ants indoors that were not there Monday. Millipedes by the hundred on the garage floor. Roaches in the bathroom. A mosquito cloud on the porch a week later. None of it is random. A flooded yard rearranges where every pest can live, and most of the options it leaves them point at the house.</p>
 
@@ -948,7 +948,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 7,
     heroEmoji: '🔑',
     metaTitle: 'Selling a House in Alabama: Pest Checklist Before Inspection',
-    metaDescription: 'What Alabama sellers should check for pests before listing, what the WDO termite letter covers, why to order it early, and the pest findings that most often delay closings.',
+    metaDescription: 'What Alabama sellers should check for pests before listing, what the WDO termite letter covers, and the findings that most often delay closings.',
     body: `
 <p class="lede">A pest finding at inspection is rarely a deal-killer. It is a delay and a discount, and both are avoidable if you look before the buyer's inspector does. In Alabama that means two things specifically: the termite letter, which almost every closing requires, and the handful of visible pest signs that turn into repair credits. Here is the order to handle them.</p>
 
@@ -1022,7 +1022,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🦟',
     metaTitle: 'Mosquito Control for a Lake House: Docks, Boathouses & Shoreline',
-    metaDescription: 'Why lake houses have the highest mosquito pressure, where mosquitoes rest and breed on a shoreline lot, what a barrier treatment reaches, and what it cannot do on Lake Martin.',
+    metaDescription: 'Why lake houses see the most mosquito pressure, where mosquitoes rest on a shoreline lot, and what barrier treatment can and cannot do at Lake Martin.',
     body: `
 <p class="lede">Every mosquito on a lake lot did not come from the lake. That surprises people. Open water with wave action and fish is poor mosquito habitat; the species that bite you on the dock at dusk breed in the still, shaded water at the edge — the cove, the boat slip, the tire on the seawall, the kayak that filled with rain — and rest in the dense shade between the house and the shore. That is why treatment works on a lake lot at all, and why it works differently than it does in town.</p>
 
@@ -1062,7 +1062,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🏡',
     metaTitle: 'Pest Control for Rental Property in Alabama: A Landlord Guide',
-    metaDescription: 'How Alabama landlords handle pest control: lease responsibility, why German roaches in one unit mean treating the building, turnover treatment, and setting up recurring service.',
+    metaDescription: 'Alabama landlord pest control: lease responsibility, why German roaches in one unit mean treating the building, turnover treatment, and recurring service.',
     body: `
 <p class="lede">Rental property in Alabama has every pest problem an owner-occupied house has, plus turnover, plus a tenant who did not choose the pest company and does not know what they are looking at. The landlords who have the fewest pest headaches are the ones who decided ahead of time who is responsible for what, put recurring service in place, and stopped being the person who gets the 9 p.m. text.</p>
 
@@ -1100,7 +1100,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 11,
     heroEmoji: '🐜',
     metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
-    metaDescription: 'Get rid of ants in your Alabama home step by step: identify the species, stop spraying, bait the colony, seal entry points, and learn which home remedies actually work.',
+    metaDescription: 'Get rid of ants in your Alabama home: identify the species, stop spraying, bait the colony, seal entry points, and skip remedies that do not work.',
     body: `
 <p class="lede">Nobody calls us about one ant. They call when the line of them runs from the window over the sink to the dog bowl, and it has been there three mornings in a row despite a full can of spray. That is the most common ant call we take across the Birmingham metro, Lake Martin, and the Tennessee Valley, and the reason the spray did not work is the reason this guide exists: the ants on the counter are not the problem. They are foragers. The problem is a colony you have not seen yet, and getting rid of ants in your house is a sequence — not a single product.</p>
 
@@ -1217,8 +1217,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Roaches',
     readMinutes: 14,
     heroEmoji: '🪳',
-    metaTitle: 'German Cockroaches in Alabama: German Cockroach Infestation, Roach Control, and Pest Control | EnviroCare',
-    metaDescription: 'German cockroaches are one of the most common cockroach species in Alabama homes and one of the hardest to get rid of. Learn how to identify German cockroaches by their two dark stripes, signs of a German cockroach infestation including droppings and egg cases, what attracts German roaches to your kitchen and bathroom, and how professional pest control with gel bait and insecticide eliminates cockroach infestations in Alabama homes.',
+    metaTitle: 'German Cockroaches in Alabama: Signs & Control | EnviroCare',
+    metaDescription: 'How to identify German cockroaches in Alabama homes, signs of an infestation, what draws them to kitchens and baths, and how professional baiting controls them.',
     body: `
 <p class="lede">German cockroaches are one of the most common cockroach species found in Alabama homes — and one of the hardest household pests to get rid of. Unlike the large American cockroach or smokybrown cockroach that wanders in from outside, the German cockroach (<em>Blattella germanica</em>) lives its entire life indoors, breeds faster than any other roach in the state, and hides in cracks and crevices that sprays never reach. A single female German cockroach can produce hundreds of nymphs in a year, and by the time you see one in daylight, a German cockroach infestation is already established behind your kitchen cabinets and appliances. Learn how to identify German cockroaches, what attracts them to Alabama homes, the signs of a German cockroach infestation, and what professional pest control actually does to get rid of German cockroaches for good.</p>
 
@@ -1361,8 +1361,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 7,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito-Borne Diseases in Alabama: Real Risks & Prevention | EnviroCare',
-    metaDescription: 'Which mosquito-borne illnesses are actually reported in Alabama — West Nile, EEE, La Crosse, heartworm — which mosquitoes carry them, and what lowers your risk at home.',
+    metaTitle: 'Mosquito-Borne Diseases in Alabama: Risks & Prevention',
+    metaDescription: 'Which mosquito-borne illnesses are reported in Alabama (West Nile, EEE, La Crosse, heartworm), which mosquitoes carry them, and how to lower your risk.',
     body: `
 <p class="lede">A mosquito bite is, almost always, just a bite. It itches, it fades, and by the next evening on the back porch you have forgotten it. But Alabama is a warm, wet state with a nine-month mosquito season, and a handful of the viruses those mosquitoes carry are reported here every year. We are not in the business of scaring people about their own yards. We are in the business of telling them what is real. This is what is real about mosquitoes in Alabama, and what actually lowers the odds.</p>
 
@@ -1432,8 +1432,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Roaches',
     readMinutes: 18,
     heroEmoji: '🧹',
-    metaTitle: 'How to Get Rid of Roaches in Alabama: Types of Cockroaches, Cockroach Control, and Pest Control for Alabama Homes',
-    metaDescription: 'Learn how to get rid of roaches in Alabama. Identify the types of cockroaches in Alabama homes, signs of a cockroach infestation, health risks, DIY cockroach control, and when to call professional pest control for Alabama homeowners.',
+    metaTitle: 'How to Get Rid of Roaches in Alabama | EnviroCare',
+    metaDescription: 'How to get rid of roaches in Alabama: the cockroach types in local homes, signs of an infestation, what DIY can do, and when to call a professional.',
     body: `
 <p class="lede">Alabama homeowners deal with more types of cockroaches than almost any other state in the country, and roaches thrive in Alabama homes year-round because of the warm, humid climate that makes this region one of the highest cockroach pressure zones in the United States. Whether you are finding one roach in the kitchen at midnight or seeing roaches during the day — a sign that cockroach populations have outgrown their hiding spots — getting rid of cockroaches starts with identifying which types of roaches in Alabama you are dealing with and understanding what attracts roaches to your home. This guide covers every cockroach species common in Alabama, the signs of a cockroach infestation, health risks, what actually works for cockroach control, and when DIY cockroach control is not enough and you need professional pest control.</p>
 
@@ -1600,7 +1600,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 8,
     heroEmoji: '❓',
     metaTitle: 'Termite Questions Alabama Homeowners Ask Most — Answered | EnviroCare',
-    metaDescription: 'Straight answers to the termite questions Alabama homeowners ask: flying ants vs. termites, insurance, DIY, cost, how fast damage happens, bonds, and what a WDO inspection is.',
+    metaDescription: 'Straight answers to Alabama termite questions: flying ants vs. termites, insurance, DIY, cost, how fast damage happens, bonds, and WDO inspections.',
     body: `
 <p class="lede">Termites generate more questions than any other pest we treat, and for good reason: they are the one pest that can cost a homeowner real money, they are hard to see, and the industry around them uses a vocabulary — bonds, baits, barriers, WDO letters — that nobody explains. The Wedgworth family has been doing termite work in Alabama since 1958. These are the questions we hear most often, from <a href="/birmingham">Birmingham</a> to <a href="/lake-martin">Lake Martin</a> to <a href="/huntsville">Huntsville</a>, with the plainest answers we can give.</p>
 
@@ -1748,8 +1748,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 11,
     heroEmoji: '🔍',
-    metaTitle: 'Sign of Termites in Your Home: What Termite Damage Looks Like in Alabama | EnviroCare',
-    metaDescription: 'Learn how to spot the sign of termites and termite damage in Alabama homes. Signs of a termite infestation include mud tubes, hollow wood, sticking doors, and blistered paint. Know the sign of termite damage early — protect your home with pest control before damage to your home gets costly.',
+    metaTitle: 'Signs of Termite Damage in Alabama Homes | EnviroCare',
+    metaDescription: 'Signs of termite damage in Alabama homes: mud tubes, hollow wood, sticking doors, and blistered paint, and what to do when you find them.',
     body: `
 <p class="lede">Almost no one finds termite damage by seeing termites. They find it because a door that always closed fine now sticks in the frame, or the paint on a window sill bubbled, or a vacuum cleaner went through a baseboard. Subterranean termites — the species responsible for the large majority of termite infestations in Alabama — eat wood from the inside out and leave the surface intact, so by the time the surface fails, the damage behind it is usually well along. Knowing the warning signs of termites, and where to look for signs of their presence, is how you catch a termite problem while it is still a small repair instead of costly damage to your home.</p>
 
@@ -2884,8 +2884,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Real Estate',
     readMinutes: 12,
     heroEmoji: '🏠',
-    metaTitle: 'WDO Inspection and Alabama Wood Infestation Report: Termite Inspection, WDO Letter, and Wood Destroying Organism Report for Real Estate Transactions',
-    metaDescription: 'WDO inspection and Alabama wood infestation report explained — what the WDO letter covers, what the termite inspection report includes, WDO inspection cost ($125), what happens if termites are found, and how to keep the termite letter off the closing critical path for Alabama real estate transactions.',
+    metaTitle: 'WDO Inspection & Termite Letter for Alabama Home Sales',
+    metaDescription: 'The Alabama WDO letter explained: what the termite inspection covers, what happens if termites are found, and how to keep it off the closing critical path.',
     body: `
 <p class="lede">If your Alabama home purchase involves a loan, you almost certainly need a WDO letter — the Official Alabama Wood Infestation Inspection Report — before you can close. VA loans require it outright, FHA loans require evidence of no active infestation, and most conventional lenders require a termite letter or WDO inspection report as a condition of funding. This guide explains what a WDO inspection covers in Alabama, what the Alabama wood infestation report includes, how much a WDO inspection costs, what happens if termites or other wood-destroying organisms are found, and how to keep the WDO letter off the closing critical path for buyers and sellers.</p>
 
@@ -3125,8 +3125,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Local',
     readMinutes: 15,
     heroEmoji: '🚀',
-    metaTitle: 'Pest Control in Huntsville, AL: Trusted Pest Control Services, Termite Control, and Pest Solutions for Huntsville Homes and Businesses',
-    metaDescription: 'Trusted pest control in Huntsville, AL from EnviroCare. Pest control services for ants, termites, mosquitoes, spiders, rodents, and 30+ pests. Local Huntsville pest solutions for homes and businesses in North Alabama.',
+    metaTitle: 'Pest Control in Huntsville, AL: A Local Guide | EnviroCare',
+    metaDescription: 'Pest control in Huntsville, AL from EnviroCare: ants, termites, mosquitoes, spiders, rodents and 30+ pests for North Alabama homes and businesses.',
     body: `
 <p class="lede">Huntsville sits in a pest control environment unlike anywhere else in Alabama. The Tennessee Valley climate, limestone geology beneath the city, rapid suburban development across Madison County, and the Tennessee River system all shape which pests are active in your home or business — and what it takes to keep them out. This is a local guide to pest control in Huntsville, AL, covering the most common Huntsville pests, the pest control services available, what pest control costs, and why year-round professional pest control matters more here than in most markets.</p>
 
@@ -3248,8 +3248,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Spiders',
     readMinutes: 14,
     heroEmoji: '🕷️',
-    metaTitle: 'Brown Recluse Spiders in Alabama: Identification, Bite, and Spider Control | EnviroCare',
-    metaDescription: 'How to identify brown recluse spiders found in Alabama — the legs, eyes, and violin-shaped marking. Where brown recluse spiders hide in your home, what a brown recluse bite looks like, when to seek medical attention, and effective spider control and prevention strategies from EnviroCare pest control.',
+    metaTitle: 'Brown Recluse Spiders in Alabama: ID & Bites | EnviroCare',
+    metaDescription: 'How to identify brown recluse spiders in Alabama by the violin marking and six eyes, where they hide, what a bite looks like, and how to keep them out.',
     body: `
 <p class="lede">More brown spiders get called brown recluse than any other spider species in Alabama, and the large majority of them are not. That matters in both directions — unnecessary alarm about harmless house spiders, and occasionally the opposite. Alabama is home to dozens of spider species, but only two are medically significant. Knowing how to identify a brown recluse spider — and how to tell it apart from the harmless spiders found in Alabama homes — is the first step toward effective spider control and protecting your family.</p>
 
@@ -3384,8 +3384,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Roaches',
     readMinutes: 14,
     heroEmoji: '🪳',
-    metaTitle: 'Cockroach Control in Alabama: Types of Cockroaches, Pest Control, and Cockroach Extermination | EnviroCare',
-    metaDescription: 'Professional cockroach control in Alabama from EnviroCare — German cockroach extermination, American roach removal, and full pest control services. Identify cockroach species in your Alabama home, stop the roach infestation, and protect your family with cockroach control services in Birmingham and Huntsville.',
+    metaTitle: 'Cockroach Control in Alabama: Types & Treatment',
+    metaDescription: 'Cockroach control in Alabama: tell German from American roaches, stop an infestation, and see what professional treatment involves.',
     body: `
 <p class="lede">The first question is not how to kill roaches — it is which cockroach you have. A palmetto bug wandering in from the mulch bed is a nuisance. German cockroaches breeding in your kitchen are a roach infestation with a health dimension that can contaminate food surfaces and trigger asthma. Same word, entirely different pest problems. Effective cockroach control in Alabama starts with identifying the cockroach species in your home and applying the right cockroach treatment for that species.</p>
 
@@ -3531,7 +3531,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Spiders',
     readMinutes: 14,
     heroEmoji: '🕸️',
-    metaTitle: 'Spiders in Alabama: Identification of Common and Venomous Spider Species',
+    metaTitle: 'Spiders in Alabama: Common & Venomous Species ID',
     metaDescription: 'Identify common spiders in Alabama — wolf spiders, black widows, brown recluses, garden spiders — and learn expert spider control from EnviroCare Pest Services.',
     body: `
 <p class="lede">Alabama is home to hundreds of spider species, and the overwhelming majority of spiders found in Alabama are harmless — even beneficial, since spiders eat the insects you like even less. But two venomous spider species carry real medical risk, and effective spider control in Alabama is not about spraying every spider web you see. This guide covers spider identification for the most common spiders in Alabama, how to identify venomous spiders versus harmless spiders, where spiders hide in Alabama homes, signs of a spider infestation, and how professional pest control from EnviroCare keeps spiders out of your home effectively and on an ongoing schedule.</p>
@@ -3663,8 +3663,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Ants',
     readMinutes: 14,
     heroEmoji: '🐜',
-    metaTitle: 'Ant Control in Alabama: Fire Ant, Carpenter Ant & Pest Control Services | EnviroCare',
-    metaDescription: 'Professional ant control in Alabama from EnviroCare — fire ant extermination, carpenter ant removal, and Argentine ant treatment. Ant control services for Birmingham, Huntsville, and across Alabama. Identify ant species, stop the infestation, and protect your home with pest control that reaches the colony.',
+    metaTitle: 'Ant Control in Alabama: Fire Ants & Carpenter Ants',
+    metaDescription: 'Ant control in Alabama for fire ants, carpenter ants, and Argentine ants: how to identify the species and treatment that reaches the colony.',
     body: `
 <p class="lede">The ants you see on your kitchen counter are the least important part of the ant problem. They are foragers — maybe five percent of the colony. Kill every one of them and the queen keeps producing replacements, which is why the spray under your sink stops working after a week. Effective ant control in Alabama starts with understanding why most DIY ant treatments fail and which species of ant you are actually dealing with. Different species require different ant treatments, and the wrong approach — especially spraying ant trails — can scatter ant colonies and make an ant infestation worse instead of better.</p>
 
@@ -3810,8 +3810,8 @@ export const BLOG_POSTS: BlogPost[] = [
     // Distinct from /pest-library/silverfish, which carries the species profile
     // under the plain "Silverfish Control in Alabama | EnviroCare" title. These two
     // were byte-identical until 2026-08-11 — the only duplicate title on the site.
-    metaTitle: 'Silverfish Control in Alabama: How to Get Rid of Silverfish in Your Home and Prevent Silverfish Infestation in Alabama Homes',
-    metaDescription: 'Silverfish control in Alabama — what attracts silverfish to Alabama homes, signs of a silverfish infestation, silverfish damage to books and clothing, how to get rid of silverfish, and professional pest control services for silverfish and other humidity pests in Alabama homes.',
+    metaTitle: 'Silverfish in Alabama Homes: How to Get Rid of Them',
+    metaDescription: 'What draws silverfish into Alabama homes, signs of an infestation, the damage they do to books and clothing, and how to get rid of them.',
     body: `
 <p class="lede">Silverfish are one of the most common and most overlooked household pests in Alabama homes. These nocturnal, wingless insects thrive in high humidity, hide in wall voids and undisturbed areas, and cause damage to books, wallpaper, clothing, and stored items before most homeowners even know they have a silverfish problem. Alabama's year-round humidity makes every home a potential silverfish habitat — and once a silverfish infestation takes hold, getting rid of silverfish without professional pest control is difficult. This guide covers what attracts silverfish to Alabama homes, signs of a silverfish infestation, what silverfish damage looks like, and how professional silverfish control from EnviroCare keeps these humidity-driven pests out of your home.</p>
 
@@ -3929,8 +3929,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pests',
     readMinutes: 12,
     heroEmoji: '🦗',
-    metaTitle: 'Cricket Control in Alabama: House Crickets, Camel Crickets, and Pest Control | EnviroCare',
-    metaDescription: 'Common crickets found in Alabama homes — house crickets chirp all night from inside walls, camel crickets invade basements by the dozens, and field crickets swarm entry points. Crickets are nuisance insects that chew fabric and signal moisture problems. Learn what attracts crickets indoors and how professional pest control keeps them out.',
+    metaTitle: 'Cricket Control in Alabama: House & Camel Crickets',
+    metaDescription: 'House crickets in the walls, camel crickets in the basement: why crickets come indoors in Alabama and how to keep them out.',
     body: `
 <p class="lede">Crickets are one of the most common insect invaders in Alabama homes — house crickets chirp all night from inside your walls, camel crickets crowd your basement by the dozens, and field crickets wander indoors through every gap and crack they can find. These pests surge in late summer and fall when outdoor conditions push them toward the warmth and shelter of your home. Understanding which cricket species you are dealing with is the first step toward effective cricket control and keeping these noisy, fabric-chewing bugs out of your Alabama home for good.</p>
 
@@ -4129,8 +4129,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pests',
     readMinutes: 12,
     heroEmoji: '🐛',
-    metaTitle: 'Centipedes and Millipedes in Alabama: Common Centipedes, House Centipede Control, and Pest Control | EnviroCare',
-    metaDescription: 'Common centipedes and millipedes found in Alabama homes — house centipedes with many legs in the basement and bathroom, millipedes in garden and leaf litter. Are centipedes dangerous like centipedes found in tropical climates? No — Alabama house centipedes are nuisance insect predators. Learn what attracts centipedes and millipedes to Alabama homeowners\' damp areas, and how professional pest control keeps them out.',
+    metaTitle: 'Centipedes & Millipedes in Alabama Homes | EnviroCare',
+    metaDescription: 'House centipedes and millipedes in Alabama homes: why they show up in damp basements and baths, whether they are dangerous, and how to keep them out.',
     body: `
 <p class="lede">Centipedes and millipedes are moisture-loving pests that invade Alabama homes year-round — centipedes hunt prey in your bathroom at midnight, and millipedes migrate by the hundreds after heavy rain. Both are nuisance household pests that signal excess moisture around your foundation. Understanding what attracts centipedes and millipedes to your Alabama home is the first step toward effective centipede control and keeping these many-legged pests outside where they belong.</p>
 
@@ -4262,8 +4262,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pricing',
     readMinutes: 12,
     heroEmoji: '💵',
-    metaTitle: 'How Much Does Pest Control Cost in Alabama? Pest Control Costs, Pest Control Prices, and Pest Control Services for Alabama Homeowners',
-    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pest control prices and pest control costs — bi-monthly pest control service from $35/mo, mosquito control, termite treatment, and one-time pest control treatment costs for Birmingham, Huntsville, and Alabama homes and businesses. Reliable pest control company pricing.',
+    metaTitle: 'How Much Does Pest Control Cost in Alabama? | EnviroCare',
+    metaDescription: 'What pest control costs in Alabama in 2026: bi-monthly service from $35/mo, mosquito plans, and how termite treatment is priced after an inspection.',
     body: `
 <p class="lede">How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Birmingham, Huntsville, and across Alabama, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
 
@@ -4407,8 +4407,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 12,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Season in Alabama: Mosquito Control Services, Mosquito Management, and Pest Control for Huntsville and Birmingham',
-    metaDescription: 'Alabama mosquito season runs March through October. Mosquito control services and pest control from EnviroCare — mosquito spray treatments to control mosquitoes in Huntsville, Birmingham, and across Alabama. Mosquito life cycle, mosquito infestation prevention, and mosquito control treatments.',
+    metaTitle: 'Mosquito Season in Alabama: Birmingham & Huntsville Guide',
+    metaDescription: 'Alabama mosquito season runs March through October. How the mosquito life cycle works, how to prevent breeding, and how treatment reduces activity.',
     body: `
 <p class="lede">Alabama mosquito season runs March through October — an eight-month stretch that makes mosquito control a necessity for homes and businesses across Birmingham, Huntsville, and every community in between. Starting mosquito control early, before mosquito populations compound through spring and summer, is the single biggest factor in how well the whole season goes. This guide covers when mosquito season starts in Alabama, how mosquito spray treatments work, the types of mosquitoes in Alabama, mosquito breeding sites to eliminate, what mosquito control costs, and why professional pest control delivers results that DIY mosquito management cannot match.</p>
 <p><strong>Looking for mosquito control near you?</strong> See <a href="/birmingham-mosquito-control">mosquito control in Birmingham</a> (Jefferson County, served from our 16th Ave S office) or <a href="/huntsville-mosquito-control">mosquito control in Huntsville</a> for local details, the March–October treatment schedule and pricing.</p>
@@ -4509,8 +4509,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 18,
     heroEmoji: '🪵',
-    metaTitle: 'How to Identify Termites in Alabama: Signs of Termite Activity, Termite Swarms, and Pest Control Services for Alabama Homes',
-    metaDescription: 'How to identify termites in Alabama homes. Learn the signs of termite activity, when termites swarm in Alabama, how to tell termites from ants, Formosan and subterranean termites, and when to call pest control for a termite inspection in Birmingham and across Alabama.',
+    metaTitle: 'How to Identify Termites in Alabama: Signs & Swarms',
+    metaDescription: 'How to identify termites in Alabama: signs of activity, when they swarm, how to tell termites from ants, and when to get a termite inspection.',
     body: `
 <p class="lede">Alabama sits in one of the highest termite infestation probability zones in the United States, and your homeowners insurance almost certainly excludes termite damage — because insurers classify termite activity as preventable maintenance. That combination is why knowing how to identify termites in your Alabama home matters more here than almost anywhere else. This guide covers every termite species found in Alabama, when termites swarm in Alabama, the signs of termite activity to watch for, how to tell termites apart from flying ants, and what Alabama homeowners should do when they find evidence of termites.</p>
 
@@ -4651,8 +4651,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Ticks',
     readMinutes: 18,
     heroEmoji: '🕷️',
-    metaTitle: 'Tick Control in Alabama: Tick Species, Diseases & Professional Tick Treatment',
-    metaDescription: 'Alabama tick species, alpha-gal syndrome from lone star tick bites, tick-borne diseases, how to remove a tick correctly, and why yard treatment focuses on the wood line. Professional tick control services from EnviroCare.',
+    metaTitle: 'Tick Control in Alabama: Species, Diseases & Treatment',
+    metaDescription: 'Alabama tick species, alpha-gal syndrome from lone star ticks, tick-borne diseases, how to remove a tick, and why yard treatment targets the wood line.',
     body: `
 <p class="lede">Ticks do not wander into open lawn. They wait at the edge — the strip where mowed grass meets woods, ivy, or tall brush — and they climb onto whatever brushes past. In Alabama, where a huge share of homes back up to trees, that edge is often twenty feet from where your kids play. Alabama tick species carry serious tick-borne diseases including Rocky Mountain spotted fever, ehrlichiosis, anaplasmosis, and the lone star tick bite behind alpha-gal syndrome. This guide covers which tick species live in Alabama, what tick-borne illnesses they carry, where ticks hide in your yard, how to prevent ticks on your property and your pets, how to remove a tick correctly, and how professional tick control services from EnviroCare keep tick populations down across your yard on an ongoing schedule.</p>
 
@@ -4924,8 +4924,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Local',
     readMinutes: 14,
     heroEmoji: '🏙️',
-    metaTitle: 'Pest Control in Birmingham, AL: Pest Control Services, Exterminator, and Pest Control Solutions for Birmingham Alabama Homes and Businesses',
-    metaDescription: 'Trusted pest control in Birmingham, AL from EnviroCare. Pest control services for termites, ants, mosquitoes, cockroaches, spiders, rodents, and 30+ pests. Best pest control company in Birmingham Alabama — exterminator and pest management for homes and businesses.',
+    metaTitle: 'Pest Control in Birmingham, AL: A Local Guide | EnviroCare',
+    metaDescription: 'Pest control in Birmingham, AL from EnviroCare: termites, ants, mosquitoes, roaches, spiders, rodents and 30+ pests for local homes and businesses.',
     body: `
 <p class="lede">Birmingham sits in the middle of Alabama's heaviest pest pressure — red clay soil that holds moisture for weeks, mature tree canopy from Homewood to Hoover, and a climate that never freezes hard enough to give homeowners a real break. This is a local guide to pest control in Birmingham, AL, covering the most common Birmingham pests, what pest control services cost, how to choose a pest control company in Birmingham, and why year-round professional pest control is the only reliable pest management approach in the Birmingham area.</p>
 
@@ -5035,8 +5035,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pricing',
     readMinutes: 12,
     heroEmoji: '💲',
-    metaTitle: 'How Much Does Pest Control Cost in Huntsville, AL? Pest Control Costs, Pest Control Prices, and Pest Control Services for Huntsville Alabama Homeowners',
-    metaDescription: 'How much does pest control cost in Huntsville, AL? Real 2026 pest control prices and pest control costs — bi-monthly pest control service from $35/mo, mosquito control, termite treatment, and one-time pest control treatment costs for Huntsville and Madison County homes and businesses. Reliable pest control company pricing.',
+    metaTitle: 'How Much Does Pest Control Cost in Huntsville, AL?',
+    metaDescription: 'What pest control costs in Huntsville, AL in 2026: bi-monthly service from $35/mo, mosquito plans, and how termite treatment is priced after an inspection.',
     body: `
 <p class="lede">How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Huntsville and across Madison County, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
 
