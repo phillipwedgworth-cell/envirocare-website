@@ -3,7 +3,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 const TITLE = "Termite Control Decatur AL | Sentricon® | EnviroCare";
 const DESC =
-  "Termite control in Decatur AL — river humidity keeps colonies active nearly year-round. Sentricon® with up to $1M EnviroCare-backed coverage. Free inspection. (256) 937-7676.";
+  "Termite control in Decatur, AL, where river humidity keeps colonies active nearly year-round. Sentricon® baiting and a free inspection. (256) 937-7676.";
 
 export const metadata: Metadata = {
   title: TITLE,

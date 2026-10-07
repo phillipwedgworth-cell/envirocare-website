@@ -3,7 +3,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 const TITLE = "Commercial Pest Control Madison AL | EnviroCare";
 const DESC =
-  "Commercial pest control in Madison AL — restaurants, retail, offices, and clinics along the I-565 corridor. Documented service, audit-ready logs. Call (256) 937-7676.";
+  "Commercial pest control in Madison, AL for restaurants, retail, offices and clinics along I-565. Documented service and audit-ready logs. (256) 937-7676.";
 
 export const metadata: Metadata = {
   title: TITLE,

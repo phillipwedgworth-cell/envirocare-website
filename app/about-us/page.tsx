@@ -5,7 +5,7 @@ import AboutUs from '@/components/pages/AboutUs';
 export const metadata: Metadata = withOpenGraph({
   title: 'About EnviroCare — Alabama Pest Control Since 1958',
   description:
-    "EnviroCare is the Wedgworth family — doing pest control in Alabama since 1958, starting in Alexander City, now four generations on. Four Alabama offices, two ways to pay.",
+    "EnviroCare is the Wedgworth family, doing pest control in Alabama since 1958, starting in Alexander City and now four generations on. Four Alabama offices.",
   alternates: { canonical: '/about-us' },
   openGraph: {
     title: 'About EnviroCare — Family-Owned in Alabama Since 1958',

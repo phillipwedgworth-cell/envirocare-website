@@ -108,7 +108,7 @@ function buildJsonLd(c: DeepCityConfig) {
         url: `https://www.envirocarellc.com/${c.slug}`,
         serviceType: "Pest Control",
         provider: {
-          "@type": "PestControlService",
+          "@type": "LocalBusiness",
           "@id": `https://www.envirocarellc.com/#${providerId}`,
         },
         areaServed: {
