@@ -39,7 +39,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { phoneForPath } from '../data/city-offices';
+import { useOfficePhone } from '../lib/use-office-phone';
 
 // The single internal pay URL. app/pay/page.tsx redirects it to the Key7 portal.
 const PAY_BILL_URL = '/pay';
@@ -103,7 +103,7 @@ function trackClick(action: string) {
 
 export default function MobileActionBar() {
   const pathname = usePathname();
-  const office = phoneForPath(pathname ?? '/');
+  const office = useOfficePhone(pathname ?? "/");
   const barRef = useRef<HTMLElement | null>(null);
 
   const [fieldHidden, setFieldHidden] = useState(false);

@@ -148,6 +148,18 @@ function slugForPath(pathname: string): string | null {
 }
 
 /**
+ * True when this pathname maps to a specific office or service-city line
+ * (i.e. phoneForPath is NOT falling back to the default). Used by
+ * lib/use-office-phone.ts to remember the visitor's office across the
+ * neutral quote/pricing/contact pages.
+ */
+export function hasOwnOffice(pathname: string): boolean {
+  const slug = slugForPath(pathname);
+  if (!slug) return false;
+  return Boolean(SERVICE_CITY_SLUGS[slug]) || CITY_OFFICE[slug] !== undefined;
+}
+
+/**
  * Which phone should the header call button dial for this pathname?
  *
  * Service cities with their own local number win over their dispatch office
