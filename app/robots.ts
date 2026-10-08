@@ -5,7 +5,7 @@ import type { MetadataRoute } from 'next';
 // addition to it. Listing these only under `*` (as this file did until 2026-08-11)
 // left /api/, /approve, /ads/, /command-center and /pay crawlable by all eight
 // named AI bots — the opposite of what the `*` group was written to express.
-const DISALLOW = ['/api/', '/approve', '/ads/', '/command-center', '/pay'];
+const DISALLOW = ['/api/', '/approve', '/ads/', '/command-center', '/pay', '/lead-desk'];
 
 // Explicitly welcome AI crawlers — being cited in AI answers is part of the SEO
 // strategy. Do not add content blocks for these bots; they get the same DISALLOW
