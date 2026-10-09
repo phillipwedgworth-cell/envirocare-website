@@ -43,11 +43,15 @@ if (url && key) {
   }
 }
 
-export async function logAgentRun(agentName, status, output) {
+// `summary` (optional) lands in agent_runs.summary (jsonb). Escalated runs pass
+// the critic's per-loop verdicts here so the reason for an escalation is on the
+// row. Until 2026-10-09 summary was null on every row and no escalation reason
+// was stored anywhere.
+export async function logAgentRun(agentName, status, output, summary = null) {
   if (!supabase) return;
   try {
     const now = new Date().toISOString();
-    await supabase.from("agent_runs").insert({
+    const row = {
       agent_name: agentName,
       agent: agentName,
       status,
@@ -56,7 +60,11 @@ export async function logAgentRun(agentName, status, output) {
       started_at: now,
       ended_at: now,
       created_at: now,
-    });
+    };
+    if (summary != null) row.summary = summary;
+    // supabase-js reports insert failures in { error }, it does not throw.
+    const { error } = await supabase.from("agent_runs").insert(row);
+    if (error) console.error(`[supabase] logAgentRun insert failed: ${error.message}`);
   } catch (e) {
     console.error(`[supabase] logAgentRun failed: ${e.message}`);
   }

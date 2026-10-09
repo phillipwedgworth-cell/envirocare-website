@@ -558,28 +558,34 @@ export async function run() {
   const rubric = `
 - Dead zones lead the brief: any keyword at/near 0% SoLV named with its location and % (or an explicit "no dead zones found this week")
 - Each location named with its current blended SoLV % (or "no data" if missing)
-- Week-over-week delta for each location (or "no prior data" if first run)
+- Week-over-week delta for each location, OR "no comparison" with the stated reason (new series, different profile, grid change, no new run), OR "pending first run" — all three are correct per the worker's DATA RULES and must PASS
 - Any location flagged URGENT if blended SoLV at or near 0%
 - At least one concrete next action tied to a specific location + keyword/area
 - No vague phrases ("monitor", "continue efforts") without numbers
-- Under 220 words, no preamble, no sign-off`;
+- Under 300 words, no preamble, no sign-off`;
 
   // One agent_runs row per run: an escalated run is logged once, as
   // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
   let escalated = false;
+  let criticHistory = null;
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly Local Falcon SoLV brief for EnviroCare's 4 Alabama locations",
     output: draft,
     rubric,
-    revise: (fb) => workerDraft(fb),
-    onEscalate: async (output) => {
+    // Revisions keep the GSC context; before 2026-10-09 they dropped it.
+    revise: (fb) => workerDraft(fb, gscContext),
+    onEscalate: async (output, history) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       escalated = true;
+      criticHistory = history;
     },
   }));
 
-  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final);
+  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final,
+    escalated ? { critic_history: criticHistory } : null);
   console.log(`[${AGENT_NAME}] Done`);
-  return final;
+  // Object, not a bare string: the orchestrator rolls up child status from this
+  // and reported escalated runs as "ok" while it only received the text.
+  return { brief: final, escalated };
 }

@@ -74,6 +74,18 @@ if (process.env.RESEND_API_KEY) {
   }
 }
 
+// One status word per agent. "escalated" is its own state: the agent ran and
+// produced a draft, but the critic failed it 3 times. Before 2026-10-09 this
+// fell through to "ok" (10-05 run #4232 printed "seo-monitor: ok" next to an
+// escalated agent_runs row for the same run).
+function agentStatus(v) {
+  if (v.skipped) return "skipped";
+  if (v.blocked) return `blocked (${v.reason})`;
+  if (v.error) return `error (${v.error})`;
+  if (v.escalated) return "escalated (critic failed 3 loops; see agent_runs.summary)";
+  return "ok";
+}
+
 async function runAllAgents() {
   // Run agents in parallel — each is independent (separate APIs, separate
   // critic loops). Sequential awaited a sum of runtimes (~7-10 min total)
@@ -277,8 +289,7 @@ export async function run() {
     emailResult = await sendDigest(brief);
   } else {
     raw_outputs = outputs;
-    const status = Object.entries(outputs).map(([k, v]) =>
-      `${k}: ${v.skipped ? "skipped" : v.blocked ? `blocked (${v.reason})` : v.error ? `error (${v.error})` : "ok"}`);
+    const status = Object.entries(outputs).map(([k, v]) => `${k}: ${agentStatus(v)}`);
     brief = `Orchestrator runner — ${new Date().toISOString().slice(0, 10)}\n` +
       `${status.join("\n")}\nfindings in window: ${findings.length}\n` +
       `(digest + proposer retired 2026-09-27; see the weekly sweep)`;
@@ -296,10 +307,7 @@ export async function run() {
     brief,
     email: emailResult,
     agents: Object.fromEntries(
-      Object.entries(raw_outputs).map(([k, v]) => [
-        k,
-        v.skipped ? "skipped" : v.blocked ? `blocked: ${v.reason}` : v.error ? `error: ${v.error}` : "ok",
-      ]),
+      Object.entries(raw_outputs).map(([k, v]) => [k, agentStatus(v)]),
     ),
     findings_count: findings.length,
     discussions_count: discussions.length,
