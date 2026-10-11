@@ -19,7 +19,7 @@
  */
 import { pathToFileURL } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
-import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
+import { supabase, logAgentRun, writeFinding, closeUnseenFindings } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import { localFalconNumber } from "./lib/local-falcon-campaigns.mjs";
@@ -133,18 +133,30 @@ export async function run() {
     return { skipped: true };
   }
   const { alerts, table } = analyze(groups);
+  // Taken before the first write: closeUnseenFindings resolves only what this
+  // run did not re-observe (see lib/supabase.mjs).
+  const runStart = new Date().toISOString();
   for (const a of alerts) {
     await writeFinding(AGENT_NAME, "competitor", a.severity, null, `[${a.market} · ${a.platform}] ${a.text}`, { market: a.market, platform: a.platform, keyword: a.keyword });
   }
+  // The full analysis completed, so any open alert it did not re-raise is no
+  // longer true for the latest run (2026-10-11: 71 open, many superseded).
+  const closedAlerts = await closeUnseenFindings(AGENT_NAME, ["competitor"], runStart);
   let text = null;
+  let closedDigests = 0;
   try {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     text = await digest(anthropic, table, alerts);
-    if (text) await writeFinding(AGENT_NAME, "competitor-digest", "info", null, text, { table, alert_count: alerts.length, model: MODEL });
+    if (text) {
+      await writeFinding(AGENT_NAME, "competitor-digest", "info", null, text, { table, alert_count: alerts.length, model: MODEL });
+      // Only the newest digest is current; older ones are history, not open items.
+      closedDigests = await closeUnseenFindings(AGENT_NAME, ["competitor-digest"], runStart, "superseded by a newer competitor digest");
+    }
   } catch (e) {
     console.warn(`[${AGENT_NAME}] digest skipped: ${e.message}`);
   }
-  const summary = { markets: table.length, alerts: alerts.length, digest: Boolean(text), table };
+  const platforms = [...new Set(table.flatMap((m) => Object.keys(m.platforms)))].sort();
+  const summary = { markets: table.length, platforms, alerts: alerts.length, closed_alerts: closedAlerts, closed_digests: closedDigests, digest: Boolean(text), table };
   await logAgentRun(AGENT_NAME, "ok", summary);
   console.log(`[${AGENT_NAME}] ${table.length} markets, ${alerts.length} alerts`);
   return summary;

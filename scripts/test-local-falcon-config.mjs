@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import {
+  LOCAL_FALCON_AI_CAMPAIGNS,
   LOCAL_FALCON_CAMPAIGNS,
   localFalconBaseline,
   localFalconComparison,
@@ -95,5 +96,26 @@ for (const path of ["agents/seo-snapshot.mjs", "agents/seo-monitor.mjs", "agents
 const watcher = await readFile("agents/competitor-watcher.mjs", "utf8");
 assert.match(watcher, /\$\{r\.place_id/, "competitor-watcher must key runs by measured profile");
 
+// ── AI-visibility campaign is ingested (2026-10-11: it never was) ─────────
+assert.ok(LOCAL_FALCON_AI_CAMPAIGNS.some((c) => c.key === "8b7a79da2bc5e0c"), "the scheduled monthly AI campaign must be ingested");
+for (const c of LOCAL_FALCON_AI_CAMPAIGNS) {
+  assert.ok(!LOCAL_FALCON_CAMPAIGNS.some((m) => m.key === c.key), "an AI campaign must not be listed as a Maps market");
+  assert.ok(c.platforms.every((p) => ["chatgpt", "gemini", "aimode", "gaio", "grok"].includes(p)), `${c.key} lists a non-AI platform`);
+}
+assert.equal(localFalconBaseline(null, "8b7a79da2bc5e0c"), "3x3-5mi", "AI campaign rows must carry a real grid baseline, not ?x?-?mi");
+// An AI scan is labelled by its own place_id → the right office, never "Unknown".
+assert.equal(localFalconRunIdentity("8b7a79da2bc5e0c", "2026-10-10", PLACE.Huntsville).location, "Huntsville");
+const ingest = await readFile("agents/local-falcon-ingest.mjs", "utf8");
+assert.match(ingest, /LOCAL_FALCON_AI_CAMPAIGNS/, "local-falcon-ingest must seed the AI campaigns");
+
+// ── Findings that are no longer observed must close ──────────────────────
+for (const path of ["agents/competitor-watcher.mjs", "agents/keyword-opportunity.mjs"]) {
+  assert.match(await readFile(path, "utf8"), /closeUnseenFindings\(/, `${path} must close findings its run did not re-observe`);
+}
+// keyword-opportunity's finding TEXT must be deterministic (the trigger fingerprints it).
+const ko = await readFile("agents/keyword-opportunity.mjs", "utf8");
+assert.doesNotMatch(ko, /writeFinding\([^)]*,\s*line,/, "keyword-opportunity must not use the LLM line as finding text");
+
 console.log("✓ Local Falcon identity: legacy runs stay Alabaster, new series start clean, missing ≠ 0, no cross-series deltas");
+console.log("✓ Local Falcon AI campaign ingested; finding lifecycle closes unseen findings");
 console.log("✓ Local Falcon config: 4 campaigns, unique place IDs, correct per-market baselines");

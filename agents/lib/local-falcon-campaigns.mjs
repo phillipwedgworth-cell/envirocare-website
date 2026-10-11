@@ -71,6 +71,32 @@ export const LOCAL_FALCON_CAMPAIGNS = Object.freeze([
   }),
 ]);
 
+// AI-visibility campaigns (ChatGPT, Gemini, AI Mode, AI Overviews). Kept OUT of
+// LOCAL_FALCON_CAMPAIGNS on purpose: that list is "one Maps campaign per office"
+// and seo-monitor / seo-snapshot iterate it as markets. An AI campaign spans all
+// four offices; each scan carries its own place_id, and the ingest labels the row
+// by that place_id, so the market comes from the scan, not from this entry.
+//
+// Added 2026-10-11. 8b7a79da2bc5e0c has run monthly since 2026-08-16 (runs
+// 08-16, 09-10, 10-10, verified live via getLocalFalconCampaignReport) and the
+// ingest never read it, so lf_visibility held ZERO AI rows and competitor-watcher
+// reported google only. Paused AI campaigns d4aec50ae733458 and 853ebf2af21a1b1
+// are deliberately not listed.
+export const LOCAL_FALCON_AI_CAMPAIGNS = Object.freeze([
+  Object.freeze({
+    key: "8b7a79da2bc5e0c",
+    campaignName: "EnviroCare AI Visibility - Monthly (4 offices, 15kw)",
+    platforms: Object.freeze(["chatgpt", "gemini", "aimode", "gaio"]),
+    gridSize: 3,
+    radiusMiles: 5,
+    cadence: "monthly",
+  }),
+]);
+
+export function localFalconAiCampaign(campaignKey) {
+  return LOCAL_FALCON_AI_CAMPAIGNS.find((campaign) => campaign.key === campaignKey) ?? null;
+}
+
 // Runs whose measured profile differs from the campaign's CURRENT profile.
 // Matched by campaign key + run date when the report does not carry place_id.
 export const LEGACY_RUN_IDENTITY = Object.freeze([
@@ -174,7 +200,7 @@ export function localFalconGridLabel(rawGrid) {
 }
 
 export function localFalconBaseline(meta, campaignKey) {
-  const fallback = localFalconCampaign(campaignKey);
+  const fallback = localFalconCampaign(campaignKey) ?? localFalconAiCampaign(campaignKey);
   const grid = localFalconGridLabel(meta?.grid_size ?? meta?.size ?? meta?.grid)
     ?? (fallback ? `${fallback.gridSize}x${fallback.gridSize}` : null);
   const radius = Number(meta?.radius ?? meta?.radius_miles ?? fallback?.radiusMiles);

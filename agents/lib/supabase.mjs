@@ -237,6 +237,42 @@ export async function writeFinding(agentName, category, severity, pageUrl, findi
   }
 }
 
+// Close an agent's open findings that its CURRENT run did not re-observe.
+//
+// Why (2026-10-11 audit): the dedup trigger only merges a finding when its text
+// is identical. keyword-opportunity wrote a freshly-worded LLM line every run,
+// so each run opened 15 NEW rows and nothing ever closed the old ones — 150
+// open findings, every one seen exactly once. competitor-watcher's text carries
+// live percentages, so each change opened a new row beside the stale one (71
+// open, including two rows for the same keyword at 69.39% and 67.35%).
+// A finding the agent no longer reports is not current; leaving it "open" is
+// how stale state reaches the Sunday audit and the morning brief.
+//
+// Call ONLY after a run that completed its full analysis (a crashed or partial
+// run must not resolve everything it failed to re-check). runStartIso must be
+// taken BEFORE the run's first writeFinding: the trigger sets last_seen_at to
+// the new run_date on every re-observation, so anything older was not re-seen.
+export async function closeUnseenFindings(agentName, categories, runStartIso, note) {
+  if (!supabase || !runStartIso || !Array.isArray(categories) || categories.length === 0) return 0;
+  const { data, error } = await supabase
+    .from("agent_findings")
+    .update({
+      status: "resolved",
+      resolved_at: new Date().toISOString(),
+      resolution_note: note ?? `not re-observed by ${agentName} run started ${runStartIso}`,
+    })
+    .eq("agent_name", agentName)
+    .eq("status", "open")
+    .in("category", categories)
+    .lt("last_seen_at", runStartIso)
+    .select("id");
+  if (error) {
+    console.error(`[${agentName}] closeUnseenFindings error: ${fmtSbError(error)}`);
+    return 0;
+  }
+  return data?.length ?? 0;
+}
+
 // Read findings from the last N hours, optionally filtered by agent names
 export async function readFindings(agentNames = [], hoursBack = 24) {
   if (!supabase) return [];
