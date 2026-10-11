@@ -1,6 +1,6 @@
 # AI-Visibility Playbook — turn Local Falcon AI data into approved action
 
-Loaded by the Proposer (`knowledgeBlock`) and read by the Vercel review agent. Source: Local Falcon AI campaign `8b7a79da2bc5e0c`, first competitive read 2026-10-11.
+Loaded into every agent that calls `knowledgeBlock()` (morning-brief, neuronwriter-narrator, site-reviewer, proposer) and read by the Vercel review agent. Source: Local Falcon AI campaign `8b7a79da2bc5e0c`, first competitive read 2026-10-11.
 
 ## Goal
 Convert EnviroCare's AI-visibility gaps (ChatGPT / Gemini / AI Mode / AI Overviews) into a short, ranked, guardrail-safe set of **proposed** changes — never direct production edits. Agents **propose**; humans **approve** in the console; `approval-executor` applies.
@@ -21,8 +21,12 @@ Convert EnviroCare's AI-visibility gaps (ChatGPT / Gemini / AI Mode / AI Overvie
 - `details` (jsonb): `{ market, platform, keyword, enviroCareSaiv, leaders:[{name,saiv}], lever:"off-site-authority"|"reviews"|"citations"|"entity-schema", source:"local-falcon 8b7a79da2bc5e0c", run_date }`.
 - Treat `(agentName, market, platform, keyword, run_date)` as the logical key so re-runs don't duplicate; let `isSuppressed` dedupe accepted/known items.
 
-## Then the normal flow runs
-`proposer.mjs` reads these findings (8-day lookback), consolidates/ranks impact vs effort, kills dupes + already-fixed, emits "Top changes this cycle" into `approval_queue`. `approval-executor` applies **only** what a human approves. Never shortcut this.
+## Then the normal flow runs — NOT LIVE as of 2026-10-11
+**Status check (verified 2026-10-11 against `agents/ROSTER.json`):** `proposer.yml` and `approval-executor.yml` were **retired (unscheduled) on 2026-09-27**, and **no `ai-visibility` agent exists** in the repo. Nothing below runs automatically today. Do not report these findings as "queued" or "in the approval console".
+
+Intended design, if Phillip re-enables it: `proposer.mjs` reads these findings (8-day lookback), consolidates/ranks impact vs effort, kills dupes + already-fixed, emits "Top changes this cycle" into `approval_queue`. `approval-executor` applies **only** what a human approves. Never shortcut this.
+
+Until then, AI-visibility gaps reach Phillip through `competitor-watcher` (reads `lf_visibility`, AI platforms included since #242) and the morning brief.
 
 ## Guardrails every suggestion MUST pass (compliance canon)
 - **Human-approval-only, never auto-execute:** GBP name/address/category changes, Google-suggested-update accept/reject, redirect removal, sitemap submit/delete, any publish/deploy. Propose; never do.
