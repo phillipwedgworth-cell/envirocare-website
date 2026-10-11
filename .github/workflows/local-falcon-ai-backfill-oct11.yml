@@ -1,0 +1,27 @@
+name: One-time Local Falcon AI ingest verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/local-falcon-ai-backfill-oct11.yml'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  ai-backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Ingest previously completed Local Falcon campaigns
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          LOCAL_FALCON_API_KEY: ${{ secrets.LOCAL_FALCON_API_KEY }}
+        run: node agents/local-falcon-ingest.mjs
