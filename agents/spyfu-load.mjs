@@ -52,7 +52,7 @@ const ALIASES = {
   rank: ["rank", "currentrank", "organicrank", "position"],
   rank_change: ["rankchange", "change"],
   ranking_url: ["url", "rankingurl", "rankedurl", "toprankedurl", "page"],
-  search_volume: ["searchvolume", "monthlysearches", "volume", "localvolume"],
+  search_volume: ["searchvolume", "monthlysearchvolume", "monthlysearches", "volume", "localvolume"],
   keyword_difficulty: ["keyworddifficulty", "rankingdifficulty", "kd", "difficulty"],
   cpc: ["cpc", "costperclick"],
   est_clicks: ["estimatedclicks", "estmonthlyseoclicks", "seoclicks", "clicks"],

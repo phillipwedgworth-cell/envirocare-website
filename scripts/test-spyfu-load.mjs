@@ -23,6 +23,8 @@ const o = toRows(organic, { exportDate: "2026-10-05", sourceFile: "o.csv" });
 assert.equal(o.kind, "organic_keywords");
 assert.equal(o.rows[0].ranking_url, "https://www.envirocarellc.com/services/pest-control");
 assert.equal(o.rows[0].search_volume, 660);
+// Oct 5 GPT/API pull uses snake_case ("monthly_search_volume").
+assert.equal(mapHeader(["keyword", "rank", "url", "monthly_search_volume"]).search_volume, 3, "monthly_search_volume is the volume column");
 assert.equal(mapHeader(["Foo", "Bar"]).keyword, undefined);
 assert.throws(() => toRows("Foo,Bar\n1,2\n", { exportDate: "2026-10-05" }), /unrecognised SpyFu export/, "unknown files stop, never load guesses");
 
