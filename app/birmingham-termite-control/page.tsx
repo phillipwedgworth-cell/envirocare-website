@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
   description:
-    "Termite control in Birmingham, AL: a free termite inspection, then Sentricon® baiting with no drilling and up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement. (205) 991-2882.",
+    "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
     title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
-    description: "Termite control in Birmingham, AL: a free termite inspection, then Sentricon® baiting with no drilling and up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement. (205) 991-2882.",
+    description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
-    description: "Termite control in Birmingham, AL: a free termite inspection, then Sentricon® baiting with no drilling and up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement. (205) 991-2882.",
+    description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };

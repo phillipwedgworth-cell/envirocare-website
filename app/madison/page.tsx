@@ -23,7 +23,7 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export const metadata: Metadata = {
   title: "Pest Control Madison AL | EnviroCare — Since 1958",
   description:
-    "Family-owned pest, termite, mosquito & tick control in Madison AL — Heritage Plantation, Rainbow Mountain. Sentricon® baiting, $1M EnviroCare coverage. Call (256) 937-7676.",
+    "Family-owned pest, termite, mosquito and tick control in Madison, AL, from Heritage Plantation to Rainbow Mountain. Sentricon® baiting. (256) 937-7676.",
   alternates: { canonical: "/madison" },
   openGraph: {
     images: ["/og/og-madison.png"],
@@ -51,7 +51,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "PestControlService",
+      "@type": "LocalBusiness",
       "@id": "https://www.envirocarellc.com/madison",
       name: "EnviroCare — Huntsville / Madison Office",
       url: "https://www.envirocarellc.com",
@@ -79,7 +79,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "PestControlService", name: "EnviroCare — Huntsville", "@id": "https://www.envirocarellc.com/#huntsville", address: { "@type": "PostalAddress", streetAddress: "7027 Old Madison Pike, Ste 108", addressLocality: "Huntsville", addressRegion: "AL", postalCode: "35806", addressCountry: "US" } },
+      provider: { "@type": "LocalBusiness", name: "EnviroCare — Huntsville", "@id": "https://www.envirocarellc.com/#huntsville", address: { "@type": "PostalAddress", streetAddress: "7027 Old Madison Pike, Ste 108", addressLocality: "Huntsville", addressRegion: "AL", postalCode: "35806", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Madison", addressRegion: "AL" },
       name: "Pest Control Madison AL",
       description:

@@ -8,11 +8,11 @@
 
 export const metadata = {
   title: "Special Offers | 50% Off Initial Service | EnviroCare AL",
-  description: "Current EnviroCare special offers: 50% off initial service ($150 to $75), 50% off first mosquito treatment, FREE termite inspection. Alabama pest control since 1958.",
+  description: "Current EnviroCare offers: 50% off initial service ($150, now $75), 50% off the first mosquito treatment, and a free termite inspection.",
   alternates: { canonical: '/special-offers' },
   openGraph: {
     title: "Special Offers | 50% Off Initial Service | EnviroCare AL",
-    description: "Current EnviroCare special offers: 50% off initial service ($150 to $75), 50% off first mosquito treatment, FREE termite inspection. Alabama pest control since 1958.",
+    description: "Current EnviroCare offers: 50% off initial service ($150, now $75), 50% off the first mosquito treatment, and a free termite inspection.",
     url: 'https://www.envirocarellc.com/special-offers',
     images: ['/og-image.png'],
     type: 'website',
@@ -20,7 +20,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Special Offers | 50% Off Initial Service | EnviroCare AL",
-    description: "Current EnviroCare special offers: 50% off initial service ($150 to $75), 50% off first mosquito treatment, FREE termite inspection. Alabama pest control since 1958.",
+    description: "Current EnviroCare offers: 50% off initial service ($150, now $75), 50% off the first mosquito treatment, and a free termite inspection.",
     images: ['/og-image.png'],
   },
 };

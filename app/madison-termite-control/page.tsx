@@ -3,7 +3,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 const TITLE = "Termite Control Madison AL | Sentricon® | EnviroCare";
 const DESC =
-  "Termite control in Madison AL — new slabs on disturbed farmland are prime termite targets. Sentricon® with up to $1M EnviroCare-backed coverage. Free inspection. (256) 937-7676.";
+  "Termite control in Madison, AL, where new slabs on disturbed farmland are prime termite targets. Sentricon® baiting and a free inspection. (256) 937-7676.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -2,18 +2,18 @@
 
 export const metadata = {
   title: "Contact EnviroCare | 4 Alabama Offices | Free Inspection",
-  description: "Contact EnviroCare — family-owned Alabama pest control since 1958. Four offices: Birmingham, Alabaster, Lake Martin & Huntsville. Schedule service. Free inspection.",
+  description: "Contact EnviroCare, family-owned Alabama pest control since 1958. Four offices: Birmingham, Alabaster, Lake Martin and Huntsville. Free inspection.",
   alternates: { canonical: './' },
   openGraph: { url: 'https://www.envirocarellc.com/contact-us',
     title: "Contact EnviroCare | 4 Alabama Offices | Free Inspection",
-    description: "Contact EnviroCare — family-owned Alabama pest control since 1958. Four offices: Birmingham, Alabaster, Lake Martin & Huntsville. Schedule service. Free inspection.",
+    description: "Contact EnviroCare, family-owned Alabama pest control since 1958. Four offices: Birmingham, Alabaster, Lake Martin and Huntsville. Free inspection.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Contact EnviroCare | 4 Alabama Offices | Free Inspection",
-    description: "Contact EnviroCare — family-owned Alabama pest control since 1958. Four offices: Birmingham, Alabaster, Lake Martin & Huntsville. Schedule service. Free inspection.",
+    description: "Contact EnviroCare, family-owned Alabama pest control since 1958. Four offices: Birmingham, Alabaster, Lake Martin and Huntsville. Free inspection.",
     images: ['/og-image.png'],
   },
 };

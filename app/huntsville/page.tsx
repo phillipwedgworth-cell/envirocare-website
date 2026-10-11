@@ -25,7 +25,7 @@ export const metadata: Metadata = withOpenGraph({
   // services the Local Falcon AI scans showed Huntsville losing on (pest, termite,
   // commercial).
   title: 'Pest Control Huntsville AL | Exterminator & Termite | EnviroCare',
-  description: 'Pest control in Huntsville & Madison, AL from our Old Madison Pike office: recurring home service, Sentricon® termite protection and commercial programs. (256) 937-7676.',
+  description: 'Pest control in Huntsville and Madison, AL from our Old Madison Pike office: recurring home service, Sentricon® termite protection and commercial programs.',
 });
 
 export default function HuntsvillePage() {
