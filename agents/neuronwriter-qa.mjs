@@ -173,21 +173,21 @@ OUTPUT FORMAT — exact markdown:
 ## Score Summary
 [compact table: Page | Keyword | Score | Status]
 
+## Action Priority
+[3 bullets: the 3 highest-value improvements, each naming a specific page and term]
+
 ## Per-Page Recommendations
 ### [page-name]
 Score: [N]/100 — [✅ IN BAND | 🔴 BELOW THRESHOLD | 🟡 ABOVE BAND]
-Recommendation: [specific action citing actual missing terms]
+Recommendation: [ONE sentence citing actual missing terms]
 Top missing: [comma-separated list, max 5]
-
-## Action Priority
-[3 bullets: the 3 highest-value improvements, each naming a specific page and term]
 
 RULES:
 - Target band is 70-80. Flag below 70 as BELOW THRESHOLD, above 80 as above target band.
 - Never suggest optimizing toward 100.
 - Never recommend banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe, AVAILABLE NOW.
 - Recommendations must name specific missing terms, not generic advice like "improve your content."
-- Under 600 words total. No preamble, no sign-off.`;
+- Under 1,000 words total. No preamble, no sign-off.`;
 
 async function workerDraft(results, feedback = null) {
   if (!anthropic) throw new Error('ANTHROPIC_API_KEY missing');
@@ -207,14 +207,23 @@ async function workerDraft(results, feedback = null) {
     ? `Today: ${today}\nQueries used this run: ${queriesUsed}\n\nRevise the report addressing this critic feedback:\n${feedback}\n\nRAW DATA:\n${dataBlock}`
     : `Today: ${today}\nQueries used this run: ${queriesUsed}\n\nRAW DATA:\n${dataBlock}`;
 
+  // 1800 was too small: 16 pages of output ran 830–980 words and every report
+  // from 09-21 to 10-05 ended mid-section with no Action Priority, so the critic
+  // failed all three loops every week (verified in agent_runs 2026-10-09).
   const resp = await createMessage(anthropic, {
     model: WORKER_MODEL,
-    max_tokens: 1800,
+    max_tokens: 4000,
     system: WORKER_SYSTEM,
     messages: [{ role: 'user', content: prompt }],
   }, { agentName: AGENT_NAME, role: 'worker' });
 
-  return resp.content.find(b => b.type === 'text')?.text?.trim() ?? '';
+  const text = resp.content.find(b => b.type === 'text')?.text?.trim() ?? '';
+  if (resp.stop_reason === 'max_tokens') {
+    // Say so in the text — a silently cut report reads as a finished one.
+    console.warn(`[${AGENT_NAME}] worker output hit max_tokens — report is truncated`);
+    return `${text}\n\n[TRUNCATED — worker hit max_tokens; report is incomplete]`;
+  }
+  return text;
 }
 
 // ─── CRITIC ────────────────────────────────────────────────────────────────
@@ -226,7 +235,8 @@ const rubric = `
 - Target band 70-80 mentioned at least once
 - No banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe, AVAILABLE NOW
 - Action Priority section lists at least 2 specific page+term combinations
-- Under 700 words, no preamble, no sign-off`;
+- Report is complete: not cut off mid-section and no "[TRUNCATED" marker
+- Under 1,100 words (16 pages are covered, so 700 was unreachable), no preamble, no sign-off`;
 
 // ─── WRITE ─────────────────────────────────────────────────────────────────
 
@@ -357,6 +367,7 @@ export async function run() {
   // One agent_runs row per run: an escalated run is logged once, as
   // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
   let escalated = false;
+  let criticHistory = null;
   const critic = anthropic ? await criticLoop({
     workerName: AGENT_NAME,
     task: 'NeuronWriter content quality QA report for 16 EnviroCare service and city pages',
@@ -364,9 +375,10 @@ export async function run() {
     rubric,
     revise: fb => workerDraft(results, fb),
     toolErrors,
-    onEscalate: async out => {
+    onEscalate: async (out, history) => {
       console.warn(`[${AGENT_NAME}] critic escalated — accepting best draft`);
       escalated = true;
+      criticHistory = history;
     },
   }) : draft;
 
@@ -384,11 +396,12 @@ export async function run() {
   const final = critic;
   await writeReport(final, results).catch(e => console.error(`[${AGENT_NAME}] writeReport error: ${e.message}`));
   await appendWeeklyResult(results).catch(e => console.error(`[${AGENT_NAME}] Notion post error: ${e.message}`));
-  await logAgentRun(AGENT_NAME, escalated ? 'escalated' : 'ok', final).catch(() => {});
+  await logAgentRun(AGENT_NAME, escalated ? 'escalated' : 'ok', final,
+    escalated ? { critic_history: criticHistory } : null).catch(() => {});
 
   const failCount = results.filter(r => !r.error && r.score < SCORE_PASS).length;
   console.log(`[${AGENT_NAME}] Done. ${failCount} page(s) below threshold.`);
-  return { brief: final, results, failCount };
+  return { brief: final, results, failCount, escalated };
 }
 
 // ─── CLI ───────────────────────────────────────────────────────────────────
