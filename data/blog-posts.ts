@@ -228,7 +228,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Talk to the Lake Martin office</h2>
 
-<p>EnviroCare started as Wedgworth Pest Control in Alexander City in 1958, and the family is now in its fourth generation. The Alex City office at 1785 Tallapoosa Street covers Lake Martin, Dadeville, Eclectic and the communities around the lake. Call <a href="tel:2562346162">(256) 234-6162</a> or <a href="/quote">request a free quote</a>.</p>
+<p>The Wedgworth family got its start in pest control in Alexander City in 1958, as Wedgworth Pest Control, and is now in its fourth generation. The Alex City office at 1785 Tallapoosa Street covers Lake Martin, Dadeville, Eclectic and the communities around the lake. Call <a href="tel:2562346162">(256) 234-6162</a> or <a href="/quote">request a free quote</a>.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -262,7 +262,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>When insurance may cover part of it</h2>
 
-<p>There is one narrow case. Many policies include limited coverage for a sudden collapse of the house or part of it, and some list insect damage that was hidden from view as a cause that qualifies. If termites weakened a beam inside a wall that nobody could see, and that section abruptly collapses, insurance may cover the collapse itself. It generally will not pay to replace the termite-damaged wood itself, and it will not respond if the damage was visible or known before the collapse. Every policy words this differently, so read the collapse section of yours or ask your agent directly. A few insurers sell specialty endorsements, but they are uncommon in Alabama and not something to count on.</p>
+<p>There is one narrow case. Many policies include limited coverage for a sudden collapse of the house or part of it, and some list insect damage that was hidden from view as a cause that qualifies. If termites weakened a beam inside a wall that nobody could see, and that section abruptly collapses, insurance may cover the collapse itself. It generally will not pay to replace the termite-damaged wood itself, and it will not respond if the damage was visible or known before the collapse. Every policy words this differently, so read the collapse section of yours or ask your agent directly. Ask your agent whether any endorsement on your policy changes this; do not assume one does.</p>
 
 <h2>Why this matters more in Alabama</h2>
 
@@ -306,7 +306,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Common questions</h2>
 
 <h3>Does any homeowners insurance cover termite damage in Alabama?</h3>
-<p>Standard policies exclude it. Some cover a sudden collapse caused by hidden insect damage, but not the repair of the damaged wood. Specialty endorsements exist but are uncommon. Ask your agent what your specific policy says.</p>
+<p>Standard policies exclude it. Some cover a sudden collapse caused by hidden insect damage, but not the repair of the damaged wood. Ask your agent whether any endorsement applies and what your specific policy says.</p>
 
 <h3>Will my insurance cover termite treatment?</h3>
 <p>No. Treatment and prevention are maintenance, and home insurance doesn't cover maintenance. The cost of termite treatment is the homeowner's.</p>
@@ -432,7 +432,7 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Kudzu Bugs in Alabama: Identify & Keep Them Out | EnviroCare',
     metaDescription: 'Kudzu bugs in Alabama: how to identify this invasive pest, why kudzu bugs invade homes in fall, whether they bite, and how to get rid of kudzu bugs.',
     body: `
-<p class="lede">If small, olive-green bugs are piling up on a light-colored wall, window or car this fall, you are probably looking at the kudzu bug. This invasive insect is common across Alabama now, and every October we get calls about it from Alabaster to Huntsville. Here is how to identify kudzu bugs, why they end up on your house, and what actually gets rid of them.</p>
+<p class="lede">If small, olive-green bugs are piling up on a light-colored wall, window or car this fall, you are probably looking at the kudzu bug. This invasive insect still shows up in Alabama most falls, though numbers are down from the early 2010s, and every October we get calls about it from Alabaster to Huntsville. Here is how to identify kudzu bugs, why they end up on your house, and what actually gets rid of them.</p>
 
 <h2>What is the kudzu bug?</h2>
 
@@ -497,7 +497,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 4,
     heroEmoji: '🐝',
     metaTitle: 'Carpenter Bees in Alabama: Damage & Prevention | EnviroCare',
-    metaDescription: 'Carpenter bees in Alabama: how to tell them from bumblebees, the damage they do to wood, prevention that works, and when a carpenter bee nest needs treatment.',
+    metaDescription: 'Carpenter bees in Alabama: telling them from bumblebees, the wood damage they do, prevention that works, and when a nest needs treatment.',
     body: `
 <p class="lede">Every spring in Alabama someone calls us about a big black bee hovering at the eave, buzzing at anyone who walks onto the porch. That is almost always a carpenter bee. They look scary, they rarely hurt anyone, and the real problem is the perfectly round hole they leave in your wood. Here is how to identify carpenter bees, what damage they actually do, and what works for prevention.</p>
 
@@ -526,7 +526,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <ul>
 <li><strong>Paint or finish bare wood.</strong> A good paint or finish is the best deterrent. Stain alone helps less.</li>
-<li><strong>Seal old holes in fall.</strong> After the bees leave, plug each hole with wood putty, caulk or a dowel and paint over it, so the gallery cannot be reused next spring.</li>
+<li><strong>Plug holes once activity stops.</strong> Adults spend the winter inside the old tunnels, so treat active holes in spring, then plug each hole with wood putty, caulk or a dowel and paint over it, so the gallery cannot be reused next spring.</li>
 <li><strong>Replace badly tunneled boards</strong> with treated or painted wood.</li>
 <li><strong>Skip the gadgets.</strong> Repellent sprays and traps sold for carpenter bees have weak evidence behind them. They may catch a few bees; they do not solve a nest.</li>
 </ul>
@@ -540,7 +540,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Carpenter bee FAQs</h2>
 
 <h3>Where do carpenter bees go in the winter?</h3>
-<p>Adults overwinter inside the old tunnels. That is why sealing holes in late fall or winter, once you are sure they are empty, matters so much.</p>
+<p>Adults overwinter inside the old tunnels. That is why the order matters: treat active holes in spring, then plug and paint them once activity stops, so the next generation has nowhere to return to.</p>
 
 <h3>Are carpenter bees native to Alabama?</h3>
 <p>Yes. The eastern carpenter bee is native across the Southeast and is an important pollinator, which is why the goal is keeping them out of your wood, not wiping them out.</p>
@@ -689,43 +689,78 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'rodents-alabama-homes-fall',
     title: 'Mice and Rats in Alabama Homes: Why October Is When They Move In',
-    excerpt: 'The first mouse in the pantry almost always shows up in October, and it did not pick your house at random. Here is how rodents choose a home, the entry points they use, how to tell mice from rats by the evidence, and why traps alone rarely end it.',
+    excerpt: 'The first mouse in the pantry usually shows up in October, and without sealed entry points it is still there in January. Here is why rodents move into Alabama homes in fall and stay all winter, how to read the signs, and what actually works.',
     publishedAt: '2026-09-08',
-    updatedAt: '2026-09-29',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 7,
     heroEmoji: '🐭',
     metaTitle: 'Mice & Rats in Alabama Homes: Why They Move In Every October',
-    metaDescription: 'Why rodents enter Alabama homes in fall, how to tell mice from rats by droppings and damage, the entry points they use, and what exclusion actually means.',
+    metaDescription: 'Why mice move into Alabama homes in fall and stay all winter: signs of an infestation, mouse vs. rat evidence, entry points, and what works.',
     body: `
-<p class="lede">The call comes the first cool week of October, almost to the day: droppings in the pantry, a chewed corner on a bag of dog food, scratching in the wall behind the bed at 2 a.m. A mouse did not stumble into your house. As soon as the nights drop into the fifties, every mouse and rat within a hundred yards starts testing structures for a warm place with food, and a house in Alabama offers both. Understanding how they pick a house is how you keep them out of yours.</p>
+<p class="lede">The call comes the first cool week of October, almost to the day: droppings in the pantry, a chewed corner on a bag of dog food, scratching in the wall behind the bed at 2 a.m. A mouse did not stumble into your house. As soon as the nights drop into the fifties, every mouse and rat within a hundred yards starts testing structures for a warm place with food, and a house in Alabama offers both. The ones that get in during October are still there in January. Understanding how they pick a home, and why they stay all winter, is how you keep them out of yours.</p>
 
-<h2>Mouse or rat? The evidence tells you</h2>
-<p>You will almost never see the animal. You will see what it leaves. House mouse droppings are the size of a grain of rice with pointed ends, scattered wherever the mouse traveled. Norway rat droppings are three times that size, blunt, and concentrated near a runway or a food source. Roof rats — common in Alabama, especially near trees and in attics — leave droppings in between, with pointed ends, usually in the attic or on top of the wall plates. Gnaw marks tell you too: a mouse leaves tiny paired grooves; a rat leaves rough, larger tooth marks and can go through plastic, wood, and even soft metal. Grease marks along a baseboard or a rafter are a rat highway. A musky smell in an enclosed space is rats.</p>
+<h2>Why mice move into Alabama homes in fall and stay all winter</h2>
+<p>Rodents do not hibernate. When the temperature falls, a house mouse outdoors burns more energy staying warm and has less to eat, so it goes looking for warmth, steady food, and a dry nest site. Your home has all three, and this time of year it is the best warm shelter on the block. Once a mouse finds one of the wall voids near the water heater or a pile of attic insulation over a warm ceiling, there is no reason for it to leave in December or February. Food is in the kitchen, water drips under the sink, and the heat runs all night.</p>
+<p>That is also why a winter mouse problem grows instead of fading. Inside, a heated wall is a breeding ground, mice keep breeding through the winter, and a female can produce a new litter every few weeks. If you are hearing it in the wall at night, that is not a wait-and-see situation: mice breed year-round indoors, and a female can have a new litter every few weeks.</p>
 
-<h2>Where they get in</h2>
-<p>A mouse fits through a gap the width of a pencil. A rat needs about a quarter — the coin. Every house in <a href="/hoover">Hoover</a> or <a href="/madison">Madison</a> has a dozen openings that size, and they are the same on every house: the bottom corners of the garage door where the seal has lifted, the gap around the AC line set and the hose bib, the dryer vent with a broken flap, a crawlspace vent screen rusted through, weep holes in the brick, the gap under an exterior door with a worn sweep, and anywhere a branch touches the roofline and gives a roof rat a ramp to the soffit. Firewood, lumber, or dock gear stacked against siding is a covered runway to whichever of those openings is nearest.</p>
-
-<h2>Why traps alone rarely end it</h2>
-<p>Traps catch the animals that are already inside. They do nothing about the opening they came through, so the population outside keeps sending replacements. A house that catches a mouse every week in November does not have a mouse problem; it has a hole. The order that works is: find and close the entry points, reduce what draws them (pet food in a sealed bin, bird seed off the garage floor, the grill drip tray cleaned), and then trap what is left inside. Bait outside the structure, in tamper-resistant stations, handles the population before it reaches the wall. Loose bait inside a house is how you end up with a dead rat in a wall void in January, and we will not do it.</p>
-
-<h2>The Alabama specifics</h2>
-<p>Three things make rodent pressure higher here than in most states. The mild winter means the outdoor population never crashes; a January warm spell sends them right back out. The housing stock is heavy on crawlspaces and pier foundations, which give rodents a protected route to the sill plate and the plumbing chases. And the amount of land in row crops and pasture — around <a href="/hartselle">Hartselle</a>, <a href="/harvest">Harvest</a>, and <a href="/calera">Calera</a> especially — means that when fields are cut in September, the entire field population moves toward the nearest subdivision at once.</p>
-
-<h2>What to do this week</h2>
+<h2>Signs of a rodent infestation in your home in winter</h2>
+<p>You will almost never see the animal. Mice are cautious, hide by day, and travel along walls after dark, so by the time a homeowner starts seeing signs, rodent activity has usually been going on for weeks. Watch for these:</p>
 <ul>
-<li>Walk the exterior at dusk with a flashlight. Look at every corner of the garage door, every pipe through the wall, every vent.</li>
-<li>Seal gaps with copper mesh and sealant, not foam alone — rats chew through foam.</li>
-<li>Get pet food, bird seed, and grass seed into sealed bins.</li>
-<li>Move firewood and anything stacked against the house at least a few feet off the siding.</li>
-<li>Trim any branch within six feet of the roof.</li>
+<li><strong>Sounds at night.</strong> Scratching or scurrying in the ceiling or a wall after the house goes quiet.</li>
+<li><strong>Droppings.</strong> Small dark pellets along baseboards, in drawers, behind the stove, or on pantry shelves.</li>
+<li><strong>Gnaw marks.</strong> Chewed food packaging, cardboard boxes in storage, wood trim, or the insulation on wiring.</li>
+<li><strong>Nest material.</strong> Shredded paper, fabric, or insulation in the attic, basement, or a cabinet.</li>
+<li><strong>Rub marks and odor.</strong> Dark smudges along a regular route, and a stale, musky smell in closed spaces.</li>
 </ul>
 
-<h2>Rodents are covered on the pest plan</h2>
-<p>Rodent control is included in EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a>: exclusion at entry points on every exterior visit, exterior bait stations where the population warrants it, and interior trapping when something has already made it in. If you are hearing it in the wall at night, that is not a wait-and-see situation — a mouse population doubles in about six weeks indoors. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a>.</p>
+<h2>Mouse or rat? The evidence tells you</h2>
+<p>What the animal leaves behind tells you which species you have. Of the species of mice in Alabama, the one in your walls is usually the house mouse. House mouse droppings are the size of a grain of rice with pointed ends, scattered wherever the mouse traveled. Norway rat droppings are three times that size, blunt, and concentrated near a runway or a food source. Roof rats, common in Alabama, especially near trees and in attics, leave droppings in between, with pointed ends, usually in the attic or on top of the wall plates. Gnaw marks tell you too: a mouse leaves tiny paired grooves; a rat leaves rough, larger tooth marks and can go through plastic, wood, and even soft metal. Grease marks along a baseboard or a rafter are a rat highway. A musky smell in an enclosed space is rats. For a side-by-side breakdown, see <a href="/blog/mice-vs-rats-alabama-which-do-i-have">mice vs. rats in Alabama: which do I have?</a></p>
 
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<h2>Where they get in</h2>
+<p>A mouse fits through a gap the width of a pencil. A rat needs about a quarter, the coin. Every house in <a href="/hoover">Hoover</a> or <a href="/madison">Madison</a> has a dozen openings that size, and they are the same on every house: the bottom corners of the garage door where the seal has lifted, the gap around the AC line set and the hose bib, the dryer vent with a broken flap, a crawlspace vent screen rusted through, weep holes in the brick, the gap under an exterior door with a worn sweep, and anywhere a branch touches the roofline and gives a roof rat a ramp to the soffit. Firewood, lumber, or dock gear stacked against siding is a covered runway to whichever of those entry points is nearest. Gaps beneath a shrub planted tight to the foundation are easy to miss. Inside, they follow plumbing and wiring holes up from the crawlspace or basement.</p>
+
+<h2>The Alabama specifics</h2>
+<p>Three things make rodent pressure higher here than in most states. The mild winter means the outdoor population never crashes; a January warm spell sends them right back out to forage and test your house again. The housing stock is heavy on crawlspaces and pier foundations, which give rodents a protected route to the sill plate and the plumbing chases. A damp crawlspace with standing water is especially vulnerable, to rodents and to termite activity alike. And the amount of land in row crops and pasture, around <a href="/hartselle">Hartselle</a>, <a href="/harvest">Harvest</a>, and <a href="/calera">Calera</a> especially, means that when fields are cut in September, the entire field population moves toward the nearest subdivision at once.</p>
+
+<h2>How to get rid of mice: why traps alone rarely end it</h2>
+<p>Traps catch the animals that are already inside. They do nothing about the opening they came through, so the population outside keeps sending replacements. A house that catches a mouse every week in November does not have a mouse problem; it has a hole. The order that works to get rid of mice is: find and seal the entry points, reduce what draws them (pet food in a sealed bin, bird seed off the garage floor, the grill drip tray cleaned), and then trap and remove what is left inside. Set snap traps along walls, where mice actually run.</p>
+<p>Bait outside the structure, in tamper-resistant stations, handles the population before it reaches the wall. Loose bait inside a house is how you end up with a dead rat in a wall void in January, and the odor that comes with it lasts for weeks. We will not do it.</p>
+
+<h2>What does not work to get rid of rodents</h2>
+<p>Here is the honest answer on home remedies that promise to keep pests from entering:</p>
+<ul>
+<li><strong>Ultrasonic plug-in repellers.</strong> Mice get used to the sound, and it does not pass through walls. We have never seen one clear a house.</li>
+<li><strong>Peppermint oil, dryer sheets, and mothballs.</strong> A strong smell may move a mouse a few feet. It will not move a colony out of a warm wall.</li>
+<li><strong>Expanding foam by itself.</strong> Rats chew through foam. Pack gaps with copper mesh first, then seal over it with caulk or sealant.</li>
+<li><strong>Poison baits inside the walls or attic.</strong> The rodent dies where you cannot reach it. You get the smell, the flies, and still have the hole.</li>
+</ul>
+
+<h2>Cleaning up droppings</h2>
+<p>Mice and rats pose a real cleanup problem. Their droppings and urine can carry germs, including hantavirus, and rodents can bring fleas and ticks indoors with them. Do not sweep or vacuum dry droppings, because that puts dust in the air. Ventilate the space first, wear gloves, wet the droppings and nest material with a disinfectant, wipe them up with paper towels, bag the waste, and wash your hands.</p>
+
+<h2>Prevention: what to do this week</h2>
+<p>Rodent prevention means removing the reasons and the ways to get in. These steps help prevent future unwanted visitors:</p>
+<ul>
+<li>Walk the exterior at dusk with a flashlight. Look at every corner of the garage door, every pipe through the wall, every vent, and every crack in the foundation.</li>
+<li>Seal gaps with copper mesh and sealant, not foam alone.</li>
+<li>Get pet food, bird seed, and grass seed into sealed containers, and move pantry staples out of cardboard and paper.</li>
+<li>Move firewood and anything stacked against the house at least a few feet off the siding.</li>
+<li>Trim any branch within six feet of the roof.</li>
+<li>Fix leaky pipes and drips under sinks; water keeps a winter population going.</li>
+</ul>
+
+<h2>Common questions about mice in the house in winter</h2>
+<h3>Will the mice leave on their own when it warms up?</h3>
+<p>Usually not. A heated wall with food nearby beats anything outside in March. Rats and mice that have found a way in do not give it up.</p>
+<h3>Should I call an exterminator or handle it myself?</h3>
+<p>A homeowner can seal gaps and trap one or two mice. If you keep catching them or find rat droppings, it is time for professional pest control. The goal is to eliminate the way in, not to lure and catch mice forever.</p>
+
+<h2>Rodent control is part of our pest control plan</h2>
+<p>Rodent work is part of our <a href="/services/pest-control">bi-monthly pest control plan</a>. On exterior visits we look for the gaps rodents use and close the entry points, and where the activity calls for it we add exterior bait stations or interior trapping. Any products we use are EPA-registered, applied according to label directions. If mice or rats show up between scheduled visits, call us and we come back out. See <a href="/pricing">our pricing page</a> for the plans. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> and in our guide to <a href="/blog/winter-pests-alabama">winter pests in Alabama</a>.</p>
+
+<p>If you are finding droppings or hearing scratching this winter, call the office nearest you: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Alexander City and Lake Martin (256) 234-6162, or Huntsville (256) 937-7676. Or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -733,36 +768,59 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'wasps-yellow-jackets-hornets-alabama',
     title: 'Wasps, Yellow Jackets, and Hornets in Alabama: Which One Is on Your House?',
-    excerpt: 'A paper wasp under the eave, a yellow jacket nest in the ground by the mailbox, a bald-faced hornet nest the size of a football in the crape myrtle — three different insects, three different risks, three different approaches. Here is how to tell them apart and when it stops being a DIY job.',
+    excerpt: 'A paper wasp under the eave, a yellow jacket nest in the ground by the mailbox, a bald-faced hornet nest in the crape myrtle: three different insects and three different risks. Here is how to tell them apart, why Alabama ground nests can get unusually big, and when it stops being a DIY job.',
     publishedAt: '2026-09-10',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 7,
     heroEmoji: '🐝',
-    metaTitle: 'Wasps vs Yellow Jackets vs Hornets in Alabama: ID & What to Do',
-    metaDescription: 'How to tell paper wasps, yellow jackets, and bald-faced hornets apart in Alabama, where each nests, and which nests need professional treatment.',
+    metaTitle: 'Wasps vs Yellow Jackets vs Hornets in Alabama | EnviroCare',
+    metaDescription: 'Tell paper wasps, yellow jackets, and hornets apart in Alabama, why ground nests get dangerous, and when a nest needs professional treatment.',
     body: `
-<p class="lede">Every August the same three calls come in, and people use the three names interchangeably. They are not the same insect, they do not nest in the same places, and the one that puts people in urgent care is usually not the one on the porch. Knowing which one you have decides whether you knock it down with a can of spray on a cool evening or leave it alone and call someone.</p>
+<p class="lede">Every August the same three calls come in, and people use the three names interchangeably. Wasps, yellow jackets, and hornets are not the same insect, they do not nest in the same places, and the stinging insect that sends people to urgent care is usually not the one on the porch. In Alabama it is most often the yellow jacket nest in the ground. Knowing which one you have decides whether you knock it down with a can of spray on a cool evening or leave it alone and call someone.</p>
 
 <h2>Paper wasps: the umbrella under the eave</h2>
-<p>The nest is an open, upside-down umbrella of gray paper cells, usually a few inches across, hanging from a soffit, a porch ceiling, a deck rail, or the inside of a mailbox. The wasps are long, thin, reddish-brown or dark with yellow markings, and their legs hang down in flight. Paper wasps are the least aggressive of the three; they defend the nest if you swat at it, but they are not looking for you. A small nest in an out-of-the-way spot can be treated at dusk with a wasp spray. A nest over a door or a walkway, or one you cannot reach without a ladder, should not be — falling off a ladder is the injury, not the sting.</p>
+<p>The nest is an open, upside-down umbrella of gray paper cells, usually a few inches across, hanging from a soffit, a porch ceiling, a deck rail, or the inside of a mailbox. The wasps are long, thin, reddish-brown or dark with yellow markings, and their legs hang down in flight. Paper wasps are the less aggressive insect of the three; they defend the nest if you swat at it, but they are not looking for you. A small nest in an out-of-the-way spot can be treated at dusk with a wasp spray. A nest over a door or a walkway, or one you cannot reach without a ladder, should not be. Falling off a ladder is the injury, not the sting.</p>
 
-<h2>Yellow jackets: the hole in the ground</h2>
-<p>Yellow jackets are shorter and thicker than paper wasps, bright yellow and black, and they nest in cavities: an old rodent burrow in the yard, the gap behind a retaining wall, inside a wall void, under a deck. The nest is hidden; what you see is a stream of traffic in and out of a single hole. By late summer a colony can hold several thousand workers, and they are aggressive around the nest — they will pursue, and they sting repeatedly. Yellow jackets are the ones that show up at the picnic and the trash can. A ground nest near a walkway, a play area, or the mower path is the nest that gets people hurt, and it is the one we treat most. Do not pour gasoline in the hole. It does not work well and it is a real fire and groundwater problem.</p>
+<h2>Yellow jackets: the yellow jacket nest underground</h2>
+<p>Yellow jackets are shorter and thicker than paper wasps, banded bright yellow and black, with a narrow waist. Most of the yellow jackets you meet in an Alabama yard belong to the genus Vespula, and they do not hang a nest where you can see it. They move into a cavity that already exists: an old rodent burrow in the lawn, the gap under a landscape timber or a concrete step, the space behind a retaining wall, a wall void, the dirt under a deck. Inside, the colony builds tiers of paper comb from chewed wood fiber, and the cavity keeps getting dug out as the nest grows.</p>
+<p>What you see from the outside is small: a steady line of insects flying in and out of one hole, sometimes no bigger than a coin, often low in the grass. If you notice more yellow jackets than usual cruising low over one part of the yard, there is probably an entrance close by.</p>
+<p>By late summer an average nest can hold several thousand workers, which is when yellow jackets become a nuisance, and they are aggressive around the nest. They will pursue, and unlike a honeybee a yellow jacket keeps its stinger, so one insect can sting again and again. These are also the ones that show up at the picnic and the trash can, working sweet drinks and meat as the season winds down. A ground nest near a walkway, a play area, a dog run, or the mower path is the nest that gets people hurt, and it is the one we treat most.</p>
+
+<h3>What sets off a ground nest</h3>
+<p>Do not disturb the nest to investigate. These are the usual triggers:</p>
+<ul>
+<li>A mower or string trimmer passing over the entrance. The vibration alone can bring hundreds of workers up at once.</li>
+<li>Digging, edging, or pulling weeds in a bed where the colony has set up.</li>
+<li>Kids or pets running back and forth across the same spot.</li>
+<li>Poking a stick in the hole, flooding it with a hose, or stamping on it to see what happens.</li>
+</ul>
+
+<h3>What does not work</h3>
+<p>Do not pour gasoline in the hole. It does not work well, and it is a real fire and groundwater problem. Do not set it on fire, plug the entrance with a rock, or cover it with dirt; the workers simply dig a new exit, sometimes into a crawlspace or a wall instead of the yard. And do not walk out at noon with a can of spray. Daytime is when the most foragers are out and the colony is most alert.</p>
+
+<h2>Perennial yellow jacket nests: the Alabama exception</h2>
+<p>Normally a yellow jacket colony is an annual. The workers and the old queen die with cold weather, and only newly mated queens survive the winter to start fresh colonies in the spring. In Alabama that pattern does not always hold. Entomologists at Auburn University and the Alabama Cooperative Extension System have documented perennial yellow jacket nests: colonies that live through a mild winter, often have multiple queens, and keep growing into a second season. Auburn University tracked about 90 such nests in 2006, and more turned up in later years.</p>
+<p>A perennial nest, sometimes called a super nest, is a different scale of problem from a normal yellow jacket nest, and the risk of being stung goes up with every worker. Some have grown to fill a large underground space or spill out under a house, with reported sizes in the range of a small car and worker counts in the tens of thousands or more. Researchers point to two conditions behind them: a mild winter that never delivers the cold that normally ends the colony, and an abundant food supply that keeps the workers foraging. If you see an unusually large mound of comb, traffic from several openings, or heavy activity in March or April when nests should be tiny, treat it as a possible perennial nest. Keep everyone away from it and call a licensed pest control company.</p>
 
 <h2>Bald-faced hornets: the gray football in the tree</h2>
-<p>Bald-faced hornets build the nest everyone photographs: a closed, gray, papery football, sometimes bigger, hanging in a tree, a shrub, or under an eave, with a single entrance near the bottom. The insects are black with white faces. They are large, they defend a wide radius around the nest, and a colony in a shrub next to the driveway is a problem every time a car door opens. These nests are not a spray-can job. A nest away from any activity can simply be left alone until the first hard cold; one near the house needs professional treatment.</p>
+<p>Bald-faced hornets build the nest everyone photographs: a closed, gray, papery football, sometimes bigger, hanging in a tree, a shrub, or under an eave, with a single entrance near the bottom. The insects are black with white faces, and they are actually a kind of yellow jacket, not a true hornet. They are large, they defend a wide radius around the nest, and a colony in a shrub next to the driveway is a problem every time a car door opens. These nests are not a spray-can job. A nest away from any activity can simply be left alone until the first hard cold; one near the house needs professional treatment.</p>
 
 <h2>The Alabama calendar</h2>
-<p>Queens emerge in March and April and start nests alone. Through May and June the nests are small and easy to deal with. July and August is peak growth, and by September a colony is at maximum size and maximum aggression — which is exactly when people notice it. After the first hard cold in November the colony dies; only new queens survive, and they do not reuse the old nest. So a nest you find in October has weeks to live. Whether to treat it depends entirely on where it is.</p>
+<p>Queens emerge in early spring, March and April, and build nests alone. Through May and June the nests are small and easy to deal with. July and August is peak growth, and by September a colony is at maximum size and maximum aggression, which is exactly when people notice it. After the first hard cold in November an ordinary colony dies; only new queens survive, and they do not reuse the old nest. So a typical nest you find in October has weeks to live, and whether to treat it depends entirely on where it is. The perennial nests above are the exception to that rule, which is one more reason a big ground nest late in the year deserves a professional look.</p>
 
 <h2>Around the lake</h2>
-<p>Boathouse rafters, covered slips, and the underside of a dock are prime wasp real estate, and a nest you did not know about is the reason a lake weekend ends early. Routine exterior visits for <a href="/lake-martin">Lake Martin</a> accounts knock down new building along the eaves, and an active nest found there can be treated as an add-on.</p>
+<p>Boathouse rafters, covered slips, and the underside of a dock are prime real estate for wasp nests, and a nest you did not know about is the reason a lake weekend ends early. Routine exterior visits for <a href="/lake-martin">Lake Martin</a> accounts knock down webbing and new building along the eaves, and an active nest found there can be treated as an add-on. For the other dock regulars, see <a href="/blog/spiders-on-boat-docks-lake-martin">spiders on boat docks</a>.</p>
+
+<h2>Stings and allergies</h2>
+<p>For most people a sting is painful and short-lived; for some, stinging insects are a serious medical risk. Know whether anyone in the household, including a visiting grandchild, has a known sting allergy, and keep their prescribed plan close during yard season. If you disturb a nest, walk away fast in a straight line and get indoors or into a car; swatting only draws more of them. If someone shows signs of a severe reaction, such as trouble breathing, swelling of the face or throat, or dizziness, call 911.</p>
 
 <h2>When to call</h2>
-<p>Ground nests near where people walk. Any nest inside a wall or an attic — the wrong treatment drives them into the living space. Bald-faced hornet nests near the house. Any nest you would need a ladder for. And anyone in the household with a known sting allergy, in which case none of this is a DIY job. Customers on the <a href="/services/pest-control">bi-monthly pest plan</a> get eave treatment that discourages wasps from building, and treating an active wasp or hornet nest is an add-on at an additional charge. For the other seasonal arrivals, see <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles</a>.</p>
+<p>Ground nests near where people walk, play, or mow. Any nest inside a wall or an attic, because the wrong treatment drives them into the living space. Anything that looks like a perennial nest. Bald-faced hornet nests near the house. Any nest you would need a ladder for. And anyone in the household with a known sting allergy, in which case none of this is a DIY job.</p>
+<p>When we treat a yellow jacket nest in the ground, our technicians wear protective gear, locate the entrance, and apply EPA-registered products according to label directions directly into the colony, usually when most of the workers are home. Customers on the <a href="/services/pest-control">bi-monthly pest plan</a> get eave treatment that discourages wasps from building, and routine visits knock down webbing and new building along the eaves. Treating an active wasp, hornet, or yellow jacket nest, including a ground nest, is an add-on at an additional charge; it is not part of the standard plan. See <a href="/pricing">our pricing page</a> for plan details. Honeybees are a different story: we do not treat them, and a local beekeeper can often remove a swarm. Carpenter bees are handled as an add-on for existing customers; see <a href="/blog/carpenter-bees-alabama">carpenter bees in Alabama</a>. For the other seasonal arrivals, see <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles</a>.</p>
 
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<p>If you have a line of yellow jackets coming out of the ground by the mailbox, leave it alone and let us look at it. Call the office nearest you: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676. Or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -2107,50 +2165,89 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'stink-bugs-lady-beetles-alabama-fall',
     title: "Stink Bugs and Lady Beetles: Alabama's Fall Home Invaders",
-    excerpt: 'Every September the south side of the house turns into a landing strip. Brown marmorated stink bugs and Asian lady beetles are not after your food or your wood — they want your walls. Here is why they pick certain houses, why killing them indoors makes things worse, and what actually keeps them out.',
+    excerpt: 'Every September, stink bugs and Asian lady beetles head for the sunny side of Alabama homes looking for a wall to winter in. Here is why they pick certain houses, how to deal with the ones already inside without making it worse, and what reduces how many get in.',
     publishedAt: '2026-08-18',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
-    readMinutes: 6,
+    readMinutes: 7,
     heroEmoji: '🐞',
     metaTitle: "Stink Bugs Everywhere This Fall? Here's Why (Alabama)",
-    metaDescription: 'Stink bugs and Asian lady beetles swarm Alabama homes every fall. Why they pick your house, why squishing backfires, and how to stop them.',
+    metaDescription: 'Stink bugs and Asian lady beetles move into Alabama homes every fall. Why they\'re inside, what to do now, and how to keep more of them out.',
     body: `
-<p class="lede">Every September, usually right around the first week the overnight lows dip below sixty, we start getting the same call from homeowners across the Birmingham metro. There are dozens — sometimes hundreds — of small, shield-shaped brown insects clustered on the sunny side of the house. Or worse, the orange ones that look like ladybugs but are not, and they bite. Both are looking for the same thing: a warm wall to spend the winter inside. They are not after your food, your wood, or your wiring. They want a gap in the siding, a crack around a window frame, and a quiet void where the temperature stays above freezing until March.</p>
+<p class="lede">Every September, usually right around the first week the overnight lows dip below sixty, we start getting the same call from homeowners across the Birmingham metro. There are dozens — sometimes hundreds — of small, shield-shaped brown insects clustered on the sunny side of the house. Or worse, the orange ones that look like ladybugs but are not, and they bite. Both are looking for the same thing: a warm wall to spend the winter inside. They are not after your pantry, your wood, or your wiring. They want a gap in the siding, cracks around windows, and a quiet void where the temperature stays above freezing until March. If you already have stink bugs in the house, here is what to do.</p>
 
-<h2>What are they, exactly?</h2>
+<h2>Stink bugs in Alabama: what are they, exactly?</h2>
 
-<p>The brown ones are brown marmorated stink bugs (BMSB), an Asian import that has been building in Alabama for the past decade. The orange-and-black ones are Asian lady beetles — they look like ladybugs but bite, stain walls yellow when crushed, and in large numbers produce a smell that is hard to air out of a room.</p>
+<p>The brown ones are brown marmorated stink bugs (BMSB), an invasive insect accidentally introduced from Asia that has been building in Alabama for the past decade. Adults are a little over half an inch long, mottled brown, with a shield-shaped body. To tell them apart from native species, check the abdomen for alternating light and dark markings along the edges, plus pale bands on the antennae. Through the warm months the brown marmorated stink bug is a crop pest, feeding on vegetable crops like tomatoes and okra, plus peaches, soybeans, and ornamental plants. In early fall they switch from feeding to finding shelter.</p>
 
-<p>Both are overwintering pests, not breeding pests. They are not building a colony inside the wall. They go dormant in cracks, attic soffits, window casings, and wall voids to ride out winter. On warm winter days they wake up confused, crawl toward light, and end up inside the living space. One sunny afternoon in January can put fifty lady beetles on a bedroom ceiling in <a href="/vestavia-hills">Vestavia Hills</a> or a dozen stink bugs on a kitchen window in <a href="/hoover">Hoover</a>.</p>
+<p>The orange-and-black ones are Asian lady beetles. They look like ladybugs but bite, stain walls yellow when crushed, and in large numbers produce a smell that is hard to air out of a room. Most carry a dark M- or W-shaped marking on the white area just behind the head, which separates them from native lady beetles.</p>
 
-<h2>Why do they pick certain houses?</h2>
+<p>Both are overwintering pests, not breeding pests. They are not building a colony inside the wall, and they do not feed or lay eggs indoors. They go dormant in cracks, attic soffits, window casings, and wall voids to ride out winter. On warm winter days they wake up confused, crawl toward light, and end up inside the living space. One sunny afternoon in January can put fifty lady beetles on a bedroom ceiling in <a href="/vestavia-hills">Vestavia Hills</a> or a dozen stink bugs on a kitchen window in <a href="/hoover">Hoover</a>.</p>
 
-<p>It is not random. Both species orient toward contrast and warmth, so south- and west-facing walls catch the heaviest pressure. Light-colored siding draws more than dark. Homes on high ground with full sun — the kind of lot builders love in <a href="/greystone">Greystone</a>, <a href="/highland-lakes">Highland Lakes</a>, and <a href="/mt-laurel">Mt Laurel</a> — get hammered harder than houses tucked into tree cover.</p>
+<h2>Why stink bugs invade Alabama homes in fall</h2>
 
-<p>New construction is not exempt. Any house with soffit vents, ridge vents, weep holes, or a gap under the J-channel has the openings they need. And if the house let them in last October, the pheromone trail they left behind marks it for next year. That is why the same house gets swarmed every fall while the neighbor across the street barely sees one.</p>
+<p>When the days shorten and temperatures cool, stink bugs go looking for a protected spot. In Alabama neighborhoods, a house beats loose bark and leaf litter — steady warmth, few predators, and plenty of openings. The stink bugs that suddenly appear in your living spaces in October or November usually got into the wall weeks earlier.</p>
 
-<h2>Why squishing and vacuuming indoors backfires</h2>
+<h3>Why do they pick certain houses?</h3>
 
-<p>Stink bugs earned the name. Crush one and it releases a chemical that smells like burnt cilantro and clings to fabric for days. Worse, that chemical is a distress signal that draws more stink bugs toward the area. A regular vacuum just spreads the smell through the motor exhaust. Lady beetles leave a yellow-orange stain on paint and curtains when crushed, plus their own acrid odor.</p>
+<p>It is not random. Both species orient toward contrast and warmth, so south- and west-facing exterior walls, where they bask in afternoon sun, catch the heaviest pressure. Light-colored siding draws more than dark. Homes on high ground with full sun — the kind of lot builders love in <a href="/greystone">Greystone</a>, <a href="/highland-lakes">Highland Lakes</a>, and <a href="/mt-laurel">Mt Laurel</a> — get hammered harder than houses tucked into tree cover. Houses near orchards, gardens, or soybean fields tend to see more stink bugs, because that is where they spent the summer.</p>
 
-<p>Once they are inside the wall, individual removal is all you can do — pick them up with a tissue or sealed container and move them outside. There is no indoor spray that fixes the problem, because the problem is not indoors. It is the exterior, and it has to be addressed before they get in.</p>
+<p>New construction is not exempt. Any house with soffit vents, ridge vents, weep holes, or a gap under the J-channel has the openings they need. Lady beetles in particular tend to return to the same buildings year after year. That is part of why the same house gets swarmed every fall while the neighbor across the street barely sees one.</p>
+
+<h3>Are they dangerous?</h3>
+
+<p>Stink bugs do not bite or sting people, they do not carry disease, and they do not damage the structure. They are a nuisance, not a health threat. Asian lady beetles can give a sharp pinch, and some people are sensitive to the fluid they release.</p>
+
+<h2>How to get rid of stink bugs already inside</h2>
+
+<p>Stink bugs earned the name. Crush one and it releases a foul, pungent odor like burnt cilantro that clings to fabric for days. Lady beetles leave a yellow-orange stain on paint and curtains when crushed, plus their own acrid odor. So the first rule is simple: do not squish them.</p>
+
+<p>Here is what actually works for a homeowner dealing with stink bugs in the house:</p>
+
+<ul>
+<li><strong>Soapy water.</strong> Keep a jar with water and a few drops of dish soap near the windows where they gather. Tip the bug in with a card or tissue. The soap breaks the surface tension, it sinks, and there is no smell.</li>
+<li><strong>Tissue or a sealed container.</strong> Pick them up gently and move them outside. Squeezing is what triggers the odor.</li>
+<li><strong>Vacuum with care.</strong> A regular vacuum just spreads the smell through the motor exhaust, and the bag holds onto it. If you have to vacuum a cluster, slip a knee-high stocking into the hose, secured with a rubber band, so the bugs collect in the stocking instead of the machine. Tie it off and toss it outside.</li>
+<li><strong>Dim the lights at dusk.</strong> They crawl toward light. Turning off porch lights or switching to yellow bulbs cuts down on how many gather near the doors.</li>
+</ul>
+
+<h3>What makes the problem worse</h3>
+
+<p>An insecticide bug bomb or fogger indoors does almost nothing here. The insects are hiding in wall voids and the attic, out of reach of anything you release into a room, and you get residue on every surface for no gain. Once they are inside, individual removal is all you can do. There is no indoor spray that fixes the problem, because the problem is not indoors. It is the exterior, and it has to be addressed before they get in.</p>
+
+<p>Kudzu bugs behave much the same way — small, squarish, olive-brown, and drawn to light-colored walls in fall. If your bugs look more like that than a shield, read our guide to <a href="/blog/kudzu-bugs-alabama">kudzu bugs in Alabama</a>.</p>
 
 <h2>When does the window close?</h2>
 
-<p>The massing behavior — the visible clusters on the sunny wall — starts in September across the Birmingham metro and runs into mid-October. Huntsville and the Tennessee Valley usually see it a week or two earlier. By the time you see them on the siding, they are already probing for entry points. The exterior barrier treatment that stops them needs to be in place before that push, ideally in early to mid-September.</p>
+<p>The massing behavior — the visible clusters on the sunny wall — starts in September across the Birmingham metro and runs into mid-October. Timing varies across the state: Huntsville and the Tennessee Valley usually see it a week or two earlier. By the time you see them on the siding, they are already probing for entry points. The exterior barrier treatment that reduces how many get in needs to be in place before that push, ideally in early to mid-September.</p>
 
-<p>This is not a single spray and done. Our <a href="/services/pest-control">bi-monthly exterior perimeter program</a> already covers overwintering pests as part of the regular rotation — the fall application is timed specifically for this pressure. A treated band along the foundation, window frames, door frames, soffits, and eaves creates a contact zone they have to cross to reach the gaps. It does not repel them from the yard, but it keeps the ones that land on the wall from making it inside.</p>
+<p>This is not a single spray and done. Our <a href="/services/pest-control">bi-monthly exterior pest control program</a> already covers overwintering pests as part of the regular rotation — the fall application is timed specifically for this pressure. A treated band along the foundation, window frames, door frames, soffits, and eaves creates a contact zone they have to cross to reach the gaps. We use EPA-registered products, applied according to label directions. It does not repel them from the yard, and it will not stop every one, but it reduces how many of the ones that land on the wall make it inside.</p>
 
-<h2>Exclusion is the other half</h2>
+<h2>Sealing entry points is the other half</h2>
 
-<p>A treated perimeter without exclusion leaves gaps. A sealed house without treatment still gets pressure from the sheer volume that lands. The two together work; either alone disappoints. We covered the full exclusion checklist in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> — weep hole mesh, door sweeps, caulked utility penetrations. For stink bugs and lady beetles, add one item: check attic soffit vents and gable vents for torn or missing screen. Both species fly to the roofline, and a soffit with a quarter-inch gap is the express lane into the attic.</p>
+<p>A treated perimeter without exclusion leaves gaps. A sealed house without treatment still gets pressure from the sheer volume that lands. The two together work; either alone disappoints. We covered the full exclusion checklist in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> — weep hole mesh, door sweeps, caulked utility penetrations. For stink bugs and lady beetles, walk the outside of the house in late summer, look for the likely entry points, and seal cracks:</p>
+
+<ul>
+<li>Cracks around windows and door frames where caulk has pulled away</li>
+<li>Gaps around siding where it meets trim or the foundation</li>
+<li>Openings around plumbing, electrical, cable, and HVAC lines</li>
+<li>Damaged screens and worn weatherstripping on exterior doors</li>
+<li>Dryer vents and exhaust fan covers that do not close fully</li>
+<li>Attic soffit vents and gable vents with torn or missing screen</li>
+</ul>
+
+<p>That last one matters most for these two insects. Both species fly to the roofline, and a soffit with a quarter-inch gap is the express lane into the attic.</p>
 
 <p>Newer neighborhoods in <a href="/chelsea">Chelsea</a>, <a href="/pelham">Pelham</a>, and <a href="/helena">Helena</a> have tighter envelopes but heavy landscaping and full sun exposure. Older neighborhoods in <a href="/homewood">Homewood</a> and <a href="/mountain-brook">Mountain Brook</a> have more gaps and more tree cover. Different pattern, same outcome.</p>
 
+<h2>Can I just wait them out?</h2>
+
+<p>You can. The stink bugs in the walls will begin moving out in spring when they go looking for food. Until then, you may notice a small number on the windows every warm day, and the same gaps wait for them next fall. A large indoor infestation usually means several access points, and it is worth having them found and closed before next September. For what else tends to move in during the cold months, see <a href="/blog/winter-pests-alabama">winter pests in Alabama</a>.</p>
+
 <h2>Get ahead of it this September</h2>
 
-<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
+<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Our family has been doing pest control in Alabama since 1958, and we are now in our fourth generation. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -2727,68 +2824,106 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'alabama-termite-swarm-season',
     title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
-    excerpt: 'Every March, subterranean termite swarmers emerge across Alabama. Here\'s how to spot them, why Birmingham\'s clay soil makes it worse, and what we recommend.',
+    excerpt: 'Every spring, subterranean termite swarmers emerge across Alabama, usually from mid-March into May. Here is when they swarm, how to tell them from flying ants, why Birmingham\'s clay soil makes it worse, and what we recommend.',
     publishedAt: '2026-03-04',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🪵',
-    metaTitle: 'Alabama Termite Swarm Season Guide | EnviroCare Since 1958',
-    metaDescription: 'Alabama termite swarm season peaks March–May. Spot the signs and protect your home with Sentricon® baiting — no drilling. Free inspection. Call (205) 940-6360.',
+    metaTitle: 'When Do Termites Swarm in Alabama? | EnviroCare',
+    metaDescription: 'When do termites swarm in Alabama? Usually mid-March to May. How to tell swarmers from flying ants, what the swarm means, and what to do next.',
     body: `
-<p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork — sometime between mid-March and late May, on the first warm humid afternoon after a soaking rain. Hundreds of winged insects boiling up out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
+<p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork, usually between mid-March and late May, on the first warm, humid afternoon after a soaking rain. Hundreds of winged insects pour out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
 
-<p>That's what we get the most calls about every spring. So here's what's actually happening, why Alabama gets hit harder than most states, and what we tell every customer when they call.</p>
+<p>Swarms are what we get the most calls about every spring. So here is what is actually happening during termite swarming season, why Alabama gets hit harder than most states, and what we tell every homeowner who calls us with a bag of wings on the counter.</p>
 
-<h2>Why March?</h2>
+<h2>What is a termite swarm?</h2>
 
-<p>Subterranean termites — the ones that cause 95% of the damage in our state — live in colonies hundreds of thousands strong, deep underground. They eat year-round, but they only <em>reproduce</em> when conditions are exactly right: soil temperature above 70°F, recent rainfall, warm humid afternoon air.</p>
+<p>A termite colony is organized by caste. Worker termites do the feeding and digging, soldier termites guard the tunnels, and a king and queen produce the eggs. Once a colony is mature, usually several years old, it starts raising winged reproductives. Those swarmers leave the nest all at once, pair off, shed their wings, and try to start a new colony somewhere nearby.</p>
 
-<p>In Birmingham, that combination usually shows up in the second or third week of March. Down in Auburn it can hit a week earlier. In Huntsville, sometimes a week later. But by April, every county we serve is in peak swarm.</p>
+<p>Most of them fail. Birds, ants, dry air and sunlight take care of the majority within hours. But a swarm tells you something important: a colony big enough to produce reproducers is living close by, and it has been feeding for a while.</p>
+
+<h2>When do termites swarm in Alabama?</h2>
+
+<p>Subterranean termites, the type of termite behind the vast majority of the damage to homes in our state, live underground in colonies that can run into the hundreds of thousands. They feed year-round, but they only send out swarmers when conditions line up: warming soil, recent rainfall, and high humidity on a calm afternoon.</p>
+
+<p>In Birmingham, that combination usually shows up in the second or third week of March. Down in Auburn it can hit a week earlier. In Huntsville, sometimes a week later. By April, every county we serve is in peak swarm, and activity tapers off through late spring.</p>
 
 <figure class="post-fig">
 <img src="/images/blog/alabama-pest-pressure-calendar.webp" width="1600" height="900" loading="lazy" alt="Chart of pest pressure by month in central and north Alabama. Termite pressure peaks March through May, mosquitoes and ticks June through August, fire ants and fleas May through September." />
 <figcaption>Typical pest pressure by month across central and north Alabama. Termite swarms peak March through May.</figcaption>
 </figure>
 
-<h2>What you'll actually see</h2>
+<h3>Which termite species are swarming</h3>
 
-<p>A termite swarmer looks almost identical to a flying ant — about half an inch long, dark brown, with four wings. The easy tell: termite wings are all the same length, and they break off easily. If you find a pile of identical translucent wings on a windowsill or near a baseboard, you have termites. Not "you might." You do.</p>
+<ul>
+<li><strong>Eastern subterranean termites</strong> (Reticulitermes flavipes) are the termite species we deal with across central and north Alabama. They swarm in daylight, most often from March into May.</li>
+<li><strong>Formosan subterranean termites</strong> originally came from East Asia, including Taiwan, and are established on Alabama's Gulf Coast around Mobile and Baldwin County. They swarm later, in late spring and early summer, usually at dusk around lights. A single Formosan colony can hold millions of termites, which is why it is counted among the most destructive termites in the United States. It is not what we find in Birmingham, Lake Martin or Huntsville. More on that in our post on <a href="/blog/formosan-termites-alabama">Formosan termites in Alabama</a>.</li>
+<li><strong>Drywood termites</strong> live inside wood with no contact with the ground. They are rare in our part of the state, and when they turn up it is usually in furniture or lumber brought in from somewhere else.</li>
+</ul>
 
-<p>The swarmers themselves don't bite, don't sting, don't damage anything. They're just looking for a mate so they can start a new colony. The damage is being done by the workers underground — the ones you'll never see.</p>
+<h2>What you will actually see</h2>
+
+<p>A termite swarmer looks almost identical to a flying ant: about half an inch long, dark brownish to black, with two pairs of wings. The easy tell is that termite wings are all the same length, and they break off easily. An ant has a pinched waist and front wings longer than its back wings; a termite has a thick, straight body. If you find a pile of identical translucent wings on a windowsill or near a baseboard, you have termites. Not "you might." You do. Our guide to <a href="/blog/how-to-identify-termites-alabama">identifying termites in Alabama</a> has photos of both.</p>
+
+<p>The swarmers themselves don't bite, don't sting and don't damage anything. They are just looking for a mate. The damage is being done by the worker termites underground, the ones you will never see.</p>
+
+<h3>Other signs of termite activity</h3>
+
+<ul>
+<li>Pencil-width mud tubes running up your foundation, piers or plumbing</li>
+<li>Wood that sounds hollow when tapped, or that crumbles at a screwdriver</li>
+<li>Bubbling paint or warped trim that looks like water damage</li>
+<li>Swarmers coming up through cracks in concrete, around slab joints or near bath traps</li>
+</ul>
+
+<p>For a fuller checklist, see <a href="/blog/termite-damage-signs-alabama">signs of termite damage in Alabama homes</a>.</p>
 
 <h2>Why Birmingham gets it worse</h2>
 
-<p>Two reasons. First, our red clay soil holds moisture for weeks after rain. That's perfect for termites — they need constant moisture to survive. Second, our housing stock skews old. A lot of homes in Forest Park, Mountain Brook, Crestwood, and Vestavia were built before subterranean termite treatment was even routinely required. The wood-to-soil contact in those old foundations is exactly what termites are hunting for.</p>
+<p>Two reasons. First, our red clay soil holds moisture for weeks after rain. That is perfect for termites, which need constant moisture to survive. Second, our housing stock skews old. A lot of homes in Forest Park, Mountain Brook, Crestwood and Vestavia were built before pre-construction termite treatment was standard practice. Wood-to-soil contact in those old foundations, plus firewood stacked against the house and mulch piled up to the siding, gives a colony an easy food source.</p>
 
-<p>Newer construction in Trussville, Helena, and Greystone gets pre-treated at the slab pour, but pre-treat warranties typically expire after 5 years. After that, the home is on its own unless the owner signs up for ongoing protection.</p>
+<p>Newer construction in Trussville, Helena and Greystone gets treated at the slab pour, but that builder treatment does not last forever, and the protection that came with it is time-limited. After that, the home is on its own unless the owner signs up for ongoing protection.</p>
 
 <h2>What we recommend</h2>
 
-<p>We've been treating Alabama termites since 1958. For four generations, the company my grandfather started has tried every method the industry has thrown at homeowners — chlordane (banned), Dursban (banned), liquid soil barriers, foaming agents, baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
+<p>Our family has done pest control in Alabama for four generations, and we have seen every method the industry has tried on wood structures: chlordane and chlorpyrifos (both long gone from home termite work), liquid soil barriers, foaming agents and baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
 
-<p>It's a bait station system. We install monitoring stations every 10–15 feet around your foundation. When termites find the stations (they always do — they're constantly foraging), they take the bait back to the colony, and the entire colony collapses. No drilling into your slab. No tank trucks. No chemicals injected into the soil under your kids' play area.</p>
+<p>It is a bait station system. We install monitoring stations every 10 to 15 feet around your foundation. Foraging termites find the stations, carry the bait back to the colony, and the colony declines and collapses over time. No drilling into your slab and no tank trucks in the yard. The active ingredient is EPA-registered and applied according to label directions. You can read more about how it works on our <a href="/services/sentricon">Sentricon page</a> or our comparison of <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon versus liquid treatment</a>.</p>
 
-<p>Sentricon installations we service carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. The coverage is EnviroCare's own — not Corteva's and not the manufacturer's. If termites cause damage to your home while we're protecting it, the agreement sets out what is covered.</p>
+<p>Qualifying homes we protect with Sentricon carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That coverage is ours, not the manufacturer's. Terms are confirmed in writing before service starts.</p>
+
+<p>What does not work: spraying swarmers with a can from the hardware store. It kills the insects you can see and does nothing to the colony nest underground. A termite infestation is a soil problem, not a surface one, and it takes professional termite control to reach it.</p>
 
 <h2>If you find swarmers in your house</h2>
 
-<p>Don't panic. Don't bug-bomb the room. Don't try to scrub them up before "they get worse." Take three steps:</p>
+<p>Don't panic. Don't bug-bomb the room. Don't try to scrub everything up before "they get worse." Take three steps:</p>
 
 <ol>
-<li><strong>Photograph</strong> what you found — both the swarmers and the location.</li>
+<li><strong>Photograph</strong> what you found, both the swarmers and the location.</li>
 <li><strong>Collect a few</strong> in a sandwich bag, just in case.</li>
-<li><strong>Call us</strong> for a free inspection. We'll get a Sentricon-certified technician out with fast scheduling. The inspection is free and there's no obligation.</li>
+<li><strong>Call us</strong> for a free termite inspection. We will schedule a free inspection with a Certified Sentricon Specialist. There is no obligation.</li>
 </ol>
 
-<p>Call our nearest office:</p>
+<p>We price termite treatment plans only after that free inspection, never over the phone, because the right answer depends on your foundation, your soil and what the inspector finds. If you are buying or selling a home, the Official Alabama Wood Infestation Inspection Report is a separate service with its own fee; many lenders require it, and we cover it on our <a href="/services/wdo-letters">WDO letters page</a>.</p>
+
+<h2>Do termites swarm every year?</h2>
+
+<p>Yes. Once a colony is mature it swarms each spring, and a yard can hold another colony you have not seen yet. A swarm this year is a good reason to get an inspection before the damage to your property shows up in the walls.</p>
+
+<p>Ready to have someone look? <a href="/quote">Request a free termite inspection</a> or call your nearest office:</p>
+
 <ul>
-<li>Birmingham — (205) 991-2882</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li>Birmingham: (205) 991-2882</li>
+<li>Alabaster: (205) 940-6360</li>
+<li>Alexander City &amp; Lake Martin: (256) 234-6162</li>
+<li>Huntsville: (256) 937-7676</li>
 </ul>
 
-<p><em>Kevin Wedgworth is the owner of EnviroCare, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
+<p><em>Kevin Wedgworth leads EnviroCare, a fourth-generation family business. The Wedgworth family has done pest control in Alabama since 1958.</em></p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 

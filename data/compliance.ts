@@ -328,9 +328,11 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // + began on the same sentence, so it exempts the family-history form WITHOUT
   // exempting a bare company-origin claim ("EnviroCare was founded in 1958" still
   // blocks -- it has no 'family ... history' span).
+  // WIDENED 2026-10-12: 45 chars let "EnviroCare started as Wedgworth Pest Control in
+  // Alexander City in 1958" (48 chars between) through, live on a blog post.
   // Also: 'do not say' did not cover 'Do not state', which is how llms.txt:55 and
   // llms-full.txt:11 phrase the SAME prohibition they exist to state.
-  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,45}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|the family (started|opened|has)|(started|founded|began) the family|family[^.]{0,60}(pest[\\s-]control|Alabama)\\s+history[^.]{0,30}began|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not (say|state)|does not state|banned|NEVER write',
+  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,90}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|started the [A-Za-z ]{0,20}family [A-Za-z ]{0,20}business|the family (started|opened|has)|(started|founded|began) the family|family[^.]{0,60}(pest[\\s-]control|Alabama)\\s+history[^.]{0,30}began|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not (say|state)|does not state|banned|NEVER write',
     reason: '"founded 1958" -- the FAMILY started in 1958; the company began 1993/2005',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
