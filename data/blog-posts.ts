@@ -194,6 +194,75 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>No One Cares Like EnviroCare.</p>
 `,
   },
+  // ─── carpenter-bees-alabama — NeuronWriter query fb56d81f6e9ef61e ("carpenter bees alabama").
+  //     Content score 80 (evaluate-content, 2026-10-12) on this exact text. Service wording
+  //     matches data/services.ts and compliance.ts:517 — carpenter bees are an add-on for
+  //     existing pest customers, never marketed as a standalone service to new customers
+  //     (Phillip, 2026-10-12: "we do as an extra add on service for customer"). Pollinator,
+  //     nest-only treatment; gadget claims stated as weak evidence.
+  {
+    slug: 'carpenter-bees-alabama',
+    title: 'Carpenter Bees in Alabama: Damage, Prevention and Treatment',
+    excerpt: 'That big black bee hovering at your eave is almost always a carpenter bee. How to tell it from a bumblebee, what the round holes really do to your wood, and what prevention actually works.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🐝',
+    metaTitle: 'Carpenter Bees in Alabama: Damage & Prevention | EnviroCare',
+    metaDescription: 'Carpenter bees in Alabama: how to tell them from bumblebees, the damage they do to wood, prevention that works, and when a carpenter bee nest needs treatment.',
+    body: `
+<p class="lede">Every spring in Alabama someone calls us about a big black bee hovering at the eave, buzzing at anyone who walks onto the porch. That is almost always a carpenter bee. They look scary, they rarely hurt anyone, and the real problem is the perfectly round hole they leave in your wood. Here is how to identify carpenter bees, what damage they actually do, and what works for prevention.</p>
+
+<h2>What a carpenter bee looks like</h2>
+
+<p>The eastern carpenter bee is the one Alabama homeowners see. It is large, about an inch long, and easy to confuse with a bumblebee. The quick tell is the abdomen: a bumblebee's is fuzzy and striped yellow, a carpenter bee's is shiny and mostly bare black. Bumblebees nest in the ground. Carpenter bees nest in wood.</p>
+
+<p>The ones hovering in front of your face are usually male carpenter bees guarding the nest. Males have no stinger, so the buzzing is bluff. Females can sting but seldom do unless handled.</p>
+
+<h2>Do carpenter bees damage your house?</h2>
+
+<p>They do not eat wood the way termites do. A female bores a round hole about 1/2 inch in diameter into a wood surface, turns, and tunnels along the grain to make galleries for her larva. One tunnel is mostly cosmetic. The trouble is that carpenter bees reuse old nesting sites year after year and extend them, so the same fascia board, deck rail or eave can be riddled after a few seasons. Woodpeckers then tear into the wood hunting the larvae, which does more structural damage than the bees.</p>
+
+<p>Favorite targets around Alabama homes are bare or weathered wood: fascia, soffits, porch ceilings, deck rails, fences, swing sets and outdoor furniture. Painted wood is attacked far less often than unfinished or stained wood.</p>
+
+<h2>Signs of a carpenter bee infestation</h2>
+
+<ul>
+<li>Perfectly round holes on the underside of wooden structures, often with coarse sawdust below.</li>
+<li>Yellowish-brown staining under the hole.</li>
+<li>Large bees hovering near the same spot of the eave or deck every day in spring.</li>
+<li>Woodpecker damage next to old holes.</li>
+</ul>
+
+<h2>Carpenter bee prevention that works</h2>
+
+<ul>
+<li><strong>Paint or finish bare wood.</strong> A good paint or finish is the best deterrent. Stain alone helps less.</li>
+<li><strong>Seal old holes in fall.</strong> After the bees leave, plug each hole with wood putty, caulk or a dowel and paint over it, so the gallery cannot be reused next spring.</li>
+<li><strong>Replace badly tunneled boards</strong> with treated or painted wood.</li>
+<li><strong>Skip the gadgets.</strong> Repellent sprays and traps sold for carpenter bees have weak evidence behind them. They may catch a few bees; they do not solve a nest.</li>
+</ul>
+
+<h2>Treatment, and why timing matters</h2>
+
+<p>Carpenter bees are pollinators, so we treat the nest, not the yard. A targeted insecticide treatment applied into the active holes in spring, followed by plugging and sealing once activity stops, is what breaks the cycle. Treating without sealing usually means new bees move back into the old tunnels next year.</p>
+
+<p>Carpenter bee treatment is available to our <a href="/services/pest-control">pest control</a> customers as an add-on for an additional charge, alongside wasps and hornets. If you are seeing round holes and want to rule out something worse in the wood, our <a href="/blog/carpenter-ants-vs-termites-alabama">carpenter ants vs. termites guide</a> covers the other wood-damaging insects.</p>
+
+<h2>Carpenter bee FAQs</h2>
+
+<h3>Where do carpenter bees go in the winter?</h3>
+<p>Adults overwinter inside the old tunnels. That is why sealing holes in late fall or winter, once you are sure they are empty, matters so much.</p>
+
+<h3>Are carpenter bees native to Alabama?</h3>
+<p>Yes. The eastern carpenter bee is native across the Southeast and is an important pollinator, which is why the goal is keeping them out of your wood, not wiping them out.</p>
+
+<p>Questions about carpenter bees on your home? Call your local office: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
+
+<p>No One Cares Like EnviroCare.</p>
+`,
+  },
 
   // ─── sentricon-worth-it — NeuronWriter score 77, keyword "is sentricon worth it" (510/mo, KD 18) ───
   {
