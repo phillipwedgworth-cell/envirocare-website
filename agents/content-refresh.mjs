@@ -41,15 +41,14 @@ import path from 'node:path';
 import Anthropic from '@anthropic-ai/sdk';
 import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { remember, recall } from './lib/memory.mjs';
-import { createMessage } from './lib/llm-with-logging.mjs';
+import { NW_PROJECT, BANNED_TERM, nw, readyQueries, score, competitorTexts, missingTerms, openQuestions, makeCompleter } from './lib/nw-writer.mjs';
 import { COMPLIANCE_SYSTEM } from './lib/compliance.mjs';
 import { checkOriginality, normalise } from './lib/originality.mjs';
 import { compileRules, scanText } from '../scripts/lib/compliance-rules.mjs';
 
 const AGENT = 'content-refresh';
 const ROOT = process.cwd();
-const NW_BASE = 'https://app.neuronwriter.com/neuron-api/0.5/writer';
-const PROJECT = process.env.NEURONWRITER_PROJECT || '9d0bec3a70f4743c';
+const PROJECT = NW_PROJECT;
 const MODEL = process.env.CONTENT_REFRESH_MODEL || 'claude-sonnet-4-6';
 const BAND_LOW = 70, BAND_CEIL = 85, MIN_GAIN = 3, MIN_AFTER = 65;
 const COOLDOWN_DAYS = Number(process.env.CONTENT_REFRESH_COOLDOWN_DAYS || 28);
@@ -65,37 +64,15 @@ const FORCE = args.includes('--force') || process.env.CONTENT_REFRESH_FORCE === 
 const DRY = args.includes('--dry');
 const today = () => new Date().toISOString().slice(0, 10);
 
-// NeuronWriter suggests what competitors say — including things EnviroCare must
-// never say or does not sell. Strip them before the model ever sees the list.
-const BANNED_TERM = /orkin|terminix|waynes|cook'?s|rollins|truly nolen|aptive|scout|dane|palisade|clear ?defense|a ?plus|mr\.? ?bugg|stark|prewett|safespray|s ?& ?s|rogue|bed ?bug|wildlife|removal|eliminat|eco|safe|non-?toxic|green|organic|fumigat|tent|same[- ]day|24|emergency|guarantee|warrant|contract|cheap|discount|coupon|lawn|crawl ?space (service|encapsulation)|tuscaloosa|competitor|reviews?\b|bbb|better business/i;
+// BANNED_TERM (terms NeuronWriter suggests that EnviroCare must never say) lives in
+// agents/lib/nw-writer.mjs, shared with agents/blog-from-drafts.mjs.
 
 // ── NeuronWriter ────────────────────────────────────────────────────────────
-async function nw(method, body) {
-  const key = process.env.NEURONWRITER_API_KEY;
-  if (!key) throw new Error('NEURONWRITER_API_KEY not set');
-  const r = await fetch(`${NW_BASE}/${method}`, { method: 'POST', headers: { 'X-API-KEY': key, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-  const t = await r.text();
-  if (!r.ok) throw new Error(`NeuronWriter ${method} ${r.status}: ${t.slice(0, 200)}`);
-  return JSON.parse(t);
-}
 let _queries;
 async function queryFor(keyword) {
-  if (!_queries) {
-    const rows = await nw('list-queries', { project: PROJECT, status: 'ready' });
-    _queries = {};
-    for (const q of Array.isArray(rows) ? rows : []) {
-      const k = String(q.keyword || '').trim().toLowerCase();
-      if (k && (!_queries[k] || String(q.created) > String(_queries[k].created))) _queries[k] = q;
-    }
-  }
+  if (!_queries) _queries = await readyQueries(PROJECT);
   const hit = _queries[String(keyword).trim().toLowerCase()];
   return hit ? (hit.query || hit.id) : null;
-}
-async function score(queryId, html, title, description) {
-  const r = await nw('evaluate-content', { query: queryId, html, title, description });
-  const s = r?.content_score;
-  if (typeof s !== 'number') throw new Error(`evaluate-content returned no score: ${JSON.stringify(r).slice(0, 120)}`);
-  return s;
 }
 
 // ── rendered page ───────────────────────────────────────────────────────────
@@ -151,23 +128,7 @@ function writeStore(obj) {
   fs.writeFileSync(STORE, s);
 }
 
-// ── competitor pages (the plagiarism corpus) ────────────────────────────────
-async function competitorTexts(queryId, q) {
-  try { // the MCP server exposes this; the REST API may or may not — try it first
-    const r = await nw('get-competitors-content', { query: queryId });
-    const c = r?.competitors;
-    if (c && typeof c === 'object') return Object.entries(c).map(([url, v]) => ({ url, text: v?.content || '' }));
-  } catch { /* fall through */ }
-  const urls = (q.competitors || []).map((c) => c.url).filter((u) => u && !/envirocarellc|yelp|facebook|reddit/.test(u)).slice(0, 15);
-  const out = [];
-  for (const url of urls) {
-    try {
-      const r = await fetch(url, { signal: AbortSignal.timeout(12000), headers: { 'User-Agent': 'Mozilla/5.0 (EnviroCare originality check)' } });
-      if (r.ok) out.push({ url, text: normalise(await r.text()) });
-    } catch { /* unreachable competitor proves nothing either way */ }
-  }
-  return out;
-}
+// competitorTexts (the plagiarism corpus) lives in agents/lib/nw-writer.mjs.
 
 // ── ledger (Supabase memory) ────────────────────────────────────────────────
 async function lastTouch(route) {
@@ -183,70 +144,22 @@ async function ledger(row) {
 }
 
 // ── drafting ────────────────────────────────────────────────────────────────
-function missingTerms(q, text) {
-  const t = ` ${normalise(text)} `;
-  const out = [];
-  for (const k of ['content_basic', 'content_extended']) {
-    for (const x of q.terms?.[k] || []) {
-      const term = String(x.t || '').toLowerCase();
-      if (!term || BANNED_TERM.test(term)) continue;
-      const n = t.split(` ${normalise(term)} `).length - 1;
-      const [lo] = x.sugg_usage || [1];
-      if (n < lo) out.push(`${term} (${n}/${lo})`);
-    }
-  }
-  return out.slice(0, 40);
-}
-function openQuestions(q) {
-  const qs = [...Object.keys(q.ideas?.topic_matrix || {}), ...(q.ideas?.people_also_ask || []).map((x) => x.q)];
-  return [...new Set(qs)].filter((x) => !BANNED_TERM.test(x)).slice(0, 10);
-}
-// Drafting rotates across Claude, GPT and Gemini (Phillip, 2026-10-12: spread token
-// use). Every provider's draft goes through the SAME gates — compliance, originality,
-// NeuronWriter score — so the model choice never changes what is allowed to ship.
-// CONTENT_REFRESH_PROVIDERS sets the order (default anthropic,openai,gemini); a
-// provider with no key or an API error falls through to the next one.
-const PROVIDERS = (process.env.CONTENT_REFRESH_PROVIDERS || 'anthropic,openai,gemini').split(',').map((x) => x.trim()).filter(Boolean);
-const OPENAI_MODEL = process.env.CONTENT_REFRESH_OPENAI_MODEL || 'gpt-5.6-luna';
-const GEMINI_MODEL = process.env.CONTENT_REFRESH_GEMINI_MODEL || 'gemini-2.0-flash';
-let _rot = 0;
-async function complete(anthropic, system, user) {
-  const order = PROVIDERS.map((_, i) => PROVIDERS[(i + _rot) % PROVIDERS.length]);
-  _rot++;
-  const errs = [];
-  for (const p of order) {
-    try {
-      if (p === 'anthropic' && process.env.ANTHROPIC_API_KEY) {
-        const res = await createMessage(anthropic, { model: MODEL, max_tokens: 3000, system, messages: [{ role: 'user', content: user }] }, { agentName: AGENT, role: 'writer' });
-        return { provider: `claude:${MODEL}`, text: res.content?.map((c) => c.text || '').join('') || '' };
-      }
-      if (p === 'openai' && process.env.OPENAI_API_KEY) {
-        const r = await fetch('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, 'content-type': 'application/json' },
-          body: JSON.stringify({ model: OPENAI_MODEL, max_tokens: 3000, messages: [{ role: 'system', content: system }, { role: 'user', content: user }] }) });
-        const d = await r.json();
-        if (!r.ok) throw new Error(`openai ${r.status}: ${JSON.stringify(d).slice(0, 160)}`);
-        return { provider: `gpt:${OPENAI_MODEL}`, text: d?.choices?.[0]?.message?.content || '' };
-      }
-      if (p === 'gemini' && process.env.GEMINI_API_KEY) {
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`, { method: 'POST', headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ systemInstruction: { parts: [{ text: system }] }, contents: [{ parts: [{ text: user }] }], generationConfig: { maxOutputTokens: 3000 } }) });
-        const d = await r.json();
-        if (!r.ok) throw new Error(`gemini ${r.status}: ${JSON.stringify(d).slice(0, 160)}`);
-        return { provider: `gemini:${GEMINI_MODEL}`, text: d?.candidates?.[0]?.content?.parts?.map((x) => x.text || '').join('') || '' };
-      }
-    } catch (e) { errs.push(e.message); }
-  }
-  throw new Error(`no drafting provider succeeded: ${errs.join(' | ') || 'no API keys set'}`);
-}
+// missingTerms / openQuestions / the Claude-GPT-Gemini rotation live in
+// agents/lib/nw-writer.mjs (shared with agents/blog-from-drafts.mjs). Drafting
+// rotates providers per CONTENT_REFRESH_PROVIDERS; every draft passes the same gates.
+const complete = makeCompleter({ agent: AGENT, model: MODEL });
 
-async function draft(anthropic, { route, keyword, pageText, terms, questions, lessons, feedback }) {
+async function draft(anthropic, { route, keyword, pageText, terms, questions, lessons, feedback, material = '' }) {
   const office = pageText.match(/\(\d{3}\) \d{3}-\d{4}/)?.[0] || '';
   const user = `Write ONE new section to ADD to the existing EnviroCare page ${route} (target search: "${keyword}").
 
 THE PAGE ALREADY SAYS (do not repeat any of it — add what is missing):
 """${pageText.slice(0, 9000)}"""
 
-Questions searchers ask that the page does not answer well yet:
+${material ? `A writer already drafted a full rewrite of this page in the NeuronWriter editor. It is SOURCE MATERIAL ONLY: mine it for angles, local detail and questions the live page misses. Its facts and wording are not verified; it has carried banned claims before ("no long-term contract", "$45 per treatment", "March through November", "nine treatments", "safe", "required by law"). Never copy a sentence from it; keep only what is accurate under the rules.
+"""${material.slice(0, 7000)}"""
+
+` : ''}Questions searchers ask that the page does not answer well yet:
 ${questions.map((q) => `- ${q}`).join('\n') || '- (none supplied)'}
 
 NeuronWriter terms the page under-uses (work in the ones that fit NATURALLY; skip the rest):
@@ -334,11 +247,14 @@ async function run() {
       }
 
       const q = await nw('get-query', { query: queryId });
+      // The narrator has filled an editor draft for nearly every query (260 on 10-12)
+      // and none of it was used. Read it (free) and give it to the writer as material.
+      const material = await nw('get-content', { query: queryId }).then((c) => String(c?.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).catch(() => '');
       const pageText = base.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
       const comps = await competitorTexts(queryId, q);
       let feedback = null, entry = null, after = null, orig = null;
       for (let attempt = 1; attempt <= 2; attempt++) {
-        const d = await draft(anthropic, { route: t.route, keyword: t.keyword, pageText, terms: missingTerms(q, pageText), questions: openQuestions(q), lessons, feedback });
+        const d = await draft(anthropic, { route: t.route, keyword: t.keyword, pageText, terms: missingTerms(q, pageText), questions: openQuestions(q), lessons, feedback, material });
         const copy = [d.heading, ...d.paragraphs, ...d.faqs.flatMap((f) => [f.q, f.a])].join('\n');
         const comp = scanText(copy, rules);
         orig = checkOriginality(copy, { competitors: comps, sitePages: [...site.filter((p) => p.route !== t.route), ...(t.key !== t.route ? [{ route: `${t.route} (rest of page)`, text: base }] : [])] });
