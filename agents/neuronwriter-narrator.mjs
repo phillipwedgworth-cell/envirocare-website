@@ -9,7 +9,10 @@
 //   fill  -> for EVERY query: use a hand-written draft if present, else WRITE one
 //            (Claude, compliance-locked), push it, read its score. If an auto draft
 //            scores below the floor, rewrite it ONCE to lift it. Then rank everything
-//            by score and report a "ready to ship" queue (best first).
+//            by score and report a "score-ready" queue (best first). Score-ready means
+//            NeuronWriter keyword coverage ONLY: no compliance scan, no plagiarism check,
+//            no image, no duplicate check. On 10-12 nine of 24 such drafts carried banned
+//            claims. The weekly content PR (blog-from-drafts / content-refresh) is the gate.
 //   score -> just list every query + its current score.
 //
 // No ChatGPT. Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets).
@@ -21,7 +24,7 @@ const KEY      = process.env.NEURONWRITER_API_KEY;
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const MODEL = process.env.NARRATOR_MODEL || "claude-sonnet-4-6";
 
-const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // ready-to-ship line
+const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // score-ready line (keyword coverage only)
 const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" mark
 const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
@@ -297,7 +300,7 @@ async function runFill() {
   const work  = rank.filter(r => (r.score ?? -1) <  SCORE_FLOOR);
 
   let md = `## Neuron Narrator -- filled ${results.length} editors\n\n`;
-  md += `**Ready to ship (score >= ${SCORE_FLOOR}%) -- publish these first, best at top:**\n\n`;
+  md += `**Score-ready (NeuronWriter >= ${SCORE_FLOOR}%, keyword coverage only) -- NOT compliance- or plagiarism-checked, no images. Do not publish from here: the weekly content PR runs those gates. Best first:**\n\n`;
   md += `| # | Keyword | Score | Source |\n|---|---|---|---|\n`;
   ready.forEach((r,i) => md += `| ${i+1} | ${r.keyword} | ${r.score}%${r.score>=SHIP_GOOD?" 💪":""} | ${r.source} |\n`);
   if (!ready.length) md += `| — | (none cleared the floor yet) | | |\n`;
@@ -306,7 +309,7 @@ async function runFill() {
     work.forEach(r => md += `| ${r.keyword} | ${r.score===null?"err":r.score+"%"} |\n`);
   }
   md += `\nAll drafts are in NeuronWriter now. Publish to the live site best-first, a few a week, via pull requests.\n`;
-  toSummary(md); await email("Neuron Narrator -- ready-to-ship queue", md.replace(/\n/g,"<br>"));
+  toSummary(md); await email("Neuron Narrator -- score-ready drafts (unchecked)", md.replace(/\n/g,"<br>"));
 
   // Surface the result in the Command Center (Recent Findings panel), not just email.
   const top = ready.slice(0, 3).map(r => `${r.keyword} ${r.score}%`).join(", ");
@@ -315,10 +318,10 @@ async function runFill() {
     category: "content",
     severity: ready.length ? "info" : "warning",
     finding: ready.length
-      ? `${ready.length} SEO draft(s) ready to ship (score ≥ ${SCORE_FLOOR}%). Top: ${top || "—"}. Review in NeuronWriter, then publish via PR.`
+      ? `${ready.length} draft(s) score-ready (NeuronWriter ≥ ${SCORE_FLOOR}%, keyword coverage only — NOT compliance- or plagiarism-checked, no images). Top: ${top || "—"}. They reach the site only through the weekly content PR, which runs those gates.`
       : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
   }).catch(() => {});
-  return `fill: ${results.length} editors, ${ready.length} ready to ship${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
+  return `fill: ${results.length} editors, ${ready.length} score-ready (unchecked)${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
 }
 
 // -- main ---------------------------------------------------------------------
