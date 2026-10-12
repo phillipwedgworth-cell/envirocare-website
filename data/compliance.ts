@@ -197,6 +197,13 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?([a-z]+[\\s-]+)?(contract|agreement|commitment)s?\\b',
     reason: 'contract-free claim — agreement practice is not uniform',
     approvedInstead: 'pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement; terms confirmed in writing before service starts' },
+  // WASP / HORNET NESTS — ruled 2026-10-12 (Phillip): routine visits include eave treatment
+  // that discourages building; treating an ACTIVE nest is a paid add-on for pest customers.
+  // Found live as "Wasp nest removal is included in the bi-monthly pest control service" in
+  // two cost posts and "nests ... are treated on routine visits" on four pages.
+  { pattern: '\\b(wasp|hornet|yellow ?jacket)s?(\\s+nests?)?(\\s+(removal|treatment))?\\s+(is|are)\\s+(included|covered)\\b|\\bnests?\\b[^.]{0,60}\\btreated on (every |each )?routine visits?\\b',
+    reason: 'wasp/hornet nest coverage claim — active nests are a paid add-on',
+    approvedInstead: 'routine visits include eave treatment that discourages building; treating an active nest is an add-on at an additional charge' },
   { pattern: '\\bcancel\\s+(any\\s?time|whenever)\\b',
     reason: 'cancel-anytime claim',
     approvedInstead: 'terms are confirmed in writing before service starts' },
