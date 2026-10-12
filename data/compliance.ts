@@ -190,7 +190,11 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // practice is not uniform, so ANY absence-framing is inaccurate. State the two
   // billing options positively instead. Found live on /best-pest-control-birmingham
   // and /family-owned-vs-national-chains as "pay per visit with no long-term agreement".
-  { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?(contract|agreement|commitment)s?\\b',
+  // 2026-10-12: widened to allow ONE word before the noun. The old pattern missed
+  // "No long-term PEST contract" — live on 17 pages (incl. /birmingham, /pricing,
+  // /about-us) and "no long-term pest agreement" on 8 city records, while
+  // test:source reported PASS.
+  { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?([a-z]+[\\s-]+)?(contract|agreement|commitment)s?\\b',
     reason: 'contract-free claim — agreement practice is not uniform',
     approvedInstead: 'pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement; terms confirmed in writing before service starts' },
   { pattern: '\\bcancel\\s+(any\\s?time|whenever)\\b',

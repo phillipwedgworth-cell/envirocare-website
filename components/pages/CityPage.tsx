@@ -23,6 +23,7 @@
 import { getCityBySlug, type City } from '@/data/cities';
 import { SERVICE_CATALOG } from '@/lib/schema';
 import CityDepth from '@/components/CityDepth';
+import RefreshedContent from '@/components/RefreshedContent';
 import LocalExamples from '@/components/shared/LocalExamples';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
@@ -353,6 +354,8 @@ export default function CityPage({ slug }: { slug: string }) {
           </div>
         </section>
       )}
+
+      <RefreshedContent route={`/${city.slug}`} />
 
       <section className="programs" id="programs">
         <div className="container">

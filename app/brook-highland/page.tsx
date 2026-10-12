@@ -87,7 +87,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "Is there a long-term contract?",
-      "a": "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
+      "a": "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
     }
   ],
   "nearby": [
@@ -227,7 +227,7 @@ const jsonLd = {
           "name": "Is there a long-term contract?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
+            "text": "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
           }
         }
       ]

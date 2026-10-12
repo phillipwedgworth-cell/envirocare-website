@@ -31,6 +31,7 @@ import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
  */
 
 import { getServiceBySlug, type Service } from '@/data/services';
+import RefreshedContent from '@/components/RefreshedContent';
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 const SERVICE_ART_SVG: Record<string, string> = {
@@ -381,6 +382,8 @@ export default function ServicePage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      <RefreshedContent route={`/services/${service.slug}`} />
 
       <section className="faqs">
         <div className="container">
