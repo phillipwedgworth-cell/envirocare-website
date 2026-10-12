@@ -187,11 +187,29 @@ async function main() {
 //   3. WARNING: a Google/Bing description without the listing's own phone.
 //      (Warning, not blocking: Birmingham's GMB copy has no phone on 2026-10-05
 //      and Google's own rules on phones in descriptions were not checked.)
+//
+// Added 2026-10-11 (Sunday audit R5). Rules 1-2 matched a LITERAL ("Auburn")
+// where they needed a SHAPE. Between 10-05 and 10-11 the Huntsville GMB text
+// changed to "…has served Huntsivlle, Madison … going back to 1958 … With
+// locations also in Alexander City, Alabaster, Birmingham and Huntsville …
+// Call them today" — still third-party copy, still no phone — and with
+// "Auburn" gone this guard went GREEN. Two shape checks, both blocking:
+//   4. every description must carry the house sign-off "No One Cares Like
+//      EnviroCare". Every approved description on all four locations and all
+//      four channels has it (get_location ×4, 2026-10-11); copy Google or a
+//      third party writes does not.
+//   5. no third-person voice about the business ("call them", "they offer"):
+//      our copy says "we" / "our"; someone else's copy says "they".
 const OFFICE_PHONES = ["2059406360", "2569377676", "2562346162", "2059912882"];
 const IDENTITY_CHANNELS = new Set(["gmb", "bing"]);
 const AUBURN_OFFICE = /\b(?:locations?|offices?)\b[^.]{0,80}\bAuburn\b|\bAuburn\s+(?:office|location)\b/i;
+const SIGN_OFF = /no one cares like envirocare/i;
+const THIRD_PERSON = /\b(?:call|contact|reach)\s+them\b|\bthey\s+(?:offer|make|provide|serve|are\s+ready)\b/i;
 function identityHits(desc, ch, loc, warn = []) {
   const hits = [];
+  if (!SIGN_OFF.test(desc)) hits.push({ match: desc.slice(0, 60) + "…", reason: "missing the house sign-off \"No One Cares Like EnviroCare\" — not our approved copy (Google or a third party wrote it)" });
+  const tp = desc.match(THIRD_PERSON);
+  if (tp) hits.push({ match: tp[0], reason: "third-person voice about the business — not our approved copy" });
   const am = desc.match(AUBURN_OFFICE);
   if (am) hits.push({ match: am[0], reason: "presents Auburn as an office; Auburn is a service area of Alex City" });
   if (IDENTITY_CHANNELS.has(ch)) {
