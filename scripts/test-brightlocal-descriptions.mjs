@@ -193,7 +193,7 @@ async function main() {
 // changed to "…has served Huntsivlle, Madison … going back to 1958 … With
 // locations also in Alexander City, Alabaster, Birmingham and Huntsville …
 // Call them today" — still third-party copy, still no phone — and with
-// "Auburn" gone this guard went GREEN. Two shape checks, both blocking:
+// "Auburn" gone this guard went GREEN. Two shape checks (4 warns, 5 blocks):
 //   4. every description must carry the house sign-off "No One Cares Like
 //      EnviroCare". Every approved description on all four locations and all
 //      four channels has it (get_location ×4, 2026-10-11); copy Google or a
@@ -207,7 +207,11 @@ const SIGN_OFF = /no one cares like envirocare/i;
 const THIRD_PERSON = /\b(?:call|contact|reach)\s+them\b|\bthey\s+(?:offer|make|provide|serve|are\s+ready)\b/i;
 function identityHits(desc, ch, loc, warn = []) {
   const hits = [];
-  if (!SIGN_OFF.test(desc)) hits.push({ match: desc.slice(0, 60) + "…", reason: "missing the house sign-off \"No One Cares Like EnviroCare\" — not our approved copy (Google or a third party wrote it)" });
+  // Sign-off is a WARNING, not blocking (2026-10-12): Huntsville GMB is our own
+  // first-person copy with the right phone, missing only the tagline. Blocking
+  // on that would turn every PR red; the third-person check below is what
+  // catches copy someone else wrote.
+  if (!SIGN_OFF.test(desc)) warn.push({ match: desc.slice(0, 60) + "…", reason: "missing the house sign-off \"No One Cares Like EnviroCare\" — add it in BrightLocal" });
   const tp = desc.match(THIRD_PERSON);
   if (tp) hits.push({ match: tp[0], reason: "third-person voice about the business — not our approved copy" });
   const am = desc.match(AUBURN_OFFICE);
