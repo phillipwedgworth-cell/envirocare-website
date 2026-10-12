@@ -9,7 +9,10 @@
 //   fill  -> for EVERY query: use a hand-written draft if present, else WRITE one
 //            (Claude, compliance-locked), push it, read its score. If an auto draft
 //            scores below the floor, rewrite it ONCE to lift it. Then rank everything
-//            by score and report a "ready to ship" queue (best first).
+//            by score and report a "score-ready" queue (best first). Score-ready means
+//            NeuronWriter keyword coverage ONLY: no compliance scan, no plagiarism check,
+//            no image, no duplicate check. On 10-12 nine of 24 such drafts carried banned
+//            claims. The weekly content PR (blog-from-drafts / content-refresh) is the gate.
 //   score -> just list every query + its current score.
 //
 // No ChatGPT. Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets).
@@ -315,10 +318,10 @@ async function runFill() {
     category: "content",
     severity: ready.length ? "info" : "warning",
     finding: ready.length
-      ? `${ready.length} SEO draft(s) ready to ship (score ≥ ${SCORE_FLOOR}%). Top: ${top || "—"}. Review in NeuronWriter, then publish via PR.`
+      ? `${ready.length} draft(s) score-ready (NeuronWriter ≥ ${SCORE_FLOOR}%, keyword coverage only — NOT compliance- or plagiarism-checked, no images). Top: ${top || "—"}. They reach the site only through the weekly content PR, which runs those gates.`
       : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
   }).catch(() => {});
-  return `fill: ${results.length} editors, ${ready.length} ready to ship${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
+  return `fill: ${results.length} editors, ${ready.length} score-ready (unchecked)${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
 }
 
 // -- main ---------------------------------------------------------------------
