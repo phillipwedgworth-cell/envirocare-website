@@ -59,7 +59,7 @@ const c: ComboContent = {
     sub: "Quoted after a termite inspection; WDO closing reports are separate",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval",
+      "Up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval and subject to the terms of the agreement",
       "Annual inspection + station service",
       "Ask which inspection documents your agreement includes",
       "Free termite inspection to start — no obligation",
