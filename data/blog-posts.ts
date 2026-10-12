@@ -248,7 +248,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>No. The Sentricon system is only available through Certified Sentricon Specialists. The DIY vs pro difference here is significant — the professional system uses noviflumuron, a termiticide not available in retail products. DIY termite bait stations from hardware stores use different, less effective active ingredients.</p>
 
 <p><strong>What does a <a href="/blog/termite-bond-alabama-explained">termite bond</a> cover with Sentricon?</strong></p>
-<p>Termite service agreements differ. EnviroCare describes qualifying protection as <strong>up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval</strong>. The written agreement controls the exact service and any repair obligations; coverage is provided by EnviroCare, not automatically by the Sentricon product.</p>
+<p>Termite service agreements differ. EnviroCare describes qualifying protection as <strong>up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval and subject to the terms of the agreement</strong>. The written agreement controls the exact service and any repair obligations; coverage is provided by EnviroCare, not automatically by the Sentricon product.</p>
 
 <p>To discuss a termite inspection and your agreement options, see <a href="/birmingham-termite-control">termite service in Birmingham</a>, <a href="/huntsville-termite-control">termite service in Huntsville</a>, or the <a href="/services/termite-control">termite protection overview</a>.</p>
 <ul>
