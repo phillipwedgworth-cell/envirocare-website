@@ -86,7 +86,8 @@ for (const route of routes) {
   const e = entries[route];
   const tag = `${route}:`;
   const failedBefore = failed;
-  const page = route === '/' ? 'app/page.tsx' : join('app', route, 'page.tsx');
+  const pageRoute = route.split('#')[0];
+  const page = pageRoute === '/' ? 'app/page.tsx' : join('app', pageRoute, 'page.tsx');
   if (!existsSync(page)) fail(`${tag} no page at ${page}`);
   else if (!/RefreshedContent|<CityPage\b|<ServicePage\b|<DeepCityPage\b|<NeighborhoodPage\b|ComboPage/.test(readFileSync(page, 'utf8'))) fail(`${tag} ${page} does not render <RefreshedContent> — this entry would never appear`);
 
@@ -111,7 +112,7 @@ for (const route of routes) {
     if (!e.originality) fail(`${tag} copy added without an originality check`);
     else if (e.originality.maxCompetitorOverlap > 0.03 || e.originality.maxSiteOverlap > 0.15) fail(`${tag} recorded overlap is over threshold`);
     if (built.length) {
-      const r = checkOriginality(copy, { sitePages: built.filter((p) => p.route !== route) });
+      const r = checkOriginality(copy, { sitePages: built.filter((p) => p.route !== pageRoute) });
       if (r.maxSiteOverlap > 0.15) fail(`${tag} recheck: ${Math.round(r.maxSiteOverlap * 100)}% of its phrasing already appears on ${r.worstSitePage}`);
     }
   }

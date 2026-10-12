@@ -1,16 +1,122 @@
 {
   "_comment": "Run order for agents/content-refresh.mjs. Pages listed here go first, in this order (Phillip, 2026-10-12: Huntsville, Birmingham, termite, Alabaster, Lake Martin). Every page in agents/neuronwriter-targets.json is appended after these, by priority. `figure` is a curated real photo from /public used when the page has no image yet; pages without one get an illustration only when CONTENT_REFRESH_IMAGES=generate. Query IDs are NOT stored here: the agent reuses the newest READY NeuronWriter query for the keyword at run time, so it never spends a new analysis on a keyword that already has one.",
   "first": [
-    { "route": "/huntsville", "keyword": "pest control huntsville al",
-      "figure": { "src": "/huntsville-saturn-v.webp", "alt": "Tall white rocket on display under a bright blue sky with scattered clouds", "caption": "The Rocket City. Huntsville and Madison County homes are served from our office at 7027 Old Madison Pike, Ste 108.", "width": 1400, "height": 1089 } },
-    { "route": "/huntsville-termite-control", "keyword": "termite control huntsville al",
-      "figure": { "src": "/residential-singlefamily.webp", "alt": "Round green termite bait station caps set flush in the lawn beside a landscaped flower bed in front of a house", "caption": "In-ground bait stations sit flush with the lawn along the foundation, so the yard and beds stay intact.", "width": 859, "height": 572 } },
-    { "route": "/birmingham", "keyword": "pest control birmingham al",
-      "figure": { "src": "/birmingham-vulcan.webp", "alt": "The Vulcan statue raising a spear point against a deep blue evening sky", "caption": "Vulcan over the Magic City. Our Birmingham office is at 2120 16th Ave S, Ste 302.", "width": 1200, "height": 800 } },
-    { "route": "/services/termite-control", "keyword": "termite control birmingham al",
-      "figure": { "src": "/sentricon-install.webp", "alt": "Gloved hand pressing a termite bait station into the soil of a green lawn", "caption": "Bait stations go into the soil around the house. No drilling through slabs, patios or driveways.", "width": 606, "height": 403 } },
-    { "route": "/alabaster", "keyword": "pest control alabaster al" },
-    { "route": "/lake-martin", "keyword": "pest control lake martin al",
-      "figure": { "src": "/lake-martin-sunset.webp", "alt": "Wooden dock reaching into a calm lake at sunset, framed by tall pine trees along the shoreline", "caption": "Docks, shaded coves and shoreline vegetation hold the moisture and shelter that mosquitoes, spiders and termites look for.", "width": 576, "height": 448 } }
+    {
+      "route": "/huntsville",
+      "keyword": "pest control huntsville al",
+      "figure": {
+        "src": "/huntsville-saturn-v.webp",
+        "alt": "Tall white rocket on display under a bright blue sky with scattered clouds",
+        "caption": "The Rocket City. Huntsville and Madison County homes are served from our office at 7027 Old Madison Pike, Ste 108.",
+        "width": 1400,
+        "height": 1089
+      }
+    },
+    {
+      "route": "/huntsville-termite-control",
+      "keyword": "termite control huntsville al",
+      "figure": {
+        "src": "/residential-singlefamily.webp",
+        "alt": "Round green termite bait station caps set flush in the lawn beside a landscaped flower bed in front of a house",
+        "caption": "In-ground bait stations sit flush with the lawn along the foundation, so the yard and beds stay intact.",
+        "width": 859,
+        "height": 572
+      }
+    },
+    {
+      "route": "/birmingham",
+      "keyword": "pest control birmingham al",
+      "figure": {
+        "src": "/birmingham-vulcan.webp",
+        "alt": "The Vulcan statue raising a spear point against a deep blue evening sky",
+        "caption": "Vulcan over the Magic City. Our Birmingham office is at 2120 16th Ave S, Ste 302.",
+        "width": 1200,
+        "height": 800
+      }
+    },
+    {
+      "route": "/services/termite-control",
+      "keyword": "termite control birmingham al",
+      "figure": {
+        "src": "/sentricon-install.webp",
+        "alt": "Gloved hand pressing a termite bait station into the soil of a green lawn",
+        "caption": "Bait stations go into the soil around the house. No drilling through slabs, patios or driveways.",
+        "width": 606,
+        "height": 403
+      }
+    },
+    {
+      "route": "/alabaster",
+      "keyword": "pest control alabaster al"
+    },
+    {
+      "route": "/lake-martin",
+      "keyword": "pest control lake martin al",
+      "figure": {
+        "src": "/lake-martin-sunset.webp",
+        "alt": "Wooden dock reaching into a calm lake at sunset, framed by tall pine trees along the shoreline",
+        "caption": "Docks, shaded coves and shoreline vegetation hold the moisture and shelter that mosquitoes, spiders and termites look for.",
+        "width": 576,
+        "height": 448
+      }
+    }
+  ],
+  "_sections_comment": "Extra keyword sections on EXISTING pages (key <route>#<slug>), added 2026-10-12 from the NeuronWriter gap audit: keywords that already have a READY NeuronWriter query but no page answering them. Same gates as the main pass. Small towns with no page (Columbiana, Harpersville, Westover, Wilsonville, Jacksons Gap) are deliberately NOT here: a thin town page is worse than none (AGENTS.md 'Do not propose more content as the fix').",
+  "sections": [
+    {
+      "route": "/alabaster",
+      "slug": "mosquito",
+      "keyword": "mosquito control alabaster al"
+    },
+    {
+      "route": "/alabaster",
+      "slug": "commercial",
+      "keyword": "commercial pest control alabaster al"
+    },
+    {
+      "route": "/alexander-city",
+      "slug": "termite-inspection",
+      "keyword": "termite inspection alexander city al"
+    },
+    {
+      "route": "/lake-martin",
+      "slug": "tick",
+      "keyword": "tick control lake martin"
+    },
+    {
+      "route": "/lake-martin",
+      "slug": "home-purchase",
+      "keyword": "termite inspection when buying a home on lake martin"
+    },
+    {
+      "route": "/huntsville-termite-control",
+      "slug": "inspection",
+      "keyword": "termite inspection huntsville al"
+    },
+    {
+      "route": "/birmingham",
+      "slug": "roaches",
+      "keyword": "roach exterminator birmingham al"
+    },
+    {
+      "route": "/birmingham-termite-control",
+      "slug": "wdo",
+      "keyword": "wdo inspection birmingham al"
+    },
+    {
+      "route": "/services/termite-control",
+      "slug": "insurance",
+      "keyword": "does homeowners insurance cover termite damage alabama"
+    },
+    {
+      "route": "/services/termite-control",
+      "slug": "bond-cost",
+      "keyword": "how much does a termite bond cost in alabama"
+    },
+    {
+      "route": "/fultondale",
+      "slug": "mosquito",
+      "keyword": "fultondale mosquito control"
+    }
   ]
 }
