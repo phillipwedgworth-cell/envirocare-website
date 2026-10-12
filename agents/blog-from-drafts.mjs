@@ -57,15 +57,20 @@ const complete = makeCompleter({ agent: AGENT, model: MODEL, maxTokens: 8000 });
 
 // ── existing posts ──────────────────────────────────────────────────────────
 const strip = (h) => String(h).replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
+// Fields are written with either quote style (e.g. title: "Stink Bugs ... Alabama's ...").
+function field(rec, name) {
+  const m = rec.match(new RegExp(`\\n    ${name}: (?:'((?:[^'\\\\]|\\\\.)*)'|"((?:[^"\\\\]|\\\\.)*)")`));
+  return m ? (m[1] ?? m[2]).replace(/\\(['"])/g, '$1') : '';
+}
 function existingPosts() {
   const src = fs.readFileSync(POSTS, 'utf8');
   return src.split(/\n  \{\n    slug: '/).slice(1).map((r) => ({
     slug: r.split("'")[0],
-    title: (r.match(/\n    title: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
+    title: field(r, 'title'),
     text: strip((r.match(/body: `([\s\S]*?)`,/) || [])[1] || ''),
     html: (r.match(/body: `([\s\S]*?)`,/) || [])[1] || '',
-    metaTitle: (r.match(/\n    metaTitle: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
-    metaDescription: (r.match(/\n    metaDescription: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
+    metaTitle: field(r, 'metaTitle'),
+    metaDescription: field(r, 'metaDescription'),
   }));
 }
 const STOP = new Set('a an and are as at be by can do does for from how i in is it my of on or the to what when where which who why will with you your al alabama near me best'.split(' '));
@@ -222,8 +227,8 @@ function replacePost(slug, p) {
   if (start < 0) throw new Error(`post ${slug} not found`);
   const end = src.indexOf('\n  },', src.indexOf('body: `', start)) + 5;
   let rec = src.slice(start, end);
-  rec = rec.replace(/\n    excerpt: '(?:[^'\\]|\\.)*',/, () => `\n    excerpt: '${q1(p.excerpt)}',`)
-    .replace(/\n    metaDescription: '(?:[^'\\]|\\.)*',/, () => `\n    metaDescription: '${q1(p.metaDescription)}',`)
+  rec = rec.replace(/\n    excerpt: (?:'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"),/, () => `\n    excerpt: '${q1(p.excerpt)}',`)
+    .replace(/\n    metaDescription: (?:'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"),/, () => `\n    metaDescription: '${q1(p.metaDescription)}',`)
     .replace(/body: `[\s\S]*?`,/, () => `body: \`\n${p.body.trim()}\n\`,`);
   if (/\n    updatedAt: '[^']*',/.test(rec)) rec = rec.replace(/\n    updatedAt: '[^']*',/, `\n    updatedAt: '${today()}',`);
   else rec = rec.replace(/(\n    publishedAt: '[^']*',)/, `$1\n    updatedAt: '${today()}',`);
