@@ -258,7 +258,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h3>Are carpenter bees native to Alabama?</h3>
 <p>Yes. The eastern carpenter bee is native across the Southeast and is an important pollinator, which is why the goal is keeping them out of your wood, not wiping them out.</p>
 
-<p>Questions about carpenter bees on your home? Call your local office: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
+<p>Already an EnviroCare pest control customer and seeing carpenter bees? Call your local office to add treatment: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
 
 <p>No One Cares Like EnviroCare.</p>
 `,
