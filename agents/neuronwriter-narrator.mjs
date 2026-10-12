@@ -168,6 +168,15 @@ async function writeDraft(keyword, terms, lift = false) {
   return html;
 }
 
+// Score draft candidates without changing the NeuronWriter editor. A failed
+// rewrite must not replace a better existing or first-pass draft.
+async function evaluateDraft(id, html, title) {
+  const resp = await nw("evaluate-content", { query: id, html, title, description: "" });
+  const score = pickScore(resp);
+  if (score === null) throw new Error("evaluate-content returned no content score; editor unchanged");
+  return score;
+}
+
 async function pushAndScore(id, html, title) {
   const resp = await nw("import-content", { project: PROJECT, query: id, html, title });
   let sc = pickScore(resp);
@@ -234,8 +243,10 @@ async function runFill() {
 
       // GUARD: leave good drafts alone. A hand-written manifest file still wins,
       // because that is the deliberate, version-controlled source of truth.
-      if (!FORCE && !(hand && handFile && existsSync(handFile))) {
-        const existing = listedScore(q) ?? await readScore(id);
+      const hasHandDraft = Boolean(hand && handFile && existsSync(handFile));
+      let existing = null;
+      if (!FORCE && !hasHandDraft) {
+        existing = listedScore(q) ?? await readScore(id);
         if (existing !== null && existing >= PROTECT_AT) {
           results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
           await sleep(SLEEP_MS);
@@ -243,22 +254,36 @@ async function runFill() {
         }
       }
 
-      if (hand && handFile && existsSync(handFile)) {
+      if (hasHandDraft) {
         const html = readFileSync(handFile, "utf8");
         score = await pushAndScore(id, html, hand.title || keyword);
         source = "hand-written";
       } else {
         let terms = [];
         try { terms = pickTerms(await nw("get-query", { query: id })); } catch {}
+        const title = `${keyword} | EnviroCare`;
         let html = await writeDraft(keyword, terms);
-        score = await pushAndScore(id, html, `${keyword} | EnviroCare`);
+        let proposed = await evaluateDraft(id, html, title);
         source = "auto-written";
-        // rating-aware: one rewrite if it came in below the floor
-        if (score !== null && score < SCORE_FLOOR) {
+        // Evaluate a single lift BEFORE importing anything. Previously, a
+        // worse second attempt overwrote the better first attempt in the editor.
+        if (proposed < SCORE_FLOOR) {
           const html2 = await writeDraft(keyword, terms, true);
-          const score2 = await pushAndScore(id, html2, `${keyword} | EnviroCare`);
-          if (score2 !== null && score2 >= score) { score = score2; source = "auto-written (lifted)"; }
+          const score2 = await evaluateDraft(id, html2, title);
+          if (score2 > proposed) {
+            html = html2;
+            proposed = score2;
+            source = "auto-written (lifted)";
+          }
         }
+        // A low-scoring existing editor still deserves protection: never
+        // replace it with an equal or worse machine draft unless forced.
+        if (!FORCE && existing !== null && proposed <= existing) {
+          results.push({ keyword, score: existing, source: `kept (candidate ${proposed}% vs current ${existing}%)` });
+          await sleep(SLEEP_MS);
+          continue;
+        }
+        score = await pushAndScore(id, html, title);
       }
       results.push({ keyword, score, source });
     } catch (e) {
