@@ -149,14 +149,17 @@ async function ledger(row) {
 // rotates providers per CONTENT_REFRESH_PROVIDERS; every draft passes the same gates.
 const complete = makeCompleter({ agent: AGENT, model: MODEL });
 
-async function draft(anthropic, { route, keyword, pageText, terms, questions, lessons, feedback }) {
+async function draft(anthropic, { route, keyword, pageText, terms, questions, lessons, feedback, material = '' }) {
   const office = pageText.match(/\(\d{3}\) \d{3}-\d{4}/)?.[0] || '';
   const user = `Write ONE new section to ADD to the existing EnviroCare page ${route} (target search: "${keyword}").
 
 THE PAGE ALREADY SAYS (do not repeat any of it — add what is missing):
 """${pageText.slice(0, 9000)}"""
 
-Questions searchers ask that the page does not answer well yet:
+${material ? `A writer already drafted a full rewrite of this page in the NeuronWriter editor. It is SOURCE MATERIAL ONLY: mine it for angles, local detail and questions the live page misses. Its facts and wording are not verified; it has carried banned claims before ("no long-term contract", "$45 per treatment", "March through November", "nine treatments", "safe", "required by law"). Never copy a sentence from it; keep only what is accurate under the rules.
+"""${material.slice(0, 7000)}"""
+
+` : ''}Questions searchers ask that the page does not answer well yet:
 ${questions.map((q) => `- ${q}`).join('\n') || '- (none supplied)'}
 
 NeuronWriter terms the page under-uses (work in the ones that fit NATURALLY; skip the rest):
@@ -244,11 +247,14 @@ async function run() {
       }
 
       const q = await nw('get-query', { query: queryId });
+      // The narrator has filled an editor draft for nearly every query (260 on 10-12)
+      // and none of it was used. Read it (free) and give it to the writer as material.
+      const material = await nw('get-content', { query: queryId }).then((c) => String(c?.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).catch(() => '');
       const pageText = base.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
       const comps = await competitorTexts(queryId, q);
       let feedback = null, entry = null, after = null, orig = null;
       for (let attempt = 1; attempt <= 2; attempt++) {
-        const d = await draft(anthropic, { route: t.route, keyword: t.keyword, pageText, terms: missingTerms(q, pageText), questions: openQuestions(q), lessons, feedback });
+        const d = await draft(anthropic, { route: t.route, keyword: t.keyword, pageText, terms: missingTerms(q, pageText), questions: openQuestions(q), lessons, feedback, material });
         const copy = [d.heading, ...d.paragraphs, ...d.faqs.flatMap((f) => [f.q, f.a])].join('\n');
         const comp = scanText(copy, rules);
         orig = checkOriginality(copy, { competitors: comps, sitePages: [...site.filter((p) => p.route !== t.route), ...(t.key !== t.route ? [{ route: `${t.route} (rest of page)`, text: base }] : [])] });

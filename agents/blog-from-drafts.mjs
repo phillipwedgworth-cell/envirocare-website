@@ -64,6 +64,9 @@ function existingPosts() {
     slug: r.split("'")[0],
     title: (r.match(/\n    title: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
     text: strip((r.match(/body: `([\s\S]*?)`,/) || [])[1] || ''),
+    html: (r.match(/body: `([\s\S]*?)`,/) || [])[1] || '',
+    metaTitle: (r.match(/\n    metaTitle: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
+    metaDescription: (r.match(/\n    metaDescription: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
   }));
 }
 const STOP = new Set('a an and are as at be by can do does for from how i in is it my of on or the to what when where which who why will with you your al alabama near me best'.split(' '));
@@ -109,8 +112,8 @@ async function ledger(row) {
 // ── rewrite ─────────────────────────────────────────────────────────────────
 const VOICE = `House voice: first person plural ("we"), plain and direct, an Alabama family pest control company talking to a homeowner. Open with <p class="lede">…</p>. Use <h2>/<h3>, <p>, <ul><li>. Short honest answers; say what does NOT work too. Reduction language only for mosquitoes ("reduce", "knock down"). Products are "EPA-registered" and "applied according to label directions" — never "EPA-approved" and never "safe". Termite work is "quoted after a free termite inspection, never over the phone". The Official Alabama Wood Infestation Inspection Report (closing letter) is NOT free and is not "required by law" — lenders require it. Termite coverage wording, exactly: "up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement". Treating an active wasp/hornet nest is an add-on at an additional charge. No prices except via a link to /pricing. Offices (use only the ones relevant): Birmingham (205) 991-2882, Alabaster (205) 940-6360, Alexander City and Lake Martin (256) 234-6162, Huntsville (256) 937-7676. End with a short call to action and then <p><strong>No One Cares Like EnviroCare.</strong></p>. No competitor or retail brand names, no review counts, no "only/best/#1" claims, no availability promises.`;
 
-async function rewrite(anthropic, { keyword, draft, terms, questions, related, lessons, feedback }) {
-  const user = `Rewrite this NeuronWriter editor draft into a finished EnviroCare blog post for the search "${keyword}".
+async function rewrite(anthropic, { keyword, draft, terms, questions, related, lessons, feedback, existing = null }) {
+  const user = `${existing ? `UPGRADE the existing EnviroCare post /blog/${existing.slug} ("${existing.title}") for the search "${keyword}". Keep its topic and URL. Combine the strongest, accurate parts of the live post and of the editor draft below into ONE better post; keep every correct fact the live post already has.\n\nLIVE POST NOW:\n"""${existing.text.slice(0, 9000)}"""\n\n` : `Rewrite this NeuronWriter editor draft into a finished EnviroCare blog post for the search "${keyword}".`}
 
 DRAFT (facts may be wrong — keep only what is accurate and compliant; never copy a sentence you would not sign):
 """${strip(draft).slice(0, 14000)}"""
@@ -208,6 +211,22 @@ ${p.body.trim()}
   fs.writeFileSync(POSTS, src.slice(0, second) + rec + src.slice(second));
 }
 
+// Upgrade in place: new body, excerpt and meta description; title, slug, hero and
+// publishedAt stay; updatedAt (emits dateModified) is set to today.
+function replacePost(slug, p) {
+  const src = fs.readFileSync(POSTS, 'utf8');
+  const start = src.indexOf(`\n  {\n    slug: '${slug}',`);
+  if (start < 0) throw new Error(`post ${slug} not found`);
+  const end = src.indexOf('\n  },', src.indexOf('body: `', start)) + 5;
+  let rec = src.slice(start, end);
+  rec = rec.replace(/\n    excerpt: '(?:[^'\\]|\\.)*',/, () => `\n    excerpt: '${q1(p.excerpt)}',`)
+    .replace(/\n    metaDescription: '(?:[^'\\]|\\.)*',/, () => `\n    metaDescription: '${q1(p.metaDescription)}',`)
+    .replace(/body: `[\s\S]*?`,/, () => `body: \`\n${p.body.trim()}\n\`,`);
+  if (/\n    updatedAt: '[^']*',/.test(rec)) rec = rec.replace(/\n    updatedAt: '[^']*',/, `\n    updatedAt: '${today()}',`);
+  else rec = rec.replace(/(\n    publishedAt: '[^']*',)/, `$1\n    updatedAt: '${today()}',`);
+  fs.writeFileSync(POSTS, src.slice(0, start) + rec + src.slice(end));
+}
+
 // ── main ────────────────────────────────────────────────────────────────────
 async function run() {
   const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
@@ -228,23 +247,34 @@ async function run() {
       const content0 = await nw('get-content', { query: id }).catch(() => ({}));
       if (strip(content0?.content || '').split(' ').length < MIN_WORDS) continue; // no finished draft yet — not an error
       const dup = coveredBy(keyword, posts) || await modelDuplicate(anthropic, keyword, posts);
-      if (dup) { report.push({ keyword, outcome: `skipped: covered by /blog/${dup}` }); await ledger({ route: `/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}` }); continue; }
+      // A topic that already has a post is never a second post (that splits rankings).
+      // But a much fuller editor draft can UPGRADE the live post in place: same URL,
+      // updatedAt set, and only if it beats the live post's NeuronWriter score by 5+.
+      const existing = dup ? posts.find((p) => p.slug === dup) : null;
+      const draftWords = strip(content0.content).split(' ').length;
+      if (existing && draftWords < existing.text.split(' ').length * 1.2) {
+        report.push({ keyword, outcome: `skipped: covered by /blog/${dup} (draft not fuller)` });
+        await ledger({ route: `/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}; draft ${draftWords}w is not fuller` });
+        continue;
+      }
       const draftHtml = content0.content;
       const full = await nw('get-query', { query: id });
+      const before = existing ? await score(id, `<h1>${existing.title}</h1>${existing.html}`, existing.metaTitle, existing.metaDescription) : null;
+      const floor = existing ? Math.max(MIN_SCORE, before + 5) : MIN_SCORE;
       const competitors = await competitorTexts(id, full);
       const related = posts.filter((p) => tokens(keyword).some((w) => tokens(p.slug.replace(/-/g, ' ')).includes(w))).slice(0, 12);
 
       let feedback = null, ok = null, last = null;
       for (let attempt = 0; attempt < 2 && !ok; attempt++) {
-        const p = await rewrite(anthropic, { keyword, draft: draftHtml, terms: missingTerms(full, draftHtml), questions: openQuestions(full), related, lessons, feedback });
+        const p = await rewrite(anthropic, { keyword, draft: draftHtml, terms: missingTerms(full, draftHtml), questions: openQuestions(full), related, lessons, feedback, existing });
         const text = strip(p.body);
         const comp = scanText(`${p.title}\n${p.excerpt}\n${p.metaTitle}\n${p.metaDescription}\n${text}`, rules);
-        const orig = checkOriginality(text, { competitors, sitePages: posts.map((x) => ({ route: `/blog/${x.slug}`, text: x.text })) });
+        const orig = checkOriginality(text, { competitors, sitePages: posts.filter((x) => x.slug !== existing?.slug).map((x) => ({ route: `/blog/${x.slug}`, text: x.text })) });
         const sc = await score(id, `<h1>${p.title}</h1>${p.body}`, p.metaTitle, p.metaDescription);
         const problems = [];
         if (comp.blocking.length) problems.push(`compliance: ${comp.blocking.map((b) => `"${b.match}" (${b.reason})`).join('; ')}`);
         if (!orig.pass) problems.push(`originality: competitor ${orig.maxCompetitorOverlap} (max 0.03), own site ${orig.maxSiteOverlap} vs ${orig.worstSitePage} (max 0.15); reworded needed: ${orig.examples.join(' | ')}`);
-        if (sc < MIN_SCORE) problems.push(`NeuronWriter ${sc} < ${MIN_SCORE}; still missing: ${missingTerms(full, text, 25).join('; ')}`);
+        if (sc < floor) problems.push(`NeuronWriter ${sc} < ${floor}${existing ? ` (live post scores ${before})` : ''}; still missing: ${missingTerms(full, text, 25).join('; ')}`);
         if (sc > MAX_SCORE) problems.push(`NeuronWriter ${sc} > ${MAX_SCORE}: keyword-stuffed, write more naturally`);
         if (p.metaTitle.length > 60) problems.push(`metaTitle is ${p.metaTitle.length} chars (max 60)`);
         if (p.metaDescription.length > 155) problems.push(`metaDescription is ${p.metaDescription.length} chars (max 155)`);
@@ -258,6 +288,15 @@ async function run() {
         continue;
       }
       const { p, sc, orig } = ok;
+      if (existing) {
+        if (DRY) { report.push({ keyword, slug: existing.slug, score: sc, provider: p.provider, outcome: `dry run: would upgrade (${before} -> ${sc})` }); shipped++; continue; }
+        replacePost(existing.slug, p);
+        shipped++;
+        report.push({ keyword, slug: existing.slug, score: sc, provider: p.provider, competitor: orig.maxCompetitorOverlap, site: orig.maxSiteOverlap, checked: orig.competitorsChecked, outcome: `upgraded existing post ${before} -> ${sc}` });
+        await ledger({ route: `/blog/${existing.slug}`, keyword, query_id: id, status: 'proposed', score_before: before, score_after: sc, words_added: strip(p.body).split(' ').length - existing.text.split(' ').length, competitor_overlap: orig.maxCompetitorOverlap, site_overlap: orig.maxSiteOverlap, competitors_checked: orig.competitorsChecked, reason: `upgrade awaiting PR merge [${p.provider}]` });
+        await remember(AGENT, `/blog/${existing.slug} upgraded from "${keyword}" draft [${p.provider}] ${before}->${sc}.`, { type: 'lesson', metadata: { date: today() } });
+        continue;
+      }
       p.slug = slugify(p.title.replace(/\s*\|.*$/, '').replace(/[:?].*$/, '')) || slugify(keyword);
       if (posts.some((x) => x.slug === p.slug)) p.slug = slugify(keyword);
       if (DRY) { report.push({ keyword, slug: p.slug, score: sc, provider: p.provider, outcome: 'dry run: would publish' }); shipped++; continue; }
