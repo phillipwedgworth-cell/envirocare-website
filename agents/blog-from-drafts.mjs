@@ -33,7 +33,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import Anthropic from '@anthropic-ai/sdk';
-import sharp from 'sharp';
 import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { remember, recall } from './lib/memory.mjs';
 import { COMPLIANCE_SYSTEM } from './lib/compliance.mjs';
@@ -167,6 +166,10 @@ async function heroImage(slug, title, category) {
     <rect x="0" y="810" width="1600" height="90" fill="#07642B"/>
     <text x="80" y="867" font-size="28" font-weight="600" fill="#FEFDF8">EnviroCare · Family-owned pest control in Alabama since 1958</text>
   </g></svg>`;
+  // sharp arrives only as Next's optional dependency, so load it lazily: if it is
+  // missing the post still ships, just with its emoji instead of a hero image.
+  let sharp;
+  try { sharp = (await import('sharp')).default; } catch (e) { console.warn(`[${AGENT}] sharp unavailable, no hero image: ${e.message}`); return null; }
   fs.mkdirSync(IMG_DIR, { recursive: true });
   const base = sharp(Buffer.from(svg));
   await base.clone().webp({ quality: 86 }).toFile(path.join(IMG_DIR, `${slug}.webp`));
@@ -192,14 +195,14 @@ function insertPost(p) {
     author: 'Kevin Wedgworth',
     category: '${q1(p.category)}',
     readMinutes: ${Math.max(3, Math.round(words / 220))},
-    heroEmoji: '${q1(p.heroEmoji || '🐜')}',
+    heroEmoji: '${q1(p.heroEmoji || '🐜')}',${p.hero ? `
     heroImage: {
       src: '${p.hero.src}',
       og: '${p.hero.og}',
       width: ${p.hero.width},
       height: ${p.hero.height},
       alt: '${q1(p.hero.alt)}',
-    },
+    },` : ''}
     metaTitle: '${q1(p.metaTitle)}',
     metaDescription: '${q1(p.metaDescription)}',
     body: \`
@@ -304,7 +307,7 @@ async function run() {
       insertPost(p);
       shipped++;
       report.push({ keyword, slug: p.slug, score: sc, provider: p.provider, competitor: orig.maxCompetitorOverlap, site: orig.maxSiteOverlap, checked: orig.competitorsChecked, outcome: 'proposed' });
-      await ledger({ route: `/blog/${p.slug}`, keyword, query_id: id, status: 'proposed', score_after: sc, words_added: strip(p.body).split(' ').length, competitor_overlap: orig.maxCompetitorOverlap, site_overlap: orig.maxSiteOverlap, competitors_checked: orig.competitorsChecked, image_src: p.hero.src, reason: `awaiting PR merge [${p.provider}]` });
+      await ledger({ route: `/blog/${p.slug}`, keyword, query_id: id, status: 'proposed', score_after: sc, words_added: strip(p.body).split(' ').length, competitor_overlap: orig.maxCompetitorOverlap, site_overlap: orig.maxSiteOverlap, competitors_checked: orig.competitorsChecked, image_src: p.hero?.src || null, reason: `awaiting PR merge [${p.provider}]` });
       await remember(AGENT, `/blog/${p.slug} from "${keyword}" [${p.provider}] scored ${sc}.`, { type: 'lesson', metadata: { date: today() } });
     } catch (e) {
       report.push({ keyword, outcome: `error: ${e.message.slice(0, 200)}` });
