@@ -204,9 +204,18 @@ if (checked < MIN_RECORDS) {
   // Birmingham ... call (205) 940-6360" on an office-neutral page is CANON, not a
   // defect). What is wrong is LABELLING the Birmingham office with that number.
   const COMBINED = /Birmingham *[/] *Alabaster/;
-  const NUM = /([(]205[)] *940-6360|2059406360)/;
+  // The Alabaster office's number OR its street address. Labelling Butler Rd
+  // "Birmingham" is the same defect as labelling 940-6360 that way: on
+  // 2026-10-12 a live sweep found 14 Shelby city pages rendering a
+  // "Birmingham Office" card over "2025 Butler Rd, Alabaster" -- the source was
+  // data/cities.ts `BHM = { officeName: 'Birmingham Office', officePhone: ...`,
+  // which this guard passed because "officePhone" lowercased to the single
+  // word "officephone", not a connector. camelCase is now split first.
+  const NUM = /([(]205[)] *940-6360|2059406360|2025 Butler)/;
   // Connector words allowed between the name and the number in a label.
-  const CONNECTORS = ["office", "phone", "at", "tel", "href", "dials", "call", "envirocare"];
+  // "area" covers "Birmingham-area office at 2025 Butler Rd".
+  const CONNECTORS = ["office", "phone", "at", "tel", "href", "dials", "call", "envirocare",
+    "name", "address", "area", "home", "main"];
   const labelled = (line) => {
     let from = 0;
     for (;;) {
@@ -218,7 +227,7 @@ if (checked < MIN_RECORDS) {
       if (!m) continue;
       // Everything between the name and the number must be separators plus
       // connector words -- no other prose.
-      const gap = after.slice(0, m.index).toLowerCase();
+      const gap = after.slice(0, m.index).replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase();
       const words = gap.match(/[a-z]+/g) || [];
       if (words.every((w) => CONNECTORS.includes(w))) return true;
     }
