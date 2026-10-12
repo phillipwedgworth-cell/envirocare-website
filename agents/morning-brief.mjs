@@ -200,7 +200,7 @@ async function fetchScoreboard() {
   const lr = arr(ledgerRows);
   const cnt = (st) => new Set(lr.filter((x) => x.status === st).map((x) => x.route)).size;
   const measured = lr.filter((x) => x.status === 'measured').slice(0, 6).map((x) => `  ${x.route}: ${String(x.reason || '').split(' | ')[0]}`);
-  const contentLines = [`  proposed ${cnt('proposed')} · published ${cnt('published')} · measured ${cnt('measured')} · parked by gates ${cnt('rejected')}`, ...measured];
+  const contentLines = [`  proposed ${cnt('proposed')} · published ${cnt('published')} · measured ${cnt('measured')} · rejected (failed gates, duplicate, or never merged) ${cnt('rejected')}`, ...measured];
 
   return { lastDate, text: `SCOREBOARD (verbatim numbers — quote them, do not editorialize beyond the delta):
 ${clicksLine}

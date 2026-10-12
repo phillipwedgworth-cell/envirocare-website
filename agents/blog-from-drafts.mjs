@@ -142,7 +142,7 @@ Length 900-1400 words of body. Return ONLY JSON:
   const { provider, text } = await complete(anthropic, COMPLIANCE_SYSTEM, user);
   const j = parseJson(text);
   for (const k of ['title', 'excerpt', 'metaTitle', 'metaDescription', 'category', 'body']) if (!j[k]) throw new Error(`${provider} reply missing ${k}`);
-  return { provider, ...j, body: String(j.body).replace(/`/g, "'").replace(/\$\{/g, '$ {') };
+  return { provider, ...j, body: String(j.body).replace(/\\/g, '\\\\').replace(/`/g, "'").replace(/\$\{/g, '$ {') }; // backslash first, or \u / \x break the template literal
 }
 
 // ── hero image: branded card drawn as SVG, rendered by sharp ───────────────
@@ -245,10 +245,10 @@ async function run() {
   const cands = (Array.isArray(rows) ? rows : [])
     .filter((q) => (ONLY ? (q.query || q.id) === ONLY : !(q.tags || []).some((t) => /optimi[sz]e/i.test(t))))
     .sort((a, b) => String(b.updated).localeCompare(String(a.updated)));
-  const report = []; let shipped = 0;
+  const report = []; let shipped = 0, tried = 0;
 
   for (const q of cands) {
-    if (shipped >= MAX) break;
+    if (shipped >= MAX || tried >= MAX * 3) break; // cap attempts too: failing gates must not eat the 30-minute job
     const id = q.query || q.id; const keyword = q.keyword;
     try {
       if (!ONLY && await alreadyHandled(id)) continue;
@@ -264,13 +264,17 @@ async function run() {
       const requeued = existing && await isRequeued(`/blog/${existing.slug}`);
       if (existing && !requeued && draftWords < existing.text.split(' ').length * 1.2) {
         report.push({ keyword, outcome: `skipped: covered by /blog/${dup} (draft not fuller)` });
-        await ledger({ route: `/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}; draft ${draftWords}w is not fuller` });
+        // Not under the live post's route: content-results reads the newest row per route,
+        // and a skip row there would hide the post's own proposed/published rows.
+        await ledger({ route: `dup:/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}; draft ${draftWords}w is not fuller` });
         continue;
       }
       const draftHtml = content0.content;
+      tried++;
       const full = await nw('get-query', { query: id });
       const before = existing ? await score(id, `<h1>${existing.title}</h1>${existing.html}`, existing.metaTitle, existing.metaDescription) : null;
-      const floor = existing ? Math.max(MIN_SCORE, before + 5) : MIN_SCORE;
+      const floor = Math.min(MAX_SCORE, existing ? Math.max(MIN_SCORE, before + 5) : MIN_SCORE);
+      if (existing && before + 5 > MAX_SCORE) { report.push({ keyword, outcome: `skipped: /blog/${existing.slug} already scores ${before}` }); continue; }
       const competitors = await competitorTexts(id, full);
       const related = posts.filter((p) => tokens(keyword).some((w) => tokens(p.slug.replace(/-/g, ' ')).includes(w))).slice(0, 12);
 
@@ -283,6 +287,7 @@ async function run() {
         const sc = await score(id, `<h1>${p.title}</h1>${p.body}`, p.metaTitle, p.metaDescription);
         const problems = [];
         if (comp.blocking.length) problems.push(`compliance: ${comp.blocking.map((b) => `"${b.match}" (${b.reason})`).join('; ')}`);
+        if ((orig.competitorsChecked || 0) < 3) problems.push(`originality: only ${orig.competitorsChecked || 0} competitor pages could be read, so plagiarism was not really checked`);
         if (!orig.pass) problems.push(`originality: competitor ${orig.maxCompetitorOverlap} (max 0.03), own site ${orig.maxSiteOverlap} vs ${orig.worstSitePage} (max 0.15); reworded needed: ${orig.examples.join(' | ')}`);
         if (sc < floor) problems.push(`NeuronWriter ${sc} < ${floor}${existing ? ` (live post scores ${before})` : ''}; still missing: ${missingTerms(full, text, 25).join('; ')}`);
         if (sc > MAX_SCORE) problems.push(`NeuronWriter ${sc} > ${MAX_SCORE}: keyword-stuffed, write more naturally`);

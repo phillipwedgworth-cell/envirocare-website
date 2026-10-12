@@ -100,7 +100,8 @@ export function makeCompleter({ agent, model = 'claude-sonnet-4-6', maxTokens = 
         }
         if (p === 'openai' && process.env.OPENAI_API_KEY) {
           const r = await fetch('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, 'content-type': 'application/json' },
-            body: JSON.stringify({ model: openaiModel, max_tokens: tokens, messages: [{ role: 'system', content: system }, { role: 'user', content: user }] }) });
+            // GPT-5-family models reject max_tokens; max_completion_tokens is the current field.
+            body: JSON.stringify({ model: openaiModel, max_completion_tokens: tokens, messages: [{ role: 'system', content: system }, { role: 'user', content: user }] }) });
           const d = await r.json();
           if (!r.ok) throw new Error(`openai ${r.status}: ${JSON.stringify(d).slice(0, 160)}`);
           return { provider: `gpt:${openaiModel}`, text: d?.choices?.[0]?.message?.content || '' };

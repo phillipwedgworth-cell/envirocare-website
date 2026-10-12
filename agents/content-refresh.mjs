@@ -225,7 +225,7 @@ async function run() {
       const ageDays = last ? (Date.now() - new Date(last.created_at)) / 864e5 : Infinity;
       // content-results.mjs measured this page and it did not move: rework it now
       // (no cool-down, and "already in band" is no reason to stop).
-      const requeue = last?.status === 'measured' && /^requeue/.test(last.reason || '');
+      let requeue = last?.status === 'measured' && /^requeue/.test(last.reason || '');
       if (requeue) r.requeue = last.reason.split(' | ')[0];
       if (!FORCE && !requeue && ageDays < COOLDOWN_DAYS) { r.outcome = `skipped: ${last.status} ${Math.floor(ageDays)}d ago (cool-down ${COOLDOWN_DAYS}d)`; report.push(r); continue; }
 
@@ -239,6 +239,8 @@ async function run() {
       const before = await score(queryId, base, title, desc);
       Object.assign(r, { queryId, before });
 
+      // A requeued page already near the ceiling cannot gain MIN_GAIN without passing it.
+      if (requeue && before > BAND_CEIL - MIN_GAIN) requeue = false;
       if (before >= BAND_LOW && !requeue) {
         const figure = existing?.figure || t.figure || null;
         if (figure && !existing?.figure && !DRY) {
@@ -264,6 +266,7 @@ async function run() {
         orig = checkOriginality(copy, { competitors: comps, sitePages: [...site.filter((p) => p.route !== t.route), ...(t.key !== t.route ? [{ route: `${t.route} (rest of page)`, text: base }] : [])] });
         const figure = existing?.figure || t.figure || (attempt === 1 && t.key === t.route ? await illustration(t.route, t.keyword) : null);
         const candidate = { ...d, ...(figure ? { figure } : {}) };
+        if ((orig.competitorsChecked || 0) < 3) { orig.pass = false; orig.examples = [...(orig.examples || []), `only ${orig.competitorsChecked || 0} competitor pages readable — plagiarism not really checked`]; }
         after = comp.clean && orig.pass ? await score(queryId, withSection(base, sectionHtml(candidate)), title, desc) : null;
         const problems = [];
         if (!comp.clean) problems.push(`Compliance: remove ${comp.blocking.map((b) => `"${b.match}" (${b.reason})`).join(', ')}.`);

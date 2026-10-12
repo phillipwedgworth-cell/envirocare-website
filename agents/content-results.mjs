@@ -18,8 +18,9 @@
 //                 latest 7 snapshots, and re-score the BUILT page in NeuronWriter
 //                 (free) when a key is present.
 //   3. VERDICT    win     impressions +20% or more, or position 2+ better
-//                 requeue impressions/position flat or worse, or NeuronWriter < 70,
-//                         or a new post still under 20 weekly impressions
+//                 requeue impressions/position flat or worse, or a new post still
+//                         under 20 weekly impressions (the NeuronWriter re-score
+//                         is recorded for the trend but never triggers a rework)
 //                 A 'measured' row stores the numbers. 'requeue' lifts the 28-day
 //                 cool-down in content-refresh and the "already handled" block in
 //                 blog-from-drafts, so next run they rework that page with the
@@ -67,9 +68,18 @@ function isLive(route, sinceDate, { store, posts }) {
 async function gsc(route) {
   const urls = [`${SITE}${route}`, `${SITE}${route}/`];
   const { data, error } = await supabase.from('gsc_pages').select('page,clicks,impressions,position,snapshot_date')
-    .in('page', urls).order('snapshot_date', { ascending: true }).limit(400);
+    .in('page', urls).order('snapshot_date', { ascending: false }).limit(400);
   if (error) throw new Error(`gsc_pages: ${error.message}`);
-  return data || [];
+  // The /x and /x/ variants are the same page: add them up per snapshot
+  // (position weighted by impressions), oldest first.
+  const byDay = new Map();
+  for (const r of data || []) {
+    const d = byDay.get(r.snapshot_date) || { snapshot_date: r.snapshot_date, impressions: 0, clicks: 0, posW: 0 };
+    const imp = Number(r.impressions) || 0;
+    d.impressions += imp; d.clicks += Number(r.clicks) || 0; d.posW += (Number(r.position) || 0) * Math.max(imp, 1); d.w = (d.w || 0) + Math.max(imp, 1);
+    byDay.set(r.snapshot_date, d);
+  }
+  return [...byDay.values()].map((d) => ({ ...d, position: d.posW / d.w })).sort((a, b) => String(a.snapshot_date).localeCompare(String(b.snapshot_date)));
 }
 const avg = (rows, k) => (rows.length ? rows.reduce((t, r) => t + (Number(r[k]) || 0), 0) / rows.length : null);
 const r1 = (x) => (x == null ? null : Math.round(x * 10) / 10);
@@ -80,7 +90,8 @@ function builtHtml(route) {
 }
 async function nwNow(route, queryId) {
   if (!queryId || !process.env.NEURONWRITER_API_KEY) return null;
-  const html = builtHtml(route.split('#')[0]);
+  const page = route.split('#')[0];
+  const html = builtHtml(page === '/' ? '/index' : page);
   if (!html) return null;
   const main = (html.match(/<main[\s\S]*<\/main>/) || [html])[0];
   const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
@@ -96,15 +107,25 @@ async function insert(row) {
 
 async function run() {
   if (!supabase) throw new Error('Supabase not configured');
-  const { data: rows, error } = await supabase.from('content_refresh_ledger')
-    .select('route,keyword,query_id,status,score_before,score_after,reason,source,created_at').order('created_at', { ascending: true }).limit(5000);
-  if (error) throw new Error(error.message);
+  // Page through newest-first (Supabase caps a response at ~1000 rows), then put
+  // the rows back in time order. Skip-only rows ('dup:' routes) are not content.
+  const rows = [];
+  for (let from = 0; from < 50000; from += 1000) {
+    const { data, error } = await supabase.from('content_refresh_ledger')
+      .select('route,keyword,query_id,status,score_before,score_after,reason,source,created_at')
+      .order('created_at', { ascending: false }).range(from, from + 999);
+    if (error) throw new Error(error.message);
+    rows.push(...(data || []));
+    if (!data || data.length < 1000) break;
+  }
+  rows.reverse();
 
   // Newest row per route, plus the first 'published' row (the publish date).
-  const latest = new Map(), firstPublished = new Map(), firstProposed = new Map(), requeues = new Map();
+  const latest = new Map(), firstPublished = new Map(), lastPublished = new Map(), firstProposed = new Map(), requeues = new Map();
   for (const r of rows) {
+    if (String(r.route).startsWith('dup:')) continue;
     latest.set(r.route, r);
-    if (r.status === 'published' && !firstPublished.has(r.route)) firstPublished.set(r.route, r);
+    if (r.status === 'published') { if (!firstPublished.has(r.route)) firstPublished.set(r.route, r); lastPublished.set(r.route, r); }
     if (r.status === 'proposed') firstProposed.set(r.route, r); // newest proposal wins
     if (r.status === 'measured' && /^requeue/.test(r.reason || '')) requeues.set(r.route, (requeues.get(r.route) || 0) + 1);
   }
@@ -116,7 +137,8 @@ async function run() {
     const ageDays = (Date.now() - new Date(last.created_at)) / day;
 
     if (last.status === 'proposed') {
-      const since = last.created_at.slice(0, 10);
+      // Posts carry the Chicago date, the ledger a UTC timestamp: allow one day of slack.
+      const since = new Date(new Date(last.created_at) - day).toISOString().slice(0, 10);
       if (isLive(route, since, repo)) {
         await insert({ ...base, status: 'published', score_before: last.score_before, score_after: last.score_after, reason: `detected in main ${process.env.GITHUB_SHA?.slice(0, 7) || ''} on ${today()}`.trim() });
         out.published.push(route);
@@ -128,9 +150,11 @@ async function run() {
     }
 
     if (last.status !== 'published') continue;
-    const pubRow = firstPublished.get(route) || last;
+    // Measure the NEWEST publish (a rework restarts the clock); a page counts as
+    // brand-new only if this is its first publish and it had no prior score.
+    const pubRow = lastPublished.get(route) || last;
     const pubDate = new Date(pubRow.created_at);
-    const wasNew = route.startsWith('/blog/') && pubRow.score_before == null;
+    const wasNew = route.startsWith('/blog/') && pubRow === firstPublished.get(route) && pubRow.score_before == null;
     const needDays = wasNew ? NEW_POST_DAYS : MEASURE_DAYS;
     if ((Date.now() - pubDate) / day < needDays) { out.waiting++; continue; }
 
@@ -145,8 +169,10 @@ async function run() {
       nw_now: await nwNow(route, last.query_id || firstProposed.get(route)?.query_id),
     };
     let verdict, why;
-    if (m.nw_now != null && m.nw_now < 70) { verdict = 'requeue'; why = `NeuronWriter fell to ${m.nw_now}`; }
-    else if (wasNew || m.impr_before == null) {
+    // nw_now is recorded for the trend only: it scores the whole rendered <main>
+    // (nav, forms, related posts), not the basis the writers shipped on, so it is
+    // not allowed to trigger a rework on its own.
+    if (wasNew || m.impr_before == null) {
       if ((m.impr_after ?? 0) < 20) { verdict = 'requeue'; why = `new page still at ${m.impr_after ?? 0} impressions/week after ${needDays} days`; }
       else { verdict = 'win'; why = `new page earning ${m.impr_after} impressions/week`; }
     } else {

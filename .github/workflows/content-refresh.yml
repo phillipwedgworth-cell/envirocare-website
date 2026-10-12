@@ -68,6 +68,7 @@ jobs:
         run: npm run build
 
       - name: Measure results (did last month's content move Google?)
+        continue-on-error: true   # a measuring failure must not stop the writers
         env:
           NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
           SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
@@ -132,7 +133,8 @@ jobs:
           git config user.name "envirocare-content-refresh"; git config user.email "agents@envirocarellc.com"
           git checkout -b "$BR"
           git add data/page-refresh.ts data/blog-posts.ts
-          git add public/images/refresh public/images/blog 2>/dev/null || true
+          # one dir per add: a missing dir makes a combined `git add` add NOTHING
+          for d in public/images/refresh public/images/blog; do [ -d "$d" ] && git add "$d"; done
           git commit -m "content(refresh): NeuronWriter-scored page refresh $(date -u +%Y-%m-%d)"
           git push -u origin "$BR"
           BODY=$(node -e "
