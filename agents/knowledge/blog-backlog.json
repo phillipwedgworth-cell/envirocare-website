@@ -2,30 +2,6 @@
  "_readme": "Backlog for agents/blog-writer.mjs. The agent takes the first N topics whose slug is not in data/blog-posts.ts, writes them, and moves on. Add topics anywhere; order is priority. Never add: bed bugs, wildlife/raccoon/squirrel removal, lawn care, crawlspace encapsulation, Tuscaloosa, carpenter-bee marketing, competitor names. Topics with `legacyPath` are old Scorpion URLs still earning impressions: the writer adds a middleware 301 from legacyPath to the new post when it publishes one.",
  "topics": [
   {
-   "slug": "keeping-the-wolf-spiders-in-birmingham-outside-w",
-   "keyword": "keeping the wolf spiders in Alabama outside",
-   "category": "Spiders",
-   "angle": "Legacy Scorpion post (8291 impressions, pos 17). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
-   "legacyPath": "/blog/2022/july/keeping-the-wolf-spiders-in-birmingham-outside-w/",
-   "impressions": 8291
-  },
-  {
-   "slug": "struggling-to-get-rid-of-the-ticks-around-your-b",
-   "keyword": "struggling to get rid of the ticks around your",
-   "category": "Ticks",
-   "angle": "Legacy Scorpion post (4089 impressions, pos 41). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
-   "legacyPath": "/blog/2022/august/struggling-to-get-rid-of-the-ticks-around-your-b/",
-   "impressions": 4089
-  },
-  {
-   "slug": "what-to-do-about-mosquitoes-in-birmingham",
-   "keyword": "what to do about mosquitoes in Alabama",
-   "category": "Mosquitoes",
-   "angle": "Legacy Scorpion post (3732 impressions, pos 27). Rewrite as a full, current, Alabama-specific article; the old URL 301s here once published.",
-   "legacyPath": "/blog/2023/june/what-to-do-about-mosquitoes-in-birmingham/",
-   "impressions": 3732
-  },
-  {
    "slug": "warning-signs-of-a-termite-infestation-every-hom",
    "keyword": "warning signs of a termite infestation every hom",
    "category": "Termites",

@@ -276,6 +276,15 @@ const nextConfig: NextConfig = {
             { source: '/pre-construction-pest-treatment', destination: '/builders', permanent: true },
             { source: '/pre-construction-termite-treatment', destination: '/builders', permanent: true },
 
+            // ─── BLOG: duplicate posts merged 2026-10-12 ─────────────────────
+            // Each newer post repeated an older one. GSC 2026-10-11: the older URL had the
+            // impressions in every pair (ticks 174 vs 0, mosquito 91 vs 0, wolf 14 vs 3,
+            // rain 4 vs 1). Wolf + rain: the fuller newer body moved onto the older URL.
+            { source: '/blog/keeping-the-wolf-spiders-in-birmingham-outside-w', destination: '/blog/wolf-spiders-birmingham', permanent: true },
+            { source: '/blog/struggling-to-get-rid-of-the-ticks-around-your-b', destination: '/blog/tick-control-alabama', permanent: true },
+            { source: '/blog/what-to-do-about-mosquitoes-in-birmingham', destination: '/blog/mosquito-season-birmingham-al', permanent: true },
+            { source: '/blog/pests-after-heavy-rain-alabama', destination: '/blog/pests-after-rain-alabama', permanent: true },
+
             // ─── BLOG: legacy Scorpion /blog/{year}/{month}/{slug} URLs ─────
             // Now owned by middleware.ts, which 301s each legacy post to the
             // best-matching live blog post by topic (recovering impressions) and
