@@ -5,6 +5,9 @@
 # Two agents, one PR: content-refresh (adds scored sections to existing pages) and,
 # since 2026-10-12, blog-from-drafts (turns FINISHED NeuronWriter editor drafts into
 # blog posts with a hero image — before it, finished drafts never reached the site).
+# A third, content-results, runs first: it marks merged proposals published,
+# measures each published page 28 days later against Search Console, and sends
+# the ones that did not move back to the two writers (max two reworks).
 #
 # What runs: agents/content-refresh.mjs (read its header). In short: score each
 # priority page as BUILT, leave pages already at 70+ alone (image only), and for
@@ -64,6 +67,16 @@ jobs:
       - name: Build (pages are scored as rendered)
         run: npm run build
 
+      - name: Measure results (did last month's content move Google?)
+        continue-on-error: true   # a measuring failure must not stop the writers
+        env:
+          NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+        run: node agents/content-results.mjs
+
       - name: Refresh pages
         env:
           NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
@@ -120,7 +133,8 @@ jobs:
           git config user.name "envirocare-content-refresh"; git config user.email "agents@envirocarellc.com"
           git checkout -b "$BR"
           git add data/page-refresh.ts data/blog-posts.ts
-          git add public/images/refresh public/images/blog 2>/dev/null || true
+          # one dir per add: a missing dir makes a combined `git add` add NOTHING
+          for d in public/images/refresh public/images/blog; do [ -d "$d" ] && git add "$d"; done
           git commit -m "content(refresh): NeuronWriter-scored page refresh $(date -u +%Y-%m-%d)"
           git push -u origin "$BR"
           BODY=$(node -e "
