@@ -2,6 +2,10 @@
 #
 # Weekly NeuronWriter content refresh → PR → Phillip merges.
 #
+# Two agents, one PR: content-refresh (adds scored sections to existing pages) and,
+# since 2026-10-12, blog-from-drafts (turns FINISHED NeuronWriter editor drafts into
+# blog posts with a hero image — before it, finished drafts never reached the site).
+#
 # What runs: agents/content-refresh.mjs (read its header). In short: score each
 # priority page as BUILT, leave pages already at 70+ alone (image only), and for
 # pages under 70 draft one added section that must pass compliance, an
@@ -78,10 +82,25 @@ jobs:
           CONTENT_REFRESH_IMAGES:    ${{ github.event.inputs.images || vars.CONTENT_REFRESH_IMAGES || '' }}
         run: node agents/content-refresh.mjs
 
+      - name: Blog posts from finished NeuronWriter drafts
+        env:
+          NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT:      9d0bec3a70f4743c
+          ANTHROPIC_API_KEY:         ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY:            ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY:            ${{ secrets.GEMINI_API_KEY }}
+          CONTENT_REFRESH_PROVIDERS: ${{ vars.CONTENT_REFRESH_PROVIDERS || 'anthropic,openai,gemini' }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          CONTENT_DRAFTS_MAX:        ${{ vars.CONTENT_DRAFTS_MAX || '2' }}
+        run: node agents/blog-from-drafts.mjs
+
       - name: Anything to ship?
         id: check
         run: |
-          if git diff --quiet -- data/page-refresh.ts && [ -z "$(git status --porcelain public/images/refresh 2>/dev/null)" ]; then
+          if git diff --quiet -- data/page-refresh.ts data/blog-posts.ts && [ -z "$(git status --porcelain public/images/refresh public/images/blog 2>/dev/null)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "No page changed — nothing to propose."
           else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 
@@ -100,14 +119,17 @@ jobs:
           BR="content/refresh-$(date -u +%Y-%m-%d)-${GITHUB_RUN_ID}"
           git config user.name "envirocare-content-refresh"; git config user.email "agents@envirocarellc.com"
           git checkout -b "$BR"
-          git add data/page-refresh.ts public/images/refresh 2>/dev/null || git add data/page-refresh.ts
+          git add data/page-refresh.ts data/blog-posts.ts
+          git add public/images/refresh public/images/blog 2>/dev/null || true
           git commit -m "content(refresh): NeuronWriter-scored page refresh $(date -u +%Y-%m-%d)"
           git push -u origin "$BR"
           BODY=$(node -e "
             const m=require('./agents/.content-refresh-manifest.json');
             const rows=m.report.map(r=>'| '+r.route+' | '+(r.before??'')+' | '+(r.after??'')+' | '+(r.originality?Math.round(r.originality.competitor*100)+'% / '+Math.round(r.originality.site*100)+'% ('+r.originality.checked+' sites)':'')+' | '+r.outcome+' |').join('\n');
-            console.log('Written by agents/content-refresh.mjs. Every added section passed: compliance scan, originality check (competitor / own-site overlap of 8-word phrases), and a NeuronWriter score gain. **Read the Vercel preview, then merge.**\n\n| Page | NW before | NW after | Overlap (competitor / site) | Outcome |\n|---|---|---|---|---|\n'+rows+'\n\nZero NeuronWriter analyses used. Memory: Supabase content_refresh_ledger + agent_memory.');
+            let blog='';
+            try { const b=require('./agents/.blog-drafts-manifest.json'); if (b.report.length) blog='\n\n### New blog posts from finished NeuronWriter drafts (agents/blog-from-drafts.mjs)\n\n| Search | Post | NW | Overlap (competitor / site) | Model | Outcome |\n|---|---|---|---|---|---|\n'+b.report.map(r=>'| '+r.keyword+' | '+(r.slug?'/blog/'+r.slug:'')+' | '+(r.score??'')+' | '+(r.competitor!=null?Math.round(r.competitor*1000)/10+'% / '+Math.round(r.site*1000)/10+'% ('+r.checked+' sites)':'')+' | '+(r.provider||'')+' | '+r.outcome+' |').join('\n'); } catch {}
+            console.log('Written by agents/content-refresh.mjs. Every added section passed: compliance scan, originality check (competitor / own-site overlap of 8-word phrases), and a NeuronWriter score gain. **Read the Vercel preview, then merge.**\n\n| Page | NW before | NW after | Overlap (competitor / site) | Outcome |\n|---|---|---|---|---|\n'+rows+'\n\nZero NeuronWriter analyses used. Memory: Supabase content_refresh_ledger + agent_memory.'+blog);
           ")
-          URL=$(gh pr create --base main --head "$BR" --title "Content refresh $(date -u +%b\ %-d): $(node -e "console.log(require('./agents/.content-refresh-manifest.json').changed)") page(s)" --body "$BODY")
+          URL=$(gh pr create --base main --head "$BR" --title "Content refresh $(date -u +%b\ %-d): $(node -e "console.log(require('./agents/.content-refresh-manifest.json').changed)") page(s), $(node -e "try{console.log(require('./agents/.blog-drafts-manifest.json').changed)}catch{console.log(0)}") new post(s)" --body "$BODY")
           echo "$URL"
           if [ "$AUTOMERGE" = "true" ]; then gh pr merge "$URL" --auto --squash || echo "auto-merge not enabled on this repo — PR left for review"; fi
