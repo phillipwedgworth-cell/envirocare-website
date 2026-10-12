@@ -134,6 +134,293 @@ export const BLOG_POSTS: BlogPost[] = [
   //     text. New topic: no existing post covers kudzu bugs (stink bugs / lady beetles
   //     post is linked, not duplicated). Reduction language only; no bug-proof promise.
   {
+    slug: 'spiders-on-boat-docks-lake-martin',
+    title: 'Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down',
+    excerpt: 'Docks and boathouses are spider country: damp wood, dark gaps and lights that pull in insects. Which spiders you will find on a Lake Martin dock, what home remedies really do, and what keeps the numbers down.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    heroImage: {
+      src: '/images/blog/spiders-boat-dock-lake-martin.webp',
+      og: '/images/blog/spiders-boat-dock-lake-martin-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustrated cross-section of a lake dock and boathouse showing where spiders build webs: under the decking, on the pilings, around the dock light and in the boathouse rafters.',
+    },
+    metaTitle: 'Spiders on Boat Docks at Lake Martin | EnviroCare',
+    metaDescription: 'Why spiders crowd Lake Martin boat docks, how to spot black widows, whether dryer sheets or sprays work, and what keeps dock spiders down all season.',
+    body: `
+<p class="lede">If you have ever walked down to the dock at Lake Martin first thing in the morning and caught a web across the face, you already know docks are spider country. Wood that stays damp, dark gaps under the decking, pilings and crossbeams to anchor silk to, and a light on the boathouse that pulls in insects every night. Where the bugs collect, spiders follow. Here is what lives on a lake dock, whether the DIY ways to get rid of spiders actually work, and what keeps the spider population down and spiders off your boat through the season.</p>
+
+<h2>Why spiders pile up on boat docks</h2>
+
+<p>A dock gives spiders three things at once: shelter, moisture and a steady food supply. The underside of the decking stays shaded and humid, which is where egg sacs get tucked away. Pilings, crossbeams, ladder rungs, cleats and dock lines are anchor points for webs. Boathouse rafters trap warmth. And the insects that hatch along the shoreline, plus the moths and midges drawn to dock lights after dark, keep the spiders fed. A dock that only gets visited on weekends also goes five days at a time without anyone sweeping a spider web down. The black or white specks you find on the boat cover and the dock boards are spider poop, and they stain if they sit.</p>
+
+<p>The same is true whether it is a private dock behind a lake house or a slip at a marina: the spiders travel on lines, on the breeze and on the boat itself, so a clean slip next to a dirty one does not stay clean for long.</p>
+
+<h2>The spiders you are most likely to find on a Lake Martin dock</h2>
+
+<ul>
+<li><strong>Orb weavers.</strong> The big round webs strung between posts and across the boat slip overnight. Alarming in size, harmless to people, and usually rebuilt every evening.</li>
+<li><strong>Fishing spiders.</strong> Large, long-legged spiders that sit on pilings and the edge of the decking right at the waterline. They are often mistaken for wolf spiders and they can run across the surface of the water.</li>
+<li><strong>Wolf spiders.</strong> Fast hunters on the deck boards and stairs at night. They do not build webs to catch prey and rarely bite unless pinned against skin.</li>
+<li><strong>Black widows.</strong> The one that matters most. They build low, messy, irregular webs in dark protected spots: under the dock, inside the dock box, behind stored life jackets, under the lip of a kayak rack.</li>
+</ul>
+
+<p>For more on that last one, see our guide to <a href="/blog/black-widow-spiders-alabama">black widow spiders in Alabama</a>.</p>
+
+<h2>Black widows: check before you reach</h2>
+
+<p>Most dock spiders are a nuisance. Black widows deserve attention, especially at a lake house where children and guests do not know to look before they grab a dock line, pull a tackle box out of a dark corner or slide a kayak out from under the dock. A few habits make a real difference: wear gloves when you open a dock box that has sat closed for a week, shake out life jackets and cushions before use, and keep stored items off the decking so there are fewer dark pockets to build in. If you are finding black widows regularly, that is a sign the harborage and the food supply both need attention, not just the spider you can see.</p>
+
+<h2>DIY ways to get rid of spiders on a dock: what works and what does not</h2>
+
+<h3>Dryer sheets</h3>
+<p>A lot of boat owners use dryer sheets tucked into the cover or the cabin. The idea is that the scent keeps spiders from settling in. On a dock exposed to wind, sun and lake humidity, any effect is gone within a day or two. They are not a control method.</p>
+
+<h3>Peppermint oil</h3>
+<p>Spiders do seem to avoid strong mint odors for a short time. The problem is persistence: an oil spray on sun-baked boards evaporates or washes off fast, and nobody reapplies it every few days. Reasonable for a single weekend, not for a season.</p>
+
+<h3>Vinegar and moth balls</h3>
+<p>A spray bottle of diluted vinegar will kill a spider it soaks and wipes off webs, but it leaves nothing behind once it dries. Moth balls are a pesticide with their own label, they are not meant to be scattered outdoors, and they do not belong on a dock near the water or the aquatic life in it.</p>
+
+<h3>Over-the-counter sprays</h3>
+<p>A can of spider spray or an insecticide in a pump sprayer knocks down the spiders it hits. It does not reach the underside of the decking or the pilings, and it does nothing about the insects drawing spiders in. The next hatch comes out of the egg sacs you missed. Many consumer products are also not labeled for use over or next to water, so read the label before you spray any chemical on a dock. Rain, sun and spray off the lake wear down whatever residual a product has much faster than on a house.</p>
+
+<h2>What actually keeps dock spiders down</h2>
+
+<p>The lasting answer has two parts: less food and less shelter.</p>
+
+<ul>
+<li><strong>Change the lights.</strong> White dock and boathouse lights pull in the moths and midges spiders eat. Warm yellow or amber bulbs attract far fewer insects. Put the light on a timer or a motion sensor so it is not on all night.</li>
+<li><strong>Sweep webs down weekly.</strong> A long-handled brush along the rafters, posts and the underside of the railing. Removing webs and egg sacs regularly breaks the cycle.</li>
+<li><strong>Keep spiders off your boat.</strong> Keep the cover snug, run a brush over the bimini and the cover frame before you take it off, and do not leave cushions or towels in the boat between weekends.</li>
+<li><strong>Clear the clutter.</strong> Store cushions, life jackets, buckets and tackle in sealed bins rather than open on the decking.</li>
+<li><strong>Trim the shoreline growth.</strong> Overhanging limbs and brush touching the dock or boathouse give spiders a bridge and give insects a resting place.</li>
+<li><strong>Reduce the insect pressure around the property.</strong> Seasonal <a href="/blog/mosquito-control-lake-house-dock-boathouse">mosquito treatment for a lake house</a> targets the shaded resting areas between the house and the shoreline, which cuts down part of what spiders feed on.</li>
+</ul>
+
+<h2>How EnviroCare handles spiders at a lake house</h2>
+
+<p>Our pest control program starts at the outside of the house: the foundation, eaves, windows, doors and the outbuildings, with webs knocked down along the eaves and treatment into the cracks and gaps where spiders and the insects they eat get in. At a lake property that includes the boat house and land-side structures, and the dock where the product label allows it. Any pesticide used near the water is chosen and applied according to label directions, which limit what can go on surfaces over or beside the lake; the technician stays off the water's edge itself. That is one more reason the habits above matter on a dock: they cover the places treatment cannot.</p>
+
+<p>Routine service does not require anyone to be home, which is how most of our weekend lake-house customers work. Visits are scheduled around the property, and interior service can be set for a weekend you plan to be at the lake. See how the program works on our <a href="/lake-martin">Lake Martin pest control page</a>, and use the <a href="/blog/lake-martin-home-pest-checklist">Lake Martin home pest checklist</a> when you open the house in spring.</p>
+
+<h2>Spiders and termites like the same conditions</h2>
+
+<p>Damp wood, ground contact and little foot traffic draw spiders, and they draw subterranean termites too. Dock pilings and boathouse framing that meet the soil on the shore side are exactly where termites can work unnoticed. If you are calling about spiders, it is worth having the boathouse and the land end of the dock looked at during a free termite inspection. Termite work is quoted after that inspection, never over the phone.</p>
+
+<h2>Common questions</h2>
+
+<h3>How soon can we use the dock after a treatment?</h3>
+<p>The product label sets the re-entry interval, and your technician will tell you how long to stay off treated areas before you go back out. Usually that is until the application has dried.</p>
+
+<h3>Will one treatment keep spiders off the dock all summer?</h3>
+<p>No, and we will not tell you it does. Spiders and insects keep arriving from the shoreline and the woods. Recurring service through the season, plus the light, web and clutter habits above, is what keeps the numbers down.</p>
+
+<h3>Do you treat inside the boathouse?</h3>
+<p>Yes. Boathouse rafters and corners are some of the busiest spots on a lake property for orb weavers, and they are part of a lake-house service visit where the label allows. Treating an active wasp or hornet nest is an add-on for pest customers at an additional charge.</p>
+
+<h3>We are only at the lake a few weekends a year. Does that matter?</h3>
+<p>No. Exterior service runs on schedule whether anyone is there or not.</p>
+
+<h2>Talk to the Lake Martin office</h2>
+
+<p>EnviroCare started as Wedgworth Pest Control in Alexander City in 1958, and the family is now in its fourth generation. The Alex City office at 1785 Tallapoosa Street covers Lake Martin, Dadeville, Eclectic and the communities around the lake. Call <a href="tel:2562346162">(256) 234-6162</a> or <a href="/quote">request a free quote</a>.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'homeowners-insurance-termite-damage-alabama',
+    title: 'Does Homeowners Insurance Cover Termite Damage in Alabama?',
+    excerpt: 'Most Alabama homeowners policies exclude termite damage. Why insurers treat it as maintenance, the one narrow collapse exception, and what actually protects the house.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '🏠',
+    heroImage: {
+      src: '/images/blog/homeowners-insurance-termite-damage.webp',
+      og: '/images/blog/homeowners-insurance-termite-damage-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Two-column illustration comparing what a homeowners insurance policy covers, like fire and wind, with what a termite protection agreement covers, like inspections and termite damage repair.',
+    },
+    metaTitle: 'Does Home Insurance Cover Termite Damage in AL? | EnviroCare',
+    metaDescription: 'Homeowners insurance usually excludes termite damage in Alabama. Learn why, the hidden-collapse exception, and how a termite agreement protects your home.',
+    body: `
+<p class="lede">You find mud tubes on the foundation, or a baseboard that sounds hollow when you tap it, and the first thought is the homeowners policy. For most Alabama homeowners the answer is not the one they want: standard home insurance policies generally do not cover termite damage or pay to repair it. Here is why insurance companies treat termites differently, how to spot termite damage early, the one narrow situation where a policy may respond, and what actually protects the house.</p>
+
+<h2>Does home insurance cover termite damage? Usually not</h2>
+
+<p>A standard homeowners insurance policy is written to cover sudden, accidental losses, which insurers call perils: fire, wind, hail, a pipe that bursts. Water damage from a burst pipe is a covered peril. Termite damage is the opposite. A termite infestation builds slowly, over months or years, and insurers treat it the way they treat rot or rust: as home maintenance, the responsibility of the homeowner to prevent. Most homeowners insurance policies say so directly, with an exclusion for damage caused by insects, rodents and other pests. In plain terms, termite damage is not covered, and the policy will not cover the cost of termite treatment either.</p>
+
+<p>So when a homeowner files a claim to repair termite-damaged framing, subfloor or trim, the claim is usually denied. Every policy is different, so read your own exclusions section. If you are shopping for a home insurance quote, ask the agent how the policy handles pests, but expect the answer to be that termite-related damage is excluded.</p>
+
+<h2>When insurance may cover part of it</h2>
+
+<p>There is one narrow case. Many policies include limited coverage for a sudden collapse of the house or part of it, and some list insect damage that was hidden from view as a cause that qualifies. If termites weakened a beam inside a wall that nobody could see, and that section abruptly collapses, insurance may cover the collapse itself. It generally will not pay to replace the termite-damaged wood itself, and it will not respond if the damage was visible or known before the collapse. Every policy words this differently, so read the collapse section of yours or ask your agent directly. A few insurers sell specialty endorsements, but they are uncommon in Alabama and not something to count on.</p>
+
+<h2>Why this matters more in Alabama</h2>
+
+<p>Alabama has heavy subterranean termite pressure. Clay soil that holds moisture after rain, mild winters that never knock colonies back, and a lot of wood-frame and crawl-space construction add up to conditions termites like year-round. There are different types of termites in the state: Eastern subterranean termites are what we find across central and north Alabama, and Formosan termites are established along the Gulf Coast. Subterranean termites travel through the soil and work inside walls and floor systems, so the damage can grow for a long time before anyone sees it. By the time it is visible, the wood damage is often structural, repair costs climb, and the insurance exclusion means the homeowner pays for treatment and repairs.</p>
+
+<h2>How to spot termite damage in your home</h2>
+
+<ul>
+<li>Pencil-wide mud tubes running up the home's foundation, piers or plumbing penetrations</li>
+<li>Baseboards, door frames or flooring that sound hollow when tapped</li>
+<li>Paint that bubbles or blisters with no moisture source behind it</li>
+<li>Doors and windows that suddenly stick</li>
+<li>Piles of shed wings near windows, doors or light fixtures after a spring swarm</li>
+<li>Soft spots or sagging in a floor that used to be solid</li>
+</ul>
+
+<p>Finding termite damage early limits the extent of the damage. If you see any of these, have it inspected by a licensed pest control company. Our guide to <a href="/blog/termite-damage-signs-alabama">termite damage signs in Alabama</a> covers what each one means.</p>
+
+<h2>Homeowners insurance vs. a termite agreement</h2>
+
+<p>These are two different kinds of protection for two different risks, and many homeowners confuse them. Homeowners insurance covers sudden losses. A termite protection agreement, often called a <a href="/blog/termite-bond-alabama-explained">termite bond in Alabama</a>, is a contract with a pest control company for ongoing protection: inspections, monitoring, treatment if termites show up, and, depending on the agreement, repair of termite damage. One does not replace the other.</p>
+
+<p>Pest control companies offer these service contracts, and they typically include inspection and treatment. When people ask how to get termite coverage or termite insurance, this is usually what they mean. EnviroCare's termite program uses Sentricon® bait stations installed in the soil around the house and serviced on schedule, and qualifying homes carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That coverage is aimed at exactly the type of damage home insurance policies do not cover. Before signing any termite agreement, with us or anyone else, ask what it includes, how often the property is inspected, what happens if termites are found, and what renewal requires.</p>
+
+<h2>How to prevent termites and protect your home</h2>
+
+<ul>
+<li>Keep mulch and soil a few inches below siding and pulled back from the foundation</li>
+<li>Fix leaking spigots and gutters that keep the soil wet against the house</li>
+<li>Store firewood off the ground and away from the foundation</li>
+<li>Keep crawl space vents clear so the space can dry out</li>
+<li>Remove wood-to-soil contact at decks, steps and fences next to the house</li>
+</ul>
+
+<p>Termites thrive on moisture and wood in contact with soil. These steps reduce both. They are part of good pest management, but they do not replace an inspection.</p>
+
+<h2>Buying or selling a house?</h2>
+
+<p>A lender will often require an Official Alabama Wood Infestation Inspection Report before closing. That report is a separate document from a general termite inspection, and it is worth ordering early. Our guide to a <a href="/blog/termite-inspection-before-buying-home-alabama">termite inspection before buying a home in Alabama</a> walks through the process. Tell our office what your closing agent or lender requires so the right document, and any fee for it, is confirmed before scheduling.</p>
+
+<h2>Common questions</h2>
+
+<h3>Does any homeowners insurance cover termite damage in Alabama?</h3>
+<p>Standard policies exclude it. Some cover a sudden collapse caused by hidden insect damage, but not the repair of the damaged wood. Specialty endorsements exist but are uncommon. Ask your agent what your specific policy says.</p>
+
+<h3>Will my insurance cover termite treatment?</h3>
+<p>No. Treatment and prevention are maintenance, and home insurance doesn't cover maintenance. The cost of termite treatment is the homeowner's.</p>
+
+<h3>What does a termite agreement cover that insurance does not?</h3>
+<p>It depends on the agreement, which is why you should read it. EnviroCare's includes scheduled inspections and station service, treatment if activity is found, and for qualifying homes up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
+
+<h3>How is termite protection priced?</h3>
+<p>After a free termite inspection. Price depends on the house, including the length of the foundation, the construction type and whether termites are already active, so we quote in writing after the inspection and never over the phone.</p>
+
+<h2>Schedule a free termite inspection</h2>
+
+<p>The Wedgworth family has been doing pest control in Alabama since 1958, now in its fourth generation. To schedule a free termite inspection, call the office nearest you: Birmingham <a href="tel:2059912882">(205) 991-2882</a>, Alabaster <a href="tel:2059406360">(205) 940-6360</a>, Alexander City and Lake Martin <a href="tel:2562346162">(256) 234-6162</a>, or Huntsville <a href="tel:2569377676">(256) 937-7676</a>. You can also <a href="/quote">request a free quote</a> online.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'how-long-does-sentricon-take-to-work',
+    title: 'How Long Does Sentricon Take to Work? What Alabama Homeowners Should Expect',
+    excerpt: 'A bait system works on a different clock than a spray. How Sentricon works, a realistic timeline for an Alabama home, what speeds it up or slows it down, and what you will and will not see.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '⏳',
+    heroImage: {
+      src: '/images/blog/how-long-sentricon-takes-to-work.webp',
+      og: '/images/blog/how-long-sentricon-takes-to-work-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustrated timeline of a Sentricon bait station program: installation, termites finding the bait, bait shared through the colony, activity declining, and ongoing station service.',
+    },
+    metaTitle: 'How Long Does Sentricon Take to Work? | EnviroCare',
+    metaDescription: 'How long Sentricon takes to work on an Alabama home: how the bait spreads through the colony, a realistic timeline, and what affects how fast it works.',
+    body: `
+<p class="lede">Once the Sentricon® stations are in the ground, the next question is fair: how long does this take to work? The honest answer is that a bait system works on a different clock than a spray, and it is supposed to. Here is how the system works, what a realistic timeline looks like for an Alabama home, what speeds it up or slows it down, and what you should and should not expect to see along the way.</p>
+
+<h2>How the Sentricon system works, and why it is not instant</h2>
+
+<p>Subterranean termites forage through the soil all the time, looking for cellulose. Sentricon termite bait stations are installed in the ground around the perimeter of the house, spaced to sit in that termite foraging path. Worker termites that find a station feed on the bait and carry it back to the colony, where it is passed along to other termites. The active ingredient works slowly on purpose: it has to move through the colony before it takes effect, so the workers keep feeding and keep sharing instead of dying on the spot. The goal is the colony itself, not just the termites that happen to cross a treated line; Sentricon is labeled for colony elimination of subterranean termites.</p>
+
+<p>With Sentricon Always Active™ technology, every bait station contains bait from the day the stations are installed. There is no waiting for termites to find an empty monitor first.</p>
+
+<h2>How long does Sentricon take to work? A realistic timeline</h2>
+
+<ul>
+<li><strong>Day one.</strong> Sentricon stations are installed around your home, with no drilling through slabs, patios or driveways.</li>
+<li><strong>First weeks to months.</strong> Foraging termites will find the bait stations and start feeding. Nothing changes that you can see; this is the bait being distributed.</li>
+<li><strong>Several months.</strong> Where termites have been feeding, activity typically declines. A small colony close to the house can show results within a few months.</li>
+<li><strong>Up to a year or more.</strong> Large colonies, colonies foraging from a distance, or several colonies on one lot can take longer.</li>
+<li><strong>Every year after.</strong> The stations stay in the ground and are serviced on schedule, because a new colony can move into the same territory.</li>
+</ul>
+
+<p>Many pest control companies will tell you the same thing: termite baiting can take several months. Treat any timeline as a range, not a promise. Every property and every colony is different, and your technician will tell you what they are seeing at your house.</p>
+
+<h2>What affects how fast it works</h2>
+
+<h3>Colony size and distance</h3>
+<p>A small colony foraging near the foundation responds faster than a large, established colony feeding from across the yard. Formosan termites, which are established along Alabama's Gulf Coast, build much larger colonies than the Eastern subterranean termites we find across central and north Alabama, and larger colonies take longer.</p>
+
+<h3>Soil temperature and season</h3>
+<p>Termites forage less in cold soil. Alabama winters are mild, so activity slows in December and January rather than stopping, and feeding picks up in spring and through the warm months. The stations keep working year-round either way.</p>
+
+<h3>How many termite colonies are on the property</h3>
+<p>A lot near a creek, a wooded edge or a drainage area can have more than one colony foraging under it. Each one has to find the Sentricon bait, and the bait stations around the perimeter are spaced so that they can.</p>
+
+<h3>Conditions around the house</h3>
+<p>Wood touching soil, mulch piled against siding, leaking spigots and wet crawl spaces all make a house more attractive to termites. Fixing those helps the program and is worth doing regardless. If there is a previous termite problem or active termite infestation in the structure, the technician will tell you whether anything beyond the bait stations is needed.</p>
+
+<h2>What you will, and will not, see</h2>
+
+<h3>Signs of termite activity to keep watching for</h3>
+<p>While the stations work, keep an eye out for the same signs of termite activity as always: mud tubes on the foundation, a swarm of winged termites in spring, shed wings on a windowsill, or wood that sounds hollow. Any of those means a call to us, not a can of spray.</p>
+
+<h3>What the technician sees</h3>
+
+<p>Most homeowners never see the system working, and that is normal. What the technician looks for on each service visit is bait consumption in the stations and, over time, a drop in foraging activity. The outcome you are protecting is no termite activity in the structure, and the service visits are how that is checked.</p>
+
+<p>If you see termites or mud tubes inside the house while the stations are in place, call us. Do not spray them yourself: disturbing active termites can break up the feeding that the bait depends on. Our <a href="/blog/how-to-identify-termites-alabama">guide to identifying termites</a> helps you tell a swarm of termites from flying ants first.</p>
+
+<h2>Monitoring and maintenance: what the service visits involve</h2>
+
+<p>The Sentricon system is not install-and-forget; continuous monitoring is the point. On a schedule, a pest control technician checks every station, looks for signs of feeding and for foraging between stations, replaces bait as needed, and notes conditions around the house that invite termites. The green caps you see flush with the lawn are those stations; our post on <a href="/blog/green-caps-in-yard-sentricon">green caps in the yard</a> explains what they are.</p>
+
+<h2>Sentricon bait stations vs. liquid barrier treatments</h2>
+
+<p>Liquid treatments and termite bait systems are both established approaches to termite control and they work differently. A liquid termiticide is applied to the soil around the structure and acts quickly on termites that cross it; a bait system takes longer and works through the colony's own feeding. Which fits depends on the house, its construction and how much activity is already present. We compare them side by side in <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon vs. liquid termite treatment</a>, and our <a href="/blog/is-sentricon-worth-it">Sentricon cost and value guide</a> covers what the program includes.</p>
+
+<h2>Common questions</h2>
+
+<h3>Can I see the stations in my yard?</h3>
+<p>Yes. They sit flush with the ground with a small cap on top. Your technician will show you where they are at installation.</p>
+
+<h3>Will installation tear up my landscaping?</h3>
+<p>No. Stations are set into the soil at intervals around the house. There is no trenching along the foundation and no drilling through concrete.</p>
+
+<h3>Does Sentricon work on Formosan termites?</h3>
+<p>Yes. Sentricon is labeled for subterranean termites, including Formosan termites. Because their colonies are larger, it can take longer.</p>
+
+<h3>How long do I keep the stations in?</h3>
+<p>For as long as you want the house protected. Even after a colony is gone, a new one can move into the same ground, and the stations are how that gets caught early. Termite protection is ongoing. Renewal keeps monitoring of every bait station in place, and for qualifying homes it keeps up to $1,000,000 in termite damage repair coverage provided by EnviroCare in place, subject to the terms of the agreement.</p>
+
+<h3>Do I need an inspection first?</h3>
+<p>Yes. Every termite control program starts with a free termite inspection by one of our Certified Sentricon Specialists, so the station layout fits the house and any current activity is documented. The program is quoted in writing after that inspection, never over the phone.</p>
+
+<h2>Schedule a free termite inspection</h2>
+
+<p>The Wedgworth family has been doing professional pest control and protecting Alabama homes since 1958, now in its fourth generation. Call the office nearest you: Birmingham <a href="tel:2059912882">(205) 991-2882</a>, Alabaster <a href="tel:2059406360">(205) 940-6360</a>, Alexander City and Lake Martin <a href="tel:2562346162">(256) 234-6162</a>, or Huntsville <a href="tel:2569377676">(256) 937-7676</a>. Or <a href="/quote">request a free quote</a> online.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
     slug: 'kudzu-bugs-alabama',
     title: 'Kudzu Bugs in Alabama: How to Identify Them and Keep Them Out of Your Home',
     excerpt: 'Small, olive-green bugs stacking up on light-colored siding every fall are usually kudzu bugs. What they are, why they head for your house, whether they bite, and what actually reduces them.',
