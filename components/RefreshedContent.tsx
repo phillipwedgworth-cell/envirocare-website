@@ -9,21 +9,25 @@
 // No FAQPage JSON-LD here on purpose: the host pages already emit their own
 // FAQPage schema, and two FAQPage blocks on one URL is a structured-data error.
 import Image from 'next/image';
-import { getPageRefresh } from '@/data/page-refresh';
+import { getPageRefreshSections, type PageRefresh } from '@/data/page-refresh';
 
 const INK = '#0E1A0F';
 const DEEP = '#07642B';
 const CREAM = '#FEFDF8';
 
 export default function RefreshedContent({ route, background = CREAM }: { route: string; background?: string }) {
-  const entry = getPageRefresh(route);
-  if (!entry) return null;
+  const sections = getPageRefreshSections(route);
+  if (!sections.length) return null;
+  return <>{sections.map(({ key, entry }) => <RefreshSection key={key} refreshKey={key} entry={entry} background={background} />)}</>;
+}
+
+function RefreshSection({ refreshKey, entry, background }: { refreshKey: string; entry: PageRefresh; background: string }) {
   const { heading, paragraphs = [], faqs = [], figure } = entry;
   if (!heading && !paragraphs.length && !faqs.length && !figure) return null;
 
   return (
     <section
-      data-page-refresh={route}
+      data-page-refresh={refreshKey}
       style={{ background, padding: '56px clamp(20px,5vw,64px)', borderTop: '1px solid rgba(14,142,64,.10)' }}
     >
       <div style={{ maxWidth: 820, margin: '0 auto', fontFamily: 'var(--font-sans)' }}>

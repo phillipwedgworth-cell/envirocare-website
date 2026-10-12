@@ -357,7 +357,7 @@ export default function BirminghamPage() {
                 ["Ants", "Odorous house ants and Argentine ants trail into kitchens; carpenter ants nest in damp wood; fire ants are a separate whole-yard treatment."],
                 ["Rodents", "Rats and mice move toward the house in October. Exclusion at entry points — garage seals, utility penetrations, vent screens — is part of every visit."],
                 ["Spiders", "Wolf spiders, brown recluses, and black widows follow the insects they eat. Reducing the food supply is how spider pressure drops."],
-                ["Wasps & yellow jackets", "Paper wasps in soffits and yellow jackets in the ground peak in late summer. Nests within reach of the structure are treated on routine visits."],
+                ["Wasps & yellow jackets", "Paper wasps in soffits and yellow jackets in the ground peak in late summer. Routine visits knock down webbing and new building along the eaves; treating an active nest is an add-on for pest customers at an additional charge."],
                 ["Fleas & ticks", "Flea treatment is an interior add-on; tick control rides with the seasonal mosquito program for wooded lots."],
               ].map(([t, b]) => (
                 <div key={t} style={{ background: "#F7FBF8", border: `1.5px solid ${G}26`, borderRadius: 14, padding: "1.1rem 1.2rem" }}>

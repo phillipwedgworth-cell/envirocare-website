@@ -49,6 +49,7 @@ export type PageRefresh = {
     checkedAt: string;
   };
   source: 'claude-session' | 'content-refresh-agent';
+  provider?: string;   // which model drafted it (claude:… / gpt:… / gemini:…) — every provider passes the same gates
   updatedAt: string;
 };
 
@@ -68,7 +69,7 @@ const PAGE_REFRESH_JSON = {
       "The termite most common in Huntsville is the Eastern subterranean termite. Colonies live in the soil, need steady moisture, and reach wood through expansion joints, cracks and plumbing penetrations. North Alabama clay and Tennessee Valley humidity keep them foraging for most of the year, so termite protection in the Huntsville area works best as regular termite inspections and continuous monitoring rather than a one-time event. Spraying the termites you can see only kills those workers; the colony underground keeps feeding. That is why every termite infestation we look at starts with a free inspection and a treatment plan aimed at the colony, not the symptom.",
       "How long does termite treatment last, and what does it cost in Huntsville? With a Sentricon® program, protection continues for as long as the agreement stays active: the stations stay in the ground, they are serviced on schedule, and renewal keeps monitoring and EnviroCare repair coverage in place, subject to the terms of the agreement. Price depends on the house itself, including the length of the foundation, the construction type and whether termites are already active, so termite control in Huntsville is quoted in writing after the inspection and never over the phone.",
       "Choosing a termite company in Huntsville? In Alabama a termite agreement is often called a termite bond, and before you sign one with any pest control company or exterminator it is worth asking what it includes: how often the stations or treated areas are inspected, what happens if termite activity shows up, whether repair coverage is part of it and on what terms, and what the yearly renewal requires. Our Huntsville pest control team puts those answers in writing, and the termite inspection that starts the process is free.",
-      "Termites are only one of the pests in Huntsville that a homeowner deals with. Many customers pair termite protection with our bi-monthly pest control service, which treats around your home for household pests such as ants, spiders, cockroaches and silverfish, with free re-service if pest activity shows up between visits; wasps and hornets can be added for an additional charge. Mice and rats are addressed by sealing entry points during regular visits, and mosquito control and tick control run as seasonal programs from March through October. For a home or business, including commercial pest control for offices and facilities near Research Park, it is one local, professional pest control company working from one Huntsville office on Old Madison Pike."
+      "Termites are only one of the pests in Huntsville that a homeowner deals with. Many customers pair termite protection with our bi-monthly pest control service, which treats around your home for household pests such as ants, spiders, cockroaches and silverfish, with free re-service if pest activity shows up between visits; treating active wasp and hornet nests can be added for an additional charge. Mice and rats are addressed by sealing entry points during regular visits, and mosquito control and tick control run as seasonal programs from March through October. For a home or business, including commercial pest control for offices and facilities near Research Park, it is one local, professional pest control company working from one Huntsville office on Old Madison Pike."
     ],
     "faqs": [
       {
@@ -122,14 +123,14 @@ const PAGE_REFRESH_JSON = {
     "faqs": [
       {
         "q": "What are the most common pests around Lake Martin homes?",
-        "a": "Mosquitoes, ticks and spiders near the water; wasps under docks and boathouse eaves; ants, roaches and mice inside, especially while the house sits empty; and subterranean termites in damp soil and wood. A bi-monthly exterior program handles most of the list, with mosquito, tick and termite protection added to fit the property."
+        "a": "Mosquitoes, ticks and spiders near the water; wasps under docks and boathouse eaves; ants, roaches and mice inside, especially while the house sits empty; and subterranean termites in damp soil and wood. A bi-monthly exterior program handles most of the list; treating active wasp and hornet nests can be added for an additional charge, and mosquito, tick and termite protection are added to fit the property."
       }
     ],
     "neuron": {
       "queryId": "694f16db9cb26dcb",
       "keyword": "pest control lake martin al",
       "before": 69,
-      "after": 73,
+      "after": 75,
       "checkedAt": "2026-10-12"
     },
     "originality": {
@@ -199,6 +200,18 @@ const PAGE_REFRESH_JSON = {
 /* END PAGE_REFRESH_JSON */
 
 export const PAGE_REFRESH: Record<string, PageRefresh> = PAGE_REFRESH_JSON as unknown as Record<string, PageRefresh>;
+
+// Keys are a route ("/lake-martin") or a route plus a section slug
+// ("/lake-martin#tick") for an extra keyword section on the same page — the agent
+// never creates new URLs. Returns every section for the route: main entry first,
+// then the "#" sections in key order.
+export function getPageRefreshSections(route: string): { key: string; entry: PageRefresh }[] {
+  const base = route === '/' ? '/' : route.replace(/\/+$/, '');
+  return Object.keys(PAGE_REFRESH)
+    .filter((k) => k === base || k.startsWith(`${base}#`))
+    .sort((a, b) => (a === base ? -1 : b === base ? 1 : a.localeCompare(b)))
+    .map((key) => ({ key, entry: PAGE_REFRESH[key] }));
+}
 
 export function getPageRefresh(route: string): PageRefresh | undefined {
   const key = route === '/' ? '/' : route.replace(/\/+$/, '');

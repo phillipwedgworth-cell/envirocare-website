@@ -187,6 +187,18 @@ async function run() {
   return { cleared, summary };
 }
 
+// RETIRED 2026-09-24 — and still running. agent_costs shows 26 Claude calls on
+// 2026-09-15, 09-22 and 10-05 ($3.36 over 30 days) with no agent_runs row and no
+// PR: something outside the GitHub schedule (a manual dispatch or a local Task
+// Scheduler job) keeps starting it. agents/content-refresh.mjs replaces it with
+// gated, plagiarism-checked, memory-backed refreshes. Refuse to spend unless a
+// human explicitly opts in for one run.
+if (process.env.NW_OPTIMIZE_ALLOW !== '1') {
+  console.log(`[${AGENT}] retired — use agents/content-refresh.mjs. Set NW_OPTIMIZE_ALLOW=1 to force one run. Exiting without any API call.`);
+  try { await logAgentRun(AGENT, 'skipped', { reason: 'retired; superseded by content-refresh', caller: process.env.GITHUB_WORKFLOW || process.env.COMPUTERNAME || 'unknown' }); } catch {}
+  process.exit(0);
+}
+
 run().catch(async e => {
   console.error(`[${AGENT}] ${e.message}`);
   try { await logAgentRun(AGENT, 'fail', { error: e.message }); } catch {}
