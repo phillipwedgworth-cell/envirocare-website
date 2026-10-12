@@ -119,9 +119,11 @@ async function run() {
   // Sunday audit 2026-10-11, R9: a manual run on 10-05 spent $1.12 (26 Sonnet
   // calls, agent_costs) and left NO agent_runs row — the 20-minute job timeout
   // killed it before the end-of-run log, the same way eight scheduled runs died
-  // Aug–Sep. Write a 'started' row first, so a killed run is still on the
-  // ledger: a 'started' row with no matching 'ok'/'fail' row = killed.
-  await logAgentRun(AGENT, 'started', { note: 'a run that is killed (timeout/cancel) leaves only this row' });
+  // Aug–Sep. Write a 'running' row first, so a killed run is still on the
+  // ledger: a 'running' row with no later 'ok'/'fail' row = killed. 'running', not
+  // 'started': the watchdog treats 'running' as in-flight (IN_FLIGHT_GRACE_H)
+  // and FAILED once stale; any other status reads as FAILED mid-run.
+  await logAgentRun(AGENT, 'running', { note: 'a run that is killed (timeout/cancel) leaves only this row' });
   const targets = targetsData.targets;
   mkdirSync(OUT_DIR, { recursive: true });
   const summary = [];
