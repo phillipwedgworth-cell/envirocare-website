@@ -122,7 +122,7 @@ const PAGE_REFRESH_JSON = {
     "faqs": [
       {
         "q": "What are the most common pests around Lake Martin homes?",
-        "a": "Mosquitoes, ticks and spiders near the water; wasps under docks and boathouse eaves; ants, roaches and mice inside, especially while the house sits empty; and subterranean termites in damp soil and wood. A bi-monthly exterior program handles most of the list, with mosquito, tick and termite protection added to fit the property."
+        "a": "Mosquitoes, ticks and spiders near the water; wasps under docks and boathouse eaves; ants, roaches and mice inside, especially while the house sits empty; and subterranean termites in damp soil and wood. A bi-monthly exterior program handles most of the list; wasp and hornet treatment can be added for an additional charge, and mosquito, tick and termite protection are added to fit the property."
       }
     ],
     "neuron": {
