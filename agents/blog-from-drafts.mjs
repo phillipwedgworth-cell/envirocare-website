@@ -57,15 +57,20 @@ const complete = makeCompleter({ agent: AGENT, model: MODEL, maxTokens: 8000 });
 
 // ── existing posts ──────────────────────────────────────────────────────────
 const strip = (h) => String(h).replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
+// Fields are written with either quote style (e.g. title: "Stink Bugs ... Alabama's ...").
+function field(rec, name) {
+  const m = rec.match(new RegExp(`\\n    ${name}: (?:'((?:[^'\\\\]|\\\\.)*)'|"((?:[^"\\\\]|\\\\.)*)")`));
+  return m ? (m[1] ?? m[2]).replace(/\\(['"])/g, '$1') : '';
+}
 function existingPosts() {
   const src = fs.readFileSync(POSTS, 'utf8');
   return src.split(/\n  \{\n    slug: '/).slice(1).map((r) => ({
     slug: r.split("'")[0],
-    title: (r.match(/\n    title: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
+    title: field(r, 'title'),
     text: strip((r.match(/body: `([\s\S]*?)`,/) || [])[1] || ''),
     html: (r.match(/body: `([\s\S]*?)`,/) || [])[1] || '',
-    metaTitle: (r.match(/\n    metaTitle: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
-    metaDescription: (r.match(/\n    metaDescription: '((?:[^'\\]|\\.)*)'/) || [])[1] || '',
+    metaTitle: field(r, 'metaTitle'),
+    metaDescription: field(r, 'metaDescription'),
   }));
 }
 const STOP = new Set('a an and are as at be by can do does for from how i in is it my of on or the to what when where which who why will with you your al alabama near me best'.split(' '));
@@ -95,12 +100,18 @@ async function modelDuplicate(anthropic, keyword, posts) {
 // ── ledger (Supabase memory) ────────────────────────────────────────────────
 async function alreadyHandled(queryId) {
   if (!supabase) return false;
-  const { data } = await supabase.from('content_refresh_ledger').select('status,created_at').eq('query_id', queryId)
+  const { data } = await supabase.from('content_refresh_ledger').select('status,created_at,reason').eq('query_id', queryId)
     .eq('source', AGENT).order('created_at', { ascending: false }).limit(1);
   const r = data?.[0];
   if (!r) return false;
+  if (r.status === 'measured') return !/^requeue/.test(r.reason || ''); // content-results sent it back
   if (['proposed', 'published'].includes(r.status)) return true;
   return Date.now() - new Date(r.created_at).getTime() < 28 * 86400000; // rejected/error: retry after 28 days
+}
+async function isRequeued(route) {
+  if (!supabase) return false;
+  const { data } = await supabase.from('content_refresh_ledger').select('status,reason').eq('route', route).order('created_at', { ascending: false }).limit(1);
+  return data?.[0]?.status === 'measured' && /^requeue/.test(data[0].reason || '');
 }
 async function ledger(row) {
   if (!supabase || DRY) return;
@@ -136,7 +147,7 @@ Length 900-1400 words of body. Return ONLY JSON:
   const { provider, text } = await complete(anthropic, COMPLIANCE_SYSTEM, user);
   const j = parseJson(text);
   for (const k of ['title', 'excerpt', 'metaTitle', 'metaDescription', 'category', 'body']) if (!j[k]) throw new Error(`${provider} reply missing ${k}`);
-  return { provider, ...j, body: String(j.body).replace(/`/g, "'").replace(/\$\{/g, '$ {') };
+  return { provider, ...j, body: String(j.body).replace(/\\/g, '\\\\').replace(/`/g, "'").replace(/\$\{/g, '$ {') }; // backslash first, or \u / \x break the template literal
 }
 
 // ── hero image: branded card drawn as SVG, rendered by sharp ───────────────
@@ -222,8 +233,8 @@ function replacePost(slug, p) {
   if (start < 0) throw new Error(`post ${slug} not found`);
   const end = src.indexOf('\n  },', src.indexOf('body: `', start)) + 5;
   let rec = src.slice(start, end);
-  rec = rec.replace(/\n    excerpt: '(?:[^'\\]|\\.)*',/, () => `\n    excerpt: '${q1(p.excerpt)}',`)
-    .replace(/\n    metaDescription: '(?:[^'\\]|\\.)*',/, () => `\n    metaDescription: '${q1(p.metaDescription)}',`)
+  rec = rec.replace(/\n    excerpt: (?:'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"),/, () => `\n    excerpt: '${q1(p.excerpt)}',`)
+    .replace(/\n    metaDescription: (?:'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"),/, () => `\n    metaDescription: '${q1(p.metaDescription)}',`)
     .replace(/body: `[\s\S]*?`,/, () => `body: \`\n${p.body.trim()}\n\`,`);
   if (/\n    updatedAt: '[^']*',/.test(rec)) rec = rec.replace(/\n    updatedAt: '[^']*',/, `\n    updatedAt: '${today()}',`);
   else rec = rec.replace(/(\n    publishedAt: '[^']*',)/, `$1\n    updatedAt: '${today()}',`);
@@ -239,10 +250,10 @@ async function run() {
   const cands = (Array.isArray(rows) ? rows : [])
     .filter((q) => (ONLY ? (q.query || q.id) === ONLY : !(q.tags || []).some((t) => /optimi[sz]e/i.test(t))))
     .sort((a, b) => String(b.updated).localeCompare(String(a.updated)));
-  const report = []; let shipped = 0;
+  const report = []; let shipped = 0, tried = 0;
 
   for (const q of cands) {
-    if (shipped >= MAX) break;
+    if (shipped >= MAX || tried >= MAX * 3) break; // cap attempts too: failing gates must not eat the 30-minute job
     const id = q.query || q.id; const keyword = q.keyword;
     try {
       if (!ONLY && await alreadyHandled(id)) continue;
@@ -255,15 +266,20 @@ async function run() {
       // updatedAt set, and only if it beats the live post's NeuronWriter score by 5+.
       const existing = dup ? posts.find((p) => p.slug === dup) : null;
       const draftWords = strip(content0.content).split(' ').length;
-      if (existing && draftWords < existing.text.split(' ').length * 1.2) {
+      const requeued = existing && await isRequeued(`/blog/${existing.slug}`);
+      if (existing && !requeued && draftWords < existing.text.split(' ').length * 1.2) {
         report.push({ keyword, outcome: `skipped: covered by /blog/${dup} (draft not fuller)` });
-        await ledger({ route: `/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}; draft ${draftWords}w is not fuller` });
+        // Not under the live post's route: content-results reads the newest row per route,
+        // and a skip row there would hide the post's own proposed/published rows.
+        await ledger({ route: `dup:/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}; draft ${draftWords}w is not fuller` });
         continue;
       }
       const draftHtml = content0.content;
+      tried++;
       const full = await nw('get-query', { query: id });
       const before = existing ? await score(id, `<h1>${existing.title}</h1>${existing.html}`, existing.metaTitle, existing.metaDescription) : null;
-      const floor = existing ? Math.max(MIN_SCORE, before + 5) : MIN_SCORE;
+      const floor = Math.min(MAX_SCORE, existing ? Math.max(MIN_SCORE, before + 5) : MIN_SCORE);
+      if (existing && before + 5 > MAX_SCORE) { report.push({ keyword, outcome: `skipped: /blog/${existing.slug} already scores ${before}` }); continue; }
       const competitors = await competitorTexts(id, full);
       const related = posts.filter((p) => tokens(keyword).some((w) => tokens(p.slug.replace(/-/g, ' ')).includes(w))).slice(0, 12);
 
@@ -276,6 +292,7 @@ async function run() {
         const sc = await score(id, `<h1>${p.title}</h1>${p.body}`, p.metaTitle, p.metaDescription);
         const problems = [];
         if (comp.blocking.length) problems.push(`compliance: ${comp.blocking.map((b) => `"${b.match}" (${b.reason})`).join('; ')}`);
+        if ((orig.competitorsChecked || 0) < 3) problems.push(`originality: only ${orig.competitorsChecked || 0} competitor pages could be read, so plagiarism was not really checked`);
         if (!orig.pass) problems.push(`originality: competitor ${orig.maxCompetitorOverlap} (max 0.03), own site ${orig.maxSiteOverlap} vs ${orig.worstSitePage} (max 0.15); reworded needed: ${orig.examples.join(' | ')}`);
         if (sc < floor) problems.push(`NeuronWriter ${sc} < ${floor}${existing ? ` (live post scores ${before})` : ''}; still missing: ${missingTerms(full, text, 25).join('; ')}`);
         if (sc > MAX_SCORE) problems.push(`NeuronWriter ${sc} > ${MAX_SCORE}: keyword-stuffed, write more naturally`);

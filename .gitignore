@@ -32,6 +32,7 @@ monitoring/ga4-history.csv
 # content-refresh agent run manifest (PR body source; regenerated each run)
 agents/.content-refresh-manifest.json
 agents/.blog-drafts-manifest.json
+agents/.content-results-manifest.json
 
 # Python bytecode from local script runs
 __pycache__/

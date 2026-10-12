@@ -129,12 +129,13 @@ async function fetchScoreboard() {
   // 35 days, so a lagging ingest still leaves two full weeks to compare.
   const since14 = new Date(Date.now() - 35 * 86400000).toISOString().slice(0, 10);
   const since7 = new Date(Date.now() - 7 * 86400000).toISOString();
-  const [daily, pageRows, leads, lf, aiv] = await Promise.all([
+  const [daily, pageRows, leads, lf, aiv, ledgerRows] = await Promise.all([
     fetch(`${BASE}/gsc_daily?date=gte.${since14}&order=date.asc&select=date,clicks,impressions,position`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/gsc_pages?order=snapshot_date.desc&limit=2000&select=page,clicks,impressions,position,snapshot_date`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/leads?created_at=gte.${since7}&select=id,office,service_type`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/lf_visibility?platform=eq.google&solv=not.is.null&order=run_date.desc&limit=400&select=market,place_id,keyword,solv,run_date,campaign_name`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/aiv_runs?order=completed_at.desc&limit=40&select=market,completed_at,visibility_score,mention_rate,share_of_voice`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
+    fetch(`${BASE}/content_refresh_ledger?created_at=gte.${new Date(Date.now() - 30 * 86400000).toISOString()}&order=created_at.desc&limit=500&select=route,status,score_before,score_after,reason,created_at`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
   ]);
 
   // Clicks / impressions: the latest 7 days OF DATA vs the 7 before them.
@@ -194,6 +195,13 @@ async function fetchScoreboard() {
   const leadRows = arr(leads);
   const leadLine = `Web-form leads, last 7d: ${leadRows.length}${leadRows.length ? ' — ' + Object.entries(leadRows.reduce((o, l) => ((o[l.office || '?'] = (o[l.office || '?'] || 0) + 1), o), {})).map(([k, v]) => `${k} ${v}`).join(', ') : ''} (leads table)`;
 
+  // Content pipeline, last 30 days (content_refresh_ledger): what was proposed,
+  // what went live, and what content-results measured as a win or sent back.
+  const lr = arr(ledgerRows);
+  const cnt = (st) => new Set(lr.filter((x) => x.status === st).map((x) => x.route)).size;
+  const measured = lr.filter((x) => x.status === 'measured').slice(0, 6).map((x) => `  ${x.route}: ${String(x.reason || '').split(' | ')[0]}`);
+  const contentLines = [`  proposed ${cnt('proposed')} · published ${cnt('published')} · measured ${cnt('measured')} · rejected (failed gates, duplicate, or never merged) ${cnt('rejected')}`, ...measured];
+
   return { lastDate, text: `SCOREBOARD (verbatim numbers — quote them, do not editorialize beyond the delta):
 ${clicksLine}
 ${leadLine}
@@ -202,7 +210,9 @@ ${pageLines.join('\n')}
 Map-pack visibility (lf_visibility, Google):
 ${lfLines.join('\n') || '  (no Local Falcon rows)'}
 AI answer visibility (aiv_runs, BrightLocal — Google AI Overview, AI Mode, ChatGPT):
-${aivLines.join('\n') || '  (no AI Visibility rows yet)'}` };
+${aivLines.join('\n') || '  (no AI Visibility rows yet)'}
+Content pipeline, last 30 days (content_refresh_ledger; "requeue" = measured flat, sent back for rework; "parked" = needs a human):
+${contentLines.join('\n')}` };
 }
 
 function buildPRBlock(pr) {
