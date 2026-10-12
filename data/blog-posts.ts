@@ -3221,57 +3221,109 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'fire-ants-alabama-summer',
     title: 'Fire Ants in Alabama: Why They Get Worse Every Summer, and How to Actually Kill Them',
-    excerpt: 'Spot treatment doesn\'t work. Mound drenching barely works. Here\'s what does — and why fire ants love Alabama more than almost anywhere in the U.S.',
+    excerpt: 'Spot-treating mounds rarely reaches the queen, so colonies move and rebuild. Here is how whole-yard fire ant treatment works in Birmingham and across Alabama, and when to schedule it.',
+    updatedAt: '2026-10-12',
     publishedAt: '2026-05-10',
     author: 'Kevin Wedgworth',
     category: 'Fire Ants',
     readMinutes: 4,
     heroEmoji: '🌻',
-    metaTitle: 'Alabama Fire Ant Control | EnviroCare Yard Treatment',
-    metaDescription: 'Alabama fire ant control. Yard-wide elimination, not spot treatment. Critical for lake homes and barefoot families. Family-owned. Call (205) 940-6360.',
+    metaTitle: 'Fire Ant Treatment Birmingham AL | EnviroCare',
+    metaDescription: 'Fire ant treatment in Birmingham, AL that reaches the colony, not just the mound. Separate whole-yard service, open to anyone. Call (205) 991-2882.',
     body: `
-<p class="lede">Fire ants did not exist in Alabama before 1940. They came up from South America through the Port of Mobile, and within 80 years they've colonized every county in the state. There are now more fire ants per acre in Alabama than there are people in the country.</p>
+<p class="lede">Fire ants are not native to Alabama. Imported fire ants arrived from South America through the Port of Mobile in the first half of the twentieth century, and they have since spread across most of the state. If you live in Birmingham or anywhere in Jefferson County, you have almost certainly stepped near a mound. Here is why they get worse every summer, why most home fixes fall short, and what fire ant treatment in Birmingham, AL actually involves when we do it.</p>
 
-<p>Most people fight them wrong. Let me explain.</p>
+<h2>Why fire ants seem to multiply every summer</h2>
 
-<h2>Why spot treatment fails</h2>
+<p>A fire ant colony is mostly underground. The dome of loose soil you see is the top of a network of tunnels and chambers, and the queen lives somewhere inside that network, not at the surface. A mature yard can host several colonies at once.</p>
 
-<p>When you see a fire ant mound and pour boiling water on it, or hit it with grits, or dump granular insecticide on top — you're killing the surface workers. The queen is two feet below the surface. She doesn't die, and she doesn't even slow down egg production. Worse: if she senses a threat, she <em>relocates</em> the colony 8 to 30 feet away within 24 hours. You'll see a new mound next week.</p>
+<p>Warm weather is when they are busiest. Once soil warms in spring, workers forage hard, colonies grow, and mounds start showing up in lawns, flower beds, along driveways, and at the edge of patios. After a heavy rain, mounds often look like they doubled overnight.</p>
 
-<p>This is why fire ant mounds seem to "follow you" around the yard.</p>
+<p>New colonies also arrive from outside your property line. Winged males and queens fly out to mate, and a newly mated queen can land in your yard and start a colony of her own. That is part of why one neighbor's untreated lot can keep feeding mounds into the yards around it.</p>
 
-<h2>Why yard-wide bait treatment works</h2>
+<h2>Why spot treatment so often fails</h2>
 
-<p>The right approach is to treat the entire yard with a bait that the workers carry back to the queen voluntarily. The bait must:</p>
+<p>Most of us have tried it. You see a mound, you pour boiling water on it, sprinkle grits, or dump a fast-acting product right on top. The surface workers die and the mound looks finished. A week or two later, a fresh mound pops up a few feet away.</p>
+
+<p>That happens because the queen usually survives. Disturbing a mound kills the workers that come up to defend it, but the queen and her brood are deeper in the colony. When the colony senses a threat, it can move to a new spot nearby and keep going. That is why mounds seem to follow you around the yard.</p>
+
+<p>Boiling water also scalds the grass around the mound and is a burn risk for whoever carries the pot. Kitchen remedies do not reliably reach the queen.</p>
+
+<h2>How whole-yard treatment works</h2>
+
+<p>The approach that holds up is to treat the whole yard, not just the mounds you happen to notice. Foraging workers pick up a bait product, carry it back underground, and share it through the colony, including with the queen. Because the bait has to make that trip, it is designed to act slowly. If it killed workers instantly, it would never reach the source.</p>
+
+<p>Timing matters. Fire ants forage most actively when the weather is warm but not scorching, generally in the morning or evening on hot summer days, and they need a dry stretch so the bait is not washed out or soaked before workers can collect it. A simple field test helps: set out a small piece of oily food near a mound and see whether ants find it within roughly twenty minutes. If they do, foraging is active and the bait will get picked up.</p>
+
+<p>Results take time. Depending on the product, colony activity tapers off over a period of days to several weeks. You may still see a few ants right after treatment; that is normal, and it does not mean the treatment failed.</p>
+
+<h3>What our fire ant service includes</h3>
 
 <ul>
-<li>Be slow-acting (workers must survive long enough to share with the queen).</li>
-<li>Be attractive to fire ants specifically — not a generic ant bait that gets ignored.</li>
-<li>Be applied during the active foraging window — 70°F to 90°F, with no rain in the next 24 hours.</li>
+<li><strong>Yard-wide granular application.</strong> We treat the full yard so we reach the colonies you can see and the ones you cannot.</li>
+<li><strong>Targeted mound treatment.</strong> Active mounds you can see get a focused application to knock them down faster.</li>
+<li><strong>Products applied correctly.</strong> We use EPA-registered products applied according to label directions, and your technician will explain any simple steps to follow on treatment day.</li>
 </ul>
 
-<p>We use a granular bait product applied across the whole yard, typically at 1 to 1.5 pounds per acre. Workers find it within 30 minutes, harvest it, take it underground, and the colony collapses over 4 to 8 weeks. Treated yards stay clear for 12 to 18 months.</p>
+<p>You can read more on our <a href="/services/fire-ant">fire ant control service page</a>.</p>
 
-<h2>Why lake homes are worse</h2>
+<h2>Is fire ant treatment part of the regular pest plan?</h2>
 
-<p>Lake Martin, Smith Lake, Wheeler Lake, Logan Martin — every reservoir in Alabama has heavy fire ant pressure on the surrounding lots. Two reasons. First, fire ants thrive in disturbed soil — and lakefront construction disturbs a lot of soil. Second, mound flooding during high-water periods causes <em>rafting</em> — entire colonies clump into living balls and float to dry ground. Those rafts wash up on your lot, dry out, and become new mounds.</p>
+<p>No. Fire ant control is a separate, targeted whole-yard treatment. It is not included in our bi-monthly pest plan, which focuses on the perimeter of the home and the pests that try to get inside. Fire ants need a different product, a different application, and coverage across the entire lawn, so we handle them as their own service.</p>
 
-<p>If you have a lake home and kids who go barefoot, fire ant control is not optional. A single sting won't kill anyone (unless they have a severe allergy), but 50 stings on a 4-year-old's foot is a trip to the emergency room.</p>
+<p>That also means you do not need to be on a pest plan to get help. Fire ant treatment is open to anyone in our service area, whether you are already a customer or calling us for the first time. If you are on a plan, we can schedule fire ant service alongside it. For current rates, see the <a href="/services/fire-ant">fire ant service page</a> or our <a href="/pricing">pricing page</a>; larger properties are quoted before any work starts.</p>
 
-<h2>When to schedule treatment</h2>
+<h2>Fire ant treatment in Birmingham and Jefferson County</h2>
 
-<p>April to October. The two best windows are early May (before peak summer mound activity) and late August (catches the second-wave colonies). One treatment usually gets a yard, but heavily infested lots may need a follow-up at 60 days.</p>
+<p>Our Birmingham office serves Jefferson County neighborhoods including Homewood, Mountain Brook, Vestavia Hills, Hoover, Irondale, Trussville, and Cahaba Heights. Yards here range from small city lots to deep wooded properties, and we size the treatment to the yard in front of us rather than applying one approach to every address.</p>
 
-<h2>Pricing</h2>
+<p>We see fire ants show up most often in the same places across the metro: sunny open lawns, the strip along sidewalks and curbs, around mailboxes and utility boxes, and in freshly graded or landscaped ground. New sod and recent construction tend to draw them, because fire ants do well in disturbed soil. Visit our <a href="/birmingham">Birmingham pest control page</a> for more about that office.</p>
 
-<p>Fire ant control is an add-on to our pest control program, or a one-time service if that's all you need. Pairs with our outdoor Mosquito + Tick program for the most complete summer coverage.</p>
+<h2>Why lake lots deserve extra attention</h2>
 
-<p>Fast scheduling available. Call our nearest office:</p>
+<p>Lake Martin and other Alabama reservoirs bring their own fire ant issues. Lakefront building and landscaping disturb a lot of soil, which fire ants favor. Fire ants can also survive flooding by linking together into floating rafts that drift until they reach dry ground. When water levels change, those rafts can come ashore and settle into a new spot, including your lawn or dock area.</p>
+
+<p>Not every lake lot has a problem, but a lake home where kids and guests go barefoot is worth checking every spring. Our Alexander City office handles the Lake Martin area.</p>
+
+<h2>Stings are a real hazard</h2>
+
+<p>A fire ant sting burns, and it usually leaves a small pustule that itches for days. The trouble is that fire ants rarely sting just once. Disturb a mound and many ants can swarm up a foot or leg and sting together before anyone notices. Small children, older adults, and pets lying in the grass are the most likely to end up with a lot of stings at once.</p>
+
+<p>For most people, stings are painful but manageable: wash the area, keep it clean, and avoid scratching open the pustules. Some people react much more strongly. Anyone who shows signs of an allergic reaction after being stung, such as trouble breathing, swelling of the face or throat, dizziness, or hives spreading beyond the sting site, should get medical help right away.</p>
+
+<h2>When to schedule fire ant treatment</h2>
+
+<p>Fire ants are active in Alabama for much of the year, but the strongest treatment windows are spring and late summer into early fall. A spring treatment gets ahead of the colonies before summer activity peaks. A late summer or fall treatment catches colonies that built up over the season and reduces what carries into the next year.</p>
+
+<p>Heavily infested lots, or yards next to untreated property, may need a follow-up treatment. We will tell you honestly what we see and whether a second visit makes sense.</p>
+
+<h2>Fire ants versus other ants</h2>
+
+<p>Not every mound in the yard belongs to fire ants, and not every ant in the kitchen is a fire ant problem. Indoor trails usually point to other species that need a different approach. If you are dealing with ants inside, start with our guide on <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">getting rid of ants in the house</a>, or read our broader <a href="/blog/ant-control-alabama">Alabama ant control guide</a>.</p>
+
+<h2>Common questions</h2>
+
+<h3>How long until I see results?</h3>
+<p>Bait treatments work through the colony, so activity drops over days to a few weeks rather than overnight. Treated mounds should go quiet and new ones should be much less common.</p>
+
+<h3>Will fire ants come back?</h3>
+<p>They can. New queens fly in from neighboring properties, so no treatment keeps a yard free of fire ants forever. A whole-yard approach reduces the colonies you have and makes it harder for new ones to take hold.</p>
+
+<h3>What about kids and pets?</h3>
+<p>We use EPA-registered products applied according to label directions. Your technician will go over any steps to follow on treatment day, including when it is fine for everyone to use the yard again.</p>
+
+<h2>Get fire ants under control</h2>
+
+<p>Our family has done pest control in Alabama since 1958, and we are now in our fourth generation. If fire ants have taken over your yard, call the office nearest you:</p>
+
 <ul>
-<li>Birmingham — (205) 991-2882</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li>Birmingham: (205) 991-2882</li>
+<li>Alabaster: (205) 940-6360</li>
+<li>Alexander City and Lake Martin: (256) 234-6162</li>
+<li>Huntsville: (256) 937-7676</li>
 </ul>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -3459,34 +3511,83 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'best-time-pest-control-alabama',
     title: 'The Best Time to Start Pest Control in Alabama',
-    excerpt: 'Early spring (Feb–April) is optimal — get ahead of ant, roach, and termite season. But Alabama pests are year-round, so there is never a bad time to start.',
+    excerpt: 'There is no bad time to start pest control in Alabama, because pests are active year-round. Here is what each season brings, and why fall is a strong time to start.',
+    updatedAt: '2026-10-12',
     publishedAt: '2026-05-20',
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 4,
     heroEmoji: '📅',
     metaTitle: 'The Best Time to Start Pest Control in Alabama | EnviroCare',
-    metaDescription: 'Early spring is ideal but any time works — Alabama pests are year-round. Starting in February–April gets ahead of summer ant and roach pressure.',
+    metaDescription: 'Any time works for pest control in Alabama, but fall is a strong time to start. A season-by-season guide plus fall pest control tips for your home.',
     body: `
-<p class="lede">The honest answer: now. The strategic answer: early spring, February through April. Here is why.</p>
+<p class="lede">The honest answer: now. Alabama pests are active in every month of the year, so there is no season when starting is a mistake. But each season brings a different set of pests to your door, and fall is one of the strongest times to start, because it sets up the exterior barrier before pests go looking for a warm place to spend the winter.</p>
 
-<h2>Why Early Spring</h2>
-<p>Spring is when pest populations begin their annual growth. Ant colonies send foragers. Termites swarm. Cockroach reproduction accelerates. Starting treatment in early spring gets ahead of these explosions before they establish indoors.</p>
+<h2>Pests Are Year-Round in Alabama, So Is There a Bad Time to Start?</h2>
+<p>No. Our winters are short and mild, and many common pests never fully shut down. Ants forage on warm January afternoons, cockroaches keep breeding in crawl spaces and wall voids, and rodents are at their most active indoors when it is cold outside. If you are reading this in July with roaches in your kitchen, call us now. Treatment works whenever we start it.</p>
+<p>What changes from season to season is which pests are pressing on the house and what a first visit needs to focus on. Here is how the year plays out for Alabama homeowners, and what kind of pest activity to expect around your home in each season.</p>
 
-<p>Think of it like lawn care. You apply pre-emergent before weeds establish. Pest control works the same way — a perimeter barrier in March prevents the summer invasion.</p>
+<h2>Spring: Getting Ahead of the Growth Season</h2>
+<p>Spring is when pest populations begin their annual growth. Ant colonies send out foragers, cockroach reproduction speeds up, and termites swarm. In Alabama, termite swarms run March through May, often on a warm day right after rain. Our guide to <a href="/blog/alabama-termite-swarm-season">termite swarm season in Alabama</a> covers what to look for.</p>
+<p>Think of it like lawn care. You put down pre-emergent before the weeds come up. Pest control works the same way: a perimeter treatment in March helps reduce the summer surge before it moves indoors.</p>
+<p>Spring is also when our mosquito program begins. It runs March through October with eight treatments, and the details are on our <a href="/blog/lake-martin-mosquito-guide">Lake Martin mosquito guide</a>.</p>
 
-<h2>Any Time Works</h2>
-<p>That said, there is never a bad time. Alabama pests are active year-round. If you are reading this in July with roaches in your kitchen, call today. The treatment works whenever we start it.</p>
+<h2>Summer: Peak Pest Activity</h2>
+<p>Heat and humidity push everything to full speed, and mosquito numbers climb wherever standing water collects. Ant trails show up after heavy rain, fire ant mounds pop up in the yard, and wasps build nests under eaves and deck rails. Fire ants, fleas and ticks are handled as separate targeted treatments, and active wasp and hornet nests are a paid add-on to the plan. See <a href="/blog/fire-ants-alabama-summer">fire ants in Alabama summers</a> for more. Starting in summer means the first visit handles what is already active.</p>
 
-<h2>Termites: Start Immediately</h2>
-<p>For termite protection, every month without coverage is a month of potential damage. Alabama is one of the highest-risk states in the country. New homeowners should start immediately — builder soil treatments only last 5–7 years.</p>
+<h2>Fall Pest Control: Why It Is a Strong Time to Start</h2>
+<p>When the first cool nights arrive, pests do not disappear. They change direction. Insects and rodents that spent the summer outdoors begin hunting for shelter, warmth and a steady food source, and an Alabama home offers all three. Our long, warm autumns also give household pests extra weeks to build numbers before winter, so the pressure on your foundation is high right when they want in.</p>
+<p>That is what makes fall pest control worth starting. An exterior barrier put down in September or October is already in place when pests become more active around the foundation, the garage and the attic. You are stopping the move indoors instead of chasing pest infestations after they happen, and fall pest prevention now means fewer pest problems in January.</p>
 
-<p>EnviroCare initial service is $75. Free re-treatment between visits. Call any of our four offices:</p>
+<h3>Common fall pests in Alabama homes</h3>
 <ul>
-<li>Birmingham — (205) 991-2882</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li><strong>Rodents:</strong> mice and rats start testing gaps around utility lines and garage doors as nights get colder. Our guide to <a href="/blog/rodents-alabama-homes-fall">rodents in Alabama homes in fall</a> goes deeper.</li>
+<li><strong>Stink bugs, lady beetles and kudzu bugs:</strong> they cluster on sunny walls looking for a crack to overwinter in. See <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles</a> and <a href="/blog/kudzu-bugs-alabama">kudzu bugs in Alabama</a>.</li>
+<li><strong>Cockroaches:</strong> American roaches move in from crawl spaces and mulch beds once the weather turns.</li>
+<li><strong>Spiders:</strong> they follow the insects into garages, attics and storage areas.</li>
+<li><strong>Ants:</strong> colonies stay busy through fall, and trails often move indoors after a rain.</li>
+<li><strong>Termites:</strong> subterranean termites keep working underground all year here, which makes fall a good time for a termite inspection.</li>
 </ul>
+
+<h3>Fall pest prevention tips for Alabama homeowners</h3>
+<p>A few hours of work around the house will help prevent pests from finding their way in. These fall prevention tips pair well with a professional exterior treatment:</p>
+<ul>
+<li><strong>Close entry points.</strong> Look at the gaps around windows, doors, pipes and utility lines. Caulk what you find and replace worn door sweeps. A rodent can squeeze through even the smallest openings.</li>
+<li><strong>Pull vegetation and mulch back.</strong> Trim shrubs and limbs that touch the siding or roof, rake leaves away from the foundation, and keep mulch from piling against the walls. Those are nesting areas right next to your home.</li>
+<li><strong>Take away the food source.</strong> Store food and pet food in sealed containers, wipe up crumbs, and keep trash cans closed and away from the house.</li>
+<li><strong>Dry things out.</strong> Clean the gutters, fix leaky pipes, and keep crawl spaces dry. Standing water and damp wood draw roaches and termites.</li>
+<li><strong>Watch the firewood and boxes.</strong> Stack firewood well away from the house and off the ground, and check boxes, potted plants and outdoor furniture before bringing them inside.</li>
+<li><strong>Catch activity early.</strong> Droppings, shed wings by windows, mud tubes on the foundation and new wasp nests under eaves are all signs worth a call.</li>
+</ul>
+<p>We walk through each of these in more detail in our <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing checklist</a>.</p>
+
+<h2>Winter: Quieter Outside, Busier Inside</h2>
+<p>Winter slows outdoor insects but brings the pests that already got in into plain view. Rodents in the attic, cockroaches near the water heater and ants on a warm afternoon are all common in an Alabama January. Starting in winter is a smart way to get ahead of spring: the first visit handles what is inside, and the exterior barrier is in place before the growth season begins. Our guide to <a href="/blog/winter-pests-alabama">winter pests in Alabama</a> covers what to watch for.</p>
+
+<h2>Termites: Do Not Wait for a Season</h2>
+<p>For termite protection, every month without coverage is a month of possible damage. Alabama sits in one of the heaviest termite pressure regions in the country, and subterranean termites work below ground all year. The soil treatment a builder puts down during construction does not last forever, so new homeowners should not assume they are still covered. Termite work is priced only after a free termite inspection, because every house and every lot is different.</p>
+
+<h2>How Our Residential Pest Control Service Keeps Pests Out Year-Round</h2>
+<p>Whatever month you start, the plan runs the same way, and the goal is a home that stays protected through every season. Our <a href="/services/pest-control">residential pest control</a> is a bi-monthly exterior service that treats the foundation, eaves and entry points with EPA-registered products, applied according to label directions. If pests return between scheduled visits, we re-service at no charge. Rodent work is part of the plan, and if rodents show up between visits, we come back out. For how the schedule fits your home, read <a href="/blog/how-often-pest-control-alabama">how often you need pest control in Alabama</a>, and see <a href="/pricing">our pricing page</a> for plan details.</p>
+
+<h2>Fall Pest Control FAQs</h2>
+<h3>Are bugs worse in the fall in Alabama?</h3>
+<p>Many household pests become more active in fall because they are looking for shelter before winter. You are more likely to see them inside, especially rodents, stink bugs and spiders.</p>
+<h3>Is fall too late to start pest control?</h3>
+<p>No. Fall is one of the strongest times to start, because the first treatment builds an exterior barrier around your home before pests move indoors for the winter. Mosquito season is winding down by then, but ants, roaches, spiders, fleas and rodents are not.</p>
+<h3>What happens on the first visit?</h3>
+<p>We inspect the outside and inside of the house, identify the pests and the conditions drawing them in, then treat the foundation, eaves and entry points. Our guide to <a href="/blog/first-pest-control-visit-what-to-expect">your first pest control visit</a> walks through it step by step.</p>
+
+<h2>Request a Free Quote</h2>
+<p>The best time to start is the day you decide you are tired of seeing pests. Call the office nearest you or <a href="/quote">request a free quote</a> online:</p>
+<ul>
+<li>Birmingham: (205) 991-2882</li>
+<li>Alabaster: (205) 940-6360</li>
+<li>Alexander City and Lake Martin: (256) 234-6162</li>
+<li>Huntsville: (256) 937-7676</li>
+</ul>
+<p>Our family has done pest control in Alabama since 1958, and we are now in our fourth generation serving homes throughout Alabama, from Huntsville to Lake Martin.</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -5257,39 +5358,88 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'winter-pests-alabama',
     title: 'Common Winter Pest Problems in Alabama',
-    excerpt: 'Alabama winters are too mild to kill pests off — they just move indoors. Here is what Birmingham and north-Alabama homeowners deal with December through February, and why "the cold will handle it" is a myth.',
+    excerpt: 'Alabama winters are too mild to kill pests off, so mice, ants, roaches, and spiders move indoors and termites keep feeding. Here is what a winter mouse problem looks like from December through February, and how we keep pests out.',
+    updatedAt: '2026-10-12',
     publishedAt: '2026-06-28',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
     readMinutes: 5,
     heroEmoji: '❄️',
-    metaTitle: 'Common Winter Pest Problems in Alabama | EnviroCare',
-    metaDescription: 'Alabama winters do not kill pests — rodents, ants, and roaches move indoors for warmth. What Birmingham homeowners face Dec–Feb. (205) 991-2882.',
+    metaTitle: 'Mice in the House in Winter? Alabama Pests | EnviroCare',
+    metaDescription: 'Mice in the house in winter? Why Alabama rodents, ants, roaches, and termites stay active when it is cold, and how we keep them out.',
     body: `
-<p class="lede">Up north, winter does a lot of pest control for you. In Alabama it doesn't. Our winters are mild and short, so instead of dying off, pests simply move where it's warm — which is your house. That's why "the cold will take care of it" is one of the more expensive myths we hear around Birmingham and the Tennessee Valley.</p>
+<p class="lede">Up north, winter does a lot of pest control for you. In Alabama it doesn't. Our winters are mild and short, so instead of dying off, pests simply move where it's warm, which is your house. That's why "the cold will take care of it" is one of the more expensive myths we hear around Birmingham and the Tennessee Valley. The pest we hear about most from December through February is the house mouse, so that is where this guide starts. Ants, roaches, spiders, and termites follow.</p>
 
 <h2>Why cold weather doesn't help here</h2>
 
-<p>Most Alabama pests don't need to survive a hard freeze — they just need to avoid one. A heated home, an attic, a garage, or a wall void stays plenty warm, and our temperatures swing back into the 50s and 60s often enough that activity never fully stops. So winter doesn't end the problem; it concentrates it indoors, where you actually notice it.</p>
+<p>Most Alabama pests, from the house mouse to the roach, don't need to survive a hard freeze. They just need to avoid one. A heated home, an attic, a garage, or a wall void stays plenty warm, and our temperatures swing back into the 50s and 60s often enough that activity never fully stops. So winter doesn't end the problem; it concentrates it indoors, where you actually notice it.</p>
 
-<h2>The usual winter offenders</h2>
+<h2>Mice in the house in winter: what Alabama homeowners see</h2>
+
+<p>If a mouse got into your home in the fall, it did not leave when the first frost came. A house mouse does not hibernate, and a heated wall with a pantry nearby is the most comfortable place on the block from December to March. Most of the winter rodent calls we take are not new arrivals. They are mice that moved in around October and have been breeding quietly ever since. A warm wall is a breeding ground, and a female mouse can have a new litter every few weeks, so a single mouse in November can become a real infestation by February. We cover that fall move-in, and how to read droppings and gnaw marks, in <a href="/blog/rodents-alabama-homes-fall">why mice and rats move into Alabama homes in October</a>. Here is what changes once it is actually winter.</p>
+
+<h3>The noise moves to where the heat is</h3>
+
+<p>In January, mice and rats nest next to whatever is warm: the ceiling above a bathroom, the insulation over the kitchen, the wall cavity behind the refrigerator, the cabinet base around the water heater, and the corner of the attic where the furnace flue runs. That is why homeowners often first hear scratching at night in one room and nowhere else. The sound is a clue to where the nest is, not just where the mouse is walking. Heavy thumping overhead, especially in daylight, is worth a closer look, because a rat sounds different from a mouse. Our <a href="/blog/mice-vs-rats-alabama-which-do-i-have">mouse vs. rat guide</a> walks through how to tell which one you have. If it turns out to be a squirrel, raccoon, or another animal, that is wildlife, and we don't handle wildlife.</p>
+
+<h3>Warm spells send them back out</h3>
+
+<p>An Alabama winter is not one long cold stretch. It is a run of cold fronts with mild days in between. On a 65-degree afternoon in January, rodents already inside forage farther, and the ones still outside test your house again. That pattern is why a winter mouse problem rarely settles down by itself.</p>
+
+<h3>Holiday boxes, firewood, and the garage</h3>
+
+<p>Winter habits open doors for rodents. Storage bins and cardboard boxes come down from the attic for the holidays and go back up with a passenger. Firewood gets stacked against the siding or carried in by the armload. The garage door gets opened and closed a dozen times a day, and the seal at the bottom corners is often the first thing to wear out. Bags of birdseed, grass seed, and pet food stored on the garage floor are a steady meal through the cold months.</p>
+
+<h2>How to get rid of mice in winter and prevent a rodent infestation</h2>
+
+<p>A winter mouse problem is easier to fix than it is to ignore. Rodent activity indoors is a sign there is an open hole or crack somewhere on the outside, and the goal is to remove the mice inside and protect the house from the next unwanted visitor. Here is what we tell homeowners to do this month:</p>
 
 <ul>
-<li><strong>Rodents.</strong> Mice and rats push into attics, garages, and crawl spaces as soon as nights cool off. One gap the width of a pencil is all a mouse needs.</li>
-<li><strong>Ants.</strong> Argentine and odorous house ants overwinter in wall voids and forage indoors on warm days — which is why a January ant trail shows up on the kitchen counter and you wonder where they came from.</li>
-<li><strong>Cockroaches.</strong> American and smokybrown roaches move in from mulch beds, sewers, and woodpiles toward the warmth of the foundation and the kitchen.</li>
-<li><strong>Spiders.</strong> They follow their prey indoors — fewer bugs outside in winter means the spiders go where the bugs went.</li>
+<li>Check the bottom corners of every garage door and replace a worn seal. Mice chew and gnaw at a lifted corner to widen it.</li>
+<li>Move stored food, seed, and pet food into sealed plastic or metal containers.</li>
+<li>Stack firewood several feet off the house and bring in only what you will burn that day.</li>
+<li>Look over storage boxes before they go back into the attic or basement, and switch to plastic bins with lids.</li>
+<li>Fix drips under sinks and standing water in the crawl space. Water keeps a winter rodent population going.</li>
+<li>Pack small gaps around pipes and wires with copper mesh, then caulk over it.</li>
+<li>Set snap traps along walls where you have seen droppings, not in the middle of the floor.</li>
+</ul>
+
+<p>Traps catch the mice already inside. Sealing entry points is what keeps new ones from replacing them, which is why exclusion has to come first. Bait belongs outside the structure in tamper-resistant stations, not loose in an attic or wall voids, where a rodent can die out of reach. If you keep catching mice week after week, that is a rodent infestation, not a stray, and it is time for professional rodent control rather than another pack of traps.</p>
+
+<h2>The other winter offenders</h2>
+
+<p>Rodents get the attention, and they can bring fleas and ticks in with them, but they are not the only pests that move indoors when it cools off. Here are the other winter pest problems we see across Alabama:</p>
+
+<ul>
+<li><strong>Ants.</strong> Argentine and odorous house ants overwinter in wall voids and forage indoors on warm days, which is why a January ant trail shows up on the kitchen counter and you wonder where they came from. If you are fighting them now, see <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">how to get rid of ants in the house</a>.</li>
+<li><strong>Cockroaches.</strong> American and smokybrown roaches move in from mulch beds, sewers, and woodpiles toward the warmth of the foundation and the kitchen. Indoor German roaches don't care what season it is at all.</li>
+<li><strong>Spiders.</strong> They follow their prey indoors. Fewer bugs outside in winter means the spiders go where the bugs went, usually basements, garages, and closets.</li>
+<li><strong>Termites.</strong> Subterranean termites keep feeding through an Alabama winter because the soil under a heated slab or crawl space rarely gets cold enough to stop them. You won't see them until swarm season, March through May, but the colony is working the whole time.</li>
 </ul>
 
 <h2>How they're getting in</h2>
 
-<p>Almost always at the foundation line: gaps around utility penetrations, worn door sweeps, unscreened crawl-space vents, and firewood stacked against the house (a rodent and roach highway). Attic and crawl-space access points are the other big one.</p>
+<p>Almost always at the foundation line: gaps around utility penetrations, worn door sweeps, unscreened crawl-space vents, and firewood stacked against the house, which is a rodent and roach highway. Attic and crawl-space access points are the other big one. A mouse needs a gap about the width of a pencil. Weep holes in brick, the space where the AC line enters the wall, a dryer vent with a broken flap, and a shrub planted tight against the siding all give pests a protected route inside.</p>
 
 <h2>What actually keeps them out</h2>
 
-<p>Exclusion first — seal foundation gaps, add door sweeps, screen vents, and keep firewood off the house. Then keep your <a href="/services/pest-control">perimeter pest service</a> running <em>through</em> the winter. The instinct to cancel when it gets cold is exactly backwards: winter is when pests are pushing toward the warm interior, so a maintained exterior barrier is doing the most work. We use EPA-registered products applied per label directions, year round.</p>
+<p>Exclusion first: seal foundation gaps, add door sweeps, screen vents, and keep firewood off the house. Then keep your <a href="/services/pest-control">perimeter pest service</a> running <em>through</em> the winter. The instinct to cancel when it gets cold is exactly backwards. Winter is when pests are pushing toward the warm interior, so a maintained exterior barrier is doing the most work. We use EPA-registered products applied according to label directions, year round.</p>
 
-<p>Seeing winter activity in your Birmingham-area home? <a href="/quote">Request a free inspection</a> or call (205) 940-6360.</p>
+<p>Rodent work is part of our bi-monthly pest control plan. On regular visits our technicians look for and address entry points, and if mice or rats show up between scheduled visits, we come back out at no extra charge. There is no separate rodent price. You can see plan options on our <a href="/pricing">pricing page</a>.</p>
+
+<p>Termites are handled separately. Our <a href="/services/termite-control">termite control</a> starts with a free termite inspection, and winter is a good time for one, well before the spring swarms.</p>
+
+<h2>Common questions about winter pests in Alabama</h2>
+
+<h3>Will mice leave my house when it warms up?</h3>
+<p>Usually not. A mouse that has a warm nest, food, and water inside has no reason to move out in March. Without sealing the way in, the problem tends to carry into spring.</p>
+
+<h3>When should I call a professional?</h3>
+<p>If you keep catching mice, find droppings in more than one room, or hear activity in the attic, it is time for an inspection. The goal is to find the opening, not to keep trapping forever.</p>
+
+<p>Seeing winter pest activity at your house? <a href="/quote">Request a free inspection</a> or call the office nearest you: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Alexander City and Lake Martin (256) 234-6162, or Huntsville (256) 937-7676. Our family has been doing pest control in Alabama since 1958, and we are now in our fourth generation.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
