@@ -25,9 +25,11 @@ import { EmojiIcon } from "@/components/shared/PestIcon";
 import CityHeroArt from "@/components/CityHeroArt";
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import RefreshedContent from '@/components/RefreshedContent';
 export type NeighborhoodConfig = {
   // Page identity
   name: string;                          // e.g. "Liberty Park"
+  route?: string;                        // URL path when it is not slug(name), e.g. "/indian-springs"
   parentCity?: string;                   // e.g. "Vestavia Hills" (optional)
   zipCodes: string;                      // e.g. "35242"
   // Hero
@@ -161,6 +163,8 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
           </div>
         </div>
       </section>
+
+      <RefreshedContent route={cfg.route ?? `/${cfg.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} />
 
       {/* FAQ */}
       <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>

@@ -1,0 +1,111 @@
+# .github/workflows/content-refresh.yml
+#
+# Weekly NeuronWriter content refresh → PR → Phillip merges.
+#
+# What runs: agents/content-refresh.mjs (read its header). In short: score each
+# priority page as BUILT, leave pages already at 70+ alone (image only), and for
+# pages under 70 draft one added section that must pass compliance, an
+# originality/plagiarism check against the competitor pages NeuronWriter analysed
+# and every other EnviroCare page, and a NeuronWriter score gain — or it is
+# parked. Supabase content_refresh_ledger is the agent's memory, so a page is not
+# reworked inside the 28-day cool-down and two runs never duplicate each other.
+#
+# Cost per run: ZERO NeuronWriter analyses (existing READY queries only;
+# evaluate-content and get-query are free). Anthropic: up to 2 drafts per page,
+# --max pages per run (default 3).
+#
+# Publishing: never automatic. The PR must pass the required `guards` check
+# (including test:page-refresh) and is merged by a human — AGENTS.md guardrail
+# "publish or deploy to production". Setting the repo variable
+# CONTENT_REFRESH_AUTOMERGE=true queues GitHub auto-merge so the PR merges itself
+# the moment `guards` is green; leave it unset to keep the human review.
+
+name: Content refresh (NeuronWriter → PR)
+
+on:
+  schedule:
+    - cron: "15 13 * * 2"   # Tuesdays 13:15 UTC (8:15 CT) — after Monday's narrator score run
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Max pages to change this run"
+        default: "3"
+      route:
+        description: "Only this route, e.g. /lake-martin (blank = priority order)"
+        default: ""
+      force:
+        description: "true = ignore the 28-day cool-down"
+        default: "false"
+      images:
+        description: "generate = make illustrations for pages with no curated photo (needs OPENAI_API_KEY)"
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: content-refresh
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v5
+        with: { node-version: 24, cache: npm }
+      - run: npm ci || npm install
+
+      - name: Build (pages are scored as rendered)
+        run: npm run build
+
+      - name: Refresh pages
+        env:
+          NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          NEURONWRITER_PROJECT:      9d0bec3a70f4743c
+          ANTHROPIC_API_KEY:         ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY:            ${{ secrets.OPENAI_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          CONTENT_REFRESH_MAX:       ${{ github.event.inputs.max || '3' }}
+          CONTENT_REFRESH_ROUTE:     ${{ github.event.inputs.route || '' }}
+          CONTENT_REFRESH_FORCE:     ${{ github.event.inputs.force == 'true' && '1' || '' }}
+          CONTENT_REFRESH_IMAGES:    ${{ github.event.inputs.images || vars.CONTENT_REFRESH_IMAGES || '' }}
+        run: node agents/content-refresh.mjs
+
+      - name: Anything to ship?
+        id: check
+        run: |
+          if git diff --quiet -- data/page-refresh.ts && [ -z "$(git status --porcelain public/images/refresh 2>/dev/null)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"; echo "No page changed — nothing to propose."
+          else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Rebuild + full guard suite (a failing draft never becomes a PR)
+        if: steps.check.outputs.changed == 'true'
+        env:
+          BRIGHTLOCAL_API_KEY: ${{ secrets.BRIGHTLOCAL_API_KEY }}
+        run: npm run build && npm test
+
+      - name: Branch, commit, PR
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUTOMERGE: ${{ vars.CONTENT_REFRESH_AUTOMERGE }}
+        run: |
+          BR="content/refresh-$(date -u +%Y-%m-%d)-${GITHUB_RUN_ID}"
+          git config user.name "envirocare-content-refresh"; git config user.email "agents@envirocarellc.com"
+          git checkout -b "$BR"
+          git add data/page-refresh.ts public/images/refresh 2>/dev/null || git add data/page-refresh.ts
+          git commit -m "content(refresh): NeuronWriter-scored page refresh $(date -u +%Y-%m-%d)"
+          git push -u origin "$BR"
+          BODY=$(node -e "
+            const m=require('./agents/.content-refresh-manifest.json');
+            const rows=m.report.map(r=>'| '+r.route+' | '+(r.before??'')+' | '+(r.after??'')+' | '+(r.originality?Math.round(r.originality.competitor*100)+'% / '+Math.round(r.originality.site*100)+'% ('+r.originality.checked+' sites)':'')+' | '+r.outcome+' |').join('\n');
+            console.log('Written by agents/content-refresh.mjs. Every added section passed: compliance scan, originality check (competitor / own-site overlap of 8-word phrases), and a NeuronWriter score gain. **Read the Vercel preview, then merge.**\n\n| Page | NW before | NW after | Overlap (competitor / site) | Outcome |\n|---|---|---|---|---|\n'+rows+'\n\nZero NeuronWriter analyses used. Memory: Supabase content_refresh_ledger + agent_memory.');
+          ")
+          URL=$(gh pr create --base main --head "$BR" --title "Content refresh $(date -u +%b\ %-d): $(node -e "console.log(require('./agents/.content-refresh-manifest.json').changed)") page(s)" --body "$BODY")
+          echo "$URL"
+          if [ "$AUTOMERGE" = "true" ]; then gh pr merge "$URL" --auto --squash || echo "auto-merge not enabled on this repo — PR left for review"; fi

@@ -11,6 +11,7 @@ import { EmojiIcon } from "@/components/shared/PestIcon";
 import CityHeroArt from "@/components/CityHeroArt";
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import RefreshedContent from '@/components/RefreshedContent';
 /**
  * DeepCityPage — shared layout for wealthy-corridor "deep" city pages
  * (Vestavia Hills, Homewood, Hoover, Mt Laurel, Greystone, Chelsea, Trussville…).
@@ -260,6 +261,8 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             </div>
           </div>
         </section>
+
+        <RefreshedContent route={`/${c.slug}`} />
 
         {/* FAQ */}
         <section style={{ padding: "4rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>

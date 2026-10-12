@@ -7,6 +7,7 @@ import Footer from "@/components/shared/Footer";
 import { GREEN, GOLD, DEEP, CREAM, INK, displayFont, bodyFont } from "@/lib/brand";
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import RefreshedContent from '@/components/RefreshedContent';
 export type ComboContent = {
   eyebrow: string;
   h1: string;
@@ -140,6 +141,8 @@ export default function ComboPage({ c }: { c: ComboContent }) {
           <a href="/quote" style={{ display: "inline-block", background: GREEN, color: "#fff", padding: "14px 34px", borderRadius: 999, fontWeight: 700, fontSize: 15, textDecoration: "none" }}>Start Today →</a>
         </div>
       </section>
+
+      <RefreshedContent route={c.canonicalPath} />
 
       {/* FAQ */}
       <section style={{ padding: "56px clamp(20px,5vw,64px)", background: "#fff" }}>

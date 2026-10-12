@@ -20,6 +20,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
 import LocalExamples from "@/components/shared/LocalExamples";
+import RefreshedContent from "@/components/RefreshedContent";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
@@ -206,7 +207,7 @@ const jsonLd = {
           name: "Is there a long-term contract?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
+            text: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
           },
         },
       ],
@@ -373,6 +374,8 @@ export default function BirminghamPage() {
 
         <LocalExamples slug="birmingham" cityName="Birmingham" officeName="Birmingham office" />
 
+        <RefreshedContent route="/birmingham" />
+
         {/* FAQ */}
         <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
           <div style={{ maxWidth: 880, margin: "0 auto" }}>
@@ -393,7 +396,7 @@ export default function BirminghamPage() {
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Birmingham, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through October in Birmingham. We apply the 30-day yard barrier monthly across those 8 months. $45 per month for mosquito only, or $65 per month for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
             <Faq q="What precautions do you take around family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
-            <Faq q="Is there a long-term contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
+            <Faq q="Is there a long-term contract?" a="There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
           </div>
         </section>
 
