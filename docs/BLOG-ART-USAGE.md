@@ -54,7 +54,7 @@ bait through the colony, and protection stays active year-round."
 ## 4. mosquito-tick-treatment-season-alabama.webp
 Use on: mosquito control birmingham/huntsville pages, tick control page, spring/summer posts.
 Alt text:
-"Chart of mosquito and tick season in Alabama showing the March through November
+"Chart of mosquito and tick season in Alabama showing the March through October
 treatment window, with peak activity from June through August."
 
 ## 5. fire-ant-activity-alabama-by-month.webp
@@ -80,7 +80,11 @@ the sale to close."
 - No banned services (bed bug / wildlife / lawn) depicted or named
 - No Corteva attribution in copy; "Certified Sentricon Specialist®" status line only
 - Footer: "EnviroCare Pest Services · envirocarellc.com" (current name, capital C)
-- Approved "March through November" wording matches listing descriptions verbatim
+- Mosquito season stated as the ruled window, **March through October** (8 treatments,
+  ruled 2026-08-26). Do NOT copy the season from the live GBP/Bing listing
+  descriptions: as of 2026-09-25 Huntsville (4068730) and Alex City (4068729) still
+  say "March through November" there. Mirroring those listings is how the retired
+  season reached art prompts in the first place.
 
 Note the third bullet is the same rule that `data/compliance.ts` enforces in text and
 that the Aug 12 guard widening closed for prose: 1958 attaches to the FAMILY, never to

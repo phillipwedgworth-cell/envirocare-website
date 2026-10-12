@@ -33,7 +33,8 @@ const CREAM = "#FEFDF8";
 const INK = "#0E1A0F";
 
 const OFFICES = [
-  { area: "Birmingham metro — Jefferson & Shelby", phone: "(205) 940-6360", tel: "2059406360" },
+  { area: "Birmingham — Jefferson & St. Clair", phone: "(205) 991-2882", tel: "2059912882" },
+  { area: "Alabaster — Shelby County", phone: "(205) 940-6360", tel: "2059406360" },
   { area: "Huntsville — Madison County", phone: "(256) 937-7676", tel: "2569377676" },
   { area: "Lake Martin / Alex City — Tallapoosa & Lee", phone: "(256) 234-6162", tel: "2562346162" },
 ];
@@ -76,13 +77,9 @@ const schema = [
     name: "Alabama WDO Inspection Letters (Real Estate Closings)",
     serviceType: "Wood-Destroying Organism Inspection Report",
     audience: { "@type": "BusinessAudience", name: "Real estate agents, closing attorneys, and mortgage lenders" },
-    provider: {
-      "@type": "LocalBusiness",
-      name: "EnviroCare",
-      telephone: "+1-205-940-6360",
-      address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
-      parentOrganization: { "@type": "Organization", name: "EnviroCare", foundingDate: "1958" },
-    },
+    // The Alabaster office node (full NAP, parentOrganization) is emitted
+    // sitewide by app/layout.tsx; reference it instead of restating it.
+    provider: { "@id": "https://www.envirocarellc.com/#alabaster" },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Jefferson County, Alabama" },
       { "@type": "AdministrativeArea", name: "Shelby County, Alabama" },

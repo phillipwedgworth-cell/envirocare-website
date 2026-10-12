@@ -1,9 +1,10 @@
 name: Proposer
 
 on:
-  schedule:
-    # 07:00 CT — 12:00 UTC during CDT. Runs daily.
-    - cron: "0 12 * * *"
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
+  # (scripts/proposer.mjs, the GBP post writer. Per Phillip 2026-09-27, posts are drafted
+  #  in OneUp and approved there; the approval_queue path is retired.)
   workflow_dispatch: {}
 
 concurrency:

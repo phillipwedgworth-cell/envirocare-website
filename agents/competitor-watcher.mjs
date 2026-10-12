@@ -19,9 +19,10 @@
  */
 import { pathToFileURL } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
-import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
+import { supabase, logAgentRun, writeFinding, closeUnseenFindings } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
+import { localFalconNumber } from "./lib/local-falcon-campaigns.mjs";
 
 const AGENT_NAME = "competitor-watcher";
 const MODEL = process.env.COMPETITOR_WATCHER_MODEL || "claude-sonnet-4-6";
@@ -32,20 +33,24 @@ const CONFIG = {
   lookbackRuns: 2,
 };
 
-const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : null);
+// Number(null) === 0 — a missing score used to read as "0% visibility".
+const num = localFalconNumber;
 const score = (r) => (r.solv ?? r.saiv);
 
 async function latestTwoRuns() {
   const { data, error } = await supabase
     .from("lf_visibility")
-    .select("campaign_key,campaign_name,market,platform,keyword,run_date,grid_baseline,solv,saiv,arp,top_competitors")
+    .select("campaign_key,campaign_name,market,place_id,platform,keyword,run_date,grid_baseline,solv,saiv,arp,top_competitors")
     .order("run_date", { ascending: false })
     .limit(4000);
   if (error) throw new Error(`lf_visibility read: ${error.message}`);
-  // group by campaign+platform+keyword, keep two most recent run_dates
+  // Group by campaign + MEASURED PROFILE + platform + keyword. A campaign key
+  // can be re-pointed to another office (4ee47a23: Alabaster → Birmingham on
+  // 2026-10-02); keyed on campaign alone, the new Birmingham run would be
+  // "compared" with the old Alabaster run on the same grid.
   const groups = new Map();
   for (const r of data ?? []) {
-    const k = `${r.campaign_key}|${r.platform}|${r.keyword}`;
+    const k = `${r.campaign_key}|${r.place_id ?? "?"}|${r.platform}|${r.keyword}`;
     const g = groups.get(k) ?? [];
     if (g.length < CONFIG.lookbackRuns && !g.some((x) => x.run_date === r.run_date)) g.push(r);
     groups.set(k, g);
@@ -56,8 +61,18 @@ async function latestTwoRuns() {
 function analyze(groups) {
   const alerts = [];
   const byMarket = {};
+  // Only the latest run per market × platform is "current". Older series for a
+  // market (e.g. Alabaster's legacy 9x9 run on 4ee47a23 once 51d824c3 has run)
+  // must not be averaged into today's picture.
+  const latest = {};
   for (const [, runs] of groups) {
     const cur = runs[0]; if (!cur) continue;
+    const mk = `${cur.market}|${cur.platform}`;
+    if (!latest[mk] || cur.run_date > latest[mk]) latest[mk] = cur.run_date;
+  }
+  for (const [, runs] of groups) {
+    const cur = runs[0]; if (!cur) continue;
+    if (cur.run_date !== latest[`${cur.market}|${cur.platform}`]) continue;
     const prev = runs[1] && runs[1].grid_baseline === cur.grid_baseline ? runs[1] : null;
     const mine = num(score(cur));
     const top = Array.isArray(cur.top_competitors) ? cur.top_competitors.filter((c) => c.name && !/envirocare/i.test(c.name)) : [];
@@ -118,18 +133,30 @@ export async function run() {
     return { skipped: true };
   }
   const { alerts, table } = analyze(groups);
+  // Taken before the first write: closeUnseenFindings resolves only what this
+  // run did not re-observe (see lib/supabase.mjs).
+  const runStart = new Date().toISOString();
   for (const a of alerts) {
     await writeFinding(AGENT_NAME, "competitor", a.severity, null, `[${a.market} · ${a.platform}] ${a.text}`, { market: a.market, platform: a.platform, keyword: a.keyword });
   }
+  // The full analysis completed, so any open alert it did not re-raise is no
+  // longer true for the latest run (2026-10-11: 71 open, many superseded).
+  const closedAlerts = await closeUnseenFindings(AGENT_NAME, ["competitor"], runStart);
   let text = null;
+  let closedDigests = 0;
   try {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     text = await digest(anthropic, table, alerts);
-    if (text) await writeFinding(AGENT_NAME, "competitor-digest", "info", null, text, { table, alert_count: alerts.length, model: MODEL });
+    if (text) {
+      await writeFinding(AGENT_NAME, "competitor-digest", "info", null, text, { table, alert_count: alerts.length, model: MODEL });
+      // Only the newest digest is current; older ones are history, not open items.
+      closedDigests = await closeUnseenFindings(AGENT_NAME, ["competitor-digest"], runStart, "superseded by a newer competitor digest");
+    }
   } catch (e) {
     console.warn(`[${AGENT_NAME}] digest skipped: ${e.message}`);
   }
-  const summary = { markets: table.length, alerts: alerts.length, digest: Boolean(text), table };
+  const platforms = [...new Set(table.flatMap((m) => Object.keys(m.platforms)))].sort();
+  const summary = { markets: table.length, platforms, alerts: alerts.length, closed_alerts: closedAlerts, closed_digests: closedDigests, digest: Boolean(text), table };
   await logAgentRun(AGENT_NAME, "ok", summary);
   console.log(`[${AGENT_NAME}] ${table.length} markets, ${alerts.length} alerts`);
   return summary;

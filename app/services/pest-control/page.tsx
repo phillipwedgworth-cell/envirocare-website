@@ -1,20 +1,30 @@
+// ─── CLAUDE CODE: DEPLOY THIS FILE ───
+// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
+// Path: app/services/pest-control/page.tsx
+// Commit: feat(seo): money-page titles/H1s target the queries GSC already shows them for
+// Push: main
+// ─────────────────────────────────────
 import ServicePage from '@/components/pages/ServicePage';
 
 export const metadata = {
   alternates: { canonical: '/services/pest-control' },
-  title: 'Home Pest Control Services in Alabama | EnviroCare',
-  description: 'Bi-monthly home pest control for ants, roaches, spiders and more across EnviroCare service areas in Alabama. Four local offices serving surrounding communities.',
+  // GSC Aug 21–Sep 14 2026: "pest control plans" 512 impr at pos 27.7 with no page
+  // targeting it; "pest control services" 309 at pos 5.9. Title now carries both.
+  // Sep 30 2026: primary target is "pest control services" (92 impr, pos 2.4, GSC Sep 20-26);
+  // city intent belongs to the local pages linked from the Near You section.
+  title: 'Pest Control Services & Plans in Alabama | From $35/mo | EnviroCare',
+  description: 'Pest control services from $35/mo — ants, roaches, spiders, rodents & 30+ pests, free re-service. Four Alabama offices. (205) 940-6360.',
   openGraph: {
-    title: 'Home Pest Control Services in Alabama | EnviroCare',
-    description: 'Bi-monthly home pest control for ants, roaches, spiders and more across EnviroCare service areas in Alabama. Four local offices serving surrounding communities.',
+    title: 'Pest Control Services & Plans in Alabama | From $35/mo | EnviroCare',
+    description: 'Pest control services from $35/mo — ants, roaches, spiders, rodents & 30+ pests, free re-service. Four Alabama offices. (205) 940-6360.',
     url: 'https://www.envirocarellc.com/services/pest-control',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Home Pest Control Services in Alabama | EnviroCare',
-    description: 'Bi-monthly home pest control for ants, roaches, spiders and more across EnviroCare service areas in Alabama. Four local offices serving surrounding communities.',
+    title: 'Pest Control Services & Plans in Alabama | From $35/mo | EnviroCare',
+    description: 'Pest control services from $35/mo — ants, roaches, spiders, rodents & 30+ pests, free re-service. Four Alabama offices. (205) 940-6360.',
     images: ['/og-image.png'],
   },
 };

@@ -1,8 +1,8 @@
 name: Content Reviewer
 
 on:
-  schedule:
-    - cron: '0 11 * * *'   # daily 11:00 UTC — after nw-optimize drafts land, before Phillip's review
+  # RETIRED 2026-09-27 (agent consolidation, claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md).
+  # Schedule removed; manual runs still work. Re-scheduling requires adding it to agents/ROSTER.json.
   workflow_dispatch:
 
 permissions:

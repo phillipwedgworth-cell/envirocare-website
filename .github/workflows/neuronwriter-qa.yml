@@ -1,8 +1,8 @@
 name: NeuronWriter QA
 
 on:
-  schedule:
-    - cron: '0 13 * * 1'   # Every Monday 13:00 UTC = 7am CT
+  # 2026-09-27: schedule removed — the Monday orchestrator already runs neuronwriter-qa
+  # (it was running twice every Monday). Manual runs still work.
   workflow_dispatch:
     inputs:
       force:

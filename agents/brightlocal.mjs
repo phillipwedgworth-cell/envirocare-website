@@ -5,7 +5,7 @@
 // Push: main (via branch + PR)
 // ─────────────────────────────────────
 // agents/brightlocal.mjs
-// BrightLocal citation-score agent for EnviroCare (Alabama, 3 locations).
+// BrightLocal citation agent for EnviroCare (Alabama, 4 offices).
 //
 // Pattern:
 //   1. Worker (Haiku, tool-use) decides what to fetch and produces a draft brief.
@@ -47,7 +47,11 @@ const BL_MCP = "https://mcp.brightlocal.com/mcp";
 const LOCATIONS = [
   { name: "Alabaster", id: 4068335, ct_report_id: 2418430, rm_report_id: 630345, target: 85 },
   { name: "Huntsville", id: 4068730, ct_report_id: 2419690, rm_report_id: 630846, target: 85 },
-  { name: "Alex City", id: 4068729, ct_report_id: null, rm_report_id: 631866, target: 85 }, // RM campaign added 2026-06-10; CT still pending
+  // CT 2422541 exists (BrightLocal find_ct_reports, 2026-09-28). It was null here,
+  // so every brief said "Alex City — NO CAMPAIGN".
+  { name: "Alex City", id: 4068729, ct_report_id: 2422541, rm_report_id: 631866, target: 85 },
+  // Birmingham office (2120 16th Ave S), added 2026-09-29. CT 2448082, RM 644662.
+  { name: "Birmingham", id: 4130578, ct_report_id: 2448082, rm_report_id: 644662, target: 85 },
 ];
 
 let anthropic = null;
@@ -119,14 +123,30 @@ export async function blMcpCall(toolName, args) {
   });
   if (!initResp.ok) throw await blHttpError(initResp, `${toolName} init`);
   const sessionId = initResp.headers.get("mcp-session-id");
+
+  // BrightLocal's MCP server is STATELESS: initialize returns 200 with a valid
+  // result and NO Mcp-Session-Id header. That is allowed by the MCP streamable-HTTP
+  // spec — a server that issues no session ID just takes each request on its own.
+  //
+  // This used to treat a missing session ID as fatal ("almost always a key
+  // rejection"). It is not: the diagnostic probe on 2026-09-25 got HTTP 200 from
+  // the Manage REST API with the same key (key valid) AND a well-formed initialize
+  // result with no session header, by query-param and by x-api-key header alike.
+  // Every brightlocal run — Vercel cron, orchestrator, GitHub — had been dying on
+  // this line and reporting "API session error" in an 'ok' run log since at least
+  // 2026-09-14.
+  //
+  // So: no session header + a genuine initialize RESULT = stateless, proceed
+  // without the header. No session header + anything else = still an error.
   if (!sessionId) {
-    // 200 but no session header is almost always a key rejection returned as text.
     const raw = await initResp.text().catch(() => "");
     if (looksLikeKeyRejection(raw)) throw new BrightLocalKeyError(raw);
-    throw new Error(`BL MCP ${toolName}: no session ID returned${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+    if (!/"result"\s*:/.test(raw)) {
+      throw new Error(`BL MCP ${toolName}: no session ID and no initialize result${raw ? ` — ${String(raw).slice(0, 120)}` : ""}`);
+    }
   }
 
-  const shdrs = { ...hdrs, "Mcp-Session-Id": sessionId };
+  const shdrs = sessionId ? { ...hdrs, "Mcp-Session-Id": sessionId } : hdrs;
 
   // 2. Notify initialized
   await fetch(url, { method: "POST", headers: shdrs, body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) });
@@ -243,7 +263,8 @@ async function recordScoreUncached({ location_name, score }) {
     "seo",
     belowTarget ? "warning" : "info",
     null,
-    `${loc.name} citation score: ${score}/100 (target ${loc.target})`,
+    // A COUNT of active citations, not a 0–100 score (suppression rule 3 blocks the old "/100" wording).
+    `${loc.name} active citations: ${score} (target ${loc.target})`,
     { location: loc.name, score, target: loc.target, below_target: belowTarget },
   );
   return { ok: true };
@@ -262,12 +283,12 @@ const recordScore = once(
 const tools = [
   {
     name: "list_locations",
-    description: "List all 3 EnviroCare locations and their citation-score targets.",
+    description: "List all 4 EnviroCare offices and their active-citation targets.",
     input_schema: { type: "object", properties: {} },
   },
   {
     name: "get_citation_score",
-    description: "Pull the current BrightLocal citation score (out of 100) for one location.",
+    description: "Pull the current number of ACTIVE citations for one location from its BrightLocal Citation Tracker report. This is a COUNT of listings, not a score out of 100 — never write it as 'N/100'.",
     input_schema: {
       type: "object",
       properties: {
@@ -331,7 +352,7 @@ async function callTool(name, input) {
 
 // ---------- Worker (tool-use loop) ----------
 
-const WORKER_SYSTEM = `You are the BrightLocal citation analyst for EnviroCare Pest Control (Alabama, 3 locations: Alabaster, Huntsville, Alex City). All three target a citation score of 85/100.
+const WORKER_SYSTEM = `You are the BrightLocal citation analyst for EnviroCare (Alabama, 4 offices: Alabaster, Huntsville, Alex City, Birmingham). The number per office is a COUNT of active citations in its BrightLocal Citation Tracker report — NOT a score out of 100. Never write it as "N/100" or call it a score. Target: 85 active citations per office.
 
 Your job: write the weekly Monday citation brief.
 
@@ -343,14 +364,14 @@ Approach (you choose order, skip steps if irrelevant):
 5. Self-check before emitting: is the draft specific (numbers, deltas, named locations) or vague? If vague, gather more data first.
 6. Emit the final brief.
 
-Final brief format: 5-7 bullets. Lead with the biggest movers. Every bullet has a specific number and a delta vs last week (or "no prior data" if first run). Flag any score < 85 as BELOW TARGET with the gap to target. No preamble, no sign-off.`;
+Final brief format: 5-7 bullets. Lead with the biggest movers. Every bullet has a specific number and a delta vs last week (or "no prior data" if first run). Flag any count below 85 as BELOW TARGET with the gap to target. Date the brief with the run date only. No preamble, no sign-off.`;
 
 async function workerDraft(feedback = null) {
   if (!anthropic) throw new Error("ANTHROPIC_API_KEY is not set");
 
   const initialUser = feedback
-    ? `Run the weekly Monday citation brief again, addressing this critic feedback before emitting:\n\n${feedback}`
-    : "Run the weekly Monday citation brief.";
+    ? `Run the weekly Monday citation brief again, addressing this critic feedback before emitting:\n\n${feedback}\n\nToday is ${new Date().toISOString().slice(0, 10)} (UTC). Use exactly this date wherever a date appears; never write any other date as the report date.`
+    : `Run the weekly Monday citation brief. Today is ${new Date().toISOString().slice(0, 10)} (UTC). Use exactly this date wherever a date appears; never write any other date as the report date.`;
 
   const messages = [{ role: "user", content: initialUser }];
 
@@ -415,6 +436,9 @@ export async function run() {
 - No vague phrases ("improve citations", "monitor closely") without numbers
 - Under 200 words, no preamble, no sign-off`;
 
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const critic = await criticLoop({
     workerName: AGENT_NAME,
     task: "Weekly BrightLocal citation brief for EnviroCare's 3 Alabama locations",
@@ -424,7 +448,7 @@ export async function run() {
     toolErrors: runToolErrors,
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
-      await logAgentRun(AGENT_NAME, "escalated", output);
+      escalated = true;
     },
   });
 
@@ -438,7 +462,7 @@ export async function run() {
   }
 
   const final = critic;
-  await logAgentRun(AGENT_NAME, "ok", final);
+  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final);
   console.log(`[${AGENT_NAME}] Done`);
   return final;
 }

@@ -161,6 +161,13 @@ export default function Footer() {
               <PhoneIcon /> {o.phone} — {o.footerLabel}
             </a>
           ))}
+          {/* PAY BILL (2026-09-22): the footer had no payment or customer-portal
+              link anywhere. Sits directly under the office numbers because that is
+              the block customers already scan for "how do I reach you". Points at
+              /pay, the same single internal URL the header and mobile bar use. */}
+          <a href="/pay" style={{ ...LINK, color: FOREST, fontWeight: 700, marginTop: 10 }}>
+            Pay My Bill
+          </a>
         </div>
         <div>
           <div style={COL_HEAD}>Core Services</div>

@@ -1,48 +1,29 @@
-import type { Metadata } from "next";
+import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/pay' },
-  title: "Pay Your Bill",
-  description: "Make a payment on your EnviroCare Pest Control account. Online payment portal coming soon — call your local office to pay by phone.",
-  robots: { index: false, follow: true },
-};
-
-const OFFICES = [
-  { name: "Birmingham", phone: "(205) 940-6360", tel: "2059406360" },
-  { name: "Lake Martin · Alexander City", phone: "(256) 234-6162", tel: "2562346162" },
-  { name: "Huntsville", phone: "(256) 937-7676", tel: "2569377676" },
-];
-
-export default function PayPage() {
-  return (
-    <main style={{ minHeight: "100vh", background: "#FEFDF8", display: "flex", alignItems: "center", justifyContent: "center", padding: "4rem 1.5rem" }}>
-      <div style={{ maxWidth: 560, width: "100%", textAlign: "center" }}>
-        <a href="/" style={{ display: "inline-block", marginBottom: "2rem" }}>
-          <img src="/logo.png" alt="EnviroCare" width={260} height={100} style={{ width: 240, height: "auto" }} />
-        </a>
-
-        <div style={{ display: "inline-block", border: "1.5px solid #0A7935", borderRadius: 6, padding: "5px 16px", marginBottom: 18, fontSize: 12, letterSpacing: "0.14em", color: "#0A7935", fontFamily: "var(--font-sans)", fontWeight: 800, textTransform: "uppercase" }}>
-          Customer Portal
-        </div>
-
-        <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, color: "#0E1A0F", lineHeight: 1.1, letterSpacing: "-0.5px", marginBottom: "1rem" }}>
-          Pay Your Bill
-        </h1>
-        <p style={{ fontFamily: "var(--font-sans)", fontSize: "1.05rem", color: "#5A7060", lineHeight: 1.7, marginBottom: "2.4rem" }}>
-          Our online payment portal is launching soon. In the meantime, call your local office and we&apos;ll take payment over the phone — same family, same service.
-        </p>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginBottom: "2rem" }}>
-          {OFFICES.map(o => (
-            <a key={o.tel} href={`tel:${o.tel}`} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", border: "1px solid rgba(14,142,64,0.18)", borderRadius: 14, padding: "1rem 1.2rem", textDecoration: "none", fontFamily: "var(--font-sans)" }}>
-              <span style={{ color: "#0E1A0F", fontWeight: 600, fontSize: "0.98rem" }}>{o.name}</span>
-              <span style={{ color: "#0A7935", fontWeight: 700, fontSize: "1.05rem" }}>{o.phone}</span>
-            </a>
-          ))}
-        </div>
-
-        <a href="/" style={{ fontFamily: "var(--font-sans)", color: "#5A7060", fontSize: "0.92rem", textDecoration: "none", borderBottom: "1px solid rgba(14,142,64,0.25)", paddingBottom: 2 }}>← Back to home</a>
-      </div>
-    </main>
-  );
+/**
+ * /pay — the one internal Pay Bill URL.
+ *
+ * Every pay entry point (mobile action bar, header, hamburger "Customer Login",
+ * future invoice QR codes, texts, GBP posts) should point here rather than at
+ * the Key7 URL directly. If the processor ever changes, this file changes and
+ * nothing else does — no reprinted QR codes, no edited text templates.
+ *
+ * REPLACES a stale holding page. Until 2026-09-22 this route rendered
+ * "Our online payment portal is launching soon. In the meantime, call your
+ * local office and we'll take payment over the phone." That had stopped being
+ * true — payenvirocare.key7app.com is live and Header.tsx has linked customers
+ * straight to it from two places. So the header sent people to the working
+ * portal while /pay told them it did not exist yet and to phone instead.
+ *
+ * The old page also listed only THREE offices, with "Birmingham" against the
+ * Alabaster line (205) 940-6360. Removing it retires that crossed pairing.
+ *
+ * REDIRECT, NOT AN EMBED — deliberate. Putting Key7's username/password form in
+ * an iframe on envirocarellc.com makes it look like EnviroCare is collecting
+ * the credentials, which reads as a phishing pattern even when done in good
+ * faith. The login stays on Key7's own domain where it already lives.
+ * Embedding is a call for Phillip to make explicitly, not a default.
+ */
+export default function PayRedirectPage() {
+  redirect('https://payenvirocare.key7app.com/User/Login');
 }

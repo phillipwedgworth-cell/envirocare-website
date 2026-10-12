@@ -6,7 +6,7 @@ const OUT = 'C:/Users/pwedg/Desktop/Envirocare Stuf/monitoring/screenshots-2026-
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const page = await browser.newPage({ viewport: { width: 380, height: 820 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
 
-await page.goto('https://envirocare-web.vercel.app/', { waitUntil: 'networkidle', timeout: 60000 });
+await page.goto('https://www.envirocarellc.com/', { waitUntil: 'networkidle', timeout: 60000 });
 await page.waitForTimeout(2000);
 await page.screenshot({ path: `${OUT}/v4-hero-380.png` });
 
@@ -17,7 +17,7 @@ await page.click('button[title="Chat with EnviroCare"]').catch(async () => {
 await page.waitForTimeout(1500);
 await page.screenshot({ path: `${OUT}/v4-chat-380.png` });
 
-await page.goto('https://envirocare-web.vercel.app/lake-martin', { waitUntil: 'networkidle', timeout: 60000 });
+await page.goto('https://www.envirocarellc.com/lake-martin', { waitUntil: 'networkidle', timeout: 60000 });
 await page.waitForTimeout(2000);
 await page.screenshot({ path: `${OUT}/v4-lakemartin-380.png` });
 

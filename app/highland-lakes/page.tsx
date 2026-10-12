@@ -4,10 +4,11 @@
 // Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
 // Push: main
 // ─────────────────────────────────────
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Highland Lakes 35242 | EnviroCare",
   description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage. Call (205) 940-6360.",
   alternates: { canonical: "/highland-lakes" },
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/highland-lakes",
     type: "website",
   },
-};
+});
 
 const cfg: NeighborhoodConfig = {
   "name": "Highland Lakes",
@@ -87,12 +88,12 @@ const cfg: NeighborhoodConfig = {
       "a": "Yes. Lake-adjacent treatments focus on harborage zones away from the water itself — shrub bases, tree lines, mulched beds, gutters, and shaded back-of-house areas. We use only EPA-registered products and apply them according to label directions, including any aquatic-buffer language on the labels."
     },
     {
-      "q": "How does the Sentricon® warranty work on a Highland Lakes home?",
-      "a": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
+      "q": "How does EnviroCare's termite damage repair coverage work on a Highland Lakes home?",
+      "a": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair, subject to inspection and the terms of the agreement. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
     },
     {
       "q": "Is there a long-term contract?",
-      "a": "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
+      "a": "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
     }
   ],
   "nearby": [
@@ -221,10 +222,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          "name": "How does the Sentricon® warranty work on a Highland Lakes home?",
+          "name": "How does EnviroCare's termite damage repair coverage work on a Highland Lakes home?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
+            "text": "On qualifying homes, EnviroCare carries the damage-coverage commitment up to $1M. If active termite damage occurs to the protected structure during the active service period, EnviroCare covers repair, subject to inspection and the terms of the agreement. The coverage is EnviroCare's own, not a manufacturer's, and it requires annual re-inspection to remain active."
           }
         },
         {
@@ -232,7 +233,7 @@ const jsonLd = {
           "name": "Is there a long-term contract?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
+            "text": "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments."
           }
         }
       ]

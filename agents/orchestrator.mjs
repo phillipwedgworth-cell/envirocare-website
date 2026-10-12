@@ -10,26 +10,43 @@ import { createMessage } from "./lib/llm-with-logging.mjs";
 // strings — Next.js doesn't trace those at build time, so the files
 // silently weren't in the bundle and every agent reported "skipped" at
 // runtime. Each agent module exports { run }.
-import { run as runBrightlocal } from "./brightlocal.mjs";
 import { run as runReviewResponder } from "./review-responder.mjs";
 import { run as runSeoMonitor } from "./seo-monitor.mjs";
 import { run as runNeuronwriterQa } from "./neuronwriter-qa.mjs";
-import { run as runCfoAgent } from "./cfo-agent.mjs";
-import { run as runSiteReviewer } from "./site-reviewer.mjs";
 import { run as runProposer } from "./proposer.mjs";
 
 const ORCHESTRATOR_MODEL = "claude-sonnet-4-6";
 const PROMPT_VERSION = "2026-05-28";
 
 // Order matters for digest readability but not correctness.
+//
+// REMOVED 2026-09-24 — each has its own WORKING schedule (confirmed in agent_runs),
+// so running it here too was a duplicate paid run:
+//   brightlocal    vercel.json /api/brightlocal/run (Mon 08:00) — ran 08:01 on 09-21
+//   site-reviewer  RETIRED 2026-09-27 (cron removed; see agents/ROSTER.json)
+//   cfo-agent      retired from the schedule per the 2026-09-24 fleet spec. This
+//                  was its only scheduled trigger; it still runs ON DEMAND via
+//                  /api/cfo/run and the command center. Code unchanged.
+//
+// KEPT — seo-monitor. Do not remove it on the assumption that it runs elsewhere:
+//   - .github/workflows/seo-monitor.yml runs agents/seo-SNAPSHOT.mjs, a different
+//     agent, despite its name.
+//   - vercel.json /api/seo-monitor/run (Mon 14:00) left no agent_runs row on
+//     2026-09-21. As of that date this registry was the ONLY path that actually
+//     ran seo-monitor.
+// Findings from the removed agents still reach this digest — see
+// FINDINGS_WINDOW_HOURS below.
 const AGENT_REGISTRY = [
-  { name: "brightlocal",      run: runBrightlocal },
   { name: "review-responder", run: runReviewResponder },  // Mondays only; drafts to Notion Review Response Station
   { name: "seo-monitor",     run: runSeoMonitor },
   { name: "neuronwriter-qa", run: runNeuronwriterQa },  // content QA; skips gracefully if key absent
-  { name: "cfo-agent",       run: runCfoAgent },
-  { name: "site-reviewer",   run: runSiteReviewer },
 ];
+
+// The digest used to read the last 24h of findings, which was right when this ran
+// daily. It is weekly now (vercel.json, Mon 12:00 UTC), and brightlocal and
+// site-reviewer run on their own schedules. A 24h window would silently drop most
+// of the week from the Monday digest. Read the full week.
+const FINDINGS_WINDOW_HOURS = 24 * 7;
 
 let anthropic = null;
 let anthropicInitError = null;
@@ -55,6 +72,18 @@ if (process.env.RESEND_API_KEY) {
   } catch (e) {
     console.error(`[orchestrator] failed to load resend: ${e.message}`);
   }
+}
+
+// One status word per agent. "escalated" is its own state: the agent ran and
+// produced a draft, but the critic failed it 3 times. Before 2026-10-09 this
+// fell through to "ok" (10-05 run #4232 printed "seo-monitor: ok" next to an
+// escalated agent_runs row for the same run).
+function agentStatus(v) {
+  if (v.skipped) return "skipped";
+  if (v.blocked) return `blocked (${v.reason})`;
+  if (v.error) return `error (${v.error})`;
+  if (v.escalated) return "escalated (critic failed 3 loops; see agent_runs.summary)";
+  return "ok";
 }
 
 async function runAllAgents() {
@@ -133,7 +162,7 @@ async function synthesizeDigest(outputs, findings, discussions, proposerOut = nu
 
 OUTPUT FORMAT — Markdown, this exact structure:
 
-# Monday Digest — [today's date]
+# Monday Digest — ${new Date().toISOString().slice(0, 10)}
 
 ## TL;DR (3 lines)
 The most important things to know before opening anything else.
@@ -174,7 +203,13 @@ ${discussionBlock || "[none]"}`;
       system,
       messages: [{ role: "user", content: prompt }],
     }, { agentName: 'orchestrator', role: 'worker' });
-    const text = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
+    const runDate = new Date().toISOString().slice(0, 10);
+    const raw = resp.content.find((b) => b.type === "text")?.text?.trim() ?? "";
+    // The model has invented heading dates (05-28, 09-15, 09-28..30 — Sep 27
+    // audit N2). The heading date is set by code, never by the model.
+    const text = /^# Monday Digest[^\n]*/.test(raw)
+      ? raw.replace(/^# Monday Digest[^\n]*/, `# Monday Digest — ${runDate}`)
+      : `# Monday Digest — ${runDate}\n\n${raw}`;
     return { brief: text, raw_outputs: outputs };
   } catch (e) {
     return {
@@ -233,35 +268,46 @@ export async function run() {
   const outputs = await runAllAgents();
 
   // Round 2: read what everyone wrote to the shared tables.
-  const findings = await readFindings([], 24);
-  const discussions = await readDiscussions([], 24);
+  const findings = await readFindings([], FINDINGS_WINDOW_HOURS);
+  const discussions = await readDiscussions([], FINDINGS_WINDOW_HOURS);
 
-  // Round 2b: Proposer reads findings and produces a ranked change list.
-  let proposerOut = null;
-  try {
-    proposerOut = await runProposer();
-  } catch (e) {
-    console.error("[orchestrator] proposer failed:", e.message);
+  // Rounds 2b–4 (proposer → Sonnet digest → email) are RETIRED by the Sep 27
+  // consolidation plan (claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md):
+  // proposer's rows fed an approval queue nothing ships, and the digest was the
+  // top Sonnet spend (~$1.50/wk) with made-up dates. The Monday sweep replaces
+  // it. Set ORCHESTRATOR_DIGEST=on to bring the old behaviour back.
+  const digestOn = String(process.env.ORCHESTRATOR_DIGEST || "").toLowerCase() === "on";
+  let brief, raw_outputs, emailResult;
+  if (digestOn) {
+    let proposerOut = null;
+    try {
+      proposerOut = await runProposer();
+    } catch (e) {
+      console.error("[orchestrator] proposer failed:", e.message);
+    }
+    ({ brief, raw_outputs } = await synthesizeDigest(outputs, findings, discussions, proposerOut));
+    emailResult = await sendDigest(brief);
+  } else {
+    raw_outputs = outputs;
+    const status = Object.entries(outputs).map(([k, v]) => `${k}: ${agentStatus(v)}`);
+    brief = `Orchestrator runner — ${new Date().toISOString().slice(0, 10)}\n` +
+      `${status.join("\n")}\nfindings in window: ${findings.length}\n` +
+      `(digest + proposer retired 2026-09-27; see the weekly sweep)`;
+    emailResult = { sent: false, reason: "digest retired (ORCHESTRATOR_DIGEST not on)" };
   }
-
-  // Round 3: Sonnet synthesizes the Monday digest.
-  const { brief, raw_outputs } = await synthesizeDigest(outputs, findings, discussions, proposerOut);
-
-  // Round 4: email it.
-  const emailResult = await sendDigest(brief);
   console.log(`[orchestrator] email: ${JSON.stringify(emailResult)}`);
 
-  await logAgentRun("orchestrator", "ok", brief);
+  // A digest that was built but never delivered is not "ok" (09-28: "Invalid
+  // `to` field", logged ok). Only applies while ORCHESTRATOR_DIGEST is on.
+  const digestUndelivered = digestOn && emailResult && emailResult.sent === false;
+  await logAgentRun("orchestrator", digestUndelivered ? "partial" : "ok", brief);
 
   console.log("[orchestrator] Done");
   return {
     brief,
     email: emailResult,
     agents: Object.fromEntries(
-      Object.entries(raw_outputs).map(([k, v]) => [
-        k,
-        v.skipped ? "skipped" : v.blocked ? `blocked: ${v.reason}` : v.error ? `error: ${v.error}` : "ok",
-      ]),
+      Object.entries(raw_outputs).map(([k, v]) => [k, agentStatus(v)]),
     ),
     findings_count: findings.length,
     discussions_count: discussions.length,

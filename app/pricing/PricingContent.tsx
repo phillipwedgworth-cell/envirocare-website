@@ -60,7 +60,7 @@ const MONTHLY_PLANS: Plan[] = [
     features: [
       "Bimonthly perimeter pest treatment",
       "Seasonal mosquito (March–October)",
-      "Unlimited free pest re-service",
+      "Free pest re-service",
       "Equal monthly ACH payments (12-month agreement)",
     ],
     cta: "Get my quote",
@@ -90,7 +90,7 @@ const MONTHLY_PLANS: Plan[] = [
     features: [
       "Bimonthly perimeter treatment",
       "30+ common Alabama pests, incl. mice & rats",
-      "Unlimited free re-service between visits",
+      "Free re-service between visits",
       "Applied per label directions once dry",
       "Equal monthly ACH payments (12-month agreement)",
     ],
@@ -150,7 +150,7 @@ const ALACARTE_PLANS: Plan[] = [
 
 // Plan-comparison table (AEO / featured-snippet play). Termite = quote, never a flat number.
 const COMPARE_ROWS = [
-  { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; unlimited re-service" },
+  { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; free re-service" },
   { plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo", perVisit: "—", included: "Pest plan + seasonal mosquito (Mar–Oct)" },
   { plan: "Complete", startup: "$229", monthly: "From ~$100/mo", perVisit: "—", included: "Pest + mosquito + Sentricon® termite (priced at inspection)" },
   { plan: "Mosquito (alone)", startup: "—", monthly: "$45/mo alone · $34/mo with pest", perVisit: "—", included: "8 treatments, Mar–Oct · equal monthly ACH payments across the year" },
@@ -363,7 +363,7 @@ export default function PricingContent() {
             </h2>
           </div>
           <div>
-            <FAQ q="Is there a contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
+            <FAQ q="Is there a contract?" a="There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
             <FAQ q="Why isn't there a flat termite price?" a="Alabama regulates termite treatment, so we have to do an on-site WDO (wood-destroying organism) inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free, and there's no obligation." />
             <FAQ q="What is the initial service fee?" a="$75 on Pest and on Pest + Mosquito. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment: full interior and exterior knockdown, web and nest removal, and setting the barrier the recurring visits maintain. There is no separate inspection fee on top. Mosquito booked on its own has no initial fee — it is billed monthly." />
             <FAQ q="Can I get mosquito without a pest plan?" a="Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." />

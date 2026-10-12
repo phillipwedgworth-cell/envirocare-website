@@ -61,6 +61,9 @@ import { cleanEnv } from "@/lib/env-url";
 export const dynamic = "force-dynamic";
 
 const TEXT_COOLDOWN_DAYS = 7;
+// Balances older than this are not texted (see the snapshot guard in POST).
+// 1.5 days lets a morning send use the previous weekday's 7am rebuild.
+const MAX_SNAPSHOT_AGE_DAYS = 1.5;
 
 // {account} and {balance} are substituted per recipient. Keep these short —
 // SMS, not email. Edit wording here; nothing else needs to change to update
@@ -175,6 +178,34 @@ export async function POST(req: Request) {
           "Refusing to send: collections_do_not_contact is empty. That cannot be told apart " +
           "from a sync that never ran, and 25 of the accounts on the current call list are " +
           "marked do-not-call in Fieldster. Run `npm run captivated:suppress` first.",
+      },
+      { status: 409 }
+    );
+  }
+
+  // STALE BALANCES ARE A REFUSAL TOO (2026-10-12). The comment at the top of
+  // this file used to say this table was refreshed every weekday; it never was.
+  // Measured 2026-10-12: newest collections_snapshots row was 2026-09-09, 33
+  // days old, so every balance this route would quote predated a month of
+  // payments. A warning in a comment does not stop a send — this does.
+  const { data: snap, error: snapErr } = await supabase
+    .from("collections_snapshots")
+    .select("snapshot_date")
+    .order("snapshot_date", { ascending: false })
+    .limit(1);
+  if (snapErr) {
+    return NextResponse.json({ ok: false, error: `collections_snapshots: ${snapErr.message}` }, { status: 500 });
+  }
+  const lastSnap = snap?.[0]?.snapshot_date as string | undefined;
+  const snapAgeDays = lastSnap ? (Date.now() - new Date(`${lastSnap}T12:00:00Z`).getTime()) / 86400_000 : Infinity;
+  if (snapAgeDays > MAX_SNAPSHOT_AGE_DAYS) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          `Refusing to send: the newest collections snapshot is ${lastSnap ?? "missing"}, older than ` +
+          `${MAX_SNAPSHOT_AGE_DAYS} day(s). Balances may include customers who have since paid. ` +
+          "Run build_collections.py (it pushes collections_call_list + collections_snapshots) first.",
       },
       { status: 409 }
     );

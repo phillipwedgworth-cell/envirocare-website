@@ -99,6 +99,27 @@ async function opportunityTopics(skip) {
   return out;
 }
 
+// Topics rejected (compliance or NeuronWriter floor) twice in 14 days are parked.
+// Without this the agent retried the same three topics every day for a week,
+// wrote nothing and logged "ok" (Sunday audit 2026-09-27, N5).
+const REJECT_LIMIT = 2;
+async function rejectedKeywords() {
+  if (!supabase) return new Set();
+  // One row per rejection per day: writeFinding's dedup_key includes the date,
+  // so counting rows counts rejection-days. (No times_seen column exists; the
+  // first draft selected one, which would have errored and parked nothing.)
+  const { data, error } = await supabase.from("agent_findings").select("details")
+    .eq("agent_name", AGENT_NAME).eq("severity", "warning")
+    .gte("created_at", new Date(Date.now() - 14 * 86400000).toISOString()).limit(500);
+  if (error) console.warn(`[${AGENT_NAME}] rejectedKeywords query failed: ${error.message}`);
+  const counts = new Map();
+  for (const f of data ?? []) {
+    const k = f.details?.topic?.keyword; if (!k) continue;
+    counts.set(k, (counts.get(k) ?? 0) + 1);
+  }
+  return new Set([...counts].filter(([, n]) => n >= REJECT_LIMIT).map(([k]) => k));
+}
+
 function pickTopics(src, n) {
   const skip = existingSlugs(src);
   const backlog = JSON.parse(fs.readFileSync(BACKLOG_FILE, "utf8")).topics.filter((t) => !skip.has(t.slug));
@@ -204,8 +225,9 @@ export async function run() {
   let src = fs.readFileSync(POSTS_FILE, "utf8");
   const { backlog, skip } = pickTopics(src, ARTICLES_PER_RUN);
   const fromGsc = await opportunityTopics(skip);
+  const parked = await rejectedKeywords().catch(() => new Set());
   // Alternate: one GSC-driven topic (if any), the rest from the backlog.
-  const queue = [...fromGsc.slice(0, 1), ...backlog].slice(0, ARTICLES_PER_RUN);
+  const queue = [...fromGsc.filter((t) => !parked.has(t.keyword)).slice(0, 1), ...backlog.filter((t) => !parked.has(t.keyword))].slice(0, ARTICLES_PER_RUN);
   if (!queue.length) { await logAgentRun(AGENT_NAME, "ok", "backlog exhausted — add topics to agents/knowledge/blog-backlog.json"); return { written: 0 }; }
 
   const routes = liveRoutes();
@@ -252,8 +274,9 @@ export async function run() {
     fs.writeFileSync(MANIFEST_FILE, JSON.stringify({ date: new Date().toISOString(), posts: written.map((w) => ({ slug: w.topic.slug, title: w.post.title, keyword: w.topic.keyword, publishedAt: w.publishedAt, nwScore: w.nw.score, source: w.topic.source ?? "backlog", legacy301: w.legacy301 ? w.topic.legacyPath : null })) }, null, 2));
     for (const w of written) await writeFinding(AGENT_NAME, "blog", "info", `/blog/${w.topic.slug}`, `Wrote "${w.post.title}" (NeuronWriter ${w.nw.score ?? "n/a"}) — publishes ${w.publishedAt}, pending PR`, { keyword: w.topic.keyword, nw: w.nw, model: MODEL });
   }
-  const summary = { written: written.length, slugs: written.map((w) => w.topic.slug), backlogLeft: backlog.length - written.filter((w) => !w.topic.source).length };
-  await logAgentRun(AGENT_NAME, "ok", summary);
+  const summary = { written: written.length, slugs: written.map((w) => w.topic.slug), backlogLeft: backlog.length - written.filter((w) => !w.topic.source).length, parked: [...parked] };
+  // A run that wrote nothing is not "ok" — the watchdog must see it.
+  await logAgentRun(AGENT_NAME, written.length ? "ok" : "failed", summary);
   console.log(`[${AGENT_NAME}] wrote ${written.length}: ${summary.slugs.join(", ")}`);
   return summary;
 }

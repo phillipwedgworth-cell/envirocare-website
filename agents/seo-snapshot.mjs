@@ -20,6 +20,8 @@ import {
   LOCAL_FALCON_CAMPAIGNS,
   localFalconBaseline,
   localFalconGridLabel,
+  localFalconNumber,
+  localFalconRunIdentity,
 } from "./lib/local-falcon-campaigns.mjs";
 
 const AGENT_NAME = "seo-snapshot";
@@ -95,7 +97,9 @@ async function lfCampaign(key) {
   return j.data;
 }
 
-const n2 = (v) => { const x = Number(v); return Number.isFinite(x) ? Math.round(x * 100) / 100 : null; };
+// localFalconNumber, not Number(): Number(null) === 0 turned missing keyword
+// data into a stored "0% SoLV". Missing stays null; a measured 0 stays 0.
+const n2 = (v) => { const x = localFalconNumber(v); return x === null ? null : Math.round(x * 100) / 100; };
 const pct = (v) => (v == null ? "—" : `${Math.round(v)}%`);
 const mdY = (iso) => { const p = String(iso || "").split("-").map(Number); return p[0] ? `${p[1]}/${p[2]}/${p[0]}` : String(iso || "latest"); };
 
@@ -105,11 +109,14 @@ function buildDigest(runDate, perLocation, findingsCount) {
     const kws = loc.keywords;
     const total = kws.length;
     const visible = kws.filter((k) => (k.solv ?? 0) > 0).length;
-    const notVisible = total - visible;
+    const notVisible = kws.filter((k) => k.solv === 0).length;
     const sorted = [...kws].sort((a, b) => (b.solv ?? 0) - (a.solv ?? 0));
     const top = sorted[0];
     const bottom = sorted[sorted.length - 1];
-    let line = `${loc.location} — ${pct(loc.agg_solv)} avg SoLV, ${visible}/${total} keywords visible.`;
+    if (loc.pending) { lines.push(`${loc.location} — pending: ${loc.pending}`); continue; }
+    if (loc.skipped) { lines.push(`${loc.location} — not read: ${loc.skipped}`); continue; }
+    const measured = kws.filter((k) => k.solv !== null).length;
+    let line = `${loc.location} (run ${mdY(String(loc.run_date ?? "").slice(0, 10))}) — ${pct(loc.agg_solv)} avg SoLV, ${visible}/${measured} measured keywords visible${measured < total ? `, ${total - measured} not reported` : ""}.`;
     if (top && (top.solv ?? 0) > 0) line += ` Top: ${top.keyword} ${pct(top.solv)}.`;
     if (notVisible > 0) line += ` ${notVisible} not visible.`;
     else if (bottom && bottom !== top) line += ` Weakest: ${bottom.keyword} ${pct(bottom.solv)}.`;
@@ -157,12 +164,16 @@ export async function run({ email = true } = {}) {
     }
     const rd = data.run_data || {};
     const date = rd.run || null;
+    // Label rows by the profile this RUN measured, not by today's config. On
+    // 2026-09-28 the 09-18 run of 4ee47a23 (Alabaster profile) was upserted
+    // here as location "Birmingham" because the key had been re-pointed.
+    const identity = localFalconRunIdentity(c.key, date, rd.place_id ?? data.place_id ?? null);
     if (date && !runDate) runDate = date;
     const kws = Array.isArray(rd.by_keyword) ? rd.by_keyword : [];
     const rows = kws
       .filter((k) => k && k.keyword && date)
       .map((k) => ({
-        location: c.location,
+        location: identity.location,
         keyword: k.keyword,
         campaign_key: c.key,
         baseline,
@@ -175,6 +186,13 @@ export async function run({ email = true } = {}) {
         captured_at,
       }));
     allRows.push(...rows);
+    if (!identity.inSeries) {
+      // Rows above keep their true label (e.g. Alabaster); the digest must not
+      // present them as this market. No reading yet ≠ 0%.
+      perLocation.push({ location: c.location, campaign_key: c.key, run_date: date, keywords: [],
+        pending: `latest run ${identity.runDate ?? "never"} on ${c.key} measured ${identity.location}${c.seriesStart ? `; ${c.location} series starts ${c.seriesStart}` : ""}` });
+      continue;
+    }
     perLocation.push({
       location: c.location,
       campaign_key: c.key,

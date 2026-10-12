@@ -14,11 +14,13 @@
     "test:zombies": "node scripts/test-no-zombie-claims.mjs",
     "test:citynap": "node scripts/test-city-office-nap.mjs",
     "test:local-falcon": "node scripts/test-local-falcon-config.mjs",
+    "test:spyfu": "node scripts/test-spyfu-load.mjs",
     "test:zip-routing": "node --no-warnings scripts/test-zip-office-routing.mjs",
     "test:source": "node scripts/scan-source-compliance.mjs",
     "test:lastmod": "node scripts/test-sitemap-lastmod.mjs",
     "test:breadcrumbs": "node scripts/test-breadcrumbs.mjs",
-    "test": "npm run test:compliance && npm run test:source && npm run test:generated && npm run test:imagery && npm run test:zombies && npm run test:citynap && npm run test:local-falcon && npm run test:zip-routing && npm run test:breadcrumbs && npm run test:lastmod && npm run test:tracking && npm run test:similarity && npm run test:captivated-safety",
+    "test:og": "node --no-warnings scripts/test-open-graph.mjs",
+    "test": "node scripts/run-guards.mjs",
     "test:generated": "node scripts/test-generated-content-compliance.mjs",
     "test:tracking": "node scripts/test-tracking-integrity.mjs",
     "test:similarity": "node scripts/test-page-similarity.mjs",
@@ -27,7 +29,12 @@
     "test:captivated-safety": "node scripts/test-captivated-safety.mjs",
     "audit:captivated": "node agents/captivated-audit.mjs",
     "captivated:dryrun": "node agents/captivated-send.mjs",
-    "captivated:suppress": "node agents/captivated-suppress-sync.mjs"
+    "captivated:suppress": "node agents/captivated-suppress-sync.mjs",
+    "test:roster": "node scripts/test-roster.mjs",
+    "test:blogposts": "node scripts/test-blog-post-compliance.mjs",
+    "test:listings": "node scripts/test-brightlocal-descriptions.mjs",
+    "test:brief": "node scripts/test-brief-sanitizer.mjs",
+    "test:page-refresh": "node scripts/test-page-refresh.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

@@ -508,6 +508,9 @@ async function finalizeReview() {
 
   const { panel, synthesis } = await panelReview(gatheredData, screenshots);
 
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Site review of envirocarellc.com across visual + performance + SEO/content",
@@ -520,7 +523,7 @@ async function finalizeReview() {
     },
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
-      await logAgentRun(AGENT_NAME, "escalated", output);
+      escalated = true;
     },
   }));
 
@@ -533,7 +536,7 @@ async function finalizeReview() {
   });
 
   await clearCycleState();
-  await logAgentRun(AGENT_NAME, "ok", final);
+  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final);
 
   console.log(`[${AGENT_NAME}] Done`);
   return {

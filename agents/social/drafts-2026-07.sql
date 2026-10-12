@@ -11,7 +11,7 @@
 insert into social_posts (id, location, platform, post_type, headline, body, cta, graphic_url, scheduled_for, status) values
 ('2026-07-21-bhm-mosquito--facebook','birmingham','facebook','whats_new',
  'Mosquito season is in full swing',
- 'Alabama summers bring the mosquitoes out in force. Our seasonal yard service (March–November) targets the shady, damp spots where mosquitoes breed and rest, knocking the population down around your home treatment after treatment. Family-owned across the Birmingham metro since 1958 — four generations of the Wedgworth family. Want a free quote? Call (205) 940-6360.',
+ 'Alabama summers bring the mosquitoes out in force. Our seasonal yard service (March–October) targets the shady, damp spots where mosquitoes breed and rest, knocking the population down around your home treatment after treatment. Family-owned across the Birmingham metro since 1958 — four generations of the Wedgworth family. Want a free quote? Call (205) 940-6360.',
  'Call (205) 940-6360', null, '2026-07-21T14:00:00Z','draft'),
 
 ('2026-07-22-bhm-pest--google','birmingham','google','offer',
@@ -46,7 +46,7 @@ insert into social_posts (id, location, platform, post_type, headline, body, cta
 
 ('2026-08-01-lkm-heritage--facebook','lake_martin','facebook','brand',
  'Lakefront living, fewer pests',
- 'Wooded and lakefront lots on Lake Martin bring extra pest pressure. EnviroCare has served this area since 1958 — four generations of the Wedgworth family — with exterior-first pest control and seasonal mosquito + tick yard service (March–November) to reduce the bugs around your place. Call (256) 234-6162.',
+ 'Wooded and lakefront lots on Lake Martin bring extra pest pressure. EnviroCare has served this area since 1958 — four generations of the Wedgworth family — with exterior-first pest control and seasonal mosquito + tick yard service (March–October) to reduce the bugs around your place. Call (256) 234-6162.',
  'Call (256) 234-6162', null, '2026-08-01T14:00:00Z','draft'),
 
 ('2026-08-04-lkm-termite--google','lake_martin','google','offer',

@@ -62,15 +62,15 @@
       "agent_name": "ad-automation-bot",
       "status": "pending-review",
       "title": "Mosquito Control — Huntsville (PAUSED)",
-      "body": "Reduce backyard mosquito populations with seasonal service, March through November. EPA-registered products applied per label directions.",
+      "body": "Reduce backyard mosquito populations with seasonal service, March through October. EPA-registered products applied per label directions.",
       "cta": "Call (256) 937-7676",
       "landing_url": "https://www.envirocarellc.com/huntsville-mosquito-control",
       "metadata": {
         "launch_state": "PAUSED", "campaign": "Huntsville Metro", "ad_group": "Mosquito - Huntsville", "match_type": "phrase",
         "keywords": ["mosquito control huntsville al", "backyard mosquito service huntsville", "mosquito treatment huntsville"],
-        "rsa_headlines": ["Mosquito Control Huntsville", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service", "March to November Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"],
+        "rsa_headlines": ["Mosquito Control Huntsville", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service", "March to October Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"],
         "rsa_descriptions": [
-          "Reduce backyard mosquito populations with seasonal service, March through November.",
+          "Reduce backyard mosquito populations with seasonal service, March through October.",
           "EPA-registered mosquito treatment applied per label directions. Prompt scheduling.",
           "Local Huntsville team since 1958. Call (256) 937-7676 to start seasonal service."
         ]
@@ -120,15 +120,15 @@
       "agent_name": "ad-automation-bot",
       "status": "pending-review",
       "title": "Mosquito Control — Birmingham (PAUSED)",
-      "body": "Reduce backyard mosquito populations with seasonal service, March through November. EPA-registered products applied per label directions.",
+      "body": "Reduce backyard mosquito populations with seasonal service, March through October. EPA-registered products applied per label directions.",
       "cta": "Call (205) 940-6360",
       "landing_url": "https://www.envirocarellc.com/birmingham-mosquito-control",
       "metadata": {
         "launch_state": "PAUSED", "campaign": "Birmingham + Lake Martin", "ad_group": "Mosquito - Birmingham", "match_type": "phrase",
         "keywords": ["mosquito control birmingham al", "backyard mosquito service birmingham", "mosquito treatment birmingham"],
-        "rsa_headlines": ["Mosquito Control Birmingham", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service", "March to November Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"],
+        "rsa_headlines": ["Mosquito Control Birmingham", "Knock Down Yard Mosquitoes", "Seasonal Mosquito Service", "March to October Coverage", "Family-Owned Since 1958", "Reclaim Your Backyard"],
         "rsa_descriptions": [
-          "Reduce backyard mosquito populations with seasonal service, March through November.",
+          "Reduce backyard mosquito populations with seasonal service, March through October.",
           "EPA-registered mosquito treatment applied per label directions. Prompt scheduling.",
           "Local Birmingham team since 1958. Call (205) 940-6360 to start seasonal service."
         ]

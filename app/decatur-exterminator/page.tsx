@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
 
-const TITLE = "Exterminator Decatur AL | Local Since 1958 | EnviroCare";
+const TITLE = "Exterminator Decatur AL | Family-Owned Since 1958 | EnviroCare";
 const DESC =
   `Need an exterminator in Decatur AL? Fourth-generation Alabama company — one-time treatments or plans from $${PRICING.plans.pest.fromMonthly}/mo. Real local techs. (256) 937-7676.`;
 

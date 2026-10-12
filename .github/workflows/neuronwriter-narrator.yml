@@ -38,7 +38,7 @@ on:
       - "agents/neuronwriter-content/**"
       - ".github/workflows/neuronwriter-narrator.yml"
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "0 13 * * 1"   # score: weekly (was daily — 2026-09-27 consolidation)
     - cron: "0 14 * * 1"
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
     name: Neuron Narrator
     runs-on: ubuntu-latest
     env:
-      MODE: "${{ (github.event_name == 'schedule' && github.event.schedule == '0 13 * * *') && 'score' || (github.event_name == 'workflow_dispatch' && inputs.mode) || 'fill' }}"
+      MODE: "${{ (github.event_name == 'schedule' && github.event.schedule == '0 13 * * 1') && 'score' || (github.event_name == 'workflow_dispatch' && inputs.mode) || 'fill' }}"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -27,25 +27,35 @@ type Group = { office: string; phone: string; cities: [string, string][] };
 
 const GROUPS: Group[] = [
   {
-    office: 'Birmingham / Alabaster Office',
-    phone: '(205) 940-6360',
+    // Jefferson + St Clair counties route to the 16th Ave S Birmingham office
+    // (data/city-offices.ts, Phillip 2026-09-05). Split from the Alabaster group
+    // 2026-09-29: this list used to show every Birmingham city under 940-6360.
+    office: 'Birmingham Office',
+    phone: '(205) 991-2882',
     cities: [
-      ['Over the Mountain (cluster)', '/over-the-mountain'], ['South Birmingham (cluster)', '/south-birmingham'],
+      ['Over the Mountain (cluster)', '/over-the-mountain'],
       ['East Birmingham (cluster)', '/east-birmingham'], ['North Birmingham (cluster)', '/north-birmingham'],
-      ['Birmingham', '/birmingham'], ['Hoover', '/hoover'], ['Alabaster', '/alabaster'],
-      ['Pelham', '/pelham'], ['Helena', '/helena'], ['Calera', '/calera'],
-      ['Chelsea', '/chelsea'], ['Vestavia Hills', '/vestavia-hills'],
+      ['Birmingham', '/birmingham'], ['Hoover', '/hoover'], ['Vestavia Hills', '/vestavia-hills'],
       ['Mountain Brook', '/mountain-brook'], ['Homewood', '/homewood'],
-      ['Indian Springs', '/indian-springs'], ['Trussville', '/trussville'],
-      ['Mt Laurel', '/mt-laurel'], ['Greystone', '/greystone'],
-      ['Brook Highland', '/brook-highland'], ['Eagle Point', '/eagle-point'],
-      ['Liberty Park', '/liberty-park'], ['Meadow Brook', '/meadow-brook'],
-      ['Highland Lakes', '/highland-lakes'], ['Fultondale', '/fultondale'],
-      ['Bessemer', '/bessemer'], ['McCalla', '/mccalla'], ['Gardendale', '/gardendale'],
-      ['Irondale', '/irondale'], ['Leeds', '/leeds'], ['Moody', '/moody'],
+      ['Trussville', '/trussville'], ['Liberty Park', '/liberty-park'],
+      ['Fultondale', '/fultondale'], ['Bessemer', '/bessemer'], ['McCalla', '/mccalla'],
+      ['Gardendale', '/gardendale'], ['Irondale', '/irondale'], ['Leeds', '/leeds'], ['Moody', '/moody'],
       ['Birmingham Exterminator', '/birmingham-exterminator'],
       ['Birmingham Mosquito Control', '/birmingham-mosquito-control'],
+      ['Vestavia Hills Mosquito Control', '/vestavia-hills-mosquito-control'],
       ['Birmingham Termite Control', '/birmingham-termite-control'],
+    ],
+  },
+  {
+    office: 'Alabaster Office',
+    phone: '(205) 940-6360',
+    cities: [
+      ['South Birmingham (cluster)', '/south-birmingham'],
+      ['Alabaster', '/alabaster'], ['Pelham', '/pelham'], ['Helena', '/helena'], ['Calera', '/calera'],
+      ['Chelsea', '/chelsea'], ['Indian Springs', '/indian-springs'],
+      ['Mt Laurel', '/mt-laurel'], ['Greystone', '/greystone'],
+      ['Brook Highland', '/brook-highland'], ['Eagle Point', '/eagle-point'],
+      ['Meadow Brook', '/meadow-brook'], ['Highland Lakes', '/highland-lakes'],
     ],
   },
   {
@@ -77,7 +87,6 @@ const GROUPS: Group[] = [
       ['Madison Mosquito Control', '/madison-mosquito-control'],
       ['Madison Termite Control', '/madison-termite-control'],
       ['Madison Commercial Pest Control', '/madison-commercial-pest-control'],
-      ['Decatur Pest Control', '/decatur-pest-control'],
       ['Decatur Exterminator', '/decatur-exterminator'],
       ['Decatur Mosquito Control', '/decatur-mosquito-control'],
       ['Decatur Termite Control', '/decatur-termite-control'],
@@ -138,11 +147,22 @@ export default function ServiceAreasPage() {
             <div className="wws-office-grid">
               <div className="wws-office-card">
                 <div className="wws-office-imgwrap">
-                  <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Birmingham / Alabaster office service area" />
-                  <span className="wws-office-badge">Main · Birmingham Metro</span>
+                  <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Birmingham office near Vulcan statue" />
+                  <span className="wws-office-badge">Birmingham Metro</span>
                 </div>
                 <div className="wws-office-body">
-                  <div className="wws-office-name">Birmingham / Alabaster</div>
+                  <div className="wws-office-name">Birmingham</div>
+                  <div className="wws-office-addr">2120 16th Ave S, Ste 302<br />Birmingham, AL 35205</div>
+                  <a className="wws-office-phone" href="tel:2059912882">📞 (205) 991-2882</a>
+                </div>
+              </div>
+              <div className="wws-office-card">
+                <div className="wws-office-imgwrap">
+                  <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Alabaster office service area" />
+                  <span className="wws-office-badge">Main · Since 1958</span>
+                </div>
+                <div className="wws-office-body">
+                  <div className="wws-office-name">Alabaster</div>
                   <div className="wws-office-addr">2025 Butler Road<br />Alabaster, AL 35007</div>
                   <a className="wws-office-phone" href="tel:2059406360">📞 (205) 940-6360</a>
                 </div>

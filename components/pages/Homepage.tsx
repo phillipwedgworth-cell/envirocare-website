@@ -14,7 +14,6 @@ import {
   Bug, ShieldCheck, Building2, FileText, HardHat, Flame, Leaf, House,
   Rocket, Phone, Star, ChevronDown, Check, Menu, X, Flower2, ArrowRight,
 } from 'lucide-react';
-import StickyCallButton from '@/components/StickyCallButton';
 import Footer from '@/components/shared/Footer';
 import { ACH_TERMS, PRICING } from '@/data/pricing';
 import { OFFICES as STAFFED_OFFICES } from '@/data/offices';
@@ -139,7 +138,11 @@ export default function Homepage() {
       <FindYourOffice />
       <TruckBanner />
       <Heritage />
-      <StickyCallButton />
+      {/* StickyCallButton removed 2026-09-22 — superseded by the sitewide
+          <MobileActionBar /> in app/layout.tsx, which adds Pay Bill, uses the
+          location-aware number instead of a hardcoded one, and reaches every
+          route rather than only this page. Its scroll-away and field-focus
+          behaviour were ported over, not dropped. */}
     </main>
   );
 }
@@ -402,12 +405,14 @@ const RECURRING_PLANS: RecurringPlan[] = [
     key: 'pest', icon: 'pest', name: 'Pest Control', badge: 'MOST POPULAR', popular: true, dotColor: '#0E8E40',
     perservice: { price: '$70/visit bimonthly', terms: `6 visits a year · $${PRICING.initialServiceRegular} standard initial pest service, currently $${PRICING.plans.pest.startup}` },
     monthly: { price: `From $${PRICING.plans.pest.fromMonthly}/mo ACH`, terms: `$${PRICING.initialServiceRegular} standard initial pest service, currently $${PRICING.plans.pest.startup} · equal monthly ACH drafts` },
-    bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Unlimited free re-service between visits', 'EPA-registered products, applied per label directions'],
+    bullets: ['Exterior and interior treatment', '30+ pests including mice & rats', 'Free re-service between visits', 'EPA-registered products, applied per label directions'],
     cta: 'Choose Pest Control', ctaCls: 'ec-cp-cta-green', fine: `${PRICING.initialServicePromo.percentOff}% off initial pest service: $${PRICING.plans.pest.startup} today (regularly $${PRICING.initialServiceRegular})`,
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
-    perservice: { price: `$${PRICING.addOns.mosquito.monthly}/mo ACH`, terms: 'Monthly-only service · 8 treatments March–October · equal averaged drafts all year' },
+    // Mosquito has no per-visit price (ruled 2026-08-26). In the Per Service view
+    // the card says so instead of showing an ACH figure under a per-visit label.
+    perservice: { price: 'Monthly plan only', terms: `No per-visit option · $${PRICING.addOns.mosquito.monthly}/mo on ACH · 8 treatments March–October · equal averaged drafts all year` },
     monthly: { price: `$${PRICING.addOns.mosquito.monthly}/mo ACH`, terms: `$${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo only when paired with pest · 8 treatments March–October` },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
     addon: `Add tick control with mosquito: +$${PRICING.addOns.tick.monthlyWithMosquitoOnly}/month`,
@@ -2560,7 +2565,8 @@ const HOMEPAGE_CSS = `
 
   /* ── Pricing: button resets + two-block structure (added) ── */
   button.ec-cp-toggle-label {
-    background: none; border: none; padding: 0;
+    background: none; border: none; padding: 12px 8px;
+    min-height: 44px; /* phone tap target (was 17px tall, 2026-10-05) */
     font-family: inherit; line-height: 1.2;
   }
   button.ec-cp-item-top {

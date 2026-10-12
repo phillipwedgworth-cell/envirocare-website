@@ -16,10 +16,11 @@
 //    single column under 640px, sticky bottom CTA bar (mobile only),
 //    no images = fast load, clamp() typography.
 
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Fire Ant Control in Alabama | Colony Elimination | EnviroCare",
   description:
     "Fire ant treatment that reaches the queen, not just the mound. $150 for most yards, one-year warranty. Open to all. Birmingham & across Alabama. (205) 940-6360.",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
       "Whole-colony fire ant treatment with season-long suppression. $150 for most yards, backed by a one-year warranty.",
     type: "website",
   },
-};
+});
 
 const BRAND_GREEN = "#0A7935";
 const FOREST = "#0A7935";
@@ -233,7 +234,8 @@ export default function FireAntPage() {
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: 14, maxWidth: 820, margin: "0 auto" }}>
             {[
-              { city: "Birmingham", phone: "(205) 940-6360", tel: "2059406360" },
+              { city: "Birmingham", phone: "(205) 991-2882", tel: "2059912882" },
+              { city: "Alabaster", phone: "(205) 940-6360", tel: "2059406360" },
               { city: "Alex City / Lake Martin", phone: "(256) 234-6162", tel: "2562346162" },
               { city: "Huntsville", phone: "(256) 937-7676", tel: "2569377676" },
               { city: "Auburn", phone: "(334) 332-3321", tel: "3343323321" },

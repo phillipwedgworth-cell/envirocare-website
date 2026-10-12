@@ -4,14 +4,16 @@
 // Commit: fix(compliance): attribute $1M damage coverage to EnviroCare, not Sentricon
 // Push: main
 // ─────────────────────────────────────
+import type { Metadata } from 'next';
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import CityPage from '@/components/pages/CityPage';
 
-export const metadata = {
+export const metadata: Metadata = withOpenGraph({
   alternates: { canonical: '/alabaster' },
   openGraph: { url: 'https://www.envirocarellc.com/alabaster', images: ['/og/og-alabaster.png'] },
   title: 'Pest Control Alabaster AL | $35/mo | Free Termite Inspection',
   description: 'Bi-monthly pest control from $35/mo in Alabaster — 30+ pests, re-service at no charge. Sentricon® termite baiting, no drilling. Call (205) 940-6360.',
-};
+});
 
 export default function AlabasterPage() {
   return <CityPage slug="alabaster" />;

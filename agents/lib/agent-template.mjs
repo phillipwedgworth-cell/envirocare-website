@@ -184,6 +184,9 @@ export async function run() {
   }
 
   // ── CRITIC ──
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: 'Describe the task in one sentence — same as the job description above',
@@ -192,7 +195,7 @@ export async function run() {
     revise: (fb) => workerDraft(fb),
     onEscalate: async (out) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
-      await logAgentRun(AGENT_NAME, 'escalated', out).catch(() => {});
+      escalated = true;
     },
   }));
 
@@ -200,7 +203,7 @@ export async function run() {
   await writeFindings(final).catch(() => {});
 
   // ── LOG ──
-  await logAgentRun(AGENT_NAME, 'ok', final).catch(() => {});
+  await logAgentRun(AGENT_NAME, escalated ? 'escalated' : 'ok', final).catch(() => {});
   console.log(`[${AGENT_NAME}] Done`);
   return final;
 }

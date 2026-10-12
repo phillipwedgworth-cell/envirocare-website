@@ -2,7 +2,7 @@
 // query (by keyword) to its live route and re-runs evaluate-content.
 import { scoreContent } from './lib/neuronwriter.mjs';
 
-const BASE = 'https://envirocare-web.vercel.app';
+const BASE = 'https://www.envirocarellc.com';
 const KEYWORD_TO_ROUTE = {
   'pest control birmingham al': '/services/pest-control',
   'termite control birmingham al': '/services/termite-control',

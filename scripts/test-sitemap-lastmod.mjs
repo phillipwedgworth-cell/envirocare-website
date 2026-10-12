@@ -62,8 +62,21 @@ const lastmodDay = new Date(
 console.log(`Newest commit  = ${raw}  (day: ${commitDay.toISOString().slice(0, 10)})`);
 console.log(`STATIC_LASTMOD = ${lastmodDay.toISOString().slice(0, 10)}`);
 
+// Squash-merge grace. A PR bumps STATIC_LASTMOD to the day it was written; the
+// squash commit GitHub creates on main is authored on the day it is MERGED. A PR
+// written on the 3rd and merged on the 4th therefore failed this guard on main —
+// every push to main from 09-27 to 10-04 was red for exactly this reason, which
+// also stopped the four guards chained after it from ever running in CI
+// (Sunday audit 2026-10-04, R1). A lastmod one or two days behind the merge is
+// harmless to Google; a stale one (3+ days) still fails.
+const GRACE_DAYS = 2;
+const graceLimit = new Date(lastmodDay.getTime() + GRACE_DAYS * 86400000);
 if (commitDay <= lastmodDay) {
   console.log("\nSitemap lastmod is current.");
+  process.exit(0);
+}
+if (commitDay <= graceLimit) {
+  console.log(`\nSitemap lastmod is within ${GRACE_DAYS} day(s) of the newest change (squash-merge lag) — OK.`);
   process.exit(0);
 }
 

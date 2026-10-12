@@ -57,7 +57,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you require a contract?</summary>
-              <div className="faq-a">No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.</div>
+              <div className="faq-a">There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How quickly can you schedule service?</summary>
@@ -73,7 +73,7 @@ export default function FaqPage() {
           <div className="faq-list-wide">
             <details className="faq-item">
               <summary className="faq-q">How much does pest control cost?</summary>
-              <div className="faq-a">Bi-monthly perimeter pest control is $35/mo on ACH autopay, or $70 per visit if you prefer pay-as-you-go bi-monthly. That covers 30+ common pests with unlimited free re-services between visits. {ACH_TERMS}</div>
+              <div className="faq-a">Bi-monthly perimeter pest control is $35/mo on ACH autopay, or $70 per visit if you prefer pay-as-you-go bi-monthly. That covers 30+ common pests with free re-services between visits. {ACH_TERMS}</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>

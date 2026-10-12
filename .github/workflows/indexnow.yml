@@ -1,0 +1,57 @@
+name: IndexNow
+
+# Tells Bing the site changed, via IndexNow.
+#
+# WHY THIS EXISTS
+# -----------------------------------------------------------------------------
+# ChatGPT's web search runs on Bing's index. The Sep 16 AI-citation probe found
+# envirocarellc.com cited in 15 of 25 prompts on Gemini (Google-grounded) and
+# 1 of 25 on ChatGPT. Google finds this site; Bing largely does not, and until
+# now nothing ever told Bing a page had changed.
+#
+# Runs AFTER a push to main rather than before, because the script verifies the
+# key file is live on the production host before it submits anything — so it has
+# to run once the deploy that publishes that file has landed. On the very first
+# run, if Vercel has not finished deploying, the job fails loudly with "key file
+# returned HTTP 404" rather than submitting against a key Bing cannot verify.
+# Re-run it from the Actions tab once the deploy is green.
+#
+# The Monday schedule is a backstop, not the main path: it re-confirms the full
+# sitemap even in a week with no deploys. IndexNow is explicitly idempotent —
+# resubmitting an unchanged URL is allowed and simply re-confirms it.
+#
+# NOT A SUBSTITUTE FOR BING WEBMASTER TOOLS. IndexNow proves ownership by key
+# file and gets URLs in front of Bing, but registering the domain in Bing
+# Webmaster Tools needs a Microsoft login and is a human step. Without it this
+# still works; with it, it works considerably better.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '23 14 * * 1' # Mondays 14:23 UTC — off the hour on purpose
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  # A burst of merges should produce one submission, not five racing ones.
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Wait for the deploy to publish
+        # A push-triggered run can beat Vercel to the finish. The script's own
+        # key-file check is the real gate; this just avoids failing the common
+        # case on a race.
+        run: sleep 90
+      - name: Submit sitemap URLs to IndexNow
+        run: node scripts/indexnow-submit.mjs

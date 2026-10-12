@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { skipIfDuplicateProject } from "@/lib/cron-guard";
 import { run as runSiteReviewer } from "@/agents/site-reviewer.mjs";
 
 // The agent self-chunks (N pages per invocation, cursor in Supabase
@@ -7,6 +8,8 @@ import { run as runSiteReviewer } from "@/agents/site-reviewer.mjs";
 export const maxDuration = 300;
 
 async function execute(req: NextRequest) {
+  const duplicate = skipIfDuplicateProject("site-reviewer"); // see lib/cron-guard.ts
+  if (duplicate) return duplicate;
   const secret = process.env.CRON_SECRET;
   if (secret && req.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

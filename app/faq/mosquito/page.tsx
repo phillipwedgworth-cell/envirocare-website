@@ -118,7 +118,7 @@ const FAQS = [
   },
   {
     q: "What if mosquitoes come back before the next visit?",
-    a: "Call us. We come back free. Unlimited re-service is our standard policy for all plans — not a premium upgrade. If the barrier breaks down before 21 days due to heavy rain or unusual conditions, we treat again at no charge.",
+    a: "Call us. We come back free. Free re-service is our standard policy for all plans — not a premium upgrade. If the barrier breaks down before 21 days due to heavy rain or unusual conditions, we treat again at no charge.",
   },
   {
     q: "Do you treat standing water?",

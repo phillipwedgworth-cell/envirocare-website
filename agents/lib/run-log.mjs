@@ -37,7 +37,11 @@ export async function logRunREST(agentName, status, output) {
         agent_name: agentName,
         agent: agentName,
         status,
-        output: String(output ?? "").slice(0, 2000),
+        // An object passed here used to be String()-ed into "[object Object]", so
+        // captivated-suppress-sync logged 13+ days of unreadable rows (Sunday audit
+        // 2026-10-04). Serialize objects; keep strings as they are.
+        output: (output !== null && typeof output === "object"
+          ? JSON.stringify(output) : String(output ?? "")).slice(0, 2000),
         // This logger fires once, at the end of a run. Stamp start AND end so
         // readers that filter on started_at (the watchdog's cadence check, ad-hoc
         // audits) see the row. Sep 4 2026: rows with started_at NULL made a

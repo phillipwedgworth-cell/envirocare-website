@@ -25,6 +25,14 @@ _newpost_tmp*
 data/_newpost_tmp*
 data/*.bak-precontent-*
 
+# GA4 snapshots are build artifacts, never committed (public repo; leaked the /approve key — PR #222). 2026-10-07
+monitoring/ga4-latest.json
+monitoring/ga4-history.csv
+
+# content-refresh agent run manifest (PR body source; regenerated each run)
+agents/.content-refresh-manifest.json
+agents/.blog-drafts-manifest.json
+
 # Python bytecode from local script runs
 __pycache__/
 *.pyc

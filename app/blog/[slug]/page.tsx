@@ -4,6 +4,7 @@
 // Commit: feat(aeo): emit BlogPosting + BreadcrumbList JSON-LD on all 30 blog posts
 // Push: main
 // ─────────────────────────────────
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import { getPostBySlug, getPublishedPosts, isPublished } from '@/data/blog-posts';
 import BlogPostPage from '@/components/BlogPostPage';
 import { notFound } from 'next/navigation';
@@ -28,7 +29,7 @@ export async function generateMetadata({
   if (!post || !isPublished(post)) {
     return { title: 'Post Not Found | EnviroCare', robots: { index: false, follow: false } };
   }
-  return {
+  return withOpenGraph({
     title: post.metaTitle,
     description: post.metaDescription,
     alternates: { canonical: `/blog/${post.slug}` },
@@ -39,8 +40,14 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author],
+      // Per-post link-preview card. Without this every post fell back to the
+      // site-wide /og-image.png (withOpenGraph default), so shared articles all
+      // looked identical. Posts with no heroImage still get that default.
+      ...(post.heroImage
+        ? { images: [{ url: post.heroImage.og, width: 1200, height: 630, alt: post.heroImage.alt }] }
+        : {}),
     },
-  };
+  });
 }
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com';
@@ -66,6 +73,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
             headline: post.title.slice(0, 110),
             description: post.metaDescription,
+            ...(post.heroImage ? { image: `${SITE}${post.heroImage.og}` } : {}),
             articleSection: post.category,
             wordCount: post.body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
             timeRequired: `PT${post.readMinutes}M`,
@@ -75,14 +83,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             author: {
               '@type': 'Person',
               name: post.author,
-              worksFor: { '@type': 'Organization', name: 'EnviroCare' },
+              worksFor: { '@id': 'https://www.envirocarellc.com/#organization' },
             },
-            publisher: {
-              '@type': 'Organization',
-              name: 'EnviroCare',
-              url: SITE,
-              logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` },
-            },
+            // Reference the canonical Organization node emitted by app/layout.tsx
+            // (name, legalName, logo) instead of a partial node with a
+            // different name. Same fix as #179 on service/office pages.
+            publisher: { '@id': 'https://www.envirocarellc.com/#organization' },
             isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog#blog`, name: 'EnviroCare Pest Control Blog' },
           },
           {

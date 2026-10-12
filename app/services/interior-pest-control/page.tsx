@@ -10,10 +10,11 @@
 // $100–$175/visit; Terminix leads with interior+exterior framing. $98 is a
 // price-leadership position — this page says so without naming competitors.
 
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Interior + Exterior Pest Control in Alabama | EnviroCare",
   description:
     "Quarterly inside-and-outside pest control for Alabama homes — $98 per quarter. Add flea treatment for $30 more. Family-owned since 1958.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
       "Quarterly inside-and-outside protection — $98/quarter. Flea treatment add-on available.",
     type: "website",
   },
-};
+});
 
 const BRAND_GREEN = "#0A7935";
 const FOREST = "#0A7935";
@@ -179,7 +180,7 @@ export default function InteriorPestControlPage() {
               <li>Full exterior perimeter every visit</li>
               <li>30+ Alabama pests covered</li>
               <li>You don't need to be home</li>
-              <li>Unlimited re-service between visits</li>
+              <li>Free re-service between visits</li>
             </ul>
             <Link
               href="/services/pest-control"
@@ -254,7 +255,8 @@ export default function InteriorPestControlPage() {
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: 14, maxWidth: 820, margin: "0 auto" }}>
             {[
-              { city: "Birmingham", phone: "(205) 940-6360", tel: "2059406360" },
+              { city: "Birmingham", phone: "(205) 991-2882", tel: "2059912882" },
+              { city: "Alabaster", phone: "(205) 940-6360", tel: "2059406360" },
               { city: "Alex City / Lake Martin", phone: "(256) 234-6162", tel: "2562346162" },
               { city: "Huntsville", phone: "(256) 937-7676", tel: "2569377676" },
               { city: "Auburn", phone: "(334) 332-3321", tel: "3343323321" },

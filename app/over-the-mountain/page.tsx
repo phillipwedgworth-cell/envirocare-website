@@ -3,10 +3,10 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 export const metadata = {
   alternates: { canonical: '/over-the-mountain' },
   title: "Over the Mountain Pest Control | EnviroCare",
-  description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
+  description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 991-2882.",
   openGraph: {
     title: "Over the Mountain Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
+    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 991-2882.",
     url: 'https://www.envirocarellc.com/over-the-mountain',
     images: ['/og-image.png'],
     type: 'website',
@@ -14,7 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Over the Mountain Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 940-6360.",
+    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
@@ -88,7 +88,7 @@ const cfg: ClusterConfig = {
   "faqs": [
     {
       "q": "Do you serve all the Over the Mountain suburbs?",
-      "a": "Yes — Vestavia Hills, Mountain Brook, Homewood, Hoover and their neighborhoods are on our daily Birmingham-metro routes out of our Birmingham / Alabaster office on Butler Rd. Call (205) 940-6360 and we'll confirm your address."
+      "a": "Yes — Vestavia Hills, Mountain Brook, Homewood, Hoover and their neighborhoods are on our daily Birmingham-metro routes out of our Birmingham office. Call (205) 991-2882 and we'll confirm your address."
     },
     {
       "q": "Can you treat termites in an older home without drilling?",
@@ -96,7 +96,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "How much does pest control cost Over the Mountain?",
-      "a": "Our bi-monthly perimeter program is $35/month on ACH, or $70 per bi-monthly visit — 30+ pests covered, unlimited free re-services between visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts."
+      "a": "Our bi-monthly perimeter program is $35/month on ACH, or $70 per bi-monthly visit — 30+ pests covered, free re-services between visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts."
     },
     {
       "q": "When does mosquito season run here?",

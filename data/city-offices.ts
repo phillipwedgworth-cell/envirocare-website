@@ -38,7 +38,6 @@ const HUNTSVILLE_SLUGS = [
   'madison-mosquito-control',
   'madison-termite-control',
   'madison-commercial-pest-control',
-  'decatur-pest-control',
   'decatur-exterminator',
   'decatur-mosquito-control',
   'decatur-termite-control',
@@ -116,7 +115,14 @@ export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
   ...(['birmingham', 'hoover', 'vestavia-hills', 'mountain-brook', 'homewood',
        'trussville', 'irondale', 'leeds', 'moody', 'fultondale', 'bessemer', 'mccalla', 'gardendale',
        'crestline', 'english-village', 'cherokee-bend', 'cahaba-heights',
-       'mountain-brook-village', 'liberty-park'] as const)
+       'mountain-brook-village', 'liberty-park',
+       // Added 2026-09-29 (sweep 0008). Each of these renders (205) 991-2882 in its
+       // own body copy but was unmapped, so the sitewide header fell back to the
+       // 940-6360 default -- header and body disagreeing on the same page.
+       'best-pest-control-birmingham', 'birmingham-exterminator',
+       'birmingham-mosquito-control', 'birmingham-termite-control',
+       'east-birmingham', 'north-birmingham', 'over-the-mountain',
+       'vestavia-hills-mosquito-control'] as const)
       .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
   ...(['chelsea', 'greystone', 'mt-laurel', 'inverness', 'brook-highland',
        'meadow-brook', 'eagle-point', 'highland-lakes', 'chelsea-park'] as const)
@@ -139,6 +145,18 @@ function slugForPath(pathname: string): string | null {
   const parts = pathname.split('/').filter(Boolean);
   if (parts.length === 0) return null;
   return parts[0] === 'service-areas' && parts[1] ? parts[1] : parts[0];
+}
+
+/**
+ * True when this pathname maps to a specific office or service-city line
+ * (i.e. phoneForPath is NOT falling back to the default). Used by
+ * lib/use-office-phone.ts to remember the visitor's office across the
+ * neutral quote/pricing/contact pages.
+ */
+export function hasOwnOffice(pathname: string): boolean {
+  const slug = slugForPath(pathname);
+  if (!slug) return false;
+  return Boolean(SERVICE_CITY_SLUGS[slug]) || CITY_OFFICE[slug] !== undefined;
 }
 
 /**

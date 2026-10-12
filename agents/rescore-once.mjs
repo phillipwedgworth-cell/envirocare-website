@@ -3,7 +3,7 @@
 // monthly query quota. Safe to delete after the 48-hour test window.
 import { scoreContent, getQuery } from './lib/neuronwriter.mjs';
 
-const BASE = 'https://envirocare-web.vercel.app';
+const BASE = 'https://www.envirocarellc.com';
 const MAP = [
   ['/services/pest-control', '91101ac660291e21', 28],
   ['/services/termite-control', '007b68fa1fca87be', 42],

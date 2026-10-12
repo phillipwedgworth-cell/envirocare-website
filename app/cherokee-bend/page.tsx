@@ -5,10 +5,11 @@
 // Push: main
 // ───────────────────────────────────
 
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Cherokee Bend AL | EnviroCare Since 1958",
   description: "Family-owned pest, Sentricon® termite, and mosquito service for Cherokee Bend homes. No drilling, $1M coverage, two ways to pay. (205) 991-2882.",
   alternates: { canonical: "/cherokee-bend" },
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/cherokee-bend",
     type: "website",
   },
-};
+});
 
 const cfg: NeighborhoodConfig = {
   name: "Cherokee Bend",
@@ -87,7 +88,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       q: "Is there a long-term contract?",
-      a: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
+      a: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
     },
   ],
   nearby: [

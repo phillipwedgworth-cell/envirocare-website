@@ -159,6 +159,9 @@ export async function run() {
 - Duplicates across agents are merged into one proposal.
 - "THIS CYCLE'S ONE THING" names a single concrete highest-leverage item.`;
 
+  // One agent_runs row per run: an escalated run is logged once, as
+  // 'escalated' — never followed by an 'ok' row that hides it (Sep 27 audit N1).
+  let escalated = false;
   const final = criticDraft(await criticLoop({
     workerName: AGENT_NAME,
     task: "Consolidate this cycle's agent findings into a ranked, deduped set of proposed SITE + SEO changes for EnviroCare",
@@ -167,7 +170,7 @@ export async function run() {
     revise: (fb) => draft(fb),
     onEscalate: async (out) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
-      await logAgentRun(AGENT_NAME, "escalated", out).catch(() => {});
+      escalated = true;
     },
   }));
 
@@ -189,7 +192,7 @@ export async function run() {
     .map((l) => l.replace(/^\s*\d+\.\s*/, "").slice(0, 160));
   await stateSet(`${AGENT_NAME}:last_proposals`, { items: whatLines, date: new Date().toISOString() }).catch(() => {});
 
-  await logAgentRun(AGENT_NAME, "ok", final).catch(() => {});
+  await logAgentRun(AGENT_NAME, escalated ? "escalated" : "ok", final).catch(() => {});
   console.log(`[${AGENT_NAME}] Done — ${whatLines.length} proposals`);
   return final;
 }

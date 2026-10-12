@@ -1,7 +1,10 @@
 name: Blog writer (2 articles/day → PR → Vercel preview → Phillip merges)
 on:
-  schedule:
-    - cron: '0 12 * * *'   # daily 12:00 UTC (7am CT)
+  # PAUSED 2026-10-01: 0 articles written since at least Sep 23 (agent_runs),
+  # failed every run since Sep 28 with 3 topics parked by compliance. Re-enable
+  # once a manual workflow_dispatch run writes >= 1 article.
+  # schedule:
+  #   - cron: '0 12 * * *'   # daily 12:00 UTC (7am CT)
   workflow_dispatch:
     inputs:
       count:

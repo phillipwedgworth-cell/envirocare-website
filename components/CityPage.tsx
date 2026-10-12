@@ -154,7 +154,7 @@ export default function CityPage({ city }: { city: CityData }) {
           }}>
             <ServiceCard ribbon="Most Popular" icon="🛡️" title="Pest Control" price="$35" priceUnit="/mo ACH · or $70 bi-monthly"
               desc={`Year-round defense against 30+ ${city.name} pests. Bi-monthly perimeter service.`}
-              bullets={["Interior + exterior perimeter", "Unlimited free re-services", "Fire ant treatment from $150", "Interior plan $98/quarter"]} />
+              bullets={["Interior + exterior perimeter", "Free re-services", "Fire ant treatment from $150", "Interior plan $98/quarter"]} />
             <ServiceCard ribbon="$1M Coverage" icon="🪵" title="Termite (Sentricon®)" price="Quote" priceUnit="after free WDO inspection"
               desc="Sentricon® Always Active™ stations. No drilling, no tank trucks. Up to $1M damage repair coverage, subject to the terms of the agreement."
               bullets={["Free full-home inspection", "Annual inspection included", "Crawlspace + pier coverage", "Continuous monitoring"]} />

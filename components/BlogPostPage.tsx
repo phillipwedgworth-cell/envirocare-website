@@ -1,6 +1,7 @@
 'use client';
 
 import { getPostBySlug } from '@/data/blog-posts';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -22,7 +23,20 @@ export default function BlogPostPage({ slug }: { slug: string }) {
               <span className="bpp-cat">{post.category}</span>
               <span className="bpp-time">{post.readMinutes} min read</span>
             </div>
-            <div className="bpp-emoji">{post.heroEmoji}</div>
+            {post.heroImage ? (
+              <div className="bpp-hero-img">
+                <Image
+                  src={post.heroImage.src}
+                  alt={post.heroImage.alt}
+                  width={post.heroImage.width}
+                  height={post.heroImage.height}
+                  sizes="(max-width: 860px) 100vw, 820px"
+                  priority
+                />
+              </div>
+            ) : (
+              <div className="bpp-emoji">{post.heroEmoji}</div>
+            )}
             <h1 className="bpp-title">{post.title}</h1>
             <p className="bpp-excerpt">{post.excerpt}</p>
             <div className="bpp-byline">
@@ -42,8 +56,8 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             <h2 className="bpp-cta-title">Ready to Schedule?</h2>
             <p className="bpp-cta-sub">Call the EnviroCare office nearest you.</p>
             <div className="bpp-cta-phones">
-              <a href="tel:2059406360" className="bpp-cta-phone">
-                <strong>Birmingham</strong>(205) 940-6360
+              <a href="tel:2059912882" className="bpp-cta-phone">
+                <strong>Birmingham</strong>(205) 991-2882
               </a>
               <a href="tel:2059406360" className="bpp-cta-phone">
                 <strong>Alabaster</strong>(205) 940-6360
@@ -107,6 +121,17 @@ const POST_CSS = `
   font-size: 13px;
   color: #5A6660;
 }
+.bpp-hero-img {
+  margin: 20px 0 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #07642B;
+  box-shadow: 0 0 0 3px rgba(245,168,0,.85), 0 18px 40px rgba(0,0,0,.28);
+}
+@media (max-width: 640px) {
+  .bpp-hero-img { margin: 14px -4px 18px; border-radius: 12px; }
+}
+.bpp-hero-img img { display: block; width: 100%; height: auto; }
 .bpp-emoji {
   font-size: 64px;
   margin-bottom: 20px;
@@ -175,6 +200,9 @@ const POST_CSS = `
 }
 .bpp-body strong { color: #0E1A0F; }
 .bpp-body em { font-style: italic; }
+.bpp-body .post-fig { margin: 1.8em 0 2em; }
+.bpp-body .post-fig img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid #E3E8E4; }
+.bpp-body .post-fig figcaption { margin-top: 8px; font-size: 13px; line-height: 1.5; color: #5A6660; }
 .bpp-body a {
   color: #0A7935;
   font-weight: 600;

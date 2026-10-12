@@ -1,5 +1,42 @@
 # EnviroCare — read this first
 
+> ## 🟢 CURRENT STATE — Sep 29, 2026 (read this block; everything below it is dated history)
+>
+> **Start here, in this order:**
+> 1. `claude/EnviroCare-Actions-Log-2026-09-29.md` — what Claude changed live on Sep 29 (Google profiles, OneUp, Supabase), each with its before-value and undo.
+> 2. `claude/EnviroCare-Sweep-Findings-2026-09-28.md` — the latest weekly sweep (60 open items). Its CLOSED/corrections are updated in the Sep 29 log.
+> 3. `claude/EnviroCare-Handoff-For-Claude-Code-0008.md` — patch 0008 (site + agent fixes).
+> 4. `claude/EnviroCare-Agent-Consolidation-Plan-Sep27.md` — the roster and Phillip's decisions.
+>
+> **Phillip's standing rule (Sep 27):** *"every time you work on something you say fixed and it is not."* Never write "fixed" or "done" unless you re-read it at the source afterward. Code on `main` isn't "live" until the Vercel production deployment on that commit is READY, and not "working" until the agent's next run shows it.
+>
+> **Verified facts (Sep 29) — don't re-derive:**
+> - **Office phones:** Alabaster (2025 Butler Rd) **(205) 940-6360** · Birmingham (2120 16th Ave S Ste 302) **(205) 991-2882** · Alex City / Lake Martin **(256) 234-6162** · Huntsville **(256) 937-7676** · Auburn/Opelika direct line (334) 332-3321 → Alex City. **940-6360 is never labelled Birmingham** — `npm run test:citynap` section 6 enforces it (patch 0008).
+> - **Repo / production:** `main` = `7bb0495` (PR #215, patch 0008), production deployment READY 2026-09-29. PR #214 (`0d58428`, the roster / patch 0007) and PR #212 (`77b3144`) are landed. **Patch 0008 IS landed** — reconstructed rather than `git am`'d, because the .patch truncated at 50,000 chars in chat twice; see the PR #215 body for what was applied verbatim vs rebuilt.
+> - **Push access:** cloud sessions are **blocked** (git proxy 403, re-checked Sep 29). Claude Code on Desktop can push.
+> - **Google profiles:** Local Falcon can edit Huntsville, Alabaster and Alex City live (`updateLocalFalconGbpProfile`, `manageLocalFalconGbpServices`). **Birmingham is not connected** in either Local Falcon account. BrightLocal's API is **read-only** here, so BrightLocal's stored copy can lag Google — see the Sep 29 log.
+> - **Local Falcon:** `4ee47a23fc4793e` measured **Alabaster** through 09-18 and measures **Birmingham** from 10-02 — don't compare SoLV across that date. `51d824c315edded` = Alabaster (first run 10-02). Read `run_data.scans[].location.address`, never the campaign name. `seo-snapshot`'s `run_date` is the last Local Falcon run, not GSC.
+> - **Approvals:** GPT drafts in **OneUp**; the Monday sweep checks; Phillip approves in OneUp. The `approval_queue` path is retired and was emptied Sep 29 (87 rows → `skip`, with notes).
+> - **Findings:** `agent_findings` open = 202 on Sep 29 (0 critical). Only live harm (listing text, wrong/dead phone, banned claims on public surfaces, exposed routes, non-200 pages) should ever be critical.
+> - **Desktop tasks** (`C:\` folders) need Desktop approval for prompt changes; on/off needs none. Chatbot review is **switched off** until its new prompt is approved (the old one wipes the chat log).
+>
+> **Open, needs Phillip:** approve the Local Falcon weekly + chatbot review prompts on Desktop · rotate the Fieldster key · turn off the LangGraph ☀️ email · in BrightLocal, **accept** (don't reject) the change alerts Claude's Sep 29 Google edits create · clear the 8 banned phrases in BrightLocal listing copy (AGENTS.md open issue 7 — not fixable from the repo) · rulings: founder wording, blog termite price ranges, WDO "free vs $125", "EnviroCare Pest Services" in posts, retired name in `alternateName`.
+>
+> This file must be byte-identical in the repo (`claude/00-MANIFEST-READ-FIRST.md`) and the project.
+>
+> **Deviation from the patch's copy of this block, recorded on purpose:** the patch text said `main` = `77b3144` and "Patch 0008 is **not** landed", and listed "land patch 0008" as open. Landing the patch is what made those false, so writing them verbatim would have put a known-stale fact at the top of the file people are told to read first.
+
+---
+
+## (History) Sep 27 block, superseded by Sep 29 above
+
+> - `main` was recorded as `b10eb65` and patch 0007 as "not landed" — both were already out of date by that evening (PR #212 and PR #214 merged Sep 27).
+> - The Huntsville "Auburn" GBP edit, then pending, was accepted instead of rejected; Claude re-submitted the approved description on Sep 29. **Not live yet:** re-read at 02:3x UTC Sep 29, the owner copy has the new text but Google flags it `hasPendingEdits: true`, and Google's public version still shows the Auburn text. It counts as fixed only once `getLocalFalconGbpGoogleUpdates` shows the new text.
+
+---
+
+## (History) v4 — Aug 11, 2026
+
 **v4 — Aug 11, 2026.** This file replaces the **v2** copy that was sitting in the Claude
 project until today.
 

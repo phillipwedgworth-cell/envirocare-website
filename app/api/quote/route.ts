@@ -22,6 +22,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { cleanEnv } from "@/lib/env-url";
+import { officeForZip } from "@/data/zip-to-office";
 
 export const dynamic = "force-dynamic";
 
@@ -86,8 +87,15 @@ type Office = {
 
 const OFFICES: Record<string, Office> = {
   birmingham: {
-    name: "Birmingham / Alabaster",
+    // The Alabaster office (2025 Butler Rd) — the main line. Was labelled
+    // "Birmingham / Alabaster" until 2026-09-29.
+    name: "Alabaster",
     phone: "(205) 940-6360",
+    email: "service@envirocarellc.com",
+  },
+  birminghamDowntown: {
+    name: "Birmingham",
+    phone: "(205) 991-2882",
     email: "service@envirocarellc.com",
   },
   lakeMartin: {
@@ -127,8 +135,12 @@ function routeByZip(zip: string): Office {
   // Auburn / Opelika
   if (z >= 36830 && z <= 36832) return OFFICES.auburn;
 
-  // Default -> Birmingham
-  return OFFICES.birmingham;
+  // Birmingham metro: Jefferson/St Clair ZIPs -> the 16th Ave S Birmingham
+  // office, everything else -> the Alabaster main line. Same split as
+  // data/zip-to-office.ts (the ZIP lookup customers see).
+  return officeForZip(zip).id === "birmingham-downtown"
+    ? OFFICES.birminghamDowntown
+    : OFFICES.birmingham;
 }
 
 // ============================================================

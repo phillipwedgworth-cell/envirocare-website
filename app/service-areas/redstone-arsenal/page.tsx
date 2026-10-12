@@ -1,3 +1,4 @@
+import { withOpenGraph } from '@/lib/seo/open-graph';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
@@ -20,7 +21,7 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  * Office: Huntsville, (256) 937-7676
  */
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Near Redstone Arsenal | Cummings Research Park",
   description:
     "Commercial pest control for businesses near Redstone Arsenal and Cummings Research Park. Family-owned since 1958. Call (256) 937-7676.",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://www.envirocarellc.com/service-areas/redstone-arsenal",
     type: "website",
   },
-};
+});
 
 const G = "#0A7935";
 const D = "#07642B";
@@ -146,7 +147,7 @@ export default function RedstoneArsenalPage() {
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Commercial · Huntsville Office · Since 1958</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
-              Pest, Rodent &amp; Wasp Control<br />
+              Pest, Rodent &amp; Wasp Control{" "}<br />
               <span style={{ color: Au, fontStyle: "italic", fontWeight: 700 }}>near Redstone Arsenal</span>
             </h1>
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 620, marginBottom: "2.2rem" }}>

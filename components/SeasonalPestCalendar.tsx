@@ -112,9 +112,10 @@ export default function SeasonalPestCalendar() {
       <style dangerouslySetInnerHTML={{ __html: PEST_CAL_CSS }} />
       <div className="spc-inner">
         <div className="spc-eyebrow">🌻 Alabama Pest Calendar</div>
-        <h2 className="spc-title">
+        {/* h1, not h2: this component is the whole /pest-calendar page, which had no H1 (sweep 2026-09-28). */}
+        <h1 className="spc-title">
           What&apos;s in Your Yard <em>Right Now</em>?
-        </h2>
+        </h1>
         <p className="spc-sub">
           Alabama&apos;s pest pressure shifts month by month. Here&apos;s what our technicians are treating across Birmingham, Lake Martin and Huntsville this {MONTH_NAMES[month]}.
         </p>

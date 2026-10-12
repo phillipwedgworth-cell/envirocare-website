@@ -2,7 +2,7 @@
 // viewport on the live homepage (mobile overflow debugging).
 import { chromium } from 'playwright-core';
 
-const URL = process.argv[2] ?? 'https://envirocare-web.vercel.app/';
+const URL = process.argv[2] ?? 'https://www.envirocarellc.com/';
 const browser = await chromium.launch({
   channel: 'chrome',
   headless: true,

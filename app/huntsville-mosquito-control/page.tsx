@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
   description:
-    "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
+    "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a seasonal yard treatments, March–October, $45/month for an average-size yard. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-mosquito-control',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
-    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
+    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a seasonal yard treatments, March–October, $45/month for an average-size yard. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
-    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a 30-day yard barrier. March–October, $45/month. Call (256) 937-7676.",
+    description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a seasonal yard treatments, March–October, $45/month for an average-size yard. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };
@@ -31,44 +31,44 @@ const c: ComboContent = {
   h1: "Mosquito Control in Huntsville,",
   h1Accent: "Built for the Tennessee Valley.",
   intro: [
-    "Huntsville's growth has a side effect nobody puts in the relocation brochure: every new subdivision adds retention ponds, and every retention pond feeds the Tennessee Valley's already-relentless mosquito population. Add Beaverdam Creek, the Hampton Cove water features, and Aldridge Creek through south Huntsville, and the season runs hard from March to October.",
-    "EnviroCare's Huntsville office on Old Madison Pike has run mosquito routes across Madison County since the program existed — Providence to Big Cove, Jones Valley to Research Park. A familiar local team, every 30 days through the season.",
+    "Huntsville's growth has a side effect nobody puts in the relocation brochure: stormwater ponds and neighborhood drainage areas may create mosquito habitat under suitable conditions. Add Beaverdam Creek, the Hampton Cove water features, and Aldridge Creek through south Huntsville, and the season runs hard from March to October.",
+    "EnviroCare's Huntsville office on Old Madison Pike has run mosquito routes across Madison County since the program existed — Providence to Big Cove, Jones Valley to Research Park. Our local team performs generally eight scheduled seasonal treatments from March through October.",
   ],
   anglesHeading: "Huntsville's mosquito map, street by street",
   localAngles: [
     {
       title: "Retention ponds in new subdivisions",
-      body: "Providence, MidCity-area developments, and the subdivisions feeding Research Park all drain into engineered ponds — permanent breeding habitat 200 feet from your patio. The 30-day barrier intercepts what the pond produces.",
+      body: "Providence, MidCity-area developments, and the subdivisions feeding Research Park all drain into engineered ponds — potential mosquito habitat near residential yards. Our program targets resting areas on your property; it cannot stop mosquitoes arriving from elsewhere.",
     },
     {
       title: "Beaverdam & Aldridge Creek corridors",
-      body: "Creek-line homes in Jones Valley and south Huntsville face corridor pressure that never stops mid-season. We treat the resting zones — shaded foliage, fence lines, under-deck areas — where adults wait out the heat.",
+      body: "Creek-line homes in Jones Valley and south Huntsville face mosquito activity during warm months. We focus on resting zones — shaded foliage, fence lines, under-deck areas — where adults wait out the heat.",
     },
     {
       title: "Hampton Cove water features",
-      body: "The Cove's lakes, golf-course water, and Flint River frontage make it Huntsville's heaviest mosquito zone. It's also where we bundle the most tick control — the wooded lots carry both.",
+      body: "The Cove's lakes, golf-course water, and Flint River frontage can affect mosquito activity in nearby yards. Tick coverage is also available for wooded lots — the wooded lots carry both.",
     },
     {
       title: "Monte Sano shade lines",
-      body: "Mountain-shadow neighborhoods hold morning damp longer, extending daily mosquito activity hours. Barrier timing accounts for it.",
+      body: "Mountain-shadow neighborhoods hold morning damp longer, where shaded resting sites may warrant attention in a yard assessment.",
     },
   ],
   price: {
     label: "Huntsville Mosquito Program",
     amount: "$45/month",
-    sub: "March through October · every 30 days",
+    sub: "8 seasonal treatments · monthly ACH payments across the year",
     bullets: [
       "Barrier treatment of resting + harborage zones",
       "Standing-water inspection every visit",
-      "Free re-treatment if heavy rain cuts a cycle short",
-      "Tick + chigger coverage available in Mosquito + Tick ($65/month)",
-      "50% off your first application",
+      "Ask our team about concerns after rain or a treatment",
+      "Mosquito + Tick option includes tick and chigger yard coverage ($65/month)",
+      "Firm yard-specific price confirmed after inspection",
     ],
   },
   faqs: [
     {
       q: "How bad is mosquito season in Huntsville really?",
-      a: "The Tennessee Valley's humidity, creek network, and retention-pond growth give Madison County one of the longest mosquito seasons in the state — late March into October. The 30-day cycle matches adult mosquito lifespan so populations never rebuild between visits.",
+      a: "Mosquito activity in the Tennessee Valley is affected by temperature, rainfall and standing water. Our recurring program generally provides eight treatments March through October. It aims to reduce mosquito activity, not eliminate every mosquito.",
     },
     {
       q: "Do you treat Hampton Cove and Big Cove?",
@@ -76,11 +76,11 @@ const c: ComboContent = {
     },
     {
       q: "When can kids and pets go back outside?",
-      a: "Once the application dries, typically 30–45 minutes. EPA-registered products applied per label directions; we skip vegetable gardens and blooming pollinator plants.",
+      a: "Our technicians apply EPA-registered products according to their labels. Follow the specific re-entry and application instructions given by your technician rather than relying on a universal number of minutes.",
     },
     {
       q: "What if it rains right after my treatment?",
-      a: "Heavy rain within 24 hours? Call us and we re-treat free. We also track the radar and proactively reschedule when a washout is forecast for your service window.",
+      a: "Call our Huntsville office if you notice concerns after rain or a scheduled application. We can review the service record and treatment conditions, then explain whether additional attention is appropriate.",
     },
   ],
   office: { name: "Huntsville Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },

@@ -18,6 +18,15 @@
 | Google reviews — Alex City | 12 · 4.9★ | 40 in 90 days | Same review-velocity issue |
 | Mobile PageSpeed | passing | maintain | CWV passing since Jul 2026 |
 | Blog posts live | 36 (43 pending merge) | 50 by Oct | 7 recovery articles in unmerged blog pack |
+
+> ⚠️ **History only — do not compute changes from these SoLV figures (2026-10-05).**
+> They were measured on grids and campaigns that have since been replaced:
+> Alabaster's 3.39% is the old 9x9 / 20-mile grid on `4ee47a23fc4793e`
+> (Alabaster through 2026-09-18, Birmingham from 2026-10-02); Alabaster's current
+> series is `51d824c315edded`, starting 2026-10-02. Subtracting one from the other
+> produced the false "Alabaster +25 pts" brief on 10-02 and 10-03. Current SoLV
+> comes only from the brief's SCOREBOARD block (`lf_visibility`, latest run).
+
 | City pages live | ~45 | hold | Phase A complete; Phase B deferred |
 
 ## Site is LIVE — DNS flipped Jun 29, 2026
