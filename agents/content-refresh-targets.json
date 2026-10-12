@@ -61,7 +61,7 @@
       }
     }
   ],
-  "_sections_comment": "Extra keyword sections on EXISTING pages (key <route>#<slug>), added 2026-10-12 from the NeuronWriter gap audit: keywords that already have a READY NeuronWriter query but no page answering them. Same gates as the main pass. Small towns with no page (Columbiana, Harpersville, Westover, Wilsonville, Jacksons Gap) are deliberately NOT here: a thin town page is worse than none (AGENTS.md 'Do not propose more content as the fix').",
+  "_sections_comment": "Extra keyword sections on EXISTING pages (key <route>#<slug>), added 2026-10-12 from the NeuronWriter gap audit: keywords that already have a READY NeuronWriter query but no page answering them. Same gates as the main pass. Small towns with no page (Columbiana, Harpersville, Westover, Wilsonville, Jacksons Gap) are deliberately NOT here: a thin town page is worse than none (AGENTS.md 'Do not propose more content as the fix'). /services/termite-control#insurance dropped 2026-10-12: /blog/homeowners-insurance-termite-damage-alabama answers that keyword; a second section on the service page would compete with it.",
   "sections": [
     {
       "route": "/alabaster",
@@ -102,11 +102,6 @@
       "route": "/birmingham-termite-control",
       "slug": "wdo",
       "keyword": "wdo inspection birmingham al"
-    },
-    {
-      "route": "/services/termite-control",
-      "slug": "insurance",
-      "keyword": "does homeowners insurance cover termite damage alabama"
     },
     {
       "route": "/services/termite-control",
