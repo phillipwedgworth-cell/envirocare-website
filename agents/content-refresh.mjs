@@ -106,9 +106,11 @@ function builtHtml(route) {
 function meta(html, re) { const m = html.match(re); return m ? m[1].replace(/&amp;/g, '&').replace(/&#x27;/g, "'") : ''; }
 // Page body reduced to the semantic tags NeuronWriter scores, minus site chrome,
 // the lead form, and any existing refresh section (it is being replaced).
-function scorableHtml(html) {
+function scorableHtml(html, dropKey = null) {
   let b = (html.match(/<body[^>]*>([\s\S]*)<\/body>/) || [, html])[1];
-  b = b.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>|<header[\s\S]*?<\/header>|<footer[\s\S]*?<\/footer>|<nav[\s\S]*?<\/nav>|<form[\s\S]*?<\/form>|<section data-page-refresh[\s\S]*?<\/section>/g, ' ');
+  b = b.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>|<header[\s\S]*?<\/header>|<footer[\s\S]*?<\/footer>|<nav[\s\S]*?<\/nav>|<form[\s\S]*?<\/form>/g, ' ');
+  // Drop only the section being replaced; a page's other refresh sections are live copy.
+  if (dropKey) b = b.replace(new RegExp(`<section data-page-refresh="${dropKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[\\s\\S]*?<\\/section>`, 'g'), ' ');
   b = b.replace(/<(?!\/?(h1|h2|h3|p|li|ul)\b)[^>]+>/g, ' ').replace(/<(h1|h2|h3|p|li|ul)[^>]*>/g, '<$1>');
   return b.replace(/\s+/g, ' ').trim();
 }
@@ -199,6 +201,44 @@ function openQuestions(q) {
   const qs = [...Object.keys(q.ideas?.topic_matrix || {}), ...(q.ideas?.people_also_ask || []).map((x) => x.q)];
   return [...new Set(qs)].filter((x) => !BANNED_TERM.test(x)).slice(0, 10);
 }
+// Drafting rotates across Claude, GPT and Gemini (Phillip, 2026-10-12: spread token
+// use). Every provider's draft goes through the SAME gates — compliance, originality,
+// NeuronWriter score — so the model choice never changes what is allowed to ship.
+// CONTENT_REFRESH_PROVIDERS sets the order (default anthropic,openai,gemini); a
+// provider with no key or an API error falls through to the next one.
+const PROVIDERS = (process.env.CONTENT_REFRESH_PROVIDERS || 'anthropic,openai,gemini').split(',').map((x) => x.trim()).filter(Boolean);
+const OPENAI_MODEL = process.env.CONTENT_REFRESH_OPENAI_MODEL || 'gpt-5.6-luna';
+const GEMINI_MODEL = process.env.CONTENT_REFRESH_GEMINI_MODEL || 'gemini-2.0-flash';
+let _rot = 0;
+async function complete(anthropic, system, user) {
+  const order = PROVIDERS.map((_, i) => PROVIDERS[(i + _rot) % PROVIDERS.length]);
+  _rot++;
+  const errs = [];
+  for (const p of order) {
+    try {
+      if (p === 'anthropic' && process.env.ANTHROPIC_API_KEY) {
+        const res = await createMessage(anthropic, { model: MODEL, max_tokens: 3000, system, messages: [{ role: 'user', content: user }] }, { agentName: AGENT, role: 'writer' });
+        return { provider: `claude:${MODEL}`, text: res.content?.map((c) => c.text || '').join('') || '' };
+      }
+      if (p === 'openai' && process.env.OPENAI_API_KEY) {
+        const r = await fetch('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, 'content-type': 'application/json' },
+          body: JSON.stringify({ model: OPENAI_MODEL, max_tokens: 3000, messages: [{ role: 'system', content: system }, { role: 'user', content: user }] }) });
+        const d = await r.json();
+        if (!r.ok) throw new Error(`openai ${r.status}: ${JSON.stringify(d).slice(0, 160)}`);
+        return { provider: `gpt:${OPENAI_MODEL}`, text: d?.choices?.[0]?.message?.content || '' };
+      }
+      if (p === 'gemini' && process.env.GEMINI_API_KEY) {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`, { method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ systemInstruction: { parts: [{ text: system }] }, contents: [{ parts: [{ text: user }] }], generationConfig: { maxOutputTokens: 3000 } }) });
+        const d = await r.json();
+        if (!r.ok) throw new Error(`gemini ${r.status}: ${JSON.stringify(d).slice(0, 160)}`);
+        return { provider: `gemini:${GEMINI_MODEL}`, text: d?.candidates?.[0]?.content?.parts?.map((x) => x.text || '').join('') || '' };
+      }
+    } catch (e) { errs.push(e.message); }
+  }
+  throw new Error(`no drafting provider succeeded: ${errs.join(' | ') || 'no API keys set'}`);
+}
+
 async function draft(anthropic, { route, keyword, pageText, terms, questions, lessons, feedback }) {
   const office = pageText.match(/\(\d{3}\) \d{3}-\d{4}/)?.[0] || '';
   const user = `Write ONE new section to ADD to the existing EnviroCare page ${route} (target search: "${keyword}").
@@ -217,11 +257,10 @@ ${lessons.map((l) => `- ${l.content}`).join('\n') || '- (none yet)'}
 ${feedback ? `\nYOUR PREVIOUS DRAFT FAILED A GATE. Fix exactly this:\n${feedback}\n` : ''}
 Rules: 300-600 words of new copy. Original sentences only — never reuse wording from competitor sites or from the page above. No prices, no new phone numbers${office ? ` (the only phone you may use is ${office})` : ''}, no review counts, no competitor names. Plain sentences, no markdown.
 Return ONLY JSON: {"heading": "...", "paragraphs": ["..."], "faqs": [{"q": "...", "a": "..."}]} with 3-5 paragraphs and 1-4 FAQs.`;
-  const res = await createMessage(anthropic, { model: MODEL, max_tokens: 3000, system: COMPLIANCE_SYSTEM, messages: [{ role: 'user', content: user }] }, { agentName: AGENT, role: 'writer' });
-  const txt = res.content?.map((c) => c.text || '').join('') || '';
+  const { provider, text: txt } = await complete(anthropic, COMPLIANCE_SYSTEM, user);
   const j = JSON.parse(txt.slice(txt.indexOf('{'), txt.lastIndexOf('}') + 1));
-  if (!Array.isArray(j.paragraphs) || !j.paragraphs.length) throw new Error('draft had no paragraphs');
-  return { heading: String(j.heading || ''), paragraphs: j.paragraphs.map(String), faqs: (j.faqs || []).map((f) => ({ q: String(f.q), a: String(f.a) })) };
+  if (!Array.isArray(j.paragraphs) || !j.paragraphs.length) throw new Error(`draft from ${provider} had no paragraphs`);
+  return { provider, heading: String(j.heading || ''), paragraphs: j.paragraphs.map(String), faqs: (j.faqs || []).map((f) => ({ q: String(f.q), a: String(f.a) })) };
 }
 
 // ── images ──────────────────────────────────────────────────────────────────
@@ -242,13 +281,16 @@ async function illustration(route, keyword) {
 
 // ── main ────────────────────────────────────────────────────────────────────
 function targets() {
-  const first = JSON.parse(fs.readFileSync(path.join(ROOT, 'agents/content-refresh-targets.json'), 'utf8')).first;
+  const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'agents/content-refresh-targets.json'), 'utf8'));
+  const first = cfg.first;
+  // Extra keyword sections on an existing page: key "<route>#<slug>" (no new URLs).
+  const sections = (cfg.sections || []).map((x) => ({ ...x, key: `${x.route}#${x.slug}` }));
   const nwt = JSON.parse(fs.readFileSync(path.join(ROOT, 'agents/neuronwriter-targets.json'), 'utf8')).targets
     .sort((a, b) => a.priority - b.priority)
     .map((t) => ({ route: '/' + t.page.replace(/^app\//, '').replace(/\/?page\.tsx$/, ''), keyword: t.keyword }));
   const seen = new Set(); const out = [];
-  for (const t of [...first, ...nwt]) if (!seen.has(t.route)) { seen.add(t.route); out.push(t); }
-  return ONLY ? out.filter((t) => t.route === ONLY).concat(out.some((t) => t.route === ONLY) ? [] : [{ route: ONLY, keyword: argVal('--keyword', '') }]) : out;
+  for (const t of [...first, ...nwt, ...sections]) { const key = t.key || t.route; if (!seen.has(key)) { seen.add(key); out.push({ ...t, key }); } }
+  return ONLY ? out.filter((t) => t.route === ONLY || t.key === ONLY).concat(out.some((t) => t.route === ONLY || t.key === ONLY) ? [] : [{ route: ONLY, key: ONLY, keyword: argVal('--keyword', '') }]) : out;
 }
 
 async function run() {
@@ -263,10 +305,10 @@ async function run() {
 
   for (const t of targets()) {
     if (changed >= MAX) break;
-    const r = { route: t.route, keyword: t.keyword };
+    const r = { route: t.key, keyword: t.keyword };
     try {
       if (!supportsRefresh(t.route)) { r.outcome = 'skipped: template does not render RefreshedContent'; report.push(r); continue; }
-      const last = await lastTouch(t.route);
+      const last = await lastTouch(t.key);
       const ageDays = last ? (Date.now() - new Date(last.created_at)) / 864e5 : Infinity;
       if (!FORCE && ageDays < COOLDOWN_DAYS) { r.outcome = `skipped: ${last.status} ${Math.floor(ageDays)}d ago (cool-down ${COOLDOWN_DAYS}d)`; report.push(r); continue; }
 
@@ -275,19 +317,19 @@ async function run() {
       const queryId = await queryFor(t.keyword);
       if (!queryId) { r.outcome = 'skipped: no READY NeuronWriter query for this keyword (not spending an analysis)'; report.push(r); continue; }
       const title = meta(html, /<title>([^<]*)<\/title>/), desc = meta(html, /<meta name="description" content="([^"]*)"/);
-      const base = scorableHtml(html);
-      const existing = store[t.route];
+      const base = scorableHtml(html, t.key);
+      const existing = store[t.key];
       const before = await score(queryId, base, title, desc);
       Object.assign(r, { queryId, before });
 
       if (before >= BAND_LOW) {
         const figure = existing?.figure || t.figure || null;
         if (figure && !existing?.figure && !DRY) {
-          store[t.route] = { ...(existing || {}), figure, neuron: { queryId, keyword: t.keyword, before, after: existing?.neuron?.after ?? null, checkedAt: today() }, source: 'content-refresh-agent', updatedAt: today() };
+          store[t.key] = { ...(existing || {}), figure, neuron: { queryId, keyword: t.keyword, before, after: existing?.neuron?.after ?? null, checkedAt: today() }, source: 'content-refresh-agent', updatedAt: today() };
           writeStore(store); changed++;
           r.outcome = `in band (${before}) — image added, copy untouched`;
         } else r.outcome = `in band (${before}) — nothing to do`;
-        await ledger({ route: t.route, keyword: t.keyword, query_id: queryId, status: 'in-band', score_before: before, image_src: figure?.src || null, reason: r.outcome });
+        await ledger({ route: t.key, keyword: t.keyword, query_id: queryId, status: 'in-band', score_before: before, image_src: figure?.src || null, reason: r.outcome });
         report.push(r); continue;
       }
 
@@ -299,8 +341,8 @@ async function run() {
         const d = await draft(anthropic, { route: t.route, keyword: t.keyword, pageText, terms: missingTerms(q, pageText), questions: openQuestions(q), lessons, feedback });
         const copy = [d.heading, ...d.paragraphs, ...d.faqs.flatMap((f) => [f.q, f.a])].join('\n');
         const comp = scanText(copy, rules);
-        orig = checkOriginality(copy, { competitors: comps, sitePages: site.filter((p) => p.route !== t.route) });
-        const figure = existing?.figure || t.figure || (attempt === 1 ? await illustration(t.route, t.keyword) : null);
+        orig = checkOriginality(copy, { competitors: comps, sitePages: [...site.filter((p) => p.route !== t.route), ...(t.key !== t.route ? [{ route: `${t.route} (rest of page)`, text: base }] : [])] });
+        const figure = existing?.figure || t.figure || (attempt === 1 && t.key === t.route ? await illustration(t.route, t.keyword) : null);
         const candidate = { ...d, ...(figure ? { figure } : {}) };
         after = comp.clean && orig.pass ? await score(queryId, withSection(base, sectionHtml(candidate)), title, desc) : null;
         const problems = [];
@@ -315,24 +357,24 @@ async function run() {
 
       if (!entry) {
         r.outcome = 'rejected after 2 drafts — page left unchanged';
-        await ledger({ route: t.route, keyword: t.keyword, query_id: queryId, status: 'rejected', score_before: before, score_after: after, competitor_overlap: orig?.maxCompetitorOverlap, site_overlap: orig?.maxSiteOverlap, competitors_checked: orig?.competitorsChecked, reason: feedback?.slice(0, 900) });
-        await remember(AGENT, `${t.route} rejected: ${feedback?.slice(0, 400)}`, { type: 'lesson', metadata: { route: t.route, date: today() } });
+        await ledger({ route: t.key, keyword: t.keyword, query_id: queryId, status: 'rejected', score_before: before, score_after: after, competitor_overlap: orig?.maxCompetitorOverlap, site_overlap: orig?.maxSiteOverlap, competitors_checked: orig?.competitorsChecked, reason: feedback?.slice(0, 900) });
+        await remember(AGENT, `${t.key} rejected: ${feedback?.slice(0, 400)}`, { type: 'lesson', metadata: { route: t.key, date: today() } });
         report.push(r); continue;
       }
       const words = [...entry.paragraphs, ...entry.faqs.flatMap((f) => [f.q, f.a])].join(' ').split(/\s+/).length;
       if (!DRY) {
-        store[t.route] = { ...entry, neuron: { queryId, keyword: t.keyword, before, after, checkedAt: today() },
+        store[t.key] = { ...entry, neuron: { queryId, keyword: t.keyword, before, after, checkedAt: today() },
           originality: { maxCompetitorOverlap: orig.maxCompetitorOverlap, maxSiteOverlap: orig.maxSiteOverlap, competitorsChecked: orig.competitorsChecked, checkedAt: today() },
           source: 'content-refresh-agent', updatedAt: today() };
         writeStore(store);
       }
       changed++;
-      r.outcome = `refreshed: NeuronWriter ${before} -> ${after}, +${words} words${entry.figure ? `, image ${entry.figure.src}` : ''}`;
-      await ledger({ route: t.route, keyword: t.keyword, query_id: queryId, status: 'proposed', score_before: before, score_after: after, words_added: words, competitor_overlap: orig.maxCompetitorOverlap, site_overlap: orig.maxSiteOverlap, competitors_checked: orig.competitorsChecked, image_src: entry.figure?.src || null, reason: 'awaiting PR merge' });
-      await remember(AGENT, `${t.route} ${before}->${after} with section "${entry.heading}" (${words} words).`, { type: 'lesson', metadata: { route: t.route, date: today() } });
+      r.outcome = `refreshed by ${entry.provider}: NeuronWriter ${before} -> ${after}, +${words} words${entry.figure ? `, image ${entry.figure.src}` : ''}`;
+      await ledger({ route: t.key, keyword: t.keyword, query_id: queryId, status: 'proposed', score_before: before, score_after: after, words_added: words, competitor_overlap: orig.maxCompetitorOverlap, site_overlap: orig.maxSiteOverlap, competitors_checked: orig.competitorsChecked, image_src: entry.figure?.src || null, reason: 'awaiting PR merge' });
+      await remember(AGENT, `${t.key} [${entry.provider}] ${before}->${after} with section "${entry.heading}" (${words} words).`, { type: 'lesson', metadata: { route: t.key, date: today() } });
     } catch (e) {
       r.outcome = `error: ${e.message}`;
-      await ledger({ route: t.route, keyword: t.keyword, status: 'error', reason: e.message.slice(0, 900) });
+      await ledger({ route: t.key, keyword: t.keyword, status: 'error', reason: e.message.slice(0, 900) });
     }
     report.push(r);
   }

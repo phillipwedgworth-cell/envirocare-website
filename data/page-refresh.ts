@@ -49,6 +49,7 @@ export type PageRefresh = {
     checkedAt: string;
   };
   source: 'claude-session' | 'content-refresh-agent';
+  provider?: string;   // which model drafted it (claude:… / gpt:… / gemini:…) — every provider passes the same gates
   updatedAt: string;
 };
 
@@ -199,6 +200,18 @@ const PAGE_REFRESH_JSON = {
 /* END PAGE_REFRESH_JSON */
 
 export const PAGE_REFRESH: Record<string, PageRefresh> = PAGE_REFRESH_JSON as unknown as Record<string, PageRefresh>;
+
+// Keys are a route ("/lake-martin") or a route plus a section slug
+// ("/lake-martin#tick") for an extra keyword section on the same page — the agent
+// never creates new URLs. Returns every section for the route: main entry first,
+// then the "#" sections in key order.
+export function getPageRefreshSections(route: string): { key: string; entry: PageRefresh }[] {
+  const base = route === '/' ? '/' : route.replace(/\/+$/, '');
+  return Object.keys(PAGE_REFRESH)
+    .filter((k) => k === base || k.startsWith(`${base}#`))
+    .sort((a, b) => (a === base ? -1 : b === base ? 1 : a.localeCompare(b)))
+    .map((key) => ({ key, entry: PAGE_REFRESH[key] }));
+}
 
 export function getPageRefresh(route: string): PageRefresh | undefined {
   const key = route === '/' ? '/' : route.replace(/\/+$/, '');

@@ -129,11 +129,12 @@ async function fetchScoreboard() {
   // 35 days, so a lagging ingest still leaves two full weeks to compare.
   const since14 = new Date(Date.now() - 35 * 86400000).toISOString().slice(0, 10);
   const since7 = new Date(Date.now() - 7 * 86400000).toISOString();
-  const [daily, pageRows, leads, lf] = await Promise.all([
+  const [daily, pageRows, leads, lf, aiv] = await Promise.all([
     fetch(`${BASE}/gsc_daily?date=gte.${since14}&order=date.asc&select=date,clicks,impressions,position`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/gsc_pages?order=snapshot_date.desc&limit=2000&select=page,clicks,impressions,position,snapshot_date`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/leads?created_at=gte.${since7}&select=id,office,service_type`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
     fetch(`${BASE}/lf_visibility?platform=eq.google&solv=not.is.null&order=run_date.desc&limit=400&select=market,place_id,keyword,solv,run_date,campaign_name`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
+    fetch(`${BASE}/aiv_runs?order=completed_at.desc&limit=40&select=market,completed_at,visibility_score,mention_rate,share_of_voice`, { headers: sbHeaders() }).then((r) => r.json()).catch(() => []),
   ]);
 
   // Clicks / impressions: the latest 7 days OF DATA vs the 7 before them.
@@ -180,6 +181,16 @@ async function fetchScoreboard() {
   }
   const lfLines = Object.entries(markets).map(([m, v]) => `  ${m.padEnd(14)} SoLV ${(v.vals.reduce((a, b) => a + b, 0) / (v.vals.length || 1)).toFixed(1)}% across ${v.vals.length} keywords (run ${v.date})`);
 
+  // BrightLocal AI Visibility (Google AI Overview / AI Mode / ChatGPT): latest
+  // run per market vs the one before. Added 2026-10-12 — nothing read these before.
+  const aivBy = {};
+  for (const r of arr(aiv)) (aivBy[r.market] ||= []).push(r);
+  const aivLines = Object.entries(aivBy).map(([m, rs]) => {
+    const [c, p] = rs;
+    const d = p && c.visibility_score != null && p.visibility_score != null ? ` (${(c.visibility_score - p.visibility_score >= 0 ? '+' : '')}${(c.visibility_score - p.visibility_score).toFixed(1)} vs ${String(p.completed_at).slice(0, 10)})` : '';
+    return `  ${m.padEnd(14)} visibility ${c.visibility_score ?? '?'}${d} · mentioned in ${c.mention_rate ?? '?'}% of AI answers (run ${String(c.completed_at).slice(0, 10)})`;
+  });
+
   const leadRows = arr(leads);
   const leadLine = `Web-form leads, last 7d: ${leadRows.length}${leadRows.length ? ' — ' + Object.entries(leadRows.reduce((o, l) => ((o[l.office || '?'] = (o[l.office || '?'] || 0) + 1), o), {})).map(([k, v]) => `${k} ${v}`).join(', ') : ''} (leads table)`;
 
@@ -189,7 +200,9 @@ ${leadLine}
 Money pages (gsc_pages snapshot ${cur || 'none'} vs ${prev || 'none'}; "moved" is position change, minus = better):
 ${pageLines.join('\n')}
 Map-pack visibility (lf_visibility, Google):
-${lfLines.join('\n') || '  (no Local Falcon rows)'}` };
+${lfLines.join('\n') || '  (no Local Falcon rows)'}
+AI answer visibility (aiv_runs, BrightLocal — Google AI Overview, AI Mode, ChatGPT):
+${aivLines.join('\n') || '  (no AI Visibility rows yet)'}` };
 }
 
 function buildPRBlock(pr) {
