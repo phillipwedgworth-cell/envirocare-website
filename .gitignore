@@ -33,3 +33,7 @@ monitoring/ga4-history.csv
 agents/.content-refresh-manifest.json
 agents/.blog-drafts-manifest.json
 agents/.content-results-manifest.json
+
+# Python bytecode from local script runs
+__pycache__/
+*.pyc

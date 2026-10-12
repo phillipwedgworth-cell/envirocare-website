@@ -10,9 +10,12 @@ WHAT IT TOUCHES
   Never overwrites : Contact Log, ACH Draft Log  (staff type here — preserved)
   Monthly only     : Trend, Getting Worse         (left alone unless --monthly)
 
-READ-ONLY. This script only issues GET requests to Fieldster. It never writes
-to a customer record or bills anyone. The one write it makes is to the local
-.xlsx file.
+READ-ONLY AGAINST FIELDSTER. This script only issues GET requests to Fieldster.
+It never writes to a customer record or bills anyone. It writes in two places:
+the local .xlsx file, and (added 2026-09-14) the Supabase tables
+collections_call_list + collections_snapshots, which is what the staff texting
+route at app/api/collections/send-batch-text reads. See push_to_supabase()
+for why that second write exists and why the workbook is still primary.
 
 AUTH — SOLVED 2026-09-08. The header is:
 
@@ -34,6 +37,12 @@ SETUP (one time)
       FIELDSTER_API_TOKEN  = <key from Key7 Admin > API > Rest API>
       COLLECTIONS_XLSX     = C:\\full\\path\\to\\EnviroCare_Collections.xlsx
       FIELDSTER_API_HEADER = optional override; defaults to Key7-Authentication
+      SUPABASE_URL         = https://<ref>.supabase.co
+      SUPABASE_SERVICE_ROLE_KEY = service-role key (needs write on the
+                             collections_* tables). Without these two the
+                             workbook still rebuilds and the Supabase push is
+                             skipped with a printed SKIP — which means the
+                             texting route goes stale. Set them.
 
 RUN
   python build_collections.py            # daily rebuild
@@ -292,6 +301,105 @@ def _clear_below_header(ws, header_row=1):
         ws.delete_rows(header_row + 1, ws.max_row - header_row)
 
 
+# ---- push to Supabase -----------------------------------------------------
+# ADDED 2026-09-14. Until now this script wrote ONLY the local workbook, while
+# app/api/collections/send-batch-text/route.ts read collections_call_list from
+# Supabase and its comment claimed this script refreshed that table. It did not.
+# Nothing did. The table was hand-seeded on 2026-09-09 and sat frozen for five
+# days while the workbook moved on daily — so the texting tool was quoting
+# balances that were already stale, including for customers who had since paid.
+#
+# The workbook remains the staff-facing source of truth. This push exists so the
+# texting route is never OLDER than the workbook staff are working from.
+#
+# PHONE NORMALIZATION. The workbook keeps the raw Fieldster string, because
+# staff rely on the notes glued to it ("2055408577Joe", "2052225781cell",
+# "2567494626 her"). Those same strings would be dialled literally by the text
+# route, so what gets pushed here is digits-only E.164, and anything that does
+# not reduce to a valid 10/11-digit US number is pushed as "" — the route skips
+# empty phones, which is the correct failure mode. Do not "fix" this by pushing
+# the raw string.
+#
+# FAILURE IS LOUD. The workbook write happens first and is never blocked by a
+# Supabase problem; staff always get their list. But a failed push exits 1 so
+# the 7am Task Scheduler run goes red rather than silently re-freezing the table.
+SUPABASE_URL = (os.environ.get("SUPABASE_URL") or "").rstrip("/")
+SUPABASE_KEY = (os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+                or os.environ.get("SUPABASE_SERVICE_KEY")
+                or os.environ.get("SUPABASE_KEY") or "")
+
+
+def normalize_phone(raw):
+    """Digits-only US number, or '' if it isn't one."""
+    digits = "".join(ch for ch in str(raw or "") if ch.isdigit())
+    if len(digits) == 11 and digits.startswith("1"):
+        digits = digits[1:]
+    if len(digits) != 10 or digits[0] in "01":
+        return ""
+    return digits
+
+
+def push_to_supabase(accounts, past_due):
+    if not SUPABASE_URL or not SUPABASE_KEY:
+        print("  SKIP Supabase push — SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY not set.")
+        return False
+
+    rows, dropped = [], 0
+    for a in past_due:
+        phone = normalize_phone(a["phone"])
+        if not phone and a["phone"]:
+            dropped += 1
+        rows.append({
+            "account": a["account"],
+            "customer": a["customer"],
+            "phone": phone,
+            "email": a["email"],
+            "balance": a["balance"],
+            "past_due_30": a["pd30"],
+            "oldest_days": a["oldest"],
+            "segment": segment(a),
+            "updated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        })
+
+    h = {"apikey": SUPABASE_KEY,
+         "Authorization": f"Bearer {SUPABASE_KEY}",
+         "Content-Type": "application/json"}
+    base = f"{SUPABASE_URL}/rest/v1"
+
+    try:
+        # Full replace: this table is a daily snapshot, not an accumulating log.
+        # An account that paid off must DISAPPEAR, so upsert alone is not enough.
+        r = requests.delete(f"{base}/collections_call_list",
+                            headers=h, params={"account": "not.is.null"}, timeout=60)
+        r.raise_for_status()
+
+        for i in range(0, len(rows), 500):
+            r = requests.post(f"{base}/collections_call_list", headers=h,
+                              json=rows[i:i + 500], timeout=120)
+            r.raise_for_status()
+
+        tot = round(sum(a["balance"] for a in accounts), 2)
+        r = requests.post(f"{base}/collections_snapshots", headers=h, timeout=60, json={
+            "snapshot_date": TODAY.isoformat(),
+            "total_ar": tot,
+            "accounts_with_balance": len(accounts),
+            "past_due_30": round(sum(a["pd30"] for a in accounts), 2),
+            "past_due_60": round(sum(a["pd60"] for a in accounts), 2),
+            "call_list_count": len(rows),
+            "source": "build_collections.py",
+        })
+        r.raise_for_status()
+    except requests.RequestException as e:
+        print(f"ERROR: Supabase push failed: {e}", file=sys.stderr)
+        print("  The workbook IS current. The texting route is NOT — do not queue "
+              "batch texts until this run goes green.", file=sys.stderr)
+        return False
+
+    print(f"  Supabase: {len(rows)} call-list rows + 1 snapshot"
+          + (f" ({dropped} phones unusable, pushed blank)" if dropped else ""))
+    return True
+
+
 # ---- main -----------------------------------------------------------------
 if __name__ == "__main__":
     dry = "--dry-run" in sys.argv
@@ -299,3 +407,10 @@ if __name__ == "__main__":
     session = make_session()
     accounts = pull_accounts(session)
     rebuild(accounts, monthly=monthly, dry=dry)
+
+    if dry:
+        sys.exit(0)
+    # Workbook is already saved. Supabase is best-effort but loud on failure.
+    past_due = sorted([a for a in accounts if a["pd30"] > 0], key=lambda x: -x["balance"])
+    if not push_to_supabase(accounts, past_due):
+        sys.exit(1)
