@@ -252,13 +252,13 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Does Home Insurance Cover Termite Damage in AL? | EnviroCare',
     metaDescription: 'Homeowners insurance usually excludes termite damage in Alabama. Learn why, the hidden-collapse exception, and how a termite agreement protects your home.',
     body: `
-<p class="lede">You find mud tubes on the foundation, or a baseboard that sounds hollow when you tap it, and the first thought is the homeowners policy. For most Alabama homeowners the answer is not the one they want: standard home insurance policies do not cover termite damage, and they will not help pay to repair it. Here is why insurance companies treat termites differently, how to spot termite damage early, the one narrow situation where a policy may respond, and what actually protects the house.</p>
+<p class="lede">You find mud tubes on the foundation, or a baseboard that sounds hollow when you tap it, and the first thought is the homeowners policy. For most Alabama homeowners the answer is not the one they want: standard home insurance policies generally do not cover termite damage or pay to repair it. Here is why insurance companies treat termites differently, how to spot termite damage early, the one narrow situation where a policy may respond, and what actually protects the house.</p>
 
 <h2>Does home insurance cover termite damage? Usually not</h2>
 
 <p>A standard homeowners insurance policy is written to cover sudden, accidental losses, which insurers call perils: fire, wind, hail, a pipe that bursts. Water damage from a burst pipe is a covered peril. Termite damage is the opposite. A termite infestation builds slowly, over months or years, and insurers treat it the way they treat rot or rust: as home maintenance, the responsibility of the homeowner to prevent. Most homeowners insurance policies say so directly, with an exclusion for damage caused by insects, rodents and other pests. In plain terms, termite damage is not covered, and the policy will not cover the cost of termite treatment either.</p>
 
-<p>So when a homeowner files a claim to repair termite-damaged framing, subfloor or trim, the claim is usually denied. That holds no matter how comprehensive the rest of the home insurance coverage looks. If you are shopping for a home insurance quote, ask the agent how the policy handles pests, but expect the answer to be that termite-related damage is excluded.</p>
+<p>So when a homeowner files a claim to repair termite-damaged framing, subfloor or trim, the claim is usually denied. Every policy is different, so read your own exclusions section. If you are shopping for a home insurance quote, ask the agent how the policy handles pests, but expect the answer to be that termite-related damage is excluded.</p>
 
 <h2>When insurance may cover part of it</h2>
 
