@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     ],
     includes: [
       { title: 'Perimeter Treatment', desc: 'Targeted application around the foundation, door frames, and entry points where pests enter.' },
-      { title: 'Eaves & Webbing', desc: 'Spider web knockdown and wasp/eave prevention at every visit.' },
+      { title: 'Eaves & Webbing', desc: 'Spider web knockdown and eave treatment that discourages wasps from building, at every visit. Active nests are an add-on.' },
       { title: 'Interior Service On Request', desc: 'Interior service available between visits — just call.' },
       { title: 'EPA-Registered', desc: 'EPA-registered products applied per label directions.' },
     ],
@@ -104,7 +104,7 @@ export const SERVICES: Service[] = [
     intro: [
       'Most pest problems aren\'t a one-time event — they\'re constant pressure from outside trying to get in. The real question isn\'t whether your home gets treated, it\'s whether the protective barrier is still working when the bugs show up. That\'s where EnviroCare\'s bi-monthly service is built differently, across Birmingham, Huntsville, Lake Martin, and Auburn.',
       'Here\'s something most homeowners are never told: the exterior barrier products that keep pests out typically break down after about 60 days — sooner in Alabama heat, sun, and rain. A standard quarterly plan treats every 90 days, which leaves roughly a month each cycle where the barrier has worn off and nothing new has been applied. That gap is when the ants and roaches come back. Our bi-monthly service treats every 60 days, re-applying the barrier right as the previous treatment wears off, so there\'s no open window for pests to exploit.',
-      'Our regular service handles the common household pests that pressure Alabama homes — ants (excluding fire ants), cockroaches, spiders, silverfish, crickets, earwigs, and wasps around the exterior. We treat the exterior perimeter — entry points, foundation, eaves, and the zones where pests get in — so we\'re stopping them before they\'re inside. If something does show up between visits, we\'ll come back out. Some pests need their own targeted treatment and aren\'t part of the standard plan: fire ants, fleas (an interior service), and ticks (a seasonal yard treatment).',
+      'Our regular service handles the common household pests that pressure Alabama homes — ants (excluding fire ants), cockroaches, spiders, silverfish, crickets, and earwigs, with eave treatment that discourages wasps from building (active nests are an add-on). We treat the exterior perimeter — entry points, foundation, eaves, and the zones where pests get in — so we\'re stopping them before they\'re inside. If something does show up between visits, we\'ll come back out. Some pests need their own targeted treatment and aren\'t part of the standard plan: fire ants, fleas (an interior service), and ticks (a seasonal yard treatment).',
       'Straightforward pricing: about $35/month on auto-draft (ACH), or $70 per bi-monthly service. A quarterly option runs about $98. The one-time initial service is $150 standard — $75 while our 50%-off initial-service offer runs. We serve Birmingham, Alabaster, Hoover, Mountain Brook, Vestavia Hills, Homewood, Trussville, and Chelsea; Huntsville, Madison, and Athens; and Alexander City, Lake Martin, and Auburn. A familiar local team handles your home whenever possible.',
     ],
     pestsFeatured: [
