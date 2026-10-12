@@ -394,176 +394,6 @@ export const BLOG_POSTS: BlogPost[] = [
 `,
   },
 
-  // ─── blog-writer 2026-09-11 ───
-  {
-    slug: 'what-to-do-about-mosquitoes-in-birmingham',
-    title: 'Mosquitoes in Alabama: Mosquito Control, Mosquito Bites, Repellents, Prevention, and Pest Control Services',
-    excerpt: 'Alabama mosquito season runs March through October with heavy mosquito activity. Learn about mosquito-borne diseases like West Nile virus, which insect repellents control mosquitoes, the mosquito life cycle, how to prevent mosquitoes around your yard, and how professional mosquito control services reduce mosquito activity on your property.',
-    publishedAt: '2026-10-09',
-    updatedAt: '2026-09-21',
-    author: 'Kevin Wedgworth',
-    category: 'Mosquitoes',
-    readMinutes: 25,
-    heroEmoji: '🦟',
-    metaTitle: 'Mosquitoes in Birmingham: Bites, Prevention & Control',
-    metaDescription: 'Birmingham mosquito season runs March through October. West Nile risk, repellents that work, yard prevention, and how treatment reduces bites.',
-    body: `<p class="lede">Mosquitoes in Alabama aren't just a nuisance. They cut your time outdoors in half, they leave mosquito bites that itch for days, and they can transmit diseases that land people in the hospital. If you've got a yard near a creek bottom, a low-lying neighborhood, or a lake lot out on Lake Martin, you already know how fast these insects can ruin a cookout. The good news is that you can do a lot to reduce the population around your home — if you know where to look and what to fix.</p>
-
-<h2>Why Alabama Is Such Good Mosquito Country</h2>
-<p>The short answer is water, warmth, and time. Alabama averages 55 to 60 inches of rain a year — more than Seattle, more than Miami. Our clay-heavy soils don't drain fast, so puddles sit. Our temperatures stay warm from March through October, which is the full active season for mosquitoes here. And we have no real winter to speak of. A February warm snap can wake up overwintering eggs before most folks even think about the problem.</p>
-<p>Female mosquitoes are the biters. They need a blood meal to lay eggs, and they'll travel up to a mile to get one. But they prefer to lay eggs close to where they feed, so the source of your problem is usually within a few hundred feet of your back door. One bottle cap of standing water can produce dozens of larvae. A clogged gutter can produce thousands.</p>
-
-<h2>The Most Common Breeding Spots Around Alabama Homes</h2>
-<p>Before you call anyone or buy anything, walk your yard and look for these. Most people are surprised by what they find.</p>
-<ul>
-  <li><strong>Clogged gutters.</strong> This is the number-one overlooked source. A gutter packed with leaves holds water for weeks. The larva stage only needs a few days of standing water to develop. Clean your gutters in spring and again in fall.</li>
-  <li><strong>Low spots in the lawn.</strong> If your yard has a place where water pools after rain, mosquitoes will find it before it dries out. Grading or filling those spots helps more than most sprays.</li>
-  <li><strong>Birdbaths, pet bowls, and plant saucers.</strong> Change the water twice a week. That's enough to break the breeding cycle.</li>
-  <li><strong>Tarps and trash.</strong> A folded tarp or an upturned trash can lid collects a surprising amount of water. Same goes for old tires, which are a well-known breeding hotspot and nearly impossible to treat.</li>
-  <li><strong>Ornamental ponds and rain barrels.</strong> These aren't bad to have, but they need either a pump that keeps water moving or a mosquito dunk (a biological larvicide) to keep larvae from developing.</li>
-  <li><strong>Overgrown areas.</strong> Adult mosquitoes rest during the day in cool, shaded spots — tall grass, dense shrubs, ivy beds. Keep your grass trimmed and scrub out any thick, weedy borders along fences or creek banks.</li>
-</ul>
-
-<h2>What Mosquito-Borne Diseases Are Actually Present in Alabama?</h2>
-<p>This is worth taking seriously. Mosquitoes transmit diseases, and several mosquito-borne illnesses are documented in Alabama every year. The CDC tracks these, and the list includes West Nile virus, Eastern equine encephalitis, and La Crosse encephalitis — all present in our state. Dengue is not common in Alabama but has shown up in travelers returning from elsewhere. Other mosquito-borne diseases, like Zika, remain a concern depending on travel history.</p>
-<p>We are pest control professionals, not doctors. If you or a family member develops a fever, severe headache, joint pain, or a rash after mosquito bites, see a physician. Don't wait it out. What we can tell you is that reducing the number of mosquitoes around your home is one of the practical things you can do to lower exposure to mosquito-borne illness.</p>
-
-<h2>What You Can Do Yourself to Prevent Mosquitoes</h2>
-<p>You can't prevent mosquitoes entirely — not in Alabama, not anywhere. But you can make your yard a much less attractive place for them to breed and rest. Here's what actually moves the needle:</p>
-<ol>
-  <li>Dump standing water every 72 hours or less. That includes anything that holds even a tablespoon — bottle caps, toys, buckets, low spots on pool covers.</li>
-  <li>Keep your grass trimmed short and cut back thick vegetation along property edges, especially near any drainage ditch or creek bank.</li>
-  <li>Scrub out birdbaths and pet water dishes when you refill them. The eggs stick to the sides.</li>
-  <li>Fix your gutters. Check them after every heavy rain.</li>
-  <li>Use fans on your porch or patio. Mosquitoes are weak fliers and a basic box fan does more than most candles or traps.</li>
-  <li>Wear long sleeves and EPA-registered repellent when you're outside at dawn and dusk, when the adult mosquito population is most active.</li>
-</ol>
-<p>Be honest with yourself about what doesn't work. Bug zappers kill moths and beetles, not mosquitoes. Citronella candles help only if you're sitting directly in the smoke. Ultrasonic devices have no credible evidence behind them. Backyard mosquito traps can catch a lot of insects, but research consistently shows they don't reduce biting pressure in any meaningful way when used alone.</p>
-
-<h2>When Professional Mosquito Control Actually Makes Sense</h2>
-<p>If you've done the yard work and you're still getting eaten alive every time you step outside, professional treatment is worth considering. The same goes if you have a large property, a yard that backs up to woods or water, or a lake house where breeding pressure from the surrounding shoreline is constant.</p>
-<p>Professional mosquito control uses EPA-registered products applied per label directions, targeting the places where adult mosquitoes rest during the day — the undersides of leaves, shaded shrub borders, the edges of your lawn. A good technician will also look for larval sources and point out things you may have missed. What professional treatment does is reduce the adult population to a manageable level. It won't stop every mosquito from every direction, but it makes a real difference in how usable your outdoor space is.</p>
-<p>Timing matters. Mosquito season runs March through October in Alabama. Starting treatments early in spring, before populations build, keeps the pressure lower all season rather than playing catch-up in July.</p>
-
-<h2>EnviroCare's Mosquito Service</h2>
-<p>The Wedgworth family has been treating Alabama properties since 1958, across four generations. Our mosquito program runs eight treatments from March through October at <strong>$45 per month</strong>, or <strong>$34 per month</strong> when paired with a pest plan. If you also want tick and chigger coverage — which makes a lot of sense for properties near wooded areas or lake lots — we offer a combined Mosquito + Tick treatment at <strong>$65 per month</strong>. Monthly pricing requires a 12-month service agreement and ACH auto-draft.</p>
-<p>We serve homeowners across the Birmingham area, Huntsville, Alabaster, and the Alexander City and Lake Martin region. If you're ready to get your yard back this season, <a href="/services/mosquito">learn more about our mosquito control service</a> or <a href="/quote">request a quote online</a>. We'll take a look at what you're dealing with and give you a straight answer about what's likely to help.</p>
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
-  // ─── blog-writer 2026-09-09 ───
-  {
-    slug: 'struggling-to-get-rid-of-the-ticks-around-your-b',
-    title: 'Struggling to Get Rid of Ticks Around Your Alabama Home? Here\'s What Actually Works',
-    excerpt: 'Ticks in Alabama don\'t take much time off. If you\'re finding them on the dog, on the kids, or on yourself after a walk through the backyard, the yard itself is usually the problem — not just bad luck. Here\'s what\'s drawing them in and what you can actually do about it.',
-    publishedAt: '2026-10-08',
-    author: 'Kevin Wedgworth',
-    category: 'Ticks',
-    readMinutes: 6,
-    heroEmoji: '🕷️',
-    metaTitle: 'Can\'t Get Rid of Ticks in Your Alabama Yard?',
-    metaDescription: 'Ticks in Alabama yards are a real problem from February through October. Learn what actually works, what doesn\'t, and when to call a professional.',
-    body: `<p class="lede">If you've been pulling ticks off yourself, your kids, or your dog on a regular basis, the yard is almost certainly where they're coming from. Alabama's humidity, mild winters, and heavy ground cover create some of the best tick habitat in the country — and if you live anywhere near a creek bottom, a wood line, or a neighborhood that backs up to undeveloped land, you already know that. The good news is that tick pressure in a yard is something you can actually reduce. The bad news is that most of the advice floating around online either doesn't work or only works halfway.</p>
-
-<h2>Why Alabama Yards Are So Bad for Ticks</h2>
-<p>It comes down to moisture and wildlife. Alabama's clay soils hold water, and the humidity lingers long after rain. Ticks need that moisture to survive — they dry out and die in hot, dry, exposed areas, which is why you almost never pick one up walking across a sunny concrete driveway.</p>
-<p>What you do pick up ticks from:</p>
-<ul>
-<li>Tall grass and weedy edges along fence lines and property borders</li>
-<li>Leaf piles and thick ground cover under trees</li>
-<li>Shaded creek banks — anywhere near a drainage ditch or seasonal stream</li>
-<li>Wood piles stacked against the house or fence</li>
-<li>The transition zone between your mowed lawn and the woods or brush behind it</li>
-</ul>
-<p>Deer, rabbits, squirrels, and feral cats carry ticks in and drop them as they move through your property. In neighborhoods around Greystone, Chelsea, and the Lake Martin area, deer pressure is especially high. The same goes for any lot in Huntsville's outlying areas or along the creek corridors that run through older Birmingham neighborhoods.</p>
-
-<h2>What Time of Year Are Ticks Actually Active in Alabama?</h2>
-<p>Most people think ticks slow down in winter. In Alabama, not really. Adult ticks — especially the blacklegged tick, also called the deer tick — are actually most active in fall and late winter. Lone star ticks, which are by far the most common tick you'll encounter in Alabama, stay active any time temperatures are above about 40 degrees. That means February through October is prime season, and even warm spells in December and January can put ticks on the move.</p>
-<p>The American dog tick is another one you'll run into, particularly in grassy, open areas. It peaks in spring and early summer. All three species are capable of transmitting different diseases, so if you've been bitten and develop a fever, rash, or flu-like symptoms, see a doctor promptly. That's not something to wait out.</p>
-
-<h2>Yard Changes That Actually Reduce Tick Numbers</h2>
-<p>There's no single fix, but a few habitat changes make a real difference:</p>
-<ol>
-<li><strong>Mow and keep it short.</strong> Ticks don't like open, sunny, short grass. The more of your yard you keep mowed, the fewer places they have to hide.</li>
-<li><strong>Clear the leaf litter.</strong> Ticks overwinter in leaves. Raking and bagging or composting away from the house removes a huge portion of that population before spring.</li>
-<li><strong>Create a buffer at the wood line.</strong> A strip of wood chips or gravel three feet wide between your lawn and any wooded area slows tick migration considerably. It dries out fast and ticks won't cross it willingly.</li>
-<li><strong>Move wood piles away from the house.</strong> Stack firewood in a dry, sunny spot rather than against the fence or foundation.</li>
-<li><strong>Don't let ground cover get out of hand.</strong> Pachysandra, ivy, and other dense plantings close to the house are tick habitat. Keep them trimmed back and thinned out.</li>
-</ol>
-<p>None of these will get you to zero ticks, especially if wildlife is moving through regularly. But they change the environment enough that treatments actually stick.</p>
-
-<h2>What Doesn't Work (And Why)</h2>
-<p>Home remedies come up a lot in this conversation. Diatomaceous earth, cedar chips, garlic spray, essential oil blends — people try all of these. Some have a limited effect in a very small area under very dry conditions. None of them hold up across a full Alabama yard through a rainy spring or summer. They break down fast, they don't penetrate ground cover, and they don't address where ticks are actually resting and waiting.</p>
-<p>Tick tubes — cardboard tubes stuffed with permethrin-treated cotton that mice carry back to their nests — are an interesting concept and have some research behind them, but they work slowly and only address one part of the tick life cycle. They're not a standalone fix.</p>
-<p>Over-the-counter sprays from a hardware store can kill ticks on contact, but getting the coverage, timing, and dilution right across a full property is harder than it looks. And without addressing the habitat, you're treating the same yard over and over with diminishing returns.</p>
-
-<h2>When Professional Treatment Makes Sense</h2>
-<p>If you've made the habitat changes and you're still pulling ticks off regularly, or if your yard has a lot of wooded edges, heavy ground cover, or regular wildlife traffic, professional treatment is the most reliable next step.</p>
-<p>A trained technician knows where ticks concentrate — those shaded, humid transition zones, the underside of leaf piles, the base of brush along a fence line — and applies EPA-registered products per label directions to those specific areas. Timing matters too. Treating in late winter before larvae become nymphs, and again in late summer when adults are active, hits the population at two vulnerable points.</p>
-<p>Our <a href="/services/tick-control">tick control service</a> is built into our Mosquito + Tick plan, which runs $65 per month and also covers chiggers. It follows the same eight-treatment March through October schedule as our mosquito program, with equal monthly ACH payments across the year. Standalone tick work is quoted for the property.</p>
-<p>We serve homeowners across central and north Alabama, including <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, <a href="/lake-martin">Lake Martin</a>, and <a href="/alabaster">Alabaster</a>. If you're dealing with tick pressure in your yard and want to know what a treatment plan would look like for your property, we're glad to take a look.</p>
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
-  // ─── blog-writer 2026-09-07 ───
-  {
-    slug: 'keeping-the-wolf-spiders-in-birmingham-outside-w',
-    title: 'Wolf Spiders in Alabama: How to Keep Them Outside Where They Belong',
-    excerpt: 'Wolf spiders are one of the most common spiders in Alabama, and they\'re fast, big, and startling when they show up inside your house. They\'re not looking to live with you — they follow food and moisture — but that doesn\'t make them welcome. Here\'s how to think about the problem and what actually helps.',
-    publishedAt: '2026-10-07',
-    author: 'Kevin Wedgworth',
-    category: 'Spiders',
-    readMinutes: 6,
-    heroEmoji: '🕷️',
-    metaTitle: 'Wolf Spiders in Alabama: Keep Them Outside',
-    metaDescription: 'Wolf spiders are common across Alabama and will move indoors when conditions change. Here\'s what draws them in and how to keep them out.',
-    body: `<p class="lede">Walk across your patio on a warm September evening in Hoover or Helena, shine a flashlight toward the grass, and you'll likely see eyes reflecting back at you. That's a wolf spider. They're everywhere in Alabama — in the red clay, along the creek banks, in the pine straw under your shrubs — and most of the time they stay outside doing exactly what we'd want them to do. The problem is when they don't. When temperatures swing, rain pushes them up out of low spots, or a garage door gets left open, they come inside. And a wolf spider moving fast across your living room floor is not something most people take calmly.</p>
-
-<h2>What wolf spiders actually look like</h2>
-<p>People mistake wolf spiders for brown recluses more than almost any other spider in Alabama, and the two are not the same animal. Wolf spiders are thick-bodied and large — a full-grown female can be an inch and a half long not counting the legs. They're brown and gray with darker banding or striping, and they tend to be hairy in a way that makes them look even bigger than they are. Their eyes are one of their best identifiers: wolf spiders have eight eyes arranged in three rows, with the middle row having two that are noticeably large. Shine a light at one in the dark and those big eyes glow back at you.</p>
-<p>They don't build webs. They chase down prey on foot, which is why you see them running rather than sitting in a corner. A female wolf spider carries her egg sac attached to her abdomen, and once eggs hatch, the spiderlings ride on her back for a short time. If you ever squash a female and a dozen tiny spiders scatter — that's what happened.</p>
-
-<h2>Why Alabama has so many of them</h2>
-<p>Alabama is good wolf spider habitat in almost every way. The soil here — whether it's the sandy loam in Shelby County, the dark bottomland soil along the Coosa, or the rocky clay up around Huntsville — gives wolf spiders all the burrowing and hiding structure they need. We also have the insects they eat: crickets, small roaches, beetles, and other ground-level bugs are abundant from March through October, sometimes longer. Add in the moisture from our creek systems and the humidity that sits on neighborhoods from May through September, and you have conditions that support a very healthy wolf spider population.</p>
-<p>Communities built near wooded edges — which covers a lot of the Birmingham metro, the Lake Martin area, and neighborhoods across Madison County — tend to see more wolf spider pressure. More edge habitat means more prey, which means more spiders working those edges.</p>
-
-<h2>What brings them inside</h2>
-<p>Wolf spiders come inside for the same reasons most pests do: something outside changed, and inside looks better. The most common triggers in Alabama are:</p>
-<ul>
-  <li><strong>Heavy rain.</strong> When we get the kind of multi-day soaking rain systems that stall over North Alabama or push up from the Gulf, low spots flood and ground-dwelling spiders move uphill — sometimes right into a garage or under a door.</li>
-  <li><strong>Temperature drops in fall.</strong> Late October and November cool-downs push a lot of ground insects (and the spiders that eat them) toward heat. A gap under a door or an unweathered threshold is an invitation.</li>
-  <li><strong>Construction or landscaping disturbance.</strong> Tilling a garden bed, turning mulch, or pulling up landscape timbers can displace spiders that were settled.</li>
-  <li><strong>Light and prey inside.</strong> If insects are getting inside — drawn to porch lights or gaps around windows — wolf spiders will follow the food.</li>
-</ul>
-
-<h2>What you can do yourself</h2>
-<p>A lot of wolf spider control is physical, not chemical, and the physical steps work better anyway. Here's what actually makes a difference:</p>
-<ul>
-  <li>Replace worn door sweeps and threshold seals, especially on garage doors. That's the most common entry point we see.</li>
-  <li>Keep mulch pulled back six inches or more from the foundation. Thick mulch right against the slab is warm, damp, and full of insects — exactly what a wolf spider is looking for.</li>
-  <li>Move firewood, lumber piles, and ground-level clutter away from the house. Wolf spiders love stacked material.</li>
-  <li>Fix exterior lighting. Porch lights draw moths and beetles. Switching to yellow-tinted bulbs or moving lights away from doorways reduces the insect crowd that attracts spiders.</li>
-  <li>Trim back shrubs and ground cover that touches the exterior wall. Dense vegetation against the house is essentially a bridge.</li>
-  <li>Check window screens. Wolf spiders won't squeeze through a tiny gap the way a small insect will, but a torn or poorly fitted screen is a real entry point.</li>
-</ul>
-<p>Inside the house, sticky traps placed along walls and in garage corners will catch wolf spiders. They won't solve an outdoor population problem, but they'll tell you where spiders are coming in, which helps you find the gaps.</p>
-
-<h2>What about the bite — should you worry?</h2>
-<p>Wolf spiders can and will bite if handled or cornered, but they are not considered medically significant in the way a brown recluse is. Most bites result in localized pain, redness, and swelling. If you're bitten and develop symptoms beyond that — significant swelling, spreading redness, fever, or anything that concerns you — see a doctor. We do pest control, not medicine, and that call belongs with a healthcare provider.</p>
-<p>The bigger concern for most Alabama families is just the surprise factor. Wolf spiders are startling, and in homes with young children or people with a serious fear of spiders, that matters even if the medical risk is low.</p>
-
-<h2>When a professional treatment actually helps</h2>
-<p>If you're seeing wolf spiders inside regularly — not once in a while, but repeatedly — that's a sign that something is drawing them in and the exclusion work alone isn't closing the gap. A perimeter treatment using <strong>EPA-registered products applied per label directions</strong> creates a barrier along the foundation, around entry points, and through the areas where spiders are most active. It won't reach every spider in your yard or woods, and no treatment will, but it reduces what makes it through to the inside.</p>
-<p>Wolf spider control is part of our standard <a href="/services/interior-pest-control">interior pest control service</a>. Our pest plan is <strong>$35 per month on a 12-month ACH agreement</strong> ($75 initial visit, $70 per visit otherwise), and it covers the recurring perimeter and interior treatments that keep pressure down throughout the year — not just a one-time visit when things get bad. If you're in the <a href="/birmingham">Birmingham area</a>, around <a href="/lake-martin">Lake Martin</a>, or up in <a href="/huntsville">Huntsville</a>, one of our offices can get you scheduled. We've been doing this work in Alabama since 1958, and wolf spiders are not a new conversation for us.</p>
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
 
   // ─── Content batch, 2026-09-05: 15 articles on uncovered intents (rodents, wasps,
   // carpenter ants vs termites, Argentine ants, chiggers, foggers, frequency, Formosans,
@@ -957,51 +787,6 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides termite inspection, termite and pest control, and full pest management across central and north Alabama. Whether you are seeing swarmers, finding mud tubes, or just want to protect your home before termite season, a free WDO inspection is the first step. We identify the termite species, assess the damage, and recommend the right control program for your home.</p>
 
 <p>Call the office nearest you — Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a>, or Huntsville <a href="tel:+12569377676">(256) 937-7676</a> — or <a href="/quote">request a free quote online</a>.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
-  {
-    slug: 'pests-after-heavy-rain-alabama',
-    title: 'Why Bugs Get Worse After Heavy Rain in Alabama (And What Shows Up)',
-    excerpt: 'Three days after a big storm the ants are in the kitchen, the millipedes are on the porch, and the mosquitoes are worse than before. It is not a coincidence. Here is what a flooded yard does to each pest and what to do in the week after.',
-    publishedAt: '2026-09-24',
-    author: 'Kevin Wedgworth',
-    category: 'Seasonal',
-    readMinutes: 6,
-    heroEmoji: '🌧️',
-    metaTitle: 'Why Pests Get Worse After Heavy Rain in Alabama',
-    metaDescription: 'Heavy rain floods ant and roach nests, hatches mosquitoes within a week, and brings up millipedes. What it does to pests and a week-after checklist.',
-    body: `
-<p class="lede">Alabama gets its rain in bursts — three inches in an afternoon, a tropical system that sits for two days — and every one of them is followed by the same wave of calls. Ants indoors that were not there Monday. Millipedes by the hundred on the garage floor. Roaches in the bathroom. A mosquito cloud on the porch a week later. None of it is random. A flooded yard rearranges where every pest can live, and most of the options it leaves them point at the house.</p>
-
-<h2>Ants: flooded out, moving up</h2>
-<p>Argentine and odorous house ants nest shallow, under mulch and stones and along the foundation. When those nests flood, the colony moves the brood to higher, drier ground — and the highest, driest ground on the lot is inside your walls. This is the ant trail that appears the day after a storm and seems to come from nowhere. Fire ants do the same thing in the yard: a saturated colony pushes up above the water line, and the mounds that "appeared overnight" were there all summer, underground.</p>
-
-<h2>Roaches: out of the drains</h2>
-<p>American cockroaches live in storm drains, sewer lines, and crawlspaces. A flooded drain system pushes them up and out, into bathrooms through floor drains and into crawlspaces that are now wet. Smokybrowns get flushed out of gutters and tree holes. Both end up looking for a dry, warm place, and the garage and the bathroom are it.</p>
-
-<h2>Millipedes, centipedes, and springtails: the surface army</h2>
-<p>Saturated soil drives millipedes, centipedes, earwigs, and springtails to the surface by the thousand, and they migrate across pavement toward any wall. They are harmless, they die indoors within a day or two, and they are almost impossible to prevent entirely in the week after a flood. What reduces them is the same thing every time: a dry band along the foundation, no mulch against the slab, no leaf litter piled by the door, and a treated perimeter.</p>
-
-<h2>Mosquitoes: the seven-day clock</h2>
-<p>This is the one that arrives late. Every container, gutter, tarp, wheelbarrow, and low spot that filled during the storm is a mosquito nursery, and in summer heat the cycle from egg to biting adult runs about a week. The storm was Saturday; the mosquito cloud is the following weekend. Dumping standing water within a couple of days of a big rain is the single most effective mosquito step there is. The seasonal program treats the resting sites; it cannot empty your flowerpot saucers.</p>
-
-<h2>Termites: the quiet one</h2>
-<p>Rain does not create termites, but it creates the conditions. Wet soil against a foundation, a gutter overflowing onto the sill, a crawlspace that stays damp for a month — that is the moisture subterranean termites need to reach the wood. A season with a lot of storms is a season to look at the crawlspace and the downspouts. What to look for is in <a href="/blog/termite-damage-signs-alabama">termite damage signs</a>.</p>
-
-<h2>The week-after checklist</h2>
-<ul>
-<li>Dump every container of standing water on the lot within 48 hours.</li>
-<li>Clear the gutters and make sure downspouts carry water away from the foundation, not against it.</li>
-<li>Pull wet mulch and leaf litter back from the slab and the doors.</li>
-<li>Run water in floor drains and unused sinks to refill the traps that keep roaches out.</li>
-<li>Do not spray the ant trail — it fragments the colony. Bait it, or call.</li>
-<li>Check the crawlspace for standing water and get it dried.</li>
-</ul>
-<p>If you are on the <a href="/services/pest-control">bi-monthly plan</a> and the storm brought something in, that is what free re-service between visits is for. One call, and we come back out.</p>
-
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -3159,33 +2944,45 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Why Pests Get Worse After Rain in Alabama',
     excerpt: 'Fire ants, palmetto bugs, and millipedes all surge after Alabama rainstorms. Rain floods habitats and drives pests toward your home.',
     publishedAt: '2026-05-20',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
-    readMinutes: 4,
+    readMinutes: 6,
     heroEmoji: '🌧️',
     metaTitle: 'Why Pests Get Worse After Rain in Alabama | EnviroCare',
     metaDescription: 'Fire ants, palmetto bugs, millipedes, and mosquitoes surge after Alabama rain. Why storms drive pests indoors and how perimeter treatment stops them.',
     body: `
-<p class="lede">Every pest company in Alabama gets the same call after a rainstorm: why are there suddenly bugs everywhere? Rain disrupts underground and outdoor habitats, forcing pests toward your home.</p>
+<p class="lede">Alabama gets its rain in bursts — three inches in an afternoon, a tropical system that sits for two days — and every one of them is followed by the same wave of calls. Ants indoors that were not there Monday. Millipedes by the hundred on the garage floor. Roaches in the bathroom. A mosquito cloud on the porch a week later. None of it is random. A flooded yard rearranges where every pest can live, and most of the options it leaves them point at the house.</p>
 
-<h2>Fire Ants</h2>
-<p>Heavy rain floods their tunnels, and they build new mounds on higher ground — often your yard. You may see dozens of new mounds after a single storm.</p>
+<h2>Ants: flooded out, moving up</h2>
+<p>Argentine and odorous house ants nest shallow, under mulch and stones and along the foundation. When those nests flood, the colony moves the brood to higher, drier ground — and the highest, driest ground on the lot is inside your walls. This is the ant trail that appears the day after a storm and seems to come from nowhere. Fire ants do the same thing in the yard: a saturated colony pushes up above the water line, and the mounds that "appeared overnight" were there all summer, underground.</p>
 
-<h2>American Roaches (Palmetto Bugs)</h2>
-<p>American roaches live in storm drains and mulch. When rain saturates these areas, they move toward your dry home foundation.</p>
+<h2>Roaches: out of the drains</h2>
+<p>American cockroaches live in storm drains, sewer lines, and crawlspaces. A flooded drain system pushes them up and out, into bathrooms through floor drains and into crawlspaces that are now wet. Smokybrowns get flushed out of gutters and tree holes. Both end up looking for a dry, warm place, and the garage and the bathroom are it.</p>
 
-<h2>Millipedes and Mosquitoes</h2>
-<p>Millipedes migrate in mass after rain — sometimes hundreds crawling up foundations. Mosquitoes thrive because standing water is where they breed. A bottle cap of water produces hundreds of mosquitoes per week.</p>
+<h2>Millipedes, centipedes, and springtails: the surface army</h2>
+<p>Saturated soil drives millipedes, centipedes, earwigs, and springtails to the surface by the thousand, and they migrate across pavement toward any wall. They are harmless, they die indoors within a day or two, and they are almost impossible to prevent entirely in the week after a flood. What reduces them is the same thing every time: a dry band along the foundation, no mulch against the slab, no leaf litter piled by the door, and a treated perimeter.</p>
 
-<h2>The Best Defense</h2>
-<p>Proactive perimeter treatment already in place before the storm is your best defense. Our bi-monthly service creates a treated zone that intercepts pests as they migrate. We offer free re-treatment between scheduled visits for exactly this situation.</p>
+<h2>Mosquitoes: the seven-day clock</h2>
+<p>This is the one that arrives late. Every container, gutter, tarp, wheelbarrow, and low spot that filled during the storm is a mosquito nursery, and in summer heat the cycle from egg to biting adult runs about a week. The storm was Saturday; the mosquito cloud is the following weekend. Dumping standing water within a couple of days of a big rain is the single most effective mosquito step there is. The seasonal program treats the resting sites; it cannot empty your flowerpot saucers.</p>
 
-<p>Call your nearest EnviroCare office:</p>
+<h2>Termites: the quiet one</h2>
+<p>Rain does not create termites, but it creates the conditions. Wet soil against a foundation, a gutter overflowing onto the sill, a crawlspace that stays damp for a month — that is the moisture subterranean termites need to reach the wood. A season with a lot of storms is a season to look at the crawlspace and the downspouts. What to look for is in <a href="/blog/termite-damage-signs-alabama">termite damage signs</a>.</p>
+
+<h2>The week-after checklist</h2>
 <ul>
-<li>Birmingham — (205) 991-2882</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li>Dump every container of standing water on the lot within 48 hours.</li>
+<li>Clear the gutters and make sure downspouts carry water away from the foundation, not against it.</li>
+<li>Pull wet mulch and leaf litter back from the slab and the doors.</li>
+<li>Run water in floor drains and unused sinks to refill the traps that keep roaches out.</li>
+<li>Do not spray the ant trail — it fragments the colony. Bait it, or call.</li>
+<li>Check the crawlspace for standing water and get it dried.</li>
 </ul>
+<p>If you are on the <a href="/services/pest-control">bi-monthly plan</a> and the storm brought something in, that is what free re-service between visits is for. One call, and we come back out.</p>
+
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -4936,48 +4733,54 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Keep Wolf Spiders Out of Your Birmingham Home',
     excerpt: 'Wolf spiders are the biggest spider most Birmingham homeowners ever see indoors — fast, hairy, and alarming. Here\'s why they\'re really inside (it\'s their food), what actually keeps them out, and what doesn\'t.',
     publishedAt: '2026-06-30',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
     readMinutes: 6,
     heroEmoji: '🕷️',
     metaTitle: 'How to Keep Wolf Spiders Out of Your Birmingham Home | EnviroCare',
     metaDescription: 'Wolf spiders in your Birmingham home? They follow their food indoors. What keeps them out — exclusion plus perimeter pest control. (205) 940-6360.',
-    body: `
-<p class="lede">Wolf spiders are the largest spider most Birmingham homeowners ever see indoors — brown, hairy, fast, and often the size of a half-dollar with their legs spread. They aren't dangerous in the medical sense (no medically significant venom, no aggression), but they look alarming, they hunt at night, and they turn up in kitchens and basements in numbers that make one sighting feel like an infestation. Here's what we tell customers around Birmingham and the Over-the-Mountain suburbs when they call about them.</p>
+    body: `<p class="lede">Walk across your patio on a warm September evening in Hoover or Helena, shine a flashlight toward the grass, and you'll likely see eyes reflecting back at you. That's a wolf spider. They're everywhere in Alabama — in the red clay, along the creek banks, in the pine straw under your shrubs — and most of the time they stay outside doing exactly what we'd want them to do. The problem is when they don't. When temperatures swing, rain pushes them up out of low spots, or a garage door gets left open, they come inside. And a wolf spider moving fast across your living room floor is not something most people take calmly.</p>
 
-<h2>Why you're seeing them inside</h2>
+<h2>What wolf spiders actually look like</h2>
+<p>People mistake wolf spiders for brown recluses more than almost any other spider in Alabama, and the two are not the same animal. Wolf spiders are thick-bodied and large — a full-grown female can be an inch and a half long not counting the legs. They're brown and gray with darker banding or striping, and they tend to be hairy in a way that makes them look even bigger than they are. Their eyes are one of their best identifiers: wolf spiders have eight eyes arranged in three rows, with the middle row having two that are noticeably large. Shine a light at one in the dark and those big eyes glow back at you.</p>
+<p>They don't build webs. They chase down prey on foot, which is why you see them running rather than sitting in a corner. A female wolf spider carries her egg sac attached to her abdomen, and once eggs hatch, the spiderlings ride on her back for a short time. If you ever squash a female and a dozen tiny spiders scatter — that's what happened.</p>
 
-<p>Wolf spiders don't build webs. They hunt — which means they follow their prey. When you find one in the house, you're really finding evidence of something smaller it's eating: crickets, roaches, silverfish, earwigs, sometimes other spiders. A wolf spider problem is almost always a "their food source is inside" problem, which is also why squashing the ones you see never ends it.</p>
+<h2>Why Alabama has so many of them</h2>
+<p>Alabama is good wolf spider habitat in almost every way. The soil here — whether it's the sandy loam in Shelby County, the dark bottomland soil along the Coosa, or the rocky clay up around Huntsville — gives wolf spiders all the burrowing and hiding structure they need. We also have the insects they eat: crickets, small roaches, beetles, and other ground-level bugs are abundant from March through October, sometimes longer. Add in the moisture from our creek systems and the humidity that sits on neighborhoods from May through September, and you have conditions that support a very healthy wolf spider population.</p>
+<p>Communities built near wooded edges — which covers a lot of the Birmingham metro, the Lake Martin area, and neighborhoods across Madison County — tend to see more wolf spider pressure. More edge habitat means more prey, which means more spiders working those edges.</p>
 
-<p>The triggers we see most often in Birmingham homes — from Vestavia and Mountain Brook to Hoover and Trussville:</p>
-
+<h2>What brings them inside</h2>
+<p>Wolf spiders come inside for the same reasons most pests do: something outside changed, and inside looks better. The most common triggers in Alabama are:</p>
 <ul>
-<li><strong>Crawl space and foundation entry points.</strong> Wolf spiders are ground-level hunters, so they push in at the foundation line, around utility penetrations, and through gaps under exterior doors.</li>
-<li><strong>Mulch and ground cover within three feet of the foundation.</strong> It's perfect staging ground for crickets — the number-one wolf-spider draw.</li>
-<li><strong>Outdoor lighting on dusk timers.</strong> Porch and flood lights pull in moths and beetles, which pull in the spiders that eat them.</li>
+  <li><strong>Heavy rain.</strong> When we get the kind of multi-day soaking rain systems that stall over North Alabama or push up from the Gulf, low spots flood and ground-dwelling spiders move uphill — sometimes right into a garage or under a door.</li>
+  <li><strong>Temperature drops in fall.</strong> Late October and November cool-downs push a lot of ground insects (and the spiders that eat them) toward heat. A gap under a door or an unweathered threshold is an invitation.</li>
+  <li><strong>Construction or landscaping disturbance.</strong> Tilling a garden bed, turning mulch, or pulling up landscape timbers can displace spiders that were settled.</li>
+  <li><strong>Light and prey inside.</strong> If insects are getting inside — drawn to porch lights or gaps around windows — wolf spiders will follow the food.</li>
 </ul>
 
-<h2>What actually works (and what doesn't)</h2>
+<h2>What you can do yourself</h2>
+<p>A lot of wolf spider control is physical, not chemical, and the physical steps work better anyway. Here's what actually makes a difference:</p>
+<ul>
+  <li>Replace worn door sweeps and threshold seals, especially on garage doors. That's the most common entry point we see.</li>
+  <li>Keep mulch pulled back six inches or more from the foundation. Thick mulch right against the slab is warm, damp, and full of insects — exactly what a wolf spider is looking for.</li>
+  <li>Move firewood, lumber piles, and ground-level clutter away from the house. Wolf spiders love stacked material.</li>
+  <li>Fix exterior lighting. Porch lights draw moths and beetles. Switching to yellow-tinted bulbs or moving lights away from doorways reduces the insect crowd that attracts spiders.</li>
+  <li>Trim back shrubs and ground cover that touches the exterior wall. Dense vegetation against the house is essentially a bridge.</li>
+  <li>Check window screens. Wolf spiders won't squeeze through a tiny gap the way a small insect will, but a torn or poorly fitted screen is a real entry point.</li>
+</ul>
+<p>Inside the house, sticky traps placed along walls and in garage corners will catch wolf spiders. They won't solve an outdoor population problem, but they'll tell you where spiders are coming in, which helps you find the gaps.</p>
 
-<p><strong>Doesn't work:</strong> essential-oil sprays, ultrasonic plug-ins, and vinegar around doorways. We hear about these constantly. None of them produce a lasting change in spider activity in our climate.</p>
+<h2>What about the bite — should you worry?</h2>
+<p>Wolf spiders can and will bite if handled or cornered, but they are not considered medically significant in the way a brown recluse is. Most bites result in localized pain, redness, and swelling. If you're bitten and develop symptoms beyond that — significant swelling, spreading redness, fever, or anything that concerns you — see a doctor. We do pest control, not medicine, and that call belongs with a healthcare provider.</p>
+<p>The bigger concern for most Alabama families is just the surprise factor. Wolf spiders are startling, and in homes with young children or people with a serious fear of spiders, that matters even if the medical risk is low.</p>
 
-<p><strong>Does work:</strong></p>
+<h2>When a professional treatment actually helps</h2>
+<p>If you're seeing wolf spiders inside regularly — not once in a while, but repeatedly — that's a sign that something is drawing them in and the exclusion work alone isn't closing the gap. A perimeter treatment using <strong>EPA-registered products applied per label directions</strong> creates a barrier along the foundation, around entry points, and through the areas where spiders are most active. It won't reach every spider in your yard or woods, and no treatment will, but it reduces what makes it through to the inside.</p>
+<p>Wolf spider control is part of our standard <a href="/services/interior-pest-control">interior pest control service</a>. Our pest plan is <strong>$35 per month on a 12-month ACH agreement</strong> ($75 initial visit, $70 per visit otherwise), and it covers the recurring perimeter and interior treatments that keep pressure down throughout the year — not just a one-time visit when things get bad. If you're in the <a href="/birmingham">Birmingham area</a>, around <a href="/lake-martin">Lake Martin</a>, or up in <a href="/huntsville">Huntsville</a>, one of our offices can get you scheduled. We've been doing this work in Alabama since 1958, and wolf spiders are not a new conversation for us.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
-<ol>
-<li><strong>Exclusion first.</strong> Seal foundation cracks, add door sweeps on every exterior door, and put fine mesh over crawl-space vents. Spiders that can't get in don't have to be dealt with later.</li>
-<li><strong>Knock down the food source.</strong> A perimeter treatment that targets crickets, roaches, and silverfish removes the reason the spiders came inside in the first place. This is what our standard bi-monthly or quarterly pest control covers — wolf-spider sightings drop off within about two service visits in most homes.</li>
-<li><strong>Adjust the exterior.</strong> Pull mulch back 12 inches from the foundation, switch porch lights to yellow "bug" bulbs, and trim shrubs off the siding so there's no bridge to the house.</li>
-</ol>
-
-<h2>When to call a professional</h2>
-
-<p>If you're seeing more than one wolf spider a week indoors, or you have a finished basement where they keep reappearing, the problem isn't really the spiders — it's that something they hunt has an established population in your home. That's what professional <a href="/services/pest-control">pest control</a> resolves, because it treats the underlying insect activity instead of the spider symptom.</p>
-
-<p>The Wedgworth family has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
-
-<p><a href="/quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
-
-<p><em>Related:</em> <a href="/blog/brown-recluse-spiders-alabama">Brown recluse spiders in Alabama</a> · <a href="/blog/spider-control-alabama">Spider control in Alabama</a> · <a href="/blog/cricket-control-alabama">Cricket control</a> (the wolf spider's favorite meal).</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 

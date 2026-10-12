@@ -103,9 +103,8 @@ const POST_OVERRIDES: [RegExp, string][] = [
 
   // Tick-bite prevention (1,399 imps, pos ~15) — personal protection intent.
   [/prevent-getting-bit-by-ticks/, "/blog/prevent-tick-bites-alabama"],
-  [/keeping-the-wolf-spiders-in-birmingham-outside-w/, "/blog/keeping-the-wolf-spiders-in-birmingham-outside-w"], // legacy /blog/2022/july/keeping-the-wolf-spiders-in-birmingham-outside-w/ (blog-writer 2026-09-07)
-  [/struggling-to-get-rid-of-the-ticks-around-your-b/, "/blog/struggling-to-get-rid-of-the-ticks-around-your-b"], // legacy /blog/2022/august/struggling-to-get-rid-of-the-ticks-around-your-b/ (blog-writer 2026-09-09)
-  [/what-to-do-about-mosquitoes-in-birmingham/, "/blog/what-to-do-about-mosquitoes-in-birmingham"], // legacy /blog/2023/june/what-to-do-about-mosquitoes-in-birmingham/ (blog-writer 2026-09-11)
+  [/struggling-to-get-rid-of-the-ticks-around-your-b/, "/blog/tick-control-alabama"], // legacy /blog/2022/august/... (4,089 imps). 2026-10-12: duplicate post merged into tick-control-alabama
+  [/what-to-do-about-mosquitoes-in-birmingham/, "/blog/mosquito-season-birmingham-al"], // legacy /blog/2023/june/... (3,732 imps). 2026-10-12: duplicate post merged into mosquito-season-birmingham-al
 ];
 
 export function middleware(req: NextRequest) {
