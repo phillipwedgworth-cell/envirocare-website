@@ -53,21 +53,37 @@ pest control madison al             termite protection
                                     wdo letter inspection alabama
 ```
 
-## 3. ⬜ OPEN — briefed, never written. **Write these before inventing anything new.**
+## 3. ✅ ROUTES ALREADY IN THE REPO — prioritize improvements, not new pages (checked 2026-10-12)
 
-**Birmingham metro neighborhoods** (highest value — Birmingham office is launching):
-`brook highland hoover` · `greystone` · `highland lakes 35242` · `indian springs village` ·
-`liberty park vestavia` · `mt laurel` · `mountain brook` · `vestavia hills` · `trussville`
+**Correction to the August 6 ledger:** The former list below described these
+queries as "OPEN — briefed, never written" and told agents to *write* them.
+That referred to the then-current NeuronWriter editor, not the website.
+On 2026-10-12, the following routes were individually confirmed to have
+`app/.../page.tsx` files on GitHub `main`. **Repo presence does not by
+itself establish a successful production deployment, indexation, or a fresh
+NeuronWriter editor score.** Verify those separately before claiming them.
 
-**Shelby County corridor:** `alabaster` · `calera` · `chelsea` · `helena` · `pelham`
+| Search-intent group | Existing pages on main |
+|---|---|
+| Birmingham / Hoover neighborhoods | `/brook-highland`, `/greystone`, `/highland-lakes`, `/indian-springs`, `/liberty-park`, `/mt-laurel`, `/mountain-brook`, `/vestavia-hills`, `/trussville` |
+| Shelby County | `/alabaster`, `/calera`, `/chelsea`, `/helena`, `/pelham` |
+| Service opportunities | `/services/commercial`, `/services/flea`, `/services/tick-control`, `/huntsville-mosquito-control` |
+| Competitive intent | `/best-pest-control-birmingham` |
 
-**Service-specific:** `commercial pest control birmingham al` · `flea control birmingham al` ·
-`tick control birmingham al` · `mosquito control huntsville`
+**RivalFlow / NeuronWriter rule:** use an existing route as the asset to improve.
+Do not mint a second page or query because a historical brief is labelled open.
+Before generating copy, check the current page, `data/blog-posts.ts`,
+NeuronWriter's existing-query list, GSC page/query pairing, and this ledger.
+RivalFlow's suggested questions are evidence for a possible *addition*, not
+permission to replace a page wholesale. Use the smallest useful answer
+expansion; protect approved pricing, service scope, NAP, legal coverage wording,
+page intent, and existing internal links. Record the keyword, page, competitor
+comparison URL, question gap, changed section, and measurement baseline in the
+PR. **Never auto-publish the RivalFlow full draft.**
 
-**Competitive:** `best pest control company in birmingham al`
-
-> ⚠️ `pest control alabaster al` is open even though Alabaster is the **largest office** (247 Google
-> reviews). That's the single biggest gap in the list.
+**Still unresolved:** Which of these existing pages has a current verified
+RivalFlow project, an up-to-date NeuronWriter editor score, or a measurable GSC
+opportunity? Those require fresh reads; do not guess from this ledger.
 
 ## 4. 📄 PUBLISHED BLOG POSTS — live on `/blog`
 
@@ -90,7 +106,7 @@ Newest first. **35+ total.** Do not pitch these angles again.
 `BLOG_POSTS` renders at `/blog/<slug>` and is emitted in the sitemap — there is no draft flag,
 so anything added there is live on push.
 
-## 5. 📱 SOCIAL — 22 drafts in OneUp, all unpublished
+## 5. 📱 SOCIAL — historical August 6 draft inventory (recheck OneUp live)
 
 Angles already drafted (**do not write these again**): lake house first visit · August pest peak ·
 1958 family business · 15-minute fall walkaround · late-summer fleas · fire ant mound regrowth ·
@@ -99,7 +115,7 @@ termites in August · wasp vs hornet vs yellowjacket ID · empty-house advantage
 grill lid warning · Huntsville yellowjackets · post-thunderstorm mounds · mosquitoes from cups ·
 dock mosquitoes · Over-the-Mountain mosquitoes · Huntsville yard comparison.
 
-**Status: 0 scheduled, 0 published, ever.** See `EnviroCare-Pipeline-Diagnosis-Aug6.md`.
+**Historical status on August 6: 0 scheduled, 0 published.** Not a current OneUp status check. Review the live queue before acting; see `EnviroCare-Pipeline-Diagnosis-Aug6.md`.
 
 ---
 
@@ -107,39 +123,49 @@ dock mosquitoes · Over-the-Mountain mosquitoes · Huntsville yard comparison.
 
 Any agent, session, or person creating content follows this in order:
 
-1. **Read this file.** If the topic is in §2, §4, or §5 — stop. Update the existing asset instead.
-2. If it's in §3 — write it. It's already researched; don't re-research.
-3. Only if it's in none of the above, create something new — and **add it here in the same session.**
-4. Never create a NeuronWriter query without checking §2 and §3 first. That check is what 70
-   `DUPLICATE-DELETE` tags were missing.
+1. **Read this file, then inspect the live asset and the repo.** An August
+   NeuronWriter "open" label is not evidence that the website lacks that page.
+2. If the intent already has a website route or blog post, **improve the
+   existing asset** and preserve its canonical URL. Avoid overlapping pages.
+3. Reuse the existing NeuronWriter query ID when possible; creating a new
+   keyword analysis uses plan quota. Distinguish a missing editor draft from a
+   missing public page.
+4. Use RivalFlow on specific already-ranking pages, prioritizing competitor
+   question gaps only when relevant to an actual offered EnviroCare service.
+   Don't assume extra words improve AI citation visibility; off-site authority
+   and location corroboration often matter more.
+5. For a genuinely new topic, prove that no corresponding page exists, then
+   add it to this ledger when preparing the approval-gated PR.
+6. **Do not reuse historical ranking, review, or OneUp status as a current
+   measured fact.** Verify each underlying system before publishing a claim.
 
-**Why a file and not agent memory:** agents don't share memory across runs, and neither do chat
-sessions. A file in this project is the only thing all of them can read. This file *is* the memory.
-
-**How it reaches the agents:** this file lives in `agents/knowledge/`, which
-`agents/lib/knowledge.mjs` loads wholesale into the prompt of every agent that calls
-`knowledgeBlock()` — currently `neuronwriter-narrator`, `proposer`, `morning-brief`, and
-`site-reviewer`. Adding a `.md` here is all that is required; there is no registration step.
-(Those files were silently missing from the Vercel serverless bundle until 2026-08-05 —
-`outputFileTracingIncludes` in `next.config.ts` is what keeps them shipping. Do not remove it.)
+**Why a file and not agent memory:** agents do not share session memory. This
+file is loaded via `knowledgeBlock()` into narrator and other agent prompts.
 
 ---
 
-## 7. What's genuinely unexplored
+## 7. Research leads — not confirmed content gaps
 
-Everything above is location × service — the same two variables recombined. That's why it feels
-repetitive: **it is repetitive.** Directions with no coverage at all:
+The August 6 list of unexplored ideas is historical. Several now have live
+repository assets, including Sentricon comparisons, termite cost, and builder /
+WDO content. Verify `data/blog-posts.ts` and the current sitemap before
+proposing any of those again.
 
-- **Seasonal calendar content** — "what's active in Alabama in September" as a recurring monthly asset
-- **Buyer-stage content** — realtor/closing audience (WDO letters), builder audience (pre-treats),
-  property-manager audience (multifamily). Three different buyers, zero content each.
-- **The 321 Google reviews** — real customer language, mined for zero content so far. Lauryn was named
-  unprompted twice in one day across two markets; that's a story, not a keyword.
-- **Cost/pricing transparency** — one Huntsville cost guide exists and nothing else. Competitors hide
-  price; you don't have to. *(A second one shipped Aug 4: termite treatment cost.)*
-- **Comparison content** — Sentricon vs liquid termite treatment; annual bond vs per-visit.
+Priority for October 2026: use fresh GSC and RivalFlow comparisons to improve
+already-ranking buyer-intent pages and pursue **off-site corroboration**
+(editorial links, accurate local citations, legitimate customer reviews)
+for Huntsville, Birmingham, and Lake Martin. RivalFlow compares *on-page
+answers*; it does not measure or repair the full off-site authority gap.
 
-Those are net-new. The location grid is not.
+A real opportunity record must include:
+- Target search query and the canonical existing EnviroCare URL;
+- Verified current GSC clicks, impressions and ranking date, or "unknown";
+- RivalFlow project's competitor URL and specific missing/weakly answered
+  questions, or "not yet read";
+- A proposed exact content change or off-site action, compliance checks,
+  and a 28-day measurement checkpoint.
+
+Never label inferred or historical gaps as fresh RivalFlow results.
 
 ## Sources
 
