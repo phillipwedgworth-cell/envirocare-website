@@ -24,7 +24,7 @@ const KEY      = process.env.NEURONWRITER_API_KEY;
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const MODEL = process.env.NARRATOR_MODEL || "claude-sonnet-4-6";
 
-const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // ready-to-ship line
+const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // score-ready line (keyword coverage only)
 const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" mark
 const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
@@ -300,7 +300,7 @@ async function runFill() {
   const work  = rank.filter(r => (r.score ?? -1) <  SCORE_FLOOR);
 
   let md = `## Neuron Narrator -- filled ${results.length} editors\n\n`;
-  md += `**Ready to ship (score >= ${SCORE_FLOOR}%) -- publish these first, best at top:**\n\n`;
+  md += `**Score-ready (NeuronWriter >= ${SCORE_FLOOR}%, keyword coverage only) -- NOT compliance- or plagiarism-checked, no images. Do not publish from here: the weekly content PR runs those gates. Best first:**\n\n`;
   md += `| # | Keyword | Score | Source |\n|---|---|---|---|\n`;
   ready.forEach((r,i) => md += `| ${i+1} | ${r.keyword} | ${r.score}%${r.score>=SHIP_GOOD?" 💪":""} | ${r.source} |\n`);
   if (!ready.length) md += `| — | (none cleared the floor yet) | | |\n`;
@@ -309,7 +309,7 @@ async function runFill() {
     work.forEach(r => md += `| ${r.keyword} | ${r.score===null?"err":r.score+"%"} |\n`);
   }
   md += `\nAll drafts are in NeuronWriter now. Publish to the live site best-first, a few a week, via pull requests.\n`;
-  toSummary(md); await email("Neuron Narrator -- ready-to-ship queue", md.replace(/\n/g,"<br>"));
+  toSummary(md); await email("Neuron Narrator -- score-ready drafts (unchecked)", md.replace(/\n/g,"<br>"));
 
   // Surface the result in the Command Center (Recent Findings panel), not just email.
   const top = ready.slice(0, 3).map(r => `${r.keyword} ${r.score}%`).join(", ");
