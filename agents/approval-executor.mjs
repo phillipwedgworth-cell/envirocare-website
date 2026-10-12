@@ -71,8 +71,12 @@ const SLOT_HOUR_UTC = 14;    // ~9am CT, the slot the calendar already used
 //
 // There is deliberately NO FALLBACK. If the 16th Ave listing is not connected in
 // OneUp, the row goes to 'fix' — never silently onto Alabaster's profile.
-// The "16th ave" needle is matched against OneUp's listing name and has not been
-// confirmed live; if the first --live run reports it "not connected", adjust it.
+// The "16th ave" needle is matched against OneUp's listing name. This said it "has
+// not been confirmed live" until 2026-10-06; it has been. A listsocialaccounts read
+// on 2026-09-07 returned the listing "EnviroCare (2120 16th Ave S, Birmingham, AL,
+// US)" with is_expired: 0 — recorded at the birmingham:google route in
+// oneup-push.mjs. Dated, not re-read today, so if a --live run still reports it
+// "not connected", trust the run and adjust the needle.
 const ROUTES = {
   birmingham: { needle: "16th ave", listing: "Birmingham GBP (16th Ave S)" },
   alabaster: { needle: "butler rd", listing: "Alabaster GBP (Butler Rd)" },

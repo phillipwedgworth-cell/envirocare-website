@@ -410,7 +410,9 @@ const RECURRING_PLANS: RecurringPlan[] = [
   },
   {
     key: 'mosquito', icon: 'mosquito', name: 'Mosquito', dotColor: '#0E7490',
-    perservice: { price: `$${PRICING.addOns.mosquito.monthly}/mo ACH`, terms: 'Monthly-only service · 8 treatments March–October · equal averaged drafts all year' },
+    // Mosquito has no per-visit price (ruled 2026-08-26). In the Per Service view
+    // the card says so instead of showing an ACH figure under a per-visit label.
+    perservice: { price: 'Monthly plan only', terms: `No per-visit option · $${PRICING.addOns.mosquito.monthly}/mo on ACH · 8 treatments March–October · equal averaged drafts all year` },
     monthly: { price: `$${PRICING.addOns.mosquito.monthly}/mo ACH`, terms: `$${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo only when paired with pest · 8 treatments March–October` },
     bullets: ['Seasonal yard barrier treatments', 'Targets adult mosquitoes and harborage areas', 'Free re-treatment between scheduled visits', 'Mosquito reduction — not elimination'],
     addon: `Add tick control with mosquito: +$${PRICING.addOns.tick.monthlyWithMosquitoOnly}/month`,
@@ -2563,7 +2565,8 @@ const HOMEPAGE_CSS = `
 
   /* ── Pricing: button resets + two-block structure (added) ── */
   button.ec-cp-toggle-label {
-    background: none; border: none; padding: 0;
+    background: none; border: none; padding: 12px 8px;
+    min-height: 44px; /* phone tap target (was 17px tall, 2026-10-05) */
     font-family: inherit; line-height: 1.2;
   }
   button.ec-cp-item-top {

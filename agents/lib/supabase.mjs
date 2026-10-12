@@ -43,11 +43,15 @@ if (url && key) {
   }
 }
 
-export async function logAgentRun(agentName, status, output) {
+// `summary` (optional) lands in agent_runs.summary (jsonb). Escalated runs pass
+// the critic's per-loop verdicts here so the reason for an escalation is on the
+// row. Until 2026-10-09 summary was null on every row and no escalation reason
+// was stored anywhere.
+export async function logAgentRun(agentName, status, output, summary = null) {
   if (!supabase) return;
   try {
     const now = new Date().toISOString();
-    await supabase.from("agent_runs").insert({
+    const row = {
       agent_name: agentName,
       agent: agentName,
       status,
@@ -56,7 +60,11 @@ export async function logAgentRun(agentName, status, output) {
       started_at: now,
       ended_at: now,
       created_at: now,
-    });
+    };
+    if (summary != null) row.summary = summary;
+    // supabase-js reports insert failures in { error }, it does not throw.
+    const { error } = await supabase.from("agent_runs").insert(row);
+    if (error) console.error(`[supabase] logAgentRun insert failed: ${error.message}`);
   } catch (e) {
     console.error(`[supabase] logAgentRun failed: ${e.message}`);
   }
@@ -235,6 +243,42 @@ export async function writeFinding(agentName, category, severity, pageUrl, findi
       console.error(`[${agentName}] writeFinding error: ${fmtSbError(error)}`);
     }
   }
+}
+
+// Close an agent's open findings that its CURRENT run did not re-observe.
+//
+// Why (2026-10-11 audit): the dedup trigger only merges a finding when its text
+// is identical. keyword-opportunity wrote a freshly-worded LLM line every run,
+// so each run opened 15 NEW rows and nothing ever closed the old ones — 150
+// open findings, every one seen exactly once. competitor-watcher's text carries
+// live percentages, so each change opened a new row beside the stale one (71
+// open, including two rows for the same keyword at 69.39% and 67.35%).
+// A finding the agent no longer reports is not current; leaving it "open" is
+// how stale state reaches the Sunday audit and the morning brief.
+//
+// Call ONLY after a run that completed its full analysis (a crashed or partial
+// run must not resolve everything it failed to re-check). runStartIso must be
+// taken BEFORE the run's first writeFinding: the trigger sets last_seen_at to
+// the new run_date on every re-observation, so anything older was not re-seen.
+export async function closeUnseenFindings(agentName, categories, runStartIso, note) {
+  if (!supabase || !runStartIso || !Array.isArray(categories) || categories.length === 0) return 0;
+  const { data, error } = await supabase
+    .from("agent_findings")
+    .update({
+      status: "resolved",
+      resolved_at: new Date().toISOString(),
+      resolution_note: note ?? `not re-observed by ${agentName} run started ${runStartIso}`,
+    })
+    .eq("agent_name", agentName)
+    .eq("status", "open")
+    .in("category", categories)
+    .lt("last_seen_at", runStartIso)
+    .select("id");
+  if (error) {
+    console.error(`[${agentName}] closeUnseenFindings error: ${fmtSbError(error)}`);
+    return 0;
+  }
+  return data?.length ?? 0;
 }
 
 // Read findings from the last N hours, optionally filtered by agent names

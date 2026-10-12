@@ -1,6 +1,6 @@
 // Organization-level schema for AEO (Answer Engine Optimization).
 // This is the canonical BRAND entity. Physical offices are separate
-// PestControlService/LocalBusiness nodes in app/layout.tsx and reference this
+// LocalBusiness office nodes in app/layout.tsx and reference this
 // Organization by @id. Keeping the brand node separate avoids merging one
 // addressless LocalBusiness with four staffed offices.
 //

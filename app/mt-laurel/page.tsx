@@ -28,7 +28,7 @@ const config: DeepCityConfig = {
   heroIntro:
     "Considerate pest and termite care for Mt Laurel's wooded, nature-minded village and the Dunnavant Valley. No-drill Sentricon®, a 30-day mosquito and tick barrier built for woodland lots, and the bi-monthly perimeter program.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Mt Laurel, Alabama, including Mt Laurel Village and Dunnavant Valley. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in property coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Mt Laurel, Alabama, including Mt Laurel Village and Dunnavant Valley. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
   whyHeadline: "Mt Laurel's preserved woodland and foothill setting puts mosquitoes, ticks, and termites right against the property line.",
   whySub: "The patterns we treat most across Mt Laurel Village and Dunnavant Valley.",
   pressureCards: [
@@ -50,7 +50,7 @@ const config: DeepCityConfig = {
     { q: "Do you treat ticks and mosquitoes in Mt Laurel?", a: "Yes — the Mosquito + Tick mosquito + tick program runs every 30 days, March through October, for $65 per month, built for Mt Laurel's wooded, woodland-edge lots." },
     { q: "What does bi-monthly pest control cover in Mt Laurel?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
     { q: "Do you serve Mt Laurel Village and Dunnavant Valley?", a: "Yes — all of Mt Laurel. Call (205) 940-6360 and we'll confirm your address is on our route." },
-    { q: "Is there a long-term contract?", a: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." },
+    { q: "Is there a long-term contract?", a: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." },
   ],
   siblings: [
     ["Chelsea", "/chelsea"],

@@ -31,6 +31,7 @@ import { getFAQSchema, MultiSchemaScript } from "@/lib/schema";
  */
 
 import { getServiceBySlug, type Service } from '@/data/services';
+import RefreshedContent from '@/components/RefreshedContent';
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 const SERVICE_ART_SVG: Record<string, string> = {
@@ -382,6 +383,8 @@ export default function ServicePage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <RefreshedContent route={`/services/${service.slug}`} />
+
       <section className="faqs">
         <div className="container">
           <div className="section-eyebrow">Common Questions</div>
@@ -401,7 +404,7 @@ export default function ServicePage({ slug }: { slug: string }) {
         <div className="office-cta-inner">
           <div className="section-eyebrow">Ready To Start?</div>
           <h3>Get Your Free {service.shortName} Quote</h3>
-          <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
+          <div className="office-cta-addr">Birmingham · Alabaster · Lake Martin · Huntsville</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/quote" className="btn-outline-white">See All Plans →</a>

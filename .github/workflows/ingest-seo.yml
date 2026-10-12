@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read   # no longer pushes (2026-10-07)
 
 jobs:
   ingest:
@@ -39,13 +39,23 @@ jobs:
         run: node agents/ingest-gsc.mjs
       - name: Ingest GA4
         run: node agents/ingest-ga4.mjs
-      - name: Commit refreshed GA4 snapshot
-        run: |
-          git config user.name "envirocare-bot"
-          git config user.email "bot@envirocarellc.com"
-          git add monitoring/ga4-latest.json monitoring/ga4-history.csv || true
-          git commit -m "chore(seo): weekly GA4 snapshot" || echo "no changes"
-          git push || echo "nothing to push"
+      # The GA4 snapshot is NOT committed to this public repo any more (2026-10-07).
+      # 1. It leaked the /approve console key (PR #222) and nothing in the repo
+      #    reads it — the numbers live in Supabase ga4_weekly (GA4_WRITE_SUPABASE=1).
+      # 2. The old step ended in `git push || echo "nothing to push"`. The
+      #    protect-main ruleset (2026-09-16) rejects bot pushes, and that echo
+      #    turned every rejection green: no snapshot landed after 2026-09-14 while
+      #    the run reported success daily. Kept as a private build artifact instead.
+      - name: Upload GA4 snapshot (private artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ga4-snapshot
+          path: |
+            monitoring/ga4-latest.json
+            monitoring/ga4-history.csv
+          retention-days: 30
+          if-no-files-found: warn
 
       # Added 2026-08-24. This workflow failed silently on Aug 10, Aug 17 and
       # Aug 24 (invalid_client on the Google OAuth secret) and nothing

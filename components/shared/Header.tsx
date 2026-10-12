@@ -26,7 +26,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Phone, Menu, X, Sparkles, User, Flower2 } from "lucide-react";
-import { phoneForPath } from "../../data/city-offices";
+import { useOfficePhone } from "../../lib/use-office-phone";
 
 // The one internal Pay Bill URL. app/pay/page.tsx redirects it to the Key7
 // portal, so if the processor ever changes, that file changes and nothing here
@@ -112,7 +112,7 @@ export default function Header() {
   // what their page copy advertises. Unmapped routes fall back to Birmingham —
   // the previous sitewide behavior.
   const pathname = usePathname();
-  const office = phoneForPath(pathname ?? "/");
+  const office = useOfficePhone(pathname ?? "/");
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);

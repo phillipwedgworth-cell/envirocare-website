@@ -9,7 +9,10 @@
 //   fill  -> for EVERY query: use a hand-written draft if present, else WRITE one
 //            (Claude, compliance-locked), push it, read its score. If an auto draft
 //            scores below the floor, rewrite it ONCE to lift it. Then rank everything
-//            by score and report a "ready to ship" queue (best first).
+//            by score and report a "score-ready" queue (best first). Score-ready means
+//            NeuronWriter keyword coverage ONLY: no compliance scan, no plagiarism check,
+//            no image, no duplicate check. On 10-12 nine of 24 such drafts carried banned
+//            claims. The weekly content PR (blog-from-drafts / content-refresh) is the gate.
 //   score -> just list every query + its current score.
 //
 // No ChatGPT. Uses NEURONWRITER_API_KEY + ANTHROPIC_API_KEY (already GitHub secrets).
@@ -21,7 +24,7 @@ const KEY      = process.env.NEURONWRITER_API_KEY;
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const MODEL = process.env.NARRATOR_MODEL || "claude-sonnet-4-6";
 
-const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // ready-to-ship line
+const SCORE_FLOOR = Number(process.env.NARRATOR_SCORE_FLOOR || 65); // score-ready line (keyword coverage only)
 const SHIP_GOOD   = Number(process.env.NARRATOR_SHIP_GOOD   || 70); // "strong" mark
 const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle on rate limits
 
@@ -168,6 +171,15 @@ async function writeDraft(keyword, terms, lift = false) {
   return html;
 }
 
+// Score draft candidates without changing the NeuronWriter editor. A failed
+// rewrite must not replace a better existing or first-pass draft.
+async function evaluateDraft(id, html, title) {
+  const resp = await nw("evaluate-content", { query: id, html, title, description: "" });
+  const score = pickScore(resp);
+  if (score === null) throw new Error("evaluate-content returned no content score; editor unchanged");
+  return score;
+}
+
 async function pushAndScore(id, html, title) {
   const resp = await nw("import-content", { project: PROJECT, query: id, html, title });
   let sc = pickScore(resp);
@@ -234,8 +246,10 @@ async function runFill() {
 
       // GUARD: leave good drafts alone. A hand-written manifest file still wins,
       // because that is the deliberate, version-controlled source of truth.
-      if (!FORCE && !(hand && handFile && existsSync(handFile))) {
-        const existing = listedScore(q) ?? await readScore(id);
+      const hasHandDraft = Boolean(hand && handFile && existsSync(handFile));
+      let existing = null;
+      if (!FORCE && !hasHandDraft) {
+        existing = listedScore(q) ?? await readScore(id);
         if (existing !== null && existing >= PROTECT_AT) {
           results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
           await sleep(SLEEP_MS);
@@ -243,22 +257,36 @@ async function runFill() {
         }
       }
 
-      if (hand && handFile && existsSync(handFile)) {
+      if (hasHandDraft) {
         const html = readFileSync(handFile, "utf8");
         score = await pushAndScore(id, html, hand.title || keyword);
         source = "hand-written";
       } else {
         let terms = [];
         try { terms = pickTerms(await nw("get-query", { query: id })); } catch {}
+        const title = `${keyword} | EnviroCare`;
         let html = await writeDraft(keyword, terms);
-        score = await pushAndScore(id, html, `${keyword} | EnviroCare`);
+        let proposed = await evaluateDraft(id, html, title);
         source = "auto-written";
-        // rating-aware: one rewrite if it came in below the floor
-        if (score !== null && score < SCORE_FLOOR) {
+        // Evaluate a single lift BEFORE importing anything. Previously, a
+        // worse second attempt overwrote the better first attempt in the editor.
+        if (proposed < SCORE_FLOOR) {
           const html2 = await writeDraft(keyword, terms, true);
-          const score2 = await pushAndScore(id, html2, `${keyword} | EnviroCare`);
-          if (score2 !== null && score2 >= score) { score = score2; source = "auto-written (lifted)"; }
+          const score2 = await evaluateDraft(id, html2, title);
+          if (score2 > proposed) {
+            html = html2;
+            proposed = score2;
+            source = "auto-written (lifted)";
+          }
         }
+        // A low-scoring existing editor still deserves protection: never
+        // replace it with an equal or worse machine draft unless forced.
+        if (!FORCE && existing !== null && proposed <= existing) {
+          results.push({ keyword, score: existing, source: `kept (candidate ${proposed}% vs current ${existing}%)` });
+          await sleep(SLEEP_MS);
+          continue;
+        }
+        score = await pushAndScore(id, html, title);
       }
       results.push({ keyword, score, source });
     } catch (e) {
@@ -272,7 +300,7 @@ async function runFill() {
   const work  = rank.filter(r => (r.score ?? -1) <  SCORE_FLOOR);
 
   let md = `## Neuron Narrator -- filled ${results.length} editors\n\n`;
-  md += `**Ready to ship (score >= ${SCORE_FLOOR}%) -- publish these first, best at top:**\n\n`;
+  md += `**Score-ready (NeuronWriter >= ${SCORE_FLOOR}%, keyword coverage only) -- NOT compliance- or plagiarism-checked, no images. Do not publish from here: the weekly content PR runs those gates. Best first:**\n\n`;
   md += `| # | Keyword | Score | Source |\n|---|---|---|---|\n`;
   ready.forEach((r,i) => md += `| ${i+1} | ${r.keyword} | ${r.score}%${r.score>=SHIP_GOOD?" 💪":""} | ${r.source} |\n`);
   if (!ready.length) md += `| — | (none cleared the floor yet) | | |\n`;
@@ -281,7 +309,7 @@ async function runFill() {
     work.forEach(r => md += `| ${r.keyword} | ${r.score===null?"err":r.score+"%"} |\n`);
   }
   md += `\nAll drafts are in NeuronWriter now. Publish to the live site best-first, a few a week, via pull requests.\n`;
-  toSummary(md); await email("Neuron Narrator -- ready-to-ship queue", md.replace(/\n/g,"<br>"));
+  toSummary(md); await email("Neuron Narrator -- score-ready drafts (unchecked)", md.replace(/\n/g,"<br>"));
 
   // Surface the result in the Command Center (Recent Findings panel), not just email.
   const top = ready.slice(0, 3).map(r => `${r.keyword} ${r.score}%`).join(", ");
@@ -290,10 +318,10 @@ async function runFill() {
     category: "content",
     severity: ready.length ? "info" : "warning",
     finding: ready.length
-      ? `${ready.length} SEO draft(s) ready to ship (score ≥ ${SCORE_FLOOR}%). Top: ${top || "—"}. Review in NeuronWriter, then publish via PR.`
+      ? `${ready.length} draft(s) score-ready (NeuronWriter ≥ ${SCORE_FLOOR}%, keyword coverage only — NOT compliance- or plagiarism-checked, no images). Top: ${top || "—"}. They reach the site only through the weekly content PR, which runs those gates.`
       : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
   }).catch(() => {});
-  return `fill: ${results.length} editors, ${ready.length} ready to ship${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
+  return `fill: ${results.length} editors, ${ready.length} score-ready (unchecked)${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
 }
 
 // -- main ---------------------------------------------------------------------

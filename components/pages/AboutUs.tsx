@@ -202,10 +202,9 @@ export default function AboutUs() {
           <div className="ab-tl-grid">
             <div className="ab-tl-row l">
               <div className="ab-tl-card">
-                <h3>Founded as Wedgworth Pest Control</h3>
+                <h3>Founded in Alexander City</h3>
                 <p>
-                  Phillip M. Wedgworth starts the family business — Wedgworth Pest Control — in Alexander City, on Lake Martin,
-                  to protect the homes and families of the lake community. Our original Alex City location still anchors the company today.
+                  Founded as Wedgworth Pest Control in Alexander City, on Lake Martin.
                 </p>
               </div>
               <div className="ab-tl-year">1958</div>
@@ -213,63 +212,28 @@ export default function AboutUs() {
             <div className="ab-tl-row r">
               <div className="ab-tl-year">1980</div>
               <div className="ab-tl-card">
-                <h3>Second generation takes over</h3>
+                <h3>Second generation</h3>
                 <p>
-                  Phillip L. Wedgworth takes over the family business. The second generation expands service across
-                  East Alabama and earns the trust of Russell Lands and the surrounding residential lake properties.
+                  Second generation takes the reins.
                 </p>
               </div>
             </div>
             <div className="ab-tl-row l">
               <div className="ab-tl-card">
-                <h3>Sentricon® certification</h3>
+                <h3>Kevin expands into Birmingham</h3>
                 <p>
-                  EnviroCare becomes a Sentricon® Certified Specialist — one of fewer than 1% of pest companies
-                  authorized to install the in-ground bait system, with no-drilling termite protection and up to
-                  $1M in EnviroCare-backed damage coverage, subject to the terms of the agreement.
+                  Kevin Wedgworth expands into Birmingham. Many Lake Martin customers kept lake houses but lived in
+                  Birmingham, Hoover, Vestavia Hills and Mountain Brook, and asked us to protect their homes there too.
                 </p>
               </div>
-              <div className="ab-tl-year">2000s</div>
-            </div>
-            <div className="ab-tl-row r">
               <div className="ab-tl-year">2002</div>
-              <div className="ab-tl-card">
-                <h3>Kevin Wedgworth expands into Birmingham</h3>
-                <p>
-                  Many Lake Martin customers kept lake houses but lived in Birmingham, Hoover, Vestavia Hills, and Mountain Brook —
-                  and asked us to protect their homes there too. Kevin Wedgworth opens a Birmingham-area office to serve them.
-                </p>
-              </div>
             </div>
-            <div className="ab-tl-row l">
-              <div className="ab-tl-card">
-                <h3>Kevin takes the helm</h3>
-                <p>
-                  Kevin Wedgworth takes over the family business and runs EnviroCare across four Alabama
-                  offices. The fourth generation, William Lex Wedgworth, joined the business in 2024 —
-                  learning the trade the same way every Wedgworth before him has.
-                </p>
-              </div>
-              <div className="ab-tl-year">2016</div>
-            </div>
-
             <div className="ab-tl-row r">
-              <div className="ab-tl-card">
-                <h3>Huntsville office opens</h3>
-                <p>
-                  Expansion north to Huntsville and Madison County. The Old Madison Pike office covers Research
-                  Park, Hampton Cove, Madison, Athens, Decatur, and the Tennessee Valley.
-                </p>
-              </div>
-              <div className="ab-tl-year">2020</div>
-            </div>
-            <div className="ab-tl-row l">
               <div className="ab-tl-year">Today</div>
               <div className="ab-tl-card">
-                <h3>Four offices, one family</h3>
+                <h3>Fourth generation</h3>
                 <p>
-                  Bi-monthly pest control, Sentricon® termite protection, and seasonal mosquito and tick service
-                  across Alabama. Still family-owned. Still a real person answering the phone. Still the same promise.
+                  Fourth generation runs EnviroCare across Central &amp; North Alabama.
                 </p>
               </div>
             </div>

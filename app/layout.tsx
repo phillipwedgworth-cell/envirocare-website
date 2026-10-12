@@ -146,7 +146,11 @@ export const metadata: Metadata = {
 // data/cities.ts exactly.
 const ALABASTER_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
+  // schema.org has no pest-control type; 'PestControlService' failed strict
+  // validation on all 184 pages (Ahrefs Site Audit, 2026-10-07). additionalType
+  // carries the category without inventing a type.
+  additionalType: 'https://en.wikipedia.org/wiki/Pest_control',
   '@id': 'https://www.envirocarellc.com/#alabaster',
   name: 'EnviroCare — Alabaster',
   image: 'https://www.envirocarellc.com/og-image.png',
@@ -177,7 +181,8 @@ const ALABASTER_SCHEMA = {
 
 const BIRMINGHAM_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
+  additionalType: 'https://en.wikipedia.org/wiki/Pest_control',
   '@id': 'https://www.envirocarellc.com/#birmingham',
   // Per-location name: the Birmingham door sign reads "EnviroCare Pest Services".
   name: 'EnviroCare Pest Services',
@@ -222,7 +227,8 @@ const BIRMINGHAM_SCHEMA = {
 
 const LAKE_MARTIN_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
+  additionalType: 'https://en.wikipedia.org/wiki/Pest_control',
   '@id': 'https://www.envirocarellc.com/#lake-martin',
   name: 'EnviroCare — Alex City / Lake Martin',
   image: 'https://www.envirocarellc.com/og-image.png',
@@ -252,7 +258,8 @@ const LAKE_MARTIN_SCHEMA = {
 
 const HUNTSVILLE_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'PestControlService',
+  '@type': 'LocalBusiness',
+  additionalType: 'https://en.wikipedia.org/wiki/Pest_control',
   '@id': 'https://www.envirocarellc.com/#huntsville',
   name: 'EnviroCare — Huntsville',
   image: 'https://www.envirocarellc.com/og-image.png',

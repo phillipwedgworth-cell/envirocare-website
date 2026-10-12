@@ -21,10 +21,22 @@
  *     why. It is told the compliance locks and forbidden to invent prices.
  *  6. Findings are deduped on the query, so a keyword proposes itself once
  *     until it moves out of the window.
+ *
+ * 2026-10-11 — step 6 was not true. The dedup trigger fingerprints the finding
+ * TEXT, and the text was the LLM's line, reworded every run: 15 new rows per
+ * run, 150 open, each seen once, the same keyword filed 3-4 times. The finding
+ * text is now deterministic ("<query>" → <page>); the LLM line lives in
+ * details.plan. Queries that leave the top N are closed, not left open.
+ *
+ * SpyFu (optional): when spyfu_keywords holds a ranking URL for the query (see
+ * agents/spyfu-load.mjs), it is recorded, and a mismatch with the rule-based
+ * target is flagged as a wrong-page / cannibalisation signal. Search Console has
+ * no query×page table here, so SpyFu is the only "which page did Google pick"
+ * source the fleet has.
  */
 import { pathToFileURL } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
-import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
+import { supabase, logAgentRun, writeFinding, closeUnseenFindings } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 
@@ -77,6 +89,21 @@ async function candidates(snapshot) {
     .slice(0, TOP_N);
 }
 
+// Latest SpyFu export per keyword. A missing table (not yet migrated) or an
+// empty one is normal: return an empty map and carry on without SpyFu.
+async function spyfuRanks(queries) {
+  if (!queries.length) return new Map();
+  const { data, error } = await supabase.from("spyfu_keywords")
+    .select("keyword,rank,ranking_url,search_volume,keyword_difficulty,export_date")
+    .in("keyword", queries).order("export_date", { ascending: false }).limit(1000);
+  if (error) { console.warn(`[${AGENT_NAME}] spyfu_keywords unavailable: ${error.message}`); return new Map(); }
+  const out = new Map();
+  for (const r of data ?? []) if (!out.has(r.keyword)) out.set(r.keyword, r);
+  return out;
+}
+
+const pathOf = (url) => { try { return new URL(url, "https://www.envirocarellc.com").pathname.replace(/\/+$/, "") || "/"; } catch { return null; } };
+
 async function plan(anthropic, rows, snapshot) {
   const prompt = `You plan on-page SEO work for EnviroCare, a family pest-control company in Alabama (four offices: Alabaster, Birmingham, Huntsville, Alexander City / Lake Martin).
 For each keyword below, write ONE line: "<keyword> → <page> — <what to add, concretely>". 15-30 words each. No headings.
@@ -104,13 +131,29 @@ export async function run() {
   } catch (e) { console.warn(`[${AGENT_NAME}] plan skipped: ${e.message}`); }
 
   const lines = (planText ?? "").split("\n").map((l) => l.trim()).filter(Boolean);
+  const spy = await spyfuRanks(rows.map((r) => r.query));
+  const runStart = new Date().toISOString();
+  let wrongPage = 0;
   for (const r of rows) {
-    const line = lines.find((l) => l.toLowerCase().includes(r.query)) ?? `${r.query} → ${r.page} — expand coverage of this intent (${r.note})`;
-    await writeFinding(AGENT_NAME, "keyword-opportunity", "info", r.page, line, {
-      query: r.query, position: Number(r.position), impressions: r.impressions, clicks: r.clicks, score: r.score, snapshot: snapshot.snapshot_label, model: planText ? MODEL : null,
+    const plan = lines.find((l) => l.toLowerCase().includes(r.query)) ?? `${r.query} → ${r.page} — expand coverage of this intent (${r.note})`;
+    const s = spy.get(r.query) ?? null;
+    const rankedPath = s?.ranking_url ? pathOf(s.ranking_url) : null;
+    // "/blog" is a bucket, not a page: no mismatch claim against it.
+    const mismatch = Boolean(rankedPath && r.page !== "/blog" && rankedPath !== r.page);
+    if (mismatch) wrongPage++;
+    // Deterministic text = stable fingerprint = one row per query while it stays a candidate.
+    const finding = mismatch
+      ? `"${r.query}" → ${r.page} (Google ranks ${rankedPath} — wrong page)`
+      : `"${r.query}" → ${r.page}`;
+    await writeFinding(AGENT_NAME, "keyword-opportunity", mismatch ? "warning" : "info", r.page, finding, {
+      query: r.query, position: Number(r.position), impressions: r.impressions, clicks: r.clicks, score: r.score,
+      snapshot: snapshot.snapshot_label, plan, model: planText ? MODEL : null,
+      spyfu: s ? { rank: s.rank, ranking_url: s.ranking_url, volume: s.search_volume, kd: s.keyword_difficulty, export_date: s.export_date } : null,
     });
   }
-  const summary = { snapshot: snapshot.snapshot_label, candidates: rows.length, top: rows.slice(0, 5).map((r) => `${r.query} (pos ${Number(r.position).toFixed(1)}, ${r.impressions} imps → ${r.page})`), planned: Boolean(planText) };
+  // Full candidate list written → anything not re-filed has left the window.
+  const closed = await closeUnseenFindings(AGENT_NAME, ["keyword-opportunity"], runStart, "left the striking-distance top list");
+  const summary = { snapshot: snapshot.snapshot_label, candidates: rows.length, closed, spyfu_matched: rows.filter((r) => spy.has(r.query)).length, wrong_page: wrongPage, top: rows.slice(0, 5).map((r) => `${r.query} (pos ${Number(r.position).toFixed(1)}, ${r.impressions} imps → ${r.page})`), planned: Boolean(planText) };
   await logAgentRun(AGENT_NAME, "ok", summary);
   console.log(`[${AGENT_NAME}] ${rows.length} opportunities from ${snapshot.snapshot_label}`);
   return summary;

@@ -15,6 +15,15 @@ name: Collections suppression sync
 # grows while the list of people not to contact stays frozen at whenever someone
 # last remembered. That gap widens silently and in the dangerous direction.
 #
+# CORRECTION 2026-09-14. The premise above was half wrong in a way worth
+# recording. The 7am rebuild refreshed the WORKBOOK every weekday but never
+# touched collections_call_list — that table was hand-seeded on 2026-09-09 and
+# frozen ever since. So through 2026-09-13 BOTH lists were stale, not just the
+# suppression one, and this job was the only thing in the pipeline actually
+# running daily. build_collections.py now pushes the call list (see
+# push_to_supabase there), which makes the timing note below load-bearing for
+# real rather than aspirational.
+#
 # So this runs on the same cadence as the rebuild, and slightly ahead of it.
 #
 # TIMING. 11:30 UTC = 6:30am Central, half an hour before the 7am Task Scheduler

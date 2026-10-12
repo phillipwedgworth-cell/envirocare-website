@@ -116,6 +116,14 @@ function readScore(x) {
 }
 
 async function run() {
+  // Sunday audit 2026-10-11, R9: a manual run on 10-05 spent $1.12 (26 Sonnet
+  // calls, agent_costs) and left NO agent_runs row — the 20-minute job timeout
+  // killed it before the end-of-run log, the same way eight scheduled runs died
+  // Aug–Sep. Write a 'running' row first, so a killed run is still on the
+  // ledger: a 'running' row with no later 'ok'/'fail' row = killed. 'running', not
+  // 'started': the watchdog treats 'running' as in-flight (IN_FLIGHT_GRACE_H)
+  // and FAILED once stale; any other status reads as FAILED mid-run.
+  await logAgentRun(AGENT, 'running', { note: 'a run that is killed (timeout/cancel) leaves only this row' });
   const targets = targetsData.targets;
   mkdirSync(OUT_DIR, { recursive: true });
   const summary = [];
@@ -177,6 +185,18 @@ async function run() {
   console.log(`\n${cleared} draft(s) cleared 70 → agents/reports/optimized/`);
   await logAgentRun(AGENT, 'ok', { cleared, total: summary.length });
   return { cleared, summary };
+}
+
+// RETIRED 2026-09-24 — and still running. agent_costs shows 26 Claude calls on
+// 2026-09-15, 09-22 and 10-05 ($3.36 over 30 days) with no agent_runs row and no
+// PR: something outside the GitHub schedule (a manual dispatch or a local Task
+// Scheduler job) keeps starting it. agents/content-refresh.mjs replaces it with
+// gated, plagiarism-checked, memory-backed refreshes. Refuse to spend unless a
+// human explicitly opts in for one run.
+if (process.env.NW_OPTIMIZE_ALLOW !== '1') {
+  console.log(`[${AGENT}] retired — use agents/content-refresh.mjs. Set NW_OPTIMIZE_ALLOW=1 to force one run. Exiting without any API call.`);
+  try { await logAgentRun(AGENT, 'skipped', { reason: 'retired; superseded by content-refresh', caller: process.env.GITHUB_WORKFLOW || process.env.COMPUTERNAME || 'unknown' }); } catch {}
+  process.exit(0);
 }
 
 run().catch(async e => {

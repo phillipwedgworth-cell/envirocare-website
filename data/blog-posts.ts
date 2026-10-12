@@ -129,6 +129,427 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 `,
   },
+  // ─── kudzu-bugs-alabama — NeuronWriter query fee47efa30fee886 ("kudzu bugs alabama"),
+  //     created 2026-10-11. Content score 83 (evaluate-content, 2026-10-12) on this exact
+  //     text. New topic: no existing post covers kudzu bugs (stink bugs / lady beetles
+  //     post is linked, not duplicated). Reduction language only; no bug-proof promise.
+  {
+    slug: 'spiders-on-boat-docks-lake-martin',
+    title: 'Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down',
+    excerpt: 'Docks and boathouses are spider country: damp wood, dark gaps and lights that pull in insects. Which spiders you will find on a Lake Martin dock, what home remedies really do, and what keeps the numbers down.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Spiders',
+    readMinutes: 6,
+    heroEmoji: '🕷️',
+    heroImage: {
+      src: '/images/blog/spiders-boat-dock-lake-martin.webp',
+      og: '/images/blog/spiders-boat-dock-lake-martin-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustrated cross-section of a lake dock and boathouse showing where spiders build webs: under the decking, on the pilings, around the dock light and in the boathouse rafters.',
+    },
+    metaTitle: 'Spiders on Boat Docks at Lake Martin | EnviroCare',
+    metaDescription: 'Why spiders crowd Lake Martin boat docks, how to spot black widows, whether dryer sheets or sprays work, and what keeps dock spiders down all season.',
+    body: `
+<p class="lede">If you have ever walked down to the dock at Lake Martin first thing in the morning and caught a web across the face, you already know docks are spider country. Wood that stays damp, dark gaps under the decking, pilings and crossbeams to anchor silk to, and a light on the boathouse that pulls in insects every night. Where the bugs collect, spiders follow. Here is what lives on a lake dock, whether the DIY ways to get rid of spiders actually work, and what keeps the spider population down and spiders off your boat through the season.</p>
+
+<h2>Why spiders pile up on boat docks</h2>
+
+<p>A dock gives spiders three things at once: shelter, moisture and a steady food supply. The underside of the decking stays shaded and humid, which is where egg sacs get tucked away. Pilings, crossbeams, ladder rungs, cleats and dock lines are anchor points for webs. Boathouse rafters trap warmth. And the insects that hatch along the shoreline, plus the moths and midges drawn to dock lights after dark, keep the spiders fed. A dock that only gets visited on weekends also goes five days at a time without anyone sweeping a spider web down. The black or white specks you find on the boat cover and the dock boards are spider poop, and they stain if they sit.</p>
+
+<p>The same is true whether it is a private dock behind a lake house or a slip at a marina: the spiders travel on lines, on the breeze and on the boat itself, so a clean slip next to a dirty one does not stay clean for long.</p>
+
+<h2>The spiders you are most likely to find on a Lake Martin dock</h2>
+
+<ul>
+<li><strong>Orb weavers.</strong> The big round webs strung between posts and across the boat slip overnight. Alarming in size, harmless to people, and usually rebuilt every evening.</li>
+<li><strong>Fishing spiders.</strong> Large, long-legged spiders that sit on pilings and the edge of the decking right at the waterline. They are often mistaken for wolf spiders and they can run across the surface of the water.</li>
+<li><strong>Wolf spiders.</strong> Fast hunters on the deck boards and stairs at night. They do not build webs to catch prey and rarely bite unless pinned against skin.</li>
+<li><strong>Black widows.</strong> The one that matters most. They build low, messy, irregular webs in dark protected spots: under the dock, inside the dock box, behind stored life jackets, under the lip of a kayak rack.</li>
+</ul>
+
+<p>For more on that last one, see our guide to <a href="/blog/black-widow-spiders-alabama">black widow spiders in Alabama</a>.</p>
+
+<h2>Black widows: check before you reach</h2>
+
+<p>Most dock spiders are a nuisance. Black widows deserve attention, especially at a lake house where children and guests do not know to look before they grab a dock line, pull a tackle box out of a dark corner or slide a kayak out from under the dock. A few habits make a real difference: wear gloves when you open a dock box that has sat closed for a week, shake out life jackets and cushions before use, and keep stored items off the decking so there are fewer dark pockets to build in. If you are finding black widows regularly, that is a sign the harborage and the food supply both need attention, not just the spider you can see.</p>
+
+<h2>DIY ways to get rid of spiders on a dock: what works and what does not</h2>
+
+<h3>Dryer sheets</h3>
+<p>A lot of boat owners use dryer sheets tucked into the cover or the cabin. The idea is that the scent keeps spiders from settling in. On a dock exposed to wind, sun and lake humidity, any effect is gone within a day or two. They are not a control method.</p>
+
+<h3>Peppermint oil</h3>
+<p>Spiders do seem to avoid strong mint odors for a short time. The problem is persistence: an oil spray on sun-baked boards evaporates or washes off fast, and nobody reapplies it every few days. Reasonable for a single weekend, not for a season.</p>
+
+<h3>Vinegar and moth balls</h3>
+<p>A spray bottle of diluted vinegar will kill a spider it soaks and wipes off webs, but it leaves nothing behind once it dries. Moth balls are a pesticide with their own label, they are not meant to be scattered outdoors, and they do not belong on a dock near the water or the aquatic life in it.</p>
+
+<h3>Over-the-counter sprays</h3>
+<p>A can of spider spray or an insecticide in a pump sprayer knocks down the spiders it hits. It does not reach the underside of the decking or the pilings, and it does nothing about the insects drawing spiders in. The next hatch comes out of the egg sacs you missed. Many consumer products are also not labeled for use over or next to water, so read the label before you spray any chemical on a dock. Rain, sun and spray off the lake wear down whatever residual a product has much faster than on a house.</p>
+
+<h2>What actually keeps dock spiders down</h2>
+
+<p>The lasting answer has two parts: less food and less shelter.</p>
+
+<ul>
+<li><strong>Change the lights.</strong> White dock and boathouse lights pull in the moths and midges spiders eat. Warm yellow or amber bulbs attract far fewer insects. Put the light on a timer or a motion sensor so it is not on all night.</li>
+<li><strong>Sweep webs down weekly.</strong> A long-handled brush along the rafters, posts and the underside of the railing. Removing webs and egg sacs regularly breaks the cycle.</li>
+<li><strong>Keep spiders off your boat.</strong> Keep the cover snug, run a brush over the bimini and the cover frame before you take it off, and do not leave cushions or towels in the boat between weekends.</li>
+<li><strong>Clear the clutter.</strong> Store cushions, life jackets, buckets and tackle in sealed bins rather than open on the decking.</li>
+<li><strong>Trim the shoreline growth.</strong> Overhanging limbs and brush touching the dock or boathouse give spiders a bridge and give insects a resting place.</li>
+<li><strong>Reduce the insect pressure around the property.</strong> Seasonal <a href="/blog/mosquito-control-lake-house-dock-boathouse">mosquito treatment for a lake house</a> targets the shaded resting areas between the house and the shoreline, which cuts down part of what spiders feed on.</li>
+</ul>
+
+<h2>How EnviroCare handles spiders at a lake house</h2>
+
+<p>Our pest control program starts at the outside of the house: the foundation, eaves, windows, doors and the outbuildings, with webs knocked down along the eaves and treatment into the cracks and gaps where spiders and the insects they eat get in. At a lake property that includes the boat house and land-side structures, and the dock where the product label allows it. Any pesticide used near the water is chosen and applied according to label directions, which limit what can go on surfaces over or beside the lake; the technician stays off the water's edge itself. That is one more reason the habits above matter on a dock: they cover the places treatment cannot.</p>
+
+<p>Routine service does not require anyone to be home, which is how most of our weekend lake-house customers work. Visits are scheduled around the property, and interior service can be set for a weekend you plan to be at the lake. See how the program works on our <a href="/lake-martin">Lake Martin pest control page</a>, and use the <a href="/blog/lake-martin-home-pest-checklist">Lake Martin home pest checklist</a> when you open the house in spring.</p>
+
+<h2>Spiders and termites like the same conditions</h2>
+
+<p>Damp wood, ground contact and little foot traffic draw spiders, and they draw subterranean termites too. Dock pilings and boathouse framing that meet the soil on the shore side are exactly where termites can work unnoticed. If you are calling about spiders, it is worth having the boathouse and the land end of the dock looked at during a free termite inspection. Termite work is quoted after that inspection, never over the phone.</p>
+
+<h2>Common questions</h2>
+
+<h3>How soon can we use the dock after a treatment?</h3>
+<p>The product label sets the re-entry interval, and your technician will tell you how long to stay off treated areas before you go back out. Usually that is until the application has dried.</p>
+
+<h3>Will one treatment keep spiders off the dock all summer?</h3>
+<p>No, and we will not tell you it does. Spiders and insects keep arriving from the shoreline and the woods. Recurring service through the season, plus the light, web and clutter habits above, is what keeps the numbers down.</p>
+
+<h3>Do you treat inside the boathouse?</h3>
+<p>Yes. Boathouse rafters and corners are some of the busiest spots on a lake property for orb weavers, and they are part of a lake-house service visit where the label allows. Treating an active wasp or hornet nest is an add-on for pest customers at an additional charge.</p>
+
+<h3>We are only at the lake a few weekends a year. Does that matter?</h3>
+<p>No. Exterior service runs on schedule whether anyone is there or not.</p>
+
+<h2>Talk to the Lake Martin office</h2>
+
+<p>The Wedgworth family got its start in pest control in Alexander City in 1958, as Wedgworth Pest Control, and is now in its fourth generation. The Alex City office at 1785 Tallapoosa Street covers Lake Martin, Dadeville, Eclectic and the communities around the lake. Call <a href="tel:2562346162">(256) 234-6162</a> or <a href="/quote">request a free quote</a>.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'homeowners-insurance-termite-damage-alabama',
+    title: 'Does Homeowners Insurance Cover Termite Damage in Alabama?',
+    excerpt: 'Most Alabama homeowners policies exclude termite damage. Why insurers treat it as maintenance, the one narrow collapse exception, and what actually protects the house.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '🏠',
+    heroImage: {
+      src: '/images/blog/homeowners-insurance-termite-damage.webp',
+      og: '/images/blog/homeowners-insurance-termite-damage-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Two-column illustration comparing what a homeowners insurance policy covers, like fire and wind, with what a termite protection agreement covers, like inspections and termite damage repair.',
+    },
+    metaTitle: 'Does Home Insurance Cover Termite Damage in AL? | EnviroCare',
+    metaDescription: 'Homeowners insurance usually excludes termite damage in Alabama. Learn why, the hidden-collapse exception, and how a termite agreement protects your home.',
+    body: `
+<p class="lede">You find mud tubes on the foundation, or a baseboard that sounds hollow when you tap it, and the first thought is the homeowners policy. For most Alabama homeowners the answer is not the one they want: standard home insurance policies generally do not cover termite damage or pay to repair it. Here is why insurance companies treat termites differently, how to spot termite damage early, the one narrow situation where a policy may respond, and what actually protects the house.</p>
+
+<h2>Does home insurance cover termite damage? Usually not</h2>
+
+<p>A standard homeowners insurance policy is written to cover sudden, accidental losses, which insurers call perils: fire, wind, hail, a pipe that bursts. Water damage from a burst pipe is a covered peril. Termite damage is the opposite. A termite infestation builds slowly, over months or years, and insurers treat it the way they treat rot or rust: as home maintenance, the responsibility of the homeowner to prevent. Most homeowners insurance policies say so directly, with an exclusion for damage caused by insects, rodents and other pests. In plain terms, termite damage is not covered, and the policy will not cover the cost of termite treatment either.</p>
+
+<p>So when a homeowner files a claim to repair termite-damaged framing, subfloor or trim, the claim is usually denied. Every policy is different, so read your own exclusions section. If you are shopping for a home insurance quote, ask the agent how the policy handles pests, but expect the answer to be that termite-related damage is excluded.</p>
+
+<h2>When insurance may cover part of it</h2>
+
+<p>There is one narrow case. Many policies include limited coverage for a sudden collapse of the house or part of it, and some list insect damage that was hidden from view as a cause that qualifies. If termites weakened a beam inside a wall that nobody could see, and that section abruptly collapses, insurance may cover the collapse itself. It generally will not pay to replace the termite-damaged wood itself, and it will not respond if the damage was visible or known before the collapse. Every policy words this differently, so read the collapse section of yours or ask your agent directly. Ask your agent whether any endorsement on your policy changes this; do not assume one does.</p>
+
+<h2>Why this matters more in Alabama</h2>
+
+<p>Alabama has heavy subterranean termite pressure. Clay soil that holds moisture after rain, mild winters that never knock colonies back, and a lot of wood-frame and crawl-space construction add up to conditions termites like year-round. There are different types of termites in the state: Eastern subterranean termites are what we find across central and north Alabama, and Formosan termites are established along the Gulf Coast. Subterranean termites travel through the soil and work inside walls and floor systems, so the damage can grow for a long time before anyone sees it. By the time it is visible, the wood damage is often structural, repair costs climb, and the insurance exclusion means the homeowner pays for treatment and repairs.</p>
+
+<h2>How to spot termite damage in your home</h2>
+
+<ul>
+<li>Pencil-wide mud tubes running up the home's foundation, piers or plumbing penetrations</li>
+<li>Baseboards, door frames or flooring that sound hollow when tapped</li>
+<li>Paint that bubbles or blisters with no moisture source behind it</li>
+<li>Doors and windows that suddenly stick</li>
+<li>Piles of shed wings near windows, doors or light fixtures after a spring swarm</li>
+<li>Soft spots or sagging in a floor that used to be solid</li>
+</ul>
+
+<p>Finding termite damage early limits the extent of the damage. If you see any of these, have it inspected by a licensed pest control company. Our guide to <a href="/blog/termite-damage-signs-alabama">termite damage signs in Alabama</a> covers what each one means.</p>
+
+<h2>Homeowners insurance vs. a termite agreement</h2>
+
+<p>These are two different kinds of protection for two different risks, and many homeowners confuse them. Homeowners insurance covers sudden losses. A termite protection agreement, often called a <a href="/blog/termite-bond-alabama-explained">termite bond in Alabama</a>, is a contract with a pest control company for ongoing protection: inspections, monitoring, treatment if termites show up, and, depending on the agreement, repair of termite damage. One does not replace the other.</p>
+
+<p>Pest control companies offer these service contracts, and they typically include inspection and treatment. When people ask how to get termite coverage or termite insurance, this is usually what they mean. EnviroCare's termite program uses Sentricon® bait stations installed in the soil around the house and serviced on schedule, and qualifying homes carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That coverage is aimed at exactly the type of damage home insurance policies do not cover. Before signing any termite agreement, with us or anyone else, ask what it includes, how often the property is inspected, what happens if termites are found, and what renewal requires.</p>
+
+<h2>How to prevent termites and protect your home</h2>
+
+<ul>
+<li>Keep mulch and soil a few inches below siding and pulled back from the foundation</li>
+<li>Fix leaking spigots and gutters that keep the soil wet against the house</li>
+<li>Store firewood off the ground and away from the foundation</li>
+<li>Keep crawl space vents clear so the space can dry out</li>
+<li>Remove wood-to-soil contact at decks, steps and fences next to the house</li>
+</ul>
+
+<p>Termites thrive on moisture and wood in contact with soil. These steps reduce both. They are part of good pest management, but they do not replace an inspection.</p>
+
+<h2>Buying or selling a house?</h2>
+
+<p>A lender will often require an Official Alabama Wood Infestation Inspection Report before closing. That report is a separate document from a general termite inspection, and it is worth ordering early. Our guide to a <a href="/blog/termite-inspection-before-buying-home-alabama">termite inspection before buying a home in Alabama</a> walks through the process. Tell our office what your closing agent or lender requires so the right document, and any fee for it, is confirmed before scheduling.</p>
+
+<h2>Common questions</h2>
+
+<h3>Does any homeowners insurance cover termite damage in Alabama?</h3>
+<p>Standard policies exclude it. Some cover a sudden collapse caused by hidden insect damage, but not the repair of the damaged wood. Ask your agent whether any endorsement applies and what your specific policy says.</p>
+
+<h3>Will my insurance cover termite treatment?</h3>
+<p>No. Treatment and prevention are maintenance, and home insurance doesn't cover maintenance. The cost of termite treatment is the homeowner's.</p>
+
+<h3>What does a termite agreement cover that insurance does not?</h3>
+<p>It depends on the agreement, which is why you should read it. EnviroCare's includes scheduled inspections and station service, treatment if activity is found, and for qualifying homes up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
+
+<h3>How is termite protection priced?</h3>
+<p>After a free termite inspection. Price depends on the house, including the length of the foundation, the construction type and whether termites are already active, so we quote in writing after the inspection and never over the phone.</p>
+
+<h2>Schedule a free termite inspection</h2>
+
+<p>The Wedgworth family has been doing pest control in Alabama since 1958, now in its fourth generation. To schedule a free termite inspection, call the office nearest you: Birmingham <a href="tel:2059912882">(205) 991-2882</a>, Alabaster <a href="tel:2059406360">(205) 940-6360</a>, Alexander City and Lake Martin <a href="tel:2562346162">(256) 234-6162</a>, or Huntsville <a href="tel:2569377676">(256) 937-7676</a>. You can also <a href="/quote">request a free quote</a> online.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'how-long-does-sentricon-take-to-work',
+    title: 'How Long Does Sentricon Take to Work? What Alabama Homeowners Should Expect',
+    excerpt: 'A bait system works on a different clock than a spray. How Sentricon works, a realistic timeline for an Alabama home, what speeds it up or slows it down, and what you will and will not see.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Termites',
+    readMinutes: 6,
+    heroEmoji: '⏳',
+    heroImage: {
+      src: '/images/blog/how-long-sentricon-takes-to-work.webp',
+      og: '/images/blog/how-long-sentricon-takes-to-work-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustrated timeline of a Sentricon bait station program: installation, termites finding the bait, bait shared through the colony, activity declining, and ongoing station service.',
+    },
+    metaTitle: 'How Long Does Sentricon Take to Work? | EnviroCare',
+    metaDescription: 'How long Sentricon takes to work on an Alabama home: how the bait spreads through the colony, a realistic timeline, and what affects how fast it works.',
+    body: `
+<p class="lede">Once the Sentricon® stations are in the ground, the next question is fair: how long does this take to work? The honest answer is that a bait system works on a different clock than a spray, and it is supposed to. Here is how the system works, what a realistic timeline looks like for an Alabama home, what speeds it up or slows it down, and what you should and should not expect to see along the way.</p>
+
+<h2>How the Sentricon system works, and why it is not instant</h2>
+
+<p>Subterranean termites forage through the soil all the time, looking for cellulose. Sentricon termite bait stations are installed in the ground around the perimeter of the house, spaced to sit in that termite foraging path. Worker termites that find a station feed on the bait and carry it back to the colony, where it is passed along to other termites. The active ingredient works slowly on purpose: it has to move through the colony before it takes effect, so the workers keep feeding and keep sharing instead of dying on the spot. The goal is the colony itself, not just the termites that happen to cross a treated line; Sentricon is labeled for colony elimination of subterranean termites.</p>
+
+<p>With Sentricon Always Active™ technology, every bait station contains bait from the day the stations are installed. There is no waiting for termites to find an empty monitor first.</p>
+
+<h2>How long does Sentricon take to work? A realistic timeline</h2>
+
+<ul>
+<li><strong>Day one.</strong> Sentricon stations are installed around your home, with no drilling through slabs, patios or driveways.</li>
+<li><strong>First weeks to months.</strong> Foraging termites will find the bait stations and start feeding. Nothing changes that you can see; this is the bait being distributed.</li>
+<li><strong>Several months.</strong> Where termites have been feeding, activity typically declines. A small colony close to the house can show results within a few months.</li>
+<li><strong>Up to a year or more.</strong> Large colonies, colonies foraging from a distance, or several colonies on one lot can take longer.</li>
+<li><strong>Every year after.</strong> The stations stay in the ground and are serviced on schedule, because a new colony can move into the same territory.</li>
+</ul>
+
+<p>Many pest control companies will tell you the same thing: termite baiting can take several months. Treat any timeline as a range, not a promise. Every property and every colony is different, and your technician will tell you what they are seeing at your house.</p>
+
+<h2>What affects how fast it works</h2>
+
+<h3>Colony size and distance</h3>
+<p>A small colony foraging near the foundation responds faster than a large, established colony feeding from across the yard. Formosan termites, which are established along Alabama's Gulf Coast, build much larger colonies than the Eastern subterranean termites we find across central and north Alabama, and larger colonies take longer.</p>
+
+<h3>Soil temperature and season</h3>
+<p>Termites forage less in cold soil. Alabama winters are mild, so activity slows in December and January rather than stopping, and feeding picks up in spring and through the warm months. The stations keep working year-round either way.</p>
+
+<h3>How many termite colonies are on the property</h3>
+<p>A lot near a creek, a wooded edge or a drainage area can have more than one colony foraging under it. Each one has to find the Sentricon bait, and the bait stations around the perimeter are spaced so that they can.</p>
+
+<h3>Conditions around the house</h3>
+<p>Wood touching soil, mulch piled against siding, leaking spigots and wet crawl spaces all make a house more attractive to termites. Fixing those helps the program and is worth doing regardless. If there is a previous termite problem or active termite infestation in the structure, the technician will tell you whether anything beyond the bait stations is needed.</p>
+
+<h2>What you will, and will not, see</h2>
+
+<h3>Signs of termite activity to keep watching for</h3>
+<p>While the stations work, keep an eye out for the same signs of termite activity as always: mud tubes on the foundation, a swarm of winged termites in spring, shed wings on a windowsill, or wood that sounds hollow. Any of those means a call to us, not a can of spray.</p>
+
+<h3>What the technician sees</h3>
+
+<p>Most homeowners never see the system working, and that is normal. What the technician looks for on each service visit is bait consumption in the stations and, over time, a drop in foraging activity. The outcome you are protecting is no termite activity in the structure, and the service visits are how that is checked.</p>
+
+<p>If you see termites or mud tubes inside the house while the stations are in place, call us. Do not spray them yourself: disturbing active termites can break up the feeding that the bait depends on. Our <a href="/blog/how-to-identify-termites-alabama">guide to identifying termites</a> helps you tell a swarm of termites from flying ants first.</p>
+
+<h2>Monitoring and maintenance: what the service visits involve</h2>
+
+<p>The Sentricon system is not install-and-forget; continuous monitoring is the point. On a schedule, a pest control technician checks every station, looks for signs of feeding and for foraging between stations, replaces bait as needed, and notes conditions around the house that invite termites. The green caps you see flush with the lawn are those stations; our post on <a href="/blog/green-caps-in-yard-sentricon">green caps in the yard</a> explains what they are.</p>
+
+<h2>Sentricon bait stations vs. liquid barrier treatments</h2>
+
+<p>Liquid treatments and termite bait systems are both established approaches to termite control and they work differently. A liquid termiticide is applied to the soil around the structure and acts quickly on termites that cross it; a bait system takes longer and works through the colony's own feeding. Which fits depends on the house, its construction and how much activity is already present. We compare them side by side in <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon vs. liquid termite treatment</a>, and our <a href="/blog/is-sentricon-worth-it">Sentricon cost and value guide</a> covers what the program includes.</p>
+
+<h2>Common questions</h2>
+
+<h3>Can I see the stations in my yard?</h3>
+<p>Yes. They sit flush with the ground with a small cap on top. Your technician will show you where they are at installation.</p>
+
+<h3>Will installation tear up my landscaping?</h3>
+<p>No. Stations are set into the soil at intervals around the house. There is no trenching along the foundation and no drilling through concrete.</p>
+
+<h3>Does Sentricon work on Formosan termites?</h3>
+<p>Yes. Sentricon is labeled for subterranean termites, including Formosan termites. Because their colonies are larger, it can take longer.</p>
+
+<h3>How long do I keep the stations in?</h3>
+<p>For as long as you want the house protected. Even after a colony is gone, a new one can move into the same ground, and the stations are how that gets caught early. Termite protection is ongoing. Renewal keeps monitoring of every bait station in place, and for qualifying homes it keeps up to $1,000,000 in termite damage repair coverage provided by EnviroCare in place, subject to the terms of the agreement.</p>
+
+<h3>Do I need an inspection first?</h3>
+<p>Yes. Every termite control program starts with a free termite inspection by one of our Certified Sentricon Specialists, so the station layout fits the house and any current activity is documented. The program is quoted in writing after that inspection, never over the phone.</p>
+
+<h2>Schedule a free termite inspection</h2>
+
+<p>The Wedgworth family has been doing professional pest control and protecting Alabama homes since 1958, now in its fourth generation. Call the office nearest you: Birmingham <a href="tel:2059912882">(205) 991-2882</a>, Alabaster <a href="tel:2059406360">(205) 940-6360</a>, Alexander City and Lake Martin <a href="tel:2562346162">(256) 234-6162</a>, or Huntsville <a href="tel:2569377676">(256) 937-7676</a>. Or <a href="/quote">request a free quote</a> online.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'kudzu-bugs-alabama',
+    title: 'Kudzu Bugs in Alabama: How to Identify Them and Keep Them Out of Your Home',
+    excerpt: 'Small, olive-green bugs stacking up on light-colored siding every fall are usually kudzu bugs. What they are, why they head for your house, whether they bite, and what actually reduces them.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🪲',
+    metaTitle: 'Kudzu Bugs in Alabama: Identify & Keep Them Out | EnviroCare',
+    metaDescription: 'Kudzu bugs in Alabama: how to identify this invasive pest, why kudzu bugs invade homes in fall, whether they bite, and how to get rid of kudzu bugs.',
+    body: `
+<p class="lede">If small, olive-green bugs are piling up on a light-colored wall, window or car this fall, you are probably looking at the kudzu bug. This invasive insect still shows up in Alabama most falls, though numbers are down from the early 2010s, and every October we get calls about it from Alabaster to Huntsville. Here is how to identify kudzu bugs, why they end up on your house, and what actually gets rid of them.</p>
+
+<h2>What is the kudzu bug?</h2>
+
+<p>The kudzu bug (<em>Megacopta cribraria</em>) is a small invasive insect in the family Plataspidae, native to Asia. The first U.S. record came from Georgia in 2009, near Atlanta. From there it spread quickly through the southeastern United States, including Alabama, South Carolina, North Carolina, Tennessee, Mississippi, Florida and Virginia.</p>
+
+<p>Adult kudzu bugs are about 1/4 inch long, roughly square, and olive-green with brown speckles. Nymphs are smaller, fuzzy and lighter green. People often confuse them with stink bugs or lady beetles, and like those fall invaders they emit a strong odor when you disturb them. (We cover those two in <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles in Alabama</a>.)</p>
+
+<h2>What do kudzu bugs feed on?</h2>
+
+<p>Kudzu bugs feed on kudzu, the vine they are named for, and on legumes such as soybeans. They use sucking mouthparts to draw plant juices from the stem and leaves, which robs the plant of nutrients. In soybean fields across Alabama and the Southeast the kudzu bug became an economic pest of soybean crops. Adults lay egg masses on the plant, and a tiny parasitoid wasp that attacks those eggs has helped reduce numbers in some areas.</p>
+
+<h2>Why kudzu bugs invade Alabama homes in fall</h2>
+
+<p>In fall, adult kudzu bugs leave kudzu patches and fields to look for a place to overwinter. They are drawn to warmth and to light-colored surfaces, so they congregate in large numbers on white siding, trim, doors and vehicles. From there they slip inside through cracks and crevices around windows, doors, soffits and the attic. Homes in Pelham, Helena, Chelsea and around Lake Martin that back up to wooded lots and kudzu-covered roadsides tend to see the most.</p>
+
+<p>Indoors, kudzu bugs do not feed or reproduce. They are a nuisance, not a structural pest. Crushed bugs leave an odor and can stain fabric, walls and skin.</p>
+
+<h2>Do kudzu bugs bite?</h2>
+
+<p>Kudzu bugs do not bite people the way mosquitoes do, but handling them can cause skin irritation and staining for some people. Use a vacuum or gloves instead of bare hands.</p>
+
+<h2>How to get rid of kudzu bugs</h2>
+
+<ul>
+<li><strong>Vacuum them up.</strong> Use a shop vac or a vacuum with a disposable bag, then seal and discard the bag. Do not crush them.</li>
+<li><strong>Seal entry points.</strong> Caulk cracks and crevices around windows, doors, siding and utility lines, and repair torn screens. This is the same work in our <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing checklist</a>.</li>
+<li><strong>Clear nearby kudzu.</strong> Where possible, remove kudzu growing near the structure.</li>
+<li><strong>Exterior treatment.</strong> A professional pest control treatment on the exterior surface of the home in early fall can reduce the number of kudzu bugs that get in. It reduces them; it does not make a house bug-proof, and anyone who promises that is overselling.</li>
+</ul>
+
+<p>Our bi-monthly residential <a href="/services/pest-control">pest control service</a> treats the exterior of your home, including the entry points where fall invaders like kudzu bugs, stink bugs and boxelder bugs gather. We use EPA-registered products applied according to label directions.</p>
+
+<h2>Kudzu bug FAQs</h2>
+
+<h3>Where did the kudzu bug come from?</h3>
+<p>It is native to Asia. It was first found in the U.S. in Georgia in 2009 and has since spread across the Southeast, including Alabama.</p>
+
+<h3>Are kudzu bugs harmful to people, plants or homes?</h3>
+<p>They do not damage the structure of a home, but they are a nuisance indoors, can stain surfaces and irritate skin, and they damage soybean crops by feeding on the plant.</p>
+
+<h3>How can you keep kudzu bugs from coming indoors?</h3>
+<p>Seal cracks and crevices before fall, keep screens repaired, and keep a professional exterior treatment in place around the home.</p>
+
+<p>Seeing kudzu bugs on your house? Call your local office: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
+
+<p>No One Cares Like EnviroCare.</p>
+`,
+  },
+  // ─── carpenter-bees-alabama — NeuronWriter query fb56d81f6e9ef61e ("carpenter bees alabama").
+  //     Content score 80 (evaluate-content, 2026-10-12) on this exact text. Service wording
+  //     matches data/services.ts and compliance.ts:517 — carpenter bees are an add-on for
+  //     existing pest customers, never marketed as a standalone service to new customers
+  //     (Phillip, 2026-10-12: "we do as an extra add on service for customer"). Pollinator,
+  //     nest-only treatment; gadget claims stated as weak evidence.
+  {
+    slug: 'carpenter-bees-alabama',
+    title: 'Carpenter Bees in Alabama: Damage, Prevention and Treatment',
+    excerpt: 'That big black bee hovering at your eave is almost always a carpenter bee. How to tell it from a bumblebee, what the round holes really do to your wood, and what prevention actually works.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🐝',
+    metaTitle: 'Carpenter Bees in Alabama: Damage & Prevention | EnviroCare',
+    metaDescription: 'Carpenter bees in Alabama: telling them from bumblebees, the wood damage they do, prevention that works, and when a nest needs treatment.',
+    body: `
+<p class="lede">Every spring in Alabama someone calls us about a big black bee hovering at the eave, buzzing at anyone who walks onto the porch. That is almost always a carpenter bee. They look scary, they rarely hurt anyone, and the real problem is the perfectly round hole they leave in your wood. Here is how to identify carpenter bees, what damage they actually do, and what works for prevention.</p>
+
+<h2>What a carpenter bee looks like</h2>
+
+<p>The eastern carpenter bee is the one Alabama homeowners see. It is large, about an inch long, and easy to confuse with a bumblebee. The quick tell is the abdomen: a bumblebee's is fuzzy and striped yellow, a carpenter bee's is shiny and mostly bare black. Bumblebees nest in the ground. Carpenter bees nest in wood.</p>
+
+<p>The ones hovering in front of your face are usually male carpenter bees guarding the nest. Males have no stinger, so the buzzing is bluff. Females can sting but seldom do unless handled.</p>
+
+<h2>Do carpenter bees damage your house?</h2>
+
+<p>They do not eat wood the way termites do. A female bores a round hole about 1/2 inch in diameter into a wood surface, turns, and tunnels along the grain to make galleries for her larva. One tunnel is mostly cosmetic. The trouble is that carpenter bees reuse old nesting sites year after year and extend them, so the same fascia board, deck rail or eave can be riddled after a few seasons. Woodpeckers then tear into the wood hunting the larvae, which does more structural damage than the bees.</p>
+
+<p>Favorite targets around Alabama homes are bare or weathered wood: fascia, soffits, porch ceilings, deck rails, fences, swing sets and outdoor furniture. Painted wood is attacked far less often than unfinished or stained wood.</p>
+
+<h2>Signs of a carpenter bee infestation</h2>
+
+<ul>
+<li>Perfectly round holes on the underside of wooden structures, often with coarse sawdust below.</li>
+<li>Yellowish-brown staining under the hole.</li>
+<li>Large bees hovering near the same spot of the eave or deck every day in spring.</li>
+<li>Woodpecker damage next to old holes.</li>
+</ul>
+
+<h2>Carpenter bee prevention that works</h2>
+
+<ul>
+<li><strong>Paint or finish bare wood.</strong> A good paint or finish is the best deterrent. Stain alone helps less.</li>
+<li><strong>Plug holes once activity stops.</strong> Adults spend the winter inside the old tunnels, so treat active holes in spring, then plug each hole with wood putty, caulk or a dowel and paint over it, so the gallery cannot be reused next spring.</li>
+<li><strong>Replace badly tunneled boards</strong> with treated or painted wood.</li>
+<li><strong>Skip the gadgets.</strong> Repellent sprays and traps sold for carpenter bees have weak evidence behind them. They may catch a few bees; they do not solve a nest.</li>
+</ul>
+
+<h2>Treatment, and why timing matters</h2>
+
+<p>Carpenter bees are pollinators, so we treat the nest, not the yard. A targeted insecticide treatment applied into the active holes in spring, followed by plugging and sealing once activity stops, is what breaks the cycle. Treating without sealing usually means new bees move back into the old tunnels next year.</p>
+
+<p>Carpenter bee treatment is available to our <a href="/services/pest-control">pest control</a> customers as an add-on for an additional charge, alongside wasps and hornets. If you are seeing round holes and want to rule out something worse in the wood, our <a href="/blog/carpenter-ants-vs-termites-alabama">carpenter ants vs. termites guide</a> covers the other wood-damaging insects.</p>
+
+<h2>Carpenter bee FAQs</h2>
+
+<h3>Where do carpenter bees go in the winter?</h3>
+<p>Adults overwinter inside the old tunnels. That is why the order matters: treat active holes in spring, then plug and paint them once activity stops, so the next generation has nowhere to return to.</p>
+
+<h3>Are carpenter bees native to Alabama?</h3>
+<p>Yes. The eastern carpenter bee is native across the Southeast and is an important pollinator, which is why the goal is keeping them out of your wood, not wiping them out.</p>
+
+<p>Already an EnviroCare pest control customer and seeing carpenter bees? Call your local office to add treatment: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
+
+<p>No One Cares Like EnviroCare.</p>
+`,
+  },
 
   // ─── sentricon-worth-it — NeuronWriter score 77, keyword "is sentricon worth it" (510/mo, KD 18) ───
   {
@@ -136,6 +557,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Is Sentricon Worth It? A Certified Specialist Breaks Down the Cost, Effectiveness, and What Homeowners Should Know',
     excerpt: 'As a Certified Sentricon Specialist who has installed and monitored these systems across Alabama for decades, here\'s the honest answer on cost, effectiveness, and whether the investment makes sense for your home.',
     publishedAt: '2026-09-20',
+    updatedAt: '2026-10-11',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 8,
@@ -147,8 +569,8 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 900,
       alt: 'Illustration of a brick home with a golden house outline and an EnviroCare sunflower-wrapped truck in the driveway.',
     },
-    metaTitle: 'Is Sentricon Worth It? Cost, Effectiveness & Honest Review | EnviroCare',
-    metaDescription: 'Is Sentricon worth the cost? A Certified Sentricon Specialist breaks down Sentricon bait station pricing, how it compares to Termidor, DIY vs professional installation, and whether it\'s the right choice for Alabama homeowners.',
+    metaTitle: 'Is Sentricon Worth It? Cost & Honest Review | EnviroCare',
+    metaDescription: 'Considering Sentricon for an Alabama home? Compare professional monitoring, initial and renewal terms, termite inspections, and repair coverage questions.',
     body: `
 <p class="lede">If you're a homeowner in Alabama, you've probably heard about Sentricon termite bait stations — and you've probably also heard wildly different opinions about whether they're worth the investment. As a <a href="/services/sentricon">Certified Sentricon Specialist</a> who has installed and monitored these systems across central and north Alabama for decades, we're going to give you the honest answer: what Sentricon does well, where it falls short compared to liquid treatments, and whether the cost makes sense for your home.</p>
 
@@ -158,35 +580,46 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>When termites discover a station, they consume the active ingredient — noviflumuron — and carry it back to their colony. Because termites share food through a process called trophallaxis, the termiticide spreads throughout the entire colony, including to the queen. This process effectively kills the colony over a period of weeks to months. This is what sets Sentricon apart from other termiticides: it doesn't just repel or kill the bug on contact — it eliminates the entire termite colony.</p>
 
-<p>Sentricon Always Active technology means the termite baiting system is working from the moment of installation. There's no waiting period where your home is unprotected. The Sentricon stations are checked on a regular schedule by your pest control company, and bait is replenished as needed to maintain continuous protection around your property's perimeter. If you've seen <a href="/blog/green-caps-in-yard-sentricon">round green caps in the ground around a house</a>, those are the station lids.</p>
+<p>Sentricon Always Active uses bait in the stations from installation, but <strong>installation does not mean termites have already found the bait or that an existing infestation has been resolved</strong>. Finding and feeding on a station can take time. Your provider should explain the inspection schedule, what is included in ongoing service, and what happens if termite activity is found. If you've seen <a href="/blog/green-caps-in-yard-sentricon">round green caps in the ground around a house</a>, those may be termite bait station lids.</p>
 
 <h2>Sentricon vs. Termidor: Which Termite Treatment Is Better?</h2>
 
 <p>This is the question we hear most often, and the honest answer is: it depends on your situation. We wrote a <a href="/blog/sentricon-vs-liquid-termite-treatment">full comparison of Sentricon vs. liquid termite treatment</a> if you want the deep dive, but here's the summary.</p>
 
-<p><strong>Termidor</strong> (fipronil) is a liquid barrier treatment applied to the soil around and under your home's foundation. It works by creating a treated zone that termites cannot detect — they walk through it, pick up the chemical, and transfer it to other colony members. Termidor is highly effective and typically costs less upfront, with installation running $800 to $2,500 for most homes.</p>
+<p><strong>Liquid soil treatments</strong>, including products such as Termidor (fipronil), are applied according to the label and the property's foundation conditions. They create a treated zone in the soil. The required preparation, product and access can vary by property, so a national price range is not a reliable substitute for an Alabama inspection and written proposal.</p>
 
-<p><strong>Sentricon bait stations</strong>, on the other hand, typically cost $1,500 to $3,800 for initial installation, plus $300 to $500 annually for monitoring and maintenance. Over a 10-year period, the total cost runs $5,000 to $7,500.</p>
+<p><strong>Sentricon bait stations</strong> are installed around the structure to target foraging subterranean termites. An installation charge and an ongoing service agreement may both apply. Compare the initial work, future inspections, renewal terms and any repair provisions in writing before selecting a provider.</p>
 
 <p>So why would anyone choose the more expensive option? Here's how Sentricon works differently and why that matters:</p>
 
-<p><strong>Colony elimination vs. barrier.</strong> Termidor creates a barrier that degrades over time (typically 5-10 years). Sentricon actively targets and eliminates termite colonies in your yard, reducing the source of the problem rather than just blocking entry points.</p>
+<p><strong>Different treatment methods.</strong> Sentricon targets termite colonies through feeding on the bait, while nonrepellent liquid termiticides act through contact with treated soil. Both approaches depend on correct application and site conditions; neither should be presented as an automatic guarantee against future damage.</p>
 
-<p><strong>No drilling or trenching.</strong> Liquid treatments require trenching around your foundation and often drilling through concrete slabs, garage floors, and porches. This can be disruptive to your landscaping, driveways, and hardscaping. Sentricon stations are small, installed flush with the ground, and cause minimal disruption to your landscape.</p>
+<p><strong>Installation and property access.</strong> In-ground bait stations commonly require less disturbance to paving and landscaping than some liquid treatment plans. They do not make every installation identical or eliminate the possibility that a property will need additional treatment measures.</p>
 
-<p><strong>Ongoing monitoring.</strong> With Sentricon, a pest control technician regularly inspects every station, giving you an early warning system for termite activity. A liquid treatment provides no visibility into whether termites are probing your perimeter.</p>
+<p><strong>Continuing service.</strong> A managed baiting program includes inspection and maintenance duties defined in the service agreement. Ask how often the property will be visited, what is checked and documented, and whether extra visits are available if activity is reported.</p>
 
-<p><strong>When Termidor makes more sense:</strong> If you have an active termite infestation and need immediate knockdown, a professional termite treatment with liquid provides faster initial protection. Many pest control companies, including ours, sometimes recommend a combined approach — liquid treatment to stop an active problem, with Sentricon stations installed and maintained for long-term colony elimination and monitoring.</p>
+<p><strong>When another approach may make sense:</strong> A property with confirmed active termite activity or unusual foundation conditions may need a different or supplemental treatment plan. A qualified inspector should explain the reasons, scope and limitations in writing rather than assuming one product fits every house.</p>
 
 <h2>What Does a Sentricon System Cost?</h2>
 
-<p>Cost varies based on the size of your home, the number of bait stations required, and your region. Here's what homeowners in Alabama typically see:</p>
+<p>The cost of termite protection depends on the home's foundation and perimeter, any existing activity, accessibility, and the service agreement. Instead of comparing a national price range with an Alabama proposal, request the <strong>property-specific initial price and written renewal terms</strong>. A low installation price does not tell you what is included over several years.</p>
 
-<p><strong>Initial installation:</strong> $1,500 to $3,800. Most homes need 12 to 20 in-ground stations, spaced approximately 10 feet apart around the perimeter. Larger homes or properties with complex foundations need more stations.</p>
+<p>Ask the company to show you four items side by side: <strong>initial installation</strong>, <strong>annual renewal</strong>, <strong>included inspection and maintenance</strong>, and <strong>what happens if termite activity or damage is discovered</strong>. Check whether repair provisions require an initial inspection, approval, continuous service, or other conditions.</p>
 
-<p><strong>Annual renewal and upkeep:</strong> $300 to $500 per year. This covers quarterly inspections, bait replenishment, and any station replacements. In areas with heavy Formosan termite pressure, renewal costs can run $400 to $700. For more on <a href="/blog/formosan-termites-alabama">Formosan termites in Alabama</a>, we have a dedicated post.</p>
+<p>For an explanation of costs that can change by property, see our <a href="/blog/termite-treatment-cost-alabama">Alabama termite treatment cost guide</a>. A written inspection recommendation and agreement are more dependable than an online estimate.</p>
 
-<p>Is that a lot? Consider this: subterranean termites cause over $5 billion in property damage across the United States every year, and most homeowner insurance policies don't cover termite damage. A single termite colony can contain hundreds of thousands of workers, and they can infest and cause significant structural damage to your home before you ever see a sign. The cost of a Sentricon bait system is a fraction of what a major repair would run. Our post on <a href="/blog/termite-treatment-cost-alabama">termite treatment cost in Alabama</a> covers pricing in more detail.</p>
+<h2>Questions to Ask Before Signing a Sentricon Agreement</h2>
+
+<ul>
+<li>What areas of this house were inspected, and which spaces could not be accessed?</li>
+<li>What installation or other work is recommended, and why?</li>
+<li>How often will the system be inspected or maintained, and what does renewal include?</li>
+<li>What are the renewal and cancellation terms, and what happens if a payment or inspection is missed?</li>
+<li>Does the provider offer repair coverage, and what exclusions or approvals apply?</li>
+<li>If I sell the home, can a buyer continue the service agreement, and what paperwork is required?</li>
+</ul>
+
+<p>Remember that routine household <a href="/services/pest-control">pest control</a> and a termite service agreement cover different needs. Ask for each service's scope in writing rather than assuming one plan includes the other.</p>
 
 <h2>How Long Do Sentricon Bait Stations Last?</h2>
 
@@ -210,35 +643,35 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>What we like about Sentricon:</strong></p>
 
-<p>It eliminates termite colonies, not just individual termites. The inspection schedule gives you ongoing visibility into termite pressure around your home. There's no drilling, trenching, or disruption to your property and landscape. The system provides continuous, around-the-clock termite protection. And over 30 independent university studies have validated its effectiveness — this isn't just a marketing claim.</p>
+<p>When termites find and consume the bait, the system is designed to eliminate the feeding colony. Stations can often be installed with relatively little disruption around the house, and an ongoing service plan helps document inspections and maintenance. Results depend on activity, access and correct program management.</p>
 
 <p><strong>Where Sentricon falls short:</strong></p>
 
-<p>It costs more upfront and ongoing than a one-time liquid barrier treatment. Colony elimination takes weeks to months, so it's not an instant fix for active infestations. And it requires commitment to the annual service plan — if you skip inspections, the system's effectiveness drops because bait isn't being replenished and termite activity isn't being caught early.</p>
+<p>The program has an ongoing service obligation, and bait exposure is not immediate simply because stations were installed. It should not be used as a substitute for addressing moisture, wood-to-soil contact, or an active infestation that needs specific attention. Ask your provider how a missed renewal affects service and any repair provisions.</p>
 
 <h2>So, Is Sentricon Worth It?</h2>
 
-<p>For most Alabama homeowners, yes — Sentricon is worth the investment. Our state's warm, humid climate makes us one of the highest-risk regions in the country for subterranean termites. The question isn't whether termites will find your home, but when. If you're not sure what to look for, start with our guide to <a href="/blog/termite-questions-alabama-homeowners">common termite questions Alabama homeowners ask</a>.</p>
+<p>For an Alabama homeowner who wants a professionally managed subterranean termite baiting system and expects to keep the agreement active, Sentricon is a reasonable option to evaluate. Whether it is worth the cost <strong>for your home</strong> depends on an inspection, the written scope, the renewal terms and any alternatives. For help identifying possible activity, see <a href="/blog/termite-questions-alabama-homeowners">common termite questions Alabama homeowners ask</a>.</p>
 
-<p>Sentricon gives you three things a liquid barrier treatment doesn't: colony elimination, ongoing monitoring, and peace of mind from knowing a trained professional is checking your property regularly. The cost difference between Sentricon and a liquid treatment is real, but it's small compared to the cost of structural repairs from an undetected termite problem.</p>
+<p>Make the decision on the inspection findings and actual service obligations, not a claim that one product is automatically better. Ask what will be done if termite activity appears during the agreement, how inspections are documented and who is responsible for any repair promise.</p>
 
-<p>At EnviroCare Pest Services, we've been protecting Alabama homes for four generations. As a Certified Sentricon Specialist, we install, monitor, and maintain Sentricon systems as part of our <a href="/services/termite-control">termite control service</a> across <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, the <a href="/lake-martin">Lake Martin area</a>, and central Alabama. If you're weighing your termite protection options, we're happy to do a free inspection and give you an honest recommendation — even if that means a liquid treatment is the better fit for your situation.</p>
+<p>EnviroCare offers managed Sentricon termite protection as part of our <a href="/services/termite-control">termite service</a> for homes in <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, the <a href="/lake-martin-area">Lake Martin area</a> and surrounding communities. Request an inspection to discuss the right scope and written terms for your property.</p>
 
 <h2>Frequently Asked Questions About Sentricon</h2>
 
 <p><strong>Do Sentricon bait stations attract termites to my home?</strong></p>
-<p>No. The stations don't attract termites from outside your property — they intercept the foraging termites that are already searching for food near your home. Termites forage constantly and will naturally encounter the stations as they explore the soil around your foundation.</p>
+<p>Sentricon bait is intended for foraging termites already present in the surrounding soil. It is not useful to promise that stations will intercept every termite before it reaches a building. The inspector can explain placement, activity signs and what follow-up is appropriate for the property.</p>
 
 <p><strong>Is Sentricon better than Termidor?</strong></p>
-<p>Both are excellent termite control options. Sentricon vs Termidor comes down to your priorities: Sentricon kills the colony and provides ongoing monitoring, while Termidor creates an immediate barrier. Your pest control company can help you decide based on your home's specific risk factors and whether termites currently infest the structure.</p>
+<p>They use different methods. The right recommendation depends on the foundation, existing termite activity, access and the provider's proposed service obligations. Ask for a comparison of both the treatment scope and continuing maintenance.</p>
 
 <p><strong>Can I install Sentricon stations myself?</strong></p>
 <p>No. The Sentricon system is only available through Certified Sentricon Specialists. The DIY vs pro difference here is significant — the professional system uses noviflumuron, a termiticide not available in retail products. DIY termite bait stations from hardware stores use different, less effective active ingredients.</p>
 
 <p><strong>What does a <a href="/blog/termite-bond-alabama-explained">termite bond</a> cover with Sentricon?</strong></p>
-<p>A termite bond is an annual service agreement that keeps your system monitored and your coverage active. Our Sentricon installations carry up to $1,000,000 in damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
+<p>Termite service agreements differ. EnviroCare describes qualifying protection as <strong>up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval and subject to the terms of the agreement</strong>. The written agreement controls the exact service and any repair obligations; coverage is provided by EnviroCare, not automatically by the Sentricon product.</p>
 
-<p>Contact us to schedule a free termite inspection and learn whether Sentricon is the right choice for your home — see <a href="/birmingham-termite-control">termite inspections in Birmingham</a>, <a href="/huntsville-termite-control">termite inspections in Huntsville</a>, or the <a href="/services/termite-control">termite control overview</a>.</p>
+<p>To discuss a termite inspection and your agreement options, see <a href="/birmingham-termite-control">termite service in Birmingham</a>, <a href="/huntsville-termite-control">termite service in Huntsville</a>, or the <a href="/services/termite-control">termite protection overview</a>.</p>
 <ul>
 <li>Birmingham — (205) 991-2882</li>
 <li>Alabaster — (205) 940-6360</li>
@@ -248,176 +681,6 @@ export const BLOG_POSTS: BlogPost[] = [
 `,
   },
 
-  // ─── blog-writer 2026-09-11 ───
-  {
-    slug: 'what-to-do-about-mosquitoes-in-birmingham',
-    title: 'Mosquitoes in Alabama: Mosquito Control, Mosquito Bites, Repellents, Prevention, and Pest Control Services',
-    excerpt: 'Alabama mosquito season runs March through October with heavy mosquito activity. Learn about mosquito-borne diseases like West Nile virus, which insect repellents control mosquitoes, the mosquito life cycle, how to prevent mosquitoes around your yard, and how professional mosquito control services reduce mosquito activity on your property.',
-    publishedAt: '2026-10-09',
-    updatedAt: '2026-09-21',
-    author: 'Kevin Wedgworth',
-    category: 'Mosquitoes',
-    readMinutes: 25,
-    heroEmoji: '🦟',
-    metaTitle: 'Mosquitoes in Alabama: Mosquito Control, Mosquito Bites, Repellents, Prevention, and Pest Control Services',
-    metaDescription: 'Alabama mosquito season runs March through October with heavy mosquito activity. Learn about mosquito-borne diseases like West Nile virus, which insect repellents control mosquitoes, the mosquito life cycle, how to prevent mosquitoes around your yard, and how professional mosquito control services reduce mosquito activity on your property.',
-    body: `<p class="lede">Mosquitoes in Alabama aren't just a nuisance. They cut your time outdoors in half, they leave mosquito bites that itch for days, and they can transmit diseases that land people in the hospital. If you've got a yard near a creek bottom, a low-lying neighborhood, or a lake lot out on Lake Martin, you already know how fast these insects can ruin a cookout. The good news is that you can do a lot to reduce the population around your home — if you know where to look and what to fix.</p>
-
-<h2>Why Alabama Is Such Good Mosquito Country</h2>
-<p>The short answer is water, warmth, and time. Alabama averages 55 to 60 inches of rain a year — more than Seattle, more than Miami. Our clay-heavy soils don't drain fast, so puddles sit. Our temperatures stay warm from March through October, which is the full active season for mosquitoes here. And we have no real winter to speak of. A February warm snap can wake up overwintering eggs before most folks even think about the problem.</p>
-<p>Female mosquitoes are the biters. They need a blood meal to lay eggs, and they'll travel up to a mile to get one. But they prefer to lay eggs close to where they feed, so the source of your problem is usually within a few hundred feet of your back door. One bottle cap of standing water can produce dozens of larvae. A clogged gutter can produce thousands.</p>
-
-<h2>The Most Common Breeding Spots Around Alabama Homes</h2>
-<p>Before you call anyone or buy anything, walk your yard and look for these. Most people are surprised by what they find.</p>
-<ul>
-  <li><strong>Clogged gutters.</strong> This is the number-one overlooked source. A gutter packed with leaves holds water for weeks. The larva stage only needs a few days of standing water to develop. Clean your gutters in spring and again in fall.</li>
-  <li><strong>Low spots in the lawn.</strong> If your yard has a place where water pools after rain, mosquitoes will find it before it dries out. Grading or filling those spots helps more than most sprays.</li>
-  <li><strong>Birdbaths, pet bowls, and plant saucers.</strong> Change the water twice a week. That's enough to break the breeding cycle.</li>
-  <li><strong>Tarps and trash.</strong> A folded tarp or an upturned trash can lid collects a surprising amount of water. Same goes for old tires, which are a well-known breeding hotspot and nearly impossible to treat.</li>
-  <li><strong>Ornamental ponds and rain barrels.</strong> These aren't bad to have, but they need either a pump that keeps water moving or a mosquito dunk (a biological larvicide) to keep larvae from developing.</li>
-  <li><strong>Overgrown areas.</strong> Adult mosquitoes rest during the day in cool, shaded spots — tall grass, dense shrubs, ivy beds. Keep your grass trimmed and scrub out any thick, weedy borders along fences or creek banks.</li>
-</ul>
-
-<h2>What Mosquito-Borne Diseases Are Actually Present in Alabama?</h2>
-<p>This is worth taking seriously. Mosquitoes transmit diseases, and several mosquito-borne illnesses are documented in Alabama every year. The CDC tracks these, and the list includes West Nile virus, Eastern equine encephalitis, and La Crosse encephalitis — all present in our state. Dengue is not common in Alabama but has shown up in travelers returning from elsewhere. Other mosquito-borne diseases, like Zika, remain a concern depending on travel history.</p>
-<p>We are pest control professionals, not doctors. If you or a family member develops a fever, severe headache, joint pain, or a rash after mosquito bites, see a physician. Don't wait it out. What we can tell you is that reducing the number of mosquitoes around your home is one of the practical things you can do to lower exposure to mosquito-borne illness.</p>
-
-<h2>What You Can Do Yourself to Prevent Mosquitoes</h2>
-<p>You can't prevent mosquitoes entirely — not in Alabama, not anywhere. But you can make your yard a much less attractive place for them to breed and rest. Here's what actually moves the needle:</p>
-<ol>
-  <li>Dump standing water every 72 hours or less. That includes anything that holds even a tablespoon — bottle caps, toys, buckets, low spots on pool covers.</li>
-  <li>Keep your grass trimmed short and cut back thick vegetation along property edges, especially near any drainage ditch or creek bank.</li>
-  <li>Scrub out birdbaths and pet water dishes when you refill them. The eggs stick to the sides.</li>
-  <li>Fix your gutters. Check them after every heavy rain.</li>
-  <li>Use fans on your porch or patio. Mosquitoes are weak fliers and a basic box fan does more than most candles or traps.</li>
-  <li>Wear long sleeves and EPA-registered repellent when you're outside at dawn and dusk, when the adult mosquito population is most active.</li>
-</ol>
-<p>Be honest with yourself about what doesn't work. Bug zappers kill moths and beetles, not mosquitoes. Citronella candles help only if you're sitting directly in the smoke. Ultrasonic devices have no credible evidence behind them. Backyard mosquito traps can catch a lot of insects, but research consistently shows they don't reduce biting pressure in any meaningful way when used alone.</p>
-
-<h2>When Professional Mosquito Control Actually Makes Sense</h2>
-<p>If you've done the yard work and you're still getting eaten alive every time you step outside, professional treatment is worth considering. The same goes if you have a large property, a yard that backs up to woods or water, or a lake house where breeding pressure from the surrounding shoreline is constant.</p>
-<p>Professional mosquito control uses EPA-registered products applied per label directions, targeting the places where adult mosquitoes rest during the day — the undersides of leaves, shaded shrub borders, the edges of your lawn. A good technician will also look for larval sources and point out things you may have missed. What professional treatment does is reduce the adult population to a manageable level. It won't stop every mosquito from every direction, but it makes a real difference in how usable your outdoor space is.</p>
-<p>Timing matters. Mosquito season runs March through October in Alabama. Starting treatments early in spring, before populations build, keeps the pressure lower all season rather than playing catch-up in July.</p>
-
-<h2>EnviroCare's Mosquito Service</h2>
-<p>The Wedgworth family has been treating Alabama properties since 1958, across four generations. Our mosquito program runs eight treatments from March through October at <strong>$45 per month</strong>, or <strong>$34 per month</strong> when paired with a pest plan. If you also want tick and chigger coverage — which makes a lot of sense for properties near wooded areas or lake lots — we offer a combined Mosquito + Tick treatment at <strong>$65 per month</strong>. Monthly pricing requires a 12-month service agreement and ACH auto-draft.</p>
-<p>We serve homeowners across the Birmingham area, Huntsville, Alabaster, and the Alexander City and Lake Martin region. If you're ready to get your yard back this season, <a href="/services/mosquito">learn more about our mosquito control service</a> or <a href="/quote">request a quote online</a>. We'll take a look at what you're dealing with and give you a straight answer about what's likely to help.</p>
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
-  // ─── blog-writer 2026-09-09 ───
-  {
-    slug: 'struggling-to-get-rid-of-the-ticks-around-your-b',
-    title: 'Struggling to Get Rid of Ticks Around Your Alabama Home? Here\'s What Actually Works',
-    excerpt: 'Ticks in Alabama don\'t take much time off. If you\'re finding them on the dog, on the kids, or on yourself after a walk through the backyard, the yard itself is usually the problem — not just bad luck. Here\'s what\'s drawing them in and what you can actually do about it.',
-    publishedAt: '2026-10-08',
-    author: 'Kevin Wedgworth',
-    category: 'Ticks',
-    readMinutes: 6,
-    heroEmoji: '🕷️',
-    metaTitle: 'Can\'t Get Rid of Ticks in Your Alabama Yard?',
-    metaDescription: 'Ticks in Alabama yards are a real problem from February through October. Learn what actually works, what doesn\'t, and when to call a professional.',
-    body: `<p class="lede">If you've been pulling ticks off yourself, your kids, or your dog on a regular basis, the yard is almost certainly where they're coming from. Alabama's humidity, mild winters, and heavy ground cover create some of the best tick habitat in the country — and if you live anywhere near a creek bottom, a wood line, or a neighborhood that backs up to undeveloped land, you already know that. The good news is that tick pressure in a yard is something you can actually reduce. The bad news is that most of the advice floating around online either doesn't work or only works halfway.</p>
-
-<h2>Why Alabama Yards Are So Bad for Ticks</h2>
-<p>It comes down to moisture and wildlife. Alabama's clay soils hold water, and the humidity lingers long after rain. Ticks need that moisture to survive — they dry out and die in hot, dry, exposed areas, which is why you almost never pick one up walking across a sunny concrete driveway.</p>
-<p>What you do pick up ticks from:</p>
-<ul>
-<li>Tall grass and weedy edges along fence lines and property borders</li>
-<li>Leaf piles and thick ground cover under trees</li>
-<li>Shaded creek banks — anywhere near a drainage ditch or seasonal stream</li>
-<li>Wood piles stacked against the house or fence</li>
-<li>The transition zone between your mowed lawn and the woods or brush behind it</li>
-</ul>
-<p>Deer, rabbits, squirrels, and feral cats carry ticks in and drop them as they move through your property. In neighborhoods around Greystone, Chelsea, and the Lake Martin area, deer pressure is especially high. The same goes for any lot in Huntsville's outlying areas or along the creek corridors that run through older Birmingham neighborhoods.</p>
-
-<h2>What Time of Year Are Ticks Actually Active in Alabama?</h2>
-<p>Most people think ticks slow down in winter. In Alabama, not really. Adult ticks — especially the blacklegged tick, also called the deer tick — are actually most active in fall and late winter. Lone star ticks, which are by far the most common tick you'll encounter in Alabama, stay active any time temperatures are above about 40 degrees. That means February through October is prime season, and even warm spells in December and January can put ticks on the move.</p>
-<p>The American dog tick is another one you'll run into, particularly in grassy, open areas. It peaks in spring and early summer. All three species are capable of transmitting different diseases, so if you've been bitten and develop a fever, rash, or flu-like symptoms, see a doctor promptly. That's not something to wait out.</p>
-
-<h2>Yard Changes That Actually Reduce Tick Numbers</h2>
-<p>There's no single fix, but a few habitat changes make a real difference:</p>
-<ol>
-<li><strong>Mow and keep it short.</strong> Ticks don't like open, sunny, short grass. The more of your yard you keep mowed, the fewer places they have to hide.</li>
-<li><strong>Clear the leaf litter.</strong> Ticks overwinter in leaves. Raking and bagging or composting away from the house removes a huge portion of that population before spring.</li>
-<li><strong>Create a buffer at the wood line.</strong> A strip of wood chips or gravel three feet wide between your lawn and any wooded area slows tick migration considerably. It dries out fast and ticks won't cross it willingly.</li>
-<li><strong>Move wood piles away from the house.</strong> Stack firewood in a dry, sunny spot rather than against the fence or foundation.</li>
-<li><strong>Don't let ground cover get out of hand.</strong> Pachysandra, ivy, and other dense plantings close to the house are tick habitat. Keep them trimmed back and thinned out.</li>
-</ol>
-<p>None of these will get you to zero ticks, especially if wildlife is moving through regularly. But they change the environment enough that treatments actually stick.</p>
-
-<h2>What Doesn't Work (And Why)</h2>
-<p>Home remedies come up a lot in this conversation. Diatomaceous earth, cedar chips, garlic spray, essential oil blends — people try all of these. Some have a limited effect in a very small area under very dry conditions. None of them hold up across a full Alabama yard through a rainy spring or summer. They break down fast, they don't penetrate ground cover, and they don't address where ticks are actually resting and waiting.</p>
-<p>Tick tubes — cardboard tubes stuffed with permethrin-treated cotton that mice carry back to their nests — are an interesting concept and have some research behind them, but they work slowly and only address one part of the tick life cycle. They're not a standalone fix.</p>
-<p>Over-the-counter sprays from a hardware store can kill ticks on contact, but getting the coverage, timing, and dilution right across a full property is harder than it looks. And without addressing the habitat, you're treating the same yard over and over with diminishing returns.</p>
-
-<h2>When Professional Treatment Makes Sense</h2>
-<p>If you've made the habitat changes and you're still pulling ticks off regularly, or if your yard has a lot of wooded edges, heavy ground cover, or regular wildlife traffic, professional treatment is the most reliable next step.</p>
-<p>A trained technician knows where ticks concentrate — those shaded, humid transition zones, the underside of leaf piles, the base of brush along a fence line — and applies EPA-registered products per label directions to those specific areas. Timing matters too. Treating in late winter before larvae become nymphs, and again in late summer when adults are active, hits the population at two vulnerable points.</p>
-<p>Our <a href="/services/tick-control">tick control service</a> is built into our Mosquito + Tick plan, which runs $65 per month and also covers chiggers. It follows the same eight-treatment March through October schedule as our mosquito program, with equal monthly ACH payments across the year. Standalone tick work is quoted for the property.</p>
-<p>We serve homeowners across central and north Alabama, including <a href="/birmingham">Birmingham</a>, <a href="/huntsville">Huntsville</a>, <a href="/lake-martin">Lake Martin</a>, and <a href="/alabaster">Alabaster</a>. If you're dealing with tick pressure in your yard and want to know what a treatment plan would look like for your property, we're glad to take a look.</p>
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
-  // ─── blog-writer 2026-09-07 ───
-  {
-    slug: 'keeping-the-wolf-spiders-in-birmingham-outside-w',
-    title: 'Wolf Spiders in Alabama: How to Keep Them Outside Where They Belong',
-    excerpt: 'Wolf spiders are one of the most common spiders in Alabama, and they\'re fast, big, and startling when they show up inside your house. They\'re not looking to live with you — they follow food and moisture — but that doesn\'t make them welcome. Here\'s how to think about the problem and what actually helps.',
-    publishedAt: '2026-10-07',
-    author: 'Kevin Wedgworth',
-    category: 'Spiders',
-    readMinutes: 6,
-    heroEmoji: '🕷️',
-    metaTitle: 'Wolf Spiders in Alabama: Keep Them Outside',
-    metaDescription: 'Wolf spiders are common across Alabama and will move indoors when conditions change. Here\'s what draws them in and how to keep them out.',
-    body: `<p class="lede">Walk across your patio on a warm September evening in Hoover or Helena, shine a flashlight toward the grass, and you'll likely see eyes reflecting back at you. That's a wolf spider. They're everywhere in Alabama — in the red clay, along the creek banks, in the pine straw under your shrubs — and most of the time they stay outside doing exactly what we'd want them to do. The problem is when they don't. When temperatures swing, rain pushes them up out of low spots, or a garage door gets left open, they come inside. And a wolf spider moving fast across your living room floor is not something most people take calmly.</p>
-
-<h2>What wolf spiders actually look like</h2>
-<p>People mistake wolf spiders for brown recluses more than almost any other spider in Alabama, and the two are not the same animal. Wolf spiders are thick-bodied and large — a full-grown female can be an inch and a half long not counting the legs. They're brown and gray with darker banding or striping, and they tend to be hairy in a way that makes them look even bigger than they are. Their eyes are one of their best identifiers: wolf spiders have eight eyes arranged in three rows, with the middle row having two that are noticeably large. Shine a light at one in the dark and those big eyes glow back at you.</p>
-<p>They don't build webs. They chase down prey on foot, which is why you see them running rather than sitting in a corner. A female wolf spider carries her egg sac attached to her abdomen, and once eggs hatch, the spiderlings ride on her back for a short time. If you ever squash a female and a dozen tiny spiders scatter — that's what happened.</p>
-
-<h2>Why Alabama has so many of them</h2>
-<p>Alabama is good wolf spider habitat in almost every way. The soil here — whether it's the sandy loam in Shelby County, the dark bottomland soil along the Coosa, or the rocky clay up around Huntsville — gives wolf spiders all the burrowing and hiding structure they need. We also have the insects they eat: crickets, small roaches, beetles, and other ground-level bugs are abundant from March through October, sometimes longer. Add in the moisture from our creek systems and the humidity that sits on neighborhoods from May through September, and you have conditions that support a very healthy wolf spider population.</p>
-<p>Communities built near wooded edges — which covers a lot of the Birmingham metro, the Lake Martin area, and neighborhoods across Madison County — tend to see more wolf spider pressure. More edge habitat means more prey, which means more spiders working those edges.</p>
-
-<h2>What brings them inside</h2>
-<p>Wolf spiders come inside for the same reasons most pests do: something outside changed, and inside looks better. The most common triggers in Alabama are:</p>
-<ul>
-  <li><strong>Heavy rain.</strong> When we get the kind of multi-day soaking rain systems that stall over North Alabama or push up from the Gulf, low spots flood and ground-dwelling spiders move uphill — sometimes right into a garage or under a door.</li>
-  <li><strong>Temperature drops in fall.</strong> Late October and November cool-downs push a lot of ground insects (and the spiders that eat them) toward heat. A gap under a door or an unweathered threshold is an invitation.</li>
-  <li><strong>Construction or landscaping disturbance.</strong> Tilling a garden bed, turning mulch, or pulling up landscape timbers can displace spiders that were settled.</li>
-  <li><strong>Light and prey inside.</strong> If insects are getting inside — drawn to porch lights or gaps around windows — wolf spiders will follow the food.</li>
-</ul>
-
-<h2>What you can do yourself</h2>
-<p>A lot of wolf spider control is physical, not chemical, and the physical steps work better anyway. Here's what actually makes a difference:</p>
-<ul>
-  <li>Replace worn door sweeps and threshold seals, especially on garage doors. That's the most common entry point we see.</li>
-  <li>Keep mulch pulled back six inches or more from the foundation. Thick mulch right against the slab is warm, damp, and full of insects — exactly what a wolf spider is looking for.</li>
-  <li>Move firewood, lumber piles, and ground-level clutter away from the house. Wolf spiders love stacked material.</li>
-  <li>Fix exterior lighting. Porch lights draw moths and beetles. Switching to yellow-tinted bulbs or moving lights away from doorways reduces the insect crowd that attracts spiders.</li>
-  <li>Trim back shrubs and ground cover that touches the exterior wall. Dense vegetation against the house is essentially a bridge.</li>
-  <li>Check window screens. Wolf spiders won't squeeze through a tiny gap the way a small insect will, but a torn or poorly fitted screen is a real entry point.</li>
-</ul>
-<p>Inside the house, sticky traps placed along walls and in garage corners will catch wolf spiders. They won't solve an outdoor population problem, but they'll tell you where spiders are coming in, which helps you find the gaps.</p>
-
-<h2>What about the bite — should you worry?</h2>
-<p>Wolf spiders can and will bite if handled or cornered, but they are not considered medically significant in the way a brown recluse is. Most bites result in localized pain, redness, and swelling. If you're bitten and develop symptoms beyond that — significant swelling, spreading redness, fever, or anything that concerns you — see a doctor. We do pest control, not medicine, and that call belongs with a healthcare provider.</p>
-<p>The bigger concern for most Alabama families is just the surprise factor. Wolf spiders are startling, and in homes with young children or people with a serious fear of spiders, that matters even if the medical risk is low.</p>
-
-<h2>When a professional treatment actually helps</h2>
-<p>If you're seeing wolf spiders inside regularly — not once in a while, but repeatedly — that's a sign that something is drawing them in and the exclusion work alone isn't closing the gap. A perimeter treatment using <strong>EPA-registered products applied per label directions</strong> creates a barrier along the foundation, around entry points, and through the areas where spiders are most active. It won't reach every spider in your yard or woods, and no treatment will, but it reduces what makes it through to the inside.</p>
-<p>Wolf spider control is part of our standard <a href="/services/interior-pest-control">interior pest control service</a>. Our pest plan is <strong>$35 per month on a 12-month ACH agreement</strong> ($75 initial visit, $70 per visit otherwise), and it covers the recurring perimeter and interior treatments that keep pressure down throughout the year — not just a one-time visit when things get bad. If you're in the <a href="/birmingham">Birmingham area</a>, around <a href="/lake-martin">Lake Martin</a>, or up in <a href="/huntsville">Huntsville</a>, one of our offices can get you scheduled. We've been doing this work in Alabama since 1958, and wolf spiders are not a new conversation for us.</p>
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
 
   // ─── Content batch, 2026-09-05: 15 articles on uncovered intents (rodents, wasps,
   // carpenter ants vs termites, Argentine ants, chiggers, foggers, frequency, Formosans,
@@ -426,43 +689,78 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'rodents-alabama-homes-fall',
     title: 'Mice and Rats in Alabama Homes: Why October Is When They Move In',
-    excerpt: 'The first mouse in the pantry almost always shows up in October, and it did not pick your house at random. Here is how rodents choose a home, the entry points they use, how to tell mice from rats by the evidence, and why traps alone rarely end it.',
+    excerpt: 'The first mouse in the pantry usually shows up in October, and without sealed entry points it is still there in January. Here is why rodents move into Alabama homes in fall and stay all winter, how to read the signs, and what actually works.',
     publishedAt: '2026-09-08',
-    updatedAt: '2026-09-29',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 7,
     heroEmoji: '🐭',
     metaTitle: 'Mice & Rats in Alabama Homes: Why They Move In Every October',
-    metaDescription: 'Why rodents enter Alabama homes in fall, how to tell mice from rats by droppings and damage, the entry points they use, and what exclusion actually means.',
+    metaDescription: 'Why mice move into Alabama homes in fall and stay all winter: signs of an infestation, mouse vs. rat evidence, entry points, and what works.',
     body: `
-<p class="lede">The call comes the first cool week of October, almost to the day: droppings in the pantry, a chewed corner on a bag of dog food, scratching in the wall behind the bed at 2 a.m. A mouse did not stumble into your house. As soon as the nights drop into the fifties, every mouse and rat within a hundred yards starts testing structures for a warm place with food, and a house in Alabama offers both. Understanding how they pick a house is how you keep them out of yours.</p>
+<p class="lede">The call comes the first cool week of October, almost to the day: droppings in the pantry, a chewed corner on a bag of dog food, scratching in the wall behind the bed at 2 a.m. A mouse did not stumble into your house. As soon as the nights drop into the fifties, every mouse and rat within a hundred yards starts testing structures for a warm place with food, and a house in Alabama offers both. The ones that get in during October are still there in January. Understanding how they pick a home, and why they stay all winter, is how you keep them out of yours.</p>
 
-<h2>Mouse or rat? The evidence tells you</h2>
-<p>You will almost never see the animal. You will see what it leaves. House mouse droppings are the size of a grain of rice with pointed ends, scattered wherever the mouse traveled. Norway rat droppings are three times that size, blunt, and concentrated near a runway or a food source. Roof rats — common in Alabama, especially near trees and in attics — leave droppings in between, with pointed ends, usually in the attic or on top of the wall plates. Gnaw marks tell you too: a mouse leaves tiny paired grooves; a rat leaves rough, larger tooth marks and can go through plastic, wood, and even soft metal. Grease marks along a baseboard or a rafter are a rat highway. A musky smell in an enclosed space is rats.</p>
+<h2>Why mice move into Alabama homes in fall and stay all winter</h2>
+<p>Rodents do not hibernate. When the temperature falls, a house mouse outdoors burns more energy staying warm and has less to eat, so it goes looking for warmth, steady food, and a dry nest site. Your home has all three, and this time of year it is the best warm shelter on the block. Once a mouse finds one of the wall voids near the water heater or a pile of attic insulation over a warm ceiling, there is no reason for it to leave in December or February. Food is in the kitchen, water drips under the sink, and the heat runs all night.</p>
+<p>That is also why a winter mouse problem grows instead of fading. Inside, a heated wall is a breeding ground, mice keep breeding through the winter, and a female can produce a new litter every few weeks. If you are hearing it in the wall at night, that is not a wait-and-see situation: mice breed year-round indoors, and a female can have a new litter every few weeks.</p>
 
-<h2>Where they get in</h2>
-<p>A mouse fits through a gap the width of a pencil. A rat needs about a quarter — the coin. Every house in <a href="/hoover">Hoover</a> or <a href="/madison">Madison</a> has a dozen openings that size, and they are the same on every house: the bottom corners of the garage door where the seal has lifted, the gap around the AC line set and the hose bib, the dryer vent with a broken flap, a crawlspace vent screen rusted through, weep holes in the brick, the gap under an exterior door with a worn sweep, and anywhere a branch touches the roofline and gives a roof rat a ramp to the soffit. Firewood, lumber, or dock gear stacked against siding is a covered runway to whichever of those openings is nearest.</p>
-
-<h2>Why traps alone rarely end it</h2>
-<p>Traps catch the animals that are already inside. They do nothing about the opening they came through, so the population outside keeps sending replacements. A house that catches a mouse every week in November does not have a mouse problem; it has a hole. The order that works is: find and close the entry points, reduce what draws them (pet food in a sealed bin, bird seed off the garage floor, the grill drip tray cleaned), and then trap what is left inside. Bait outside the structure, in tamper-resistant stations, handles the population before it reaches the wall. Loose bait inside a house is how you end up with a dead rat in a wall void in January, and we will not do it.</p>
-
-<h2>The Alabama specifics</h2>
-<p>Three things make rodent pressure higher here than in most states. The mild winter means the outdoor population never crashes; a January warm spell sends them right back out. The housing stock is heavy on crawlspaces and pier foundations, which give rodents a protected route to the sill plate and the plumbing chases. And the amount of land in row crops and pasture — around <a href="/hartselle">Hartselle</a>, <a href="/harvest">Harvest</a>, and <a href="/calera">Calera</a> especially — means that when fields are cut in September, the entire field population moves toward the nearest subdivision at once.</p>
-
-<h2>What to do this week</h2>
+<h2>Signs of a rodent infestation in your home in winter</h2>
+<p>You will almost never see the animal. Mice are cautious, hide by day, and travel along walls after dark, so by the time a homeowner starts seeing signs, rodent activity has usually been going on for weeks. Watch for these:</p>
 <ul>
-<li>Walk the exterior at dusk with a flashlight. Look at every corner of the garage door, every pipe through the wall, every vent.</li>
-<li>Seal gaps with copper mesh and sealant, not foam alone — rats chew through foam.</li>
-<li>Get pet food, bird seed, and grass seed into sealed bins.</li>
-<li>Move firewood and anything stacked against the house at least a few feet off the siding.</li>
-<li>Trim any branch within six feet of the roof.</li>
+<li><strong>Sounds at night.</strong> Scratching or scurrying in the ceiling or a wall after the house goes quiet.</li>
+<li><strong>Droppings.</strong> Small dark pellets along baseboards, in drawers, behind the stove, or on pantry shelves.</li>
+<li><strong>Gnaw marks.</strong> Chewed food packaging, cardboard boxes in storage, wood trim, or the insulation on wiring.</li>
+<li><strong>Nest material.</strong> Shredded paper, fabric, or insulation in the attic, basement, or a cabinet.</li>
+<li><strong>Rub marks and odor.</strong> Dark smudges along a regular route, and a stale, musky smell in closed spaces.</li>
 </ul>
 
-<h2>Rodents are covered on the pest plan</h2>
-<p>Rodent control is included in EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a>: exclusion at entry points on every exterior visit, exterior bait stations where the population warrants it, and interior trapping when something has already made it in. If you are hearing it in the wall at night, that is not a wait-and-see situation — a mouse population doubles in about six weeks indoors. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a>.</p>
+<h2>Mouse or rat? The evidence tells you</h2>
+<p>What the animal leaves behind tells you which species you have. Of the species of mice in Alabama, the one in your walls is usually the house mouse. House mouse droppings are the size of a grain of rice with pointed ends, scattered wherever the mouse traveled. Norway rat droppings are three times that size, blunt, and concentrated near a runway or a food source. Roof rats, common in Alabama, especially near trees and in attics, leave droppings in between, with pointed ends, usually in the attic or on top of the wall plates. Gnaw marks tell you too: a mouse leaves tiny paired grooves; a rat leaves rough, larger tooth marks and can go through plastic, wood, and even soft metal. Grease marks along a baseboard or a rafter are a rat highway. A musky smell in an enclosed space is rats. For a side-by-side breakdown, see <a href="/blog/mice-vs-rats-alabama-which-do-i-have">mice vs. rats in Alabama: which do I have?</a></p>
 
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<h2>Where they get in</h2>
+<p>A mouse fits through a gap the width of a pencil. A rat needs about a quarter, the coin. Every house in <a href="/hoover">Hoover</a> or <a href="/madison">Madison</a> has a dozen openings that size, and they are the same on every house: the bottom corners of the garage door where the seal has lifted, the gap around the AC line set and the hose bib, the dryer vent with a broken flap, a crawlspace vent screen rusted through, weep holes in the brick, the gap under an exterior door with a worn sweep, and anywhere a branch touches the roofline and gives a roof rat a ramp to the soffit. Firewood, lumber, or dock gear stacked against siding is a covered runway to whichever of those entry points is nearest. Gaps beneath a shrub planted tight to the foundation are easy to miss. Inside, they follow plumbing and wiring holes up from the crawlspace or basement.</p>
+
+<h2>The Alabama specifics</h2>
+<p>Three things make rodent pressure higher here than in most states. The mild winter means the outdoor population never crashes; a January warm spell sends them right back out to forage and test your house again. The housing stock is heavy on crawlspaces and pier foundations, which give rodents a protected route to the sill plate and the plumbing chases. A damp crawlspace with standing water is especially vulnerable, to rodents and to termite activity alike. And the amount of land in row crops and pasture, around <a href="/hartselle">Hartselle</a>, <a href="/harvest">Harvest</a>, and <a href="/calera">Calera</a> especially, means that when fields are cut in September, the entire field population moves toward the nearest subdivision at once.</p>
+
+<h2>How to get rid of mice: why traps alone rarely end it</h2>
+<p>Traps catch the animals that are already inside. They do nothing about the opening they came through, so the population outside keeps sending replacements. A house that catches a mouse every week in November does not have a mouse problem; it has a hole. The order that works to get rid of mice is: find and seal the entry points, reduce what draws them (pet food in a sealed bin, bird seed off the garage floor, the grill drip tray cleaned), and then trap and remove what is left inside. Set snap traps along walls, where mice actually run.</p>
+<p>Bait outside the structure, in tamper-resistant stations, handles the population before it reaches the wall. Loose bait inside a house is how you end up with a dead rat in a wall void in January, and the odor that comes with it lasts for weeks. We will not do it.</p>
+
+<h2>What does not work to get rid of rodents</h2>
+<p>Here is the honest answer on home remedies that promise to keep pests from entering:</p>
+<ul>
+<li><strong>Ultrasonic plug-in repellers.</strong> Mice get used to the sound, and it does not pass through walls. We have never seen one clear a house.</li>
+<li><strong>Peppermint oil, dryer sheets, and mothballs.</strong> A strong smell may move a mouse a few feet. It will not move a colony out of a warm wall.</li>
+<li><strong>Expanding foam by itself.</strong> Rats chew through foam. Pack gaps with copper mesh first, then seal over it with caulk or sealant.</li>
+<li><strong>Poison baits inside the walls or attic.</strong> The rodent dies where you cannot reach it. You get the smell, the flies, and still have the hole.</li>
+</ul>
+
+<h2>Cleaning up droppings</h2>
+<p>Mice and rats pose a real cleanup problem. Their droppings and urine can carry germs, including hantavirus, and rodents can bring fleas and ticks indoors with them. Do not sweep or vacuum dry droppings, because that puts dust in the air. Ventilate the space first, wear gloves, wet the droppings and nest material with a disinfectant, wipe them up with paper towels, bag the waste, and wash your hands.</p>
+
+<h2>Prevention: what to do this week</h2>
+<p>Rodent prevention means removing the reasons and the ways to get in. These steps help prevent future unwanted visitors:</p>
+<ul>
+<li>Walk the exterior at dusk with a flashlight. Look at every corner of the garage door, every pipe through the wall, every vent, and every crack in the foundation.</li>
+<li>Seal gaps with copper mesh and sealant, not foam alone.</li>
+<li>Get pet food, bird seed, and grass seed into sealed containers, and move pantry staples out of cardboard and paper.</li>
+<li>Move firewood and anything stacked against the house at least a few feet off the siding.</li>
+<li>Trim any branch within six feet of the roof.</li>
+<li>Fix leaky pipes and drips under sinks; water keeps a winter population going.</li>
+</ul>
+
+<h2>Common questions about mice in the house in winter</h2>
+<h3>Will the mice leave on their own when it warms up?</h3>
+<p>Usually not. A heated wall with food nearby beats anything outside in March. Rats and mice that have found a way in do not give it up.</p>
+<h3>Should I call an exterminator or handle it myself?</h3>
+<p>A homeowner can seal gaps and trap one or two mice. If you keep catching them or find rat droppings, it is time for professional pest control. The goal is to eliminate the way in, not to lure and catch mice forever.</p>
+
+<h2>Rodent control is part of our pest control plan</h2>
+<p>Rodent work is part of our <a href="/services/pest-control">bi-monthly pest control plan</a>. On exterior visits we look for the gaps rodents use and close the entry points, and where the activity calls for it we add exterior bait stations or interior trapping. Any products we use are EPA-registered, applied according to label directions. If mice or rats show up between scheduled visits, call us and we come back out. See <a href="/pricing">our pricing page</a> for the plans. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> and in our guide to <a href="/blog/winter-pests-alabama">winter pests in Alabama</a>.</p>
+
+<p>If you are finding droppings or hearing scratching this winter, call the office nearest you: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Alexander City and Lake Martin (256) 234-6162, or Huntsville (256) 937-7676. Or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -470,36 +768,59 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'wasps-yellow-jackets-hornets-alabama',
     title: 'Wasps, Yellow Jackets, and Hornets in Alabama: Which One Is on Your House?',
-    excerpt: 'A paper wasp under the eave, a yellow jacket nest in the ground by the mailbox, a bald-faced hornet nest the size of a football in the crape myrtle — three different insects, three different risks, three different approaches. Here is how to tell them apart and when it stops being a DIY job.',
+    excerpt: 'A paper wasp under the eave, a yellow jacket nest in the ground by the mailbox, a bald-faced hornet nest in the crape myrtle: three different insects and three different risks. Here is how to tell them apart, why Alabama ground nests can get unusually big, and when it stops being a DIY job.',
     publishedAt: '2026-09-10',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 7,
     heroEmoji: '🐝',
-    metaTitle: 'Wasps vs Yellow Jackets vs Hornets in Alabama: ID & What to Do',
-    metaDescription: 'How to identify paper wasps, yellow jackets, and bald-faced hornets in Alabama, where each one nests, when they peak, and which nests need professional treatment.',
+    metaTitle: 'Wasps vs Yellow Jackets vs Hornets in Alabama | EnviroCare',
+    metaDescription: 'Tell paper wasps, yellow jackets, and hornets apart in Alabama, why ground nests get dangerous, and when a nest needs professional treatment.',
     body: `
-<p class="lede">Every August the same three calls come in, and people use the three names interchangeably. They are not the same insect, they do not nest in the same places, and the one that puts people in urgent care is usually not the one on the porch. Knowing which one you have decides whether you knock it down with a can of spray on a cool evening or leave it alone and call someone.</p>
+<p class="lede">Every August the same three calls come in, and people use the three names interchangeably. Wasps, yellow jackets, and hornets are not the same insect, they do not nest in the same places, and the stinging insect that sends people to urgent care is usually not the one on the porch. In Alabama it is most often the yellow jacket nest in the ground. Knowing which one you have decides whether you knock it down with a can of spray on a cool evening or leave it alone and call someone.</p>
 
 <h2>Paper wasps: the umbrella under the eave</h2>
-<p>The nest is an open, upside-down umbrella of gray paper cells, usually a few inches across, hanging from a soffit, a porch ceiling, a deck rail, or the inside of a mailbox. The wasps are long, thin, reddish-brown or dark with yellow markings, and their legs hang down in flight. Paper wasps are the least aggressive of the three; they defend the nest if you swat at it, but they are not looking for you. A small nest in an out-of-the-way spot can be treated at dusk with a wasp spray. A nest over a door or a walkway, or one you cannot reach without a ladder, should not be — falling off a ladder is the injury, not the sting.</p>
+<p>The nest is an open, upside-down umbrella of gray paper cells, usually a few inches across, hanging from a soffit, a porch ceiling, a deck rail, or the inside of a mailbox. The wasps are long, thin, reddish-brown or dark with yellow markings, and their legs hang down in flight. Paper wasps are the less aggressive insect of the three; they defend the nest if you swat at it, but they are not looking for you. A small nest in an out-of-the-way spot can be treated at dusk with a wasp spray. A nest over a door or a walkway, or one you cannot reach without a ladder, should not be. Falling off a ladder is the injury, not the sting.</p>
 
-<h2>Yellow jackets: the hole in the ground</h2>
-<p>Yellow jackets are shorter and thicker than paper wasps, bright yellow and black, and they nest in cavities: an old rodent burrow in the yard, the gap behind a retaining wall, inside a wall void, under a deck. The nest is hidden; what you see is a stream of traffic in and out of a single hole. By late summer a colony can hold several thousand workers, and they are aggressive around the nest — they will pursue, and they sting repeatedly. Yellow jackets are the ones that show up at the picnic and the trash can. A ground nest near a walkway, a play area, or the mower path is the nest that gets people hurt, and it is the one we treat most. Do not pour gasoline in the hole. It does not work well and it is a real fire and groundwater problem.</p>
+<h2>Yellow jackets: the yellow jacket nest underground</h2>
+<p>Yellow jackets are shorter and thicker than paper wasps, banded bright yellow and black, with a narrow waist. Most of the yellow jackets you meet in an Alabama yard belong to the genus Vespula, and they do not hang a nest where you can see it. They move into a cavity that already exists: an old rodent burrow in the lawn, the gap under a landscape timber or a concrete step, the space behind a retaining wall, a wall void, the dirt under a deck. Inside, the colony builds tiers of paper comb from chewed wood fiber, and the cavity keeps getting dug out as the nest grows.</p>
+<p>What you see from the outside is small: a steady line of insects flying in and out of one hole, sometimes no bigger than a coin, often low in the grass. If you notice more yellow jackets than usual cruising low over one part of the yard, there is probably an entrance close by.</p>
+<p>By late summer an average nest can hold several thousand workers, which is when yellow jackets become a nuisance, and they are aggressive around the nest. They will pursue, and unlike a honeybee a yellow jacket keeps its stinger, so one insect can sting again and again. These are also the ones that show up at the picnic and the trash can, working sweet drinks and meat as the season winds down. A ground nest near a walkway, a play area, a dog run, or the mower path is the nest that gets people hurt, and it is the one we treat most.</p>
+
+<h3>What sets off a ground nest</h3>
+<p>Do not disturb the nest to investigate. These are the usual triggers:</p>
+<ul>
+<li>A mower or string trimmer passing over the entrance. The vibration alone can bring hundreds of workers up at once.</li>
+<li>Digging, edging, or pulling weeds in a bed where the colony has set up.</li>
+<li>Kids or pets running back and forth across the same spot.</li>
+<li>Poking a stick in the hole, flooding it with a hose, or stamping on it to see what happens.</li>
+</ul>
+
+<h3>What does not work</h3>
+<p>Do not pour gasoline in the hole. It does not work well, and it is a real fire and groundwater problem. Do not set it on fire, plug the entrance with a rock, or cover it with dirt; the workers simply dig a new exit, sometimes into a crawlspace or a wall instead of the yard. And do not walk out at noon with a can of spray. Daytime is when the most foragers are out and the colony is most alert.</p>
+
+<h2>Perennial yellow jacket nests: the Alabama exception</h2>
+<p>Normally a yellow jacket colony is an annual. The workers and the old queen die with cold weather, and only newly mated queens survive the winter to start fresh colonies in the spring. In Alabama that pattern does not always hold. Entomologists at Auburn University and the Alabama Cooperative Extension System have documented perennial yellow jacket nests: colonies that live through a mild winter, often have multiple queens, and keep growing into a second season. Auburn University tracked about 90 such nests in 2006, and more turned up in later years.</p>
+<p>A perennial nest, sometimes called a super nest, is a different scale of problem from a normal yellow jacket nest, and the risk of being stung goes up with every worker. Some have grown to fill a large underground space or spill out under a house, with reported sizes in the range of a small car and worker counts in the tens of thousands or more. Researchers point to two conditions behind them: a mild winter that never delivers the cold that normally ends the colony, and an abundant food supply that keeps the workers foraging. If you see an unusually large mound of comb, traffic from several openings, or heavy activity in March or April when nests should be tiny, treat it as a possible perennial nest. Keep everyone away from it and call a licensed pest control company.</p>
 
 <h2>Bald-faced hornets: the gray football in the tree</h2>
-<p>Bald-faced hornets build the nest everyone photographs: a closed, gray, papery football, sometimes bigger, hanging in a tree, a shrub, or under an eave, with a single entrance near the bottom. The insects are black with white faces. They are large, they defend a wide radius around the nest, and a colony in a shrub next to the driveway is a problem every time a car door opens. These nests are not a spray-can job. A nest away from any activity can simply be left alone until the first hard cold; one near the house needs professional treatment.</p>
+<p>Bald-faced hornets build the nest everyone photographs: a closed, gray, papery football, sometimes bigger, hanging in a tree, a shrub, or under an eave, with a single entrance near the bottom. The insects are black with white faces, and they are actually a kind of yellow jacket, not a true hornet. They are large, they defend a wide radius around the nest, and a colony in a shrub next to the driveway is a problem every time a car door opens. These nests are not a spray-can job. A nest away from any activity can simply be left alone until the first hard cold; one near the house needs professional treatment.</p>
 
 <h2>The Alabama calendar</h2>
-<p>Queens emerge in March and April and start nests alone. Through May and June the nests are small and easy to deal with. July and August is peak growth, and by September a colony is at maximum size and maximum aggression — which is exactly when people notice it. After the first hard cold in November the colony dies; only new queens survive, and they do not reuse the old nest. So a nest you find in October has weeks to live. Whether to treat it depends entirely on where it is.</p>
+<p>Queens emerge in early spring, March and April, and build nests alone. Through May and June the nests are small and easy to deal with. July and August is peak growth, and by September a colony is at maximum size and maximum aggression, which is exactly when people notice it. After the first hard cold in November an ordinary colony dies; only new queens survive, and they do not reuse the old nest. So a typical nest you find in October has weeks to live, and whether to treat it depends entirely on where it is. The perennial nests above are the exception to that rule, which is one more reason a big ground nest late in the year deserves a professional look.</p>
 
 <h2>Around the lake</h2>
-<p>Boathouse rafters, covered slips, and the underside of a dock are prime wasp real estate, and a nest you did not know about is the reason a lake weekend ends early. We check these on every routine visit for <a href="/lake-martin">Lake Martin</a> accounts, which is one reason the exterior program exists.</p>
+<p>Boathouse rafters, covered slips, and the underside of a dock are prime real estate for wasp nests, and a nest you did not know about is the reason a lake weekend ends early. Routine exterior visits for <a href="/lake-martin">Lake Martin</a> accounts knock down webbing and new building along the eaves, and an active nest found there can be treated as an add-on. For the other dock regulars, see <a href="/blog/spiders-on-boat-docks-lake-martin">spiders on boat docks</a>.</p>
+
+<h2>Stings and allergies</h2>
+<p>For most people a sting is painful and short-lived; for some, stinging insects are a serious medical risk. Know whether anyone in the household, including a visiting grandchild, has a known sting allergy, and keep their prescribed plan close during yard season. If you disturb a nest, walk away fast in a straight line and get indoors or into a car; swatting only draws more of them. If someone shows signs of a severe reaction, such as trouble breathing, swelling of the face or throat, or dizziness, call 911.</p>
 
 <h2>When to call</h2>
-<p>Ground nests near where people walk. Any nest inside a wall or an attic — the wrong treatment drives them into the living space. Bald-faced hornet nests near the house. Any nest you would need a ladder for. And anyone in the household with a known sting allergy, in which case none of this is a DIY job. Wasps and hornets are covered on the <a href="/services/pest-control">bi-monthly pest plan</a>; nests within reach of the structure are treated on routine visits. For the other seasonal arrivals, see <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles</a>.</p>
+<p>Ground nests near where people walk, play, or mow. Any nest inside a wall or an attic, because the wrong treatment drives them into the living space. Anything that looks like a perennial nest. Bald-faced hornet nests near the house. Any nest you would need a ladder for. And anyone in the household with a known sting allergy, in which case none of this is a DIY job.</p>
+<p>When we treat a yellow jacket nest in the ground, our technicians wear protective gear, locate the entrance, and apply EPA-registered products according to label directions directly into the colony, usually when most of the workers are home. Customers on the <a href="/services/pest-control">bi-monthly pest plan</a> get eave treatment that discourages wasps from building, and routine visits knock down webbing and new building along the eaves. Treating an active wasp, hornet, or yellow jacket nest, including a ground nest, is an add-on at an additional charge; it is not part of the standard plan. See <a href="/pricing">our pricing page</a> for plan details. Honeybees are a different story: we do not treat them, and a local beekeeper can often remove a swarm. Carpenter bees are handled as an add-on for existing customers; see <a href="/blog/carpenter-bees-alabama">carpenter bees in Alabama</a>. For the other seasonal arrivals, see <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles</a>.</p>
 
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+<p>If you have a line of yellow jackets coming out of the ground by the mailbox, leave it alone and let us look at it. Call the office nearest you: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676. Or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -548,7 +869,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🐜',
     metaTitle: 'Argentine Ants in Alabama: Why They Keep Coming Back',
-    metaDescription: 'Argentine ants form supercolonies with hundreds of queens across Alabama subdivisions. Why sprays fail, how to identify them, and what actually reduces the trails.',
+    metaDescription: 'Argentine ants form supercolonies across Alabama subdivisions. How to identify them, why sprays fail, and what actually reduces the trails.',
     body: `
 <p class="lede">The trail runs along the kitchen baseboard to the dog bowl. You spray it, wipe it up, and by Thursday there is a new trail from the window frame instead. A week later it is in the bathroom. This is not three separate ant problems. It is one colony that may extend under your yard, your neighbor's yard, and the whole street, and Alabama subdivisions built in the last thirty years are full of it.</p>
 
@@ -582,7 +903,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🧦',
     metaTitle: 'Chiggers in Alabama: What They Are & How to Keep Them Out of Your Yard',
-    metaDescription: 'What chiggers actually are, why the bites cluster at the sock line and waistband, where they live in Alabama yards, and what yard treatment and habits reduce them.',
+    metaDescription: 'What chiggers are, why bites cluster at the sock line and waistband, where they live in Alabama yards, and what reduces them.',
     body: `
 <p class="lede">Nobody sees a chigger. They are the larval stage of a mite, smaller than the period at the end of this sentence, and they wait on grass stems and leaf litter for something warm to walk by. Hours later you have a cluster of intensely itchy welts at the sock line, behind the knees, or at the waistband, and the myths start: they burrow into the skin, nail polish suffocates them, they came from the Spanish moss. None of that is true. Here is what is.</p>
 
@@ -622,7 +943,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🧴',
     metaTitle: 'Do Bug Bombs Work? Why Foggers Make Pest Problems Worse',
-    metaDescription: 'Total-release foggers mist open surfaces, miss the cracks where pests live, scatter roaches into walls, and leave residue that repels bait. What to do instead in an Alabama home.',
+    metaDescription: 'Foggers miss the cracks where pests live, scatter roaches into walls, and leave residue that repels bait. What to do instead in an Alabama home.',
     body: `
 <p class="lede">The fogger is on the shelf at every hardware store in Alabama, it costs less than a pizza, and the box says it clears a whole room. We get the call about six weeks after someone uses one, and the problem is almost always bigger than before. A bug bomb is the single most common way a manageable roach or flea problem turns into one that has spread through the house. Here is why, and what works instead.</p>
 
@@ -655,8 +976,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '📅',
-    metaTitle: 'How Often Should Pest Control Come in Alabama? (Bi-Monthly vs Quarterly)',
-    metaDescription: 'Why exterior pest barriers break down in about 60 days in Alabama heat and rain, what quarterly service leaves uncovered, and when bi-monthly, monthly, or one-time treatment fits.',
+    metaTitle: 'How Often Should You Get Pest Control in Alabama?',
+    metaDescription: 'Why exterior pest barriers break down in about 60 days in Alabama heat and rain, and how bi-monthly service compares with quarterly.',
     body: `
 <p class="lede">Most pest control in the country is sold quarterly, because most of the country has a winter. Alabama has a mild one, a long humid summer, and fifty-plus inches of rain a year, and the products applied to the outside of a house do not last as long here as the quarterly schedule assumes. The frequency question is really a question about how long the barrier holds.</p>
 
@@ -690,8 +1011,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 14,
     heroEmoji: '🪵',
-    metaTitle: 'Formosan Termites in Alabama: Termite Species, Termite Swarms, and Pest Control Services | EnviroCare',
-    metaDescription: 'Formosan subterranean termites have spread from Mobile and Baldwin County inland across Alabama. Learn about Eastern subterranean termites, Formosan termites, and drywood termites in Alabama homes — when termites swarm in Alabama, signs of termite activity, how to tell termite swarmers from ants, termite inspection, and professional pest control services for Alabama homeowners in Birmingham and Huntsville.',
+    metaTitle: 'Formosan Termites in Alabama: Signs & Swarms | EnviroCare',
+    metaDescription: 'Formosan termites are spreading inland from Mobile across Alabama. How to tell them from native subterranean termites, when they swarm, and what to do.',
     body: `
 <p class="lede">Alabama sits in one of the highest termite infestation probability zones in the United States, and the Formosan subterranean termite is the reason that risk keeps growing. While the Eastern subterranean termite has been the dominant termite species in Alabama homes for generations, the spread of Formosan termites northward from Mobile and Baldwin County along the interstates means Alabama homeowners now face two subterranean termite threats — one native, one introduced, both capable of causing serious structural damage. Understanding which termite species are active in your area and what signs of termite activity look like is the first step toward protecting your home.</p>
 
@@ -816,51 +1137,6 @@ export const BLOG_POSTS: BlogPost[] = [
 `,
   },
   {
-    slug: 'pests-after-heavy-rain-alabama',
-    title: 'Why Bugs Get Worse After Heavy Rain in Alabama (And What Shows Up)',
-    excerpt: 'Three days after a big storm the ants are in the kitchen, the millipedes are on the porch, and the mosquitoes are worse than before. It is not a coincidence. Here is what a flooded yard does to each pest and what to do in the week after.',
-    publishedAt: '2026-09-24',
-    author: 'Kevin Wedgworth',
-    category: 'Seasonal',
-    readMinutes: 6,
-    heroEmoji: '🌧️',
-    metaTitle: 'Why Pests Get Worse After Heavy Rain in Alabama',
-    metaDescription: 'Flooded nests push ants and roaches indoors, standing water hatches mosquitoes in a week, millipedes and centipedes surface — what a big Alabama rain does to pests and the week-after checklist.',
-    body: `
-<p class="lede">Alabama gets its rain in bursts — three inches in an afternoon, a tropical system that sits for two days — and every one of them is followed by the same wave of calls. Ants indoors that were not there Monday. Millipedes by the hundred on the garage floor. Roaches in the bathroom. A mosquito cloud on the porch a week later. None of it is random. A flooded yard rearranges where every pest can live, and most of the options it leaves them point at the house.</p>
-
-<h2>Ants: flooded out, moving up</h2>
-<p>Argentine and odorous house ants nest shallow, under mulch and stones and along the foundation. When those nests flood, the colony moves the brood to higher, drier ground — and the highest, driest ground on the lot is inside your walls. This is the ant trail that appears the day after a storm and seems to come from nowhere. Fire ants do the same thing in the yard: a saturated colony pushes up above the water line, and the mounds that "appeared overnight" were there all summer, underground.</p>
-
-<h2>Roaches: out of the drains</h2>
-<p>American cockroaches live in storm drains, sewer lines, and crawlspaces. A flooded drain system pushes them up and out, into bathrooms through floor drains and into crawlspaces that are now wet. Smokybrowns get flushed out of gutters and tree holes. Both end up looking for a dry, warm place, and the garage and the bathroom are it.</p>
-
-<h2>Millipedes, centipedes, and springtails: the surface army</h2>
-<p>Saturated soil drives millipedes, centipedes, earwigs, and springtails to the surface by the thousand, and they migrate across pavement toward any wall. They are harmless, they die indoors within a day or two, and they are almost impossible to prevent entirely in the week after a flood. What reduces them is the same thing every time: a dry band along the foundation, no mulch against the slab, no leaf litter piled by the door, and a treated perimeter.</p>
-
-<h2>Mosquitoes: the seven-day clock</h2>
-<p>This is the one that arrives late. Every container, gutter, tarp, wheelbarrow, and low spot that filled during the storm is a mosquito nursery, and in summer heat the cycle from egg to biting adult runs about a week. The storm was Saturday; the mosquito cloud is the following weekend. Dumping standing water within a couple of days of a big rain is the single most effective mosquito step there is. The seasonal program treats the resting sites; it cannot empty your flowerpot saucers.</p>
-
-<h2>Termites: the quiet one</h2>
-<p>Rain does not create termites, but it creates the conditions. Wet soil against a foundation, a gutter overflowing onto the sill, a crawlspace that stays damp for a month — that is the moisture subterranean termites need to reach the wood. A season with a lot of storms is a season to look at the crawlspace and the downspouts. What to look for is in <a href="/blog/termite-damage-signs-alabama">termite damage signs</a>.</p>
-
-<h2>The week-after checklist</h2>
-<ul>
-<li>Dump every container of standing water on the lot within 48 hours.</li>
-<li>Clear the gutters and make sure downspouts carry water away from the foundation, not against it.</li>
-<li>Pull wet mulch and leaf litter back from the slab and the doors.</li>
-<li>Run water in floor drains and unused sinks to refill the traps that keep roaches out.</li>
-<li>Do not spray the ant trail — it fragments the colony. Bait it, or call.</li>
-<li>Check the crawlspace for standing water and get it dried.</li>
-</ul>
-<p>If you are on the <a href="/services/pest-control">bi-monthly plan</a> and the storm brought something in, that is what free re-service between visits is for. One call, and we come back out.</p>
-
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
-<p><strong>No One Cares Like EnviroCare.</strong></p>
-`,
-  },
-  {
     slug: 'first-pest-control-visit-what-to-expect',
     title: 'What Happens on Your First Pest Control Visit (An Alabama Walkthrough)',
     excerpt: 'People picture a technician spraying baseboards for twenty minutes. The first visit is mostly outside, mostly looking, and the most valuable part is the walk around the house before anything gets applied. Here is what actually happens, how long it takes, and what you should have ready.',
@@ -881,7 +1157,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>This is where the value is. The technician walks the full perimeter looking at the foundation line, the weep holes, where the AC line and hose bib and cable enter the wall, every door threshold and garage seal, crawlspace vents, mulch depth against the slab, gutters and downspouts, and anything touching the siding. In Alabama that walk also catches things you did not call about: a mud tube on a pier, a wasp nest starting in a soffit, a gap a mouse will use in October. You should get a plain description of what was found and what it means.</p>
 
 <h2>What gets treated, and where</h2>
-<p>The exterior treatment goes on the surfaces insects actually cross: the foundation band, around doors and windows, the garage threshold, eaves and soffits, and the shaded cover where they rest. Granular material goes in beds and along the drip line where appropriate. Wasp nests within reach get taken down. For ants, non-repellent material and bait go at the nest sites and trails rather than a broadcast spray. Everything used is EPA-registered and applied per label directions, and the technician will tell you the re-entry timing for treated areas.</p>
+<p>The exterior treatment goes on the surfaces insects actually cross: the foundation band, around doors and windows, the garage threshold, eaves and soffits, and the shaded cover where they rest. Granular material goes in beds and along the drip line where appropriate. Eaves get treatment that discourages wasps from building; an active nest can be treated as an add-on. For ants, non-repellent material and bait go at the nest sites and trails rather than a broadcast spray. Everything used is EPA-registered and applied per label directions, and the technician will tell you the re-entry timing for treated areas.</p>
 
 <h2>Inside</h2>
 <p>Interior treatment on a first visit is targeted: bait in the cracks where roaches live, treatment at the plumbing penetrations under sinks, the garage, and the attic or crawlspace access if the inspection found reason. It is not a baseboard spray of every room — that is the old way, and it is not how pests are reached. If the problem is German cockroaches or fleas, the technician will explain that a follow-up visit is part of the plan, because the egg stage does not respond to the first treatment.</p>
@@ -948,7 +1224,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 7,
     heroEmoji: '🔑',
     metaTitle: 'Selling a House in Alabama: Pest Checklist Before Inspection',
-    metaDescription: 'What Alabama sellers should check for pests before listing, what the WDO termite letter covers, why to order it early, and the pest findings that most often delay closings.',
+    metaDescription: 'What Alabama sellers should check for pests before listing, what the WDO termite letter covers, and the findings that most often delay closings.',
     body: `
 <p class="lede">A pest finding at inspection is rarely a deal-killer. It is a delay and a discount, and both are avoidable if you look before the buyer's inspector does. In Alabama that means two things specifically: the termite letter, which almost every closing requires, and the handful of visible pest signs that turn into repair credits. Here is the order to handle them.</p>
 
@@ -1022,7 +1298,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🦟',
     metaTitle: 'Mosquito Control for a Lake House: Docks, Boathouses & Shoreline',
-    metaDescription: 'Why lake houses have the highest mosquito pressure, where mosquitoes rest and breed on a shoreline lot, what a barrier treatment reaches, and what it cannot do on Lake Martin.',
+    metaDescription: 'Why lake houses see the most mosquito pressure, where mosquitoes rest on a shoreline lot, and what barrier treatment can and cannot do at Lake Martin.',
     body: `
 <p class="lede">Every mosquito on a lake lot did not come from the lake. That surprises people. Open water with wave action and fish is poor mosquito habitat; the species that bite you on the dock at dusk breed in the still, shaded water at the edge — the cove, the boat slip, the tire on the seawall, the kayak that filled with rain — and rest in the dense shade between the house and the shore. That is why treatment works on a lake lot at all, and why it works differently than it does in town.</p>
 
@@ -1062,7 +1338,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 6,
     heroEmoji: '🏡',
     metaTitle: 'Pest Control for Rental Property in Alabama: A Landlord Guide',
-    metaDescription: 'How Alabama landlords handle pest control: lease responsibility, why German roaches in one unit mean treating the building, turnover treatment, and setting up recurring service.',
+    metaDescription: 'Alabama landlord pest control: lease responsibility, why German roaches in one unit mean treating the building, turnover treatment, and recurring service.',
     body: `
 <p class="lede">Rental property in Alabama has every pest problem an owner-occupied house has, plus turnover, plus a tenant who did not choose the pest company and does not know what they are looking at. The landlords who have the fewest pest headaches are the ones who decided ahead of time who is responsible for what, put recurring service in place, and stopped being the person who gets the 9 p.m. text.</p>
 
@@ -1100,7 +1376,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 11,
     heroEmoji: '🐜',
     metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
-    metaDescription: 'Get rid of ants in your Alabama home step by step: identify the species, stop spraying, bait the colony, seal entry points, and learn which home remedies actually work.',
+    metaDescription: 'Get rid of ants in your Alabama home: identify the species, stop spraying, bait the colony, seal entry points, and skip remedies that do not work.',
     body: `
 <p class="lede">Nobody calls us about one ant. They call when the line of them runs from the window over the sink to the dog bowl, and it has been there three mornings in a row despite a full can of spray. That is the most common ant call we take across the Birmingham metro, Lake Martin, and the Tennessee Valley, and the reason the spray did not work is the reason this guide exists: the ants on the counter are not the problem. They are foragers. The problem is a colony you have not seen yet, and getting rid of ants in your house is a sequence — not a single product.</p>
 
@@ -1217,8 +1493,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Roaches',
     readMinutes: 14,
     heroEmoji: '🪳',
-    metaTitle: 'German Cockroaches in Alabama: German Cockroach Infestation, Roach Control, and Pest Control | EnviroCare',
-    metaDescription: 'German cockroaches are one of the most common cockroach species in Alabama homes and one of the hardest to get rid of. Learn how to identify German cockroaches by their two dark stripes, signs of a German cockroach infestation including droppings and egg cases, what attracts German roaches to your kitchen and bathroom, and how professional pest control with gel bait and insecticide eliminates cockroach infestations in Alabama homes.',
+    metaTitle: 'German Cockroaches in Alabama: Signs & Control | EnviroCare',
+    metaDescription: 'How to identify German cockroaches in Alabama homes, signs of an infestation, what draws them to kitchens and baths, and how professional baiting controls them.',
     body: `
 <p class="lede">German cockroaches are one of the most common cockroach species found in Alabama homes — and one of the hardest household pests to get rid of. Unlike the large American cockroach or smokybrown cockroach that wanders in from outside, the German cockroach (<em>Blattella germanica</em>) lives its entire life indoors, breeds faster than any other roach in the state, and hides in cracks and crevices that sprays never reach. A single female German cockroach can produce hundreds of nymphs in a year, and by the time you see one in daylight, a German cockroach infestation is already established behind your kitchen cabinets and appliances. Learn how to identify German cockroaches, what attracts them to Alabama homes, the signs of a German cockroach infestation, and what professional pest control actually does to get rid of German cockroaches for good.</p>
 
@@ -1361,8 +1637,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 7,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito-Borne Diseases in Alabama: Real Risks & Prevention | EnviroCare',
-    metaDescription: 'Which mosquito-borne illnesses are actually reported in Alabama — West Nile, EEE, La Crosse, heartworm — which mosquitoes carry them, and what lowers your risk at home.',
+    metaTitle: 'Mosquito-Borne Diseases in Alabama: Risks & Prevention',
+    metaDescription: 'Which mosquito-borne illnesses are reported in Alabama (West Nile, EEE, La Crosse, heartworm), which mosquitoes carry them, and how to lower your risk.',
     body: `
 <p class="lede">A mosquito bite is, almost always, just a bite. It itches, it fades, and by the next evening on the back porch you have forgotten it. But Alabama is a warm, wet state with a nine-month mosquito season, and a handful of the viruses those mosquitoes carry are reported here every year. We are not in the business of scaring people about their own yards. We are in the business of telling them what is real. This is what is real about mosquitoes in Alabama, and what actually lowers the odds.</p>
 
@@ -1432,8 +1708,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Roaches',
     readMinutes: 18,
     heroEmoji: '🧹',
-    metaTitle: 'How to Get Rid of Roaches in Alabama: Types of Cockroaches, Cockroach Control, and Pest Control for Alabama Homes',
-    metaDescription: 'Learn how to get rid of roaches in Alabama. Identify the types of cockroaches in Alabama homes, signs of a cockroach infestation, health risks, DIY cockroach control, and when to call professional pest control for Alabama homeowners.',
+    metaTitle: 'How to Get Rid of Roaches in Alabama | EnviroCare',
+    metaDescription: 'How to get rid of roaches in Alabama: the cockroach types in local homes, signs of an infestation, what DIY can do, and when to call a professional.',
     body: `
 <p class="lede">Alabama homeowners deal with more types of cockroaches than almost any other state in the country, and roaches thrive in Alabama homes year-round because of the warm, humid climate that makes this region one of the highest cockroach pressure zones in the United States. Whether you are finding one roach in the kitchen at midnight or seeing roaches during the day — a sign that cockroach populations have outgrown their hiding spots — getting rid of cockroaches starts with identifying which types of roaches in Alabama you are dealing with and understanding what attracts roaches to your home. This guide covers every cockroach species common in Alabama, the signs of a cockroach infestation, health risks, what actually works for cockroach control, and when DIY cockroach control is not enough and you need professional pest control.</p>
 
@@ -1600,7 +1876,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 8,
     heroEmoji: '❓',
     metaTitle: 'Termite Questions Alabama Homeowners Ask Most — Answered | EnviroCare',
-    metaDescription: 'Straight answers to the termite questions Alabama homeowners ask: flying ants vs. termites, insurance, DIY, cost, how fast damage happens, bonds, and what a WDO inspection is.',
+    metaDescription: 'Straight answers to Alabama termite questions: flying ants vs. termites, insurance, DIY, cost, how fast damage happens, bonds, and WDO inspections.',
     body: `
 <p class="lede">Termites generate more questions than any other pest we treat, and for good reason: they are the one pest that can cost a homeowner real money, they are hard to see, and the industry around them uses a vocabulary — bonds, baits, barriers, WDO letters — that nobody explains. The Wedgworth family has been doing termite work in Alabama since 1958. These are the questions we hear most often, from <a href="/birmingham">Birmingham</a> to <a href="/lake-martin">Lake Martin</a> to <a href="/huntsville">Huntsville</a>, with the plainest answers we can give.</p>
 
@@ -1748,8 +2024,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 11,
     heroEmoji: '🔍',
-    metaTitle: 'Sign of Termites in Your Home: What Termite Damage Looks Like in Alabama | EnviroCare',
-    metaDescription: 'Learn how to spot the sign of termites and termite damage in Alabama homes. Signs of a termite infestation include mud tubes, hollow wood, sticking doors, and blistered paint. Know the sign of termite damage early — protect your home with pest control before damage to your home gets costly.',
+    metaTitle: 'Signs of Termite Damage in Alabama Homes | EnviroCare',
+    metaDescription: 'Signs of termite damage in Alabama homes: mud tubes, hollow wood, sticking doors, and blistered paint, and what to do when you find them.',
     body: `
 <p class="lede">Almost no one finds termite damage by seeing termites. They find it because a door that always closed fine now sticks in the frame, or the paint on a window sill bubbled, or a vacuum cleaner went through a baseboard. Subterranean termites — the species responsible for the large majority of termite infestations in Alabama — eat wood from the inside out and leave the surface intact, so by the time the surface fails, the damage behind it is usually well along. Knowing the warning signs of termites, and where to look for signs of their presence, is how you catch a termite problem while it is still a small repair instead of costly damage to your home.</p>
 
@@ -1889,50 +2165,89 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'stink-bugs-lady-beetles-alabama-fall',
     title: "Stink Bugs and Lady Beetles: Alabama's Fall Home Invaders",
-    excerpt: 'Every September the south side of the house turns into a landing strip. Brown marmorated stink bugs and Asian lady beetles are not after your food or your wood — they want your walls. Here is why they pick certain houses, why killing them indoors makes things worse, and what actually keeps them out.',
+    excerpt: 'Every September, stink bugs and Asian lady beetles head for the sunny side of Alabama homes looking for a wall to winter in. Here is why they pick certain houses, how to deal with the ones already inside without making it worse, and what reduces how many get in.',
     publishedAt: '2026-08-18',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
-    readMinutes: 6,
+    readMinutes: 7,
     heroEmoji: '🐞',
     metaTitle: "Stink Bugs Everywhere This Fall? Here's Why (Alabama)",
-    metaDescription: 'Stink bugs and Asian lady beetles swarm Alabama homes every fall. Why they pick your house, why squishing backfires, and how to stop them.',
+    metaDescription: 'Stink bugs and Asian lady beetles move into Alabama homes every fall. Why they\'re inside, what to do now, and how to keep more of them out.',
     body: `
-<p class="lede">Every September, usually right around the first week the overnight lows dip below sixty, we start getting the same call from homeowners across the Birmingham metro. There are dozens — sometimes hundreds — of small, shield-shaped brown insects clustered on the sunny side of the house. Or worse, the orange ones that look like ladybugs but are not, and they bite. Both are looking for the same thing: a warm wall to spend the winter inside. They are not after your food, your wood, or your wiring. They want a gap in the siding, a crack around a window frame, and a quiet void where the temperature stays above freezing until March.</p>
+<p class="lede">Every September, usually right around the first week the overnight lows dip below sixty, we start getting the same call from homeowners across the Birmingham metro. There are dozens — sometimes hundreds — of small, shield-shaped brown insects clustered on the sunny side of the house. Or worse, the orange ones that look like ladybugs but are not, and they bite. Both are looking for the same thing: a warm wall to spend the winter inside. They are not after your pantry, your wood, or your wiring. They want a gap in the siding, cracks around windows, and a quiet void where the temperature stays above freezing until March. If you already have stink bugs in the house, here is what to do.</p>
 
-<h2>What are they, exactly?</h2>
+<h2>Stink bugs in Alabama: what are they, exactly?</h2>
 
-<p>The brown ones are brown marmorated stink bugs (BMSB), an Asian import that has been building in Alabama for the past decade. The orange-and-black ones are Asian lady beetles — they look like ladybugs but bite, stain walls yellow when crushed, and in large numbers produce a smell that is hard to air out of a room.</p>
+<p>The brown ones are brown marmorated stink bugs (BMSB), an invasive insect accidentally introduced from Asia that has been building in Alabama for the past decade. Adults are a little over half an inch long, mottled brown, with a shield-shaped body. To tell them apart from native species, check the abdomen for alternating light and dark markings along the edges, plus pale bands on the antennae. Through the warm months the brown marmorated stink bug is a crop pest, feeding on vegetable crops like tomatoes and okra, plus peaches, soybeans, and ornamental plants. In early fall they switch from feeding to finding shelter.</p>
 
-<p>Both are overwintering pests, not breeding pests. They are not building a colony inside the wall. They go dormant in cracks, attic soffits, window casings, and wall voids to ride out winter. On warm winter days they wake up confused, crawl toward light, and end up inside the living space. One sunny afternoon in January can put fifty lady beetles on a bedroom ceiling in <a href="/vestavia-hills">Vestavia Hills</a> or a dozen stink bugs on a kitchen window in <a href="/hoover">Hoover</a>.</p>
+<p>The orange-and-black ones are Asian lady beetles. They look like ladybugs but bite, stain walls yellow when crushed, and in large numbers produce a smell that is hard to air out of a room. Most carry a dark M- or W-shaped marking on the white area just behind the head, which separates them from native lady beetles.</p>
 
-<h2>Why do they pick certain houses?</h2>
+<p>Both are overwintering pests, not breeding pests. They are not building a colony inside the wall, and they do not feed or lay eggs indoors. They go dormant in cracks, attic soffits, window casings, and wall voids to ride out winter. On warm winter days they wake up confused, crawl toward light, and end up inside the living space. One sunny afternoon in January can put fifty lady beetles on a bedroom ceiling in <a href="/vestavia-hills">Vestavia Hills</a> or a dozen stink bugs on a kitchen window in <a href="/hoover">Hoover</a>.</p>
 
-<p>It is not random. Both species orient toward contrast and warmth, so south- and west-facing walls catch the heaviest pressure. Light-colored siding draws more than dark. Homes on high ground with full sun — the kind of lot builders love in <a href="/greystone">Greystone</a>, <a href="/highland-lakes">Highland Lakes</a>, and <a href="/mt-laurel">Mt Laurel</a> — get hammered harder than houses tucked into tree cover.</p>
+<h2>Why stink bugs invade Alabama homes in fall</h2>
 
-<p>New construction is not exempt. Any house with soffit vents, ridge vents, weep holes, or a gap under the J-channel has the openings they need. And if the house let them in last October, the pheromone trail they left behind marks it for next year. That is why the same house gets swarmed every fall while the neighbor across the street barely sees one.</p>
+<p>When the days shorten and temperatures cool, stink bugs go looking for a protected spot. In Alabama neighborhoods, a house beats loose bark and leaf litter — steady warmth, few predators, and plenty of openings. The stink bugs that suddenly appear in your living spaces in October or November usually got into the wall weeks earlier.</p>
 
-<h2>Why squishing and vacuuming indoors backfires</h2>
+<h3>Why do they pick certain houses?</h3>
 
-<p>Stink bugs earned the name. Crush one and it releases a chemical that smells like burnt cilantro and clings to fabric for days. Worse, that chemical is a distress signal that draws more stink bugs toward the area. A regular vacuum just spreads the smell through the motor exhaust. Lady beetles leave a yellow-orange stain on paint and curtains when crushed, plus their own acrid odor.</p>
+<p>It is not random. Both species orient toward contrast and warmth, so south- and west-facing exterior walls, where they bask in afternoon sun, catch the heaviest pressure. Light-colored siding draws more than dark. Homes on high ground with full sun — the kind of lot builders love in <a href="/greystone">Greystone</a>, <a href="/highland-lakes">Highland Lakes</a>, and <a href="/mt-laurel">Mt Laurel</a> — get hammered harder than houses tucked into tree cover. Houses near orchards, gardens, or soybean fields tend to see more stink bugs, because that is where they spent the summer.</p>
 
-<p>Once they are inside the wall, individual removal is all you can do — pick them up with a tissue or sealed container and move them outside. There is no indoor spray that fixes the problem, because the problem is not indoors. It is the exterior, and it has to be addressed before they get in.</p>
+<p>New construction is not exempt. Any house with soffit vents, ridge vents, weep holes, or a gap under the J-channel has the openings they need. Lady beetles in particular tend to return to the same buildings year after year. That is part of why the same house gets swarmed every fall while the neighbor across the street barely sees one.</p>
+
+<h3>Are they dangerous?</h3>
+
+<p>Stink bugs do not bite or sting people, they do not carry disease, and they do not damage the structure. They are a nuisance, not a health threat. Asian lady beetles can give a sharp pinch, and some people are sensitive to the fluid they release.</p>
+
+<h2>How to get rid of stink bugs already inside</h2>
+
+<p>Stink bugs earned the name. Crush one and it releases a foul, pungent odor like burnt cilantro that clings to fabric for days. Lady beetles leave a yellow-orange stain on paint and curtains when crushed, plus their own acrid odor. So the first rule is simple: do not squish them.</p>
+
+<p>Here is what actually works for a homeowner dealing with stink bugs in the house:</p>
+
+<ul>
+<li><strong>Soapy water.</strong> Keep a jar with water and a few drops of dish soap near the windows where they gather. Tip the bug in with a card or tissue. The soap breaks the surface tension, it sinks, and there is no smell.</li>
+<li><strong>Tissue or a sealed container.</strong> Pick them up gently and move them outside. Squeezing is what triggers the odor.</li>
+<li><strong>Vacuum with care.</strong> A regular vacuum just spreads the smell through the motor exhaust, and the bag holds onto it. If you have to vacuum a cluster, slip a knee-high stocking into the hose, secured with a rubber band, so the bugs collect in the stocking instead of the machine. Tie it off and toss it outside.</li>
+<li><strong>Dim the lights at dusk.</strong> They crawl toward light. Turning off porch lights or switching to yellow bulbs cuts down on how many gather near the doors.</li>
+</ul>
+
+<h3>What makes the problem worse</h3>
+
+<p>An insecticide bug bomb or fogger indoors does almost nothing here. The insects are hiding in wall voids and the attic, out of reach of anything you release into a room, and you get residue on every surface for no gain. Once they are inside, individual removal is all you can do. There is no indoor spray that fixes the problem, because the problem is not indoors. It is the exterior, and it has to be addressed before they get in.</p>
+
+<p>Kudzu bugs behave much the same way — small, squarish, olive-brown, and drawn to light-colored walls in fall. If your bugs look more like that than a shield, read our guide to <a href="/blog/kudzu-bugs-alabama">kudzu bugs in Alabama</a>.</p>
 
 <h2>When does the window close?</h2>
 
-<p>The massing behavior — the visible clusters on the sunny wall — starts in September across the Birmingham metro and runs into mid-October. Huntsville and the Tennessee Valley usually see it a week or two earlier. By the time you see them on the siding, they are already probing for entry points. The exterior barrier treatment that stops them needs to be in place before that push, ideally in early to mid-September.</p>
+<p>The massing behavior — the visible clusters on the sunny wall — starts in September across the Birmingham metro and runs into mid-October. Timing varies across the state: Huntsville and the Tennessee Valley usually see it a week or two earlier. By the time you see them on the siding, they are already probing for entry points. The exterior barrier treatment that reduces how many get in needs to be in place before that push, ideally in early to mid-September.</p>
 
-<p>This is not a single spray and done. Our <a href="/services/pest-control">bi-monthly exterior perimeter program</a> already covers overwintering pests as part of the regular rotation — the fall application is timed specifically for this pressure. A treated band along the foundation, window frames, door frames, soffits, and eaves creates a contact zone they have to cross to reach the gaps. It does not repel them from the yard, but it keeps the ones that land on the wall from making it inside.</p>
+<p>This is not a single spray and done. Our <a href="/services/pest-control">bi-monthly exterior pest control program</a> already covers overwintering pests as part of the regular rotation — the fall application is timed specifically for this pressure. A treated band along the foundation, window frames, door frames, soffits, and eaves creates a contact zone they have to cross to reach the gaps. We use EPA-registered products, applied according to label directions. It does not repel them from the yard, and it will not stop every one, but it reduces how many of the ones that land on the wall make it inside.</p>
 
-<h2>Exclusion is the other half</h2>
+<h2>Sealing entry points is the other half</h2>
 
-<p>A treated perimeter without exclusion leaves gaps. A sealed house without treatment still gets pressure from the sheer volume that lands. The two together work; either alone disappoints. We covered the full exclusion checklist in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> — weep hole mesh, door sweeps, caulked utility penetrations. For stink bugs and lady beetles, add one item: check attic soffit vents and gable vents for torn or missing screen. Both species fly to the roofline, and a soffit with a quarter-inch gap is the express lane into the attic.</p>
+<p>A treated perimeter without exclusion leaves gaps. A sealed house without treatment still gets pressure from the sheer volume that lands. The two together work; either alone disappoints. We covered the full exclusion checklist in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> — weep hole mesh, door sweeps, caulked utility penetrations. For stink bugs and lady beetles, walk the outside of the house in late summer, look for the likely entry points, and seal cracks:</p>
+
+<ul>
+<li>Cracks around windows and door frames where caulk has pulled away</li>
+<li>Gaps around siding where it meets trim or the foundation</li>
+<li>Openings around plumbing, electrical, cable, and HVAC lines</li>
+<li>Damaged screens and worn weatherstripping on exterior doors</li>
+<li>Dryer vents and exhaust fan covers that do not close fully</li>
+<li>Attic soffit vents and gable vents with torn or missing screen</li>
+</ul>
+
+<p>That last one matters most for these two insects. Both species fly to the roofline, and a soffit with a quarter-inch gap is the express lane into the attic.</p>
 
 <p>Newer neighborhoods in <a href="/chelsea">Chelsea</a>, <a href="/pelham">Pelham</a>, and <a href="/helena">Helena</a> have tighter envelopes but heavy landscaping and full sun exposure. Older neighborhoods in <a href="/homewood">Homewood</a> and <a href="/mountain-brook">Mountain Brook</a> have more gaps and more tree cover. Different pattern, same outcome.</p>
 
+<h2>Can I just wait them out?</h2>
+
+<p>You can. The stink bugs in the walls will begin moving out in spring when they go looking for food. Until then, you may notice a small number on the windows every warm day, and the same gaps wait for them next fall. A large indoor infestation usually means several access points, and it is worth having them found and closed before next September. For what else tends to move in during the cold months, see <a href="/blog/winter-pests-alabama">winter pests in Alabama</a>.</p>
+
 <h2>Get ahead of it this September</h2>
 
-<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
+<p>The fall push is predictable, the timing is narrow, and the fix is straightforward when it is done before they land. If your south wall lit up with shield-shaped visitors last October, it will again this year unless the perimeter is treated and the gaps are closed. Our family has been doing pest control in Alabama since 1958, and we are now in our fourth generation. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> and we will walk the exterior with you before the temperature drops.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
@@ -2509,68 +2824,106 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'alabama-termite-swarm-season',
     title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
-    excerpt: 'Every March, subterranean termite swarmers emerge across Alabama. Here\'s how to spot them, why Birmingham\'s clay soil makes it worse, and what we recommend.',
+    excerpt: 'Every spring, subterranean termite swarmers emerge across Alabama, usually from mid-March into May. Here is when they swarm, how to tell them from flying ants, why Birmingham\'s clay soil makes it worse, and what we recommend.',
     publishedAt: '2026-03-04',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🪵',
-    metaTitle: 'Alabama Termite Swarm Season Guide | EnviroCare Since 1958',
-    metaDescription: 'Alabama termite swarm season peaks March–May. Spot the signs and protect your home with Sentricon® baiting — no drilling. Free inspection. Call (205) 940-6360.',
+    metaTitle: 'When Do Termites Swarm in Alabama? | EnviroCare',
+    metaDescription: 'When do termites swarm in Alabama? Usually mid-March to May. How to tell swarmers from flying ants, what the swarm means, and what to do next.',
     body: `
-<p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork — sometime between mid-March and late May, on the first warm humid afternoon after a soaking rain. Hundreds of winged insects boiling up out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
+<p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork, usually between mid-March and late May, on the first warm, humid afternoon after a soaking rain. Hundreds of winged insects pour out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
 
-<p>That's what we get the most calls about every spring. So here's what's actually happening, why Alabama gets hit harder than most states, and what we tell every customer when they call.</p>
+<p>Swarms are what we get the most calls about every spring. So here is what is actually happening during termite swarming season, why Alabama gets hit harder than most states, and what we tell every homeowner who calls us with a bag of wings on the counter.</p>
 
-<h2>Why March?</h2>
+<h2>What is a termite swarm?</h2>
 
-<p>Subterranean termites — the ones that cause 95% of the damage in our state — live in colonies hundreds of thousands strong, deep underground. They eat year-round, but they only <em>reproduce</em> when conditions are exactly right: soil temperature above 70°F, recent rainfall, warm humid afternoon air.</p>
+<p>A termite colony is organized by caste. Worker termites do the feeding and digging, soldier termites guard the tunnels, and a king and queen produce the eggs. Once a colony is mature, usually several years old, it starts raising winged reproductives. Those swarmers leave the nest all at once, pair off, shed their wings, and try to start a new colony somewhere nearby.</p>
 
-<p>In Birmingham, that combination usually shows up in the second or third week of March. Down in Auburn it can hit a week earlier. In Huntsville, sometimes a week later. But by April, every county we serve is in peak swarm.</p>
+<p>Most of them fail. Birds, ants, dry air and sunlight take care of the majority within hours. But a swarm tells you something important: a colony big enough to produce reproducers is living close by, and it has been feeding for a while.</p>
+
+<h2>When do termites swarm in Alabama?</h2>
+
+<p>Subterranean termites, the type of termite behind the vast majority of the damage to homes in our state, live underground in colonies that can run into the hundreds of thousands. They feed year-round, but they only send out swarmers when conditions line up: warming soil, recent rainfall, and high humidity on a calm afternoon.</p>
+
+<p>In Birmingham, that combination usually shows up in the second or third week of March. Down in Auburn it can hit a week earlier. In Huntsville, sometimes a week later. By April, every county we serve is in peak swarm, and activity tapers off through late spring.</p>
 
 <figure class="post-fig">
 <img src="/images/blog/alabama-pest-pressure-calendar.webp" width="1600" height="900" loading="lazy" alt="Chart of pest pressure by month in central and north Alabama. Termite pressure peaks March through May, mosquitoes and ticks June through August, fire ants and fleas May through September." />
 <figcaption>Typical pest pressure by month across central and north Alabama. Termite swarms peak March through May.</figcaption>
 </figure>
 
-<h2>What you'll actually see</h2>
+<h3>Which termite species are swarming</h3>
 
-<p>A termite swarmer looks almost identical to a flying ant — about half an inch long, dark brown, with four wings. The easy tell: termite wings are all the same length, and they break off easily. If you find a pile of identical translucent wings on a windowsill or near a baseboard, you have termites. Not "you might." You do.</p>
+<ul>
+<li><strong>Eastern subterranean termites</strong> (Reticulitermes flavipes) are the termite species we deal with across central and north Alabama. They swarm in daylight, most often from March into May.</li>
+<li><strong>Formosan subterranean termites</strong> originally came from East Asia, including Taiwan, and are established on Alabama's Gulf Coast around Mobile and Baldwin County. They swarm later, in late spring and early summer, usually at dusk around lights. A single Formosan colony can hold millions of termites, which is why it is counted among the most destructive termites in the United States. It is not what we find in Birmingham, Lake Martin or Huntsville. More on that in our post on <a href="/blog/formosan-termites-alabama">Formosan termites in Alabama</a>.</li>
+<li><strong>Drywood termites</strong> live inside wood with no contact with the ground. They are rare in our part of the state, and when they turn up it is usually in furniture or lumber brought in from somewhere else.</li>
+</ul>
 
-<p>The swarmers themselves don't bite, don't sting, don't damage anything. They're just looking for a mate so they can start a new colony. The damage is being done by the workers underground — the ones you'll never see.</p>
+<h2>What you will actually see</h2>
+
+<p>A termite swarmer looks almost identical to a flying ant: about half an inch long, dark brownish to black, with two pairs of wings. The easy tell is that termite wings are all the same length, and they break off easily. An ant has a pinched waist and front wings longer than its back wings; a termite has a thick, straight body. If you find a pile of identical translucent wings on a windowsill or near a baseboard, you have termites. Not "you might." You do. Our guide to <a href="/blog/how-to-identify-termites-alabama">identifying termites in Alabama</a> has photos of both.</p>
+
+<p>The swarmers themselves don't bite, don't sting and don't damage anything. They are just looking for a mate. The damage is being done by the worker termites underground, the ones you will never see.</p>
+
+<h3>Other signs of termite activity</h3>
+
+<ul>
+<li>Pencil-width mud tubes running up your foundation, piers or plumbing</li>
+<li>Wood that sounds hollow when tapped, or that crumbles at a screwdriver</li>
+<li>Bubbling paint or warped trim that looks like water damage</li>
+<li>Swarmers coming up through cracks in concrete, around slab joints or near bath traps</li>
+</ul>
+
+<p>For a fuller checklist, see <a href="/blog/termite-damage-signs-alabama">signs of termite damage in Alabama homes</a>.</p>
 
 <h2>Why Birmingham gets it worse</h2>
 
-<p>Two reasons. First, our red clay soil holds moisture for weeks after rain. That's perfect for termites — they need constant moisture to survive. Second, our housing stock skews old. A lot of homes in Forest Park, Mountain Brook, Crestwood, and Vestavia were built before subterranean termite treatment was even routinely required. The wood-to-soil contact in those old foundations is exactly what termites are hunting for.</p>
+<p>Two reasons. First, our red clay soil holds moisture for weeks after rain. That is perfect for termites, which need constant moisture to survive. Second, our housing stock skews old. A lot of homes in Forest Park, Mountain Brook, Crestwood and Vestavia were built before pre-construction termite treatment was standard practice. Wood-to-soil contact in those old foundations, plus firewood stacked against the house and mulch piled up to the siding, gives a colony an easy food source.</p>
 
-<p>Newer construction in Trussville, Helena, and Greystone gets pre-treated at the slab pour, but pre-treat warranties typically expire after 5 years. After that, the home is on its own unless the owner signs up for ongoing protection.</p>
+<p>Newer construction in Trussville, Helena and Greystone gets treated at the slab pour, but that builder treatment does not last forever, and the protection that came with it is time-limited. After that, the home is on its own unless the owner signs up for ongoing protection.</p>
 
 <h2>What we recommend</h2>
 
-<p>We've been treating Alabama termites since 1958. For four generations, the company my grandfather started has tried every method the industry has thrown at homeowners — chlordane (banned), Dursban (banned), liquid soil barriers, foaming agents, baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
+<p>Our family has done pest control in Alabama for four generations, and we have seen every method the industry has tried on wood structures: chlordane and chlorpyrifos (both long gone from home termite work), liquid soil barriers, foaming agents and baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
 
-<p>It's a bait station system. We install monitoring stations every 10–15 feet around your foundation. When termites find the stations (they always do — they're constantly foraging), they take the bait back to the colony, and the entire colony collapses. No drilling into your slab. No tank trucks. No chemicals injected into the soil under your kids' play area.</p>
+<p>It is a bait station system. We install monitoring stations every 10 to 15 feet around your foundation. Foraging termites find the stations, carry the bait back to the colony, and the colony declines and collapses over time. No drilling into your slab and no tank trucks in the yard. The active ingredient is EPA-registered and applied according to label directions. You can read more about how it works on our <a href="/services/sentricon">Sentricon page</a> or our comparison of <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon versus liquid treatment</a>.</p>
 
-<p>Sentricon installations we service carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. The coverage is EnviroCare's own — not Corteva's and not the manufacturer's. If termites cause damage to your home while we're protecting it, the agreement sets out what is covered.</p>
+<p>Qualifying homes we protect with Sentricon carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That coverage is ours, not the manufacturer's. Terms are confirmed in writing before service starts.</p>
+
+<p>What does not work: spraying swarmers with a can from the hardware store. It kills the insects you can see and does nothing to the colony nest underground. A termite infestation is a soil problem, not a surface one, and it takes professional termite control to reach it.</p>
 
 <h2>If you find swarmers in your house</h2>
 
-<p>Don't panic. Don't bug-bomb the room. Don't try to scrub them up before "they get worse." Take three steps:</p>
+<p>Don't panic. Don't bug-bomb the room. Don't try to scrub everything up before "they get worse." Take three steps:</p>
 
 <ol>
-<li><strong>Photograph</strong> what you found — both the swarmers and the location.</li>
+<li><strong>Photograph</strong> what you found, both the swarmers and the location.</li>
 <li><strong>Collect a few</strong> in a sandwich bag, just in case.</li>
-<li><strong>Call us</strong> for a free inspection. We'll get a Sentricon-certified technician out with fast scheduling. The inspection is free and there's no obligation.</li>
+<li><strong>Call us</strong> for a free termite inspection. We will schedule a free inspection with a Certified Sentricon Specialist. There is no obligation.</li>
 </ol>
 
-<p>Call our nearest office:</p>
+<p>We price termite treatment plans only after that free inspection, never over the phone, because the right answer depends on your foundation, your soil and what the inspector finds. If you are buying or selling a home, the Official Alabama Wood Infestation Inspection Report is a separate service with its own fee; many lenders require it, and we cover it on our <a href="/services/wdo-letters">WDO letters page</a>.</p>
+
+<h2>Do termites swarm every year?</h2>
+
+<p>Yes. Once a colony is mature it swarms each spring, and a yard can hold another colony you have not seen yet. A swarm this year is a good reason to get an inspection before the damage to your property shows up in the walls.</p>
+
+<p>Ready to have someone look? <a href="/quote">Request a free termite inspection</a> or call your nearest office:</p>
+
 <ul>
-<li>Birmingham — (205) 991-2882</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li>Birmingham: (205) 991-2882</li>
+<li>Alabaster: (205) 940-6360</li>
+<li>Alexander City &amp; Lake Martin: (256) 234-6162</li>
+<li>Huntsville: (256) 937-7676</li>
 </ul>
 
-<p><em>Kevin Wedgworth is the owner of EnviroCare, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958.</em></p>
+<p><em>Kevin Wedgworth leads EnviroCare, a fourth-generation family business. The Wedgworth family has done pest control in Alabama since 1958.</em></p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -2884,8 +3237,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Real Estate',
     readMinutes: 12,
     heroEmoji: '🏠',
-    metaTitle: 'WDO Inspection and Alabama Wood Infestation Report: Termite Inspection, WDO Letter, and Wood Destroying Organism Report for Real Estate Transactions',
-    metaDescription: 'WDO inspection and Alabama wood infestation report explained — what the WDO letter covers, what the termite inspection report includes, WDO inspection cost ($125), what happens if termites are found, and how to keep the termite letter off the closing critical path for Alabama real estate transactions.',
+    metaTitle: 'WDO Inspection & Termite Letter for Alabama Home Sales',
+    metaDescription: 'The Alabama WDO letter explained: what the termite inspection covers, what happens if termites are found, and how to keep it off the closing critical path.',
     body: `
 <p class="lede">If your Alabama home purchase involves a loan, you almost certainly need a WDO letter — the Official Alabama Wood Infestation Inspection Report — before you can close. VA loans require it outright, FHA loans require evidence of no active infestation, and most conventional lenders require a termite letter or WDO inspection report as a condition of funding. This guide explains what a WDO inspection covers in Alabama, what the Alabama wood infestation report includes, how much a WDO inspection costs, what happens if termites or other wood-destroying organisms are found, and how to keep the WDO letter off the closing critical path for buyers and sellers.</p>
 
@@ -3013,33 +3366,45 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Why Pests Get Worse After Rain in Alabama',
     excerpt: 'Fire ants, palmetto bugs, and millipedes all surge after Alabama rainstorms. Rain floods habitats and drives pests toward your home.',
     publishedAt: '2026-05-20',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
-    readMinutes: 4,
+    readMinutes: 6,
     heroEmoji: '🌧️',
     metaTitle: 'Why Pests Get Worse After Rain in Alabama | EnviroCare',
     metaDescription: 'Fire ants, palmetto bugs, millipedes, and mosquitoes surge after Alabama rain. Why storms drive pests indoors and how perimeter treatment stops them.',
     body: `
-<p class="lede">Every pest company in Alabama gets the same call after a rainstorm: why are there suddenly bugs everywhere? Rain disrupts underground and outdoor habitats, forcing pests toward your home.</p>
+<p class="lede">Alabama gets its rain in bursts — three inches in an afternoon, a tropical system that sits for two days — and every one of them is followed by the same wave of calls. Ants indoors that were not there Monday. Millipedes by the hundred on the garage floor. Roaches in the bathroom. A mosquito cloud on the porch a week later. None of it is random. A flooded yard rearranges where every pest can live, and most of the options it leaves them point at the house.</p>
 
-<h2>Fire Ants</h2>
-<p>Heavy rain floods their tunnels, and they build new mounds on higher ground — often your yard. You may see dozens of new mounds after a single storm.</p>
+<h2>Ants: flooded out, moving up</h2>
+<p>Argentine and odorous house ants nest shallow, under mulch and stones and along the foundation. When those nests flood, the colony moves the brood to higher, drier ground — and the highest, driest ground on the lot is inside your walls. This is the ant trail that appears the day after a storm and seems to come from nowhere. Fire ants do the same thing in the yard: a saturated colony pushes up above the water line, and the mounds that "appeared overnight" were there all summer, underground.</p>
 
-<h2>American Roaches (Palmetto Bugs)</h2>
-<p>American roaches live in storm drains and mulch. When rain saturates these areas, they move toward your dry home foundation.</p>
+<h2>Roaches: out of the drains</h2>
+<p>American cockroaches live in storm drains, sewer lines, and crawlspaces. A flooded drain system pushes them up and out, into bathrooms through floor drains and into crawlspaces that are now wet. Smokybrowns get flushed out of gutters and tree holes. Both end up looking for a dry, warm place, and the garage and the bathroom are it.</p>
 
-<h2>Millipedes and Mosquitoes</h2>
-<p>Millipedes migrate in mass after rain — sometimes hundreds crawling up foundations. Mosquitoes thrive because standing water is where they breed. A bottle cap of water produces hundreds of mosquitoes per week.</p>
+<h2>Millipedes, centipedes, and springtails: the surface army</h2>
+<p>Saturated soil drives millipedes, centipedes, earwigs, and springtails to the surface by the thousand, and they migrate across pavement toward any wall. They are harmless, they die indoors within a day or two, and they are almost impossible to prevent entirely in the week after a flood. What reduces them is the same thing every time: a dry band along the foundation, no mulch against the slab, no leaf litter piled by the door, and a treated perimeter.</p>
 
-<h2>The Best Defense</h2>
-<p>Proactive perimeter treatment already in place before the storm is your best defense. Our bi-monthly service creates a treated zone that intercepts pests as they migrate. We offer free re-treatment between scheduled visits for exactly this situation.</p>
+<h2>Mosquitoes: the seven-day clock</h2>
+<p>This is the one that arrives late. Every container, gutter, tarp, wheelbarrow, and low spot that filled during the storm is a mosquito nursery, and in summer heat the cycle from egg to biting adult runs about a week. The storm was Saturday; the mosquito cloud is the following weekend. Dumping standing water within a couple of days of a big rain is the single most effective mosquito step there is. The seasonal program treats the resting sites; it cannot empty your flowerpot saucers.</p>
 
-<p>Call your nearest EnviroCare office:</p>
+<h2>Termites: the quiet one</h2>
+<p>Rain does not create termites, but it creates the conditions. Wet soil against a foundation, a gutter overflowing onto the sill, a crawlspace that stays damp for a month — that is the moisture subterranean termites need to reach the wood. A season with a lot of storms is a season to look at the crawlspace and the downspouts. What to look for is in <a href="/blog/termite-damage-signs-alabama">termite damage signs</a>.</p>
+
+<h2>The week-after checklist</h2>
 <ul>
-<li>Birmingham — (205) 991-2882</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
+<li>Dump every container of standing water on the lot within 48 hours.</li>
+<li>Clear the gutters and make sure downspouts carry water away from the foundation, not against it.</li>
+<li>Pull wet mulch and leaf litter back from the slab and the doors.</li>
+<li>Run water in floor drains and unused sinks to refill the traps that keep roaches out.</li>
+<li>Do not spray the ant trail — it fragments the colony. Bait it, or call.</li>
+<li>Check the crawlspace for standing water and get it dried.</li>
 </ul>
+<p>If you are on the <a href="/services/pest-control">bi-monthly plan</a> and the storm brought something in, that is what free re-service between visits is for. One call, and we come back out.</p>
+
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -3125,8 +3490,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Local',
     readMinutes: 15,
     heroEmoji: '🚀',
-    metaTitle: 'Pest Control in Huntsville, AL: Trusted Pest Control Services, Termite Control, and Pest Solutions for Huntsville Homes and Businesses',
-    metaDescription: 'Trusted pest control in Huntsville, AL from EnviroCare. Pest control services for ants, termites, mosquitoes, spiders, rodents, and 30+ pests. Local Huntsville pest solutions for homes and businesses in North Alabama.',
+    metaTitle: 'Pest Control in Huntsville, AL: A Local Guide | EnviroCare',
+    metaDescription: 'Pest control in Huntsville, AL from EnviroCare: ants, termites, mosquitoes, spiders, rodents and 30+ pests for North Alabama homes and businesses.',
     body: `
 <p class="lede">Huntsville sits in a pest control environment unlike anywhere else in Alabama. The Tennessee Valley climate, limestone geology beneath the city, rapid suburban development across Madison County, and the Tennessee River system all shape which pests are active in your home or business — and what it takes to keep them out. This is a local guide to pest control in Huntsville, AL, covering the most common Huntsville pests, the pest control services available, what pest control costs, and why year-round professional pest control matters more here than in most markets.</p>
 
@@ -3176,7 +3541,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>EnviroCare provides full pest control services in Huntsville and across North Alabama from our office on Old Madison Pike. Whether you call us as an exterminator for a bug you just found or you want a year-round pest management program to keep your home pest-free, every service starts with an inspection — we identify the pest, locate the activity, and recommend the right treatment plan before any work begins. Pest control Huntsville homeowners can count on means a local team that inspects first, treats second, and stands behind the results.</p>
 
-<p><strong>Bi-monthly pest control.</strong> Our core pest control service treats the exterior perimeter of your home or business every other month, targeting the entry points and harborage areas where pests are active. The bi-monthly rotation covers ants, spiders, roaches, wasps, silverfish, centipedes, millipedes, crickets, and 30-plus other common Huntsville pests. If any bug shows up between scheduled visits, we come back at no extra charge — that is part of the program, not an add-on. Some pest control companies offer quarterly service, but the bi-monthly rotation provides tighter coverage in Huntsville's climate, where pest pressure does not take a seasonal break long enough for a quarterly schedule to hold.</p>
+<p><strong>Bi-monthly pest control.</strong> Our core pest control service treats the exterior perimeter of your home or business every other month, targeting the entry points and harborage areas where pests are active. The bi-monthly rotation covers ants, spiders, roaches, silverfish, centipedes, millipedes, crickets, and 30-plus other common Huntsville pests. If any bug shows up between scheduled visits, we come back at no extra charge — that is part of the program, not an add-on. Some pest control companies offer quarterly service, but the bi-monthly rotation provides tighter coverage in Huntsville's climate, where pest pressure does not take a seasonal break long enough for a quarterly schedule to hold.</p>
 
 <p><strong>Commercial pest control.</strong> Restaurants, offices, warehouses, property management companies, and businesses in Huntsville need pest control programs tailored to their industry and their inspection requirements. Our <a href="/services/commercial">commercial pest control</a> program is customized to the business, the facility, and the pest activity specific to that location.</p>
 
@@ -3248,8 +3613,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Spiders',
     readMinutes: 14,
     heroEmoji: '🕷️',
-    metaTitle: 'Brown Recluse Spiders in Alabama: Identification, Bite, and Spider Control | EnviroCare',
-    metaDescription: 'How to identify brown recluse spiders found in Alabama — the legs, eyes, and violin-shaped marking. Where brown recluse spiders hide in your home, what a brown recluse bite looks like, when to seek medical attention, and effective spider control and prevention strategies from EnviroCare pest control.',
+    metaTitle: 'Brown Recluse Spiders in Alabama: ID & Bites | EnviroCare',
+    metaDescription: 'How to identify brown recluse spiders in Alabama by the violin marking and six eyes, where they hide, what a bite looks like, and how to keep them out.',
     body: `
 <p class="lede">More brown spiders get called brown recluse than any other spider species in Alabama, and the large majority of them are not. That matters in both directions — unnecessary alarm about harmless house spiders, and occasionally the opposite. Alabama is home to dozens of spider species, but only two are medically significant. Knowing how to identify a brown recluse spider — and how to tell it apart from the harmless spiders found in Alabama homes — is the first step toward effective spider control and protecting your family.</p>
 
@@ -3384,8 +3749,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Roaches',
     readMinutes: 14,
     heroEmoji: '🪳',
-    metaTitle: 'Cockroach Control in Alabama: Types of Cockroaches, Pest Control, and Cockroach Extermination | EnviroCare',
-    metaDescription: 'Professional cockroach control in Alabama from EnviroCare — German cockroach extermination, American roach removal, and full pest control services. Identify cockroach species in your Alabama home, stop the roach infestation, and protect your family with cockroach control services in Birmingham and Huntsville.',
+    metaTitle: 'Cockroach Control in Alabama: Types & Treatment',
+    metaDescription: 'Cockroach control in Alabama: tell German from American roaches, stop an infestation, and see what professional treatment involves.',
     body: `
 <p class="lede">The first question is not how to kill roaches — it is which cockroach you have. A palmetto bug wandering in from the mulch bed is a nuisance. German cockroaches breeding in your kitchen are a roach infestation with a health dimension that can contaminate food surfaces and trigger asthma. Same word, entirely different pest problems. Effective cockroach control in Alabama starts with identifying the cockroach species in your home and applying the right cockroach treatment for that species.</p>
 
@@ -3531,7 +3896,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Spiders',
     readMinutes: 14,
     heroEmoji: '🕸️',
-    metaTitle: 'Spiders in Alabama: Identification of Common and Venomous Spider Species',
+    metaTitle: 'Spiders in Alabama: Common & Venomous Species ID',
     metaDescription: 'Identify common spiders in Alabama — wolf spiders, black widows, brown recluses, garden spiders — and learn expert spider control from EnviroCare Pest Services.',
     body: `
 <p class="lede">Alabama is home to hundreds of spider species, and the overwhelming majority of spiders found in Alabama are harmless — even beneficial, since spiders eat the insects you like even less. But two venomous spider species carry real medical risk, and effective spider control in Alabama is not about spraying every spider web you see. This guide covers spider identification for the most common spiders in Alabama, how to identify venomous spiders versus harmless spiders, where spiders hide in Alabama homes, signs of a spider infestation, and how professional pest control from EnviroCare keeps spiders out of your home effectively and on an ongoing schedule.</p>
@@ -3663,8 +4028,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Ants',
     readMinutes: 14,
     heroEmoji: '🐜',
-    metaTitle: 'Ant Control in Alabama: Fire Ant, Carpenter Ant & Pest Control Services | EnviroCare',
-    metaDescription: 'Professional ant control in Alabama from EnviroCare — fire ant extermination, carpenter ant removal, and Argentine ant treatment. Ant control services for Birmingham, Huntsville, and across Alabama. Identify ant species, stop the infestation, and protect your home with pest control that reaches the colony.',
+    metaTitle: 'Ant Control in Alabama: Fire Ants & Carpenter Ants',
+    metaDescription: 'Ant control in Alabama for fire ants, carpenter ants, and Argentine ants: how to identify the species and treatment that reaches the colony.',
     body: `
 <p class="lede">The ants you see on your kitchen counter are the least important part of the ant problem. They are foragers — maybe five percent of the colony. Kill every one of them and the queen keeps producing replacements, which is why the spray under your sink stops working after a week. Effective ant control in Alabama starts with understanding why most DIY ant treatments fail and which species of ant you are actually dealing with. Different species require different ant treatments, and the wrong approach — especially spraying ant trails — can scatter ant colonies and make an ant infestation worse instead of better.</p>
 
@@ -3810,8 +4175,8 @@ export const BLOG_POSTS: BlogPost[] = [
     // Distinct from /pest-library/silverfish, which carries the species profile
     // under the plain "Silverfish Control in Alabama | EnviroCare" title. These two
     // were byte-identical until 2026-08-11 — the only duplicate title on the site.
-    metaTitle: 'Silverfish Control in Alabama: How to Get Rid of Silverfish in Your Home and Prevent Silverfish Infestation in Alabama Homes',
-    metaDescription: 'Silverfish control in Alabama — what attracts silverfish to Alabama homes, signs of a silverfish infestation, silverfish damage to books and clothing, how to get rid of silverfish, and professional pest control services for silverfish and other humidity pests in Alabama homes.',
+    metaTitle: 'Silverfish in Alabama Homes: How to Get Rid of Them',
+    metaDescription: 'What draws silverfish into Alabama homes, signs of an infestation, the damage they do to books and clothing, and how to get rid of them.',
     body: `
 <p class="lede">Silverfish are one of the most common and most overlooked household pests in Alabama homes. These nocturnal, wingless insects thrive in high humidity, hide in wall voids and undisturbed areas, and cause damage to books, wallpaper, clothing, and stored items before most homeowners even know they have a silverfish problem. Alabama's year-round humidity makes every home a potential silverfish habitat — and once a silverfish infestation takes hold, getting rid of silverfish without professional pest control is difficult. This guide covers what attracts silverfish to Alabama homes, signs of a silverfish infestation, what silverfish damage looks like, and how professional silverfish control from EnviroCare keeps these humidity-driven pests out of your home.</p>
 
@@ -3929,8 +4294,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pests',
     readMinutes: 12,
     heroEmoji: '🦗',
-    metaTitle: 'Cricket Control in Alabama: House Crickets, Camel Crickets, and Pest Control | EnviroCare',
-    metaDescription: 'Common crickets found in Alabama homes — house crickets chirp all night from inside walls, camel crickets invade basements by the dozens, and field crickets swarm entry points. Crickets are nuisance insects that chew fabric and signal moisture problems. Learn what attracts crickets indoors and how professional pest control keeps them out.',
+    metaTitle: 'Cricket Control in Alabama: House & Camel Crickets',
+    metaDescription: 'House crickets in the walls, camel crickets in the basement: why crickets come indoors in Alabama and how to keep them out.',
     body: `
 <p class="lede">Crickets are one of the most common insect invaders in Alabama homes — house crickets chirp all night from inside your walls, camel crickets crowd your basement by the dozens, and field crickets wander indoors through every gap and crack they can find. These pests surge in late summer and fall when outdoor conditions push them toward the warmth and shelter of your home. Understanding which cricket species you are dealing with is the first step toward effective cricket control and keeping these noisy, fabric-chewing bugs out of your Alabama home for good.</p>
 
@@ -4129,8 +4494,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pests',
     readMinutes: 12,
     heroEmoji: '🐛',
-    metaTitle: 'Centipedes and Millipedes in Alabama: Common Centipedes, House Centipede Control, and Pest Control | EnviroCare',
-    metaDescription: 'Common centipedes and millipedes found in Alabama homes — house centipedes with many legs in the basement and bathroom, millipedes in garden and leaf litter. Are centipedes dangerous like centipedes found in tropical climates? No — Alabama house centipedes are nuisance insect predators. Learn what attracts centipedes and millipedes to Alabama homeowners\' damp areas, and how professional pest control keeps them out.',
+    metaTitle: 'Centipedes & Millipedes in Alabama Homes | EnviroCare',
+    metaDescription: 'House centipedes and millipedes in Alabama homes: why they show up in damp basements and baths, whether they are dangerous, and how to keep them out.',
     body: `
 <p class="lede">Centipedes and millipedes are moisture-loving pests that invade Alabama homes year-round — centipedes hunt prey in your bathroom at midnight, and millipedes migrate by the hundreds after heavy rain. Both are nuisance household pests that signal excess moisture around your foundation. Understanding what attracts centipedes and millipedes to your Alabama home is the first step toward effective centipede control and keeping these many-legged pests outside where they belong.</p>
 
@@ -4262,8 +4627,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pricing',
     readMinutes: 12,
     heroEmoji: '💵',
-    metaTitle: 'How Much Does Pest Control Cost in Alabama? Pest Control Costs, Pest Control Prices, and Pest Control Services for Alabama Homeowners',
-    metaDescription: 'How much does pest control cost in Alabama? Real 2026 pest control prices and pest control costs — bi-monthly pest control service from $35/mo, mosquito control, termite treatment, and one-time pest control treatment costs for Birmingham, Huntsville, and Alabama homes and businesses. Reliable pest control company pricing.',
+    metaTitle: 'How Much Does Pest Control Cost in Alabama? | EnviroCare',
+    metaDescription: 'What pest control costs in Alabama in 2026: bi-monthly service from $35/mo, mosquito plans, and how termite treatment is priced after an inspection.',
     body: `
 <p class="lede">How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Birmingham, Huntsville, and across Alabama, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
 
@@ -4272,7 +4637,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control costs in Alabama depend on the service, the size of the property, the type of pest, and whether you need ongoing pest control or a one-time treatment. Here is what pest control services cost at EnviroCare in 2026 — published pricing, no sales call required.</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, and crickets, with free re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, rodents, silverfish, centipedes, and crickets, with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
@@ -4284,7 +4649,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Several factors influence what pest control services cost for your home or business. Understanding these helps Alabama homeowners compare pest control prices accurately and avoid surprises.</p>
 
-<p><strong>Type of pest.</strong> The type of pest determines what pest control treatment is needed and what it costs. General pest control covering ants, spiders, cockroaches, wasps, and rodents costs less than specialized treatment for a termite infestation or a severe cockroach infestation that requires targeted interior pest control service. Mosquito control and termite control are separate pest control services with their own pricing because they use different products, different equipment, and different treatment methods than standard pest control.</p>
+<p><strong>Type of pest.</strong> The type of pest determines what pest control treatment is needed and what it costs. General pest control covering ants, spiders, cockroaches, and rodents costs less than specialized treatment for a termite infestation or a severe cockroach infestation that requires targeted interior pest control service. Mosquito control and termite control are separate pest control services with their own pricing because they use different products, different equipment, and different treatment methods than standard pest control.</p>
 
 <p><strong>Size and condition of the property.</strong> The published pest control prices cover most single-family homes up to roughly 3,500 square feet. Square footage, outbuildings, crawl space access and condition, the number of entry points that need treatment, and the severity of the infestation all affect pest control costs. A larger home or business with more perimeter to treat costs more than a smaller property.</p>
 
@@ -4308,7 +4673,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>Rodent pest control costs.</strong> Mice and rats enter Alabama homes as temperatures drop in fall and winter. Rodent control includes sealing entry points, removing harborage, and professional trapping or baiting. Rodent infestations left unchecked cause damage to wiring, insulation, and stored goods. Rodent control may require additional service beyond the standard bi-monthly pest control perimeter treatment depending on the severity of the infestation and the number of entry points.</p>
 
-<p><strong>Wasp and flea pest control costs.</strong> Wasp nest removal is included in the bi-monthly pest control service. Paper wasps, yellow jackets, and mud daubers are common around Alabama homes from spring through fall, with nests appearing under eaves, in soffits, around decks, and in the ground. Flea infestations require treating both the yard and the interior to break the breeding cycle, and flea treatment is quoted after inspection.</p>
+<p><strong>Wasp and flea pest control costs.</strong> Treating an active wasp or hornet nest is an add-on for pest customers at an additional charge; routine visits include eave treatment that discourages new building. Paper wasps, yellow jackets, and mud daubers are common around Alabama homes from spring through fall, with nests appearing under eaves, in soffits, around decks, and in the ground. Flea infestations require treating both the yard and the interior to break the breeding cycle, and flea treatment is quoted after inspection.</p>
 
 <h2>Pest control costs in Birmingham, AL</h2>
 
@@ -4407,10 +4772,11 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 12,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Season in Alabama: Mosquito Control Services, Mosquito Management, and Pest Control for Huntsville and Birmingham',
-    metaDescription: 'Alabama mosquito season runs March through October. Mosquito control services and pest control from EnviroCare — mosquito spray treatments to control mosquitoes in Huntsville, Birmingham, and across Alabama. Mosquito life cycle, mosquito infestation prevention, and mosquito control treatments.',
+    metaTitle: 'Mosquito Season in Alabama: Birmingham & Huntsville Guide',
+    metaDescription: 'Alabama mosquito season runs March through October. How the mosquito life cycle works, how to prevent breeding, and how treatment reduces activity.',
     body: `
 <p class="lede">Alabama mosquito season runs March through October — an eight-month stretch that makes mosquito control a necessity for homes and businesses across Birmingham, Huntsville, and every community in between. Starting mosquito control early, before mosquito populations compound through spring and summer, is the single biggest factor in how well the whole season goes. This guide covers when mosquito season starts in Alabama, how mosquito spray treatments work, the types of mosquitoes in Alabama, mosquito breeding sites to eliminate, what mosquito control costs, and why professional pest control delivers results that DIY mosquito management cannot match.</p>
+<p><strong>Looking for mosquito control near you?</strong> See <a href="/birmingham-mosquito-control">mosquito control in Birmingham</a> (Jefferson County, served from our 16th Ave S office) or <a href="/huntsville-mosquito-control">mosquito control in Huntsville</a> for local details, the March–October treatment schedule and pricing.</p>
 
 <h2>When is mosquito season in Alabama?</h2>
 
@@ -4508,8 +4874,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 18,
     heroEmoji: '🪵',
-    metaTitle: 'How to Identify Termites in Alabama: Signs of Termite Activity, Termite Swarms, and Pest Control Services for Alabama Homes',
-    metaDescription: 'How to identify termites in Alabama homes. Learn the signs of termite activity, when termites swarm in Alabama, how to tell termites from ants, Formosan and subterranean termites, and when to call pest control for a termite inspection in Birmingham and across Alabama.',
+    metaTitle: 'How to Identify Termites in Alabama: Signs & Swarms',
+    metaDescription: 'How to identify termites in Alabama: signs of activity, when they swarm, how to tell termites from ants, and when to get a termite inspection.',
     body: `
 <p class="lede">Alabama sits in one of the highest termite infestation probability zones in the United States, and your homeowners insurance almost certainly excludes termite damage — because insurers classify termite activity as preventable maintenance. That combination is why knowing how to identify termites in your Alabama home matters more here than almost anywhere else. This guide covers every termite species found in Alabama, when termites swarm in Alabama, the signs of termite activity to watch for, how to tell termites apart from flying ants, and what Alabama homeowners should do when they find evidence of termites.</p>
 
@@ -4650,8 +5016,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Ticks',
     readMinutes: 18,
     heroEmoji: '🕷️',
-    metaTitle: 'Tick Control in Alabama: Tick Species, Diseases & Professional Tick Treatment',
-    metaDescription: 'Alabama tick species, alpha-gal syndrome from lone star tick bites, tick-borne diseases, how to remove a tick correctly, and why yard treatment focuses on the wood line. Professional tick control services from EnviroCare.',
+    metaTitle: 'Tick Control in Alabama: Species, Diseases & Treatment',
+    metaDescription: 'Alabama tick species, alpha-gal syndrome from lone star ticks, tick-borne diseases, how to remove a tick, and why yard treatment targets the wood line.',
     body: `
 <p class="lede">Ticks do not wander into open lawn. They wait at the edge — the strip where mowed grass meets woods, ivy, or tall brush — and they climb onto whatever brushes past. In Alabama, where a huge share of homes back up to trees, that edge is often twenty feet from where your kids play. Alabama tick species carry serious tick-borne diseases including Rocky Mountain spotted fever, ehrlichiosis, anaplasmosis, and the lone star tick bite behind alpha-gal syndrome. This guide covers which tick species live in Alabama, what tick-borne illnesses they carry, where ticks hide in your yard, how to prevent ticks on your property and your pets, how to remove a tick correctly, and how professional tick control services from EnviroCare keep tick populations down across your yard on an ongoing schedule.</p>
 
@@ -4789,48 +5155,54 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Keep Wolf Spiders Out of Your Birmingham Home',
     excerpt: 'Wolf spiders are the biggest spider most Birmingham homeowners ever see indoors — fast, hairy, and alarming. Here\'s why they\'re really inside (it\'s their food), what actually keeps them out, and what doesn\'t.',
     publishedAt: '2026-06-30',
+    updatedAt: '2026-10-12',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
     readMinutes: 6,
     heroEmoji: '🕷️',
     metaTitle: 'How to Keep Wolf Spiders Out of Your Birmingham Home | EnviroCare',
     metaDescription: 'Wolf spiders in your Birmingham home? They follow their food indoors. What keeps them out — exclusion plus perimeter pest control. (205) 940-6360.',
-    body: `
-<p class="lede">Wolf spiders are the largest spider most Birmingham homeowners ever see indoors — brown, hairy, fast, and often the size of a half-dollar with their legs spread. They aren't dangerous in the medical sense (no medically significant venom, no aggression), but they look alarming, they hunt at night, and they turn up in kitchens and basements in numbers that make one sighting feel like an infestation. Here's what we tell customers around Birmingham and the Over-the-Mountain suburbs when they call about them.</p>
+    body: `<p class="lede">Walk across your patio on a warm September evening in Hoover or Helena, shine a flashlight toward the grass, and you'll likely see eyes reflecting back at you. That's a wolf spider. They're everywhere in Alabama — in the red clay, along the creek banks, in the pine straw under your shrubs — and most of the time they stay outside doing exactly what we'd want them to do. The problem is when they don't. When temperatures swing, rain pushes them up out of low spots, or a garage door gets left open, they come inside. And a wolf spider moving fast across your living room floor is not something most people take calmly.</p>
 
-<h2>Why you're seeing them inside</h2>
+<h2>What wolf spiders actually look like</h2>
+<p>People mistake wolf spiders for brown recluses more than almost any other spider in Alabama, and the two are not the same animal. Wolf spiders are thick-bodied and large — a full-grown female can be an inch and a half long not counting the legs. They're brown and gray with darker banding or striping, and they tend to be hairy in a way that makes them look even bigger than they are. Their eyes are one of their best identifiers: wolf spiders have eight eyes arranged in three rows, with the middle row having two that are noticeably large. Shine a light at one in the dark and those big eyes glow back at you.</p>
+<p>They don't build webs. They chase down prey on foot, which is why you see them running rather than sitting in a corner. A female wolf spider carries her egg sac attached to her abdomen, and once eggs hatch, the spiderlings ride on her back for a short time. If you ever squash a female and a dozen tiny spiders scatter — that's what happened.</p>
 
-<p>Wolf spiders don't build webs. They hunt — which means they follow their prey. When you find one in the house, you're really finding evidence of something smaller it's eating: crickets, roaches, silverfish, earwigs, sometimes other spiders. A wolf spider problem is almost always a "their food source is inside" problem, which is also why squashing the ones you see never ends it.</p>
+<h2>Why Alabama has so many of them</h2>
+<p>Alabama is good wolf spider habitat in almost every way. The soil here — whether it's the sandy loam in Shelby County, the dark bottomland soil along the Coosa, or the rocky clay up around Huntsville — gives wolf spiders all the burrowing and hiding structure they need. We also have the insects they eat: crickets, small roaches, beetles, and other ground-level bugs are abundant from March through October, sometimes longer. Add in the moisture from our creek systems and the humidity that sits on neighborhoods from May through September, and you have conditions that support a very healthy wolf spider population.</p>
+<p>Communities built near wooded edges — which covers a lot of the Birmingham metro, the Lake Martin area, and neighborhoods across Madison County — tend to see more wolf spider pressure. More edge habitat means more prey, which means more spiders working those edges.</p>
 
-<p>The triggers we see most often in Birmingham homes — from Vestavia and Mountain Brook to Hoover and Trussville:</p>
-
+<h2>What brings them inside</h2>
+<p>Wolf spiders come inside for the same reasons most pests do: something outside changed, and inside looks better. The most common triggers in Alabama are:</p>
 <ul>
-<li><strong>Crawl space and foundation entry points.</strong> Wolf spiders are ground-level hunters, so they push in at the foundation line, around utility penetrations, and through gaps under exterior doors.</li>
-<li><strong>Mulch and ground cover within three feet of the foundation.</strong> It's perfect staging ground for crickets — the number-one wolf-spider draw.</li>
-<li><strong>Outdoor lighting on dusk timers.</strong> Porch and flood lights pull in moths and beetles, which pull in the spiders that eat them.</li>
+  <li><strong>Heavy rain.</strong> When we get the kind of multi-day soaking rain systems that stall over North Alabama or push up from the Gulf, low spots flood and ground-dwelling spiders move uphill — sometimes right into a garage or under a door.</li>
+  <li><strong>Temperature drops in fall.</strong> Late October and November cool-downs push a lot of ground insects (and the spiders that eat them) toward heat. A gap under a door or an unweathered threshold is an invitation.</li>
+  <li><strong>Construction or landscaping disturbance.</strong> Tilling a garden bed, turning mulch, or pulling up landscape timbers can displace spiders that were settled.</li>
+  <li><strong>Light and prey inside.</strong> If insects are getting inside — drawn to porch lights or gaps around windows — wolf spiders will follow the food.</li>
 </ul>
 
-<h2>What actually works (and what doesn't)</h2>
+<h2>What you can do yourself</h2>
+<p>A lot of wolf spider control is physical, not chemical, and the physical steps work better anyway. Here's what actually makes a difference:</p>
+<ul>
+  <li>Replace worn door sweeps and threshold seals, especially on garage doors. That's the most common entry point we see.</li>
+  <li>Keep mulch pulled back six inches or more from the foundation. Thick mulch right against the slab is warm, damp, and full of insects — exactly what a wolf spider is looking for.</li>
+  <li>Move firewood, lumber piles, and ground-level clutter away from the house. Wolf spiders love stacked material.</li>
+  <li>Fix exterior lighting. Porch lights draw moths and beetles. Switching to yellow-tinted bulbs or moving lights away from doorways reduces the insect crowd that attracts spiders.</li>
+  <li>Trim back shrubs and ground cover that touches the exterior wall. Dense vegetation against the house is essentially a bridge.</li>
+  <li>Check window screens. Wolf spiders won't squeeze through a tiny gap the way a small insect will, but a torn or poorly fitted screen is a real entry point.</li>
+</ul>
+<p>Inside the house, sticky traps placed along walls and in garage corners will catch wolf spiders. They won't solve an outdoor population problem, but they'll tell you where spiders are coming in, which helps you find the gaps.</p>
 
-<p><strong>Doesn't work:</strong> essential-oil sprays, ultrasonic plug-ins, and vinegar around doorways. We hear about these constantly. None of them produce a lasting change in spider activity in our climate.</p>
+<h2>What about the bite — should you worry?</h2>
+<p>Wolf spiders can and will bite if handled or cornered, but they are not considered medically significant in the way a brown recluse is. Most bites result in localized pain, redness, and swelling. If you're bitten and develop symptoms beyond that — significant swelling, spreading redness, fever, or anything that concerns you — see a doctor. We do pest control, not medicine, and that call belongs with a healthcare provider.</p>
+<p>The bigger concern for most Alabama families is just the surprise factor. Wolf spiders are startling, and in homes with young children or people with a serious fear of spiders, that matters even if the medical risk is low.</p>
 
-<p><strong>Does work:</strong></p>
+<h2>When a professional treatment actually helps</h2>
+<p>If you're seeing wolf spiders inside regularly — not once in a while, but repeatedly — that's a sign that something is drawing them in and the exclusion work alone isn't closing the gap. A perimeter treatment using <strong>EPA-registered products applied per label directions</strong> creates a barrier along the foundation, around entry points, and through the areas where spiders are most active. It won't reach every spider in your yard or woods, and no treatment will, but it reduces what makes it through to the inside.</p>
+<p>Wolf spider control is part of our standard <a href="/services/interior-pest-control">interior pest control service</a>. Our pest plan is <strong>$35 per month on a 12-month ACH agreement</strong> ($75 initial visit, $70 per visit otherwise), and it covers the recurring perimeter and interior treatments that keep pressure down throughout the year — not just a one-time visit when things get bad. If you're in the <a href="/birmingham">Birmingham area</a>, around <a href="/lake-martin">Lake Martin</a>, or up in <a href="/huntsville">Huntsville</a>, one of our offices can get you scheduled. We've been doing this work in Alabama since 1958, and wolf spiders are not a new conversation for us.</p>
+<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
-<ol>
-<li><strong>Exclusion first.</strong> Seal foundation cracks, add door sweeps on every exterior door, and put fine mesh over crawl-space vents. Spiders that can't get in don't have to be dealt with later.</li>
-<li><strong>Knock down the food source.</strong> A perimeter treatment that targets crickets, roaches, and silverfish removes the reason the spiders came inside in the first place. This is what our standard bi-monthly or quarterly pest control covers — wolf-spider sightings drop off within about two service visits in most homes.</li>
-<li><strong>Adjust the exterior.</strong> Pull mulch back 12 inches from the foundation, switch porch lights to yellow "bug" bulbs, and trim shrubs off the siding so there's no bridge to the house.</li>
-</ol>
-
-<h2>When to call a professional</h2>
-
-<p>If you're seeing more than one wolf spider a week indoors, or you have a finished basement where they keep reappearing, the problem isn't really the spiders — it's that something they hunt has an established population in your home. That's what professional <a href="/services/pest-control">pest control</a> resolves, because it treats the underlying insect activity instead of the spider symptom.</p>
-
-<p>The Wedgworth family has serviced Birmingham homes since 1958, with our local office on Butler Road in Alabaster and crews across the metro — including the <a href="/vestavia-hills">Over-the-Mountain</a> suburbs. If wolf spiders keep showing up despite the steps above, a free inspection will tell you what's actually drawing them in.</p>
-
-<p><a href="/quote">Request a free inspection</a> — no obligation — or call (205) 940-6360.</p>
-
-<p><em>Related:</em> <a href="/blog/brown-recluse-spiders-alabama">Brown recluse spiders in Alabama</a> · <a href="/blog/spider-control-alabama">Spider control in Alabama</a> · <a href="/blog/cricket-control-alabama">Cricket control</a> (the wolf spider's favorite meal).</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -4923,8 +5295,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Local',
     readMinutes: 14,
     heroEmoji: '🏙️',
-    metaTitle: 'Pest Control in Birmingham, AL: Pest Control Services, Exterminator, and Pest Control Solutions for Birmingham Alabama Homes and Businesses',
-    metaDescription: 'Trusted pest control in Birmingham, AL from EnviroCare. Pest control services for termites, ants, mosquitoes, cockroaches, spiders, rodents, and 30+ pests. Best pest control company in Birmingham Alabama — exterminator and pest management for homes and businesses.',
+    metaTitle: 'Pest Control in Birmingham, AL: A Local Guide | EnviroCare',
+    metaDescription: 'Pest control in Birmingham, AL from EnviroCare: termites, ants, mosquitoes, roaches, spiders, rodents and 30+ pests for local homes and businesses.',
     body: `
 <p class="lede">Birmingham sits in the middle of Alabama's heaviest pest pressure — red clay soil that holds moisture for weeks, mature tree canopy from Homewood to Hoover, and a climate that never freezes hard enough to give homeowners a real break. This is a local guide to pest control in Birmingham, AL, covering the most common Birmingham pests, what pest control services cost, how to choose a pest control company in Birmingham, and why year-round professional pest control is the only reliable pest management approach in the Birmingham area.</p>
 
@@ -4972,7 +5344,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>EnviroCare provides full residential pest control and commercial pest control services in Birmingham and across central Alabama. Whether you call us as an exterminator for a pest you just found or you want a year-round pest management program to keep your home pest-free, every service starts with an inspection — we identify the pest, locate the activity, and recommend the right treatment plan before any work begins. The best pest control in Birmingham means a local team that inspects first, treats second, and stands behind the results.</p>
 
-<p><strong>Bi-monthly pest control.</strong> Our core pest control service treats the exterior perimeter of your home or business every other month, targeting the entry points and harborage areas where pests are active. The bi-monthly rotation covers ants, spiders, roaches, wasps, silverfish, centipedes, millipedes, crickets, and 30-plus other common Birmingham pests. If any pest shows up between scheduled visits, we come back at no extra charge — that is part of the program, not an add-on. Effective pest control in Birmingham requires bi-monthly service because pest pressure does not take a seasonal break long enough for quarterly service to hold.</p>
+<p><strong>Bi-monthly pest control.</strong> Our core pest control service treats the exterior perimeter of your home or business every other month, targeting the entry points and harborage areas where pests are active. The bi-monthly rotation covers ants, spiders, roaches, silverfish, centipedes, millipedes, crickets, and 30-plus other common Birmingham pests. If any pest shows up between scheduled visits, we come back at no extra charge — that is part of the program, not an add-on. Effective pest control in Birmingham requires bi-monthly service because pest pressure does not take a seasonal break long enough for quarterly service to hold.</p>
 
 <p><strong>Commercial pest control.</strong> Restaurants, offices, warehouses, property management companies, and businesses in Birmingham need pest control programs tailored to their industry and their inspection requirements. Our <a href="/services/commercial">commercial pest control</a> program is customized to the business, the facility, and the pest activity specific to that location.</p>
 
@@ -5034,8 +5406,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Pricing',
     readMinutes: 12,
     heroEmoji: '💲',
-    metaTitle: 'How Much Does Pest Control Cost in Huntsville, AL? Pest Control Costs, Pest Control Prices, and Pest Control Services for Huntsville Alabama Homeowners',
-    metaDescription: 'How much does pest control cost in Huntsville, AL? Real 2026 pest control prices and pest control costs — bi-monthly pest control service from $35/mo, mosquito control, termite treatment, and one-time pest control treatment costs for Huntsville and Madison County homes and businesses. Reliable pest control company pricing.',
+    metaTitle: 'How Much Does Pest Control Cost in Huntsville, AL?',
+    metaDescription: 'What pest control costs in Huntsville, AL in 2026: bi-monthly service from $35/mo, mosquito plans, and how termite treatment is priced after an inspection.',
     body: `
 <p class="lede">How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs. This guide breaks down real 2026 pest control prices — what pest control services cost in Huntsville and across Madison County, what factors change the price, how one-time treatment compares to a monthly pest control plan, and how to find a reliable pest control company that gives you honest pest control costs before service begins.</p>
 
@@ -5044,7 +5416,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control costs in Huntsville depend on the service, the size of the property, the type of pest, and whether you need ongoing pest control or a one-time treatment. Here is what pest control services cost at EnviroCare in 2026 — published pricing, no sales call required.</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, wasps, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with free re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
@@ -5056,7 +5428,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Several factors influence what pest control services cost for your Huntsville home or business. Understanding these helps Alabama homeowners compare pest control prices accurately and avoid surprises.</p>
 
-<p><strong>Type of pest.</strong> The type of pest determines what pest control treatment is needed and what it costs. General pest control covering ants, spiders, cockroaches, wasps, and rodents costs less than specialized treatment for a termite infestation or a severe cockroach infestation that requires targeted interior pest control service. Mosquito control and termite control are separate pest control services with their own pricing because they use different products, different equipment, and different treatment methods than standard pest control.</p>
+<p><strong>Type of pest.</strong> The type of pest determines what pest control treatment is needed and what it costs. General pest control covering ants, spiders, cockroaches, and rodents costs less than specialized treatment for a termite infestation or a severe cockroach infestation that requires targeted interior pest control service. Mosquito control and termite control are separate pest control services with their own pricing because they use different products, different equipment, and different treatment methods than standard pest control.</p>
 
 <p><strong>Size and condition of the property.</strong> The published pest control prices cover most single-family homes up to roughly 3,500 square feet. Square footage, outbuildings, crawl space access and condition, the number of entry points that need treatment, and the severity of the infestation all affect pest control costs. A larger home or business with more perimeter to treat costs more than a smaller property. Many homes in Madison, Harvest, and Meridianville are newer construction with larger footprints, which affects the pest control cost estimate.</p>
 
@@ -5082,7 +5454,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>Rodent pest control costs.</strong> Mice and rats enter Huntsville homes as temperatures drop in fall and winter. Rodent control includes sealing entry points, removing harborage, and professional trapping or baiting. Rodent infestations left unchecked cause damage to wiring, insulation, and stored goods. Rodent control may require additional service beyond the standard bi-monthly pest control perimeter treatment depending on the severity of the infestation and the number of entry points.</p>
 
-<p><strong>Wasp and flea pest control costs.</strong> Wasp nest removal is included in the bi-monthly pest control service. Paper wasps, yellow jackets, and mud daubers are common around Huntsville homes from spring through fall, with nests appearing under eaves, in soffits, around decks, and in the ground. Flea infestations require treating both the yard and the interior to break the breeding cycle, and flea treatment is quoted after inspection.</p>
+<p><strong>Wasp and flea pest control costs.</strong> Treating an active wasp or hornet nest is an add-on for pest customers at an additional charge; routine visits include eave treatment that discourages new building. Paper wasps, yellow jackets, and mud daubers are common around Huntsville homes from spring through fall, with nests appearing under eaves, in soffits, around decks, and in the ground. Flea infestations require treating both the yard and the interior to break the breeding cycle, and flea treatment is quoted after inspection.</p>
 
 <h2>Monthly pest control vs. one-time treatment in Huntsville: which costs less?</h2>
 

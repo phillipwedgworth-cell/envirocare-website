@@ -14,6 +14,7 @@
     "test:zombies": "node scripts/test-no-zombie-claims.mjs",
     "test:citynap": "node scripts/test-city-office-nap.mjs",
     "test:local-falcon": "node scripts/test-local-falcon-config.mjs",
+    "test:spyfu": "node scripts/test-spyfu-load.mjs",
     "test:zip-routing": "node --no-warnings scripts/test-zip-office-routing.mjs",
     "test:source": "node scripts/scan-source-compliance.mjs",
     "test:lastmod": "node scripts/test-sitemap-lastmod.mjs",
@@ -33,7 +34,8 @@
     "test:blogposts": "node scripts/test-blog-post-compliance.mjs",
     "test:listings": "node scripts/test-brightlocal-descriptions.mjs",
     "test:brief": "node scripts/test-brief-sanitizer.mjs",
-    "test:leads": "node --no-warnings scripts/test-lead-coordinator.mjs"
+    "test:leads": "node --no-warnings scripts/test-lead-coordinator.mjs",
+    "test:page-refresh": "node scripts/test-page-refresh.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

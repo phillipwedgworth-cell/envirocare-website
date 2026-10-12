@@ -20,6 +20,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
 import LocalExamples from "@/components/shared/LocalExamples";
+import RefreshedContent from "@/components/RefreshedContent";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 /**
@@ -88,7 +89,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "PestControlService",
+      "@type": "LocalBusiness",
       // Reuses the site-wide Birmingham office @id from app/layout.tsx so this page's
       // LocalBusiness node MERGES with it instead of reading as a second business at
       // the same address. Was '.../birmingham' — a distinct @id with identical NAP,
@@ -138,7 +139,7 @@ const jsonLd = {
     {
       "@type": "Service",
       serviceType: "Pest Control",
-      provider: { "@type": "PestControlService", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
+      provider: { "@type": "LocalBusiness", "@id": "https://www.envirocarellc.com/#birmingham", name: "EnviroCare Pest Services", address: { "@type": "PostalAddress", streetAddress: "2120 16th Ave S, Ste 302", addressLocality: "Birmingham", addressRegion: "AL", postalCode: "35205", addressCountry: "US" } },
       areaServed: { "@type": "City", name: "Birmingham", addressRegion: "AL" },
       name: "Pest Control & Exterminator Service Birmingham AL",
       description:
@@ -206,7 +207,7 @@ const jsonLd = {
           name: "Is there a long-term contract?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
+            text: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
           },
         },
       ],
@@ -356,7 +357,7 @@ export default function BirminghamPage() {
                 ["Ants", "Odorous house ants and Argentine ants trail into kitchens; carpenter ants nest in damp wood; fire ants are a separate whole-yard treatment."],
                 ["Rodents", "Rats and mice move toward the house in October. Exclusion at entry points — garage seals, utility penetrations, vent screens — is part of every visit."],
                 ["Spiders", "Wolf spiders, brown recluses, and black widows follow the insects they eat. Reducing the food supply is how spider pressure drops."],
-                ["Wasps & yellow jackets", "Paper wasps in soffits and yellow jackets in the ground peak in late summer. Nests within reach of the structure are treated on routine visits."],
+                ["Wasps & yellow jackets", "Paper wasps in soffits and yellow jackets in the ground peak in late summer. Routine visits knock down webbing and new building along the eaves; treating an active nest is an add-on for pest customers at an additional charge."],
                 ["Fleas & ticks", "Flea treatment is an interior add-on; tick control rides with the seasonal mosquito program for wooded lots."],
               ].map(([t, b]) => (
                 <div key={t} style={{ background: "#F7FBF8", border: `1.5px solid ${G}26`, borderRadius: 14, padding: "1.1rem 1.2rem" }}>
@@ -372,6 +373,8 @@ export default function BirminghamPage() {
         </section>
 
         <LocalExamples slug="birmingham" cityName="Birmingham" officeName="Birmingham office" />
+
+        <RefreshedContent route="/birmingham" />
 
         {/* FAQ */}
         <section style={{ padding: "5rem clamp(1.5rem,5vw,4rem)", background: "#fff" }}>
@@ -393,7 +396,7 @@ export default function BirminghamPage() {
             <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Birmingham, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through October in Birmingham. We apply the 30-day yard barrier monthly across those 8 months. $45 per month for mosquito only, or $65 per month for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
             <Faq q="What precautions do you take around family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
-            <Faq q="Is there a long-term contract?" a="No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
+            <Faq q="Is there a long-term contract?" a="There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
           </div>
         </section>
 

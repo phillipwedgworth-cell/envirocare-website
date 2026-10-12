@@ -30,6 +30,7 @@ import { pathToFileURL } from "node:url";
 import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
 import {
+  LOCAL_FALCON_AI_CAMPAIGNS,
   LOCAL_FALCON_CAMPAIGNS,
   localFalconBaseline,
   localFalconNumber,
@@ -117,7 +118,17 @@ const SEEDED_CAMPAIGNS = LOCAL_FALCON_CAMPAIGNS.map((campaign) => ({
   platforms: ["google"],
   grid_size: campaign.gridSize,
   radius: campaign.radiusMiles,
-}));
+})).concat(LOCAL_FALCON_AI_CAMPAIGNS.map((campaign) => ({
+  // AI campaign: multi-office. Path A below labels each row by the scan's own
+  // place_id, so no place_ids are seeded here (a single place_id would be wrong).
+  campaign_key: campaign.key,
+  name: campaign.campaignName,
+  status: "scheduled",
+  place_ids: [],
+  platforms: [...campaign.platforms],
+  grid_size: campaign.gridSize,
+  radius: campaign.radiusMiles,
+})));
 
 async function listScheduledCampaigns() {
   let discovered = [];

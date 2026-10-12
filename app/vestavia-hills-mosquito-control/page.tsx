@@ -9,7 +9,7 @@ import { PRICING } from "@/data/pricing";
 // Local details are the ones already verified on /vestavia-hills (Cahaba Heights, Rocky Ridge,
 // Liberty Park, Vestavia East, Cahaba watershed, Hwy 31). Prices come only from data/pricing.ts.
 
-const TITLE = "Mosquito Control Vestavia Hills AL | Seasonal Yard Treatment | EnviroCare";
+const TITLE = "Mosquito Control Vestavia Hills AL | EnviroCare";
 const DESC =
   `Mosquito control in Vestavia Hills AL — ~$${PRICING.addOns.mosquito.monthly}/month, eight treatments March–October for Cahaba Heights, Rocky Ridge & Liberty Park yards. Call (205) 991-2882.`;
 

@@ -57,8 +57,15 @@ jobs:
           git config user.name "envirocare-bot"
           git config user.email "bot@envirocarellc.com"
           git add agents/reports/ai-citations-latest.json || true
-          git commit -m "chore(ai-visibility): monthly AI-citation snapshot" || echo "no changes to commit"
-          git push || echo "nothing to push"
+          if git commit -m "chore(ai-visibility): monthly AI-citation snapshot"; then
+            # Was `git push || echo "nothing to push"`, which reported success when
+            # the protect-main ruleset (2026-09-16) rejected the push — the same
+            # silent failure that froze the GA4 snapshot at 2026-09-14. A rejected
+            # push now fails the step; the report is still in the artifact below.
+            git push || { echo "::error::push to main rejected (protect-main ruleset) — snapshot NOT committed; download the ai-citations-report artifact"; exit 1; }
+          else
+            echo "no changes to commit"
+          fi
 
       - name: Upload snapshot artifact
         if: always()

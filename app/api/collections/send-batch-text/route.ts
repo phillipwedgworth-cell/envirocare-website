@@ -12,9 +12,21 @@
 // where a staff-triggered route belongs — but reachability is not the reason.
 //
 // This route has NO access to the local Collections workbook. Its data
-// comes from Supabase (collections_call_list, collections_do_not_contact),
-// which build_collections.py refreshes every weekday morning. If those
-// tables are stale, this route is stale too — check collections_snapshots.
+// comes from Supabase (collections_call_list, collections_do_not_contact).
+//
+// HISTORY — READ THIS BEFORE TRUSTING THE FRESHNESS OF THIS ROUTE.
+// This comment used to assert that build_collections.py refreshed
+// collections_call_list every weekday morning. That was never true. That
+// script wrote only the local .xlsx; nothing wrote this table. It was
+// hand-seeded 2026-09-09 and was still serving those same 192 rows on
+// 2026-09-14 while the workbook had moved on daily — five-day-old balances,
+// including customers who had already paid. Fixed 2026-09-14 by adding
+// push_to_supabase() to build_collections.py.
+//
+// So: this route is only as fresh as the last successful build_collections.py
+// run. Check collections_snapshots.snapshot_date before a large batch — if it
+// is not today's date, the 7am job did not complete and you are about to text
+// stale balances.
 //
 // SAFETY
 //   - Every recipient is checked against collections_do_not_contact before
@@ -49,6 +61,9 @@ import { cleanEnv } from "@/lib/env-url";
 export const dynamic = "force-dynamic";
 
 const TEXT_COOLDOWN_DAYS = 7;
+// Balances older than this are not texted (see the snapshot guard in POST).
+// 1.5 days lets a morning send use the previous weekday's 7am rebuild.
+const MAX_SNAPSHOT_AGE_DAYS = 1.5;
 
 // {account} and {balance} are substituted per recipient. Keep these short —
 // SMS, not email. Edit wording here; nothing else needs to change to update
@@ -163,6 +178,34 @@ export async function POST(req: Request) {
           "Refusing to send: collections_do_not_contact is empty. That cannot be told apart " +
           "from a sync that never ran, and 25 of the accounts on the current call list are " +
           "marked do-not-call in Fieldster. Run `npm run captivated:suppress` first.",
+      },
+      { status: 409 }
+    );
+  }
+
+  // STALE BALANCES ARE A REFUSAL TOO (2026-10-12). The comment at the top of
+  // this file used to say this table was refreshed every weekday; it never was.
+  // Measured 2026-10-12: newest collections_snapshots row was 2026-09-09, 33
+  // days old, so every balance this route would quote predated a month of
+  // payments. A warning in a comment does not stop a send — this does.
+  const { data: snap, error: snapErr } = await supabase
+    .from("collections_snapshots")
+    .select("snapshot_date")
+    .order("snapshot_date", { ascending: false })
+    .limit(1);
+  if (snapErr) {
+    return NextResponse.json({ ok: false, error: `collections_snapshots: ${snapErr.message}` }, { status: 500 });
+  }
+  const lastSnap = snap?.[0]?.snapshot_date as string | undefined;
+  const snapAgeDays = lastSnap ? (Date.now() - new Date(`${lastSnap}T12:00:00Z`).getTime()) / 86400_000 : Infinity;
+  if (snapAgeDays > MAX_SNAPSHOT_AGE_DAYS) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          `Refusing to send: the newest collections snapshot is ${lastSnap ?? "missing"}, older than ` +
+          `${MAX_SNAPSHOT_AGE_DAYS} day(s). Balances may include customers who have since paid. ` +
+          "Run build_collections.py (it pushes collections_call_list + collections_snapshots) first.",
       },
       { status: 409 }
     );

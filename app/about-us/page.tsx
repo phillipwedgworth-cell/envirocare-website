@@ -5,7 +5,7 @@ import AboutUs from '@/components/pages/AboutUs';
 export const metadata: Metadata = withOpenGraph({
   title: 'About EnviroCare — Alabama Pest Control Since 1958',
   description:
-    "EnviroCare is the Wedgworth family — doing pest control in Alabama since 1958, starting in Alexander City, now four generations on. Four Alabama offices, two ways to pay.",
+    "EnviroCare is the Wedgworth family, doing pest control in Alabama since 1958, starting in Alexander City and now four generations on. Four Alabama offices.",
   alternates: { canonical: '/about-us' },
   openGraph: {
     title: 'About EnviroCare — Family-Owned in Alabama Since 1958',
@@ -92,7 +92,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'Does EnviroCare require a long-term contract?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No long-term pest contract is required when you pay per visit. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.',
+        text: 'There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.',
       },
     },
   ],

@@ -122,6 +122,10 @@ PRICING (only mention when natural; otherwise point to a free inspection / quote
 - The pest plan is BI-MONTHLY (every other month, six visits a year) — never "quarterly".
   It covers 30+ Alabama pests with re-service between scheduled visits at no extra charge,
   and EXCLUDES fire ant, flea, tick and mosquito (separate add-ons).
+  Wasps/hornets (ruled 2026-10-12): routine visits include eave treatment that discourages
+  building; treating an ACTIVE nest is an add-on for pest customers at an additional charge.
+  Never say nest removal is included or nests are treated on routine visits. Carpenter bees:
+  existing-customer add-on only.
 - Verified seasonal prices (data/pricing.ts): mosquito $45/month for an average-size
   yard, eight treatments March through October, with a firm price after a free inspection
   and equal monthly ACH payments across the year. The $34/month price applies ONLY when

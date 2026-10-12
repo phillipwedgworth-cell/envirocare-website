@@ -130,6 +130,8 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: "(?<!\\b(?:never|not|don[’']t|doesn[’']t|cannot|can[’']t|no)\\s)\\b(our|your|its|EnviroCare(?:[’']|&apos;|&#39;|&#x27;|&rsquo;)s)\\s+(own\\s+)?(?:[$\\w,.]+\\s+){0,3}guarantee\\b",
     reason: 'coverage asserted as a guarantee',
     approvedInstead: 'up to $1,000,000 in damage repair coverage, subject to the terms of the agreement' },
+  //  ── 2026-10-05: "up to $1,000,000 in property coverage" was live on 12 city pages and no rule caught it. The figure is DAMAGE REPAIR coverage (AGENTS.md §1).
+  { pattern: '\\$\\s?1(,000,000|\\s?(m|million))\\b[^.]{0,40}\\bproperty\\s+coverage', reason: '$1M described as property coverage', approvedInstead: 'up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement' },
   //  ── third gap found 2026-08-24, still live 2026-08-31. Same method as (a)-(c):
   //     check the guard against a page it should have caught.
   //     (d) DEMONSTRATIVE + QUOTED PHRASE. /blog/pest-control-cost-huntsville has
@@ -188,9 +190,20 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // practice is not uniform, so ANY absence-framing is inaccurate. State the two
   // billing options positively instead. Found live on /best-pest-control-birmingham
   // and /family-owned-vs-national-chains as "pay per visit with no long-term agreement".
-  { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?(contract|agreement|commitment)s?\\b',
+  // 2026-10-12: widened to allow ONE word before the noun. The old pattern missed
+  // "No long-term PEST contract" — live on 17 pages (incl. /birmingham, /pricing,
+  // /about-us) and "no long-term pest agreement" on 8 city records, while
+  // test:source reported PASS.
+  { pattern: '\\bno[\\s-]+(long[\\s-]?term[\\s-]+)?([a-z]+[\\s-]+)?(contract|agreement|commitment)s?\\b',
     reason: 'contract-free claim — agreement practice is not uniform',
     approvedInstead: 'pay per visit billed as serviced, or equal monthly ACH payments under a 12-month billing agreement; terms confirmed in writing before service starts' },
+  // WASP / HORNET NESTS — ruled 2026-10-12 (Phillip): routine visits include eave treatment
+  // that discourages building; treating an ACTIVE nest is a paid add-on for pest customers.
+  // Found live as "Wasp nest removal is included in the bi-monthly pest control service" in
+  // two cost posts and "nests ... are treated on routine visits" on four pages.
+  { pattern: '\\b(wasp|hornet|yellow ?jacket)s?(\\s+nests?)?(\\s+(removal|treatment))?\\s+(is|are)\\s+(included|covered)\\b|\\bnests?\\b[^.]{0,60}\\btreated on (every |each )?routine visits?\\b',
+    reason: 'wasp/hornet nest coverage claim — active nests are a paid add-on',
+    approvedInstead: 'routine visits include eave treatment that discourages building; treating an active nest is an add-on at an additional charge' },
   { pattern: '\\bcancel\\s+(any\\s?time|whenever)\\b',
     reason: 'cancel-anytime claim',
     approvedInstead: 'terms are confirmed in writing before service starts' },
@@ -315,9 +328,11 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // + began on the same sentence, so it exempts the family-history form WITHOUT
   // exempting a bare company-origin claim ("EnviroCare was founded in 1958" still
   // blocks -- it has no 'family ... history' span).
+  // WIDENED 2026-10-12: 45 chars let "EnviroCare started as Wedgworth Pest Control in
+  // Alexander City in 1958" (48 chars between) through, live on a blog post.
   // Also: 'do not say' did not cover 'Do not state', which is how llms.txt:55 and
   // llms-full.txt:11 phrase the SAME prohibition they exist to state.
-  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,45}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|the family (started|opened|has)|(started|founded|began) the family|family[^.]{0,60}(pest[\\s-]control|Alabama)\\s+history[^.]{0,30}began|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not (say|state)|does not state|banned|NEVER write',
+  { pattern: '\\b(founded|established|est\\.?|started|began|opened|launched)\\b[^.!?]{0,90}?\\b1958\\b', notIf: 'family (has |been )?(started|doing|opened)|started the [A-Za-z ]{0,20}family [A-Za-z ]{0,20}business|the family (started|opened|has)|(started|founded|began) the family|family[^.]{0,60}(pest[\\s-]control|Alabama)\\s+history[^.]{0,30}began|opened the [A-Za-z ]{0,24}office|office (in|opened)|never say|do not (say|state)|does not state|banned|NEVER write',
     reason: '"founded 1958" -- the FAMILY started in 1958; the company began 1993/2005',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
