@@ -37,7 +37,7 @@
 
 import { logRunREST } from './lib/run-log.mjs';
 import { knowledgeBlock } from './lib/knowledge.mjs';
-import { stripCrossSeriesClaims } from './lib/brief-sanitize.mjs';
+import { stripCrossSeriesClaims, stripStalePRClaims, fixDataWindowLabel } from './lib/brief-sanitize.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
 
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
@@ -89,6 +89,25 @@ async function fetchOpenPRs() {
       headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'EnviroCare-Agent/1.0' },
     }).then((r) => (r.ok ? r.json() : []));
     return { ok: true, prs: arr(rows).map((p) => ({ number: p.number, title: p.title, draft: !!p.draft, days: Math.floor((Date.now() - new Date(p.created_at).getTime()) / 86400000) })) };
+  } catch {
+    return { ok: false, prs: [] };
+  }
+}
+
+// ── Ground truth #3: PRs merged to main in the last 48h (Sunday audit
+// 2026-10-11, R2). From 10-07 to 10-10 the brief said "Nothing shipped" while
+// eight PRs had merged. A merge is code on main — NOT proof it is live (that
+// needs a READY production deployment), so it is labelled that way.
+async function fetchMergedPRs() {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) return { ok: false, prs: [] };
+  try {
+    const rows = await fetch('https://api.github.com/repos/phillipwedgworth-cell/envirocare-website/pulls?state=closed&sort=updated&direction=desc&per_page=50', {
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'EnviroCare-Agent/1.0' },
+    }).then((r) => (r.ok ? r.json() : null));
+    if (!Array.isArray(rows)) return { ok: false, prs: [] };
+    const since = Date.now() - 48 * 3600 * 1000;
+    return { ok: true, prs: rows.filter((p) => p.merged_at && Date.parse(p.merged_at) >= since).map((p) => ({ number: p.number, title: p.title, merged_at: p.merged_at })) };
   } catch {
     return { ok: false, prs: [] };
   }
@@ -164,13 +183,13 @@ async function fetchScoreboard() {
   const leadRows = arr(leads);
   const leadLine = `Web-form leads, last 7d: ${leadRows.length}${leadRows.length ? ' — ' + Object.entries(leadRows.reduce((o, l) => ((o[l.office || '?'] = (o[l.office || '?'] || 0) + 1), o), {})).map(([k, v]) => `${k} ${v}`).join(', ') : ''} (leads table)`;
 
-  return `SCOREBOARD (verbatim numbers — quote them, do not editorialize beyond the delta):
+  return { lastDate, text: `SCOREBOARD (verbatim numbers — quote them, do not editorialize beyond the delta):
 ${clicksLine}
 ${leadLine}
 Money pages (gsc_pages snapshot ${cur || 'none'} vs ${prev || 'none'}; "moved" is position change, minus = better):
 ${pageLines.join('\n')}
 Map-pack visibility (lf_visibility, Google):
-${lfLines.join('\n') || '  (no Local Falcon rows)'}`;
+${lfLines.join('\n') || '  (no Local Falcon rows)'}` };
 }
 
 function buildPRBlock(pr) {
@@ -224,7 +243,7 @@ function buildContext(data, repeatDays = () => 1) {
 
 // A literal, non-negotiable statement of what shipped. The model is told to
 // treat this as the only evidence of completion that exists.
-function buildExecutionBlock({ actions, queue }) {
+function buildExecutionBlock({ actions, queue, merged }) {
   const done = arr(actions).filter((a) => ['executed', 'applied', 'completed', 'done'].includes(String(a.status || '').toLowerCase()));
   const stuck = arr(queue);
   const deadEnd = stuck.filter((q) => !q.action_type).length;
@@ -233,11 +252,13 @@ function buildExecutionBlock({ actions, queue }) {
     ? Math.floor((Date.now() - new Date(stuck[0].created_at).getTime()) / 86400000)
     : 0;
 
-  const doneLines = done.length
-    ? done.map((a) => `- ${a.agent_name || 'agent'}: ${a.action}`).join('\n')
-    : '(NONE — zero actions executed in this window)';
+  const mergedLines = arr(merged?.prs).map((p) => `- Merged to main: PR #${p.number} ${p.title} (code on main; live only once the production deploy is READY)`);
+  const allDone = done.map((a) => `- ${a.agent_name || 'agent'}: ${a.action}`).concat(mergedLines);
+  const doneLines = allDone.length
+    ? allDone.join('\n')
+    : '(NONE — zero actions executed and zero PRs merged in this window)';
 
-  return `EXECUTED ACTIONS (agent_actions, the only proof of completion):
+  return `EXECUTED ACTIONS (agent_actions + PRs merged in the last 48h — the only proof of completion):
 ${doneLines}
 
 APPROVAL QUEUE: ${stuck.length} pending, oldest ${oldestDays} day(s).
@@ -338,16 +359,29 @@ async function upsertBrief(content) {
 }
 
 async function main() {
-  const [data, prevBrief, scoreboard, prs, repeatDays] = await Promise.all([
-    fetchFindings(), fetchPreviousBrief(), fetchScoreboard(), fetchOpenPRs(), fetchRepeatCounts(),
+  const [data, prevBriefRaw, board, prs, merged, repeatDays] = await Promise.all([
+    fetchFindings(), fetchPreviousBrief(), fetchScoreboard(), fetchOpenPRs(), fetchMergedPRs(), fetchRepeatCounts(),
   ]);
-  const ctx = buildContext(data, repeatDays);
-  const content = await generateBrief(ctx, prevBrief, scoreboard, buildPRBlock(prs));
+  const prState = {
+    ok: prs.ok && merged.ok,
+    open: new Set(prs.prs.map((p) => p.number)),
+    merged: new Set(merged.prs.map((p) => p.number)),
+  };
+  // Yesterday's brief is fed back for deltas. Clean it first, or a stale PR
+  // claim is re-copied forever with a growing day counter (10-05 → 10-10).
+  const prevBrief = prevBriefRaw ? { ...prevBriefRaw, content: stripStalePRClaims(prevBriefRaw.content, prState).text } : null;
+  const ctx = buildContext({ ...data, merged }, repeatDays);
+  const content = await generateBrief(ctx, prevBrief, board.text, buildPRBlock(prs));
   if (!content) throw new Error('empty brief from model');
-  const { text: cleaned, removed } = stripCrossSeriesClaims(content);
-  if (removed) console.warn(`[morning-brief] removed ${removed} cross-series SoLV line(s)`);
+  const a = stripCrossSeriesClaims(content);
+  const b = stripStalePRClaims(a.text, prState);
+  const c = fixDataWindowLabel(b.text, board.lastDate);
+  if (a.removed) console.warn(`[morning-brief] removed ${a.removed} cross-series SoLV line(s)`);
+  if (b.removed) console.warn(`[morning-brief] removed ${b.removed} stale PR line(s)`);
+  if (c.fixed) console.warn(`[morning-brief] corrected ${c.fixed} GSC window label(s) to ${board.lastDate}`);
+  const cleaned = c.text;
   await upsertBrief(cleaned);
-  const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings; open PRs: ${prs.ok ? prs.prs.length : 'unknown'}).`;
+  const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings; open PRs: ${prs.ok ? prs.prs.length : 'unknown'}; merged 48h: ${merged.ok ? merged.prs.length : 'unknown'}; sanitized: ${a.removed + b.removed + c.fixed}).`;
   console.log(summary);
   console.log('---\n' + cleaned);
   return summary;

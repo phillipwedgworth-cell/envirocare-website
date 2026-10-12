@@ -442,7 +442,10 @@ async function runtimeErrorCheck(lines, problems, { token, project, team, deps }
 // days, so gsc_daily can go stale with nothing red anywhere. Google's "final"
 // data normally lags 2-3 days; past GSC_MAX_LAG_DAYS every organic number in
 // the brief and the sweep is old, and the reader must be told.
-const GSC_MAX_LAG_DAYS = 5;
+// 4, not 5 (Sunday audit 2026-10-11, R4): on 10-11 gsc_daily ended 10-06 —
+// one ingest day missed — and the watchdog still said ok. The Sunday audit,
+// the sweep and the brief's own stale note all use ">4 days"; match them.
+const GSC_MAX_LAG_DAYS = 4;
 export async function gscFreshnessCheck(lines, problems) {
   if (!supabase) { lines.push('gsc      skipped — no Supabase client'); return; }
   const { data, error } = await supabase.from('gsc_daily').select('date').order('date', { ascending: false }).limit(1);
