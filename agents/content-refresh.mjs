@@ -223,7 +223,11 @@ async function run() {
       if (!supportsRefresh(t.route)) { r.outcome = 'skipped: template does not render RefreshedContent'; report.push(r); continue; }
       const last = await lastTouch(t.key);
       const ageDays = last ? (Date.now() - new Date(last.created_at)) / 864e5 : Infinity;
-      if (!FORCE && ageDays < COOLDOWN_DAYS) { r.outcome = `skipped: ${last.status} ${Math.floor(ageDays)}d ago (cool-down ${COOLDOWN_DAYS}d)`; report.push(r); continue; }
+      // content-results.mjs measured this page and it did not move: rework it now
+      // (no cool-down, and "already in band" is no reason to stop).
+      const requeue = last?.status === 'measured' && /^requeue/.test(last.reason || '');
+      if (requeue) r.requeue = last.reason.split(' | ')[0];
+      if (!FORCE && !requeue && ageDays < COOLDOWN_DAYS) { r.outcome = `skipped: ${last.status} ${Math.floor(ageDays)}d ago (cool-down ${COOLDOWN_DAYS}d)`; report.push(r); continue; }
 
       const html = builtHtml(t.route);
       if (!html) { r.outcome = 'skipped: no built HTML'; report.push(r); continue; }
@@ -235,7 +239,7 @@ async function run() {
       const before = await score(queryId, base, title, desc);
       Object.assign(r, { queryId, before });
 
-      if (before >= BAND_LOW) {
+      if (before >= BAND_LOW && !requeue) {
         const figure = existing?.figure || t.figure || null;
         if (figure && !existing?.figure && !DRY) {
           store[t.key] = { ...(existing || {}), figure, neuron: { queryId, keyword: t.keyword, before, after: existing?.neuron?.after ?? null, checkedAt: today() }, source: 'content-refresh-agent', updatedAt: today() };

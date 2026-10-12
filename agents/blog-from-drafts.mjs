@@ -95,12 +95,18 @@ async function modelDuplicate(anthropic, keyword, posts) {
 // ── ledger (Supabase memory) ────────────────────────────────────────────────
 async function alreadyHandled(queryId) {
   if (!supabase) return false;
-  const { data } = await supabase.from('content_refresh_ledger').select('status,created_at').eq('query_id', queryId)
+  const { data } = await supabase.from('content_refresh_ledger').select('status,created_at,reason').eq('query_id', queryId)
     .eq('source', AGENT).order('created_at', { ascending: false }).limit(1);
   const r = data?.[0];
   if (!r) return false;
+  if (r.status === 'measured') return !/^requeue/.test(r.reason || ''); // content-results sent it back
   if (['proposed', 'published'].includes(r.status)) return true;
   return Date.now() - new Date(r.created_at).getTime() < 28 * 86400000; // rejected/error: retry after 28 days
+}
+async function isRequeued(route) {
+  if (!supabase) return false;
+  const { data } = await supabase.from('content_refresh_ledger').select('status,reason').eq('route', route).order('created_at', { ascending: false }).limit(1);
+  return data?.[0]?.status === 'measured' && /^requeue/.test(data[0].reason || '');
 }
 async function ledger(row) {
   if (!supabase || DRY) return;
@@ -255,7 +261,8 @@ async function run() {
       // updatedAt set, and only if it beats the live post's NeuronWriter score by 5+.
       const existing = dup ? posts.find((p) => p.slug === dup) : null;
       const draftWords = strip(content0.content).split(' ').length;
-      if (existing && draftWords < existing.text.split(' ').length * 1.2) {
+      const requeued = existing && await isRequeued(`/blog/${existing.slug}`);
+      if (existing && !requeued && draftWords < existing.text.split(' ').length * 1.2) {
         report.push({ keyword, outcome: `skipped: covered by /blog/${dup} (draft not fuller)` });
         await ledger({ route: `/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `duplicate topic of /blog/${dup}; draft ${draftWords}w is not fuller` });
         continue;

@@ -5,6 +5,9 @@
 # Two agents, one PR: content-refresh (adds scored sections to existing pages) and,
 # since 2026-10-12, blog-from-drafts (turns FINISHED NeuronWriter editor drafts into
 # blog posts with a hero image — before it, finished drafts never reached the site).
+# A third, content-results, runs first: it marks merged proposals published,
+# measures each published page 28 days later against Search Console, and sends
+# the ones that did not move back to the two writers (max two reworks).
 #
 # What runs: agents/content-refresh.mjs (read its header). In short: score each
 # priority page as BUILT, leave pages already at 70+ alone (image only), and for
@@ -63,6 +66,15 @@ jobs:
 
       - name: Build (pages are scored as rendered)
         run: npm run build
+
+      - name: Measure results (did last month's content move Google?)
+        env:
+          NEURONWRITER_API_KEY:      ${{ secrets.NEURONWRITER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+        run: node agents/content-results.mjs
 
       - name: Refresh pages
         env:
