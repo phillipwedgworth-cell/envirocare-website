@@ -129,6 +129,71 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 `,
   },
+  // ─── kudzu-bugs-alabama — NeuronWriter query fee47efa30fee886 ("kudzu bugs alabama"),
+  //     created 2026-10-11. Content score 83 (evaluate-content, 2026-10-12) on this exact
+  //     text. New topic: no existing post covers kudzu bugs (stink bugs / lady beetles
+  //     post is linked, not duplicated). Reduction language only; no bug-proof promise.
+  {
+    slug: 'kudzu-bugs-alabama',
+    title: 'Kudzu Bugs in Alabama: How to Identify Them and Keep Them Out of Your Home',
+    excerpt: 'Small, olive-green bugs stacking up on light-colored siding every fall are usually kudzu bugs. What they are, why they head for your house, whether they bite, and what actually reduces them.',
+    publishedAt: '2026-10-12',
+    author: 'Kevin Wedgworth',
+    category: 'Pests',
+    readMinutes: 4,
+    heroEmoji: '🪲',
+    metaTitle: 'Kudzu Bugs in Alabama: Identify & Keep Them Out | EnviroCare',
+    metaDescription: 'Kudzu bugs in Alabama: how to identify this invasive pest, why kudzu bugs invade homes in fall, whether they bite, and how to get rid of kudzu bugs.',
+    body: `
+<p class="lede">If small, olive-green bugs are piling up on a light-colored wall, window or car this fall, you are probably looking at the kudzu bug. This invasive insect is common across Alabama now, and every October we get calls about it from Alabaster to Huntsville. Here is how to identify kudzu bugs, why they end up on your house, and what actually gets rid of them.</p>
+
+<h2>What is the kudzu bug?</h2>
+
+<p>The kudzu bug (<em>Megacopta cribraria</em>) is a small invasive insect in the family Plataspidae, native to Asia. The first U.S. record came from Georgia in 2009, near Atlanta. From there it spread quickly through the southeastern United States, including Alabama, South Carolina, North Carolina, Tennessee, Mississippi, Florida and Virginia.</p>
+
+<p>Adult kudzu bugs are about 1/4 inch long, roughly square, and olive-green with brown speckles. Nymphs are smaller, fuzzy and lighter green. People often confuse them with stink bugs or lady beetles, and like those fall invaders they emit a strong odor when you disturb them. (We cover those two in <a href="/blog/stink-bugs-lady-beetles-alabama-fall">stink bugs and lady beetles in Alabama</a>.)</p>
+
+<h2>What do kudzu bugs feed on?</h2>
+
+<p>Kudzu bugs feed on kudzu, the vine they are named for, and on legumes such as soybeans. They use sucking mouthparts to draw plant juices from the stem and leaves, which robs the plant of nutrients. In soybean fields across Alabama and the Southeast the kudzu bug became an economic pest of soybean crops. Adults lay egg masses on the plant, and a tiny parasitoid wasp that attacks those eggs has helped reduce numbers in some areas.</p>
+
+<h2>Why kudzu bugs invade Alabama homes in fall</h2>
+
+<p>In fall, adult kudzu bugs leave kudzu patches and fields to look for a place to overwinter. They are drawn to warmth and to light-colored surfaces, so they congregate in large numbers on white siding, trim, doors and vehicles. From there they slip inside through cracks and crevices around windows, doors, soffits and the attic. Homes in Pelham, Helena, Chelsea and around Lake Martin that back up to wooded lots and kudzu-covered roadsides tend to see the most.</p>
+
+<p>Indoors, kudzu bugs do not feed or reproduce. They are a nuisance, not a structural pest. Crushed bugs leave an odor and can stain fabric, walls and skin.</p>
+
+<h2>Do kudzu bugs bite?</h2>
+
+<p>Kudzu bugs do not bite people the way mosquitoes do, but handling them can cause skin irritation and staining for some people. Use a vacuum or gloves instead of bare hands.</p>
+
+<h2>How to get rid of kudzu bugs</h2>
+
+<ul>
+<li><strong>Vacuum them up.</strong> Use a shop vac or a vacuum with a disposable bag, then seal and discard the bag. Do not crush them.</li>
+<li><strong>Seal entry points.</strong> Caulk cracks and crevices around windows, doors, siding and utility lines, and repair torn screens. This is the same work in our <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing checklist</a>.</li>
+<li><strong>Clear nearby kudzu.</strong> Where possible, remove kudzu growing near the structure.</li>
+<li><strong>Exterior treatment.</strong> A professional pest control treatment on the exterior surface of the home in early fall can reduce the number of kudzu bugs that get in. It reduces them; it does not make a house bug-proof, and anyone who promises that is overselling.</li>
+</ul>
+
+<p>Our bi-monthly residential <a href="/services/pest-control">pest control service</a> treats the exterior of your home, including the entry points where fall invaders like kudzu bugs, stink bugs and boxelder bugs gather. We use EPA-registered products applied according to label directions.</p>
+
+<h2>Kudzu bug FAQs</h2>
+
+<h3>Where did the kudzu bug come from?</h3>
+<p>It is native to Asia. It was first found in the U.S. in Georgia in 2009 and has since spread across the Southeast, including Alabama.</p>
+
+<h3>Are kudzu bugs harmful to people, plants or homes?</h3>
+<p>They do not damage the structure of a home, but they are a nuisance indoors, can stain surfaces and irritate skin, and they damage soybean crops by feeding on the plant.</p>
+
+<h3>How can you keep kudzu bugs from coming indoors?</h3>
+<p>Seal cracks and crevices before fall, keep screens repaired, and keep a professional exterior treatment in place around the home.</p>
+
+<p>Seeing kudzu bugs on your house? Call your local office: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
+
+<p>No One Cares Like EnviroCare.</p>
+`,
+  },
 
   // ─── sentricon-worth-it — NeuronWriter score 77, keyword "is sentricon worth it" (510/mo, KD 18) ───
   {
