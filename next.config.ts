@@ -104,6 +104,19 @@ const nextConfig: NextConfig = {
                       permanent: true,
             },
 
+            // ─── LEGACY CAPITALIZED URLS (added 2026-10-17) ─────────────────
+            // Ahrefs Site Explorer (Oct 17) showed Google still ranking these
+            // old Scorpion-era paths, and a live fetch the same day returned 404
+            // for all four. /Service Areas/ held #3 for "pest control alexander
+            // city". Next routes are case-sensitive, so /Blog etc. never matched
+            // the lowercase pages. One hop each, permanent.
+            // /Blog, /Pest, /Services live in middleware.ts, NOT here: redirect
+            // sources match case-INSENSITIVELY, so '/Blog' → '/blog' also matched
+            // '/blog' and looped (caught on next dev, 2026-10-17). Only paths
+            // with no lowercase twin (the %20 one) are safe in this file.
+            { source: '/Service%20Areas', destination: '/service-areas', permanent: true },
+            { source: '/Service%20Areas/:path*', destination: '/service-areas', permanent: true },
+
             // ─── SHORT SERVICE ALIASES (existing) ───────────────────────────
             // NOTE: /pricing is a REAL page now (app/pricing/*) — do NOT redirect it.
             { source: '/why-envirocare', destination: '/about-us', permanent: true },

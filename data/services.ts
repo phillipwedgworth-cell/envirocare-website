@@ -145,6 +145,10 @@ export const SERVICES: Service[] = [
   {
     slug: 'termite-control',
     relatedLinks: [
+      // 2026-10-17 (Ahrefs): Google ranked THIS page #11 for "termite control birmingham"
+      // ($18.58 CPC) instead of the dedicated city page. Point the Birmingham intent there.
+      { href: '/birmingham-termite-control', label: 'termite control in Birmingham', note: 'Jefferson or St. Clair County homeowner? See' },
+      { href: '/huntsville-termite-control', label: 'termite control in Huntsville', note: 'North Alabama homeowner? See' },
       { href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers, subject to the terms of the agreement', note: 'Before you compare our termite protection against another company’s, it is worth reading' },
       { href: '/blog/is-sentricon-worth-it', label: 'Is Sentricon worth it?', note: 'Weighing the cost of a bait system against what it protects? A Certified Sentricon Specialist answers' },
       { href: '/blog/sentricon-vs-liquid-termite-treatment', label: 'Sentricon vs. liquid termite treatment', note: 'If you have been quoted a trench-and-drill liquid barrier instead, compare the two in' },
@@ -155,10 +159,10 @@ export const SERVICES: Service[] = [
     serviceArt: 'termite',
     price: 'Free inspection',
     priceSub: 'Sentricon® quote provided after free WDO inspection & approval',
-    metaTitle: 'Termite Control in Birmingham, AL & Sentricon® | EnviroCare $1M Coverage',
-    metaDescription: 'Termite control in Birmingham, AL with the Sentricon® bait system — no drilling, no tank trucks. Free WDO termite inspection; Sentricon® is quoted after inspection in EnviroCare service areas.',
+    metaTitle: 'Termite Control in Alabama & Sentricon® | EnviroCare',
+    metaDescription: 'Termite control across Alabama with the Sentricon® bait system — no drilling, no tank trucks. Free WDO termite inspection; Sentricon® is quoted after inspection in EnviroCare service areas.',
     heroEyebrow: 'Sentricon® Certified Specialist',
-    heroTagline: 'Termite Control in Birmingham, AL — Sentricon® Protection',
+    heroTagline: 'Termite Control Across Alabama — Sentricon® Protection',
     heroSubhead: 'Sentricon® Always Active™ bait stations protect your Birmingham home from subterranean termites — with up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. No drilling, no tank trucks, no concrete cutting.',
     features: [
       'Sentricon® Always Active™ termite control system',

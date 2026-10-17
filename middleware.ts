@@ -107,8 +107,25 @@ const POST_OVERRIDES: [RegExp, string][] = [
   [/what-to-do-about-mosquitoes-in-birmingham/, "/blog/mosquito-season-birmingham-al"], // legacy /blog/2023/june/... (3,732 imps). 2026-10-12: duplicate post merged into mosquito-season-birmingham-al
 ];
 
+// Legacy capitalized Scorpion paths Google still ranked on 2026-10-17 (Ahrefs),
+// all 404 live that day. Matched EXACTLY and case-sensitively here because a
+// next.config redirect matches case-insensitively and would loop /blog → /blog.
+const LEGACY_CASE: Record<string, string> = {
+  "/Blog": "/blog",
+  "/Pest": "/pest-library",
+  "/Services": "/services",
+};
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  const legacy = LEGACY_CASE[pathname.replace(/\/$/, "")];
+  if (legacy) {
+    const url = req.nextUrl.clone();
+    url.pathname = legacy;
+    url.search = "";
+    return NextResponse.redirect(url, 301);
+  }
 
   // Legacy Scorpion blog URLs begin with /blog/<4-digit year> or /blog/posts/
   // (the /blog/posts/<slug> shape confirmed 404ing in GSC, 2026-07-26 — e.g.
@@ -142,7 +159,9 @@ export function middleware(req: NextRequest) {
   return NextResponse.redirect(url, 301);
 }
 
-// Scope to /blog only — the middleware never runs on any other route.
+// Scope to /blog plus the three legacy capitalized paths — nothing else runs it.
+// Matchers are case-SENSITIVE (verified on next dev 2026-10-17: "/blog/:path*"
+// did not catch /Blog), so each capitalized path is listed explicitly.
 export const config = {
-  matcher: ["/blog/:path*"],
+  matcher: ["/blog/:path*", "/Blog", "/Pest", "/Services"],
 };
