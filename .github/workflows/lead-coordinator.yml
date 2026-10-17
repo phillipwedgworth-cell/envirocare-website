@@ -1,0 +1,35 @@
+name: Lead Coordinator
+# Every inquiry: one owner, a deadline, a verified outcome. agents/lead-coordinator.mjs
+# Weekdays. The 13:35 UTC run sends the full report (8:35 CDT / 7:35 CST);
+# 17:35 and 21:35 UTC email only if a callback is overdue.
+on:
+  schedule:
+    - cron: '35 13 * * 1-5'
+    - cron: '35 17 * * 1-5'
+    - cron: '35 21 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full | overdue-only | auto'
+        default: 'full'
+permissions:
+  contents: read
+jobs:
+  coordinate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm install
+      - run: node --no-warnings agents/lead-coordinator.mjs
+        env:
+          SUPABASE_URL:     ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:     ${{ secrets.SUPABASE_KEY }}
+          RESEND_API_KEY:   ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_FROM:      ${{ secrets.NOTIFY_FROM }}
+          # Optional. Without it bookings are reported as "not verified", never assumed.
+          # Add only AFTER the Fieldster key has been rotated (Sunday audit R4).
+          FIELDSTER_API_KEY: ${{ secrets.FIELDSTER_API_KEY }}
+          LEAD_REPORT_MODE: ${{ inputs.mode || 'auto' }}
