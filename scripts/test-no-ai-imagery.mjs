@@ -13,7 +13,8 @@
 //
 // Deleted 2026-08-09. Recoverable from git history if ever needed for reference.
 // Do NOT restore them to public/.
-import { readdirSync } from "node:fs";
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 
 // STEMS, not filenames. The first version of this test listed two exact names and
 // passed -- while public/technician-envirocare-MOBILE.webp sat right beside them,
@@ -39,5 +40,46 @@ if (flagged.length) {
 } else {
   console.log("  ok   no suspiciously named assets in public/");
 }
+// CONTENT FINGERPRINTS, 2026-10-17. Name checks cannot catch a fake saved under an
+// innocent name -- and that is exactly what happened: an AI-generated EnviroCare
+// truck (Chevrolet grille on a different body, lowercase "Envirocare" slogan) sat in
+// public/hero-family.webp and public/hero-family-mobile.webp, rendered as the
+// HOMEPAGE hero with alt text "Alabama family relaxing in their backyard". Found
+// by opening the image during the #270 blog review, not by this guard, which
+// reported "clean". So: every image in public/ (recursively) is reduced to a 16x16
+// average hash and compared against known fakes. A resize, re-encode or rename keeps
+// the hash within a few bits; a different photo lands 100+ bits away.
+// To add a fake: node -e with sharp grayscale().resize(16,16,{fit:'fill'}), bit = px > mean.
+const KNOWN_FAKE_HASHES = {
+  "ai-envirocare-truck (was hero-family.webp)": "9ffbfff7ff87ff12f400c3e080303fbc27c80780c00070013fc00c7f00290000",
+};
+const MAX_BITS = 20;
+let sharp = null;
+try { sharp = (await import("sharp")).default; } catch { /* handled below */ }
+if (!sharp) {
+  console.log("  FAIL sharp not installed -- fingerprint check could not run, which is not a pass");
+  failed += 1;
+} else {
+  const images = [];
+  const walk = (d) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p); else if (/\.(png|jpe?g|webp|gif|avif)$/i.test(f)) images.push(p); } };
+  walk("public");
+  let fpHits = 0;
+  for (const img of images) {
+    let hash;
+    try {
+      const { data } = await sharp(img).grayscale().resize(16, 16, { fit: "fill" }).raw().toBuffer({ resolveWithObject: true });
+      const avg = data.reduce((a, b) => a + b, 0) / data.length;
+      let bits = ""; for (const v of data) bits += v > avg ? "1" : "0";
+      hash = BigInt("0b" + bits);
+    } catch { continue; }
+    for (const [label, hex] of Object.entries(KNOWN_FAKE_HASHES)) {
+      let x = hash ^ BigInt("0x" + hex), d = 0; while (x) { d += Number(x & 1n); x >>= 1n; }
+      if (d <= MAX_BITS) { console.log(`  FAIL ${img} matches known fake ${label} (${d} bits)`); fpHits += 1; }
+    }
+  }
+  console.log(fpHits ? "" : `  ok   ${images.length} images in public/ fingerprinted, none match a known fake`);
+  failed += fpHits;
+}
+
 console.log(failed ? `\n${failed} problem(s)` : "\nclean");
 process.exit(failed ? 1 : 0);

@@ -25,7 +25,7 @@ export type BlogVisual = {
 const VISUALS = {
   southernHome: { src: '/home-southern.jpg', alt: 'Landscaped residential house with a green lawn', position: 'center 50%', kind: 'editorial' },
   familyYard: { src: '/family-yard.jpg', alt: 'Green residential yard and outdoor living space', position: 'center 48%', kind: 'editorial' },
-  familyHome: { src: '/hero-family.webp', alt: 'Family enjoying the outdoor area of a house', position: 'center 42%', kind: 'editorial' },
+  familyHome: { src: '/hero-family.jpg', alt: 'Family playing with their dog in a sunny backyard', position: 'center 42%', kind: 'editorial' },
   lakeHome: { src: '/lake-home-hero.jpg', alt: 'Lakefront home and landscape near the water', position: 'center 55%', kind: 'editorial' },
   lakeDock: { src: '/lake-martin-sunset.webp', alt: 'Wooden dock extending into a tree-lined lake at sunset', position: 'center 60%', kind: 'editorial' },
   multiFamily: { src: '/commercial-multifamily.webp', alt: 'Multifamily residential property exterior', position: 'center 54%', kind: 'editorial' },
@@ -134,7 +134,15 @@ const FALLBACK_BY_CATEGORY: Record<string, VisualKey> = {
   'Fire Ants': 'ants',
 };
 
-export function getBlogVisual(post: { slug: string; category: string }): BlogVisual {
+export function getBlogVisual(post: {
+  slug: string;
+  category: string;
+  heroImage?: { src: string; alt: string };
+}): BlogVisual {
+  // A post with its own commissioned hero art (patch 0009, /images/blog/*) keeps
+  // it: that art was made for the article and has a matching 1200x630 OG card.
+  // The editorial map only fills in for posts that would otherwise show an emoji.
+  if (post.heroImage) return { src: post.heroImage.src, alt: post.heroImage.alt, kind: 'editorial' };
   const key = COVER_BY_SLUG[post.slug] ?? FALLBACK_BY_CATEGORY[post.category] ?? 'southernHome';
   return VISUALS[key];
 }

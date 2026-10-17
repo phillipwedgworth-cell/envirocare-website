@@ -338,10 +338,10 @@ function Hero() {
 
           <div className="ec-hero-photo-m">
             <Image
-              src="/hero-family-mobile.webp"
-              alt="Alabama family relaxing in their backyard"
-              width={900}
-              height={600}
+              src="/hero-family.jpg"
+              alt="Family playing with their dog in a sunny backyard"
+              width={1360}
+              height={765}
               sizes="(max-width: 960px) 92vw, 1px"
               priority
             />
@@ -361,8 +361,8 @@ function Hero() {
         <div className="ec-hero-visual">
           <div className="ec-hero-photo-wrap">
             <Image
-              src="/hero-family.webp"
-              alt="Alabama family relaxing in their backyard"
+              src="/hero-family.jpg"
+              alt="Family playing with their dog in a sunny backyard"
               fill
               priority
               fetchPriority="high"
