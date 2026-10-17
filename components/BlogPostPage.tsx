@@ -1,6 +1,7 @@
 'use client';
 
 import { getPostBySlug } from '@/data/blog-posts';
+import { getBlogVisual } from '@/data/blog-visuals';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -10,6 +11,8 @@ export default function BlogPostPage({ slug }: { slug: string }) {
   if (!post) {
     notFound();
   }
+
+  const photo = getBlogVisual(post);
 
   return (
     <main className="bpp-main">
@@ -23,20 +26,17 @@ export default function BlogPostPage({ slug }: { slug: string }) {
               <span className="bpp-cat">{post.category}</span>
               <span className="bpp-time">{post.readMinutes} min read</span>
             </div>
-            {post.heroImage ? (
-              <div className="bpp-hero-img">
-                <Image
-                  src={post.heroImage.src}
-                  alt={post.heroImage.alt}
-                  width={post.heroImage.width}
-                  height={post.heroImage.height}
-                  sizes="(max-width: 860px) 100vw, 820px"
-                  priority
-                />
-              </div>
-            ) : (
-              <div className="bpp-emoji">{post.heroEmoji}</div>
-            )}
+            <div className="bpp-hero-img">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                priority
+                quality={86}
+                sizes="(max-width: 860px) 100vw, 860px"
+                style={{ objectFit: 'cover', objectPosition: photo.position ?? 'center' }}
+              />
+            </div>
             <h1 className="bpp-title">{post.title}</h1>
             <p className="bpp-excerpt">{post.excerpt}</p>
             <div className="bpp-byline">
@@ -83,11 +83,11 @@ const POST_CSS = `
   color: #0E1A0F;
 }
 .bpp-hero {
-  padding: 80px 24px 60px;
-  background: linear-gradient(180deg, #E8F5EE 0%, #FEFDF8 100%);
+  padding: 62px 24px 64px;
+  background: linear-gradient(180deg, #F0F7F1 0%, #FEFDF8 100%);
 }
 .bpp-hero-inner {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
   text-align: center;
 }
@@ -122,19 +122,18 @@ const POST_CSS = `
   color: #5A6660;
 }
 .bpp-hero-img {
-  margin: 20px 0 24px;
-  border-radius: 16px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 24px auto 30px;
+  border-radius: 12px;
   overflow: hidden;
-  background: #07642B;
-  box-shadow: 0 0 0 3px rgba(245,168,0,.85), 0 18px 40px rgba(0,0,0,.28);
+  background: #E5EEE8;
+  box-shadow: 0 12px 34px rgba(16,44,30,.12);
 }
+.bpp-hero-img img { display: block; width: 100%; height: 100%; }
 @media (max-width: 640px) {
-  .bpp-hero-img { margin: 14px -4px 18px; border-radius: 12px; }
-}
-.bpp-hero-img img { display: block; width: 100%; height: auto; }
-.bpp-emoji {
-  font-size: 64px;
-  margin-bottom: 20px;
+  .bpp-hero-img { margin: 18px 0 24px; border-radius: 8px; }
 }
 .bpp-title {
   font-family: var(--font-serif);
