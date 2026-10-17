@@ -221,6 +221,12 @@ Every independent line of analysis in July 2026 converged on the same thing:
 links**, anchor text 100% directory boilerplate ("visit website"), 94% of links
 pointing at the homepage.
 
+> **Re-measured 2026-10-17 (Ahrefs UI, project 9884174):** Domain Rating **0.8**;
+> 1,064 referring domains, but every backlink comes from a page with UR < 10 and
+> ~20 of the top 50 domains by DR are Ahrefs-flagged `.shop`/`.store` link-farm
+> spam. The constraint stands: no editorial authority. Detail and keyword map:
+> `agents/knowledge/ahrefs-baseline.md`. Disavow is Phillip's call only.
+
 Consequences that look like separate problems but are not:
 - Alexander City wins Gemini (79.59% SAIV) because it is a 9-competitor market
 - Birmingham scores 0% despite being indexed — 15 competitors, no corroboration
@@ -260,13 +266,16 @@ Consequences that look like separate problems but are not:
 **Never do without explicit human approval:**
 - Change a GBP address, name, or category (risks re-verification)
 - Accept or reject a Google-suggested profile update
-- Remove existing redirects
+- Remove existing redirects (incl. the legacy capitalized `/Service Areas`,
+  `/Blog`, `/Pest`, `/Services` → lowercase, added 2026-10-17)
 - Submit or delete sitemaps in GSC
 - Publish or deploy to production
 
 **Tooling reality:** Ahrefs and Semrush are connected but have no API access
 (insufficient plan / no units). Backlink and keyword data comes from Google
-Search Console. Local Falcon and BrightLocal are live and have credits.
+Search Console. Ahrefs **UI** works through Phillip's Chrome (Site Explorer
+overview, organic keywords, referring domains, Site Audit); broken-backlinks
+and history are plan-gated. Local Falcon and BrightLocal are live and have credits.
 
 <!-- BEGIN:vercel-agent-code-review -->
 # Code Review guidelines — EnviroCare compliance canon
