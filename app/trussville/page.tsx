@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Trussville",
   slug: "trussville",
-  badge: "Trussville · Jefferson & St. Clair County · Since 1958",
+  badge: "Trussville · Jefferson & St. Clair County · Family-Owned Since 1958",
   zip: "35173",
   neighborhoods: ["Cahaba Project", "Trussville Springs", "Carrington", "Stockton", "Glendale Farms"],
   heroIntro:
     "Year-round pest and termite defense for Trussville homes — the historic Cahaba Project, Trussville Springs, Carrington, and Stockton. No-drill Sentricon®, seasonal mosquito and tick service, family-owned and dispatched from our Birmingham office.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Trussville, Alabama, including the Cahaba Project, Trussville Springs, Carrington, and Stockton. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 991-2882.",
   whyHeadline: "The Cahaba River and Trussville's mature tree canopy bring termites, ants, and mosquito pressure to yards year-round.",
   whySub: "The patterns we treat most across Trussville's historic and new neighborhoods.",
   pressureCards: [

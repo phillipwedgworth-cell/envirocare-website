@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Homewood",
   slug: "homewood",
-  badge: "Homewood · Jefferson County · Since 1958",
+  badge: "Homewood · Jefferson County · Family-Owned Since 1958",
   zip: "35209",
   neighborhoods: ["Edgewood", "Hollywood", "West Homewood", "SoHo"],
   heroIntro:
     "Careful pest and termite care for Homewood's walkable, historic neighborhoods — Edgewood, Hollywood, West Homewood, and SoHo. No-drill Sentricon®, seasonal mosquito and tick service, and commercial programs for the 18th Street and SoHo districts.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Homewood, Alabama, including Edgewood, Hollywood, West Homewood, and the SoHo district. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Homewood, Alabama, including Edgewood, Hollywood, West Homewood, and the SoHo district. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 991-2882.",
   whyHeadline: "Historic bungalows, tight city lots, and the Shades Creek corridor keep Homewood's pest pressure steady year-round.",
   whySub: "The patterns we treat most across Homewood's established neighborhoods.",
   pressureCards: [

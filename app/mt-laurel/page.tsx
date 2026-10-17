@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Mt Laurel",
   slug: "mt-laurel",
-  badge: "Mt Laurel · Shelby County · Since 1958",
+  badge: "Mt Laurel · Shelby County · Family-Owned Since 1958",
   zip: "35242",
   neighborhoods: ["Mt Laurel Village", "Dunnavant Valley"],
   heroIntro:
     "Considerate pest and termite care for Mt Laurel's wooded, nature-minded village and the Dunnavant Valley. No-drill Sentricon®, a 30-day mosquito and tick barrier built for woodland lots, and the bi-monthly perimeter program.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Mt Laurel, Alabama, including Mt Laurel Village and Dunnavant Valley. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Mt Laurel, Alabama, including Mt Laurel Village and Dunnavant Valley. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 940-6360.",
   whyHeadline: "Mt Laurel's preserved woodland and foothill setting puts mosquitoes, ticks, and termites right against the property line.",
   whySub: "The patterns we treat most across Mt Laurel Village and Dunnavant Valley.",
   pressureCards: [

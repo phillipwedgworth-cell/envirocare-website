@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/birmingham" },
   openGraph: {
     images: ["/og/og-birmingham.png"],
-    title: "Pest Control Birmingham AL | EnviroCare — Family-Owned Since 1958",
+    title: "Birmingham Pest Control & Exterminator | EnviroCare",
     description:
       "Birmingham's family-owned pest control and termite service. Four generations of Wedgworths, four Alabama offices, two ways to pay.",
     url: "https://www.envirocarellc.com/birmingham",
@@ -134,7 +134,7 @@ const jsonLd = {
         "@id": "https://www.envirocarellc.com/#organization",
       },
       description:
-        "Family-owned Birmingham pest control, exterminator, termite, and mosquito service. The Wedgworth family has served the Birmingham metro since 1958. Four generations of the Wedgworth family, Sentricon® Certified Specialist, EPA-registered products applied to label directions.",
+        "Family-owned Birmingham pest control, exterminator, termite, and mosquito service. The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. EnviroCare now serves Birmingham from its 16th Avenue South office, providing recurring pest service, termite protection, and mosquito treatment.",
     },
     {
       "@type": "Service",
@@ -167,7 +167,7 @@ const jsonLd = {
           name: "What's the best exterminator in Birmingham AL?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "EnviroCare is the Wedgworth family's Birmingham-area exterminator, now in our fourth generation. The family has been in Alabama pest control since 1958. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), with our Birmingham office at 2120 16th Ave S and our main office in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest.",
+            text: "EnviroCare is the Wedgworth family's Birmingham-area exterminator, now in our fourth generation. The family has been in Alabama pest control since 1958. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), with our Birmingham office at 2120 16th Ave S and our main office in Alabaster. We explain proposed service, scheduling and agreement terms before work begins.",
           },
         },
         {

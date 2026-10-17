@@ -159,7 +159,7 @@ export default function ServiceAreasPage() {
               <div className="wws-office-card">
                 <div className="wws-office-imgwrap">
                   <img className="wws-office-img" src="/birmingham-vulcan.webp" alt="EnviroCare Alabaster office service area" />
-                  <span className="wws-office-badge">Main · Since 1958</span>
+                  <span className="wws-office-badge">Main office</span>
                 </div>
                 <div className="wws-office-body">
                   <div className="wws-office-name">Alabaster</div>

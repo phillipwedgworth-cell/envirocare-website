@@ -80,7 +80,7 @@ export default function NeighborhoodPage({ cfg }: { cfg: NeighborhoodConfig }) {
         <CityHeroArt slug={heroArtSlug} />
         <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.22)", borderRadius: 40, padding: ".4rem 1rem", marginBottom: "1.4rem" }}>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>{parentLine} · Since 1958</span>
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>{parentLine} · Family-Owned Since 1958</span>
           </div>
           <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
             Pest &amp; Termite Service{" "}<br />

@@ -91,7 +91,7 @@ const jsonLd = {
         { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "17:00" },
       ],
       description:
-        "Family-owned pest control, termite, mosquito, tick, and commercial service in Mountain Brook, Alabama since 1958. Sentricon® baiting with no drilling and up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. EPA-registered products applied to label directions.",
+        "Family-owned pest control, termite, mosquito, tick, and commercial service in Mountain Brook, Alabama, from a family doing pest control in Alabama since 1958. Sentricon® baiting with no drilling and up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. EPA-registered products applied to label directions.",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Pest & Termite Control in Mountain Brook",
@@ -130,7 +130,7 @@ export default function MountainBrookPage() {
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 20% 50%,rgba(245,168,0,.12) 0%,transparent 55%),radial-gradient(circle at 80% 80%,rgba(134,239,172,.14) 0%,transparent 55%)", pointerEvents: "none" }} />
           <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.22)", borderRadius: 40, padding: ".4rem 1rem", marginBottom: "1.4rem" }}>
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Mountain Brook &amp; Jefferson County · Since 1958</span>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Mountain Brook &amp; Jefferson County · Family-Owned Since 1958</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
               Mountain Brook Pest Control{" "}<br />
@@ -343,7 +343,7 @@ export default function MountainBrookPage() {
               , where the older commercial buildings and tight lots change what we look for.
             </p>
             <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." />
-            <Faq q="Is EnviroCare a local Mountain Brook exterminator?" a="Yes. EnviroCare is a family-owned, professional pest control company and local exterminator serving Mountain Brook and the Birmingham area since 1958, with comprehensive pest control solutions for homes and businesses." />
+            <Faq q="Is EnviroCare a local Mountain Brook exterminator?" a="Yes. EnviroCare is a family-owned, professional pest control company and local exterminator serving Mountain Brook and the Birmingham area from our 16th Ave S office — the Wedgworth family has done pest control in Alabama since 1958 — with comprehensive pest control solutions for homes and businesses." />
             <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." />
             <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." />
             <Faq q="What does bi-monthly pest control cover in Mountain Brook?" a="EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." />

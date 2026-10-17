@@ -26,7 +26,7 @@ export default function SentriconProtection() {
           "provider": {
             "@type": "LocalBusiness",
             "name": "EnviroCare Pest Control",
-            "description": "Certified Sentricon Specialist serving Alabama since 1958",
+            "description": "Certified Sentricon Specialist; family-owned pest control in Alabama since 1958",
             "telephone": "(205) 940-6360",
             "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
           },

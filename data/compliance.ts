@@ -460,6 +460,28 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'entity attached to 1958 via a duration verb — EnviroCare began 1993/2005; the FAMILY started 1958',
     approvedInstead: 'the family has been doing pest control in Alabama since 1958 / family-owned since 1958' },
 
+  // PLACE SHAPE, 2026-10-17. Every 1958 rule above checks WHO the date attaches to
+  // (company vs family). None checks WHERE. The family began in Alexander City; the
+  // Birmingham (16th Ave S), Alabaster and Huntsville offices are newer. So these all
+  // passed every guard and were live on 20 pages (Ahrefs/GPT review, 2026-10-17):
+  //     "The Wedgworth family has been Birmingham's family-owned pest control company since 1958"
+  //     "serving Hoover and the Birmingham area since 1958"
+  //     "the Wedgworth family has protected homes here since 1958"   (12 city summaries)
+  //     "We've been doing this in North Alabama since 1958"
+  //     "Family-owned pest control in Huntsville, AL since 1958"     (meta description)
+  // Shape: a serve/treat/protect/in verb, then a non-Lake-Martin place, then 1958, in one
+  // sentence. Tallapoosa / Lake Martin / Alexander City ARE true (the original office).
+  // Titles reading "EnviroCare — Since 1958" are deliberately NOT matched here: that is
+  // an open wording ruling for Phillip, not a place claim.
+  // NOTE: pattern and notIf MUST stay on one line (see the WDO rule comment).
+  { pattern: "\\b(serv\\w*|treat\\w*|protect\\w*|answer\\w*|doing this|company|been|in)\\b[^.!?]{0,60}?\\b(here|Birmingham(?:'s)?|Hoover|Homewood|Vestavia(?: Hills)?|Mountain Brook|Trussville|Madison|Huntsville|North Alabama|Jefferson|Shelby|Pelham|Alabaster|same communities)\\b(?:(?!family[\\s-]owned\\s+since)[^.!?]){0,40}?\\bsince\\s+1958\\b", notIf: "(?<!North )\\bAlabama since 1958|Tallapoosa|Lake Martin|Alexander City|Alex City|never say|do not (say|state)|does not state|banned|NEVER write",
+    reason: 'place attached to 1958 — the family began in Alexander City; the Birmingham, Alabaster and Huntsville offices are newer',
+    approvedInstead: 'the Wedgworth family has been doing pest control in Alabama since 1958 / family-owned since 1958, serving <city>' },
+  // Same claim as a UI badge: "Hoover · Jefferson & Shelby County · Since 1958".
+  { pattern: '·\\s*Since\\s+1958\\b', notIf: 'Tallapoosa|Lake Martin|Alexander City|Alex City|Generations\\s*·|EnviroCare\\s*·\\s*Since',
+    reason: 'place badge ending "· Since 1958" reads as serving that place since 1958',
+    approvedInstead: '· Family-Owned Since 1958' },
+
   // SEVENTH SHAPE, 2026-08-18. Every 1958 rule above matches the literal DATE.
   // None match the ARITHMETIC, so the same false claim expressed as an age passed:
   //     "EnviroCare Pest Services brings 68 years of family pest control expertise"

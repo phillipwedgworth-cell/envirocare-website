@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Ballantrae",
   slug: "ballantrae",
-  badge: "Ballantrae · Pelham, Shelby County · Since 1958",
+  badge: "Ballantrae · Pelham, Shelby County · Family-Owned Since 1958",
   zip: "35124",
   neighborhoods: ["Ballantrae Golf community", "Ballantrae Parkway", "Ballantrae Estates"],
   heroIntro:
     "Complete pest, termite, and mosquito protection for the Ballantrae golf community in Pelham. Sitting against Oak Mountain with fairway ponds and wooded lots, Ballantrae gets real tick and mosquito pressure — EnviroCare's 30-day barrier and no-drill Sentricon® are built for exactly this.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Ballantrae golf community of Pelham, Alabama (35124). Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Ballantrae golf community of Pelham, Alabama (35124). Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 940-6360.",
   whyHeadline: "Ballantrae's golf-course water, Oak Mountain tree line, and graded lots keep pest pressure working most of the year.",
   whySub: "The patterns we treat most across the Ballantrae community.",
   pressureCards: [

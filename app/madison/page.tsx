@@ -74,7 +74,7 @@ const jsonLd = {
       ],
       priceRange: "$$",
       description:
-        "Family-owned pest, termite, mosquito, and tick control serving Madison AL and all of Madison County since 1958. Four generations of the Wedgworth family. Sentricon® certified. EPA-registered products.",
+        "Family-owned pest, termite, mosquito, and tick control serving Madison AL and all of Madison County, from a family doing pest control in Alabama since 1958. Four generations of the Wedgworth family. Sentricon® certified. EPA-registered products.",
     },
     {
       "@type": "Service",
@@ -216,7 +216,7 @@ export default function MadisonPage() {
             letterSpacing: "-0.02em",
           }}>
             Madison&apos;s family pest &amp;<br />
-            <span style={{ color: Au }}>termite team since 1958.</span>
+            <span style={{ color: Au }}>termite team.</span>
           </h1>
           <p style={{
             fontSize: "clamp(16px, 2vw, 19px)",
@@ -540,7 +540,7 @@ export default function MadisonPage() {
               that run through every neighborhood.
             </p>
             <p style={{ fontSize: 15.5, lineHeight: 1.75, margin: "0 0 28px", color: "#374151" }}>
-              We&apos;ve been doing this in North Alabama since 1958. Our Huntsville office services
+              Our family has been doing this in Alabama since 1958. Our Huntsville office services
               all of Madison — a familiar local team, the same family ownership, the same standard
               of service that&apos;s protected hundreds of Huntsville-area homes for four generations.
               No national call center. No franchised techs. The Wedgworth family picks up the phone.
@@ -685,7 +685,7 @@ export default function MadisonPage() {
           </h2>
           <p style={{ fontSize: 16, opacity: 0.85, margin: "0 0 36px", lineHeight: 1.7 }}>
             Call the Huntsville office Monday–Friday, 8 am–5 pm. No call center — the same family
-            that&apos;s answered the phone in North Alabama since 1958.
+            that&apos;s been doing pest control in Alabama since 1958.
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <GoldCTA href="tel:2569377676" text="Call (256) 937-7676" />

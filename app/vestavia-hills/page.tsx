@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Vestavia Hills",
   slug: "vestavia-hills",
-  badge: "Vestavia Hills · Jefferson County · Since 1958",
+  badge: "Vestavia Hills · Jefferson County · Family-Owned Since 1958",
   zip: "35216",
   neighborhoods: ["Cahaba Heights", "Rocky Ridge", "Liberty Park", "Vestavia East"],
   heroIntro:
     "Family-trusted pest control and termite care for Vestavia Hills' wooded, creek-fed lots — Cahaba Heights, Rocky Ridge, Liberty Park, and Vestavia East. No-drill Sentricon®, seasonal mosquito and tick service, and commercial pest control along the Highway 31 corridor.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Vestavia Hills, Alabama, including Cahaba Heights, Rocky Ridge, Liberty Park, and Vestavia East. Bi-monthly pest control is $35/month and covers 30+ common household pests — including ants, spiders, roaches, and rodents — with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Vestavia Hills, Alabama, including Cahaba Heights, Rocky Ridge, Liberty Park, and Vestavia East. Bi-monthly pest control is $35/month and covers 30+ common household pests — including ants, spiders, roaches, and rodents — with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 991-2882.",
   whyHeadline: "Creek corridors, the Cahaba watershed, and heavy clay soil keep pest pressure high across Vestavia Hills.",
   whySub: "The six patterns we treat most across Vestavia's ridgeline and creek-bed lots.",
   pressureCards: [
@@ -93,7 +93,7 @@ const config: DeepCityConfig = {
     { q: "Is there mosquito control in Vestavia Hills?", a: "Yes. EnviroCare treats Vestavia yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "Do you do tick control in Vestavia Hills?", a: "Yes — the mosquito-plus-tick program adds tick and chigger coverage for $65 per month. It targets the wooded edges and Cahaba Heights greenways where ticks wait for hosts." },
     { q: "What does bi-monthly pest control cover in Vestavia Hills?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Is EnviroCare a local Vestavia Hills exterminator?", a: "Yes. EnviroCare is a family-owned, professional pest control company and local exterminator serving Vestavia Hills and the Birmingham area since 1958, with comprehensive pest control solutions for homes and businesses." },
+    { q: "Is EnviroCare a local Vestavia Hills exterminator?", a: "Yes. EnviroCare is a family-owned, professional pest control company and local exterminator serving Vestavia Hills and the Birmingham area from our 16th Ave S office — the Wedgworth family has done pest control in Alabama since 1958 — with comprehensive pest control solutions for homes and businesses." },
     { q: "Do you serve Cahaba Heights, Liberty Park, and Rocky Ridge?", a: "Yes — all of Vestavia Hills, including Cahaba Heights, Rocky Ridge, Liberty Park, Vestavia East, and the Highway 31 corridor. Call (205) 991-2882 and we'll confirm your address is on our route." },
   ],
   body: [
