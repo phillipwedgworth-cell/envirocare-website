@@ -32,7 +32,7 @@ const c: ComboContent = {
   h1Accent: "Take Your Yard Back.",
   intro: [
     "Birmingham sits in a humid valley laced with water: the Cahaba River to the south, Village Creek and Valley Creek threading through the city, and storm drainage in every older neighborhood. That geography is why metro mosquito season runs hard from March through October — and why a citronella candle was never going to cut it.",
-    "The Wedgworth family has been treating Birmingham yards since 1958. Our 30-day barrier program targets where mosquitoes actually rest — shrub lines, eaves, fence rows, shaded foliage — so your porch, deck, and play set stay usable through an Alabama summer.",
+    "The Wedgworth family has been treating Alabama yards since 1958, and our 16th Ave S office serves Birmingham. Our 30-day barrier program targets where mosquitoes actually rest — shrub lines, eaves, fence rows, shaded foliage — so your porch, deck, and play set stay usable through an Alabama summer.",
   ],
   anglesHeading: "Why Birmingham mosquitoes are a different fight",
   localAngles: [

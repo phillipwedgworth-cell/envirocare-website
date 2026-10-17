@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Cahaba Heights",
   slug: "cahaba-heights",
-  badge: "Cahaba Heights · Vestavia Hills, Jefferson County · Since 1958",
+  badge: "Cahaba Heights · Vestavia Hills, Jefferson County · Family-Owned Since 1958",
   zip: "35243",
   neighborhoods: ["Dolly Ridge", "Overton", "Cahaba Heights Village", "Green Valley"],
   heroIntro:
     "Full pest, termite, and mosquito protection for Cahaba Heights — Dolly Ridge, Overton, and the village core. From original ranches to the new custom rebuilds, EnviroCare protects every home with no-drill Sentricon® and a 30-day mosquito and tick barrier built for these wooded, creek-fed lots.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Cahaba Heights near Vestavia Hills, Alabama (35243), including Dolly Ridge, Overton, and the Cahaba Heights village. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 991-2882.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in Cahaba Heights near Vestavia Hills, Alabama (35243), including Dolly Ridge, Overton, and the Cahaba Heights village. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 991-2882.",
   whyHeadline: "Cahaba Heights's mix of original homes and new rebuilds, plus creek-fed lots, keeps pest pressure working year-round.",
   whySub: "The patterns we treat most across Dolly Ridge, Overton, and the village.",
   pressureCards: [

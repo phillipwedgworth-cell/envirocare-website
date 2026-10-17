@@ -31,7 +31,7 @@ const cfg: ClusterConfig = {
   "h1": "Pest Control in South Birmingham — Alabaster, Pelham, Helena & Calera",
   "intro": [
     "South of the metro is home turf: our Birmingham-metro hub sits at 2025 Butler Rd in Alabaster, and every route in this cluster starts minutes from your door. That means the tightest scheduling windows and fastest re-service in our entire footprint.",
-    "Shelby County's mix — creek bottoms, older downtowns, and some of Alabama's fastest new construction — keeps termites, fire ants, and mosquitoes busy year-round. We've been the local answer since 1958."
+    "Shelby County's mix — creek bottoms, older downtowns, and some of Alabama's fastest new construction — keeps termites, fire ants, and mosquitoes busy year-round. Our family has been doing pest control in Alabama since 1958."
   ],
   "pestAngle": "Creek-fed mosquito pressure (Buck Creek, Cahaba tributaries), new-construction termite risk on freshly graded lots, and fire ants in new sod define south-metro pest work.",
   "cities": [

@@ -25,7 +25,7 @@ export const BUSINESS = {
   generationLabel: 'fourth-generation',
   // Approved public sentence (use verbatim or lightly trimmed):
   generationSentence:
-    'A fourth-generation, family-owned Alabama company serving the same communities since 1958.',
+    'A fourth-generation, family-owned Alabama company doing pest control in Alabama since 1958.',
 
   // Ownership lineage — for About/Person schema only. Keep private notes OUT of copy.
   owner: { name: 'Kevin Wedgworth', role: 'Owner', generation: 3 },

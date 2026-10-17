@@ -22,13 +22,13 @@ const G = "#0A7935";
 const config: DeepCityConfig = {
   name: "Inverness",
   slug: "inverness",
-  badge: "Inverness · Hoover / US-280, Shelby County · Since 1958",
+  badge: "Inverness · Hoover / US-280, Shelby County · Family-Owned Since 1958",
   zip: "35242",
   neighborhoods: ["Inverness Cove", "Inverness Point", "Lake Heather", "Inverness Center"],
   heroIntro:
     "Full pest, termite, and mosquito protection for the Inverness community along the US-280 corridor — Inverness Cove, Inverness Point, and the homes around Lake Heather. No-drill Sentricon® that leaves your landscaping untouched, plus a 30-day mosquito and tick barrier built for wooded, water-adjacent lots.",
   summary:
-    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Inverness community of Hoover, Alabama (35242), including Inverness Cove, Inverness Point, and Lake Heather. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has protected homes here since 1958. Call (205) 940-6360.",
+    "EnviroCare provides pest control, termite protection, mosquito, and tick service in the Inverness community of Hoover, Alabama (35242), including Inverness Cove, Inverness Point, and Lake Heather. Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service between visits. Termite protection uses the Sentricon® baiting system with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EnviroCare is a family-owned Alabama company, and the Wedgworth family has been doing pest control in Alabama since 1958. Call (205) 940-6360.",
   whyHeadline: "Inverness's established homes, lake, and wooded 280-corridor lots keep pest pressure working year-round.",
   whySub: "The patterns we treat most across Inverness Cove, Inverness Point, and Lake Heather.",
   pressureCards: [

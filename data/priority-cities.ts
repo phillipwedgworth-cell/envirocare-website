@@ -33,7 +33,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Huntsville",
     metaTitle: "Pest Control Huntsville AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Family-owned pest control in Huntsville, AL since 1958. Bi-monthly service, Sentricon® termite protection, seasonal mosquito control. (256) 937-7676.",
+      "Family-owned since 1958, serving Huntsville, AL. Bi-monthly service, Sentricon® termite protection, seasonal mosquito control. (256) 937-7676.",
     office: "Huntsville",
     phone: "(256) 937-7676",
     tel: "2569377676",
@@ -355,7 +355,7 @@ export const priorityCities: Record<string, CityData> = {
     name: "Birmingham",
     metaTitle: "Pest Control Birmingham AL | Termite & Mosquito | EnviroCare",
     metaDescription:
-      "Family-owned pest control in Birmingham, AL since 1958. Bi-monthly service, Sentricon® termite, mosquito control across the metro. (205) 991-2882.",
+      "Family-owned since 1958, serving Birmingham, AL. Bi-monthly service, Sentricon® termite, mosquito control across the metro. (205) 991-2882.",
     office: "Birmingham",
     phone: "(205) 991-2882",
     tel: "2059912882",
