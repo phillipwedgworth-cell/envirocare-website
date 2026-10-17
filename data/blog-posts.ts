@@ -1370,7 +1370,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide',
     excerpt: 'The trail on the counter is the symptom. The colony behind the wall, under the slab, or out in the mulch bed is the problem — and spraying the trail usually makes it bigger. This guide covers every step to get rid of ants in your house, from identifying the ant species and removing food sources to baiting correctly, sealing entry points, and evaluating home remedies like vinegar, peppermint oil, cinnamon, and diatomaceous earth — plus when to call a pest control professional.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-17',
     author: 'Kevin Wedgworth',
     category: 'Ants',
     readMinutes: 11,
@@ -1379,6 +1379,8 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: 'Get rid of ants in your Alabama home: identify the species, stop spraying, bait the colony, seal entry points, and skip remedies that do not work.',
     body: `
 <p class="lede">Nobody calls us about one ant. They call when the line of them runs from the window over the sink to the dog bowl, and it has been there three mornings in a row despite a full can of spray. That is the most common ant call we take across the Birmingham metro, Lake Martin, and the Tennessee Valley, and the reason the spray did not work is the reason this guide exists: the ants on the counter are not the problem. They are foragers. The problem is a colony you have not seen yet, and getting rid of ants in your house is a sequence — not a single product.</p>
+
+<p><strong>The short answer:</strong> identify the ant first — a clear photo is enough. Stop spraying the trail, which scatters the colony. Clean up the crumbs, grease, pet food and standing water the foragers are after. Put out a slow-acting bait where the trail runs and leave it alone so workers carry it back to the nest. Seal the gap they are using. If the trail is back within two weeks, or you find large black ants near damp wood, there is a hidden colony or carpenter ants, and it is time for an inspection. See our <a href="/services/pest-control">pest control plans</a>.</p>
 
 <h2>Step 1: Figure out which ant you have</h2>
 

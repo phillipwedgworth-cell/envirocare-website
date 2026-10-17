@@ -227,17 +227,17 @@ export default function BirminghamPage() {
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 20% 50%,rgba(245,168,0,.12) 0%,transparent 55%),radial-gradient(circle at 80% 80%,rgba(134,239,172,.14) 0%,transparent 55%)", pointerEvents: "none" }} />
           <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.22)", borderRadius: 40, padding: ".4rem 1rem", marginBottom: "1.4rem" }}>
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Birmingham &amp; Jefferson County · Since 1958</span>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".09em", textTransform: "uppercase" }}>Birmingham &amp; Jefferson County · Alabama Family-Owned Since 1958</span>
             </div>
             <h1 style={{ ...serif, fontSize: "clamp(2.4rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.04, marginBottom: "1.2rem", letterSpacing: "-.5px" }}>
               Birmingham Pest Control{" "}<br />
               <span style={{ color: Au, fontStyle: "italic", fontWeight: 700 }}>&amp; Exterminator Service</span>
             </h1>
             <p style={{ fontSize: "1.12rem", lineHeight: 1.7, color: "rgba(255,255,255,.88)", maxWidth: 620, marginBottom: "2rem" }}>
-              The Wedgworth family has been Birmingham's family-owned pest control company since 1958.
-              Bi-monthly perimeter service, Sentricon® termite protection, and seasonal mosquito and tick
-              treatment — from Mountain Brook to Hoover, Vestavia to Pelham, the city to the foothills.
-              Our Birmingham office is at 2120 16th Ave S, Ste 302.
+              The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Today
+              we serve Birmingham from our office at 2120 16th Ave S, Ste 302: bi-monthly perimeter
+              service, Sentricon® termite protection, and seasonal mosquito and tick treatment — from
+              Mountain Brook to Hoover, Vestavia to Pelham, the city to the foothills.
             </p>
             <div style={{ display: "flex", gap: 18, flexWrap: "wrap", marginBottom: "2rem", color: "rgba(255,255,255,.85)", fontSize: ".95rem" }}>
               <span style={{ borderLeft: `3px solid ${Au}`, paddingLeft: 12 }}><strong style={{ color: "#fff", fontSize: "1.1rem", display: "block" }}>68+</strong> Years serving AL</span>
