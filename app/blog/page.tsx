@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getPublishedPosts } from '@/data/blog-posts';
 import { BLOG_CSS } from './blogStyles';
+import { getBlogVisual } from '@/data/blog-visuals';
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
@@ -61,32 +62,41 @@ export default function Page() {
           <div className="section-eyebrow">From The Field</div>
           <h2 className="section-title">Latest <span>Articles</span></h2>
           <div className="blog-grid">
-            {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card" style={{ textDecoration: 'none' }}>
-                <div className="blog-thumb">
-                  {post.heroImage ? (
+            {posts.map((post, index) => {
+              const photo = getBlogVisual(post);
+              return (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className={`blog-card${index === 0 ? ' blog-card-featured' : ''}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="blog-thumb">
                     <Image
-                      src={post.heroImage.src}
-                      alt={post.heroImage.alt}
+                      src={photo.src}
+                      alt={photo.alt}
                       fill
-                      sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px"
-                      style={{ objectFit: 'cover' }}
+                      priority={index === 0}
+                      quality={83}
+                      sizes={index === 0
+                        ? "(max-width: 700px) 100vw, (max-width: 1100px) 96vw, 790px"
+                        : "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 390px"}
+                      style={{ objectFit: 'cover', objectPosition: photo.position ?? 'center' }}
                     />
-                  ) : (
-                    <div className="blog-thumb-icon" aria-hidden="true">{post.heroEmoji}</div>
-                  )}
-                </div>
-                <div className="blog-body">
-                  <div className="blog-cat">{post.category}</div>
-                  <div className="blog-title">{post.title}</div>
-                  <div className="blog-excerpt">{post.excerpt}</div>
-                  <div className="blog-meta">
-                    <span>{post.author}</span>
-                    <span>{fmtDate(post.publishedAt)} · {post.readMinutes} min read</span>
+                    <span className="blog-thumb-tag">{index === 0 ? 'Featured field note' : 'From the field'}</span>
                   </div>
-                </div>
-              </Link>
-            ))}
+                  <div className="blog-body">
+                    <div className="blog-cat">{post.category}</div>
+                    <div className="blog-title">{post.title}</div>
+                    <div className="blog-excerpt">{post.excerpt}</div>
+                    <div className="blog-meta">
+                      <span>{post.author}</span>
+                      <span>{fmtDate(post.publishedAt)} · {post.readMinutes} min read</span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
