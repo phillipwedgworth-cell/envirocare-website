@@ -4,6 +4,8 @@
 > `Envirocarellc` id 9884174, US, pulled 2026-10-17 ~09:00 CT. Ahrefs traffic
 > numbers are ESTIMATES — Search Console is the source of truth for clicks.
 > Re-verify anything here older than 30 days before acting on it.
+> Page-level claims below were cross-checked in Google Search Console the same
+> day; where they disagreed, GSC is recorded as the answer.
 
 ## Scoreboard (2026-10-17)
 
@@ -33,33 +35,44 @@ pestxalabama.com, peskiespestcontrol.com. (Never name them in customer copy.)
 ## Keyword → page map (positions 2026-10-17)
 
 **Cannibalization fixed in PR (Oct 17):** "termite control birmingham" (#11,
-$18.58 CPC) ranked `/services/termite-control`; that page is now titled for
+$18.58 CPC) ranked `/services/termite-control` — CONFIRMED in GSC (queries
+containing the phrase, last 3 months: `/services/termite-control` 146 impressions,
+avg pos 14.8; `/birmingham-termite-control` 44 impressions, pos 56.5); that page is now titled for
 Alabama and links Birmingham intent to `/birmingham-termite-control`. Measure
 which URL ranks before proposing another change.
 
-**Legacy 404s fixed in PR (Oct 17):** `/Service Areas/`, `/Blog`, `/Pest`,
-`/Services` all 404'd while still ranking ("pest control alexander city" #3 on
-`/Service Areas/`). Now 301/308 to the lowercase pages. Do not remove.
+**Legacy capitalized URLs — CORRECTED same day by Search Console.** Ahrefs
+listed `/Service Areas/`, `/Blog`, `/Pest`, `/Services` as ranking (e.g.
+"pest control alexander city" #3 on `/Service Areas/`). GSC URL Inspection
+(2026-10-17) reports all four **"URL is unknown to Google"**, and GSC
+Performance (16 months) shows Google served `/`, `/where-we-service/alexander-city-al-pest-control/`
+and `/alexander-city` for that query — never `/Service Areas/`. The Ahrefs page
+attribution was wrong. PR #267's redirects for them stay (harmless safety net,
+do not remove) but they rescued no rankings. **Rule: Ahrefs page-level rankings
+for this site are not evidence; confirm the ranking URL in GSC before acting.**
 
-Striking distance (push these, don't create new pages for them):
+Striking distance — **verified in GSC** (Performance, queries containing the
+phrase, pages breakdown, last 3 months to 2026-10-14; pulled 2026-10-17). Ahrefs
+volumes for several of these were badly inflated — use the GSC column.
 
-| Keyword | Pos | Vol | Page |
+| Query contains | Ahrefs said | GSC: ranking page · impressions · avg pos | Act? |
 |---|---|---|---|
-| pest control alabaster | 5 | 100 | /alabaster |
-| pest control gardendale | 9 | 50 | /gardendale |
-| exterminator huntsville | 18 | 30 | /huntsville |
-| tick control service | 29 | 600 | /services/tick-control |
-| small roaches in house | 9 | 600 | /blog/how-to-get-rid-of-roaches-alabama |
-| how to get rid of small roaches | 8 | 450 | /blog/how-to-get-rid-of-roaches-alabama |
-| how to treat yard for chiggers | 10 | 200 | /blog/chiggers-alabama-yard |
-| brown recluse alabama | 8 | 150 | /blog/brown-recluse-spiders-alabama |
-| what does roach look like | 10 | 150 | /blog/german-cockroaches-alabama |
-| local pest control mountain brook | 6 | — | ranks /leeds — should be /mountain-brook |
+| brown recluse | #8, 150/mo | /blog/brown-recluse-spiders-alabama · 691 · 9.7 | **yes** |
+| exterminator huntsville | /huntsville #18 | /huntsville · 752 · 17.5 (homepage also 810 · 1.2) | **yes** |
+| pest control alabaster | /alabaster #5 | /alabaster · 337 · 5.3 (homepage 182 · 18.3) | protect |
+| mountain brook | /leeds for one variant | /mountain-brook · 379 · 7.6 — Ahrefs page was WRONG | protect |
+| pest control gardendale | /gardendale #9 | /gardendale · 111 · 9.3 | yes |
+| get rid of roaches | #8–9 | /blog/how-to-get-rid-of-roaches-alabama · 73 · 8.5 | low |
+| chiggers | #10, 200/mo | /blog/chiggers-alabama-yard · 52 · 6.9 | low |
+| tick control service | #29, 600/mo | /services/tick-control · 27 · 36.8 | low |
+| small roaches | #9, 600/mo | same roach post · 11 · 14 — volume claim false | no |
+| what does roach look like | #10, 150/mo | german-cockroaches post · 1 — no real demand | no |
 
 Protect (already #1–3): spiders in alabama, alabama spiders, wolf spiders in
 alabama, ticks in alabama, termites in alabama, centipedes in alabama, flying
 roaches in alabama — all on their existing blog / pest-library pages.
 
-Known gap: "types of cockroaches in alabama" (#10) ranks only the /blog index;
-no dedicated post exists. Per AGENTS.md, content is not the main constraint —
-treat this as low priority behind links and conversion.
+NOT a gap (corrected 2026-10-17): Ahrefs said "types of cockroaches in alabama"
+ranked only the /blog index. GSC (3 months) shows /blog/cockroach-control-alabama
+(54 impressions, pos 9.7) and /pest-library/cockroaches (45, pos 11.3) already
+serve it. Do not write a new post for it.
