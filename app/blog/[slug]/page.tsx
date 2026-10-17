@@ -6,6 +6,7 @@
 // ─────────────────────────────────
 import { withOpenGraph } from '@/lib/seo/open-graph';
 import { getPostBySlug, getPublishedPosts, isPublished } from '@/data/blog-posts';
+import { getBlogVisual } from '@/data/blog-visuals';
 import BlogPostPage from '@/components/BlogPostPage';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -29,6 +30,7 @@ export async function generateMetadata({
   if (!post || !isPublished(post)) {
     return { title: 'Post Not Found | EnviroCare', robots: { index: false, follow: false } };
   }
+  const editorialImage = getBlogVisual(post);
   return withOpenGraph({
     title: post.metaTitle,
     description: post.metaDescription,
@@ -43,9 +45,7 @@ export async function generateMetadata({
       // Per-post link-preview card. Without this every post fell back to the
       // site-wide /og-image.png (withOpenGraph default), so shared articles all
       // looked identical. Posts with no heroImage still get that default.
-      ...(post.heroImage
-        ? { images: [{ url: post.heroImage.og, width: 1200, height: 630, alt: post.heroImage.alt }] }
-        : {}),
+      images: [{ url: editorialImage.src, alt: editorialImage.alt }],
     },
   });
 }
@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
             headline: post.title.slice(0, 110),
             description: post.metaDescription,
-            ...(post.heroImage ? { image: `${SITE}${post.heroImage.og}` } : {}),
+            image: `${SITE}${getBlogVisual(post).src}`,
             articleSection: post.category,
             wordCount: post.body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
             timeRequired: `PT${post.readMinutes}M`,
