@@ -51,7 +51,7 @@ const config: DeepCityConfig = {
     { q: "Do you treat ticks and mosquitoes in Ballantrae?", a: "Yes. The Mosquito + Tick program (chiggers covered) treats every 30 days, March through October, for $65 per month — built for the Oak Mountain tree line and fairway ponds." },
     { q: "Can you protect a Ballantrae home from termites without drilling?", a: "Yes. Sentricon® Always Active™ uses in-ground bait stations around the home — no drilling, no trenching — with up to $1M coverage subject to the terms of the agreement. The inspection is free." },
     { q: "What does bi-monthly pest control cover in Ballantrae?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Which office serves Ballantrae?", a: "Our Birmingham-area office at 2025 Butler Rd in Alabaster, just up Highway 31. Call (205) 940-6360 to confirm your address is on our route." }
+    { q: "Which office serves Ballantrae?", a: "Our Alabaster office at 2025 Butler Rd, just up Highway 31. Call (205) 940-6360 to confirm your address is on our route." }
   ],
   siblings: [
     ["Pelham", "/pelham"],

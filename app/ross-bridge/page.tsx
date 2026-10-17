@@ -51,7 +51,7 @@ const config: DeepCityConfig = {
     { q: "My Ross Bridge home is newer — do I still need termite protection?", a: "Yes. Newer homes sit on graded, disturbed soil that subterranean termites find first, and a slab gives no warning before damage starts. Sentricon® is the right way to lock in protection, with up to $1,000,000 in EnviroCare coverage." },
     { q: "Is there mosquito control in Ross Bridge?", a: "Yes. EnviroCare treats Ross Bridge yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." },
     { q: "What does bi-monthly pest control cover in Ross Bridge?", a: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." },
-    { q: "Which office serves Ross Bridge?", a: "Our Birmingham-area office at 2025 Butler Rd in Alabaster. Call (205) 940-6360 and we'll confirm your address is on our route." }
+    { q: "Which office serves Ross Bridge?", a: "Our Alabaster office at 2025 Butler Rd. Call (205) 940-6360 and we'll confirm your address is on our route." }
   ],
   siblings: [
     ["Over the Mountain", "/over-the-mountain"],
