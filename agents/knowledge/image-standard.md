@@ -268,3 +268,27 @@ fetcher receiving `text/plain` reports "Invalid Image URL." So the Aug-7 failure
 
 **Before repeating this claim, run the curl above.** If it returns 200, the host is not
 the problem.
+
+## 2026-10-17 — two failures the text guards cannot see
+
+**1. An AI truck under an innocent filename.** `public/hero-family.webp` and
+`hero-family-mobile.webp` were the HOMEPAGE hero and contained an AI-generated
+EnviroCare truck (Chevrolet grille on a different body, lowercase "Envirocare"
+slogan), with alt text "Alabama family relaxing in their backyard". The name-based
+guard said "clean". Fixed: both files deleted, homepage now uses the approved real
+photo `hero-family.jpg`, and `test:imagery` now fingerprints every image in
+`public/` against known fakes (catches renames and re-encodes). **Rule: open the
+image. A filename or alt text is not evidence of what is in it.**
+
+**2. Claims baked into an image.** `public/og-image.png` — the share card for
+62 pages and the site-wide default — read "$1M Sentricon® Coverage" (attribution
+banned, canon §1), "Google · 500+ Reviews" (review counts banned) and "3 Offices"
+(there are four). No text scanner reads pixels. Fixed: stats row now reads
+"$1M EnviroCare Damage Coverage · Sentricon® Certified Specialist · 4 Offices".
+**Rule: every compliance rule applies to text inside images, OG cards and
+graphics. Read the image before publishing it.**
+
+### Blog covers (2026-10-17, PR #270)
+`data/blog-visuals.ts` maps every post to a vetted existing photo or pest-library
+image. A post's own commissioned `heroImage` (patch 0009 art) always wins, along
+with its 1200×630 OG card. Add a post's cover there; do not reintroduce emoji heroes.

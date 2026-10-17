@@ -401,6 +401,21 @@ body{font-family:var(--font-sans);background:var(--white);color:var(--ink);overf
 .blog-title{font-family:var(--font-serif);font-size:1.25rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:.7rem;flex:1}
 .blog-excerpt{font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:1rem}
 .blog-meta{font-size:12.5px;color:var(--ink-soft);display:flex;justify-content:space-between;border-top:1px solid var(--border-soft);padding-top:.9rem}
+/* Editorial photo treatment — cohesive magazine layout without oversized emojis. */
+.blog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:stretch}
+.blog-card{border-color:#E2EAE4;border-radius:14px;box-shadow:0 2px 8px rgba(9,51,28,.035);transition:transform .22s ease,box-shadow .22s ease}
+.blog-card:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.blog-thumb{background:#E5EEE8}
+.blog-thumb::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(7,42,24,.24));pointer-events:none}
+.blog-thumb-tag{position:absolute;left:16px;bottom:14px;z-index:2;color:white;letter-spacing:.09em;text-transform:uppercase;font-size:10px;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.blog-card-featured{grid-column:span 2;display:grid;grid-template-columns:1.1fr .9fr}
+.blog-card-featured .blog-thumb{height:100%;min-height:310px;aspect-ratio:auto}
+.blog-card-featured .blog-body{justify-content:center;padding:2.4rem}
+.blog-card-featured .blog-title{font-size:clamp(1.5rem,2.3vw,2.05rem);line-height:1.17;flex:initial}
+.blog-title{font-size:1.18rem}
+.blog-excerpt{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:1100px){.blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.blog-card-featured{grid-column:span 2}}
+@media(max-width:700px){.blog-grid{grid-template-columns:minmax(0,1fr);gap:1.35rem}.blog-card-featured{grid-column:span 1;display:flex}.blog-card-featured .blog-thumb{aspect-ratio:16/9;min-height:0}.blog-card-featured .blog-body{padding:1.5rem}.blog-card-featured .blog-title{font-size:1.35rem}}
 .blog-empty{text-align:center;padding:3rem 2rem;background:var(--cream);border-radius:18px;max-width:680px;margin:2rem auto;border:1px dashed var(--border)}
 .blog-empty-icon{font-size:3rem;color:var(--green-mid);margin-bottom:1rem}
 .blog-empty-h{font-family:var(--font-serif);font-size:1.4rem;color:var(--green-deep);margin-bottom:.6rem;font-weight:700}
