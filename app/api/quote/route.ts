@@ -22,7 +22,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { cleanEnv } from "@/lib/env-url";
-import { officeForZip } from "@/data/zip-to-office";
+import { officeForZip, isInServiceArea, type OfficeId } from "@/data/zip-to-office";
 
 export const dynamic = "force-dynamic";
 
@@ -115,8 +115,23 @@ const OFFICES: Record<string, Office> = {
   },
 };
 
+// Match the public ZIP lookup for every explicitly mapped service ZIP.
+// Preserve the legacy fallback below for unmapped ZIPs; this patch does not
+// expand or remove service areas. Auburn remains a routed line, not an office.
+const OFFICE_BY_ID: Record<OfficeId, Office> = {
+  birmingham: OFFICES.birmingham,
+  'birmingham-downtown': OFFICES.birminghamDowntown,
+  'lake-martin': OFFICES.lakeMartin,
+  huntsville: OFFICES.huntsville,
+  auburn: OFFICES.auburn,
+};
+
 function routeByZip(zip: string): Office {
-  const z = parseInt(zip, 10);
+  const cleaned = String(zip ?? "").trim().slice(0, 5);
+  if (isInServiceArea(cleaned)) {
+    return OFFICE_BY_ID[officeForZip(cleaned).id];
+  }
+  const z = parseInt(cleaned, 10);
   if (Number.isNaN(z)) return OFFICES.birmingham;
 
   // Huntsville metro
@@ -138,7 +153,7 @@ function routeByZip(zip: string): Office {
   // Birmingham metro: Jefferson/St Clair ZIPs -> the 16th Ave S Birmingham
   // office, everything else -> the Alabaster main line. Same split as
   // data/zip-to-office.ts (the ZIP lookup customers see).
-  return officeForZip(zip).id === "birmingham-downtown"
+  return officeForZip(cleaned).id === "birmingham-downtown"
     ? OFFICES.birminghamDowntown
     : OFFICES.birmingham;
 }
@@ -285,13 +300,19 @@ async function emailLead(lead: Lead, office: Office, fieldsterStatus: string, le
   // Outlook goes to them and not to the leads@ robot.
   const replyTo = EMAIL_RE.test(lead.email) ? lead.email : undefined;
 
-  await getResend().emails.send({
+  const { data, error } = await getResend().emails.send({
     from: notifyFrom,
     to: notifyTo,
     subject,
     html,
     ...(replyTo ? { replyTo } : {}),
   });
+
+  // Resend can resolve with { error } instead of rejecting the promise.
+  // Only an accepted message ID counts as the email fallback succeeding.
+  // Acceptance is not a claim that the message reached the recipient's inbox.
+  if (error) throw new Error(`Resend rejected lead notification: ${error.message}`);
+  if (!data?.id) throw new Error("Resend returned no message acknowledgement");
 }
 
 // ============================================================

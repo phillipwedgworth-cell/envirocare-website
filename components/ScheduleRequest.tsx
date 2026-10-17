@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useOfficePhone } from "../lib/use-office-phone";
@@ -114,6 +114,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   useEffect(() => {
     setNow(new Date());
     setMounted(true);
+    setServices(readServiceParam());
   }, []);
 
   // Never same-day — day strip starts tomorrow, counted from the visitor's today.
@@ -142,7 +143,8 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [win, setWin] = useState("");
   const activeWin = availableWindows.find((w) => w.id === win);
 
-  const [services, setServices] = useState<string[]>(() => readServiceParam());
+  // Keep the server and first browser render identical; preselect after mount.
+  const [services, setServices] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -150,6 +152,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [address, setAddress] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [confirmedSlot, setConfirmedSlot] = useState("");
+  const submitting = useRef(false);
 
   // The visitor's office (remembers the city page they came from on /quote).
   const office = useOfficePhone(usePathname() ?? "/");
@@ -167,7 +170,9 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     /^\d{5}$/.test(zip.trim());
 
   async function submit() {
-    if (!valid || state === "sending") return;
+    if (!valid || submitting.current || state === "sending" || state === "done") return;
+    // State updates are asynchronous; a ref closes the same-tick double-click gap.
+    submitting.current = true;
     setState("sending");
 
     // Captured now, so the confirmation screen quotes what was actually sent.
@@ -205,20 +210,26 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         }),
       });
       setState(res.ok ? "done" : "error");
-      // Conversion: GA4 generate_lead + Meta Pixel Lead. Optional-chained so a
-      // blocked/absent tag can never break the form itself.
+      // Analytics are best-effort. A blocked or throwing tag must never turn
+      // an accepted quote into a failure or prevent the other tag from firing.
       if (res.ok && typeof window !== "undefined") {
-        (window as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "generate_lead", {
-          method: "schedule_request",
-          office: city || "",
-          service_type: serviceLabels,
-        });
-        (window as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead", {
-          content_name: "Schedule Request",
-        });
+        try {
+          (window as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "generate_lead", {
+            method: "schedule_request",
+            office: city || "",
+            service_type: serviceLabels,
+          });
+        } catch { /* A tracking failure does not invalidate the saved lead. */ }
+        try {
+          (window as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead", {
+            content_name: "Schedule Request",
+          });
+        } catch { /* A tracking failure does not invalidate the saved lead. */ }
       }
     } catch {
       setState("error");
+    } finally {
+      submitting.current = false;
     }
   }
 
@@ -251,7 +262,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
       </div>
 
       {/* Contact first — a real <form> with name/id so browser autofill fires */}
-      <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
+      <form aria-busy={state === "sending"} onSubmit={(e) => { e.preventDefault(); submit(); }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
           <input name="name" id="sr-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" required style={field} />
           <input name="tel" id="sr-tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" aria-label="Phone" autoComplete="tel" required style={field} />
@@ -357,7 +368,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
       </form>
 
       {state === "error" && (
-        <p style={{ ...body, color: "#B4231F", fontSize: 13.5, marginTop: 10, textAlign: "center" }}>
+        <p role="alert" style={{ ...body, color: "#B4231F", fontSize: 13.5, marginTop: 10, textAlign: "center" }}>
           That didn&rsquo;t go through. Call <a href={office.phoneHref} style={{ color: G, fontWeight: 700 }}>{office.phone}</a> and we&rsquo;ll set it up directly.
         </p>
       )}
