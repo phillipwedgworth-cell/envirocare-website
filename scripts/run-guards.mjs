@@ -11,10 +11,11 @@
 import { spawnSync } from "node:child_process";
 
 const GUARDS = [
-  "test:site-critical", "test:roster", "test:compliance", "test:source", "test:blogposts", "test:generated",
+  "test:roster", "test:compliance", "test:source", "test:blogposts", "test:generated",
   "test:imagery", "test:zombies", "test:citynap", "test:local-falcon", "test:spyfu", "test:zip-routing",
   "test:breadcrumbs", "test:og", "test:brief", "test:lastmod", "test:tracking",
   "test:similarity", "test:page-refresh", "test:captivated-safety", "test:listings",
+  "test:site-critical", "test:contact-reliability",
 ];
 
 const SKIP_RE = /\bSKIPPED\b|\bSkipping\b|checks nothing|no build output/i;

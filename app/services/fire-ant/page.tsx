@@ -94,7 +94,7 @@ export default function FireAntPage() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Our granular bait application provides season-long colony suppression — typically 6 to 9 months per application.",
+            "One properly timed granular bait application gives season-long colony suppression across the treated area, and every treatment is backed by a one-year warranty.",
         },
       },
       {
@@ -181,7 +181,7 @@ export default function FireAntPage() {
             },
             {
               title: "Season-Long Suppression",
-              body: "One properly timed application gives 6–9 months of control across the treated area.",
+              body: "One properly timed application gives season-long control across the treated area, backed by a one-year warranty.",
             },
             {
               title: "Yard-Wide Coverage",
@@ -269,7 +269,7 @@ export default function FireAntPage() {
           },
           {
             q: "How long does fire ant treatment last?",
-            a: "Our granular bait gives season-long colony suppression — typically 6 to 9 months per application.",
+            a: "One properly timed granular bait application gives season-long colony suppression across the treated area, and every treatment is backed by a one-year warranty.",
           },
           {
             q: "When can my family use the yard again?",

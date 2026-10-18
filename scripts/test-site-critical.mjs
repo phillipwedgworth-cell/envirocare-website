@@ -141,7 +141,7 @@ function formHarness({ ok = true, networkError = false, tags = {}, gate, initial
   const states = [], payloads = [];
   const ctx = vm.createContext({
     valid: true, state: initialState, submitting: { current: false }, setState: s => states.push(s),
-    activeDate: null, activeWin: null, setConfirmedSlot() {}, city: 'Huntsville',
+    activeDate: null, activeWin: null, setConfirmedSlot() {}, setConfirmedContact() {}, city: 'Huntsville',
     services: ['pest'], SERVICES: [{ key: 'pest', label: 'Pest Control' }],
     name: 'Test Visitor', phone: '2055550100', zip: '35611', email: '', address: '',
     window: { location: { pathname: '/quote' }, ...tags },

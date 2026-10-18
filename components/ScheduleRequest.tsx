@@ -152,7 +152,13 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [address, setAddress] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [confirmedSlot, setConfirmedSlot] = useState("");
+  const [confirmedContact, setConfirmedContact] = useState({ name: "", phone: "" });
   const submitting = useRef(false);
+  const confirmationRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (state === "done") confirmationRef.current?.focus();
+  }, [state]);
 
   // The visitor's office (remembers the city page they came from on /quote).
   const office = useOfficePhone(usePathname() ?? "/");
@@ -184,7 +190,8 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     const serviceLabels = services
       .map((k) => SERVICES.find((s) => s.key === k)?.label ?? k)
       .join(", ");
-    const [firstName, ...rest] = name.trim().split(/\s+/);
+    const submittedContact = { name: name.trim(), phone: phone.trim() };
+    const [firstName, ...rest] = submittedContact.name.split(/\s+/);
     const lastName = rest.join(" ");
     const notes = [
       slotLabel ? `Preferred: ${slotLabel}` : "Preferred: no preference given — call to schedule",
@@ -201,7 +208,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         body: JSON.stringify({
           firstName,
           lastName,
-          phone: phone.trim(),
+          phone: submittedContact.phone,
           email: email.trim(),
           address: address.trim(),
           zip: zip.trim(),
@@ -209,6 +216,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           notes,
         }),
       });
+      if (res.ok) setConfirmedContact(submittedContact);
       setState(res.ok ? "done" : "error");
       // Analytics are best-effort. A blocked or throwing tag must never turn
       // an accepted quote into a failure or prevent the other tag from firing.
@@ -238,12 +246,12 @@ export default function ScheduleRequest({ city }: { city?: string }) {
       <div style={wrap}>
         <div style={{ textAlign: "center", padding: "12px 0" }}>
           <div style={{ marginBottom: 10, display: "flex", justifyContent: "center" }}><CheckCircle2 size={42} color={G} strokeWidth={1.75} /></div>
-          <h3 style={{ ...display, fontSize: 26, margin: "0 0 10px" }}>
-            Got it, {name.split(" ")[0]} — request received.
+          <h3 ref={confirmationRef} tabIndex={-1} aria-describedby="sr-confirmation-message" style={{ ...display, fontSize: 26, margin: "0 0 10px", outlineOffset: 4 }}>
+            Got it, {confirmedContact.name.split(/\s+/)[0]} — request received.
           </h3>
-          <p style={{ ...body, maxWidth: 470, margin: "0 auto 6px" }}>
+          <p id="sr-confirmation-message" style={{ ...body, maxWidth: 470, margin: "0 auto 6px" }}>
             {confirmedSlot ? <>You told us <strong>{confirmedSlot}</strong> works best. </> : null}
-            A member of our team will call or text <strong>{phone}</strong> to set up a visit that fits your schedule.
+            A member of our team will call or text <strong>{confirmedContact.phone}</strong> to set up a visit that fits your schedule.
           </p>
           <p style={{ ...body, fontSize: 13.5, color: "#5b6f60", maxWidth: 470, margin: "0 auto" }}>
             Most visits are exterior-only, so you don&rsquo;t need to be home. Prefer to talk now? Call{" "}

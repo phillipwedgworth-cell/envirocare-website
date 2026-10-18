@@ -35,6 +35,7 @@
     "test:listings": "node scripts/test-brightlocal-descriptions.mjs",
     "test:brief": "node scripts/test-brief-sanitizer.mjs",
     "test:site-critical": "node scripts/test-site-critical.mjs",
+    "test:contact-reliability": "node scripts/test-contact-reliability.mjs",
     "test:page-refresh": "node scripts/test-page-refresh.mjs"
   },
   "dependencies": {

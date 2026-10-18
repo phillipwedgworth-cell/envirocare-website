@@ -5,7 +5,7 @@
 // Push: main
 // ─────────────────────────────────────
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-react";
 
 import Header from "@/components/shared/Header";
@@ -88,47 +88,57 @@ export default function ContactUs() {
 
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [acceptedContact, setAcceptedContact] = useState<{ name: string; phone: string } | null>(null);
+  const requestInFlight = useRef(false);
+  const completed = useRef(false);
+  const confirmationRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (submitted) confirmationRef.current?.focus();
+  }, [submitted]);
 
   const FORMSPREE_ID = "xwvypjal";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (requestInFlight.current || completed.current || submitted) return;
+    requestInFlight.current = true;
     setError(null);
-
-    if (FORMSPREE_ID === "REPLACE_WITH_FORMSPREE_ID") {
-      // Form not yet wired — fall back to opening email so leads still reach us
-      const subject = encodeURIComponent(`Website Inquiry: ${form.service || "Pest service"}`);
-      const body = encodeURIComponent(
-        `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nAddress: ${form.address}\nCity: ${form.city}\nService: ${form.service}\n\n${form.message}`
-      );
-      window.location.href = `mailto:service@envirocarellc.com?subject=${subject}&body=${body}`;
-      setSubmitted(true);
-      return;
-    }
-
     setSubmitting(true);
+
+    // Keep the confirmation tied to the payload accepted by Formspree, even if
+    // the visitor edits a field while this request is still in flight.
+    const submittedForm = { ...form };
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(submittedForm),
       });
       if (!res.ok) throw new Error("Form submission failed");
+      setAcceptedContact({ name: submittedForm.name, phone: submittedForm.phone });
+      completed.current = true;
       setSubmitted(true);
-      // Conversion: GA4 generate_lead + Meta Pixel Lead (standard event)
+      // Each optional tag is independent of delivery and of the other tag.
       if (typeof window !== 'undefined') {
-        (window as any).gtag?.('event', 'generate_lead', { method: 'contact_form' });
-        (window as any).fbq?.('track', 'Lead', { content_name: 'Contact Form' });
+        try {
+          (window as { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'generate_lead', { method: 'contact_form' });
+        } catch { /* Tracking cannot invalidate an accepted request. */ }
+        try {
+          (window as { fbq?: (...args: unknown[]) => void }).fbq?.('track', 'Lead', { content_name: 'Contact Form' });
+        } catch { /* Tracking cannot invalidate an accepted request. */ }
       }
     } catch {
       setError("Something went wrong. Please call us directly at (205) 940-6360.");
     } finally {
+      requestInFlight.current = false;
       setSubmitting(false);
     }
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
+    <div className="contact-page" style={{ minHeight: "100vh", background: "#FEFDF8", fontFamily: "var(--font-serif)" }}>
+      <style>{CONTACT_CSS}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Contact Us', path: '/contact-us' }]) }) }} />
       <script type="application/ld+json">{`
         {
@@ -147,7 +157,7 @@ export default function ContactUs() {
       `}</script>
 
       {/* HERO */}
-      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0A7935)`, color: "#fff", padding: "60px 40px 52px", textAlign: "center" }}>
+      <section style={{ background: `linear-gradient(160deg, ${DARK}, #0A7935)`, color: "#fff", padding: "60px clamp(16px, 4vw, 40px) 52px", textAlign: "center" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,168,0,0.15)", border: "1px solid rgba(245,168,0,0.3)", borderRadius: 5, padding: "5px 14px", marginBottom: 20 }}>
           <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: "0.1em", ...sf, textTransform: "uppercase" }}>Free Inspection · Fast Scheduling</span>
         </div>
@@ -167,7 +177,7 @@ export default function ContactUs() {
       </section>
 
       {/* OFFICE SELECTOR */}
-      <section style={{ padding: "56px 40px" }}>
+      <section style={{ padding: "56px clamp(16px, 4vw, 40px)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <div style={{ display: "inline-block", border: `1px solid ${G}`, borderRadius: 4, padding: "3px 12px", marginBottom: 12, fontSize: 11, letterSpacing: "0.12em", color: G, ...sf, fontWeight: 700, textTransform: "uppercase" }}>Our {OFFICES.length} Offices</div>
@@ -184,7 +194,7 @@ export default function ContactUs() {
           </div>
 
           {/* Selected office detail */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32, maxWidth: 860, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: 32, maxWidth: 860, margin: "0 auto" }}>
             <div style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.15)", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}>
               <div style={{ background: OFFICES[selected].accent, color: "#fff", padding: "18px 22px" }}>
                 <div style={{ fontWeight: 700, fontSize: 17 }}>{OFFICES[selected].name}</div>
@@ -253,8 +263,8 @@ export default function ContactUs() {
       </section>
 
       {/* CONTACT FORM */}
-      <section style={{ background: "#f7f8f4", padding: "64px 40px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 36, alignItems: "start" }}>
+      <section style={{ background: "#f7f8f4", padding: "64px clamp(16px, 4vw, 40px)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 36, alignItems: "start" }}>
 
           {/* Left — what to expect */}
           <div>
@@ -294,45 +304,45 @@ export default function ContactUs() {
             </div>
 
           {!submitted ? (
-            <form onSubmit={handleSubmit} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 16, padding: "36px 32px", boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
+            <form onSubmit={handleSubmit} aria-busy={submitting} style={{ background: "#fff", border: "1px solid rgba(27,122,60,0.12)", borderRadius: 16, padding: "36px clamp(16px, 4vw, 32px)", boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
-                  <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your Name *</label>
-                  <input required value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, name: e.target.value })}
+                  <label htmlFor="contact-name" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your Name *</label>
+                  <input id="contact-name" name="name" autoComplete="name" required value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, name: e.target.value })}
                     placeholder="John Smith"
-                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Phone Number *</label>
-                  <input required type="tel" value={form.phone} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, phone: e.target.value })}
+                  <label htmlFor="contact-phone" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Phone Number *</label>
+                  <input id="contact-phone" name="phone" autoComplete="tel" inputMode="tel" required type="tel" value={form.phone} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, phone: e.target.value })}
                     placeholder="(205) 555-0100"
-                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
                 </div>
               </div>
               <div style={{ marginBottom: 16 }}>
-                <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Street Address <span style={{ textTransform: "none", letterSpacing: 0, color: "#9ca3af", fontWeight: 400 }}>(optional)</span></label>
-                <input value={form.address} autoComplete="street-address" onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, address: e.target.value })}
+                <label htmlFor="contact-address" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Street Address <span style={{ textTransform: "none", letterSpacing: 0, color: "#9ca3af", fontWeight: 400 }}>(optional)</span></label>
+                <input id="contact-address" name="address" value={form.address} autoComplete="street-address" onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, address: e.target.value })}
                   placeholder="123 Main St (optional — or just tell us your city below)"
-                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: 16, marginBottom: 16 }}>
                 <div>
-                  <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
-                  <input type="email" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, email: e.target.value })}
+                  <label htmlFor="contact-email" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
+                  <input id="contact-email" name="email" autoComplete="email" inputMode="email" type="email" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, email: e.target.value })}
                     placeholder="john@email.com"
-                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your City *</label>
-                  <input required value={form.city} autoComplete="address-level2" onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, city: e.target.value })}
+                  <label htmlFor="contact-city" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Your City *</label>
+                  <input id="contact-city" name="city" required value={form.city} autoComplete="address-level2" onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, city: e.target.value })}
                     placeholder="Birmingham, AL"
-                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", boxSizing: "border-box" }} />
+                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
                 </div>
               </div>
               <div style={{ marginBottom: 16 }}>
-                <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Service Needed *</label>
-                <select required aria-label="Service Needed" value={form.service} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, service: e.target.value })}
-                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", background: "#fff" }}>
+                <label htmlFor="contact-service" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Service Needed *</label>
+                <select id="contact-service" name="service" required value={form.service} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, service: e.target.value })}
+                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, background: "#fff" }}>
                   <option value="">Select a service...</option>
                   <option>Pest Control</option>
                   <option>Termite Inspection</option>
@@ -346,25 +356,25 @@ export default function ContactUs() {
                 </select>
               </div>
               <div style={{ marginBottom: 24 }}>
-                <label style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Additional Details</label>
-                <textarea value={form.message} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, message: e.target.value })}
+                <label htmlFor="contact-message" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Additional Details</label>
+                <textarea id="contact-message" name="message" value={form.message} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, message: e.target.value })}
                   placeholder="Describe what you're seeing, or tell us anything that would help..."
                   rows={4}
-                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, outline: "none", resize: "vertical", boxSizing: "border-box" }} />
+                  style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, resize: "vertical", boxSizing: "border-box" }} />
               </div>
               <button type="submit" disabled={submitting} style={{ width: "100%", padding: "14px", background: submitting ? "#9ca3af" : G, color: "#fff", border: "none", borderRadius: 8, fontWeight: 800, fontSize: 16, cursor: submitting ? "wait" : "pointer", ...sf }}>
                 {submitting ? "Sending..." : "Request Free Inspection →"}
               </button>
-              {error && <p style={{ textAlign: "center", fontSize: 13, color: "#b91c1c", marginTop: 12, ...sf }}>{error}</p>}
+              {error && <p role="alert" style={{ textAlign: "center", fontSize: 13, color: "#b91c1c", marginTop: 12, ...sf }}>{error}</p>}
               <p style={{ textAlign: "center", fontSize: 12, color: "#4b5563", marginTop: 12, ...sf }}>
                 By submitting, you agree EnviroCare may call or text you about your inquiry at the number provided. Consent is not a condition of purchase. Msg / data rates may apply. Reply STOP to opt out.
               </p>
             </form>
           ) : (
-            <div style={{ background: "#fff", border: `2px solid ${G}`, borderRadius: 16, padding: "52px 32px", textAlign: "center" }}>
+            <div style={{ background: "#fff", border: `2px solid ${G}`, borderRadius: 16, padding: "52px clamp(16px, 4vw, 32px)", textAlign: "center" }}>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}><CheckCircle size={52} color={G} strokeWidth={1.8} aria-hidden="true" /></div>
-              <h3 style={{ fontSize: 24, fontWeight: 400, color: DARK, marginBottom: 10 }}>Thank You, {form.name}!</h3>
-              <p style={{ fontSize: 15, color: "#4b5563", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{form.phone}</strong> as soon as we can during business hours.</p>
+              <h3 ref={confirmationRef} tabIndex={-1} aria-describedby="contact-confirmation-message" className="contact-confirmation-title" style={{ fontSize: 24, fontWeight: 400, color: DARK, marginBottom: 10 }}>Thank You, {acceptedContact?.name}!</h3>
+              <p id="contact-confirmation-message" style={{ fontSize: 15, color: "#4b5563", ...sf, marginBottom: 6 }}>We've received your request and will call you at <strong>{acceptedContact?.phone}</strong> as soon as we can during business hours.</p>
               <p style={{ fontSize: 14, color: "#4b5563", ...sf }}>In the meantime, you can also reach us directly at your nearest office.</p>
             </div>
           )}
@@ -373,7 +383,7 @@ export default function ContactUs() {
       </section>
 
       {/* FAQ QUICK */}
-      <section style={{ padding: "56px 40px" }}>
+      <section style={{ padding: "56px clamp(16px, 4vw, 40px)" }}>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <h2 style={{ fontSize: 26, fontWeight: 400, color: DARK, marginBottom: 24, textAlign: "center" }}>Before You Call</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -394,3 +404,18 @@ export default function ContactUs() {
     </div>
   );
 }
+
+const CONTACT_CSS = `
+.contact-page input:focus,
+.contact-page select:focus,
+.contact-page textarea:focus,
+.contact-page .contact-confirmation-title:focus {
+  outline: 2px solid #0A7935;
+  outline-offset: 3px;
+}
+.contact-page button:focus-visible,
+.contact-page a:focus-visible {
+  outline: 3px solid #F5A800;
+  outline-offset: 3px;
+}
+`;
