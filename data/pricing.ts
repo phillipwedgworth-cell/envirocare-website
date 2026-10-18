@@ -26,6 +26,8 @@ export const PRICING = {
   plans: {
     pest: {
       label: 'Pest Control',
+      perVisit: 70,              // Bimonthly billing option already published on the homepage.
+      visitsPerYear: 6,
       fromMonthly: 35,           // From $35/mo
       startup: 75,               // WHAT THE CUSTOMER PAYS TODAY — this is the 50%-off
                                  // promo price, not the regular price. Pages render this
