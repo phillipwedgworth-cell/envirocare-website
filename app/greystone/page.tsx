@@ -67,7 +67,7 @@ const config: DeepCityConfig = {
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
   officePhone: "(205) 940-6360",
   officeTel: "2059406360",
-  officeLabel: "Birmingham",
+  officeLabel: "Alabaster",
   officeStreet: "2025 Butler Rd, Alabaster",
   officeLocality: "Alabaster",
   officePostal: "35007",

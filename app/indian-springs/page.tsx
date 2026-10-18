@@ -132,7 +132,7 @@ const cfg: NeighborhoodConfig = {
     ]
   ],
   "office": {
-    "name": "Birmingham",
+    "name": "Alabaster",
     "phone": "(205) 940-6360",
     "phoneE164": "+12059406360",
     "address": "2025 Butler Road · Alabaster, AL 35007"
