@@ -16,7 +16,7 @@ const ct = (s: string | null) => (s ? new Date(s).toLocaleString('en-US', { time
 const fmtPhone = (d: string) => (d.length === 10 ? `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}` : d);
 const NOT_A_LEAD_REASONS = ['existing customer — service handled', 'billing question handled', 'wrong number / spam', 'vendor / sales call', 'too brief — no callback possible'];
 
-export default function LeadDeskClient({ leads, deskKey, generatedAt }: { leads: DeskLead[]; deskKey: string; generatedAt: string }) {
+export default function LeadDeskClient({ leads, generatedAt }: { leads: DeskLead[]; generatedAt: string }) {
   const [actor, setActor] = useState('');
   useEffect(() => {
     try { setActor(window.localStorage.getItem('ec:desk-actor') ?? ''); } catch { /* storage blocked */ }
@@ -37,7 +37,7 @@ export default function LeadDeskClient({ leads, deskKey, generatedAt }: { leads:
     if (!actor.trim()) { alertBox('Type your name at the top first — every change records who made it.'); return false; }
     const res = await fetch('/api/leads/update', {
       method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-leads-key': deskKey },
+      headers: { 'content-type': 'application/json' }, // session cookie authenticates (same-origin)
       body: JSON.stringify({ id, actor, ...body }),
     });
     const j = await res.json().catch(() => ({}));

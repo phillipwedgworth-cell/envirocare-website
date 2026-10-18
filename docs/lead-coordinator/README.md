@@ -11,7 +11,7 @@ does not talk to customers and never writes to Fieldster.
 | Owners | `data/lead-owners.ts` | Who owns each office's inquiries. **Still office queues — put names in.** |
 | Schema | `supabase/lead-coordinator.sql` | Adds the columns and `lead_events`. Additive; undo at the top. **Not applied yet.** |
 | Intake | `app/api/leads/ingest` + `docs/lead-coordinator/gmail-relay.gs` | Each Sameday email becomes a lead within about a minute. One lead per Sameday conversation, however often it's re-sent. |
-| Lead Desk | `/lead-desk?key=…` | Staff mark contacted / booked (Fieldster # required) / lost (reason required). Every change records who made it. |
+| Lead Desk | `/lead-desk` (sign in once with the desk key; httpOnly cookie, 30 days) | Staff mark contacted / booked (Fieldster # required) / lost (reason required). Every change records who made it. |
 | Agent | `agents/lead-coordinator.mjs`, `.github/workflows/lead-coordinator.yml` | Weekdays. Assigns website-form leads, checks bookings against Fieldster (read-only, once a key is added), and emails the report. |
 | Guard | `scripts/test-lead-coordinator.mjs` (`npm run test:leads`) | Locks the rules. |
 
@@ -49,7 +49,8 @@ The parser was run over all 231 Sameday call emails from Sep 5 to Oct 5 2026 (Gm
 3. Set up the Gmail relay (5 minutes), following the header of `gmail-relay.gs`. Use the same `LEADS_INGEST_KEY`.
 4. Put real names in `data/lead-owners.ts`.
 5. Optional, and only after the Fieldster key is rotated: add the GitHub secret `FIELDSTER_API_KEY`. This turns on booking verification.
-6. Bookmark `https://www.envirocarellc.com/lead-desk?key=<LEADS_DESK_KEY>` for the office.
+6. Bookmark `https://www.envirocarellc.com/lead-desk` for the office and give staff the desk key
+   separately (never in a link). Each browser signs in once; rotating `LEADS_DESK_KEY` signs everyone out.
 
 ## Not covered yet
 

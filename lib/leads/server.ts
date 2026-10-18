@@ -1,6 +1,6 @@
 // lib/leads/server.ts — server-only helpers for the Lead Coordinator routes.
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import { timingSafeEqual } from 'node:crypto';
+import { createHmac, timingSafeEqual } from 'node:crypto';
 import { officeForZip, isInServiceArea, OFFICES as OFFICE_BY_ID } from '@/data/zip-to-office';
 import { CITY_OFFICE } from '@/data/city-offices';
 import { ownerFor } from '@/data/lead-owners';
@@ -25,6 +25,24 @@ export function keyMatches(given: string | null | undefined, envName: string): b
   const want = clean(envName);
   if (!want || !given) return false;
   const a = Buffer.from(String(given));
+  const b = Buffer.from(want);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
+// Lead Desk session. The desk key is typed into a sign-in form once and never
+// travels in a URL (a ?key= link leaks into browser history, bookmarks, shared
+// screenshots and access logs). The cookie holds an HMAC of the key, not the key
+// itself, so rotating LEADS_DESK_KEY signs every browser out.
+export const DESK_COOKIE = 'ec_lead_desk';
+export const DESK_COOKIE_MAX_AGE = 30 * 86_400;
+export function deskSessionValue(): string | null {
+  const key = clean('LEADS_DESK_KEY');
+  return key ? createHmac('sha256', key).update('lead-desk-session-v1').digest('hex') : null;
+}
+export function deskSessionOk(cookieValue: string | null | undefined): boolean {
+  const want = deskSessionValue();
+  if (!want || !cookieValue) return false;
+  const a = Buffer.from(cookieValue);
   const b = Buffer.from(want);
   return a.length === b.length && timingSafeEqual(a, b);
 }

@@ -1,15 +1,18 @@
 // POST /api/leads/update — the Lead Desk records what happened to a lead.
-// Header `x-leads-key` must equal LEADS_DESK_KEY. Every change is validated by
+// Authenticated by the Lead Desk session cookie (set by /api/leads/desk-login),
+// or header `x-leads-key` = LEADS_DESK_KEY for scripted calls. Every change is validated by
 // lib/leads/core.ts (booked needs a Fieldster number, lost needs a reason, …)
 // and written to lead_events with who made it.
 import { NextResponse } from 'next/server';
-import { keyMatches, leadsDb } from '@/lib/leads/server';
+import { cookies } from 'next/headers';
+import { DESK_COOKIE, deskSessionOk, keyMatches, leadsDb } from '@/lib/leads/server';
 import { STATUSES, validateStatusChange, type LeadKind, type LeadStatus } from '@/lib/leads/core';
 
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
-  if (!keyMatches(request.headers.get('x-leads-key'), 'LEADS_DESK_KEY')) {
+  const session = (await cookies()).get(DESK_COOKIE)?.value;
+  if (!deskSessionOk(session) && !keyMatches(request.headers.get('x-leads-key'), 'LEADS_DESK_KEY')) {
     return NextResponse.json({ ok: false, error: 'unauthorized' }, { status: 401 });
   }
   const sb = leadsDb();

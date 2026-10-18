@@ -1,8 +1,11 @@
-// /lead-desk?key=… — the Lead Coordinator's staff view. Private (LEADS_DESK_KEY),
+// /lead-desk — the Lead Coordinator's staff view. Private (LEADS_DESK_KEY, entered
+// once in a sign-in form; the session is an httpOnly cookie — the key never goes
+// in a URL, see app/api/leads/desk-login),
 // noindex, disallowed in robots. Lists every open inquiry with its owner, its
 // callback deadline and what is overdue; staff record the outcome here.
 import type { Metadata } from 'next';
-import { leadsDb } from '@/lib/leads/server';
+import { cookies } from 'next/headers';
+import { DESK_COOKIE, deskSessionOk, leadsDb } from '@/lib/leads/server';
 import { flagsFor, responseMinutes, OPEN_STATUSES, type LeadRow } from '@/lib/leads/core';
 import LeadDeskClient, { type DeskLead } from './LeadDeskClient';
 
@@ -13,15 +16,23 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const GATE = process.env.LEADS_DESK_KEY;
+const box = { maxWidth: 520, margin: '80px auto', padding: 16, fontFamily: 'system-ui, sans-serif' } as const;
 
-export default async function LeadDesk({ searchParams }: { searchParams: Promise<{ key?: string }> }) {
+export default async function LeadDesk({ searchParams }: { searchParams: Promise<{ error?: string; key?: string }> }) {
   const sp = await searchParams;
-  if (!GATE || sp?.key !== GATE) {
+  const jar = await cookies();
+  if (!deskSessionOk(jar.get(DESK_COOKIE)?.value)) {
     return (
-      <main style={{ maxWidth: 520, margin: '80px auto', padding: 16, fontFamily: 'system-ui, sans-serif' }}>
+      <main style={box}>
         <h1 style={{ fontSize: 22 }}>EnviroCare Lead Desk</h1>
-        <p>Private. Open the link with your access key.</p>
+        <p>Private. Enter the desk access key.</p>
+        {sp?.error && <p style={{ color: '#b00020' }}>That key did not match.</p>}
+        {sp?.key && <p style={{ color: '#b00020' }}>Access keys in links are no longer accepted. Type the key below, then update your bookmark to the plain /lead-desk address.</p>}
+        <form method="post" action="/api/leads/desk-login" style={{ display: 'flex', gap: 8 }}>
+          <input name="key" type="password" autoComplete="current-password" required aria-label="Access key"
+            style={{ flex: 1, padding: '8px 10px', fontSize: 16 }} />
+          <button type="submit" style={{ padding: '8px 14px', fontSize: 16 }}>Sign in</button>
+        </form>
       </main>
     );
   }
@@ -53,5 +64,5 @@ export default async function LeadDesk({ searchParams }: { searchParams: Promise
     responseMin: responseMinutes(r as LeadRow),
   }));
 
-  return <LeadDeskClient leads={leads} deskKey={sp.key!} generatedAt={now.toISOString()} />;
+  return <LeadDeskClient leads={leads} generatedAt={now.toISOString()} />;
 }
