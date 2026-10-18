@@ -45,11 +45,34 @@ export async function listProjects() {
   return post('list-projects');
 }
 
+const normalizeKeyword = (keyword) => String(keyword ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
+const queryIdOf = (row) => row?.query ?? row?.query_id ?? row?.id ?? null;
+
+// Only a verified inventory can establish that a keyword is absent. An error,
+// unknown envelope or malformed row must never look like an empty project and
+// authorize a quota-consuming new-query request.
+function queryInventory(payload) {
+  const rows = Array.isArray(payload) ? payload : payload?.queries;
+  const failed = ['error', 'failed'].includes(String(payload?.status ?? '').toLowerCase());
+  if (!Array.isArray(rows) || payload?.error || failed) {
+    throw new Error('NeuronWriter list-queries returned an unrecognized inventory; refusing to create a new analysis');
+  }
+  for (const row of rows) {
+    const id = queryIdOf(row);
+    const validId = (typeof id === 'string' && id.trim() !== '') || (typeof id === 'number' && Number.isFinite(id) && id > 0);
+    if (!row || typeof row.keyword !== 'string' || !normalizeKeyword(row.keyword) || !validId) {
+      throw new Error('NeuronWriter list-queries returned an incomplete query row; refusing to create a new analysis');
+    }
+  }
+  return rows;
+}
+
 // List all existing queries in a project. Costs NO quota (read-only).
+// Known API responses are either an array or an object containing queries[].
 export async function listQueries(project) {
   const proj = project ?? process.env.NEURONWRITER_PROJECT;
   if (!proj) throw new Error('NeuronWriter: no project id for list-queries');
-  return post('list-queries', { project: proj });
+  return queryInventory(await post('list-queries', { project: proj }));
 }
 
 // Memoized newest-existing-query-per-keyword map, one list-queries call per
@@ -62,19 +85,20 @@ async function existingQueryFor(proj, keyword) {
   if (!_existingByProject.has(proj)) {
     const p = (async () => {
       const rows = await listQueries(proj);
-      const byKeyword = {};
-      for (const q of Array.isArray(rows) ? rows : []) {
-        const k = String(q.keyword ?? '').trim().toLowerCase();
-        if (!k) continue;
-        if (!byKeyword[k] || String(q.created ?? '') > String(byKeyword[k].created ?? '')) byKeyword[k] = q;
+      const byKeyword = new Map();
+      for (const q of rows) {
+        const k = normalizeKeyword(q.keyword);
+        const current = byKeyword.get(k);
+        if (!current || String(q.created ?? '') > String(current.created ?? '')) byKeyword.set(k, q);
       }
       return byKeyword;
     })();
     _existingByProject.set(proj, p);
   }
-  const byKeyword = await _existingByProject.get(proj).catch(() => ({}));
-  const hit = byKeyword[String(keyword).trim().toLowerCase()];
-  return hit ? (hit.query ?? hit.query_id ?? hit.id ?? null) : null;
+  // Propagate a failed inventory read. Keeping the rejected promise also stops
+  // other pages in this run from retrying the outage or creating duplicates.
+  const byKeyword = await _existingByProject.get(proj);
+  return queryIdOf(byKeyword.get(normalizeKeyword(keyword)));
 }
 
 // Create a new NLP query for a keyword inside a project.
@@ -151,6 +175,33 @@ function billingCycleTag(now = new Date()) {
   return start.toISOString().slice(0, 10);
 }
 
+// Concurrent pages may share a keyword (city + service page). One verified
+// absence permits one creation per normalized keyword in this process. Keep
+// failures too: an ambiguous failed request is not permission to retry a write.
+const _queryCreations = new Map();
+async function reserveAndCreateQuery(keyword, opts, proj) {
+  const inventory = await _existingByProject.get(proj);
+  if (!inventory) throw new Error('NeuronWriter: no verified query inventory; refusing to create a new analysis');
+
+  // HARD BUDGET. Reserve only for the caller that actually creates the query,
+  // after the inventory read succeeded. Counter rolls with the billing cycle.
+  const budgetKey = `neuronwriter:budget:${billingCycleTag()}`;
+  const used = Number((await stateGet(budgetKey)) ?? 0);
+  if (used >= MONTHLY_BUDGET) {
+    throw new Error(`NeuronWriter budget: ${used}/${MONTHLY_BUDGET} new analyses already used this cycle (${budgetKey}); refusing to create "${keyword}". Raise NEURONWRITER_MONTHLY_BUDGET only with Phillip's OK.`);
+  }
+  await stateSet(budgetKey, used + 1);
+  console.log(`[neuronwriter] budget ${used + 1}/${MONTHLY_BUDGET} after "${keyword}"`);
+
+  const q = await createQuery(keyword, opts);
+  const queryId = queryIdOf(q);
+  if (!queryId) throw new Error(`NeuronWriter: new-query returned no query id: ${JSON.stringify(q).slice(0, 200)}`);
+  // Register immediately, before scoring. A later case/spacing variant
+  // must reuse this ID even if its raw KV key differs or the first score fails.
+  inventory.set(normalizeKeyword(keyword), { keyword, query: queryId });
+  return queryId;
+}
+
 export async function analyzePageContent(keyword, content, opts = {}) {
   const html = typeof content === 'string' ? content : content.html;
   const text = typeof content === 'string' ? content : (content.text ?? content.html);
@@ -173,29 +224,19 @@ export async function analyzePageContent(keyword, content, opts = {}) {
   let createdThisRun = false;
   let scored = false;
 
-  // HARD BUDGET. Every gate so far lived in a caller (weekly → first-Monday →
-  // renewal-day) and every one was bypassed by a different caller: 20 new
-  // queries were minted Aug 31–Sep 1 2026 (27% of the 75/month plan in two
-  // days). This lives in the one function that spends quota, so no caller can
-  // route around it. Counter key rolls with the billing cycle.
-  if (!queryId) {
-    const budgetKey = `neuronwriter:budget:${billingCycleTag()}`;
-    const used = Number((await stateGet(budgetKey)) ?? 0);
-    if (used >= MONTHLY_BUDGET) {
-      throw new Error(`NeuronWriter budget: ${used}/${MONTHLY_BUDGET} new analyses already used this cycle (${budgetKey}); refusing to create "${keyword}". Raise NEURONWRITER_MONTHLY_BUDGET only with Phillip's OK.`);
-    }
-    await stateSet(budgetKey, used + 1);
-    console.log(`[neuronwriter] budget ${used + 1}/${MONTHLY_BUDGET} after "${keyword}"`);
-  }
-
   // create → poll → score wrapped so a failure anywhere never leaves a silent
   // orphan: the finally marks the shell for cleanup and clears any bad cache id.
   try {
     if (!queryId) {
-      const q = await createQuery(keyword, opts);
-      createdThisRun = true;
-      queryId = q.query ?? q.query_id ?? q.id;
-      if (!queryId) throw new Error(`NeuronWriter: new-query returned no query id: ${JSON.stringify(q).slice(0, 200)}`);
+      const creationKey = `${proj}:${normalizeKeyword(keyword)}`;
+      let pending = _queryCreations.get(creationKey);
+      const ownsCreation = !pending;
+      if (!pending) {
+        pending = reserveAndCreateQuery(keyword, opts, proj);
+        _queryCreations.set(creationKey, pending);
+      }
+      queryId = await pending;
+      createdThisRun = ownsCreation;
     }
 
     process.stdout.write(`[neuronwriter] Query ${queryId} (reused if cached), waiting for analysis`);
@@ -226,7 +267,7 @@ export async function analyzePageContent(keyword, content, opts = {}) {
   } finally {
     if (!scored && queryId) {
       // Mark a freshly-created-but-unscored query as an orphan; for a reused id
-      // that went bad, just drop it from cache so the next run recreates.
+      // that went bad, drop it from cache so the next run rechecks inventory.
       if (createdThisRun) await markOrphanQuery(queryId).catch(() => {});
       if (cacheKey) await stateSet(cacheKey, null).catch(() => {});
     }
