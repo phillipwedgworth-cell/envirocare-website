@@ -7,6 +7,13 @@ remains dated; it is not evidence of the current production state.
 `390f32eafcdfc35d0d7d9bd7608dfdfbb9b4869a`. Review before merging.
 The Vercel project serving www is `envirocare-web-only-testing`.
 
+**Review status:** [draft PR #273](https://github.com/phillipwedgworth-cell/envirocare-website/pull/273)
+has a successful Guards workflow and two successful Vercel checks. The intended
+project's [preview deployment](https://vercel.com/envirocare-50d39ae8/envirocare-web-only-testing/2BMq1PP8mtuLsj7ekcZveEZFiTvu)
+is READY for application commit `343c348b6647c67306e9acfd5fa0aad5eda0f157`.
+The preview requires Vercel authentication. Visual/browser interaction checks
+are pending access; a successful deployment is not a substitute for them.
+
 ## Measured live baseline
 
 [Google PageSpeed mobile report, October 18 at 7:52 AM CDT](https://pagespeed.web.dev/analysis/https-www-envirocarellc-com/f1v4td27i3?form_factor=mobile)
@@ -41,6 +48,14 @@ mobile/base rules. The new static homepage uses a CSS module and renders on the
 server, with small pricing and ZIP form client components. Existing deferred
 chat/tracking, font-display swap, image optimization and immutable asset caching
 are retained.
+
+A matched local-build comparison finds approximately 19% less decoded HTML,
+75% less homepage route JavaScript, 12% less initial modern JavaScript overall,
+and 27% less combined inline/external CSS. The per-resource gzip estimate for
+HTML + initial JS + external CSS falls about 8%, excluding images, fonts, later
+chunks and third-party scripts. Removing the 96,316-byte background request is
+additional. These local byte comparisons are not Vercel transfer measurements
+or a measured reduction in LCP.
 
 ## Design decisions for Claude to review
 
@@ -87,12 +102,21 @@ network performance. The board is noindex and returns 404 in production.
 6. Re-run mobile PageSpeed against an accessible preview, then production only
    after an approved merge. Keep lab results separate from 28-day field data.
 
-Local verification: production build succeeds (214 generated pages; homepage
-reported 6.68 kB route size / 118 kB First Load JS). All 19 local guards that can
+Local verification: production build succeeds (214 generated pages; final
+application build reports 6.70 kB route size / 118 kB First Load JS). All 19 local guards that can
 run fully pass. BrightLocal listings is explicitly skipped because its API key
 is not configured. Targeted ESLint passes. The repository already suppresses
-build type/lint gates; standalone TypeScript reports 11 existing errors outside
-the changed homepage files. No additional checks were suppressed.
+build type/lint gates. Before generating route types, standalone TypeScript
+reports 11 existing source errors outside the changed homepage files. After
+building it reports those 11 plus seven generated-type errors for the unchanged
+ads routes (18 total). There are no errors in the changed homepage/review files.
+No additional checks were suppressed.
+
+A self-contained static layout snapshot was supplied to Phillip separately.
+It embeds the built CSS, fonts and existing photos for width-by-width review.
+Native pricing disclosures work; it intentionally has no live application
+scripts, tracking or working form submission. It is not evidence that the
+protected Vercel app has passed interaction or visual QA.
 
 The existing PR #272 quote-lead/office-routing/blog work is independent of this
 homepage proposal. Do not mark it merged or combine its validation claims here.
