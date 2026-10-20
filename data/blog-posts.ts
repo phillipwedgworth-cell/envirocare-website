@@ -3633,7 +3633,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'huntsville-pest-control-guide',
-    title: 'Pest Control in Huntsville, AL: Trusted Pest Control Services, Termite Control, and Pest Solutions for Huntsville Homes and Businesses',
+    title: 'Pest Control in Huntsville, AL: A Local Guide',
     excerpt: 'Huntsville sits in a pest control environment unlike anywhere else in Alabama. Limestone geology, Tennessee Valley moisture, and rapid suburban development shape which pests are active. Local guide from EnviroCare\'s Huntsville office.',
     publishedAt: '2026-05-20',
     updatedAt: '2026-09-29',
@@ -5650,7 +5650,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'pest-control-cost-huntsville',
-    title: 'How Much Does Pest Control Cost in Huntsville, AL? Pest Control Costs, Pest Control Prices, and Pest Control Services for Huntsville Alabama Homeowners',
+    title: 'How Much Does Pest Control Cost in Huntsville, AL?',
     excerpt: 'How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
     publishedAt: '2026-07-24',
     updatedAt: '2026-09-21',
