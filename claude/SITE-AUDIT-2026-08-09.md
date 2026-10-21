@@ -1,3 +1,128 @@
+# Homepage mobile redesign review — 2026-10-18
+
+This section records a new homepage proposal. The historical August audit below
+remains dated; it is not evidence of the current production state.
+
+**Branch:** `design/homepage-mobile-2026-10-18`, based on production/main
+`390f32eafcdfc35d0d7d9bd7608dfdfbb9b4869a`. Review before merging.
+The Vercel project serving www is `envirocare-web-only-testing`.
+
+**Review status:** [draft PR #273](https://github.com/phillipwedgworth-cell/envirocare-website/pull/273)
+has a successful Guards workflow and two successful Vercel checks. The intended
+project's [preview deployment](https://vercel.com/envirocare-50d39ae8/envirocare-web-only-testing/2BMq1PP8mtuLsj7ekcZveEZFiTvu)
+is READY for application commit `343c348b6647c67306e9acfd5fa0aad5eda0f157`.
+The preview requires Vercel authentication. Visual/browser interaction checks
+are pending access; a successful deployment is not a substitute for them.
+
+## Measured live baseline
+
+[Google PageSpeed mobile report, October 18 at 7:52 AM CDT](https://pagespeed.web.dev/analysis/https-www-envirocarellc-com/f1v4td27i3?form_factor=mobile)
+uses Lighthouse 13.5.0, an emulated Moto G Power and slow 4G. One run is a lab
+sample, not a promise about every visitor.
+
+| Measurement | Live homepage |
+|---|---:|
+| Mobile performance | 85 / 100 |
+| Accessibility | 96 / 100 |
+| Best practices / SEO | 100 / 100 each |
+| First contentful paint | 1.1 s |
+| Largest contentful paint | 4.0 s |
+| Total blocking time | 0 ms |
+| Cumulative layout shift | 0 |
+| Speed index | 4.1 s |
+
+The same report shows **origin-level** real-user Core Web Vitals passing over
+the latest 28 days: LCP 1.0 s, CLS 0, INP unavailable. URL-level data is disabled.
+Do not describe that origin sample as a homepage-specific INP result.
+
+Independent HTTP/source inspection found a 96,316-byte `/family-yard.jpg`
+background under an almost opaque gradient, with its own high-priority preload.
+The separate visible mobile hero was already optimized: its 750px AVIF was
+24,793 bytes. The background is genuinely used by the old CSS; the proposal
+removes both that background and its preload. It replaces the separate desktop
+and mobile hero elements with one responsive image, closing the old 961–1023px
+visibility gap. These are measured payload/code changes, not measured LCP gains.
+
+The old document contained 64,062 characters of inline CSS, including competing
+mobile/base rules. The new static homepage uses a CSS module and renders on the
+server, with small pricing and ZIP form client components. Existing deferred
+chat/tracking, font-display swap, image optimization and immutable asset caching
+are retained.
+
+A matched local-build comparison finds approximately 19% less decoded HTML,
+75% less homepage route JavaScript, 12% less initial modern JavaScript overall,
+and 27% less combined inline/external CSS. The per-resource gzip estimate for
+HTML + initial JS + external CSS falls about 8%, excluding images, fonts, later
+chunks and third-party scripts. Removing the 96,316-byte background request is
+additional. These local byte comparisons are not Vercel transfer measurements
+or a measured reduction in LCP.
+
+## Design decisions for Claude to review
+
+- First screen: service/location eyebrow, one benefit-led heading, one short
+  introduction, quote and call actions, and a single existing family-yard photo.
+- Service/pricing comparison: three desktop cards; native expandable phone
+  rows. The per-service / Monthly ACH toggle reads canonical pricing. All terms
+  remain in server-rendered HTML. Monthly mosquito pricing visibly identifies
+  the average-size-yard condition.
+- Social proof: four existing published customer quotes without an invented
+  live rating, review count or verification claim.
+- Family story: the actual ribbon-cutting image and Kevin portrait; 1958 is
+  explicitly the family's history with roots in Alexander City.
+- Local help: a labeled ZIP form using canonical routing and all four canonical
+  office cards. Auburn remains a service-area phone, not a fifth office.
+- Mobile actions: Quote is gold with dark lettering, Call stays clear, Pay Bill
+  remains available. Existing behavior and destinations are retained.
+- Footer secondary text: `#5f6d63` on `#F2F6EF`, calculated contrast 4.98:1,
+  replacing 3.40:1. Other footer content and layout are unchanged.
+
+No generated staff, trucks or offices, additional font, carousel, video,
+third-party dependency or changed lead endpoint. The hero is the existing
+approved stock photo and is not presented as a photographed customer/job.
+
+## Review path and acceptance checks
+
+On the branch's Vercel preview, open `/design-review`. The review board compares
+the current live site and redesign at 360, 390, 430, 768, 980 and 1280px.
+Scroll inside the embedded page. This checks CSS layout, not phone hardware or
+network performance. The board is noindex and returns 404 in production.
+
+1. Check first-screen order, photo cropping, CTA visibility and horizontal
+   overflow at each offered width, especially 980px.
+2. Expand each phone pricing row; switch Per Service / Monthly ACH. Confirm
+   $70/visit, from $35/month pest, $45/month mosquito, from $69/month bundle,
+   inspection-only termite pricing, the initial-service promo and ACH terms.
+3. Test ZIP input with Enter, an invalid value, an unmapped ZIP, Birmingham,
+   Alabaster, Huntsville and Auburn; inspect phone hrefs without placing calls.
+4. Open the quote page without submitting a lead, and inspect mobile Call,
+   Pay Bill and Quote destinations. Plain `/quote` links avoid exposing an
+   existing service-query hydration issue while PR #272 remains separate.
+5. Verify metadata/canonical, Speakable selectors, crawlable service and city
+   destinations, actual family photos and coverage attribution/qualifications.
+6. Re-run mobile PageSpeed against an accessible preview, then production only
+   after an approved merge. Keep lab results separate from 28-day field data.
+
+Local verification: production build succeeds (214 generated pages; final
+application build reports 6.70 kB route size / 118 kB First Load JS). All 19 local guards that can
+run fully pass. BrightLocal listings is explicitly skipped because its API key
+is not configured. Targeted ESLint passes. The repository already suppresses
+build type/lint gates. Before generating route types, standalone TypeScript
+reports 11 existing source errors outside the changed homepage files. After
+building it reports those 11 plus seven generated-type errors for the unchanged
+ads routes (18 total). There are no errors in the changed homepage/review files.
+No additional checks were suppressed.
+
+A self-contained static layout snapshot was supplied to Phillip separately.
+It embeds the built CSS, fonts and existing photos for width-by-width review.
+Native pricing disclosures work; it intentionally has no live application
+scripts, tracking or working form submission. It is not evidence that the
+protected Vercel app has passed interaction or visual QA.
+
+The existing PR #272 quote-lead/office-routing/blog work is independent of this
+homepage proposal. Do not mark it merged or combine its validation claims here.
+
+---
+
 # Site audit — 2026-08-09 (Claude Code → Desktop handoff)
 
 **Method.** Fetched all **156 URLs in the live sitemap** on www.envirocarellc.com,
