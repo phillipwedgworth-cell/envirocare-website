@@ -2,9 +2,10 @@
 # Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 # Path: .github/workflows/neuronwriter-narrator.yml  | Push: main
 #
-# CADENCE (Jun 25, 2026):
-#   - push to agents/neuronwriter-content/** or narrator code -> FILL now (today's run)
-#   - daily 13:00 UTC  -> SCORE (read every query score, email ranking; no tokens, no quota)
+# CADENCE (Oct 18, 2026):
+#   - push to active HTML drafts, manifest, or narrator code -> FILL
+#   - review-only directories and documentation do not start FILL
+#   - Monday 13:00 UTC -> SCORE (read every query score, email ranking; no tokens, no quota)
 #   - Monday 14:00 UTC -> FILL (write/push/lift drafts)
 #   - manual button    -> input "mode" (fill or score), defaults to fill
 #
@@ -35,7 +36,9 @@ on:
     paths:
       - "agents/neuronwriter-narrator.mjs"
       - "agents/lib/compliance.mjs"
-      - "agents/neuronwriter-content/**"
+      - "agents/neuronwriter-content/manifest.json"
+      - "agents/neuronwriter-content/**/*.html"
+      - "!agents/neuronwriter-content/review-*/**"
       - ".github/workflows/neuronwriter-narrator.yml"
   schedule:
     - cron: "0 13 * * 1"   # score: weekly (was daily — 2026-09-27 consolidation)
