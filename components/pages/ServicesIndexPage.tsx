@@ -23,7 +23,7 @@ export default function ServicesIndexPage() {
           <p className="page-hero-sub">Bi-monthly pest control, seasonal mosquito service with quoted tick options, and Sentricon® termite protection with up to $1M coverage, subject to the terms of the agreement — plus specialty options for fire ants, fleas, builders, real estate, and commercial properties.</p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/quote" className="btn-outline-white">See Pricing →</a>
+            <a href="/pricing" className="btn-outline-white">See Pricing →</a>
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function ServicesIndexPage() {
           <div className="office-cta-addr">We&apos;ll help you figure out what your home actually needs — no upsell pressure.</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/quote" className="btn-outline-white">See Pricing →</a>
+            <a href="/pricing" className="btn-outline-white">See Pricing →</a>
           </div>
         </div>
       </section>

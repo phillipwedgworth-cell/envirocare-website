@@ -1,5 +1,113 @@
 # Site audit — 2026-08-09 (Claude Code → Desktop handoff)
 
+## October 18, 2026 update — lead reliability and pricing navigation
+
+This section is the current handoff for **PR #272**, branch
+`fix/site-lead-reliability-2026-10-17`. The August findings below are historical.
+Phillip requested useful improvements and a Vercel preview for review. This
+branch includes current main `dad906de93509335022546f62a74fa628edb16c1` and the
+original quote-delivery, canonical ZIP-routing and server-rendered blog fixes.
+
+### What this follow-up changes
+
+- **Active contact form:** a synchronous in-flight/completed guard prevents
+  duplicate handler submissions; rejected requests can be retried. Successful
+  confirmation uses the name and phone from the accepted request, even if the
+  visitor edited the form while it was pending. GA4 and Meta failures are
+  isolated independently. The existing Formspree destination is retained.
+- **Quote form:** confirmation uses the accepted name and phone and deliberately
+  moves focus to the confirmation heading. The original PR's email provider
+  acknowledgement handling, mapped ZIP routing and tracking isolation remain.
+- **Contact accessibility and narrow layouts:** labels are associated with
+  inputs; contact fields have autofill hints; errors are announced; focus is
+  visible. Responsive section padding and shrinkable grid tracks replace the
+  minimum widths that could clip fields on narrow phones.
+- **Pricing navigation:** 13 link definitions in shared service/city templates,
+  Birmingham, Mountain Brook, FAQ, reviews, service index and footer now send
+  pricing/plan requests to `/pricing`. Actual quote buttons retain `/quote`.
+- **Pricing comparison:** the existing **$70 every-other-month pest option** is
+  recorded in `data/pricing.ts` and shown beside the monthly ACH alternative.
+  The note preserves the 12-month ACH agreement, $150 regular / $75 promotional
+  pest initial service, applicability to Pest + Mosquito, and $229 Complete
+  initial-service exception. No new customer price is introduced.
+- **Local service links:** render the complete labels already in
+  `data/services.ts`; remove the redundant prefix that produced text such as
+  "Pest control in Birmingham pest control."
+- **Sitemap freshness:** the static page-modification date is October 18 to
+  reflect these page changes; no Search Console submission is performed.
+
+The older `RequestQuoteForm` component has no importer in the current app and
+components tree. Its tracking debt is not counted as an active customer-flow
+failure and it is not part of this follow-up.
+
+### Evidence and verification
+
+Live content/link checks on October 18 confirmed the pricing-link mismatch and
+the existing $70 option at `https://www.envirocarellc.com/services/pest-control`
+and `https://www.envirocarellc.com/pricing`. Local source review reproduced two
+concurrent ContactUs POSTs and a tracking exception preventing the second tag.
+These are reproducible failure paths, not proof of historical lost leads.
+
+The focused suites exercise the actual handlers with mocked HTTP, email,
+database and tracking dependencies. No live lead, notification or customer
+record is created by these tests.
+
+- **23 quote/routing/blog regression checks and 8 contact checks pass.** The
+  quote suite loads the canonical map and checks all 179 ZIP entries.
+- **The local Next.js production build passes**, generating 214 routes. An
+  HTML audit covers 190 output files and verifies all 474 pricing/plan links
+  point to `/pricing`, all seven contact labels match their fields, and the
+  pricing disclosures appear in the generated page.
+- **21 of 22 local guard groups pass.** `test:listings` explicitly skips because
+  `BRIGHTLOCAL_API_KEY` is absent locally. This is not a successful live-listings
+  audit. The PR records exact-commit GitHub build/guard results separately.
+- **Standalone TypeScript validation is not clean:** it reports 17 errors
+  outside this patch's changed files. The repository's existing build settings
+  skip type validation and lint; a passing build does not clear that debt.
+- The shared package/test-runner edits merge cleanly with PR #275 and retain
+  all three new test commands. Authenticated browser/phone interaction remains
+  a review task; static output and mocked component tests do not substitute
+  for that check.
+
+### Review in Vercel
+
+Use the preview for **envirocare-web-only-testing**, team
+`team_e56vlWMynAPn6B3dI83AzgAD`; this project also serves production, so the
+deployment must remain a **preview**. Vercel sign-in protects preview URLs.
+No authentication-bypass share link or access-control change is required.
+
+1. Inspect `/contact-us` at 320, 375 and 390px: complete field visibility,
+   keyboard focus, label clicks and all four office cards.
+2. With the POST intercepted, check success, failure/retry, rapid repeat submit,
+   and editing the phone while the first request is pending. Confirm the
+   success text matches the payload and receives focus.
+3. Check `/quote` and `/quote?service=termite` with mocked POST responses. Retain
+   the canonical ZIP fixtures from the original PR; do not change office policy.
+4. Check pricing links on `/services/pest-control`, `/auburn`, `/reviews`, `/faq`
+   and the footer. Check the pest comparison row and initial-service disclosure.
+5. Preview browser/phone interaction and real integration delivery are separate
+   from a successful build and isolated tests. They must not be described as
+   completed unless actually exercised. No production merge is requested here.
+
+### Related work for Claude
+
+- **Homepage design:** [PR #273](https://github.com/phillipwedgworth-cell/envirocare-website/pull/273)
+  remains the dedicated homepage/layout proposal; assess its authenticated
+  preview separately. This follow-up does not replace that design.
+- **Remaining Shelby office labels:** [PR #274](https://github.com/phillipwedgworth-cell/envirocare-website/pull/274)
+  already holds Claude's follow-up. Avoid duplicating those page edits.
+- **NeuronWriter quota protection:** [PR #275](https://github.com/phillipwedgworth-cell/envirocare-website/pull/275),
+  branch `fix/neuronwriter-query-reuse-2026-10-18`, is a separate review. Its existing
+  `agents/neuronwriter-content/review-2026-10-17/SPYFU-TO-NEURON-CLAUDE.md`
+  handoff is corrected from Claude's October 17 scoring comment. The four
+  drafts are already evaluated and should not be appended merely for length.
+- **Next content-trust review:** `/reviews` displays prose labelled as common
+  themes with quotation marks and individual five-star treatments. Verify the
+  underlying source before presenting a theme as a customer's actual quote.
+  This patch changes that page's pricing destination only.
+
+---
+
 **Method.** Fetched all **156 URLs in the live sitemap** on www.envirocarellc.com,
 stripped tags, and scanned rendered text against `data/compliance.ts` plus the
 owner-stated bans. Rendered output, not source — the "founded in 1958" episode

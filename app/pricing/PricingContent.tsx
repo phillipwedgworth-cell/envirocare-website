@@ -23,7 +23,7 @@
 
   import { useState } from "react";
 import PestIcon from "@/components/shared/PestIcon";
-import { ACH_TERMS } from "@/data/pricing";
+import { ACH_TERMS, PRICING } from "@/data/pricing";
 
 // ---------- BRAND TOKENS ----------
 const GREEN = "#0E8E40";
@@ -150,7 +150,7 @@ const ALACARTE_PLANS: Plan[] = [
 
 // Plan-comparison table (AEO / featured-snippet play). Termite = quote, never a flat number.
 const COMPARE_ROWS = [
-  { plan: "Pest", startup: "$75", monthly: "From $35/mo", perVisit: "—", included: "Bimonthly perimeter pest, incl. mice & rats; free re-service" },
+  { plan: "Pest", startup: `$${PRICING.plans.pest.startup}`, monthly: `From $${PRICING.plans.pest.fromMonthly}/mo`, perVisit: `$${PRICING.plans.pest.perVisit} every other month`, included: "Bimonthly perimeter pest, incl. mice & rats; free re-service" },
   { plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo", perVisit: "—", included: "Pest plan + seasonal mosquito (Mar–Oct)" },
   { plan: "Complete", startup: "$229", monthly: "From ~$100/mo", perVisit: "—", included: "Pest + mosquito + Sentricon® termite (priced at inspection)" },
   { plan: "Mosquito (alone)", startup: "—", monthly: "$45/mo alone · $34/mo with pest", perVisit: "—", included: "8 treatments, Mar–Oct · equal monthly ACH payments across the year" },
@@ -277,6 +277,10 @@ export default function PricingContent() {
               </tbody>
             </table>
           </div>
+          <p style={{ fontSize: 13, color: GREY, lineHeight: 1.6, marginTop: 14 }}>
+            Pest service is every other month with either payment option. Monthly payments require a 12-month agreement and ACH auto-draft.
+            {PRICING.initialServicePromo.active && <> The initial pest service is currently ${PRICING.plans.pest.startup}, {PRICING.initialServicePromo.percentOff}% off the regular ${PRICING.initialServiceRegular} price. That initial-service offer also applies to Pest + Mosquito; Complete retains its ${PRICING.plans.complete.startup} initial service.</>}
+          </p>
         </div>
       </section>
 

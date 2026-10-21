@@ -172,7 +172,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
             </div>
             <div style={{ display: "flex", gap: ".9rem", flexWrap: "wrap" }}>
               <a href={`tel:${c.officeTel ?? DEFAULT_TEL}`} style={{ background: Au, color: Ik, padding: ".95rem 2rem", borderRadius: 50, fontWeight: 700, textDecoration: "none", boxShadow: "0 4px 18px rgba(245,168,0,.4)" }}>Call {c.officePhone ?? DEFAULT_PHONE} →</a>
-              <Link href="/quote" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>See Pricing</Link>
+              <Link href="/pricing" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", padding: ".85rem 1.8rem", borderRadius: 50, fontWeight: 600, textDecoration: "none" }}>See Pricing</Link>
             </div>
           </div>
         </section>

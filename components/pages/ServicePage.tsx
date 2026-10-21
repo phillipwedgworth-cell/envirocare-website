@@ -263,7 +263,7 @@ export default function ServicePage({ slug }: { slug: string }) {
 
             <div className="city-cta-row">
               <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-              <a href="/quote" className="btn-outline-white">See Pricing →</a>
+              <a href="/pricing" className="btn-outline-white">See Pricing →</a>
             </div>
           </div>
           <div className="svc-art-box">
@@ -316,7 +316,7 @@ export default function ServicePage({ slug }: { slug: string }) {
             <ul style={{ listStyle: "none", padding: 0, margin: "1.25rem 0 0", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: ".75rem" }}>
               {service.nearYou.links.map((l) => (
                 <li key={l.href} style={{ border: "1px solid rgba(14,142,64,.18)", borderRadius: 12, padding: ".85rem 1rem", background: "#FEFDF8" }}>
-                  <Link href={l.href} style={{ color: "var(--green, #0A7935)", fontWeight: 700 }}>Pest control in {l.label}</Link>
+                  <Link href={l.href} style={{ color: "var(--green, #0A7935)", fontWeight: 700 }}>{l.label}</Link>
                   <div style={{ fontSize: 13.5, color: "#4b5563", marginTop: 4 }}>{l.note}</div>
                 </li>
               ))}
@@ -407,7 +407,7 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className="office-cta-addr">Birmingham · Alabaster · Lake Martin · Huntsville</div>
           <div className="office-cta-row">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/quote" className="btn-outline-white">See All Plans →</a>
+            <a href="/pricing" className="btn-outline-white">See All Plans →</a>
           </div>
         </div>
       </section>
