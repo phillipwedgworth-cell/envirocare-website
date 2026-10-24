@@ -4918,7 +4918,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Mosquito Season in Alabama: Mosquito Control Services, Mosquito Management, and Pest Control for Huntsville and Birmingham',
     excerpt: 'Alabama mosquito season runs March through October — an eight-month stretch that makes mosquito control a necessity. This guide covers when mosquito season starts, how mosquito spray treatments work, types of mosquitoes in Alabama, mosquito breeding sites, and what mosquito control costs.',
     publishedAt: '2026-03-01',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-24',
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 12,
@@ -4953,7 +4953,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Mosquito spray treatment — also called barrier treatment — targets the shaded, humid places where adult mosquitoes rest during the day. Mosquitoes are poor fliers and spend most of daylight hours motionless on the undersides of leaves, in dense shrubs, under decks, along fence lines, in ivy and monkey grass, and in the shaded strip behind the garage.</p>
 
-<p>A pest control technician sprays those resting sites directly, along with mosquito breeding sites where standing water cannot be eliminated. The spray continues working on resting surfaces between visits, which is why the mosquito control schedule matters more than the intensity of any single spray application. Mosquito spraying is scheduled roughly every three weeks through the season, timed to the mosquito life cycle rather than the calendar. Heavy rain shortly after a spray application can reduce residual, and if that happens we come back out.</p>
+<p>A pest control technician sprays those resting sites directly, along with mosquito breeding sites where standing water cannot be eliminated. The spray continues working on resting surfaces between visits, which is why the mosquito control schedule matters more than the intensity of any single spray application. Mosquito spraying is scheduled about every 30 days through the season, eight treatments from March through October. Heavy rain shortly after a spray application can reduce residual, and if that happens we come back out.</p>
 
 <p>Professional mosquito spray treatment is fundamentally different from the citronella candles, yard foggers, and mosquito repellent products sold at hardware stores. Those create small, brief effects near the source — they do not reduce the mosquito breeding population, so nothing carries over to tomorrow. That is the core difference between repelling mosquitoes and controlling mosquitoes. Professional mosquito management targets breeding and resting, not just the mosquitoes you can see.</p>
 
@@ -4997,7 +4997,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Professional mosquito spraying kills adult mosquitoes on contact and continues to kill mosquitoes that land on treated surfaces between visits. It is not a repellent — it is a residual mosquito control treatment that reduces the mosquito population on your property over the course of the season. Each spray visit builds on the last, which is why consistent mosquito control through all eight treatments produces the best mosquito reduction.</p>
 
 <h2>What is the mosquito life cycle in Alabama?</h2>
-<p>In Alabama's warm climate, the mosquito life cycle from egg to adult mosquito takes about 8 to 10 days during peak season. A female mosquito lays eggs on or near standing water, and the larvae develop through four stages before emerging as adult mosquitoes ready to bite and breed. Understanding the mosquito life cycle is why mosquito control programs are timed every three weeks — each treatment targets the next generation of adult mosquitoes before they can reproduce.</p>
+<p>In Alabama's warm climate, the mosquito life cycle from egg to adult mosquito takes about 8 to 10 days during peak season. A female mosquito lays eggs on or near standing water, and the larvae develop through four stages before emerging as adult mosquitoes ready to bite and breed. Understanding the mosquito life cycle is why the treatments run on a steady 30-day schedule all season instead of a single summer spray — each visit renews the residual on the resting sites where new adult mosquitoes land.</p>
 
 <h2>Is it too late to start mosquito control in July?</h2>
 <p>No — starting mosquito control in July means the first couple of mosquito treatments are working harder against a bigger mosquito population, but most families see a clear difference within two to three visits. The mosquito control program still delivers meaningful mosquito reduction even when started mid-season.</p>
