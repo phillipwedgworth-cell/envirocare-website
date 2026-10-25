@@ -254,6 +254,39 @@ if (checked < MIN_RECORDS) {
   }
 }
 
+// -- 7. Per-page office blocks: a "Birmingham" office name over Alabaster NAP --
+// Added 2026-10-18. Section 6 reads one line at a time, but two page templates
+// split the office label from its phone across lines, so a line scan cannot see
+// the pair:
+//   - NeighborhoodPage configs:  office: { name: "Birmingham", phone: "(205) 940-6360", ... }
+//   - DeepCityPage configs:      officeLabel: "Birmingham"  with no officeTel
+//     override, which makes the template fall back to Butler Rd / 940-6360.
+// After #264 merged, a live sweep found 10 Shelby pages still rendering
+// "Birmingham Office" over 2025 Butler Rd through exactly these two shapes.
+{
+  const files = [];
+  const walk7 = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, e.name);
+      if (/node_modules|[.]next|command-center/.test(full)) continue;
+      if (e.isDirectory()) walk7(full);
+      else if (/page[.]tsx$/.test(e.name)) files.push(full);
+    }
+  };
+  if (existsSync("app")) walk7("app");
+  const OFFICE_OBJ = /["']?name["']?\s*:\s*["']Birmingham["']\s*,\s*["']?phone["']?\s*:\s*["'][(]205[)] *940-6360["']/;
+  for (const file of files) {
+    const src = readFileSync(file, "utf8");
+    if (OFFICE_OBJ.test(src)) {
+      note(file + ': office block named "Birmingham" with (205) 940-6360 -- that is the Alabaster office; name it "Alabaster" or use 991-2882 / 2120 16th Ave S');
+    }
+    if (/officeLabel\s*:\s*["']Birmingham["']/.test(src) && !/2059912882/.test(src)) {
+      note(file + ': officeLabel "Birmingham" with no officeTel 2059912882 -- DeepCityPage then renders Butler Rd / (205) 940-6360 under a "Birmingham Office" heading');
+    }
+  }
+  if (files.length < 50) note("COVERAGE: section 7 found only " + files.length + " page.tsx files -- the walker has gone blind");
+}
+
 if (fail.length) {
   for (const f of fail) console.log(`  FAIL ${f}`);
   console.log(`\n${fail.length} problem(s) across ${checked} city records`);

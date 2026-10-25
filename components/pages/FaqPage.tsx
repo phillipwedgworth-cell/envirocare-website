@@ -133,7 +133,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">How long does a mosquito application last?</summary>
-              <div className="faq-a">21 days, weather depending. Heavy rain can shorten effectiveness — we'll re-treat free if needed.</div>
+              <div className="faq-a">Treatments are every 30 days, March through October, weather depending. Heavy rain can shorten effectiveness — we'll re-treat free if needed.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">What precautions do you take around dogs and kids?</summary>
