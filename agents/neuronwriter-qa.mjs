@@ -256,8 +256,8 @@ const rubric = `
 - No banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe, AVAILABLE NOW
 - Action Priority section lists at least 2 specific page+term combinations
 - Report is complete: not cut off mid-section and no "[TRUNCATED" marker
-- Every page named in the PAGES list of the input has its own ### section (sections marked "filled from raw data" count)
-- Any gap figure matches the "Gap to threshold" value given in the input
+- Every page named in the PAGES list in the TASK has its own ### section (sections marked "filled from raw data" count)
+- Any gap figure in the report matches that page's gap in the TASK's PAGES list
 - Under 1,100 words (16 pages are covered, so 700 was unreachable), no preamble, no sign-off`;
 
 // ─── WRITE ─────────────────────────────────────────────────────────────────
@@ -392,7 +392,9 @@ export async function run() {
   let criticHistory = null;
   const critic = anthropic ? await criticLoop({
     workerName: AGENT_NAME,
-    task: `NeuronWriter content quality QA report for ${results.filter(r => !r.error).length} EnviroCare service and city pages`,
+    // The critic sees only task + output + rubric, so the page list and the
+    // code-computed gaps the rubric checks against must travel in the task.
+    task: `NeuronWriter content quality QA report for ${results.filter(r => !r.error).length} EnviroCare service and city pages.\nPAGES (page — score — gap to the 70 threshold):\n${results.filter(r => !r.error).map(r => `- ${r.page} — ${r.score}/100 — ${r.score < 70 ? `${70 - r.score} below 70` : 'none'}`).join('\n')}`,
     output: draft,
     rubric,
     revise: fb => workerDraft(results, fb),
