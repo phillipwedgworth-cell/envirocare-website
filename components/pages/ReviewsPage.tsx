@@ -1,65 +1,74 @@
-"use client";
 // ─── CLAUDE CODE: DEPLOY THIS FILE ───
 // Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
 // Path: components/pages/ReviewsPage.tsx
 // Commit: fix(fonts): font tokens, drop Google Fonts loader
 // Push: main
 // ───────────────────────────────────
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
-
-
+import Link from 'next/link';
+import { OFFICES, type OfficeId } from '@/data/offices';
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+
+// The legacy "birmingham" id is Alabaster; the city office is "birmingham-downtown".
+const reviewOfficeIds = ['birmingham-downtown', 'birmingham', 'huntsville', 'lake-martin'] satisfies OfficeId[];
+const reviewOffices = reviewOfficeIds.map((id) => OFFICES[id]);
+const mainOffice = OFFICES.birmingham;
+
 export default function ReviewsPage() {
   return (
-    <>
+    <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...breadcrumbList([{ name: 'Reviews', path: '/reviews' }]) }) }} />
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS }} />
 
 
       <section className="page-hero">
         <div className="page-hero-inner">
-          <div className="city-eyebrow"><span className="city-eyebrow-txt">What Alabama Says About Us</span></div>
-          <h1>Five-Star{" "}<em>Google Reviews</em></h1>
-          <p className="page-hero-sub">68 years. Four generations of the Wedgworth family. Thousands of Alabama homes treated. Here&rsquo;s what our customers say — verified on Google.</p>
+          <div className="city-eyebrow"><span className="city-eyebrow-txt">Family-Owned Alabama Pest Control Since 1958</span></div>
+          <h1>Google Reviews <em>By Office</em></h1>
+          <p className="page-hero-sub">Choose the office that handled your service. On Google, you can read customer reviews or share your experience.</p>
           <div className="page-hero-cta">
-            <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read All Google Reviews →</a>
-            <a href="tel:2059406360" className="btn-outline-white">Call (205) 940-6360</a>
+            <a href="#office-reviews" className="btn-gold" style={{overflow:'visible'}}>Find Your Office →</a>
+            <Link href="/contact-us" className="btn-outline-white">Contact Our Team</Link>
           </div>
         </div>
       </section>
 
       <div className="trust">
         <div className="trust-inner">
-          <div className="ti"><div className="ti-chk">★</div>★★★★★ Google Reviews</div>
-          <div className="ti"><div className="ti-chk">✓</div>Verified Reviews</div>
-          <div className="ti"><div className="ti-chk">✓</div>4 Office Locations</div>
-          <div className="ti"><div className="ti-chk">✓</div>68 Years Family-Owned</div>
-          <div className="ti"><div className="ti-chk">✓</div>27 Cities Served</div>
+          <div className="ti"><div className="ti-chk" aria-hidden="true">✓</div>{reviewOffices.length} Alabama Offices</div>
+          <div className="ti"><div className="ti-chk" aria-hidden="true">✓</div>Family-Owned Since 1958</div>
+          <div className="ti"><div className="ti-chk" aria-hidden="true">✓</div>Your Feedback Is Welcome</div>
         </div>
       </div>
 
-      <section className="rev-section">
+      <section className="rev-section" id="office-reviews" aria-labelledby="office-reviews-heading">
         <div className="container">
-          <div className="section-eyebrow">What Customers Say</div>
-          <h2 className="section-title">Themes From <span>Our Reviews</span></h2>
-          <p className="section-sub">Across hundreds of reviews, these are what customers mention most often.</p>
+          <div className="section-eyebrow">Find Your Local Team</div>
+          <h2 className="section-title" id="office-reviews-heading">Choose Your <span>EnviroCare Office</span></h2>
+          <p className="section-sub">Use the address below to find the team that served you. Each Google profile opens in a new tab.</p>
 
-          <div className="rev-grid">
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"We see a familiar face on our route. He knows my dog, my gate code, and exactly where the ants come in. That continuity is everything."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Tech Continuity</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Four generations of family. You can feel it in how the team treats you — not a corporate script, just real people who care."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Family-Owned Touch</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Called Monday, scheduled Wednesday, problem gone by Friday. No three-week waitlist like the franchise places."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Same-Week Scheduling</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"Sentricon stations installed in 90 minutes — no drilling, no concrete cuts, no torn-up flowerbeds. That sold us."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Sentricon® Install</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"When I called about a wasp nest between visits, they came the next day. Free. No upcharge. That&rsquo;s service the big companies don&rsquo;t do anymore."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Free Re-Service</span></div></div>
-            <div className="rev-card"><div className="rev-stars">★★★★★</div><div className="rev-quote">"The mosquito service made our backyard usable again. We were ready to give up on summer evenings — now we live out there."</div><div className="rev-byline"><span className="rev-author">A common review theme</span><span className="rev-meta">Mosquito Yard Service</span></div></div>
+          <div className="review-office-grid">
+            {reviewOffices.map((office) => (
+              <article key={office.id} className="review-office-card">
+                <h3>{office.name}</h3>
+                <address>
+                  {office.address.street}<br />
+                  {office.address.city}, {office.address.region} {office.address.postalCode}
+                </address>
+                <a href={office.phoneHref} className="review-office-phone">Call {office.phone}</a>
+                {office.googleBusinessProfile ? (
+                  <a href={office.googleBusinessProfile} target="_blank" rel="noopener noreferrer" className="review-office-link">
+                    View {office.name} on Google <span aria-hidden="true">↗</span>
+                  </a>
+                ) : null}
+              </article>
+            ))}
           </div>
 
           <div className="google-cta">
-            <div className="google-cta-stars">★★★★★</div>
-            <div className="google-cta-num">Google Reviewed</div>
-            <div className="google-cta-lbl">Across verified Google reviews</div>
+            <h2 className="google-cta-num">Questions About Your Service?</h2>
+            <p className="google-cta-lbl">Our team can help with service questions or follow-up. You can contact us and share your Google feedback independently.</p>
             <div className="page-hero-cta" style={{justifyContent:'center'}}>
-              <a href="https://www.google.com/search?q=EnviroCare+Pest+Termite+Services+Alabama" target="_blank" rel="noopener" className="btn-gold" style={{overflow:'visible'}}>Read Real Reviews On Google →</a>
+              <Link href="/contact-us" className="btn-gold" style={{overflow:'visible'}}>Contact Our Team →</Link>
             </div>
           </div>
         </div>
@@ -68,16 +77,16 @@ export default function ReviewsPage() {
       <section className="office-cta">
         <div className="office-cta-inner">
           <div className="section-eyebrow" style={{color:'rgba(255,255,255,.7)'}}>Try Us Yourself</div>
-          <h3>Join Happy Alabama Homes</h3>
-          <div className="office-cta-addr">Birmingham · Lake Martin · Huntsville · Auburn</div>
+          <h2>Find the Service That Fits Your Home</h2>
+          <div className="office-cta-addr">{reviewOffices.map((office) => office.name).join(' · ')}</div>
           <div className="office-cta-row">
-            <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
-            <a href="/pricing" className="btn-outline-white">See Pricing →</a>
+            <a href={mainOffice.phoneHref} className="btn-gold" style={{overflow:'visible'}}>Call {mainOffice.phone}</a>
+            <Link href="/pricing" className="btn-outline-white">See Pricing →</Link>
           </div>
         </div>
       </section>
 
-    </>
+    </main>
   );
 }
 
@@ -431,7 +440,7 @@ body{font-family:var(--font-sans);background:var(--white);color:var(--ink);overf
 /* ─── OFFICE CARD */
 .office-cta{padding:4rem clamp(1.5rem,5vw,4rem);background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-darkest) 100%);color:#fff}
 .office-cta-inner{max-width:920px;margin:0 auto;text-align:center}
-.office-cta h3{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:.6rem}
+.office-cta h2{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:.6rem}
 .office-cta-addr{font-size:1.05rem;color:rgba(255,255,255,.85);margin-bottom:1.6rem}
 .office-cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 
@@ -449,6 +458,16 @@ body{font-family:var(--font-sans);background:var(--white);color:var(--ink);overf
 .page-hero-cta{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 
 .rev-section{padding:5rem clamp(1.5rem,5vw,4rem);background:var(--cream)}
+#office-reviews{scroll-margin-top:8rem}
+.review-office-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;max-width:1000px;margin:2.4rem auto 0}
+.review-office-card{min-width:0;background:#fff;border:1px solid var(--border);border-radius:18px;padding:clamp(1.2rem,4vw,2rem);display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
+.review-office-card h3{font-family:var(--font-serif);font-size:1.6rem;line-height:1.2;color:var(--green-deep)}
+.review-office-card address{font-style:normal;line-height:1.7;color:var(--ink-soft)}
+.review-office-phone{display:inline-flex;align-items:center;min-height:44px;color:var(--green-dk);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.review-office-link{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:48px;max-width:100%;margin-top:auto;padding:.85rem 1.2rem;background:var(--green-dk);color:#fff;border-radius:12px;font-weight:700;text-decoration:none;line-height:1.5;overflow-wrap:anywhere}
+.review-office-link:hover{background:var(--green-deep)}
+.review-office-link:focus-visible,.review-office-phone:focus-visible{outline:3px solid var(--gold-deep);outline-offset:4px}
+@media(min-width:700px){.review-office-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;max-width:1180px;margin:2.4rem auto 0}
 .rev-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.8rem 1.6rem;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
 .rev-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}

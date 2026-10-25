@@ -1,20 +1,24 @@
+import type { Metadata } from 'next';
 import ReviewsPage from '@/components/pages/ReviewsPage';
 
-export const metadata = {
+const title = 'Google Reviews by Office | EnviroCare Alabama';
+const description = 'Find EnviroCare Google profiles for Birmingham, Alabaster, Huntsville and Alexander City. Read customer feedback or share your service experience.';
+
+export const metadata: Metadata = {
   alternates: { canonical: '/reviews' },
-  title: 'Customer Reviews — Google Verified | EnviroCare Alabama',
-  description: 'Read EnviroCare\'s verified Google reviews. five-star average rating across 68 years of Alabama service. Family-owned since 1958.',
+  title,
+  description,
   openGraph: {
-    title: 'Customer Reviews — Google Verified | EnviroCare Alabama',
-    description: 'Read EnviroCare\'s verified Google reviews. five-star average rating across 68 years of Alabama service. Family-owned since 1958.',
+    title,
+    description,
     url: 'https://www.envirocarellc.com/reviews',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Customer Reviews — Google Verified | EnviroCare Alabama',
-    description: 'Read EnviroCare\'s verified Google reviews. five-star average rating across 68 years of Alabama service. Family-owned since 1958.',
+    title,
+    description,
     images: ['/og-image.png'],
   },
 };
