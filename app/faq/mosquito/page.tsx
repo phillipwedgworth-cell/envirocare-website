@@ -74,7 +74,7 @@ const SCHEMA = {
       name: "What happens if mosquitoes come back between treatments?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We come back at no charge. Heavy rain can reduce barrier effectiveness earlier than 21 days. If you're seeing significant mosquito activity before your next scheduled visit, call us and we'll re-treat — free. That's our standard policy, not an exception.",
+        text: "We come back at no charge. Heavy rain can reduce barrier effectiveness before the next scheduled treatment. If you're seeing significant mosquito activity before your next scheduled visit, call us and we'll re-treat — free. That's our standard policy, not an exception.",
       },
     },
   ],
@@ -118,7 +118,7 @@ const FAQS = [
   },
   {
     q: "What if mosquitoes come back before the next visit?",
-    a: "Call us. We come back free. Free re-service is our standard policy for all plans — not a premium upgrade. If the barrier breaks down before 21 days due to heavy rain or unusual conditions, we treat again at no charge.",
+    a: "Call us. We come back free. Free re-service is our standard policy for all plans — not a premium upgrade. If the barrier breaks down before your next scheduled treatment due to heavy rain or unusual conditions, we treat again at no charge.",
   },
   {
     q: "Do you treat standing water?",
@@ -428,7 +428,7 @@ export default function MosquitoFAQ() {
           >
             {[
               { n: "$45/month", label: "March–October" },
-              { n: "21 days", label: "Treatment cycle" },
+              { n: "30 days", label: "Treatment cycle" },
               { n: "Free", label: "Re-service between visits" },
               { n: "Since 1958", label: "Family-owned Alabama" },
               { n: "4 offices", label: "Birmingham · Alabaster · Huntsville · Lake Martin" },

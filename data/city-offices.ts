@@ -135,9 +135,31 @@ export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
  * (/service-areas/madison). Everything else → Birmingham.
  */
 export function officeForPath(pathname: string): OfficeId {
+  const post = blogPostOffice(pathname);
+  if (post) return post;
   const slug = slugForPath(pathname);
   if (!slug) return 'birmingham';
   return CITY_OFFICE[slug] ?? 'birmingham';
+}
+
+/**
+ * Market blog posts whose body tells the reader to call one specific office.
+ * Every /blog/* path has the slug "blog", so these fell back to the Alabaster
+ * main line: on 2026-10-20 (GPT audit, checked in the live HTML) the header and
+ * mobile call bar on the Huntsville guide and cost post dialed (205) 940-6360
+ * while the post said to call Huntsville, and the three Lake Martin posts did
+ * the same. Statewide posts are deliberately absent and keep the main line.
+ */
+export const BLOG_POST_OFFICE: Record<string, OfficeId> = {
+  'huntsville-pest-control-guide': 'huntsville',
+  'pest-control-cost-huntsville': 'huntsville',
+  'lake-martin-mosquito-guide': 'lake-martin',
+  'lake-martin-home-pest-checklist': 'lake-martin',
+  'spiders-on-boat-docks-lake-martin': 'lake-martin',
+};
+function blogPostOffice(pathname: string): OfficeId | undefined {
+  const parts = pathname.split('/').filter(Boolean);
+  return parts[0] === 'blog' && parts[1] ? BLOG_POST_OFFICE[parts[1]] : undefined;
 }
 
 /** First meaningful path segment, unwrapping /service-areas/<city>. */
@@ -154,6 +176,7 @@ function slugForPath(pathname: string): string | null {
  * neutral quote/pricing/contact pages.
  */
 export function hasOwnOffice(pathname: string): boolean {
+  if (blogPostOffice(pathname)) return true;
   const slug = slugForPath(pathname);
   if (!slug) return false;
   return Boolean(SERVICE_CITY_SLUGS[slug]) || CITY_OFFICE[slug] !== undefined;
