@@ -429,9 +429,9 @@ export async function run() {
   }
 
   const rubric = `
-- Each location named explicitly with its current citation score out of 100
+- All 4 offices (Alabaster, Huntsville, Alex City, Birmingham) named, each with its current ACTIVE CITATION COUNT (a count of listings from the Citation Tracker report — not a score, never "N/100")
 - Week-over-week delta for each location (or "no prior data" if first run)
-- Any score < 85 explicitly flagged as BELOW TARGET with gap to target
+- Any count below 85 active citations explicitly flagged as BELOW TARGET with the gap in citations
 - At least one concrete next action tied to a specific location and citation gap
 - No vague phrases ("improve citations", "monitor closely") without numbers
 - Under 200 words, no preamble, no sign-off`;
@@ -441,7 +441,7 @@ export async function run() {
   let escalated = false;
   const critic = await criticLoop({
     workerName: AGENT_NAME,
-    task: "Weekly BrightLocal citation brief for EnviroCare's 3 Alabama locations",
+    task: "Weekly BrightLocal citation brief for EnviroCare's 4 Alabama offices (active citation counts)",
     output: draft,
     rubric,
     revise: (feedback) => workerDraft(feedback),
