@@ -162,7 +162,7 @@ jobs:
           printf '%s\n' "$BODY" > pr-body.md
           if [ "${{ steps.guards.outputs.ok }}" != "true" ]; then
             DRAFT="--draft"; TITLE_PREFIX="[GUARDS FAILING] "
-            { echo "**Guards failed on this run: DRAFT, do not merge.** Failing lines from npm run build && npm test:"; echo; echo '```'; grep -E "FAIL|✗|Error|error" guard-output.txt | tail -40; echo '```'; echo; printf '%s\n' "$BODY"; } > pr-body.md
+            { echo "**Guards failed on this run: DRAFT, do not merge.** Failing lines from npm run build && npm test:"; echo; echo '```'; { grep -E "FAIL|✗|Error|error" guard-output.txt || echo "(no matching lines; see the Actions log for full output)"; } | tail -40; echo '```'; echo; printf '%s\n' "$BODY"; } > pr-body.md
           fi
           URL=$(gh pr create $DRAFT --base main --head "$BR" --title "${TITLE_PREFIX}Content refresh $(date -u +%b\ %-d): $(node -e "console.log(require('./agents/.content-refresh-manifest.json').changed)") page(s), $(node -e "try{console.log(require('./agents/.blog-drafts-manifest.json').changed)}catch{console.log(0)}") new post(s)" --body-file pr-body.md)
           echo "$URL"
