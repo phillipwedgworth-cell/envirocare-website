@@ -132,7 +132,7 @@ export default function ClusterAreaPage({ cfg }: { cfg: ClusterConfig }) {
             <a href={`tel:${office.tel}`} style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>
               Call {office.phone}
             </a>
-            <a href="/quote" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
+            <a href="/pricing" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
               See Plans →
             </a>
           </div>

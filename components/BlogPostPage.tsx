@@ -1,6 +1,6 @@
-'use client';
+// Server-rendered: do not ship the complete blog archive in browser JavaScript.
 
-import { getPostBySlug } from '@/data/blog-posts';
+import { getPostBySlug, isPublished } from '@/data/blog-posts';
 import { getBlogVisual } from '@/data/blog-visuals';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 
 export default function BlogPostPage({ slug }: { slug: string }) {
   const post = getPostBySlug(slug);
-  if (!post) {
+  if (!post || !isPublished(post)) {
     notFound();
   }
 
@@ -40,9 +40,9 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             <h1 className="bpp-title">{post.title}</h1>
             <p className="bpp-excerpt">{post.excerpt}</p>
             <div className="bpp-byline">
-              By <strong>{post.author}</strong> · {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                month: 'long', day: 'numeric', year: 'numeric',
-              })}
+              By <strong>{post.author}</strong> · <time dateTime={post.publishedAt}>{new Date(post.publishedAt).toLocaleDateString('en-US', {
+                month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
+              })}</time>
             </div>
           </div>
         </header>
@@ -165,6 +165,10 @@ const POST_CSS = `
   line-height: 1.7;
   color: #1A2620;
 }
+/* Keep wide comparison tables and long links inside a mobile article. */
+.bpp-body table { display: block; max-width: 100%; overflow-x: auto; }
+.bpp-body img { max-width: 100%; height: auto; }
+.bpp-body a { overflow-wrap: anywhere; }
 .bpp-body p { margin: 0 0 1.4em; }
 .bpp-body p.lede {
   font-size: 22px;

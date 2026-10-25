@@ -267,10 +267,10 @@ export default function MobileActionBar() {
         }
         .mab-item:active { background: #F2F6EF; }
         .mab-call { color: #0A7935; }
-        .mab-pay { background: #07642B; color: #fff; }
-        .mab-pay:active { background: #0A7935; }
-        .mab-quote { color: #B8860B; }
-        .mab-quote svg { color: #F5A800; }
+        .mab-pay { color: #3A5040; }
+        .mab-quote { background: #F5A800; color: #0E1A0F; }
+        .mab-quote:active { background: #E89C00; }
+        .mab-quote svg { color: #0E1A0F; }
       `}</style>
     </nav>
   );

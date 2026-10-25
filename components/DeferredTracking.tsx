@@ -22,9 +22,10 @@
  * USAGE: Replace the three <Script> blocks (GA4 src, GA4 init, FB Pixel) and
  * the <noscript> pixel in app/layout.tsx with:
  *
- *     <DeferredTracking />
+ *     <DeferredTracking metaEnabled={process.env.VERCEL_ENV === 'production'} />
  *
- * The <noscript> fallback pixel is preserved inside this component.
+ * The server supplies Meta's deployment gate, including the <noscript> fallback,
+ * so preview builds and local development do not send production Meta events.
  */
 'use client';
 
@@ -47,7 +48,7 @@ const FB_PIXEL_ID = '1945518562226719';
 // short enough that a passive reader still gets tracked.
 const FALLBACK_MS = 5000;
 
-function loadTracking() {
+function loadTracking(metaEnabled: boolean) {
   // Guard: only fire once, only on the production domain.
   if ((window as any).__ecTrackingLoaded) return;
   (window as any).__ecTrackingLoaded = true;
@@ -83,9 +84,10 @@ function loadTracking() {
 
   // ── EnviroCare event helpers (used by components + inline listeners) ────
   const GA_ON = isProduction;
+  const META_ON = metaEnabled && isProduction;
   (window as any).ecTrack = function (eventName: string, params?: Record<string, any>) {
     if (GA_ON) (window as any).gtag?.('event', eventName, params || {});
-    if ((window as any).fbq) (window as any).fbq('trackCustom', eventName, params || {});
+    if (META_ON && (window as any).fbq) (window as any).fbq('trackCustom', eventName, params || {});
   };
 
   // Auto-track phone link clicks (tel: links)
@@ -98,7 +100,7 @@ function loadTracking() {
         event_label: phone,
         value: 1,
       });
-      if ((window as any).fbq) (window as any).fbq('track', 'Contact', { content_name: phone });
+      if (META_ON && (window as any).fbq) (window as any).fbq('track', 'Contact', { content_name: phone });
     }
   });
 
@@ -125,27 +127,29 @@ function loadTracking() {
   });
 
   // ── Meta Pixel ─────────────────────────────────────────────────────────
-  (function (f: any, b: any, e: any, v: any) {
-    if (f.fbq) return;
-    const n: any = f.fbq = function () {
-      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-    };
-    if (!f._fbq) f._fbq = n;
-    n.push = n;
-    n.loaded = true;
-    n.version = '2.0';
-    n.queue = [];
-    const t = b.createElement(e);
-    t.async = true;
-    t.src = v;
-    const s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s);
-  })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-  (window as any).fbq('init', FB_PIXEL_ID);
-  (window as any).fbq('track', 'PageView');
+  if (META_ON) {
+    (function (f: any, b: any, e: any, v: any) {
+      if (f.fbq) return;
+      const n: any = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+      const t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      const s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    (window as any).fbq('init', FB_PIXEL_ID);
+    (window as any).fbq('track', 'PageView');
+  }
 }
 
-export default function DeferredTracking() {
+export default function DeferredTracking({ metaEnabled }: { metaEnabled: boolean }) {
   useEffect(() => {
     // The interaction events that signal a real user.
     const triggers = ['click', 'scroll', 'keydown', 'touchstart'] as const;
@@ -157,7 +161,7 @@ export default function DeferredTracking() {
         window.removeEventListener(evt, onInteraction, { capture: true });
       }
       clearTimeout(fallbackTimer);
-      loadTracking();
+      loadTracking(metaEnabled);
     }
 
     for (const evt of triggers) {
@@ -173,10 +177,13 @@ export default function DeferredTracking() {
       }
       clearTimeout(fallbackTimer);
     };
-  }, []);
+  }, [metaEnabled]);
 
-  // The <noscript> pixel fires regardless — it has zero performance cost
-  // and ensures the FB Pixel still records a PageView when JS is disabled.
+  // Use the server's deployment gate for matching SSR/hydration output. A
+  // browser hostname check cannot protect this fallback when JS is disabled.
+  if (!metaEnabled) return null;
+
+  // Preserve PageView measurement for production visitors with JS disabled.
   return (
     <noscript>
       <img

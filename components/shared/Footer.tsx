@@ -25,7 +25,7 @@ const FOOTER_OFFICES = (
 }));
 
 const TEXT = "#4a5750";
-const MUTED = "#7a887e";
+const MUTED = "#5f6d63";
 const SURFACE = "#F2F6EF";
 const HAIRLINE = "#d6e2d8";
 
@@ -75,7 +75,7 @@ const SERVICES: [string, string][] = [
   ["Termite Control", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito"],
   ["Tick Control", "/services/tick-control"],
-  ["Plans & Pricing", "/quote"],
+  ["Plans & Pricing", "/pricing"],
 ];
 
 const SPECIALTY: [string, string][] = [

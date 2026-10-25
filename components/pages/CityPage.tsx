@@ -312,7 +312,7 @@ export default function CityPage({ slug }: { slug: string }) {
             </div>
             <div className="city-cta-row">
               <a href={`tel:${tel}`} className="btn-gold" style={{overflow:'visible'}}>Call {phone}</a>
-              <a href="/quote" className="btn-outline-white">See Pricing →</a>
+              <a href="/pricing" className="btn-outline-white">See Pricing →</a>
             </div>
           </div>
           <div className="city-art-box">
@@ -408,7 +408,7 @@ export default function CityPage({ slug }: { slug: string }) {
           <div className="office-cta-addr">{city.officeAddress}</div>
           <div className="office-cta-row">
             <a href={`tel:${tel}`} className="btn-gold" style={{overflow:'visible'}}>Call {phone}</a>
-            <a href="/quote" className="btn-outline-white">See Plans →</a>
+            <a href="/pricing" className="btn-outline-white">See Plans →</a>
           </div>
         </div>
       </section>
