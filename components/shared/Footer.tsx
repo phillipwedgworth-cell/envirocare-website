@@ -124,6 +124,29 @@ const AREAS_2: [string, string][] = [
   ["All Service Areas →", "/service-areas"],
 ];
 
+// Local service pages (BrightLocal insight, Oct 2026): these city + service
+// pages already exist but were linked only from /service-areas and a few
+// sibling pages — none from the site-wide header, footer or homepage. One
+// footer column puts every one of them a single click from every page. Links
+// only: no new pages, prices or claims.
+const LOCAL_SERVICES: [string, string][] = [
+  ["Birmingham Termite Control", "/birmingham-termite-control"],
+  ["Birmingham Mosquito Control", "/birmingham-mosquito-control"],
+  ["Birmingham Exterminator", "/birmingham-exterminator"],
+  ["Vestavia Hills Mosquito Control", "/vestavia-hills-mosquito-control"],
+  ["Huntsville Termite Control", "/huntsville-termite-control"],
+  ["Huntsville Mosquito Control", "/huntsville-mosquito-control"],
+  ["Huntsville Exterminator", "/huntsville-exterminator"],
+  ["Madison Pest Control", "/madison-pest-control"],
+  ["Madison Termite Control", "/madison-termite-control"],
+  ["Madison Mosquito Control", "/madison-mosquito-control"],
+  ["Madison Exterminator", "/madison-exterminator"],
+  ["Madison Commercial Pest Control", "/madison-commercial-pest-control"],
+  ["Decatur Termite Control", "/decatur-termite-control"],
+  ["Decatur Mosquito Control", "/decatur-mosquito-control"],
+  ["Decatur Exterminator", "/decatur-exterminator"],
+];
+
 export default function Footer() {
   return (
     <footer style={{ background: SURFACE, borderTop: `4px solid ${GREEN}`, padding: "56px clamp(20px,5vw,64px) 28px" }}>
@@ -190,6 +213,12 @@ export default function Footer() {
         <div>
           <div style={COL_HEAD}>More Service Areas</div>
           {AREAS_2.map(([label, href]) => (
+            <a key={href} href={href} style={LINK}>{label}</a>
+          ))}
+        </div>
+        <div>
+          <div style={COL_HEAD}>Local Services</div>
+          {LOCAL_SERVICES.map(([label, href]) => (
             <a key={href} href={href} style={LINK}>{label}</a>
           ))}
         </div>
