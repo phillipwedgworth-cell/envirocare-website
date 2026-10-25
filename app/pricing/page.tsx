@@ -54,11 +54,11 @@ const OFFER_SCHEMA = {
       priceSpecification: { "@type": "UnitPriceSpecification", price: "45", priceCurrency: "USD", unitText: "per month, 8 treatments March–October" },
       itemOffered: { "@type": "Service", name: "Seasonal Mosquito Yard Treatment", description: "30-day yard barrier for an average-size yard, $45 a month with ACH spreading it evenly across the year. Eight treatments March through October. Firm price after a free inspection." },
     },
-    {
-      "@type": "Offer", name: "Mosquito + Tick", priceCurrency: "USD", price: "65",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "65", priceCurrency: "USD", unitText: "per month, 8 treatments March–October" },
-      itemOffered: { "@type": "Service", name: "Seasonal Mosquito + Tick Yard Treatment", description: "Mosquito + tick yard barrier (covers chiggers), $65 a month. Tick is offered only with mosquito." },
-    },
+    // Mosquito + Tick deliberately has NO Offer here. data/pricing.ts sets
+    // addOns.mosquitoTick.listOnPricingPage = false and the visible /pricing copy
+    // says tick is quoted for the property, so a $65 Offer in this page's
+    // schema contradicted the page it describes (AGENTS.md §6). City pages that
+    // state the Mosquito + Tick plan are unaffected — see the Oct 24 handoff.
     {
       // Termite — intentionally NO price (Alabama requires an on-site WDO inspection first).
       "@type": "Offer", name: "Sentricon® Termite Protection",
@@ -74,7 +74,7 @@ const FAQ_SCHEMA = {
     { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." } },
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
     { "@type": "Question", name: "What is the initial service fee?", acceptedAnswer: { "@type": "Answer", text: "$75 on Pest and on Pest + Mosquito. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment and there is no separate inspection fee. Mosquito booked alone has no initial fee; it is billed monthly." } },
-    { "@type": "Question", name: "Can I get mosquito or tick without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — mosquito alone is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. Tick is offered with mosquito; standalone tick work is quoted for the property." } },
+    { "@type": "Question", name: "Can I get mosquito without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." } },
     { "@type": "Question", name: "What's the $1M EnviroCare coverage?", acceptedAnswer: { "@type": "Answer", text: "If termites cause structural damage while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement." } },
   ],
 };
