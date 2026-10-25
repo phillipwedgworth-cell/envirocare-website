@@ -356,7 +356,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* GA4 + Meta Pixel — deferred until first user interaction or 5 s idle.
             Saves ~345 KiB from the LCP window; see components/DeferredTracking.tsx. */}
-        <DeferredTracking />
+        <DeferredTracking metaEnabled={process.env.VERCEL_ENV === 'production'} />
       </body>
     </html>
   );

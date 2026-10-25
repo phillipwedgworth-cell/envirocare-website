@@ -75,7 +75,7 @@ const SERVICES: [string, string][] = [
   ["Termite Control", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito"],
   ["Tick Control", "/services/tick-control"],
-  ["Plans & Pricing", "/quote"],
+  ["Plans & Pricing", "/pricing"],
 ];
 
 const SPECIALTY: [string, string][] = [

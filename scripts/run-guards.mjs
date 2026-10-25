@@ -15,6 +15,7 @@ const GUARDS = [
   "test:imagery", "test:zombies", "test:citynap", "test:local-falcon", "test:spyfu", "test:neuronwriter", "test:zip-routing",
   "test:breadcrumbs", "test:og", "test:brief", "test:lastmod", "test:tracking",
   "test:similarity", "test:page-refresh", "test:captivated-safety", "test:listings",
+  "test:site-critical", "test:contact-reliability",
 ];
 
 const SKIP_RE = /\bSKIPPED\b|\bSkipping\b|checks nothing|no build output/i;
