@@ -200,12 +200,18 @@ async function workerDraft(results, feedback = null) {
     const missingList = (r.missing ?? []).slice(0, 10).join(', ') || 'none';
     const underusedList = (r.underused ?? []).slice(0, 5).map(u => `${u.term}(${u.count})`).join(', ') || 'none';
     const questionsList = (r.questions ?? []).slice(0, 3).join(' | ') || 'none';
-    return `### ${r.page}\nKeyword: ${r.keyword}\nScore: ${r.score}/100 — ${status}\nMissing terms: ${missingList}\nUnderused: ${underusedList}\nSuggested questions: ${questionsList}`;
+    const gap = r.score < 70 ? `${70 - r.score} points below the 70 threshold` : 'none (at or above 70)';
+    return `### ${r.page}\nKeyword: ${r.keyword}\nScore: ${r.score}/100 — ${status}\nGap to threshold: ${gap}\nMissing terms: ${missingList}\nUnderused: ${underusedList}\nSuggested questions: ${questionsList}`;
   }).join('\n\n');
 
+  // The worker used to drop pages (12 of 16 on 2026-10-19) and invent gap math
+  // ("53-point gap" for a 47); the critic then failed all three loops. Give it
+  // the exact page list and the gaps, and backfill any page it still skips.
+  const pageList = results.map(r => r.page).join(', ');
+  const scope = `PAGES (${results.length}) — the Score Summary and Per-Page Recommendations must each cover every one of these, in this order: ${pageList}\nUse the "Gap to threshold" values exactly as given; never compute your own gap.`;
   const prompt = feedback
-    ? `Today: ${today}\nQueries used this run: ${queriesUsed}\n\nRevise the report addressing this critic feedback:\n${feedback}\n\nRAW DATA:\n${dataBlock}`
-    : `Today: ${today}\nQueries used this run: ${queriesUsed}\n\nRAW DATA:\n${dataBlock}`;
+    ? `Today: ${today}\nQueries used this run: ${queriesUsed}\n${scope}\n\nRevise the report addressing this critic feedback:\n${feedback}\n\nRAW DATA:\n${dataBlock}`
+    : `Today: ${today}\nQueries used this run: ${queriesUsed}\n${scope}\n\nRAW DATA:\n${dataBlock}`;
 
   // 1800 was too small: 16 pages of output ran 830–980 words and every report
   // from 09-21 to 10-05 ended mid-section with no Action Priority, so the critic
@@ -223,7 +229,21 @@ async function workerDraft(results, feedback = null) {
     console.warn(`[${AGENT_NAME}] worker output hit max_tokens — report is truncated`);
     return `${text}\n\n[TRUNCATED — worker hit max_tokens; report is incomplete]`;
   }
-  return text;
+  return backfillMissingPages(text, results);
+}
+
+// Any page the worker left out gets a section built from the raw data, labelled
+// as such, so the report is never silently incomplete.
+function backfillMissingPages(text, results) {
+  const missing = results.filter(r => !r.error && !new RegExp(`^###\\s+${r.page.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'm').test(text));
+  if (!missing.length) return text;
+  const blocks = missing.map(r => {
+    const status = r.score < 70 ? '🔴 BELOW THRESHOLD' : r.score > 80 ? '🟡 ABOVE BAND' : '✅ IN BAND';
+    const terms = (r.missing ?? []).slice(0, 5).join(', ') || 'none';
+    return `### ${r.page}\nScore: ${r.score}/100 — ${status}\nRecommendation: Add the missing terms listed below (filled from raw data; the writer skipped this page).\nTop missing: ${terms}`;
+  }).join('\n\n');
+  console.warn(`[${AGENT_NAME}] worker skipped ${missing.length} page(s) — backfilled from raw data: ${missing.map(r => r.page).join(', ')}`);
+  return `${text}\n\n${blocks}`;
 }
 
 // ─── CRITIC ────────────────────────────────────────────────────────────────
@@ -236,6 +256,8 @@ const rubric = `
 - No banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe, AVAILABLE NOW
 - Action Priority section lists at least 2 specific page+term combinations
 - Report is complete: not cut off mid-section and no "[TRUNCATED" marker
+- Every page named in the PAGES list of the input has its own ### section (sections marked "filled from raw data" count)
+- Any gap figure matches the "Gap to threshold" value given in the input
 - Under 1,100 words (16 pages are covered, so 700 was unreachable), no preamble, no sign-off`;
 
 // ─── WRITE ─────────────────────────────────────────────────────────────────
@@ -370,7 +392,7 @@ export async function run() {
   let criticHistory = null;
   const critic = anthropic ? await criticLoop({
     workerName: AGENT_NAME,
-    task: 'NeuronWriter content quality QA report for 16 EnviroCare service and city pages',
+    task: `NeuronWriter content quality QA report for ${results.filter(r => !r.error).length} EnviroCare service and city pages`,
     output: draft,
     rubric,
     revise: fb => workerDraft(results, fb),
