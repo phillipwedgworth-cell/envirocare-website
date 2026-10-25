@@ -117,11 +117,25 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "No page changed — nothing to propose."
           else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 
-      - name: Rebuild + full guard suite (a failing draft never becomes a PR)
+      - name: Rebuild + full guard suite (a failing draft never becomes a ready PR)
+        id: guards
         if: steps.check.outputs.changed == 'true'
         env:
           BRIGHTLOCAL_API_KEY: ${{ secrets.BRIGHTLOCAL_API_KEY }}
-        run: npm run build && npm test
+        # A red guard used to end the run with nothing to look at: the drafts were
+        # thrown away and the Actions log is the only record (unreadable from the
+        # Claude sandbox). Runs on Oct 13 and Oct 20 2026 both died here and two
+        # weeks of finished NeuronWriter drafts never reached review. Now the
+        # failing output is kept and the work is opened as a DRAFT PR (below),
+        # so the failing guard is visible and fixable. Still never mergeable red.
+        run: |
+          set -o pipefail
+          if (npm run build && npm test) 2>&1 | tee guard-output.txt; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Guards failed — opening a DRAFT PR with the failing output instead of discarding the drafts."
+          fi
 
       - name: Branch, commit, PR
         if: steps.check.outputs.changed == 'true'
@@ -144,6 +158,13 @@ jobs:
             try { const b=require('./agents/.blog-drafts-manifest.json'); if (b.report.length) blog='\n\n### New blog posts from finished NeuronWriter drafts (agents/blog-from-drafts.mjs)\n\n| Search | Post | NW | Overlap (competitor / site) | Model | Outcome |\n|---|---|---|---|---|---|\n'+b.report.map(r=>'| '+r.keyword+' | '+(r.slug?'/blog/'+r.slug:'')+' | '+(r.score??'')+' | '+(r.competitor!=null?Math.round(r.competitor*1000)/10+'% / '+Math.round(r.site*1000)/10+'% ('+r.checked+' sites)':'')+' | '+(r.provider||'')+' | '+r.outcome+' |').join('\n'); } catch {}
             console.log('Written by agents/content-refresh.mjs. Every added section passed: compliance scan, originality check (competitor / own-site overlap of 8-word phrases), and a NeuronWriter score gain. **Read the Vercel preview, then merge.**\n\n| Page | NW before | NW after | Overlap (competitor / site) | Outcome |\n|---|---|---|---|---|\n'+rows+'\n\nZero NeuronWriter analyses used. Memory: Supabase content_refresh_ledger + agent_memory.'+blog);
           ")
-          URL=$(gh pr create --base main --head "$BR" --title "Content refresh $(date -u +%b\ %-d): $(node -e "console.log(require('./agents/.content-refresh-manifest.json').changed)") page(s), $(node -e "try{console.log(require('./agents/.blog-drafts-manifest.json').changed)}catch{console.log(0)}") new post(s)" --body "$BODY")
+          DRAFT=""; TITLE_PREFIX=""
+          printf '%s\n' "$BODY" > pr-body.md
+          if [ "${{ steps.guards.outputs.ok }}" != "true" ]; then
+            DRAFT="--draft"; TITLE_PREFIX="[GUARDS FAILING] "
+            { echo "**Guards failed on this run: DRAFT, do not merge.** Failing lines from npm run build && npm test:"; echo; echo '```'; grep -E "FAIL|✗|Error|error" guard-output.txt | tail -40; echo '```'; echo; printf '%s\n' "$BODY"; } > pr-body.md
+          fi
+          URL=$(gh pr create $DRAFT --base main --head "$BR" --title "${TITLE_PREFIX}Content refresh $(date -u +%b\ %-d): $(node -e "console.log(require('./agents/.content-refresh-manifest.json').changed)") page(s), $(node -e "try{console.log(require('./agents/.blog-drafts-manifest.json').changed)}catch{console.log(0)}") new post(s)" --body-file pr-body.md)
           echo "$URL"
-          if [ "$AUTOMERGE" = "true" ]; then gh pr merge "$URL" --auto --squash || echo "auto-merge not enabled on this repo — PR left for review"; fi
+          if [ "$AUTOMERGE" = "true" ] && [ -z "$DRAFT" ]; then gh pr merge "$URL" --auto --squash || echo "auto-merge not enabled on this repo — PR left for review"; fi
+          if [ -z "$DRAFT" ]; then exit 0; else exit 1; fi   # keep the run red when guards failed
