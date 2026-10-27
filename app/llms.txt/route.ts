@@ -16,6 +16,7 @@ const LLMS_TXT = `# EnviroCare Pest Services
 - [Mosquito service](https://www.envirocarellc.com/services/mosquito)
 - [Tick service](https://www.envirocarellc.com/services/tick-control)
 - [Commercial pest control](https://www.envirocarellc.com/services/commercial)
+- [Data center pest control](https://www.envirocarellc.com/data-center-pest-control) — low-aerosol IPM for data centers and critical facilities in Alabama
 - [Get a quote](https://www.envirocarellc.com/quote)
 - [Contact](https://www.envirocarellc.com/contact-us)
 

@@ -500,6 +500,7 @@ export const SERVICES: Service[] = [
       { href: '/birmingham', label: 'pest control in Birmingham', note: 'Commercial accounts in Birmingham, Hoover, Homewood, and the rest of Jefferson County are served from our 16th Ave S office — see' },
       { href: '/huntsville', label: 'pest control in Huntsville', note: 'North Alabama facilities, including Research Park and the Madison corridor, are served from our Old Madison Pike office — see' },
       { href: '/madison-commercial-pest-control', label: 'commercial pest control in Madison', note: 'For Madison businesses specifically, read' },
+      { href: '/data-center-pest-control', label: 'data center pest control', note: 'Data centers, colocation sites and technology facilities get a zone-by-zone, low-aerosol program — see' },
       { href: '/services/termite-control', label: 'termite control and Sentricon® protection', note: 'Commercial buildings need termite protection too — see' },
     ],
     name: 'Commercial Service',

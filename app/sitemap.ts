@@ -71,6 +71,8 @@ const COMBO_SLUGS = [
   'madison-mosquito-control',
   'madison-exterminator',
   'madison-commercial-pest-control',
+  // 2026-10-27 — data center / critical-facility landing page (commercial vertical).
+  'data-center-pest-control',
   'decatur-mosquito-control',
   'decatur-exterminator',
   'decatur-termite-control',
@@ -120,7 +122,7 @@ const SERVICE_SLUGS = [
  * committing on, not the date of the previous change — the bump commit itself
  * touches app/, so an older date is stale the moment it lands.
  */
-const STATIC_LASTMOD = new Date('2026-10-24T00:00:00.000Z');
+const STATIC_LASTMOD = new Date('2026-10-27T00:00:00.000Z');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = STATIC_LASTMOD;
