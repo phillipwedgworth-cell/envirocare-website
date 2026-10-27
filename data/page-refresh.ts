@@ -195,6 +195,133 @@ const PAGE_REFRESH_JSON = {
     },
     "source": "claude-session",
     "updatedAt": "2026-10-12"
+  },
+  "/pelham": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "Choosing Professional Pest Control in Pelham, AL",
+    "paragraphs": [
+      "Pelham's mix of wooded ridgelines, creek-bottom moisture, and established neighborhoods creates year-round pest pressure that a one-time extermination visit rarely resolves. Effective pest management treats the problem as ongoing, not episodic — which is why EnviroCare's bi-monthly perimeter program is structured around consistent, preventative visits rather than reactive calls after an infestation has already taken hold. Staying ahead of pest issues costs less, causes less disruption, and keeps your home or business protected through every season.",
+      "When Pelham homeowners evaluate pest control companies, a few things consistently separate reliable professional pest control from a generic spray-and-go visit. First, look for a company that focuses on entry points and exterior harborage zones — the places along your foundation, eave lines, and crawlspace vents where ants, roaches, spiders, and rodents actually enter — rather than only treating what is already visible inside. Second, ask whether re-service between scheduled visits costs extra. With EnviroCare, if a pest problem returns between your scheduled visits, the follow-back visit is included at no additional charge.",
+      "Pelham's commercial corridor along U.S. 31 and Veterans Parkway includes restaurants, retail spaces, and service businesses that face distinct pest control needs and, in some cases, regulatory documentation requirements. Commercial pest control services for Pelham businesses are structured around your operating hours and inspection schedules — rodent control, cockroach management, and wasp pressure around loading docks and dumpster areas are among the most common issues our technicians address in commercial accounts. EnviroCare's Alabaster office serves both residential and commercial customers throughout Shelby County.",
+      "Rodent pressure in Pelham tends to increase in late fall as cooler temperatures push mice and rats toward heated structures. Attic spaces, crawlspaces, and gaps around utility penetrations are common entry points. Addressing a rodent problem effectively means locating and sealing those entry points alongside any trapping or treatment — otherwise new activity replaces whatever was removed. Spiders, particularly brown recluse, follow rodents and other insects into the same voids, so a property with rodent activity often shows elevated spider pressure as well.",
+      "EnviroCare is Alabama pest control that has operated in Central Alabama across four generations of the same family. That continuity means the technician on your route understands Shelby County soil conditions, seasonal pest cycles along the Oak Mountain corridor, and the specific pest issues that show up on wooded Pelham lots — not a customized treatment plan in name only, but local knowledge applied to actual local conditions. Whether your concern is a current infestation or preventative protection before one develops, the first step is a free inspection and an honest conversation about what your property needs."
+    ],
+    "faqs": [
+      {
+        "q": "What should I look for when choosing a pest control service in Pelham, AL?",
+        "a": "Look for a licensed company that treats the exterior perimeter on every visit, includes re-service between scheduled visits at no extra charge, and has direct knowledge of the pest pressures specific to Shelby County — wooded edges, creek-bottom moisture, and the tick and mosquito pressure that comes off Oak Mountain. Ask whether pricing is clear upfront and whether billing terms are explained in writing before service starts."
+      },
+      {
+        "q": "Does EnviroCare handle roach and rodent problems in Pelham?",
+        "a": "Yes. Cockroach and rodent control are part of the residential pest program. American roaches typically enter from the exterior, while German roaches are more often tied to interior conditions like kitchens. Rodents are addressed through targeted treatments focused on entry points and active harborage areas. Both are covered under the bi-monthly perimeter program, and a technician can assess the specific situation during your free inspection."
+      },
+      {
+        "q": "Do you offer commercial pest control services in Pelham?",
+        "a": "Yes. EnviroCare provides commercial pest control in Pelham for restaurants, offices, retail locations, and other businesses. Service schedules are built around your operation, and documentation is available for inspections and compliance purposes. Call the Alabaster office at (205) 940-6360 to talk through what your facility needs."
+      },
+      {
+        "q": "Are wasps covered in the regular pest plan?",
+        "a": "Routine bi-monthly visits include treatment along eave lines that discourages wasps and hornets from building. Treating an active nest is an add-on service for existing pest customers at an additional charge. If you are seeing wasp activity around your home, mention it when you call and a technician can assess the situation."
+      }
+    ],
+    "neuron": {
+      "queryId": "a8b06ae41c72fafe",
+      "keyword": "pest control pelham al",
+      "before": 68,
+      "after": 85,
+      "checkedAt": "2026-10-27"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0.001,
+      "competitorsChecked": 27,
+      "checkedAt": "2026-10-27"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-10-27"
+  },
+  "/chelsea": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "What to Expect From Professional Pest Control in Chelsea, AL",
+    "paragraphs": [
+      "Chelsea homeowners dealing with a pest problem often wonder whether to call a professional exterminator or handle it themselves. Store-bought sprays and traps can knock back visible insects temporarily, but they rarely address the conditions that let an infestation take hold in the first place. A thorough pest management approach starts with an inspection of the full property — foundation perimeter, eave lines, entry points around plumbing, and the wooded edges that back up to so many Chelsea lots. That initial walkthrough shapes every service that follows.",
+      "EnviroCare's exterior-first method targets the places insects and rodents actually use to enter a home — before they reach living spaces. Treating the outside perimeter with EPA-registered products applied according to label directions, clearing conducive conditions around the foundation, and addressing common pest pressure points like eaves and utility penetrations makes each follow-up visit more effective than the last. Indoor treatments are used when conditions call for them, not as a default. That approach is one of the things that separates a genuine pest control solution from a one-time spray visit.",
+      "Common pests in Chelsea include Eastern subterranean termites, carpenter ants, odorous house ants, cockroaches, wolf spiders, black widows, brown recluses, and rodents that push toward homes as surrounding woodland is cleared for new development. Many of these insects are disease-carrying or capable of serious structural damage, which is why a consistent bi-monthly schedule — rather than a single seasonal visit — keeps population pressure low year-round. Re-service between scheduled visits is included at no extra charge when pest activity returns, so homeowners are never left waiting until the next routine appointment.",
+      "Choosing among pest control companies in Chelsea comes down to local expertise, transparency about what a plan covers, and a track record built in this specific region. A company that has worked Shelby County's red clay, creek drainages, and fast-growing neighborhoods understands the seasonal shifts that drive cockroach pressure indoors in fall, spider activity in late summer, and rodent movement in cooler months. That kind of local knowledge, developed across four generations of doing pest control in Alabama, is what makes pest prevention effective over the long term rather than just in the weeks after a first visit.",
+      "For Chelsea homeowners weighing pest control options, the most practical step is a free on-site inspection. Conditions vary enough between a wooded Westover lot and a newer Chelsea Park build that a property-specific look is worth more than any general estimate. From that starting point, EnviroCare outlines exactly which pests are active, which entry points need attention, and which plan fits the property's needs — with straightforward pricing and a schedule built around how Chelsea's pest season actually runs. Call (205) 940-6360 to schedule."
+    ],
+    "faqs": [
+      {
+        "q": "What are the most common pests in Chelsea, Alabama?",
+        "a": "Eastern subterranean termites are the most consequential pest in the area, given Chelsea's clay soil and wooded surroundings. Beyond termites, the pests EnviroCare treats most often in Chelsea include carpenter ants, fire ants, cockroaches, wolf spiders, brown recluses, rodents moving in from cleared woodland, and mosquitoes breeding in low-lying areas and creek drainages. The bi-monthly pest plan covers 30-plus common household insects and rodents; fire ants, mosquitoes, fleas, and ticks are handled as separate services."
+      },
+      {
+        "q": "How often should pest control treatments be scheduled in Chelsea?",
+        "a": "EnviroCare's standard residential pest plan runs on a bi-monthly schedule — six visits per year, every other month. That frequency keeps populations from rebounding between visits and allows a licensed technician to catch changing conditions, new entry points, or signs of activity before a minor pest problem becomes a full infestation. If activity returns between scheduled visits, re-service is included at no additional charge."
+      },
+      {
+        "q": "Is professional pest control more effective than DIY methods?",
+        "a": "DIY insecticides can reduce visible bug activity in the short term, but they typically do not address the conditions that draw pests to a property or the entry points they use. Professional pest control combines an inspection-based approach, EPA-registered products applied according to label directions, and a consistent follow-up schedule — all of which produce more durable results than off-the-shelf solutions applied without a full property assessment."
+      },
+      {
+        "q": "How do I choose a pest control company in Chelsea, AL?",
+        "a": "Look for a company that inspects before it treats, is transparent about what each plan covers and excludes, and has genuine local experience in Shelby County. Ask whether re-service between scheduled visits is included, how termite coverage is structured, and whether the company handles the specific pests active on your property type. EnviroCare serves Chelsea from its Alabaster office and has worked this part of Alabama across four generations — call (205) 940-6360 to start with a free inspection."
+      }
+    ],
+    "neuron": {
+      "queryId": "6790463f44b7e994",
+      "keyword": "pest control chelsea al",
+      "before": 67,
+      "after": 80,
+      "checkedAt": "2026-10-27"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0.005,
+      "competitorsChecked": 25,
+      "checkedAt": "2026-10-27"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-10-27"
+  },
+  "/greystone": {
+    "provider": "gpt:gpt-5.6-luna",
+    "heading": "What to Expect From Pest Control in Greystone, AL",
+    "paragraphs": [
+      "Professional pest control in Greystone starts with understanding the property, not applying the same treatment everywhere. A wooded lot near a pond, a home beside a golf-course corridor, and a newer house near active construction can have different entry points and pest pressure. An inspection helps identify gaps around doors and windows, foundation edges, utility penetrations, roofline areas, vegetation touching the structure, and places where moisture collects. The treatment plan can then focus on the routes pests use to reach the home.",
+      "EnviroCare uses an exterior-first approach for residential pest control in the Greystone community. Service focuses on the foundation perimeter, eaves, entry points, and outdoor harborage areas before interior treatment is considered. EPA-registered products are applied according to label directions. Homeowners can also reduce pest issues by keeping firewood and stored materials away from the structure, correcting leaks, trimming vegetation back from siding, and keeping screens and door sweeps in good repair. These steps support the control service but do not replace professional treatment when activity is established.",
+      "Greystone homeowners may notice different pest issues as the seasons change. Ants and spiders often follow landscaping and shaded edges, while cockroaches and occasional rodents may enter through small openings around attached structures or utility lines. Wasps and hornets commonly investigate eaves, soffits, deck rails, and other sheltered locations. Routine pest visits include eave treatment intended to discourage nest building. An active wasp or hornet nest is handled as an additional service for pest customers. Rodent control is also available for homes and businesses after an assessment of activity and likely entry points.",
+      "The right service schedule depends on the pest, the property, and the surrounding habitat. Consistent visits help address new activity before it becomes a larger infestation, while targeted services may be appropriate for fire ants, mosquitoes, ticks, termites, or rodents. When comparing pest control companies serving the Birmingham area, ask what the regular plan covers, how re-service is handled, which issues require separate treatment, and how products are applied. EnviroCare serves Greystone, including Founders, Legacy, and Farms, as part of its Central Alabama pest management service. Call (205) 940-6360 to discuss the property and arrange a free inspection."
+    ],
+    "faqs": [
+      {
+        "q": "How often should pest control treatments be done in Greystone?",
+        "a": "A regular schedule helps manage changing pest pressure around wooded lots, landscaped yards, golf-course areas, and homes near water features. The appropriate frequency depends on the property and the pests present. An inspection can help determine whether general service or a targeted treatment plan is appropriate."
+      },
+      {
+        "q": "What pests are common around Greystone homes?",
+        "a": "Greystone properties may experience ants, spiders, cockroaches, rodents, wasps, hornets, fire ants, mosquitoes, ticks, and termites. Pest pressure varies with landscaping, construction, moisture, wooded edges, and nearby water."
+      },
+      {
+        "q": "What should I look for when choosing a pest control service?",
+        "a": "Ask whether the company explains the inspection findings, identifies entry points, states what the regular plan includes, and separates covered pests from specialized services. It is also reasonable to ask whether products are EPA-registered and applied according to label directions."
+      }
+    ],
+    "neuron": {
+      "queryId": "34cb05aa899eaa26",
+      "keyword": "pest control greystone al",
+      "before": 52,
+      "after": 68,
+      "checkedAt": "2026-10-27"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0.002,
+      "maxSiteOverlap": 0.006,
+      "competitorsChecked": 28,
+      "checkedAt": "2026-10-27"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-10-27"
   }
 } as const;
 /* END PAGE_REFRESH_JSON */
