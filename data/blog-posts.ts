@@ -134,6 +134,104 @@ export const BLOG_POSTS: BlogPost[] = [
   //     text. New topic: no existing post covers kudzu bugs (stink bugs / lady beetles
   //     post is linked, not duplicated). Reduction language only; no bug-proof promise.
   {
+    slug: 'data-center-ipm-plan',
+    title: 'What Should a Data Center IPM Plan Include?',
+    excerpt: 'A practical plan connects pest monitoring, approved methods, facility access and documented corrective actions. Here is what to put in writing before service begins.',
+    publishedAt: '2026-10-28',
+    author: 'EnviroCare, LLC',
+    category: 'Commercial',
+    readMinutes: 3,
+    heroEmoji: '🏢',
+    metaTitle: 'Data Center IPM Plan Checklist | EnviroCare',
+    metaDescription: 'Build a data center IPM plan around inspection zones, monitoring, action thresholds, approved methods and documented follow-up.',
+    body: `
+<p class="lede">A data center Integrated Pest Management (IPM) plan should identify the areas to inspect, the evidence to record, the conditions that trigger action and the person authorized to approve that action. It should connect pest prevention with the facility's access and change-control procedures. A calendar of spray visits alone does not answer those questions.</p>
+<h2>Where should planning start?</h2>
+<p>Start with a joint walkthrough by the facility representative and pest-management provider. Separate outdoor areas, loading docks, staff spaces and critical rooms. Record door gaps, damaged seals, deliveries, moisture sources and recent construction. A finding outside a loading dock has a different operational significance from evidence inside an electrical room.</p>
+<p>The <a href="https://www.epa.gov/safepestcontrol/integrated-pest-management-ipm-principles">EPA's IPM framework</a> combines identification and monitoring, action thresholds, prevention and appropriate control. Applying that framework to a critical facility requires site-specific decisions; it is not a data-center certification.</p>
+<h2>What belongs in the written plan?</h2>
+<ul><li><strong>Scope:</strong> buildings, zones, pests covered and exclusions.</li><li><strong>Inspection map:</strong> approved monitoring locations, device identifiers and restricted areas.</li><li><strong>Access:</strong> named contacts, escort rules, permitted visit windows and areas requiring separate authorization.</li><li><strong>Methods:</strong> permitted equipment and products, prohibited applications and the approval process for changes.</li><li><strong>Escalation:</strong> which observations require notification and who decides the next step.</li><li><strong>Corrective actions:</strong> the owner, due date, evidence of completion and follow-up inspection.</li></ul>
+<h2>How should action thresholds work in critical rooms?</h2>
+<p>Define thresholds by pest and zone before an incident. The facility may require escalation for any rodent evidence inside a data hall, while an exterior insect observation may trigger identification and inspection first. Those are decisions for the facility and provider to document, rather than universal thresholds to copy from a template.</p>
+<p>Record what was found and where, rather than writing only "activity noted." A device ID, date, observation and resulting task make it possible to distinguish a recurring entry route from an isolated delivery issue. Do not place sensitive floor plans or equipment details in a public marketing document.</p>
+<h2>Who owns repairs and treatment approvals?</h2>
+<p>Assign building-envelope work to an authorized facility contractor. A pest technician should not disturb a cable penetration, firestop, door interlock or equipment enclosure to close a gap. Similarly, the written plan should establish where mechanical monitoring is permitted and which proposed treatments need facility approval before work begins.</p>
+<p>For example, an inspection might find daylight beneath a dock door. The provider records the location and evidence, maintenance replaces the approved seal, and the next inspection checks the repair. The task remains open until someone verifies it; recording a recommendation is not the same as completing the repair.</p>
+<h2>How do you know the plan is working?</h2>
+<p>Review activity by zone alongside unresolved repairs, repeat findings and missed access. A blank device log does not establish control if the technician could not inspect half the stations. Update the map after approved construction changes and revisit the scope when a new building or loading area opens.</p>
+<p>Ask for a sample report before agreeing to service. It should show inspection results, inaccessible locations, actions taken and the work still assigned to the facility. See our <a href="/blog/data-center-pest-control-vendor-checklist">vendor evaluation checklist</a> and <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> for the next planning steps.</p>
+<p>EnviroCare, LLC is a fourth-generation Alabama family pest-control business with family roots dating to 1958. Discuss your facility's scope through our <a href="/data-center-pest-control">data center pest-control program</a>; methods, access and commercial pricing are agreed for the individual site.</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'data-center-rodent-entry-points',
+    title: 'Where Do Rodents Enter a Data Center?',
+    excerpt: 'Loading docks, doors and service penetrations deserve a coordinated inspection. Learn what to record and which repairs belong with the facility team.',
+    publishedAt: '2026-10-28',
+    author: 'EnviroCare, LLC',
+    category: 'Commercial',
+    readMinutes: 3,
+    heroEmoji: '🏢',
+    metaTitle: 'Data Center Rodent Entry Points | EnviroCare',
+    metaDescription: 'Inspect data center loading docks, door seals and service penetrations for rodent entry. Coordinate repairs with facility and change-control teams.',
+    body: `
+<p class="lede">Rodent entry inspections at a data center should start with loading docks, exterior doors and service penetrations, then follow evidence toward interior travel routes. The goal is to identify how an animal could enter and who can repair the opening without interfering with critical building systems.</p>
+<h2>Which exterior openings deserve attention first?</h2>
+<p>Check the building envelope during an authorized walkthrough. Look for daylight at closed doors, damaged weather seals, spaces around pipes and conduit, and openings left after construction. Inspect receiving areas where packaging accumulates and doors are frequently used. Nearby food waste, clutter and water can make an opening more attractive.</p>
+<p>A small opening should not be dismissed because it looks too narrow. Ask the pest professional to assess the suspected species and evidence. Record a photo, location and repair owner; do not turn a measurement found online into a specification for sealing a critical service penetration.</p>
+<h2>Why do docks and receiving areas need their own checks?</h2>
+<p>A door that seals properly when closed can still create access during deliveries. Review how long it remains open, where pallets wait and how packaging moves into the building. Inspection should include the transition between receiving and controlled areas, rather than ending at the outside wall.</p>
+<p>A practical handoff has three parts: receiving staff report suspect packaging, the pest provider identifies and documents the evidence, and the facility representative directs the response. Avoid moving suspect material into a data hall while someone decides what to do with it.</p>
+<h2>Can cable and pipe routes connect exterior and interior activity?</h2>
+<p>They can provide concealed routes, so inspect accessible penetrations and adjoining spaces when evidence points that way. An opening around a service route deserves a coordinated review even when no animal is visible. Evidence in one room does not establish the origin; inspection should test the suspected pathway.</p>
+<p>Do not open energized equipment, move cabling, lift restricted floor panels or alter fire-rated seals for a pest inspection. Those tasks belong with authorized facility personnel and the appropriate trade. Pest exclusion must preserve the engineering requirements of the assembly being repaired.</p>
+<h2>What should a repair request say?</h2>
+<ul><li>Identify the exact door, wall or penetration using the facility's approved location reference.</li><li>Separate confirmed activity from a possible entry point.</li><li>Record photos only where facility policy permits.</li><li>Assign the repair to an authorized owner and agree on access.</li><li>Reinspect after completion and record whether the opening remains.</li></ul>
+<p>For example, evidence near a conduit entrance may justify inspection on both sides of the wall. The appropriate contractor specifies the repair material; the pest provider checks for continued activity and reports whether the suspected entry condition has changed.</p>
+<h2>Should staff place bait inside a data hall?</h2>
+<p>Do not improvise a treatment. Follow the facility's approved IPM plan and have the pest professional assess any activity. Monitoring and mechanical devices also need approved locations so they do not obstruct work, become misplaced or create unmanaged materials inside a critical space.</p>
+<p>The <a href="https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf">EPA's building IPM guidance</a> supports prevention and a coordinated building-management approach. The access restrictions, repair assignments and treatment rules for your data center must still be decided for that site.</p>
+<h2>What should happen after an entry point is repaired?</h2>
+<p>Check the repair and continue monitoring the associated area. A closed opening does not prove that all interior activity has ended, and an empty trap does not prove the building envelope is intact. Review both evidence streams during follow-up.</p>
+<p>Use our <a href="/blog/data-center-ipm-plan">data center IPM plan checklist</a> to document responsibilities and our <a href="/blog/data-center-pest-control-vendor-checklist">vendor checklist</a> to compare reporting. EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Discuss a site-specific walkthrough through our <a href="/data-center-pest-control">data center pest-control page</a>.</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'data-center-pest-control-vendor-checklist',
+    title: 'How Do You Evaluate a Data Center Pest-Control Vendor?',
+    excerpt: 'Compare the written scope, permitted methods, access rules and reporting before comparing quotes. A facility-focused checklist for vendor selection.',
+    publishedAt: '2026-10-28',
+    author: 'EnviroCare, LLC',
+    category: 'Commercial',
+    readMinutes: 3,
+    heroEmoji: '🏢',
+    metaTitle: 'Data Center Pest Vendor Checklist | EnviroCare',
+    metaDescription: 'Evaluate a data center pest-control vendor by scope, facility access, approved methods, reporting, repair follow-up and site-specific pricing.',
+    body: `
+<p class="lede">Evaluate a data center pest-control vendor by its written scope, approved methods, facility-access process and sample reporting before comparing prices. A useful proposal explains what the provider will inspect, what it cannot access and how findings become assigned corrective actions.</p>
+<h2>What should you ask for before accepting a quote?</h2>
+<p>Request the credentials and insurance documents your procurement team requires, then verify that they cover the proposed work. Ask which services are performed directly and which require a separate contractor. Do not treat a marketing description as proof of certification, security clearance or experience at a named facility.</p>
+<p>A walkthrough should inform the proposal. Building size alone does not capture the number of receiving areas, access restrictions, surrounding conditions or construction phases. A residential price cannot establish the cost of a commercial critical-facility program.</p>
+<h2>Which questions make proposals comparable?</h2>
+<ul><li><strong>Scope:</strong> Which buildings, exterior zones and pests are included?</li><li><strong>Access:</strong> Who arranges escorts, and how are inaccessible locations reported?</li><li><strong>Methods:</strong> What is permitted in each zone, and who approves a change?</li><li><strong>Reporting:</strong> Can the vendor demonstrate a device-level inspection record and an open-action list?</li><li><strong>Repairs:</strong> Who specifies and performs door, penetration and building-envelope work?</li><li><strong>Commercial terms:</strong> What is included, excluded or billed separately?</li></ul>
+<h2>What should the sample service report show?</h2>
+<p>Look for a visit date, inspected locations, evidence, action taken and remaining tasks. A missed inspection should be visible. "No activity" and "not inspected because access was unavailable" are different findings and should not share the same status.</p>
+<p>Ask the vendor to walk through a hypothetical example: a damaged receiving-door seal with rodent evidence nearby. The report should identify the evidence, notify the agreed contact, assign a repair and establish a follow-up check. A photograph alone does not establish who owns the next action.</p>
+<h2>How should access and change control affect the program?</h2>
+<p>Agree on permitted routes, visit windows, escort requirements and restrictions on photos or floor plans. Decide how device locations and product changes are authorized. A provider should be able to explain how it will work within the site's procedures without promising unrestricted access or an arrival time it cannot support.</p>
+<p>Restricted access can also change the inspection schedule and cost. Ask how a blocked visit is recorded and rescheduled under the agreement. Any escalation process or response commitment belongs in the signed scope; a general website statement is not a service-level agreement.</p>
+<h2>Does IPM mean routine spraying everywhere?</h2>
+<p>No. The <a href="https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf">EPA's guidance for buildings</a> emphasizes prevention and coordination among the people responsible for the property. For a data center, ask the vendor to explain how inspection, exclusion recommendations and monitoring fit the site's restrictions. Treatment selection must account for the location, the pest, label directions and facility approval.</p>
+<p>Compare that explanation with the proposed scope. A promise to treat every room the same way is a reason to ask more questions, especially when electrical rooms and receiving areas present different constraints.</p>
+<h2>How should the final decision be documented?</h2>
+<p>Keep a short comparison showing each vendor's scope, exclusions, documents supplied, reporting example and unanswered questions. Resolve operational gaps before signing. Decide who will review repeat activity, open repairs and access failures after service begins.</p>
+<p>Our <a href="/blog/data-center-ipm-plan">IPM planning guide</a> and <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> help turn those questions into a walkthrough agenda. EnviroCare, LLC is a fourth-generation Alabama family pest-control business with family roots dating to 1958. Request a discussion through our <a href="/data-center-pest-control">Alabama data center pest-control program</a> or explore our broader <a href="/services/commercial">commercial pest-control service</a>. Commercial work is quoted for the individual site.</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
     slug: 'spiders-on-boat-docks-lake-martin',
     title: 'Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down',
     excerpt: 'Docks and boathouses are spider country: damp wood, dark gaps and lights that pull in insects. Which spiders you will find on a Lake Martin dock, what home remedies really do, and what keeps the numbers down.',
