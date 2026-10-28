@@ -1541,7 +1541,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 
 <h2>The program on Lake Martin</h2>
-<p>EnviroCare's <a href="/services/mosquito">seasonal mosquito service</a> is $45 per month for an average-size yard, with a firm price after a free inspection. It includes eight treatments from March through October, with equal monthly ACH payments across the year; the price is $34 a month only when paired with a pest plan. For wooded lake lots, the Mosquito + Tick option at $65 per month covers ticks and chiggers in the same zones. Routine treatment does not require anyone home, which is how most of our <a href="/lake-martin">Lake Martin</a> and <a href="/dadeville">Dadeville</a> weekend places are handled. The health side of the question is in <a href="/blog/mosquito-borne-diseases-alabama">mosquito-borne diseases in Alabama</a>.</p>
+<p>EnviroCare's <a href="/services/mosquito">seasonal mosquito service</a> is $45 per month for an average-size yard, with a firm price after a free inspection. It includes eight treatments from March through October, with equal monthly ACH payments across the year; the price is $34 a month only when paired with a pest plan. For wooded lake lots, the Mosquito + Tick option, quoted after inspection, covers ticks and chiggers in the same zones. Routine treatment does not require anyone home, which is how most of our <a href="/lake-martin">Lake Martin</a> and <a href="/dadeville">Dadeville</a> weekend places are handled. The health side of the question is in <a href="/blog/mosquito-borne-diseases-alabama">mosquito-borne diseases in Alabama</a>.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
@@ -2887,7 +2887,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Termite Inspection Before Buying a Home in Alabama: The WDO Letter, What It Covers, and Why Every Buyer Needs One',
     excerpt: 'Alabama sits in the highest termite pressure zone in the country, and homeowners insurance does not cover termite damage. Learn what a termite inspection covers, what the WDO letter means in Alabama real estate transactions, who pays, and why every buyer needs one before closing.',
     publishedAt: '2026-07-12',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Real Estate',
     readMinutes: 18,
@@ -2969,7 +2969,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How much does a termite inspection cost in Alabama?</h2>
 
-<p>At EnviroCare, our standard termite inspection is free — it always has been, and there is no obligation attached. If your lender needs the official Alabama Wood Infestation Inspection Report — the termite letter — standalone letters start as low as $125. Timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and realtors can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need termite protection, we will quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings — termite treatment is priced at inspection because coverage depends on the size of the structure, the construction type, and the level of termite activity present.</p>
+<p>At EnviroCare, our standard termite inspection is free — it always has been, and there is no obligation attached. If your lender needs the official Alabama Wood Infestation Inspection Report — the termite letter — the standalone report is a paid service with its fee confirmed before booking. Timelines and details are on our <a href="/services/wdo-letters">WDO letter page</a>, and realtors can find closing resources on our <a href="/realtor">realtor page</a>. If the home does need termite protection, we will quote <a href="/services/termite-control">Sentricon coverage</a> from the inspection findings — termite treatment is priced at inspection because coverage depends on the size of the structure, the construction type, and the level of termite activity present.</p>
 
 <h2>What is a termite bond and why does it matter for home buyers?</h2>
 
@@ -3361,7 +3361,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'lake-martin-mosquito-guide',
     title: 'The Lake Martin Mosquito Survival Guide',
     excerpt: 'Lake Martin mosquitoes do not come from the open lake; they breed in the still, shaded water around it. Here is our season-long guide to what works, what to skip, and what you can do between visits.',
-    updatedAt: '2026-10-12',
+    updatedAt: '2026-10-28',
     publishedAt: '2026-04-22',
     author: 'Kevin Wedgworth',
     category: 'Mosquito Control',
@@ -3414,7 +3414,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Firm price after a free inspection</strong>, so the estimate you get is the price you pay.</li>
 <li><strong>Equal monthly ACH payments</strong> spread across the whole year.</li>
 <li><strong>$34 a month</strong> only when the mosquito plan is paired with a <a href="/services/pest-control">general pest control</a> plan.</li>
-<li><strong>Mosquito + Tick is $65 per month</strong> and covers ticks and chiggers in the same zones.</li>
+<li><strong>Mosquito + Tick is quoted after inspection</strong> and covers ticks and chiggers in the same zones.</li>
 </ul>
 
 <p>No one has to be home for a routine outdoor visit as long as we can reach the yard, which is how most weekend lake places are handled.</p>
@@ -3455,7 +3455,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Ticks and chiggers on wooded lake lots</h2>
 
-<p>If you have woods, tall grass or a path down to the water, you have ticks and chiggers too. Deer move through most lots around the lake, and they carry ticks right to the edge of the yard. Our professional mosquito and tick control services cover the brush edges, the shaded transitions between lawn and woods, and the paths you walk, at $65 per month through the same March-through-October season. That plan does not cover fleas, which are handled separately. More in our post on <a href="/blog/tick-control-alabama">tick control in Alabama</a> and on our <a href="/services/tick-control">tick control service</a> page.</p>
+<p>If you have woods, tall grass or a path down to the water, you have ticks and chiggers too. Deer move through most lots around the lake, and they carry ticks right to the edge of the yard. Our professional mosquito and tick control services cover the brush edges, the shaded transitions between lawn and woods, and the paths you walk, with pricing confirmed after inspection for the March-through-October season. That plan does not cover fleas, which are handled separately. More in our post on <a href="/blog/tick-control-alabama">tick control in Alabama</a> and on our <a href="/services/tick-control">tick control service</a> page.</p>
 
 <h2>A word on mosquito-borne illness</h2>
 
@@ -3584,7 +3584,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'WDO Inspection and Alabama Wood Infestation Report: Termite Inspection, WDO Letter, and Wood Destroying Organism Report for Real Estate Transactions',
     excerpt: 'If your Alabama home purchase involves a loan, you almost certainly need a WDO letter — the Official Alabama Wood Infestation Inspection Report — before you can close. This guide explains what a WDO inspection covers, what the Alabama wood infestation report includes, how much a WDO inspection costs, and what happens if termites are found.',
     publishedAt: '2026-01-28',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Real Estate',
     readMinutes: 12,
@@ -3659,7 +3659,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How much does a WDO inspection cost?</h2>
 
-<p>Standalone WDO inspections start at <strong>$125</strong> at EnviroCare. The price covers the on-site visual inspection, the completed Official Alabama Wood Infestation Inspection Report, and delivery of the report to your lender, your agent, and you. The cost of a WDO inspection may increase for larger properties, properties with multiple structures, or properties that require extended crawlspace inspection.</p>
+<p>Standalone WDO reports are a paid service at EnviroCare; confirm the fee and scope before booking. Ask whether the quoted scope includes the on-site visual inspection, the completed Official Alabama Wood Infestation Inspection Report and delivery to the parties you identify. The cost of a WDO inspection may increase for larger properties, properties with multiple structures, or properties that require extended crawlspace inspection.</p>
 
 <p>If you are already an active EnviroCare customer on our general pest control or termite program, your first WDO letter each year is <strong>free</strong> — the inspection is part of your ongoing pest management program.</p>
 
@@ -3875,6 +3875,9 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>After Treatment</h2>
 <p>Ask which treated surfaces may be cleaned and when, and follow the product label and technician's instructions. Record the pest, location and timing of any activity after service. More visible insects alone do not establish that treatment is working; contact the provider about persistent or unexpected activity instead of applying another product on top of the treatment.</p>
 
+<h2>What should you ask before the technician leaves?</h2>
+<p>Ask which areas were inspected, what preparation is needed for any follow-up and which maintenance items are your responsibility. Keep the service report so you can refer to the actual products and directions. If an area was inaccessible, ask how it will be checked later instead of assuming the whole property was inspected.</p>
+<p>Our <a href="/blog/first-pest-control-visit-what-to-expect">first-visit guide</a> explains the appointment itself. Read <a href="/blog/more-bugs-after-pest-control-treatment">what insect activity after service can mean</a> before adding another product, or see our <a href="/services/pest-control">pest control service</a> page for the overall approach. For directions specific to your appointment, contact the office.</p>
 <p>Questions before your service? Call your nearest EnviroCare office:</p>
 <ul>
 <li>Birmingham — (205) 991-2882</li>
@@ -3927,7 +3930,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Mosquito pest control services in Huntsville, AL</h2>
 
-<p>Huntsville's proximity to the Tennessee River, combined with standing water from valley drainage, subdivision retention ponds, and residential irrigation, creates persistent mosquito pressure from March through October. Mosquito control in Huntsville focuses on treating breeding sites and applying barrier treatments to reduce mosquito populations around your home or business. Monthly mosquito treatments target resting areas across your property and keep your yard usable through the worst of the season. Mosquito control starts at $45 a month for an average-size yard, and the price is firm after a free inspection. Mosquito plus tick control is $65 a month.</p>
+<p>Huntsville's proximity to the Tennessee River, combined with standing water from valley drainage, subdivision retention ponds, and residential irrigation, creates persistent mosquito pressure from March through October. Mosquito control in Huntsville focuses on treating breeding sites and applying barrier treatments to reduce mosquito populations around your home or business. Monthly mosquito treatments target resting areas across your property and keep your yard usable through the worst of the season. Mosquito control starts at $45 a month for an average-size yard, and the price is firm after a free inspection. Mosquito plus tick control is quoted after inspection.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>Spider, cockroach, and rodent pest control services in Huntsville</h2>
@@ -3958,7 +3961,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <ul>
 <li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 promotional initial service (50% off the $150 regular price). Covers 30-plus pests with free re-service between scheduled visits.</li>
-<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is $65 a month.</li>
+<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is quoted after inspection.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and we will not quote a termite job we have not inspected.</li>
 </ul>
 
@@ -5033,7 +5036,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How Much Does Pest Control Cost in Alabama? Pest Control Costs, Pest Control Prices, and Pest Control Services for Alabama Homeowners',
     excerpt: 'How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
     publishedAt: '2026-05-26',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Pricing',
     readMinutes: 12,
@@ -5049,7 +5052,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <ul>
 <li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, rodents, silverfish, centipedes, and crickets, with free re-service between scheduled visits.</li>
-<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
+<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is quoted after inspection. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
 </ul>
@@ -5078,7 +5081,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>Cockroach pest control costs.</strong> German cockroaches, American cockroaches, and smokybrown cockroaches are all active in Alabama. German roach infestations require targeted interior pest control treatment because they live exclusively indoors and breed in kitchens and bathrooms. A German cockroach infestation is the most difficult type of roach to control and may require multiple treatments. American and smokybrown cockroaches invade from outdoors and are covered by standard perimeter pest control service.</p>
 
-<p><strong>Mosquito pest control costs.</strong> Mosquito control in Alabama costs $45 a month for an average-size yard — eight treatments March through October. Mosquito plus tick control is $65 a month. Mosquito control is a separate pest control service from bi-monthly pest control because mosquito treatment uses different products, different equipment, and a different treatment schedule. The price is firm after a free inspection.</p>
+<p><strong>Mosquito pest control costs.</strong> Mosquito control in Alabama costs $45 a month for an average-size yard — eight treatments March through October. Mosquito plus tick control is quoted after inspection. Mosquito control is a separate pest control service from bi-monthly pest control because mosquito treatment uses different products, different equipment, and a different treatment schedule. The price is firm after a free inspection.</p>
 
 <p><strong>Spider pest control costs.</strong> Spider control is included in the bi-monthly pest control service. Brown recluse spiders are established across Alabama, particularly in older homes with stone foundations and crawl spaces. Spider control starts with reducing the insect prey that spiders feed on and treating harborage areas directly. A spider sighting in your home should be inspected by a pest control technician.</p>
 
@@ -5140,36 +5143,33 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'sugar-ants-in-house-alabama',
-    title: 'Sugar Ants in Your Alabama Home: Stop the June Invasion Before It Starts',
+    title: "Sugar Ants in Your Alabama Home: Identification and Prevention",
     excerpt: 'Sugar ant invasions explode across Alabama every June. Here\'s how to identify the species in your kitchen, stop the trail the right way, and keep them out.',
     publishedAt: '2026-06-01',
     author: 'Kevin Wedgworth',
     category: 'Ants',
-    readMinutes: 6,
+    readMinutes: 4,
     heroEmoji: '🐜',
-    metaTitle: 'Sugar Ants in House (Alabama): Stop the June Invasion | EnviroCare',
-    metaDescription: 'Sugar ant invasions explode in Alabama every June. Identify the species in your kitchen, stop the trail, and keep them out — from EnviroCare.',
+    metaTitle: "Sugar Ants in Alabama: Identification and Prevention",
+    metaDescription: "Identify small household ants, manage food and moisture, and know when to request an inspection. Practical guidance for Alabama homeowners.",
     body: `
-<p class="lede">Every June, the calls start. You walk into the kitchen before coffee and there's a line of tiny brown ants marching from behind the toaster to a single drop of jelly. By Tuesday they've found the dog bowl. By Friday they're in the pantry.</p>
-<p>If you live in Alabama, this is sugar ant season — and we've been answering this call since 1958. Here's what they actually are, how to stop them, and when it's time to call a pro.</p>
-
-<h2>"Sugar ants" are usually one of three species</h2>
-<p>There isn't a single bug called the "sugar ant." It's a catch-all for small, dark ants that show up looking for anything sweet. In Alabama you're almost always dealing with <strong>odorous house ants</strong> (dark brown, smell like rotten coconut when crushed, nest inside wall voids), <strong>pavement ants</strong> (look for tiny dirt piles at driveway joints), or <strong>Argentine ants</strong> (light brown, fast-moving supercolonies — if they return that day from a different door, this is what you have).</p>
-
-<h2>Why June is when they explode</h2>
-<p>Alabama humidity, warm overnights, and the first heavy summer rains push colonies to peak foraging in June. Spraying a visible trail kills the workers you see but scatters the colony. Two weeks later you've got three trails instead of one.</p>
-
-<h2>How to stop sugar ants the right way</h2>
-<ol>
-<li>Wipe surfaces with soap and water, then equal parts white vinegar and water to erase the scent trail.</li>
-<li>Place sweet liquid ant bait right on the active trail and leave it alone for 5–7 days. You'll see more ants in the first 48 hours — that's good, the workers are carrying it home to the colony.</li>
-<li>Once the trail goes quiet, seal the entry point with caulk.</li>
-<li>If they're back in under two weeks — call. That signals multiple colonies, an Argentine supercolony, or a nest inside a wall.</li>
-</ol>
-
-<h2>When to call EnviroCare</h2>
-<p>Try the bait approach first — it works for about 60% of one-off invasions. Call when the trail keeps returning from a different entry point, you're finding ants in more than one room, or you've baited correctly for 14 days and they're still coming.</p>
-<p>EnviroCare's bi-monthly pest control program puts a sustained perimeter barrier around the house with interior spot treatment on the first visit. <a href="/pricing">See pricing</a> or call (205) 940-6360.</p>
+<p class="lede">“Sugar ants” describes small ants looking for food rather than a reliable species identification. Start by removing accessible food, noting where the trail enters and identifying the ant. If you use a bait, choose a product labeled for that pest and location and follow its directions. Persistent trails call for an inspection.</p>
+<h2>What are people calling sugar ants?</h2>
+<p>Homeowners use the name for several small ants seen around counters, pantry shelves or pet feeding areas. Color and size alone may not identify the species. Take a clear photograph and note whether activity starts at a window, plumbing opening or exterior door. Those observations help an inspector connect the trail to the conditions around it.</p>
+<p>Do not identify a particular species just because ants return quickly or appear in several rooms. Those patterns call for investigation; they do not establish how many colonies exist or where they nest. Our <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">Alabama household ant guide</a> covers the broader identification and control process.</p>
+<h2>What should you check before choosing a treatment?</h2>
+<p>Look for food residue under countertop appliances, sticky containers, pet food and accessible rubbish. Check the cabinet below the sink for moisture and record any leak for repair. Trace the visible trail without opening electrical fittings or wall cavities. Keep children and pets away from products already placed.</p>
+<p>Outside, check accessible door seals and places where vegetation contacts the house. Record the suspected entry point for the technician. Avoid disturbing hidden wiring or plumbing while attempting a repair; identify the route and ask about appropriate work first.</p>
+<h2>Why do identification and bait selection matter?</h2>
+<p>The <a href="https://ipm.ucanr.edu/home-and-landscape/ants/">UC IPM guide to household ants</a> explains why identification, sanitation and entry-point management belong in the same plan. A product selected for the wrong ant or placed in the wrong location may not address the problem. Follow the directions for the particular product and treatment site.</p>
+<p>There is no single bait or fixed waiting period that fits every ant problem. Keep a record of the products used and where activity continues. Before combining treatments, ask whether the proposed application interferes with an existing bait or treatment. Do not improvise mixtures from household cleaners or pesticides.</p>
+<h2>What does prevention look like day to day?</h2>
+<ul><li>Clean food spills and residue, including beneath small appliances.</li><li>Store food in closed containers and manage pet feeding leftovers.</li><li>Keep rubbish contained and correct accessible moisture problems.</li><li>Inspect door seals and record recurring entry points.</li><li>Report where activity persists instead of treating every room the same way.</li></ul>
+<p>Use cleaning methods appropriate for the surface and follow product directions. For an occupied home, preparation should account for people, pets and the particular treatment areas. Do not assume that more product or a stronger mixture improves the result.</p>
+<h2>When should you arrange an ant inspection?</h2>
+<p>Request an inspection when trails repeatedly return, the source is unclear, activity involves inaccessible spaces or previous treatments have not resolved the problem. There is no need to wait for an arbitrary deadline when the situation is worsening. Describe the locations and treatment history when you call.</p>
+<p>An inspection connects identification with sanitation, entry-point repair and a treatment plan. Our <a href="/services/pest-control">pest control service</a> page explains the approach, and our <a href="/blog/prepare-home-for-pest-control">preparation checklist</a> explains what to ask before a visit.</p>
+<p>EnviroCare's family has worked in Alabama pest control since 1958, across four generations. Call <a href="tel:+12059406360">(205) 940-6360</a>, <a href="/quote">request an inspection</a> or review <a href="/pricing">current pricing and agreement terms</a>.</p>
 `,
   },
 
@@ -5242,7 +5242,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Mosquito control program cost and pest control services in Alabama</h2>
 
-<p>Our mosquito control program runs $45 per month across eight mosquito treatments, March through October, and ACH spreads the cost evenly across the year. Adding tick control brings it to $65 per month. The price is firm after a free inspection of your property.</p>
+<p>Our mosquito control program runs $45 per month across eight mosquito treatments, March through October, and ACH spreads the cost evenly across the year. Adding tick control is quoted after inspection. The price is firm after a free inspection of your property.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Mosquito control is its own pest control service rather than part of the bi-monthly pest plan, because mosquito work uses different products, different equipment, and a different treatment map than interior and perimeter pest control. Both mosquito control services and general pest control services are available from every EnviroCare office — mosquito control in Birmingham, Huntsville, and Lake Martin all follow the same eight-treatment mosquito control program.</p>
@@ -5265,7 +5265,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>No — starting mosquito control in July means the first couple of mosquito treatments are working harder against a bigger mosquito population, but most families see a clear difference within two to three visits. The mosquito control program still delivers meaningful mosquito reduction even when started mid-season.</p>
 
 <h2>What is the average cost of mosquito control in Alabama?</h2>
-<p>Mosquito control from EnviroCare costs $45 per month for an average-size yard, covering eight mosquito spray treatments March through October. Mosquito plus tick control is $65 per month. All mosquito control pricing is confirmed in writing before any service begins.</p>
+<p>Mosquito control from EnviroCare costs $45 per month for an average-size yard, covering eight mosquito spray treatments March through October. Mosquito plus tick control is quoted after inspection. All mosquito control pricing is confirmed in writing before any service begins.</p>
 
 <h2>Mosquito control and pest control from EnviroCare Pest Services</h2>
 
@@ -5424,7 +5424,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Tick Control in Alabama: Tick Species, Tick-Borne Diseases, Prevention, and Professional Tick Control Services',
     excerpt: 'Alabama has five tick species that bite people, and lone star tick bites are behind alpha-gal syndrome. Learn which ticks live in Alabama yards, what tick-borne diseases they carry, where ticks hide on your property, how to prevent ticks, how to remove a tick correctly, and how professional tick control services from EnviroCare keep tick populations down.',
     publishedAt: '2026-05-22',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Ticks',
     readMinutes: 18,
@@ -5516,7 +5516,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Professional tick control is a targeted barrier application to the areas ticks actually occupy — the wood line, fence rows, ivy and ground cover, shaded shrub beds, leaf litter, and tall grass along property edges — rather than a blanket spray of open lawn. Products are applied according to label directions to the specific tick habitat zones identified during an initial property assessment. Professional tick management reduces tick populations in the areas people and pets actually use, which is the highest-impact approach to tick control on residential properties.</p>
 
-<p>At EnviroCare, tick control services are part of our <strong>Mosquito &amp; Tick program</strong>, which runs $65 per month across eight treatments from March through October. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas — fleas are an interior problem and we handle them separately.</p>
+<p>At EnviroCare, tick control services are part of our <strong>Mosquito &amp; Tick program</strong>, which is quoted after inspection and includes eight treatments from March through October. It also covers chiggers, which torment a lot of Alabama families and rarely get mentioned. It does not cover fleas — fleas are an interior problem and we handle them separately.</p>
 
 <p>One important clarification: <strong>ticks are not included in our standard bi-monthly pest plan.</strong> That plan covers 30-plus household pests, but ticks, fleas, and fire ants each require different products and different placement, so they are handled as their own services. We would rather tell you that up front than have you assume you are covered.</p>
 
@@ -5524,7 +5524,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How much does professional tick control cost?</h2>
 
-<p>Professional tick control services from EnviroCare are part of the Mosquito &amp; Tick program at $65 per month for an average-size yard. The program includes eight treatments from March through October, and the monthly cost is spread evenly across the year on ACH billing. The program also covers chiggers. Mosquito-only service is $45 per month; adding tick and chigger coverage is $65 per month. The exact cost for your property may vary after a free inspection — larger lots, heavily wooded properties, or properties with extensive tick habitat may be quoted differently. The inspection is free, and there is no obligation.</p>
+<p>Professional tick control services from EnviroCare are part of the Mosquito &amp; Tick program, with pricing confirmed after inspection. The program includes eight treatments from March through October, and the monthly cost is spread evenly across the year on ACH billing. The program also covers chiggers. Mosquito-only service is $45 per month; adding tick and chigger coverage is quoted after inspection. The exact cost for your property may vary after a free inspection — larger lots, heavily wooded properties, or properties with extensive tick habitat may be quoted differently. The inspection is free, and there is no obligation.</p>
 
 <h2>Are ticks going to be bad this year in Alabama?</h2>
 
@@ -5843,7 +5843,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Mosquito pest control in the Birmingham area</h2>
 
-<p>Birmingham's humidity, suburban retention ponds, irrigation runoff, and wooded lots produce persistent mosquito pressure from March through October. Mosquito control in Birmingham focuses on treating breeding sites and applying barrier treatments to reduce mosquito populations around your home or business. Monthly mosquito treatments target the shaded resting areas where adult mosquitoes spend daylight hours and keep your yard usable through the worst of the season. Mosquito control starts at $45 a month for an average-size yard, and the price is firm after a free inspection. Mosquito plus tick control is $65 a month.</p>
+<p>Birmingham's humidity, suburban retention ponds, irrigation runoff, and wooded lots produce persistent mosquito pressure from March through October. Mosquito control in Birmingham focuses on treating breeding sites and applying barrier treatments to reduce mosquito populations around your home or business. Monthly mosquito treatments target the shaded resting areas where adult mosquitoes spend daylight hours and keep your yard usable through the worst of the season. Mosquito control starts at $45 a month for an average-size yard, and the price is firm after a free inspection. Mosquito plus tick control is quoted after inspection.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>Spider and rodent pest control in Birmingham</h2>
@@ -5870,7 +5870,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <ul>
 <li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 promotional initial service (50% off the $150 regular price). Covers 30-plus pests with free re-service between scheduled visits.</li>
-<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is $65 a month.</li>
+<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is quoted after inspection.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and we will not quote a termite job we have not inspected.</li>
 </ul>
 
@@ -5917,7 +5917,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How Much Does Pest Control Cost in Huntsville, AL?',
     excerpt: 'How much does pest control cost in Huntsville, AL? For most Huntsville homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
     publishedAt: '2026-07-24',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Pricing',
     readMinutes: 12,
@@ -5933,7 +5933,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <ul>
 <li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests including ants, spiders, cockroaches, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with free re-service between scheduled visits.</li>
-<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is $65 a month. The price is firm after a free inspection of your property.</li>
+<li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is quoted after inspection. The price is firm after a free inspection of your property.</li>
 <li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
 </ul>
@@ -5964,7 +5964,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>Cockroach pest control costs.</strong> German cockroaches, American cockroaches, and smokybrown cockroaches are all active in Huntsville. German roach infestations require targeted interior pest control treatment because they live exclusively indoors and breed in kitchens and bathrooms. A German cockroach infestation is the most difficult type of roach to control and may require multiple treatments. American and smokybrown cockroaches invade from outdoors and are covered by standard perimeter pest control service.</p>
 
-<p><strong>Mosquito pest control costs.</strong> Mosquito control in Huntsville costs $45 a month for an average-size yard — eight treatments March through October. Mosquito plus tick control is $65 a month. The Tennessee River and valley moisture produce above-average mosquito breeding habitat in the Huntsville area, making mosquito control a priority pest control service for North Alabama homeowners. The price is firm after a free inspection.</p>
+<p><strong>Mosquito pest control costs.</strong> Mosquito control in Huntsville costs $45 a month for an average-size yard — eight treatments March through October. Mosquito plus tick control is quoted after inspection. The Tennessee River and valley moisture produce above-average mosquito breeding habitat in the Huntsville area, making mosquito control a priority pest control service for North Alabama homeowners. The price is firm after a free inspection.</p>
 
 <p><strong>Spider pest control costs.</strong> Spider control is included in the bi-monthly pest control service. Brown recluse spiders are established across the Huntsville area, particularly in older homes with stone foundations and crawl spaces. Huntsville's limestone geology gives spiders additional access points through foundation cracks. Spider control starts with reducing the insect prey that spiders feed on and treating harborage areas directly.</p>
 

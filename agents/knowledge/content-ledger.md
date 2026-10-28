@@ -87,6 +87,9 @@ opportunity? Those require fresh reads; do not guess from this ledger.
 
 ## 4. 📄 PUBLISHED BLOG POSTS — live on `/blog`
 
+**October 28 review only:** PR #287 contains 30 existing-URL refreshes and six data-center guides. Check `agents/knowledge/editorial-batch-36.json` before proposing overlapping topics. The follow-up also corrects public pricing in ten articles and expands the existing preparation and sugar-ant articles. These are not production publications or scored NeuronWriter imports. Audit: `claude/BLOG-SEARCH-AUDIT-2026-10-28.md`.
+
+
 Newest first. **35+ total.** Do not pitch these angles again.
 
 - How Much Does Termite Treatment Cost in Alabama? — Aug 4 *(added 2026-08-05, commit 92530a0)*

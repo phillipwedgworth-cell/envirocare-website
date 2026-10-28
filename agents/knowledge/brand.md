@@ -1,8 +1,9 @@
 # EnviroCare Brand Knowledge Base
-# Updated: 2026-09-05 — all pricing, office, and compliance rulings current.
+# Updated: 2026-10-28 — removed stale price, identity and staffing instructions; current source files govern.
 
 ## Company Identity
-- **Founded**: 1958 by Phillip M. Wedgworth in Alexander City, Alabama
+- **Family history**: The Wedgworth family began Alabama pest control in Alexander City in 1958. Do not describe the current legal entity as founded then.
+- **Name**: EnviroCare in general prose; legal name EnviroCare, LLC. The retired “EnviroCare Pest & Termite Services” is not an approved company name.
 - **Current owner**: Kevin Wedgworth (3rd-generation owner). The BUSINESS spans FOUR generations (William Lex, 4th gen, joined 2024). Say "four generations" / "family-owned since 1958"; NEVER "third-generation company".
 - **Structure**: Family-owned, never franchised, never sold
 - **Tagline**: "No One Cares Like EnviroCare"
@@ -18,18 +19,15 @@
 | Auburn call routing | — | (334) 332-3321 | Routes to Alex City office |
 | BANNED number | (205) 649-5278 | DEAD — never use anywhere | Legacy Scorpion tracking number |
 
-## Core Services & Pricing (locked — Sep 5, 2026)
-RULE: termite is NEVER a flat number to customers — always "quoted after a free WDO inspection."
-Mosquito/tick without a pest plan are PER-TREATMENT only (no monthly). Tick rides with mosquito only.
-- **Pest only**: From $35/mo (bimonthly) · $75 initial service · ACH · **12-month agreement, equal averaged payments**; per-visit $70 is contract-free
-- **Pest + Mosquito**: From $69/mo · $75 initial service · add tick +$20/treatment
-- **Complete (Pest + Termite + Mosquito)**: From ~$100/mo · $229 startup · termite priced upon inspection & approval · add tick +$20/treatment
-- **Mosquito**: $45/treatment × 8 (March–October) alone, billed per service; $34/mo ONLY when bundled with a pest plan. NEVER guarantee elimination — "reduce/control" only, with free re-treatment between visits.
-- **Mosquito + Tick**: $65/treatment × 8 (March–October) — covers chiggers, NOT fleas (flea = interior +$30/qtr). Tick rides with mosquito only, never standalone.
-- **Termite (Sentricon®)**: NO flat price — quoted after a free on-site WDO inspection (Alabama requires it). Up to $1M EnviroCare damage repair coverage, subject to the terms of the agreement. (Internal only: $325 install incl. year-1 + $380/yr renewal, or $32/mo ACH renewal — never quote as a monthly.)
-- **Fire ant**: $150 covers most yard sizes, with larger properties quoted by square footage — standalone, available to anyone (NOT in the pest plan)
-- **WDO (real estate termite letter)**: $75 standalone; one free/yr for active customers
-- **RETIRED prices**: $150 initial, $99 initial, $79 initial — never use these anywhere.
+## Core Services & Pricing — source files govern
+- Read `data/pricing.ts` and `data/compliance.ts` before writing prices. Historical notes are not a substitute.
+- Termite work is quoted after inspection; do not publish a flat price or renewal range.
+- Tick and flea pricing is quoted; do not publish internal add-on amounts.
+- A standalone real-estate WDO report is a paid service. Confirm the fee before booking; do not invent an amount or call the report free.
+- Monthly prices require the 12-month ACH agreement and equal averaged payment disclosure from `PRICING.achTerms`.
+- Mosquito service uses eight treatments March–October; monthly payments are not per-treatment charges.
+- Initial service differs by plan: read `plans.<plan>.startup` and the current promotion terms.
+- Commercial and data center scope and pricing are quoted after a walkthrough. Do not invent credentials, clients, SLAs or equipment compatibility.
 
 ## Compliance — hard rules for every agent
 - NO "safe/pet-safe/eco-safe/non-toxic/eco-friendly" — use "EPA-registered products applied per label directions." EPA REGISTERS pesticides; "EPA-approved" is factually wrong and banned.
@@ -38,7 +36,7 @@ Mosquito/tick without a pest plan are PER-TREATMENT only (no monthly). Tick ride
 - NO public review counts ("500+ homes served" etc.)
 - NO "eliminate" for mosquito — always "reduce/control"
 - Sentricon $1M damage coverage = EnviroCare's OWN — NEVER attributed to Sentricon/Corteva/Dow, NEVER called a "guarantee" or "warranty"
-- "No long-term contract" applies to pest control only — termite carries a contract/annual renewal
+- Describe agreement and billing terms from current pricing; do not make an unqualified contract-free promise.
 - TUSCALOOSA is NOT a service area
 - Crawlspace encapsulation is KILLED — EnviroCare does NOT offer it
 - No bed bug, wildlife, raccoon, or lawn services
@@ -51,10 +49,10 @@ Mosquito/tick without a pest plan are PER-TREATMENT only (no monthly). Tick ride
 1. **Sentricon® Certified Specialist** — up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. This is EnviroCare's OWN coverage — never attribute it to the manufacturer.
 2. **Since 1958** — predates most competitors. Say "since 1958", not "68 years".
 3. **Four generations of ownership** — same family, same values. NEVER write "third generation."
-4. **Lake Martin exclusivity** — ONLY pest control company with a dedicated Lake Martin office
+4. **Lake Martin presence** — service through the Alexander City office; no exclusivity claim.
 5. **Two ways to pay** — $35/mo on a 12-month ACH billing agreement, or $70 per bi-monthly visit. NEVER claim "no contract", "no long-term contract", "no agreement" or "cancel anytime."
 6. **Local humans answer the phone** — no call center routing
-7. **Same technician every visit** — customers know who is coming
+7. **Familiar local team** — no promise of the same technician at every visit.
 
 ## Brand Voice
 - Warm, direct, Southern

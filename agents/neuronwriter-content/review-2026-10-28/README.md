@@ -42,3 +42,13 @@ Keep public source citations separate from acquisition of third-party mentions. 
 - Run the score check on rendered HTML using the existing matching NeuronWriter query; record the actual ID, date and before/after scores. No new query merely because a handoff lacks an ID.
 - Complete a human review of retained claims, facility procedures, pricing/agreements and cited-source scope; run competitor originality checks on actual available competitor text; review artwork and previews before release.
 - Publish only approved batches through human-reviewed PRs. This branch changes neither production nor publishing schedules.
+
+## Full-archive audit follow-up — October 28, 2026
+
+The 36-entry map is a review batch, not an audit of the entire archive. A follow-up checked all 65 main-branch post records and the 71 records in this draft branch. See `claude/BLOG-SEARCH-AUDIT-2026-10-28.md` for findings, implemented corrections and remaining decisions.
+
+The follow-up removes the non-public tick/mosquito add-on amount from eight posts and the unverified standalone WDO amount from two posts. It expands the preparation guide with follow-up questions and service links, and rewrites the short sugar-ant guide without invented success rates, universal bait timelines or species identification from return speed. These corrections are additional to the 36-entry map; they do not turn it into a larger scored batch. The sugar-ant title/snippet changes correct unsupported June-specific framing; no archive-wide title shortening is applied.
+
+`agents/knowledge/brand.md` no longer supplies contradictory per-treatment mosquito rates, public tick/flea prices, a stale WDO fee, an unqualified contract claim, a staffing promise or an unsupported exclusivity claim to the drafting agents. Current pricing/compliance source files govern.
+
+The exact final commit must pass the pull-request build and guards and have its own preview verified. NeuronWriter scores and competitor originality remain pending; earlier build results do not prove those checks.
