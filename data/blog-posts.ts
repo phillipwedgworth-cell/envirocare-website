@@ -1206,7 +1206,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>A wasp nest. A one-off flea treatment after a foster dog. A fire ant yard application. A German cockroach cleanout with a follow-up. These are jobs with an end, and it is reasonable to pay for them as jobs. What does not work as a one-time treatment is general pest pressure in an Alabama yard, because the pressure does not end; the treatment just wears off.</p>
 
 <h2>What EnviroCare does</h2>
-<p>The base plan is <a href="/services/pest-control">bi-monthly exterior service</a> — $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 initial service, interior treatment as needed, and free re-service between visits if something shows up early. Mosquito and tick run monthly March through October. Termite protection is its own schedule under Sentricon®, with annual inspection. The honest answer to how often is: often enough that the barrier is never the weak point, and in this climate that is every other month. The full cost picture is in <a href="/blog/pest-control-cost-alabama">what pest control costs in Alabama</a>.</p>
+<p>The base plan is <a href="/services/pest-control">bi-monthly exterior service</a> — $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 promotional initial service (50% off the $150 regular price), interior treatment as needed, and free re-service between visits if something shows up early. Mosquito and tick run monthly March through October. Termite protection is its own schedule under Sentricon®, with annual inspection. The honest answer to how often is: often enough that the barrier is never the weak point, and in this climate that is every other month. The full cost picture is in <a href="/blog/pest-control-cost-alabama">what pest control costs in Alabama</a>.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
@@ -1377,10 +1378,11 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Interior treatment on a first visit is targeted: bait in the cracks where roaches live, treatment at the plumbing penetrations under sinks, the garage, and the attic or crawlspace access if the inspection found reason. It is not a baseboard spray of every room — that is the old way, and it is not how pests are reached. If the problem is German cockroaches or fleas, the technician will explain that a follow-up visit is part of the plan, because the egg stage does not respond to the first treatment.</p>
 
 <h2>How long, and what happens next</h2>
-<p>A first visit on a typical home runs forty-five minutes to an hour and a half, depending on the lot and what was found. Expect to see more activity for a few days as material reaches the nests — that is the treatment working, and it is the reason we ask you not to spray on top of it. If something shows up between scheduled visits, you call and we come back at no charge; that is part of the plan, not an add-on. The next routine visit is in two months, and the familiar local team can use the inspection notes to plan follow-up.</p>
+<p>Visit length and follow-up depend on the property, pest and inspection findings; ask the technician what to expect for your planned service. More visible activity after treatment does not by itself establish success or failure. Record sightings and ask the technician about persistent or unexpected activity rather than applying another product. If covered pests show up between scheduled visits, call us about the re-service included in your plan. The next routine visit is in two months, and the familiar local team can use the inspection notes to plan follow-up.</p>
 
 <h2>What it costs</h2>
-<p>The <a href="/services/pest-control">bi-monthly plan</a> is $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 initial service. Everything above is what the initial service is. For how the year plays out from there, see <a href="/blog/how-often-pest-control-alabama">how often pest control should come in Alabama</a>.</p>
+<p>The <a href="/services/pest-control">bi-monthly plan</a> is $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 promotional initial service (50% off the $150 regular price). Everything above is what the initial service is. For how the year plays out from there, see <a href="/blog/how-often-pest-control-alabama">how often pest control should come in Alabama</a>.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
@@ -1540,6 +1542,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>The program on Lake Martin</h2>
 <p>EnviroCare's <a href="/services/mosquito">seasonal mosquito service</a> is $45 per month for an average-size yard, with a firm price after a free inspection. It includes eight treatments from March through October, with equal monthly ACH payments across the year; the price is $34 a month only when paired with a pest plan. For wooded lake lots, the Mosquito + Tick option at $65 per month covers ticks and chiggers in the same zones. Routine treatment does not require anyone home, which is how most of our <a href="/lake-martin">Lake Martin</a> and <a href="/dadeville">Dadeville</a> weekend places are handled. The health side of the question is in <a href="/blog/mosquito-borne-diseases-alabama">mosquito-borne diseases in Alabama</a>.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
@@ -1674,7 +1677,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>You see ants in the kitchen again within days of cleaning — the colony has a satellite nest inside the wall or under the slab, and surface treatments cannot reach it.</li>
 </ul>
 
-<p>A professional pest control program does two things a store bait or a vinegar spray bottle cannot. It treats the exterior colony sites and entry points with non-repellent materials that ants walk through and carry back to their nest rather than avoid, and it puts the whole house on a schedule so the next colony that finds the mulch bed never makes it to the kitchen counter. Nuisance ants — odorous house, Argentine, pavement, carpenter — are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 initial service and includes free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
+<p>A professional pest control program does two things a store bait or a vinegar spray bottle cannot. It treats the exterior colony sites and entry points with non-repellent materials that ants walk through and carry back to their nest rather than avoid, and it puts the whole house on a schedule so the next colony that finds the mulch bed never makes it to the kitchen counter. Nuisance ants — odorous house, Argentine, pavement, carpenter — are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 promotional initial service (50% off the $150 regular price) and includes free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>What about the ants in the yard?</h2>
 
@@ -1816,7 +1820,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>For a German cockroach infestation, the first visit is an interior visit: we identify harborage, place gel bait where cockroaches are active, apply an insect growth regulator in treated areas, and set the follow-up. The regular bi-monthly exterior rotation from our <a href="/services/pest-control">bi-monthly perimeter plan</a> then keeps the outdoor cockroach species — American and smokybrown — from adding to the count. If anything shows up between scheduled visits, we come back out at no extra charge. For homes that want a standing interior schedule regardless, there is a <a href="/services/interior-pest-control">quarterly interior program</a> as well.</p>
 
-<p>Our bi-monthly pest plan covers cockroaches, German cockroaches, and 30-plus other common Alabama household pests, starting at $35 a month with a $75 initial service and free re-service between visits. For homes dealing with a German cockroach infestation, interior treatment targeting the specific cabinets, appliances, and cracks and crevices where roaches are active is what makes the difference between temporary relief and professional pest control services that deliver effective control.</p>
+<p>Our bi-monthly pest plan covers cockroaches, German cockroaches, and 30-plus other common Alabama household pests, starting at $35 a month with a $75 promotional initial service (50% off the $150 regular price) and free re-service between visits. For homes dealing with a German cockroach infestation, interior treatment targeting the specific cabinets, appliances, and cracks and crevices where roaches are active is what makes the difference between temporary relief and professional pest control services that deliver effective control.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>For a broader look at all three Alabama cockroach species and how we approach each, see <a href="/blog/cockroach-control-alabama">cockroach control in Alabama</a>.</p>
 
@@ -2042,7 +2047,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>For outdoor cockroach species — American cockroaches, smokybrown cockroaches, and oriental roaches — the cockroach control solution is a perimeter barrier treatment along the foundation, around door and garage thresholds, and at utility penetrations, combined with granular treatment in mulch beds and exterior harborage areas.</p>
 
-<p>EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a> covers cockroaches and 30-plus other common Alabama pests, starting at $35 a month with a $75 initial service and free re-service between visits. Perimeter treatment intercepts outdoor cockroach species before they reach your entry points. For homes dealing with a German cockroach infestation, the first visit is an interior visit targeting the specific cabinets, appliances, and cracks and crevices where roaches are active. If anything shows up between scheduled visits, we come back at no extra charge.</p>
+<p>EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a> covers cockroaches and 30-plus other common Alabama pests, starting at $35 a month with a $75 promotional initial service (50% off the $150 regular price) and free re-service between visits. Perimeter treatment intercepts outdoor cockroach species before they reach your entry points. For homes dealing with a German cockroach infestation, the first visit is an interior visit targeting the specific cabinets, appliances, and cracks and crevices where roaches are active. If anything shows up between scheduled visits, we come back at no extra charge.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>How to keep roaches out of your Alabama home for good</h2>
 
@@ -2361,7 +2367,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Do not spray the mud tube or tear out the trim. Both destroy the evidence the inspector needs to judge how active and how extensive the termite problem is. Photograph it, leave it undisturbed, and schedule the inspection. Termite damage is slow enough — the colony takes years, not weeks — that there is time to get a proper evaluation rather than a rushed decision.</p>
 
-<p>If termite treatment is needed, the Sentricon® Always Active™ bait system protects the structure with in-ground stations and no drilling, and qualifying homes on an EnviroCare protection agreement carry up to $1,000,000 in damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That is the difference between finding termite damage on a protected house and an unprotected one: on a protected house, the repair is covered. Protect your home before the colony causes costly damage. The broader questions — <a href="/blog/termite-bond-alabama-explained">bonds</a>, <a href="/blog/pest-control-cost-alabama">cost</a>, insurance — are in our related guides.</p>
+<p>If termite treatment is needed, the Sentricon® Always Active™ bait system protects the structure with in-ground stations and no drilling, and qualifying homes on an EnviroCare protection agreement carry up to $1,000,000 in damage repair coverage provided by EnviroCare, subject to the terms of the agreement. Eligibility and any covered repair depend on the protection agreement and its terms. Protect your home before the colony causes costly damage. The broader questions — <a href="/blog/termite-bond-alabama-explained">bonds</a>, <a href="/blog/pest-control-cost-alabama">cost</a>, insurance — are in our related guides.</p>
 
 <h2>Frequently asked questions about termite damage</h2>
 
@@ -2499,7 +2505,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: `
 <p class="lede">Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and reduce clutter. An inspection is more useful than adding pesticide before identifying the entry route.</p>
 
-<h2>Which entry points should you inspect first?</h2>
+<h2>Why should you inspect before cooler weather?</h2>
 
 <p>Alabama does not get the hard freeze that ends the season further north. What we get is a slow slide — nights in the 50s by late September, the first 40s in mid-October — and that slide is the trigger. Insects that were perfectly content under a pine straw bed in <a href="/hoover">Hoover</a> or beneath a deck in <a href="/chelsea">Chelsea</a> start moving toward heat, and the warm air leaking out of a foundation line, a door frame, or an unsealed garage jamb reads to them as an open door.</p>
 <p><strong>Reference:</strong> Look for openings both inside and outside the home. <a href="https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html">CDC: Seal up to prevent rodents</a>.</p>
@@ -2686,34 +2692,34 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Why might bugs be more visible after treatment?</h2>
 
-<p>Some treatments can change how visible pest activity is, but the cause must be assessed in context. Pests do not live out in the open where you can see them. They live in wall voids, under siding, in mulch beds, behind baseboards, and in the seam where brick veneer meets the slab. When we treat those harborage areas, the insects sitting in them do not quietly die in place. They get agitated, they move, and moving means walking out into the open where you finally notice them.</p>
+<p>Pests can occupy wall voids, spaces behind baseboards, mulch beds and other sheltered areas. A treatment may change where insects are seen, but continued activity can also call for another inspection. The technician needs to consider the pest, the method used and the location of the sightings before explaining the change.</p>
 <p><strong>Reference:</strong> Ask about the source of activity and follow product instructions. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
-<p>So the population is not growing. Your visibility of it is. A <a href="/hoover">Hoover</a> homeowner who noticed two or three spiders a month before service might count a dozen in the week after, and every one of those was already living in the house. Treatment did not bring them in. It just changed where they were standing.</p>
+<p>An increase in sightings does not establish whether the population itself has grown. Note whether you are seeing the same pest in the same place, activity in a new room, or live insects alongside dead ones. Those observations help the provider assess what is happening.</p>
 
-<h2>How long does the flush-out last?</h2>
+<h2>How long should you monitor after treatment?</h2>
 
-<p>Usually seven to ten days. Two weeks is not unusual for a heavy population or an older home with a lot of hiding places. Activity tends to peak in the first three or four days, taper hard through the end of week one, and by day fourteen most homes are noticeably quieter than they were before we came out.</p>
+<p>There is no single waiting period that fits every pest and treatment. Ask the technician what changes to expect, when the planned follow-up will occur and which observations should prompt a call sooner. Use those instructions instead of a generic waiting period.</p>
 
-<p>Two things stretch that window. Older construction gives insects more voids and settled gaps to sit in, which is why the established streets in Mountain Brook, Homewood, and older <a href="/vestavia-hills">Vestavia Hills</a> neighborhoods often run a longer flush than a five-year-old house in <a href="/mt-laurel">Mt Laurel</a>. Season matters too. A June treatment in <a href="/chelsea">Chelsea</a> or Greystone is working against peak sugar ant pressure, so there is simply more insect in the system to push out.</p>
+<p>Inspection access, building conditions and the particular infestation can affect the work needed. A neighborhood name or the age of a house does not establish how long activity should continue. Report places the technician could not inspect and any new leak, gap or other condition you notice.</p>
 
-<h2>Why we do not try to kill everything on day one</h2>
+<h2>Why might a treatment plan need follow-up?</h2>
 
-<p>This is the part that runs against instinct. With ants especially, the fastest-acting product is often the worst choice. The ants you see on the counter are foragers, and they are maybe five percent of the colony. Kill them instantly with a repellent product and you accomplish two bad things: the rest of the colony never gets dosed, and the survivors read the treated area as hostile and bud off into satellite colonies somewhere else in the structure. You trade one ant problem for three.</p>
+<p>The visible ants are only part of the problem a technician investigates. Identification, possible nesting areas and food or moisture sources help determine the treatment plan. Killing the workers you see does not establish that the source of a recurring trail has been addressed.</p>
 
-<p>Non-repellent products and baits work the other way. Foragers pick the material up, walk it home undetected, and pass it through the colony by grooming and feeding. That transfer takes days, not minutes, and during those days you keep seeing ants. That is the mechanism doing its job. Ripping into the trail with a store-bought aerosol in the middle of that window is the most common way homeowners undo their own service, and it is one of the missteps we cover in our <a href="/blog/diy-pest-control-mistakes">DIY pest control mistakes</a> post.</p>
+<p>Follow the instructions for the selected method and ask before using another product near a treatment or bait placement. Continued sightings need to be interpreted alongside the service record; they are not proof that a product is being carried through a colony. Adding an aerosol without discussing it with the provider is one of the avoidable mistakes covered in our <a href="/blog/diy-pest-control-mistakes">DIY pest control guide</a>.</p>
 
-<h2>What is normal, and what is not</h2>
+<h2>Which activity should you report?</h2>
 
-<p>Normal in the first two weeks: more visible activity than usual, dead or dying insects showing up on windowsills and in corners, ants still working an established trail, sluggish spiders in the open, and a short bump right after the first hard rain.</p>
+<p>Record whether insects are alive or dead, where you found them and whether the activity is new or recurring. A photograph can help with identification. Avoid labeling every post-treatment sighting as a normal response before the provider has assessed it.</p>
 
-<p>Worth a phone call: activity that is climbing rather than tapering at the two-week mark, a brand-new trail in a room we never treated, live insects in an area that was quiet before service, or any sign of termite or wood-destroying activity, which is a separate issue from general pest work and handled through our <a href="/services/termite-control">termite service</a> after a free inspection.</p>
+<p>Contact the provider about increasing or persistent activity, a new trail, activity in a previously quiet room, or any other concern about the result. You do not have to wait for an arbitrary deadline to ask. Suspected termite or other wood-destroying activity needs a separate assessment through our <a href="/services/termite-control">termite service</a>.</p>
 
-<h2>What to do during the first two weeks</h2>
+<h2>What should you do between visits?</h2>
 
-<p>Leave the treated surfaces alone. Do not mop or wipe baseboards and exterior foundation lines for a couple of days, since the residual is what keeps working after we leave. Vacuum what you find rather than spraying it, especially near baseboards and window tracks. Keep a rough note of where you are seeing activity and on what days, because that pattern tells the technician far more on a return visit than a general report that bugs are still around.</p>
+<p>Ask which treated surfaces may be cleaned and when. Follow the product label and the technician's instructions instead of assuming a fixed period for mopping or wiping. Keep notes about sightings and avoid applying another pesticide before discussing the next step with the provider.</p>
 
-<p>And if it does not settle down, call us. Our <a href="/services/pest-control">bi-monthly perimeter plan</a> includes free re-service between scheduled visits, so if something is still working two weeks out, we come back and treat again at no additional charge. Products are EPA-registered and applied per label directions, and a second application targeted at the spot that is still active is a normal part of the process, not an admission that anything went wrong. Our guide on <a href="/blog/prepare-home-for-pest-control">preparing your home for service</a> is worth a read before that visit, since access is often the difference between a two-week flush and a four-week one.</p>
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> includes free re-service between scheduled visits for covered pests. Call about ongoing activity so the technician can reassess it and decide on the appropriate follow-up. Another application is not automatic: any treatment must fit the findings and label directions. Review our <a href="/blog/prepare-home-for-pest-control">preparation guide</a> and the instructions for your planned visit so the relevant areas are accessible.</p>
 
 <p>Questions about what you are seeing? Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676.</p>
 
@@ -3180,55 +3186,55 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How do bait systems and liquid treatments differ?</h2>
 
-<p>For the large majority of Alabama homes, Sentricon is the better termite treatment choice. The Sentricon® system targets the entire termite colony — including the queen — through bait that foraging termites carry back to the colony. A liquid barrier treatment creates a chemical perimeter around the structure that termites must cross to reach your home. Both provide termite protection, but they work in fundamentally different ways and the long-term results are not the same. The question is not which termite treatment is best in the abstract — it is which treatment is best for your specific home and situation.</p>
+<p>Bait systems depend on termites finding and feeding on bait; liquid soil treatments place a labeled termiticide in specified locations around a structure. Neither description alone determines the right choice for a home. Compare the inspection findings, proposed application, access requirements and ongoing service terms.</p>
 <p><strong>Reference:</strong> EPA describes both bait and liquid soil-treatment approaches. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <h2>How liquid barrier termite treatment works</h2>
 
-<p><strong>Liquid termiticide treatment</strong> is exactly what it sounds like. A pest control technician digs a 6-inch trench around your foundation, or drills through your concrete slab every 12 inches, and injects gallons of liquid termiticide into the soil around the structure. The treated soil creates a barrier — termites that try to cross it either die or are repelled, depending on the active ingredient. Modern non-repellent termiticides like Termidor use fipronil, which termites cannot detect, so worker termites walk through the treated soil and carry the insecticide back to the colony before they die.</p>
+<p><strong>Liquid termiticide treatment</strong> uses a product labeled for structural termite protection. The applicator must follow its directions for placement, concentration and volume. Depending on the structure and scope, access may involve soil trenching or drilling through hard surfaces. Ask the inspector to identify the work proposed for your property.</p>
 
-<p>To do a liquid treatment right on a typical 2,000-square-foot home, the process requires drilling or trenching around the entire perimeter and injecting 100 to 300 gallons of finished solution into the soil around the foundation. This is labor-intensive work that often takes a full day, and it may require drilling through garage floors, patios, and sidewalks to create a continuous liquid barrier.</p>
+<p>Floor area alone does not establish how much product is needed or how long the work will take. Foundation design, treatment locations and access affect the plan. The written proposal should explain any drilling or trenching and how the affected surfaces will be restored.</p>
 
 <h2>How the Sentricon termite bait system works</h2>
 
-<p>The <strong>Sentricon® Termite Colony Elimination System</strong> is a bait system. Bait stations are installed around the perimeter of your home, placed every 10 to 15 feet around the foundation just below the soil surface. Each bait station contains a bait matrix made with noviflumuron — an insect growth regulator that is roughly 10,000 times more toxic to termites than to mammals. Noviflumuron prevents termites from completing their molt, which means they cannot shed their exoskeletons and eventually die.</p>
+<p>The <strong>Sentricon® system</strong> uses termite bait stations. Station placement and service must follow the product directions and the conditions found during inspection. Ask the provider where stations will be installed, how they will be accessed and what monitoring is included.</p>
 
-<p>Here is how termite bait systems like Sentricon actually eliminate termites: foraging termites find the bait stations while searching for cellulose around your home. Worker termites feed on the bait and carry it back to the colony, where they share it with other termites, including the queen. Because the insect growth regulator works slowly, the foraging termites have time to distribute the bait throughout the entire colony before the effects take hold. Within a few months, the termite colony collapses entirely — queen and all. This process is what pest control professionals call colony elimination, and it is what makes bait systems fundamentally different from liquid barrier treatments that only stop termites that pass through the treated soil.</p>
+<p>Termite baits contain slow-acting material that termites must find and feed on. A bait program therefore depends on foraging and feeding as well as the installed system. Inspection and service records should guide the assessment of progress; installation alone does not establish that an existing infestation has ended.</p>
 
-<p>Ongoing monitoring is built into the system. We inspect each bait station on a regular schedule to check for termite activity, replace bait as needed, and confirm continued termite protection around your home. This monitoring and maintenance is what separates a professional termite bait system from a one-time treatment.</p>
+<p>Under our Sentricon program, stations are inspected and serviced on the agreed schedule. Ask which observations will be recorded, when bait will be checked or replaced and how new evidence around the structure will be handled. Compare those details with the inspection and renewal provisions of any other proposal.</p>
 
-<h2>Where Sentricon wins over liquid termite treatment</h2>
-
-<ul>
-<li><strong>No drilling required.</strong> Liquid barrier treatment often requires drilling through stamped concrete patios, finished basement floors, driveways, and garage slabs. Sentricon bait stations are installed around the foundation with no drilling and minimal disruption to your property.</li>
-<li><strong>No tank trucks pumping termiticide.</strong> A liquid treatment means a 300-gallon tank parked in your driveway pumping insecticide into the soil around your home. Sentricon stations use a fraction of the material and pose less contamination risk to the soil around the structure.</li>
-<li><strong>Colony elimination, not just deterrence.</strong> Liquid treatments create a barrier around the perimeter of your home. If the termite colony finds a gap in that barrier — and termite colonies routinely do — you have a new infestation. Sentricon bait targets the termite colony at its source and eliminates the entire colony, including the queen. Once the colony is gone, it cannot reinfest.</li>
-<li><strong>Damage repair coverage.</strong> Sentricon installations we service carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. That coverage is EnviroCare's own — not the manufacturer's — and most liquid termite treatment products simply do not offer an equivalent level of protection.</li>
-<li><strong>Less invasive installation.</strong> Sentricon bait stations are placed in the soil around your home with minimal landscape disruption. Liquid barrier treatment requires trenching around the entire foundation, which can damage landscaping, and drilling through concrete, which is permanent.</li>
-<li><strong>Continuous termite monitoring.</strong> The Sentricon system provides ongoing monitoring for new termite activity around your home. A liquid treatment degrades over time, and you will not know whether it has failed until termites are already inside.</li>
-</ul>
-
-<h2>Where liquid termite treatment still wins</h2>
+<h2>What should you compare in a bait-system proposal?</h2>
 
 <ul>
-<li><strong>Active termite infestations with structural damage.</strong> If you have visible swarmers inside the house and damaged wood, a liquid spot-treatment combined with Sentricon bait stations is often the fastest path to stopping termite damage. The liquid treatment provides immediate protection in the active area while the bait system works toward colony elimination.</li>
-<li><strong>Pre-construction termite treatment.</strong> When a builder pre-treats a new home before the slab pour, liquid termiticide applied to the soil under and around the slab is still the industry standard. Bait stations cannot be installed until the structure is complete.</li>
-<li><strong>Pier-and-beam homes with low crawlspaces.</strong> Some homes can benefit from a partial liquid treatment along sill plates and foundation walls where termite bait stations cannot be placed. In these cases we often recommend a combination approach — liquid treatment in the crawlspace and Sentricon bait stations around the exterior perimeter.</li>
+<li><strong>Station locations.</strong> Ask where stations can be installed and whether hard surfaces, landscaping or restricted access affect placement.</li>
+<li><strong>Application method.</strong> Compare the proposed bait placements with the locations and scope of any liquid application; product quantities must follow the applicable label.</li>
+<li><strong>Evidence of progress.</strong> Ask how the provider will interpret feeding, inspection findings and any ongoing activity rather than judging success from the treatment name.</li>
+<li><strong>Damage repair coverage.</strong> Qualifying homes on an EnviroCare protection agreement may carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. Compare the actual written provisions; coverage is not established by the pesticide brand.</li>
+<li><strong>Property access and restoration.</strong> Request a clear explanation of any excavation, drilling, surface repair or landscaping access included in the proposal.</li>
+<li><strong>Ongoing inspections.</strong> Compare visit frequency, records, renewal terms and the response to new evidence under each proposed program.</li>
 </ul>
 
-<h2>The honest downside of Sentricon termite bait</h2>
+<h2>When might liquid treatment be considered?</h2>
 
-<p>The Sentricon system takes longer to work than a liquid treatment the first time. If you have active termites in the wall today, the bait stations will begin reducing that termite colony — but it can take 90 days for full colony elimination. During that time, the termite population in your wall is still feeding. We treat that gap with a targeted liquid spot-treatment to the active area while the Sentricon bait stations do the long-term termite control work.</p>
+<ul>
+<li><strong>Active termite evidence.</strong> An inspector should assess the affected areas and explain the proposed method, access and follow-up. The presence of damage alone does not select a product.</li>
+<li><strong>New construction.</strong> Coordinate the prevention plan with the build sequence and the applicable product and construction requirements before work begins.</li>
+<li><strong>Restricted access.</strong> Crawlspace clearance, slabs and other barriers can affect what can be inspected or treated. The proposal should state those limits and the resulting recommendation.</li>
+</ul>
 
-<p>Sentricon also has a slightly higher initial cost than liquid treatment in year one. Our Sentricon® pricing is set after a free termite inspection — Alabama regulates all termite work, so the exact figure depends on your home's linear footage and foundation type. Liquid termite treatment is priced the same way, after an inspection, and is usually a single up-front treatment rather than ongoing monitoring. After year five, most homeowners renew Sentricon and walk away from liquid because the soil treatment has degraded and the liquid barrier is no longer providing reliable termite protection.</p>
+<h2>What affects response time and ongoing service?</h2>
 
-<p>Termite baiting requires patience. The bait does not kill termites on contact — that is by design. If foraging termites died immediately after finding the bait, they would never carry it back to the colony, and the termite colony would simply route around the dead zone. The slow action of noviflumuron is what allows worker termites to share the bait with the rest of the colony before anyone stops eating.</p>
+<p>The time to assess a bait program depends on whether termites find and feed on the bait and what the follow-up inspections show. Do not treat a set number of days as a promise of colony elimination. Active termite evidence should be assessed by the provider, who can explain the proposed treatment and how progress will be checked.</p>
+
+<p>Our Sentricon pricing is set after a free termite inspection. Compare installation, inspection, renewal and any additional work in writing. The treatment name does not establish which proposal will cost more initially or over time, and neither a blanket replacement schedule nor an assumed renewal price should substitute for the agreement.</p>
+
+<p>Ask what the service records can establish and what remains uncertain. A station with no feeding does not by itself establish that the entire property is free of termites. Your provider should explain the findings and any further inspection or treatment recommended for the structure.</p>
 
 <h2>Can you use Sentricon and liquid termite treatment together?</h2>
 
-<p>Yes, and we often do. When a homeowner has active termite damage — visible mud tubes, swarmers indoors, or soft wood around a window frame — we typically install Sentricon bait stations around the foundation for long-term termite colony elimination and apply a targeted liquid treatment to the active area for immediate protection. This combination approach gives you the fast knockdown of a liquid termiticide and the colony elimination of a termite bait system.</p>
+<p>A pest professional may consider more than one treatment method when the inspection supports it. Any combination must follow the relevant product labels and account for the structure, termite evidence and access. Ask why each component is proposed and how its results will be assessed.</p>
 
-<p>What we do not recommend is a full liquid barrier treatment combined with a bait system. A complete liquid treatment around the entire perimeter can actually interfere with the bait stations — if the liquid barrier kills foraging termites before they reach the bait, the Sentricon system cannot do its job of eliminating the entire termite colony.</p>
+<p>Do not assume that adding a second treatment automatically improves the result. The provider should evaluate whether the proposed applications are compatible and explain the role of each one. That decision belongs in the site-specific plan.</p>
 
 <p>If cost is the sticking point, we walk through the numbers — install, monitoring, and what the coverage protects — in <a href="/blog/is-sentricon-worth-it">Is Sentricon worth it?</a> And if you want to see how a Sentricon program is set up on your home, start with our <a href="/services/termite-control">termite control service</a>.</p>
 
@@ -3237,32 +3243,32 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The right termite treatment depends on a few things a pest control professional needs to see in person: whether you have active termite activity, what type of foundation your home sits on, whether there is existing termite damage, and how the soil around the structure drains. Here is the general framework we use:</p>
 
 <ul>
-<li><strong>No active termites, want prevention:</strong> Sentricon bait system installed around the perimeter, with ongoing monitoring and maintenance. This is the most common scenario for Alabama homeowners.</li>
-<li><strong>Active termite infestation:</strong> Sentricon bait stations for colony elimination plus a targeted liquid spot-treatment in the active area for immediate termite control.</li>
-<li><strong>New construction:</strong> Liquid termiticide pre-treatment under and around the slab, with Sentricon bait stations installed around the finished structure.</li>
-<li><strong>Crawlspace with limited access:</strong> Combination of partial liquid treatment and Sentricon bait stations installed around the exterior foundation.</li>
+<li><strong>Prevention:</strong> Ask about conditions that favor entry, the proposed treatment approach and ongoing inspections.</li>
+<li><strong>Active evidence:</strong> Ask what has been identified, which areas need attention and how progress will be checked.</li>
+<li><strong>New construction:</strong> Confirm the treatment sequence and responsibilities with the builder and pest provider.</li>
+<li><strong>Limited access:</strong> Document the inspection limits and how they affect the proposed scope and agreement.</li>
 </ul>
 
 <h2>Frequently asked questions about termite treatment</h2>
 
 <h3>Is Sentricon the best termite treatment?</h3>
-<p>For most Alabama homes, Sentricon is the most effective long-term termite treatment because it targets the entire termite colony rather than creating a barrier termites may find a way around. The Sentricon® system is the only termite bait product that has been independently proven to eliminate termite colonies, and it is the system used to protect the White House and the Statue of Liberty.</p>
+<p>Sentricon is one option for subterranean termite protection. The appropriate choice depends on the structure, access, evidence of termite activity and the proposed treatment and monitoring plan. Ask for a site-specific written recommendation.</p>
 
 <h3>Are termite bait stations more effective than liquid termite treatment?</h3>
-<p>Termite bait stations and liquid treatments work differently. Bait systems like Sentricon eliminate the termite colony at its source, while liquid barrier treatments create a perimeter around the structure that termites must cross. For ongoing termite protection, bait systems provide colony elimination and continuous monitoring. Liquid treatments can degrade in the soil over time, leaving gaps in the barrier that foraging termites will find.</p>
+<p>Effectiveness depends on the product, correct application, the structure and site conditions, and the inspection and maintenance plan. Baits and liquid soil treatments are both recognized termite-treatment approaches. Ask the provider to explain why the proposed approach fits the evidence at your home.</p>
 
 <h3>How long does a liquid termite treatment last?</h3>
-<p>A properly applied liquid termiticide barrier typically lasts five to eight years in Alabama soil, depending on the product used, the soil type, and drainage conditions around the foundation. Termidor (fipronil) tends to last longer than older termiticides. After the treatment degrades, the soil around your home no longer provides termite protection, and a retreatment — including new trenching and drilling — is required.</p>
+<p>Service life and any retreatment requirement depend on the product, application, site conditions and subsequent changes around the structure. Ask for the inspection schedule, the circumstances that would trigger additional work and the costs or coverage specified in the agreement. A general year count is not a substitute for those details.</p>
 
 <h3>How often do Sentricon bait stations need to be checked?</h3>
 <p>Under EnviroCare's Sentricon program, we monitor bait stations on a regular schedule. Each visit includes checking every station for termite activity, replacing bait as needed, and inspecting the perimeter of your home for new termite signs. This ongoing monitoring and maintenance is included in your termite protection plan.</p>
 
 <h3>Do I need to leave my home during termite treatment?</h3>
-<p>For a Sentricon bait station installation, no — the work is entirely outside and you do not need to leave. For a full liquid barrier treatment, it depends on the scope of work. If the pest control technician needs to drill through interior slab areas (a garage, a finished basement), you may want to be out of the house during that portion of the treatment.</p>
+<p>Ask about access and re-entry requirements for the actual work proposed. Exterior station installation and an interior application can have different instructions. Follow the applicable product label and the technician's directions; do not assume that a general description establishes when treated areas may be used.</p>
 
 <h2>Why EnviroCare recommends Sentricon for Alabama termite control</h2>
 
-<p>EnviroCare has been a Sentricon® Certified Specialist since the system was approved for residential use. Four generations of our family have treated termites in Alabama — the family has been doing pest control in this state since 1958, when my grandfather worked it with a single truck and a chlordane sprayer. We have used every termite treatment method the industry has produced, from the old repellent termiticides to modern non-repellent liquid treatments to the Sentricon termite bait system, and Sentricon is what we recommend now because it eliminates the entire termite colony rather than hoping a chemical barrier holds. If you want to stop termites for good, you have to eliminate the colony — not just the foragers you can see.</p>
+<p>EnviroCare is a Sentricon® Certified Specialist and a fourth-generation Alabama family pest-control business with family roots dating to 1958. We recommend a program after inspecting the property and explaining the treatment, monitoring and agreement terms. The recommendation should reflect the home's conditions and the work needed.</p>
 
 <p>If you are trying to decide between Sentricon and liquid termite treatment, start with a free termite inspection. We will tell you what we find, what we recommend, and why — and help you make an informed decision about the termite protection that fits your home and your budget.</p>
 
@@ -3846,11 +3852,11 @@ export const BLOG_POSTS: BlogPost[] = [
 <p class="lede">Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs and follow directions for pets, food, belongings and re-entry; requirements vary by product and service.</p>
 
 <h2>What should you do before the technician arrives?</h2>
-<p>Clear items away from baseboards in the kitchen and bathrooms. Pull appliances forward so we can treat behind them. These areas are prime harborage for roaches, ants, and silverfish — and if we can't reach them, neither can the treatment.</p>
+<p>Tell the technician where you have seen activity and make the requested inspection areas accessible. Clear stored items from the areas identified in your preparation instructions. Ask before moving heavy appliances or disconnecting any appliance connections; preparation should match the planned service.</p>
 <p><strong>Reference:</strong> Follow label instructions and ask for product-use information. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <h2>Secure Pets and Sensitive Items</h2>
-<p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are EPA-registered once dry — about 30 minutes for interior work.</p>
+<p>Follow the technician's product-specific directions for securing pets, protecting aquariums and handling food and water bowls. We use EPA-registered products according to label directions. Keep people and pets out of treated areas for the period specified by the label and technician; drying and re-entry requirements vary.</p>
 
 <h2>Trim Exterior Vegetation</h2>
 <p>Trim vegetation at least 12 inches from your home exterior. Overgrown landscaping touching your house creates bridges for pests to bypass our perimeter barrier.</p>
@@ -3859,11 +3865,12 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Make sure your technician can access the garage, crawlspace, and outdoor storage buildings. These areas often harbor the heaviest pest populations and are the source of many interior invasions.</p>
 
 <h2>After Treatment</h2>
-<p>Avoid mopping baseboards for 48 hours. The residual product continues working for weeks. If you see increased pest activity in the first 7–10 days, that is normal — the treatment flushes pests from hiding before eliminating them.</p>
+<p>Ask which treated surfaces may be cleaned and when, and follow the product label and technician's instructions. Record the pest, location and timing of any activity after service. More visible insects alone do not establish that treatment is working; contact the provider about persistent or unexpected activity instead of applying another product on top of the treatment.</p>
 
 <p>Questions before your service? Call your nearest EnviroCare office:</p>
 <ul>
 <li>Birmingham — (205) 991-2882</li>
+<li>Alabaster / Shelby County — (205) 940-6360</li>
 <li>Lake Martin / Alex City — (256) 234-6162</li>
 <li>Huntsville — (256) 937-7676</li>
 </ul>
@@ -3885,7 +3892,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: `
 <p class="lede">For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.</p>
 
-<h2>Which pests should a Huntsville inspection address?</h2>
+<h2>Which property conditions affect pest activity in Huntsville?</h2>
 
 <p>Three factors make pest control in Huntsville different from pest control in Birmingham, the Gulf Coast, or anywhere else in Alabama.</p>
 <p><strong>Reference:</strong> Identify the pest and correct conditions that support activity. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
@@ -3913,6 +3920,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Mosquito pest control services in Huntsville, AL</h2>
 
 <p>Huntsville's proximity to the Tennessee River, combined with standing water from valley drainage, subdivision retention ponds, and residential irrigation, creates persistent mosquito pressure from March through October. Mosquito control in Huntsville focuses on treating breeding sites and applying barrier treatments to reduce mosquito populations around your home or business. Monthly mosquito treatments target resting areas across your property and keep your yard usable through the worst of the season. Mosquito control starts at $45 a month for an average-size yard, and the price is firm after a free inspection. Mosquito plus tick control is $65 a month.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>Spider, cockroach, and rodent pest control services in Huntsville</h2>
 
@@ -3941,7 +3949,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control pricing in Huntsville depends on the service, the size of the property, and the pest problem. Here is what EnviroCare's Huntsville pest control services cost:</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests with free re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 promotional initial service (50% off the $150 regular price). Covers 30-plus pests with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is $65 a month.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and we will not quote a termite job we have not inspected.</li>
 </ul>
@@ -3970,7 +3978,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The best pest control company in Huntsville is one that inspects your home before quoting, identifies the specific pest species you are dealing with, and applies a treatment plan tailored to your property and your pest problem. Look for a local pest control company with a long track record in North Alabama, technicians who know Huntsville's specific pest challenges, and a service commitment that includes re-treatment between scheduled visits at no additional cost. The Wedgworth family has been doing pest control in Alabama since 1958, and EnviroCare operates a dedicated Huntsville office on Old Madison Pike.</p>
 
 <h2>How much does pest control cost per month in Huntsville?</h2>
-<p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with free re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pricing is confirmed in writing before any service begins.</p>
+<p>Bi-monthly pest control in Huntsville starts at $35 a month on ACH with a $75 promotional initial service (50% off the $150 regular price), covering 30-plus common pests with free re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pricing is confirmed in writing before any service begins.</p>
 
 <h2>What are the most common pests in Huntsville homes?</h2>
 <p>The most common pests in Huntsville homes include ants (fire ants, carpenter ants, and odorous house ants), termites, spiders (including brown recluse), cockroaches (German and American), mosquitoes, rodents, wasps, fleas, ticks, and silverfish. Huntsville's limestone geology also makes centipedes, millipedes, and cave crickets more common here than in other parts of Alabama.</p>
@@ -3979,7 +3987,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Yes. Huntsville does not freeze hard enough or long enough to eliminate pest populations over winter. Ants, roaches, spiders, rodents, and termites remain active indoors year-round. Skipping winter pest control treatments allows overwintering pest populations to build inside your home and produce a larger infestation come spring. Continuous bi-monthly treatment maintains the perimeter and keeps pest activity controlled throughout the year.</p>
 
 <h2>Can I sleep in my bed after fumigation?</h2>
-<p>Fumigation is uncommon in Huntsville pest control — it is used primarily for drywood termite infestations, which are rare in North Alabama. If a fumigation treatment is applied, you must stay out of the home until the pest control company confirms re-entry is allowed, typically 24 to 72 hours after treatment. Your pest control technician will provide specific re-entry instructions before the treatment begins.</p>
+<p>Re-entry requirements depend on the product and the work performed. Ask the applicator for instructions before treatment and follow the product label and any clearance requirements before returning to treated areas. Do not use a general number of hours to decide when a room or bed can be used.</p>
 
 <h2>Pest control in Huntsville from EnviroCare Pest Services</h2>
 
@@ -4650,7 +4658,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Call a professional pest control company when you are seeing silverfish regularly, when you are finding damage to books, clothing, or wallpaper, or when DIY methods have not resolved the silverfish problem. A single silverfish now and then may not require professional treatment, but repeated sightings — especially during the day — indicate a population that is beyond what traps and sprays from the hardware store can handle.</p>
 
-<p>Professional silverfish control is included in EnviroCare's bi-monthly pest control plan, which covers 30-plus pests including silverfish and other moisture-loving pests like centipedes, millipedes, and crickets. The plan starts at $35 a month on ACH with a $75 initial service, and includes free re-service between scheduled visits. If silverfish show up between visits, we come back at no extra charge.</p>
+<p>Professional silverfish control is included in EnviroCare's bi-monthly pest control plan, which covers 30-plus pests including silverfish and other moisture-loving pests like centipedes, millipedes, and crickets. The plan starts at $35 a month on ACH with a $75 promotional initial service (50% off the $150 regular price), and includes free re-service between scheduled visits. If silverfish show up between visits, we come back at no extra charge.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>Silverfish control FAQ: frequently asked questions</h2>
 
@@ -4752,7 +4761,8 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Professional cricket control starts with identifying the species and locating the entry points and harborage areas where crickets are concentrating. A pest management technician inspects the exterior perimeter, foundation, and the damp areas indoors where crickets harbor — basements, crawl spaces, garages, and utility rooms — to develop a targeted treatment plan.</p>
 
-<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> provides year-round protection against crickets and 30-plus other common Alabama pests, starting at $35 a month with a $75 initial service and free re-service between visits. Perimeter barrier treatment intercepts crickets before they reach your entry points. Granular treatment in mulch beds, garden areas, and exterior harborage areas reduces the outdoor cricket population at the source. For homes with heavy cricket pressure — especially during the late summer and fall invasion season — interior treatment in basements, crawl spaces, and garages targets the crickets that have already moved indoors.</p>
+<p>Our <a href="/services/pest-control">bi-monthly perimeter plan</a> provides year-round protection against crickets and 30-plus other common Alabama pests, starting at $35 a month with a $75 promotional initial service (50% off the $150 regular price) and free re-service between visits. Perimeter barrier treatment intercepts crickets before they reach your entry points. Granular treatment in mulch beds, garden areas, and exterior harborage areas reduces the outdoor cricket population at the source. For homes with heavy cricket pressure — especially during the late summer and fall invasion season — interior treatment in basements, crawl spaces, and garages targets the crickets that have already moved indoors.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Cricket control is part of whole-home pest management. A home with a cricket problem often has the moisture and entry point conditions that attract other pests too — spiders, camel crickets, and other moisture-loving insects that share the same damp areas and crawl spaces. Addressing the underlying conditions provides home protection against a range of pest problems, not just crickets.</p>
 
@@ -5225,6 +5235,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Mosquito control program cost and pest control services in Alabama</h2>
 
 <p>Our mosquito control program runs $45 per month across eight mosquito treatments, March through October, and ACH spreads the cost evenly across the year. Adding tick control brings it to $65 per month. The price is firm after a free inspection of your property.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <p>Mosquito control is its own pest control service rather than part of the bi-monthly pest plan, because mosquito work uses different products, different equipment, and a different treatment map than interior and perimeter pest control. Both mosquito control services and general pest control services are available from every EnviroCare office — mosquito control in Birmingham, Huntsville, and Lake Martin all follow the same eight-treatment mosquito control program.</p>
 
@@ -5795,7 +5806,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: `
 <p class="lede">For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.</p>
 
-<h2>Which pests are common reasons for a Birmingham inspection?</h2>
+<h2>Which property conditions affect pest activity in Birmingham?</h2>
 
 <p>Two factors make pest control in Birmingham different from pest control in most of Alabama and the surrounding region.</p>
 <p><strong>Reference:</strong> Ask providers to identify and correct the source of the problem. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
@@ -5825,6 +5836,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Mosquito pest control in the Birmingham area</h2>
 
 <p>Birmingham's humidity, suburban retention ponds, irrigation runoff, and wooded lots produce persistent mosquito pressure from March through October. Mosquito control in Birmingham focuses on treating breeding sites and applying barrier treatments to reduce mosquito populations around your home or business. Monthly mosquito treatments target the shaded resting areas where adult mosquitoes spend daylight hours and keep your yard usable through the worst of the season. Mosquito control starts at $45 a month for an average-size yard, and the price is firm after a free inspection. Mosquito plus tick control is $65 a month.</p>
+<p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>Spider and rodent pest control in Birmingham</h2>
 
@@ -5849,7 +5861,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Pest control pricing in Birmingham depends on the service, the size of the property, and the pest problem. Here is what EnviroCare's Birmingham pest control services cost:</p>
 
 <ul>
-<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 initial service. Covers 30-plus pests with free re-service between scheduled visits.</li>
+<li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 promotional initial service (50% off the $150 regular price). Covers 30-plus pests with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick is $65 a month.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and we will not quote a termite job we have not inspected.</li>
 </ul>
@@ -5869,7 +5881,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Pest control FAQs: frequently asked questions about pest control in Birmingham</h2>
 
 <h2>How much is pest control in Birmingham?</h2>
-<p>Bi-monthly pest control in Birmingham starts at $35 a month on ACH with a $75 initial service, covering 30-plus common pests with free re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
+<p>Bi-monthly pest control in Birmingham starts at $35 a month on ACH with a $75 promotional initial service (50% off the $150 regular price), covering 30-plus common pests with free re-service. Mosquito control is $45 a month. Termite control is always priced after inspection. All pest control pricing is confirmed in writing before any service begins.</p>
 
 <h2>What are the most common pests in Birmingham homes?</h2>
 <p>The most common pests in Birmingham homes include termites, ants (fire ants, carpenter ants, and odorous house ants), cockroaches (German and American), spiders (including brown recluse), mosquitoes, rodents, wasps, fleas, and ticks. Birmingham's clay soil and humid climate make pest infestations a year-round pest problem for homeowners across the Birmingham area.</p>
@@ -5878,7 +5890,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Yes. Birmingham does not freeze hard enough or long enough to stop pest activity over winter. Termites, ants, roaches, spiders, and rodents remain active indoors year-round. Skipping winter pest control treatments allows overwintering pest populations to build inside your home and produce a larger infestation come spring. Continuous bi-monthly pest control maintains the perimeter treatment and keeps pest activity controlled throughout the year, giving homeowners peace of mind that their home stays pest-free through every season.</p>
 
 <h2>Can I sleep in my bed after fumigation?</h2>
-<p>Fumigation is uncommon in Birmingham pest control — it is used primarily for drywood termite infestations, which are rare in central Alabama. If a fumigation or extermination treatment is applied, you must stay out of the home until the pest control company confirms re-entry is allowed, typically 24 to 72 hours after treatment. Your pest control technician will provide specific re-entry instructions before the treatment begins.</p>
+<p>Re-entry requirements depend on the product and the work performed. Ask the applicator for instructions before treatment and follow the product label and any clearance requirements before returning to treated areas. Do not use a general number of hours to decide when a room or bed can be used.</p>
 
 <h2>Pest control in Birmingham from EnviroCare Pest Services</h2>
 

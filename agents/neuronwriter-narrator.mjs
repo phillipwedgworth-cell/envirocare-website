@@ -31,7 +31,8 @@ const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle 
 // Do not overwrite a draft that is already good. Before this existed, every FILL run
 // blew away hand-corrected editor content and replaced it with a fresh model draft —
 // including drafts a human had just fixed for compliance. Set NARRATOR_FORCE=1 to
-// deliberately rewrite everything.
+// deliberately attempt protected editors within the batch limit. An unreadable
+// editor is never eligible for replacement, including with FORCE.
 const PROTECT_AT = Number(process.env.NARRATOR_PROTECT_AT || 70);
 const FORCE      = process.env.NARRATOR_FORCE === "1";
 
@@ -66,10 +67,11 @@ async function nw(method, body) {
   return json;
 }
 
+const validScore = (value) => Number.isFinite(value) && value >= 0 && value <= 100;
 function pickScore(o) {
   if (!o || typeof o !== "object") return null;
   for (const k of ["content_score","score","contentScore","current_score"])
-    if (typeof o[k] === "number") return o[k];
+    if (validScore(o[k])) return o[k];
   for (const n of ["metrics","content","revision"])
     if (o[n] && typeof o[n] === "object") { const s = pickScore(o[n]); if (s !== null) return s; }
   return null;
@@ -100,8 +102,8 @@ const norm = (s) => String(s||"").toLowerCase().replace(/\s+/g," ").trim();
 // new-query, see lib/neuronwriter.mjs). So: keep listedScore in case NW ever adds
 // the field, and read real scores via get-content html -> evaluate-content.
 const listedScore = (q) =>
-  typeof q?.content_score === "number" ? q.content_score
-  : typeof q?.score === "number" ? q.score
+  validScore(q?.content_score) ? q.content_score
+  : validScore(q?.score) ? q.score
   : null;
 
 async function readScore(id, strict = false) {
@@ -109,12 +111,22 @@ async function readScore(id, strict = false) {
   // broken call would show up as "-- (empty)" in the score table with no clue why.
   try {
     const c = await nw("get-content", { query: id });
+    // The observed response has a string `content` field, including "" for an
+    // empty editor. Missing/non-string content is an unknown read, not an empty
+    // editor; an HTTP-200 error or changed response shape must fail closed.
+    if (!c || Array.isArray(c) || typeof c.content !== "string" || c.error || c.status === "error") {
+      throw new Error("get-content returned no valid editor content; editor unchanged");
+    }
+    const html = c.content;
+    if (!html.trim()) return null; // verified empty editor
     let s = pickScore(c);
     if (s !== null) return s;
-    const html = typeof c?.content === "string" ? c.content : "";
-    if (!html.trim()) return null; // genuinely empty editor
     const ev = await nw("evaluate-content", { query: id, html, title: c.title || "", description: c.description || "" });
-    return pickScore(ev);
+    s = pickScore(ev);
+    if (s === null || ev?.error || ev?.status === "error") {
+      throw new Error("evaluate-content returned no valid current-editor score; editor unchanged");
+    }
+    return s;
   }
   catch (e) { if (strict) throw e; console.error(`[narrator] readScore failed for query ${id}: ${e.message}`); return null; }
 }
@@ -255,17 +267,14 @@ async function runFill() {
       const handFile = hand ? join(CONTENT_DIR, hand.file) : null;
       let score, source;
 
-      // Protect good editors even when a manifest draft exists. FORCE permits a
-      // replacement attempt but never bypasses the editorial gate.
+      // Read the current editor even with FORCE or a listed score. FORCE permits
+      // replacing a protected score, never an unreadable/unknown editor.
       const hasHandDraft = Boolean(hand && handFile && existsSync(handFile));
-      let existing = null;
-      if (!FORCE) {
-        existing = listedScore(q) ?? await readScore(id, true);
-        if (existing !== null && existing >= PROTECT_AT) {
-          results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
-          await sleep(SLEEP_MS);
-          continue;
-        }
+      const existing = await readScore(id, true);
+      if (!FORCE && existing !== null && existing >= PROTECT_AT) {
+        results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
+        await sleep(SLEEP_MS);
+        continue;
       }
 
       attempted++;
