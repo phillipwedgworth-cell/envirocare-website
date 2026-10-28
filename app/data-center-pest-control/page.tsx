@@ -429,6 +429,19 @@ export default function DataCenterPestControlPage() {
         </div>
       </section>
 
+      {/* Supporting buyer guides */}
+      <section style={{ padding: `40px ${pad}`, background: CREAM }}>
+        <div style={{ maxWidth: 780, margin: '0 auto' }}>
+          <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK }}>Planning a data center pest-control program?</h2>
+          <p style={{ color: '#4b5563', lineHeight: 1.7 }}>Use these guides to prepare your walkthrough, compare proposals and assign follow-up work.</p>
+          <ul style={{ lineHeight: 2 }}>
+            <li><a href="/blog/data-center-ipm-plan" style={{ color: DEEP }}>What should a data center IPM plan include?</a></li>
+            <li><a href="/blog/data-center-rodent-entry-points" style={{ color: DEEP }}>Where do rodents enter a data center?</a></li>
+            <li><a href="/blog/data-center-pest-control-vendor-checklist" style={{ color: DEEP }}>How do you evaluate a pest-control vendor?</a></li>
+          </ul>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section style={{ padding: `56px ${pad}`, background: '#fff' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
