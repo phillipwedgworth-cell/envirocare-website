@@ -77,17 +77,20 @@ const STOP = new Set('a an and are as at be by can do does for from how i in is 
 const tokens = (s) => String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((w) => w && !STOP.has(w)).map((w) => w.replace(/s$/, ''));
 // Words every pest search shares. Counting them let "pest control sylacauga al" match
 // emergency-pest-control-alabama on "pest" + "control" alone (2 of 3 tokens, 2026-10-27).
-const GENERIC = new Set('pest control service company exterminator treatment'.split(' '));
+// "treatment" stays meaningful: "termite treatment" must find the treatment post.
+const GENERIC = new Set('pest control service company exterminator'.split(' '));
 function coveredBy(keyword, posts) {
   const all = tokens(keyword);
   const k = all.some((w) => !GENERIC.has(w)) ? all.filter((w) => !GENERIC.has(w)) : all;
   if (!k.length) return null;
+  // Best match, not first match: fewer tokens now means more ties at the threshold.
+  let best = null, bestHit = 0.6 - 1e-9;
   for (const p of posts) {
     const t = new Set(tokens(`${p.slug.replace(/-/g, ' ')} ${p.title}`));
     const hit = k.filter((w) => t.has(w)).length / k.length;
-    if (hit >= 0.6) return p.slug;
+    if (hit > bestHit) { best = p.slug; bestHit = hit; }
   }
-  return null;
+  return best;
 }
 const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70);
 
