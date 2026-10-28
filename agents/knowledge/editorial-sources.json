@@ -1,0 +1,156 @@
+{
+  "verifiedOn": "2026-10-28",
+  "scope": "Primary-source reference list checked through web retrieval. The supports field limits what a citation establishes; source inclusion does not fact-check an entire draft.",
+  "sources": [
+    {
+      "id": "epa-prevention",
+      "title": "EPA: Pest prevention and pesticide use",
+      "url": "https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control",
+      "topics": [
+        "pest",
+        "prepare",
+        "rain",
+        "treatment",
+        "cricket",
+        "fall",
+        "winter"
+      ],
+      "supports": "Address food, water, shelter and entry points; follow product labels."
+    },
+    {
+      "id": "epa-termites",
+      "title": "EPA: Termite identification and control",
+      "url": "https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them",
+      "topics": [
+        "termite",
+        "sentricon",
+        "green cap"
+      ],
+      "supports": "Identify termite evidence, correct moisture conditions and obtain a professional treatment assessment. This source does not establish EnviroCare prices or repair terms."
+    },
+    {
+      "id": "epa-ipm",
+      "title": "EPA: IPM principles",
+      "url": "https://www.epa.gov/safepestcontrol/integrated-pest-management-ipm-principles",
+      "topics": [
+        "data center",
+        "commercial",
+        "facility",
+        "ipm",
+        "vendor"
+      ],
+      "supports": "IPM combines monitoring, thresholds, prevention and control decisions. Data-center workflow examples are editorial applications, not EPA certification."
+    },
+    {
+      "id": "epa-buildings",
+      "title": "EPA: IPM in buildings",
+      "url": "https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf",
+      "topics": [
+        "data center",
+        "commercial",
+        "facility",
+        "ipm",
+        "vendor"
+      ],
+      "supports": "Building pest prevention requires coordinated responsibilities and documentation; this is general building guidance, not a data-center standard."
+    },
+    {
+      "id": "cdc-mosquito",
+      "title": "CDC: Mosquito control at home",
+      "url": "https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html",
+      "topics": [
+        "mosquito",
+        "lake house"
+      ],
+      "supports": "Empty, scrub, cover or remove water-holding containers weekly and maintain screens. This source does not establish EnviroCare treatment season or prices."
+    },
+    {
+      "id": "cdc-rodents",
+      "title": "CDC: Seal up to prevent rodents",
+      "url": "https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html",
+      "topics": [
+        "rodent",
+        "mice",
+        "mouse",
+        "rat",
+        "fall"
+      ],
+      "supports": "Inspect gaps, seal entry points and manage food sources. Critical building penetrations require the facility team, not improvised residential repair methods."
+    },
+    {
+      "id": "uc-ants",
+      "title": "UC IPM: Ants",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/ants/",
+      "topics": [
+        "ant"
+      ],
+      "supports": "Combine species identification, sanitation, entry-point management and appropriate baiting; surface spraying alone does not prevent new entry."
+    },
+    {
+      "id": "uc-roaches",
+      "title": "UC IPM: Cockroaches",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cockroaches/",
+      "topics": [
+        "roach",
+        "cockroach"
+      ],
+      "supports": "Identification, sanitation, monitoring and targeted controls work together; distinguish indoor-breeding species from outdoor invaders."
+    },
+    {
+      "id": "uc-silverfish",
+      "title": "UC IPM: Silverfish and firebrats",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/silverfish-and-firebrats/",
+      "topics": [
+        "silverfish"
+      ],
+      "supports": "Silverfish and firebrats feed on starchy stored items and paper-associated materials; management includes moisture and harborage conditions."
+    },
+    {
+      "id": "uc-spiders",
+      "title": "UC IPM: Spiders",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/spiders/",
+      "topics": [
+        "spider",
+        "dock"
+      ],
+      "supports": "Reduce hiding places, remove webs and address the insects that support spider activity; identification matters."
+    },
+    {
+      "id": "uc-fleas",
+      "title": "UC IPM: Fleas",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/fleas/",
+      "topics": [
+        "flea"
+      ],
+      "supports": "Flea management involves the host and environment; cleaning and coordinated pet care are distinct from structural treatment."
+    },
+    {
+      "id": "epa-foggers",
+      "title": "EPA: Total release fogger precautions",
+      "url": "https://www.epa.gov/safepestcontrol/safety-precautions-total-release-foggers",
+      "topics": [
+        "fogger",
+        "bug bomb"
+      ],
+      "supports": "Fogger misuse can cause fire, explosion or exposure; label precautions and prevention remain essential."
+    },
+    {
+      "id": "aces-fireants",
+      "title": "Alabama Extension: Managing fire ants with baits",
+      "url": "https://www.aces.edu/blog/topics/crop-production/managing-fire-ants-with-baits/",
+      "topics": [
+        "fire ant"
+      ],
+      "supports": "Bait selection, permitted application site and foraging conditions affect results; follow the label and avoid unsupported home remedies."
+    },
+    {
+      "id": "umn-crickets",
+      "title": "University of Minnesota Extension: Crickets",
+      "url": "https://extension.umn.edu/garden-and-home/home-maintenance/household-insects/crickets",
+      "topics": [
+        "cricket"
+      ],
+      "supports": "Common household cricket types include field, house and camel crickets; prevention and exclusion precede pesticide decisions."
+    }
+  ]
+}

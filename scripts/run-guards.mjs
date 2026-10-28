@@ -12,7 +12,7 @@ import { spawnSync } from "node:child_process";
 
 const GUARDS = [
   "test:roster", "test:compliance", "test:source", "test:blogposts", "test:generated",
-  "test:imagery", "test:zombies", "test:citynap", "test:local-falcon", "test:spyfu", "test:neuronwriter", "test:zip-routing",
+  "test:imagery", "test:zombies", "test:citynap", "test:local-falcon", "test:spyfu", "test:neuronwriter", "test:editorial", "test:zip-routing",
   "test:breadcrumbs", "test:og", "test:brief", "test:leads", "test:lastmod", "test:tracking",
   "test:similarity", "test:page-refresh", "test:captivated-safety", "test:listings",
   "test:site-critical", "test:contact-reliability",

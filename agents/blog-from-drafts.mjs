@@ -37,6 +37,7 @@ import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { remember, recall } from './lib/memory.mjs';
 import { COMPLIANCE_SYSTEM } from './lib/compliance.mjs';
 import { checkOriginality } from './lib/originality.mjs';
+import { assessEditorialDraft, sourcePrompt } from './lib/editorial-quality.mjs';
 import { compileRules, scanText } from '../scripts/lib/compliance-rules.mjs';
 import { NW_PROJECT, nw, score, competitorTexts, missingTerms, openQuestions, makeCompleter, parseJson } from './lib/nw-writer.mjs';
 
@@ -138,6 +139,9 @@ Existing posts you may link to with <a href="/blog/SLUG">…</a> (2-4 links, onl
 ${related.map((p) => `- ${p.slug}: ${p.title}`).join('\n')}
 
 ${VOICE}
+
+CITATIONS AND ANSWERS: Open with a concise direct answer in the lede and include question headings. Cite the specific point supported by a relevant source below. Use only the supplied external URLs; do not invent references or imply endorsement.
+${sourcePrompt(keyword)}
 
 Lessons from earlier runs:
 ${lessons.map((l) => `- ${l.content}`).join('\n') || '- (none yet)'}
@@ -290,7 +294,7 @@ async function run() {
         const comp = scanText(`${p.title}\n${p.excerpt}\n${p.metaTitle}\n${p.metaDescription}\n${text}`, rules);
         const orig = checkOriginality(text, { competitors, sitePages: posts.filter((x) => x.slug !== existing?.slug).map((x) => ({ route: `/blog/${x.slug}`, text: x.text })) });
         const sc = await score(id, `<h1>${p.title}</h1>${p.body}`, p.metaTitle, p.metaDescription);
-        const problems = [];
+        const problems = assessEditorialDraft(p.body, { keyword, title: p.title, metaTitle: p.metaTitle, metaDescription: p.metaDescription }).problems;
         if (comp.blocking.length) problems.push(`compliance: ${comp.blocking.map((b) => `"${b.match}" (${b.reason})`).join('; ')}`);
         if ((orig.competitorsChecked || 0) < 3) problems.push(`originality: only ${orig.competitorsChecked || 0} competitor pages could be read, so plagiarism was not really checked`);
         if (!orig.pass) problems.push(`originality: competitor ${orig.maxCompetitorOverlap} (max 0.03), own site ${orig.maxSiteOverlap} vs ${orig.worstSitePage} (max 0.15); reworded needed: ${orig.examples.join(' | ')}`);

@@ -438,6 +438,9 @@ export default function DataCenterPestControlPage() {
             <li><a href="/blog/data-center-ipm-plan" style={{ color: DEEP }}>What should a data center IPM plan include?</a></li>
             <li><a href="/blog/data-center-rodent-entry-points" style={{ color: DEEP }}>Where do rodents enter a data center?</a></li>
             <li><a href="/blog/data-center-pest-control-vendor-checklist" style={{ color: DEEP }}>How do you evaluate a pest-control vendor?</a></li>
+            <li><a href="/blog/data-center-pest-control-construction-handover" style={{ color: DEEP }}>Data Center Pest Control: Construction Handover</a></li>
+            <li><a href="/blog/data-center-pest-control-service-report" style={{ color: DEEP }}>What Should a Data Center Pest Report Show?</a></li>
+            <li><a href="/blog/data-center-pest-activity-response" style={{ color: DEEP }}>Pest Activity in a Data Center: What Happens Next?</a></li>
           </ul>
         </div>
       </section>

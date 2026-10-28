@@ -9,7 +9,8 @@
 #   - Monday 14:00 UTC -> FILL (write/push/lift drafts)
 #   - manual button    -> input "mode" (fill or score), defaults to fill
 #
-# FILL writes a compliant draft for every EXISTING NeuronWriter query, pushes it, reads the
+# FILL considers unique EXISTING NeuronWriter keywords in priority order, protects good editors,
+# and attempts at most max_writes candidates (default 3), then reads the
 # score, rewrites once if below floor. It does NOT create new queries, so it never hits the
 # monthly new-query quota. New-city queries must be created in NeuronWriter first; their drafts
 # are already staged in agents/neuronwriter-content/.
@@ -27,8 +28,12 @@ on:
         default: "fill"
         required: false
       force:
-        description: "true = NARRATOR_FORCE=1 (rewrite ALL drafts, ignoring the protect guard — use after a compliance/pricing change)"
+        description: "true = allow replacing protected drafts within the bounded batch; editorial gates still apply"
         default: "false"
+        required: false
+      max_writes:
+        description: "Maximum candidate attempts (1–40); default 3"
+        default: "3"
         required: false
   push:
     branches:
@@ -36,6 +41,9 @@ on:
     paths:
       - "agents/neuronwriter-narrator.mjs"
       - "agents/lib/compliance.mjs"
+      - "agents/lib/editorial-quality.mjs"
+      - "agents/knowledge/editorial-sources.json"
+      - "agents/knowledge/editorial-batch-36.json"
       - "agents/neuronwriter-content/manifest.json"
       - "agents/neuronwriter-content/**/*.html"
       - "!agents/neuronwriter-content/review-*/**"
@@ -55,8 +63,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Test editorial gates (no credentials or network)
+        run: node --experimental-vm-modules --no-warnings scripts/test-editorial-quality.mjs
       - name: Run narrator
         env:
+          NARRATOR_MAX_WRITES: ${{ inputs.max_writes || '3' }}
           NARRATOR_FORCE: ${{ inputs.force == 'true' && '1' || '' }}
           NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
           NEURONWRITER_PROJECT: 9d0bec3a70f4743c

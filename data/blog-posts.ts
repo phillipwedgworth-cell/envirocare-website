@@ -134,6 +134,107 @@ export const BLOG_POSTS: BlogPost[] = [
   //     text. New topic: no existing post covers kudzu bugs (stink bugs / lady beetles
   //     post is linked, not duplicated). Reduction language only; no bug-proof promise.
   {
+    slug: 'data-center-pest-control-construction-handover',
+    title: 'Data Center Pest Control: Construction Handover',
+    excerpt: 'A handover checklist for moving from a construction site to an operating facility: open penetrations, receiving procedures, monitoring records and repair ownership.',
+    publishedAt: '2026-10-28',
+    author: 'EnviroCare, LLC',
+    category: 'Commercial',
+    readMinutes: 3,
+    heroEmoji: '🏢',
+    metaTitle: 'Data Center Pest Control: Construction Handover',
+    metaDescription: 'A handover checklist for moving from a construction site to an operating facility: open penetrations, receiving procedures, monitoring records and…',
+    body: `
+<p class="lede">A data center construction handover should transfer the pest inspection map, unresolved entry-point repairs, monitoring history and service responsibilities to the operations team. A completed building is not automatically a closed pest-prevention task list. Check what changed during the final deliveries and contractor work before the construction team leaves.</p>
+<h2>Why does the construction-to-operations transition matter?</h2>
+<p>Construction, equipment installation and commissioning involve different people and access patterns. Temporary openings may be closed in phases, loading areas may move and one contractor's final task may create another opening. The operating team needs a record of the actual condition at handover, rather than a plan showing what should eventually be complete.</p>
+<p>The <a href="https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf">EPA's guidance on IPM in buildings</a> treats pest prevention as a shared building-management responsibility. The handover workflow below applies that general principle to a facility transition; it is not an EPA data-center standard.</p>
+<h2>What should be inspected before the handover meeting?</h2>
+<p>Walk the accessible building perimeter, receiving areas and authorized interior transitions with the appropriate facility representative. Compare the current condition with outstanding repair notes. Check whether doors close as intended and whether any service penetrations still await an approved permanent closure.</p>
+<p>Do not let an inspection become an improvised repair. Firestops, cable penetrations, doors and equipment interfaces have requirements beyond pest exclusion. The authorized contractor or facility engineer should specify the repair, while the pest provider records the observation and follows up on activity.</p>
+<h2>Which records should operations receive?</h2>
+<ul><li>The current zone and monitoring map, with access-controlled storage where needed.</li><li>A list of installed devices and the person responsible for each inspection.</li><li>Recent activity observations and locations not inspected.</li><li>Open repairs with a named owner and agreed next step.</li><li>Permitted methods, restrictions and the process for authorizing changes.</li><li>The contact and escalation process that will apply after handover.</li></ul>
+<p>A missing record should remain an open item. A verbal assurance that a gap was closed is weaker than a completion record and a follow-up check. Similarly, a device map that has not been updated after a wall or door change may direct the next inspection to the wrong location.</p>
+<h2>How should unresolved items be assigned?</h2>
+<p>Use a short issue register. Each entry needs a location, observation, assigned trade or team, target date and verification method. Separate construction defects from pest activity; they may be linked, but they are not the same task. Closing a building repair does not automatically close an ongoing activity investigation.</p>
+<p>For example, a receiving-door seal may be replaced while monitoring continues near the dock. The repair can be marked complete after inspection, while the monitoring task remains open for the period the facility and provider agree is appropriate.</p>
+<h2>What changes after operations begins?</h2>
+<p>Confirm the ordinary delivery process, escort arrangements and approved inspection windows. Update responsibilities when temporary contractors leave. The operating team should know where to report a sighting and how to request an inspection without moving devices or applying an unapproved product.</p>
+<p>Revisit the plan after later fit-outs or equipment projects. An operating facility can pass through another construction phase, and the same handover questions become relevant again. The scope and visit frequency should follow that site's circumstances rather than a generic calendar.</p>
+<h2>How do you connect handover with the ongoing service plan?</h2>
+<p>Use the <a href="/blog/data-center-ipm-plan">IPM planning checklist</a> to document the operating arrangement and the <a href="/blog/data-center-pest-control-service-report">service-report guide</a> to define what follow-up should show. Our <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> helps organize the building-envelope discussion.</p>
+<p>EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Discuss the proposed scope, access and responsibilities through our <a href="/data-center-pest-control">data center pest-control program</a>. Construction-related work is subject to a site-specific agreement, not an automatic inclusion in routine service.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'data-center-pest-control-service-report',
+    title: 'What Should a Data Center Pest Report Show?',
+    excerpt: 'Learn to distinguish no activity from no access, read device-level findings and use a service report to close repairs and track recurring pest evidence.',
+    publishedAt: '2026-10-28',
+    author: 'EnviroCare, LLC',
+    category: 'Commercial',
+    readMinutes: 3,
+    heroEmoji: '🏢',
+    metaTitle: 'What Should a Data Center Pest Report Show?',
+    metaDescription: 'Learn to distinguish no activity from no access, read device-level findings and use a service report to close repairs and track recurring pest evidence.',
+    body: `
+<p class="lede">A data center pest-control service report should show where inspection occurred, what was found, what action was taken and what remains unresolved. It should distinguish a checked location with no evidence from a location the technician could not access. Those two entries support very different conclusions.</p>
+<h2>Which fields make a report useful to operations?</h2>
+<p>Look for the visit date, authorized technician identification, inspected zones, device references, observations and actions. The report should also identify recommendations requiring facility work. A generic sentence saying the site was serviced cannot show whether the areas that matter were actually inspected.</p>
+<p>Documentation is part of the building-management approach described in <a href="https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf">EPA's IPM guidance for buildings</a>. The suggested report fields here are a practical facility workflow, not a universal audit or certification requirement.</p>
+<h2>What does no activity mean?</h2>
+<p>It should mean that the specified location was inspected and no relevant evidence was found during that inspection. It does not establish that the whole facility contains no pests. Read the statement alongside the inspection scope, the accessible locations and the monitoring history.</p>
+<p>A device with no capture can still be near an unresolved entry point. Conversely, an inaccessible device contributes no new observation at all. Ask the provider to use clear, separate status descriptions so a dashboard does not turn missing access into a favorable result.</p>
+<h2>How should a finding lead to an action?</h2>
+<p>Follow one observation through the report. If a technician finds evidence at a receiving entrance, can you tell what was identified, who was notified and which task followed? The response might include further inspection, an approved monitoring change or a repair request; the correct step depends on the circumstances.</p>
+<ul><li><strong>Observation:</strong> what was actually seen, with location and permitted photos.</li><li><strong>Assessment:</strong> confirmed identification or the information still needed.</li><li><strong>Action:</strong> work completed within the approved scope.</li><li><strong>Assignment:</strong> facility or provider tasks with named owners.</li><li><strong>Verification:</strong> how and when completion will be checked.</li></ul>
+<h2>How do you review repeat findings?</h2>
+<p>Group findings by the same zone and issue rather than counting every note as a new incident. A recurring door defect might appear across several reports because it remains unresolved. That is different from several separate entry points, and it calls for a different management conversation.</p>
+<p>Compare activity with access and repair records before judging performance. A lower number of observations may reflect fewer inspected locations. A higher number may follow better monitoring. The report should give enough context to ask the right questions rather than encouraging a conclusion from one total.</p>
+<h2>What belongs in a monthly review?</h2>
+<p>Discuss recurring evidence, open repairs, changes to access and any approved method changes. Confirm which recommendations were completed and which need a new owner or revised plan. Review whether the service scope still fits the building's use, especially after construction, a new receiving area or occupancy changes.</p>
+<p>A concise review can use one resolved example and one open example. The resolved issue should show evidence of completion; the open issue should end with a specific next action. That is more useful than treating every report as a document to file without reading.</p>
+<h2>How should sensitive information be handled?</h2>
+<p>Keep floor plans, equipment identifiers, access instructions and incident photographs in the systems your facility authorizes. Public case studies should not expose them. Agree in advance on what the provider records, where it is stored and who may receive it.</p>
+<p>Use our <a href="/blog/data-center-pest-control-vendor-checklist">vendor checklist</a> to request a sample report before service and our <a href="/blog/data-center-pest-activity-response">activity-response guide</a> to define escalation. The <a href="/blog/data-center-ipm-plan">IPM plan</a> should connect those documents.</p>
+<p>EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Ask about the reporting scope for your property through our <a href="/data-center-pest-control">data center pest-control program</a>; reporting formats and responsibilities are agreed for the individual site.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
+    slug: 'data-center-pest-activity-response',
+    title: 'Pest Activity in a Data Center: What Happens Next?',
+    excerpt: 'A practical response workflow: record evidence, notify the facility contact, obtain authorized inspection and track the corrective action without disturbing equipment.',
+    publishedAt: '2026-10-28',
+    author: 'EnviroCare, LLC',
+    category: 'Commercial',
+    readMinutes: 3,
+    heroEmoji: '🏢',
+    metaTitle: 'Pest Activity in a Data Center: What Happens Next?',
+    metaDescription: 'A practical response workflow: record evidence, notify the facility contact, obtain authorized inspection and track the corrective action without…',
+    body: `
+<p class="lede">When pest activity is reported in a data center, follow the facility's agreed notification and access process, record the location and evidence, and have the appropriate professional assess the next step. Do not improvise a treatment, open equipment or move monitoring devices while trying to solve the issue.</p>
+<h2>What information should the first report include?</h2>
+<p>Identify the location using the facility's approved references. Record when the activity was noticed, what was observed and whether the evidence is still present. A photo can help if facility policy permits it. Separate a confirmed insect or rodent identification from a description such as movement near a wall.</p>
+<p>Send the observation to the contact specified in the site's plan. An employee should not have to guess whether a message belongs with security, facilities or the pest provider. The plan should identify that route before an incident occurs.</p>
+<h2>Who decides whether the finding needs escalation?</h2>
+<p>The facility's agreed thresholds and responsibilities should guide escalation. Location matters: evidence inside a critical room may prompt a different response from an exterior observation. The provider and authorized facility representative should assess the finding within those rules.</p>
+<p>The <a href="https://www.epa.gov/safepestcontrol/integrated-pest-management-ipm-principles">EPA's IPM principles</a> connect identification and monitoring with defined action thresholds. Applying that framework to a data center requires the site's own decisions; it does not create a standard response time or a universal trigger for every facility.</p>
+<h2>What should staff avoid doing?</h2>
+<ul><li>Do not apply a retail pesticide or move bait into a restricted room.</li><li>Do not open equipment enclosures or disturb cabling to search for an animal.</li><li>Do not relocate devices without updating their authorized locations and records.</li><li>Do not publish photos or send sensitive floor plans outside approved channels.</li><li>Do not treat a sighting as proof of the entry route before inspection.</li></ul>
+<p>If the observation involves damaged equipment or another operational hazard, use the facility's relevant incident process. A pest-control article cannot determine equipment condition or authorize electrical work.</p>
+<h2>How should the inspection be coordinated?</h2>
+<p>Arrange authorized access, the appropriate escort and any required permissions. The pest professional can evaluate accessible evidence, while facility personnel control access to restricted systems. If a suspected pathway crosses a building service penetration, the relevant trade should assess repair requirements.</p>
+<p>Record any location that could not be inspected. A partial inspection may still be useful, but its limits should remain visible in the report. Do not replace an unavailable observation with a statement that the area is clear.</p>
+<h2>What makes a corrective action complete?</h2>
+<p>A useful action has an owner, an agreed next step and a way to verify completion. An exclusion repair may be complete after the authorized contractor finishes and the opening is checked. Monitoring for continued activity can remain a separate task. The two statuses should not be collapsed.</p>
+<p>For example, evidence near a loading entrance could lead to inspection of door seals and receiving practices. A repaired seal does not prove that no animal remains inside; continued observation and the approved control plan address that separate question.</p>
+<h2>What should the team learn from the incident?</h2>
+<p>Review whether the reporting route worked, whether access caused delays and whether the same condition appeared in earlier reports. Improve the plan where the record supports a change. Avoid drawing a performance conclusion from one isolated count without examining inspection coverage and site conditions.</p>
+<p>Use our <a href="/blog/data-center-pest-control-service-report">service-report guide</a> for documentation and the <a href="/blog/data-center-pest-control-construction-handover">construction-handover checklist</a> when the issue follows a project. The <a href="/blog/data-center-ipm-plan">IPM planning guide</a> connects the responsibilities.</p>
+<p>EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Discuss a site-specific program through our <a href="/data-center-pest-control">data center pest-control page</a>. Inspection, access and any response commitments belong in the agreed scope.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
     slug: 'data-center-ipm-plan',
     title: 'What Should a Data Center IPM Plan Include?',
     excerpt: 'A practical plan connects pest monitoring, approved methods, facility access and documented corrective actions. Here is what to put in writing before service begins.',
@@ -233,9 +334,10 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'spiders-on-boat-docks-lake-martin',
-    title: 'Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down',
-    excerpt: 'Docks and boathouses are spider country: damp wood, dark gaps and lights that pull in insects. Which spiders you will find on a Lake Martin dock, what home remedies really do, and what keeps the numbers down.',
+    title: 'Spiders on Lake Martin Docks: What Helps?',
+    excerpt: 'Dock spiders gather where insects and sheltered web sites are available. Start by removing webs, reducing clutter and reviewing lighting; any treatment near the shoreline must follow the product label and the property conditions.',
     publishedAt: '2026-10-12',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Spiders',
     readMinutes: 6,
@@ -247,14 +349,15 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 900,
       alt: 'Illustrated cross-section of a lake dock and boathouse showing where spiders build webs: under the decking, on the pilings, around the dock light and in the boathouse rafters.',
     },
-    metaTitle: 'Spiders on Boat Docks at Lake Martin | EnviroCare',
-    metaDescription: 'Why spiders crowd Lake Martin boat docks, how to spot black widows, whether dryer sheets or sprays work, and what keeps dock spiders down all season.',
+    metaTitle: 'Spiders on Lake Martin Docks: What Helps?',
+    metaDescription: 'Dock spiders gather where insects and sheltered web sites are available. Start by removing webs, reducing clutter and reviewing lighting; any…',
     body: `
-<p class="lede">If you have ever walked down to the dock at Lake Martin first thing in the morning and caught a web across the face, you already know docks are spider country. Wood that stays damp, dark gaps under the decking, pilings and crossbeams to anchor silk to, and a light on the boathouse that pulls in insects every night. Where the bugs collect, spiders follow. Here is what lives on a lake dock, whether the DIY ways to get rid of spiders actually work, and what keeps the spider population down and spiders off your boat through the season.</p>
+<p class="lede">Dock spiders gather where insects and sheltered web sites are available. Start by removing webs, reducing clutter and reviewing lighting; any treatment near the shoreline must follow the product label and the property conditions.</p>
 
-<h2>Why spiders pile up on boat docks</h2>
+<h2>Why do spiders gather on boat docks?</h2>
 
 <p>A dock gives spiders three things at once: shelter, moisture and a steady food supply. The underside of the decking stays shaded and humid, which is where egg sacs get tucked away. Pilings, crossbeams, ladder rungs, cleats and dock lines are anchor points for webs. Boathouse rafters trap warmth. And the insects that hatch along the shoreline, plus the moths and midges drawn to dock lights after dark, keep the spiders fed. A dock that only gets visited on weekends also goes five days at a time without anyone sweeping a spider web down. The black or white specks you find on the boat cover and the dock boards are spider poop, and they stain if they sit.</p>
+<p><strong>Reference:</strong> Web removal and fewer hiding places can help manage spider activity. <a href="https://ipm.ucanr.edu/home-and-landscape/spiders/">UC IPM: Spiders</a>.</p>
 
 <p>The same is true whether it is a private dock behind a lake house or a slip at a marina: the spiders travel on lines, on the breeze and on the boat itself, so a clean slip next to a dirty one does not stay clean for long.</p>
 
@@ -424,9 +527,10 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'how-long-does-sentricon-take-to-work',
-    title: 'How Long Does Sentricon Take to Work? What Alabama Homeowners Should Expect',
-    excerpt: 'A bait system works on a different clock than a spray. How Sentricon works, a realistic timeline for an Alabama home, what speeds it up or slows it down, and what you will and will not see.',
+    title: 'How Long Does Sentricon Take to Work?',
+    excerpt: 'Sentricon works through termite baiting rather than an instant barrier. The time to control activity depends on termite foraging and site conditions, so judge progress through professional inspection records rather than a promised number of days.',
     publishedAt: '2026-10-12',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
@@ -438,14 +542,15 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 900,
       alt: 'Illustrated timeline of a Sentricon bait station program: installation, termites finding the bait, bait shared through the colony, activity declining, and ongoing station service.',
     },
-    metaTitle: 'How Long Does Sentricon Take to Work? | EnviroCare',
-    metaDescription: 'How long Sentricon takes to work on an Alabama home: how the bait spreads through the colony, a realistic timeline, and what affects how fast it works.',
+    metaTitle: 'How Long Does Sentricon Take to Work?',
+    metaDescription: 'Sentricon works through termite baiting rather than an instant barrier. The time to control activity depends on termite foraging and site conditions,…',
     body: `
-<p class="lede">Once the Sentricon® stations are in the ground, the next question is fair: how long does this take to work? The honest answer is that a bait system works on a different clock than a spray, and it is supposed to. Here is how the system works, what a realistic timeline looks like for an Alabama home, what speeds it up or slows it down, and what you should and should not expect to see along the way.</p>
+<p class="lede">Sentricon works through termite baiting rather than an instant barrier. The time to control activity depends on termite foraging and site conditions, so judge progress through professional inspection records rather than a promised number of days.</p>
 
-<h2>How the Sentricon system works, and why it is not instant</h2>
+<h2>Why is termite baiting not instant?</h2>
 
 <p>Subterranean termites forage through the soil all the time, looking for cellulose. Sentricon termite bait stations are installed in the ground around the perimeter of the house, spaced to sit in that termite foraging path. Worker termites that find a station feed on the bait and carry it back to the colony, where it is passed along to other termites. The active ingredient works slowly on purpose: it has to move through the colony before it takes effect, so the workers keep feeding and keep sharing instead of dying on the spot. The goal is the colony itself, not just the termites that happen to cross a treated line; Sentricon is labeled for colony elimination of subterranean termites.</p>
+<p><strong>Reference:</strong> Termite control requires identification and an assessment of treatment options. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <p>With Sentricon Always Active™ technology, every bait station contains bait from the day the stations are installed. There is no waiting for termites to find an empty monitor first.</p>
 
@@ -786,21 +891,22 @@ export const BLOG_POSTS: BlogPost[] = [
   // Post-dated Sep 8 – Oct 6 so the index releases them two at a time. ───
   {
     slug: 'rodents-alabama-homes-fall',
-    title: 'Mice and Rats in Alabama Homes: Why October Is When They Move In',
-    excerpt: 'The first mouse in the pantry usually shows up in October, and without sealed entry points it is still there in January. Here is why rodents move into Alabama homes in fall and stay all winter, how to read the signs, and what actually works.',
+    title: 'Mice and Rats in Alabama Homes: Fall Prevention',
+    excerpt: 'Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry points, food storage and clutter; traps alone do not close the opening.',
     publishedAt: '2026-09-08',
-    updatedAt: '2026-10-12',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 7,
     heroEmoji: '🐭',
-    metaTitle: 'Mice & Rats in Alabama Homes: Why They Move In Every October',
-    metaDescription: 'Why mice move into Alabama homes in fall and stay all winter: signs of an infestation, mouse vs. rat evidence, entry points, and what works.',
+    metaTitle: 'Mice and Rats in Alabama Homes: Fall Prevention',
+    metaDescription: 'Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry…',
     body: `
-<p class="lede">The call comes the first cool week of October, almost to the day: droppings in the pantry, a chewed corner on a bag of dog food, scratching in the wall behind the bed at 2 a.m. A mouse did not stumble into your house. As soon as the nights drop into the fifties, every mouse and rat within a hundred yards starts testing structures for a warm place with food, and a house in Alabama offers both. The ones that get in during October are still there in January. Understanding how they pick a home, and why they stay all winter, is how you keep them out of yours.</p>
+<p class="lede">Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry points, food storage and clutter; traps alone do not close the opening.</p>
 
-<h2>Why mice move into Alabama homes in fall and stay all winter</h2>
+<h2>Why do rodents enter homes in fall?</h2>
 <p>Rodents do not hibernate. When the temperature falls, a house mouse outdoors burns more energy staying warm and has less to eat, so it goes looking for warmth, steady food, and a dry nest site. Your home has all three, and this time of year it is the best warm shelter on the block. Once a mouse finds one of the wall voids near the water heater or a pile of attic insulation over a warm ceiling, there is no reason for it to leave in December or February. Food is in the kitchen, water drips under the sink, and the heat runs all night.</p>
+<p><strong>Reference:</strong> Inspect gaps inside and outside the home and manage food sources. <a href="https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html">CDC: Seal up to prevent rodents</a>.</p>
 <p>That is also why a winter mouse problem grows instead of fading. Inside, a heated wall is a breeding ground, mice keep breeding through the winter, and a female can produce a new litter every few weeks. If you are hearing it in the wall at night, that is not a wait-and-see situation: mice breed year-round indoors, and a female can have a new litter every few weeks.</p>
 
 <h2>Signs of a rodent infestation in your home in winter</h2>
@@ -925,20 +1031,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'carpenter-ants-vs-termites-alabama',
-    title: 'Carpenter Ants or Termites? How to Tell in Your Alabama Home',
-    excerpt: 'Both leave you wood that is not solid anymore. One is a moisture problem that happens to involve an insect; the other is a structural problem with a colony behind it. Telling them apart in five minutes changes what you do next.',
+    title: 'Carpenter Ants vs. Termites: How Can You Tell?',
+    excerpt: 'Carpenter ants excavate wood; termites feed on it. Insect features and the type of evidence help distinguish them, but damaged wood alone is not enough to identify the cause. Save a specimen or photo and arrange an inspection.',
     publishedAt: '2026-09-12',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🔍',
-    metaTitle: 'Carpenter Ants vs Termites: How to Tell the Difference (Alabama)',
-    metaDescription: 'Frass vs mud, clean galleries vs packed ones, flying ants vs swarmers — how Alabama homeowners tell carpenter ants from termites, and why the fix is different.',
+    metaTitle: 'Carpenter Ants vs. Termites: How Can You Tell?',
+    metaDescription: 'Carpenter ants excavate wood; termites feed on it. Insect features and the type of evidence help distinguish them, but damaged wood alone is not…',
     body: `
-<p class="lede">The window sill is soft. The trim by the back door crumbles when you press it. Something is eating wood, and the two candidates in Alabama are carpenter ants and subterranean termites. They get confused constantly, including by people who should know better, and the confusion matters: a carpenter ant problem is fixed by fixing a leak; a termite problem is fixed by treating a colony you cannot see. Here is how to tell them apart with what is in front of you.</p>
+<p class="lede">Carpenter ants excavate wood; termites feed on it. Insect features and the type of evidence help distinguish them, but damaged wood alone is not enough to identify the cause. Save a specimen or photo and arrange an inspection.</p>
 
-<h2>Look at the damage first</h2>
+<h2>What does the wood damage tell you?</h2>
 <p><strong>Carpenter ants</strong> do not eat wood. They excavate it to nest in, and they only nest in wood that is damp or was damp — around a leaking window, under a failed flashing, a deck ledger, a bathroom subfloor. Their galleries are smooth and clean, almost sanded, and they push the debris out. That debris is the tell: small piles of fine, dry shavings, often mixed with insect parts, below a slit in the wood. <strong>Subterranean termites</strong> eat the wood. Their galleries run along the grain in layers, and they are packed with dried mud and a moist, gritty residue. There is no clean sawdust, ever. If you see mud, it is termites.</p>
+<p><strong>Reference:</strong> Wing and antenna differences can help distinguish swarmers from ants. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <h2>Look at the insect</h2>
 <p>A carpenter ant is a large black or reddish-black ant with a pinched waist and elbowed antennae. Termite workers are small, soft, cream-colored, and you almost never see them in the open. The confusion usually comes in spring, when both send out winged reproductives. A flying carpenter ant has a narrow waist and front wings longer than the back ones; a termite swarmer has a straight, thick body and four wings all the same length. Piles of identical shed wings on a windowsill are termites. We cover the full swarmer identification in <a href="/blog/how-to-identify-termites-alabama">how to identify termites</a>.</p>
@@ -959,20 +1067,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'argentine-ants-alabama-supercolony',
-    title: 'Argentine Ants in Alabama: Why the Trail Never Ends',
-    excerpt: 'If you have sprayed the same trail six times this summer and it keeps coming back from a different direction, you almost certainly have Argentine ants — a species that forms a single interconnected colony across an entire neighborhood. Here is why spraying makes it worse and what works instead.',
+    title: 'Argentine Ants in Alabama: Why Trails Return',
+    excerpt: 'Persistent ant trails need species identification and a search for food, moisture and entry routes. Argentine ants can be difficult to manage with surface treatment alone; the plan should address the colony and the conditions drawing ants indoors.',
     publishedAt: '2026-09-14',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Ants',
     readMinutes: 6,
     heroEmoji: '🐜',
-    metaTitle: 'Argentine Ants in Alabama: Why They Keep Coming Back',
-    metaDescription: 'Argentine ants form supercolonies across Alabama subdivisions. How to identify them, why sprays fail, and what actually reduces the trails.',
+    metaTitle: 'Argentine Ants in Alabama: Why Trails Return',
+    metaDescription: 'Persistent ant trails need species identification and a search for food, moisture and entry routes. Argentine ants can be difficult to manage with…',
     body: `
-<p class="lede">The trail runs along the kitchen baseboard to the dog bowl. You spray it, wipe it up, and by Thursday there is a new trail from the window frame instead. A week later it is in the bathroom. This is not three separate ant problems. It is one colony that may extend under your yard, your neighbor's yard, and the whole street, and Alabama subdivisions built in the last thirty years are full of it.</p>
+<p class="lede">Persistent ant trails need species identification and a search for food, moisture and entry routes. Argentine ants can be difficult to manage with surface treatment alone; the plan should address the colony and the conditions drawing ants indoors.</p>
 
-<h2>What makes Argentine ants different</h2>
+<h2>Why do Argentine ant trails keep returning?</h2>
 <p>Most ant species have one queen per colony and fight with neighboring colonies. Argentine ants do neither. A single supercolony has hundreds or thousands of queens spread across dozens of interconnected nests, and the workers from any nest cooperate with workers from any other. Kill one nest and the rest fill the gap. Spray a trail and the colony simply routes around it — the workers you killed were a rounding error. This is why a homeowner can be very diligent with the spray can all summer and end up with more ants in more rooms than in May.</p>
+<p><strong>Reference:</strong> Combine sanitation, entry-point management and appropriate baiting. <a href="https://ipm.ucanr.edu/home-and-landscape/ants/">UC IPM: Ants</a>.</p>
 
 <h2>How to identify them</h2>
 <p>Argentine ants are small, uniform, light to dark brown, about an eighth of an inch, and they move in wide, dense, orderly trails — thicker and faster than most other house ants. Crushed, they have a faint musty smell rather than the rotten-coconut smell of odorous house ants. They nest shallow: under mulch, under stepping stones, in potted plants, along the foundation, under wet leaves. In summer they move toward moisture and sweets indoors; in fall and after heavy rain they move indoors in numbers because the ground is either too dry or flooded.</p>
@@ -1033,20 +1143,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'bug-bombs-foggers-do-they-work',
-    title: 'Do Bug Bombs Work? Why Foggers Usually Make an Alabama Pest Problem Worse',
-    excerpt: 'A total-release fogger promises to clear the whole house in four hours. What it actually does is mist the open surfaces where pests are not, drive them deeper into the walls, and leave a residue that makes real treatment harder. Here is why, and what to do instead for roaches, fleas, and ants.',
+    title: 'Do Bug Bombs Work? Fogger Limits and Alternatives',
+    excerpt: 'Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions. Identify the pest and investigate the source before choosing a whole-room treatment.',
     publishedAt: '2026-09-18',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '🧴',
-    metaTitle: 'Do Bug Bombs Work? Why Foggers Make Pest Problems Worse',
-    metaDescription: 'Foggers miss the cracks where pests live, scatter roaches into walls, and leave residue that repels bait. What to do instead in an Alabama home.',
+    metaTitle: 'Do Bug Bombs Work? Fogger Limits and Alternatives',
+    metaDescription: 'Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions.…',
     body: `
-<p class="lede">The fogger is on the shelf at every hardware store in Alabama, it costs less than a pizza, and the box says it clears a whole room. We get the call about six weeks after someone uses one, and the problem is almost always bigger than before. A bug bomb is the single most common way a manageable roach or flea problem turns into one that has spread through the house. Here is why, and what works instead.</p>
+<p class="lede">Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions. Identify the pest and investigate the source before choosing a whole-room treatment.</p>
 
-<h2>What a fogger actually does</h2>
+<h2>What does a total-release fogger actually do?</h2>
 <p>A total-release fogger sprays a fine mist of insecticide upward, and the mist settles on whatever is exposed: countertops, the tops of furniture, the floor in the middle of the room. Pests do not live there. Roaches live in the crack behind the stove, inside the hinge of a cabinet door, under the sink around the plumbing, inside the dishwasher door. Fleas live as eggs and larvae deep in carpet fibers and under the edge of the sofa. The mist does not get into any of those places in any meaningful amount. What it does reach is the open surfaces you and your family use.</p>
+<p><strong>Reference:</strong> Improper fogger use can cause fire, explosion or harmful exposure. <a href="https://www.epa.gov/safepestcontrol/safety-precautions-total-release-foggers">EPA: Total release fogger precautions</a>.</p>
 
 <h2>Why the problem spreads</h2>
 <p>The insecticide in most foggers is a repellent. Roaches detect it and move away from it — deeper into the wall void, up into the next floor, into rooms they had not colonized. A kitchen problem becomes a whole-house problem. Then the residue on every surface repels them from the bait you put out the following week, so the one method that actually reaches the harborage stops working. This is the sequence we see over and over: fogger in March, roaches in three bathrooms by May, bait that they will not touch, and a call in June.</p>
@@ -1067,20 +1179,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'how-often-pest-control-alabama',
-    title: 'How Often Should Pest Control Come? Why Alabama Is a Bi-Monthly State',
-    excerpt: 'Quarterly is the national default. Alabama is not a national-default climate. Here is what the treatment barrier actually does over sixty days of heat and rain, why the gap between quarterly visits is when the ants come back, and when monthly or one-time service makes more sense.',
+    title: 'How Often Should Pest Control Come in Alabama?',
+    excerpt: 'Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations and separate termite or mosquito programs may need a different inspection or treatment schedule.',
     publishedAt: '2026-09-20',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '📅',
-    metaTitle: 'How Often Should You Get Pest Control in Alabama?',
-    metaDescription: 'Why exterior pest barriers break down in about 60 days in Alabama heat and rain, and how bi-monthly service compares with quarterly.',
+    metaTitle: 'How Often Should Pest Control Come in Alabama?',
+    metaDescription: 'Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations…',
     body: `
-<p class="lede">Most pest control in the country is sold quarterly, because most of the country has a winter. Alabama has a mild one, a long humid summer, and fifty-plus inches of rain a year, and the products applied to the outside of a house do not last as long here as the quarterly schedule assumes. The frequency question is really a question about how long the barrier holds.</p>
+<p class="lede">Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations and separate termite or mosquito programs may need a different inspection or treatment schedule.</p>
 
-<h2>What an exterior treatment is</h2>
+<h2>What does an exterior pest treatment do?</h2>
 <p>Routine pest control is mostly a residual barrier: a product applied to the foundation line, the eaves and soffits, door and window frames, the garage threshold, and the shaded cover where insects wait out the day. It stays active on those surfaces and insects that cross it pick it up. It is not a force field; it is a chemical that breaks down over time, and the things that break it down are sun, heat, and rain.</p>
+<p><strong>Reference:</strong> Correct food, water and shelter conditions before relying on pesticides. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <h2>Why about sixty days</h2>
 <p>In Alabama's summer, the barrier applied in June is meaningfully weaker by August. UV degrades it, a string of ninety-degree days speeds that up, and every heavy rain washes some of it off the exposed surfaces. A quarterly plan treats every ninety days, which leaves roughly a month each cycle where the barrier has worn off and nothing new has gone on. That month is when the ant trail shows up in the kitchen and the roaches come out of the crawlspace. It is not that quarterly service does not work; it is that the gap is where the calls come from. Bi-monthly — every other month, six visits a year — keeps the reapplication ahead of the breakdown for most of the year.</p>
@@ -1236,20 +1350,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'first-pest-control-visit-what-to-expect',
-    title: 'What Happens on Your First Pest Control Visit (An Alabama Walkthrough)',
-    excerpt: 'People picture a technician spraying baseboards for twenty minutes. The first visit is mostly outside, mostly looking, and the most valuable part is the walk around the house before anything gets applied. Here is what actually happens, how long it takes, and what you should have ready.',
+    title: 'Your First Pest Control Visit: What to Expect',
+    excerpt: 'A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas accessible and ask what will be treated, what preparation is required and how follow-up will work.',
     publishedAt: '2026-09-26',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '🏠',
-    metaTitle: 'What to Expect on Your First Pest Control Visit (Alabama)',
-    metaDescription: 'How a first pest control visit actually goes: the exterior inspection, what gets treated and where, interior treatment, re-entry timing, and what to have ready.',
+    metaTitle: 'Your First Pest Control Visit: What to Expect',
+    metaDescription: 'A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas…',
     body: `
-<p class="lede">The most common surprise on a first visit is how much of it is looking rather than spraying. A technician who walks straight to the baseboards with a sprayer is treating the symptom you called about. A good first visit finds the reasons the pests are there — the entry points, the moisture, the harborage — and treats those, so the second visit is about maintenance rather than the same problem again.</p>
+<p class="lede">A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas accessible and ask what will be treated, what preparation is required and how follow-up will work.</p>
 
-<h2>Before the visit</h2>
+<h2>What should you do before the first visit?</h2>
 <p>You do not have to clean the house. It helps to have the areas where you have seen pests accessible — under the kitchen sink, the pantry floor, the garage corners — and to have pets secured. If you know where you have seen activity, tell the technician; a photo of the insect saves time. Have the gate unlocked if the backyard is fenced. If nobody is home, exterior service can still happen; interior work waits for a time you are there.</p>
+<p><strong>Reference:</strong> Ask the provider to find and address the source of the problem. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <h2>The walk around the outside</h2>
 <p>This is where the value is. The technician walks the full perimeter looking at the foundation line, the weep holes, where the AC line and hose bib and cable enter the wall, every door threshold and garage seal, crawlspace vents, mulch depth against the slab, gutters and downspouts, and anything touching the siding. In Alabama that walk also catches things you did not call about: a mud tube on a pier, a wasp nest starting in a soffit, a gap a mouse will use in October. You should get a plain description of what was found and what it means.</p>
@@ -1261,7 +1377,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Interior treatment on a first visit is targeted: bait in the cracks where roaches live, treatment at the plumbing penetrations under sinks, the garage, and the attic or crawlspace access if the inspection found reason. It is not a baseboard spray of every room — that is the old way, and it is not how pests are reached. If the problem is German cockroaches or fleas, the technician will explain that a follow-up visit is part of the plan, because the egg stage does not respond to the first treatment.</p>
 
 <h2>How long, and what happens next</h2>
-<p>A first visit on a typical home runs forty-five minutes to an hour and a half, depending on the lot and what was found. Expect to see more activity for a few days as material reaches the nests — that is the treatment working, and it is the reason we ask you not to spray on top of it. If something shows up between scheduled visits, you call and we come back at no charge; that is part of the plan, not an add-on. The next routine visit is in two months, and the technician on your route tends to stay the same, which is how they end up knowing about the wasp nest over your back door before you do.</p>
+<p>A first visit on a typical home runs forty-five minutes to an hour and a half, depending on the lot and what was found. Expect to see more activity for a few days as material reaches the nests — that is the treatment working, and it is the reason we ask you not to spray on top of it. If something shows up between scheduled visits, you call and we come back at no charge; that is part of the plan, not an add-on. The next routine visit is in two months, and the familiar local team can use the inspection notes to plan follow-up.</p>
 
 <h2>What it costs</h2>
 <p>The <a href="/services/pest-control">bi-monthly plan</a> is $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 initial service. Everything above is what the initial service is. For how the year plays out from there, see <a href="/blog/how-often-pest-control-alabama">how often pest control should come in Alabama</a>.</p>
@@ -1354,20 +1470,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'mice-vs-rats-alabama-which-do-i-have',
-    title: 'Mice or Rats? How to Tell Which One Is in Your Alabama House',
-    excerpt: 'The answer changes the trap size, the bait, where you look, and how urgent it is. Droppings, gnaw marks, noise, and where the evidence is all tell you which rodent you have — and Alabama has three, not two.',
+    title: 'Mice or Rats? How to Identify the Evidence',
+    excerpt: 'Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap selection and inspection; also check the openings that let rodents enter.',
     publishedAt: '2026-10-02',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 5,
     heroEmoji: '🔍',
-    metaTitle: 'Mice vs Rats: How to Tell Which One Is in Your House (Alabama)',
-    metaDescription: 'Droppings, gnaw marks, sounds, and location: how to tell house mice from Norway rats and roof rats in an Alabama home, and why the answer changes the approach.',
+    metaTitle: 'Mice or Rats? How to Identify the Evidence',
+    metaDescription: 'Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap…',
     body: `
-<p class="lede">"There is a mouse in the attic" is a sentence we hear constantly, and about half the time it is a roof rat. The difference matters. A mouse trap does not hold a rat, mouse bait placement is wrong for rats, and a rat in the attic means a route through the roofline that a mouse would never use. Alabama has three common rodents in houses, and the evidence separates them in a few minutes.</p>
+<p class="lede">Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap selection and inspection; also check the openings that let rodents enter.</p>
 
-<h2>Droppings</h2>
+<h2>What can droppings tell you about the rodent?</h2>
 <p><strong>House mouse:</strong> rice-grain size, pointed ends, scattered everywhere the mouse went — dozens along a route. <strong>Norway rat:</strong> three-quarters of an inch, blunt, capsule-shaped, in clusters near a runway or food. <strong>Roof rat:</strong> about half an inch, pointed ends, often in the attic or along the top of a wall plate. Fresh droppings are dark and soft; old ones are gray and crumbly, which tells you whether the activity is current.</p>
+<p><strong>Reference:</strong> Small gaps around utilities and doors deserve an entry-point inspection. <a href="https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html">CDC: Seal up to prevent rodents</a>.</p>
 
 <h2>Gnaw marks</h2>
 <p>Mice leave small, clean, paired grooves and chew mostly on soft things — cardboard, plastic bags, insulation for nesting. Rats leave rough, larger marks and go through hard material: wood, plastic bins, wiring insulation, and the corner of a door. Chewed wiring in an attic is a rat sign and a fire risk.</p>
@@ -1388,20 +1506,22 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'mosquito-control-lake-house-dock-boathouse',
-    title: 'Mosquito Control for a Lake House: Docks, Boathouses, and the Shoreline',
-    excerpt: 'A lake house has the worst mosquito pressure of any property we treat, and most of the advice written for a subdivision does not apply. Here is what actually works on a shoreline lot — where the mosquitoes rest, where they breed, what treatment can and cannot do on the water.',
+    title: 'Mosquito Control at Lake Houses and Docks',
+    excerpt: 'At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local pressure, but treatment decisions near water need label review and a site inspection.',
     publishedAt: '2026-10-04',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 6,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Control for a Lake House: Docks, Boathouses & Shoreline',
-    metaDescription: 'Why lake houses see the most mosquito pressure, where mosquitoes rest on a shoreline lot, and what barrier treatment can and cannot do at Lake Martin.',
+    metaTitle: 'Mosquito Control at Lake Houses and Docks',
+    metaDescription: 'At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local…',
     body: `
-<p class="lede">Every mosquito on a lake lot did not come from the lake. That surprises people. Open water with wave action and fish is poor mosquito habitat; the species that bite you on the dock at dusk breed in the still, shaded water at the edge — the cove, the boat slip, the tire on the seawall, the kayak that filled with rain — and rest in the dense shade between the house and the shore. That is why treatment works on a lake lot at all, and why it works differently than it does in town.</p>
+<p class="lede">At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local pressure, but treatment decisions near water need label review and a site inspection.</p>
 
-<h2>Where they breed on a shoreline lot</h2>
+<h2>Where do mosquitoes breed on a shoreline property?</h2>
 <p>Still water in shade. The inside of a covered slip where the water does not move. A dock box, a bailing bucket, a life-jacket bin with an inch of rain in the bottom. Kayaks and canoes stored right-side up. The saucers under the deck planters. The low corner of the yard where the lake backs up after a rain. And the cove itself, where a shaded, sheltered inlet holds water that barely moves. You cannot do anything about the cove. You can do something about everything else, and it is worth doing weekly from March through October.</p>
+<p><strong>Reference:</strong> Empty or cover water-holding containers and maintain screens. <a href="https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html">CDC: Mosquito control at home</a>.</p>
 
 <h2>Where they rest — and why that is the target</h2>
 <p>Adult mosquitoes do not hover over water during the day. They rest on the underside of leaves, in ivy and shrubs, under the deck, along the shaded foundation, in the boathouse rafters, under the dock. A barrier treatment goes on those surfaces, so mosquitoes that land there over the following weeks do not get up again. On a lake lot the treated zone is the band between the house and the shoreline, the boathouse, and the shaded side yards — which is where you sit, and where the bites happen.</p>
@@ -1465,24 +1585,25 @@ export const BLOG_POSTS: BlogPost[] = [
   // pooling onto generic 'control' posts (see middleware.ts POST_OVERRIDES). ───
   {
     slug: 'how-to-get-rid-of-ants-in-house-alabama',
-    title: 'How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide',
-    excerpt: 'The trail on the counter is the symptom. The colony behind the wall, under the slab, or out in the mulch bed is the problem — and spraying the trail usually makes it bigger. This guide covers every step to get rid of ants in your house, from identifying the ant species and removing food sources to baiting correctly, sealing entry points, and evaluating home remedies like vinegar, peppermint oil, cinnamon, and diatomaceous earth — plus when to call a pest control professional.',
+    title: 'How to Get Rid of Ants in Your Alabama Home',
+    excerpt: 'Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-10-17',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Ants',
     readMinutes: 11,
     heroEmoji: '🐜',
-    metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
-    metaDescription: 'Get rid of ants in your Alabama home: identify the species, stop spraying, bait the colony, seal entry points, and skip remedies that do not work.',
+    metaTitle: 'How to Get Rid of Ants in Your Alabama Home',
+    metaDescription: 'Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony…',
     body: `
-<p class="lede">Nobody calls us about one ant. They call when the line of them runs from the window over the sink to the dog bowl, and it has been there three mornings in a row despite a full can of spray. That is the most common ant call we take across the Birmingham metro, Lake Martin, and the Tennessee Valley, and the reason the spray did not work is the reason this guide exists: the ants on the counter are not the problem. They are foragers. The problem is a colony you have not seen yet, and getting rid of ants in your house is a sequence — not a single product.</p>
+<p class="lede">Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.</p>
 
 <p><strong>The short answer:</strong> identify the ant first — a clear photo is enough. Stop spraying the trail, which scatters the colony. Clean up the crumbs, grease, pet food and standing water the foragers are after. Put out a slow-acting bait where the trail runs and leave it alone so workers carry it back to the nest. Seal the gap they are using. If the trail is back within two weeks, or you find large black ants near damp wood, there is a hidden colony or carpenter ants, and it is time for an inspection. See our <a href="/services/pest-control">pest control plans</a>.</p>
 
-<h2>Step 1: Figure out which ant you have</h2>
+<h2>How do you identify the ant before treatment?</h2>
 
 <p>Alabama houses have to deal with four types of ants far more than any other, and the fix is different for each. Before you try any home remedies, you need to know which insect you are actually looking at.</p>
+<p><strong>Reference:</strong> Indoor spraying does not prevent more ants from entering. <a href="https://ipm.ucanr.edu/home-and-landscape/ants/">UC IPM: Ants</a>.</p>
 
 <ul>
 <li><strong>Odorous house ants</strong> — the classic "sugar ant." Small, dark, and they smell like rotten coconut when crushed. They nest almost anywhere: under mulch, in wall voids, behind baseboards, under a potted plant. Sweet feeders most of the year. This is the ant in the kitchen in nine calls out of ten. We cover them in detail in <a href="/blog/sugar-ants-in-house-alabama">sugar ants in your Alabama home</a>.</li>
@@ -1585,22 +1706,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'german-cockroaches-alabama',
-    title: 'German Cockroaches in Alabama: German Cockroach Infestation, Roach Control, and Pest Control',
-    excerpt: 'German cockroaches are one of the most common cockroach species found in Alabama homes — and one of the hardest household pests to get rid of. Unlike the large American cockroach or smokybrown cockroach that wanders in from outside, the German cockroach lives its entire life indoors, breeds faster than any other roach in the state, and hides in cracks and crevices that sprays never reach.',
+    title: 'German Cockroaches in Alabama: What Works?',
+    excerpt: 'German cockroaches can breed indoors around food, moisture and protected hiding places. Control requires identification, sanitation, monitoring and targeted treatment together; occasional surface spraying does not resolve those conditions.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Roaches',
     readMinutes: 14,
     heroEmoji: '🪳',
-    metaTitle: 'German Cockroaches in Alabama: Signs & Control | EnviroCare',
-    metaDescription: 'How to identify German cockroaches in Alabama homes, signs of an infestation, what draws them to kitchens and baths, and how professional baiting controls them.',
+    metaTitle: 'German Cockroaches in Alabama: What Works?',
+    metaDescription: 'German cockroaches can breed indoors around food, moisture and protected hiding places. Control requires identification, sanitation, monitoring and…',
     body: `
-<p class="lede">German cockroaches are one of the most common cockroach species found in Alabama homes — and one of the hardest household pests to get rid of. Unlike the large American cockroach or smokybrown cockroach that wanders in from outside, the German cockroach (<em>Blattella germanica</em>) lives its entire life indoors, breeds faster than any other roach in the state, and hides in cracks and crevices that sprays never reach. A single female German cockroach can produce hundreds of nymphs in a year, and by the time you see one in daylight, a German cockroach infestation is already established behind your kitchen cabinets and appliances. Learn how to identify German cockroaches, what attracts them to Alabama homes, the signs of a German cockroach infestation, and what professional pest control actually does to get rid of German cockroaches for good.</p>
+<p class="lede">German cockroaches can breed indoors around food, moisture and protected hiding places. Control requires identification, sanitation, monitoring and targeted treatment together; occasional surface spraying does not resolve those conditions.</p>
 
-<h2>How to identify German cockroaches in your Alabama home</h2>
+<h2>How can you recognize a German cockroach?</h2>
 
 <p>Adult German cockroaches are about half an inch long — roughly the size of a fingernail — light brown or tan, with two dark stripes running lengthwise on the shield behind the head. Those two dark parallel stripes are the most reliable feature to identify German cockroaches. German cockroaches have wings but rarely fly. The nymphs are smaller and darker, almost black, with a pale stripe down the middle of the back. You will see German cockroaches in the kitchen and bathroom, almost never in the living room or garage — they stay close to food and water sources.</p>
+<p><strong>Reference:</strong> Combine identification, sanitation, monitoring and targeted controls. <a href="https://ipm.ucanr.edu/home-and-landscape/cockroaches/">UC IPM: Cockroaches</a>.</p>
 
 <p>Compare the German cockroach to the two outdoor cockroach species Alabama homeowners commonly confuse them with:</p>
 
@@ -1800,22 +1922,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'how-to-get-rid-of-roaches-alabama',
-    title: 'How to Get Rid of Roaches in Alabama: Types of Cockroaches, Cockroach Control, and Pest Control for Alabama Homes',
-    excerpt: 'Alabama homeowners deal with more types of cockroaches than almost any other state. Roaches thrive in Alabama homes year-round because of the humid climate. Learn how to identify the cockroach species in your home, recognize a cockroach infestation, and get professional cockroach control that works.',
+    title: 'How to Get Rid of Roaches in Alabama',
+    excerpt: 'First determine whether roaches are breeding indoors or entering from outside. Remove food and moisture, inspect hiding places and choose targeted controls for the identified species. The right response to an outdoor invader differs from an established indoor infestation.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Roaches',
     readMinutes: 18,
     heroEmoji: '🧹',
-    metaTitle: 'How to Get Rid of Roaches in Alabama | EnviroCare',
-    metaDescription: 'How to get rid of roaches in Alabama: the cockroach types in local homes, signs of an infestation, what DIY can do, and when to call a professional.',
+    metaTitle: 'How to Get Rid of Roaches in Alabama',
+    metaDescription: 'First determine whether roaches are breeding indoors or entering from outside. Remove food and moisture, inspect hiding places and choose targeted…',
     body: `
-<p class="lede">Alabama homeowners deal with more types of cockroaches than almost any other state in the country, and roaches thrive in Alabama homes year-round because of the warm, humid climate that makes this region one of the highest cockroach pressure zones in the United States. Whether you are finding one roach in the kitchen at midnight or seeing roaches during the day — a sign that cockroach populations have outgrown their hiding spots — getting rid of cockroaches starts with identifying which types of roaches in Alabama you are dealing with and understanding what attracts roaches to your home. This guide covers every cockroach species common in Alabama, the signs of a cockroach infestation, health risks, what actually works for cockroach control, and when DIY cockroach control is not enough and you need professional pest control.</p>
+<p class="lede">First determine whether roaches are breeding indoors or entering from outside. Remove food and moisture, inspect hiding places and choose targeted controls for the identified species. The right response to an outdoor invader differs from an established indoor infestation.</p>
 
-<h2>Types of cockroaches found in Alabama homes</h2>
+<h2>Which roach species is causing the problem?</h2>
 
 <p>Alabama is home to several cockroach species, and knowing which types of cockroaches you are dealing with determines whether the cockroach problem is an outdoor perimeter issue or an indoor infestation that requires interior treatment. Here are the types of roaches in Alabama that pest control technicians encounter most often.</p>
+<p><strong>Reference:</strong> Species identification helps distinguish indoor and outdoor sources. <a href="https://ipm.ucanr.edu/home-and-landscape/cockroaches/">UC IPM: Cockroaches</a>.</p>
 
 <p><strong>American cockroach.</strong> The American cockroach — the "palmetto bug" — is the largest roach found in Alabama homes. Adults are reddish-brown, an inch and a half or longer, and they fly. American roaches live outdoors in sewers, storm drains, mulch beds, and crawl spaces, and they come inside through drains, basement entry points, and gaps in the foundation when summer heat or heavy rain pushes them toward food and water sources indoors. You typically see American cockroaches one at a time in the bathroom, garage, laundry room, or basement. They do not establish permanent indoor cockroach populations the way German roaches do.</p>
 
@@ -2116,22 +2239,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'termite-damage-signs-alabama',
-    title: 'Sign of Termites in Your Home: What Termite Damage Looks Like in Alabama',
-    excerpt: 'Early termite damage does not look like an insect problem — it looks like a sticking door, bubbling paint, or a soft spot in the floor. Learn the common signs of a termite infestation in Alabama homes, where subterranean termites enter, how to tell termite damage from water damage, and when to call for an inspection.',
+    title: 'Termite Damage Signs in Alabama Homes',
+    excerpt: 'Mud tubes, swarmers, discarded wings and damaged wood can indicate termite activity. Similar-looking damage has other causes, so document the evidence and have the structure inspected before choosing a treatment or assuming the extent of damage.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 11,
     heroEmoji: '🔍',
-    metaTitle: 'Signs of Termite Damage in Alabama Homes | EnviroCare',
-    metaDescription: 'Signs of termite damage in Alabama homes: mud tubes, hollow wood, sticking doors, and blistered paint, and what to do when you find them.',
+    metaTitle: 'Termite Damage Signs in Alabama Homes',
+    metaDescription: 'Mud tubes, swarmers, discarded wings and damaged wood can indicate termite activity. Similar-looking damage has other causes, so document the evidence…',
     body: `
-<p class="lede">Almost no one finds termite damage by seeing termites. They find it because a door that always closed fine now sticks in the frame, or the paint on a window sill bubbled, or a vacuum cleaner went through a baseboard. Subterranean termites — the species responsible for the large majority of termite infestations in Alabama — eat wood from the inside out and leave the surface intact, so by the time the surface fails, the damage behind it is usually well along. Knowing the warning signs of termites, and where to look for signs of their presence, is how you catch a termite problem while it is still a small repair instead of costly damage to your home.</p>
+<p class="lede">Mud tubes, swarmers, discarded wings and damaged wood can indicate termite activity. Similar-looking damage has other causes, so document the evidence and have the structure inspected before choosing a treatment or assuming the extent of damage.</p>
 
-<h2>What does the start of termite damage look like?</h2>
+<h2>Which signs suggest termite damage?</h2>
 
 <p>Early termite damage does not look like an insect problem. It looks like a maintenance issue — a sticking door, a bubble in the paint, a soft spot in the floor. That is because subterranean termites consume wood from the inside, hollowing out galleries along the grain while leaving the outer surface paper-thin. By the time a homeowner notices visible damage, a termite colony has typically been feeding inside the wall or under the floor for months or even years. The key is learning how to identify termite damage early and knowing which "maintenance issues" are actually a sign of termites — so you can act before the colony causes severe damage to the structural wood in your home. A single termite does no meaningful harm, but a colony of termites numbering in the tens of thousands eats around the clock.</p>
+<p><strong>Reference:</strong> Swarm identification and an inspection help assess possible termite activity. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <h2>Common signs of a termite infestation</h2>
 
@@ -2355,10 +2479,10 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'fall-pest-proofing-alabama',
-    title: 'Fall Pest-Proofing in Alabama: Seal Up Before the First Cold Nights',
-    excerpt: 'The house was fine all summer, then one cool week in October it filled up with crickets and spiders. Nothing changed inside — the temperature changed outside. Here is the exclusion checklist that keeps them out, and why it pays to finish it before the first real cool-down.',
+    title: 'Fall Pest-Proofing in Alabama: Where to Start',
+    excerpt: 'Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and reduce clutter. An inspection is more useful than adding pesticide before identifying the entry route.',
     publishedAt: '2026-08-11',
-    updatedAt: '2026-10-02',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
     readMinutes: 6,
@@ -2370,14 +2494,15 @@ export const BLOG_POSTS: BlogPost[] = [
       height: 900,
       alt: 'Illustration of a miniature brick home beside weatherstripping, a caulk gun, a flashlight, storage bins and an EnviroCare truck.',
     },
-    metaTitle: 'Fall Pest-Proofing Your Alabama Home | EnviroCare',
-    metaDescription: 'Fall pest-proofing in Alabama: door sweeps, weep holes, foundation gaps, and firewood. The exclusion checklist to finish before the first cold nights.',
+    metaTitle: 'Fall Pest-Proofing in Alabama: Where to Start',
+    metaDescription: 'Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and…',
     body: `
-<p class="lede">Every fall we take the same call, and it always sounds a little surprised. The house was fine all summer. Then one cool week in October it filled up with crickets, spiders, and something brown that ran under the baseboard. Nothing changed inside — what changed was outside. The first real drop in overnight temperatures pushes everything living in your mulch beds and leaf litter toward warmth, and your foundation is the nearest warm thing. The work that keeps them out is not spraying. It is sealing, and it works best when it is done before overnight lows drop into the 40s.</p>
+<p class="lede">Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and reduce clutter. An inspection is more useful than adding pesticide before identifying the entry route.</p>
 
-<h2>Why does the timing matter in the fall?</h2>
+<h2>Which entry points should you inspect first?</h2>
 
 <p>Alabama does not get the hard freeze that ends the season further north. What we get is a slow slide — nights in the 50s by late September, the first 40s in mid-October — and that slide is the trigger. Insects that were perfectly content under a pine straw bed in <a href="/hoover">Hoover</a> or beneath a deck in <a href="/chelsea">Chelsea</a> start moving toward heat, and the warm air leaking out of a foundation line, a door frame, or an unsealed garage jamb reads to them as an open door.</p>
+<p><strong>Reference:</strong> Look for openings both inside and outside the home. <a href="https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html">CDC: Seal up to prevent rodents</a>.</p>
 
 <p>Huntsville and the Tennessee Valley usually feel that push a week or two ahead of the Birmingham metro. Either way the timing is the whole point: seal in November and you are sealing them in rather than out.</p>
 
@@ -2424,21 +2549,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'termite-treatment-cost-alabama',
-    title: 'How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)',
-    excerpt: 'Nobody can quote you a termite price over the phone honestly, and the companies that do are guessing. Here is what actually moves the number on an Alabama house — linear footage, foundation type, active infestation versus prevention, and which system fits the structure.',
+    title: 'What Drives Termite Treatment Cost in Alabama?',
+    excerpt: 'Termite treatment is priced after an inspection, because the structure, access, evidence and treatment approach affect the work. Compare the written scope, monitoring schedule and agreement terms rather than expecting one flat price for every home.',
     publishedAt: '2026-08-04',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 7,
     heroEmoji: '🏷️',
-    metaTitle: 'What Termite Treatment Costs in Alabama | EnviroCare',
-    metaDescription: 'Termite treatment cost in Alabama depends on linear footage, foundation type, and whether termites are active. Here is what drives the price.',
+    metaTitle: 'What Drives Termite Treatment Cost in Alabama?',
+    metaDescription: 'Termite treatment is priced after an inspection, because the structure, access, evidence and treatment approach affect the work. Compare the written…',
     body: `
-<p class="lede">The first question on almost every termite call we take is what it is going to cost, and the honest answer is that we do not know yet. Not because we are being cagey — because a 1,400-square-foot slab ranch in <a href="/alabaster">Alabaster</a> and a 3,800-square-foot house on a stepped crawlspace in <a href="/greystone">Greystone</a> are two completely different jobs, and anyone who quotes both the same over the phone is either padding one or shorting the other. Here is what actually sets the number, so you can walk into a quote knowing what you are looking at.</p>
+<p class="lede">Termite treatment is priced after an inspection, because the structure, access, evidence and treatment approach affect the work. Compare the written scope, monitoring schedule and agreement terms rather than expecting one flat price for every home.</p>
 
-<h2>Why is there no flat price for termite treatment?</h2>
+<h2>What affects a termite treatment quote?</h2>
 
 <p>Termite work is priced off the structure, not off a menu. Pest control carries a published monthly price because the job is broadly the same house to house — our plans are on the <a href="/pricing">pricing page</a>. Termite work cannot, because the material, labor, and equipment involved swing enormously depending on what we find when we get under the house.</p>
+<p><strong>Reference:</strong> A professional assessment helps select an appropriate termite treatment. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <p>That is why our standard termite inspection is free. We would rather spend an hour measuring and crawling than hand you a number we have to walk back later. You get the findings and the quote either way.</p>
 
@@ -2486,21 +2613,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'green-caps-in-yard-sentricon',
-    title: 'What Are Those Round Green Caps in the Ground Around a House?',
-    excerpt: 'New homeowners find them along the foundation and assume they are sprinkler heads or old irrigation. They are termite bait stations — here is what they do, why you should not mow over or pull one up, and what it means when the house changes hands.',
+    title: 'Green Caps in Your Yard: Are They Termite Stations?',
+    excerpt: 'Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them, and confirm whether inspections and any service agreement are current.',
     publishedAt: '2026-07-28',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🟢',
-    metaTitle: "Green Caps in Your Yard? Don't Pull Them Up (Here's Why)",
-    metaDescription: 'Round green caps in the ground around your house are termite bait stations. What they do, why not to remove them, and what happens when you buy the home.',
+    metaTitle: 'Green Caps in Your Yard: Are They Termite Stations?',
+    metaDescription: 'Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them,…',
     body: `
-<p class="lede">You close on a house in <a href="/greystone">Greystone</a>, walk the yard on a Saturday morning, and notice a row of round green plastic caps set flush in the ground every ten feet or so around the foundation. Most people guess irrigation, or leftover landscape lighting, and a few of them try to pry one up. They are almost always termite bait stations, and what you do with them over the next few months matters more than anyone tells you at closing.</p>
+<p class="lede">Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them, and confirm whether inspections and any service agreement are current.</p>
 
-<h2>What are the green caps in my yard?</h2>
+<h2>What are the green caps around a house?</h2>
 
 <p>They are in-ground termite monitoring and bait stations. A plastic sleeve about the diameter of a coffee cup is driven into the soil, a cartridge of termite bait sits inside it, and the cap you see is the lid a technician unlocks to inspect what is happening underground. The system we install is Sentricon, and the stations get placed in a ring around the structure at regular intervals so that the foraging termites already moving through your soil run into a station before they run into your house.</p>
+<p><strong>Reference:</strong> Baits are one of several professional termite-treatment approaches. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <p>If the caps are green, unmarked, and evenly spaced along the drip line, that is the pattern. Sprinkler heads sit in the middle of turf where the spray pattern needs them, not hugging the foundation in an even ring. Irrigation valve boxes are rectangular and considerably larger.</p>
 
@@ -2542,21 +2671,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'more-bugs-after-pest-control-treatment',
-    title: 'Seeing More Bugs Right After a Pest Control Treatment? That\'s Normal — Here\'s Why',
-    excerpt: 'More ants on the counter two days after service usually means the treatment is working, not failing. What flush-out is, how long it lasts, why fast-acting products make ant problems worse, and when it is actually worth calling us back.',
+    title: 'More Bugs After Pest Treatment: What Should You Do?',
+    excerpt: 'Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation instructions and contact the provider if activity continues or changes unexpectedly.',
     publishedAt: '2026-07-27',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '🐜',
-    metaTitle: 'Why You See More Bugs After Treatment | EnviroCare',
-    metaDescription: 'Seeing more bugs after a pest control treatment? That flush-out is normal. What is happening, how long it lasts, and when to call us back.',
+    metaTitle: 'More Bugs After Pest Treatment: What Should You Do?',
+    metaDescription: 'Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation…',
     body: `
-<p class="lede">The technician pulls out of the driveway, and two days later there are more ants on the kitchen counter than there were before he showed up. We get that call most weeks, and the honest answer catches people off guard: what you are seeing is usually the treatment working, not failing. Here is what is actually happening along your foundation and inside your walls during those first couple of weeks.</p>
+<p class="lede">Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation instructions and contact the provider if activity continues or changes unexpectedly.</p>
 
-<h2>Why do I see more bugs right after a pest control treatment?</h2>
+<h2>Why might bugs be more visible after treatment?</h2>
 
-<p>It is called flush-out, and it is the single most common question new customers bring us. Pests do not live out in the open where you can see them. They live in wall voids, under siding, in mulch beds, behind baseboards, and in the seam where brick veneer meets the slab. When we treat those harborage areas, the insects sitting in them do not quietly die in place. They get agitated, they move, and moving means walking out into the open where you finally notice them.</p>
+<p>Some treatments can change how visible pest activity is, but the cause must be assessed in context. Pests do not live out in the open where you can see them. They live in wall voids, under siding, in mulch beds, behind baseboards, and in the seam where brick veneer meets the slab. When we treat those harborage areas, the insects sitting in them do not quietly die in place. They get agitated, they move, and moving means walking out into the open where you finally notice them.</p>
+<p><strong>Reference:</strong> Ask about the source of activity and follow product instructions. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <p>So the population is not growing. Your visibility of it is. A <a href="/hoover">Hoover</a> homeowner who noticed two or three spiders a month before service might count a dozen in the week after, and every one of those was already living in the house. Treatment did not bring them in. It just changed where they were standing.</p>
 
@@ -2592,21 +2723,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'fleas-in-house-no-pets',
-    title: 'Fleas in the House But No Pets? Here\'s What\'s Actually Happening',
-    excerpt: 'No dog, no cat, still getting bit at the ankles. Where interior fleas actually come from, why bombs and foggers rarely finish the job, and how we treat the life cycle instead of just the adults you can see.',
+    title: 'Fleas in a House With No Pets: Where to Look',
+    excerpt: 'Fleas can remain in a house after an animal has left or be associated with another animal source. Confirm the insect, inspect carpets and resting areas and discuss both the source and the environment with the pest professional.',
     publishedAt: '2026-07-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Fleas',
     readMinutes: 5,
     heroEmoji: '🐾',
-    metaTitle: 'Fleas in the House but No Pets? | EnviroCare',
-    metaDescription: 'Fleas in the house with no pets? Here\'s where they actually come from, why foggers fail, and how EnviroCare treats an interior flea problem.',
+    metaTitle: 'Fleas in a House With No Pets: Where to Look',
+    metaDescription: 'Fleas can remain in a house after an animal has left or be associated with another animal source. Confirm the insect, inspect carpets and resting…',
     body: `
-<p class="lede">"We don't have pets — so why do we have fleas?" We hear that one a lot, usually from a homeowner standing in the living room with a can of bug spray and no idea where to point it. It's a fair question, and the answer isn't what most people expect: fleas don't need your dog or cat to get into the house. They just need a host that's already there, and something usually is.</p>
+<p class="lede">Fleas can remain in a house after an animal has left or be associated with another animal source. Confirm the insect, inspect carpets and resting areas and discuss both the source and the environment with the pest professional.</p>
 
-<h2>Where do fleas come from if there's no pet in the house?</h2>
+<h2>How can fleas remain when there are no pets?</h2>
 
 <p>Fleas are opportunists. They'll ride in on whatever warm-blooded animal is available, and in a lot of Alabama homes that's not a pet — it's wildlife. A raccoon or possum denning under a deck, a stray cat sheltering in the crawl space, even squirrels in the attic, can all carry fleas in and drop eggs wherever they bed down. We see this pattern a lot in wooded lots around <a href="/chelsea">Chelsea</a> and <a href="/helena">Helena</a>, where houses back up to tree lines and there's no shortage of wildlife passing through underneath the house.</p>
+<p><strong>Reference:</strong> Flea management addresses animal hosts and the surrounding environment. <a href="https://ipm.ucanr.edu/home-and-landscape/fleas/">UC IPM: Fleas</a>.</p>
 
 <p>The second common source is people, not animals. Fleas hitch a ride on shoes, pant legs, and bags from a friend's house, a boarding kennel, or even a rental property that had a prior flea problem. And if you just moved into a home in <a href="/vestavia-hills">Vestavia Hills</a> or Homewood, don't rule out the previous owner's pet — flea eggs and pupae can sit dormant in carpet and baseboards for months after the animals that dropped them are long gone.</p>
 
@@ -2873,21 +3006,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'mosquito-repellent-yard-spray-vs-professional',
-    title: 'Yard Mosquito Spray vs. Professional Treatment: What Actually Works in Alabama',
-    excerpt: 'Hose-end sprays, foggers, citronella, zappers — most Alabama homeowners have tried them all. An honest grading of the DIY aisle, and where professional treatment earns its cost.',
+    title: 'Yard Mosquito Spray vs. Professional Treatment',
+    excerpt: 'A yard spray and a professional mosquito program should both be evaluated alongside breeding-site reduction and label requirements. Professional service adds an inspection and site-specific treatment plan, but neither approach can promise a mosquito-free property.',
     publishedAt: '2026-07-07',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 5,
     heroEmoji: '🧴',
-    metaTitle: 'Yard Mosquito Spray vs. Professional Treatment | EnviroCare',
-    metaDescription: 'Do DIY mosquito sprays, foggers, and citronella actually work in Alabama? An honest comparison with professional mosquito treatment, from EnviroCare since 1958.',
+    metaTitle: 'Yard Mosquito Spray vs. Professional Treatment',
+    metaDescription: 'A yard spray and a professional mosquito program should both be evaluated alongside breeding-site reduction and label requirements. Professional…',
     body: `
-<p class="lede">Walk into any hardware store in Birmingham or Huntsville in July and you'll find an entire aisle promising to fix your mosquito problem: hose-end yard sprays, foggers, citronella buckets, bug zappers, granules. Most Alabama homeowners have tried at least three of them before they ever call us. So here's an honest grading of the DIY options — and where professional mosquito treatment actually earns its cost.</p>
+<p class="lede">A yard spray and a professional mosquito program should both be evaluated alongside breeding-site reduction and label requirements. Professional service adds an inspection and site-specific treatment plan, but neither approach can promise a mosquito-free property.</p>
 
-<h2>The DIY lineup, graded honestly</h2>
+<h2>How do yard sprays and professional service differ?</h2>
 
 <p><strong>Citronella candles and torches.</strong> They protect a few feet of air, in dead-calm conditions, while lit. A breeze defeats them, and so does walking to the grill. Ambience, not control.</p>
+<p><strong>Reference:</strong> Remove standing water and maintain screens alongside other control steps. <a href="https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html">CDC: Mosquito control at home</a>.</p>
 
 <p><strong>Bug zappers.</strong> Research on zapper catches consistently finds mosquitoes make up a tiny fraction of what they kill — mostly moths and beneficial insects drawn to the light. Mosquitoes hunt by carbon dioxide and body heat, not ultraviolet. Skip these.</p>
 
@@ -2923,24 +3058,25 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'alabama-termite-swarm-season',
-    title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
-    excerpt: 'Every spring, subterranean termite swarmers emerge across Alabama, usually from mid-March into May. Here is when they swarm, how to tell them from flying ants, why Birmingham\'s clay soil makes it worse, and what we recommend.',
+    title: 'Alabama Termite Swarms: What Should You Do?',
+    excerpt: 'Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a sample or photo and avoid choosing a treatment from the calendar alone.',
     publishedAt: '2026-03-04',
-    updatedAt: '2026-10-12',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🪵',
-    metaTitle: 'When Do Termites Swarm in Alabama? | EnviroCare',
-    metaDescription: 'When do termites swarm in Alabama? Usually mid-March to May. How to tell swarmers from flying ants, what the swarm means, and what to do next.',
+    metaTitle: 'Alabama Termite Swarms: What Should You Do?',
+    metaDescription: 'Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a…',
     body: `
-<p class="lede">If you live in Alabama and you've never seen a termite swarm, you will. They show up like clockwork, usually between mid-March and late May, on the first warm, humid afternoon after a soaking rain. Hundreds of winged insects pour out of a stump, a porch column, or worse, a baseboard inside your living room.</p>
+<p class="lede">Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a sample or photo and avoid choosing a treatment from the calendar alone.</p>
 
 <p>Swarms are what we get the most calls about every spring. So here is what is actually happening during termite swarming season, why Alabama gets hit harder than most states, and what we tell every homeowner who calls us with a bag of wings on the counter.</p>
 
-<h2>What is a termite swarm?</h2>
+<h2>When do termites swarm in Alabama?</h2>
 
 <p>A termite colony is organized by caste. Worker termites do the feeding and digging, soldier termites guard the tunnels, and a king and queen produce the eggs. Once a colony is mature, usually several years old, it starts raising winged reproductives. Those swarmers leave the nest all at once, pair off, shed their wings, and try to start a new colony somewhere nearby.</p>
+<p><strong>Reference:</strong> Swarming ants can be mistaken for termites; identify the insect. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <p>Most of them fail. Birds, ants, dry air and sunlight take care of the majority within hours. But a swarm tells you something important: a colony big enough to produce reproducers is living close by, and it has been feeding for a while.</p>
 
@@ -3029,22 +3165,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'sentricon-vs-liquid-termite-treatment',
-    title: 'Sentricon vs. Liquid Termite Treatment: Which Is Best for Your Alabama Home?',
-    excerpt: 'Sentricon bait systems and liquid barrier treatments both protect against termites, but they work in very different ways. Here is an honest comparison from a fourth-generation pest control company that has used both.',
+    title: 'Sentricon vs. Liquid Termite Treatment in Alabama',
+    excerpt: 'Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while monitoring and agreement terms affect ongoing service. Compare a site-specific written proposal rather than choosing on product name alone.',
     publishedAt: '2026-02-18',
-    updatedAt: '2026-09-30',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 9,
     heroEmoji: '🛡️',
-    metaTitle: 'Sentricon vs Liquid Termite Treatment: Which Is Best for Alabama?',
-    metaDescription: 'Sentricon bait vs liquid barrier termite treatment — honest pros, cons, and costs from an Alabama Sentricon® Certified Specialist protecting homes since 1958.',
+    metaTitle: 'Sentricon vs. Liquid Termite Treatment in Alabama',
+    metaDescription: 'Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while…',
     body: `
-<p class="lede">When a pest control company shows up to inspect your home for termites, you are going to be offered one of two paths: a Sentricon® bait system or a liquid termiticide barrier treatment (Termidor, Premise, Bifen). The salesperson is going to be very confident their termite treatment option is best. So let me try to be straight with you about both Sentricon and liquid termite treatment so you can make an informed decision about protecting your home.</p>
+<p class="lede">Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while monitoring and agreement terms affect ongoing service. Compare a site-specific written proposal rather than choosing on product name alone.</p>
 
-<h2>The short version: Sentricon vs liquid termite treatment</h2>
+<h2>How do bait systems and liquid treatments differ?</h2>
 
 <p>For the large majority of Alabama homes, Sentricon is the better termite treatment choice. The Sentricon® system targets the entire termite colony — including the queen — through bait that foraging termites carry back to the colony. A liquid barrier treatment creates a chemical perimeter around the structure that termites must cross to reach your home. Both provide termite protection, but they work in fundamentally different ways and the long-term results are not the same. The question is not which termite treatment is best in the abstract — it is which treatment is best for your specific home and situation.</p>
+<p><strong>Reference:</strong> EPA describes both bait and liquid soil-treatment approaches. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
 <h2>How liquid barrier termite treatment works</h2>
 
@@ -3320,22 +3457,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'fire-ants-alabama-summer',
-    title: 'Fire Ants in Alabama: Why They Get Worse Every Summer, and How to Actually Kill Them',
-    excerpt: 'Spot-treating mounds rarely reaches the queen, so colonies move and rebuild. Here is how whole-yard fire ant treatment works in Birmingham and across Alabama, and when to schedule it.',
-    updatedAt: '2026-10-12',
+    title: 'Fire Ants in Alabama: Treatment and Prevention',
+    excerpt: 'Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound treatment. Treat visible mounds as evidence to assess rather than a complete map of colony activity.',
+    updatedAt: '2026-10-28',
     publishedAt: '2026-05-10',
     author: 'Kevin Wedgworth',
     category: 'Fire Ants',
     readMinutes: 4,
     heroEmoji: '🌻',
-    metaTitle: 'Fire Ant Treatment Birmingham AL | EnviroCare',
-    metaDescription: 'Fire ant treatment in Birmingham, AL that reaches the colony, not just the mound. Separate whole-yard service, open to anyone. Call (205) 991-2882.',
+    metaTitle: 'Fire Ants in Alabama: Treatment and Prevention',
+    metaDescription: 'Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound…',
     body: `
-<p class="lede">Fire ants are not native to Alabama. Imported fire ants arrived from South America through the Port of Mobile in the first half of the twentieth century, and they have since spread across most of the state. If you live in Birmingham or anywhere in Jefferson County, you have almost certainly stepped near a mound. Here is why they get worse every summer, why most home fixes fall short, and what fire ant treatment in Birmingham, AL actually involves when we do it.</p>
+<p class="lede">Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound treatment. Treat visible mounds as evidence to assess rather than a complete map of colony activity.</p>
 
-<h2>Why fire ants seem to multiply every summer</h2>
+<h2>Why do fire-ant mounds appear and return?</h2>
 
 <p>A fire ant colony is mostly underground. The dome of loose soil you see is the top of a network of tunnels and chambers, and the queen lives somewhere inside that network, not at the surface. A mature yard can host several colonies at once.</p>
+<p><strong>Reference:</strong> Bait timing, storage and permitted application sites affect results. <a href="https://www.aces.edu/blog/topics/crop-production/managing-fire-ants-with-baits/">Alabama Extension: Managing fire ants with baits</a>.</p>
 
 <p>Warm weather is when they are busiest. Once soil warms in spring, workers forage hard, colonies grow, and mounds start showing up in lawns, flower beds, along driveways, and at the edge of patios. After a heavy rain, mounds often look like they doubled overnight.</p>
 
@@ -3564,20 +3702,21 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'pests-after-rain-alabama',
     title: 'Why Pests Get Worse After Rain in Alabama',
-    excerpt: 'Fire ants, palmetto bugs, and millipedes all surge after Alabama rainstorms. Rain floods habitats and drives pests toward your home.',
+    excerpt: 'Rain can change moisture and shelter conditions around a house, making pest activity more noticeable. Identify the insect and inspect drainage, door gaps and damp storage areas before assuming that every sighting needs another application.',
     publishedAt: '2026-05-20',
-    updatedAt: '2026-10-12',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
     readMinutes: 6,
     heroEmoji: '🌧️',
-    metaTitle: 'Why Pests Get Worse After Rain in Alabama | EnviroCare',
-    metaDescription: 'Fire ants, palmetto bugs, millipedes, and mosquitoes surge after Alabama rain. Why storms drive pests indoors and how perimeter treatment stops them.',
+    metaTitle: 'Why Pests Get Worse After Rain in Alabama',
+    metaDescription: 'Rain can change moisture and shelter conditions around a house, making pest activity more noticeable. Identify the insect and inspect drainage, door…',
     body: `
-<p class="lede">Alabama gets its rain in bursts — three inches in an afternoon, a tropical system that sits for two days — and every one of them is followed by the same wave of calls. Ants indoors that were not there Monday. Millipedes by the hundred on the garage floor. Roaches in the bathroom. A mosquito cloud on the porch a week later. None of it is random. A flooded yard rearranges where every pest can live, and most of the options it leaves them point at the house.</p>
+<p class="lede">Rain can change moisture and shelter conditions around a house, making pest activity more noticeable. Identify the insect and inspect drainage, door gaps and damp storage areas before assuming that every sighting needs another application.</p>
 
-<h2>Ants: flooded out, moving up</h2>
+<h2>Why does rain change pest activity?</h2>
 <p>Argentine and odorous house ants nest shallow, under mulch and stones and along the foundation. When those nests flood, the colony moves the brood to higher, drier ground — and the highest, driest ground on the lot is inside your walls. This is the ant trail that appears the day after a storm and seems to come from nowhere. Fire ants do the same thing in the yard: a saturated colony pushes up above the water line, and the mounds that "appeared overnight" were there all summer, underground.</p>
+<p><strong>Reference:</strong> Repair leaks and avoid water accumulation around the home. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <h2>Roaches: out of the drains</h2>
 <p>American cockroaches live in storm drains, sewer lines, and crawlspaces. A flooded drain system pushes them up and out, into bathrooms through floor drains and into crawlspaces that are now wet. Smokybrowns get flushed out of gutters and tree holes. Both end up looking for a dry, warm place, and the garage and the bathroom are it.</p>
@@ -3693,20 +3832,22 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'prepare-home-for-pest-control',
-    title: 'How to Prepare Your Home for Pest Control Service',
-    excerpt: 'Clear baseboards, secure pets, give access to crawlspaces. A few simple steps before service make treatment more effective and longer-lasting.',
+    title: 'How to Prepare Your Home for Pest Control',
+    excerpt: 'Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs and follow directions for pets, food, belongings and re-entry; requirements vary by product and service.',
     publishedAt: '2026-05-20',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 3,
     heroEmoji: '🏡',
-    metaTitle: 'How to Prepare Your Home for Pest Control Service | EnviroCare Alabama',
-    metaDescription: 'A few simple steps before your pest control visit make treatment more effective — clear baseboards, secure pets, give access to key areas.',
+    metaTitle: 'How to Prepare Your Home for Pest Control',
+    metaDescription: 'Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs…',
     body: `
-<p class="lede">Getting the most from your pest control service starts before the technician arrives. A few simple steps help us treat more effectively and make results last longer.</p>
+<p class="lede">Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs and follow directions for pets, food, belongings and re-entry; requirements vary by product and service.</p>
 
-<h2>Clear Access Areas</h2>
+<h2>What should you do before the technician arrives?</h2>
 <p>Clear items away from baseboards in the kitchen and bathrooms. Pull appliances forward so we can treat behind them. These areas are prime harborage for roaches, ants, and silverfish — and if we can't reach them, neither can the treatment.</p>
+<p><strong>Reference:</strong> Follow label instructions and ask for product-use information. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <h2>Secure Pets and Sensitive Items</h2>
 <p>Pick up pet food and water bowls before we arrive. Cover fish tanks and turn off air pumps during interior treatment. Products are EPA-registered once dry — about 30 minutes for interior work.</p>
@@ -3731,22 +3872,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'huntsville-pest-control-guide',
-    title: 'Pest Control in Huntsville, AL: A Local Guide',
-    excerpt: 'Huntsville sits in a pest control environment unlike anywhere else in Alabama. Limestone geology, Tennessee Valley moisture, and rapid suburban development shape which pests are active. Local guide from EnviroCare\'s Huntsville office.',
+    title: 'Pest Control in Huntsville: What to Ask',
+    excerpt: 'For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.',
     publishedAt: '2026-05-20',
-    updatedAt: '2026-09-29',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 15,
     heroEmoji: '🚀',
-    metaTitle: 'Pest Control in Huntsville, AL: A Local Guide | EnviroCare',
-    metaDescription: 'Pest control in Huntsville, AL from EnviroCare: ants, termites, mosquitoes, spiders, rodents and 30+ pests for North Alabama homes and businesses.',
+    metaTitle: 'Pest Control in Huntsville: What to Ask',
+    metaDescription: 'For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope…',
     body: `
-<p class="lede">Huntsville sits in a pest control environment unlike anywhere else in Alabama. The Tennessee Valley climate, limestone geology beneath the city, rapid suburban development across Madison County, and the Tennessee River system all shape which pests are active in your home or business — and what it takes to keep them out. This is a local guide to pest control in Huntsville, AL, covering the most common Huntsville pests, the pest control services available, what pest control costs, and why year-round professional pest control matters more here than in most markets.</p>
+<p class="lede">For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.</p>
 
-<h2>Why Huntsville, AL has unique pest problems</h2>
+<h2>Which pests should a Huntsville inspection address?</h2>
 
 <p>Three factors make pest control in Huntsville different from pest control in Birmingham, the Gulf Coast, or anywhere else in Alabama.</p>
+<p><strong>Reference:</strong> Identify the pest and correct conditions that support activity. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <p><strong>Limestone geology.</strong> North Alabama sits on a limestone karst formation full of natural voids, fissures, and caves. Pests and bugs use these underground passages as highways — centipedes, millipedes, cave crickets, and spiders move through limestone channels and emerge inside homes through foundation cracks and crawl space openings. Huntsville homeowners on limestone see pest activity from species that homes on clay soil further south rarely encounter. Any homeowner on a limestone lot should have the crawl space and foundation inspected annually — limestone pest pressure does not let up on its own.</p>
 
@@ -4413,10 +4555,10 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'silverfish-control-alabama',
-    title: 'Silverfish Control in Alabama: How to Get Rid of Silverfish in Your Home and Prevent Silverfish Infestation in Alabama Homes',
-    excerpt: 'Silverfish are one of the most common and most overlooked household pests in Alabama homes. These nocturnal, wingless insects thrive in high humidity, hide in wall voids and undisturbed areas, and cause damage to books, wallpaper, clothing, and stored items before most homeowners even know they have a silverfish problem.',
+    title: 'Silverfish in Alabama Homes: Causes and Control',
+    excerpt: 'Silverfish activity calls for an inspection of moisture, storage and potential food sources such as paper-associated materials. Identify the pest, reduce favorable conditions and protect vulnerable stored items before relying on treatment alone.',
     publishedAt: '2026-05-21',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 12,
@@ -4424,14 +4566,15 @@ export const BLOG_POSTS: BlogPost[] = [
     // Distinct from /pest-library/silverfish, which carries the species profile
     // under the plain "Silverfish Control in Alabama | EnviroCare" title. These two
     // were byte-identical until 2026-08-11 — the only duplicate title on the site.
-    metaTitle: 'Silverfish in Alabama Homes: How to Get Rid of Them',
-    metaDescription: 'What draws silverfish into Alabama homes, signs of an infestation, the damage they do to books and clothing, and how to get rid of them.',
+    metaTitle: 'Silverfish in Alabama Homes: Causes and Control',
+    metaDescription: 'Silverfish activity calls for an inspection of moisture, storage and potential food sources such as paper-associated materials. Identify the pest,…',
     body: `
-<p class="lede">Silverfish are one of the most common and most overlooked household pests in Alabama homes. These nocturnal, wingless insects thrive in high humidity, hide in wall voids and undisturbed areas, and cause damage to books, wallpaper, clothing, and stored items before most homeowners even know they have a silverfish problem. Alabama's year-round humidity makes every home a potential silverfish habitat — and once a silverfish infestation takes hold, getting rid of silverfish without professional pest control is difficult. This guide covers what attracts silverfish to Alabama homes, signs of a silverfish infestation, what silverfish damage looks like, and how professional silverfish control from EnviroCare keeps these humidity-driven pests out of your home.</p>
+<p class="lede">Silverfish activity calls for an inspection of moisture, storage and potential food sources such as paper-associated materials. Identify the pest, reduce favorable conditions and protect vulnerable stored items before relying on treatment alone.</p>
 
-<h2>What are silverfish and why do they thrive in Alabama?</h2>
+<h2>How can you identify silverfish?</h2>
 
 <p>Silverfish are small, silver-gray, teardrop-shaped wingless insects with three long tail appendages and two long antennae. Adult silverfish are roughly half an inch to three-quarters of an inch long and move very fast — their fish-like wriggling motion is how they got their name. Silverfish are nocturnal, which means they hide during the day and come out at night to feed. If you see a silverfish during the day, there are likely many more you are not seeing.</p>
+<p><strong>Reference:</strong> Silverfish feed on starchy materials and paper-associated items. <a href="https://ipm.ucanr.edu/home-and-landscape/silverfish-and-firebrats/">UC IPM: Silverfish and firebrats</a>.</p>
 
 <p>Silverfish thrive in Alabama because they need high humidity — 75 percent or higher — to survive and reproduce. Alabama's warm, humid climate provides ideal conditions year-round, especially in bathrooms, laundry rooms, kitchens, attics, crawlspaces, and basements. Unlike drier states where low humidity naturally limits silverfish populations, Alabama homes provide exactly what silverfish need to survive: moisture, warmth, darkness, and food sources. That is why silverfish are such a persistent pest in Alabama homes and why silverfish control is a year-round concern for Alabama homeowners.</p>
 
@@ -4535,22 +4678,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'cricket-control-alabama',
-    title: 'Cricket Control in Alabama: House Crickets, Camel Crickets, and Pest Control',
-    excerpt: 'Crickets are one of the most common insect invaders in Alabama homes — house crickets chirp all night from inside your walls, camel crickets crowd your basement by the dozens, and field crickets wander indoors through every gap and crack they can find. These pests surge in late summer and fall when outdoor conditions push them toward the warmth and shelter of your home.',
+    title: 'Crickets in Alabama Homes: Identification and Control',
+    excerpt: 'Cricket control starts with identifying the cricket and inspecting how it enters. Door gaps, damp sheltered spaces and outdoor conditions can contribute to indoor sightings. Exclusion and condition changes belong alongside any targeted treatment.',
     publishedAt: '2026-05-21',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 12,
     heroEmoji: '🦗',
-    metaTitle: 'Cricket Control in Alabama: House & Camel Crickets',
-    metaDescription: 'House crickets in the walls, camel crickets in the basement: why crickets come indoors in Alabama and how to keep them out.',
+    metaTitle: 'Crickets in Alabama Homes: Identification and Control',
+    metaDescription: 'Cricket control starts with identifying the cricket and inspecting how it enters. Door gaps, damp sheltered spaces and outdoor conditions can…',
     body: `
-<p class="lede">Crickets are one of the most common insect invaders in Alabama homes — house crickets chirp all night from inside your walls, camel crickets crowd your basement by the dozens, and field crickets wander indoors through every gap and crack they can find. These pests surge in late summer and fall when outdoor conditions push them toward the warmth and shelter of your home. Understanding which cricket species you are dealing with is the first step toward effective cricket control and keeping these noisy, fabric-chewing bugs out of your Alabama home for good.</p>
+<p class="lede">Cricket control starts with identifying the cricket and inspecting how it enters. Door gaps, damp sheltered spaces and outdoor conditions can contribute to indoor sightings. Exclusion and condition changes belong alongside any targeted treatment.</p>
 
-<h2>House crickets in Alabama homes</h2>
+<h2>Which cricket is inside your Alabama home?</h2>
 
 <p>House crickets are light brown, about three-quarters of an inch long, with three dark bands on the head between the eyes. They have long antennae — often longer than the body — and powerful hind legs built for jumping. House crickets are the species responsible for the chirping you hear at nighttime, because only males chirp to attract a mate. The chirping is a mating call produced by rubbing the front wings together, and it intensifies after dark because house crickets are nocturnal.</p>
+<p><strong>Reference:</strong> House, field and camel crickets differ; identification informs management. <a href="https://extension.umn.edu/garden-and-home/home-maintenance/household-insects/crickets">University of Minnesota Extension: Crickets</a>.</p>
 
 <p>House crickets are drawn to warmth, which is why they move indoors in late summer and fall as overnight temperatures drop. Once inside, they seek out damp areas near kitchens, bathrooms, basements, and crawl spaces — anywhere with moisture and warmth. A house cricket indoors is not just a noise problem. House crickets chew fabric, including wool, silk, cotton, and synthetic blends. They will damage clothing, curtains, upholstery, and stored fabric if the population goes unchecked. A few house crickets are a nuisance. A lot of house crickets eating your belongings is a pest problem that needs cricket control.</p>
 
@@ -5013,23 +5157,24 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'mosquito-season-birmingham-al',
-    title: 'Mosquito Season in Alabama: Mosquito Control Services, Mosquito Management, and Pest Control for Huntsville and Birmingham',
-    excerpt: 'Alabama mosquito season runs March through October — an eight-month stretch that makes mosquito control a necessity. This guide covers when mosquito season starts, how mosquito spray treatments work, types of mosquitoes in Alabama, mosquito breeding sites, and what mosquito control costs.',
+    title: 'Alabama Mosquito Season: Planning and Prevention',
+    excerpt: 'Alabama mosquito activity depends on local weather and breeding sites. EnviroCare schedules its seasonal program from March through October; that service calendar is separate from when a homeowner might notice mosquitoes. Inspect water-holding containers and screens throughout active periods.',
     publishedAt: '2026-03-01',
-    updatedAt: '2026-10-24',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 12,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Season in Alabama: Birmingham & Huntsville Guide',
-    metaDescription: 'Alabama mosquito season runs March through October. How the mosquito life cycle works, how to prevent breeding, and how treatment reduces activity.',
+    metaTitle: 'Alabama Mosquito Season: Planning and Prevention',
+    metaDescription: 'Alabama mosquito activity depends on local weather and breeding sites. EnviroCare schedules its seasonal program from March through October; that…',
     body: `
-<p class="lede">Alabama mosquito season runs March through October — an eight-month stretch that makes mosquito control a necessity for homes and businesses across Birmingham, Huntsville, and every community in between. Starting mosquito control early, before mosquito populations compound through spring and summer, is the single biggest factor in how well the whole season goes. This guide covers when mosquito season starts in Alabama, how mosquito spray treatments work, the types of mosquitoes in Alabama, mosquito breeding sites to eliminate, what mosquito control costs, and why professional pest control delivers results that DIY mosquito management cannot match.</p>
+<p class="lede">Alabama mosquito activity depends on local weather and breeding sites. EnviroCare schedules its seasonal program from March through October; that service calendar is separate from when a homeowner might notice mosquitoes. Inspect water-holding containers and screens throughout active periods.</p>
 <p><strong>Looking for mosquito control near you?</strong> See <a href="/birmingham-mosquito-control">mosquito control in Birmingham</a> (Jefferson County, served from our 16th Ave S office) or <a href="/huntsville-mosquito-control">mosquito control in Huntsville</a> for local details, the March–October treatment schedule and pricing.</p>
 
-<h2>When is mosquito season in Alabama?</h2>
+<h2>When should you plan mosquito control in Alabama?</h2>
 
 <p>Mosquito season in Alabama effectively runs March through October. Mosquitoes become active once temperatures hold consistently above about 50°F, and mosquito breeding accelerates sharply past 70°F. Mosquito activity does not meaningfully stop until sustained cold arrives in late fall. That is an eight-month mosquito season — considerably longer than most of the country, and the reason our mosquito control program is built as eight treatments rather than a summer add-on. Alabama's warm, humid climate produces one of the longest mosquito seasons in the United States, and mosquito populations in central and north Alabama build faster than most homeowners expect.</p>
+<p><strong>Reference:</strong> Check water-holding containers each week during mosquito activity. <a href="https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html">CDC: Mosquito control at home</a>.</p>
 
 <h2>Why starting mosquito control early matters</h2>
 
@@ -5637,22 +5782,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'pest-control-birmingham-guide',
-    title: 'Pest Control in Birmingham, AL: Pest Control Services, Exterminator, and Pest Control Solutions for Birmingham Alabama Homes and Businesses',
-    excerpt: 'Birmingham sits in the middle of Alabama\'s heaviest pest pressure — red clay soil that holds moisture for weeks, mature tree canopy from Homewood to Hoover, and a climate that never freezes hard enough to give homeowners a real break. A local guide to pest control in Birmingham, AL.',
+    title: 'Pest Control in Birmingham: Services and Questions',
+    excerpt: 'For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.',
     publishedAt: '2026-06-30',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-10-28',
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 14,
     heroEmoji: '🏙️',
-    metaTitle: 'Pest Control in Birmingham, AL: A Local Guide | EnviroCare',
-    metaDescription: 'Pest control in Birmingham, AL from EnviroCare: termites, ants, mosquitoes, roaches, spiders, rodents and 30+ pests for local homes and businesses.',
+    metaTitle: 'Pest Control in Birmingham: Services and Questions',
+    metaDescription: 'For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the…',
     body: `
-<p class="lede">Birmingham sits in the middle of Alabama's heaviest pest pressure — red clay soil that holds moisture for weeks, mature tree canopy from Homewood to Hoover, and a climate that never freezes hard enough to give homeowners a real break. This is a local guide to pest control in Birmingham, AL, covering the most common Birmingham pests, what pest control services cost, how to choose a pest control company in Birmingham, and why year-round professional pest control is the only reliable pest management approach in the Birmingham area.</p>
+<p class="lede">For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.</p>
 
-<h2>Why Birmingham, Alabama has year-round pest problems</h2>
+<h2>Which pests are common reasons for a Birmingham inspection?</h2>
 
 <p>Two factors make pest control in Birmingham different from pest control in most of Alabama and the surrounding region.</p>
+<p><strong>Reference:</strong> Ask providers to identify and correct the source of the problem. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
 <p><strong>Clay soil and moisture.</strong> Birmingham and the surrounding communities sit on red clay that holds moisture for weeks after rain. That trapped moisture supports subterranean termite colonies, roach populations, and ant infestations year-round. Every pest control company in Birmingham deals with clay-driven pest pressure that homeowners on sandy soil further south rarely see. Clay soil is the reason termite control is not optional for any Birmingham home or business.</p>
 

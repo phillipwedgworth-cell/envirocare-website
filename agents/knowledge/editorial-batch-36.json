@@ -1,0 +1,553 @@
+{
+  "date": "2026-10-28",
+  "status": "review-only",
+  "scope": "30 existing URL refreshes plus 6 data-center guides (3 already in PR #286). Not 36 new URLs. No publication schedule or approval implied.",
+  "posts": [
+    {
+      "slug": "data-center-pest-control-construction-handover",
+      "keyword": "data center pest control construction handover",
+      "title": "Data Center Pest Control: Construction Handover",
+      "route": "/blog/data-center-pest-control-construction-handover",
+      "kind": "new-data-center-guide",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Site-specific workflow examples require operations review; no certification or response commitment implied."
+    },
+    {
+      "slug": "data-center-pest-control-service-report",
+      "keyword": "data center pest control service report",
+      "title": "What Should a Data Center Pest Report Show?",
+      "route": "/blog/data-center-pest-control-service-report",
+      "kind": "new-data-center-guide",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Site-specific workflow examples require operations review; no certification or response commitment implied."
+    },
+    {
+      "slug": "data-center-pest-activity-response",
+      "keyword": "data center pest activity response",
+      "title": "Pest Activity in a Data Center: What Happens Next?",
+      "route": "/blog/data-center-pest-activity-response",
+      "kind": "new-data-center-guide",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Site-specific workflow examples require operations review; no certification or response commitment implied."
+    },
+    {
+      "slug": "data-center-ipm-plan",
+      "keyword": "data center ipm plan",
+      "title": "What Should a Data Center IPM Plan Include?",
+      "route": "/blog/data-center-ipm-plan",
+      "kind": "draft-from-pr-286",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Already drafted in PR #286, counted once in the 36-post batch."
+    },
+    {
+      "slug": "data-center-rodent-entry-points",
+      "keyword": "data center rodent entry points",
+      "title": "Where Do Rodents Enter a Data Center?",
+      "route": "/blog/data-center-rodent-entry-points",
+      "kind": "draft-from-pr-286",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Already drafted in PR #286, counted once in the 36-post batch."
+    },
+    {
+      "slug": "data-center-pest-control-vendor-checklist",
+      "keyword": "data center pest control vendor checklist",
+      "title": "How Do You Evaluate a Data Center Pest-Control Vendor?",
+      "route": "/blog/data-center-pest-control-vendor-checklist",
+      "kind": "draft-from-pr-286",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Already drafted in PR #286, counted once in the 36-post batch."
+    },
+    {
+      "slug": "spiders-on-boat-docks-lake-martin",
+      "keyword": "spiders on boat docks lake martin",
+      "title": "Spiders on Lake Martin Docks: What Helps?",
+      "route": "/blog/spiders-on-boat-docks-lake-martin",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-spiders"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "how-long-does-sentricon-take-to-work",
+      "keyword": "how long does sentricon take to work",
+      "title": "How Long Does Sentricon Take to Work?",
+      "route": "/blog/how-long-does-sentricon-take-to-work",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/sentricon",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "rodents-alabama-homes-fall",
+      "keyword": "mice in house in winter",
+      "title": "Mice and Rats in Alabama Homes: Fall Prevention",
+      "route": "/blog/rodents-alabama-homes-fall",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "carpenter-ants-vs-termites-alabama",
+      "keyword": "carpenter ants vs termites alabama",
+      "title": "Carpenter Ants vs. Termites: How Can You Tell?",
+      "route": "/blog/carpenter-ants-vs-termites-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "argentine-ants-alabama-supercolony",
+      "keyword": "argentine ants alabama",
+      "title": "Argentine Ants in Alabama: Why Trails Return",
+      "route": "/blog/argentine-ants-alabama-supercolony",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-ants"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "bug-bombs-foggers-do-they-work",
+      "keyword": "do bug bombs work",
+      "title": "Do Bug Bombs Work? Fogger Limits and Alternatives",
+      "route": "/blog/bug-bombs-foggers-do-they-work",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-foggers"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "how-often-pest-control-alabama",
+      "keyword": "how often pest control alabama",
+      "title": "How Often Should Pest Control Come in Alabama?",
+      "route": "/blog/how-often-pest-control-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "first-pest-control-visit-what-to-expect",
+      "keyword": "first pest control visit what to expect",
+      "title": "Your First Pest Control Visit: What to Expect",
+      "route": "/blog/first-pest-control-visit-what-to-expect",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "mice-vs-rats-alabama-which-do-i-have",
+      "keyword": "mice vs rats alabama",
+      "title": "Mice or Rats? How to Identify the Evidence",
+      "route": "/blog/mice-vs-rats-alabama-which-do-i-have",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "mosquito-control-lake-house-dock-boathouse",
+      "keyword": "mosquito control lake house",
+      "title": "Mosquito Control at Lake Houses and Docks",
+      "route": "/blog/mosquito-control-lake-house-dock-boathouse",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/mosquito",
+      "sourceIds": [
+        "cdc-mosquito"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "how-to-get-rid-of-ants-in-house-alabama",
+      "keyword": "how to get rid of ants in house alabama",
+      "title": "How to Get Rid of Ants in Your Alabama Home",
+      "route": "/blog/how-to-get-rid-of-ants-in-house-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-ants"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "german-cockroaches-alabama",
+      "keyword": "german cockroaches alabama",
+      "title": "German Cockroaches in Alabama: What Works?",
+      "route": "/blog/german-cockroaches-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-roaches"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "how-to-get-rid-of-roaches-alabama",
+      "keyword": "how to get rid of roaches alabama",
+      "title": "How to Get Rid of Roaches in Alabama",
+      "route": "/blog/how-to-get-rid-of-roaches-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-roaches"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "termite-damage-signs-alabama",
+      "keyword": "termite damage signs alabama",
+      "title": "Termite Damage Signs in Alabama Homes",
+      "route": "/blog/termite-damage-signs-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "fall-pest-proofing-alabama",
+      "keyword": "fall pest proofing alabama",
+      "title": "Fall Pest-Proofing in Alabama: Where to Start",
+      "route": "/blog/fall-pest-proofing-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "termite-treatment-cost-alabama",
+      "keyword": "termite treatment cost alabama",
+      "title": "What Drives Termite Treatment Cost in Alabama?",
+      "route": "/blog/termite-treatment-cost-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "green-caps-in-yard-sentricon",
+      "keyword": "green caps in yard sentricon",
+      "title": "Green Caps in Your Yard: Are They Termite Stations?",
+      "route": "/blog/green-caps-in-yard-sentricon",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/sentricon",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "more-bugs-after-pest-control-treatment",
+      "keyword": "more bugs after pest control treatment",
+      "title": "More Bugs After Pest Treatment: What Should You Do?",
+      "route": "/blog/more-bugs-after-pest-control-treatment",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "fleas-in-house-no-pets",
+      "keyword": "fleas in house no pets",
+      "title": "Fleas in a House With No Pets: Where to Look",
+      "route": "/blog/fleas-in-house-no-pets",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/flea",
+      "sourceIds": [
+        "uc-fleas"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "mosquito-repellent-yard-spray-vs-professional",
+      "keyword": "yard mosquito spray vs professional treatment",
+      "title": "Yard Mosquito Spray vs. Professional Treatment",
+      "route": "/blog/mosquito-repellent-yard-spray-vs-professional",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/mosquito",
+      "sourceIds": [
+        "cdc-mosquito"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "alabama-termite-swarm-season",
+      "keyword": "alabama termite swarm season",
+      "title": "Alabama Termite Swarms: What Should You Do?",
+      "route": "/blog/alabama-termite-swarm-season",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "sentricon-vs-liquid-termite-treatment",
+      "keyword": "sentricon vs liquid termite treatment",
+      "title": "Sentricon vs. Liquid Termite Treatment in Alabama",
+      "route": "/blog/sentricon-vs-liquid-termite-treatment",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "fire-ants-alabama-summer",
+      "keyword": "fire ants alabama",
+      "title": "Fire Ants in Alabama: Treatment and Prevention",
+      "route": "/blog/fire-ants-alabama-summer",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/fire-ant",
+      "sourceIds": [
+        "aces-fireants"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "pests-after-rain-alabama",
+      "keyword": "pests after rain alabama",
+      "title": "Why Pests Get Worse After Rain in Alabama",
+      "route": "/blog/pests-after-rain-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "prepare-home-for-pest-control",
+      "keyword": "prepare home for pest control",
+      "title": "How to Prepare Your Home for Pest Control",
+      "route": "/blog/prepare-home-for-pest-control",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "huntsville-pest-control-guide",
+      "keyword": "pest control huntsville al",
+      "title": "Pest Control in Huntsville: What to Ask",
+      "route": "/blog/huntsville-pest-control-guide",
+      "kind": "refresh-existing",
+      "buyerTarget": "/huntsville",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "silverfish-control-alabama",
+      "keyword": "silverfish control alabama",
+      "title": "Silverfish in Alabama Homes: Causes and Control",
+      "route": "/blog/silverfish-control-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-silverfish"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "cricket-control-alabama",
+      "keyword": "cricket control alabama",
+      "title": "Crickets in Alabama Homes: Identification and Control",
+      "route": "/blog/cricket-control-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "umn-crickets"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "mosquito-season-birmingham-al",
+      "keyword": "mosquito control birmingham al",
+      "title": "Alabama Mosquito Season: Planning and Prevention",
+      "route": "/blog/mosquito-season-birmingham-al",
+      "kind": "refresh-existing",
+      "buyerTarget": "/birmingham-mosquito-control",
+      "sourceIds": [
+        "cdc-mosquito"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    },
+    {
+      "slug": "pest-control-birmingham-guide",
+      "keyword": "pest control birmingham al",
+      "title": "Pest Control in Birmingham: Services and Questions",
+      "route": "/blog/pest-control-birmingham-guide",
+      "kind": "refresh-existing",
+      "buyerTarget": "/birmingham",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+    }
+  ]
+}
