@@ -1,7 +1,7 @@
 // Synthetic fixtures; no network, credentials, database or public replies.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { evaluateReview, REVIEW_POLICY, reviewKey, replyHash } from '../agents/lib/review-response-policy.mjs';
+import { evaluateReview, REVIEW_POLICY, reviewKey, replyHash, replyProblems } from '../agents/lib/review-response-policy.mjs';
 import { deliverReviewDrafts } from '../agents/lib/review-response-workflow.mjs';
 import { createReviewStore } from '../agents/lib/review-response-store.mjs';
 import { appendBlocksToPage, nParagraph } from '../agents/lib/notion.mjs';
@@ -89,6 +89,63 @@ test('provider 4096-byte limit is checked as UTF-8 bytes independently of house 
   assert.equal(exact.policyEligible, false); // Stricter 450-character house cap.
 });
 
+const addressLeaks = [
+  'Thank you for visiting 2025 Butler Rd, Alabaster, AL 35007.',
+  'Thank you from 2120 16th Ave S, Ste 302, Birmingham.',
+  'We appreciate your visit to 1785 Tallapoosa St.',
+  'Thank you from 7027 Old Madison Pike NW.',
+  'Glad we could help at your home at 123 Maple Lane.',
+  'Glad we could help at 123 Willow Way.',
+  'Glad we could help at 45 Lake Road.',
+  'Glad we could help at 123 Service Road.',
+  'Write to P.O. Box 42 for more information.',
+  'Thank you from Suite 108.',
+  'Thank you from Ste. 108.',
+  'Thank you from Apt.4B.',
+  'Your Unit B is important to us.',
+  'We appreciate our customers in 35007.',
+  'Thank you from 35007-1234.',
+  'Thank you from postal code K1A 0B1.',
+  'Thank you.\nMailing address: 10 The Mall',
+  'Thank you.\nContact us: EnviroCare, Alabaster',
+];
+const addressLinkLeaks = [
+  'Find us at https://maps.google.com/?q=EnviroCare',
+  'Find us at https://www.google.com/maps/place/EnviroCare',
+  'Find us at https://maps.app.goo.gl/example',
+  'Find us at https://maps.apple.com/?q=EnviroCare',
+  'Find us at https://example.com/contact?address=office',
+  'Directions: geo:33.2,-86.8',
+];
+
+test('public reply checks reject postal details and address/contact blocks', () => {
+  for (const text of addressLeaks) {
+    assert.ok(replyProblems(text).some(reason => reason.includes('address, unit, postal code')), text);
+    assert.equal(evaluateReview({ ...review, text }, text, policy, now).policyEligible, false, text);
+  }
+});
+
+test('public reply checks reject map and address links', () => {
+  for (const text of addressLinkLeaks) {
+    assert.ok(replyProblems(text).includes('reply contains a map or address link'), text);
+  }
+});
+
+test('city context, ordinary numbers and manual follow-up phones remain valid', () => {
+  for (const text of [
+    'Thank you for your kind words about our visit in Birmingham.',
+    'We appreciate your trust here in Huntsville.\n\n— The EnviroCare Team',
+    'Thank you for 5 years of thoughtful feedback along the way.',
+    'Thank you for your kind words about the 2025 visit.',
+    'Thank you for the 5-star review and for sharing your experience.',
+    'We are sorry to hear about your experience. Please call (205) 940-6360 so we can discuss it privately.',
+    'Thank you for trusting us through 10 service visits along the way.',
+    'We appreciate your support since 2025 and every step along the way.',
+    'Please call (205) 940-6360 so we can find a way forward.',
+  ]) assert.deepEqual(replyProblems(text), [], text);
+  assert.equal(evaluateReview({ ...review, text: 'Great service at my home at 123 Maple Lane.' }, reply, policy, now).policyEligible, true);
+});
+
 function fixture(overrides = {}) {
   const rows = new Map(); let sends = 0; let drafts = 0;
   const store = {
@@ -172,6 +229,17 @@ test('malformed/empty/long/noncompliant drafts never enter delivery ledger', asy
   }
   const f = fixture({ scanReply: () => ['blocked claim'] });
   assert.equal((await deliverReviewDrafts(f.args)).held, 1); assert.equal(f.rows.size, 0);
+});
+
+test('address leaks copied from reviews are rejected before a claim or draft delivery', async () => {
+  for (const body of [...addressLeaks, ...addressLinkLeaks]) {
+    const f = fixture({ reviews: [{ ...review, text: body }], draft: async () => ({ body, assessment: 'clear' }) });
+    const result = await deliverReviewDrafts(f.args);
+    assert.equal(result.outcomes[0].status, 'draft_rejected', body);
+    assert.equal(result.held, 1, body);
+    assert.equal(f.rows.size, 0, body);
+    assert.equal(f.sends(), 0, body);
+  }
 });
 
 function fakeDb(result) {

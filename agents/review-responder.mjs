@@ -144,12 +144,13 @@ RULES — never break:
 - Any complaint or 1–4-star review is for human handling. Be empathetic, invite a private follow-up at ${DIRECT_LINE}, and never argue or admit unverified fault. Do not offer compensation or promise a result.
 - Never use banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe.
 - Never offer discounts/incentives for reviews and never tell anyone what to write.
+- Never include a street or mailing address, suite/unit number, ZIP/postal code, map/address link, or address/contact block in the suggested public reply. Do not repeat a customer's or service property's address even if the reviewer mentions it. Office and location metadata are for internal routing only and must not be appended to the reply or its signature. A town the reviewer mentions may be acknowledged naturally; do not add an office contact block.
 - Aim for 30–60 words when review details support it; star-only replies can be shorter. Keep the body at most 350 characters, 60 words and 2 sentences. No signature (the workflow appends The EnviroCare Team). Do not invent a detail for a star-only review.
 - Return only JSON: {"body":"reply text","assessment":"clear|concern|uncertain"}. Mark concern for ANY criticism, complaint, refund, damage, billing, health or legal issue even in a 5-star review. If interpretation is uncertain use uncertain. This assessment does not authorize sending.`;
 
 async function draftResponse(review, varietyHint) {
   if (!anthropic) throw new Error("ANTHROPIC_API_KEY missing");
-  const prompt = `Review from ${review.author} (${review.rating}★, ${review.directory}, ${review.location} area):\n"""${review.text || "(no text — star rating only)"}"""\n\nVariety hint: previous drafts this week opened with: ${varietyHint || "(none yet)"} — open differently.\n\nDraft the response body.`;
+  const prompt = `Internal routing office (not public reply text): ${review.location}\nReview from ${review.author} (${review.rating}★, ${review.directory}):\n"""${review.text || "(no text — star rating only)"}"""\n\nVariety hint: previous drafts this week opened with: ${varietyHint || "(none yet)"} — open differently.\n\nDraft the response body.`;
   const resp = await createMessage(anthropic, {
     model: WORKER_MODEL,
     max_tokens: 300,

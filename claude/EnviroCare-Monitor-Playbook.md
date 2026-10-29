@@ -189,6 +189,16 @@ rolling 24 hours. Replies target 30–60 words when the review supports it, with
 hard caps of 450 characters, 70 words and three sentences including the
 signature. Google's 4096-byte UTF-8 reply limit is checked separately; the
 house limits are tighter. Replies pass the existing content-compliance rules.
+Phillip clarified on October 29 that public replies must never include a street
+or mailing address, suite/unit number, ZIP/postal code, map/address link or
+address/contact block, even when the review includes one. Office metadata is
+internal routing information only. Use natural thanks; a town mentioned by the
+reviewer is fine, and the only appended signature is the EnviroCare team name.
+The drafting prompt states this rule, and the shared reply check rejects common
+address, unit, postal-code and map-link patterns before draft delivery. These
+checks supplement human review rather than claiming to recognize every postal
+format. Ordinary years and the existing private-follow-up phone guidance for
+manual complaints are unchanged.
 The two-hour age gate does not alter the existing weekly draft schedule or
 enable polling; provider fetch cadence is a separate constraint.
 

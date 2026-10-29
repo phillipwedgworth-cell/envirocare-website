@@ -38,6 +38,23 @@ function timestamp(value) {
     ? Date.parse(value) : NaN;
 }
 
+// Reject common address leaks before a generated draft can be delivered. These
+// pattern checks supplement the explicit writing rule and human review; they do
+// not prove that every possible postal format has been recognized. Plain city
+// context, years and a phone number in a manual complaint response remain valid.
+const ADDRESS_PATTERNS = [
+  // A street name cannot bridge ordinary prose after a year, count or phone
+  // number (for example, "2025 and every step along the way"). Apply the
+  // prose-word exclusion to every name token, not just the first token.
+  /\b\d{1,6}[a-z]?(?:[-–]\d{1,6})?\s+(?:(?!(?:years?|months?|days?|visits?|hours?|minutes?|stars?|reviews?|and|or|but|so|we|you|our|your|us|every|along|through|since|during)\b)[a-z0-9][a-z0-9.'’\-]*\s+){0,6}(?:street|st|road|rd|avenue|ave|boulevard|blvd|drive|dr|lane|ln|court|ct|circle|cir|parkway|pkwy|pike|way|place|pl|trail|trl|terrace|ter|highway|hwy|route|rte|square|sq|loop)\b/i,
+  /\b(?:p\.?\s*o\.?\s*(?:box|drawer)|post\s+office\s+(?:box|drawer)|pmb|rural\s+(?:route|rte))\s*#?\s*[a-z0-9-]+\b/i,
+  // Require a whole designator so "step" is not parsed as "Ste P".
+  /\b(?:suite|ste|unit|apt|apartment|floor|fl)\b\.?\s*#?\s*(?:\d+[a-z]?(?:-\d+)?|[a-z])\b|\b\d{1,3}(?:st|nd|rd|th)?\s+floor\b/i,
+  /\b\d{5}(?:-\d{4})?\b|\b[a-z]\d[a-z][ -]?\d[a-z]\d\b|\b[a-z]{1,2}\d[a-z\d]?\s+\d[a-z]{2}\b/i,
+  /(?:^|\n)\s*(?:(?:street|mailing|postal|office)\s+address|address|contact(?:\s+us)?|visit\s+us|find\s+us|office|location)\s*:/i,
+];
+const MAP_OR_ADDRESS_LINK = /\b(?:(?:https?:\/\/)?(?:www\.)?(?:maps\.google\.[a-z.]+|google\.[a-z.]+\/maps|maps\.app\.goo\.gl|goo\.gl\/maps|maps\.apple\.com|bing\.com\/maps|mapq\.st|mapquest\.com|openstreetmap\.org|waze\.com\/ul)\b|(?:https?:\/\/)[^\s<>"']*(?:address|directions|\/maps?(?:[/?#]|$))|(?:geo|maps):)/i;
+
 export function replyProblems(reply) {
   const text = typeof reply === 'string' ? reply.trim() : '';
   const reasons = [];
@@ -46,6 +63,8 @@ export function replyProblems(reply) {
   if (text.length > REVIEW_POLICY.maxReplyChars) reasons.push('reply exceeds 450 characters');
   if (text.split(/\s+/).filter(Boolean).length > REVIEW_POLICY.maxReplyWords) reasons.push('reply exceeds 70 words');
   if ((text.match(/[.!?]+(?=\s|$)/g) ?? []).length > REVIEW_POLICY.maxReplySentences) reasons.push('reply exceeds three sentences');
+  if (ADDRESS_PATTERNS.some(pattern => pattern.test(text))) reasons.push('reply contains an address, unit, postal code or contact block');
+  if (MAP_OR_ADDRESS_LINK.test(text)) reasons.push('reply contains a map or address link');
   return reasons;
 }
 
