@@ -5076,7 +5076,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'mosquito-season-birmingham-al',
-    title: 'Mosquito Season in Birmingham, Alabama: Timing and Prevention',
+    title: 'Mosquito Season in Birmingham, Alabama: Timing, Prevention and Mosquito Control',
     excerpt: 'Learn when mosquitoes are most active around Birmingham, how rain and standing water affect breeding, and what to check before and between seasonal service visits.',
     publishedAt: '2026-03-01',
     updatedAt: "2026-10-29",
@@ -5084,7 +5084,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 7,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Season in Birmingham, Alabama | EnviroCare',
+    metaTitle: 'Mosquito Season & Mosquito Control in Birmingham, AL | EnviroCare',
     metaDescription: "Plan for Birmingham mosquito season with Alabama timing guidance, a weekly yard checklist, bite prevention and March–October service details.",
     body: `
 <p class="lede">Mosquito activity around Birmingham varies with weather and available water. Across most of Alabama, mosquitoes are more abundant from late spring to early fall, but the first and last bites do not follow a fixed calendar. Weekly checks for standing water, protection from bites and a property-specific treatment plan each address a different part of the problem.</p>
