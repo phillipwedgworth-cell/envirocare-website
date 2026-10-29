@@ -20,7 +20,7 @@ const PATH = '/data-center-pest-control';
 const URL = `https://www.envirocarellc.com${PATH}`;
 const TITLE = 'Data Center Pest Control in Alabama | EnviroCare';
 const DESC =
-  'Low-aerosol pest control for Alabama data centers: zone-by-zone IPM, rodent exclusion, station-level logs, vendor paperwork. Huntsville & Birmingham.';
+  'Site-specific pest management for Alabama data centers: inspection, entry-point recommendations, monitoring and reporting agreed for your facility.';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -34,106 +34,106 @@ export const metadata: Metadata = {
 
 const RISKS = [
   {
-    title: 'Rodents follow the cable',
-    body: 'Mice and rats travel along conduit, cable tray and pipe runs, and they gnaw constantly to wear down their teeth. Insulation, fiber jackets and low-voltage cabling are within reach of every pathway they use. The cost is not the rodent — it is the outage ticket and the trace-down that follows.',
+    title: 'Rodent entry and concealed routes',
+    body: 'Mice can enter through small gaps or arrive with deliveries, and their gnawing can damage wiring. Inspect accessible doors, service penetrations and evidence of travel. Facility personnel should assess any suspected equipment damage.',
   },
   {
-    title: 'Insects get into equipment',
-    body: 'Ants, roaches and small flies collect in warm electrical gear, cabinets, controls and condensate lines. Accumulated insects foul contacts and sensors, block airflow and can trip alarms. Most never come through a door — they ride in on pallets and packaging at the dock.',
+    title: 'Deliveries and storage',
+    body: 'Receiving areas and stored packaging deserve attention during inspections. Record pest evidence, review how goods enter controlled areas and agree on a process for handling suspect materials.',
   },
   {
-    title: 'Birds and the roofline',
-    body: 'Rooftop condensers, louvers, generator enclosures and cooling equipment give birds shelter and nesting ledges. Nests restrict airflow, droppings foul equipment and walkways, and an open louver is a path into the building for everything else.',
+    title: 'Food, moisture and shelter',
+    body: 'Food waste, leaks and clutter can support pest activity. Include staff spaces and accessible moisture sources in the assessment, and assign repairs or housekeeping changes to the appropriate facility team.',
   },
 ];
 
 type Zone = { zone: string; risk: string; we: string };
 const ZONES: Zone[] = [
   {
-    zone: 'Perimeter, fence line & stormwater',
-    risk: 'Rodent burrows, harborage in landscaping, retention ponds and drainage that draw pests toward the building.',
-    we: 'Tamper-resistant exterior rodent stations on a numbered map, vegetation and harborage recommendations, burrow monitoring along the fence and drainage.',
+    zone: 'Perimeter, fence line & drainage',
+    risk: 'Accessible gaps, shelter and moisture conditions near the building.',
+    we: 'Inspection areas, any proposed exterior devices, location records and responsibility for drainage or vegetation work.',
   },
   {
     zone: 'Generator yard & fuel areas',
-    risk: 'Warm enclosures, cable entries and quiet corners that see little foot traffic between tests.',
-    we: 'Station coverage around enclosures, inspection of conduit and cable entries, exclusion recommendations for gaps found at each visit.',
+    risk: 'Openings around enclosures and service routes that require an authorized inspection.',
+    we: 'Access permissions, accessible inspection points and the trade responsible for any equipment or penetration repair.',
   },
   {
     zone: 'Loading dock & receiving',
-    risk: 'The most common entry point: open doors, worn seals and pests riding in on pallets, crates and cardboard.',
-    we: 'Door-sweep and seal checks, interior mechanical traps and monitors at the dock line, receiving-area inspection and packaging-handling recommendations.',
+    risk: 'Open doors, damaged seals and incoming materials that may carry pests.',
+    we: 'Door and seal observations, receiving practices and any approved monitoring locations.',
   },
   {
     zone: 'Rooftop mechanical & cooling',
-    risk: 'Bird nesting on condensers and louvers, insects at condensate and water sources, roof penetrations.',
-    we: 'Rooftop inspection on agreed visits, bird-activity reporting, exclusion recommendations for louvers, penetrations and ledges.',
+    risk: 'Moisture, debris and openings that may require roof or equipment access.',
+    we: 'Whether a rooftop inspection is included, who authorizes access and which findings need a separate qualified contractor.',
   },
   {
     zone: 'Electrical, UPS & battery rooms',
-    risk: 'Rodents following conduit in from outside, insects collecting in warm gear.',
-    we: 'Inspection and approved-location mechanical devices only. No liquid or aerosol applications in these rooms.',
+    risk: 'Suspected entry routes near systems that a pest inspection must not disturb.',
+    we: 'Inspection limits, approved monitoring locations and prohibited products or methods. Equipment work remains with authorized facility personnel.',
   },
   {
     zone: 'Data halls, raised floor & cable pathways',
-    risk: 'Hidden travel routes under floors and above trays; the area where any activity matters most.',
-    we: 'Monitoring and mechanical devices in locations your facility team approves, inspection on escorted visits, and any sign of activity called out at the top of the visit report.',
+    risk: 'Concealed or restricted spaces where an observation may need escalation.',
+    we: 'Escorts, accessible areas, device permissions and the notification process for evidence inside a critical zone.',
   },
   {
     zone: 'Offices, break rooms & SOC',
-    risk: 'Food and drink are where interior insect and rodent pressure usually starts.',
-    we: 'Targeted gel-bait placement in cracks and crevices where monitoring shows activity, sanitation notes for the facility team.',
+    risk: 'Food, storage and water sources that can support indoor activity.',
+    we: 'Inspection and housekeeping responsibilities, with any treatment selected for the identified pest and approved location.',
   },
 ];
 
 const DEFAULT_LIMITS = [
-  'No aerosol, fogging or space-spray treatments inside the building.',
-  'No broadcast liquid applications in data halls, electrical, UPS or battery rooms.',
-  'No rodent bait placed in data halls or under raised floors — mechanical devices there, bait stations outside.',
-  'No product used that is not on the list your facility team approved in writing.',
+  'Products and methods permitted or prohibited in each zone.',
+  'Approved monitoring and device locations, including restrictions under raised floors.',
+  'Access limits around electrical equipment, cabling and other building systems.',
+  'The process for reviewing a proposed product, method or location change.',
 ];
 
 const PHASES = [
   {
     tag: 'Phase 1',
     title: 'Construction & build-out',
-    body: 'New sites inherit the pest population of the land they are built on, and an open shell with cardboard everywhere is peak exposure. We coordinate with the general contractor on jobsite rodent control and a perimeter program during the build, pre-construction termite soil treatment on builder projects scheduled around the pour sequence, and an exclusion punch list for penetrations, louvers and door seals before turnover.',
+    body: 'Discuss temporary openings, deliveries and project sequencing before setting the scope. Confirm which inspections, controls and termite-prevention work are included, and which repairs belong to the general contractor or another trade.',
   },
   {
     tag: 'Phase 2',
     title: 'Commissioning & turnover',
-    body: 'A baseline inspection of the finished building, a numbered device map, and the written IPM plan your operations team signs off on — so day one of operations starts with documentation, not a blank file.',
+    body: 'Agree on the records operations needs at handover: accessible inspection findings, monitoring locations, unresolved repairs and the person responsible for each next step.',
   },
   {
     tag: 'Phase 3',
     title: 'Ongoing operations',
-    body: 'Scheduled service on the frequency your site needs (monthly is common for critical facilities), a report after every visit, and a periodic review of trends, conducive conditions and open exclusion items with your facility manager.',
+    body: 'Set visit frequency, reporting and review arrangements for the site. Revisit the plan when activity, access, construction or the use of a building changes.',
   },
 ];
 
 const PACKET = [
-  'Certificate of insurance for your vendor file',
-  'Alabama structural pest control business license (Dept. of Agriculture & Industries)',
-  'Current labels and Safety Data Sheets for every product proposed — nothing outside that list is used',
-  'Written IPM plan: pests of concern, action thresholds, approved methods and approved interior locations',
-  'Numbered device map and station-level service logs',
-  'A written description of each visit type for your method-of-procedure or change-control process',
-  'A service report after every visit: what was inspected, found, applied and recommended',
+  'Current license and insurance documents relevant to the proposed work',
+  'Labels and Safety Data Sheets for proposed pesticide products',
+  'Written scope, covered pests, exclusions and action thresholds',
+  'Any agreed device map and inspection-log format',
+  'Visit procedures and access requirements for facility review',
+  'Report format, distribution and handling of sensitive site information',
+  'Responsibilities for repairs, follow-up and escalation',
 ];
 
 const ACCESS = [
-  { k: 'Your rules, your windows', v: 'We work inside your badging, escort and visitor rules, and schedule visits for the windows your operations team sets.' },
-  { k: 'Background checks & site training', v: 'If your site requires them, tell us at the walkthrough and they become part of the program before the first visit.' },
-  { k: 'Change control', v: 'Methods and approved interior locations are agreed in writing first. A change of product or location goes back through your approval, not around it.' },
-  { k: 'Documentation that survives an audit', v: 'Station-by-station logs and visit reports you can hand an auditor, a tenant or your corporate vendor-management team.' },
+  { k: 'Access and visit windows', v: 'Share badging, escort and visitor requirements during the site review. Confirm feasible visit windows and responsibilities in the agreement.' },
+  { k: 'Background checks & site training', v: 'Identify any required checks or training before scheduling. Confirm the process, access arrangements and related terms before service begins.' },
+  { k: 'Change control', v: 'Agree on how proposed methods, products and device locations are reviewed. Document who can authorize changes and how the updated plan is shared.' },
+  { k: 'Reporting requirements', v: 'Review a sample format against your vendor-management needs. Agree on the fields, frequency and recipients rather than assuming a particular audit standard.' },
 ];
 
 const PRICE_DRIVERS = [
   'Footprint, perimeter length and number of buildings',
-  'Device count from the walkthrough and the numbered map',
-  'Visit frequency and how many zones each visit covers',
-  'Escort, badging and scheduled-window time on site',
-  'Reporting and documentation your contract requires',
+  'Inspection areas and any proposed monitoring devices',
+  'Visit frequency and the zones included in each visit',
+  'Escort, badging and scheduled-window requirements',
+  'Reporting, follow-up and other agreed deliverables',
 ];
 
 const AREAS: { name: string; href?: string }[] = [
@@ -155,37 +155,37 @@ const AREAS: { name: string; href?: string }[] = [
 
 const FAQS = [
   {
-    q: 'Can you service a data center without spraying inside?',
-    a: 'Yes, and that is the default. Inside the building the program runs on exclusion, inspection, monitoring and mechanical devices, with targeted gel bait in cracks and crevices only where monitoring shows activity and only in areas your facility team has approved. There is no aerosol, fogging or broadcast liquid treatment indoors unless your team specifically approves it in writing.',
+    "q": "Can a data center pest plan limit indoor pesticide use?",
+    "a": "Inspection, entry-point management and monitoring can be considered before pesticide use. Any proposed treatment must fit the identified pest, product label, equipment restrictions and facility approval. Agree on permitted and prohibited methods for each zone before service begins."
   },
   {
-    q: 'Why not put rodent bait under the raised floor?',
-    a: 'A rodent that takes bait can die where nobody can reach it — under a floor tile, above a tray or inside a wall — and that becomes an odor and insect problem of its own. Inside critical spaces we use mechanical devices that are checked and logged on every visit. Bait stations stay outside, on the perimeter, where they belong.',
+    "q": "How are rodent-control methods selected for critical rooms?",
+    "a": "The assessment should identify the evidence, access limitations and appropriate monitoring or control options. Device locations and inspection arrangements require facility agreement. Do not place bait or move equipment to investigate without the required authorization."
   },
   {
-    q: 'What paperwork do you provide for vendor onboarding?',
-    a: 'A certificate of insurance, our Alabama structural pest control business license, labels and Safety Data Sheets for every product proposed, a written IPM plan with action thresholds, a numbered device map, and a written description of each visit type for your method-of-procedure or change-control process. After service starts, you get a report after every visit.',
+    "q": "What paperwork should we request for vendor onboarding?",
+    "a": "Request current license and insurance documents, relevant product labels and Safety Data Sheets, the proposed scope, and a sample report. Identify any additional maps, visit procedures or reporting your site requires, and confirm the deliverables in the agreement."
   },
   {
-    q: 'How often should a data center be serviced?',
-    a: 'Most critical facilities run monthly, with exterior perimeter stations checked on every visit and interior devices checked on the schedule your site sets. The walkthrough sets the real frequency: footprint, surrounding land use, dock traffic and what the first inspection finds all move it.',
+    "q": "How often should a data center be serviced?",
+    "a": "Frequency follows the site assessment and agreed scope. Pest evidence, receiving activity, access, construction and monitoring needs can affect the schedule. There is no single monthly or quarterly interval that establishes an appropriate program for every data center."
   },
   {
-    q: 'Do you work with sites that require escorts or background checks?',
-    a: 'Yes. Technicians work inside your badging, escort and visitor rules and on the windows your operations team schedules. If your site requires background checks or site-specific training, tell us at the walkthrough and it is built into the program before the first visit.',
+    "q": "What if our site requires escorts or background checks?",
+    "a": "Share those requirements during the site review. Confirm access arrangements, required checks or training, scheduling and any related costs before service is agreed."
   },
   {
-    q: 'Can you start during construction?',
-    a: 'Yes, and it is the cheapest time to start. Jobsite rodent control and a perimeter program during the build, pre-construction termite soil treatment on builder projects scheduled around the pour sequence, and an exclusion punch list before turnover all cost less than correcting a building that opened with pests already inside.',
+    "q": "Can pest planning begin during construction?",
+    "a": "Discuss the project phase, temporary openings, deliveries and handover requirements when requesting a proposal. Confirm which construction-stage work can be included and how it is coordinated with the contractor. A construction plan does not automatically include termite treatment or building repairs."
   },
   {
-    q: 'How is data center pest control priced?',
-    a: 'Per site, after a free walkthrough. Footprint, perimeter length, device count, visit frequency, escort and scheduled-window time, and the reporting your contract requires all go into the number, and you get scope, frequency and price in writing before work starts.',
+    "q": "How is data center pest control priced?",
+    "a": "The proposal is specific to the site. Inspection scope, buildings, devices, visit frequency, access and reporting requirements affect the work. Request the scope, exclusions, schedule and price in writing before authorizing service."
   },
   {
-    q: 'What areas of Alabama do you cover?',
-    a: 'North Alabama from the Huntsville office — Huntsville, Madison, Decatur, Athens and the surrounding area — and the Birmingham metro from the Birmingham and Alabaster offices, including Bessemer, McCalla, Hoover and Shelby County, plus the Lake Martin area from Alexander City. Call the office nearest the site.',
-  },
+    "q": "Which Alabama office should we contact?",
+    "a": "Contact the office serving your site: Huntsville for North Alabama, Birmingham and Alabaster for their metro and county service areas, or Alexander City for Lake Martin and nearby communities. Confirm the property location and proposed commercial scope with the office."
+  }
 ];
 
 /* ── Page ────────────────────────────────────────────────────────────────── */
@@ -221,11 +221,6 @@ export default function DataCenterPestControlPage() {
         ...AREAS.map((a) => ({ '@type': 'City', name: `${a.name}, AL` })),
       ],
       audience: { '@type': 'BusinessAudience', name: 'Data center and critical facility operators, facility managers and vendor managers' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Data center pest management program',
-        itemListElement: PHASES.map((p) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: p.title } })),
-      },
     },
     {
       '@context': 'https://schema.org',
@@ -262,10 +257,10 @@ export default function DataCenterPestControlPage() {
             <span style={{ fontSize: 11, fontWeight: 700, color: GOLD, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Critical Facilities · Alabama</span>
           </div>
           <h1 style={{ ...ss, fontSize: 'clamp(2rem,4.6vw,3.1rem)', fontWeight: 600, lineHeight: 1.1, margin: '0 0 18px' }}>
-            Data Center Pest Control <em style={{ color: GOLD, fontStyle: 'italic' }}>built around uptime, not a spray schedule.</em>
+            Data Center Pest Control <em style={{ color: GOLD, fontStyle: 'italic' }}>planned around your facility.</em>
           </h1>
           <p style={{ fontSize: 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.8)', margin: '0 0 14px', maxWidth: 700 }}>
-            A low-aerosol Integrated Pest Management program for data centers, colocation sites and technology facilities across Alabama — exclusion and monitoring on the outside, mechanical devices and inspection on the inside, and a log for every station your auditor asks about.
+            Discuss pest prevention for your Alabama data center, colocation site or technology facility. Start with an inspection scope, entry-point recommendations and monitoring needs, then agree on methods, access and reporting for the individual site.
           </p>
           <p style={{ fontSize: 15.5, lineHeight: 1.75, color: 'rgba(255,255,255,0.65)', margin: 0, maxWidth: 700 }}>
             EnviroCare is a fourth-generation, family-owned Alabama company — the Wedgworth family started in 1958 in Alexander City — with offices in Huntsville, Birmingham, Alabaster and Alexander City.
@@ -276,7 +271,7 @@ export default function DataCenterPestControlPage() {
             <a href={alabaster.phoneHref} style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.3)', padding: '14px 22px', borderRadius: 8, fontWeight: 600, fontSize: 15, textDecoration: 'none' }}>Main line {alabaster.phone}</a>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))', gap: 10, marginTop: 34 }}>
-            {['Low-aerosol IPM', 'Station-level logs', 'Works inside your access rules', 'Construction to operations'].map((t) => (
+            {['Site-specific IPM planning', 'Agreed reporting', 'Access coordination', 'Project-phase review'].map((t) => (
               <div key={t} style={{ border: '1px solid rgba(255,255,255,0.14)', background: 'rgba(255,255,255,0.05)', borderRadius: 10, padding: '12px 14px', fontSize: 13.5, fontWeight: 600, color: 'rgba(255,255,255,0.88)' }}>
                 <span style={{ color: GOLD, marginRight: 8 }}>●</span>{t}
               </div>
@@ -288,9 +283,9 @@ export default function DataCenterPestControlPage() {
       {/* RISKS */}
       <section style={{ padding: `56px ${pad}`, background: '#fff' }}>
         <div style={{ maxWidth: 920, margin: '0 auto' }}>
-          <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK, margin: '0 0 10px' }}>Why pests are an uptime problem</h2>
+          <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK, margin: '0 0 10px' }}>Where pest risks need attention</h2>
           <p style={{ fontSize: 15.5, color: '#4b5563', lineHeight: 1.75, margin: '0 0 26px', maxWidth: 720 }}>
-            A data center has no food on the floor and nobody leaves the doors open — and it still has pests. The infrastructure that keeps it running gives them warmth, water and protected travel routes, and the round-the-clock flow of deliveries and contractors gives them a way in.
+            Inspect the conditions and evidence at the site. Openings, deliveries, storage and moisture each deserve attention, while any finding near critical equipment needs the appropriate facility response.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))', gap: 16 }}>
             {RISKS.map((r) => (
@@ -303,12 +298,16 @@ export default function DataCenterPestControlPage() {
         </div>
       </section>
 
+      <div style={{ maxWidth: 920, margin: '0 auto', padding: `0 ${pad} 24px`, fontSize: 13.5, lineHeight: 1.7, color: '#4b5563' }}>
+        <p>Planning references: <a href="https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf">EPA guidance on IPM in buildings</a> supports coordinated prevention and records. <a href="https://ipm.ucanr.edu/home-and-landscape/house-mouse/">UC IPM guidance on house mice</a> describes entry routes and gnawing damage. Site-specific methods and responsibilities still belong in the facility agreement.</p>
+      </div>
+
       {/* ZONES */}
       <section style={{ padding: `56px ${pad}`, background: CREAM }}>
         <div style={{ maxWidth: 920, margin: '0 auto' }}>
           <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK, margin: '0 0 10px' }}>The program, zone by zone</h2>
           <p style={{ fontSize: 15.5, color: '#4b5563', lineHeight: 1.75, margin: '0 0 26px', maxWidth: 720 }}>
-            Pest pressure starts outside and works in. The program is built the same way: the heaviest work happens at the perimeter and the dock, so the data halls see as little of it as possible.
+            Use the zones below as a walkthrough agenda. The written proposal should identify included locations, access limits, methods and responsibilities. Repairs, roof access and work on building systems require separate authorization and the appropriate trade.
           </p>
           <ol style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 12 }}>
             {ZONES.map((z, i) => (
@@ -316,7 +315,7 @@ export default function DataCenterPestControlPage() {
                 <span style={{ ...ss, gridRow: 'span 3', fontSize: 22, fontWeight: 700, color: i < 4 ? GREEN : DEEP, minWidth: 34 }}>{String(i + 1).padStart(2, '0')}</span>
                 <h3 style={{ ...ss, fontSize: 17.5, color: INK, margin: 0, fontWeight: 700 }}>{z.zone}</h3>
                 <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, margin: 0 }}><strong style={{ color: '#374151' }}>Risk:</strong> {z.risk}</p>
-                <p style={{ fontSize: 14, color: '#374151', lineHeight: 1.6, margin: 0 }}><strong style={{ color: DEEP }}>What we do:</strong> {z.we}</p>
+                <p style={{ fontSize: 14, color: '#374151', lineHeight: 1.6, margin: 0 }}><strong style={{ color: DEEP }}>What to agree:</strong> {z.we}</p>
               </li>
             ))}
           </ol>
@@ -327,10 +326,10 @@ export default function DataCenterPestControlPage() {
       <section style={{ padding: `56px ${pad}`, background: INK, color: '#fff' }}>
         <div style={{ maxWidth: 920, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 28, alignItems: 'start' }}>
           <div>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: GOLD, textTransform: 'uppercase', marginBottom: 10 }}>The default inside your building</div>
-            <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, margin: '0 0 12px', lineHeight: 1.2 }}>What we don&apos;t do in critical spaces</h2>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: GOLD, textTransform: 'uppercase', marginBottom: 10 }}>Methods and access</div>
+            <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, margin: '0 0 12px', lineHeight: 1.2 }}>Write the limits into the plan</h2>
             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.75, margin: 0 }}>
-              These are the starting rules for every data center program. Your facility team can tighten them; nothing on this list changes without their written approval.
+              Review the restrictions that apply to your equipment and operating procedures. Agree on them with the provider before work begins; facility approval does not replace product-label requirements.
             </p>
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 10 }}>
@@ -346,7 +345,7 @@ export default function DataCenterPestControlPage() {
       {/* PHASES */}
       <section style={{ padding: `56px ${pad}`, background: '#fff' }}>
         <div style={{ maxWidth: 920, margin: '0 auto' }}>
-          <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK, margin: '0 0 26px' }}>From the slab to steady state</h2>
+          <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK, margin: '0 0 26px' }}>Plan for each project phase</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))', gap: 16 }}>
             {PHASES.map((p) => (
               <div key={p.title} style={{ ...card, background: CREAM, padding: '22px 20px', borderTop: `4px solid ${GREEN}` }}>
@@ -363,8 +362,8 @@ export default function DataCenterPestControlPage() {
       <section style={{ padding: `56px ${pad}`, background: CREAM }}>
         <div style={{ maxWidth: 920, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 24 }}>
           <div style={{ ...card, padding: '26px 24px' }}>
-            <h2 style={{ ...ss, fontSize: 'clamp(1.35rem,2.4vw,1.7rem)', fontWeight: 600, color: INK, margin: '0 0 8px' }}>What your vendor manager gets</h2>
-            <p style={{ fontSize: 14.5, color: '#4b5563', lineHeight: 1.7, margin: '0 0 14px' }}>The onboarding file, ready before the first visit.</p>
+            <h2 style={{ ...ss, fontSize: 'clamp(1.35rem,2.4vw,1.7rem)', fontWeight: 600, color: INK, margin: '0 0 8px' }}>Documents to request</h2>
+            <p style={{ fontSize: 14.5, color: '#4b5563', lineHeight: 1.7, margin: '0 0 14px' }}>Review required documents and confirm agreed deliverables before service begins.</p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {PACKET.map((p) => (
                 <li key={p} style={{ fontSize: 14.5, color: '#374151', lineHeight: 1.6, padding: '7px 0', borderTop: '1px solid rgba(14,142,64,0.1)' }}>
@@ -392,7 +391,7 @@ export default function DataCenterPestControlPage() {
         <div style={{ maxWidth: 620, margin: '0 auto', ...card, padding: '30px 28px', textAlign: 'center' }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: GREEN, textTransform: 'uppercase', marginBottom: 8 }}>Data Center Program</div>
           <div style={{ ...ss, fontSize: 38, fontWeight: 700, color: INK, lineHeight: 1.1 }}>Quoted per site</div>
-          <div style={{ fontSize: 14.5, color: '#5A6660', margin: '8px 0 18px' }}>after a free walkthrough — scope, frequency and price in writing before work starts</div>
+          <div style={{ fontSize: 14.5, color: '#5A6660', margin: '8px 0 18px' }}>after a site review — confirm scope, frequency and price before work starts</div>
           <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px', textAlign: 'left' }}>
             {PRICE_DRIVERS.map((b) => (
               <li key={b} style={{ fontSize: 14.5, color: '#374151', padding: '5px 0' }}>• {b}</li>
@@ -407,7 +406,7 @@ export default function DataCenterPestControlPage() {
         <div style={{ maxWidth: 920, margin: '0 auto' }}>
           <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK, margin: '0 0 10px' }}>Local offices near Alabama&apos;s data center corridors</h2>
           <p style={{ fontSize: 15.5, color: '#4b5563', lineHeight: 1.75, margin: '0 0 22px', maxWidth: 720 }}>
-            North Alabama&apos;s research parks and industrial parks, Birmingham&apos;s downtown and western corridors, and Shelby County are each served from a staffed local office. Call the one nearest your site.
+            Contact the office serving your property to discuss location, access and the proposed commercial scope.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 14, marginBottom: 22 }}>
             {offices.map(({ o, serves }) => (
@@ -429,6 +428,22 @@ export default function DataCenterPestControlPage() {
         </div>
       </section>
 
+      {/* Supporting buyer guides */}
+      <section style={{ padding: `40px ${pad}`, background: CREAM }}>
+        <div style={{ maxWidth: 780, margin: '0 auto' }}>
+          <h2 style={{ ...ss, fontSize: 'clamp(1.5rem,2.8vw,2.05rem)', fontWeight: 600, color: INK }}>Planning a data center pest-control program?</h2>
+          <p style={{ color: '#4b5563', lineHeight: 1.7 }}>Use these guides to prepare your walkthrough, compare proposals and assign follow-up work.</p>
+          <ul style={{ lineHeight: 2 }}>
+            <li><a href="/blog/data-center-ipm-plan" style={{ color: DEEP }}>What should a data center IPM plan include?</a></li>
+            <li><a href="/blog/data-center-rodent-entry-points" style={{ color: DEEP }}>Where do rodents enter a data center?</a></li>
+            <li><a href="/blog/data-center-pest-control-vendor-checklist" style={{ color: DEEP }}>How do you evaluate a pest-control vendor?</a></li>
+            <li><a href="/blog/data-center-pest-control-construction-handover" style={{ color: DEEP }}>Data Center Pest Control: Construction Handover</a></li>
+            <li><a href="/blog/data-center-pest-control-service-report" style={{ color: DEEP }}>What Should a Data Center Pest Report Show?</a></li>
+            <li><a href="/blog/data-center-pest-activity-response" style={{ color: DEEP }}>Pest Activity in a Data Center: What Happens Next?</a></li>
+          </ul>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section style={{ padding: `56px ${pad}`, background: '#fff' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
@@ -446,7 +461,7 @@ export default function DataCenterPestControlPage() {
       <section style={{ padding: `40px ${pad} 64px`, background: CREAM }}>
         <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: 15, color: '#4b5563', lineHeight: 1.8, margin: '0 0 14px' }}>
-            Part of EnviroCare&apos;s commercial program — the same IPM approach also runs in labs, clean offices, warehouses and any building where routine spraying inside is unwanted.
+            For other types of property, explore EnviroCare&apos;s commercial service and discuss the inspection, methods and reporting appropriate to the site.
           </p>
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
             {[

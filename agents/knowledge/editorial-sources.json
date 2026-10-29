@@ -1,0 +1,275 @@
+{
+  "verifiedOn": "2026-10-29",
+  "scope": "Primary-source reference list checked through web retrieval. The supports field limits what a citation establishes; source inclusion does not fact-check an entire draft.",
+  "sources": [
+    {
+      "id": "epa-prevention",
+      "title": "EPA: Pest prevention and pesticide use",
+      "url": "https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control",
+      "topics": [
+        "pest",
+        "prepare",
+        "rain",
+        "treatment",
+        "cricket",
+        "fall",
+        "winter"
+      ],
+      "supports": "Address food, water, shelter and entry points; follow product labels."
+    },
+    {
+      "id": "epa-termites",
+      "title": "EPA: Termite identification and control",
+      "url": "https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them",
+      "topics": [
+        "termite",
+        "sentricon",
+        "green cap"
+      ],
+      "supports": "Identify termite evidence, correct moisture conditions and obtain a professional treatment assessment. This source does not establish EnviroCare prices or repair terms."
+    },
+    {
+      "id": "epa-ipm",
+      "title": "EPA: IPM principles",
+      "url": "https://www.epa.gov/safepestcontrol/integrated-pest-management-ipm-principles",
+      "topics": [
+        "data center",
+        "commercial",
+        "facility",
+        "ipm",
+        "vendor"
+      ],
+      "supports": "IPM combines monitoring, thresholds, prevention and control decisions. Data-center workflow examples are editorial applications, not EPA certification."
+    },
+    {
+      "id": "epa-buildings",
+      "title": "EPA: IPM in buildings",
+      "url": "https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf",
+      "topics": [
+        "data center",
+        "commercial",
+        "facility",
+        "ipm",
+        "vendor"
+      ],
+      "supports": "Building pest prevention requires coordinated responsibilities and documentation; this is general building guidance, not a data-center standard."
+    },
+    {
+      "id": "cdc-mosquito",
+      "title": "CDC: Mosquito control at home",
+      "url": "https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html",
+      "topics": [
+        "mosquito",
+        "lake house"
+      ],
+      "supports": "Weekly water-container maintenance, screens, community prevention, and distinct label-directed larval/adult controls. Does not establish EnviroCare prices, service season, residual duration or return-visit obligations."
+    },
+    {
+      "id": "adph-mosquito-season",
+      "title": "ADPH: Seasonal mosquito abundance and storm-related prevention",
+      "url": "https://www.alabamapublichealth.gov/blog/2024/09/nr-17.html",
+      "topics": [
+        "mosquito"
+      ],
+      "supports": "General greater abundance from late spring to early fall across most of Alabama and possible increases after storm/flood conditions. The September 2024 release is not a current weather forecast or a source of 2026 disease counts, exact start/end dates or temperature cutoffs."
+    },
+    {
+      "id": "adph-mosquito-biting-times",
+      "title": "ADPH: Avoid mosquito bites",
+      "url": "https://www.alabamapublichealth.gov/mosquito/avoid-the-bite.html",
+      "topics": [
+        "mosquito"
+      ],
+      "supports": "Daytime activity among Aedes mosquitoes and early-morning/evening activity among other mosquitoes, including Culex. Does not identify a customer's mosquito species from biting time alone or establish local disease prevalence."
+    },
+    {
+      "id": "adph-mosquito-yard-prevention",
+      "title": "ADPH: Mosquito life stages and yard prevention",
+      "url": "https://www.alabamapublichealth.gov/mosquito/vector-control.html",
+      "topics": [
+        "mosquito"
+      ],
+      "supports": "Four life stages, water-holding containers, drainage/leak maintenance, screens and shaded resting areas. Does not substantiate universal household breeding-site rankings, fixed product residuals or company procedures."
+    },
+    {
+      "id": "cdc-aedes-life-cycle",
+      "title": "CDC: Aedes mosquito life cycle",
+      "url": "https://www.cdc.gov/mosquitoes/about/life-cycle-of-aedes-mosquitoes.html",
+      "topics": [
+        "mosquito"
+      ],
+      "supports": "Egg, larva, pupa and adult stages; Aedes eggs on container walls can survive drying and southern winters. Species-specific biology does not establish one statewide development time, compounded yard populations or treatment results."
+    },
+    {
+      "id": "cdc-mosquito-bite-prevention",
+      "title": "CDC: Preventing mosquito bites",
+      "url": "https://www.cdc.gov/mosquitoes/prevention/",
+      "topics": [
+        "mosquito"
+      ],
+      "supports": "EPA-registered repellents used per label, protective clothing and screens. Does not establish a pesticide safety claim for EnviroCare service or replace product-specific restrictions."
+    },
+    {
+      "id": "cdc-rodents",
+      "title": "CDC: Seal up to prevent rodents",
+      "url": "https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html",
+      "topics": [
+        "rodent",
+        "mice",
+        "mouse",
+        "rat",
+        "fall"
+      ],
+      "supports": "Inspect gaps, seal entry points and manage food sources. Critical building penetrations require the facility team, not improvised residential repair methods."
+    },
+    {
+      "id": "uc-ants",
+      "title": "UC IPM: Ants",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/ants/",
+      "topics": [
+        "ant"
+      ],
+      "supports": "Combine species identification, sanitation, entry-point management and appropriate baiting; surface spraying alone does not prevent new entry."
+    },
+    {
+      "id": "uc-roaches",
+      "title": "UC IPM: Cockroaches",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cockroaches/",
+      "topics": [
+        "roach",
+        "cockroach",
+        "bug bomb",
+        "fogger"
+      ],
+      "supports": "Identification, sanitation, monitoring and targeted controls work together; distinguish indoor-breeding species from outdoor invaders."
+    },
+    {
+      "id": "uc-silverfish",
+      "title": "UC IPM: Silverfish and firebrats",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/silverfish-and-firebrats/",
+      "topics": [
+        "silverfish"
+      ],
+      "supports": "Silverfish and firebrats feed on starchy stored items and paper-associated materials; management includes moisture and harborage conditions."
+    },
+    {
+      "id": "uc-spiders",
+      "title": "UC IPM: Spiders",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/spiders/",
+      "topics": [
+        "spider",
+        "dock"
+      ],
+      "supports": "Reduce hiding places, remove webs and address the insects that support spider activity; identification matters."
+    },
+    {
+      "id": "uc-fleas",
+      "title": "UC IPM: Fleas",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/fleas/",
+      "topics": [
+        "flea"
+      ],
+      "supports": "Flea management involves the host and environment; cleaning and coordinated pet care are distinct from structural treatment."
+    },
+    {
+      "id": "epa-foggers",
+      "title": "EPA: Total release fogger precautions",
+      "url": "https://www.epa.gov/safepestcontrol/safety-precautions-total-release-foggers",
+      "topics": [
+        "fogger",
+        "bug bomb"
+      ],
+      "supports": "Fogger misuse can cause fire, explosion or exposure; label precautions and prevention remain essential."
+    },
+    {
+      "id": "aces-fireants",
+      "title": "Alabama Extension: Managing fire ants with baits",
+      "url": "https://www.aces.edu/blog/topics/crop-production/managing-fire-ants-with-baits/",
+      "topics": [
+        "fire ant"
+      ],
+      "supports": "Bait selection, permitted application site and foraging conditions affect results; follow the label and avoid unsupported home remedies."
+    },
+    {
+      "id": "umn-crickets",
+      "title": "University of Minnesota Extension: Crickets",
+      "url": "https://extension.umn.edu/garden-and-home/home-maintenance/household-insects/crickets",
+      "topics": [
+        "cricket"
+      ],
+      "supports": "Common household cricket types include field, house and camel crickets; prevention and exclusion precede pesticide decisions."
+    },
+    {
+      "id": "aces-termite-inspection",
+      "title": "Alabama Extension: Termite inspection and seasonal conditions",
+      "url": "https://www.aces.edu/blog/topics/home/schedule-your-termite-annual-inspection-to-avoid-costly-home-damage/",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Warm, humid conditions and rain affect swarming; inspection records document evidence and conducive conditions. Does not establish 2026 weather records, company call volumes or exact statewide swarm dates."
+    },
+    {
+      "id": "aces-termite-range",
+      "title": "Alabama Extension: Termite territory and control",
+      "url": "https://www.aces.edu/blog/topics/home/termite-territory-is-expanding-in-alabama-the-basics-of-termite-control/",
+      "topics": [
+        "termite",
+        "formosan"
+      ],
+      "supports": "Formosan infestations have been reported in central Alabama, beyond the coastal counties. Supports inspection and property-specific treatment selection, not a prediction for a particular town or property."
+    },
+    {
+      "id": "msu-termite-signs",
+      "title": "Mississippi State Extension: Signs of termite infestation",
+      "url": "https://extension.msstate.edu/insects/termites/signs-termite-infestation",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Interpret swarm evidence by location and number; large indoor emergences and a few outdoor-origin Formosan swarmers have different implications. No company-specific field counts or damage timelines."
+    },
+    {
+      "id": "msu-termite-swarms-2026",
+      "title": "Mississippi State Extension: Understanding termite swarms",
+      "url": "https://extension.msstate.edu/news/feature-story/2026/protect-property-heavy-termite-swarms",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Formosan swarmers are attracted to lights and can enter through openings; large indoor emergences warrant inspection. Mississippi annual activity reports must not be relabeled as Alabama or EnviroCare observations."
+    },
+    {
+      "id": "aces-termite-treatment-options",
+      "title": "Alabama Extension: Subterranean termite control products",
+      "url": "https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/",
+      "topics": [
+        "termite",
+        "sentricon"
+      ],
+      "supports": "Repellent/nonrepellent liquid treatments, bait colony effects and noviflumuron, construction-stage and postconstruction access, and bait alternatives for new construction. No universal dose, outcome deadline, superiority or company service commitment."
+    },
+    {
+      "id": "msu-termite-treatment-comparison",
+      "title": "Mississippi State Extension: Protect your house from termites",
+      "url": "https://extension.msstate.edu/publications/protect-your-house-termites",
+      "topics": [
+        "termite",
+        "sentricon"
+      ],
+      "supports": "Bait feeding and ongoing station service, generally slower bait response versus liquid treatment, and possible targeted combinations for active infestations. No Alabama-specific timing, company price, guaranteed result or universal inspection interval."
+    },
+    {
+      "id": "uc-house-mouse",
+      "title": "UC IPM: House mouse",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/house-mouse/",
+      "topics": [
+        "data center",
+        "rodent",
+        "mouse",
+        "mice"
+      ],
+      "supports": "Mice can enter through small openings or deliveries and can gnaw wiring. Supports inspection, exclusion and monitoring; does not substantiate outage rates, universal device choices or a facility service commitment."
+    }
+  ]
+}

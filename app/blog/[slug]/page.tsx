@@ -31,6 +31,9 @@ export async function generateMetadata({
     return { title: 'Post Not Found | EnviroCare', robots: { index: false, follow: false } };
   }
   const editorialImage = getBlogVisual(post);
+  const shareImage = post.heroImage
+    ? { url: post.heroImage.og, width: 1200, height: 630, alt: post.heroImage.alt }
+    : { url: editorialImage.src, alt: editorialImage.alt };
   return withOpenGraph({
     title: post.metaTitle,
     description: post.metaDescription,
@@ -42,17 +45,21 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author],
-      // Per-post link-preview card. Without this every post fell back to the
-      // site-wide /og-image.png (withOpenGraph default), so shared articles all
-      // looked identical. Posts with no heroImage still get that default.
-      images: post.heroImage
-        ? [{ url: post.heroImage.og, width: 1200, height: 630, alt: post.heroImage.alt }]
-        : [{ url: editorialImage.src, alt: editorialImage.alt }],
+      images: [shareImage],
+    },
+    // Override the homepage Twitter card inherited from the root layout.
+    // Both share formats use the article's cover, as does BlogPosting below.
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metaTitle,
+      description: post.metaDescription,
+      images: [shareImage],
     },
   });
 }
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com';
+const ORGANIZATION_ID = 'https://www.envirocarellc.com/#organization';
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -82,15 +89,17 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             inLanguage: 'en-US',
             datePublished: post.publishedAt,
             dateModified: post.updatedAt ?? post.publishedAt,
-            author: {
-              '@type': 'Person',
-              name: post.author,
-              worksFor: { '@id': 'https://www.envirocarellc.com/#organization' },
-            },
+            author: post.author === 'EnviroCare, LLC'
+              ? { '@type': 'Organization', '@id': ORGANIZATION_ID }
+              : {
+                  '@type': 'Person',
+                  name: post.author,
+                  worksFor: { '@id': ORGANIZATION_ID },
+                },
             // Reference the canonical Organization node emitted by app/layout.tsx
             // (name, legalName, logo) instead of a partial node with a
             // different name. Same fix as #179 on service/office pages.
-            publisher: { '@id': 'https://www.envirocarellc.com/#organization' },
+            publisher: { '@id': ORGANIZATION_ID },
             isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog#blog`, name: 'EnviroCare Pest Control Blog' },
           },
           {
