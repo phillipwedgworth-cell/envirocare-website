@@ -6,7 +6,7 @@ Review only. This branch builds on the three data-center guides in PR #286. It p
 
 The 30 refreshes preserve slugs, authors and original publication dates. They revise the opening answer, title, excerpt, metadata, first question heading and a narrowly supported inline citation. `updatedAt` records the edit. Existing body sections remain and require an editorial fact-check; a new reference does not establish every retained claim. The six facility guides address planning, entry points, procurement, construction handover, reporting and activity response. Internal links keep broad conversion intent on `/data-center-pest-control`.
 
-The exact 36-entry route/keyword/source map is `agents/knowledge/editorial-batch-36.json`. Its score and competitor-originality fields deliberately remain null/false. Source limits and retrieval dates are in `agents/knowledge/editorial-sources.json`.
+The exact 36-entry route/keyword/source map is `agents/knowledge/editorial-batch-36.json`. Its scores remain null. The October 29 bounded public-text comparison is recorded for the six facility guides; the other 30 competitor-originality fields remain false. Source limits and retrieval dates are in `agents/knowledge/editorial-sources.json`.
 
 The follow-up review corrected retained initial-service promotion and monthly-payment disclosures, product-specific preparation/re-entry guidance, unsupported treatment timelines and Sentricon comparisons, and agreement-qualified termite repair wording. The six facility guides now have a clearly illustrated data-center image in their article, Open Graph/Twitter cards and schema. Their corporate byline is an Organization; named authors remain Person records. These targeted corrections do not constitute a source audit of every retained sentence.
 
@@ -40,7 +40,7 @@ Keep public source citations separate from acquisition of third-party mentions. 
 - Fresh standalone TypeScript checks without generated `.next` types report 11 diagnostics in both the follow-up and a clean checkout of its parent; the outputs match exactly. The earlier built-output handoff reported 18 diagnostics. No new diagnostic was introduced in the comparable fresh check; the repository is not type-clean merely because its configured build succeeds.
 - Mocked integration tests execute the real narrator to verify good-editor protection, hand/auto/FORCE no-write behavior, duplicate keyword handling, malformed HTTP-200 editor responses, invalid current-editor scores, and listed-score bypass prevention. They also exercise visible-text/metadata compliance and the real writer's topic matcher. No API credentials or network are used.
 - Run the score check on rendered HTML using the existing matching NeuronWriter query; record the actual ID, date and before/after scores. No new query merely because a handoff lacks an ID.
-- Complete a human review of retained claims, facility procedures, pricing/agreements and cited-source scope; run competitor originality checks on actual available competitor text; review artwork and previews before release.
+- See the October 29 follow-up in `claude/BLOG-SEARCH-AUDIT-2026-10-28.md` for sourced corrections and the six-guide competitor sample. Retained bodies outside those corrections and the other 30 originality checks remain limited; review artwork and the final preview before release.
 - Publish only approved batches through human-reviewed PRs. This branch changes neither production nor publishing schedules.
 
 ## Full-archive audit follow-up — October 28, 2026
@@ -51,4 +51,4 @@ The follow-up removes the non-public tick/mosquito add-on amount from eight post
 
 `agents/knowledge/brand.md` no longer supplies contradictory per-treatment mosquito rates, public tick/flea prices, a stale WDO fee, an unqualified contract claim, a staffing promise or an unsupported exclusivity claim to the drafting agents. Current pricing/compliance source files govern.
 
-The exact final commit must pass the pull-request build and guards and have its own preview verified. NeuronWriter scores and competitor originality remain pending; earlier build results do not prove those checks.
+The exact final commit must pass the pull-request build and guards and have its own preview verified. NeuronWriter scores remain pending. Six facility guides now have a bounded competitor-text comparison recorded in the audit; it is not universal plagiarism clearance. Earlier build results do not prove either check.

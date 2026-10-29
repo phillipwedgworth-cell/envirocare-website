@@ -22,7 +22,7 @@ Review scope: all 65 blog records on main `b82e6fe5710ce0f00d48a2d939a6bec7baa46
 
 1. Protect ranking URLs and the Sentricon content already performing. Review first-party search query/page pairings before changing titles or consolidating.
 2. Distinguish cockroach identification, household removal and German-cockroach infestation intent. If actual query overlap warrants a merger, carry useful unique sections into the selected winner and implement a reviewed permanent redirect.
-3. The 2026 termite-season article still needs an evidence review: asserted office call patterns, local annual activity changes, consumption arithmetic and builder-protection expiry statements need sources or removal. Its missing contextual internal links are an editorial gap. Do not present it as a verified current-year field report without supporting records.
+3. Resolved in the October 29 follow-up below: the 2026 termite-season article no longer presents unsupported office call patterns, annual weather/activity changes, consumption arithmetic or builder-protection expiry claims. Its replacement distinguishes evidence, inspections and actual agreement terms and includes contextual links.
 4. Add concise answers and useful headings where they help readers. A question mark is not an AI-search requirement; avoid mechanically attaching FAQs to every post.
 5. Use family history where relevant. Repeating 1958/four generations in every article is not an SEO requirement. Never turn family history into an incorrect legal-entity founding claim.
 6. Add original evidence that operations can approve: an anonymized real inspection checklist, a sample service report with sensitive site details removed, and documented procedures. Do not invent clients, credentials, response commitments or outcome statistics.
@@ -40,7 +40,7 @@ Review scope: all 65 blog records on main `b82e6fe5710ce0f00d48a2d939a6bec7baa46
 | Visibility measurement | Existing Local Falcon reports were consulted; no new scans were run | Keep AI SAIV separate from Maps SoLV, preserve platform/keyword/date/grid, and treat missing coverage as unknown. |
 | SpyFu research | Public domain/keyword views were consulted; detailed authenticated exports remain unavailable | The exact data-center phrase showed under 20 monthly searches and no ranking history in that view. This is directional vendor data, not proof of no demand. |
 | NeuronWriter evaluation | Actual scores are still pending | Evaluate exact reviewed/rendered HTML using existing matching query IDs; FILL may generate different copy. |
-| Originality | Competitor-text checks pending | Structural gates and references do not establish originality. |
+| Originality | Bounded comparison completed for the six facility guides on October 29; the other 30 batch entries remain un-cleared | Public passages and method are listed below. No universal plagiarism clearance or archive-wide similarity claim. |
 | Attribution/conversions | Existing tracking requires a separate read of measured traffic/leads | Citation growth should be assessed alongside qualified calls and facility walkthrough requests. |
 
 Google's primary guidance: https://developers.google.com/search/docs/appearance/ai-features . Ordinary SEO fundamentals apply to AI features; no special AI schema or text-file treatment establishes inclusion.
@@ -49,7 +49,7 @@ Google's primary guidance: https://developers.google.com/search/docs/appearance/
 
 The six guides cover IPM planning, rodent entry points, vendor questions, construction handover, service reports and activity response. Keep those intents distinct and conversion links on `/data-center-pest-control`. The exact phrase's low reported volume makes these specialist buyer resources, not a substantiated large traffic forecast.
 
-Before release, operations should verify access/escort assumptions, approved methods, engineering repair responsibilities, reporting and escalation procedures. Sources establish general IPM principles rather than a data-center certification standard.
+The six guides describe planning recommendations. The October 29 service-page correction makes methods, access, repairs, reporting and response arrangements subject to the site-specific written scope. Sources establish general IPM principles rather than a data-center certification standard. A future claim that EnviroCare already performs a particular procedure would require first-party evidence; the current checklist does not imply that every item is included in service.
 
 ## Validation and limitations
 
@@ -58,3 +58,62 @@ The earlier cumulative review head built and passed its GitHub guards; its Verce
 Source review covers all records. It is not a live crawl of every production URL, an indexing inspection, a fresh AI scan, an authenticated SpyFu export, a NeuronWriter score or a complete factual validation of every retained sentence. Standalone TypeScript diagnostics exist in the baseline; a successful configured build must not be described as a type-clean repository.
 
 Private account measurements are kept outside this public review branch. No production promotion, merge, new scan, publication schedule change or automated editor FILL is authorized by this audit.
+
+
+## Content evidence and bounded originality follow-up — October 29, 2026
+
+Reviewed the exact current PR #287 head `195d54ed1650a1388fb94d97aeabd8065850b828` before local edits. GitHub reported the PR open, draft and unmerged, with both reported Vercel status contexts successful. Those prior statuses do not validate this follow-up. No remote write, merge, deployment or publication was performed by this content review.
+
+### Concrete corrections
+
+- Replaced unsupported 2026 rainfall records, soil-temperature dates, office call trends, lakefront rafting claims, colony-consumption arithmetic, damage-age estimates, blanket builder-expiry statements, appointment promises and free agreement-reinstatement promises in `termite-season-2026-alabama`. The article now explains evidence, inspections, prevention and checking the actual agreement. Its URL, author and original publication date remain intact.
+- Corrected the related `alabama-termite-swarm-season` article where the metadata review exposed contradictory body copy: exact town-by-town swarm weeks, a coastal-only Formosan assumption, diagnosis from any pile of wings, comparative treatment assertions and a fixed annual-swarm claim. Removed the unsupported calendar figure from that article. Sources support timing variability and the difference between indoor emergence and a few outdoor-origin swarmers.
+- Corrected observed fogger and service-frequency passages that asserted an inevitable spreading infestation, universal residual-treatment periods, a month without protection on every quarterly plan, or automatic inclusion of flea work. These are now pest-, label- and scope-specific. The observed rodent paragraph no longer promises all entry-point repairs within routine service.
+- Replaced 32 descriptions ending in literal ellipses with complete summaries. Made six factual title corrections covering October-only rodent entry, universal fogger worsening, a statewide service interval, universally normal activity after treatment, a March-only swarm start and fire ants worsening every summer. Five additional overlength metadata fields were shortened to satisfy the existing import gate; other ranking titles remain unchanged. The 2026 article, outside the 36-entry map, also has a corrected title/snippet.
+- The facility guides already distinguished their workflow examples from EPA standards and site commitments. Changed the service-report heading from a monthly to a periodic review. The linked service landing page now presents a walkthrough agenda and negotiated scope; it no longer automatically promises background checks, a completed onboarding packet, audit suitability, a universal monthly schedule, unrestricted construction work, a free commercial walkthrough, staffing or fixed treatment methods. Removed the schema offer catalog that treated every project phase as an included service.
+
+### Source evidence and limits
+
+All 14 original reference URLs were retrieved during this review; the final 36-entry batch uses 17 distinct external URLs after the targeted corrections. Primary references were used for factual corrections. Competitor marketing was used only for comparison, not as proof of pest biology or EnviroCare capabilities.
+
+| Reference | Supported point and limit |
+|---|---|
+| [EPA IPM principles](https://www.epa.gov/safepestcontrol/integrated-pest-management-ipm-principles) | Identification, monitoring, action thresholds, prevention and control decisions. Does not establish a data-center certification or response time. |
+| [EPA IPM in buildings](https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf) | Pages 2–6 support inspection/monitoring records, coordination among building roles and prevention in new and existing buildings. The guide-specific handover, access and repair examples are editorial applications, not included EnviroCare deliverables. |
+| [EPA termite identification and control](https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them) | Identification, drainage/leak/wood-storage prevention and treatment categories. No company prices, damage-repair terms, annual call volumes or precise damage clock. |
+| [Alabama Extension: annual termite inspection](https://www.aces.edu/blog/topics/home/schedule-your-termite-annual-inspection-to-avoid-costly-home-damage/) | Weather influences foraging/swarming; inspections record evidence and conducive conditions. Does not establish record weather or swarm volume in 2026. |
+| [Alabama Extension: termite territory](https://www.aces.edu/blog/topics/home/termite-territory-is-expanding-in-alabama-the-basics-of-termite-control/) | Formosan infestations were reported in central Alabama, beyond coastal counties. It does not identify the species at a particular customer's property. |
+| [Mississippi State: signs of infestation](https://extension.msstate.edu/insects/termites/signs-termite-infestation) | Location and number affect interpretation of swarm evidence. Large indoor emergence differs from a few swarmers entering from outside. |
+| [Mississippi State: 2026 swarm explanation](https://extension.msstate.edu/news/feature-story/2026/protect-property-heavy-termite-swarms) | Evening Formosan swarming and attraction to lights; indoor swarmers do not invariably establish structural infestation. Its Mississippi annual field observations are not reused as Alabama observations. |
+| [EPA fogger precautions](https://www.epa.gov/safepestcontrol/safety-precautions-total-release-foggers) and [UC IPM cockroaches](https://ipm.ucanr.edu/home-and-landscape/cockroaches/) | Fogger misuse risks; species identification, sanitation, exclusion and targeted cockroach controls. No claim that every fogger necessarily spreads an infestation. |
+| [EPA prevention](https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control) and [UC IPM house mouse](https://ipm.ucanr.edu/home-and-landscape/house-mouse/) | Conditions, entry routes, deliveries and gnawing damage. No fixed statewide service interval, outage rate or automatic repair inclusion. |
+
+The source registry now records these additional sources and their narrow supported points. Existing company pricing/coverage statements were checked against the repository canon; external pest references do not establish those business terms.
+
+### Originality sample
+
+Compared the current full bodies of the six facility guides with text retrieved from these six public competitor pages:
+
+1. [Elis: data centres](https://elispestcontrol.ie/pest-control-for-data-centres/)
+2. [Fucesa: data centers](https://www.fucesa.com/en/solutions/data-centers)
+3. [Complete Pest Control: data centres and technology facilities](https://www.completepestcontrol.ie/data-centres-and-technology-facilities/)
+4. [Orkin: commercial rodent prevention checklist](https://www.orkin.com/commercial/blog/rodent-prevention-checklist)
+5. [Rentokil: architecture and construction](https://www.rentokil.com/us/business-sectors/architecture-and-construction)
+6. [Mosquito Assassin: data-center management guide](https://blog.mosquitoassassin.com/commercial-pest-control-in-erie-pa-a-data-center-management-guide/)
+
+Method: manual review of subject matter and organization, supplemented by a case-insensitive comparison of consecutive words after removing HTML and punctuation. No normalized eight-word sequence was shared by any of the six guides and the retrieved competitor passages. The longest observed matches were four or five words, consisting of ordinary topic or workflow language. General overlap in IPM, access, records and follow-up is expected; it does not establish copying by itself. The guides retain distinct handover, report-interpretation, response, plan, entry-point and vendor-selection purposes.
+
+The revised `termite-season-2026-alabama` and `alabama-termite-swarm-season` bodies were also compared with [Orkin's termite-swarm article](https://www.orkin.com/pests/termites/life-cycle/termite-swarm). Neither shared an eight-word sequence with the retrieved text; the longest match was a generic five-word question heading in the evergreen guide. A Waynes result was found in search, but its direct article retrieval failed, so it is excluded from the reproducible lexical sample.
+
+**Limit:** this checks the sampled retrieved text, not the whole web, private content, every historical version or paraphrase-level copying. It is not universal plagiarism clearance. Only the six facility entries are marked `competitorOriginalityChecked: true`, with the bounded scope in their review notes. The other 30 entries retain `false`, and all NeuronWriter score fields remain null pending exact-copy evaluation.
+
+### Verification of the local content patch
+
+- Existing blog compliance guard: 71 posts checked against 47 rules, zero blocking hits. The 13 nonblocking promotion warnings remain subject to the existing approved pricing canon.
+- Existing editorial assessment on the final 36 records: 36/36 pass, including current metadata and source-allowlist gates. This remains a structural/compliance gate, not proof of every retained factual sentence.
+- Source compliance guard: 249 files checked, zero blocking hits; 51 nonblocking warnings reported.
+- TypeScript parser/transpiler: no syntax diagnostics for the edited blog data or data-center page. This is not an assertion that the whole repository type-checks.
+- All 70 distinct internal links in the final 36 records resolve to a blog source record or an existing App Router page. There are 95 distinct href values including 17 external source URLs and telephone links. No missing source route was found. This source-level check is not a production crawl or indexing test.
+- `git diff --check` passes. Full build, rendered preview/mobile readback and exact-copy NeuronWriter scoring belong to the combined final commit, after integration with the separate scoring work.
+
+Retained bodies outside the targeted corrections have not received a complete new fact audit. No archive-wide originality or publication-readiness claim is made.

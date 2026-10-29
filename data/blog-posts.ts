@@ -138,12 +138,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Data Center Pest Control: Construction Handover',
     excerpt: 'A handover checklist for moving from a construction site to an operating facility: open penetrations, receiving procedures, monitoring records and repair ownership.',
     publishedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'EnviroCare, LLC',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
     metaTitle: 'Data Center Pest Control: Construction Handover',
-    metaDescription: 'A handover checklist for moving from a construction site to an operating facility: open penetrations, receiving procedures, monitoring records and…',
+    metaDescription: "Prepare data center handover with inspection records, open entry-point repairs, monitoring maps and agreed responsibilities for the operating team.",
     body: `
 <p class="lede">A data center construction handover should transfer the pest inspection map, unresolved entry-point repairs, monitoring history and service responsibilities to the operations team. A completed building is not automatically a closed pest-prevention task list. Check what changed during the final deliveries and contractor work before the construction team leaves.</p>
 <h2>Why does the construction-to-operations transition matter?</h2>
@@ -171,6 +172,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Should a Data Center Pest Report Show?',
     excerpt: 'Learn to distinguish no activity from no access, read device-level findings and use a service report to close repairs and track recurring pest evidence.',
     publishedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'EnviroCare, LLC',
     category: 'Commercial',
     readMinutes: 3,
@@ -191,7 +193,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>How do you review repeat findings?</h2>
 <p>Group findings by the same zone and issue rather than counting every note as a new incident. A recurring door defect might appear across several reports because it remains unresolved. That is different from several separate entry points, and it calls for a different management conversation.</p>
 <p>Compare activity with access and repair records before judging performance. A lower number of observations may reflect fewer inspected locations. A higher number may follow better monitoring. The report should give enough context to ask the right questions rather than encouraging a conclusion from one total.</p>
-<h2>What belongs in a monthly review?</h2>
+<h2>What belongs in a periodic review?</h2>
 <p>Discuss recurring evidence, open repairs, changes to access and any approved method changes. Confirm which recommendations were completed and which need a new owner or revised plan. Review whether the service scope still fits the building's use, especially after construction, a new receiving area or occupancy changes.</p>
 <p>A concise review can use one resolved example and one open example. The resolved issue should show evidence of completion; the open issue should end with a specific next action. That is more useful than treating every report as a document to file without reading.</p>
 <h2>How should sensitive information be handled?</h2>
@@ -205,12 +207,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Pest Activity in a Data Center: What Happens Next?',
     excerpt: 'A practical response workflow: record evidence, notify the facility contact, obtain authorized inspection and track the corrective action without disturbing equipment.',
     publishedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'EnviroCare, LLC',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
     metaTitle: 'Pest Activity in a Data Center: What Happens Next?',
-    metaDescription: 'A practical response workflow: record evidence, notify the facility contact, obtain authorized inspection and track the corrective action without…',
+    metaDescription: "Respond to data center pest activity with documented evidence, authorized inspection and assigned follow-up. Keep equipment and access rules in view.",
     body: `
 <p class="lede">When pest activity is reported in a data center, follow the facility's agreed notification and access process, record the location and evidence, and have the appropriate professional assess the next step. Do not improvise a treatment, open equipment or move monitoring devices while trying to solve the issue.</p>
 <h2>What information should the first report include?</h2>
@@ -337,7 +340,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down',
     excerpt: 'Dock spiders gather where insects and sheltered web sites are available. Start by removing webs, reducing clutter and reviewing lighting; any treatment near the shoreline must follow the product label and the property conditions.',
     publishedAt: '2026-10-12',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Spiders',
     readMinutes: 6,
@@ -350,7 +353,7 @@ export const BLOG_POSTS: BlogPost[] = [
       alt: 'Illustrated cross-section of a lake dock and boathouse showing where spiders build webs: under the decking, on the pilings, around the dock light and in the boathouse rafters.',
     },
     metaTitle: 'Spiders on Boat Docks at Lake Martin | EnviroCare',
-    metaDescription: 'Dock spiders gather where insects and sheltered web sites are available. Start by removing webs, reducing clutter and reviewing lighting; any…',
+    metaDescription: "Manage dock spiders by removing webs, reducing hiding places and reviewing lighting. Treatment near Lake Martin must fit the site and product label.",
     body: `
 <p class="lede">Dock spiders gather where insects and sheltered web sites are available. Start by removing webs, reducing clutter and reviewing lighting; any treatment near the shoreline must follow the product label and the property conditions.</p>
 
@@ -530,7 +533,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How Long Does Sentricon Take to Work? What Alabama Homeowners Should Expect',
     excerpt: 'Sentricon works through termite baiting rather than an instant barrier. The time to control activity depends on termite foraging and site conditions, so judge progress through professional inspection records rather than a promised number of days.',
     publishedAt: '2026-10-12',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
@@ -543,7 +546,7 @@ export const BLOG_POSTS: BlogPost[] = [
       alt: 'Illustrated timeline of a Sentricon bait station program: installation, termites finding the bait, bait shared through the colony, activity declining, and ongoing station service.',
     },
     metaTitle: 'How Long Does Sentricon Take to Work? | EnviroCare',
-    metaDescription: 'Sentricon works through termite baiting rather than an instant barrier. The time to control activity depends on termite foraging and site conditions,…',
+    metaDescription: "Sentricon uses termite baiting. Results depend on foraging and site conditions; inspections and monitoring guide treatment and follow-up.",
     body: `
 <p class="lede">Sentricon works through termite baiting rather than an instant barrier. The time to control activity depends on termite foraging and site conditions, so judge progress through professional inspection records rather than a promised number of days.</p>
 
@@ -891,16 +894,16 @@ export const BLOG_POSTS: BlogPost[] = [
   // Post-dated Sep 8 – Oct 6 so the index releases them two at a time. ───
   {
     slug: 'rodents-alabama-homes-fall',
-    title: 'Mice and Rats in Alabama Homes: Why October Is When They Move In',
+    title: "Mice and Rats in Alabama Homes: Fall Entry and Prevention",
     excerpt: 'Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry points, food storage and clutter; traps alone do not close the opening.',
     publishedAt: '2026-09-08',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 7,
     heroEmoji: '🐭',
-    metaTitle: 'Mice & Rats in Alabama Homes: Why They Move In Every October',
-    metaDescription: 'Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry…',
+    metaTitle: "Mice & Rats in Alabama Homes: Fall Entry and Prevention",
+    metaDescription: "Mice and rats can enter Alabama homes through small gaps. Check entry points, food and shelter, and choose controls based on the evidence.",
     body: `
 <p class="lede">Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry points, food storage and clutter; traps alone do not close the opening.</p>
 
@@ -962,7 +965,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>A homeowner can seal gaps and trap one or two mice. If you keep catching them or find rat droppings, it is time for professional pest control. The goal is to eliminate the way in, not to lure and catch mice forever.</p>
 
 <h2>Rodent control is part of our pest control plan</h2>
-<p>Rodent work is part of our <a href="/services/pest-control">bi-monthly pest control plan</a>. On exterior visits we look for the gaps rodents use and close the entry points, and where the activity calls for it we add exterior bait stations or interior trapping. Any products we use are EPA-registered, applied according to label directions. If mice or rats show up between scheduled visits, call us and we come back out. See <a href="/pricing">our pricing page</a> for the plans. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> and in our guide to <a href="/blog/winter-pests-alabama">winter pests in Alabama</a>.</p>
+<p>Rodent work is part of our <a href="/services/pest-control">bi-monthly pest control plan</a>. An inspection can identify suspected entry points and guide trapping or other controls where included in the agreed plan. Confirm whether an exclusion repair is included or needs a separate quote or qualified contractor. Any products we use are EPA-registered, applied according to label directions. If mice or rats show up between scheduled visits, call us and we come back out. See <a href="/pricing">our pricing page</a> for the plans. We also cover the questions that come up alongside rodents in <a href="/blog/fall-pest-proofing-alabama">fall pest-proofing your Alabama home</a> and in our guide to <a href="/blog/winter-pests-alabama">winter pests in Alabama</a>.</p>
 
 <p>If you are finding droppings or hearing scratching this winter, call the office nearest you: Birmingham (205) 991-2882, Alabaster (205) 940-6360, Alexander City and Lake Martin (256) 234-6162, or Huntsville (256) 937-7676. Or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
@@ -1034,13 +1037,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Carpenter Ants vs. Termites: How Can You Tell?',
     excerpt: 'Carpenter ants excavate wood; termites feed on it. Insect features and the type of evidence help distinguish them, but damaged wood alone is not enough to identify the cause. Save a specimen or photo and arrange an inspection.',
     publishedAt: '2026-09-12',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🔍',
     metaTitle: 'Carpenter Ants vs. Termites: How Can You Tell?',
-    metaDescription: 'Carpenter ants excavate wood; termites feed on it. Insect features and the type of evidence help distinguish them, but damaged wood alone is not…',
+    metaDescription: "Compare carpenter ants and termites using insect features and evidence in wood. Identification and inspection guide the next step.",
     body: `
 <p class="lede">Carpenter ants excavate wood; termites feed on it. Insect features and the type of evidence help distinguish them, but damaged wood alone is not enough to identify the cause. Save a specimen or photo and arrange an inspection.</p>
 
@@ -1070,13 +1073,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Argentine Ants in Alabama: Why the Trail Never Ends',
     excerpt: 'Persistent ant trails need species identification and a search for food, moisture and entry routes. Argentine ants can be difficult to manage with surface treatment alone; the plan should address the colony and the conditions drawing ants indoors.',
     publishedAt: '2026-09-14',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Ants',
     readMinutes: 6,
     heroEmoji: '🐜',
     metaTitle: 'Argentine Ants in Alabama: Why They Keep Coming Back',
-    metaDescription: 'Persistent ant trails need species identification and a search for food, moisture and entry routes. Argentine ants can be difficult to manage with…',
+    metaDescription: "Persistent ant trails call for identification and a search for food, moisture and entry points. Learn how baiting fits an Argentine-ant control plan.",
     body: `
 <p class="lede">Persistent ant trails need species identification and a search for food, moisture and entry routes. Argentine ants can be difficult to manage with surface treatment alone; the plan should address the colony and the conditions drawing ants indoors.</p>
 
@@ -1143,74 +1146,71 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'bug-bombs-foggers-do-they-work',
-    title: 'Do Bug Bombs Work? Why Foggers Usually Make an Alabama Pest Problem Worse',
+    title: "Do Bug Bombs Work? Limits and Precautions for Alabama Homes",
     excerpt: 'Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions. Identify the pest and investigate the source before choosing a whole-room treatment.',
     publishedAt: '2026-09-18',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Tips',
-    readMinutes: 6,
+    readMinutes: 3,
     heroEmoji: '🧴',
-    metaTitle: 'Do Bug Bombs Work? Why Foggers Make Pest Problems Worse',
-    metaDescription: 'Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions.…',
+    metaTitle: "Do Bug Bombs Work? Limits and Precautions | EnviroCare",
+    metaDescription: "Bug bombs have limits and require strict label precautions. Learn why pest identification, prevention and targeted control belong in the plan.",
     body: `
-<p class="lede">Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions. Identify the pest and investigate the source before choosing a whole-room treatment.</p>
+<p class="lede">Bug bombs release pesticide throughout a space, but using one does not remove food, water or entry routes. Identify the pest and read the label before choosing a treatment. A fogger is not an appropriate response to every infestation.</p>
 
-<h2>What does a total-release fogger actually do?</h2>
-<p>A total-release fogger sprays a fine mist of insecticide upward, and the mist settles on whatever is exposed: countertops, the tops of furniture, the floor in the middle of the room. Pests do not live there. Roaches live in the crack behind the stove, inside the hinge of a cabinet door, under the sink around the plumbing, inside the dishwasher door. Fleas live as eggs and larvae deep in carpet fibers and under the edge of the sofa. The mist does not get into any of those places in any meaningful amount. What it does reach is the open surfaces you and your family use.</p>
-<p><strong>Reference:</strong> Improper fogger use can cause fire, explosion or harmful exposure. <a href="https://www.epa.gov/safepestcontrol/safety-precautions-total-release-foggers">EPA: Total release fogger precautions</a>.</p>
+<h2>What does a total-release fogger do?</h2>
+<p>A total-release fogger discharges its pesticide contents at once. The product label identifies the pests, permitted locations and precautions for that product. Read it before buying or using the fogger; a familiar product name does not establish that it fits the problem in your home.</p>
+<p>The <a href="https://www.epa.gov/safepestcontrol/safety-precautions-total-release-foggers">EPA explains</a> that foggers can be effective in appropriate circumstances, but misuse can cause fire, explosion or illness. The same guidance emphasizes prevention, including removing food and water sources and places pests can shelter.</p>
 
-<h2>Why the problem spreads</h2>
-<p>The insecticide in most foggers is a repellent. Roaches detect it and move away from it — deeper into the wall void, up into the next floor, into rooms they had not colonized. A kitchen problem becomes a whole-house problem. Then the residue on every surface repels them from the bait you put out the following week, so the one method that actually reaches the harborage stops working. This is the sequence we see over and over: fogger in March, roaches in three bathrooms by May, bait that they will not touch, and a call in June.</p>
+<h2>Which precautions matter?</h2>
+<p>Follow the label's directions for the amount used, preparation, ignition sources, leaving the premises and ventilation before re-entry. Using too many foggers or releasing one in a small enclosed space can create serious hazards. Do not guess at a re-entry time or assume that a product suitable for one room is suitable everywhere.</p>
+<p>If a fogger has already been used, tell the pest professional its name, where it was applied and when. Keep the label available. That information helps the provider assess the next step without adding another product blindly.</p>
 
-<h2>The fire and health part</h2>
-<p>The propellant is flammable. Foggers set off by a pilot light, a water heater, or a spark from a refrigerator compressor are a documented cause of house fires, and using more than one in a room, or one in a room too small for it, is how that happens. The product also has to dry and the house has to be aired out before anyone goes back in, and it settles on food-prep surfaces, toys, and pet bowls. There is a reason professional treatment is placed in cracks and voids and not broadcast into the air of a kitchen.</p>
+<h2>What should a pest-control plan address?</h2>
+<p>For cockroaches, <a href="https://ipm.ucanr.edu/home-and-landscape/cockroaches/">UC IPM recommends</a> identifying the species and combining sanitation and exclusion with appropriate controls. Indoor-breeding German cockroaches need a different assessment from occasional outdoor invaders. Monitoring can help locate activity and evaluate progress.</p>
+<p>Our <a href="/blog/how-to-get-rid-of-roaches-alabama">roach-control guide</a> and <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">indoor-ant guide</a> explain questions to discuss with a provider. <a href="/services/flea">Flea service</a> has its own assessment and scope; confirm what is included before booking.</p>
 
-<h2>What to do instead</h2>
-<p><strong>For roaches:</strong> sanitation and water first, then gel bait placed in the cracks where they live, plus a growth regulator that stops nymphs from maturing. No spraying near the bait. The order is in <a href="/blog/how-to-get-rid-of-roaches-alabama">how to get rid of roaches</a>. <strong>For fleas:</strong> treat the pet with a veterinary product, vacuum daily for two weeks and empty the canister outside, wash bedding hot, and treat the carpet and upholstery with a product that includes a growth regulator — the eggs and larvae are the population, and a fogger does not reach them. <strong>For ants:</strong> never a fogger; bait, and the steps in <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">getting rid of ants in the house</a>.</p>
-
-<h2>When to call</h2>
-<p>If you have already used a fogger and the problem spread, say so when you call — it changes the plan. Interior roach and flea work is part of EnviroCare's <a href="/services/pest-control">pest program</a>, with bait, growth regulators, and a scheduled follow-up for the generation that hatches after the first visit. It is slower than a fogger promises and it is the only approach that ends.</p>
-
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
+<h2>When should you ask for help?</h2>
+<p>Ask for an inspection when you cannot identify the pest, activity continues or the suspected source is inaccessible. Describe where you see insects and what has already been tried. The proposed service should identify the pest covered, treatment approach, preparation instructions and follow-up arrangements.</p>
+<p>Discuss <a href="/services/pest-control">EnviroCare's pest-control service</a> through a <a href="/quote">quote request</a> or call the main line at <a href="tel:+12059406360">(205) 940-6360</a>. Methods, fees and any additional visits depend on the agreed service.</p>
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
   {
     slug: 'how-often-pest-control-alabama',
-    title: 'How Often Should Pest Control Come? Why Alabama Is a Bi-Monthly State',
+    title: "How Often Should You Get Pest Control in Alabama?",
     excerpt: 'Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations and separate termite or mosquito programs may need a different inspection or treatment schedule.',
     publishedAt: '2026-09-20',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Tips',
-    readMinutes: 6,
+    readMinutes: 3,
     heroEmoji: '📅',
     metaTitle: 'How Often Should You Get Pest Control in Alabama?',
-    metaDescription: 'Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations…',
+    metaDescription: "Pest-control frequency depends on the pest and property. Compare every-other-month general service with separate termite and mosquito schedules.",
     body: `
 <p class="lede">Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations and separate termite or mosquito programs may need a different inspection or treatment schedule.</p>
 
-<h2>What does an exterior pest treatment do?</h2>
-<p>Routine pest control is mostly a residual barrier: a product applied to the foundation line, the eaves and soffits, door and window frames, the garage threshold, and the shaded cover where insects wait out the day. It stays active on those surfaces and insects that cross it pick it up. It is not a force field; it is a chemical that breaks down over time, and the things that break it down are sun, heat, and rain.</p>
-<p><strong>Reference:</strong> Correct food, water and shelter conditions before relying on pesticides. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
+<h2>What should regular service address?</h2>
+<p>A visit should consider the activity reported, accessible evidence and conditions that support pests. Inspection, entry-point recommendations and changes to food, water or shelter can matter alongside treatment. Any pesticide application must fit the product label and the findings.</p>
+<p>The <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA's prevention guidance</a> recommends addressing those conditions and learning about the pest before selecting controls. It does not prescribe one treatment interval for every Alabama property.</p>
 
-<h2>Why about sixty days</h2>
-<p>In Alabama's summer, the barrier applied in June is meaningfully weaker by August. UV degrades it, a string of ninety-degree days speeds that up, and every heavy rain washes some of it off the exposed surfaces. A quarterly plan treats every ninety days, which leaves roughly a month each cycle where the barrier has worn off and nothing new has gone on. That month is when the ant trail shows up in the kitchen and the roaches come out of the crawlspace. It is not that quarterly service does not work; it is that the gap is where the calls come from. Bi-monthly — every other month, six visits a year — keeps the reapplication ahead of the breakdown for most of the year.</p>
+<h2>Does a product always last sixty or ninety days?</h2>
+<p>Do not assume a fixed period from a service calendar alone. Product directions, the application site and conditions at the property guide treatment decisions. A quarterly schedule does not by itself prove a month without protection, and an every-other-month schedule does not mean another application is always needed.</p>
+<p>Ask what the provider checks during each visit and what would trigger follow-up between visits. A useful plan explains both the scheduled work and how new activity is assessed.</p>
 
-<h2>When monthly makes sense</h2>
-<p>Mosquito and tick service is monthly through the season by necessity; the treatment on foliage and resting sites is more exposed and breaks down faster, and the insects reproduce in days. Some commercial accounts — restaurants, food handling, multi-family — run monthly because the tolerance for a single roach is zero. A home with a heavy interior problem sometimes starts monthly and steps down to bi-monthly once it is under control.</p>
+<h2>When might a different schedule be needed?</h2>
+<p>An active infestation may require follow-up based on the identified pest and treatment method. Commercial facilities may have access, monitoring and reporting requirements that change the scope. Those decisions should be documented for the property rather than inferred from a statewide rule.</p>
+<p>EnviroCare's mosquito program has eight seasonal treatments from March through October. Termite service follows its own agreement and inspection requirements. Neither is the same service as general household pest control.</p>
 
-<h2>When one-time makes sense</h2>
-<p>A wasp nest. A one-off flea treatment after a foster dog. A fire ant yard application. A German cockroach cleanout with a follow-up. These are jobs with an end, and it is reasonable to pay for them as jobs. What does not work as a one-time treatment is general pest pressure in an Alabama yard, because the pressure does not end; the treatment just wears off.</p>
+<h2>Can a limited problem be handled as a separate job?</h2>
+<p>Ask whether the proposed work is a one-time service, a service with follow-up or an ongoing plan. A visible nest or indoor infestation still needs identification and an assessment of access and scope. Confirm what completion means and what happens if activity continues.</p>
 
-<h2>What EnviroCare does</h2>
-<p>The base plan is <a href="/services/pest-control">bi-monthly exterior service</a> — $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 promotional initial service (50% off the $150 regular price), interior treatment as needed, and free re-service between visits if something shows up early. Mosquito and tick run monthly March through October. Termite protection is its own schedule under Sentricon®, with annual inspection. The honest answer to how often is: often enough that the barrier is never the weak point, and in this climate that is every other month. The full cost picture is in <a href="/blog/pest-control-cost-alabama">what pest control costs in Alabama</a>.</p>
+<h2>What does EnviroCare offer?</h2>
+<p>Our <a href="/services/pest-control">general pest plan</a> provides every-other-month service, with monthly billing from $35 on ACH or a $70 per-visit option. The current promotional initial service is $75, which is 50% off the regular $150. Confirm covered pests, interior-service needs and re-service terms for your property. The full cost discussion is in <a href="/blog/pest-control-cost-alabama">our Alabama pest-control cost guide</a>.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
-
-<p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
-
+<p>Use our <a href="/quote">quote form</a> or call <a href="tel:+12059406360">(205) 940-6360</a> to discuss the activity you are seeing and the appropriate service schedule.</p>
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
@@ -1354,13 +1354,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Happens on Your First Pest Control Visit (An Alabama Walkthrough)',
     excerpt: 'A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas accessible and ask what will be treated, what preparation is required and how follow-up will work.',
     publishedAt: '2026-09-26',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '🏠',
     metaTitle: 'What to Expect on Your First Pest Control Visit (Alabama)',
-    metaDescription: 'A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas…',
+    metaDescription: "Prepare for a first pest-control visit with notes on activity, access to inspection areas and questions about the proposed treatment and follow-up.",
     body: `
 <p class="lede">A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas accessible and ask what will be treated, what preparation is required and how follow-up will work.</p>
 
@@ -1475,13 +1475,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Mice or Rats? How to Tell Which One Is in Your Alabama House',
     excerpt: 'Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap selection and inspection; also check the openings that let rodents enter.',
     publishedAt: '2026-10-02',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Rodents',
     readMinutes: 5,
     heroEmoji: '🔍',
-    metaTitle: 'Mice vs Rats: How to Tell Which One Is in Your House (Alabama)',
-    metaDescription: 'Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap…',
+    metaTitle: "Mice vs Rats in Alabama: How to Tell the Difference",
+    metaDescription: "Droppings, gnaw marks and activity locations help identify mice and rats. Learn what to record before choosing traps or repairing entry points.",
     body: `
 <p class="lede">Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap selection and inspection; also check the openings that let rodents enter.</p>
 
@@ -1511,13 +1511,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Mosquito Control for a Lake House: Docks, Boathouses, and the Shoreline',
     excerpt: 'At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local pressure, but treatment decisions near water need label review and a site inspection.',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 6,
     heroEmoji: '🦟',
-    metaTitle: 'Mosquito Control for a Lake House: Docks, Boathouses & Shoreline',
-    metaDescription: 'At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local…',
+    metaTitle: "Mosquito Control for Lake Houses, Docks and Boathouses",
+    metaDescription: "Reduce mosquito breeding sites around a lake house. Review containers, screens and shaded areas; any shoreline treatment must follow the label.",
     body: `
 <p class="lede">At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local pressure, but treatment decisions near water need label review and a site inspection.</p>
 
@@ -1591,13 +1591,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide',
     excerpt: 'Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Ants',
     readMinutes: 11,
     heroEmoji: '🐜',
-    metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
-    metaDescription: 'Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony…',
+    metaTitle: "How to Get Rid of Ants in Your Alabama House | EnviroCare",
+    metaDescription: "Identify indoor ants, remove food and moisture, and inspect entry routes. Learn how sanitation and appropriate baiting work together.",
     body: `
 <p class="lede">Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.</p>
 
@@ -1713,13 +1713,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'German Cockroaches in Alabama: German Cockroach Infestation, Roach Control, and Pest Control',
     excerpt: 'German cockroaches can breed indoors around food, moisture and protected hiding places. Control requires identification, sanitation, monitoring and targeted treatment together; occasional surface spraying does not resolve those conditions.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Roaches',
     readMinutes: 14,
     heroEmoji: '🪳',
     metaTitle: 'German Cockroaches in Alabama: Signs & Control | EnviroCare',
-    metaDescription: 'German cockroaches can breed indoors around food, moisture and protected hiding places. Control requires identification, sanitation, monitoring and…',
+    metaDescription: "German cockroaches breed indoors. Combine identification, sanitation, monitoring and targeted treatment to address the infestation.",
     body: `
 <p class="lede">German cockroaches can breed indoors around food, moisture and protected hiding places. Control requires identification, sanitation, monitoring and targeted treatment together; occasional surface spraying does not resolve those conditions.</p>
 
@@ -1930,13 +1930,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Get Rid of Roaches in Alabama: Types of Cockroaches, Cockroach Control, and Pest Control for Alabama Homes',
     excerpt: 'First determine whether roaches are breeding indoors or entering from outside. Remove food and moisture, inspect hiding places and choose targeted controls for the identified species. The right response to an outdoor invader differs from an established indoor infestation.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Roaches',
     readMinutes: 18,
     heroEmoji: '🧹',
     metaTitle: 'How to Get Rid of Roaches in Alabama | EnviroCare',
-    metaDescription: 'First determine whether roaches are breeding indoors or entering from outside. Remove food and moisture, inspect hiding places and choose targeted…',
+    metaDescription: "Identify whether roaches breed indoors or enter from outside. Remove food and moisture and choose controls suited to the species and property.",
     body: `
 <p class="lede">First determine whether roaches are breeding indoors or entering from outside. Remove food and moisture, inspect hiding places and choose targeted controls for the identified species. The right response to an outdoor invader differs from an established indoor infestation.</p>
 
@@ -2248,13 +2248,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Sign of Termites in Your Home: What Termite Damage Looks Like in Alabama',
     excerpt: 'Mud tubes, swarmers, discarded wings and damaged wood can indicate termite activity. Similar-looking damage has other causes, so document the evidence and have the structure inspected before choosing a treatment or assuming the extent of damage.',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 11,
     heroEmoji: '🔍',
     metaTitle: 'Signs of Termite Damage in Alabama Homes | EnviroCare',
-    metaDescription: 'Mud tubes, swarmers, discarded wings and damaged wood can indicate termite activity. Similar-looking damage has other causes, so document the evidence…',
+    metaDescription: "Mud tubes, wings and damaged wood deserve attention. Document possible termite evidence and arrange an inspection to assess the cause and extent.",
     body: `
 <p class="lede">Mud tubes, swarmers, discarded wings and damaged wood can indicate termite activity. Similar-looking damage has other causes, so document the evidence and have the structure inspected before choosing a treatment or assuming the extent of damage.</p>
 
@@ -2488,7 +2488,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Fall Pest-Proofing in Alabama: Seal Up Before the First Cold Nights',
     excerpt: 'Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and reduce clutter. An inspection is more useful than adding pesticide before identifying the entry route.',
     publishedAt: '2026-08-11',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
     readMinutes: 6,
@@ -2501,7 +2501,7 @@ export const BLOG_POSTS: BlogPost[] = [
       alt: 'Illustration of a miniature brick home beside weatherstripping, a caulk gun, a flashlight, storage bins and an EnviroCare truck.',
     },
     metaTitle: 'Fall Pest-Proofing Your Alabama Home | EnviroCare',
-    metaDescription: 'Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and…',
+    metaDescription: "Check doors, utility openings, storage and food sources before colder weather. Repair suitable gaps and reduce clutter as part of pest prevention.",
     body: `
 <p class="lede">Begin fall pest prevention at doors, utility penetrations, storage areas and food sources. Repair gaps with materials suitable for the building and reduce clutter. An inspection is more useful than adding pesticide before identifying the entry route.</p>
 
@@ -2558,13 +2558,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)',
     excerpt: 'Termite treatment is priced after an inspection, because the structure, access, evidence and treatment approach affect the work. Compare the written scope, monitoring schedule and agreement terms rather than expecting one flat price for every home.',
     publishedAt: '2026-08-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 7,
     heroEmoji: '🏷️',
     metaTitle: 'What Termite Treatment Costs in Alabama | EnviroCare',
-    metaDescription: 'Termite treatment is priced after an inspection, because the structure, access, evidence and treatment approach affect the work. Compare the written…',
+    metaDescription: "Termite treatment is priced after inspection. Compare the proposed method, service scope, monitoring and agreement terms for your Alabama home.",
     body: `
 <p class="lede">Termite treatment is priced after an inspection, because the structure, access, evidence and treatment approach affect the work. Compare the written scope, monitoring schedule and agreement terms rather than expecting one flat price for every home.</p>
 
@@ -2622,13 +2622,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Are Those Round Green Caps in the Ground Around a House?',
     excerpt: 'Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them, and confirm whether inspections and any service agreement are current.',
     publishedAt: '2026-07-28',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
     heroEmoji: '🟢',
     metaTitle: 'Green Caps in Your Yard? Don\'t Pull Them Up (Here\'s Why)',
-    metaDescription: 'Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them,…',
+    metaDescription: "Green caps may be termite monitoring or bait stations. Identify the system and provider, and check the service agreement before disturbing them.",
     body: `
 <p class="lede">Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them, and confirm whether inspections and any service agreement are current.</p>
 
@@ -2677,16 +2677,16 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'more-bugs-after-pest-control-treatment',
-    title: 'Seeing More Bugs Right After a Pest Control Treatment? That\'s Normal — Here\'s Why',
+    title: "Seeing More Bugs After Pest Control? What to Report",
     excerpt: 'Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation instructions and contact the provider if activity continues or changes unexpectedly.',
     publishedAt: '2026-07-27',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 6,
     heroEmoji: '🐜',
     metaTitle: 'Why You See More Bugs After Treatment | EnviroCare',
-    metaDescription: 'Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation…',
+    metaDescription: "More insects after treatment do not prove success or failure. Record the pest, location and timing, and ask your provider about follow-up.",
     body: `
 <p class="lede">Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation instructions and contact the provider if activity continues or changes unexpectedly.</p>
 
@@ -2732,13 +2732,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Fleas in a House With No Pets: Where to Look',
     excerpt: 'Fleas can remain in a house after an animal has left or be associated with another animal source. Confirm the insect, inspect carpets and resting areas and discuss both the source and the environment with the pest professional.',
     publishedAt: '2026-07-21',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Fleas',
     readMinutes: 5,
     heroEmoji: '🐾',
     metaTitle: 'Fleas in a House With No Pets: Where to Look',
-    metaDescription: 'Fleas can remain in a house after an animal has left or be associated with another animal source. Confirm the insect, inspect carpets and resting…',
+    metaDescription: "Fleas may remain after an animal leaves. Confirm the insect and inspect carpets, resting areas and possible animal sources before choosing treatment.",
     body: `
 <p class="lede">Fleas can remain in a house after an animal has left or be associated with another animal source. Confirm the insect, inspect carpets and resting areas and discuss both the source and the environment with the pest professional.</p>
 
@@ -3015,13 +3015,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Yard Mosquito Spray vs. Professional Treatment: What Actually Works in Alabama',
     excerpt: 'A yard spray and a professional mosquito program should both be evaluated alongside breeding-site reduction and label requirements. Professional service adds an inspection and site-specific treatment plan, but neither approach can promise a mosquito-free property.',
     publishedAt: '2026-07-07',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 5,
     heroEmoji: '🧴',
     metaTitle: 'Yard Mosquito Spray vs. Professional Treatment | EnviroCare',
-    metaDescription: 'A yard spray and a professional mosquito program should both be evaluated alongside breeding-site reduction and label requirements. Professional…',
+    metaDescription: "Compare yard mosquito sprays and professional service by inspection, breeding-site reduction and label requirements. Neither ensures a pest-free yard.",
     body: `
 <p class="lede">A yard spray and a professional mosquito program should both be evaluated alongside breeding-site reduction and label requirements. Professional service adds an inspection and site-specific treatment plan, but neither approach can promise a mosquito-free property.</p>
 
@@ -3064,107 +3064,47 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'alabama-termite-swarm-season',
-    title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
+    title: "When Do Termites Swarm in Alabama? Signs and Next Steps",
     excerpt: 'Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a sample or photo and avoid choosing a treatment from the calendar alone.',
     publishedAt: '2026-03-04',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
-    readMinutes: 6,
+    readMinutes: 4,
     heroEmoji: '🪵',
     metaTitle: 'When Do Termites Swarm in Alabama? | EnviroCare',
-    metaDescription: 'Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a…',
+    metaDescription: "Termite swarm timing varies by species and weather. Save evidence, arrange an inspection and review your protection agreement.",
     body: `
 <p class="lede">Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a sample or photo and avoid choosing a treatment from the calendar alone.</p>
 
-<p>Swarms are what we get the most calls about every spring. So here is what is actually happening during termite swarming season, why Alabama gets hit harder than most states, and what we tell every homeowner who calls us with a bag of wings on the counter.</p>
+<h2>What is a termite swarm?</h2>
+<p>A swarm is the flight of winged reproductive termites looking for mates and places to start colonies. It is different from the feeding activity of workers. Removing swarmers does not address the colony that produced them, so report where they appeared as well as what they looked like.</p>
+<p>The <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA's identification guide</a> distinguishes termites from swarming ants: termite wings are roughly equal in length and the antennae are straight; ants have longer front wings and bent antennae. A specimen or clear photo can help a professional identify the insect.</p>
 
 <h2>When do termites swarm in Alabama?</h2>
+<p>Spring warmth and rain can bring noticeable swarming, but timing is not the same for every species or location. <a href="https://www.aces.edu/blog/topics/home/schedule-your-termite-annual-inspection-to-avoid-costly-home-damage/">Alabama Extension describes</a> warm, humid, calm conditions, often following rain. A particular week in March is not a reliable statewide start date.</p>
+<p>Native subterranean termites and Formosan termites have different swarming patterns. Formosan swarmers often appear around lights in the evening. They are not limited to Alabama's coast: <a href="https://www.aces.edu/blog/topics/home/termite-territory-is-expanding-in-alabama-the-basics-of-termite-control/">Alabama Extension has reported infestations in central Alabama</a>. Do not rule out a species from the town name alone.</p>
 
-<p>A termite colony is organized by caste. Worker termites do the feeding and digging, soldier termites guard the tunnels, and a king and queen produce the eggs. Once a colony is mature, usually several years old, it starts raising winged reproductives. Those swarmers leave the nest all at once, pair off, shed their wings, and try to start a new colony somewhere nearby.</p>
-<p><strong>Reference:</strong> Swarming ants can be mistaken for termites; identify the insect. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
+<h2>What does an indoor swarm tell you?</h2>
+<p>Large numbers of swarmers indoors, especially insects emerging from the building itself, call for an inspection. A few insects attracted through an opening can have a different explanation. <a href="https://extension.msstate.edu/news/feature-story/2026/protect-property-heavy-termite-swarms">Mississippi State Extension explains</a> that Formosan swarmers can enter through doors or cracks without establishing that the house is infested.</p>
+<p>Note whether you saw insects coming from a wall or simply gathering around a light. Photograph the location before cleaning up, and retain a few specimens if possible. The inspection should evaluate the evidence and accessible areas; a pile of wings does not measure the extent or age of concealed damage.</p>
 
-<p>Most of them fail. Birds, ants, dry air and sunlight take care of the majority within hours. But a swarm tells you something important: a colony big enough to produce reproducers is living close by, and it has been feeding for a while.</p>
-
-<h2>When do termites swarm in Alabama?</h2>
-
-<p>Subterranean termites, the type of termite behind the vast majority of the damage to homes in our state, live underground in colonies that can run into the hundreds of thousands. They feed year-round, but they only send out swarmers when conditions line up: warming soil, recent rainfall, and high humidity on a calm afternoon.</p>
-
-<p>In Birmingham, that combination usually shows up in the second or third week of March. Down in Auburn it can hit a week earlier. In Huntsville, sometimes a week later. By April, every county we serve is in peak swarm, and activity tapers off through late spring.</p>
-
-<figure class="post-fig">
-<img src="/images/blog/alabama-pest-pressure-calendar.webp" width="1600" height="900" loading="lazy" alt="Chart of pest pressure by month in central and north Alabama. Termite pressure peaks March through May, mosquitoes and ticks June through August, fire ants and fleas May through September." />
-<figcaption>Typical pest pressure by month across central and north Alabama. Termite swarms peak March through May.</figcaption>
-</figure>
-
-<h3>Which termite species are swarming</h3>
-
+<h2>Which other signs should you report?</h2>
 <ul>
-<li><strong>Eastern subterranean termites</strong> (Reticulitermes flavipes) are the termite species we deal with across central and north Alabama. They swarm in daylight, most often from March into May.</li>
-<li><strong>Formosan subterranean termites</strong> originally came from East Asia, including Taiwan, and are established on Alabama's Gulf Coast around Mobile and Baldwin County. They swarm later, in late spring and early summer, usually at dusk around lights. A single Formosan colony can hold millions of termites, which is why it is counted among the most destructive termites in the United States. It is not what we find in Birmingham, Lake Martin or Huntsville. More on that in our post on <a href="/blog/formosan-termites-alabama">Formosan termites in Alabama</a>.</li>
-<li><strong>Drywood termites</strong> live inside wood with no contact with the ground. They are rare in our part of the state, and when they turn up it is usually in furniture or lumber brought in from somewhere else.</li>
+<li>Mud tubes on the foundation or other accessible surfaces.</li>
+<li>Damaged or hollow-looking wood.</li>
+<li>Discarded wings and the locations where they accumulated.</li>
+<li>Leaks, persistent damp areas or wood resting against the structure.</li>
 </ul>
+<p>Similar-looking damage can have other causes. Our <a href="/blog/termite-damage-signs-alabama">termite-damage guide</a> can help you prepare observations, but the cause and extent still require assessment.</p>
 
-<h2>What you will actually see</h2>
+<h2>What should happen after the inspection?</h2>
+<p>Ask what was inspected, which areas could not be accessed and whether the findings support treatment. If a proposal is appropriate, review the method, covered structure, inspection schedule and agreement terms. A treatment record from construction does not by itself establish current protection; check renewals and service history with the provider.</p>
+<p>EnviroCare offers <a href="/services/sentricon">Sentricon® termite baiting</a>, with a plan and quote based on the property. Our <a href="/blog/sentricon-vs-liquid-termite-treatment">baiting and liquid-treatment comparison</a> explains questions to ask. Qualifying properties may receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
 
-<p>A termite swarmer looks almost identical to a flying ant: about half an inch long, dark brownish to black, with two pairs of wings. The easy tell is that termite wings are all the same length, and they break off easily. An ant has a pinched waist and front wings longer than its back wings; a termite has a thick, straight body. If you find a pile of identical translucent wings on a windowsill or near a baseboard, you have termites. Not "you might." You do. Our guide to <a href="/blog/how-to-identify-termites-alabama">identifying termites in Alabama</a> has photos of both.</p>
-
-<p>The swarmers themselves don't bite, don't sting and don't damage anything. They are just looking for a mate. The damage is being done by the worker termites underground, the ones you will never see.</p>
-
-<h3>Other signs of termite activity</h3>
-
-<ul>
-<li>Pencil-width mud tubes running up your foundation, piers or plumbing</li>
-<li>Wood that sounds hollow when tapped, or that crumbles at a screwdriver</li>
-<li>Bubbling paint or warped trim that looks like water damage</li>
-<li>Swarmers coming up through cracks in concrete, around slab joints or near bath traps</li>
-</ul>
-
-<p>For a fuller checklist, see <a href="/blog/termite-damage-signs-alabama">signs of termite damage in Alabama homes</a>.</p>
-
-<h2>Why Birmingham gets it worse</h2>
-
-<p>Two reasons. First, our red clay soil holds moisture for weeks after rain. That is perfect for termites, which need constant moisture to survive. Second, our housing stock skews old. A lot of homes in Forest Park, Mountain Brook, Crestwood and Vestavia were built before pre-construction termite treatment was standard practice. Wood-to-soil contact in those old foundations, plus firewood stacked against the house and mulch piled up to the siding, gives a colony an easy food source.</p>
-
-<p>Newer construction in Trussville, Helena and Greystone gets treated at the slab pour, but that builder treatment does not last forever, and the protection that came with it is time-limited. After that, the home is on its own unless the owner signs up for ongoing protection.</p>
-
-<h2>What we recommend</h2>
-
-<p>Our family has done pest control in Alabama for four generations, and we have seen every method the industry has tried on wood structures: chlordane and chlorpyrifos (both long gone from home termite work), liquid soil barriers, foaming agents and baits. The one that consistently works in our clay soil is <strong>Sentricon® Always Active™</strong>.</p>
-
-<p>It is a bait station system. We install monitoring stations every 10 to 15 feet around your foundation. Foraging termites find the stations, carry the bait back to the colony, and the colony declines and collapses over time. No drilling into your slab and no tank trucks in the yard. The active ingredient is EPA-registered and applied according to label directions. You can read more about how it works on our <a href="/services/sentricon">Sentricon page</a> or our comparison of <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon versus liquid treatment</a>.</p>
-
-<p>Qualifying homes we protect with Sentricon carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. That coverage is ours, not the manufacturer's. Terms are confirmed in writing before service starts.</p>
-
-<p>What does not work: spraying swarmers with a can from the hardware store. It kills the insects you can see and does nothing to the colony nest underground. A termite infestation is a soil problem, not a surface one, and it takes professional termite control to reach it.</p>
-
-<h2>If you find swarmers in your house</h2>
-
-<p>Don't panic. Don't bug-bomb the room. Don't try to scrub everything up before "they get worse." Take three steps:</p>
-
-<ol>
-<li><strong>Photograph</strong> what you found, both the swarmers and the location.</li>
-<li><strong>Collect a few</strong> in a sandwich bag, just in case.</li>
-<li><strong>Call us</strong> for a free termite inspection. We will schedule a free inspection with a Certified Sentricon Specialist. There is no obligation.</li>
-</ol>
-
-<p>We price termite treatment plans only after that free inspection, never over the phone, because the right answer depends on your foundation, your soil and what the inspector finds. If you are buying or selling a home, the Official Alabama Wood Infestation Inspection Report is a separate service with its own fee; many lenders require it, and we cover it on our <a href="/services/wdo-letters">WDO letters page</a>.</p>
-
-<h2>Do termites swarm every year?</h2>
-
-<p>Yes. Once a colony is mature it swarms each spring, and a yard can hold another colony you have not seen yet. A swarm this year is a good reason to get an inspection before the damage to your property shows up in the walls.</p>
-
-<p>Ready to have someone look? <a href="/quote">Request a free termite inspection</a> or call your nearest office:</p>
-
-<ul>
-<li>Birmingham: (205) 991-2882</li>
-<li>Alabaster: (205) 940-6360</li>
-<li>Alexander City &amp; Lake Martin: (256) 234-6162</li>
-<li>Huntsville: (256) 937-7676</li>
-</ul>
-
-<p><em>Kevin Wedgworth leads EnviroCare, a fourth-generation family business. The Wedgworth family has done pest control in Alabama since 1958.</em></p>
-
+<h2>Should you wait for another swarm?</h2>
+<p>Report suspicious evidence when you find it. A quiet period does not establish that a building is free of termites, and an outdoor swarm alone does not identify damage to the house. Keep the agreed inspection schedule and discuss any new evidence with the provider.</p>
+<p><a href="/quote">Request a termite assessment</a> or contact your local office: Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Alexander City / Lake Martin <a href="tel:+12562346162">(256) 234-6162</a>, or Huntsville <a href="tel:+12569377676">(256) 937-7676</a>. Real-estate <a href="/services/wdo-letters">WDO reports</a> are a separate service with their own scope and fee.</p>
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
@@ -3174,13 +3114,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Sentricon vs. Liquid Termite Treatment: Which Is Best for Your Alabama Home?',
     excerpt: 'Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while monitoring and agreement terms affect ongoing service. Compare a site-specific written proposal rather than choosing on product name alone.',
     publishedAt: '2026-02-18',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 9,
     heroEmoji: '🛡️',
-    metaTitle: 'Sentricon vs Liquid Termite Treatment: Which Is Best for Alabama?',
-    metaDescription: 'Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while…',
+    metaTitle: "Sentricon vs Liquid Termite Treatment in Alabama",
+    metaDescription: "Compare bait systems and liquid termite treatments by property conditions, access, monitoring and written agreement terms.",
     body: `
 <p class="lede">Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while monitoring and agreement terms affect ongoing service. Compare a site-specific written proposal rather than choosing on product name alone.</p>
 
@@ -3471,16 +3411,16 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'fire-ants-alabama-summer',
-    title: 'Fire Ants in Alabama: Why They Get Worse Every Summer, and How to Actually Kill Them',
+    title: "Fire Ants in Alabama: Treatment Timing and Prevention",
     excerpt: 'Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound treatment. Treat visible mounds as evidence to assess rather than a complete map of colony activity.',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     publishedAt: '2026-05-10',
     author: 'Kevin Wedgworth',
     category: 'Fire Ants',
     readMinutes: 4,
     heroEmoji: '🌻',
     metaTitle: 'Fire Ant Treatment Birmingham AL | EnviroCare',
-    metaDescription: 'Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound…',
+    metaDescription: "Fire-ant treatment depends on the site, product label and active foraging. Learn how baiting, mound treatment and follow-up fit the plan.",
     body: `
 <p class="lede">Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound treatment. Treat visible mounds as evidence to assess rather than a complete map of colony activity.</p>
 
@@ -3718,13 +3658,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Why Pests Get Worse After Rain in Alabama',
     excerpt: 'Rain can change moisture and shelter conditions around a house, making pest activity more noticeable. Identify the insect and inspect drainage, door gaps and damp storage areas before assuming that every sighting needs another application.',
     publishedAt: '2026-05-20',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
     readMinutes: 6,
     heroEmoji: '🌧️',
     metaTitle: 'Why Pests Get Worse After Rain in Alabama',
-    metaDescription: 'Rain can change moisture and shelter conditions around a house, making pest activity more noticeable. Identify the insect and inspect drainage, door…',
+    metaDescription: "Rain can change pest activity around a home. Check drainage, damp storage and entry points before deciding whether treatment is needed.",
     body: `
 <p class="lede">Rain can change moisture and shelter conditions around a house, making pest activity more noticeable. Identify the insect and inspect drainage, door gaps and damp storage areas before assuming that every sighting needs another application.</p>
 
@@ -3849,13 +3789,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Prepare Your Home for Pest Control Service',
     excerpt: 'Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs and follow directions for pets, food, belongings and re-entry; requirements vary by product and service.',
     publishedAt: '2026-05-20',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Tips',
     readMinutes: 3,
     heroEmoji: '🏡',
-    metaTitle: 'How to Prepare Your Home for Pest Control Service | EnviroCare Alabama',
-    metaDescription: 'Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs…',
+    metaTitle: "How to Prepare Your Home for Pest Control | EnviroCare",
+    metaDescription: "Ask for treatment-specific preparation and re-entry instructions. Clear inspection access and discuss pets, food and belongings with your provider.",
     body: `
 <p class="lede">Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs and follow directions for pets, food, belongings and re-entry; requirements vary by product and service.</p>
 
@@ -3893,13 +3833,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Pest Control in Huntsville, AL: A Local Guide',
     excerpt: 'For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.',
     publishedAt: '2026-05-20',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 15,
     heroEmoji: '🚀',
     metaTitle: 'Pest Control in Huntsville, AL: A Local Guide | EnviroCare',
-    metaDescription: 'For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope…',
+    metaDescription: "Explore pest-control questions for Huntsville homes: identification, inspection, service scope and separate termite or mosquito protection.",
     body: `
 <p class="lede">For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.</p>
 
@@ -4577,7 +4517,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Silverfish Control in Alabama: How to Get Rid of Silverfish in Your Home and Prevent Silverfish Infestation in Alabama Homes',
     excerpt: 'Silverfish activity calls for an inspection of moisture, storage and potential food sources such as paper-associated materials. Identify the pest, reduce favorable conditions and protect vulnerable stored items before relying on treatment alone.',
     publishedAt: '2026-05-21',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 12,
@@ -4586,7 +4526,7 @@ export const BLOG_POSTS: BlogPost[] = [
     // under the plain "Silverfish Control in Alabama | EnviroCare" title. These two
     // were byte-identical until 2026-08-11 — the only duplicate title on the site.
     metaTitle: 'Silverfish in Alabama Homes: How to Get Rid of Them',
-    metaDescription: 'Silverfish activity calls for an inspection of moisture, storage and potential food sources such as paper-associated materials. Identify the pest,…',
+    metaDescription: "Identify silverfish and inspect moisture, storage and food sources. Protect vulnerable items and reduce favorable conditions alongside treatment.",
     body: `
 <p class="lede">Silverfish activity calls for an inspection of moisture, storage and potential food sources such as paper-associated materials. Identify the pest, reduce favorable conditions and protect vulnerable stored items before relying on treatment alone.</p>
 
@@ -4701,13 +4641,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Cricket Control in Alabama: House Crickets, Camel Crickets, and Pest Control',
     excerpt: 'Cricket control starts with identifying the cricket and inspecting how it enters. Door gaps, damp sheltered spaces and outdoor conditions can contribute to indoor sightings. Exclusion and condition changes belong alongside any targeted treatment.',
     publishedAt: '2026-05-21',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 12,
     heroEmoji: '🦗',
     metaTitle: 'Cricket Control in Alabama: House & Camel Crickets',
-    metaDescription: 'Cricket control starts with identifying the cricket and inspecting how it enters. Door gaps, damp sheltered spaces and outdoor conditions can…',
+    metaDescription: "Identify house, field and camel crickets and inspect entry routes. Address door gaps and sheltered areas as part of a pest-control plan.",
     body: `
 <p class="lede">Cricket control starts with identifying the cricket and inspecting how it enters. Door gaps, damp sheltered spaces and outdoor conditions can contribute to indoor sightings. Exclusion and condition changes belong alongside any targeted treatment.</p>
 
@@ -4818,83 +4758,42 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'termite-season-2026-alabama',
-    title: "Termite Season 2026 in Alabama: What's Coming and How to Stay Ahead",
-    excerpt: "Spring 2026 is shaping up as a heavy termite year. Heavy winter rainfall, warm soil temperatures, and record swarm reports across Central and North Alabama. Here's what you need to know now.",
+    title: "Termite Season 2026 in Alabama: Signs, Inspection and Protection",
+    excerpt: "Review termite evidence, inspection records and protection agreements for your Alabama home. Swarm timing varies; the right next step depends on what you find.",
     publishedAt: '2026-05-23',
-    updatedAt: '2026-09-29',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Termites',
-    readMinutes: 6,
+    readMinutes: 4,
     heroEmoji: '🪵',
-    metaTitle: 'Termite Season 2026 Alabama: What Homeowners Need to Know | EnviroCare',
-    metaDescription: 'Termite season 2026 is underway across Alabama — warm soil means elevated swarm activity. Sentricon® baiting, no drilling. Free inspection. (205) 940-6360.',
+    metaTitle: "Termite Season 2026 in Alabama: Signs and Next Steps",
+    metaDescription: "Review Alabama termite swarm signs, inspection records and protection agreements. Learn what to document and when to request a professional assessment.",
     body: `
-<p class="lede">By late April 2026, our technicians had already logged more termite swarm calls than we typically see through the end of May in a normal year. If you've seen wings on your windowsill or swarmers boiling out of a mulch bed, you're not alone — and you're not too late to protect your home.</p>
+<p class="lede">Termite season in Alabama is a reason to review the evidence around your home and the service agreement protecting it. Swarm timing varies with species and local weather. If you find wings, mud tubes or unfamiliar damage, document the location and arrange an inspection instead of judging the risk from the calendar alone.</p>
 
-<p>Here's what's driving the 2026 season, what's different about this year, and what we're recommending to Alabama homeowners right now.</p>
+<h2>When should Alabama homeowners watch for swarms?</h2>
+<p>Warm weather can make termite activity more noticeable. <a href="https://www.aces.edu/blog/topics/home/schedule-your-termite-annual-inspection-to-avoid-costly-home-damage/">Alabama Extension explains</a> that rising temperatures affect foraging and that swarms commonly occur in warm, humid conditions after rain. Those general patterns do not establish a particular start date or the severity of a season at an individual home.</p>
+<p>Keep an inspection appointment even if you did not see a swarm. Visible swarmers are only one kind of evidence. Our <a href="/blog/alabama-termite-swarm-season">Alabama swarm-season guide</a> explains identification and what to report.</p>
 
-<h2>Why 2026 is hitting harder</h2>
+<h2>Does finding swarmers mean the house is infested?</h2>
+<p>The location and number matter. Termites emerging from a wall, ceiling or floor, or large numbers found indoors, warrant a professional inspection. A few swarmers attracted from an outdoor colony do not establish the same thing. <a href="https://extension.msstate.edu/insects/termites/signs-termite-infestation">Mississippi State Extension describes this distinction</a>, including outdoor Formosan swarmers that can enter buildings around lights.</p>
+<p>Save a sample or a clear photograph if you can, and record where the insects first appeared. Swarming ants can look similar. Identification should come before a treatment decision, and killing the visible swarmers does not treat the colony that produced them.</p>
 
-<p>Three conditions have aligned this spring that we don't see every year:</p>
+<h2>What should you check around the house?</h2>
+<p>Look from accessible areas for mud tubes, discarded wings and damaged wood, and note any change since the last inspection. Do not open walls, disturb electrical equipment or enter an inaccessible space to investigate. A visible check cannot establish the condition of concealed wood.</p>
+<p>The <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA recommends</a> correcting leaks and drainage, maintaining gutters and downspouts, keeping vents clear and storing firewood or wood debris away from the house. These steps address conditions that favor termites; they do not replace an assessment of suspected activity. See our <a href="/blog/termite-damage-signs-alabama">termite-evidence checklist</a> for observations to discuss.</p>
 
-<ol>
-<li><strong>Above-average winter rainfall.</strong> December 2025 through February 2026 was the wettest three-month stretch Alabama had seen in over a decade. That moisture saturated the clay soils throughout the Birmingham Basin and the Tennessee Valley, which is exactly the environment subterranean termite colonies expand into.</li>
-<li><strong>Soil temperatures spiked early.</strong> After a warm March, soil temps in Central Alabama crossed the 70°F threshold — the trigger for swarm behavior — about two weeks ahead of the historical average.</li>
-<li><strong>Carry-over from 2025.</strong> Last year's late start to the season (we had an unusually cold March 2025) meant colonies that didn't swarm successfully last year are attempting reproduction this spring instead. We're effectively seeing two swarm years compressed into one.</li>
-</ol>
+<h2>What if the home had a builder treatment or an older agreement?</h2>
+<p>Find the treatment record and current agreement. Ask the provider to confirm the covered structure, renewal status, inspection schedule, exclusions and whether the terms provide retreatment, damage repair or both. The age of a house or the color of a closing document cannot tell you whether coverage is current.</p>
+<p>If a visit was missed or an agreement may have expired, contact the provider to review the record and next steps. Do not assume automatic reinstatement, a particular fee or a fixed expiration period. Our <a href="/blog/termite-bond-alabama-explained">termite-agreement guide</a> offers questions to bring to that conversation.</p>
 
-<h2>Where we're seeing it most</h2>
+<h2>How is the treatment plan decided?</h2>
+<p>An inspection should guide the method, scope and quote. Termite baiting and liquid treatments use different approaches; the structure, access and evidence affect the choice. Read our <a href="/blog/sentricon-vs-liquid-termite-treatment">baiting and liquid-treatment comparison</a> and ask what inspections and follow-up the proposal includes.</p>
+<p>EnviroCare offers <a href="/services/sentricon">Sentricon® termite baiting</a>. Qualifying properties may receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. Review the written terms for your property.</p>
 
-<p>Our Birmingham office has reported the heaviest concentration of new calls in older neighborhoods: Forest Park, Mountain Brook, Avondale, and Crestwood. These areas have mature hardwood trees, aging construction, and high wood-to-soil contact — exactly what Eastern Subterranean termites are hunting for.</p>
-
-<p>The Huntsville office is tracking elevated activity in Madison, Harvest, and Hampton Cove — areas that had significant new construction between 2015 and 2022. Builder soil pre-treatment warranties in those communities are starting to expire. Homeowners who moved in 2018 or 2019 and relied on the builder's soil treatment are now unprotected.</p>
-
-<p>Our Alex City / Lake Martin office is seeing the heaviest activity we've logged in years along the lake's eastern shore. High-water events this winter caused termite colonies to raft and relocate — lakefront lots on the eastern shore around Dadeville and Eclectic are at elevated risk this season.</p>
-
-<h2>What you'll actually see during a swarm</h2>
-
-<p>A swarm looks dramatic but it's not actually the termites causing your damage — it's the reproductive event, not the workers. Hundreds or thousands of winged termites emerge from a single point, fly for 30 to 60 minutes, then fall to the ground and shed their wings. What they leave behind is a pile of identical, translucent wings. That's your evidence.</p>
-
-<p>If you find wings: on a windowsill, near a baseboard, on a door threshold, or around a light fixture — you have an active colony nearby. Not potentially nearby. Present.</p>
-
-<p>The workers, meanwhile, are underground and have been feeding since last fall. The swarm doesn't start the infestation — it's the colony announcing itself after it's already been established for years.</p>
-
-<figure class="post-fig">
-<img src="/images/blog/termite-swarm-season-alabama-timeline.webp" width="1600" height="900" loading="lazy" alt="Timeline of Alabama termite swarm season: first subterranean swarms in February, peak subterranean swarms March through May, Formosan termite swarms May into June." />
-<figcaption>When Alabama termites swarm. The swarm is the part you can see; the workers have been feeding all along.</figcaption>
-</figure>
-
-<h2>What changed about our Sentricon recommendations in 2026</h2>
-
-<p>We've always recommended Sentricon® Always Active™ as our primary termite protection for Alabama homes. That hasn't changed. What has changed this year is our urgency about inspecting homes that have gone 5 or more years without an active termite protection agreement.</p>
-
-<p>Coverage follows the agreement. If a Sentricon system has gone a long stretch without a service visit, the agreement behind it may have lapsed — and the damage repair coverage lapses with it. That coverage is up to $1,000,000, subject to the terms of the agreement, and it is EnviroCare's own rather than the manufacturer's. If your last service visit was more than 18 months ago, call us. We'll inspect and bring it current at no charge for existing customers.</p>
-
-<h2>For homeowners who don't have termite protection</h2>
-
-<p>The 2026 season is a bad year to be unprotected. Here's the math: a subterranean termite colony in Alabama typically contains 250,000 to one million workers. Each worker consumes about 0.0025 ounces of wood per day. At peak population, a mature colony in your foundation can consume the equivalent of a 1-inch pine board every 23 days. By the time you see visible damage, the colony has usually been present for 3 to 5 years.</p>
-
-<p>We offer free inspections at all four offices. Fast appointments are available most days. The inspection takes about 60 minutes for a typical home, there's no sales pressure, and if you have no evidence of activity we'll tell you that plainly.</p>
-
-<h2>Steps to take right now</h2>
-
-<ol>
-<li><strong>Do a 10-minute perimeter walk.</strong> Check the base of your foundation, where mulch meets your siding, any wood posts in contact with the soil, and your crawlspace access door. Look for mud tubes — pencil-thick dirt tunnels running up the foundation face. That's the most reliable field sign of subterranean termite activity.</li>
-<li><strong>Check for wings.</strong> Concentrated piles of small identical wings near windows or light fixtures, especially on south-facing walls, are the #1 indicator homeowners find on their own.</li>
-<li><strong>Check your builder warranty expiration.</strong> Most new construction in Alabama gets a soil pre-treatment that carries a 5-year warranty. After that, the home has no coverage. Look for a pink or blue sheet in your closing documents — it should have an issue date and warranty expiration.</li>
-<li><strong>Call us.</strong> Free inspection, no obligation. We'll tell you what we find and what we'd recommend. If there's no activity, we'll say that too.</li>
-</ol>
-
-<p>Office numbers:</p>
-<ul>
-<li>Birmingham — (205) 991-2882</li> <li>Alabaster — (205) 940-6360</li>
-<li>Lake Martin / Alex City — (256) 234-6162</li>
-<li>Huntsville — (256) 937-7676</li>
-</ul>
-
-<p>Or call our main line: <strong>(205) 940-6360</strong>. If you found swarmers this week, don't wait — call and we&#39;ll get you on the schedule.</p>
-
-<p><em>Kevin Wedgworth is the owner of EnviroCare, a fourth-generation family company founded by his grandfather Phillip M. Wedgworth in Alexander City, Alabama, in 1958. EnviroCare is a Sentricon® Certified Specialist.</em></p>
+<h2>How do you request an inspection?</h2>
+<p>Tell us what you found, where you found it and whether you have an existing termite agreement. <a href="/quote">Request a termite assessment</a> or call our main line at <a href="tel:+12059406360">(205) 940-6360</a> to discuss scheduling. An Official Alabama Wood Infestation Inspection Report for a real-estate transaction is a separate <a href="/services/wdo-letters">WDO-report service</a>; confirm the required scope and fee when booking.</p>
+<p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
@@ -5178,13 +5077,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Mosquito Season in Alabama: Mosquito Control Services, Mosquito Management, and Pest Control for Huntsville and Birmingham',
     excerpt: 'Alabama mosquito activity depends on local weather and breeding sites. EnviroCare schedules its seasonal program from March through October; that service calendar is separate from when a homeowner might notice mosquitoes. Inspect water-holding containers and screens throughout active periods.',
     publishedAt: '2026-03-01',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Mosquitoes',
     readMinutes: 12,
     heroEmoji: '🦟',
     metaTitle: 'Mosquito Season in Alabama: Birmingham & Huntsville Guide',
-    metaDescription: 'Alabama mosquito activity depends on local weather and breeding sites. EnviroCare schedules its seasonal program from March through October; that…',
+    metaDescription: "Mosquito activity varies with Alabama weather. EnviroCare provides March–October service; breeding-site reduction matters throughout active periods.",
     body: `
 <p class="lede">Alabama mosquito activity depends on local weather and breeding sites. EnviroCare schedules its seasonal program from March through October; that service calendar is separate from when a homeowner might notice mosquitoes. Inspect water-holding containers and screens throughout active periods.</p>
 <p><strong>Looking for mosquito control near you?</strong> See <a href="/birmingham-mosquito-control">mosquito control in Birmingham</a> (Jefferson County, served from our 16th Ave S office) or <a href="/huntsville-mosquito-control">mosquito control in Huntsville</a> for local details, the March–October treatment schedule and pricing.</p>
@@ -5804,13 +5703,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Pest Control in Birmingham: Services and Questions',
     excerpt: 'For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.',
     publishedAt: '2026-06-30',
-    updatedAt: '2026-10-28',
+    updatedAt: "2026-10-29",
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 14,
     heroEmoji: '🏙️',
     metaTitle: 'Pest Control in Birmingham: Services and Questions',
-    metaDescription: 'For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the…',
+    metaDescription: "Compare pest-control options for Birmingham by pest, service scope, visit schedule and local office. Discuss termite and mosquito service separately.",
     body: `
 <p class="lede">For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.</p>
 

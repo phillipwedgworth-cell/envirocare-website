@@ -1,5 +1,5 @@
 {
-  "verifiedOn": "2026-10-28",
+  "verifiedOn": "2026-10-29",
   "scope": "Primary-source reference list checked through web retrieval. The supports field limits what a citation establishes; source inclusion does not fact-check an entire draft.",
   "sources": [
     {
@@ -92,7 +92,9 @@
       "url": "https://ipm.ucanr.edu/home-and-landscape/cockroaches/",
       "topics": [
         "roach",
-        "cockroach"
+        "cockroach",
+        "bug bomb",
+        "fogger"
       ],
       "supports": "Identification, sanitation, monitoring and targeted controls work together; distinguish indoor-breeding species from outdoor invaders."
     },
@@ -151,6 +153,58 @@
         "cricket"
       ],
       "supports": "Common household cricket types include field, house and camel crickets; prevention and exclusion precede pesticide decisions."
+    },
+    {
+      "id": "aces-termite-inspection",
+      "title": "Alabama Extension: Termite inspection and seasonal conditions",
+      "url": "https://www.aces.edu/blog/topics/home/schedule-your-termite-annual-inspection-to-avoid-costly-home-damage/",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Warm, humid conditions and rain affect swarming; inspection records document evidence and conducive conditions. Does not establish 2026 weather records, company call volumes or exact statewide swarm dates."
+    },
+    {
+      "id": "aces-termite-range",
+      "title": "Alabama Extension: Termite territory and control",
+      "url": "https://www.aces.edu/blog/topics/home/termite-territory-is-expanding-in-alabama-the-basics-of-termite-control/",
+      "topics": [
+        "termite",
+        "formosan"
+      ],
+      "supports": "Formosan infestations have been reported in central Alabama, beyond the coastal counties. Supports inspection and property-specific treatment selection, not a prediction for a particular town or property."
+    },
+    {
+      "id": "msu-termite-signs",
+      "title": "Mississippi State Extension: Signs of termite infestation",
+      "url": "https://extension.msstate.edu/insects/termites/signs-termite-infestation",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Interpret swarm evidence by location and number; large indoor emergences and a few outdoor-origin Formosan swarmers have different implications. No company-specific field counts or damage timelines."
+    },
+    {
+      "id": "msu-termite-swarms-2026",
+      "title": "Mississippi State Extension: Understanding termite swarms",
+      "url": "https://extension.msstate.edu/news/feature-story/2026/protect-property-heavy-termite-swarms",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Formosan swarmers are attracted to lights and can enter through openings; large indoor emergences warrant inspection. Mississippi annual activity reports must not be relabeled as Alabama or EnviroCare observations."
+    },
+    {
+      "id": "uc-house-mouse",
+      "title": "UC IPM: House mouse",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/house-mouse/",
+      "topics": [
+        "data center",
+        "rodent",
+        "mouse",
+        "mice"
+      ],
+      "supports": "Mice can enter through small openings or deliveries and can gnaw wiring. Supports inspection, exclusion and monitoring; does not substantiate outage rates, universal device choices or a facility service commitment."
     }
   ]
 }

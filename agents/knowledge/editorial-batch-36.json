@@ -16,8 +16,8 @@
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
-      "competitorOriginalityChecked": false,
-      "reviewNote": "Site-specific workflow examples require operations review; no certification or response commitment implied."
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement."
     },
     {
       "slug": "data-center-pest-control-service-report",
@@ -32,8 +32,8 @@
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
-      "competitorOriginalityChecked": false,
-      "reviewNote": "Site-specific workflow examples require operations review; no certification or response commitment implied."
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement."
     },
     {
       "slug": "data-center-pest-activity-response",
@@ -48,8 +48,8 @@
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
-      "competitorOriginalityChecked": false,
-      "reviewNote": "Site-specific workflow examples require operations review; no certification or response commitment implied."
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement."
     },
     {
       "slug": "data-center-ipm-plan",
@@ -64,8 +64,8 @@
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
-      "competitorOriginalityChecked": false,
-      "reviewNote": "Already drafted in PR #286, counted once in the 36-post batch."
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement."
     },
     {
       "slug": "data-center-rodent-entry-points",
@@ -80,8 +80,8 @@
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
-      "competitorOriginalityChecked": false,
-      "reviewNote": "Already drafted in PR #286, counted once in the 36-post batch."
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement."
     },
     {
       "slug": "data-center-pest-control-vendor-checklist",
@@ -96,8 +96,8 @@
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
-      "competitorOriginalityChecked": false,
-      "reviewNote": "Already drafted in PR #286, counted once in the 36-post batch."
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement."
     },
     {
       "slug": "spiders-on-boat-docks-lake-martin",
@@ -132,7 +132,7 @@
     {
       "slug": "rodents-alabama-homes-fall",
       "keyword": "mice in house in winter",
-      "title": "Mice and Rats in Alabama Homes: Why October Is When They Move In",
+      "title": "Mice and Rats in Alabama Homes: Fall Entry and Prevention",
       "route": "/blog/rodents-alabama-homes-fall",
       "kind": "refresh-existing",
       "buyerTarget": "/services/pest-control",
@@ -177,12 +177,13 @@
     {
       "slug": "bug-bombs-foggers-do-they-work",
       "keyword": "do bug bombs work",
-      "title": "Do Bug Bombs Work? Why Foggers Usually Make an Alabama Pest Problem Worse",
+      "title": "Do Bug Bombs Work? Limits and Precautions for Alabama Homes",
       "route": "/blog/bug-bombs-foggers-do-they-work",
       "kind": "refresh-existing",
       "buyerTarget": "/services/pest-control",
       "sourceIds": [
-        "epa-foggers"
+        "epa-foggers",
+        "uc-roaches"
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
@@ -192,7 +193,7 @@
     {
       "slug": "how-often-pest-control-alabama",
       "keyword": "how often pest control alabama",
-      "title": "How Often Should Pest Control Come? Why Alabama Is a Bi-Monthly State",
+      "title": "How Often Should You Get Pest Control in Alabama?",
       "route": "/blog/how-often-pest-control-alabama",
       "kind": "refresh-existing",
       "buyerTarget": "/services/pest-control",
@@ -357,7 +358,7 @@
     {
       "slug": "more-bugs-after-pest-control-treatment",
       "keyword": "more bugs after pest control treatment",
-      "title": "Seeing More Bugs Right After a Pest Control Treatment? That's Normal — Here's Why",
+      "title": "Seeing More Bugs After Pest Control? What to Report",
       "route": "/blog/more-bugs-after-pest-control-treatment",
       "kind": "refresh-existing",
       "buyerTarget": "/services/pest-control",
@@ -402,12 +403,15 @@
     {
       "slug": "alabama-termite-swarm-season",
       "keyword": "alabama termite swarm season",
-      "title": "Why Alabama Termite Season Starts in March — And What to Watch For",
+      "title": "When Do Termites Swarm in Alabama? Signs and Next Steps",
       "route": "/blog/alabama-termite-swarm-season",
       "kind": "refresh-existing",
       "buyerTarget": "/services/termite-control",
       "sourceIds": [
-        "epa-termites"
+        "epa-termites",
+        "aces-termite-inspection",
+        "aces-termite-range",
+        "msu-termite-swarms-2026"
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
@@ -432,7 +436,7 @@
     {
       "slug": "fire-ants-alabama-summer",
       "keyword": "fire ants alabama",
-      "title": "Fire Ants in Alabama: Why They Get Worse Every Summer, and How to Actually Kill Them",
+      "title": "Fire Ants in Alabama: Treatment Timing and Prevention",
       "route": "/blog/fire-ants-alabama-summer",
       "kind": "refresh-existing",
       "buyerTarget": "/services/fire-ant",
