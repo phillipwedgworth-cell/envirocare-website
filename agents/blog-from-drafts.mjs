@@ -75,15 +75,22 @@ function existingPosts() {
 }
 const STOP = new Set('a an and are as at be by can do does for from how i in is it my of on or the to what when where which who why will with you your al alabama near me best'.split(' '));
 const tokens = (s) => String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((w) => w && !STOP.has(w)).map((w) => w.replace(/s$/, ''));
+// Words every pest search shares. Counting them let "pest control sylacauga al" match
+// emergency-pest-control-alabama on "pest" + "control" alone (2 of 3 tokens, 2026-10-27).
+// "treatment" stays meaningful: "termite treatment" must find the treatment post.
+const GENERIC = new Set('pest control service company exterminator'.split(' '));
 function coveredBy(keyword, posts) {
-  const k = tokens(keyword);
+  const all = tokens(keyword);
+  const k = all.some((w) => !GENERIC.has(w)) ? all.filter((w) => !GENERIC.has(w)) : all;
   if (!k.length) return null;
+  // Best match, not first match: fewer tokens now means more ties at the threshold.
+  let best = null, bestHit = 0.6 - 1e-9;
   for (const p of posts) {
     const t = new Set(tokens(`${p.slug.replace(/-/g, ' ')} ${p.title}`));
     const hit = k.filter((w) => t.has(w)).length / k.length;
-    if (hit >= 0.6) return p.slug;
+    if (hit > bestHit) { best = p.slug; bestHit = hit; }
   }
-  return null;
+  return best;
 }
 const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70);
 
@@ -260,10 +267,20 @@ async function run() {
       const posts = existingPosts();
       const content0 = await nw('get-content', { query: id }).catch(() => ({}));
       if (strip(content0?.content || '').split(' ').length < MIN_WORDS) continue; // no finished draft yet — not an error
-      const dup = coveredBy(keyword, posts) || await modelDuplicate(anthropic, keyword, posts);
+      const tokenDup = coveredBy(keyword, posts);
+      const dup = tokenDup || await modelDuplicate(anthropic, keyword, posts);
       // A topic that already has a post is never a second post (that splits rankings).
       // But a much fuller editor draft can UPGRADE the live post in place: same URL,
       // updatedAt set, and only if it beats the live post's NeuronWriter score by 5+.
+      // Only a keyword/title token match may upgrade. On 2026-10-27 a loose match sent
+      // "pest control sylacauga al" to /blog/emergency-pest-control-alabama and the
+      // upgrade replaced that article with a Sylacauga service page (PR #283). A
+      // model-only match is still a duplicate, so it is skipped, never rewritten.
+      if (dup && !tokenDup) {
+        report.push({ keyword, outcome: `skipped: model judged it covered by /blog/${dup} (no in-place upgrade on a model-only match)` });
+        await ledger({ route: `dup:/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `model-judged duplicate of /blog/${dup}; upgrade needs a keyword/title token match` });
+        continue;
+      }
       const existing = dup ? posts.find((p) => p.slug === dup) : null;
       const draftWords = strip(content0.content).split(' ').length;
       const requeued = existing && await isRequeued(`/blog/${existing.slug}`);
@@ -298,6 +315,14 @@ async function run() {
         if (sc > MAX_SCORE) problems.push(`NeuronWriter ${sc} > ${MAX_SCORE}: keyword-stuffed, write more naturally`);
         if (p.metaTitle.length > 60) problems.push(`metaTitle is ${p.metaTitle.length} chars (max 60)`);
         if (p.metaDescription.length > 155) problems.push(`metaDescription is ${p.metaDescription.length} chars (max 155)`);
+        // An upgrade keeps the live title and URL, so the new excerpt and meta description
+        // (not the body: common words like "pest" and "control" appear in any body) must
+        // stay on that topic.
+        if (existing) {
+          const t = tokens(existing.title), have = new Set(tokens(`${p.excerpt} ${p.metaDescription}`));
+          const onTopic = t.length ? t.filter((w) => have.has(w)).length / t.length : 1;
+          if (onTopic < 0.5) problems.push(`off-topic upgrade: the post is titled "${existing.title}" but the new excerpt and meta description share only ${Math.round(onTopic * 100)}% of its title words; keep the live post's topic`);
+        }
         last = { p, sc, orig };
         if (problems.length) feedback = problems.join('\n'); else ok = last;
       }
