@@ -528,17 +528,22 @@
     {
       "slug": "mosquito-season-birmingham-al",
       "keyword": "mosquito control birmingham al",
-      "title": "Mosquito Season in Alabama: Mosquito Control Services, Mosquito Management, and Pest Control for Huntsville and Birmingham",
+      "title": "Mosquito Season in Birmingham, Alabama: Timing and Prevention",
       "route": "/blog/mosquito-season-birmingham-al",
       "kind": "refresh-existing",
       "buyerTarget": "/birmingham-mosquito-control",
       "sourceIds": [
-        "cdc-mosquito"
+        "cdc-mosquito",
+        "adph-mosquito-season",
+        "adph-mosquito-biting-times",
+        "adph-mosquito-yard-prevention",
+        "cdc-aedes-life-cycle",
+        "cdc-mosquito-bite-prevention"
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
       "competitorOriginalityChecked": false,
-      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+      "reviewNote": "October 29 focused seasonal/prevention revision corrects fixed temperature/season claims, life-stage errors, unsupported treatment outcomes and local pressure claims. URL, author and March 1 publication date preserved; March–October/eight-treatment program, inspection-based pricing and ACH disclosure retained. Current score 58 at c491cb2 is the existing commercial-query comparator (1d35d2e70d77981f, mosquito control birmingham al), historically assigned to /birmingham-mosquito-control; it is not a seasonal-intent score. Proposed seasonal query: mosquito season birmingham al, pending inventory/mapping review. Keep this keyword unchanged for an explicitly labeled comparable rerun; no new query, editor write, revised-copy score or originality clearance here."
     },
     {
       "slug": "pest-control-birmingham-guide",

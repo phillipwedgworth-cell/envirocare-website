@@ -11,6 +11,8 @@ on:
       - 'scripts/score-editorial-batch.mjs'
       - 'scripts/test-editorial-batch-score.mjs'
       - 'scripts/check-editorial-mobile.mjs'
+      - 'scripts/inventory-editorial-queries.mjs'
+      - 'scripts/test-editorial-query-inventory.mjs'
       - 'agents/knowledge/editorial-batch-36.json'
       - 'app/**'
       - 'components/**'
@@ -28,6 +30,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  inventory-existing-queries:
+    if: >-
+      github.event.pull_request.number == 287 &&
+      github.event.pull_request.head.repo.full_name == 'phillipwedgworth-cell/envirocare-website' &&
+      github.event.pull_request.head.ref == 'seo/narrator-cited-content-36-2026-10-28'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: review
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '24'
+      - name: Validate fixed-project inventory and privacy boundaries without credentials
+        working-directory: review
+        run: node scripts/test-editorial-query-inventory.mjs
+      - name: Inspect existing queries in the two documented EnviroCare projects
+        working-directory: review
+        # Isolated built-in-only script: no install, application build or browser.
+        # Seven reads maximum. No new queries, scoring, saved content or writes.
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+        run: node scripts/inventory-editorial-queries.mjs
+      - name: Preserve only scoped query-discovery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: editorial-query-inventory-${{ github.event.pull_request.head.sha }}
+          path: |
+            review/audit-results/editorial-query-inventory/results.json
+            review/audit-results/editorial-query-inventory/results.md
+          if-no-files-found: warn
+          retention-days: 7
+
   render-and-mobile:
     if: >-
       github.event.pull_request.number == 287 &&
