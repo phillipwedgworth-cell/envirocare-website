@@ -11,10 +11,12 @@ export const PROJECT = '9d0bec3a70f4743c';
 export const API = 'https://app.neuronwriter.com/neuron-api/0.5/writer';
 export const SITE = 'https://www.envirocarellc.com';
 const METHODS = new Set(['list-queries', 'evaluate-content']);
+const INVENTORY_STATUSES = new Set(['ready', 'waiting', 'in progress']);
 const BATCH_SIZE = 36;
 const MAX_EVALUATIONS = 72;
 const sha256 = (s) => createHash('sha256').update(s).digest('hex');
 export const normalizeKeyword = (s) => String(s ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
+const metadata = (value) => value == null ? '(omitted)' : typeof value === 'string' && /^[a-zA-Z0-9 ._()-]{1,80}$/.test(value) ? value : '(unrecognized representation)';
 
 function decode(s) {
   const named = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ' };
@@ -109,30 +111,64 @@ export function selectQuery(inventory, keyword) {
   if (!Array.isArray(inventory)) throw new Error('query inventory is not an array');
   const wanted = normalizeKeyword(keyword);
   const candidates = [];
+  const matchingRows = [];
+  const excluded = { status: 0, language: 0, engine: 0 };
   for (const row of inventory) {
     if (!row || typeof row !== 'object' || typeof row.keyword !== 'string') throw new Error('malformed query inventory');
     if (normalizeKeyword(row.keyword) !== wanted) continue;
+    matchingRows.push(row);
     const id = row.query ?? row.id;
     if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{4,100}$/.test(id)) throw new Error('matched query has invalid ID');
-    if (row.status && row.status !== 'ready') continue;
-    if (row.language && !/^english$/i.test(row.language)) continue;
-    if (row.engine && !/^google\.com$/i.test(row.engine)) continue;
+    const wrongStatus = Boolean(row.status && row.status !== 'ready');
+    const wrongLanguage = Boolean(row.language && !/^english$/i.test(row.language));
+    const wrongEngine = Boolean(row.engine && !/^google\.com$/i.test(row.engine));
+    excluded.status += Number(wrongStatus);
+    excluded.language += Number(wrongLanguage);
+    excluded.engine += Number(wrongEngine);
+    if (wrongStatus || wrongLanguage || wrongEngine) continue;
     candidates.push({ id, created: row.created ?? null, timestamp: Date.parse(row.created ?? ''), language: row.language ?? null, engine: row.engine ?? null });
   }
   const unique = [...new Map(candidates.map((q) => [q.id, q])).values()];
-  if (!unique.length) return { status: 'missing-existing-query' };
+  // Retain only diagnostics for this manifest keyword, never the private
+  // project-wide inventory. Zero exact matches and excluded metadata are
+  // different blockers and must be distinguishable without fuzzy matching.
+  const evidence = {
+    normalization: 'trim, case-insensitive, collapse whitespace; no fuzzy matching',
+    readyInventoryExactKeywordMatches: matchingRows.length,
+    eligibleUniqueCandidates: unique.length,
+    excludedMetadataCounts: excluded,
+    observedMetadataForExactKeywordOnly: Object.fromEntries(['status', 'language', 'engine'].map((field) => [field, [...new Set(matchingRows.map((row) => metadata(row[field])))]])),
+  };
+  if (!unique.length) return { status: 'missing-existing-query', evidence };
   if (unique.length > 1) {
-    if (unique.some((q) => !Number.isFinite(q.timestamp))) return { status: 'ambiguous-existing-query', candidateCount: unique.length };
+    if (unique.some((q) => !Number.isFinite(q.timestamp))) return { status: 'ambiguous-existing-query', candidateCount: unique.length, evidence };
     unique.sort((a, b) => b.timestamp - a.timestamp);
-    if (unique[0].timestamp === unique[1].timestamp) return { status: 'ambiguous-existing-query', candidateCount: unique.length };
+    if (unique[0].timestamp === unique[1].timestamp) return { status: 'ambiguous-existing-query', candidateCount: unique.length, evidence };
   }
   const { timestamp, ...query } = unique[0];
-  return { status: 'matched', ...query, candidateCount: unique.length };
+  return { status: 'matched', ...query, candidateCount: unique.length, evidence };
+}
+
+// Pending inventories are diagnostics only. They are never passed to
+// selectQuery or evaluate-content. Retain only this manifest keyword's rows.
+export function pendingQueryEvidence(inventory, keyword, requestedStatus) {
+  if (!['waiting', 'in progress'].includes(requestedStatus)) throw new Error('invalid pending inventory status');
+  if (!Array.isArray(inventory)) throw new Error('query inventory is not an array');
+  const matches = [];
+  for (const row of inventory) {
+    if (!row || typeof row !== 'object' || typeof row.keyword !== 'string') throw new Error('malformed query inventory');
+    if (normalizeKeyword(row.keyword) !== normalizeKeyword(keyword)) continue;
+    const id = row.query ?? row.id;
+    if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{4,100}$/.test(id)) throw new Error('matched query has invalid ID');
+    matches.push({ id, reportedStatus: metadata(row.status), language: metadata(row.language), engine: metadata(row.engine) });
+  }
+  return { requestedStatus, exactKeywordMatches: matches.length, matchingQueries: matches };
 }
 
 export function createClient({ key, fetchImpl = fetch, maxEvaluations = MAX_EVALUATIONS } = {}) {
   if (!Number.isInteger(maxEvaluations) || maxEvaluations < 1 || maxEvaluations > MAX_EVALUATIONS) throw new Error('invalid evaluation limit');
   let evaluations = 0;
+  let inventoryCalls = 0;
   const deadline = Date.now() + 8 * 60 * 1000;
   return async function call(method, payload) {
     if (!METHODS.has(method)) throw new Error('API method not permitted in score-only validation');
@@ -142,7 +178,10 @@ export function createClient({ key, fetchImpl = fetch, maxEvaluations = MAX_EVAL
       throw err;
     }
     if (!key) throw new Error('NEURONWRITER_API_KEY unavailable to score-only job');
-    if (method === 'list-queries' && (payload?.project !== PROJECT || payload?.status !== 'ready')) throw new Error('invalid query-list scope');
+    if (method === 'list-queries') {
+      if (payload?.project !== PROJECT || !INVENTORY_STATUSES.has(payload?.status) || Object.keys(payload).some((k) => !['project', 'status'].includes(k))) throw new Error('invalid query-list scope');
+      if (++inventoryCalls > 3) throw new Error('bounded inventory limit reached');
+    }
     if (method === 'evaluate-content') {
       if (++evaluations > maxEvaluations) throw new Error('bounded evaluation limit reached');
       if (!/^[a-zA-Z0-9_-]{4,100}$/.test(payload?.query ?? '') || typeof payload?.html !== 'string' || !payload.html || 'url' in payload || Object.keys(payload).some((k) => !['query', 'html', 'title', 'description'].includes(k))) throw new Error('rendered HTML required; URL import is prohibited');
@@ -252,12 +291,44 @@ export async function run({
     try {
       const inventory = await call('list-queries', { project: PROJECT, status: 'ready' });
       if (!Array.isArray(inventory)) throw new Error('query inventory is not an array');
+      result.queryInventories = {
+        ready: { returnedRows: inventory.length },
+        note: 'Counts are query-status inventory sizes, not remaining monthly analysis allowance. No allowance endpoint was called or inferred.',
+      };
+      const pending = {};
+      for (const status of ['waiting', 'in progress']) {
+        try {
+          const rows = await call('list-queries', { project: PROJECT, status });
+          if (!Array.isArray(rows)) throw new Error('query inventory is not an array');
+          pending[status] = rows;
+          result.queryInventories[status] = { returnedRows: rows.length };
+        } catch (error) {
+          result.queryInventories[status] = { issue: safeError(error) };
+          if (error.stopRun) throw error;
+        }
+      }
       for (const item of inputs) {
         const { row, after, before } = item;
         try {
           const q = selectQuery(inventory, row.keyword);
           row.query = q;
-          if (q.status !== 'matched') { row.status = 'blocked'; row.issue = q.status; continue; }
+          if (q.status !== 'matched') {
+            row.status = 'blocked'; row.issue = q.status;
+            row.pendingQueryEvidence = {};
+            for (const status of ['waiting', 'in progress']) {
+              row.pendingQueryEvidence[status] = pending[status]
+                ? pendingQueryEvidence(pending[status], row.keyword, status)
+                : { requestedStatus: status, issue: result.queryInventories[status]?.issue ?? 'not checked' };
+            }
+            if (q.status === 'missing-existing-query') {
+              const evidence = Object.values(row.pendingQueryEvidence);
+              if (evidence.some((p) => p.exactKeywordMatches > 0)) row.issue = 'existing-exact-keyword-query-not-ready';
+              else if (evidence.some((p) => p.issue)) row.issue = 'no-ready-exact-query; pending-status-check-incomplete';
+              else if (q.evidence.readyInventoryExactKeywordMatches > 0) row.issue = 'existing-ready-exact-keyword-excluded-by-metadata';
+              else row.issue = 'no-exact-query-in-ready-waiting-or-in-progress';
+            }
+            continue;
+          }
           row.score = await scorePair({ call, queryId: q.id, before, after });
           row.qualityFlags = qualityFlags(row.score);
           row.status = 'scored';
@@ -284,8 +355,11 @@ export async function run({
   result.status = prepareOnly ? (prepared === posts.length ? 'prepared-only' : 'blocked') : scored === posts.length ? 'scored' : scored ? 'partial' : 'blocked';
   await writeFile(join(outputDir, 'results.json'), JSON.stringify(result, null, 2) + '\n');
   const esc = (v) => String(v ?? '').replace(/\|/g, '\\|').replace(/[\r\n]/g, ' ');
-  const rows = result.rows.map((r) => `| ${esc(r.route)} | ${esc(r.query?.id)} | ${esc(r.score?.before)} | ${esc(r.score?.after)} | ${esc(r.score?.delta)} | ${esc(r.status)} | ${esc(r.issue ?? r.qualityFlags?.join(', '))} |`);
-  const md = `# Exact editorial-batch scoring\n\nChecked: ${result.checkedAt}\n\nHead: ${result.headCommit}\n\nBase: ${result.baseCommit}\n\nStatus: **${result.status}**. Scored ${scored}/36; prepared ${prepared}; blocked ${result.counts.blocked}.\n\n${result.scope}\n\nNo new analyses, editor revisions, publishing, fill runs, messages or database writes are performed. Missing exact queries stay blocked.\n\n## Score quality — release remains unapproved\n\nExisting Narrator floor: 65. Desired coverage range: 70–80. Of the scored rows: ${result.scoreQuality.belowFloor} below 65, ${result.scoreQuality.belowTarget} below 70, ${result.scoreQuality.regressions} regressions. ${result.scoreQuality.note}\n\n| Route | Existing query | Before | After | Delta | State | Issue / quality flag |\n|---|---|---:|---:|---:|---|---|\n${rows.join('\n')}\n`;
+  const inventorySummary = result.queryInventories
+    ? ['ready', 'waiting', 'in progress'].map((s) => `${s}: ${result.queryInventories[s]?.returnedRows ?? result.queryInventories[s]?.issue ?? 'not checked'}`).join('; ') + '. These counts do not establish remaining monthly analysis allowance. Only exact manifest-keyword diagnostics are retained; pending queries are never scored.'
+    : 'Inventory not requested or unavailable.';
+  const rows = result.rows.map((r) => `| ${esc(r.route)} | ${esc(r.keyword)} | ${esc(r.query?.id)} | ${esc(r.score?.before)} | ${esc(r.score?.after)} | ${esc(r.score?.delta)} | ${esc(r.status)} | ${esc(r.issue ?? r.qualityFlags?.join(', '))} |`);
+  const md = `# Exact editorial-batch scoring\n\nChecked: ${result.checkedAt}\n\nHead: ${result.headCommit}\n\nBase: ${result.baseCommit}\n\nStatus: **${result.status}**. Scored ${scored}/36; prepared ${prepared}; blocked ${result.counts.blocked}.\n\n${result.scope}\n\nNo new analyses, editor revisions, publishing, fill runs, messages or database writes are performed. Missing exact queries stay blocked.\n\n## Existing query availability\n\n${inventorySummary}\n\n## Score quality — release remains unapproved\n\nExisting Narrator floor: 65. Desired coverage range: 70–80. Of the scored rows: ${result.scoreQuality.belowFloor} below 65, ${result.scoreQuality.belowTarget} below 70, ${result.scoreQuality.regressions} regressions. ${result.scoreQuality.note}\n\n| Route | Target keyword | Existing query | Before | After | Delta | State | Issue / quality flag |\n|---|---|---|---:|---:|---:|---|---|\n${rows.join('\n')}\n`;
   await writeFile(join(outputDir, 'results.md'), md);
   if (exportDir && result.status === 'prepared-only') {
     await mkdir(join(exportDir, 'head/blog'), { recursive: true });

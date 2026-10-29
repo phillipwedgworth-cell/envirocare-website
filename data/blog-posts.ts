@@ -3132,8 +3132,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <h3>Practical differences homeowners notice</h3>
 <ul>
 <li><strong>Installation.</strong> Bait stations are set in the soil around the outside of the house, so installation is usually exterior work. A liquid barrier treatment often involves trenching along the foundation and, where a slab, patio or garage floor meets the house, drilling through it.</li>
-<li><strong>New construction.</strong> Soil under a new slab can only be treated before the slab is poured, which is why builders commonly use a liquid pre-treatment. Bait stations are installed once the structure is finished.</li>
-<li><strong>Ongoing monitoring.</strong> A bait program is built around scheduled station inspections. A liquid treatment is typically applied as a single job, with any inspections and retreatment set by the agreement.</li>
+<li><strong>New construction.</strong> Liquid pretreatment can reach exposed soil before a slab is poured, with perimeter work coordinated as construction proceeds. Soil beneath an existing slab may also be treated through drilled access. A suitable bait system can be an alternative for new construction. Confirm the product, installation sequence and applicable requirements with the builder and pest provider.</li>
+<li><strong>Ongoing monitoring.</strong> Bait protection depends on continued station inspection and service. Liquid soil treatment leaves a treated zone around or beneath the structure. Both proposals should explain structural inspections and what happens after excavation, an addition, damaged stations or new termite evidence.</li>
 <li><strong>Active termites.</strong> When termites are already in the structure, an inspector may propose a targeted liquid application in the active area alongside bait stations, where the product labels allow it.</li>
 </ul>
 
@@ -3141,13 +3141,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>Liquid termiticide treatment</strong> uses a product labeled for structural termite protection. The applicator must follow its directions for placement, concentration and volume. Depending on the structure and scope, access may involve soil trenching or drilling through hard surfaces. Ask the inspector to identify the work proposed for your property.</p>
 
+<p><a href="https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/">Alabama Extension distinguishes repellent and nonrepellent liquid termiticides</a>. Repellents discourage termites from crossing treated soil. Nonrepellent products can kill termites that contact the treated zone, and some allow exposed termites to transfer the active ingredient to others. The product and application matter; a soil treatment should not automatically be described as colony elimination.</p>
+
 <p>Floor area alone does not establish how much product is needed or how long the work will take. Foundation design, treatment locations and access affect the plan. The written proposal should explain any drilling or trenching and how the affected surfaces will be restored.</p>
 
 <h2>How the Sentricon termite bait system works</h2>
 
 <p>The <strong>Sentricon® system</strong> uses termite bait stations. Station placement and service must follow the product directions and the conditions found during inspection. Ask the provider where stations will be installed, how they will be accessed and what monitoring is included.</p>
 
-<p>Termite baits contain slow-acting material that termites must find and feed on. A bait program therefore depends on foraging and feeding as well as the installed system. Inspection and service records should guide the assessment of progress; installation alone does not establish that an existing infestation has ended.</p>
+<p>Sentricon uses the growth-inhibiting active ingredient noviflumuron. Foraging termites feed on the bait and share food with other colony members, spreading its effects through the colony. This process can suppress or eliminate a colony, but depends on bait discovery, feeding and continued service. <a href="https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/">Alabama Extension explains the baiting mechanism and ongoing inspection needs</a>. Installation alone does not establish that an existing infestation has ended.</p>
 
 <p>Under our Sentricon program, stations are inspected and serviced on the agreed schedule. Ask which observations will be recorded, when bait will be checked or replaced and how new evidence around the structure will be handled. Compare those details with the inspection and renewal provisions of any other proposal.</p>
 
@@ -3172,7 +3174,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What affects response time and ongoing service?</h2>
 
-<p>The time to assess a bait program depends on whether termites find and feed on the bait and what the follow-up inspections show. Do not treat a set number of days as a promise of colony elimination. Active termite evidence should be assessed by the provider, who can explain the proposed treatment and how progress will be checked.</p>
+<p>Bait programs depend on discovery, feeding and food sharing, so colony effects develop over time. <a href="https://extension.msstate.edu/publications/protect-your-house-termites">Mississippi State Extension describes liquid treatments as generally quicker acting</a>; a targeted application may help control termites in a treated area while baiting continues. The actual response depends on the product, application and infestation. Follow-up inspections assess progress; neither method establishes a fixed date for colony elimination.</p>
 
 <p>Our Sentricon pricing is set after a free termite inspection. Compare installation, inspection, renewal and any additional work in writing. The treatment name does not establish which proposal will cost more initially or over time, and neither a blanket replacement schedule nor an assumed renewal price should substitute for the agreement.</p>
 

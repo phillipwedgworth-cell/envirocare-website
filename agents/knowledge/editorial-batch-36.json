@@ -426,12 +426,14 @@
       "kind": "refresh-existing",
       "buyerTarget": "/services/termite-control",
       "sourceIds": [
-        "epa-termites"
+        "epa-termites",
+        "aces-termite-treatment-options",
+        "msu-termite-treatment-comparison"
       ],
       "status": "draft-for-review",
       "neuronWriterScore": null,
       "competitorOriginalityChecked": false,
-      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved."
+      "reviewNote": "October 29 focused comparison review corrected the slab-treatment claim and restored sourced bait/liquid mechanisms, variable response and maintenance differences. No fixed dose, outcome deadline or superiority promise. Pricing and coverage remain inspection/agreement-specific. Exact revised-copy score pending; no new originality clearance."
     },
     {
       "slug": "fire-ants-alabama-summer",

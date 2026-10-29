@@ -195,6 +195,26 @@
       "supports": "Formosan swarmers are attracted to lights and can enter through openings; large indoor emergences warrant inspection. Mississippi annual activity reports must not be relabeled as Alabama or EnviroCare observations."
     },
     {
+      "id": "aces-termite-treatment-options",
+      "title": "Alabama Extension: Subterranean termite control products",
+      "url": "https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/",
+      "topics": [
+        "termite",
+        "sentricon"
+      ],
+      "supports": "Repellent/nonrepellent liquid treatments, bait colony effects and noviflumuron, construction-stage and postconstruction access, and bait alternatives for new construction. No universal dose, outcome deadline, superiority or company service commitment."
+    },
+    {
+      "id": "msu-termite-treatment-comparison",
+      "title": "Mississippi State Extension: Protect your house from termites",
+      "url": "https://extension.msstate.edu/publications/protect-your-house-termites",
+      "topics": [
+        "termite",
+        "sentricon"
+      ],
+      "supports": "Bait feeding and ongoing station service, generally slower bait response versus liquid treatment, and possible targeted combinations for active infestations. No Alabama-specific timing, company price, guaranteed result or universal inspection interval."
+    },
+    {
       "id": "uc-house-mouse",
       "title": "UC IPM: House mouse",
       "url": "https://ipm.ucanr.edu/home-and-landscape/house-mouse/",

@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { API, PROJECT, SITE, fragmentByClass, extractRenderedPost, validateManifest, selectQuery, createClient, scorePair, qualityFlags } from './score-editorial-batch.mjs';
+import { API, PROJECT, SITE, fragmentByClass, extractRenderedPost, validateManifest, selectQuery, pendingQueryEvidence, createClient, scorePair, qualityFlags } from './score-editorial-batch.mjs';
 
 const words = Array.from({ length: 90 }, (_, i) => `word${i}`).join(' ');
 const route = '/blog/test-article';
@@ -56,6 +56,47 @@ test('matches exact English google.com READY queries and picks only an unambiguo
   assert.equal(selectQuery(rows.slice(0, 2).map((r) => ({ ...r, created: undefined })), 'target keyword').status, 'ambiguous-existing-query');
   assert.equal(selectQuery(rows.slice(0, 2).map((r) => ({ ...r, created: '2026-10-28' })), 'target keyword').status, 'ambiguous-existing-query');
   assert.throws(() => selectQuery([{ query: '../unsafe', keyword: 'target keyword' }], 'target keyword'), /invalid ID/);
+});
+
+test('missing keyword and excluded metadata remain distinct without exposing unrelated account queries', () => {
+  const rows = [
+    { query: 'unrelated-query', keyword: 'private unrelated topic', language: 'English', engine: 'google.com' },
+    { query: 'target-query', keyword: 'target keyword', language: 'en', engine: 'google.com' },
+  ];
+  const absent = selectQuery(rows, 'absent keyword');
+  assert.equal(absent.evidence.readyInventoryExactKeywordMatches, 0);
+  assert.deepEqual(absent.evidence.observedMetadataForExactKeywordOnly.language, []);
+  const excluded = selectQuery(rows, 'target keyword');
+  assert.equal(excluded.evidence.readyInventoryExactKeywordMatches, 1);
+  assert.equal(excluded.evidence.excludedMetadataCounts.language, 1);
+  assert.deepEqual(excluded.evidence.observedMetadataForExactKeywordOnly.language, ['en']);
+  assert.equal(excluded.status, 'missing-existing-query');
+  assert.doesNotMatch(JSON.stringify(excluded), /private unrelated topic|unrelated-query/);
+});
+
+test('pending-query evidence stays manifest-scoped and is never represented as eligible scoring input', () => {
+  const r = pendingQueryEvidence([
+    { query: 'target-query', keyword: ' TARGET  keyword ', language: 'English', engine: 'google.com' },
+    { query: 'private-query', keyword: 'unrelated private topic', language: 'English' },
+  ], 'target keyword', 'waiting');
+  assert.equal(r.requestedStatus, 'waiting');
+  assert.equal(r.exactKeywordMatches, 1);
+  assert.equal(r.matchingQueries[0].id, 'target-query');
+  assert.equal(r.status, undefined);
+  assert.doesNotMatch(JSON.stringify(r), /private-query|unrelated private topic/);
+  assert.throws(() => pendingQueryEvidence([], 'target keyword', 'ready'), /status/);
+});
+
+test('inventory reads are capped at the three documented statuses in one fixed project', async () => {
+  const seen = [];
+  const call = createClient({ key: 'TEST-KEY', fetchImpl: async (url, options) => {
+    seen.push(JSON.parse(options.body));
+    return { ok: true, json: async () => [] };
+  } });
+  for (const status of ['ready', 'waiting', 'in progress']) await call('list-queries', { project: PROJECT, status });
+  await assert.rejects(call('list-queries', { project: PROJECT, status: 'ready' }), /inventory limit/);
+  await assert.rejects(call('list-queries', { project: PROJECT, status: 'all' }), /scope/);
+  assert.deepEqual(seen.map((p) => p.status), ['ready', 'waiting', 'in progress']);
 });
 
 test('client permits only the fixed account inventory and raw-HTML evaluations, with a hard request bound', async () => {

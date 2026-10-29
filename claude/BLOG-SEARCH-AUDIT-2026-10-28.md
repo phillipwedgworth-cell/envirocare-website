@@ -117,3 +117,15 @@ The revised `termite-season-2026-alabama` and `alabama-termite-swarm-season` bod
 - `git diff --check` passes. Full build, rendered preview/mobile readback and exact-copy NeuronWriter scoring belong to the combined final commit, after integration with the separate scoring work.
 
 Retained bodies outside the targeted corrections have not received a complete new fact audit. No archive-wide originality or publication-readiness claim is made.
+
+### Sentricon comparison follow-up — October 29, 2026
+
+Based this bounded follow-up on `c35fb11b4a5ebcf4d169763393164a9b5e0f36be`. Only the body of `sentricon-vs-liquid-termite-treatment` changes: corrected the assertion that soil beneath a slab can only be treated before the pour; explained repellent/nonrepellent liquid treatments, bait feeding and colony effects, the qualified response-time tradeoff, and continued maintenance. The title, metadata, publication date, inspection-based pricing and EnviroCare coverage qualifier are unchanged. No fixed treatment quantity, outcome deadline, comparative superiority or additional company service commitment was added.
+
+Primary sources retrieved October 29:
+
+- [Alabama Extension: Subterranean termite control products](https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/) supports the treatment mechanisms and construction/postconstruction distinctions. Added to the source registry with limits on the claims it establishes.
+- [Mississippi State Extension: Protect your house from termites](https://extension.msstate.edu/publications/protect-your-house-termites) supports the qualified response and maintenance comparison; its state-specific material is not presented as Alabama regulation or an EnviroCare promise.
+- The existing [EPA termite reference](https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them) remains linked for treatment categories and label requirements.
+
+Focused verification: the article passes `assessEditorialDraft` with no problems or warnings; all cited URLs are in its relevant source allowlist. The existing blog guard checks 71 posts against 47 rules with zero blocking hits and the same 13 unrelated promotion warnings. TypeScript transpilation reports zero syntax diagnostics. A comparison against the verified `c35fb11` blog-data blob confirms that only this article body changed and that its pricing/coverage language remains intact. JSON source IDs resolve without duplicates. `git diff --check` passes. Exact rendered scoring and mobile/build checks must run on the combined next commit; no new query or editor write was performed here, and no new originality clearance is claimed.
