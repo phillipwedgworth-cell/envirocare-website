@@ -96,11 +96,15 @@ try {
         await opener.click();
         await page.waitForFunction(() => document.querySelector('[aria-label="Open menu"]')?.getAttribute('aria-expanded') === 'true');
         const menu = page.getByRole('dialog', { name: 'Site menu', exact: true });
+        // aria-expanded updates before the CSS visibility transition finishes.
+        // isVisible() is an immediate probe; wait for the real visible state.
+        await menu.waitFor({ state: 'visible' });
         assert.ok(await menu.isVisible(), 'mobile menu must open');
         assert.equal(await menu.getByRole('link', { name: 'Get a Free Quote', exact: true }).getAttribute('href'), '/quote');
         if (route === '/blog') await page.screenshot({ path: join(OUT, `${stem}-menu.png`) });
         await page.getByRole('button', { name: 'Close menu', exact: true }).click();
         await page.waitForFunction(() => document.querySelector('[aria-label="Open menu"]')?.getAttribute('aria-expanded') === 'false');
+        await menu.waitFor({ state: 'hidden' });
         row.checks.push('mobile menu opens, exposes quote destination, and closes');
 
         if (route.startsWith('/blog/')) {
