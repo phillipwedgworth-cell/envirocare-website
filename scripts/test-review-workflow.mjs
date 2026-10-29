@@ -9,7 +9,7 @@ import { appendBlocksToPage, nParagraph } from '../agents/lib/notion.mjs';
 const now = new Date('2026-10-29T16:00:00Z');
 const review = { id: 'synthetic-review', location: 'Alabaster', directory: 'google', rating: 5,
   author: 'Test Customer', text: 'The technician was courteous and explained the visit.',
-  publishTime: '2026-10-29T15:00:00Z', replyState: 'unreplied', replyCheckedAt: now.toISOString(), assessment: 'clear' };
+  publishTime: '2026-10-29T13:00:00Z', replyState: 'unreplied', replyCheckedAt: now.toISOString(), assessment: 'clear' };
 const reply = 'Thank you for sharing your experience. We appreciate your kind words about the visit.';
 const policy = { activatedAt: '2026-10-29T12:00:00Z', historyVerified: true, events: [],
   initialApprovals: Array.from({ length: 10 }, (_, i) => ({ key: `approved-${i}`, replyHash: replyHash(`Approved ${i}`),
@@ -74,6 +74,19 @@ test('short reply limits are enforced', () => {
   assert.equal(evaluateReview(review, 'x'.repeat(451), policy, now).policyEligible, false);
   assert.equal(evaluateReview(review, 'Hi. Hi. Hi. Hi.', policy, now).policyEligible, false);
   assert.equal(evaluateReview(review, 'a '.repeat(71), policy, now).policyEligible, false);
+});
+
+test('two-hour minimum review age is inclusive at the boundary', () => {
+  assert.equal(assess({ publishTime: '2026-10-29T14:00:00Z' }).policyEligible, true);
+  assert.equal(assess({ publishTime: '2026-10-29T14:00:00.001Z' }).policyEligible, false);
+});
+
+test('provider 4096-byte limit is checked as UTF-8 bytes independently of house caps', () => {
+  const exact = evaluateReview(review, 'é'.repeat(2048), policy, now);
+  const over = evaluateReview(review, 'é'.repeat(2049), policy, now);
+  assert.ok(!exact.reasons.some(r => r.includes('4096-byte')));
+  assert.ok(over.reasons.some(r => r.includes('4096-byte')));
+  assert.equal(exact.policyEligible, false); // Stricter 450-character house cap.
 });
 
 function fixture(overrides = {}) {

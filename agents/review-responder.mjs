@@ -144,7 +144,7 @@ RULES — never break:
 - Any complaint or 1–4-star review is for human handling. Be empathetic, invite a private follow-up at ${DIRECT_LINE}, and never argue or admit unverified fault. Do not offer compensation or promise a result.
 - Never use banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe.
 - Never offer discounts/incentives for reviews and never tell anyone what to write.
-- Keep the body at most 350 characters, 60 words and 2 sentences. No signature (the workflow appends The EnviroCare Team). Do not invent a detail for a star-only review.
+- Aim for 30–60 words when review details support it; star-only replies can be shorter. Keep the body at most 350 characters, 60 words and 2 sentences. No signature (the workflow appends The EnviroCare Team). Do not invent a detail for a star-only review.
 - Return only JSON: {"body":"reply text","assessment":"clear|concern|uncertain"}. Mark concern for ANY criticism, complaint, refund, damage, billing, health or legal issue even in a 5-star review. If interpretation is uncertain use uncertain. This assessment does not authorize sending.`;
 
 async function draftResponse(review, varietyHint) {

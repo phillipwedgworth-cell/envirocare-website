@@ -10,6 +10,8 @@ export const REVIEW_POLICY = Object.freeze({
   maxReplyChars: 450,
   maxReplyWords: 70,
   maxReplySentences: 3,
+  maxProviderReplyBytes: 4096,
+  minimumReviewAgeMs: 2 * 60 * 60 * 1000,
   replyReadMaxAgeMs: 5 * 60 * 1000,
 });
 
@@ -40,6 +42,7 @@ export function replyProblems(reply) {
   const text = typeof reply === 'string' ? reply.trim() : '';
   const reasons = [];
   if (!text) reasons.push('empty reply');
+  if (Buffer.byteLength(text, 'utf8') > REVIEW_POLICY.maxProviderReplyBytes) reasons.push('reply exceeds Google 4096-byte limit');
   if (text.length > REVIEW_POLICY.maxReplyChars) reasons.push('reply exceeds 450 characters');
   if (text.split(/\s+/).filter(Boolean).length > REVIEW_POLICY.maxReplyWords) reasons.push('reply exceeds 70 words');
   if ((text.match(/[.!?]+(?=\s|$)/g) ?? []).length > REVIEW_POLICY.maxReplySentences) reasons.push('reply exceeds three sentences');
@@ -66,6 +69,7 @@ export function evaluateReview(review, reply, state = {}, now = new Date()) {
   if (!Number.isFinite(activated) || activated > nowMs) reasons.push('activation not configured');
   if (!Number.isFinite(published) || published > nowMs) reasons.push('review creation time is unverified');
   else if (Number.isFinite(activated) && published <= activated) reasons.push('review predates activation; no backlog');
+  else if (nowMs - published < REVIEW_POLICY.minimumReviewAgeMs) reasons.push('review is less than two hours old');
   if (review.replyState !== 'unreplied') reasons.push(review.replyState === 'replied' ? 'existing reply must not be overwritten' : 'live reply status unknown');
   const checked = timestamp(review.replyCheckedAt);
   if (!Number.isFinite(checked) || nowMs - checked > REVIEW_POLICY.replyReadMaxAgeMs || checked > nowMs) reasons.push('fresh provider reply read required');

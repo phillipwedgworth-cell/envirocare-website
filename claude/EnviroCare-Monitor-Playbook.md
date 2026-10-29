@@ -180,13 +180,17 @@ Delivery evidence:
 
 The reusable policy is evaluated for every actual draft and explains human
 review requirements beside it. Proposed unattended eligibility is: a Google
-review with a stable ID, five stars, created strictly after an explicit
-activation time, no complaint or uncertain assessment, and a fresh provider
+review with a stable ID, five stars, at least two hours old, created strictly
+after an explicit activation time, no complaint or uncertain assessment, and a fresh provider
 read proving no reply exists. All one-to-four-star reviews and every complaint
 stay manual. Initial rollout needs ten distinct, dated operator approvals;
 public delivery must stay within three per location and ten globally in any
-rolling 24 hours. Replies are capped at 450 characters, 70 words and three
-sentences, and pass the existing content-compliance rules.
+rolling 24 hours. Replies target 30–60 words when the review supports it, with
+hard caps of 450 characters, 70 words and three sentences including the
+signature. Google's 4096-byte UTF-8 reply limit is checked separately; the
+house limits are tighter. Replies pass the existing content-compliance rules.
+The two-hour age gate does not alter the existing weekly draft schedule or
+enable polling; provider fetch cadence is a separate constraint.
 
 The optional `review-responder:reply-policy` state contains `activatedAt`,
 `initialApprovals` (key, replyHash, approvedBy, approvedAt) and a verified
