@@ -46,10 +46,16 @@ function asItems(payload) {
 
 async function main() {
   if (!cleanEnv("BRIGHTLOCAL_API_KEY")) {
-    console.log("brightlocal-descriptions: SKIPPED — BRIGHTLOCAL_API_KEY is not set.");
-    console.log("  This guard checks nothing right now. That is not a pass.");
-    console.log("  Set it in CI to cover the listings that publish to Google.");
-    return 0;
+    // Exits 1, not 0. It used to print "that is not a pass" and then exit 0, which
+    // CI read as a pass for 35 days -- on the only check that reads the live
+    // Google/Bing/Apple description text. A guard that cannot fail is not a guard.
+    if (process.env.LISTINGS_GUARD_OPTIONAL === "1") {
+      console.log("brightlocal-descriptions: SKIPPED — BRIGHTLOCAL_API_KEY is not set (LISTINGS_GUARD_OPTIONAL=1).");
+      return 0;
+    }
+    console.error("brightlocal-descriptions: FAIL — BRIGHTLOCAL_API_KEY is not set, so the live listing text was not checked.");
+    console.error("  Add it to the repo's CI secrets. For a deliberate local skip, set LISTINGS_GUARD_OPTIONAL=1.");
+    return 1;
   }
 
   // Imported lazily: agents/brightlocal.mjs may throw at import time in some

@@ -241,6 +241,13 @@ export default function PricingContent() {
             <TrustDot />
             <span>Family-owned since 1958</span>
           </div>
+          {/* Disclosure for the $1M item above. Every other copy of the qualifier on
+              this page is in JSON-LD or a collapsed FAQ answer, so the server-rendered
+              HTML stated the figure with no qualifier at all (found 2026-10-26).
+              Same pattern as components/pages/CityPage.tsx. */}
+          <div style={{ marginTop: 14, textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.7)" }}>
+            Termite damage repair coverage of up to $1,000,000 is provided by EnviroCare on qualifying Sentricon® homes, subject to the terms of the agreement.
+          </div>
         </div>
       </section>
 
@@ -373,7 +380,7 @@ export default function PricingContent() {
             <FAQ q="Can I get mosquito without a pest plan?" a="Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." />
             <FAQ q="Is the bundle a discount?" a="No — bundling is a convenience play, not a discount. One technician, one invoice, one schedule. We keep our base prices honest rather than inflate them and call the bundle a 'savings.'" />
             <FAQ q="What does mosquito service cover, and can I add tick?" a="A 30-day yard barrier from March through October targeting mosquito breeding sites and adult populations. Tick treatment can be added alongside it — covering the ticks and chiggers that come with wooded and lakefront lots — and is quoted for your lot. Flea is a separate interior add-on, also quoted." />
-            <FAQ q="What's the $1M EnviroCare coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
+            <FAQ q="What's the $1M EnviroCare coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000, subject to the terms of the agreement. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
       </section>

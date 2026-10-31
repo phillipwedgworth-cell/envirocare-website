@@ -377,8 +377,22 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // the noun, and Sentricon was only matched after from/by/through. app/highland-
   // lakes/page.tsx carried "How does the Sentricon® warranty work…" in its FAQ and
   // FAQPage schema while every guard passed. AGENTS.md §1 bans it by name.
-  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
-    reason: 'coverage attributed to Sentricon (possessive)',
+  //
+  // COVERAGE (added 2026-10-29). The noun list was guarantee|warranty|warranties;
+  // it did not include the word the site actually uses most. AGENTS.md §1 lists
+  // "Sentricon® $1M coverage" verbatim as a blocking error, yet the hero stat
+  // "$1M / Sentricon® coverage" and the disclosure "Sentricon® damage repair
+  // coverage is up to $1,000,000" shipped on 11 routes (NeighborhoodPage x10,
+  // mountain-brook) while every guard passed. So the rule now also matches:
+  //   (a) "Sentricon® (damage) repair coverage" -- always an attribution of money
+  //   (b) "Sentricon® coverage" with a $1M figure within 30 chars either side --
+  //       what a stat tile looks like once the markup between them is counted.
+  // Bare "Sentricon® coverage" is NOT matched: "transfer Sentricon® coverage from
+  // a prior owner" is plan shorthand with no money claim, and "EnviroCare's
+  // Sentricon coverage" names EnviroCare as the possessor (also in notIf). The
+  // first draft matched both -- the same over-match as PR #171's first draft.
+  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties|(?:damage\\s+)?repair\\s+coverage)\\b|\\$1(?:,000,000|M|\\.0M|\\s*million)\\b[^.]{0,30}\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b|\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b[^.]{0,30}\\$1(?:,000,000|M|\\.0M|\\s*million)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon|EnviroCare[\'’]s\\s+sentricon',
+    reason: 'coverage attributed to Sentricon (possessive, or "Sentricon® coverage" beside the $1M figure)',
     approvedInstead: "EnviroCare's termite damage repair coverage, subject to the terms of the agreement" },
 
   // $1M WITHOUT THE QUALIFIER (added 2026-08-11). The approved phrasing has always
