@@ -102,6 +102,19 @@ const cases = [
   ["Up to $1M damage warranty.", true, "$1M abbreviated, no qualifier"],
   ["Up to $1 million in damage repair coverage", true, "$1 million spelled out, no qualifier"],
   ["Up to $1M repair coverage, subject to the terms of the agreement", false, "qualified on the same line must pass"],
+  // Sentricon credited with the coverage. Each must-flag string was live at e5b79f1
+  // while every guard passed; the qualifier is kept on so only the attribution
+  // rule can be what fires.
+  ['<strong style={{ color: "#fff" }}>$1M</strong> Sentricon® coverage', true, "Sentricon stat tile (NeighborhoodPage, mountain-brook)"],
+  ['<Stat num="$1M" lbl="Sentricon® Coverage" />', true, "Sentricon stat component (components/CityPage.tsx)"],
+  ["Sentricon® damage repair coverage is up to $1,000,000 on qualifying homes, subject to the terms of the agreement.", true, "Sentricon damage repair coverage, qualified"],
+  ["Sentricon repair coverage up to $1M, subject to the terms of the agreement", true, "Sentricon repair coverage, no ®"],
+  // ...and the forms that must survive the widening
+  ["EnviroCare's Sentricon coverage is priced after a free termite inspection", false, "EnviroCare named as possessor"],
+  ["we can also transfer Sentricon® coverage from a prior owner", false, "plan shorthand, no money claim"],
+  ["Sentricon® baiting, $1M EnviroCare coverage, subject to the terms of the agreement", false, "approved form from AGENTS.md §1"],
+  ['<strong>$1M</strong> EnviroCare coverage · subject to the terms of the agreement', false, "corrected stat tile wording"],
+  ["Termite damage repair coverage of up to $1,000,000 is provided by EnviroCare on qualifying Sentricon® homes, subject to the terms of the agreement.", false, "corrected disclosure wording"],
   // --- name ---
   // Built from parts on purpose: a literal here would be rewritten by any future
   // sitewide rename sweep, silently turning this assertion into a tautology.

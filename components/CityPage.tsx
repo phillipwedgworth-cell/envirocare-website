@@ -75,7 +75,7 @@ export default function CityPage({ city }: { city: CityData }) {
           }} className="city-stats">
             <Stat num="68+" lbl="Years in AL" />
             <Stat num="4.9★" lbl="Google Rating" />
-            <Stat num="$1M" lbl="Sentricon® Coverage" />
+            <Stat num="$1M" lbl="EnviroCare Termite Coverage" />
             <Stat num="4 Gen" lbl="Family Owned" />
           </div>
           <style jsx>{`

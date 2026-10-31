@@ -2615,7 +2615,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>What happens if I find termites between inspections?</strong> A good bond includes the ability to file a claim for retreatment (and damage, on a repair bond) whenever you find a termite problem — not just at the next scheduled visit. Ask whether there is a response-time commitment.</li>
 </ol>
 
-<h2>How Sentricon coverage compares</h2>
+<h2>How EnviroCare termite coverage compares</h2>
 
 <p>Our termite protection works differently from a bond riding on an aging liquid barrier. The <a href="/services/termite-control">Sentricon® bait system</a> is ongoing, active termite control: stations around the home that stay on the job year-round, serviced and monitored by our technicians, with no soil barrier to degrade out from under the agreement. Coverage stays current as long as the bond is active, includes up to $1,000,000 in damage repair coverage provided by EnviroCare subject to the terms of the agreement, and moves with the home when it sells.</p>
 
@@ -2624,7 +2624,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Frequently asked questions about termite bonds in Alabama</h2>
 
 <h3>What is the average cost of a termite bond in Alabama?</h3>
-<p>The cost of a termite bond in Alabama varies based on several factors: the size of the home, the type of bond (retreatment-only vs. repair), the treatment method, and whether there is an active infestation. Most pest control companies charge an initial treatment fee plus an annual renewal. Retreatment-only bonds typically cost less annually, while bonds that also include repair coverage cost more — but the cost of a repair bond is a fraction of what uninsured termite damage would cost. EnviroCare's Sentricon coverage is priced after a free termite inspection because Alabama regulates all termite work and the price depends on your home's linear footage and foundation type.</p>
+<p>The cost of a termite bond in Alabama varies based on several factors: the size of the home, the type of bond (retreatment-only vs. repair), the treatment method, and whether there is an active infestation. Most pest control companies charge an initial treatment fee plus an annual renewal. Retreatment-only bonds typically cost less annually, while bonds that also include repair coverage cost more — but the cost of a repair bond is a fraction of what uninsured termite damage would cost. EnviroCare's termite coverage is priced after a free termite inspection because Alabama regulates all termite work and the price depends on your home's linear footage and foundation type.</p>
 
 <h3>Is it worth getting a termite bond?</h3>
 <p>In Alabama, yes. Every home in the state sits in the highest termite probability zone in the country. The warm, humid climate and the prevalence of subterranean termites and Formosan termites mean that termite infestations are not a question of if but when — and homeowners insurance does not cover termite damage. A termite bond is the only way to ensure your home is protected against both the treatment cost and the repair cost when termites arrive. The benefit of having a termite bond is that someone is looking for the problem before it becomes a costly one.</p>
