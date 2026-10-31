@@ -1,6 +1,6 @@
 // agents/lib/notion.mjs
 // Thin Notion API client for EnviroCare agent reporting.
-// Auth: NOTION_TOKEN env var (Bearer). Silently no-ops when the token is absent.
+// Auth: NOTION_TOKEN env var (Bearer). Required delivery throws on failure.
 
 const BASE = 'https://api.notion.com/v1';
 const NOTION_VERSION = '2022-06-28';
@@ -24,7 +24,7 @@ function notionHeaders() {
 }
 
 async function notionGet(path) {
-  const resp = await fetch(`${BASE}${path}`, { headers: notionHeaders() });
+  const resp = await fetch(`${BASE}${path}`, { headers: notionHeaders(), signal: AbortSignal.timeout(15000) });
   if (!resp.ok) {
     const text = await resp.text().catch(() => '');
     throw new Error(`Notion GET ${path} → ${resp.status}: ${text.slice(0, 300)}`);
@@ -32,17 +32,34 @@ async function notionGet(path) {
   return resp.json();
 }
 
-async function notionPost(path, body) {
-  const resp = await fetch(`${BASE}${path}`, {
-    method: 'POST',
-    headers: notionHeaders(),
-    body: JSON.stringify(body),
-  });
-  if (!resp.ok) {
-    const text = await resp.text().catch(() => '');
-    throw new Error(`Notion POST ${path} → ${resp.status}: ${text.slice(0, 300)}`);
+async function notionAppend(path, body) {
+  let resp;
+  try {
+    resp = await fetch(`${BASE}${path}`, {
+      // Notion's append-block-children endpoint is PATCH, not POST.
+      method: 'PATCH',
+      headers: notionHeaders(),
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(15000),
+    });
+  } catch {
+    const error = new Error('Notion append outcome unknown; reconcile before retry');
+    error.deliveryStatus = 'unknown';
+    throw error;
   }
-  return resp.json();
+  if (!resp.ok) {
+    const error = new Error(`Notion append failed: HTTP ${resp.status}`);
+    error.deliveryStatus = resp.status >= 500 ? 'unknown' : 'not_sent';
+    throw error;
+  }
+  const data = await resp.json().catch(() => null);
+  if (!Array.isArray(data?.results) || data.results.length !== body.children.length ||
+      data.results.some(block => typeof block.id !== 'string' || !block.id)) {
+    const error = new Error('Notion append acknowledgement malformed; reconcile before retry');
+    error.deliveryStatus = 'unknown';
+    throw error;
+  }
+  return data;
 }
 
 function richText(content) {
@@ -66,25 +83,26 @@ function dividerBlock() {
 async function findHeadingId(pageId, headingText) {
   try {
     const data = await notionGet(`/blocks/${pageId}/children?page_size=100`);
-    for (const block of (data.results ?? [])) {
+    if (!Array.isArray(data?.results)) throw new Error('Notion block read returned malformed data');
+    for (const block of data.results) {
       const h2Text = block?.heading_2?.rich_text?.[0]?.text?.content ?? '';
       if (h2Text.includes(headingText)) return block.id;
     }
     return null;
-  } catch {
-    return null;
+  } catch (error) {
+    throw error;
   }
 }
 
 async function postResultsToPage(pageId, headingText, blocks, label) {
   try {
     const headingId = await findHeadingId(pageId, headingText);
-    const targetId = headingId ?? pageId;
     const body = headingId ? { children: blocks, after: headingId } : { children: blocks };
-    await notionPost(`/blocks/${targetId}/children`, body);
+    await notionAppend(`/blocks/${pageId}/children`, body);
     console.log(`[notion] posted QA run to ${label} (after ${headingId ? 'heading' : 'page end'})`);
   } catch (err) {
     console.error(`[notion] post to ${label} failed: ${err.message}`);
+    throw err;
   }
 }
 
@@ -141,20 +159,30 @@ export function nBullet(text) { return bulletBlock(text); }
 export function nDivider() { return dividerBlock(); }
 
 // Append blocks to the top of a page (or after a named heading_2 when given).
-// Silently no-ops when NOTION_TOKEN is missing. Notion caps 100 blocks/call.
+// Missing credentials, partial delivery and unreadable acknowledgements fail
+// explicitly. Callers must only record success after this returns true.
 export async function appendBlocksToPage(pageId, blocks, { headingText = null, label = 'page' } = {}) {
-  if (!process.env.NOTION_TOKEN) {
-    console.log('[notion] NOTION_TOKEN not set — skipping Notion post');
-    return false;
+  if (!process.env.NOTION_TOKEN?.trim()) {
+    const error = new Error('NOTION_TOKEN not set — no draft delivered');
+    error.deliveryStatus = 'not_sent';
+    throw error;
   }
-  for (let i = 0; i < blocks.length; i += 90) {
-    const chunk = blocks.slice(i, i + 90);
-    if (headingText) {
-      await postResultsToPage(pageId, headingText, chunk, label);
-    } else {
-      await notionPost(`/blocks/${pageId}/children`, { children: chunk });
-      console.log(`[notion] appended ${chunk.length} block(s) to ${label}`);
+  if (!Array.isArray(blocks) || !blocks.length) throw new Error('No Notion draft blocks supplied');
+  let appended = 0;
+  try {
+    for (let i = 0; i < blocks.length; i += 90) {
+      const chunk = blocks.slice(i, i + 90);
+      if (headingText) {
+        await postResultsToPage(pageId, headingText, chunk, label);
+      } else {
+        await notionAppend(`/blocks/${pageId}/children`, { children: chunk });
+        console.log(`[notion] appended ${chunk.length} block(s) to ${label}`);
+      }
+      appended += chunk.length;
     }
+  } catch (error) {
+    if (appended) error.deliveryStatus = 'unknown';
+    throw error;
   }
   return true;
 }

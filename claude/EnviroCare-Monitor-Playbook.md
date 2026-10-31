@@ -149,6 +149,91 @@ fixed in code by the time the errors were read — an error group's presence in 
 window does **not** mean the bug is still live. **Check the code before reporting a
 bug as open**, and compare the group's `last` timestamp against when the fix shipped.
 
+### Review drafts and proposed reply policy — updated October 29, 2026
+
+The repository review responder is a **draft workflow**, not a OneUp or Google
+reply publisher. Public sending stays hard-disabled in
+`agents/lib/review-response-policy.mjs`; no environment flag enables it.
+The existing weekly schedule is unchanged.
+
+The repaired workflow requires `BRIGHTLOCAL_API_KEY`, `ANTHROPIC_API_KEY`,
+`NOTION_TOKEN` and durable Supabase state before doing work. `NOTION_API` is not
+the variable its Notion helper reads. Check credential presence on the actual
+production project, `envirocare-web-only-testing`, without printing values.
+Do not infer working integration from a credential on the duplicate project.
+
+Delivery evidence:
+
+- Malformed/failed review reads or state reads fail the run instead of becoming
+  an empty success. A destination skip is not a successful delivery.
+- Each review gets a scoped, atomic claim in the existing `agent_state` table,
+  under `review-responder:delivery:v2:<hash>`. No schema migration is required.
+- Notion append uses PATCH and requires a valid block acknowledgement. Only
+  then does that review's claim become `delivered`.
+- A known rejected write releases the claim. An ambiguous timeout, partial
+  append, or failed acknowledgement persistence leaves `pending` and raises an
+  error. Reconcile the draft reference in Notion before retrying; never delete
+  pending claims in bulk or assume they were delivered.
+- The old `review-responder:drafted-keys` array is read but never overwritten.
+  Its entries need reconciliation because the old workflow could record them
+  without a destination write. They are not proof of delivery.
+
+The reusable policy is evaluated for every actual draft and explains human
+review requirements beside it. Proposed unattended eligibility is: a Google
+review with a stable ID, five stars, at least two hours old, created strictly
+after an explicit activation time, no complaint or uncertain assessment, and a fresh provider
+read proving no reply exists. All one-to-four-star reviews and every complaint
+stay manual. Initial rollout needs ten distinct, dated operator approvals;
+public delivery must stay within three per location and ten globally in any
+rolling 24 hours. Replies target 30–60 words when the review supports it, with
+hard caps of 450 characters, 70 words and three sentences including the
+signature. Google's 4096-byte UTF-8 reply limit is checked separately; the
+house limits are tighter. Replies pass the existing content-compliance rules.
+Phillip clarified on October 29 that public replies must never include a street
+or mailing address, suite/unit number, ZIP/postal code, map/address link or
+address/contact block, even when the review includes one. Office metadata is
+internal routing information only. Use natural thanks; a town mentioned by the
+reviewer is fine, and the only appended signature is the EnviroCare team name.
+The drafting prompt states this rule, and the shared reply check rejects common
+address, unit, postal-code and map-link patterns before draft delivery. These
+checks supplement human review rather than claiming to recognize every postal
+format. Ordinary years and the existing private-follow-up phone guidance for
+manual complaints are unchanged.
+The two-hour age gate does not alter the existing weekly draft schedule or
+enable polling; provider fetch cadence is a separate constraint.
+
+The optional `review-responder:reply-policy` state contains `activatedAt`,
+`initialApprovals` (key, replyHash, approvedBy, approvedAt) and a verified
+provider delivery history (`historyVerified`, `events` with key, location,
+status, at). Missing or malformed evidence holds eligibility. Do not populate
+it from an inferred approval count or guessed history. **This release does not
+activate or populate it.** These are evaluation inputs, not a sending API.
+
+Remaining integration work before public automation:
+
+1. Verify native OneUp capabilities, account limits and a supported review API
+   or use verified Google Business Profile OAuth access. Existing OneUp post
+   endpoints are not review-reply endpoints. `/api/social/run` is a separate
+   direct-posting route and must not be used as a review bridge.
+2. Obtain a current review resource, creation time and reply state from the
+   provider. BrightLocal's missing reply field is recorded as unknown. Its
+   lookback is not proof a review is new or unanswered.
+3. Build an authenticated sender with an atomic global/location rate
+   reservation, per-review idempotency and a fresh read immediately before
+   sending. The pure policy's history checks alone are not a distributed rate
+   limiter. Google updateReply can overwrite an existing reply, so it must
+   never be called just because a cached report lacks one.
+4. Establish activation time, review the first ten replies, verify delivery
+   readback and reconcile unknown outcomes before enabling unattended replies.
+   Choose one public sender; do not also activate an overlapping native rule.
+
+Validation: `npm run test:review-workflow` covers failures, acknowledgement,
+retry/concurrency, legacy holds, new-review eligibility and rate/rollout limits
+with synthetic data and mocked destinations. No real reply is sent by tests.
+Provider references: [Notion append block children](https://developers.notion.com/reference/patch-block-children),
+[Google review list](https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/list),
+[Google updateReply](https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/updateReply).
+
 ### 6 · Site health
 
 Fetch `https://www.envirocarellc.com/` and confirm:
@@ -182,7 +267,7 @@ this correctly on Jul 26; the bad instruction came from
 | BrightLocal `longitude: 0` on Alex City + Huntsville | Known. BrightLocal's copy only — Local Falcon has correct coordinates, so Google is fine |
 | BrightLocal `get_brain_recommendations` = INVALID_API_KEY | Known — plan-gated endpoint, not a broken key |
 | Ahrefs entirely dead | Known — do not retry |
-| No OneUp connector | Known |
+| OneUp connector availability | Session-dependent; inspect the current tool registry and use the signed-in UI when needed. |
 | **vercel.app + apex are 308, not 302** | **Known and CORRECT.** Do not "fix". See §5 |
 | **Huntsville GBP description carries "Founded in 1958", the retired name, and "guarantee"** | **Known, open.** Needs a login to change — Phillip only. Do not re-flag weekly; flag only if it changes *again* |
 | **Huntsville address differs across sources** | Known, open. Stored `7027 Old Madison Pike NW, Ste 108` · Bing `…Pike Ste 108` (no NW) · Yelp `…Pike` (neither). Decide a canonical form |
