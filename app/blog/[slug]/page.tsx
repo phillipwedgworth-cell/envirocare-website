@@ -89,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             inLanguage: 'en-US',
             datePublished: post.publishedAt,
             dateModified: post.updatedAt ?? post.publishedAt,
-            author: post.author === 'EnviroCare, LLC'
+            author: ['EnviroCare, LLC', 'EnviroCare Pest Services'].includes(post.author)
               ? { '@type': 'Organization', '@id': ORGANIZATION_ID }
               : {
                   '@type': 'Person',

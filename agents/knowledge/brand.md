@@ -3,7 +3,8 @@
 
 ## Company Identity
 - **Family history**: The Wedgworth family began Alabama pest control in Alexander City in 1958. Do not describe the current legal entity as founded then.
-- **Name**: EnviroCare in general prose; legal name EnviroCare, LLC. The retired “EnviroCare Pest & Termite Services” is not an approved company name.
+- **Name**: "EnviroCare Pest Services" in public prose, bylines and closers (Phillip, Oct 19 2026 — the descriptor helps search). "EnviroCare" alone is fine as a short second reference. Legal name EnviroCare, LLC appears only in schema legalName and legal notices. Per-location Google Business Profile titles keep their own verified names. The retired “EnviroCare Pest & Termite Services” is not an approved company name.
+- **1958 wording**: "Local service. Since 1958." is approved for public copy and social posts (Phillip, Oct 29 2026). Do not say the place-specific "served <city> since 1958".
 - **Current owner**: Kevin Wedgworth (3rd-generation owner). The BUSINESS spans FOUR generations (William Lex, 4th gen, joined 2024). Say "four generations" / "family-owned since 1958"; NEVER "third-generation company".
 - **Structure**: Family-owned, never franchised, never sold
 - **Tagline**: "No One Cares Like EnviroCare"

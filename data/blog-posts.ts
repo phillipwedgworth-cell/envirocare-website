@@ -139,11 +139,11 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'A handover checklist for moving from a construction site to an operating facility: open penetrations, receiving procedures, monitoring records and repair ownership.',
     publishedAt: '2026-10-28',
     updatedAt: "2026-10-29",
-    author: 'EnviroCare, LLC',
+    author: 'EnviroCare Pest Services',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
-    metaTitle: 'Data Center Pest Control: Construction Handover',
+    metaTitle: 'Data Center Pest Control: Construction Handover | EnviroCare',
     metaDescription: "Prepare data center handover with inspection records, open entry-point repairs, monitoring maps and agreed responsibilities for the operating team.",
     body: `
 <p class="lede">A data center construction handover should transfer the pest inspection map, unresolved entry-point repairs, monitoring history and service responsibilities to the operations team. A completed building is not automatically a closed pest-prevention task list. Check what changed during the final deliveries and contractor work before the construction team leaves.</p>
@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Revisit the plan after later fit-outs or equipment projects. An operating facility can pass through another construction phase, and the same handover questions become relevant again. The scope and visit frequency should follow that site's circumstances rather than a generic calendar.</p>
 <h2>How do you connect handover with the ongoing service plan?</h2>
 <p>Use the <a href="/blog/data-center-ipm-plan">IPM planning checklist</a> to document the operating arrangement and the <a href="/blog/data-center-pest-control-service-report">service-report guide</a> to define what follow-up should show. Our <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> helps organize the building-envelope discussion.</p>
-<p>EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Discuss the proposed scope, access and responsibilities through our <a href="/data-center-pest-control">data center pest-control program</a>. Construction-related work is subject to a site-specific agreement, not an automatic inclusion in routine service.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
+<p>EnviroCare Pest Services is a fourth-generation Alabama family business with offices in Birmingham, Alabaster, Huntsville and Alexander City. Local service. Since 1958. Discuss the proposed scope, access and responsibilities through our <a href="/data-center-pest-control">data center pest-control program</a>. Construction-related work is subject to a site-specific agreement, not an automatic inclusion in routine service.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
   {
@@ -173,12 +173,12 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Learn to distinguish no activity from no access, read device-level findings and use a service report to close repairs and track recurring pest evidence.',
     publishedAt: '2026-10-28',
     updatedAt: "2026-10-29",
-    author: 'EnviroCare, LLC',
+    author: 'EnviroCare Pest Services',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
-    metaTitle: 'What Should a Data Center Pest Report Show?',
-    metaDescription: 'Learn to distinguish no activity from no access, read device-level findings and use a service report to close repairs and track recurring pest evidence.',
+    metaTitle: 'What Should a Data Center Pest Report Show? | EnviroCare',
+    metaDescription: 'What a data center pest report should show: inspected zones, device findings, actions taken and open repairs, with no access kept apart from no activity.',
     body: `
 <p class="lede">A data center pest-control service report should show where inspection occurred, what was found, what action was taken and what remains unresolved. It should distinguish a checked location with no evidence from a location the technician could not access. Those two entries support very different conclusions.</p>
 <h2>Which fields make a report useful to operations?</h2>
@@ -199,7 +199,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>How should sensitive information be handled?</h2>
 <p>Keep floor plans, equipment identifiers, access instructions and incident photographs in the systems your facility authorizes. Public case studies should not expose them. Agree in advance on what the provider records, where it is stored and who may receive it.</p>
 <p>Use our <a href="/blog/data-center-pest-control-vendor-checklist">vendor checklist</a> to request a sample report before service and our <a href="/blog/data-center-pest-activity-response">activity-response guide</a> to define escalation. The <a href="/blog/data-center-ipm-plan">IPM plan</a> should connect those documents.</p>
-<p>EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Ask about the reporting scope for your property through our <a href="/data-center-pest-control">data center pest-control program</a>; reporting formats and responsibilities are agreed for the individual site.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
+<p>EnviroCare Pest Services is a fourth-generation Alabama family business with offices in Birmingham, Alabaster, Huntsville and Alexander City. Local service. Since 1958. Ask about the reporting scope for your property through our <a href="/data-center-pest-control">data center pest-control program</a>; reporting formats and responsibilities are agreed for the individual site.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
   {
@@ -208,11 +208,11 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'A practical response workflow: record evidence, notify the facility contact, obtain authorized inspection and track the corrective action without disturbing equipment.',
     publishedAt: '2026-10-28',
     updatedAt: "2026-10-29",
-    author: 'EnviroCare, LLC',
+    author: 'EnviroCare Pest Services',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
-    metaTitle: 'Pest Activity in a Data Center: What Happens Next?',
+    metaTitle: 'Data Center Pest Activity: What Happens Next? | EnviroCare',
     metaDescription: "Respond to data center pest activity with documented evidence, authorized inspection and assigned follow-up. Keep equipment and access rules in view.",
     body: `
 <p class="lede">When pest activity is reported in a data center, follow the facility's agreed notification and access process, record the location and evidence, and have the appropriate professional assess the next step. Do not improvise a treatment, open equipment or move monitoring devices while trying to solve the issue.</p>
@@ -234,7 +234,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>What should the team learn from the incident?</h2>
 <p>Review whether the reporting route worked, whether access caused delays and whether the same condition appeared in earlier reports. Improve the plan where the record supports a change. Avoid drawing a performance conclusion from one isolated count without examining inspection coverage and site conditions.</p>
 <p>Use our <a href="/blog/data-center-pest-control-service-report">service-report guide</a> for documentation and the <a href="/blog/data-center-pest-control-construction-handover">construction-handover checklist</a> when the issue follows a project. The <a href="/blog/data-center-ipm-plan">IPM planning guide</a> connects the responsibilities.</p>
-<p>EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Discuss a site-specific program through our <a href="/data-center-pest-control">data center pest-control page</a>. Inspection, access and any response commitments belong in the agreed scope.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
+<p>EnviroCare Pest Services is a fourth-generation Alabama family business with offices in Birmingham, Alabaster, Huntsville and Alexander City. Local service. Since 1958. Discuss a site-specific program through our <a href="/data-center-pest-control">data center pest-control page</a>. Inspection, access and any response commitments belong in the agreed scope.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
   {
@@ -242,7 +242,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Should a Data Center IPM Plan Include?',
     excerpt: 'A practical plan connects pest monitoring, approved methods, facility access and documented corrective actions. Here is what to put in writing before service begins.',
     publishedAt: '2026-10-28',
-    author: 'EnviroCare, LLC',
+    author: 'EnviroCare Pest Services',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
@@ -264,7 +264,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>How do you know the plan is working?</h2>
 <p>Review activity by zone alongside unresolved repairs, repeat findings and missed access. A blank device log does not establish control if the technician could not inspect half the stations. Update the map after approved construction changes and revisit the scope when a new building or loading area opens.</p>
 <p>Ask for a sample report before agreeing to service. It should show inspection results, inaccessible locations, actions taken and the work still assigned to the facility. See our <a href="/blog/data-center-pest-control-vendor-checklist">vendor evaluation checklist</a> and <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> for the next planning steps.</p>
-<p>EnviroCare, LLC is a fourth-generation Alabama family pest-control business with family roots dating to 1958. Discuss your facility's scope through our <a href="/data-center-pest-control">data center pest-control program</a>; methods, access and commercial pricing are agreed for the individual site.</p>
+<p>EnviroCare Pest Services is a fourth-generation Alabama family business with offices in Birmingham, Alabaster, Huntsville and Alexander City. Local service. Since 1958. Discuss your facility's scope through our <a href="/data-center-pest-control">data center pest-control program</a>; methods, access and commercial pricing are agreed for the individual site.</p>
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
@@ -273,7 +273,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Where Do Rodents Enter a Data Center?',
     excerpt: 'Loading docks, doors and service penetrations deserve a coordinated inspection. Learn what to record and which repairs belong with the facility team.',
     publishedAt: '2026-10-28',
-    author: 'EnviroCare, LLC',
+    author: 'EnviroCare Pest Services',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
@@ -298,7 +298,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The <a href="https://www.epa.gov/sites/default/files/2015-11/documents/ipm_in_buildings.pdf">EPA's building IPM guidance</a> supports prevention and a coordinated building-management approach. The access restrictions, repair assignments and treatment rules for your data center must still be decided for that site.</p>
 <h2>What should happen after an entry point is repaired?</h2>
 <p>Check the repair and continue monitoring the associated area. A closed opening does not prove that all interior activity has ended, and an empty trap does not prove the building envelope is intact. Review both evidence streams during follow-up.</p>
-<p>Use our <a href="/blog/data-center-ipm-plan">data center IPM plan checklist</a> to document responsibilities and our <a href="/blog/data-center-pest-control-vendor-checklist">vendor checklist</a> to compare reporting. EnviroCare, LLC is a fourth-generation Alabama family business with family roots dating to 1958. Discuss a site-specific walkthrough through our <a href="/data-center-pest-control">data center pest-control page</a>.</p>
+<p>Use our <a href="/blog/data-center-ipm-plan">data center IPM plan checklist</a> to document responsibilities and our <a href="/blog/data-center-pest-control-vendor-checklist">vendor checklist</a> to compare reporting. EnviroCare Pest Services is a fourth-generation Alabama family business with offices in Birmingham, Alabaster, Huntsville and Alexander City. Local service. Since 1958. Discuss a site-specific walkthrough through our <a href="/data-center-pest-control">data center pest-control page</a>.</p>
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
@@ -307,7 +307,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How Do You Evaluate a Data Center Pest-Control Vendor?',
     excerpt: 'Compare the written scope, permitted methods, access rules and reporting before comparing quotes. A facility-focused checklist for vendor selection.',
     publishedAt: '2026-10-28',
-    author: 'EnviroCare, LLC',
+    author: 'EnviroCare Pest Services',
     category: 'Commercial',
     readMinutes: 3,
     heroEmoji: '🏢',
@@ -331,7 +331,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Compare that explanation with the proposed scope. A promise to treat every room the same way is a reason to ask more questions, especially when electrical rooms and receiving areas present different constraints.</p>
 <h2>How should the final decision be documented?</h2>
 <p>Keep a short comparison showing each vendor's scope, exclusions, documents supplied, reporting example and unanswered questions. Resolve operational gaps before signing. Decide who will review repeat activity, open repairs and access failures after service begins.</p>
-<p>Our <a href="/blog/data-center-ipm-plan">IPM planning guide</a> and <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> help turn those questions into a walkthrough agenda. EnviroCare, LLC is a fourth-generation Alabama family pest-control business with family roots dating to 1958. Request a discussion through our <a href="/data-center-pest-control">Alabama data center pest-control program</a> or explore our broader <a href="/services/commercial">commercial pest-control service</a>. Commercial work is quoted for the individual site.</p>
+<p>Our <a href="/blog/data-center-ipm-plan">IPM planning guide</a> and <a href="/blog/data-center-rodent-entry-points">rodent entry-point guide</a> help turn those questions into a walkthrough agenda. EnviroCare Pest Services is a fourth-generation Alabama family business with offices in Birmingham, Alabaster, Huntsville and Alexander City. Local service. Since 1958. Request a discussion through our <a href="/data-center-pest-control">Alabama data center pest-control program</a> or explore our broader <a href="/services/commercial">commercial pest-control service</a>. Commercial work is quoted for the individual site.</p>
 <p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
@@ -3218,7 +3218,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Why EnviroCare recommends Sentricon for Alabama termite control</h2>
 
-<p>EnviroCare is a Sentricon® Certified Specialist and a fourth-generation Alabama family pest-control business with family roots dating to 1958. We recommend a program after inspecting the property and explaining the treatment, monitoring and agreement terms. The recommendation should reflect the home's conditions and the work needed.</p>
+<p>EnviroCare Pest Services is a Sentricon® Certified Specialist and a fourth-generation Alabama family business. Local service. Since 1958. We recommend a program after inspecting the property and explaining the treatment, monitoring and agreement terms. The recommendation should reflect the home's conditions and the work needed.</p>
 
 <p>If you are trying to decide between Sentricon and liquid termite treatment, start with a free termite inspection. We will tell you what we find, what we recommend, and why — and help you make an informed decision about the termite protection that fits your home and your budget.</p>
 
@@ -3309,7 +3309,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquito Control',
     readMinutes: 5,
     heroEmoji: '🦟',
-    metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare, LLC',
+    metaTitle: 'Lake Martin Mosquito Control Guide | EnviroCare',
     metaDescription: 'Lake Martin mosquito control: $45/month, eight treatments March–October, firm price after a free inspection. Mosquito and tick control. (256) 234-6162.',
     body: `
 <p class="lede">Lake Martin is at its best from March through October, right up until the sun drops behind the ridge. Then the porch, the patio and the dock belong to the mosquitoes. This season-long guide is for Lake Martin homeowners and weekend property owners who want to reclaim them: where the mosquitoes come from, what professional mosquito control can and cannot do here, what to skip, and what you can handle yourself.</p>
@@ -5168,7 +5168,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Talk with your local EnviroCare office</h2>
 
-<p>EnviroCare is a fourth-generation Alabama family pest-control business with family roots dating to 1958. For a mosquito assessment, describe your property's conditions and where you notice activity. The inspection helps establish the proposed service and price.</p>
+<p>EnviroCare Pest Services is a fourth-generation Alabama family business. Local service. Since 1958. For a mosquito assessment, describe your property's conditions and where you notice activity. The inspection helps establish the proposed service and price.</p>
 
 <p>Call Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Huntsville <a href="tel:+12569377676">(256) 937-7676</a>, or Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a> — or <a href="/quote">request a free quote online</a>.</p>
 
