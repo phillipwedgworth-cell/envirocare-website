@@ -194,8 +194,8 @@ LANGUAGE RULES (legal — never break these):
    - NEVER say flea is included in the bi-monthly pest plan
 
 PLANS (convenience packages, NOT discounts — never promise "bundle savings"; termite is NEVER a flat number):
-- Pest — From $35/mo (bimonthly) · $75 initial service
-- Pest + Mosquito — From $69/mo · $75 initial service — MOST POPULAR (lead with this)
+- Pest — From $35/mo (bimonthly) · $75 initial service (reg. $150, 50% off)
+- Pest + Mosquito — From $69/mo · $75 initial service (reg. $150, 50% off) — MOST POPULAR (lead with this)
 - Complete (Pest + Termite + Mosquito) — From ~$100/mo · $229 initial service — best value; termite priced upon inspection & approval
 - Mosquito: $45/month alone, OR $34/mo only when bundled with a pest plan. Mosquito + Tick $65/month (tick rides with mosquito only).
 - Startup fees one-time, ACH. Monthly/ACH requires a year-round anchor (pest or termite) — mosquito/tick can't go monthly on their own.

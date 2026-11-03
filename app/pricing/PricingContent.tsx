@@ -42,7 +42,7 @@ type Plan = {
   name: string;
   tagline: string;
   priceLabel: string;     // big headline price, e.g. "From $69/mo" or "$45/month × 8"
-  startup: string;        // e.g. "$75 initial service" or "Firm price after inspection"
+  startup: string;        // e.g. "$75 initial service (reg. $150, 50% off)" or "Firm price after inspection"
   note?: string;          // e.g. "Tick and flea quoted" or "Sentricon® priced after free WDO inspection"
   features: string[];
   cta: string;
@@ -55,7 +55,7 @@ const MONTHLY_PLANS: Plan[] = [
     name: "Pest + Mosquito",
     tagline: "Bimonthly pest + seasonal mosquito — most popular",
     priceLabel: "From $69/mo",
-    startup: "$75 initial service · ACH autopay",
+    startup: "$75 initial service (reg. $150, 50% off) · ACH autopay",
     note: "Tick and flea add-ons available — ask for a quote",
     features: [
       "Bimonthly perimeter pest treatment",
@@ -85,7 +85,7 @@ const MONTHLY_PLANS: Plan[] = [
     name: "Pest",
     tagline: "Bimonthly perimeter pest control",
     priceLabel: "From $35/mo",
-    startup: "$75 initial service · ACH autopay",
+    startup: "$75 initial service (reg. $150, 50% off) · ACH autopay",
     note: "Ask about adding seasonal mosquito service",
     features: [
       "Bimonthly perimeter treatment",
