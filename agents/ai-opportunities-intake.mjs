@@ -15,6 +15,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { validateAiOpportunityExport } from './lib/ai-opportunity-validation.mjs';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const OPPS_PATH = join(__dir, "neuronwriter-content", "ai-opportunities.json");
@@ -27,6 +28,10 @@ if (!existsSync(OPPS_PATH)) { console.error(`Missing ${OPPS_PATH}`); process.exi
 if (!existsSync(TARGETS_PATH)) { console.error(`Missing ${TARGETS_PATH}`); process.exit(1); }
 
 const opps = JSON.parse(readFileSync(OPPS_PATH, "utf8"));
+// An incomplete July paste must not silently create November analyses.
+// Refresh the complete export; no override converts stale evidence to current.
+try { validateAiOpportunityExport(opps); }
+catch (error) { console.error(`AI opportunity intake blocked: ${error.message}`); process.exit(1); }
 const targetsDoc = JSON.parse(readFileSync(TARGETS_PATH, "utf8"));
 const targets = Array.isArray(targetsDoc.targets) ? targetsDoc.targets : [];
 

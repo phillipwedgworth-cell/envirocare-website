@@ -15,7 +15,7 @@ const response = (payload, status = 200) => ({
   text: async () => JSON.stringify(payload),
 });
 
-async function client(inventory, initialState = []) {
+async function client(inventory, initialState = [], evaluation = { content_score: 78 }) {
   const requests = [];
   const state = new Map(initialState);
   const context = createContext({
@@ -37,7 +37,7 @@ async function client(inventory, initialState = []) {
       }
       if (endpoint === 'new-query') return response({ query: 'new-query-id' });
       if (endpoint === 'get-query') return response({ status: 'ready', terms: { content_basic: [] } });
-      if (endpoint === 'evaluate-content') return response({ content_score: 78 });
+      if (endpoint === 'evaluate-content') return response(evaluation);
       throw new Error(`Unexpected mock API endpoint: ${endpoint}`);
     },
   });
@@ -149,6 +149,16 @@ assert.equal(concurrent.requests.filter((r) => r.endpoint === 'evaluate-content'
   'each page still gets its own content evaluation');
 assert.equal([...concurrent.state.entries()].find(([key]) => key.startsWith('neuronwriter:budget:'))?.[1], 1);
 
+for (const evaluation of [{}, null, { content_score: '78' }, { content_score: -1 }, { content_score: 101 }, { status: 'error', content_score: 78 }, { error: 'failed', score: 78 }]) {
+  const c = await client(response([{ keyword, query: 'known-id' }]), [], evaluation);
+  await assert.rejects(c.analyze(), /no valid numeric score/);
+  assert.ok(![...c.state.keys()].some(key => key.startsWith('neuronwriter:query:')), 'invalid scores must not be cached as successful');
+  assert.ok(!c.endpoints().includes('new-query'), 'invalid score cannot authorize a replacement analysis');
+}
+const zero = await client(response([{ keyword, query: 'known-id' }]), [], { status: 'ok', content_score: 0 });
+assert.equal((await zero.analyze()).score, 0, 'genuine zero remains a numeric score');
+
+console.log('✓ NeuronWriter: invalid score envelopes never become zero or successful cache entries');
 console.log('✓ NeuronWriter: failed or malformed inventories never create analyses or reserve quota');
 console.log('✓ NeuronWriter: both list shapes reuse existing IDs; verified absence creates once; cached IDs are preserved');
 console.log('✓ NeuronWriter: sequential keyword variants and concurrent same-key calls share one new analysis');
