@@ -1,27 +1,42 @@
 import { NextResponse } from "next/server";
+import { timingSafeEqual } from "node:crypto";
+import { cleanEnv } from "@/lib/env-url";
 import {
   readFindings,
   readDiscussions,
-  probe,
 } from "@/agents/lib/supabase.mjs";
+
+export const runtime = "nodejs";
 
 // Quick read-only window into what the agents are saying to each other —
 // no Supabase dashboard required. Pulls the last 7 days by default.
 // Findings = individual observations; discussions = cross-agent dialogue
 // with impact/effort scoring. Both come from the shared agents/lib/supabase.mjs.
 
+//
+// LOCKED 2026-11-02 (patch 0019). This route was public since 2026-05-30, and its
+// ?debug=1 branch returned Supabase connection diagnostics including the first 12
+// characters and the length of the service (secret) key. Same data class as
+// /api/findings/latest, so the same gate: `Authorization: Bearer <FINDINGS_READ_KEY>`,
+// fails closed when the env var is unset. The debug branch is deleted, not gated.
+function authorized(req: Request): boolean {
+  const expected = cleanEnv("FINDINGS_READ_KEY");
+  const got = (req.headers.get("authorization") ?? "").replace(/^Bearer\s+/i, "").trim();
+  if (!expected || !got) return false;
+  const a = Buffer.from(got);
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
 export async function GET(request: Request) {
+  if (!authorized(request)) {
+    return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
+  }
   const url = new URL(request.url);
   const hours = Number(url.searchParams.get("hours")) || 168; // 7 days
   const agent = url.searchParams.get("agent");
   const agentsFilter = agent ? [agent] : [];
 
-  // ?debug=1 returns raw Supabase connection diagnostics — useful when
-  // findings/discussions silently come back empty.
-  if (url.searchParams.get("debug")) {
-    const diag = await probe();
-    return NextResponse.json({ ok: true, diag });
-  }
 
   try {
     const [findings, discussions] = await Promise.all([

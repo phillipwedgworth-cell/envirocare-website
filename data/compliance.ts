@@ -96,6 +96,11 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // A 'flat $75' initial contradicts pricing canon twice: the $75 is 50% off a $150
   // regular price, not a flat rate, and a mosquito-only plan has no $75 startup.
   { pattern: 'flat\\s+\\$\\s?75', reason: 'pricing claim ($75 is 50% off $150, not a flat price; mosquito-only has no $75 startup)', approvedInstead: '$75 initial service, 50% off the $150 regular price (Pest and Pest + Mosquito only)' },
+  // Bare $75 initial (no $150 anchor) shipped on /pricing, its schema, the chatbot prompt and
+  // ~30 blog/city FAQ answers because the Sep 7 2026 ruling lived only in the prose rules below and
+  // nothing tested it. Added 2026-11-02 (patch 0019). notIf is per line: a line that names
+  // the $150 regular price anywhere passes.
+  { pattern: '\\$\\s?75\\s+initial', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a

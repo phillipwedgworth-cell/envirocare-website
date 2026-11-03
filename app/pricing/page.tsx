@@ -15,11 +15,11 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 export const metadata: Metadata = {
   title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
   description:
-    "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/month Mar–Oct. Termite quoted after a free WDO inspection.",
+    "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free WDO inspection.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
-    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/month Mar–Oct. Termite quoted after a free WDO inspection.",
+    description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free WDO inspection.",
     url: 'https://www.envirocarellc.com/pricing',
     images: ['/og-image.png'],
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
-    description: "Real prices, published — no in-home visit needed. Pest from $35/mo, $75 initial service, mosquito $45/month Mar–Oct. Termite quoted after a free WDO inspection.",
+    description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free WDO inspection.",
     images: ['/og-image.png'],
   },
 };
@@ -42,12 +42,12 @@ const OFFER_SCHEMA = {
     {
       "@type": "Offer", name: "Pest Control", priceCurrency: "USD", price: "35",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with free re-service. $75 initial service fee; monthly pricing uses a 12-month ACH billing agreement." },
+      itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with free re-service. $75 initial service fee (50% off the $150 regular price); monthly pricing uses a 12-month ACH billing agreement." },
     },
     {
       "@type": "Offer", name: "Pest + Mosquito", priceCurrency: "USD", price: "69",
       priceSpecification: { "@type": "UnitPriceSpecification", price: "69", priceCurrency: "USD", unitText: "per month, ACH" },
-      itemOffered: { "@type": "Service", name: "Pest + Seasonal Mosquito", description: "Bimonthly pest control plus seasonal mosquito (March–October). $75 initial service fee. Tick and flea add-ons available, quoted for your property." },
+      itemOffered: { "@type": "Service", name: "Pest + Seasonal Mosquito", description: "Bimonthly pest control plus seasonal mosquito (March–October). $75 initial service fee (50% off the $150 regular price). Tick and flea add-ons available, quoted for your property." },
     },
     {
       "@type": "Offer", name: "Mosquito", priceCurrency: "USD", price: "45",
@@ -62,7 +62,7 @@ const OFFER_SCHEMA = {
     {
       // Termite — intentionally NO price (Alabama requires an on-site WDO inspection first).
       "@type": "Offer", name: "Sentricon® Termite Protection",
-      itemOffered: { "@type": "Service", name: "Sentricon® Always Active™ Termite Protection", description: "Quoted after a free on-site WDO inspection (based on linear footage and foundation type). Up to $1,000,000 EnviroCare repair coverage, subject to the terms of the agreement. Available bundled with a pest plan ($75 initial service fee)." },
+      itemOffered: { "@type": "Service", name: "Sentricon® Always Active™ Termite Protection", description: "Quoted after a free on-site WDO inspection (based on linear footage and foundation type). Up to $1,000,000 EnviroCare repair coverage, subject to the terms of the agreement. Available bundled with a pest plan ($75 initial service fee (50% off the $150 regular price))." },
     },
   ],
 };
