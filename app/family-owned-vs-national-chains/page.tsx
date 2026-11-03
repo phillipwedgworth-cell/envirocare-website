@@ -62,7 +62,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How much does pest control cost in Birmingham?',
-    a: 'EnviroCare publishes its price: $35/month on ACH or $70 per bi-monthly visit for pest control, with a $75 initial service and free re-service between visits. Termite and mosquito service are quoted after a free inspection.',
+    a: 'EnviroCare publishes its price: $35/month on ACH or $70 per bi-monthly visit for pest control, with a $75 initial service (50% off the $150 regular price) and free re-service between visits. Termite and mosquito service are quoted after a free inspection.',
   },
   {
     q: 'Is a family-owned pest control company better than a national chain?',
@@ -74,7 +74,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Is EnviroCare cheaper than the national pest control companies?',
-    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service and free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
+    a: 'We publish our pricing so you can compare: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service (50% off the $150 regular price) and free re-service between visits. Most national chains quote per branch, so their price depends on the promotion of the month. Our price is the same for everyone, printed on the website.',
   },
   {
     q: 'Do I have to sign a contract with EnviroCare?',
