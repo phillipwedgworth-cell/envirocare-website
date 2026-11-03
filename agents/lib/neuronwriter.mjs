@@ -244,7 +244,13 @@ export async function analyzePageContent(keyword, content, opts = {}) {
     process.stdout.write(' done\n');
 
     const scoreResp = await scoreContent(queryId, html);
-    const score = scoreResp.content_score ?? scoreResp.score ?? 0;
+    // A malformed HTTP-200 response is a tool failure, never a zero score.
+    // Accept genuine numeric zero; reject strings, nulls and error envelopes.
+    const score = scoreResp?.content_score ?? scoreResp?.score;
+    if (scoreResp?.error || (scoreResp?.status && scoreResp.status !== 'ok') ||
+        typeof score !== 'number' || !Number.isFinite(score) || score < 0 || score > 100) {
+      throw new Error('NeuronWriter evaluation returned no valid numeric score');
+    }
 
     const basicTerms = queryData?.terms?.content_basic ?? [];
     const missing = [];
