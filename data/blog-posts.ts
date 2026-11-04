@@ -1063,7 +1063,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>If you are not sure, schedule an inspection</h2>
 <p>Take a clear photo of the damage and of the insect if you have one, leave the mud tube or the frass in place, and let an inspector look. Do not spray the tube and do not tear out the trim. Carpenter ants are covered under the <a href="/services/pest-control">bi-monthly pest plan</a>; termites are handled under a separate Sentricon® agreement with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. Either way, the inspection costs nothing.</p>
 
-<h2>Carpenter ants vs termites: a side-by-side check for Alabama homes</h2>
+<h2>Carpenter ants and termites: a side-by-side check for Alabama homes</h2>
 <ul>
 <li><strong>Body:</strong> a carpenter ant has a pinched waist; a termite has a straight, thick body with no waist.</li>
 <li><strong>Antennae:</strong> ant antennae bend at an elbow; termite antennae are straight and beaded.</li>
@@ -1072,13 +1072,13 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Where you see them:</strong> carpenter ants forage in the open, often at night; termite workers stay hidden inside wood, soil and mud tubes.</li>
 </ul>
 
-<h2>What does it mean when flying ants or termite swarmers appear indoors?</h2>
+<h2>When termites swarm or flying ants appear indoors</h2>
 <p>Swarmers are the colony's winged reproductives leaving to start a new colony. In Alabama, eastern subterranean termites usually swarm on warm days in late winter and spring, often after rain; Formosan subterranean termites, found mainly in Mobile and Baldwin counties, swarm at night. Termite swarmers indoors, or piles of shed wings on a windowsill, suggest a colony feeding in or beneath the structure and are a reason for a professional termite inspection. Winged carpenter ants indoors can point to a satellite nest in moist wood inside a wall. Either way, collect a few specimens in a sealed bag for identification.</p>
 
 <h2>Where a carpenter ant infestation nests in an Alabama home</h2>
 <p>The parent colony often lives outdoors in a stump, a rotting landscape timber or a hollow tree. Satellite colonies move into wood that has been softened by moisture: a window frame with a failed seal, wood around plumbing leaks under a sink or tub, a crawl space floor joist near a vent, or a roof leak that wets the attic framing. A carpenter ant infestation inside the house is a sign of a moisture problem that also needs repair. Sealing gaps where utility lines enter and keeping firewood and mulch away from the foundation removes easy routes inside.</p>
 
-<h2>Signs of a termite infestation homeowners often miss</h2>
+<h2>Signs of subterranean termites homeowners often miss</h2>
 <p>Termite damage stays out of sight for a long time. Check crawl space piers and foundation walls for mud tubes, tap baseboards and door frames for wood that sounds hollow, and look for blistered paint or sagging floors. Discarded wings near doors and windows in spring are another warning sign. Because termites can cause structural damage before anything is visible, Alabama homeowners commonly schedule an annual termite inspection rather than waiting for evidence. If you are still unsure which pest you have, our <a href="/services/termite-control">termite control</a> team can inspect and explain the findings.</p>
 
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
@@ -1409,7 +1409,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: `
 <p class="lede">A first pest-control visit should begin with your observations and a property inspection. Explain where activity occurs, make relevant areas accessible and ask what will be treated, what preparation is required and how follow-up will work.</p>
 
-<h2>What should you do before the first visit?</h2>
+<h2>How to prepare for your first pest control visit</h2>
 <p>You do not have to clean the house. It helps to have the areas where you have seen pests accessible — under the kitchen sink, the pantry floor, the garage corners — and to have pets secured. If you know where you have seen activity, tell the technician; a photo of the insect saves time. Have the gate unlocked if the backyard is fenced. If nobody is home, exterior service can still happen; interior work waits for a time you are there.</p>
 <p><strong>Reference:</strong> Ask the provider to find and address the source of the problem. <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA: Pest prevention and pesticide use</a>.</p>
 
@@ -1419,7 +1419,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>What gets treated, and where</h2>
 <p>The exterior treatment goes on the surfaces insects actually cross: the foundation band, around doors and windows, the garage threshold, eaves and soffits, and the shaded cover where they rest. Granular material goes in beds and along the drip line where appropriate. Eaves get treatment that discourages wasps from building; an active nest can be treated as an add-on. For ants, non-repellent material and bait go at the nest sites and trails rather than a broadcast spray. Everything used is EPA-registered and applied per label directions, and the technician will tell you the re-entry timing for treated areas.</p>
 
-<h2>Inside</h2>
+<h2>Inside the home: treating where the pest problem lives</h2>
 <p>Interior treatment on a first visit is targeted: bait in the cracks where roaches live, treatment at the plumbing penetrations under sinks, the garage, and the attic or crawlspace access if the inspection found reason. It is not a baseboard spray of every room — that is the old way, and it is not how pests are reached. If the problem is German cockroaches or fleas, the technician will explain that a follow-up visit is part of the plan, because the egg stage does not respond to the first treatment.</p>
 
 <h2>How long it takes, and the follow-up visit</h2>
@@ -2634,10 +2634,10 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>It also will not fix a population already inside the wall. If you are already seeing activity indoors, that is a different job, and it starts with where they are living rather than where they are entering. Our <a href="/services/pest-control">perimeter pest control</a> program is built around the exterior for that reason, using EPA-registered products applied per label directions. When the weather turns, these same pests become the ones in our guide to <a href="/blog/winter-pests-alabama">common winter pest problems in Alabama</a> — and the instinct to cancel service once it gets cold is exactly backwards.</p>
 
-<h2>Which household pests move indoors in fall in Alabama?</h2>
+<h2>Which household pests move indoors in fall: rodents, ants and cockroaches</h2>
 <p>As nights cool, several common pests look for shelter in Alabama homes. Mice and rats are the biggest fall pest problem: rodents start probing for gaps around utility lines, garage doors and crawl spaces, and a mouse can squeeze through an opening about the width of a pencil. Cockroaches and spiders follow warmth and moisture into garages and basements. Stink bugs and kudzu bugs gather on sunny siding and work into gaps around windows. Ants trail inside after rain, and crickets come in toward lights. Termites do not move in for the winter the way rodents do, but fall is a convenient time for a termite inspection while you are already checking the foundation.</p>
 
-<h2>Fall prevention tips to keep pests out year-round</h2>
+<h2>Fall prevention tips: store food, seal gaps and keep pests out year-round</h2>
 <ul>
 <li><strong>Store food in sealed containers</strong>, including pet food and birdseed in the garage, and clean up crumbs under appliances.</li>
 <li><strong>Keep trash cans lidded</strong> and away from the house, and empty indoor bins often.</li>
@@ -2651,6 +2651,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Fall pest control FAQs</h2>
 <h3>When should Alabama homeowners start fall pest-proofing?</h3>
 <p>September and early October, before the first cold nights push rodents, cockroaches and ants to look for shelter. Sealing gaps after mice are already inside traps them in with you.</p>
+<h3>Is fall pest control worth it for an Alabama homeowner?</h3>
+<p>If you have had mice, cockroaches or ants come inside in past winters, a fall inspection and exterior treatment is usually worth it, because it addresses entry points and crumbs-and-water conditions before cold weather drives pests in. You can <a href="/quote">request a free quote</a> for a fall inspection.</p>
 <h3>Do I need pest control year-round in Alabama?</h3>
 <p>Most Alabama homes benefit from it. Mild winters keep many household pests active, and a regular exterior treatment plus inspections helps reduce activity before it becomes a pest problem indoors.</p>
 
@@ -2759,7 +2761,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>If the caps are green, unmarked, and evenly spaced along the drip line, that is the pattern. Sprinkler heads sit in the middle of turf where the spray pattern needs them, not hugging the foundation in an even ring. Irrigation valve boxes are rectangular and considerably larger.</p>
 
-<h2>How does the Sentricon system work?</h2>
+<h2>How the Sentricon system works as a termite baiting system</h2>
 
 <p>Subterranean termites are constantly foraging underground, in every direction, looking for cellulose. They do not know your house is there until they find wood. Bait stations put something more attractive in their path first. When termites hit a station and begin feeding, they carry the active material back through the colony by trophallaxis — the mouth-to-mouth food sharing that keeps a colony fed. It moves through the workers, then the soldiers and the reproductives that depend on those workers.</p>
 
@@ -2767,12 +2769,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>It also explains why the stations stay in the ground permanently and get inspected on a schedule rather than installed once and forgotten. A station is only doing its job if it is monitored. Products are EPA-registered and applied per label directions.</p>
 
-<h2>What is inside a Sentricon bait station?</h2>
+<h2>What is inside a Sentricon termite bait station?</h2>
 <p>The green caps are the tops of termite bait stations from the Sentricon® system, which Corteva sells under the name Sentricon® Termite Colony Elimination System. The stations are installed in the soil around the foundation at intervals set by the label and the inspection. Inside each station is a bait rod made of a cellulose material termites like to eat. The bait used in Sentricon stations contains noviflumuron, an insect growth regulator. Worker termites that eat the bait share it through the colony, and termites that have fed on it cannot complete their next molt, so they die when they try to molt. As the workers that feed the colony decline, the colony can decline over time; results depend on termites finding the bait, continued feeding and regular station monitoring.</p>
 <p>Because the active ingredient is contained inside the station rather than spread through the soil, the stations sit flush with the ground and do not interfere with lawn care, mowing or landscaping. Keep mulch and soil from burying the caps so the technician can find and open each one during maintenance.</p>
 
-<h2>Do the bait stations affect lawn care or pets?</h2>
+<h2>Do the bait stations affect lawn care or pets after installation?</h2>
 <p>The bait is enclosed in a station that sits flush with the soil under a locking cap, so routine lawn care, mowing and landscaping can continue around it. Do not open stations, pull them up or let pets dig at them; if a cap is damaged or a station is disturbed during yard work, tell your termite control provider so it can be checked and replaced. Ongoing station maintenance is handled by whichever company holds the termite agreement for the home.</p>
+
+<h2>Bait stations vs liquid termite treatment</h2>
+<p>Traditional methods of termite control apply a liquid pesticide to the soil along the foundation and around the perimeter to create a treated zone. A baiting system takes a different approach: the active ingredient stays inside stations, and termites carry it within the colony after they eat the bait, which can affect the entire colony, including the queen, over time. The original Sentricon system, then using the active ingredient hexaflumuron, received the EPA's <a href="https://19january2025snapshot.epa.gov/greenchemistry/presidential-green-chemistry-challenge-2000-designing-greener-chemicals-award">Presidential Green Chemistry Challenge award in 2000</a> for that design. Either approach can be effective termite control when it fits the home; our <a href="/blog/sentricon-vs-liquid-termite-treatment">Sentricon vs liquid comparison</a> explains how to choose. Whichever method a homeowner uses, ongoing inspection is the protection that matters: subterranean termite colonies forage widely underground, and regular checks by your pest control company protect your home by catching termite activity before it reaches the structural wood.</p>
 
 <h2>Do I need to do anything with them?</h2>
 
@@ -4854,7 +4859,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Keep garage doors closed</strong> — an open garage door at night with an interior light on is the single most effective cricket invitation in an Alabama home</li>
 </ul>
 
-<h2>Professional cricket pest control and exterminator services for Alabama homeowners</h2>
+<h2>Professional cricket pest control service for Alabama homeowners</h2>
 
 <p>Professional cricket control starts with identifying the species and locating the entry points and harborage areas where crickets are concentrating. A pest management technician inspects the exterior perimeter, foundation, and the damp areas indoors where crickets harbor — basements, crawl spaces, garages, and utility rooms — to develop a targeted treatment plan.</p>
 
@@ -4863,7 +4868,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Cricket control is part of whole-home pest management. A home with a cricket problem often has the moisture and entry point conditions that attract other pests too — spiders, camel crickets, and other moisture-loving insects that share the same damp areas and crawl spaces. Addressing the underlying conditions provides home protection against a range of pest problems, not just crickets.</p>
 
-<h2>Signs of a cricket infestation in your Alabama home</h2>
+<h2>Signs of cricket infestations and when to schedule an inspection</h2>
 
 <p>A few crickets wandering indoors is normal in Alabama, especially in late summer and fall. These signs indicate a cricket problem that has gone beyond the occasional invader and warrants professional cricket control:</p>
 
