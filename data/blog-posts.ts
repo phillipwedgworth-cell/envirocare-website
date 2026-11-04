@@ -1448,6 +1448,16 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>What happens during your first pest control visit: the signs of pests a technician looks for</h2>
 <p>A thorough inspection of your home comes before any treatment plan. The technician looks for signs of pest activity: droppings along cabinet bases and in the garage, shed cockroach skins, ant trails along a counter or window, spider webs in corners and eaves, and gnaw marks or nesting material that point to rodents. They also note entry points such as gaps under doors, openings where pipes and wires penetrate the wall, and torn screens, plus conducive conditions like plumbing leaks, damp crawl spaces and mulch piled against the foundation. Common household pests in Alabama, including ants, cockroaches, spiders, silverfish and rats and mice, each leave different signs, so tell the technician what you have seen and where.</p>
 
+<h2>Things to expect from your first professional pest control visit</h2>
+<ol>
+<li><strong>A conversation first.</strong> The technician asks what pest issues you have seen, where and when, and whether you have tried DIY pest control products, since some can interfere with baits.</li>
+<li><strong>An inspection inside and around your home.</strong> Expect a look for signs of activity: rodent droppings, roach skins, ant trails, nest material and gaps around the foundation.</li>
+<li><strong>A treatment plan explained before work starts.</strong> You should know which areas will be treated, what preparation is needed and any re-entry directions.</li>
+<li><strong>The initial pest treatment.</strong> Exterior first, then targeted interior work where the inspection found reason.</li>
+<li><strong>A service report and next steps.</strong> What was found, what was applied, what the homeowner can fix, and when the next visit is scheduled.</li>
+</ol>
+<p>Knowing what to expect makes the first appointment shorter and more useful. When you are ready to schedule your first visit, call the office that serves your area.</p>
+
 <h2>What should your pest control plan include?</h2>
 <p>After the first inspection and treatment, you should know what pest problem was found, which areas were treated, what the technician recommends you fix (a leaking faucet, a gap under the garage door) and when the next service is. Ongoing pest control is built around that plan: routine visits keep a protective treatment around the home, and re-service handles covered pests that show up between visits. Ask the technician to point out anything they want you to watch for so you can report it on the follow-up visit.</p>
 
@@ -2934,6 +2944,15 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Can fleas actually survive in a house with no animal at all?</h2>
 
 <p>For a while, yes. Adult fleas need a blood meal to reproduce, and without a steady host they won't build a big population — but the flea life cycle is built for exactly this kind of gap. Eggs fall off a host into carpet fibers and cracks in the floor, hatch into larvae that feed on organic debris, then spin into pupae that can lie dormant for weeks to months. Pupae wait for a trigger — vibration, warmth, carbon dioxide — that signals a potential host is nearby. That's why families sometimes move into an empty house, and within days of unpacking, fleas start biting around the ankles. Nobody brought them in. They were already there, waiting.</p>
+
+<h2>Signs of a flea infestation in a home without pets</h2>
+<ul>
+<li><strong>Flea bites</strong> in small clusters on the ankles and lower legs, often itching more than a mosquito bite.</li>
+<li><strong>Fleas on a white sock</strong> or towel dragged across carpet near baseboards, beds and sofas.</li>
+<li><strong>Dark specks</strong> (flea dirt) on bedding, rugs or the floor of a closet where an animal once slept.</li>
+<li><strong>Activity near a crawl space, porch or attic access</strong>, which points to an animal host outside the living space, such as a rodent, stray cat or opossum.</li>
+</ul>
+<p>Flea eggs and larvae are too small to notice, and pupae can remain dormant in carpet until vibration or warmth signals a host, which is why a house without pets can seem fine for weeks and then suddenly have fleas. Wash bedding and throw rugs in hot water, vacuum daily before and after treatment, empty the vacuum outdoors, and address the animal source as well as the inside of the home.</p>
 
 <h2>Why bug bombs and foggers usually don't fix it</h2>
 
