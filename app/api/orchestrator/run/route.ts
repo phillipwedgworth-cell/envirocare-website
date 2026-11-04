@@ -13,7 +13,11 @@ async function execute(req: NextRequest) {
   const duplicate = skipIfDuplicateProject("orchestrator"); // see lib/cron-guard.ts
   if (duplicate) return duplicate;
   const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.get("authorization") !== `Bearer ${secret}`) {
+  // Fail CLOSED: `!secret ||`, not `secret &&`. The old form skipped the check
+  // entirely if CRON_SECRET ever went missing, and this route runs an agent and
+  // spends API budget on a plain GET. Same pattern as app/api/findings/latest.
+  // Do not "simplify" it back.
+  if (!secret || req.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   try {
