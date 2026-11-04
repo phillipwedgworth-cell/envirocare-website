@@ -894,7 +894,7 @@ export const BLOG_POSTS: BlogPost[] = [
   // Post-dated Sep 8 – Oct 6 so the index releases them two at a time. ───
   {
     slug: 'rodents-alabama-homes-fall',
-    title: "Mice and Rats in Alabama Homes: Fall Entry and Prevention",
+    title: 'Mice and Rats in Alabama Homes: Why October Is When They Move In',
     excerpt: 'Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry points, food storage and clutter; traps alone do not close the opening.',
     publishedAt: '2026-09-08',
     updatedAt: "2026-10-29",
@@ -902,7 +902,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Rodents',
     readMinutes: 7,
     heroEmoji: '🐭',
-    metaTitle: "Mice & Rats in Alabama Homes: Fall Entry and Prevention",
+    metaTitle: 'Mice & Rats in Alabama Homes: Why They Move In Every October',
     metaDescription: "Mice and rats can enter Alabama homes through small gaps. Check entry points, food and shelter, and choose controls based on the evidence.",
     body: `
 <p class="lede">Mice and rats can enter through small building gaps while looking for food and shelter. Pair evidence-based trapping with an inspection of entry points, food storage and clutter; traps alone do not close the opening.</p>
@@ -1176,7 +1176,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'bug-bombs-foggers-do-they-work',
-    title: "Do Bug Bombs Work? Limits and Precautions for Alabama Homes",
+    title: 'Do Bug Bombs Work? Why Foggers Usually Make an Alabama Pest Problem Worse',
     excerpt: 'Bug bombs disperse pesticide into exposed spaces and may miss the hiding places driving an infestation. They also require strict label precautions. Identify the pest and investigate the source before choosing a whole-room treatment.',
     publishedAt: '2026-09-18',
     updatedAt: "2026-10-29",
@@ -1184,7 +1184,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Tips',
     readMinutes: 3,
     heroEmoji: '🧴',
-    metaTitle: "Do Bug Bombs Work? Limits and Precautions | EnviroCare",
+    metaTitle: 'Do Bug Bombs Work? Why Foggers Make Pest Problems Worse',
     metaDescription: "Bug bombs have limits and require strict label precautions. Learn why pest identification, prevention and targeted control belong in the plan.",
     body: `
 <p class="lede">Bug bombs release pesticide throughout a space, but using one does not remove food, water or entry routes. Identify the pest and read the label before choosing a treatment. A fogger is not an appropriate response to every infestation.</p>
@@ -1219,7 +1219,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'how-often-pest-control-alabama',
-    title: "How Often Should You Get Pest Control in Alabama?",
+    title: 'How Often Should Pest Control Come? Why Alabama Is a Bi-Monthly State',
     excerpt: 'Pest-control frequency depends on the pest, property and treatment plan. EnviroCare offers every-other-month general pest service; active infestations and separate termite or mosquito programs may need a different inspection or treatment schedule.',
     publishedAt: '2026-09-20',
     updatedAt: "2026-10-29",
@@ -1539,7 +1539,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Rodents',
     readMinutes: 5,
     heroEmoji: '🔍',
-    metaTitle: "Mice vs Rats in Alabama: How to Tell the Difference",
+    metaTitle: 'Mice vs Rats: How to Tell Which One Is in Your House (Alabama)',
     metaDescription: "Droppings, gnaw marks and activity locations help identify mice and rats. Learn what to record before choosing traps or repairing entry points.",
     body: `
 <p class="lede">Droppings, gnaw marks and the location of activity help distinguish mice from rats, but no single sign settles every case. Identification guides trap selection and inspection; also check the openings that let rodents enter.</p>
@@ -1590,7 +1590,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Mosquitoes',
     readMinutes: 6,
     heroEmoji: '🦟',
-    metaTitle: "Mosquito Control for Lake Houses, Docks and Boathouses",
+    metaTitle: 'Mosquito Control for a Lake House: Docks, Boathouses & Shoreline',
     metaDescription: "Reduce mosquito breeding sites around a lake house. Review containers, screens and shaded areas; any shoreline treatment must follow the label.",
     body: `
 <p class="lede">At a lake house, check small water-holding containers and shaded resting areas as well as the shoreline. Mosquito management can reduce local pressure, but treatment decisions near water need label review and a site inspection.</p>
@@ -1685,7 +1685,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Ants',
     readMinutes: 11,
     heroEmoji: '🐜',
-    metaTitle: "How to Get Rid of Ants in Your Alabama House | EnviroCare",
+    metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
     metaDescription: "Identify indoor ants, remove food and moisture, and inspect entry routes. Learn how sanitation and appropriate baiting work together.",
     body: `
 <p class="lede">Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.</p>
@@ -2809,7 +2809,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'more-bugs-after-pest-control-treatment',
-    title: "Seeing More Bugs After Pest Control? What to Report",
+    title: 'Seeing More Bugs Right After a Pest Control Treatment? That\'s Normal — Here\'s Why',
     excerpt: 'Seeing more insects after a treatment does not by itself prove success or failure. Record the pest, location and timing, follow the preparation instructions and contact the provider if activity continues or changes unexpectedly.',
     publishedAt: '2026-07-27',
     updatedAt: "2026-10-29",
@@ -3196,7 +3196,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'alabama-termite-swarm-season',
-    title: "When Do Termites Swarm in Alabama? Signs and Next Steps",
+    title: 'Why Alabama Termite Season Starts in March — And What to Watch For',
     excerpt: 'Termite swarm timing varies by species and weather. Swarmers indoors deserve an inspection; outdoor swarmers need identification and context. Save a sample or photo and avoid choosing a treatment from the calendar alone.',
     publishedAt: '2026-03-04',
     updatedAt: "2026-10-29",
@@ -3258,7 +3258,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 9,
     heroEmoji: '🛡️',
-    metaTitle: "Sentricon vs Liquid Termite Treatment in Alabama",
+    metaTitle: 'Sentricon vs Liquid Termite Treatment: Which Is Best for Alabama?',
     metaDescription: "Compare bait systems and liquid termite treatments by property conditions, access, monitoring and written agreement terms.",
     body: `
 <p class="lede">Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while monitoring and agreement terms affect ongoing service. Compare a site-specific written proposal rather than choosing on product name alone.</p>
@@ -3558,7 +3558,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'fire-ants-alabama-summer',
-    title: "Fire Ants in Alabama: Treatment Timing and Prevention",
+    title: 'Fire Ants in Alabama: Why They Get Worse Every Summer, and How to Actually Kill Them',
     excerpt: 'Fire-ant management depends on the site, product label and whether ants are actively foraging. A plan may combine baiting and individual-mound treatment. Treat visible mounds as evidence to assess rather than a complete map of colony activity.',
     updatedAt: "2026-10-29",
     publishedAt: '2026-05-10',
@@ -3945,7 +3945,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Tips',
     readMinutes: 3,
     heroEmoji: '🏡',
-    metaTitle: "How to Prepare Your Home for Pest Control | EnviroCare",
+    metaTitle: 'How to Prepare Your Home for Pest Control Service | EnviroCare Alabama',
     metaDescription: "Ask for treatment-specific preparation and re-entry instructions. Clear inspection access and discuss pets, food and belongings with your provider.",
     body: `
 <p class="lede">Ask for preparation instructions that match the treatment you are receiving. Make inspection areas accessible, tell the provider where activity occurs and follow directions for pets, food, belongings and re-entry; requirements vary by product and service.</p>
