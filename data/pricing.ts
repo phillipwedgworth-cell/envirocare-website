@@ -98,7 +98,11 @@ export const PRICING = {
     monthlyAnchor: null,         // ⚠️ OPEN DECISION — set before any termite $/mo copy
   },
 
-  // Compliance: bundles are a CONVENIENCE (one invoice, one tech), NEVER a discount.
+  // Compliance (ruled 2026-11-04): bundles are a CONVENIENCE (one invoice, one
+  // tech). The ONE real price difference is mosquito at monthlyWithPestOnly ($34)
+  // vs monthly ($45) — so never claim a bundle is "the same price either way" or
+  // "not a discount" next to it, and never frame it as a discount or savings
+  // either. State both numbers plainly. Every other service is priced the same.
   bundlingIsDiscount: false,
 
   // ACH / monthly-billing disclosure — SOURCE OF TRUTH.

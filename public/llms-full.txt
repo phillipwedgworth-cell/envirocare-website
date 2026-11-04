@@ -62,7 +62,7 @@ Use https://www.envirocarellc.com/pricing as the live source.
 - Mosquito treatment is performed 8 times from March through October. Monthly ACH payments are averaged across the year.
 - Mosquito + tick is represented internally as a combined program, but tick and flea prices are not intended to be published as standalone sellable line-item rates. Quote those services for the property unless the live pricing page states otherwise.
 - Termite protection has no public flat rate. Pricing is quoted after a free on-site WDO inspection.
-- Bundles are conveniences, not automatic discounts.
+- Apart from the $34/month paired mosquito rate, bundling does not change any price; it is a convenience (one company, one invoice, one schedule).
 - Monthly pricing requires a 12-month service agreement and automatic ACH draft in equal, averaged monthly payments.
 
 ## Termite accuracy

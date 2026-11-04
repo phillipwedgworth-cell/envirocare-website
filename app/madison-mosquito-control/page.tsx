@@ -68,7 +68,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I bundle mosquito with my pest control plan?",
-      a: `Yes — pairing seasonal mosquito with the bi-monthly pest plan is our most popular combination in Madison, one technician and one invoice (bundling is a convenience, not a discount). Paired with pest control, mosquito runs $${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo averaged across the year.`,
+      a: `Yes — pairing seasonal mosquito with the bi-monthly pest plan is our most popular combination in Madison, one technician and one invoice. Paired with pest control, mosquito runs $${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo averaged across the year.`,
     },
   ],
   office: { name: "North Alabama Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },
