@@ -296,7 +296,7 @@ export default function BirminghamPage() {
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger","30-day yard barrier","Best for wooded Birmingham lots","March – October"]} />
           </div>
           <div style={{ maxWidth: 700, margin: "2.5rem auto 0", padding: "1.2rem 1.5rem", background: Cr, border: `1px solid ${G}26`, borderRadius: 12, textAlign: "center", fontSize: ".95rem", color: "#4b5563" }}>
-            <strong style={{ color: D }}>Complete coverage</strong> bundles pest, termite and mosquito into roughly $100/month plus your termite quote — one tech, one invoice. Convenience, not a discount: same fair pricing as the standalone services.
+            <strong style={{ color: D }}>Complete coverage</strong> bundles pest, termite and mosquito into roughly $100/month plus your termite quote — one tech, one invoice, one schedule.
           </div>
           <p style={{ maxWidth: 760, margin: "1.75rem auto 0", textAlign: "center", color: "#4b5563", lineHeight: 1.7 }}>
             Looking for one service in detail? Read about{" "}

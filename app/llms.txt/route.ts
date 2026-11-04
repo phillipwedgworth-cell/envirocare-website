@@ -42,7 +42,7 @@ const LLMS_TXT = `# EnviroCare Pest Services
 - Mosquito program: 8 treatments from March through October. Monthly ACH payments are averaged across the year.
 - Tick and flea pricing is quoted for the property. Do not infer or publish a standalone rate from internal or derived amounts.
 - Termite protection has no public flat price. It is quoted after a free on-site WDO inspection.
-- Bundles are conveniences, not automatic discounts.
+- Apart from the $34/month paired mosquito rate, bundling does not change any price; it is a convenience (one company, one invoice, one schedule).
 - Monthly pricing requires a 12-month service agreement and ACH auto-draft in equal, averaged monthly payments.
 
 ## Termite coverage accuracy

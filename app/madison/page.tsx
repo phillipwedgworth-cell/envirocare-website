@@ -427,7 +427,7 @@ export default function MadisonPage() {
               <span style={{ color: Au }}>~$100/mo</span>
             </p>
             <p style={{ fontSize: 13.5, opacity: 0.85, margin: 0 }}>
-              Pest ($35) + Mosquito ($34) + Sentricon® termite (priced at your free WDO inspection) — one tech, one invoice. Convenience, not a discount package.
+              Pest ($35) + Mosquito ($34) + Sentricon® termite (priced at your free WDO inspection) — one tech, one invoice, one schedule.
             </p>
           </div>
           <GoldCTA href="tel:2569377676" text="Call to get started" />

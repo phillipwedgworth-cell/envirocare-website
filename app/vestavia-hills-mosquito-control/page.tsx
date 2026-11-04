@@ -87,7 +87,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I add mosquito control to my pest control plan?",
-      a: `Yes. Many Vestavia Hills homeowners pair seasonal mosquito with the bi-monthly pest plan so one local team handles both on one schedule. Bundling is a convenience, not a discount. Paired with pest control, mosquito runs $${PRICING.addOns.mosquito.monthlyWithPestOnly}/month.`,
+      a: `Yes. Many Vestavia Hills homeowners pair seasonal mosquito with the bi-monthly pest plan so one local team handles both on one schedule. Paired with pest control, mosquito runs $${PRICING.addOns.mosquito.monthlyWithPestOnly}/month.`,
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },

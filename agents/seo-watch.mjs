@@ -40,7 +40,7 @@ const SOURCES = [
 const LOCKED_RULES = `
 - No "pet-safe/kid-safe/non-toxic/eco-safe"; use EPA-registered/label language.
 - No same-day/there-today/available-now claims. No competitor names. No review/customer counts.
-- Mosquito never "guaranteed/eliminated". Bundling = convenience, not discount.
+- Mosquito never "guaranteed/eliminated". Bundling = convenience; only price difference is mosquito $34 with pest vs $45 alone — never "same price either way", never "savings".
 - Content is repo/file-based (data/*.ts), deployed via git PR — NOT auto-published.
 - No mass-generated doorway/city pages; human approval before production.
 `;
