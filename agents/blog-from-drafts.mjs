@@ -37,6 +37,7 @@ import { supabase, logAgentRun } from './lib/supabase.mjs';
 import { remember, recall } from './lib/memory.mjs';
 import { COMPLIANCE_SYSTEM } from './lib/compliance.mjs';
 import { checkOriginality } from './lib/originality.mjs';
+import { assessEditorialDraft, sourcePrompt } from './lib/editorial-quality.mjs';
 import { compileRules, scanText } from '../scripts/lib/compliance-rules.mjs';
 import { NW_PROJECT, nw, score, competitorTexts, missingTerms, openQuestions, makeCompleter, parseJson } from './lib/nw-writer.mjs';
 
@@ -75,15 +76,13 @@ function existingPosts() {
 }
 const STOP = new Set('a an and are as at be by can do does for from how i in is it my of on or the to what when where which who why will with you your al alabama near me best'.split(' '));
 const tokens = (s) => String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((w) => w && !STOP.has(w)).map((w) => w.replace(/s$/, ''));
-// Words every pest search shares. Counting them let "pest control sylacauga al" match
-// emergency-pest-control-alabama on "pest" + "control" alone (2 of 3 tokens, 2026-10-27).
-// "treatment" stays meaningful: "termite treatment" must find the treatment post.
+// Words shared by almost every pest search cannot establish matching intent.
+// Keep "treatment" meaningful so termite treatment can find its existing post.
 const GENERIC = new Set('pest control service company exterminator'.split(' '));
 function coveredBy(keyword, posts) {
   const all = tokens(keyword);
   const k = all.some((w) => !GENERIC.has(w)) ? all.filter((w) => !GENERIC.has(w)) : all;
   if (!k.length) return null;
-  // Best match, not first match: fewer tokens now means more ties at the threshold.
   let best = null, bestHit = 0.6 - 1e-9;
   for (const p of posts) {
     const t = new Set(tokens(`${p.slug.replace(/-/g, ' ')} ${p.title}`));
@@ -145,6 +144,9 @@ Existing posts you may link to with <a href="/blog/SLUG">…</a> (2-4 links, onl
 ${related.map((p) => `- ${p.slug}: ${p.title}`).join('\n')}
 
 ${VOICE}
+
+CITATIONS AND ANSWERS: Open with a concise direct answer in the lede and include question headings. Cite the specific point supported by a relevant source below. Use only the supplied external URLs; do not invent references or imply endorsement.
+${sourcePrompt(keyword)}
 
 Lessons from earlier runs:
 ${lessons.map((l) => `- ${l.content}`).join('\n') || '- (none yet)'}
@@ -272,10 +274,8 @@ async function run() {
       // A topic that already has a post is never a second post (that splits rankings).
       // But a much fuller editor draft can UPGRADE the live post in place: same URL,
       // updatedAt set, and only if it beats the live post's NeuronWriter score by 5+.
-      // Only a keyword/title token match may upgrade. On 2026-10-27 a loose match sent
-      // "pest control sylacauga al" to /blog/emergency-pest-control-alabama and the
-      // upgrade replaced that article with a Sylacauga service page (PR #283). A
-      // model-only match is still a duplicate, so it is skipped, never rewritten.
+      // Preserve #285's protection: a model-only match may suppress a duplicate,
+      // but cannot authorize replacing an existing article with a different topic.
       if (dup && !tokenDup) {
         report.push({ keyword, outcome: `skipped: model judged it covered by /blog/${dup} (no in-place upgrade on a model-only match)` });
         await ledger({ route: `dup:/blog/${dup}`, keyword, query_id: id, status: 'rejected', reason: `model-judged duplicate of /blog/${dup}; upgrade needs a keyword/title token match` });
@@ -307,7 +307,7 @@ async function run() {
         const comp = scanText(`${p.title}\n${p.excerpt}\n${p.metaTitle}\n${p.metaDescription}\n${text}`, rules);
         const orig = checkOriginality(text, { competitors, sitePages: posts.filter((x) => x.slug !== existing?.slug).map((x) => ({ route: `/blog/${x.slug}`, text: x.text })) });
         const sc = await score(id, `<h1>${p.title}</h1>${p.body}`, p.metaTitle, p.metaDescription);
-        const problems = [];
+        const problems = assessEditorialDraft(p.body, { keyword, title: p.title, metaTitle: p.metaTitle, metaDescription: p.metaDescription }).problems;
         if (comp.blocking.length) problems.push(`compliance: ${comp.blocking.map((b) => `"${b.match}" (${b.reason})`).join('; ')}`);
         if ((orig.competitorsChecked || 0) < 3) problems.push(`originality: only ${orig.competitorsChecked || 0} competitor pages could be read, so plagiarism was not really checked`);
         if (!orig.pass) problems.push(`originality: competitor ${orig.maxCompetitorOverlap} (max 0.03), own site ${orig.maxSiteOverlap} vs ${orig.worstSitePage} (max 0.15); reworded needed: ${orig.examples.join(' | ')}`);
@@ -315,9 +315,8 @@ async function run() {
         if (sc > MAX_SCORE) problems.push(`NeuronWriter ${sc} > ${MAX_SCORE}: keyword-stuffed, write more naturally`);
         if (p.metaTitle.length > 60) problems.push(`metaTitle is ${p.metaTitle.length} chars (max 60)`);
         if (p.metaDescription.length > 155) problems.push(`metaDescription is ${p.metaDescription.length} chars (max 155)`);
-        // An upgrade keeps the live title and URL, so the new excerpt and meta description
-        // (not the body: common words like "pest" and "control" appear in any body) must
-        // stay on that topic.
+        // An upgrade retains the live title and URL. Check the new snippet's
+        // topic without letting generic terms buried in a long body satisfy it.
         if (existing) {
           const t = tokens(existing.title), have = new Set(tokens(`${p.excerpt} ${p.metaDescription}`));
           const onTopic = t.length ? t.filter((w) => have.has(w)).length / t.length : 1;

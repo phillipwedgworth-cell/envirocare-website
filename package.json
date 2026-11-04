@@ -15,6 +15,7 @@
     "test:citynap": "node scripts/test-city-office-nap.mjs",
     "test:local-falcon": "node scripts/test-local-falcon-config.mjs",
     "test:spyfu": "node scripts/test-spyfu-load.mjs",
+    "test:editorial": "node --experimental-vm-modules --no-warnings scripts/test-editorial-quality.mjs",
     "test:neuronwriter": "node --experimental-vm-modules --no-warnings scripts/test-neuronwriter-reuse.mjs",
     "test:zip-routing": "node --no-warnings scripts/test-zip-office-routing.mjs",
     "test:source": "node scripts/scan-source-compliance.mjs",

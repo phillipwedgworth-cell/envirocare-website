@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Data center pest prevention</title>
+  <desc id="desc">Editorial illustration of server cabinets, a perimeter inspection route and a checklist. This is a schematic illustration, not a photograph or a facility plan.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f5eb"/>
+      <stop offset="1" stop-color="#dfebdf"/>
+    </linearGradient>
+    <linearGradient id="rack" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#244b3a"/>
+      <stop offset="1" stop-color="#163325"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#afc4b3" stroke-width="1" opacity=".25"/>
+    </pattern>
+    <g id="unit">
+      <rect width="112" height="34" rx="4" fill="#37634e"/>
+      <path d="M12 11h51M12 17h51M12 23h51" stroke="#789783" stroke-width="2"/>
+      <circle cx="91" cy="17" r="4" fill="#b7d895"/>
+      <circle cx="103" cy="17" r="2.5" fill="#e7b449"/>
+    </g>
+    <g id="cabinet">
+      <path d="M0 0h146l22 16v304l-22 18H0Z" fill="#102c1f"/>
+      <path d="M146 0l22 16v304l-22 18Z" fill="#37644d"/>
+      <rect x="0" y="0" width="146" height="338" rx="7" fill="url(#rack)"/>
+      <rect x="10" y="12" width="126" height="304" rx="4" fill="#1a3b2a" stroke="#658874" stroke-width="1.5"/>
+      <use href="#unit" x="17" y="24"/>
+      <use href="#unit" x="17" y="67"/>
+      <use href="#unit" x="17" y="110"/>
+      <use href="#unit" x="17" y="153"/>
+      <use href="#unit" x="17" y="196"/>
+      <use href="#unit" x="17" y="239"/>
+      <path d="M23 289h98M23 296h98M23 303h98" stroke="#547b62" stroke-width="2"/>
+      <rect x="16" y="328" width="22" height="18" rx="2" fill="#102c1f"/>
+      <rect x="110" y="328" width="22" height="18" rx="2" fill="#102c1f"/>
+    </g>
+    <g id="checkpoint">
+      <circle r="17" fill="#f3f5eb" stroke="#a67b18" stroke-width="3"/>
+      <circle r="5" fill="#c99c31"/>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <path d="M62 496 335 410h660l143 81-275 80H210Z" fill="#b6caba" opacity=".42"/>
+  <path d="M122 492 349 436h606l107 47-221 57H242Z" fill="none" stroke="#a67b18" stroke-width="4" stroke-linejoin="round" stroke-dasharray="9 10"/>
+  <use href="#checkpoint" x="185" y="477"/>
+  <use href="#checkpoint" x="1007" y="503"/>
+  <use href="#checkpoint" x="594" y="540"/>
+  <path d="M329 457h590l45 20-123 34H371l-76-27Z" fill="#123320" opacity=".12"/>
+  <use href="#cabinet" x="382" y="123"/>
+  <use href="#cabinet" x="563" y="123"/>
+  <use href="#cabinet" x="744" y="123"/>
+  <path d="M430 106V80h423v27M611 80v27" fill="none" stroke="#789783" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M430 106V80h423v27M611 80v27" fill="none" stroke="#c9d8ca" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(133 219) rotate(-7 99 114)">
+    <rect x="9" y="10" width="189" height="235" rx="15" fill="#163325" opacity=".12"/>
+    <rect width="189" height="235" rx="15" fill="#fffdf5" stroke="#547b62" stroke-width="3"/>
+    <rect x="53" y="-11" width="83" height="30" rx="9" fill="#3b654e"/>
+    <path d="M31 59l9 9 17-20M31 111l9 9 17-20M31 163l9 9 17-20" fill="none" stroke="#408251" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M76 53h79M76 66h58M76 105h79M76 118h67M76 157h79M76 170h51" fill="none" stroke="#b3c3b0" stroke-width="5" stroke-linecap="round"/>
+    <path d="M30 205h126" stroke="#e6b64e" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(966 225)">
+    <circle cx="39" cy="39" r="36" fill="#f4f5eb" stroke="#547b62" stroke-width="5"/>
+    <circle cx="39" cy="39" r="24" fill="#cddfce"/>
+    <path d="m66 66 35 35" stroke="#244b3a" stroke-width="14" stroke-linecap="round"/>
+    <path d="m28 39 8 8 15-18" fill="none" stroke="#3b654e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M997 347v70l-13 23" fill="none" stroke="#8eab94" stroke-width="2" stroke-dasharray="5 7"/>
+</svg>

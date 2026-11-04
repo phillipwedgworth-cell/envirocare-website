@@ -1,0 +1,190 @@
+name: Editorial batch — exact scoring and mobile review
+
+# Deliberately limited to the already-authorized internal review PR. This is
+# not a reusable public trigger, scheduler, publisher or NeuronNarrator FILL job.
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+    paths:
+      - '.github/workflows/editorial-batch-score.yml'
+      - 'scripts/score-editorial-batch.mjs'
+      - 'scripts/test-editorial-batch-score.mjs'
+      - 'scripts/check-editorial-mobile.mjs'
+      - 'scripts/inventory-editorial-queries.mjs'
+      - 'scripts/test-editorial-query-inventory.mjs'
+      - 'agents/knowledge/editorial-batch-36.json'
+      - 'app/**'
+      - 'components/**'
+      - 'data/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'next.config.*'
+      - 'package*.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-batch-review-pr-287
+  cancel-in-progress: true
+
+jobs:
+  inventory-existing-queries:
+    if: >-
+      github.event.pull_request.number == 287 &&
+      github.event.pull_request.head.repo.full_name == 'phillipwedgworth-cell/envirocare-website' &&
+      github.event.pull_request.head.ref == 'seo/narrator-cited-content-36-2026-10-28'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: review
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '24'
+      - name: Validate fixed-project inventory and privacy boundaries without credentials
+        working-directory: review
+        run: node scripts/test-editorial-query-inventory.mjs
+      - name: Inspect existing queries in the two documented EnviroCare projects
+        working-directory: review
+        # Isolated built-in-only script: no install, application build or browser.
+        # Seven reads maximum. No new queries, scoring, saved content or writes.
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+        run: node scripts/inventory-editorial-queries.mjs
+      - name: Preserve only scoped query-discovery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: editorial-query-inventory-${{ github.event.pull_request.head.sha }}
+          path: |
+            review/audit-results/editorial-query-inventory/results.json
+            review/audit-results/editorial-query-inventory/results.md
+          if-no-files-found: warn
+          retention-days: 7
+
+  render-and-mobile:
+    if: >-
+      github.event.pull_request.number == 287 &&
+      github.event.pull_request.head.repo.full_name == 'phillipwedgworth-cell/envirocare-website' &&
+      github.event.pull_request.head.ref == 'seo/narrator-cited-content-36-2026-10-28'
+    # Pin the OS supported by Playwright 1.58.2; ubuntu-latest moved to 26.04.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    outputs:
+      rendered: ${{ steps.prepared.outputs.rendered }}
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: review
+          persist-credentials: false
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: baseline
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '24'
+      - name: Validate the read-only scoring boundaries
+        working-directory: review
+        run: node scripts/test-editorial-batch-score.mjs
+      - name: Build exact review commit without service credentials
+        working-directory: review
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+      - name: Build exact base commit without service credentials
+        working-directory: baseline
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+      - name: Extract and bind all 36 rendered articles to both commits
+        id: prepared
+        working-directory: review
+        run: |
+          node scripts/score-editorial-batch.mjs --prepare-only --export-rendered
+          echo 'rendered=true' >> "$GITHUB_OUTPUT"
+      - name: Preserve inert rendered input for the isolated scoring job
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: editorial-rendered-${{ github.event.pull_request.head.sha }}
+          path: review/audit-results/editorial-rendered
+          if-no-files-found: error
+          retention-days: 7
+      - name: Install pinned browser tooling outside the application
+        run: |
+          npm install --prefix "$RUNNER_TEMP/editorial-mobile-tools" --no-save --ignore-scripts --package-lock=false --no-audit --no-fund playwright@1.58.2
+          node "$RUNNER_TEMP/editorial-mobile-tools/node_modules/playwright/cli.js" install --with-deps chromium
+      - name: Exercise genuine 360px and 390px mobile viewports on the local build
+        working-directory: review
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/editorial-mobile-tools/node_modules/playwright/index.mjs
+        run: node scripts/check-editorial-mobile.mjs
+      - name: Preserve mobile results and screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: editorial-mobile-${{ github.event.pull_request.head.sha }}
+          path: review/audit-results/editorial-mobile
+          if-no-files-found: warn
+          retention-days: 7
+
+  score-existing-queries:
+    needs: render-and-mobile
+    # A mobile failure must remain visible but need not hide otherwise valid
+    # content-score evidence. Never run against missing/failed render artifacts.
+    if: >-
+      always() && !cancelled() && needs.render-and-mobile.outputs.rendered == 'true' &&
+      github.event.pull_request.number == 287 &&
+      github.event.pull_request.head.repo.full_name == 'phillipwedgworth-cell/envirocare-website' &&
+      github.event.pull_request.head.ref == 'seo/narrator-cited-content-36-2026-10-28'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: review
+          persist-credentials: false
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: baseline
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '24'
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        with:
+          name: editorial-rendered-${{ github.event.pull_request.head.sha }}
+          path: rendered
+      - name: Recheck the scoring boundaries without credentials
+        working-directory: review
+        run: node scripts/test-editorial-batch-score.mjs
+      - name: Score exact rendered HTML against existing READY queries only
+        working-directory: review
+        # The only service credential is available only to this built-in-only
+        # Node step. No install/build/browser/model/email/database work runs here.
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+        run: node scripts/score-editorial-batch.mjs --from-rendered-artifact
+      - name: Preserve sanitized score evidence, including partial or blocked rows
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: editorial-scores-${{ github.event.pull_request.head.sha }}
+          path: |
+            review/audit-results/editorial-batch-score/results.json
+            review/audit-results/editorial-batch-score/results.md
+          if-no-files-found: warn
+          retention-days: 7
