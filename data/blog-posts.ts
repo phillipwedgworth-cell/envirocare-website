@@ -1063,6 +1063,24 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>If you are not sure</h2>
 <p>Take a clear photo of the damage and of the insect if you have one, leave the mud tube or the frass in place, and let an inspector look. Do not spray the tube and do not tear out the trim. Carpenter ants are covered under the <a href="/services/pest-control">bi-monthly pest plan</a>; termites are handled under a separate Sentricon® agreement with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. Either way, the inspection costs nothing.</p>
 
+<h2>Carpenter ants vs termites: a side-by-side check for Alabama homes</h2>
+<ul>
+<li><strong>Body:</strong> a carpenter ant has a pinched waist; a termite has a straight, thick body with no waist.</li>
+<li><strong>Antennae:</strong> ant antennae bend at an elbow; termite antennae are straight and beaded.</li>
+<li><strong>Wings:</strong> winged ants have front wings longer than the back pair; termite swarmers have two pairs of equal-length wings that they shed soon after landing.</li>
+<li><strong>Damage:</strong> carpenter ants leave clean, smooth galleries and push out piles of coarse sawdust (frass); termites leave galleries packed with soil and moisture, and no sawdust piles.</li>
+<li><strong>Where you see them:</strong> carpenter ants forage in the open, often at night; termite workers stay hidden inside wood, soil and mud tubes.</li>
+</ul>
+
+<h2>What does it mean when flying ants or termite swarmers appear indoors?</h2>
+<p>Swarmers are the colony's winged reproductives leaving to start a new colony. In Alabama, eastern subterranean termites usually swarm on warm days in late winter and spring, often after rain; Formosan subterranean termites, found mainly in Mobile and Baldwin counties, swarm at night. Termite swarmers indoors, or piles of shed wings on a windowsill, suggest a colony feeding in or beneath the structure and are a reason for a professional termite inspection. Winged carpenter ants indoors can point to a satellite nest in moist wood inside a wall. Either way, collect a few specimens in a sealed bag for identification.</p>
+
+<h2>Where carpenter ants nest in an Alabama home</h2>
+<p>The parent colony often lives outdoors in a stump, a rotting landscape timber or a hollow tree. Satellite colonies move into wood that has been softened by moisture: a window frame with a failed seal, wood around plumbing leaks under a sink or tub, a crawl space floor joist near a vent, or a roof leak that wets the attic framing. A carpenter ant infestation inside the house is a sign of a moisture problem that also needs repair. Sealing gaps where utility lines enter and keeping firewood and mulch away from the foundation removes easy routes inside.</p>
+
+<h2>Signs of a termite infestation homeowners often miss</h2>
+<p>Termite damage stays out of sight for a long time. Check crawl space piers and foundation walls for mud tubes, tap baseboards and door frames for wood that sounds hollow, and look for blistered paint or sagging floors. Discarded wings near doors and windows in spring are another warning sign. Because termites can cause structural damage before anything is visible, Alabama homeowners commonly schedule an annual termite inspection rather than waiting for evidence. If you are still unsure which pest you have, our <a href="/services/termite-control">termite control</a> team can inspect and explain the findings.</p>
+
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
@@ -1095,6 +1113,18 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>What works</h2>
 <p><strong>Non-repellent treatment</strong> at the foundation and the nest sites: material the ants walk through without detecting and carry back on their bodies, so it spreads through the network rather than pushing it away. <strong>Bait</strong> matched to what they are feeding on — sweet liquid bait in summer, protein bait in spring — placed at the trails and left alone while the traffic on it gets heavier. <strong>Habitat changes</strong> along the foundation: pull mulch back from the slab, fix the drip irrigation head that keeps the bed soaked, get the potted plants off the porch for a few weeks. And a schedule, because a supercolony is a permanent feature of the neighborhood and the pressure returns.</p>
+
+<h2>Argentine ants vs other common ants in Alabama</h2>
+<p>Ant identification matters because baits and treatments are chosen for the species. Argentine ants are small (about an eighth of an inch), uniformly light to dark brown, and move in steady, fast trails, often several ants wide. Several other ants are found in Alabama homes:</p>
+<ul>
+<li><strong>Odorous house ants</strong> are similar in size and color but give off a rotten-coconut smell when crushed.</li>
+<li><strong>Fire ants</strong>, including red imported fire ants, build dirt mounds in sunny lawns and sting; they rarely trail through a kitchen the way Argentine ants do.</li>
+<li><strong>Carpenter ants</strong> are much larger, forage mostly at night and nest in damp wood.</li>
+<li><strong>Pharaoh ants</strong> are tiny, pale yellow and usually nest in wall voids near warmth and moisture.</li>
+</ul>
+
+<h2>Where Argentine ants nest and why colonies are hard to stop</h2>
+<p>Argentine ants nest in shallow, moist soil: under mulch, beneath boards and landscape timbers, in potted plants and along sidewalks and foundations. A colony has multiple queens, sometimes hundreds of queens, and new colonies can form when a group of workers and queens simply walk to a new nest site. In the southeastern United States, neighboring nests often cooperate rather than fight, so foraging trails can connect several nests across a yard. Workers forage for food indoors and out, following sweets, grease and water, and they move inside quickly when rain floods their nests. That is why spraying the ants you see does little: the colony keeps sending more, and repellent sprays can scatter workers into new nesting spots. Slow-acting ant baits placed along foraging trails let workers carry the bait back to the nest.</p>
 
 <h2>On the pest plan</h2>
 <p>Argentine ants, odorous house ants, and pavement ants are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter program</a>, with free re-service between visits when a trail reappears. For the household steps in order, see <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">how to get rid of ants in your house</a>. Fire ants in the yard are a different insect and a different treatment — see <a href="/blog/fire-ants-alabama-summer">fire ants in Alabama</a>.</p>
@@ -1171,6 +1201,16 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>For cockroaches, <a href="https://ipm.ucanr.edu/home-and-landscape/cockroaches/">UC IPM recommends</a> identifying the species and combining sanitation and exclusion with appropriate controls. Indoor-breeding German cockroaches need a different assessment from occasional outdoor invaders. Monitoring can help locate activity and evaluate progress.</p>
 <p>Our <a href="/blog/how-to-get-rid-of-roaches-alabama">roach-control guide</a> and <a href="/blog/how-to-get-rid-of-ants-in-house-alabama">indoor-ant guide</a> explain questions to discuss with a provider. <a href="/services/flea">Flea service</a> has its own assessment and scope; confirm what is included before booking.</p>
 
+<h2>Do bug bombs work on cockroaches?</h2>
+<p>For German cockroaches, the research says usually not. In a 2019 North Carolina State University study published in <em>BMC Public Health</em>, researchers <a href="https://phys.org/news/2019-01-bug-ineffective-roaches-indoors-toxic.html">tested commercial total-release foggers in infested apartments</a>. The bug bombs did not reduce cockroach populations after two weeks or one month. They did leave insecticide residue on floors and countertops, where cockroaches spend little time, and much of that residue was still measurable a month later. In comparison homes, gel bait placed in the cracks and crevices where roaches hide controlled the infestations.</p>
+<p>The reason is how a fogger works. The aerosol mist settles on exposed surfaces: the middle of the floor, tabletops, furniture and countertops. Cockroaches spend most of their time behind appliances, inside cabinet hinges and in wall voids, where the mist does not penetrate. Roach bombs may kill some exposed insects and leave the rest of the population untouched.</p>
+
+<h2>Do flea bombs work?</h2>
+<p>A flea fogger can kill adult fleas in open areas, but flea eggs, larvae and pupae develop deep in carpet, under furniture and in pet bedding, which the mist does not reach well. A flea problem usually needs the pet treated by a veterinarian, thorough vacuuming and washing of pet bedding, and a targeted treatment that can include an insect growth regulator for immature stages.</p>
+
+<h2>What works better than a bug bomb?</h2>
+<p>Effective pest control starts with identifying the pest, then placing the right product where that pest lives: gel bait and bait stations for cockroaches, ant baits along trails, and crack-and-crevice treatment rather than a room-wide release. Sanitation and sealing cracks that pests use complete the plan. If you have already used a fogger and the infestation continues, a professional treatment plan can be tailored to what the inspection finds.</p>
+
 <h2>When should you ask for help?</h2>
 <p>Ask for an inspection when you cannot identify the pest, activity continues or the suspected source is inaccessible. Describe where you see insects and what has already been tried. The proposed service should identify the pest covered, treatment approach, preparation instructions and follow-up arrangements.</p>
 <p>Discuss <a href="/services/pest-control">EnviroCare's pest-control service</a> through a <a href="/quote">quote request</a> or call the main line at <a href="tel:+12059406360">(205) 940-6360</a>. Methods, fees and any additional visits depend on the agreed service.</p>
@@ -1206,6 +1246,11 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Can a limited problem be handled as a separate job?</h2>
 <p>Ask whether the proposed work is a one-time service, a service with follow-up or an ongoing plan. A visible nest or indoor infestation still needs identification and an assessment of access and scope. Confirm what completion means and what happens if activity continues.</p>
+
+<h2>How often should a house be treated for pest control in Alabama?</h2>
+<p>For most Alabama homes, routine general pest control every two to three months is a common schedule, and we service on an every-other-month (bi-monthly) basis. The reason is the climate: Alabama's warm, humid weather keeps ants, cockroaches, spiders and other insects active for much of the year, and mild winters mean pest pressure rarely stops entirely. A regular schedule lets the technician renew the protective treatment around the home, inspect for new entry points and moisture problems, and catch activity early.</p>
+<p>Some pests follow a different calendar. Mosquito control is seasonal, March through October. Termite protection is separate from general pest control: subterranean termites are a structural threat, and homeowners in Birmingham, Huntsville and across Alabama typically keep an annual termite inspection under a termite agreement. Rodent problems, a German cockroach infestation or fleas may need follow-up visits closer together until the activity is under control.</p>
+<p>This approach follows integrated pest management: inspect, correct the conditions pests use (food, water, shelter and gaps), and treat where the evidence supports it, rather than spraying on a fixed calendar alone.</p>
 
 <h2>What does EnviroCare offer?</h2>
 <p>Our <a href="/services/pest-control">general pest plan</a> provides every-other-month service, with monthly billing from $35 on ACH or a $70 per-visit option. The current promotional initial service is $75, which is 50% off the regular $150. Confirm covered pests, interior-service needs and re-service terms for your property. The full cost discussion is in <a href="/blog/pest-control-cost-alabama">our Alabama pest-control cost guide</a>.</p>
@@ -1380,6 +1425,20 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>How long, and what happens next</h2>
 <p>Visit length and follow-up depend on the property, pest and inspection findings; ask the technician what to expect for your planned service. More visible activity after treatment does not by itself establish success or failure. Record sightings and ask the technician about persistent or unexpected activity rather than applying another product. If covered pests show up between scheduled visits, call us about the re-service included in your plan. The next routine visit is in two months, and the familiar local team can use the inspection notes to plan follow-up.</p>
 
+<h2>What does the technician look for during the first inspection?</h2>
+<p>A thorough inspection of your home comes before any treatment plan. The technician looks for signs of pest activity: droppings along cabinet bases and in the garage, shed cockroach skins, ant trails along a counter or window, spider webs in corners and eaves, and gnaw marks or nesting material that point to rodents. They also note entry points such as gaps under doors, openings where pipes and wires penetrate the wall, and torn screens, plus conducive conditions like plumbing leaks, damp crawl spaces and mulch piled against the foundation. Common household pests in Alabama, including ants, cockroaches, spiders, silverfish and rats and mice, each leave different signs, so tell the technician what you have seen and where.</p>
+
+<h2>What should your treatment plan include?</h2>
+<p>After the first inspection and treatment, you should know what pest problem was found, which areas were treated, what the technician recommends you fix (a leaking faucet, a gap under the garage door) and when the next service is. Ongoing pest control is built around that plan: routine visits keep a protective treatment around the home, and re-service handles covered pests that show up between visits. Ask the technician to point out anything they want you to watch for so you can report it on the follow-up visit.</p>
+
+<h2>Frequently asked questions about a first pest control visit</h2>
+<h3>Should I clean my house before the exterminator comes?</h3>
+<p>No deep cleaning is needed. Clear the areas the technician needs to reach, such as under sinks and along garage walls, put away food and dishes on counters, and keep pet bowls and pet food out of treatment areas.</p>
+<h3>Do I need to leave the house during treatment?</h3>
+<p>For routine exterior service, usually not. For interior work, follow the re-entry and preparation instructions the technician gives for the products used, including any directions for people and pets.</p>
+<h3>Do I have to wash everything after pest control?</h3>
+<p>Not routinely. Follow the instructions for your specific treatment. Avoid mopping or wiping treated cracks and baseboards right away, since that can remove bait or residual material, and call us with any question about a treated area.</p>
+
 <h2>What it costs</h2>
 <p>The <a href="/services/pest-control">bi-monthly plan</a> is $35 a month on a 12-month ACH agreement or $70 per visit, with a $75 promotional initial service (50% off the $150 regular price). Everything above is what the initial service is. For how the year plays out from there, see <a href="/blog/how-often-pest-control-alabama">how often pest control should come in Alabama</a>.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
@@ -1501,6 +1560,21 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Why the answer changes the plan</h2>
 <p>Mice need a pencil-width gap sealed; rats need a quarter-sized one, and roof rats need the roofline addressed — branches trimmed, soffit gaps closed, vents screened. Mice are controlled with small snap traps in numbers along the wall; rats need rat-sized traps and often exterior bait stations before the population reaches the house. A single mouse in October is usually the first of several; a rat in the attic in Alabama is usually a family. For why it happens every fall, see <a href="/blog/rodents-alabama-homes-fall">mice and rats in Alabama homes</a>. Rodent control — exclusion, exterior stations, interior trapping — is part of EnviroCare's <a href="/services/pest-control">bi-monthly pest plan</a>, and an attic with activity is a call-this-week situation.</p>
 
+<h2>Mice vs rats: size and body differences</h2>
+<p>An adult house mouse is small and slender, with large ears, a pointed nose and a tail about as long as its body. A Norway rat is heavy-bodied, with a blunt nose, small ears and a tail shorter than its head and body. A roof rat is slimmer than a Norway rat, with a pointed nose, large ears and a tail longer than its body. The tricky case is a young rat, which can be mistaken for a mouse: a juvenile rat has a large head and oversized feet for its body, while an adult mouse looks proportional. If you are unsure whether you have a rat or a mouse, a photo of the animal or its droppings next to a coin helps an inspector tell the difference.</p>
+
+<h2>Are mice or rats more of a health risk?</h2>
+<p>Both rats and mice can contaminate food and surfaces with droppings and urine and can spread disease. Hantavirus is the one people ask about most: <a href="https://www.cdc.gov/MMWR/Preview/MMWRhtml/rr5109a1.htm">CDC guidance</a> identifies the deer mouse, white-footed mouse, cotton rat and rice rat as the U.S. carriers, not the house mouse, but it still advises avoiding contact with all wild rats and mice. Do not sweep or vacuum droppings. The <a href="https://cdc.gov/healthy-pets/rodent-control/clean-up.html">CDC's guidance to clean up after rodents</a> is to wear gloves, wet droppings and nesting material with a disinfectant or bleach solution, then wipe them up. Store pantry food and pet food in sealed, airtight containers so a rodent problem does not become a food-safety problem.</p>
+
+<h2>Why rodent activity builds quickly in Alabama</h2>
+<p>House mice and rats reproduce quickly, producing several litters a year when food and shelter are available, and Alabama's mild winters mean indoor activity can continue year-round. Scratching noises in the walls at night, fresh droppings along the same route and chewed food packaging are all signs of activity that tend to grow if entry points stay open.</p>
+
+<h2>Frequently asked questions about mice and rats</h2>
+<h3>Can a house have both mice and rats?</h3>
+<p>Yes. Rats tend to keep mice away from the areas they use, but a house can have a mouse problem indoors and Norway rats burrowing outside at the same time. Identifying each rodent's runways keeps traps in the right places.</p>
+<h3>When should I call for professional rodent control?</h3>
+<p>Call when you hear activity overhead, find chewed wiring, see droppings return after trapping, or cannot find how rodents are getting in. A pest control professional can identify entry points, set the right traps and recommend sealing work around the home.</p>
+
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
 <p><strong>No One Cares Like EnviroCare.</strong></p>
@@ -1539,6 +1613,21 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Cut the ivy and the low shrubs back from the path between the house and the dock.</li>
 <li>Dump the boat cover after every rain.</li>
 </ul>
+
+<h2>Mosquito larvae and breeding sites around the dock</h2>
+<p>Female mosquitoes lay eggs on or near standing water, and the larvae develop in that water before adult mosquitoes emerge. That is why reducing breeding sites matters as much as treating resting areas. Walk the property after rainfall and check the places water sits: boat covers, dock boxes, clogged gutters on the boathouse, low spots in the landscape and drainage that backs up near the lake. Where water cannot be drained or covered, such as an ornamental pond, ask whether a larval control product labeled for that site is appropriate. Larvicide is not applied to the lake itself as part of a residential service.</p>
+
+<h2>Do mosquito traps or mosquito misting systems help?</h2>
+<p>Mosquito traps and automatic mosquito misting systems are sold for lake homes. Traps catch some mosquitoes but do not by themselves keep mosquito populations low across a yard. Misting systems spray on a timer whether or not mosquitoes are present, and the nozzles near a shoreline need careful placement. Neither replaces removing breeding sites and treating the shaded areas where mosquitoes rest. If you are weighing one, ask what it targets and how it is maintained.</p>
+
+<h2>Protecting your family on the dock</h2>
+<p>Treatment reduces mosquito pressure; it does not stop every mosquito bite. The <a href="https://www.cdc.gov/mosquitoes/prevention/">CDC recommends EPA-registered insect repellents</a>, including products with DEET or picaridin, used according to the label. Citronella candles have limited effect on their own. Mosquito-borne illnesses such as West Nile virus occur in Alabama, so repellent and long sleeves at dusk still make sense on the water.</p>
+
+<h2>Frequently asked questions about lake house mosquito control</h2>
+<h3>Is mosquito spraying near the lake toxic to fish?</h3>
+<p>Some insecticides are toxic to fish and other aquatic life, which is why product labels restrict how close to water they can be applied. Our technicians use products labeled for the site and keep treatments off the water's edge.</p>
+<h3>How often should a lake house be treated?</h3>
+<p>Treatment frequency varies with the property, but regular treatments throughout the season do more than one-time spraying before a holiday weekend. Our program spaces treatments across March through October so protection is in place when you are using the dock.</p>
 
 <h2>The program on Lake Martin</h2>
 <p>EnviroCare's <a href="/services/mosquito">seasonal mosquito service</a> is $45 per month for an average-size yard, with a firm price after a free inspection. It includes eight treatments from March through October, with equal monthly ACH payments across the year; the price is $34 a month only when paired with a pest plan. For wooded lake lots, the Mosquito + Tick option, quoted after inspection, covers ticks and chiggers in the same zones. Routine treatment does not require anyone home, which is how most of our <a href="/lake-martin">Lake Martin</a> and <a href="/dadeville">Dadeville</a> weekend places are handled. The health side of the question is in <a href="/blog/mosquito-borne-diseases-alabama">mosquito-borne diseases in Alabama</a>.</p>
@@ -2545,6 +2634,20 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>It also will not fix a population already inside the wall. If you are already seeing activity indoors, that is a different job, and it starts with where they are living rather than where they are entering. Our <a href="/services/pest-control">perimeter pest control</a> program is built around the exterior for that reason, using EPA-registered products applied per label directions. When the weather turns, these same pests become the ones in our guide to <a href="/blog/winter-pests-alabama">common winter pest problems in Alabama</a> — and the instinct to cancel service once it gets cold is exactly backwards.</p>
 
+<h2>Which pests move indoors in fall in Alabama?</h2>
+<p>As nights cool, several common pests look for shelter in Alabama homes. Mice and rats are the biggest fall pest problem: rodents start probing for gaps around utility lines, garage doors and crawl spaces, and a mouse can squeeze through an opening about the width of a pencil. Cockroaches and spiders follow warmth and moisture into garages and basements. Stink bugs and kudzu bugs gather on sunny siding and work into gaps around windows. Ants trail inside after rain, and crickets come in toward lights. Termites do not move in for the winter the way rodents do, but fall is a convenient time for a termite inspection while you are already checking the foundation.</p>
+
+<h2>Fall pest prevention tips for Alabama homeowners</h2>
+<ul>
+<li><strong>Store food in sealed containers</strong>, including pet food and birdseed in the garage, and clean up crumbs under appliances.</li>
+<li><strong>Keep trash cans lidded</strong> and away from the house, and empty indoor bins often.</li>
+<li><strong>Fix leaky pipes and dripping outdoor faucets</strong>; moisture draws cockroaches, silverfish and ants.</li>
+<li><strong>Clean gutters</strong> and remove standing water so overflow does not soak the foundation; that also ends late-season mosquito breeding.</li>
+<li><strong>Move firewood</strong> off the ground and away from the house, and trim vegetation back from the siding and roofline.</li>
+<li><strong>Check the attic and crawl space</strong> for droppings, nesting material and damp wood before the weather turns.</li>
+</ul>
+<p>Sealing and housekeeping reduce how many pests find a way inside. A <a href="/services/pest-control">general pest control</a> service adds an exterior barrier around the home and inspections through the year, and helps reduce pest activity before it becomes an infestation.</p>
+
 <h2>Do it once, before the weather turns</h2>
 
 <p>Sweeps, sealant, mesh, and an afternoon of yard cleanup will do more for your October than anything in a spray bottle. If you would rather have someone walk the foundation with you, that is part of a free inspection. Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free inspection</a> before the weather turns.</p>
@@ -2605,6 +2708,17 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>So the comparison is not treatment cost against zero. It is treatment cost against sill plate and floor joist repair, which in an older home in <a href="/helena">Helena</a> or Pelham runs well past what a lifetime of protection would have.</p>
 
+<h2>What is a termite bond in Alabama?</h2>
+<p>In Alabama, "termite bond" is the common name for a termite protection agreement: a written contract under which a licensed company treats the home and then inspects it on a schedule, usually annually, for as long as the agreement is renewed. Termite control work in the state is regulated by the Alabama Department of Agriculture and Industries. When you compare bond costs, compare what each agreement actually covers: retreatment if termites return, whether damage repair coverage is included and its limits, the inspection schedule, and the renewal terms. EnviroCare's Sentricon® agreements can include up to $1,000,000 in termite damage repair coverage provided by EnviroCare on qualifying homes, subject to the terms of the agreement.</p>
+
+<h2>Frequently asked questions about termite treatment cost</h2>
+<h3>How much does termite treatment cost for a 2,000-square-foot house?</h3>
+<p>Square footage alone does not set the price. A liquid treatment is driven by the length of the foundation perimeter, the construction type (slab, crawl space or basement) and how much drilling is needed; a bait system is driven by the number of stations the perimeter requires. Two 2,000-square-foot houses can have very different foundations. That is why termite treatment is priced at inspection rather than quoted as a flat number.</p>
+<h3>Do drywood termites need tent fumigation?</h3>
+<p>Drywood termites can require fumigation, but they are uncommon in most of inland Alabama. Subterranean termites, including the Eastern subterranean termite and, mainly in Mobile and Baldwin counties, the Formosan subterranean termite, are the usual concern, and they are controlled with soil treatments or bait systems around the home rather than tenting.</p>
+<h3>Is a termite inspection free?</h3>
+<p>Yes. Our termite control inspection is free and the written quote is yours to keep, whether or not you choose us.</p>
+
 <h2>What to expect from a free inspection</h2>
 
 <p>We measure the exterior perimeter, get into the crawlspace or check the slab line, probe accessible wood in the areas that fail first, and look for mud tubes, damaged wood, swarmer evidence, and the moisture conditions that invited them. Then you get a written quote with scope and renewal terms spelled out. If you are buying or selling, that is a different document — see our <a href="/services/wdo-letters">WDO letters page</a>.</p>
@@ -2646,6 +2760,10 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>That is the part people find counterintuitive: nothing dramatic happens the week a station is hit. The mechanism is slow on purpose. A fast-acting material would kill the foragers at the station and never reach the colony that sent them. The whole point is that the workers stay healthy long enough to make the trip home.</p>
 
 <p>It also explains why the stations stay in the ground permanently and get inspected on a schedule rather than installed once and forgotten. A station is only doing its job if it is monitored. Products are EPA-registered and applied per label directions.</p>
+
+<h2>What is inside a Sentricon bait station?</h2>
+<p>The green caps are the tops of termite bait stations from the Sentricon® system, which Corteva sells under the name Sentricon® Termite Colony Elimination System. The stations are installed in the soil around the foundation at intervals set by the label and the inspection. Inside each station is a bait rod made of a cellulose material termites like to eat. The bait used in Sentricon stations contains noviflumuron, an insect growth regulator. Worker termites that eat the bait share it through the colony, and termites that have fed on it cannot complete their next molt, so they die when they try to molt. As the workers that feed the colony decline, the colony can decline over time; results depend on termites finding the bait, continued feeding and regular station monitoring.</p>
+<p>Because the active ingredient is contained inside the station rather than spread through the soil, the stations sit flush with the ground and do not interfere with lawn care, mowing or landscaping. Keep mulch and soil from burying the caps so the technician can find and open each one during maintenance.</p>
 
 <h2>Do I need to do anything with them?</h2>
 
@@ -3102,6 +3220,13 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Ask what was inspected, which areas could not be accessed and whether the findings support treatment. If a proposal is appropriate, review the method, covered structure, inspection schedule and agreement terms. A treatment record from construction does not by itself establish current protection; check renewals and service history with the provider.</p>
 <p>EnviroCare offers <a href="/services/sentricon">Sentricon® termite baiting</a>, with a plan and quote based on the property. Our <a href="/blog/sentricon-vs-liquid-termite-treatment">baiting and liquid-treatment comparison</a> explains questions to ask. Qualifying properties may receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement.</p>
 
+<h2>Eastern subterranean vs Formosan termite swarmers in Alabama</h2>
+<p>The two termite species that swarm most around Alabama homes swarm at different times. Eastern subterranean termites, the most common subterranean termite in the state, swarm during the day from about late February into May or June, often on a warm day after rain. Formosan subterranean termites, found mainly in Mobile and Baldwin counties with scattered reports elsewhere in the state, swarm at night and are drawn to lights. A mature termite colony produces swarmers once it is large enough; the winged reproductives, a king and queen in the making, leave to start a new colony, shed their wings and look for soil in contact with wood.</p>
+
+<h2>Termite swarmers vs flying ants</h2>
+<p>Termite swarmers have straight antennae, a thick waist and two pairs of wings of equal length. Flying ants have elbowed antennae, a pinched waist and front wings longer than the back pair. If you find piles of identical shed wings on a windowsill, they are almost always from termite swarmers. Save a few insects in a sealed bag so the inspector can confirm the termite species.</p>
+<p>A termite swarm inside your home is one of the clearest signs of a termite infestation, because indoor swarmers usually come from a colony feeding in or beneath the structure. Along with swarmers, report mud tubes on the foundation, wood that sounds hollow and damage near baseboards. Professional termite control starts with an inspection to find where the termite activity is and what treatment plan fits the home.</p>
+
 <h2>Should you wait for another swarm?</h2>
 <p>Report suspicious evidence when you find it. A quiet period does not establish that a building is free of termites, and an outdoor swarm alone does not identify damage to the house. Keep the agreed inspection schedule and discuss any new evidence with the provider.</p>
 <p><a href="/quote">Request a termite assessment</a> or contact your local office: Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Alexander City / Lake Martin <a href="tel:+12562346162">(256) 234-6162</a>, or Huntsville <a href="tel:+12569377676">(256) 937-7676</a>. Real-estate <a href="/services/wdo-letters">WDO reports</a> are a separate service with their own scope and fee.</p>
@@ -3496,6 +3621,10 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Fire ants are active in Alabama for much of the year, but the strongest treatment windows are spring and late summer into early fall. A spring treatment gets ahead of the colonies before summer activity peaks. A late summer or fall treatment catches colonies that built up over the season and reduces what carries into the next year.</p>
 
 <p>Heavily infested lots, or yards next to untreated property, may need a follow-up treatment. We will tell you honestly what we see and whether a second visit makes sense.</p>
+
+<h2>Which fire ant species are in Alabama?</h2>
+<p>Alabama has two imported fire ant species and a hybrid between them. The black imported fire ant was first reported in Mobile in 1918, and the red imported fire ant arrived through the same port in the 1930s, both from South America; the red imported fire ant has since spread across much of the Southeast, and the two species can hybridize where their ranges meet. All of them build mounds in open, sunny areas, defend the mound aggressively and deliver painful stings. Texas A&amp;M's <a href="https://fireant.tamu.edu/learn/history-of-the-red-imported-fire-ant/">fire ant history</a> and the <a href="https://ant-pests.extension.org/information-for-alabama-residents">Extension information for Alabama residents</a> cover the background and management.</p>
+<p>That matters for treatment because every fire ant colony is built the same way: worker ants forage for food and carry it back to the queen and the immature fire ants in the mound. A fire ant bait works through that behavior. Worker ants pick up the bait, share it through the colony, and the colony declines over the following weeks. Treating individual mounds with a drench or contact insecticide can knock down one mound, but it does nothing to the colonies you have not found, which is why broadcast fire ant bait plus targeted mound treatments gives longer-term control.</p>
 
 <h2>Fire ants versus other ants</h2>
 
@@ -4757,6 +4886,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Cricket control services in Birmingham, Huntsville, and across Alabama</h2>
 
 <p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides cricket control, local pest control service, and full pest management across central and north Alabama. If house crickets are chirping in your walls or camel crickets have taken over your basement, let us identify the species, locate the entry points, and apply targeted treatment. A home inspection is the first step toward solving the cricket problem for good.</p>
+
+<p>Crickets are often the first pest a homeowner notices, but the same inspection can turn up other problems around the home. Our team also provides <a href="/services/termite-control">termite control</a>, including Sentricon® termite protection, and seasonal <a href="/services/mosquito">mosquito control</a> from March through October. Ask about either during your cricket inspection.</p>
 
 <p>Call the office nearest you — Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a>, or Huntsville <a href="tel:+12569377676">(256) 937-7676</a> — or <a href="/quote">request a free quote online</a>.</p>
 
