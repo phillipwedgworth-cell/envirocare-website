@@ -3124,14 +3124,14 @@ export const BLOG_POSTS: BlogPost[] = [
     body: `
 <p class="lede">Bait systems and liquid termite treatments use different approaches. Suitability depends on the structure, termite evidence and access, while monitoring and agreement terms affect ongoing service. Compare a site-specific written proposal rather than choosing on product name alone.</p>
 
-<h2>How do bait systems and liquid treatments differ?</h2>
+<h2>Sentricon vs liquid termite treatment: how do the two types of termite treatment differ?</h2>
 
 <p>Bait systems depend on termites finding and feeding on bait; liquid soil treatments place a labeled termiticide in specified locations around a structure. Neither description alone determines the right choice for a home. Compare the inspection findings, proposed application, access requirements and ongoing service terms.</p>
 <p><strong>Reference:</strong> EPA describes both bait and liquid soil-treatment approaches. <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them">EPA: Termite identification and control</a>.</p>
 
-<h3>Practical differences homeowners notice</h3>
+<h3>Practical differences a homeowner notices</h3>
 <ul>
-<li><strong>Installation.</strong> Bait stations are set in the soil around the outside of the house, so installation is usually exterior work. A liquid barrier treatment often involves trenching along the foundation and, where a slab, patio or garage floor meets the house, drilling through it.</li>
+<li><strong>Installation.</strong> Each bait station is set in the soil around the foundation, so installation is usually exterior work. A liquid barrier treatment often involves digging a trench along the foundation and, where a slab, patio or garage floor meets the house, may require drilling through it.</li>
 <li><strong>New construction.</strong> Liquid pretreatment can reach exposed soil before a slab is poured, with perimeter work coordinated as construction proceeds. Soil beneath an existing slab may also be treated through drilled access. A suitable bait system can be an alternative for new construction. Confirm the product, installation sequence and applicable requirements with the builder and pest provider.</li>
 <li><strong>Ongoing monitoring.</strong> Bait protection depends on continued station inspection and service. Liquid soil treatment leaves a treated zone around or beneath the structure. Both proposals should explain structural inspections and what happens after excavation, an addition, damaged stations or new termite evidence.</li>
 <li><strong>Active termites.</strong> When termites are already in the structure, an inspector may propose a targeted liquid application in the active area alongside bait stations, where the product labels allow it.</li>
@@ -3149,9 +3149,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>The <strong>Sentricon® system</strong> uses termite bait stations. Station placement and service must follow the product directions and the conditions found during inspection. Ask the provider where stations will be installed, how they will be accessed and what monitoring is included.</p>
 
+<h3>What happens inside the termite colony</h3>
+
+<p>Subterranean termites live in an underground colony and send worker termites out to forage for wood. When foragers find the bait in a station, they feed on it and carry it back to the colony, where it is shared with other termites. Noviflumuron is an insect growth regulator: termites that have eaten it cannot complete their next molt, so affected workers die when they try to molt. Because the effect depends on termites returning to feed, results build over weeks to months rather than days. Winged swarmers seen indoors in spring are a sign of a nearby mature colony and a reason to schedule an inspection, whichever method you are weighing.</p>
+
 <p>Sentricon uses the growth-inhibiting active ingredient noviflumuron. Foraging termites feed on the bait and share food with other colony members, spreading its effects through the colony. This process can suppress or eliminate a colony, but depends on bait discovery, feeding and continued service. <a href="https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/">Alabama Extension explains the baiting mechanism and ongoing inspection needs</a>. Installation alone does not establish that an existing infestation has ended.</p>
 
-<p>Under our Sentricon program, stations are inspected and serviced on the agreed schedule. Ask which observations will be recorded, when bait will be checked or replaced and how new evidence around the structure will be handled. Compare those details with the inspection and renewal provisions of any other proposal.</p>
+<p>Under our Sentricon program, technicians monitor stations on the agreed schedule: they check each bait station, record any termite activity and replace bait as needed, and they monitor the structure for new evidence between station checks.</p>
+
+<p>Stations are inspected and serviced on the agreed schedule. Ask which observations will be recorded, when bait will be checked or replaced and how new evidence around the structure will be handled. Compare those details with the inspection and renewal provisions of any other proposal.</p>
 
 <h2>What should you compare in a bait-system proposal?</h2>
 
@@ -3188,7 +3194,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>If cost is the sticking point, we walk through the numbers — install, monitoring, and what the coverage protects — in <a href="/blog/is-sentricon-worth-it">Is Sentricon worth it?</a> And if you want to see how a Sentricon program is set up on your home, start with our <a href="/services/termite-control">termite control service</a>.</p>
 
-<h2>How to choose the right termite treatment for your home</h2>
+<h2>Sentricon vs liquid: how to choose the right termite treatment for your home</h2>
 
 <p>The right termite treatment depends on a few things a pest control professional needs to see in person: whether you have active termite activity, what type of foundation your home sits on, whether there is existing termite damage, and how the soil around the structure drains. Here is the general framework we use:</p>
 
@@ -5134,26 +5140,32 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><a href="https://www.alabamapublichealth.gov/mosquito/vector-control.html">ADPH's yard guidance also covers gutters, leaks and shaded vegetation</a>. If a drainage problem involves a shared ditch, pond or another property, discuss it with the responsible owner or local authority. A residential treatment proposal should identify the areas it actually covers.</p>
 
-<h2>What does professional mosquito treatment add?</h2>
+<h2>What does professional mosquito control in Birmingham add?</h2>
 
 <p>A useful inspection distinguishes water that can be removed from locations that need another approach. It also identifies resting areas and places where people spend time. Ask which findings support the proposed treatment, what preparation is required and what follow-up is included.</p>
 
 <p>CDC distinguishes products that target mosquito larvae in water from products that target adult mosquitoes in resting areas. A larvicide may be appropriate for certain non-drinking water that cannot be emptied or covered; an adult treatment may address permitted resting sites. The product label determines where and how either can be applied. A yard spray should not be assumed to treat every container, pond or drain.</p>
 
+<h3>What a Birmingham mosquito control service visit covers</h3>
+
+<p>On each visit of a mosquito control service, the technician walks the property perimeter and the surrounding areas where mosquitoes rest: shaded shrubs, the undersides of leaves, dense ground cover, fence lines and damp spots near the foundation. Mosquito spraying is aimed at those resting areas rather than open lawn. The technician also looks for standing water that can be emptied and, where the label allows, treats water that cannot be removed with a product that targets larvae. Ask the technician to point out new breeding sites so you can address them between visits.</p>
+
 <p>Ask for the actual access and re-entry instructions before a visit, including directions for people and pets. Keep the service record so you can describe any later activity accurately. Ask what follow-up the plan includes and when to call if activity continues. Weather, the product and property conditions affect results.</p>
 
-<h2>How can you reduce bites between service visits?</h2>
+<h2>Repellent and bug spray: how to reduce mosquito bites between visits</h2>
 
 <p><a href="https://www.cdc.gov/mosquitoes/prevention/">CDC recommends EPA-registered insect repellents, protective clothing and intact screens</a>. Follow the repellent label, including age restrictions and reapplication directions. Loose-fitting long sleeves and pants can reduce exposed skin when conditions allow.</p>
 
+<p>Mosquito bites are more than a nuisance. ADPH tracks mosquito-borne illness in Alabama, including West Nile virus, which is one more reason to keep using repellent and covering skin when you are spending time outside in the Birmingham area.</p>
+
 <p>Personal repellent and property treatment serve different purposes. Continue protection from bites and water checks even when the yard is on a service plan. Mosquito activity also involves surrounding properties and shared spaces, so a proposal should set realistic expectations for reduction rather than promise a mosquito-free yard.</p>
 
-<h2>EnviroCare's seasonal schedule and pricing</h2>
+<h2>Birmingham mosquito control: seasonal schedule and pricing</h2>
 
 <p>Our mosquito program is $45 per month for an average-size yard, with eight treatments from March through October. The firm price is set after a free inspection of your property. Adding tick control is quoted after inspection.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
-<p>The monthly payment is spread across the year; it is not a per-treatment charge. Mosquito service is separate from the general pest plan. Review the proposed areas, remaining visits if joining mid-season, preparation instructions and follow-up terms before starting. Our <a href="/birmingham-mosquito-control">Birmingham service page</a> covers local service options, and the <a href="/services/mosquito">mosquito service overview</a> explains the seasonal program.</p>
+<p>The monthly payment is spread across the year; it is not a per-treatment charge. Mosquito service is separate from our <a href="/services/pest-control">general pest control service</a>, which covers common household pests such as ants and spiders on a bi-monthly perimeter schedule; ask which pests your plan covers. Review the proposed areas, remaining visits if joining mid-season, preparation instructions and follow-up terms before starting. Our <a href="/birmingham-mosquito-control">Birmingham service page</a> covers local service options, and the <a href="/services/mosquito">mosquito service overview</a> explains the seasonal program.</p>
 
 <h2>Questions about starting or continuing mosquito service</h2>
 
@@ -5166,9 +5178,9 @@ export const BLOG_POSTS: BlogPost[] = [
 <h3>Does cold weather remove the need for next year's prevention?</h3>
 <p>No. CDC notes that some Aedes eggs can survive a southern winter. Emptying, cleaning and storing containers so they stay dry helps prepare for the next active period. Continue to respond to the conditions you observe instead of treating the calendar as proof that breeding sites no longer matter.</p>
 
-<h2>Talk with your local EnviroCare office</h2>
+<h2>Mosquito control services in Birmingham, AL: talk with your local office</h2>
 
-<p>EnviroCare Pest Services is a fourth-generation Alabama family business. Local service. Since 1958. For a mosquito assessment, describe your property's conditions and where you notice activity. The inspection helps establish the proposed service and price.</p>
+<p>EnviroCare Pest Services is a fourth-generation Alabama family business. Local service. Since 1958. Our Birmingham office at 2120 16th Ave S serves Jefferson County, including Hoover, Homewood, Mountain Brook and Vestavia Hills. For a mosquito assessment, describe your property's conditions and where you notice activity. The inspection helps establish the proposed service and price.</p>
 
 <p>Call Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Huntsville <a href="tel:+12569377676">(256) 937-7676</a>, or Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a> — or <a href="/quote">request a free quote online</a>.</p>
 
