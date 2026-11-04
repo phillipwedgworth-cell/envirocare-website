@@ -1093,6 +1093,11 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Where a carpenter ant infestation nests in an Alabama home</h2>
 <p>The parent colony often lives outdoors in a stump, a rotting landscape timber or a hollow tree. Satellite colonies move into wood that has been softened by moisture: a window frame with a failed seal, wood around plumbing leaks under a sink or tub, a crawl space floor joist near a vent, or a roof leak that wets the attic framing. A carpenter ant infestation inside the house is a sign of a moisture problem that also needs repair. Sealing gaps where utility lines enter and keeping firewood and mulch away from the foundation removes easy routes inside.</p>
 
+<h2>Why a homeowner should not treat carpenter ants and termites the same way</h2>
+<p>A DIY spray aimed at the ant you can see rarely reaches the nest, and it does nothing for a termite colony in the soil. The treatment plan for each pest starts with finding where it lives. For a carpenter ant infestation, that means locating the nesting site, often in moist wood around a leak, a window frame or a roof line, and sometimes a satellite nest inside the structure. For termite activity, it means an inspection of the foundation, crawl space, floor joists and any beam or sill in contact with damp soil, followed by a professional treatment plan for the whole structure.</p>
+<p>Both are wood-destroying insects, but the damage differs. Carpenter ants excavate galleries and push out sawdust-like frass; termites consume wood and pack their tunnels with soil. A hollow-sounding baseboard can mean either, which is why the insect itself, its pinched waist or broad waist, elbowed or straight antennae, and wing shape, matters more than the damage alone.</p>
+<p>In south Alabama, Formosan termites add another layer: Alabama Extension reports them widely in Mobile and Baldwin County, where their night swarms around lights can be mistaken for flying ants. Across the rest of the state, the native subterranean termite is the one most homes deal with year-round.</p>
+
 <h2>Signs of subterranean termites homeowners often miss</h2>
 <p>Termite damage stays out of sight for a long time. Check crawl space piers and foundation walls for mud tubes, tap baseboards and door frames for wood that sounds hollow, and look for blistered paint or sagging floors. Discarded wings near doors and windows in spring are another warning sign. Because termites can cause structural damage before anything is visible, Alabama homeowners commonly schedule an annual termite inspection rather than waiting for evidence. If you are still unsure which pest you have, our <a href="/services/termite-control">termite control</a> team can inspect and explain the findings.</p>
 
@@ -2652,6 +2657,17 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Which household pests move indoors in fall: rodents, ants and cockroaches</h2>
 <p>As nights cool, several common pests look for shelter in Alabama homes. Mice and rats are the biggest fall pest problem: rodents start probing for gaps around utility lines, garage doors and crawl spaces, and a mouse can squeeze through an opening about the width of a pencil. Cockroaches and spiders follow warmth and moisture into garages and basements. Stink bugs and kudzu bugs gather on sunny siding and work into gaps around windows. Ants trail inside after rain, and crickets come in toward lights. Termites do not move in for the winter the way rodents do, but fall is a convenient time for a termite inspection while you are already checking the foundation.</p>
 
+<h2>Fall pest prevention by pest</h2>
+<ul>
+<li><strong>Rodent:</strong> a mouse can squeeze through a gap of about a quarter inch; check where pipes, cables and the dryer vent enter, and look for dropping trails along garage walls.</li>
+<li><strong>Ant:</strong> odorous house ant and fire ant colonies stay active through mild Alabama falls; wipe up crumb trails and bait rather than spray a trail indoors.</li>
+<li><strong>Cockroach:</strong> smokybrown and American roaches move toward warm, damp crawl spaces, garages and drains as nights cool. A roach in the kitchen in October usually came in from outside.</li>
+<li><strong>Spider:</strong> more spiders indoors in fall usually means more insects for them to eat; reducing the insects reduces the spiders.</li>
+<li><strong>Flea:</strong> pets and wildlife under decks can carry fleas into the house before the first frost.</li>
+<li><strong>Wasps:</strong> look for old wasp nests under eaves and in sheds once activity drops, and leave active nests to a professional.</li>
+</ul>
+<p>Clean the gutters while you are on the ladder: overflowing gutters keep the foundation wet, which draws pests like roaches and supports termites. A fall inspection is also a reasonable time to confirm your termite protection is current, because subterranean termites stay active below ground through mild Alabama winters.</p>
+
 <h2>Fall prevention tips: store food, seal gaps and keep pests out year-round</h2>
 <ul>
 <li><strong>Store food in sealed containers</strong>, including pet food and birdseed in the garage, and clean up crumbs under appliances.</li>
@@ -3284,6 +3300,20 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Eastern subterranean vs Formosan termite swarmers in Alabama</h2>
 <p>The two termite species that swarm most around Alabama homes swarm at different times. Eastern subterranean termites, the most common subterranean termite in the state, swarm during the day from about late February into May or June, often on a warm day after rain. Formosan subterranean termites, found mainly in Mobile and Baldwin counties with scattered reports elsewhere in the state, swarm at night and are drawn to lights. A mature termite colony produces swarmers once it is large enough; the winged reproductives, a king and queen in the making, leave to start a new colony, shed their wings and look for soil in contact with wood.</p>
 
+<h2>Inside termite colonies: workers, soldiers and the swarmer caste</h2>
+<p>A subterranean colony is divided into castes. Worker termites do the feeding and tunneling, and they are the ones causing damage to homes, moving from the soil to a food source in wood through mud tubes. Soldier termites defend the colony. The reproductives, a king and queen, produce the eggs. Only a mature colony produces winged reproductives, and each swarmer has two pairs of wings of nearly equal length. After a short flight, swarmers shed their wings, pair off and try to start a new colony in moist soil; most do not survive.</p>
+<p>Warm days after rain, with high humidity, are the usual trigger. The timing for each termite species in Alabama is covered above.</p>
+
+<h2>Reducing the conditions that let termites infest a house</h2>
+<p>Swarm season is a good time for every homeowner to check the conditions that let Alabama termites reach the wood:</p>
+<ul>
+<li>Wood in contact with the ground, such as fence posts, deck supports and siding that runs into the soil.</li>
+<li>Firewood and lumber stacked against the foundation.</li>
+<li>Cracks in concrete slabs, porches and expansion joints, which give termites a hidden path inside.</li>
+<li>Leaks, overflowing gutters and downspouts that keep soil wet beside the house.</li>
+</ul>
+<p>A winged insect alone does not tell you which type of termite, or even whether it is a termite rather than a flying ant. An inspection does, and it is the starting point for any termite treatment plan. See <a href="/services/termite-control">termite control</a> for how we handle signs of termite activity once they are confirmed.</p>
+
 <h2>Termite swarmers vs flying ants</h2>
 <p>Termite swarmers have straight antennae, a thick waist and two pairs of wings of equal length. Flying ants have elbowed antennae, a pinched waist and front wings longer than the back pair. If you find piles of identical shed wings on a windowsill, they are almost always from termite swarmers. Save a few insects in a sealed bag so the inspector can confirm the termite species.</p>
 <p>A termite swarm inside your home is one of the clearest signs of a termite infestation, because indoor swarmers usually come from a colony feeding in or beneath the structure. Along with swarmers, report mud tubes on the foundation, wood that sounds hollow and damage near baseboards. Professional termite control starts with an inspection to find where the termite activity is and what treatment plan fits the home.</p>
@@ -3344,6 +3374,15 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Under our Sentricon program, technicians monitor stations on the agreed schedule: they check each bait station, record any termite activity and replace bait as needed, and they monitor the structure for new evidence between station checks.</p>
 
 <p>Stations are inspected and serviced on the agreed schedule. Ask which observations will be recorded, when bait will be checked or replaced and how new evidence around the structure will be handled. Compare those details with the inspection and renewal provisions of any other proposal.</p>
+
+<h2>Sentricon vs liquid at a glance</h2>
+<ul>
+<li><strong>How it works:</strong> a liquid treatment creates a barrier in the soil along the foundation; with a nonrepellent product, termites that pass through the treated zone can carry the active ingredient back to others. Sentricon® bait stations are placed in the soil around the structure, and termite baiting requires termites to find the bait, feed and share it.</li>
+<li><strong>Installation:</strong> liquid work can be labor-intensive where it calls for trenching along the foundation or drilling through slabs, patios and porches. Bait stations are generally less invasive to install, because the stations go into the ground around the perimeter rather than through finished surfaces.</li>
+<li><strong>Initial cost and ongoing service:</strong> both are priced at inspection. A liquid treatment puts more of the cost up front; a bait program spreads it across installation and ongoing monitoring, which is part of the service rather than an extra.</li>
+<li><strong>Level of protection over time:</strong> a liquid barrier depends on the treated soil staying intact; landscaping, additions and soil disturbance can break it. A bait program depends on stations being checked and bait replaced on schedule.</li>
+</ul>
+<p>Either way, protecting your home starts with an inspection by pest control professionals who can show you the conditions they found. The Sentricon system is sold by Corteva as the Sentricon® Termite Colony Elimination System; any termite damage repair coverage that comes with an EnviroCare agreement is provided by EnviroCare, subject to the terms of the agreement.</p>
 
 <h2>What should you compare in a bait-system proposal?</h2>
 
@@ -5946,7 +5985,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: 'pest-control-birmingham-guide',
-    title: 'Pest Control in Birmingham: Services and Questions',
+    title: 'Pest Control in Birmingham, AL: Exterminator Services and Questions',
     excerpt: 'For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.',
     publishedAt: '2026-06-30',
     updatedAt: "2026-10-29",
@@ -5954,7 +5993,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Local',
     readMinutes: 14,
     heroEmoji: '🏙️',
-    metaTitle: 'Pest Control in Birmingham: Services and Questions',
+    metaTitle: 'Pest Control Birmingham, AL: Exterminator Guide | EnviroCare',
     metaDescription: "Compare pest-control options for Birmingham by pest, service scope, visit schedule and local office. Discuss termite and mosquito service separately.",
     body: `
 <p class="lede">For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.</p>
@@ -6023,7 +6062,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How to choose a pest control company in Birmingham, AL</h2>
 
-<p>When choosing pest control in Birmingham, look for a pest control company that inspects before quoting, identifies the specific pest species, and builds a treatment plan around your property — not a national chain running the same generic program everywhere. The best pest control companies in Birmingham employ local pest control technicians who understand the clay soil, know which neighborhoods have the worst fire ant pressure, and know that Over-the-Mountain homes deal with spider and tick populations that valley-floor homes do not.</p>
+<p>When choosing pest control in Birmingham, look for a pest control company that inspects before quoting, identifies the specific pest species, and builds a treatment plan around your property — not a national chain running the same generic program everywhere. The best pest control companies in Birmingham employ local technicians trained in professional pest control who understand the clay soil, know which neighborhoods have the worst fire ant pressure, and know that Over-the-Mountain homes deal with spider and tick populations that valley-floor homes do not.</p>
 
 <p>EnviroCare Pest Services is a fourth-generation, family-owned pest control company that has protected Alabama homes and businesses since 1958. Our Birmingham and Alabaster offices serve all of Jefferson County, Shelby County, and St. Clair County with expert pest control and effective pest control solutions — identify the pest, treat the source, monitor the results, and keep your home pest-free between visits. Expert pest control means peace of mind that your home stays protected through every season.</p>
 
