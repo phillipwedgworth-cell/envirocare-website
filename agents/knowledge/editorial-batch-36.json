@@ -20,7 +20,7 @@
       "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "d7f3561c4bca777b",
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "data-center-pest-control-service-report",
@@ -39,7 +39,7 @@
       "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "a33b8b0ec561ea64",
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "data-center-pest-activity-response",
@@ -125,7 +125,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "2c2dde71688cf6c3",
       "neuronWriterBaseScore": 86,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -144,7 +144,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "e03c7891243a2110",
       "neuronWriterBaseScore": 73,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -163,7 +163,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "88eb58c6d329863a",
       "neuronWriterBaseScore": 74,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -177,12 +177,12 @@
         "epa-termites"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 60,
+      "neuronWriterScore": 67,
       "competitorOriginalityChecked": false,
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "39a2710bc0fbe010",
       "neuronWriterBaseScore": 42,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -201,7 +201,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "ac950d1dbd568f36",
       "neuronWriterBaseScore": 56,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -221,7 +221,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "452d860ec7423ea6",
       "neuronWriterBaseScore": 62,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -240,7 +240,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "3ef64857c67b2507",
       "neuronWriterBaseScore": 50,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -254,12 +254,12 @@
         "epa-prevention"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 65,
+      "neuronWriterScore": 72,
       "competitorOriginalityChecked": false,
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "d303f723d46ae5ca",
       "neuronWriterBaseScore": 46,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -278,7 +278,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "c51da774c40c345d",
       "neuronWriterBaseScore": 43,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -297,7 +297,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "96b342763ec15c7f",
       "neuronWriterBaseScore": 43,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -316,7 +316,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "3442f3fb978f6178",
       "neuronWriterBaseScore": 78,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -335,7 +335,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "af223f0119947464",
       "neuronWriterBaseScore": 83,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -354,7 +354,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "8894bfe3633e298c",
       "neuronWriterBaseScore": 89,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -373,7 +373,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "c3d75ec17fe6ed1d",
       "neuronWriterBaseScore": 90,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -387,12 +387,12 @@
         "cdc-rodents"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 59,
+      "neuronWriterScore": 60,
       "competitorOriginalityChecked": false,
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "b3d576f791f3adfb",
       "neuronWriterBaseScore": 18,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -411,7 +411,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "2e74c97624871c97",
       "neuronWriterBaseScore": 62,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -430,7 +430,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "c2824e2f5de9a87c",
       "neuronWriterBaseScore": 33,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -450,7 +450,7 @@
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "eb323a5e72196c7d",
       "neuronWriterBaseScore": 52,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "fleas-in-house-no-pets",
@@ -463,13 +463,13 @@
         "uc-fleas"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 67,
+      "neuronWriterScore": 75,
       "competitorOriginalityChecked": false,
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "cc3dc6610f0ef774",
       "neuronWriterBaseScore": 68,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "mosquito-repellent-yard-spray-vs-professional",
@@ -488,7 +488,7 @@
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "723d62c1f5ee1968",
       "neuronWriterBaseScore": 63,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "alabama-termite-swarm-season",
@@ -504,12 +504,12 @@
         "msu-termite-swarms-2026"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 64,
+      "neuronWriterScore": 76,
       "competitorOriginalityChecked": false,
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "561325f84d2be3b4",
       "neuronWriterBaseScore": 79,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -525,12 +525,12 @@
         "msu-termite-treatment-comparison"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 80,
+      "neuronWriterScore": 86,
       "competitorOriginalityChecked": false,
       "reviewNote": "October 29 focused comparison review corrected the slab-treatment claim and restored sourced bait/liquid mechanisms, variable response and maintenance differences. No fixed dose, outcome deadline or superiority promise. Pricing and coverage remain inspection/agreement-specific. Exact revised-copy score pending; no new originality clearance.",
       "neuronWriterQueryId": "630d376353ddaa94",
       "neuronWriterBaseScore": 87,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -549,7 +549,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "817c630cefeb15f9",
       "neuronWriterBaseScore": 66,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -569,7 +569,7 @@
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "b632f6feee187598",
       "neuronWriterBaseScore": 52,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "prepare-home-for-pest-control",
@@ -588,7 +588,7 @@
       "neuronWriterStatus": "scored",
       "neuronWriterQueryId": "07d67278f83e9f37",
       "neuronWriterBaseScore": 44,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)"
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
     },
     {
       "slug": "huntsville-pest-control-guide",
@@ -606,7 +606,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "8ef70fe4a69eedcc",
       "neuronWriterBaseScore": 85,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -625,7 +625,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "c95632c6213dd094",
       "neuronWriterBaseScore": 76,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -644,7 +644,7 @@
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "746491ba292b77f3",
       "neuronWriterBaseScore": 54,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -668,7 +668,7 @@
       "reviewNote": "October 29 focused seasonal/prevention revision corrects fixed temperature/season claims, life-stage errors, unsupported treatment outcomes and local pressure claims. URL, author and March 1 publication date preserved; March–October/eight-treatment program, inspection-based pricing and ACH disclosure retained. Current score 58 at c491cb2 is the existing commercial-query comparator (1d35d2e70d77981f, mosquito control birmingham al), historically assigned to /birmingham-mosquito-control; it is not a seasonal-intent score. Proposed seasonal query: mosquito season birmingham al, pending inventory/mapping review. Keep this keyword unchanged for an explicitly labeled comparable rerun; no new query, editor write, revised-copy score or originality clearance here.",
       "neuronWriterQueryId": "54881fe05e4c6ffa",
       "neuronWriterBaseScore": 58,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     },
     {
@@ -682,12 +682,12 @@
         "epa-prevention"
       ],
       "status": "draft-for-review",
-      "neuronWriterScore": 79,
+      "neuronWriterScore": 85,
       "competitorOriginalityChecked": false,
       "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
       "neuronWriterQueryId": "ecb1735fad64793f",
       "neuronWriterBaseScore": 84,
-      "neuronWriterScoredAt": "2026-11-04 (run 41870330917, head 5b7687f)",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
       "neuronWriterStatus": "scored"
     }
   ]
