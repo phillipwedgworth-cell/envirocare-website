@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-04",
+  "project": "9d0bec3a70f4743c",
+  "purpose": "Explicit post -> existing NeuronWriter query for the 36-item editorial batch. Used only where the exact-keyword matcher finds no query, or finds the wrong one (a newest duplicate tagged Deleted). Every ID was read live from list-queries on 2026-11-04. Same search intent only; no cross-intent reuse.",
+  "map": {
+    "mosquito-season-birmingham-al": { "queryId": "54881fe05e4c6ffa", "queryKeyword": "mosquito control birmingham al", "reason": "Exact keyword has 6 duplicates; the newest (1d35d2e70d77981f) is tagged DUPLICATE-DELETE. 54881fe05e4c6ffa is the KEEP copy." },
+    "pest-control-birmingham-guide": { "queryId": "ecb1735fad64793f", "queryKeyword": "pest control birmingham al", "reason": "Exact keyword has many duplicates tagged Deleted; ecb1735fad64793f is the KEEP copy. Note it is also the /birmingham page's analysis." },
+    "huntsville-pest-control-guide": { "queryId": "8ef70fe4a69eedcc", "queryKeyword": "pest control huntsville al", "reason": "Exact keyword has duplicates tagged Deleted; 8ef70fe4a69eedcc is the KEEP copy." },
+    "rodents-alabama-homes-fall": { "queryId": "88eb58c6d329863a", "queryKeyword": "mice in house in winter alabama", "reason": "Same intent; content_refresh_ledger query for this post." },
+    "how-to-get-rid-of-ants-in-house-alabama": { "queryId": "3442f3fb978f6178", "queryKeyword": "how to get rid of ants in house", "reason": "Same intent without the state modifier." },
+    "german-cockroaches-alabama": { "queryId": "af223f0119947464", "queryKeyword": "german cockroaches in house", "reason": "Same intent." },
+    "how-to-get-rid-of-roaches-alabama": { "queryId": "8894bfe3633e298c", "queryKeyword": "how to get rid of roaches in alabama", "reason": "Same intent; content_refresh_ledger query for this post." },
+    "termite-damage-signs-alabama": { "queryId": "c3d75ec17fe6ed1d", "queryKeyword": "termite damage signs", "reason": "Same intent without the state modifier. The ledger's 8965c9b60e7b0b22 keyword is a truncated legacy title and is not used." },
+    "fall-pest-proofing-alabama": { "queryId": "b3d576f791f3adfb", "queryKeyword": "fall pest control tips alabama", "reason": "Same seasonal prevention intent." },
+    "alabama-termite-swarm-season": { "queryId": "561325f84d2be3b4", "queryKeyword": "when do termites swarm in alabama", "reason": "Same intent; content_refresh_ledger query for this post." },
+    "fire-ants-alabama-summer": { "queryId": "817c630cefeb15f9", "queryKeyword": "fire ant control alabama", "reason": "Statewide post; statewide KEEP query. (213aadffa0f13619 is Birmingham-specific.)" },
+    "silverfish-control-alabama": { "queryId": "c95632c6213dd094", "queryKeyword": "silverfish in house alabama", "reason": "Same intent." },
+    "carpenter-ants-vs-termites-alabama": { "queryId": "39a2710bc0fbe010", "queryKeyword": "carpenter ants vs termites alabama", "reason": "Created 2026-11-04 (Oct 29 plan priority 13)." },
+    "argentine-ants-alabama-supercolony": { "queryId": "ac950d1dbd568f36", "queryKeyword": "argentine ants alabama", "reason": "Created 2026-11-04 (Oct 29 plan priority 12)." }
+  },
+  "held": {
+    "reason": "No existing query and under 300 GSC impressions (snapshot 2026-10-26) or zero search demand. Held per the Oct 29 work order; not spending analyses.",
+    "slugs": [
+      "more-bugs-after-pest-control-treatment",
+      "fleas-in-house-no-pets",
+      "mosquito-repellent-yard-spray-vs-professional",
+      "pests-after-rain-alabama",
+      "prepare-home-for-pest-control",
+      "data-center-pest-control-construction-handover",
+      "data-center-pest-control-service-report",
+      "data-center-pest-activity-response",
+      "data-center-ipm-plan",
+      "data-center-rodent-entry-points",
+      "data-center-pest-control-vendor-checklist"
+    ]
+  }
+}

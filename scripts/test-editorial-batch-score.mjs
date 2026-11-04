@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { API, PROJECT, SITE, fragmentByClass, extractRenderedPost, validateManifest, selectQuery, pendingQueryEvidence, createClient, scorePair, qualityFlags } from './score-editorial-batch.mjs';
+import { API, PROJECT, SITE, fragmentByClass, extractRenderedPost, validateManifest, selectQuery, selectMappedQuery, pendingQueryEvidence, createClient, scorePair, qualityFlags } from './score-editorial-batch.mjs';
 
 const words = Array.from({ length: 90 }, (_, i) => `word${i}`).join(' ');
 const route = '/blog/test-article';
@@ -149,4 +149,22 @@ test('numeric scoring success remains separate from low-score and regression rev
   assert.deepEqual(qualityFlags({ after: 69, delta: 2 }), ['below-70-target']);
   assert.deepEqual(qualityFlags({ after: 75, delta: -1 }), ['regression']);
   assert.deepEqual(qualityFlags({ after: 80, delta: null }), []);
+});
+
+test('explicit query map accepts only a READY English google.com query present in the inventory', async () => {
+  const inv = [
+    { query: 'aaaa1111', keyword: 'mosquito control birmingham al', status: 'ready', language: 'English', engine: 'google.com', created: '2026-06-14T00:21:32+00:00' },
+    { query: 'bbbb2222', keyword: 'mosquito control birmingham al', status: 'ready', language: 'Polish', engine: 'google.com' },
+  ];
+  assert.equal(selectMappedQuery(inv, undefined), null);
+  const ok = selectMappedQuery(inv, { queryId: 'aaaa1111' });
+  assert.equal(ok.status, 'matched'); assert.equal(ok.id, 'aaaa1111'); assert.equal(ok.mapped, true);
+  assert.equal(selectMappedQuery(inv, { queryId: 'zzzz9999' }).status, 'mapped-query-not-ready');
+  assert.equal(selectMappedQuery(inv, { queryId: 'bbbb2222' }).status, 'mapped-query-excluded-by-metadata');
+  assert.throws(() => selectMappedQuery(inv, { queryId: 'bad id!' }), /invalid ID/);
+  const file = JSON.parse(await readFile(new URL('../agents/knowledge/editorial-query-map.json', import.meta.url), 'utf8'));
+  const manifest = JSON.parse(await readFile(new URL('../agents/knowledge/editorial-batch-36.json', import.meta.url), 'utf8'));
+  const slugs = new Set(manifest.posts.map((p) => p.slug));
+  for (const slug of [...Object.keys(file.map), ...file.held.slugs]) assert.ok(slugs.has(slug), `map slug not in manifest: ${slug}`);
+  assert.equal(file.project, PROJECT);
 });

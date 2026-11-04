@@ -149,6 +149,21 @@ export function selectQuery(inventory, keyword) {
   return { status: 'matched', ...query, candidateCount: unique.length, evidence };
 }
 
+// Explicit post -> query mapping (agents/knowledge/editorial-query-map.json).
+// The mapped ID must itself be a READY English google.com query in the same
+// project inventory; otherwise the post stays blocked. No fuzzy fallback.
+export function selectMappedQuery(inventory, mapping) {
+  if (!mapping) return null;
+  if (!Array.isArray(inventory)) throw new Error('query inventory is not an array');
+  const id = mapping.queryId;
+  if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{4,100}$/.test(id)) throw new Error('mapped query has invalid ID');
+  const row = inventory.find((r) => r && (r.query ?? r.id) === id);
+  if (!row) return { status: 'mapped-query-not-ready', id, evidence: { mappedQueryKeyword: mapping.queryKeyword ?? null } };
+  const ok = (!row.status || row.status === 'ready') && (!row.language || /^english$/i.test(row.language)) && (!row.engine || /^google\.com$/i.test(row.engine));
+  if (!ok) return { status: 'mapped-query-excluded-by-metadata', id, evidence: { status: metadata(row.status), language: metadata(row.language), engine: metadata(row.engine) } };
+  return { status: 'matched', id, created: row.created ?? null, language: row.language ?? null, engine: row.engine ?? null, candidateCount: 1, mapped: true, mappedQueryKeyword: row.keyword };
+}
+
 // Pending inventories are diagnostics only. They are never passed to
 // selectQuery or evaluate-content. Retain only this manifest keyword's rows.
 export function pendingQueryEvidence(inventory, keyword, requestedStatus) {
@@ -288,6 +303,12 @@ export async function run({
   }
   if (!prepareOnly && inputs.length) {
     const call = createClient({ key });
+    let queryMap = {};
+    try {
+      const mapFile = JSON.parse(await readFile(resolve('agents/knowledge/editorial-query-map.json'), 'utf8'));
+      if (mapFile?.project !== PROJECT || !mapFile.map || typeof mapFile.map !== 'object') throw new Error('invalid query map');
+      queryMap = mapFile.map;
+    } catch (error) { if (error.code !== 'ENOENT') throw error; }
     try {
       const inventory = await call('list-queries', { project: PROJECT, status: 'ready' });
       if (!Array.isArray(inventory)) throw new Error('query inventory is not an array');
@@ -310,7 +331,7 @@ export async function run({
       for (const item of inputs) {
         const { row, after, before } = item;
         try {
-          const q = selectQuery(inventory, row.keyword);
+          const q = selectMappedQuery(inventory, queryMap[row.slug]) ?? selectQuery(inventory, row.keyword);
           row.query = q;
           if (q.status !== 'matched') {
             row.status = 'blocked'; row.issue = q.status;
@@ -384,6 +405,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       provenancePath: resolve('../rendered/provenance.json'),
     } : {}),
   }).then((r) => {
+    for (const row of r.rows) console.log(`ROW\t${row.slug}\t${row.query?.id ?? '-'}\t${row.score?.before ?? '-'}\t${row.score?.after ?? '-'}\t${row.status}\t${row.issue ?? row.qualityFlags?.join(',') ?? ''}`);
     console.log(`Exact-content validation: ${r.status}; ${r.counts.scored} scored, ${r.counts.prepared} prepared, ${r.counts.blocked} blocked. No writes or new analyses.`);
     process.exitCode = ['scored', 'prepared-only'].includes(r.status) ? 0 : 2;
   }).catch((error) => { console.error(safeError(error)); process.exitCode = 1; });
