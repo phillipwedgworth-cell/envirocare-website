@@ -190,6 +190,21 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>How should a finding lead to an action?</h2>
 <p>Follow one observation through the report. If a technician finds evidence at a receiving entrance, can you tell what was identified, who was notified and which task followed? The response might include further inspection, an approved monitoring change or a repair request; the correct step depends on the circumstances.</p>
 <ul><li><strong>Observation:</strong> what was actually seen, with location and permitted photos.</li><li><strong>Assessment:</strong> confirmed identification or the information still needed.</li><li><strong>Action:</strong> work completed within the approved scope.</li><li><strong>Assignment:</strong> facility or provider tasks with named owners.</li><li><strong>Verification:</strong> how and when completion will be checked.</li></ul>
+<h2>What should a data center pest control service report template include?</h2>
+<p>A pest control service report template for a critical facility works best when every visit fills the same fields, so reports can be compared over time. A practical structure:</p>
+<ul>
+<li><strong>Service details:</strong> site, date, arrival and departure time, technician name and license, and the escort or access contact.</li>
+<li><strong>Areas inspected:</strong> loading dock, perimeter, mechanical and HVAC rooms, break rooms, storage and any white-space areas in scope, plus a separate list of anything inaccessible.</li>
+<li><strong>Monitoring device log:</strong> each numbered bait station, trap or insect light trap, with its condition, whether bait was taken or replaced, and captures by pest type. Auditors usually read this log first.</li>
+<li><strong>Evidence:</strong> droppings, gnaw marks on cable or packaging, nest material, ant trails or cockroach activity, with location and photographs where the facility allows them.</li>
+<li><strong>Treatment record:</strong> product name, EPA registration number, active ingredient, amount and exact location for any pesticide applied, kept to the application records the label and state rules require. A visit with no application should say so.</li>
+<li><strong>Conditions and next steps:</strong> sanitation, housekeeping, door seals and other entry points, each with an owner and a due date.</li>
+<li><strong>Signatures:</strong> technician and site representative, with the customer copy delivered as a PDF or through the agreed portal.</li>
+</ul>
+
+<h2>Can AI write a pest control service report?</h2>
+<p>AI tools can help turn a technician's notes into a readable customer summary, but the product record, device counts and findings must come from the visit itself. Verify every draft against the field notes before it goes to a customer or auditor; a summary that says an area was treated when it was only inspected overstates the work and undermines the report.</p>
+
 <h2>How do you review repeat findings?</h2>
 <p>Group findings by the same zone and issue rather than counting every note as a new incident. A recurring door defect might appear across several reports because it remains unresolved. That is different from several separate entry points, and it calls for a different management conversation.</p>
 <p>Compare activity with access and repair records before judging performance. A lower number of observations may reflect fewer inspected locations. A higher number may follow better monitoring. The report should give enough context to ask the right questions rather than encouraging a conclusion from one total.</p>
@@ -2829,6 +2844,25 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>An increase in sightings does not establish whether the population itself has grown. Note whether you are seeing the same pest in the same place, activity in a new room, or live insects alongside dead ones. Those observations help the provider assess what is happening.</p>
 
+<h2>Why you may still see bugs after a pest control treatment</h2>
+<p>Seeing more bugs in the first several days after a professional pest control treatment has a few ordinary explanations, and the technician can tell you which one fits your home. Some products are designed to flush insects out of a crevice, wall void or other hiding spot, so pests are exposed in the open for a short time before the treatment takes effect. Roaches feeding on a gel bait may be seen in daylight. Spiders and other insects can wander across treated areas indoors. None of that is proof the treatment is working, and none of it is proof it failed; it is a reason to note what you see and when.</p>
+<p>Eggs are the other common reason. A cockroach egg case can hatch after the initial treatment, so young roaches may show up in the weeks that follow. Fleas behave the same way: Texas A&amp;M AgriLife Extension notes that flea pupae can wait in their cocoons for a host, that vibration stimulates adults to emerge, and that new adults then contact any residual insecticide on the floor (<a href="https://extensionentomology.tamu.edu/wp-content/uploads/sites/8/2017/04/IPM-Action-Plan-for-Fleas.pdf">Texas A&amp;M IPM Action Plan for Fleas</a>). Vacuuming as directed is part of that pest management plan, not a sign the pest problem is getting worse.</p>
+
+<h2>Which pests commonly show up after treatment?</h2>
+<ul>
+<li><strong>Cockroach:</strong> roaches drawn to bait, plus nymphs from egg cases that hatch later.</li>
+<li><strong>Ant:</strong> workers on a bait placement are feeding; a trail in a new room is worth a call.</li>
+<li><strong>Spider:</strong> often seen moving across treated zones along baseboards and doors.</li>
+<li><strong>Flea:</strong> adults emerging from cocoons over the following weeks, especially after vacuuming.</li>
+<li><strong>Rodent:</strong> mouse activity can shift when food sources change; rodent work depends on entry points and is assessed separately.</li>
+</ul>
+<p>Exterior perimeter residual can also be shortened by heavy rain, irrigation and damp mulch, which is one reason pest activity can rise again in warmer months between visits.</p>
+
+<h2>Frequently asked questions</h2>
+<p><strong>Is it normal to see bugs after pest control?</strong> It can be, for a short period, depending on the pest and the method used. Persistent or increasing activity, or bugs in a room that was quiet before, should be reported.</p>
+<p><strong>Should I spray the bugs I see myself?</strong> Ask first. A store-bought spray can repel insects away from a bait or disrupt the treatment the technician applied.</p>
+<p><strong>When should I call the exterminator back?</strong> Call when activity continues past what the technician told you to expect, or sooner if anything about it worries you. A homeowner does not need to wait for an arbitrary deadline.</p>
+
 <h2>How long should you monitor after treatment?</h2>
 
 <p>There is no single waiting period that fits every pest and treatment. Ask the technician what changes to expect, when the planned follow-up will occur and which observations should prompt a call sooner. Use those instructions instead of a generic waiting period.</p>
@@ -3179,6 +3213,19 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Our technicians use backpack misters that push a fine droplet up into the harborage DIY sprayers miss — the undersides of leaves, the shaded resting zones, fence lines and deck skirting — using EPA-registered products applied per label directions. We treat every three to four weeks, March through October, so the residual never fully lapses. And on each visit the technician walks the property looking for the breeding sites you can't spray your way out of: the gutter, the corrugated drainpipe, the low spot that holds water.</p>
 
 <p>Here's the honest part, because it matters: professional mosquito control is about significant reduction, not elimination. No treatment removes every mosquito in Alabama, and any company promising otherwise is overselling. What we do promise is to stand behind the service — if mosquitoes bounce back between scheduled visits, we come back and re-treat at no charge.</p>
+
+<h2>What chemicals are used in a mosquito spray?</h2>
+<p>Many backyard mosquito spray products, store-bought and professional, use pyrethroids: synthetic insecticides modeled on pyrethrins, the compounds found in chrysanthemum flowers. They act on the insect's nervous system, which is where the quick knockdown comes from. The difference between a hose-end bottle and a professional mosquito control visit is rarely the class of chemicals used. It is the concentration, the equipment and where the product lands.</p>
+<p>Every product we apply is EPA-registered. The U.S. Environmental Protection Agency registers pesticides and sets the label, and the label is the law: it sets where, how much and how often a product can be applied. Registration is not an endorsement, and no label makes a product harmless.</p>
+
+<h2>Pollinators and other non-target insects</h2>
+<p>Pyrethroids are not selective, so a careless application can harm bees and other beneficial insects along with mosquitoes. Good practice is to treat the shaded resting sites where adult mosquitoes rest rather than the entire yard, keep spray off blooming plants when pollinators are working, and follow the label's restrictions near water. A homeowner with a pollinator garden should say so before the first visit so the technician can plan around it.</p>
+
+<h2>Foggers, misting systems and barrier sprays</h2>
+<p><strong>Foggers</strong> put out a cloud that kills the adults it touches and leaves little behind; the yard refills within hours. <strong>Automatic misting systems</strong> spray on a timer from nozzles around the backyard, which means product goes out whether mosquitoes are present or not, and the system needs refills and maintenance. <strong>Barrier sprays</strong>, the backpack applications described above, put a residual on the foliage where mosquitoes rest. That is the approach in our program because it lasts between visits.</p>
+
+<h2>Why breeding-site control matters most</h2>
+<p>The CDC's mosquito control guidance starts with standing water for a reason. Integrated pest management for a mosquito problem means removing breeding sites first and treating second, and it is the only way to reduce mosquito populations over a season rather than for a few days. Container-breeding mosquitoes can spread viruses such as West Nile and Zika, which is why the CDC treats dumping water, screens and repellent as the baseline for every household (<a href="https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html">CDC: Mosquito control at home</a>).</p>
 
 <h2>The cost math</h2>
 
@@ -3835,6 +3882,28 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Termites: the quiet one</h2>
 <p>Rain does not create termites, but it creates the conditions. Wet soil against a foundation, a gutter overflowing onto the sill, a crawlspace that stays damp for a month — that is the moisture subterranean termites need to reach the wood. A season with a lot of storms is a season to look at the crawlspace and the downspouts. What to look for is in <a href="/blog/termite-damage-signs-alabama">termite damage signs</a>.</p>
 
+<h2>Spiders, mice and rats, and wasps after heavy rain</h2>
+<p>The common pests after a storm are not only the ones that live in the soil. Spiders follow the insects they eat, so a wave of crickets and millipedes along the foundation is often followed by more spider activity in the garage and around door frames. Mice and rats look for dry shelter when burrows, woodpiles and drainage ditches flood; a rodent that finds a gap under a garage door or around a pipe may move into wall voids and stay. Paper wasps and other wasps rebuild under eaves and in sheds once the weather clears.</p>
+
+<h2>How to keep pests out of your home after a storm</h2>
+<p>Most pest problems in Alabama homes after rain come back to two things: moisture and entry points. A humid, damp foundation draws insects toward the house; a gap lets them in.</p>
+<ul>
+<li>Seal gaps around pipes, cables and vents, and replace worn door sweeps on exterior and garage doors.</li>
+<li>Trim shrubs and limbs so they do not touch the siding or roof.</li>
+<li>Keep mulch beds thin and pulled a few inches back from the slab.</li>
+<li>Store pet food and birdseed in sealed containers, indoors and out.</li>
+<li>Check the crawl space after heavy rain and fix leaks before the wood stays wet.</li>
+</ul>
+
+<h2>Should you spray after it rains?</h2>
+<p>Usually not right away. A DIY spray on wet ground and on an ant trail tends to scatter the pest rather than solve it. Identify what you are seeing first; a fire ant mound in the yard, roaches in a floor drain and a swarm of winged termites are three different problems with three different treatments. Winged insects indoors in spring are worth a closer look, because they may be termite swarmers rather than flying ants.</p>
+<p>A year-round local pest control plan keeps a treated barrier along the perimeter and brings an inspection on every visit, so the conditions behind storm-driven pest pressure get looked at on a schedule instead of only after an infestation. Our customers in Birmingham, Shelby County, Lake Martin and Huntsville are on the same bi-monthly schedule.</p>
+
+<h2>Frequently asked questions</h2>
+<p><strong>What bugs come out after rain in Alabama?</strong> Ants, cockroaches, millipedes, centipedes, springtails, earwigs, crickets and spiders are the most common, followed about a week later by mosquitoes breeding in standing water.</p>
+<p><strong>Will the bugs go away when it dries?</strong> Many surface insects die off or move back outdoors within days. Ants that moved a colony indoors, roaches in drains and rodents usually do not leave on their own.</p>
+<p><strong>When should I call a professional?</strong> Call when activity continues after the ground dries, when you see winged insects or mud tubes, or when rodents are in the house.</p>
+
 <h2>The week-after checklist</h2>
 <ul>
 <li>Dump every container of standing water on the lot within 48 hours.</li>
@@ -3962,6 +4031,26 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Give Access to Key Areas</h2>
 <p>Make sure your technician can access the garage, crawlspace, and outdoor storage buildings. These areas often harbor the heaviest pest populations and are the source of many interior invasions.</p>
+
+<h2>Store food and clean your home's problem areas</h2>
+<p>Most pest control treatment inside a home focuses on the kitchen, bathrooms, laundry room and garage, because those are the areas where cockroach and ant activity usually starts. Before the visit, store food in sealed containers or the refrigerator, put away pet food, and wipe crumbs off countertops and the area around the stove. Empty the trash. Do not clean around an existing bait placement unless the technician tells you to; bait only works where pests can reach it.</p>
+<p>A quick, thorough cleaning helps the technician see signs of pests instead of crumbs and residue. It is not a substitute for the inspection: tell the technician what you have seen, where and when.</p>
+
+<h2>Clear clutter and move furniture away from the walls</h2>
+<p>Baseboards, cabinet edges and the gaps behind appliances are where many crawling pests hide, so the technician needs to reach them. Move furniture and small appliances a few inches away from the walls where you can do so easily, and clear clutter from under sinks and closet floors. Stacked cardboard in the basement, attic or garage gives pests potential hiding spots and easy access to the house; ask whether those areas will be treated so you know what to remove items from.</p>
+<p>If an area is hard to reach or locked, say so ahead of time. An inaccessible room or crawl space is recorded on the service report rather than assumed to be inspected.</p>
+
+<h2>Help the pest inspection find the source</h2>
+<p>A pest inspection looks for the conditions behind an infestation, not only the insects. Point out leaks, standing water, damp spots under sinks, rodent droppings or gnaw marks, and any mud tubes on the foundation, which call for a separate termite assessment. On the exterior of your home, the technician checks door sweeps, gaps around pipes and other entry points; sealing entry points is often part of the conversation about preventing future infestations.</p>
+
+<h2>Personal items, fish tanks and post-treatment steps</h2>
+<p>Put away toys, toothbrushes and other personal items in rooms that will be treated. If the label or technician directs, cover fish tanks and turn off aquarium air pumps during the application. After the visit, follow the post-treatment directions for re-entry and for cleaning treated baseboards and floors, and keep the service report so you know which products were used.</p>
+<p>Avoid DIY pest products in the days before and after service unless you have discussed them with the pest control company. A store spray can push insects deeper into walls or away from a bait.</p>
+
+<h2>Frequently asked questions</h2>
+<p><strong>Do I need to leave the house during pest control?</strong> It depends on the product and the area treated. Ask the office before the appointment and follow the label and the technician's re-entry directions.</p>
+<p><strong>Should I clean before or after pest control?</strong> Clean before, so surfaces and problem areas are visible. Afterward, ask which treated surfaces you can clean and when.</p>
+<p><strong>How do I prepare for an exterior-only service?</strong> Unlock gates, move items stacked against the foundation, and trim plants back so the technician can treat the perimeter.</p>
 
 <h2>After Treatment</h2>
 <p>Ask which treated surfaces may be cleaned and when, and follow the product label and technician's instructions. Record the pest, location and timing of any activity after service. More visible insects alone do not establish that treatment is working; contact the provider about persistent or unexpected activity instead of applying another product on top of the treatment.</p>
