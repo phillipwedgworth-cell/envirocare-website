@@ -2,9 +2,10 @@
  * Editorial image direction for the EnviroCare blog.
  *
  * The old index showed enormous emoji tiles for nearly every article. These
- * images already exist in /public and are not fabricated photos of EnviroCare
- * technicians, vehicles, offices or customer jobs. No remote stock dependency,
- * new license or image-generation credit is required.
+ * images are stored in /public and are not fabricated photos of EnviroCare
+ * technicians, vehicles, offices or customer jobs. The data-center cover is an
+ * original schematic illustration with editable SVG source and a PNG export.
+ * No remote stock dependency or new license is required.
  *
  * Each published story has an explicitly selected illustration. A generic
  * residential/environmental image is preferable to a falsely identified pest.
@@ -23,6 +24,7 @@ export type BlogVisual = {
 };
 
 const VISUALS = {
+  dataCenter: { src: '/images/blog/data-center-pest-prevention.png', alt: 'Illustration of data center server cabinets, a perimeter inspection route and a checklist', position: 'center', kind: 'editorial' },
   southernHome: { src: '/home-southern.jpg', alt: 'Landscaped residential house with a green lawn', position: 'center 50%', kind: 'editorial' },
   familyYard: { src: '/family-yard.jpg', alt: 'Green residential yard and outdoor living space', position: 'center 48%', kind: 'editorial' },
   familyHome: { src: '/hero-family.jpg', alt: 'Family playing with their dog in a sunny backyard', position: 'center 42%', kind: 'editorial' },
@@ -47,8 +49,14 @@ const VISUALS = {
 
 type VisualKey = keyof typeof VISUALS;
 
-/** Intentional assignment for every article in the 2026-10-17 archive. */
+/** Intentional covers for the archive and the 2026-10-28 data-center guides. */
 const COVER_BY_SLUG: Record<string, VisualKey> = {
+  'data-center-ipm-plan': 'dataCenter',
+  'data-center-rodent-entry-points': 'dataCenter',
+  'data-center-pest-control-vendor-checklist': 'dataCenter',
+  'data-center-pest-control-construction-handover': 'dataCenter',
+  'data-center-pest-control-service-report': 'dataCenter',
+  'data-center-pest-activity-response': 'dataCenter',
   'spiders-on-boat-docks-lake-martin': 'lakeDock',
   'homeowners-insurance-termite-damage-alabama': 'termiteDamage',
   'how-long-does-sentricon-take-to-work': 'sentricon',
