@@ -116,14 +116,20 @@ export default function AddressAutocomplete({
 
   const fetchSuggestions = useCallback(
     async (input: string) => {
+      // Stamp this lookup BEFORE any await. Every keystroke and every pick
+      // bumps reqRef, so after each await below a changed stamp means the
+      // customer has moved on (typed, cleared, picked) and the result is
+      // dropped. This covers the first-time SDK load as well as the request.
+      const req = ++reqRef.current;
+      const stale = () => req !== reqRef.current;
       const lib = await ensureLib();
+      if (stale()) return;
       if (!lib || input.trim().length < 3) {
         setItems([]);
         setOpen(false);
         return;
       }
       if (!tokenRef.current) tokenRef.current = new lib.AutocompleteSessionToken();
-      const req = ++reqRef.current;
       try {
         const { suggestions } = await lib.AutocompleteSuggestion.fetchAutocompleteSuggestions({
           input,
@@ -132,7 +138,7 @@ export default function AddressAutocomplete({
           includedPrimaryTypes: ['street_address', 'premise', 'subpremise'],
           locationRestriction: AL_BOUNDS,
         });
-        if (req !== reqRef.current) return; // a newer keystroke won
+        if (stale()) return;
         const next: Suggestion[] = (suggestions ?? [])
           .map((s: any) => s.placePrediction)
           .filter(Boolean)
@@ -146,6 +152,7 @@ export default function AddressAutocomplete({
         setOpen(next.length > 0);
         setActive(-1);
       } catch {
+        if (stale()) return;
         setItems([]);
         setOpen(false);
       }
