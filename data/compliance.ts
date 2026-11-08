@@ -391,7 +391,20 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // a prior owner" is plan shorthand with no money claim, and "EnviroCare's
   // Sentricon coverage" names EnviroCare as the possessor (also in notIf). The
   // first draft matched both -- the same over-match as PR #171's first draft.
-  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties|(?:damage\\s+)?repair\\s+coverage)\\b|\\$1(?:,000,000|M|\\.0M|\\s*million)\\b[^.]{0,30}\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b|\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b[^.]{0,30}\\$1(?:,000,000|M|\\.0M|\\s*million)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon|EnviroCare[\'’]s\\s+sentricon',
+  //
+  // CARVE-OUT REMOVED 2026-11-08. The first version of this rule shipped with
+  // `EnviroCare['’]s\s+sentricon` in notIf. notIf suppresses the WHOLE rule, not
+  // the branch it was written for, so it also switched off the guarantee/warranty
+  // branch above: "EnviroCare's Sentricon warranty protects your home" and
+  // "...warranties cover repairs" both passed every guard. That is the exact
+  // defect this rule exists to stop -- AGENTS.md section 1 bans the possessive
+  // outright ("any possessive: Sentricon's guarantee, the Sentricon warranty")
+  // regardless of who is named as possessor, because the warranty still is not
+  // Sentricon's. The carve-out was also unnecessary: bare "EnviroCare's Sentricon
+  // coverage" carries no money figure, so only the two $1M-proximity branches
+  // could match it, and neither does. Both forms are asserted in
+  // scripts/test-compliance-guarantee.mjs so this cannot regress unseen again.
+  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties|(?:damage\\s+)?repair\\s+coverage)\\b|\\$1(?:,000,000|M|\\.0M|\\s*million)\\b[^.]{0,30}\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b|\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b[^.]{0,30}\\$1(?:,000,000|M|\\.0M|\\s*million)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
     reason: 'coverage attributed to Sentricon (possessive, or "Sentricon® coverage" beside the $1M figure)',
     approvedInstead: "EnviroCare's termite damage repair coverage, subject to the terms of the agreement" },
 

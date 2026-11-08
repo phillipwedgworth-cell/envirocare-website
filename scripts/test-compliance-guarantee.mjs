@@ -109,6 +109,13 @@ const cases = [
   ['<Stat num="$1M" lbl="Sentricon® Coverage" />', true, "Sentricon stat component (components/CityPage.tsx)"],
   ["Sentricon® damage repair coverage is up to $1,000,000 on qualifying homes, subject to the terms of the agreement.", true, "Sentricon damage repair coverage, qualified"],
   ["Sentricon repair coverage up to $1M, subject to the terms of the agreement", true, "Sentricon repair coverage, no ®"],
+  // The possessive, which the first draft of the widened rule let through. notIf
+  // suppresses a whole rule, so the "EnviroCare's sentricon" carve-out also
+  // switched off the guarantee/warranty branch and these two passed every guard.
+  // AGENTS.md section 1 bans the possessive whoever is named as possessor.
+  ["EnviroCare's Sentricon warranty protects your home", true, "possessive warranty must stay banned"],
+  ["EnviroCare's Sentricon warranties cover repairs", true, "possessive plural must stay banned"],
+  ["EnviroCare's Sentricon® guarantee covers repairs", true, "possessive guarantee must stay banned"],
   // ...and the forms that must survive the widening
   ["EnviroCare's Sentricon coverage is priced after a free termite inspection", false, "EnviroCare named as possessor"],
   ["we can also transfer Sentricon® coverage from a prior owner", false, "plan shorthand, no money claim"],
