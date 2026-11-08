@@ -161,6 +161,14 @@ export default function AddressAutocomplete({
     onChange(v);
     if (!KEY) return;
     if (timerRef.current) clearTimeout(timerRef.current);
+    // Invalidate any suggestion request already in flight, so a slow answer
+    // for the previous text can never pop a list under new (or cleared) text.
+    reqRef.current++;
+    if (v.trim().length < 3) {
+      setItems([]);
+      setOpen(false);
+      return;
+    }
     timerRef.current = setTimeout(() => fetchSuggestions(v), 250);
   }
 
