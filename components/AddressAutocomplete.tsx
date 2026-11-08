@@ -97,6 +97,10 @@ export default function AddressAutocomplete({
   const reqRef = useRef(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const failedRef = useRef(false);
+  // Bumped on every keystroke and every pick. A Place Details lookup only
+  // applies if nothing happened since it started, so a slow Google answer can
+  // never overwrite an address (and ZIP) the customer typed afterwards.
+  const editRef = useRef(0);
 
   const ensureLib = useCallback(async () => {
     if (!KEY || failedRef.current) return null;
@@ -153,6 +157,7 @@ export default function AddressAutocomplete({
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     const v = e.target.value;
+    editRef.current++;
     onChange(v);
     if (!KEY) return;
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -162,6 +167,8 @@ export default function AddressAutocomplete({
   async function choose(s: Suggestion) {
     setOpen(false);
     setItems([]);
+    reqRef.current++; // drop any suggestion request still in flight
+    const edit = ++editRef.current;
     onChange(s.text); // show something immediately
     try {
       const place = s.prediction.toPlace();
@@ -178,6 +185,7 @@ export default function AddressAutocomplete({
         zip: part(c, 'postal_code'),
         formatted: place.formattedAddress ?? '',
       };
+      if (edit !== editRef.current) return; // customer kept typing or picked again
       onChange(picked.street);
       onPick?.(picked);
     } catch {
