@@ -90,6 +90,11 @@ export default function AddressAutocomplete({
 }: Props) {
   const listId = useId();
   const [items, setItems] = useState<Suggestion[]>([]);
+  // The exact text these suggestions were fetched for. The list is shown
+  // ONLY while the box still holds that text, so suggestions for an older
+  // address can never be seen or picked once the customer types something
+  // else (the root of several stale-result bugs found in review).
+  const [itemsFor, setItemsFor] = useState('');
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const libRef = useRef<any>(null);
@@ -149,6 +154,7 @@ export default function AddressAutocomplete({
             prediction: p,
           }));
         setItems(next);
+        setItemsFor(input);
         setOpen(next.length > 0);
         setActive(-1);
       } catch {
@@ -178,6 +184,8 @@ export default function AddressAutocomplete({
     }
     timerRef.current = setTimeout(() => fetchSuggestions(v), 250);
   }
+
+  const showList = open && items.length > 0 && itemsFor === value;
 
   async function choose(s: Suggestion) {
     setOpen(false);
@@ -211,7 +219,7 @@ export default function AddressAutocomplete({
   }
 
   function handleKey(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (!open || items.length === 0) return;
+    if (!showList) return;
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setActive((a) => (a + 1) % items.length);
@@ -246,11 +254,11 @@ export default function AddressAutocomplete({
         autoComplete={KEY ? 'new-street-address' : 'street-address'}
         role={KEY ? 'combobox' : undefined}
         aria-autocomplete={KEY ? 'list' : undefined}
-        aria-expanded={KEY ? open : undefined}
+        aria-expanded={KEY ? showList : undefined}
         aria-controls={KEY ? listId : undefined}
-        aria-activedescendant={open && active >= 0 ? `${listId}-${active}` : undefined}
+        aria-activedescendant={showList && active >= 0 ? `${listId}-${active}` : undefined}
       />
-      {open && (
+      {showList && (
         <ul id={listId} role="listbox" style={LIST}>
           {items.map((s, i) => (
             <li
