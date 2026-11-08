@@ -9,6 +9,7 @@
 
 import { useState } from 'react';
 import { officeForZip } from '@/data/zip-to-office';
+import AddressAutocomplete from '@/components/AddressAutocomplete';
 
 const PLANS = [
   'Pest — from $35/mo',
@@ -187,15 +188,16 @@ export default function RequestQuoteForm() {
                 <label className="rq-label" htmlFor="rq-address">
                   Street address
                 </label>
-                <input
+                <AddressAutocomplete
                   id="rq-address"
                   name="address"
                   className="rq-input"
-                  type="text"
                   value={form.address}
-                  onChange={set('address')}
-                  autoComplete="street-address"
-                  placeholder="123 Main St"
+                  onChange={(v) => setForm((f) => ({ ...f, address: v }))}
+                  onPick={(a) =>
+                    setForm((f) => ({ ...f, address: a.street, zip: a.zip || f.zip }))
+                  }
+                  placeholder="Start typing your address"
                 />
               </div>
               <div className="rq-field rq-field--zip">
