@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/api-auth";
 
 // Single place to see which agent runtime env vars are present on THIS
 // deployment (Preview and Production are separate scopes in Vercel — a key
@@ -34,7 +35,9 @@ const OPTIONAL = new Set([
   "GOOGLE_REFRESH_TOKEN",
 ]);
 
-export async function GET() {
+export async function GET(req: Request) {
+  const denied = requireAdmin(req); // reports env/service inventory (patch 0021)
+  if (denied) return denied;
   const groups: Record<string, Record<string, boolean>> = {};
   const missingRequired: string[] = [];
   const missingOptional: string[] = [];
@@ -63,6 +66,6 @@ export async function GET() {
   });
 }
 
-export async function POST() {
-  return GET();
+export async function POST(req: Request) {
+  return GET(req);
 }

@@ -4,6 +4,7 @@
 // Supabase connectivity check. Returns NO keys or secret values.
 
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/api-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -58,7 +59,9 @@ async function supabaseStatus() {
   }
 }
 
-export async function GET() {
+export async function GET(req: Request) {
+  const denied = requireAdmin(req); // reports env/service inventory (patch 0021)
+  if (denied) return denied;
   const [resend, supabase] = await Promise.all([resendStatus(), supabaseStatus()]);
   return NextResponse.json({
     resend,

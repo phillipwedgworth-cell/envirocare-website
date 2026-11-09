@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireCron } from "@/lib/api-auth";
 import { run as runProposer } from "@/agents/proposer.mjs";
 
 export const maxDuration = 300;
@@ -15,10 +16,10 @@ async function execute() {
   }
 }
 
-export async function GET() {
-  return execute();
+export async function GET(req: Request) {
+  return requireCron(req) ?? execute();
 }
 
-export async function POST() {
-  return execute();
+export async function POST(req: Request) {
+  return requireCron(req) ?? execute();
 }

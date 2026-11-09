@@ -1,9 +1,12 @@
 import { updateAdDraftStatus } from "@/lib/ads";
+import { requireAdmin } from "@/lib/api-auth";
 
 export async function POST(
   request: Request,
   { params }: { params: { id: string } }
 ) {
+  const denied = requireAdmin(request); // changes draft status (patch 0021)
+  if (denied) return denied;
   if (!params?.id) {
     return Response.json({ error: "Missing ad draft id" }, { status: 400 });
   }

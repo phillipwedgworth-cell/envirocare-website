@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { createAdDraft } from "@/lib/ads";
+import { requireAdmin } from "@/lib/api-auth";
 
 interface DraftRequest {
   title?: string;
@@ -23,6 +24,8 @@ function safeHtml(value: string) {
 }
 
 export async function POST(request: Request) {
+  const denied = requireAdmin(request); // creates a draft and sends email (patch 0021)
+  if (denied) return denied;
   if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
     return Response.json({ error: "Supabase is not configured" }, { status: 503 });
   }

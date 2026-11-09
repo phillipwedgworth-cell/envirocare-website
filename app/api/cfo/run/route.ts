@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireCron } from "@/lib/api-auth";
 import { run as runCFOAgent } from "@/agents/cfo-agent.mjs";
 
 async function execute() {
@@ -13,10 +14,10 @@ async function execute() {
   }
 }
 
-export async function GET() {
-  return execute();
+export async function GET(req: Request) {
+  return requireCron(req) ?? execute();
 }
 
-export async function POST() {
-  return execute();
+export async function POST(req: Request) {
+  return requireCron(req) ?? execute();
 }
