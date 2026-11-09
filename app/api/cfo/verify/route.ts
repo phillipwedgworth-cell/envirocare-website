@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/api-auth";
 
 const requiredVars = [
   "OPENAI_API_KEY",
@@ -18,7 +19,9 @@ function getEnvStatus() {
   return status;
 }
 
-export async function GET() {
+export async function GET(req: Request) {
+  const denied = requireAdmin(req); // reports env/service inventory (patch 0021)
+  if (denied) return denied;
   const envStatus = getEnvStatus();
   const missing = Object.entries(envStatus)
     .filter(([, present]) => !present)
@@ -35,6 +38,6 @@ export async function GET() {
   });
 }
 
-export async function POST() {
-  return GET();
+export async function POST(req: Request) {
+  return GET(req);
 }

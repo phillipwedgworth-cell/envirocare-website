@@ -1,7 +1,7 @@
 // Guard for agents/lib/brief-sanitize.mjs (Sunday audit 2026-10-04, R5).
 // The morning brief must never ship a SoLV change computed across two
 // different grids/campaigns, e.g. "Alabaster surge (+25 pts since Aug 27)".
-import { stripCrossSeriesClaims, stripStalePRClaims, fixDataWindowLabel } from "../agents/lib/brief-sanitize.mjs";
+import { stripCrossSeriesClaims, stripStalePRClaims, fixDataWindowLabel, stripDeployClaims } from "../agents/lib/brief-sanitize.mjs";
 
 const mustStrip = [
   "Alabaster surge (+25 pts since Aug 27) — 38.7%",
@@ -58,5 +58,22 @@ const ok = fixDataWindowLabel("**Organic (7d ending Oct 6):** 96 clicks", "2026-
 if (ok.fixed !== 0) { console.error("correct window label was counted as fixed"); fail++; }
 if (fixDataWindowLabel("Huntsville reviews still open since Sep 23", "2026-10-06").fixed !== 0) { console.error("non-GSC line touched"); fail++; }
 
+
+// ── Sunday audit 2026-11-08 R4: deploy-status claims. Real lines from the
+// 11-03 and 11-05 briefs; both PRs were already in a READY production deploy.
+const real1103 = "PR #290 merged — $75 anchor + one-time price removal live on main (awaiting production deploy).";
+const real1105 = "PR #287 merged (data center guides, blog fixes, Narrator guards — live on code only, awaiting production deploy).";
+const fine = "#293 merged — bundle wording removed from $34 mosquito language — LIVE in production (production deploy 3081e26 contains it)";
+const liveState = { ok: true, liveSha: "3081e26", live: new Map([[290, true], [287, true], [293, true], [294, false]]) };
+const dz = stripDeployClaims([real1103, real1105, fine, "Huntsville reviews still open"].join("\n"), liveState);
+if (dz.removed !== 2 || dz.text.includes("#290 merged") || dz.text.includes("#287 merged")) { console.error(`DEPLOY CLAIM NOT STRIPPED: ${dz.text}`); fail++; }
+if (!dz.text.includes("#293 merged") || !dz.text.includes("Huntsville reviews")) { console.error("deploy sanitizer stripped a true line"); fail++; }
+const notLiveYet = stripDeployClaims("PR #294 Auburn clarity is now live in production.", liveState);
+if (notLiveYet.removed !== 1) { console.error("a 'live' claim for a PR not in the production deploy survived"); fail++; }
+const truthfulPending = stripDeployClaims("PR #294 merged — not yet live (awaiting production deploy).", liveState);
+if (truthfulPending.removed !== 0) { console.error("a true 'not yet live' line was stripped"); fail++; }
+const unknown = stripDeployClaims([real1103, fine].join("\n"), { ok: false });
+if (unknown.removed !== 2) { console.error("unknown deploy state left a deploy claim"); fail++; }
+
 if (fail) { console.error(`\ntest:brief FAILED (${fail})`); process.exit(1); }
-console.log(`test:brief OK — ${mustStrip.length} cross-series lines stripped, ${mustKeep.length} legitimate lines kept; stale-PR (${pr.removed} lines) and GSC-window checks pass`);
+console.log(`test:brief OK — ${mustStrip.length} cross-series lines stripped, ${mustKeep.length} legitimate lines kept; stale-PR (${pr.removed} lines), GSC-window and deploy-status (${dz.removed} lines) checks pass`);
