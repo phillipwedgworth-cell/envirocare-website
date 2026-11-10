@@ -1,11 +1,18 @@
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 import AdDraftReview from "./AdDraftReview";
+import { getAdDraftById } from "@/lib/ads";
+import { ADS_COOKIE, adsSessionOk } from "@/lib/api-auth";
 
 import type { Metadata } from "next";
 
 // Internal ad-review surface. Never indexable: it renders unapproved draft copy,
 // which is exactly the content the compliance rules exist to keep off the web.
-// Belt and braces -- this meta tag AND a robots.txt disallow in app/robots.ts.
+// noindex + the robots.txt disallow only instruct crawlers; ACCESS is the session
+// check below (patch 0022): no valid ad-review cookie -> the sign-in form, never
+// the draft. The draft is read through lib/ads directly — this page used to fetch
+// its own public /api/ads/[id] over HTTP, which was a second, unauthenticated path
+// into the same data and could not carry the reviewer's cookie.
 export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 interface AdDraft {
@@ -25,23 +32,48 @@ export const dynamic = "force-dynamic";
 
 export default async function AdDraftReviewPage({
   params,
+  searchParams,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ error?: string }>;
 }) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const response = await fetch(`${baseUrl}/api/ads/${params.id}`, {
-    cache: "no-store",
-  });
+  const { id } = await params;
+  const { error } = await searchParams;
+  const signedIn = adsSessionOk((await cookies()).get(ADS_COOKIE)?.value);
 
-  if (!response.ok) {
-    notFound();
+  if (!signedIn) {
+    return (
+      <main className="mx-auto max-w-md px-4 py-16">
+        <section className="space-y-4 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-950">Ad draft review</h1>
+          <p className="text-sm text-slate-600">Sign in with the command-center key to review this draft.</p>
+          {error ? <p className="text-sm font-semibold text-red-700">That key did not match.</p> : null}
+          <form method="post" action="/api/ads/review-login" className="space-y-3">
+            <input type="hidden" name="returnTo" value={`/ads/${id}`} />
+            <input
+              type="password"
+              name="key"
+              required
+              autoComplete="current-password"
+              aria-label="Command-center key"
+              className="w-full rounded-xl border border-slate-300 px-3 py-2"
+            />
+            <button type="submit" className="w-full rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white">
+              Sign in
+            </button>
+          </form>
+        </section>
+      </main>
+    );
   }
 
-  const payload = (await response.json()) as { ok?: boolean; draft?: AdDraft; error?: string };
-
-  if (!payload?.ok || !payload?.draft) {
-    notFound();
+  let draft: AdDraft | null = null;
+  try {
+    draft = (await getAdDraftById(id)) as AdDraft | null;
+  } catch {
+    draft = null;
   }
+  if (!draft) notFound();
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
@@ -56,11 +88,11 @@ export default async function AdDraftReviewPage({
 
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
           <p className="text-sm text-slate-500">Draft ID</p>
-          <p className="mt-2 font-mono text-sm text-slate-800">{payload.draft.id}</p>
-          <p className="mt-3 text-sm text-slate-600">Current status: <span className="font-semibold text-slate-900">{payload.draft.status}</span></p>
+          <p className="mt-2 font-mono text-sm text-slate-800">{draft.id}</p>
+          <p className="mt-3 text-sm text-slate-600">Current status: <span className="font-semibold text-slate-900">{draft.status}</span></p>
         </div>
 
-        <AdDraftReview draft={payload.draft} />
+        <AdDraftReview draft={draft} />
       </section>
     </main>
   );

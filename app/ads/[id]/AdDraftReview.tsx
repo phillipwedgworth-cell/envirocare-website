@@ -19,12 +19,9 @@ interface Props {
   draft: AdDraft;
 }
 
-// Patch 0021: approve/feedback now require the admin key. Open the review page as
-// /ads/<id>?key=<COMMAND_CENTER_KEY>; the key is sent as a header, never stored.
-function adminHeaders(extra: Record<string, string> = {}): Record<string, string> {
-  const key = typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("key") ?? "";
-  return key ? { ...extra, "x-admin-key": key } : extra;
-}
+// Patch 0022: approve/feedback are authorised by the httpOnly ad-review session
+// cookie set at sign-in (app/api/ads/review-login). Same-origin fetch sends it
+// automatically, so no key ever sits in the page URL (0021's ?key= link is gone).
 
 export default function AdDraftReview({ draft }: Props) {
   const [status, setStatus] = useState(draft.status);
@@ -39,7 +36,6 @@ export default function AdDraftReview({ draft }: Props) {
     try {
       const response = await fetch(`/api/ads/${draft.id}/approve`, {
         method: "POST",
-        headers: adminHeaders(),
       });
       const data = await response.json();
 
@@ -70,7 +66,7 @@ export default function AdDraftReview({ draft }: Props) {
     try {
       const response = await fetch(`/api/ads/${draft.id}/feedback`, {
         method: "POST",
-        headers: adminHeaders({ "Content-Type": "application/json" }),
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ feedback: trimmed }),
       });
       const data = await response.json();
