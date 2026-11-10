@@ -1710,25 +1710,25 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide',
     excerpt: 'Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.',
     publishedAt: '2026-09-04',
-    updatedAt: "2026-10-29",
+    updatedAt: "2026-11-09",
     author: 'Kevin Wedgworth',
     category: 'Ants',
-    readMinutes: 11,
+    readMinutes: 9,
     heroEmoji: '🐜',
     metaTitle: 'How to Get Rid of Ants in Your House (Alabama Guide) | EnviroCare',
     metaDescription: "Identify indoor ants, remove food and moisture, and inspect entry routes. Learn how sanitation and appropriate baiting work together.",
     body: `
 <p class="lede">Start an indoor ant problem by identifying the ant, removing food and water sources and tracing entry points. Appropriate baiting may address colony activity; repeated spraying of visible workers alone often leaves the cause unresolved.</p>
 
-<p><strong>The short answer:</strong> identify the ant first — a clear photo is enough. Stop spraying the trail, which scatters the colony. Clean up the crumbs, grease, pet food and standing water the foragers are after. Put out a slow-acting bait where the trail runs and leave it alone so workers carry it back to the nest. Seal the gap they are using. If the trail is back within two weeks, or you find large black ants near damp wood, there is a hidden colony or carpenter ants, and it is time for an inspection. See our <a href="/services/pest-control">pest control plans</a>.</p>
+<p><strong>The short answer:</strong> identify the ant, remove accessible food and water, and trace the entry route. A clear photo or sample can help a professional identify it. If you use an ant bait, choose one labeled for the pest and location and follow its directions. Recurring trails or ants around damaged wood call for an inspection rather than a diagnosis from appearance alone. Compare our <a href="/services/pest-control">pest control plans</a> or <a href="/quote">request a quote for recurring indoor ants</a>.</p>
 
-<h2>How do you identify the ant before treatment?</h2>
+<h2>Step 1: How do you identify the ant before treatment?</h2>
 
 <p>Alabama houses have to deal with four types of ants far more than any other, and the fix is different for each. Before you try any home remedies, you need to know which insect you are actually looking at.</p>
 <p><strong>Reference:</strong> Indoor spraying does not prevent more ants from entering. <a href="https://ipm.ucanr.edu/home-and-landscape/ants/">UC IPM: Ants</a>.</p>
 
 <ul>
-<li><strong>Odorous house ants</strong> — the classic "sugar ant." Small, dark, and they smell like rotten coconut when crushed. They nest almost anywhere: under mulch, in wall voids, behind baseboards, under a potted plant. Sweet feeders most of the year. This is the ant in the kitchen in nine calls out of ten. We cover them in detail in <a href="/blog/sugar-ants-in-house-alabama">sugar ants in your Alabama home</a>.</li>
+<li><strong>Odorous house ants</strong> — the classic "sugar ant." Small, dark, and they smell like rotten coconut when crushed. They nest almost anywhere: under mulch, in wall voids, behind baseboards, under a potted plant. Sweet feeders most of the year. Identification matters because several small ant species can look alike. We cover them in detail in <a href="/blog/sugar-ants-in-house-alabama">sugar ants in your Alabama home</a>.</li>
 <li><strong>Argentine ants</strong> — similar size and habits, but they form enormous interconnected colonies with many queens. Spraying an Argentine ant trail is close to pointless because the colony simply routes around the dead zone and sends foragers on a new path.</li>
 <li><strong>Carpenter ants</strong> — large, usually black ants that show up one or two at a time rather than in a line. They nest in damp or previously water-damaged wood. If you see ants in spring, especially near a bathroom, a window that leaks, or a deck ledger, the moisture is the real story.</li>
 <li><strong>Fire ants</strong> — outdoors, in mounds, and they sting. Fire ants are a yard problem, not a kitchen problem, and they are handled with a separate whole-yard treatment rather than the regular pest plan. See <a href="/blog/fire-ants-alabama-summer">fire ants in Alabama</a> and our <a href="/services/fire-ant">fire ant control</a> page.</li>
@@ -1746,22 +1746,22 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>Ants inside a house are almost always there for one of three things: sugar, grease, or water. Sugar attracts the ants most obviously in summer — the trail leads to a fruit bowl, a spill under the toaster, a soda can in the recycling, or a dog bowl on the floor. Every crumb on the counter and every sticky residue behind a jar is a target. In late winter and early spring the same species often switches to protein and fat, which is why the trail moves to the pet food or the trash can. Water draws them in a drought: a slow drip under the sink, a dishwasher gasket, a pet water bowl on the floor.</p>
 
-<p>Fix the attractant and about a third of ant problems solve themselves within a week. The colony was never in the house — it was outside and commuting. Clean up crumbs daily, wipe down counters and stovetops, keep food in sealed containers, and take the trash out before it sits overnight. Ants find food sources that you stop noticing, so look behind the toaster, under the dish rack, and inside the recycling bin.</p>
+<p>Removing food and moisture can reduce foraging, but a change in visible activity does not establish where the colony is nesting. Clean up crumbs daily, wipe down counters and stovetops, keep food in sealed containers, and take the trash out before it sits overnight. Ants find food sources that you stop noticing, so look behind the toaster, under the dish rack, and inside the recycling bin.</p>
 
 <h2>Step 4: Bait — and match the bait to the ant</h2>
 
-<p>Bait is the opposite of a spray. It is a slow-acting food the foragers carry back to their nest and share with the rest of the colony, and it is the only approach — DIY or professional — that reaches the queen. Two rules make or break an ant bait program:</p>
+<p>Suitable ant baits use foraging workers to carry material back to the colony. Success depends on the species, product and conditions; no single treatment fits every ant problem. Two points to consider:</p>
 
 <ol>
-<li><strong>Match the food preference.</strong> Sweet gel or liquid bait when the ants are on sugar. Protein or grease bait when they are on pet food or meat. Put a small amount of each next to the trail and watch which one they crowd. Use that one.</li>
-<li><strong>Leave it alone.</strong> The trail will get <em>heavier</em> for two or three days as more foragers recruit to the bait. That is the bait working — the ants are carrying poison back to the colony. Spraying the crowd around the bait station is the single most common way a bait program fails, because it kills ants on contact before they can share the bait.</li>
+<li><strong>Match the product to the problem.</strong> Ant species and food preferences differ. Choose a product labeled for the ant and application location; follow its placement directions rather than improvising a mixture.</li>
+<li><strong>Avoid disrupting the bait.</strong> Follow the label for placement and monitoring. Spraying around bait can interfere with feeding. Keep products out of reach of children and pets as directed on the label.</li>
 </ol>
 
-<p>Place bait where the trail is, not where you wish it were. Along the baseboard, behind the appliance, at the point where ants enter the room. Expect a noticeable drop in a week and a clean kitchen in two to three. If the trail is still strong after three weeks of a bait they were clearly taking, the colony is large or has multiple satellites and it is time to call a pest control professional.</p>
+<p>There is no reliable fixed timetable for every infestation. Monitor activity according to the product directions and reassess persistent trails with a pest professional. Continuing activity alone does not identify the species, colony size or nest location.</p>
 
 <h2>Step 5: Close the door behind them</h2>
 
-<p>While the bait is working, walk the outside of the house at the point closest to the trail. The entry point is usually obvious once you look: a gap where a cable or the AC line enters the wall, a window frame where the caulk pulled away, a door sweep with daylight under it, weep holes in the brick, or a shrub branch touching the siding that acts as a bridge. Seal entry points with caulk or copper mesh. Cut back anything touching the house. Pull mulch back a few inches from the foundation — a mulch bed against the slab is a colony's favorite address in <a href="/hoover">Hoover</a>, <a href="/madison">Madison</a>, and just about every subdivision built in the last twenty years.</p>
+<p>Inspect gaps around doors, windows and utility penetrations, and look for vegetation touching the house. Repair suitable gaps and reduce accessible food, water and shelter. A trail can help guide an inspection, but the entry route is not always visible. Our <a href="/blog/fall-pest-proofing-alabama">home pest-proofing checklist</a> gives the broader prevention steps.</p>
 
 <p>The goal is to prevent ants from re-entering once the current infestation is gone. The fewer entry points ants can find around your home, the less likely the next colony is to set up inside and outside your home at the same time.</p>
 
@@ -1769,39 +1769,30 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Do home remedies actually get rid of ants?</h2>
 
-<p>If you search for how to get rid of ants, you will find dozens of home remedies — vinegar, peppermint oil, cinnamon, baking soda, diatomaceous earth, coffee grounds, and more. Some of these remedies work as short-term deterrents. None of them eliminate the colony, which is the only thing that stops the ants from coming back.</p>
+<p>If you search for how to get rid of ants, you will find dozens of home remedies — vinegar, peppermint oil, cinnamon, baking soda, diatomaceous earth, coffee grounds, and more. Those suggestions should not replace identification and prevention. Persistent activity needs a plan suited to the species and property.</p>
 
-<p>Here is an honest look at the most common natural remedies for ants and what they actually do:</p>
+<p>Cleaning, food storage, moisture repair and suitable entry-point repairs are useful prevention steps. Strong scents or homemade mixtures are not a dependable substitute for identifying the ant and addressing the conditions attracting it. Do not assume a kitchen ingredient or essential oil is appropriate for pesticide use.</p>
 
-<ul>
-<li><strong>Vinegar.</strong> Mix equal parts white vinegar and water in a spray bottle and wipe down the trail. The vinegar disrupts the pheromone scent trails the ants follow, so foragers temporarily lose the path. It works as a short-term deterrent to repel ants from a specific surface, but the colony is still alive and workers will find their way back within hours. You have to keep reapplying vinegar every time you see ants — it does not kill them or reach the nest.</li>
-<li><strong>Peppermint oil.</strong> A few drops of peppermint oil or peppermint essential oil at entry points can deter ants briefly. Ants dislike the smell of most essential oils, and peppermint is the strongest natural ant deterrent of the group. But the scent fades quickly indoors, and the ants route around it. It does not kill ants or affect the colony.</li>
-<li><strong>Cinnamon.</strong> Ground cinnamon or cinnamon essential oil works the same way as peppermint — ants hate the smell and avoid the area. Scatter it across an entry point and the trail diverts. But cinnamon does not kill the ants or reach the queen, so the ant invasion continues from another direction.</li>
-<li><strong>Diatomaceous earth.</strong> Food-grade diatomaceous earth scratches through the insect's exoskeleton and dehydrates it. Unlike vinegar and essential oils, diatomaceous earth does kill ants on contact — but it only kills the ones that walk through it. It does not spread back to the colony the way a bait does, and it stops working when it gets wet. Apply it in a thin line at entry points inside your house where it will stay dry.</li>
-<li><strong>Baking soda.</strong> Mixed with powdered sugar, baking soda can kill individual ants that eat it. The sugar attracts the ants and the baking soda disrupts their digestive system. Like diatomaceous earth, it kills the foragers but does not travel back to the nest, so the colony keeps sending more workers.</li>
-<li><strong>Coffee grounds.</strong> Used coffee grounds near entry points may deter ants from crossing that line. The effect is mild and temporary, and coffee grounds mold quickly in Alabama humidity.</li>
-</ul>
-
-<p>The common thread: every home remedy either repels ants from one spot or kills ants on contact — you cannot naturally get rid of ants at the colony level with any of them. Neither eliminates the colony. The ants you see on the counter are maybe five percent of the population. The queen, the brood, and thousands of workers are in a nest behind the wall, under the slab, or in the mulch bed outside. Until something reaches that nest — either a bait the workers carry back or a professional non-repellent treatment — the ant problem keeps cycling. Natural pest control methods can buy you a day or two, but they are not a permanent remedy for a real infestation.</p>
+<p>When a pesticide is needed, use a labeled product for the pest and location, follow its directions and do not use an outdoor-only product indoors. The <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA's pest prevention and product-use guidance</a> explains those basics.</p>
 
 <h2>Step 6: Know when it is not a DIY job</h2>
 
 <p>Call a professional when any of these is true:</p>
 
 <ul>
-<li>Bait was clearly being taken and the trail is still strong after three weeks — the colony is larger than one bait station can reach.</li>
-<li>Ant trails keep appearing in different rooms — classic sign of a large Argentine or odorous house ant network with multiple nests inside and outside your home.</li>
-<li>You are seeing large black ants indoors in spring, or finding small piles of coarse sawdust — carpenter ants, and the wood they are nesting in matters.</li>
+<li>Activity persists despite following product directions and removing accessible food and water.</li>
+<li>Trails recur in several rooms and you cannot locate the source.</li>
+<li>Ants appear near damp or damaged wood, or you find unexplained wood debris that needs identification.</li>
 <li>You have tried three products or home remedies from the store and the ant problem has moved, not shrunk.</li>
-<li>You see ants in the kitchen again within days of cleaning — the colony has a satellite nest inside the wall or under the slab, and surface treatments cannot reach it.</li>
+<li>You cannot confidently identify the insect or decide which treatment is appropriate.</li>
 </ul>
 
-<p>A professional pest control program does two things a store bait or a vinegar spray bottle cannot. It treats the exterior colony sites and entry points with non-repellent materials that ants walk through and carry back to their nest rather than avoid, and it puts the whole house on a schedule so the next colony that finds the mulch bed never makes it to the kitchen counter. Nuisance ants — odorous house, Argentine, pavement, carpenter — are all covered under EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 promotional initial service (50% off the $150 regular price) and includes free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
+<p>A professional inspection can identify the ant, assess likely entry routes and recommend treatment and prevention suited to the property. Recurring service provides a schedule for checking activity and addressing problems that return. Ask about EnviroCare's <a href="/services/pest-control">bi-monthly perimeter pest plan</a>, which starts at $35 a month with a $75 promotional initial service (50% off the $150 regular price) and includes free re-service between visits. If a trail shows up in month two, we come back at no extra charge.</p>
 <p>Monthly pricing requires a 12-month service agreement, billed automatically by ACH auto-draft in equal, averaged monthly payments.</p>
 
 <h2>What about the ants in the yard?</h2>
 
-<p>If the mounds in the lawn are what brought you here, that is a different insect and a different service. Fire ants are treated with a broadcast application across the whole yard rather than mound by mound, and it is a separate whole-yard treatment — $150 covers most yard sizes, with larger properties quoted by square footage. Details on the <a href="/services/fire-ant">fire ant control</a> page.</p>
+<p>If the mounds in the lawn are what brought you here, that is a different insect and a different service. Fire ant yard service is separate from the regular household pest plan. Ask for the scope and price for your property. Details on the <a href="/services/fire-ant">fire ant control</a> page.</p>
 
 <h2>Frequently asked questions about getting rid of ants</h2>
 
@@ -1809,17 +1800,17 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The most common trigger is a change in weather or food access. A heavy rain floods the colony outside and pushes foragers indoors. A drought sends them searching for water inside your house. A new food source — a spill behind the stove, a bag of dog food left open, or a sticky residue in the pantry — attracts scouts, and the scouts lay pheromone trails that recruit hundreds more within hours. In Alabama, ant invasions peak in late spring and early summer when colonies are growing fast and foraging activity is at its highest.</p>
 
 <h3>How do you get rid of ants when you do not know where they are coming from?</h3>
-<p>Follow the ant trail in the direction opposite to where the ants are heading with food. They carry crumbs toward the nest. The trail usually leads to a gap around a window, a crack at the baseboard, a pipe penetration, or a weep hole in the brick. If you cannot find the entry point, place bait along the trail and let the workers show you — they will recruit more ants to the bait, and the line between the bait and the wall will mark exactly where ants enter the house. Once you identify the entry point, seal it and keep the bait in place until the trail dies.</p>
+<p>Follow the ant trail in the direction opposite to where the ants are heading with food. They carry crumbs toward the nest. The trail usually leads to a gap around a window, a crack at the baseboard, a pipe penetration, or a weep hole in the brick. If you cannot find the entry point, place bait along the trail and let the workers show you — they will recruit more ants to the bait, and the line between the bait and the wall will mark exactly where ants enter the house. Ask which entry gaps can appropriately be repaired, and use any bait only as its label directs.</p>
 
 <h3>What naturally keeps ants away?</h3>
-<p>Vinegar, peppermint oil, cinnamon, and other essential oils can deter ants from a specific surface for a few hours. These natural remedies work as temporary deterrents because ants dislike strong scents that mask their pheromone trails. But no natural remedy eliminates the colony. To keep ants away long-term, you need three things: remove the food they are after (every crumb and spill), seal the entry points they are using to get inside, and either bait the colony or have a pest control professional treat around your home on a regular schedule.</p>
+<p>Start with prevention: store food in closed containers, clean spills, correct moisture problems and repair suitable entry gaps. These steps reduce the conditions that attract ants; persistent activity may still need identification and treatment.</p>
 
 <h3>What scent will keep ants away?</h3>
-<p>Peppermint oil is the strongest scent deterrent for most ant species. Cinnamon, clove, tea tree oil, and citrus essential oils also repel ants from crossing a treated line. You can mix a few drops with water in a spray bottle and apply it at entry points. The problem is that the scent fades within a day indoors and the ants simply find their way around it. Scents deter ants from one spot — they do not prevent ants from entering your house through a different gap or crack.</p>
+<p>No scent is a dependable answer to a recurring indoor ant problem. Focus on identification, sanitation and entry routes instead of relying on fragrance or a homemade mixture. A pest professional can help when the activity continues.</p>
 
-<h2>Get the trail off the counter for good</h2>
+<h2>Get help with recurring indoor ants</h2>
 
-<p>Identify the ant, stop spraying, remove the food, bait correctly, seal entry points, and call when the math stops working. That order clears the large majority of ant problems in Alabama homes — and the ones it does not clear are exactly the ones that need a technician who can find the nest you cannot. Whether you are in <a href="/alabaster">Alabaster</a>, <a href="/huntsville">Huntsville</a>, or a lake house on <a href="/lake-martin">Lake Martin</a>, the approach is the same.</p>
+<p>Start with identification and prevention, use products only as labeled, and ask for an inspection when activity persists. That gives you a way to assess the problem without guessing at the species or promising a fixed treatment timetable. Whether you are in <a href="/alabaster">Alabaster</a>, <a href="/huntsville">Huntsville</a>, or a lake house on <a href="/lake-martin">Lake Martin</a>, the approach is the same.</p>
 
 <p>Call the office nearest you — Birmingham (205) 991-2882, Alabaster (205) 940-6360, Lake Martin / Alex City (256) 234-6162, or Huntsville (256) 937-7676 — or <a href="/quote">request a free quote</a> and we will take it from there.</p>
 
@@ -5232,10 +5223,10 @@ export const BLOG_POSTS: BlogPost[] = [
   // ── Migrated from dead repo (envirocare-web) 2026-06-08 ──────────────────
   {
     slug: 'pest-control-cost-alabama',
-    title: 'How Much Does Pest Control Cost in Alabama? Pest Control Costs, Pest Control Prices, and Pest Control Services for Alabama Homeowners',
+    title: 'How Much Does Pest Control Cost in Alabama?',
     excerpt: 'How much does pest control cost in Alabama? For most Alabama homeowners, pest control costs between $35 and about $100 per month depending on the pest control service, the type of pest, and how much coverage the home or business needs.',
     publishedAt: '2026-05-26',
-    updatedAt: '2026-10-28',
+    updatedAt: '2026-11-09',
     author: 'Kevin Wedgworth',
     category: 'Pricing',
     readMinutes: 12,
