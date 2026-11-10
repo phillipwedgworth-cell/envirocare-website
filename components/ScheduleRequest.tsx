@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import AddressAutocomplete from "@/components/AddressAutocomplete";
 import { CheckCircle2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useOfficePhone } from "../lib/use-office-phone";
@@ -276,7 +277,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           <input name="tel" id="sr-tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" aria-label="Phone" autoComplete="tel" required style={field} />
           <input name="postal-code" id="sr-zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" required style={field} />
           <input name="email" id="sr-email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email (optional)" type="email" inputMode="email" aria-label="Email (optional)" autoComplete="email" style={field} />
-          <input name="street-address" id="sr-address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address (optional)" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
+          <AddressAutocomplete name="street-address" id="sr-address" value={address} onChange={setAddress} onPick={(a) => { setAddress(a.street); if (a.zip) setZip(a.zip); }} placeholder="Street address (optional)" ariaLabel="Street address (optional)" style={{ ...field, gridColumn: "1 / -1" }} />
         </div>
 
         {/* Services — optional */}
