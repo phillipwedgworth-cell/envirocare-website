@@ -1,36 +1,8 @@
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/best-pest-control-birmingham/page.tsx
-// Commit: fix(content+compliance): fire ant $150/most yards + 1-yr warranty; Mosquito+Tick excludes fleas; remove 'safe' and 'same technician' claims
-// Push: main
-// ─────────────────────────────────────
-// ─── CLAUDE CODE: DEPLOY THIS FILE ───
-// Repo: phillipwedgworth-cell/envirocare-website (PUBLIC)
-// Path: app/best-pest-control-birmingham/page.tsx
-// Commit: feat(pricing): flat $75 initial service on all plans; de-list tick/flea pricing
-// Push: main
-// ─────────────────────────────────────
-// /best-pest-control-birmingham — buyer's-guide landing page for the
-// "best pest control company in birmingham al" query family.
-//
-// Format rationale: the SERP for this term is 100% local intent, 76.5% business
-// pages, 64.7% landing pages and only 11.8% listicle (NeuronWriter query
-// baa5aa5fd9b48cbb, pulled Aug 6 2026). Google is not rewarding roundups here,
-// so this is a selection-criteria page, not a "top 10" list.
-//
-// House conventions followed: no competitor is named anywhere; comparison rows
-// describe common industry practice only. Pricing uses the canonical wording —
-// $35/month on ACH or $70 per bi-monthly visit, $75 initial service, unlimited free
-// re-service. Contract wording states the two billing options positively;
-// or equal monthly ACH payments under a 12-month billing agreement"; the bare
-// phrase "no contract" is banned and must not be reintroduced.
-//
-// Review figures are live Google Business Profile data pulled from Local Falcon
-// on Aug 6 2026 (Alabaster 4.7/247, Alexander City 4.8/39, Huntsville 5.0/34).
-// RE-VERIFY BEFORE EACH DEPLOY — a transparency page carrying a stale count
-// undercuts its own argument. No AggregateRating is emitted in schema, because
-// this page is not a location page and the ratings belong to the offices.
+// Preserve the existing buyer-guide URL. Use company facts, written service
+// terms and office-specific review links without self-awarded rankings.
 import { GREEN, GOLD, INK, CREAM, DEEP, displayFont, bodyFont } from '@/lib/brand';
+import { OFFICES } from '@/data/offices';
+import { PRICING } from '@/data/pricing';
 
 export const metadata = {
   alternates: { canonical: '/best-pest-control-birmingham' },
@@ -55,81 +27,63 @@ export const metadata = {
 };
 
 const BASE = 'https://www.envirocarellc.com';
+const BIRMINGHAM = OFFICES['birmingham-downtown'];
+const INITIAL_SERVICE_COPY = PRICING.initialServicePromo.active
+  ? `$${PRICING.plans.pest.startup} initial pest service (${PRICING.initialServicePromo.percentOff}% off the $${PRICING.initialServiceRegular} regular price)`
+  : `$${PRICING.initialServiceRegular} initial pest service`;
 
 const CRITERIA: { n: string; h: string; body: string }[] = [
   {
     n: '01',
-    h: 'Are they licensed in Alabama, and will they say so?',
-    body:
-      'Commercial pest control operators in Alabama are licensed through the Alabama Department of Agriculture and Industries. Any legitimate company will give you a license number without hesitating. If someone knocks on the door after a storm offering a discount for signing today, that is the moment to ask.',
+    h: 'Can you verify licensing for the service you need?',
+    body: 'Ask for the company name and license information, then verify them with the Alabama Department of Agriculture and Industries. Confirm that the proposed work addresses your pest problem and property. Keep a copy of the written service proposal.',
   },
   {
     n: '02',
-    h: 'What happens if the termite treatment fails — repairs, or just re-treatment?',
-    body:
-      'This is the question that separates real termite protection from a line item on an invoice. A re-treatment-only warranty means that if termites come back they will treat again, and you pay for the damage. Repair coverage means the company pays to fix what got eaten. Those are very different products, often sold at similar prices. Ask which one you are buying, and get it in writing.',
+    h: 'Does termite protection include repairs or only re-treatment?',
+    body: 'Ask for the written agreement and compare what it covers: additional treatment, qualifying damage repairs, or both. Review inspection requirements, exclusions, coverage limits and renewal obligations. The agreement determines what happens if termite activity or damage is found.',
   },
   {
     n: '03',
-    h: 'Is the price published, or do you have to sit through a visit to hear it?',
-    body:
-      'A company that will not put a starting price in writing before an in-home appointment is usually planning to price you based on how worried you seem. You should be able to get a real number for a standard home over the phone.',
+    h: 'What is the initial price and the ongoing cost?',
+    body: 'Compare the initial service fee, recurring charges and service frequency. Ask whether a quoted monthly amount is a payment plan or a monthly visit, and whether an inspection is needed for a firm price. Compare the same services and agreement period across proposals.',
   },
   {
     n: '04',
     h: 'What are the agreement terms, and what happens if you sell the house?',
-    body:
-      'Billing agreements are normal in this industry and often save money. Auto-renewing agreements with cancellation fees buried on page three are also normal, and less good. Ask what the term is, what renewal looks like, and what happens in month four if you move.',
+    body: 'Ask about the agreement length, payment method, renewal, cancellation and transfer if you move. Request the terms in writing before service starts, including how follow-up visits are handled and any charges that apply.',
   },
   {
     n: '05',
-    h: 'Who is actually coming to your door?',
-    body:
-      'Local, regional and national companies all operate in Birmingham, and each trades off differently. A larger footprint can mean standardized process and after-hours phone support. A local company generally has lower technician turnover, so the person walking your crawlspace has seen your street before. Neither is automatically better — but they fail in different directions, and it is worth knowing which one you are buying.',
+    h: 'Which office serves your home, and how do you request follow-up?',
+    body: 'Check the address and direct phone number for the office serving your property. Read recent reviews for that location and ask how to contact the team between scheduled visits. Confirm what the program covers and how service is scheduled.',
   },
-];
-
-const OFFICES: [string, string, string][] = [
-  ['Alabaster — Birmingham metro', '4.7 ★', 'Google rating'],
-  ['Alexander City — Lake Martin', '4.8 ★', 'Google rating'],
-  ['Huntsville — North Alabama', '5.0 ★', 'Google rating'],
-];
-
-const NOT_FOR_YOU: string[] = [
-  'You need same-day emergency service at 9 p.m. A large operation with a 24-hour call center will beat us on that, and we would rather say so than take the call and disappoint you.',
-  'You have an active bed bug infestation. That is a specialist job with heat equipment, and you are better served by a company that does it every day.',
-  'You are outside our routes. We run the Birmingham metro and Shelby County, the Huntsville and Madison area, and the Lake Martin region. Outside those, someone closer will serve you better.',
-  'You want the cheapest possible one-time spray. That is a legitimate thing to want, and it is not the model we run.',
 ];
 
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'What is the highest-rated pest control company in Birmingham, AL?',
-    a: 'Ratings move, so check Google yourself before you decide — and read the number of reviews alongside the star average, because a perfect score built on a handful of ratings tells you far less than a strong score built on years of them. EnviroCare’s Alabaster office, which runs the Birmingham metro routes, holds 4.7 stars on Google. Open the profile and judge the volume for yourself.',
+    a: 'Ratings change, and each office has its own review history. Check current Google reviews for the location serving your home. Read recent comments about the service you need, then compare licensing, written pricing, coverage and follow-up terms alongside those reviews.',
   },
   {
     q: 'How much does pest control cost in Birmingham, AL?',
-    a: 'EnviroCare publishes its pricing: pest control is $35/month on ACH or $70 per bi-monthly visit, with a $75 initial service (50% off the $150 regular price) and free re-service between scheduled visits. Across the Birmingham market generally, expect the total to move with home size, lot size, and whether you add mosquito or termite coverage. Be cautious with any company that will not give you a range before an in-home visit.',
+    a: `EnviroCare pest control starts at $${PRICING.plans.pest.fromMonthly}/month on ACH or $${PRICING.plans.pest.perVisit} per bi-monthly visit, with ${INITIAL_SERVICE_COPY}. ${PRICING.achTerms} The pest program includes free re-service between scheduled visits. Termite service is priced after inspection; ask for a quote for your property and selected services.`,
   },
   {
     q: 'What should I look for in a Birmingham pest control agreement?',
-    a: 'Four things, all in writing: the term length, what renewal looks like, what cancelling costs, and whether the termite warranty covers repairs or only re-treatment. With EnviroCare you can pay per visit, billed as serviced, or choose equal monthly ACH payments under a 12-month billing agreement. Whichever you pick, the terms are confirmed in writing before service starts. Either way, free re-service between scheduled visits is included.',
+    a: `Check the service scope, visit frequency, agreement length, renewal, cancellation and any termite damage repair terms. EnviroCare offers payment per visit or monthly ACH billing. ${PRICING.achTerms} Your service terms are confirmed in writing before service starts.`,
   },
   {
     q: 'How often do I need pest control service in Birmingham?',
-    a: 'Bi-monthly — every other month — is the Alabama standard, and it is driven by climate rather than by sales strategy. Humidity and mild winters mean pest pressure never fully stops here, so quarterly service tends to leave a gap in late summer when pressure peaks.',
+    a: `EnviroCare's household pest program is bi-monthly: one scheduled visit every other month, or ${PRICING.plans.pest.visitsPerYear} scheduled visits per year. Monthly ACH billing spreads payments across the agreement period; it does not mean monthly pest-control visits. Discuss the appropriate service for your property with the office.`,
   },
   {
     q: 'What precautions do you take around pets and kids?',
-    a: 'Our licensed technicians apply EPA-registered products strictly at label rate. Placements are targeted around entry points and the perimeter rather than broadcast across living areas. Ask your technician about re-entry intervals for any interior application; routine exterior service generally has none.',
+    a: 'Tell the office about children, pets and any specific concerns before service. EnviroCare uses EPA-registered products according to their labels. Ask your technician which preparation and re-entry instructions apply to the products and areas being treated, and follow those instructions.',
   },
   {
     q: 'Should I just do it myself?',
-    a: 'For a handful of ants, DIY is reasonable. For anything structural, it is not. Termites and rodents cause damage that costs multiples of what prevention does, and hardware-store fire ant bait usually relocates mounds rather than eliminating colonies.',
-  },
-  {
-    q: 'Why are Birmingham homes so prone to termites?',
-    a: 'Alabama sits in the heaviest termite-pressure zone in the continental United States, and the Birmingham valley compounds it — clay soil that holds water, plus the Cahaba River and Shades Creek drainages. Subterranean termite swarms start in March. Over a long enough horizon, treatment here is not a precaution so much as maintenance.',
+    a: 'Start by removing accessible food, water and shelter, correcting leaks and sealing entry points. If pests keep returning, or you suspect termite activity or damage, request an inspection to identify the problem and discuss treatment. Use any pesticide only according to its label.',
   },
 ];
 
@@ -148,7 +102,7 @@ const jsonLd = {
       '@type': 'Service',
       serviceType: 'Pest control and termite service',
       name: 'Pest Control & Termite Service in the Birmingham Metro',
-      provider: { '@id': `${BASE}/#birmingham` },
+      provider: { '@id': `${BASE}/#organization` },
       areaServed: [
         'Birmingham', 'Hoover', 'Vestavia Hills', 'Mountain Brook', 'Homewood',
         'Alabaster', 'Chelsea', 'Pelham', 'Helena', 'Calera', 'Trussville',
@@ -161,7 +115,7 @@ const jsonLd = {
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'Best Pest Control Company in Birmingham',
+          name: 'Choosing Pest Control in Birmingham',
           item: `${BASE}/best-pest-control-birmingham`,
         },
       ],
@@ -178,41 +132,33 @@ export default function BestPestControlBirminghamPage() {
           <nav style={{ fontSize: 13.5, color: '#5A6660', marginBottom: 18 }}>
             <a href="/" style={{ color: '#5A6660', textDecoration: 'none' }}>Home</a>
             {' › '}
-            <span>Best Pest Control Company in Birmingham</span>
+            <span>Choosing Pest Control in Birmingham</span>
           </nav>
 
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(30px,5vw,44px)', color: INK, margin: 0, lineHeight: 1.15 }}>
             How to Choose a Pest Control Company in Birmingham, AL
           </h1>
-
           <p style={{ fontSize: 16, marginTop: 14, marginBottom: 0 }}>
             <a href="/birmingham" style={{ color: GREEN, fontWeight: 700, textDecoration: 'none' }}>Birmingham pest control service →</a>
           </p>
-
-          {/* AI-answer block: the paragraph an engine can quote directly */}
           <p style={{ fontSize: 18, lineHeight: 1.75, maxWidth: 780, marginTop: 16, fontWeight: 500 }}>
-            There is no single best pest control company in Birmingham — there is the one that fits
-            what is actually wrong at your house. Before you hire anyone, check five things:
-            Alabama licensing, whether the termite warranty covers <em>repairs</em> or only
-            re-treatment, whether pricing is published before an in-home visit, what the agreement
-            term and cancellation actually say, and whether the same technician works your route.
-            EnviroCare is a fourth-generation Alabama family company whose family has been doing pest control in Alabama since 1958, holding
-            4.7 stars on Google at the Alabaster office that runs the Birmingham
-            metro routes.
+            The best pest control company for your Birmingham home depends on the pest, the property
+            and the service terms. Compare five things: licensing, termite damage repair coverage,
+            initial and recurring prices, the written agreement, and the local office handling follow-up.
           </p>
           <p style={{ fontSize: 16.5, lineHeight: 1.75, maxWidth: 780, marginTop: 10, color: '#4a5750' }}>
-            Nobody searches this at leisure. Something is happening — swarmers on a windowsill in
-            March, ants on the counter every morning, a yard nobody can sit in after six, or a
-            closing date in three weeks and no WDO letter yet. Those are four different problems,
-            and the company that is best at one is not automatically best at another.
+            EnviroCare Pest Services is the public brand of EnviroCare, LLC. The Wedgworth family
+            has been doing pest control in Alabama since 1958, starting in Alexander City. The fourth
+            generation is now in the business. Our four offices serve Birmingham, Alabaster, Huntsville and
+            Alexander City / Lake Martin. <a href="/about-us" style={{ color: GREEN, fontWeight: 600 }}>Meet the family and find our offices.</a>
           </p>
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 22 }}>
             <a href="/pricing" style={{ background: GOLD, color: INK, fontWeight: 700, textDecoration: 'none', padding: '12px 22px', borderRadius: 50, fontSize: 15.5 }}>
               See Our Published Pricing →
             </a>
-            <a href="tel:2059406360" style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
-              Call (205) 940-6360
+            <a href={BIRMINGHAM.phoneHref} style={{ border: `2px solid ${GREEN}`, color: GREEN, fontWeight: 600, textDecoration: 'none', padding: '11px 20px', borderRadius: 50, fontSize: 15.5 }}>
+              Call {BIRMINGHAM.phone}
             </a>
           </div>
 
@@ -235,64 +181,33 @@ export default function BestPestControlBirminghamPage() {
             Where EnviroCare Fits
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.75, maxWidth: 800 }}>
-            Family-owned in Alabama since 1958, fourth generation. We are not the largest company
-            operating in Birmingham and we do not claim to be. What we do differently maps onto the
-            five points above: pricing is published — <strong>$35/month on ACH or $70 per bi-monthly
-            visit</strong>, with a $75 initial service (50% off the $150 regular price) and free re-service between scheduled
-            visits. Termite protection is Sentricon<sup>®</sup> Always Active™, in-ground bait
-            stations with no drilling, backed by up to $1,000,000 in EnviroCare repair coverage on
-            qualifying homes, subject to the terms of the agreement — repair coverage, not a
-            re-treat promise. And technicians work their
-            own routes, so the person servicing Bluff Park has serviced Bluff Park before.
+            Our bi-monthly pest program starts at <strong>${PRICING.plans.pest.fromMonthly}/month
+            on ACH or ${PRICING.plans.pest.perVisit} per bi-monthly visit</strong>, with {INITIAL_SERVICE_COPY}.
+            {' '}{PRICING.achTerms} Free re-service between scheduled pest visits is included.
+            Termite protection uses Sentricon<sup>®</sup> Always Active™ baiting. Qualifying homes
+            can receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare,
+            subject to the terms of the agreement. Termite pricing is determined after inspection.
           </p>
 
-          <div style={{ overflowX: 'auto', marginTop: 22 }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 15, minWidth: 560, background: '#fff', borderRadius: 12, boxShadow: '0 4px 16px rgba(14,26,15,.06)' }}>
-              <thead>
-                <tr style={{ textAlign: 'left', background: DEEP, color: '#fff' }}>
-                  <th style={{ padding: '12px 16px', fontWeight: 700 }}>Office</th>
-                  <th style={{ padding: '12px 16px', fontWeight: 700 }}>Rating</th>
-                  <th style={{ padding: '12px 16px', fontWeight: 700 }}>Reviews</th>
-                </tr>
-              </thead>
-              <tbody>
-                {OFFICES.map(([office, rating, reviews]) => (
-                  <tr key={office} style={{ borderTop: '1px solid rgba(14,26,15,.08)' }}>
-                    <td style={{ padding: '12px 16px', fontWeight: 700, color: DEEP }}>{office}</td>
-                    <td style={{ padding: '12px 16px' }}>{rating}</td>
-                    <td style={{ padding: '12px 16px', color: '#5A6660' }}>{reviews}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p style={{ fontSize: 13.5, color: '#7a887e', marginTop: 10, maxWidth: 780 }}>
-            Google Business Profile ratings, accurate as of August 2026. Ratings and counts change —
-            check Google for the current figures.
-          </p>
-
-          <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(22px,3.4vw,30px)', color: GREEN, margin: '46px 0 14px' }}>
-            When We Are Honestly Not Your Best Call
-          </h2>
-          <ul style={{ maxWidth: 820, paddingLeft: 20, margin: 0 }}>
-            {NOT_FOR_YOU.map((item) => (
-              <li key={item.slice(0, 24)} style={{ fontSize: 15.5, lineHeight: 1.7, color: '#4b5563', marginBottom: 12 }}>{item}</li>
-            ))}
-          </ul>
+          <aside style={{ background: '#fff', border: '1px solid rgba(14,26,15,.10)', borderRadius: 12, padding: '20px 24px', maxWidth: 800, marginTop: 22 }} aria-label="Birmingham office and reviews">
+            <h3 style={{ color: DEEP, fontSize: 18, margin: '0 0 8px' }}>Check the Birmingham office</h3>
+            <p style={{ fontSize: 15.5, lineHeight: 1.7, margin: 0 }}>
+              {BIRMINGHAM.address.street}, {BIRMINGHAM.address.city}, {BIRMINGHAM.address.region} {BIRMINGHAM.address.postalCode}.
+              {' '}<a href={BIRMINGHAM.googleBusinessProfile} style={{ color: GREEN, fontWeight: 600 }}>Read current Birmingham Google reviews</a>
+              {' '}and contact our familiar local team about service for your address.
+            </p>
+          </aside>
 
           <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(22px,3.4vw,30px)', color: GREEN, margin: '46px 0 14px' }}>
             The Birmingham-Specific Part
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.75, maxWidth: 800 }}>
-            Birmingham sits in a valley with Shades Creek and the Cahaba River running through it, on
-            clay soil that holds water. That combination produces three predictable problems.
-            <strong> Subterranean termites</strong> are not a possibility here so much as a schedule;
-            swarm season opens in March. <strong>Mosquitoes</strong> breed in the creek drainages and
-            in standing water that clay refuses to drain, which is why yard treatment outperforms
-            repellents locally. <strong>Fall invaders</strong> — roaches, spiders, rodents — start
-            moving indoors in September, and older Over-the-Mountain housing stock has the
-            settlement gaps to let them. Any company you hire should be able to talk about your
-            street, not just &ldquo;Alabama pests.&rdquo;
+            Tell the office what you are seeing, where you are seeing it and whether the problem
+            returns between treatments. A recurring kitchen-ant problem, suspected termite activity
+            and a request for a WDO letter need different responses. Our Birmingham office serves
+            Birmingham, Hoover, Vestavia Hills, Mountain Brook and Homewood; our Alabaster office
+            handles nearby Shelby County communities. The office can confirm the route for your
+            address, the relevant service and scheduling.
           </p>
 
           <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(22px,3.4vw,30px)', color: GREEN, margin: '46px 0 14px' }}>
@@ -309,6 +224,8 @@ export default function BestPestControlBirminghamPage() {
 
           <div style={{ marginTop: 40, fontSize: 15, color: '#5A6660' }}>
             Keep reading:{' '}
+            <a href="/about-us" style={{ color: GREEN, fontWeight: 600, textDecoration: 'none' }}>About EnviroCare</a>
+            {' · '}
             <a href="/family-owned-vs-national-chains" style={{ color: GREEN, fontWeight: 600, textDecoration: 'none' }}>Family-Owned vs National Chains</a>
             {' · '}
             <a href="/pricing" style={{ color: GREEN, fontWeight: 600, textDecoration: 'none' }}>Published Pricing</a>
