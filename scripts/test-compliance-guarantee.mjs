@@ -170,6 +170,9 @@ const cases = [
   ["The one-time initial service fee is $75.", true, "initial ... $75 (reverse order)"],
   ['{ plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo" }', true, "startup: \"$75\" table cell"],
   ["$75 on Pest and on Pest + Mosquito. Complete is $229.", true, "$75 on Pest"],
+  ["There is a $75 setup fee on every pest plan.", true, "$75 setup (word from the real 0022 patch)"],
+  ["Pest plans carry a $75 service fee up front.", true, "$75 service fee"],
+  ["Is there a setup fee? Yes, $75.", true, "setup ... $75 (reverse order)"],
   ["sub: `$${PRICING.plans.pest.startup} startup · one-time treatments`", true, "template startup with no anchor"],
   // ...and the anchored forms that must pass
   // (live copy also says "50% off"; that phrase is the separate decision-gated discount

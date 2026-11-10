@@ -112,7 +112,7 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // no text pattern can see a figure that only exists at render time. A line that renders a
   // Pest / Pest+Mosquito startup must also render the regular-price anchor.
   { pattern: 'PRICING\\.plans\\.(?:pest|pestMosquito)\\.startup\\s*\\}', notIf: 'initialServiceRegular|150', reason: 'bare $75 initial (template) - Phillip Sep 7 2026: render PRICING.initialServiceRegular next to the startup figure', approvedInstead: '$${PRICING.plans.pest.startup} initial service (50% off the $${PRICING.initialServiceRegular} regular price)' },
-  { pattern: '\\$\\s?75\\b[^.$\\n]{0,30}\\b(?:initial|start-?up|for pest|on pest)|\\b(?:initial|start-?up)\\b[^.$\\n]{0,40}\\$\\s?75\\b', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
+  { pattern: '\\$\\s?75\\b[^.$\\n]{0,30}\\b(?:initial|start-?up|set-?up|service\\s+fee|for pest|on pest)|\\b(?:initial|start-?up|set-?up)\\b[^.$\\n]{0,40}\\$\\s?75\\b', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
