@@ -143,6 +143,33 @@ const PAGE_REFRESH_JSON = {
     "updatedAt": "2026-10-12"
   },
   "/huntsville": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "What to Expect From Pest Control Services in Huntsville, AL",
+    "paragraphs": [
+      "Huntsville residents deal with a pest calendar that rarely goes quiet. The Tennessee Valley's warm, humid climate means insects and rodents stay active longer than in cooler parts of the country, and the red clay soil across Madison County holds moisture against foundations in ways that keep subterranean termite pressure elevated through every season. Effective pest control in Huntsville starts with understanding those local conditions rather than applying a generic treatment plan built for somewhere else.",
+      "EnviroCare's exterior-first approach treats the perimeter, harborage zones, and entry points around your home before pests reach the interior. Insects and rodents typically follow food sources, moisture, and shelter cues from outside the structure, so addressing those pressure points on a regular schedule is the most reliable way to keep your home and business protected. Interior treatments are added when pest activity calls for them, but the goal of every visit is to stop the problem at the source.",
+      "A bi-monthly treatment plan covers cockroaches, ants, spiders, wasps, rodents, and more than 30 other common Alabama pests, with free re-service between scheduled visits if something shows up. Wasp and hornet eave treatment is included on routine visits to discourage nesting; treating an active nest is an add-on available to pest control customers. For homeowners dealing with a rodent infestation or signs of termites, the first step is a thorough inspection so the right control methods are matched to what is actually happening on that property. Standing water, wood-to-soil contact, gaps around utility penetrations, and cluttered crawl spaces are the conditions our technicians look for and address as part of every visit.",
+      "Huntsville homes and businesses in Huntsville face different pest pressures depending on location, age of the structure, and surrounding terrain. Older neighborhoods near Monte Sano and Twickenham see more termite infestation risk in original foundations; newer construction off Research Park Boulevard and in Hampton Cove sits on graded clay that favors fire ant activity and rodent control challenges as neighborhoods are built out. A treatment plan that works in one part of the city may need to be adjusted for another. EnviroCare's local team has worked these routes long enough to recognize those differences and build pest solutions around them.",
+      "Pest control near you matters when the person treating your home understands the specific pest issues Huntsville's terrain creates. Residential and commercial customers across Madison County - from a single-family home in Harvest to a food-service operation near Cummings Research Park - get the same exterior-first, EPA-registered-product approach, applied according to label directions and adjusted to what the property actually needs. For pest control needs that go beyond a standard plan, a free inspection is always the right starting point. Call (256) 937-7676 to schedule yours."
+    ],
+    "faqs": [
+      {
+        "q": "Why is year-round pest control important for Huntsville homeowners?",
+        "a": "Huntsville's mild winters and humid summers allow many pest species to remain active well past the point that colder climates would knock them back. Ants, cockroaches, rodents, and subterranean termites do not follow a simple seasonal schedule in North Alabama. A bi-monthly perimeter program keeps a treated barrier around your home through every season, so pest activity does not build up during gaps in coverage."
+      },
+      {
+        "q": "What are the most common pests treated in Huntsville, AL?",
+        "a": "The pests EnviroCare treats most frequently in Huntsville include ants, cockroaches, spiders (including brown recluse), wasps, rats and mice, and subterranean termites. Fire ants are a separate add-on service given the specific treatment they require. Mosquitoes and ticks are covered under seasonal add-on plans running March through October."
+      },
+      {
+        "q": "How long should you stay out of the house after a pest control treatment?",
+        "a": "Re-entry timing depends on the specific EPA-registered products applied and the areas treated. Your technician will give you the re-entry guidance that applies to your visit before leaving the property. In most cases, allowing treated surfaces to dry fully before re-entry is the standard instruction."
+      },
+      {
+        "q": "Do you offer free estimates for pest control in Huntsville?",
+        "a": "Yes. EnviroCare offers free on-site inspections for pest control, termite, and mosquito service in Huntsville and across Madison County. Termite work always starts with a free WDO inspection before any treatment plan or pricing is confirmed. Call (256) 937-7676 to schedule."
+      }
+    ],
     "figure": {
       "src": "/huntsville-saturn-v.webp",
       "alt": "Tall white rocket on display under a bright blue sky with scattered clouds",
@@ -153,12 +180,18 @@ const PAGE_REFRESH_JSON = {
     "neuron": {
       "queryId": "c42659f7ac3e2ac5",
       "keyword": "pest control huntsville al",
-      "before": 75,
-      "after": null,
-      "checkedAt": "2026-10-12"
+      "before": 76,
+      "after": 85,
+      "checkedAt": "2026-11-10"
     },
-    "source": "claude-session",
-    "updatedAt": "2026-10-12"
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0.001,
+      "competitorsChecked": 28,
+      "checkedAt": "2026-11-10"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-11-10"
   },
   "/birmingham": {
     "figure": {
@@ -195,6 +228,94 @@ const PAGE_REFRESH_JSON = {
     },
     "source": "claude-session",
     "updatedAt": "2026-10-12"
+  },
+  "/alabaster": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "What to Expect From Pest Control in Alabaster, AL",
+    "paragraphs": [
+      "Pest activity in Alabaster follows a predictable seasonal rhythm shaped by Shelby County's red clay soil, dense tree cover, and the moisture that collects along Buck Creek and the low-lying lots off Kent Dairy Road. Subterranean termites stay active in that damp ground year-round. Ant colonies push into foundations when spring rains saturate the clay. Spiders move into garages and storage areas as temperatures drop in the fall. Understanding those local patterns is the first step in building a treatment plan that actually holds.",
+      "Professional pest control services in Alabaster start with an inspection, not a spray bottle. A technician walks the exterior of the home, checking the foundation line, eaves, utility penetrations, door frames, and the landscaping edges where pest pressure tends to build first. That walkthrough identifies the entry points and harborage areas driving activity on your specific property, and it shapes every treatment decision that follows. Interior work is available when monitoring shows it is warranted, but the exterior-first approach means most common pest problems never reach the inside of the home.",
+      "Homeowners often ask how often pest control treatments should be scheduled. The standard residential pest plan covers more than 30 Alabama pests on a bi-monthly schedule, meaning a technician visits every other month for six visits across the year. That cadence keeps pressure down through every season rather than reacting after an infestation has already established. If pest activity shows up between scheduled visits, re-service is included at no additional charge, so you are not left waiting until the next appointment.",
+      "Conditions that attract pests to Alabaster homes tend to be the same from one neighborhood to the next: standing water in gutters or low spots in the yard, mulch beds held tight against the foundation, wood piles stored against the siding, and gaps around utility lines where the structure meets the soil. A thorough inspection notes each of those conditions so the treatment plan addresses the root causes alongside the pests themselves. Termite control, rodent control, mosquito reduction, spider control, and wasp management are all available as part of a residential and commercial pest control program tailored to what your property actually needs.",
+      "Choosing a reliable pest control company in Alabaster means looking for a team that works out of a local office, knows the area's specific pest pressures, and stands behind the work between scheduled visits. EnviroCare's Alabaster office at 2025 Butler Rd serves 35007, 35114, and the surrounding Shelby County communities from a base that technicians work out of daily, not a regional dispatch center routing someone through the area on a one-time stop. Call (205) 940-6360 to schedule a free inspection and get a treatment plan built around your home or business."
+    ],
+    "faqs": [
+      {
+        "q": "Do I need to be home during pest control treatments in Alabaster?",
+        "a": "For most exterior-first visits, you do not need to be present. Because the initial treatment focuses on the perimeter, foundation, and eaves, a technician can complete the exterior work while you are away. If interior service is part of your plan, the office will coordinate a time that works for you."
+      },
+      {
+        "q": "What are the most common pest problems in Alabaster, AL?",
+        "a": "Subterranean termites are a year-round concern, particularly on wooded lots and properties near Buck Creek where the soil stays moist. Odorous house ants, German and American cockroaches, black widow and brown recluse spiders, wasps, and rodents are among the most frequently treated pests in the area. Mosquito pressure builds from March through October, especially in yards with standing water or heavy shade."
+      },
+      {
+        "q": "How often should pest control be scheduled for an Alabaster home?",
+        "a": "The standard residential pest control plan is bi-monthly, with a technician visit every other month. That frequency covers the full seasonal cycle in Shelby County and includes free re-service calls between scheduled visits if activity shows up. Mosquito treatments follow a separate schedule with applications from March through October."
+      },
+      {
+        "q": "What pest control services are available for businesses in Alabaster?",
+        "a": "EnviroCare provides residential and commercial pest control services throughout Alabaster and the Highway 31 corridor. Commercial programs for restaurants, offices, warehouses, and other facilities include routine inspections, monitoring, rodent control, and documentation to meet operational and regulatory needs. Contact the Alabaster office at (205) 940-6360 to discuss a plan built around your business."
+      }
+    ],
+    "neuron": {
+      "queryId": "825f8ea38b391de1",
+      "keyword": "pest control alabaster al",
+      "before": 55,
+      "after": 69,
+      "checkedAt": "2026-11-10"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0.004,
+      "competitorsChecked": 27,
+      "checkedAt": "2026-11-10"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-11-10"
+  },
+  "/brook-highland": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "Pest Control Services for Brook Highland and Hoover, AL",
+    "paragraphs": [
+      "Brook Highland sits in a stretch of the Birmingham metro where mature hardwood canopy, creek drainage from the Cahaba watershed, and years of landscaping buildup create conditions that keep pest pressure steady from February through December. Cockroach activity picks up in warm garages and kitchens as early as late winter. Spider populations build through spring in crawl spaces, storage areas, and along eaves. Wasp colonies appear under deck rails and soffits by midsummer. Ant control becomes urgent whenever a wet spring softens the perimeter and carpenter ants trace moisture trails into wood framing. Homeowners who address these cycles with consistent, exterior-first pest control treatments spend far less time reacting to an active infestation than those who wait for a visible problem indoors.",
+      "Effective pest control in Brook Highland starts outside. EnviroCare applies EPA-registered products according to label directions along the foundation, around utility penetrations, at eave lines, and through the landscaping bed edges where pests stage before entering a structure. That exterior barrier is the core of a sound pest management plan, and it is why most customers never need recurring interior spray. When an interior application is genuinely warranted - a brown recluse situation in an unfinished basement, a heavy German cockroach pressure point in a kitchen - a technician targets the specific harborage zone rather than treating open living space broadly.",
+      "Brook Highland pest control needs do not follow a single pattern because the neighborhood itself does not. Lots backing up to wooded common areas carry tick, chigger, and rodent pressure that a street-facing lot on the Highway 280 side does not. Newer custom homes on graded clay lots deal with more aggressive fire ant activity than the original sections with established turf. A treatment plan built around one home's specific pest problem will not look identical to the plan next door, which is why EnviroCare begins with a free on-site inspection rather than a phone quote. That inspection shapes the control solutions applied at each visit.",
+      "Mosquito and tick control runs as a seasonal layer on top of the core pest plan for Brook Highland yards with significant tree cover or wooded lot lines. Mosquito control targets the shaded resting zones and low-drainage areas mosquitoes use during daylight - dense ornamental beds, the underside of deck boards, fence lines, and gutter overflow zones. Tick control addresses the wooded edges where Lone Star and American dog ticks are most active. Neither program eliminates populations entirely, but both reduce pressure meaningfully across the season for families spending time in the yard.",
+      "Four generations of pest control experience across Central and North Alabama means EnviroCare has worked through every pest cycle this region produces. The team of pest control specialists serving Brook Highland and the broader Birmingham pest corridor operates out of the Alabaster office, close enough to run this zip code on a regular route. Whether the concern is a single emerging pest problem or a need for comprehensive pest control across termites, mosquitoes, and common household pests, the starting point is the same: a free inspection, a clear treatment plan, and straightforward pricing confirmed before any work begins. Residential and commercial pest control customers in Hoover and the 35242 area can reach the Alabaster office at (205) 940-6360."
+    ],
+    "faqs": [
+      {
+        "q": "What pests are most common in Brook Highland and Hoover, AL?",
+        "a": "The pest pressure pattern in Brook Highland includes cockroaches, spiders (including brown recluse in basements and garages), carpenter ants, wasps under eaves and on decks, rodents along wooded perimeter lots, and seasonal mosquito and tick activity from the wooded common areas. Fire ant pressure is heavier on newer lots with graded clay soil. The specific mix on any given property depends on its location within the neighborhood, surrounding vegetation, and the structure itself - which is why a free inspection is the right first step before settling on a pest control plan."
+      },
+      {
+        "q": "Does EnviroCare offer commercial pest control in Brook Highland and Hoover?",
+        "a": "Yes. EnviroCare provides residential and commercial pest control throughout the Hoover and Highway 280 corridor. Commercial pest management programs are customized to the type of facility and the pest pressure involved, and pricing is confirmed after a free on-site inspection. Call (205) 940-6360 to schedule."
+      },
+      {
+        "q": "How do I schedule a pest control service in Brook Highland?",
+        "a": "Call the Alabaster office at (205) 940-6360 or request a quote online. A technician will schedule a free on-site inspection, assess the property, identify active pest problems and risk areas, and provide a written treatment plan and pricing before any service begins. Most initial assessments for new customers are scheduled within the same week."
+      },
+      {
+        "q": "Is year-round pest control worth it in Hoover, AL?",
+        "a": "Alabama's mild winters mean pest activity does not fully stop between November and February - it slows, but cockroaches, spiders, rodents, and carpenter ants remain active in protected areas of the structure. Maintaining a perimeter barrier through the cooler months prevents the population buildup that produces a noticeable infestation by spring. Homeowners who keep an active pest control plan through winter typically see less interior activity in March and April than those who pause service and restart."
+      }
+    ],
+    "neuron": {
+      "queryId": "3fe5b1d01f9fca7a",
+      "keyword": "pest control brook highland hoover al",
+      "before": 59,
+      "after": 71,
+      "checkedAt": "2026-11-10"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0,
+      "competitorsChecked": 28,
+      "checkedAt": "2026-11-10"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-11-10"
   }
 } as const;
 /* END PAGE_REFRESH_JSON */
