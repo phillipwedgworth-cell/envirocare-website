@@ -42,13 +42,13 @@ const c: ComboContent = {
     },
     {
       title: "Straight answers on one-time vs. plan",
-      body: `A single nest is a single visit. German roaches or recurring ants are a program. One-time service is available with no plan attached; the bi-monthly plan (from $${PRICING.plans.pest.fromMonthly}/mo, $${PRICING.plans.pest.startup} startup) exists for problems that recur — and we'll tell you which one you're looking at.`,
+      body: `A single nest is a single visit. German roaches or recurring ants are a program. One-time service is available with no plan attached; the bi-monthly plan (from $${PRICING.plans.pest.fromMonthly}/mo, $${PRICING.plans.pest.startup} initial service, 50% off the $${PRICING.initialServiceRegular} regular price) exists for problems that recur — and we'll tell you which one you're looking at.`,
     },
   ],
   price: {
     label: "Exterminator Service — Decatur",
     amount: `From $${PRICING.plans.pest.fromMonthly}/mo`,
-    sub: `bi-monthly plan · $${PRICING.plans.pest.startup} startup · one-time treatments available`,
+    sub: `bi-monthly plan · $${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular}, 50% off) · one-time treatments available`,
     bullets: [
       "Local technicians who run Decatur weekly",
       "Identification first — treatment matched to the actual pest",

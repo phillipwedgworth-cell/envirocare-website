@@ -13,7 +13,7 @@ const PUBLIC = new Map([
   ["app/api/chat/route.ts", "site chatbot — customer-facing"],
   ["app/api/quote/route.ts", "quote form — customer-facing"],
   ["app/api/og/route.tsx", "social share images"],
-  ["app/api/ads/[id]/route.ts", "read-only draft fetch by unguessable UUID, used server-side by /ads/[id]"],
+  ["app/api/ads/review-login/route.ts", "the ad-review sign-in endpoint itself (checks COMMAND_CENTER_KEY)"],
   ["app/api/leads/desk-login/route.ts", "the login endpoint itself (checks LEADS_DESK_KEY)"],
 ]);
 // Patterns that count as a real, fail-closed gate.

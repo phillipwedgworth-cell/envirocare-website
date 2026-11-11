@@ -100,7 +100,19 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // ~30 blog/city FAQ answers because the Sep 7 2026 ruling lived only in the prose rules below and
   // nothing tested it. Added 2026-11-02 (patch 0019). notIf is per line: a line that names
   // the $150 regular price anywhere passes.
-  { pattern: '\\$\\s?75\\s+initial', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
+  // WIDENED 2026-11-10 (patch 0022, sweep C3): the literal "$75 initial" missed every live
+  // offender ("$75 for pest", "$75 startup", startup: "$75", "initial service fee is $75").
+  // Match the figure next to the words the site uses for it, in EITHER order. No WDO
+  // exemption: notIf is per LINE, and the FaqPage offender sits on a line that also says
+  // "free WDO inspection", so a 'wdo' notIf let it through. The $75 WDO inspection fee
+  // (blog-posts.ts, awaiting a ruling, sweep S6a) never sits next to initial/startup, so
+  // the pattern itself does not reach it.
+  // Same rule for the TEMPLATE form: `$${PRICING.plans.pest.startup} startup` renders "$75
+  // startup" on /madison-pest-control, /madison-exterminator and /decatur-exterminator, but
+  // no text pattern can see a figure that only exists at render time. A line that renders a
+  // Pest / Pest+Mosquito startup must also render the regular-price anchor.
+  { pattern: 'PRICING\\.plans\\.(?:pest|pestMosquito)\\.startup\\s*\\}', notIf: 'initialServiceRegular|150', reason: 'bare $75 initial (template) - Phillip Sep 7 2026: render PRICING.initialServiceRegular next to the startup figure', approvedInstead: '$${PRICING.plans.pest.startup} initial service (50% off the $${PRICING.initialServiceRegular} regular price)' },
+  { pattern: '\\$\\s?75\\b[^.$\\n]{0,30}\\b(?:initial|start-?up|set-?up|service\\s+fee|for pest|on pest)|\\b(?:initial|start-?up|set-?up)\\b[^.$\\n]{0,40}\\$\\s?75\\b', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
