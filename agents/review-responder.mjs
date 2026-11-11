@@ -8,7 +8,7 @@
 //
 // Response rules (locked by Phillip 2026-06-10):
 //   5★ (and 4★): thank by name + mention something specific from the review +
-//        vary the wording review-to-review. Signatures alternate between
+//        vary the wording review-to-review. Always
 //        signed "— The EnviroCare Team" (no personal name — see SIGNATURE).
 //   3★ and below: empathize + take ownership + offer the direct line +
 //        NEVER argue. Signed "— The EnviroCare Team".
