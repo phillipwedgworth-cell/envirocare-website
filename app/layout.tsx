@@ -144,6 +144,17 @@ export const metadata: Metadata = {
 // the Alabaster office (named for the metro it served). When the real city office
 // opened 2026-08-05 this node was never split. Territory split below matches
 // data/cities.ts exactly.
+// areaServed as Alabama-qualified places, not bare names (patch 0023). Bare
+// "Madison", "Decatur", "Athens", "Auburn" or "Hoover" are ambiguous to search
+// engines and AI answer engines — Madison WI, Athens GA, Decatur IL, Auburn WA
+// — and the out-of-state "leads" in Oct–Nov 2026 are what that ambiguity costs.
+// Same shape lib/seo/organization-schema.ts already uses.
+const AL_STATE = { '@type': 'State', name: 'Alabama' } as const;
+// Neighborhoods and communities that are not incorporated cities are a Place.
+const NOT_A_CITY = new Set(['Greystone','Mt Laurel','Inverness','Brook Highland','Meadow Brook','Eagle Point','Highland Lakes','Chelsea Park','Crestline','English Village','Cherokee Bend','Cahaba Heights','Mountain Brook Village','Liberty Park','Hampton Cove','Lake Martin']);
+const inAlabama = (names: string[]) =>
+  names.map((name) => ({ '@type': NOT_A_CITY.has(name) ? 'Place' : 'City', name: `${name}, Alabama`, containedInPlace: AL_STATE }));
+
 const ALABASTER_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -172,7 +183,7 @@ const ALABASTER_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
   // Shelby County markets route to the Alabaster office.
-  areaServed: ['Alabaster','Pelham','Helena','Calera','Chelsea','Greystone','Mt Laurel','Inverness','Brook Highland','Meadow Brook','Eagle Point','Highland Lakes','Chelsea Park'],
+  areaServed: inAlabama(['Alabaster','Pelham','Helena','Calera','Chelsea','Greystone','Mt Laurel','Inverness','Brook Highland','Meadow Brook','Eagle Point','Highland Lakes','Chelsea Park']),
   sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=7378341068021381374'],
   parentOrganization: {
     '@id': 'https://www.envirocarellc.com/#organization',
@@ -219,7 +230,7 @@ const BIRMINGHAM_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
   // Jefferson and St. Clair County markets route to the Birmingham office.
-  areaServed: ['Birmingham','Homewood','Mountain Brook','Vestavia Hills','Hoover','Trussville','Irondale','Leeds','Moody','Fultondale','Gardendale','Bessemer','McCalla','Crestline','English Village','Cherokee Bend','Cahaba Heights','Mountain Brook Village','Liberty Park'],
+  areaServed: inAlabama(['Birmingham','Homewood','Mountain Brook','Vestavia Hills','Hoover','Trussville','Irondale','Leeds','Moody','Fultondale','Gardendale','Bessemer','McCalla','Crestline','English Village','Cherokee Bend','Cahaba Heights','Mountain Brook Village','Liberty Park']),
   parentOrganization: {
     '@id': 'https://www.envirocarellc.com/#organization',
   },
@@ -249,7 +260,7 @@ const LAKE_MARTIN_SCHEMA = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
-  areaServed: ['Lake Martin','Alexander City','Dadeville','Eclectic','Auburn','Opelika'],
+  areaServed: inAlabama(['Lake Martin','Alexander City','Dadeville','Eclectic','Auburn','Opelika']),
   sameAs: ['https://www.envirocarellc.com','https://www.google.com/maps?cid=12101127141767078247'],
   parentOrganization: {
     '@id': 'https://www.envirocarellc.com/#organization',
@@ -286,7 +297,7 @@ const HUNTSVILLE_SCHEMA = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '17:00' },
   ],
-  areaServed: ['Huntsville','Madison','Athens','Decatur','Hartselle','Harvest','Hampton Cove'],
+  areaServed: inAlabama(['Huntsville','Madison','Athens','Decatur','Hartselle','Harvest','Hampton Cove']),
   sameAs: ['https://www.envirocarellc.com','https://maps.app.goo.gl/p5fJg2GoAr3Vk3Ua8'],
   parentOrganization: {
     '@id': 'https://www.envirocarellc.com/#organization',

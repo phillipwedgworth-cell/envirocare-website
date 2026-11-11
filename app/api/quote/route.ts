@@ -23,6 +23,7 @@ import { Resend } from "resend";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { cleanEnv } from "@/lib/env-url";
 import { officeForZip, isInServiceArea, type OfficeId } from "@/data/zip-to-office";
+import { screenSubmission, OUT_OF_AREA_MESSAGE } from "@/lib/leads/screen";
 
 export const dynamic = "force-dynamic";
 
@@ -248,6 +249,34 @@ async function storeLead(
   }
 }
 
+// A screened submission (out-of-state ZIP or bot) is still kept, as
+// status 'not_a_lead' with the reason, so a false positive can be reopened on
+// the Lead Desk. It is never emailed to staff and never gets an owner.
+async function storeScreened(lead: Lead, reason: string, raw: unknown): Promise<boolean> {
+  const sb = getSupabase();
+  if (!sb) return false;
+  try {
+    const { error } = await sb.from("leads").insert({
+      first_name: lead.firstName,
+      last_name: lead.lastName,
+      phone: lead.phone,
+      email: lead.email,
+      address: lead.address ?? null,
+      zip: lead.zip,
+      service_type: lead.serviceType ?? null,
+      notes: lead.notes ?? null,
+      office: "screened",
+      status: "not_a_lead",
+      lost_reason: reason,
+      email_status: "skipped",
+      raw: raw as Record<string, unknown>,
+    });
+    return !error;
+  } catch {
+    return false;
+  }
+}
+
 // Record whether the notification actually went out. Best-effort: if this fails
 // the lead row still exists, which is the part that matters.
 async function markEmailStatus(id: string | undefined, status: string, error?: string) {
@@ -362,6 +391,19 @@ export async function POST(request: Request) {
         { ok: false, error: "Missing required fields (name, phone, zip)" },
         { status: 400 }
       );
+    }
+
+    // 0. SCREEN (patch 0023). Out-of-state ZIPs and bot traps never reach staff.
+    const screen = screenSubmission({ zip: lead.zip, honeypot: raw.company_website, elapsedMs: raw.elapsed_ms });
+    if (!screen.ok) {
+      const kept = await storeScreened(lead, screen.reason, raw);
+      console.warn("[quote] screened:", screen.code, { zip: lead.zip, kept });
+      if (screen.code === "out_of_area") {
+        // A real person typed a non-Alabama ZIP: tell them plainly.
+        return NextResponse.json({ ok: false, code: "out_of_area", error: OUT_OF_AREA_MESSAGE }, { status: 422 });
+      }
+      // Bot trap: answer like a success so the bot learns nothing.
+      return NextResponse.json({ ok: true });
     }
 
     const office = routeByZip(lead.zip);

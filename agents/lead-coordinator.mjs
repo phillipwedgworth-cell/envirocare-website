@@ -52,6 +52,8 @@ async function assignUnowned(leads, log) {
   for (const l of leads) {
     const received = new Date(l.received_at || l.created_at);
     if (received < START) continue;
+    // Screened out (out-of-state ZIP / bot, patch 0023) or a duplicate: not a lead, no owner.
+    if (l.status === 'not_a_lead' || l.status === 'duplicate') continue;
     if (l.owner && l.callback_due && l.kind && l.office_id) continue;
     const zip = String(l.zip || '').slice(0, 5);
     const officeId = zip && isInServiceArea(zip) ? officeForZip(zip).id : 'unrouted';
@@ -182,6 +184,8 @@ function buildReport(leads, ctx) {
   out.push(`  By kind: ${fmtCounts(count(last7, 'kind'))}`);
   out.push(`  By office: ${fmtCounts(count(last7, 'office'))}`);
   out.push(`  Outcomes: ${fmtCounts(count(last7, 'status'))}`);
+  const screened = last7.filter((l) => l.status === 'not_a_lead' && /^(screened|outside service area)/.test(l.lost_reason ?? ''));
+  if (screened.length) out.push(`  Screened out by the website (out-of-state ZIP or bot — stored, not emailed, no owner): ${screened.length}`);
   out.push(`  First contact recorded: ${resp.length} of ${last7.length}` + (resp.length ? ` · median ${median(resp)} min · within ${SLA_MIN_IN_HOURS} min: ${withinTarget}` : ''));
   out.push(`  (Response time is measured from receipt to the first status change on the Lead Desk. A call nobody records is not counted as fast.)`);
   if (ctx.assigned) out.push(`  Assigned this run: ${ctx.assigned}`);
