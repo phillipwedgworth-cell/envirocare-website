@@ -9,9 +9,9 @@
 // Response rules (locked by Phillip 2026-06-10):
 //   5★ (and 4★): thank by name + mention something specific from the review +
 //        vary the wording review-to-review. Signatures alternate between
-//        "— Phillip Wedgworth" and "— The EnviroCare Team".
-//   3★ and below: empathize + take ownership + offer Phillip's direct line +
-//        NEVER argue. Always signed "— Phillip Wedgworth".
+//        signed "— The EnviroCare Team" (no personal name — see SIGNATURE).
+//   3★ and below: empathize + take ownership + offer the direct line +
+//        NEVER argue. Signed "— The EnviroCare Team".
 //
 // Orchestrator: runs Mondays only (cron is daily) unless FORCE_REVIEWS=1.
 // CLI: node agents/review-responder.mjs [--force]
@@ -48,9 +48,13 @@ const RM_REPORTS = [
   { name: "Birmingham", report_id: 644662 }, // added 2026-09-29 (sweep F2)
 ];
 
-// Phillip's direct line offered on negative reviews. Using the main office
-// line until Phillip supplies a different number.
+// Direct line offered on negative reviews. Using the main office line until a
+// different number is supplied.
 const DIRECT_LINE = "(205) 940-6360";
+
+// Every published reply is signed with this and nothing else. Do not reintroduce
+// a personal name here: these replies are public on the Google Business Profiles.
+const SIGNATURE = "— The EnviroCare Team";
 
 let anthropic = null;
 if (process.env.ANTHROPIC_API_KEY) {
@@ -142,12 +146,15 @@ async function fetchRecentReviews() {
 }
 
 const DRAFT_SYSTEM = `You draft Google/Facebook review responses for EnviroCare, a fourth-generation family pest control company in Alabama (since 1958).
-Owner: Kevin Wedgworth (third-generation). Phillip M. Wedgworth is the gen-1 FOUNDER, not
-the owner -- do not confuse them, and do not name the founder as owner in a reply.
+Do NOT name any individual person in a reply -- not the owner, not the founder,
+not a family member. Refer to "our team", "the local crew" or "we". (Context so
+you do not get it wrong if a REVIEWER names someone: the owner is Kevin
+Wedgworth, third generation; Phillip M. Wedgworth is the gen-1 founder, a
+different person. Never present the founder as the owner.)
 
 RULES — never break:
 - 5-star or 4-star: thank the reviewer BY NAME, mention something SPECIFIC from their review (a service, a tech's name, their town — whatever they actually wrote), and vary wording so consecutive responses never sound templated. Warm, brief (2-3 sentences), Southern-friendly, never corporate.
-- 3-star or below: empathize first, take ownership ("that's on us"), offer Phillip's direct line ${DIRECT_LINE} and a genuine commitment to make it right. NEVER argue, never explain away, never blame the customer, never get defensive. 2-4 sentences.
+- 3-star or below: empathize first, take ownership ("that's on us"), offer our direct line ${DIRECT_LINE} and a genuine commitment to make it right. NEVER argue, never explain away, never blame the customer, never get defensive. 2-4 sentences.
 - Never use banned language: same-day, pet-safe, kid-safe, non-toxic, eco-safe.
 - Never offer discounts/incentives for reviews and never tell anyone what to write.
 - Output ONLY the response body, no signature (signatures are appended by code), no quotes around it, no preamble.`;
@@ -220,18 +227,22 @@ export async function run() {
     return { brief: `No undrafted reviews in the past ${LOOKBACK_DAYS} days${note}.`, count: 0, errors: errors.length };
   }
 
-  // Draft responses — 5★/4★ alternate signatures, negatives always Phillip.
-  let positiveIndex = 0;
+  // Draft responses. Every reply is signed "— The EnviroCare Team".
+  //
+  // CHANGED 2026-11-11 at Phillip's direct request: "the review needs to remove
+  // my name." Before this, 4/5-star replies alternated between
+  // "— Phillip Wedgworth" and "— The EnviroCare Team", and EVERY 3-star-or-below
+  // reply was signed "— Phillip Wedgworth". Those replies publish to the Google
+  // Business Profiles, so his name was on every public complaint response.
+  // The alternation existed only to stop consecutive replies looking templated;
+  // the drafting prompt already varies the body, so one signature is fine.
   const drafted = [];
   let lastOpening = "";
   for (const review of fresh) {
     try {
       const body = await draftResponse(review, lastOpening);
       lastOpening = body.split(" ").slice(0, 5).join(" ");
-      const signature = review.rating >= 4
-        ? (positiveIndex++ % 2 === 0 ? "— Phillip Wedgworth" : "— The EnviroCare Team")
-        : "— Phillip Wedgworth";
-      drafted.push({ ...review, draft: `${body}\n\n${signature}` });
+      drafted.push({ ...review, draft: `${body}\n\n${SIGNATURE}` });
     } catch (e) {
       console.error(`[${AGENT_NAME}] draft failed for ${review.author}: ${e.message}`);
       drafted.push({ ...review, draft: `⚠️ draft failed: ${e.message}` });
