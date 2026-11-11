@@ -47,6 +47,7 @@ const fixtureZips = {
 };
 const phones = { birmingham: '(205) 940-6360', 'birmingham-downtown': '(205) 991-2882',
   'lake-martin': '(256) 234-6162', huntsville: '(256) 937-7676', auburn: '(334) 332-3321' };
+const screenModule = load(fs.readFileSync(path.join(root, 'lib/leads/screen.ts'), 'utf8'), 'lib/leads/screen.ts', {}).exports;
 let routing = {
   officeForZip: zip => { const id = fixtureZips[String(zip).trim().slice(0, 5)] || 'birmingham'; return { id, phoneDisplay: phones[id] }; },
   isInServiceArea: zip => Object.hasOwn(fixtureZips, String(zip).trim().slice(0, 5)),
@@ -74,6 +75,7 @@ function quoteHarness({ stored = true, email = { data: { id: 'test-message' }, e
     resend: { Resend: MockResend }, '@supabase/supabase-js': { createClient: () => db },
     '@/lib/env-url': { cleanEnv: name => ({ SUPABASE_URL: 'https://example.invalid', SUPABASE_SERVICE_ROLE_KEY: 'unit-test-only' }[name] || '') },
     '@/data/zip-to-office': routing,
+    '@/lib/leads/screen': screenModule,
   });
   return { submit: (body = requestBody) => exports.POST({ json: async () => body }), calls, inserts, notifications, statuses };
 }
@@ -121,9 +123,28 @@ await test('Every tested ZIP agrees with the canonical office lookup', async () 
   console.log(`  Routing cases checked: ${Object.keys(cases).length}`);
 });
 await test('Unmapped and legacy ZIP fallbacks are preserved', async () => {
-  for (const [zip, phone] of [['99999', phones.birmingham], ['36256', phones['lake-martin']], ['35671', phones.huntsville]]) {
+  // 99999 used to fall back to Alabaster. Since patch 0023 a non-Alabama ZIP is screened (see below).
+  for (const [zip, phone] of [['36256', phones['lake-martin']], ['35671', phones.huntsville]]) {
     const h = quoteHarness(); await h.submit({ ...requestBody, zip }); assert.equal(h.inserts[0].office_phone, phone);
   }
+});
+await test('Out-of-state ZIP is stored as not_a_lead, never emailed to staff, and the visitor gets a 422', async () => {
+  for (const zip of ['43925', '33101', '99999']) {
+    const h = quoteHarness(); const r = await h.submit({ ...requestBody, zip });
+    assert.equal(r.status, 422); assert.equal(r.body.code, 'out_of_area'); assert.ok(/Alabama/.test(r.body.error));
+    assert.equal(h.notifications.length, 0, 'no staff email');
+    assert.equal(h.inserts.length, 1); assert.equal(h.inserts[0].status, 'not_a_lead'); assert.equal(h.inserts[0].email_status, 'skipped');
+    assert.ok(/outside service area/.test(h.inserts[0].lost_reason));
+  }
+});
+await test('Bot trap or a sub-2-second submit is screened silently (200, no email)', async () => {
+  for (const extra of [{ company_website: 'http://spam.example' }, { elapsed_ms: 300 }]) {
+    const h = quoteHarness(); const r = await h.submit({ ...requestBody, zip: '35007', ...extra });
+    assert.equal(r.status, 200); assert.equal(r.body.ok, true);
+    assert.equal(h.notifications.length, 0); assert.equal(h.inserts[0].status, 'not_a_lead');
+  }
+  const ok = quoteHarness(); const r = await ok.submit({ ...requestBody, zip: '35007', company_website: '', elapsed_ms: 8000 });
+  assert.equal(r.body.emailed, true, 'a real Alabama submit still reaches staff');
 });
 await test('Existing split-name payload and HTML escaping are preserved', async () => {
   const h = quoteHarness(); await h.submit({ firstName: 'Test', lastName: 'Visitor', phone: '2055550100', zip: '35007', notes: '<script>alert(1)</script>' });
@@ -144,6 +165,7 @@ function formHarness({ ok = true, networkError = false, tags = {}, gate, initial
     activeDate: null, activeWin: null, setConfirmedSlot() {}, setConfirmedContact() {}, city: 'Huntsville',
     services: ['pest'], SERVICES: [{ key: 'pest', label: 'Pest Control' }],
     name: 'Test Visitor', phone: '2055550100', zip: '35611', email: '', address: '',
+    zipOutOfState: false, hp: '', renderedAt: { current: Date.now() - 5000 }, Date,
     window: { location: { pathname: '/quote' }, ...tags },
     fetch: async (_url, options) => { payloads.push(JSON.parse(options.body)); if (gate) await gate; if (networkError) throw new Error('Offline'); return { ok }; },
   });

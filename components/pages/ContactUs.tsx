@@ -82,7 +82,7 @@ const OFFICES = OFFICE_ORDER.map((id) => {
 });
 
 export default function ContactUs() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", city: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", city: "", zip: "", service: "", message: "", company_website: "" });
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected] = useState(0);
 
@@ -92,12 +92,19 @@ export default function ContactUs() {
   const requestInFlight = useRef(false);
   const completed = useRef(false);
   const confirmationRef = useRef<HTMLHeadingElement>(null);
+  // When the form first rendered, so /api/quote can tell a person from a bot.
+  const renderedAt = useRef(Date.now());
 
   useEffect(() => {
     if (submitted) confirmationRef.current?.focus();
   }, [submitted]);
 
-  const FORMSPREE_ID = "xwvypjal";
+  // Patch 0023: Contact Us now posts to /api/quote like every other form, so
+  // these leads are stored in Supabase, reach the Lead Desk and the watchdog,
+  // are routed by ZIP, and are screened for out-of-state ZIPs and bots. Before,
+  // they went straight to Formspree and nothing on our side ever saw them.
+  // EnviroCare serves Alabama only (ZIPs 350xx–369xx; same rule as lib/leads/screen.ts).
+  const ALABAMA_ZIP = /^3[56]\d{3}$/;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,12 +116,39 @@ export default function ContactUs() {
     // Keep the confirmation tied to the payload accepted by Formspree, even if
     // the visitor edits a field while this request is still in flight.
     const submittedForm = { ...form };
+    const zip = submittedForm.zip.trim();
+    if (!ALABAMA_ZIP.test(zip)) {
+      setError(/^\d{5}$/.test(zip)
+        ? `EnviroCare serves Alabama only, and ${zip} isn't an Alabama ZIP code. In Alabama? Check the ZIP, or call (205) 940-6360.`
+        : "Please enter your 5-digit ZIP code.");
+      requestInFlight.current = false;
+      setSubmitting(false);
+      return;
+    }
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(submittedForm),
+        body: JSON.stringify({
+          name: submittedForm.name,
+          phone: submittedForm.phone,
+          email: submittedForm.email,
+          address: submittedForm.address,
+          zip,
+          service: submittedForm.service,
+          message: [
+            submittedForm.message.trim(),
+            submittedForm.city.trim() ? `City: ${submittedForm.city.trim()}` : "",
+            "Submitted from: /contact-us",
+          ].filter(Boolean).join(" · "),
+          company_website: submittedForm.company_website,
+          elapsed_ms: Date.now() - renderedAt.current,
+        }),
       });
+      if (res.status === 422) {
+        setError("EnviroCare serves Alabama only, and that ZIP isn't an Alabama ZIP code. In Alabama? Check the ZIP, or call (205) 940-6360.");
+        return;
+      }
       if (!res.ok) throw new Error("Form submission failed");
       setAcceptedContact({ name: submittedForm.name, phone: submittedForm.phone });
       completed.current = true;
@@ -338,6 +372,12 @@ export default function ContactUs() {
                     placeholder="Birmingham, AL"
                     style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
                 </div>
+                <div>
+                  <label htmlFor="contact-zip" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>ZIP Code *</label>
+                  <input id="contact-zip" name="postal-code" autoComplete="postal-code" inputMode="numeric" maxLength={5} required value={form.zip} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, zip: e.target.value })}
+                    placeholder="35007"
+                    style={{ width: "100%", padding: "11px 14px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, ...sf, boxSizing: "border-box" }} />
+                </div>
               </div>
               <div style={{ marginBottom: 16 }}>
                 <label htmlFor="contact-service" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Service Needed *</label>
@@ -354,6 +394,11 @@ export default function ContactUs() {
                   <option>Commercial Service</option>
                   <option>Not sure — please inspect</option>
                 </select>
+              </div>
+              {/* Bot trap: hidden from people and screen readers, skipped by Tab. */}
+              <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+                <label htmlFor="contact-company-website">Company website</label>
+                <input id="contact-company-website" name="company_website" tabIndex={-1} autoComplete="off" value={form.company_website} onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, company_website: e.target.value })} />
               </div>
               <div style={{ marginBottom: 24 }}>
                 <label htmlFor="contact-message" style={{ display: "block", fontSize: 12, color: "#374151", fontWeight: 600, ...sf, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Additional Details</label>

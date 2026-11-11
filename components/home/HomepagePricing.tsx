@@ -125,7 +125,7 @@ function PlanContent({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       {plan.key === 'termite' ? (
         <p className={styles.coverage}>
           Up to $1,000,000 in termite damage repair coverage provided by EnviroCare on qualifying homes,
-          subject to the terms of the agreement. Inspection and approval are required.
+          subject to inspection and approval and subject to the terms of the agreement.
         </p>
       ) : plan.key === 'pest' ? (
         <p className={styles.planNote}>{initialServiceNote('pest')}</p>

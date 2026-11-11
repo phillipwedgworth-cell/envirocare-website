@@ -150,10 +150,14 @@ export default function ScheduleRequest({ city }: { city?: string }) {
   const [phone, setPhone] = useState("");
   const [zip, setZip] = useState("");
   const [address, setAddress] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "done" | "error" | "outofarea">("idle");
+  // Bot trap (patch 0023): a field people never see. Form-filling bots fill it.
+  const [hp, setHp] = useState("");
   const [confirmedSlot, setConfirmedSlot] = useState("");
   const [confirmedContact, setConfirmedContact] = useState({ name: "", phone: "" });
   const submitting = useRef(false);
+  // When the form first rendered, so /api/quote can tell a person from a bot.
+  const renderedAt = useRef(Date.now());
   const confirmationRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -174,9 +178,12 @@ export default function ScheduleRequest({ city }: { city?: string }) {
     emailOk &&
     /\d{3}.*\d{3}.*\d{4}/.test(phone) &&
     /^\d{5}$/.test(zip.trim());
+  // EnviroCare serves Alabama only (ZIPs 350xx–369xx; same rule as lib/leads/screen.ts).
+  const zipOutOfState = /^\d{5}$/.test(zip.trim()) && !/^3[56]\d{3}$/.test(zip.trim());
 
   async function submit() {
     if (!valid || submitting.current || state === "sending" || state === "done") return;
+    if (zipOutOfState) { setState("outofarea"); return; }
     // State updates are asynchronous; a ref closes the same-tick double-click gap.
     submitting.current = true;
     setState("sending");
@@ -214,10 +221,12 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           zip: zip.trim(),
           serviceType: serviceLabels,
           notes,
+          company_website: hp,
+          elapsed_ms: Date.now() - renderedAt.current,
         }),
       });
       if (res.ok) setConfirmedContact(submittedContact);
-      setState(res.ok ? "done" : "error");
+      setState(res.ok ? "done" : res.status === 422 ? "outofarea" : "error");
       // Analytics are best-effort. A blocked or throwing tag must never turn
       // an accepted quote into a failure or prevent the other tag from firing.
       if (res.ok && typeof window !== "undefined") {
@@ -274,8 +283,13 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 14 }}>
           <input name="name" id="sr-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" aria-label="Full name" autoComplete="name" required style={field} />
           <input name="tel" id="sr-tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" type="tel" inputMode="tel" aria-label="Phone" autoComplete="tel" required style={field} />
-          <input name="postal-code" id="sr-zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" required style={field} />
+          <input name="postal-code" id="sr-zip" value={zip} onChange={(e) => { setZip(e.target.value); if (state === "outofarea") setState("idle"); }} placeholder="ZIP" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" required style={field} />
           <input name="email" id="sr-email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email (optional)" type="email" inputMode="email" aria-label="Email (optional)" autoComplete="email" style={field} />
+          {/* Bot trap: hidden from people and screen readers, skipped by Tab. */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+            <label htmlFor="sr-company-website">Company website</label>
+            <input name="company_website" id="sr-company-website" value={hp} onChange={(e) => setHp(e.target.value)} tabIndex={-1} autoComplete="off" />
+          </div>
           <input name="street-address" id="sr-address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address (optional)" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
         </div>
 
@@ -375,6 +389,11 @@ export default function ScheduleRequest({ city }: { city?: string }) {
         </button>
       </form>
 
+      {(zipOutOfState || state === "outofarea") && (
+        <p role="alert" style={{ ...body, color: "#B4231F", fontSize: 13.5, marginTop: 10, textAlign: "center" }}>
+          EnviroCare serves Alabama only, and {zip.trim() || "that ZIP"} isn&rsquo;t an Alabama ZIP code. In Alabama? Check the ZIP, or call <a href={office.phoneHref} style={{ color: G, fontWeight: 700 }}>{office.phone}</a>.
+        </p>
+      )}
       {state === "error" && (
         <p role="alert" style={{ ...body, color: "#B4231F", fontSize: 13.5, marginTop: 10, textAlign: "center" }}>
           That didn&rsquo;t go through. Call <a href={office.phoneHref} style={{ color: G, fontWeight: 700 }}>{office.phone}</a> and we&rsquo;ll set it up directly.
