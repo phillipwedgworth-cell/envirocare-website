@@ -467,7 +467,7 @@ export default function TermiteWarrantyFAQ() {
             {" · "}
             <a href="https://pestcontrol.basf.us/products/termidor--sc-termiticide-insecticide.html" target="_blank" rel="noopener noreferrer" style={{ color: G, textDecoration: "underline" }}>BASF on Termidor's nonrepellent transfer effect</a>
             {" · "}
-            <a href="https://www.epa.gov/greenchemistry/green-chemistry-challenge-winners" target="_blank" rel="noopener noreferrer" style={{ color: G, textDecoration: "underline" }}>EPA's 2000 Sentricon award</a>
+            <a href="https://www.epa.gov/greenchemistry/presidential-green-chemistry-challenge-2000-designing-greener-chemicals-award" target="_blank" rel="noopener noreferrer" style={{ color: G, textDecoration: "underline" }}>EPA's 2000 Sentricon award</a>
             {" · "}
             <a href="/blog/sentricon-vs-liquid-termite-treatment" style={{ color: G, textDecoration: "underline" }}>EnviroCare's detailed comparison</a>.
           </p>
