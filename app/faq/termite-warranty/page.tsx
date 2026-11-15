@@ -49,7 +49,7 @@ const SCHEMA = {
       name: "What is the $1 million termite damage repair coverage?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "If termites cause structural damage to your home while it's under active Sentricon® protection, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement — backed by four generations protecting Alabama homes since 1958.",
+        text: "Qualifying homes with an active EnviroCare Sentricon® agreement may receive up to $1,000,000 in termite damage repair coverage. Eligibility, covered damage, exclusions, limits, inspection duties and claims requirements are defined by the written agreement.",
       },
     },
     {
@@ -57,7 +57,7 @@ const SCHEMA = {
       name: "What does the damage repair coverage cover?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare's coverage pays structural repair costs caused by subterranean termite damage that occurs while the Sentricon system is active and properly maintained. Coverage requires that annual inspections are completed and the bait stations remain active. Your EnviroCare technician confirms coverage status at each annual inspection.",
+        text: "Qualifying structural damage from subterranean termites may be covered up to the contract limit while the required service and inspection conditions are met. Ask to review the actual written agreement for exclusions, claim deadlines and maintenance obligations.",
       },
     },
     {
@@ -65,7 +65,7 @@ const SCHEMA = {
       name: "How much does Sentricon cost at EnviroCare?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare prices Sentricon® after a free on-site WDO inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement, and the inspection is always free with no obligation.",
+        text: "Sentricon® is quoted after an on-site inspection. Installation and ongoing service costs depend on the structure and proposed work. Up to $1,000,000 in EnviroCare damage repair coverage may be available for qualifying homes, subject to the specific agreement.",
       },
     },
     {
@@ -81,7 +81,7 @@ const SCHEMA = {
       name: "What is the difference between Sentricon and liquid termite treatment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Liquid treatment (Termidor, etc.) creates a chemical barrier in the soil around your foundation. It kills termites on contact but doesn't eliminate the colony. Sentricon uses bait that worker termites carry back to the colony, eliminating the entire colony including the queen. Sentricon is the only termite product to receive the EPA Presidential Green Chemistry Challenge Award.",
+        text: "Sentricon uses bait stations: termites must find and feed on the bait for colony effects. Liquid termiticides treat soil around or beneath a structure. Nonrepellent liquids such as Termidor can also affect termite populations through contact and transfer between termites. Treatment choice, access and follow-up depend on a site inspection.",
       },
     },
   ],
@@ -101,39 +101,39 @@ const ss = { fontFamily: "'Fraunces', var(--font-serif)" } as const;
 const FAQS = [
   {
     q: "What is the $1,000,000 termite damage repair coverage?",
-    a: "If termites cause structural damage to your home while it's under active Sentricon® Always Active protection, EnviroCare covers repair costs up to $1,000,000. That coverage is subject to the terms of the agreement, and it's among the strongest in residential termite control.",
+    a: "Qualifying homes under an active EnviroCare Sentricon® agreement may receive up to $1,000,000 in termite damage repair coverage. Coverage, exclusions, limits, inspections and claims are governed by the written agreement; request a copy before enrolling.",
   },
   {
     q: "What exactly does the coverage cover?",
-    a: "EnviroCare pays structural repair costs from subterranean termite damage that occurs while the Sentricon system is active and properly maintained. This includes damage to load-bearing walls, floor joists, rafters, and other structural members. The coverage applies, subject to the terms of the agreement, as long as your annual inspection is completed and your bait stations remain active with fresh bait.",
+    a: "Eligible structural damage caused by covered subterranean termite activity may qualify for repair coverage up to the limit in the EnviroCare agreement. The agreement controls what counts as covered damage, any exclusions, required inspections and the procedure for making a claim.",
   },
   {
     q: "What's NOT covered?",
-    a: "Cosmetic damage (paint, wallpaper, trim) that isn't structural. Pre-existing damage present before Sentricon installation. Damage from other wood-destroying insects like carpenter ants or wood-boring beetles — Sentricon is specifically for subterranean termites. Your EnviroCare technician will document your home's condition at installation to establish a baseline.",
+    a: "The specific agreement determines exclusions and limitations. For example, a termite repair agreement may distinguish pre-existing damage, cosmetic work and damage from pests other than covered termites. Ask for the full exclusions, reporting deadlines and claim conditions in writing rather than treating this summary as a complete list.",
   },
   {
     q: "How do I keep the coverage active?",
-    a: "Complete your annual inspection every 12 months. EnviroCare schedules and reminds you — you don't need to track it yourself. As long as your account is current and your annual inspection happens, you're covered. If you cancel service and restart, a new inspection and waiting period may apply.",
+    a: "Keep the account and required station service current, provide inspection access, report signs of termites promptly and follow the maintenance and renewal requirements in the written agreement. An annual inspection by itself does not replace other coverage conditions. Ask about any lapse, reinstatement or waiting-period rules.",
   },
   {
     q: "How much does Sentricon cost at EnviroCare?",
-    a: "Sentricon® is priced after a free on-site WDO inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. The inspection is free with no obligation.",
+    a: "Sentricon® installation and ongoing service are quoted after a free on-site termite inspection. Price depends on the home's dimensions, foundation, access and inspection findings. Ask for the itemized initial and renewal charges and confirm whether the proposed plan qualifies for up to $1,000,000 in EnviroCare repair coverage under its written terms.",
   },
   {
     q: "Is drilling required to install Sentricon?",
-    a: "No. Sentricon stations go into the soil around your home's perimeter — no drilling into your slab, no injection through your foundation wall, no damage to landscaping. Installation typically takes 2–3 hours. You don't need to be home for the technician to install.",
+    a: "Sentricon stations are generally installed in soil around the structure without drilling through the slab or injecting liquid termiticide. Site access, utilities, hardscaping and installation details should be confirmed at inspection. Your technician can explain any necessary yard disturbance and appointment requirements.",
   },
   {
     q: "How is Sentricon different from liquid termite treatment?",
-    a: "Liquid barrier treatments (Termidor, etc.) create a chemical zone around your foundation that kills termites on contact but leaves the colony alive to keep generating workers. Sentricon uses a bait that worker termites carry back to the colony — it eliminates the entire colony including the queen. Sentricon is also the only termite control product to receive the EPA's Presidential Green Chemistry Challenge Award.",
+    a: "Sentricon® uses in-ground bait stations, with colony effects after termites locate and feed on the bait. Liquid soil treatments create a treated zone around or beneath the structure; nonrepellent products such as Termidor® can also affect colonies as exposed termites transfer the ingredient to others. Baiting and liquid treatment both require an inspection-based plan and appropriate follow-up. EPA recognized the Sentricon system with a 2000 Presidential Green Chemistry Challenge award.",
   },
   {
     q: "Do I need to leave my house during installation?",
-    a: "No. Installation involves placing stations in the soil around the outside of your home. The technician doesn't need to enter your house. There's no chemical injection, no drilling, and nothing that requires you to vacate.",
+    a: "A routine Sentricon station installation takes place outdoors, and occupants generally do not need to leave the house for that work. Your technician will explain any additional inspection, treatment, access or product-label instructions specific to the property.",
   },
   {
     q: "Will I see termites die?",
-    a: "Usually not directly. Sentricon works by colony elimination — worker termites find the bait, feed on it, and share it with the colony including the queen. The colony declines over 30–90 days as reproductives stop producing and workers die off. Your technician checks bait consumption at each annual inspection and confirms the colony is being impacted.",
+    a: "Usually not. Sentricon is designed to affect termite colonies when foraging termites discover and feed on the bait. The timeline varies with termite activity, site conditions and feeding; no fixed 30–90-day result should be promised. Scheduled station service and follow-up inspections help assess activity.",
   },
   {
     q: "Can I add Sentricon to my existing pest control plan?",
@@ -141,18 +141,18 @@ const FAQS = [
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",
-    a: "EnviroCare is the only local, family-owned Sentricon Certified Specialist in central Alabama. Kevin Wedgworth's family has been protecting Alabama homes since 1958. National chains rotate technicians — you'll get a different person each visit. EnviroCare assigns the same tech to your property so they know your home's history. And up to $1,000,000 in damage repair coverage stands behind every Sentricon system, subject to the terms of the agreement we install and maintain.",
+    a: "EnviroCare is a family-owned Alabama pest-control company whose Wedgworth family history dates to 1958. When comparing termite providers, request the actual bait or liquid treatment plan, inspection and renewal schedule, service contact, and repair-coverage terms. Qualifying EnviroCare Sentricon® agreements may include up to $1,000,000 in EnviroCare-backed termite damage repair coverage, subject to contract terms.",
   },
 ];
 
 const COMPARE = [
   { feature: "Method", sentricon: "In-ground bait stations", liquid: "Soil injection barrier" },
-  { feature: "Colony elimination", sentricon: "Yes — kills entire colony", liquid: "No — kills workers on contact" },
-  { feature: "Drilling required", sentricon: "None", liquid: "Yes — through slab/foundation" },
-  { feature: "Damage repair coverage", sentricon: "Up to $1,000,000, backed by EnviroCare", liquid: "Varies / none standard" },
-  { feature: "EPA recognition", sentricon: "Presidential Green Chemistry Award", liquid: "Standard registration" },
-  { feature: "Re-treatment needed", sentricon: "Annual inspection only", liquid: "Every 5–10 years" },
-  { feature: "Chemical in soil", sentricon: "Minimal — targeted bait only", liquid: "100+ gallons injected" },
+  { feature: "Colony effects", sentricon: "Bait targets colonies after termites feed", liquid: "Nonrepellent liquids may also affect colonies via transfer" },
+  { feature: "Drilling", sentricon: "Typically not for bait station installation", liquid: "May be needed, depending on structure and access" },
+  { feature: "Repair coverage", sentricon: "Up to $1M on qualifying EnviroCare agreements", liquid: "Depends on the provider's written agreement" },
+  { feature: "EPA recognition", sentricon: "Sentricon system received a 2000 Green Chemistry award", liquid: "Use EPA-registered products as labeled" },
+  { feature: "Ongoing care", sentricon: "Stations require continued service and inspection", liquid: "Inspection and any re-treatment depend on the plan" },
+  { feature: "Application", sentricon: "Termite bait placed in stations", liquid: "Labeled liquid termiticide applied to soil" },
 ];
 
 export default function TermiteWarrantyFAQ() {
@@ -236,9 +236,9 @@ export default function TermiteWarrantyFAQ() {
               maxWidth: 640,
             }}
           >
-            Industry’s strongest termite protection. No drilling required.
-            Here's exactly how the coverage works, what it covers, and what it
-            costs.
+            Learn about bait-based termite protection and the written terms for
+            qualifying EnviroCare damage repair coverage before you choose a
+            treatment plan.
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
             <a
@@ -300,13 +300,13 @@ export default function TermiteWarrantyFAQ() {
               {
                 n: "Quote",
                 label: "Starting price",
-                note: "No setup fee, no initial charge",
+                note: "Treatment and renewal charges quoted after inspection",
                 color: G,
               },
               {
                 n: "EPA award",
                 label: "Green Chemistry recognition",
-                note: "Only termite product to win the Presidential Green Chemistry Challenge",
+                note: "Sentricon received a Presidential Green Chemistry Challenge award in 2000",
                 color: GT,
               },
             ].map((item) => (
@@ -371,7 +371,7 @@ export default function TermiteWarrantyFAQ() {
             Sentricon vs. Liquid Termite Treatment
           </h2>
           <p style={{ color: GREY, fontSize: 14, marginBottom: 28 }}>
-            Side-by-side comparison of the two most common termite control methods.
+            Compare methods, installation, follow-up and coverage terms; details depend on the treatment plan.
           </p>
           <div style={{ overflowX: "auto" }}>
             <table
@@ -461,6 +461,16 @@ export default function TermiteWarrantyFAQ() {
               </tbody>
             </table>
           </div>
+          <p style={{ color: GREY, fontSize: 13, lineHeight: 1.7, marginTop: 18 }}>
+            Sources and further reading:{" "}
+            <a href="https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them" target="_blank" rel="noopener noreferrer" style={{ color: G, textDecoration: "underline" }}>EPA on termite treatment methods</a>
+            {" · "}
+            <a href="https://pestcontrol.basf.us/products/termidor--sc-termiticide-insecticide.html" target="_blank" rel="noopener noreferrer" style={{ color: G, textDecoration: "underline" }}>BASF on Termidor's nonrepellent transfer effect</a>
+            {" · "}
+            <a href="https://www.epa.gov/greenchemistry/green-chemistry-challenge-winners" target="_blank" rel="noopener noreferrer" style={{ color: G, textDecoration: "underline" }}>EPA's 2000 Sentricon award</a>
+            {" · "}
+            <a href="/blog/sentricon-vs-liquid-termite-treatment" style={{ color: G, textDecoration: "underline" }}>EnviroCare's detailed comparison</a>.
+          </p>
         </div>
       </section>
 
@@ -553,7 +563,7 @@ export default function TermiteWarrantyFAQ() {
               ...ss,
             }}
           >
-            $1,000,000 Termite Protection.{" "}
+            Up to $1,000,000 in Repair Coverage.{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>
               Priced after a free WDO inspection.
             </em>
@@ -566,9 +576,9 @@ export default function TermiteWarrantyFAQ() {
               lineHeight: 1.75,
             }}
           >
-            No drilling. No setup fee. The Wedgworth family has protected
-            Alabama homes from termites since 1958. Free inspection, no
-            pressure.
+            Sentricon bait stations generally need no slab drilling.
+            Termite installation and renewal are quoted after a free inspection.
+            Our family's Alabama pest-control history dates to 1958.
           </p>
           <div
             style={{
