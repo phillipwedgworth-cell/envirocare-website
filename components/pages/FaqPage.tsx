@@ -49,7 +49,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">How many offices do you have?</summary>
-              <div className="faq-a">Three — Birmingham (Alabaster), Alexander City (which also covers Lake Martin and the Auburn area), and Huntsville. We service 26 cities across Alabama from these locations.</div>
+              <div className="faq-a">Four — Alabaster (Shelby County), Birmingham (2120 16th Ave S), Alexander City (which also covers Lake Martin and the Auburn area), and Huntsville. Each city we serve is routed to one of these offices.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Are you licensed?</summary>
