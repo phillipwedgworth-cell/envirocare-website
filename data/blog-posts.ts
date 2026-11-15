@@ -2785,7 +2785,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Are Those Round Green Caps in the Ground Around a House?',
     excerpt: 'Round green caps around a house may be termite monitoring or bait stations. Identify the installed system and service provider before disturbing them, and confirm whether inspections and any service agreement are current.',
     publishedAt: '2026-07-28',
-    updatedAt: "2026-10-29",
+    updatedAt: "2026-11-15",
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 6,
@@ -2835,6 +2835,20 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Does this mean the house had termites?</h2>
 
 <p>Not necessarily, and this is where new buyers get anxious for no reason. In central Alabama a lot of these systems go in as prevention, because subterranean termite pressure here is simply constant. Stations in the yard are just as likely to mean a previous owner was careful as they are to mean there was ever an active infestation. The paperwork tells you which — a treatment record and a bond history are worth asking for, and our post on <a href="/blog/termite-bond-alabama-explained">what a termite bond actually covers</a> walks through how to read one.</p>
+
+<h2>New-home handoff: what to collect in the first month</h2>
+
+<p>If you just moved into a new build or a resale with stations in the yard, gather these while the builder, seller, or agent is still easy to reach:</p>
+
+<ul>
+<li>The name and phone number of the company that services the stations.</li>
+<li>A copy of the signed termite agreement, in your name or ready to transfer.</li>
+<li>The installation date and the date of the most recent station inspection.</li>
+<li>What the agreement covers and when renewal is due.</li>
+<li>Who to call if you see termites between inspections.</li>
+</ul>
+
+<p>A builder's home warranty and a termite agreement are separate documents with separate terms. Do not assume one covers the other; read each one.</p>
 
 <h2>What happens to the coverage when the house sells?</h2>
 
@@ -2976,10 +2990,10 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Is a Termite Bond in Alabama — And Is Yours Still Good?',
     excerpt: 'A termite bond shifts the financial risk of a termite infestation from you to the pest control company — but only if it is the right type, still active, and covers what you think it does. What Alabama homeowners need to know.',
     publishedAt: '2026-07-14',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-11-15',
     author: 'Kevin Wedgworth',
     category: 'Termites',
-    readMinutes: 8,
+    readMinutes: 9,
     heroEmoji: '📄',
     metaTitle: 'Termite Bond in Alabama: What It Covers & When It Lapses',
     metaDescription: 'Alabama termite bonds explained — retreatment vs. repair coverage, how bonds lapse, what happens when a home sells, costs, benefits, and how Sentricon compares.',
@@ -3043,6 +3057,27 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>For the seller, keeping a bond active through closing is smart — it answers the buyer's termite question before it becomes a negotiation point, and it can satisfy the mortgage company's requirement without adding a last-minute inspection to the transaction. Seek out companies with solid reputations and years of experience in Alabama termite control so the bond carries weight with both the buyer and their lender.</p>
 
+<h2>Termite agreement checklist: what to find in your own paperwork</h2>
+
+<p>Whichever company holds your bond, the signed agreement is what controls, not a website, a sales conversation, or this article. Use this list to read the one you have, or to compare two before you sign. Print it, take it to closing, or bring it to a free inspection and we will go through it with you.</p>
+
+<ul>
+<li><strong>Type of protection.</strong> Does it say retreatment only, or retreatment plus damage repair?</li>
+<li><strong>Repair limit.</strong> If repair is included, what is the dollar limit, and is it per claim or for the life of the agreement?</li>
+<li><strong>Exclusions.</strong> Which areas, conditions, or structures are left out (wood-to-soil contact, moisture problems, additions, detached buildings)?</li>
+<li><strong>Pre-existing damage.</strong> Is damage that existed before the agreement started excluded?</li>
+<li><strong>Renewal.</strong> When is renewal due, how much is it, and what happens if a payment is missed?</li>
+<li><strong>Inspections.</strong> How often does the company inspect, and what does the homeowner have to do to give access?</li>
+<li><strong>Treatment method.</strong> Bait stations or liquid soil treatment, and when was it installed or last treated?</li>
+<li><strong>Homeowner conditions.</strong> What are you required to correct or report (leaks, grading, mulch against the slab, new construction)?</li>
+<li><strong>Claims.</strong> How do you report termites between inspections, and is there a stated response time?</li>
+<li><strong>Transfer.</strong> Can it transfer to a buyer, what does it cost, and how soon after closing must the transfer be requested?</li>
+<li><strong>Who holds it now.</strong> Is the company that wrote it still the company servicing it? If it was sold or merged, is the new owner honoring it?</li>
+<li><strong>Your copies.</strong> Do you have the signed agreement, the original treatment record, and the most recent inspection report?</li>
+</ul>
+
+<p>If you cannot answer a question from the documents, ask the company to answer it in writing. If a dispute turns on what the contract means, that is a question for an attorney, not a technician.</p>
+
 <h2>How to choose the right termite bond</h2>
 
 <p>The right bond depends on several factors a pest control professional needs to see in person: whether you have active termite activity, what type of foundation your home sits on, whether there is existing termite damage, and how the soil around the structure drains. But you can narrow your decision before the inspection by asking three questions of any termite company you are considering:</p>
@@ -3068,7 +3103,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>In Alabama, yes. Every home in the state sits in the highest termite probability zone in the country. The warm, humid climate and the prevalence of subterranean termites and Formosan termites mean that termite infestations are not a question of if but when — and homeowners insurance does not cover termite damage. A termite bond is the only way to ensure your home is protected against both the treatment cost and the repair cost when termites arrive. The benefit of having a termite bond is that someone is looking for the problem before it becomes a costly one.</p>
 
 <h3>Do you have to keep a termite bond in Alabama?</h3>
-<p>Alabama law does not require homeowners to maintain a termite bond, but letting one lapse is a financial risk most ways to protect their property would not recommend. Once a bond lapses, you lose the right to file a claim for retreatment or damage repair — even if the termite infestation started while the bond was active. Renewing annually is almost always less expensive than the cost of a new treatment and bond from scratch, and far less expensive than the structural damage a colony can cause during the gap in coverage.</p>
+<p>Alabama law does not require homeowners to maintain a termite bond, but letting one lapse is a financial risk we would not recommend taking. Under most agreements, once a bond lapses you lose the right to file a claim for retreatment or damage repair — even if the termite infestation started while the bond was active. Your signed agreement controls, so read its renewal and lapse terms. Renewing annually is almost always less expensive than the cost of a new treatment and bond from scratch, and far less expensive than the structural damage a colony can cause during the gap in coverage.</p>
 
 <h3>What is the average price of a termite bond?</h3>
 <p>Annual renewal prices for Alabama termite bonds typically range from $200 to $400 per year for a retreatment-only bond and $300 to $500 or more for a bond that includes repair coverage, depending on the home's size and foundation. The initial termite treatment is separate and is priced after a free inspection, because the method and the severity of any existing termite activity decide it. Because every home is different, the only accurate number comes from a professional inspection — we offer free termite inspections at every EnviroCare office.</p>
@@ -3488,9 +3523,10 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Lake Martin Home Checklist: Before You Leave for the Week',
     excerpt: 'A lake house sits empty more than it sits full, and that is when small problems settle in. Here is the five-minute departure routine we would hand any Lake Martin or Dadeville homeowner: kitchen, standing water, a note for next time, and your service paperwork.',
     publishedAt: '2026-10-02',
+    updatedAt: '2026-11-15',
     author: 'Kevin Wedgworth',
     category: 'Seasonal',
-    readMinutes: 4,
+    readMinutes: 5,
     heroEmoji: '🏡',
     heroImage: {
       src: '/images/blog/envirocare-lake-martin-home-checklist.webp',
@@ -3539,6 +3575,27 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Anything new photographed and dated in the property log.</li>
 <li>Next service date and access instructions confirmed.</li>
 <li>Termite and other service paperwork easy to find.</li>
+</ul>
+
+<h2>The arrival checklist</h2>
+
+<p>The first ten minutes after you unlock the door tell you more than any other time, because nothing has been disturbed yet.</p>
+
+<ul>
+<li>Look at windowsills, the kitchen floor, and under the sink for dead insects, droppings, or ant trails.</li>
+<li>Check door sweeps and screens for new gaps or tears.</li>
+<li>Walk the foundation and the dock-side wall for mud tubes, pencil-width tunnels of soil running up from the ground.</li>
+<li>Note any musty smell or damp spot, since moisture draws pests.</li>
+<li>Photograph and date anything new in the property log before you clean it up.</li>
+</ul>
+
+<h2>When to call instead of waiting</h2>
+
+<ul>
+<li>Mud tubes, discarded wings near windows, or wood that sounds hollow.</li>
+<li>Droppings, gnaw marks, or nesting material indoors.</li>
+<li>The same pest showing up in the same spot two visits in a row.</li>
+<li>Anything you are tempted to spray near the water. Leave it alone and call us, because products used near the shoreline have label restrictions a homeowner should not have to sort out.</li>
 </ul>
 
 <h2>Want a plan built around how you use the house?</h2>
