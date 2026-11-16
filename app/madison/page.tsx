@@ -130,6 +130,30 @@ const jsonLd = {
         },
         {
           "@type": "Question",
+          name: "How does the free termite inspection work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A technician checks the foundation, slab edges, any crawlspace, wood-to-soil contact, mulch beds, and moisture sources for subterranean termites and other wood-destroying insects. If Sentricon® is a fit, you get a written quote before anything is installed. Call the Huntsville office at (256) 937-7676 to schedule.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How are mice and rats handled?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Mice and rats are addressed through the residential pest program. Entry points are sealed on visits, and if activity continues between scheduled services, we come back out.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do brown recluse spiders show up in Madison homes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Brown recluse live across North Alabama and hide in dry, undisturbed spots: garages, closets, attics, and storage boxes. Spiders are covered by the regular service, and cutting clutter, sealing storage boxes, and shaking out shoes and gloves kept in the garage keeps contact down.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "How do I cancel pest service?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -635,6 +659,18 @@ export default function MadisonPage() {
             {
               q: "Do you offer WDO inspection letters for real estate closings?",
               a: "Yes. We provide Wood Destroying Organism (WDO) inspection letters accepted by lenders and real estate transactions in Alabama. Call the Huntsville office at (256) 937-7676 to schedule an inspection.",
+            },
+            {
+              q: "How does the free termite inspection work?",
+              a: "A technician checks the foundation, slab edges, any crawlspace, wood-to-soil contact, mulch beds, and moisture sources for subterranean termites and other wood-destroying insects. If Sentricon® is a fit, you get a written quote before anything is installed. Call the Huntsville office at (256) 937-7676 to schedule.",
+            },
+            {
+              q: "How are mice and rats handled?",
+              a: "Mice and rats are addressed through the residential pest program. Entry points are sealed on visits, and if activity continues between scheduled services, we come back out.",
+            },
+            {
+              q: "Do brown recluse spiders show up in Madison homes?",
+              a: "Yes. Brown recluse live across North Alabama and hide in dry, undisturbed spots: garages, closets, attics, and storage boxes. Spiders are covered by the regular service, and cutting clutter, sealing storage boxes, and shaking out shoes and gloves kept in the garage keeps contact down.",
             },
             {
               q: "Is there a contract for pest service?",
