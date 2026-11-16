@@ -167,7 +167,7 @@ const PAGE_REFRESH_JSON = {
       },
       {
         "q": "Do you offer free estimates for pest control in Huntsville?",
-        "a": "Yes. EnviroCare offers free on-site inspections for pest control, termite, and mosquito service in Huntsville and across Madison County. Termite work always starts with a free WDO inspection before any treatment plan or pricing is confirmed. Call (256) 937-7676 to schedule."
+        "a": "Yes. EnviroCare offers free on-site inspections for pest control, termite, and mosquito service in Huntsville and across Madison County. Termite work always starts with a free termite inspection before any treatment plan or pricing is confirmed. Call (256) 937-7676 to schedule."
       }
     ],
     "figure": {
@@ -254,7 +254,7 @@ const PAGE_REFRESH_JSON = {
       },
       {
         "q": "What pest control services are available for businesses in Alabaster?",
-        "a": "EnviroCare provides residential and commercial pest control services throughout Alabaster and the Highway 31 corridor. Commercial programs for restaurants, offices, warehouses, and other facilities include routine inspections, monitoring, rodent control, and documentation to meet operational and regulatory needs. Contact the Alabaster office at (205) 940-6360 to discuss a plan built around your business."
+        "a": "EnviroCare provides residential and commercial pest control services throughout Alabaster and the Highway 31 corridor. Commercial programs for restaurants, offices, warehouses, and other facilities include routine inspections, monitoring, rodent control, and written service records for every visit. Contact the Alabaster office at (205) 940-6360 to discuss a plan built around your business."
       }
     ],
     "neuron": {
@@ -294,7 +294,7 @@ const PAGE_REFRESH_JSON = {
       },
       {
         "q": "How do I schedule a pest control service in Brook Highland?",
-        "a": "Call the Alabaster office at (205) 940-6360 or request a quote online. A technician will schedule a free on-site inspection, assess the property, identify active pest problems and risk areas, and provide a written treatment plan and pricing before any service begins. Most initial assessments for new customers are scheduled within the same week."
+        "a": "Call the Alabaster office at (205) 940-6360 or request a quote online. A technician will schedule a free on-site inspection, assess the property, identify active pest problems and risk areas, and provide a written treatment plan and pricing before any service begins."
       },
       {
         "q": "Is year-round pest control worth it in Hoover, AL?",
