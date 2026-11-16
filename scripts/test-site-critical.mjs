@@ -210,6 +210,7 @@ function blogHarness({ exists = true, published = true } = {}) {
   return load(blogSource, 'components/BlogPostPage.tsx', {
     '@/data/blog-posts': { getPostBySlug: () => exists ? post : undefined, isPublished: () => published },
     '@/data/blog-visuals': { getBlogVisual: () => ({ src: '/fixture.jpg', alt: 'Fixture', position: 'center' }) },
+    '@/data/blog-citations': { getBlogCitations: () => [{ id: 'source-1', title: 'Primary source', url: 'https://example.invalid/source', supports: 'Fixture support' }] },
     'next/image': { default: 'Image' }, 'next/link': { default: 'Link' },
     'next/navigation': { notFound() { throw new Error('NOT_FOUND'); } },
     'react/jsx-runtime': { jsx, jsxs: jsx, Fragment: 'Fragment' },
@@ -233,6 +234,12 @@ await test('Published article preserves hero, article body and four office phone
   assert.ok(all.some(n => n.props?.src === '/fixture.jpg'));
   assert.ok(all.some(n => n.props?.dangerouslySetInnerHTML?.__html === '<p>Fixture</p>'));
   assert.equal(all.filter(n => n.props?.href?.startsWith('tel:')).length, 4);
+});
+await test('Published article shows reviewed source links without changing article HTML', () => {
+  const all = nodes(blogHarness()({ slug: 'fixture' }));
+  assert.ok(all.some(n => n.type === 'aside' && n.props?.className === 'bpp-sources'));
+  assert.ok(all.some(n => n.props?.href === 'https://example.invalid/source'));
+  assert.ok(all.some(n => n.props?.children === 'Primary source'));
 });
 await test('Article calendar date stays October 12 in Central time', () => {
   const previous = process.env.TZ; process.env.TZ = 'America/Chicago';
