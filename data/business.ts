@@ -14,8 +14,10 @@
  */
 
 export const BUSINESS = {
-  legalName: 'EnviroCare',
-  displayName: 'EnviroCare',
+  // Aligned with lib/seo/organization-schema.ts (#organization) on 2026-11-16.
+  // No runtime consumer imports this file yet; the schema file is what ships.
+  legalName: 'EnviroCare, LLC',
+  displayName: 'EnviroCare Pest Services',
   foundedYear: 1958,
   originalName: 'Wedgworth Pest Control',
   originCity: 'Alexander City, AL',

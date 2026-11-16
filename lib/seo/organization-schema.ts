@@ -6,6 +6,8 @@
 //
 // Retired/legacy brand names stay in alternateName so search engines and answer
 // engines can reconcile older citations with the current brand.
+import { PEST_OFFER_DESCRIPTION, PEST_PRICE_SPECIFICATION } from './pest-offer';
+
 export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -40,7 +42,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   // the later EnviroCare, LLC legal entity.
   employee: [
     { '@type': 'Person', name: 'Kevin Wedgworth', jobTitle: 'Owner' },
-    { '@type': 'Person', name: 'William Lex Wedgworth', description: 'Fourth-generation member of the Wedgworth family, working in the business since 2016.' },
+    { '@type': 'Person', name: 'William Lex Wedgworth', description: 'Fourth-generation member of the Wedgworth family, working in the business.' },
   ],
   knowsAbout: [
     'Pest Control', 'Termite Control', 'Sentricon Termite Baiting', 'Mosquito Control', 'Tick Control',
@@ -74,7 +76,8 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
     itemListElement: [
       {
         '@type': 'Offer', name: 'Pest Control', price: '35', priceCurrency: 'USD',
-        priceSpecification: { '@type': 'UnitPriceSpecification', price: '35', priceCurrency: 'USD', unitText: 'per month, billed monthly via ACH' },
+        priceSpecification: PEST_PRICE_SPECIFICATION,
+        description: PEST_OFFER_DESCRIPTION,
         itemOffered: { '@type': 'Service', name: 'Bi-Monthly Exterior Pest Control', description: 'Bi-monthly perimeter exterior treatment covering 30+ common Alabama pests with free re-services between scheduled visits.' },
       },
       {

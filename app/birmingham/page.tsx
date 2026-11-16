@@ -22,6 +22,7 @@ import PestIcon, { type PestIconName } from "@/components/shared/PestIcon";
 import LocalExamples from "@/components/shared/LocalExamples";
 import RefreshedContent from "@/components/RefreshedContent";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import { PEST_OFFER_DESCRIPTION, PEST_PRICE_SPECIFICATION } from '@/lib/seo/pest-offer';
 
 /**
  * Birmingham hub page — DEEP REWRITE.
@@ -148,7 +149,8 @@ const jsonLd = {
         "@type": "Offer",
         price: "35",
         priceCurrency: "USD",
-        priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
+        priceSpecification: PEST_PRICE_SPECIFICATION,
+        description: PEST_OFFER_DESCRIPTION,
       },
     },
     {
