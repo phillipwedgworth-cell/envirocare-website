@@ -3,16 +3,17 @@ import { requireAdmin } from "@/lib/api-auth";
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const denied = requireAdmin(request); // changes draft status (patch 0021)
   if (denied) return denied;
-  if (!params?.id) {
+  const { id } = await params;
+  if (!id) {
     return Response.json({ error: "Missing ad draft id" }, { status: 400 });
   }
 
   try {
-    const updated = await updateAdDraftStatus(params.id, "approved");
+    const updated = await updateAdDraftStatus(id, "approved");
     if (!updated) {
       return Response.json({ error: "Draft not found" }, { status: 404 });
     }
