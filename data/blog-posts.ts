@@ -992,7 +992,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Wasps, Yellow Jackets, and Hornets in Alabama: Which One Is on Your House?',
     excerpt: 'A paper wasp under the eave, a yellow jacket nest in the ground by the mailbox, a bald-faced hornet nest in the crape myrtle: three different insects and three different risks. Here is how to tell them apart, why Alabama ground nests can get unusually big, and when it stops being a DIY job.',
     publishedAt: '2026-09-10',
-    updatedAt: '2026-10-12',
+    updatedAt: '2026-11-16',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 7,
@@ -1034,6 +1034,12 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Around the lake</h2>
 <p>Boathouse rafters, covered slips, and the underside of a dock are prime real estate for wasp nests, and a nest you did not know about is the reason a lake weekend ends early. Routine exterior visits for <a href="/lake-martin">Lake Martin</a> accounts knock down webbing and new building along the eaves, and an active nest found there can be treated as an add-on. For the other dock regulars, see <a href="/blog/spiders-on-boat-docks-lake-martin">spiders on boat docks</a>.</p>
+
+<h2>Why wasps pick your house</h2>
+<p>Wasps want three things: a sheltered place to build, food, and water. Eaves, soffits, porch ceilings, shutters, deck rails, and grill covers give paper wasps a dry, protected spot to hang a nest. Yellow jackets forage around open trash cans and recycling bins, pet food, fallen fruit, and sweet drinks, especially in late summer when their colonies turn to sugar. Dripping hose bibs, birdbaths, and pool edges supply water. Keeping lids on trash and recycling, picking up fallen fruit, and checking the eaves for small nests in May and June, while they are still easy to deal with, cuts down on how many settle near the house.</p>
+
+<h2>Mud daubers and other solitary wasps</h2>
+<p>Not every wasp is a problem. Mud daubers build tubes or small lumps of mud on walls, under eaves, and in garages and sheds. They live alone rather than in a colony, rarely sting, and hunt spiders, black widows included. Other solitary wasps, such as potter and digger wasps, hunt caterpillars and other insects that damage gardens. None of them defends a nest the way paper wasps and yellow jackets do. If mud nests by a door or on the siding bother you, they can be scraped off once they are empty, but they are rarely a reason to call.</p>
 
 <h2>Stings and allergies</h2>
 <p>For most people a sting is painful and short-lived; for some, stinging insects are a serious medical risk. Know whether anyone in the household, including a visiting grandchild, has a known sting allergy, and keep their prescribed plan close during yard season. If you disturb a nest, walk away fast in a straight line and get indoors or into a car; swatting only draws more of them. If someone shows signs of a severe reaction, such as trouble breathing, swelling of the face or throat, or dizziness, call 911.</p>
