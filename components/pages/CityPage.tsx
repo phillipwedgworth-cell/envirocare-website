@@ -299,7 +299,7 @@ export default function CityPage({ slug }: { slug: string }) {
             <h1>{city.name} Pest Control{" "}<em>& Termite Service</em></h1>
             <p className="city-hero-sub">{city.intro}</p>
             <div className="city-stats">
-              <div className="city-stat"><div className="city-stat-n">{city.yearsServed}+</div><div className="city-stat-l">Years Serving AL</div></div>
+              <div className="city-stat"><div className="city-stat-n">{city.heritageStat?.value ?? `${city.yearsServed}+`}</div><div className="city-stat-l">{city.heritageStat?.label ?? 'Years Serving AL'}</div></div>
               <div className="city-stat"><div className="city-stat-n">★★★★★</div><div className="city-stat-l">Google Rating</div></div>
               <div className="city-stat"><div className="city-stat-n">$1M</div><div className="city-stat-l">EnviroCare Termite Coverage</div></div>
               <div className="city-stat"><div className="city-stat-n">30+</div><div className="city-stat-l">Pests Covered</div></div>
@@ -361,26 +361,26 @@ export default function CityPage({ slug }: { slug: string }) {
         <div className="container">
           <div className="section-eyebrow">Our Core Services</div>
           <h2 className="section-title">Four Pillars of <span>Total Protection</span></h2>
-          <p className="section-sub">Every {city.name} home gets the same four-pillar program — pest, termite, mosquito, and tick protection from the same family-owned team.</p>
+          <p className="section-sub">{city.servicesIntro ?? <>Every {city.name} home gets the same four-pillar program — pest, termite, mosquito, and tick protection from the same family-owned team.</>}</p>
           <div className="prog-grid">
             <div className="prog-card"><div className="prog-art prog-art-1"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Pest Control</div><div className="prog-desc">Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>30+ pests covered</li><li><span className="prog-chk">✓</span>Free re-services</li><li><span className="prog-chk">✓</span>Familiar local team</li></ul>
+              <div className="prog-body"><div className="prog-name">Pest Control</div><div className="prog-desc">{city.programCopy?.pest?.description ?? 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests.'}</div>
+                <ul className="prog-features">{(city.programCopy?.pest?.features ?? ['30+ pests covered', 'Free re-services', 'Familiar local team']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
                 <a href="/services/pest-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-2"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">Sentricon® Always Active™ bait stations, no drilling — with $1M EnviroCare repair coverage.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>$1M EnviroCare coverage</li><li><span className="prog-chk">✓</span>No drilling, no tanks</li><li><span className="prog-chk">✓</span>Annual WDO letter</li></ul>
+              <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">{city.programCopy?.termite?.description ?? 'Sentricon® Always Active™ bait stations, no drilling — with $1M EnviroCare repair coverage.'}</div>
+                <ul className="prog-features">{(city.programCopy?.termite?.features ?? ['$1M EnviroCare coverage', 'No drilling, no tanks', 'Annual WDO letter']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
                 <a href="/services/termite-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">30-day yard barrier March–October. Make your outdoor space livable again.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>March–October coverage</li><li><span className="prog-chk">✓</span>30-day refresh</li><li><span className="prog-chk">✓</span>Applied according to label directions once dry</li></ul>
+              <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">{city.programCopy?.mosquito?.description ?? '30-day yard barrier March–October. Make your outdoor space livable again.'}</div>
+                <ul className="prog-features">{(city.programCopy?.mosquito?.features ?? ['March–October coverage', '30-day refresh', 'Applied according to label directions once dry']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
                 <a href="/services/mosquito" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-4"><div className="prog-art-grid"></div></div>
-              <div className="prog-body"><div className="prog-name">Tick Control</div><div className="prog-desc">Targeted yard treatments to break the tick lifecycle. Critical for wooded properties.</div>
-                <ul className="prog-features"><li><span className="prog-chk">✓</span>Lone Star, Dog & Deer ticks</li><li><span className="prog-chk">✓</span>Harborage-zone targeting</li><li><span className="prog-chk">✓</span>Runs with your mosquito visit</li></ul>
+              <div className="prog-body"><div className="prog-name">Tick Control</div><div className="prog-desc">{city.programCopy?.tick?.description ?? 'Targeted yard treatments to break the tick lifecycle. Critical for wooded properties.'}</div>
+                <ul className="prog-features">{(city.programCopy?.tick?.features ?? ['Lone Star, Dog & Deer ticks', 'Harborage-zone targeting', 'Runs with your mosquito visit']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
                 <a href="/services/tick-control" className="prog-link">Learn more →</a></div></div>
           </div>
-          <p className="section-sub" style={{ marginTop: '2rem' }}>Own or manage a business in {city.name}? See our <a href="/services/commercial" style={{ color: 'var(--green-dk)', fontWeight: 700 }}>commercial pest control</a> programs for restaurants, offices, warehouses, and data facilities.</p>
+          <p className="section-sub" style={{ marginTop: '2rem' }}>Own or manage a business in {city.name}? See our <a href="/services/commercial" style={{ color: 'var(--green-dk)', fontWeight: 700 }}>commercial pest control</a>{city.commercialDescription ?? ' programs for restaurants, offices, warehouses, and data facilities.'}</p>
         </div>
       </section>
 
@@ -388,7 +388,7 @@ export default function CityPage({ slug }: { slug: string }) {
         <div className="container">
           <div className="section-eyebrow">Neighborhoods We Serve</div>
           <h2 className="section-title">Across <span>{city.name}</span></h2>
-          <p className="section-sub">Your technician is a neighbor — we know every street.</p>
+          <p className="section-sub">{city.neighborhoodIntro ?? 'Your technician is a neighbor — we know every street.'}</p>
           <div className="nbhd-grid">
             {city.neighborhoods.map((n) => (
               <div key={n} className="nbhd-chip">{n}</div>
@@ -407,7 +407,7 @@ export default function CityPage({ slug }: { slug: string }) {
           <h3>{city.officeName}</h3>
           <div className="office-cta-addr">{city.officeAddress}</div>
           <div className="office-cta-row">
-            <a href={`tel:${tel}`} className="btn-gold" style={{overflow:'visible'}}>Call {phone}</a>
+            <a href={`tel:${city.officeTel}`} className="btn-gold" style={{overflow:'visible'}}>Call {city.officePhone}</a>
             <a href="/pricing" className="btn-outline-white">See Plans →</a>
           </div>
         </div>
