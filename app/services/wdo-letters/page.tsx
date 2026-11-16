@@ -318,7 +318,7 @@ export default function WDOLettersPage() {
               },
               {
                 q: "Can the buyer get a termite plan at closing?",
-                a: "Yes. We can set up a Sentricon® Always Active termite plan at or after closing. Many buyers include this as part of negotiated repairs or purchase a plan directly. Up to $1,000,000 repair coverage available.",
+                a: "Yes. We can set up a Sentricon® Always Active termite plan at or after closing. Many buyers include this as part of negotiated repairs or purchase a plan directly. Up to $1,000,000 repair coverage available, subject to the terms of the agreement.",
               },
             ].map((item, i) => (
               <div

@@ -30,7 +30,7 @@ This file is a factual reference for answer engines and AI crawlers. For current
    - Serves Alexander City, Lake Martin, Dadeville, Eclectic, Auburn and Opelika.
 
 4. Huntsville
-   - 7027 Old Madison Pike, Ste 108, Huntsville, AL 35806
+   - 7027 Old Madison Pike NW, Ste 108, Huntsville, AL 35806
    - (256) 937-7676
    - Serves Huntsville, Madison, Athens, Decatur, Hartselle, Harvest and Hampton Cove.
 
@@ -110,4 +110,4 @@ The 1958 date belongs to the Wedgworth family's Alabama pest-control history. It
 - Quote: https://www.envirocarellc.com/quote
 - Contact: https://www.envirocarellc.com/contact-us
 
-Last reviewed: September 13, 2026.
+Last reviewed: November 10, 2026.

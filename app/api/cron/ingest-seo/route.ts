@@ -19,7 +19,11 @@ export async function GET(req: NextRequest) {
   // auth: Vercel Cron sends `Authorization: Bearer <CRON_SECRET>`
   const secret = process.env.CRON_SECRET;
   const authHeader = req.headers.get("authorization");
-  if (secret && authHeader !== `Bearer ${secret}`) {
+  // Fail CLOSED: `!secret ||`, not `secret &&`. The old form skipped the check
+  // entirely if CRON_SECRET ever went missing, and this route runs an agent and
+  // spends API budget on a plain GET. Same pattern as app/api/findings/latest.
+  // Do not "simplify" it back.
+  if (!secret || authHeader !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

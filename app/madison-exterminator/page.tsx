@@ -38,13 +38,13 @@ const c: ComboContent = {
     },
     {
       title: "One-time fix or ongoing plan — your call",
-      body: `One-time treatments for a specific problem are exactly that. If what you actually want is not seeing pests again, the bi-monthly plan (from $${PRICING.plans.pest.fromMonthly}/mo, $${PRICING.plans.pest.startup} startup) covers 30+ pests with free re-service between visits.`,
+      body: `One-time treatments for a specific problem are exactly that. If what you actually want is not seeing pests again, the bi-monthly plan (from $${PRICING.plans.pest.fromMonthly}/mo, $${PRICING.plans.pest.startup} initial service, 50% off the $${PRICING.initialServiceRegular} regular price) covers 30+ pests with free re-service between visits.`,
     },
   ],
   price: {
     label: "Exterminator Service — Madison",
     amount: `From $${PRICING.plans.pest.fromMonthly}/mo`,
-    sub: `bi-monthly plan · $${PRICING.plans.pest.startup} startup · one-time treatments also available`,
+    sub: `bi-monthly plan · $${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular}, 50% off) · one-time treatments also available`,
     bullets: [
       "Same local technicians on every route",
       "Problem identified and explained, not just sprayed",

@@ -57,7 +57,7 @@ export const SERVICE_CATALOG = {
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Builder Pre-Treatment',
       description: 'Pre-construction termite soil treatment for new builds. Certified and warranted.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'WDO Real Estate Inspection',
-      description: 'Paid Wood-Destroying Organism (WDO) inspection letters for real estate transactions in our Alabama service area. Contact the office to confirm the fee, property requirements and scheduling.' } },
+      description: 'WDO (wood-destroying organism) inspection letters for real estate transactions in our Alabama service area. Contact the office to confirm pricing, property requirements and scheduling.' } },
   ],
 };
 
