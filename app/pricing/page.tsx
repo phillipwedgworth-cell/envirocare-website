@@ -11,6 +11,7 @@
 import type { Metadata } from "next";
 import PricingContent from "./PricingContent";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import { PEST_OFFER_DESCRIPTION, PEST_PRICE_SPECIFICATION } from '@/lib/seo/pest-offer';
 
 export const metadata: Metadata = {
   title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
@@ -41,7 +42,8 @@ const OFFER_SCHEMA = {
   itemListElement: [
     {
       "@type": "Offer", name: "Pest Control", priceCurrency: "USD", price: "35",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "35", priceCurrency: "USD", unitText: "per month, ACH" },
+      priceSpecification: PEST_PRICE_SPECIFICATION,
+      description: PEST_OFFER_DESCRIPTION,
       itemOffered: { "@type": "Service", name: "Bimonthly Pest Control", description: "Bimonthly perimeter pest control covering 30+ common Alabama pests including mice and rats, with free re-service. $75 initial service fee (50% off the $150 regular price); monthly pricing uses a 12-month ACH billing agreement." },
     },
     {

@@ -159,9 +159,10 @@ export default function AboutUs() {
                 Four Generations.<em>One Promise.</em>
               </h1>
               <p className="ab-hero-sub">
-                EnviroCare is the Wedgworth family. The family started in Alexander City in 1958 as Wedgworth Pest Control,
-                now four generations on across Birmingham, Huntsville, and Lake Martin — protecting Alabama
-                homes the way we'd protect our own.
+                EnviroCare Pest Services is the Wedgworth family&apos;s Alabama pest and termite company.
+                The family&apos;s pest-control history began in Alexander City in 1958 as Wedgworth Pest Control;
+                four generations on, we serve Central and North Alabama from offices in Birmingham, Alabaster, Huntsville and Alexander City /
+                Lake Martin — protecting Alabama homes the way we&apos;d protect our own.
               </p>
               <div className="ab-stats">
                 <div className="ab-stat">

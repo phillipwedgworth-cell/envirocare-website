@@ -48,7 +48,7 @@ export default function Homepage() {
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Alabama pest, termite &amp; mosquito control</p>
             <h1 id="home-heading">Alabama pest protection for <span>the home you love.</span></h1>
-            <p className={`${styles.heroIntro} ec-hero-sub`}>Your home. Your yard. One familiar local team. Pest, termite and mosquito care from a fourth-generation Alabama family business.</p>
+            <p className={`${styles.heroIntro} ec-hero-sub`}>Your home. Your yard. One familiar local team. EnviroCare Pest Services is a fourth-generation Alabama family company providing pest, termite and mosquito care from offices in Birmingham, Alabaster, Huntsville and Alexander City / Lake Martin.</p>
             <div className={styles.heroActions}>
               <Link href="/quote" className={styles.primaryButton}>Get a free quote <ArrowRight size={18} aria-hidden="true" /></Link>
               <a href={mainOffice.phoneHref} className={styles.callButton} aria-label={`Call EnviroCare at ${mainOffice.phone}`}>
