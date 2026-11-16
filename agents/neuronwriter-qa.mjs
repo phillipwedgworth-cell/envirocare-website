@@ -309,7 +309,7 @@ function rawTableReport(results) {
   });
   return [
     `# NeuronWriter QA Report — ${today}`,
-    `**Queries used this run: ${queriesUsed} of ~50 monthly**`,
+    `**Successful page evaluations this run: ${queriesUsed}. Account allowance and reset date were not verified by this report.**`,
     '',
     '| Page | Keyword | Score | Top 5 Missing Terms |',
     '|---|---|---|---|',
@@ -400,7 +400,7 @@ export async function run() {
     revise: fb => workerDraft(results, fb),
     toolErrors,
     onEscalate: async (out, history) => {
-      console.warn(`[${AGENT_NAME}] critic escalated — accepting best draft`);
+      console.warn(`[${AGENT_NAME}] critic escalated — discarding rejected prose; preserving raw measurements only`);
       escalated = true;
       criticHistory = history;
     },
@@ -417,7 +417,9 @@ export async function run() {
     return { blocked: true, reason, brief: `blocked: ${reason}`, results, failCount: 0 };
   }
 
-  const final = critic;
+  // A critic-rejected draft must not become the durable report or digest.
+  // Keep escalation visible while replacing unsupported prose with raw data.
+  const final = escalated ? rawTableReport(results) : critic;
   await writeReport(final, results).catch(e => console.error(`[${AGENT_NAME}] writeReport error: ${e.message}`));
   await appendWeeklyResult(results).catch(e => console.error(`[${AGENT_NAME}] Notion post error: ${e.message}`));
   await logAgentRun(AGENT_NAME, escalated ? 'escalated' : 'ok', final,
