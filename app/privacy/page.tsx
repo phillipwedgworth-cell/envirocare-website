@@ -120,6 +120,11 @@ export default function PrivacyPage() {
           third-party analytics providers (such as Google Analytics or Vercel Analytics) to understand how visitors use the
           site. You can disable cookies in your browser, though some site features may not work as well.
         </p>
+        <p>
+          When you type in the street address field on our quote or scheduling forms, the text you type is sent to Google
+          (Google Maps Platform / Places) to suggest matching addresses. Google handles that information under its own
+          privacy policy, available at policies.google.com/privacy.
+        </p>
 
         <h2 style={{ ...serif, fontSize: 24, color: DEEP, marginTop: 36, marginBottom: 12 }}>6. Children's Privacy</h2>
         <p>

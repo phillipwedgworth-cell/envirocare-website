@@ -84,6 +84,9 @@ function harness(file, { responses = [{ ok: true }], tags = {} } = {}) {
     '@/lib/seo/breadcrumbs': { breadcrumbList: () => ({}) },
     '@/data/offices': officeData,
     'next/navigation': { usePathname: () => '/quote' },
+    // ScheduleRequest's street box is the Google autocomplete wrapper; this
+    // guard never types into it, so a named stub is enough to render the form.
+    '@/components/AddressAutocomplete': { default: 'AddressAutocomplete' },
     '../lib/use-office-phone': { useOfficePhone: () => ({ phone: '(205) 940-6360', phoneHref: 'tel:2059406360' }) },
   }, {
     window: { location: { pathname: file === CONTACT ? '/contact-us' : '/quote', search: '' }, ...tags },
