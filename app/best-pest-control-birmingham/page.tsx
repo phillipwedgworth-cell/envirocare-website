@@ -147,7 +147,7 @@ export default function BestPestControlBirminghamPage() {
             initial and recurring prices, the written agreement, and the local office handling follow-up.
           </p>
           <p style={{ fontSize: 16.5, lineHeight: 1.75, maxWidth: 780, marginTop: 10, color: '#4a5750' }}>
-            EnviroCare Pest Services is the public brand of EnviroCare, LLC. The Wedgworth family
+            EnviroCare Pest Services is the public name of EnviroCare. The Wedgworth family
             has been doing pest control in Alabama since 1958, starting in Alexander City. The fourth
             generation is now in the business. Our four offices serve Birmingham, Alabaster, Huntsville and
             Alexander City / Lake Martin. <a href="/about-us" style={{ color: GREEN, fontWeight: 600 }}>Meet the family and find our offices.</a>
@@ -184,9 +184,10 @@ export default function BestPestControlBirminghamPage() {
             Our bi-monthly pest program starts at <strong>${PRICING.plans.pest.fromMonthly}/month
             on ACH or ${PRICING.plans.pest.perVisit} per bi-monthly visit</strong>, with {INITIAL_SERVICE_COPY}.
             {' '}{PRICING.achTerms} Free re-service between scheduled pest visits is included.
-            Termite protection uses Sentricon<sup>®</sup> Always Active™ baiting. Qualifying homes
-            can receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare,
-            subject to the terms of the agreement. Termite pricing is determined after inspection.
+            Termite protection uses Sentricon<sup>®</sup> Always Active™ baiting, with up to
+            $1,000,000 in termite damage repair coverage provided by EnviroCare on qualifying homes,
+            subject to inspection and approval and subject to the terms of the agreement. Termite
+            pricing is determined after inspection.
           </p>
 
           <aside style={{ background: '#fff', border: '1px solid rgba(14,26,15,.10)', borderRadius: 12, padding: '20px 24px', maxWidth: 800, marginTop: 22 }} aria-label="Birmingham office and reviews">
