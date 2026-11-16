@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import AddressAutocomplete from "@/components/AddressAutocomplete";
 import { CheckCircle2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useOfficePhone } from "../lib/use-office-phone";
@@ -290,7 +291,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
             <label htmlFor="sr-company-website">Company website</label>
             <input name="company_website" id="sr-company-website" value={hp} onChange={(e) => setHp(e.target.value)} tabIndex={-1} autoComplete="off" />
           </div>
-          <input name="street-address" id="sr-address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street address (optional)" aria-label="Street address (optional)" autoComplete="street-address" style={{ ...field, gridColumn: "1 / -1" }} />
+          <AddressAutocomplete name="street-address" id="sr-address" value={address} onChange={setAddress} onPick={(a) => { setAddress(a.street); if (a.zip) { setZip(a.zip); if (state === "outofarea") setState("idle"); } }} placeholder="Street address (optional)" ariaLabel="Street address (optional)" style={{ ...field, gridColumn: "1 / -1" }} />
         </div>
 
         {/* Services — optional */}

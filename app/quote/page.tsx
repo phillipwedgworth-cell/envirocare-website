@@ -9,19 +9,19 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/quote' },
-  title: "Request a Free Pest Control Visit | EnviroCare Alabama",
-  description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
+  title: "Request a Pest Control Quote | EnviroCare Alabama",
+  description: "Tell us which pest, termite or mosquito service you need. Our office will call to discuss your property, pricing and scheduling.",
   openGraph: {
-    title: "Request a Free Pest Control Visit | EnviroCare Alabama",
-    description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
+    title: "Request a Pest Control Quote | EnviroCare Alabama",
+    description: "Tell us which pest, termite or mosquito service you need. Our office will call to discuss your property, pricing and scheduling.",
     url: 'https://www.envirocarellc.com/quote',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Request a Free Pest Control Visit | EnviroCare Alabama",
-    description: "Tell us what works best and our office will call to set up your free pest control visit. Pest, termite, and mosquito service across Alabama — no obligation.",
+    title: "Request a Pest Control Quote | EnviroCare Alabama",
+    description: "Tell us which pest, termite or mosquito service you need. Our office will call to discuss your property, pricing and scheduling.",
     images: ['/og-image.png'],
   },
 };
@@ -34,10 +34,10 @@ export default function QuotePage() {
         <div style={{ maxWidth: 1120, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 600, color: '#0E1A0F', marginBottom: 8 }}>
-              Request a Free Pest Control Visit
+              Request a Pest Control Quote
             </h1>
             <p style={{ fontFamily: "var(--font-sans)", color: '#5b6f60', fontSize: '15.5px', margin: 0 }}>
-              Tell us what works best and our office will call to set it up — most visits don&rsquo;t require you home.
+              Tell us what you need and our office will call to discuss service options and pricing. Your appointment is confirmed by our office.
             </p>
           </div>
           <ScheduleRequest />
