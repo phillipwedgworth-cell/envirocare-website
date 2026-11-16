@@ -19,6 +19,10 @@ interface Props {
   draft: AdDraft;
 }
 
+// Patch 0022: approve/feedback are authorised by the httpOnly ad-review session
+// cookie set at sign-in (app/api/ads/review-login). Same-origin fetch sends it
+// automatically, so no key ever sits in the page URL (0021's ?key= link is gone).
+
 export default function AdDraftReview({ draft }: Props) {
   const [status, setStatus] = useState(draft.status);
   const [feedback, setFeedback] = useState("");

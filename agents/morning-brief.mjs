@@ -37,7 +37,7 @@
 
 import { logRunREST } from './lib/run-log.mjs';
 import { knowledgeBlock } from './lib/knowledge.mjs';
-import { stripCrossSeriesClaims, stripStalePRClaims, fixDataWindowLabel } from './lib/brief-sanitize.mjs';
+import { stripCrossSeriesClaims, stripStalePRClaims, fixDataWindowLabel, stripDeployClaims } from './lib/brief-sanitize.mjs';
 import { createMessage } from './lib/llm-with-logging.mjs';
 
 const PROJECT_REF = 'dyoujmyleihcpqgeifre';
@@ -107,9 +107,46 @@ async function fetchMergedPRs() {
     }).then((r) => (r.ok ? r.json() : null));
     if (!Array.isArray(rows)) return { ok: false, prs: [] };
     const since = Date.now() - 48 * 3600 * 1000;
-    return { ok: true, prs: rows.filter((p) => p.merged_at && Date.parse(p.merged_at) >= since).map((p) => ({ number: p.number, title: p.title, merged_at: p.merged_at })) };
+    return { ok: true, prs: rows.filter((p) => p.merged_at && Date.parse(p.merged_at) >= since).map((p) => ({ number: p.number, title: p.title, merged_at: p.merged_at, merge_commit_sha: p.merge_commit_sha })) };
   } catch {
     return { ok: false, prs: [] };
+  }
+}
+
+// ── Ground truth #4 (Sunday audit 2026-11-08, R4): is each merged PR actually
+// in the production deployment? GitHub records every Vercel production deploy
+// as a Deployment with environment "Production – envirocare-web-only-testing".
+// Take the newest one whose latest status is "success", then ask GitHub's
+// compare API whether that deployed commit contains the PR's merge commit.
+// Any API failure -> state unknown -> the brief may make NO deploy claim.
+const GH = 'https://api.github.com/repos/phillipwedgworth-cell/envirocare-website';
+const PROD_ENV = /production/i;
+const PROD_PROJECT = /envirocare-web-only-testing/i;
+async function fetchDeployState(merged) {
+  const token = process.env.GITHUB_TOKEN;
+  const empty = { ok: false, liveSha: null, live: new Map() };
+  if (!token || !merged?.ok) return empty;
+  const h = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'EnviroCare-Agent/1.0' };
+  try {
+    const deps = await fetch(`${GH}/deployments?per_page=30`, { headers: h }).then((r) => (r.ok ? r.json() : null));
+    if (!Array.isArray(deps)) return empty;
+    let liveSha = null;
+    for (const d of deps.filter((x) => PROD_ENV.test(x.environment || '') && PROD_PROJECT.test(x.environment || ''))) {
+      const st = await fetch(`${GH}/deployments/${d.id}/statuses?per_page=1`, { headers: h }).then((r) => (r.ok ? r.json() : null));
+      if (Array.isArray(st) && st[0]?.state === 'success') { liveSha = d.sha; break; }
+    }
+    if (!liveSha) return empty;
+    const live = new Map();
+    for (const p of merged.prs) {
+      if (!p.merge_commit_sha) { live.set(p.number, null); continue; }
+      const cmp = await fetch(`${GH}/compare/${p.merge_commit_sha}...${liveSha}`, { headers: h }).then((r) => (r.ok ? r.json() : null));
+      // "ahead"/"identical": the deployed commit contains the merge -> live.
+      // "behind"/"diverged": it does not -> not live. Anything else: unknown.
+      live.set(p.number, cmp?.status === 'ahead' || cmp?.status === 'identical' ? true : cmp?.status === 'behind' || cmp?.status === 'diverged' ? false : null);
+    }
+    return { ok: true, liveSha, live };
+  } catch {
+    return empty;
   }
 }
 
@@ -266,7 +303,7 @@ function buildContext(data, repeatDays = () => 1) {
 
 // A literal, non-negotiable statement of what shipped. The model is told to
 // treat this as the only evidence of completion that exists.
-function buildExecutionBlock({ actions, queue, merged }) {
+function buildExecutionBlock({ actions, queue, merged, deploy }) {
   const done = arr(actions).filter((a) => ['executed', 'applied', 'completed', 'done'].includes(String(a.status || '').toLowerCase()));
   const stuck = arr(queue);
   const deadEnd = stuck.filter((q) => !q.action_type).length;
@@ -275,7 +312,14 @@ function buildExecutionBlock({ actions, queue, merged }) {
     ? Math.floor((Date.now() - new Date(stuck[0].created_at).getTime()) / 86400000)
     : 0;
 
-  const mergedLines = arr(merged?.prs).map((p) => `- Merged to main: PR #${p.number} ${p.title} (code on main; live only once the production deploy is READY)`);
+  const liveTag = (n) => {
+    const v = deploy?.ok ? deploy.live.get(n) : null;
+    const sha = deploy?.liveSha ? String(deploy.liveSha).slice(0, 7) : '';
+    if (v === true) return `LIVE in production (production deploy ${sha} contains it)`;
+    if (v === false) return `NOT yet in production (current production deploy is ${sha})`;
+    return 'production deploy status UNKNOWN — say nothing about whether it is live';
+  };
+  const mergedLines = arr(merged?.prs).map((p) => `- Merged to main: PR #${p.number} ${p.title} — ${liveTag(p.number)}`);
   const allDone = done.map((a) => `- ${a.agent_name || 'agent'}: ${a.action}`).concat(mergedLines);
   const doneLines = allDone.length
     ? allDone.join('\n')
@@ -302,6 +346,7 @@ You are given the STRATEGY BRAIN (knowledge block in the user message): the live
 
 - Every "YOUR CALL" item ends with a line "Owner: <Phillip|Kevin|Claude Code|agent name> · Due: <weekday or date>". An item you cannot give an owner and a date does not belong in the brief.
 - A finding marked [seen N of the last 30 days] is a REPEAT. Mention it once, as "still open (N days)", never as news, and never more than one line.
+- DEPLOY STATE: each merged PR in EXECUTED ACTIONS is tagged LIVE in production, NOT yet in production, or UNKNOWN. Repeat that tag exactly. Never write "awaiting production deploy", "not yet live", "deploy TBD" or "live on code only" for a PR tagged LIVE; for UNKNOWN make no claim about live or not live.
 - PR STATE: the OPEN PULL REQUESTS block is the only truth. A PR not listed there is merged or closed. Never write "unmerged", "waiting on merge", "Day N" or similar about a PR that is not in that block. If the block says UNAVAILABLE, make no PR-state claim at all.
 
 ABSOLUTE RULE: never write that something was handled, fixed, shipped, or rewritten unless it is listed in EXECUTED ACTIONS. Reporting unfinished work as finished is the single worst failure this brief can have — Phillip has stopped checking things because the brief said they were done. When in doubt, put it in QUEUED.
@@ -393,18 +438,21 @@ async function main() {
   // Yesterday's brief is fed back for deltas. Clean it first, or a stale PR
   // claim is re-copied forever with a growing day counter (10-05 → 10-10).
   const prevBrief = prevBriefRaw ? { ...prevBriefRaw, content: stripStalePRClaims(prevBriefRaw.content, prState).text } : null;
-  const ctx = buildContext({ ...data, merged }, repeatDays);
+  const deploy = await fetchDeployState(merged);
+  const ctx = buildContext({ ...data, merged, deploy }, repeatDays);
   const content = await generateBrief(ctx, prevBrief, board.text, buildPRBlock(prs));
   if (!content) throw new Error('empty brief from model');
   const a = stripCrossSeriesClaims(content);
   const b = stripStalePRClaims(a.text, prState);
   const c = fixDataWindowLabel(b.text, board.lastDate);
+  const d = stripDeployClaims(c.text, deploy);
   if (a.removed) console.warn(`[morning-brief] removed ${a.removed} cross-series SoLV line(s)`);
   if (b.removed) console.warn(`[morning-brief] removed ${b.removed} stale PR line(s)`);
   if (c.fixed) console.warn(`[morning-brief] corrected ${c.fixed} GSC window label(s) to ${board.lastDate}`);
-  const cleaned = c.text;
+  if (d.removed) console.warn(`[morning-brief] removed ${d.removed} unsupported deploy-status line(s)`);
+  const cleaned = d.text;
   await upsertBrief(cleaned);
-  const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings; open PRs: ${prs.ok ? prs.prs.length : 'unknown'}; merged 48h: ${merged.ok ? merged.prs.length : 'unknown'}; sanitized: ${a.removed + b.removed + c.fixed}).`;
+  const summary = `Morning Brief written for ${briefDate()} (${ctx.shipCount} SHIP / ${ctx.totalFindings} findings; open PRs: ${prs.ok ? prs.prs.length : 'unknown'}; merged 48h: ${merged.ok ? merged.prs.length : 'unknown'}; sanitized: ${a.removed + b.removed + c.fixed + d.removed}; prod deploy: ${deploy.ok ? String(deploy.liveSha).slice(0, 7) : 'unknown'}).`;
   console.log(summary);
   console.log('---\n' + cleaned);
   return summary;

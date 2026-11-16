@@ -44,7 +44,7 @@ const c: ComboContent = {
   price: {
     label: "Bi-Monthly Pest Control — Madison",
     amount: `From $${PRICING.plans.pest.fromMonthly}/mo`,
-    sub: `$${PRICING.plans.pest.startup} startup · ${PRICING.achFootnoteShort}`,
+    sub: `$${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular}, 50% off) · ${PRICING.achFootnoteShort}`,
     bullets: [
       "Every-other-month exterior perimeter treatment",
       "30+ Alabama pests covered",
