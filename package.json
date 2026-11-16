@@ -40,7 +40,8 @@
     "test:contact-reliability": "node scripts/test-contact-reliability.mjs",
     "test:page-refresh": "node scripts/test-page-refresh.mjs",
     "test:leads": "node --no-warnings scripts/test-lead-coordinator.mjs",
-    "test:api-auth": "node scripts/test-api-auth.mjs"
+    "test:api-auth": "node scripts/test-api-auth.mjs",
+    "test:lead-screen": "node --no-warnings scripts/test-lead-screen.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
