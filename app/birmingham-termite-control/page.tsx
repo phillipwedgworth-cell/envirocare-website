@@ -46,11 +46,11 @@ const c: ComboContent = {
     },
     {
       title: "No drilling in historic masonry",
-      body: "Liquid treatments drill holes every 12 inches through slabs, patios, and driveways. Sentricon® bait stations go in the ground around the perimeter — nothing drilled, no tank trucks, no scarred brick on a 1920s foundation.",
+      body: "Some liquid treatment plans require drilling through concrete or masonry where soil access is limited. Sentricon® bait stations are generally installed in soil around the perimeter without drilling the slab. The right method depends on the property and inspection findings.",
     },
     {
       title: "Colony elimination, not a chemical moat",
-      body: "Bait gets carried back to the colony and ends it — including the queen. A liquid barrier just redirects foragers until it degrades in 5–7 years.",
+      body: "Sentricon® bait stations are designed to eliminate colonies after termites feed on the bait. Nonrepellent liquid termiticides may also affect termite populations, including through transfer among termites. Protection and follow-up depend on the product, application and inspection plan.",
     },
   ],
   price: {
@@ -59,7 +59,7 @@ const c: ComboContent = {
     sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 damage repair coverage",
+      "Up to $1,000,000 in EnviroCare repair coverage for qualifying homes, subject to written agreement",
       "Annual inspection + station service",
       "Free WDO letter yearly for active customers",
       "Free termite inspection to start — no obligation",
@@ -72,11 +72,11 @@ const c: ComboContent = {
     },
     {
       q: "What does the $1M coverage actually mean?",
-      a: "If subterranean termites damage your home while you're on the Sentricon® Always Active™ program and we've maintained it, EnviroCare covers repairs up to $1,000,000. It's that coverage, subject to the terms of the agreement, not a vague warranty.",
+      a: "Qualifying EnviroCare Sentricon® agreements may provide up to $1,000,000 in termite damage repair coverage. The written agreement controls eligibility, covered damage, exclusions, maintenance duties and claims procedures. Ask to review it before enrolling.",
     },
     {
       q: "Is Sentricon® better than a liquid treatment for older homes?",
-      a: "For Birmingham's housing stock, almost always. Liquid requires drilling through original slabs and masonry and retreating every 5–7 years. Sentricon® stations install in the soil with zero drilling and eliminate the colony itself.",
+      a: "It depends on the construction and infestation. Sentricon® stations usually install in soil without slab drilling and target termite colonies after feeding. Liquid treatment may be appropriate for some homes and may require drilling when access is limited. A free site inspection helps determine the best fit.",
     },
     {
       q: "I'm buying or selling a home — can you handle the termite letter?",
