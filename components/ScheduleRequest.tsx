@@ -291,7 +291,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
             <label htmlFor="sr-company-website">Company website</label>
             <input name="company_website" id="sr-company-website" value={hp} onChange={(e) => setHp(e.target.value)} tabIndex={-1} autoComplete="off" />
           </div>
-          <AddressAutocomplete name="street-address" id="sr-address" value={address} onChange={setAddress} onPick={(a) => { setAddress(a.street); if (a.zip) setZip(a.zip); }} placeholder="Street address (optional)" ariaLabel="Street address (optional)" style={{ ...field, gridColumn: "1 / -1" }} />
+          <AddressAutocomplete name="street-address" id="sr-address" value={address} onChange={setAddress} onPick={(a) => { setAddress(a.street); if (a.zip) { setZip(a.zip); if (state === "outofarea") setState("idle"); } }} placeholder="Street address (optional)" ariaLabel="Street address (optional)" style={{ ...field, gridColumn: "1 / -1" }} />
         </div>
 
         {/* Services — optional */}
