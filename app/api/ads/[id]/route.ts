@@ -1,15 +1,19 @@
 import { getAdDraftById } from "@/lib/ads";
+import { requireAdmin } from "@/lib/api-auth";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  if (!params?.id) {
+  const denied = requireAdmin(request); // returns unapproved draft copy (patch 0022)
+  if (denied) return denied;
+  const { id } = await params;
+  if (!id) {
     return Response.json({ error: "Missing ad draft id" }, { status: 400 });
   }
 
   try {
-    const draft = await getAdDraftById(params.id);
+    const draft = await getAdDraftById(id);
     if (!draft) {
       return Response.json({ error: "Draft not found" }, { status: 404 });
     }

@@ -99,3 +99,38 @@ export function fixDataWindowLabel(text, lastDate) {
   });
   return { text: out.join('\n'), fixed };
 }
+
+// ── Sunday audit 2026-11-08, R4 (4th week). Briefs 11-03 and 11-05 said
+// "PR #290 merged … (awaiting production deploy)" and "PR #287 merged …
+// awaiting production deploy" while the production deployment carrying each
+// commit was already READY (Vercel: cefc348 READY 11-03 02:23 UTC; 3081e26
+// READY 11-04 20:50 UTC). The model was guessing deploy state.
+// deployState = { ok, live: Map<number, boolean|null> } from fetchDeployState().
+//   live true  -> any "not live / awaiting deploy" wording about that PR is removed
+//   live false -> any "live / deployed" wording about that PR is removed
+//   unknown (ok false, or null) -> both kinds of claim are removed: say nothing
+const NOT_LIVE = /\b(?:awaiting (?:a |the )?(?:production )?deploy(?:ment)?|deploy(?:ment)? (?:is )?(?:tbd|pending)|not (?:yet )?live|not (?:yet )?deployed|production deploy (?:is )?not yet live|live on code only)\b/i;
+const IS_LIVE = /\b(?:(?:is |now )?live in production|deployed to production|(?:now )?live on (?:the )?(?:site|www|envirocarellc))\b/i;
+export function stripDeployClaims(text, deployState) {
+  const ok = !!deployState?.ok;
+  const live = deployState?.live ?? new Map();
+  let removed = 0;
+  const out = [];
+  for (const line of String(text).split('\n')) {
+    const saysNot = NOT_LIVE.test(line);
+    const saysLive = !saysNot && IS_LIVE.test(line);
+    if (!saysNot && !saysLive) { out.push(line); continue; }
+    const nums = prNumbers(line);
+    if (!nums.length) { out.push(line); continue; }
+    const wrong = nums.some((n) => {
+      const v = ok ? live.get(n) : null;
+      if (v === true) return saysNot;
+      if (v === false) return saysLive;
+      return true; // unknown deploy state: no claim either way
+    });
+    if (wrong) { removed++; continue; }
+    out.push(line);
+  }
+  if (removed) out.push('', `(${removed} line(s) removed: they stated a PR's production-deploy status that the production deployment record does not support.)`);
+  return { text: out.join('\n'), removed };
+}

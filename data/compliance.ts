@@ -96,6 +96,23 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // A 'flat $75' initial contradicts pricing canon twice: the $75 is 50% off a $150
   // regular price, not a flat rate, and a mosquito-only plan has no $75 startup.
   { pattern: 'flat\\s+\\$\\s?75', reason: 'pricing claim ($75 is 50% off $150, not a flat price; mosquito-only has no $75 startup)', approvedInstead: '$75 initial service, 50% off the $150 regular price (Pest and Pest + Mosquito only)' },
+  // Bare $75 initial (no $150 anchor) shipped on /pricing, its schema, the chatbot prompt and
+  // ~30 blog/city FAQ answers because the Sep 7 2026 ruling lived only in the prose rules below and
+  // nothing tested it. Added 2026-11-02 (patch 0019). notIf is per line: a line that names
+  // the $150 regular price anywhere passes.
+  // WIDENED 2026-11-10 (patch 0022, sweep C3): the literal "$75 initial" missed every live
+  // offender ("$75 for pest", "$75 startup", startup: "$75", "initial service fee is $75").
+  // Match the figure next to the words the site uses for it, in EITHER order. No WDO
+  // exemption: notIf is per LINE, and the FaqPage offender sits on a line that also says
+  // "free WDO inspection", so a 'wdo' notIf let it through. The $75 WDO inspection fee
+  // (blog-posts.ts, awaiting a ruling, sweep S6a) never sits next to initial/startup, so
+  // the pattern itself does not reach it.
+  // Same rule for the TEMPLATE form: `$${PRICING.plans.pest.startup} startup` renders "$75
+  // startup" on /madison-pest-control, /madison-exterminator and /decatur-exterminator, but
+  // no text pattern can see a figure that only exists at render time. A line that renders a
+  // Pest / Pest+Mosquito startup must also render the regular-price anchor.
+  { pattern: 'PRICING\\.plans\\.(?:pest|pestMosquito)\\.startup\\s*\\}', notIf: 'initialServiceRegular|150', reason: 'bare $75 initial (template) - Phillip Sep 7 2026: render PRICING.initialServiceRegular next to the startup figure', approvedInstead: '$${PRICING.plans.pest.startup} initial service (50% off the $${PRICING.initialServiceRegular} regular price)' },
+  { pattern: '\\$\\s?75\\b[^.$\\n]{0,30}\\b(?:initial|start-?up|set-?up|service\\s+fee|for pest|on pest)|\\b(?:initial|start-?up|set-?up)\\b[^.$\\n]{0,40}\\$\\s?75\\b', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
   { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
@@ -377,8 +394,35 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // the noun, and Sentricon was only matched after from/by/through. app/highland-
   // lakes/page.tsx carried "How does the Sentricon® warranty work…" in its FAQ and
   // FAQPage schema while every guard passed. AGENTS.md §1 bans it by name.
-  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
-    reason: 'coverage attributed to Sentricon (possessive)',
+  //
+  // COVERAGE (added 2026-10-29). The noun list was guarantee|warranty|warranties;
+  // it did not include the word the site actually uses most. AGENTS.md §1 lists
+  // "Sentricon® $1M coverage" verbatim as a blocking error, yet the hero stat
+  // "$1M / Sentricon® coverage" and the disclosure "Sentricon® damage repair
+  // coverage is up to $1,000,000" shipped on 11 routes (NeighborhoodPage x10,
+  // mountain-brook) while every guard passed. So the rule now also matches:
+  //   (a) "Sentricon® (damage) repair coverage" -- always an attribution of money
+  //   (b) "Sentricon® coverage" with a $1M figure within 30 chars either side --
+  //       what a stat tile looks like once the markup between them is counted.
+  // Bare "Sentricon® coverage" is NOT matched: "transfer Sentricon® coverage from
+  // a prior owner" is plan shorthand with no money claim, and "EnviroCare's
+  // Sentricon coverage" names EnviroCare as the possessor (also in notIf). The
+  // first draft matched both -- the same over-match as PR #171's first draft.
+  //
+  // CARVE-OUT REMOVED 2026-11-08. The first version of this rule shipped with
+  // `EnviroCare['’]s\s+sentricon` in notIf. notIf suppresses the WHOLE rule, not
+  // the branch it was written for, so it also switched off the guarantee/warranty
+  // branch above: "EnviroCare's Sentricon warranty protects your home" and
+  // "...warranties cover repairs" both passed every guard. That is the exact
+  // defect this rule exists to stop -- AGENTS.md section 1 bans the possessive
+  // outright ("any possessive: Sentricon's guarantee, the Sentricon warranty")
+  // regardless of who is named as possessor, because the warranty still is not
+  // Sentricon's. The carve-out was also unnecessary: bare "EnviroCare's Sentricon
+  // coverage" carries no money figure, so only the two $1M-proximity branches
+  // could match it, and neither does. Both forms are asserted in
+  // scripts/test-compliance-guarantee.mjs so this cannot regress unseen again.
+  { pattern: '\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+(?:guarantee|warranty|warranties|(?:damage\\s+)?repair\\s+coverage)\\b|\\$1(?:,000,000|M|\\.0M|\\s*million)\\b[^.]{0,30}\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b|\\bsentricon\\s*(?:®|\\(r\\))?(?:[\'’]s)?\\s+coverage\\b[^.]{0,30}\\$1(?:,000,000|M|\\.0M|\\s*million)\\b', notIf: 'do(es)?\\s+not\\s+(say|claim|write)|never\\s+(say|attribut|write)|banned|not a sentricon',
+    reason: 'coverage attributed to Sentricon (possessive, or "Sentricon® coverage" beside the $1M figure)',
     approvedInstead: "EnviroCare's termite damage repair coverage, subject to the terms of the agreement" },
 
   // $1M WITHOUT THE QUALIFIER (added 2026-08-11). The approved phrasing has always

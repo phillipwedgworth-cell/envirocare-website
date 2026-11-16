@@ -5,6 +5,7 @@
 // Push: main
 
 import { NextResponse } from "next/server";
+import { requireCron } from "@/lib/api-auth";
 import { createClient } from "@supabase/supabase-js";
 
 export const runtime = "nodejs";
@@ -118,7 +119,9 @@ function safeJson(raw: string): Record<string, unknown> {
   }
 }
 
-export async function GET() {
+export async function GET(req: Request) {
+  const denied = requireCron(req); // calls paid OpenAI + Gemini APIs (patch 0021)
+  if (denied) return denied;
   const supabase = createClient(
     process.env.SUPABASE_URL!,
     process.env.SUPABASE_KEY!

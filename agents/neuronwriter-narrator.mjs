@@ -6,8 +6,8 @@
 // ─────────────────────────────────────
 //
 // THE NEURON NARRATOR (fully automatic, rating-aware)
-//   fill  -> for EVERY query: use a hand-written draft if present, else WRITE one
-//            (Claude, compliance-locked), push it, read its score. If an auto draft
+//   fill  -> unique keywords, planned first, bounded candidate batch: use a hand draft or WRITE one
+//            (Claude), validate citations/structure/compliance before import, read its score. If an auto draft
 //            scores below the floor, rewrite it ONCE to lift it. Then rank everything
 //            by score and report a "score-ready" queue (best first). Score-ready means
 //            NeuronWriter keyword coverage ONLY: no compliance scan, no plagiarism check,
@@ -31,7 +31,8 @@ const SLEEP_MS    = Number(process.env.NARRATOR_SLEEP_MS    || 1200); // gentle 
 // Do not overwrite a draft that is already good. Before this existed, every FILL run
 // blew away hand-corrected editor content and replaced it with a fresh model draft —
 // including drafts a human had just fixed for compliance. Set NARRATOR_FORCE=1 to
-// deliberately rewrite everything.
+// deliberately attempt protected editors within the batch limit. An unreadable
+// editor is never eligible for replacement, including with FORCE.
 const PROTECT_AT = Number(process.env.NARRATOR_PROTECT_AT || 70);
 const FORCE      = process.env.NARRATOR_FORCE === "1";
 
@@ -45,6 +46,7 @@ import { dirname, join } from "node:path";
 import { COMPLIANCE_SYSTEM, userPrompt } from "./lib/compliance.mjs";
 import { logRunREST, logFindingREST } from "./lib/run-log.mjs";
 import { knowledgeBlock } from "./lib/knowledge.mjs";
+import { assessEditorialDraft, sourcePrompt, selectNarratorQueries, narratorWriteLimit } from "./lib/editorial-quality.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = join(__dir, "neuronwriter-content");
@@ -65,10 +67,11 @@ async function nw(method, body) {
   return json;
 }
 
+const validScore = (value) => Number.isFinite(value) && value >= 0 && value <= 100;
 function pickScore(o) {
   if (!o || typeof o !== "object") return null;
   for (const k of ["content_score","score","contentScore","current_score"])
-    if (typeof o[k] === "number") return o[k];
+    if (validScore(o[k])) return o[k];
   for (const n of ["metrics","content","revision"])
     if (o[n] && typeof o[n] === "object") { const s = pickScore(o[n]); if (s !== null) return s; }
   return null;
@@ -99,23 +102,33 @@ const norm = (s) => String(s||"").toLowerCase().replace(/\s+/g," ").trim();
 // new-query, see lib/neuronwriter.mjs). So: keep listedScore in case NW ever adds
 // the field, and read real scores via get-content html -> evaluate-content.
 const listedScore = (q) =>
-  typeof q?.content_score === "number" ? q.content_score
-  : typeof q?.score === "number" ? q.score
+  validScore(q?.content_score) ? q.content_score
+  : validScore(q?.score) ? q.score
   : null;
 
-async function readScore(id) {
+async function readScore(id, strict = false) {
   // Surface failures instead of swallowing them — a silent catch here is why a
   // broken call would show up as "-- (empty)" in the score table with no clue why.
   try {
     const c = await nw("get-content", { query: id });
+    // The observed response has a string `content` field, including "" for an
+    // empty editor. Missing/non-string content is an unknown read, not an empty
+    // editor; an HTTP-200 error or changed response shape must fail closed.
+    if (!c || Array.isArray(c) || typeof c.content !== "string" || c.error || c.status === "error") {
+      throw new Error("get-content returned no valid editor content; editor unchanged");
+    }
+    const html = c.content;
+    if (!html.trim()) return null; // verified empty editor
     let s = pickScore(c);
     if (s !== null) return s;
-    const html = typeof c?.content === "string" ? c.content : "";
-    if (!html.trim()) return null; // genuinely empty editor
     const ev = await nw("evaluate-content", { query: id, html, title: c.title || "", description: c.description || "" });
-    return pickScore(ev);
+    s = pickScore(ev);
+    if (s === null || ev?.error || ev?.status === "error") {
+      throw new Error("evaluate-content returned no valid current-editor score; editor unchanged");
+    }
+    return s;
   }
-  catch (e) { console.error(`[narrator] readScore failed for query ${id}: ${e.message}`); return null; }
+  catch (e) { if (strict) throw e; console.error(`[narrator] readScore failed for query ${id}: ${e.message}`); return null; }
 }
 
 function loadManifest() {
@@ -153,6 +166,7 @@ function stripFences(s) {
 async function writeDraft(keyword, terms, lift = false) {
   if (!ANTHROPIC_KEY) throw new Error("ANTHROPIC_API_KEY not set -- cannot auto-write.");
   let prompt = userPrompt(keyword, terms);
+  prompt += `\n\nEDITORIAL REQUIREMENTS: Start with a 15–100 word <p class="lede"> that directly answers the search. Include useful question headings, a concrete next step and relevant internal links. Cite a supplied source beside the specific point it supports. Never invent URLs, evidence, prices, certification, data-center experience or performance numbers. Do not imply sources endorse EnviroCare. Only use the following external sources, within their stated scope:\n${sourcePrompt(keyword)}`;
   if (lift) prompt += `\n\nThis is a revision to improve SEO coverage. Work in MORE of the related terms `
     + `naturally and add depth (a richer FAQ, a short locally-specific section), while keeping every `
     + `compliance rule. Do not keyword-stuff. Aim for the 70-80 coverage range.`;
@@ -180,7 +194,9 @@ async function evaluateDraft(id, html, title) {
   return score;
 }
 
-async function pushAndScore(id, html, title) {
+async function pushAndScore(id, html, title, keyword) {
+  const quality = assessEditorialDraft(html, { keyword, title });
+  if (!quality.pass) throw new Error(`editor unchanged: ${quality.problems.join("; ")}`);
   const resp = await nw("import-content", { project: PROJECT, query: id, html, title });
   let sc = pickScore(resp);
   if (sc === null) { await sleep(2500); sc = await readScore(id); } // let NW recompute
@@ -233,10 +249,17 @@ async function runScore() {
 // -- FILL: write/use draft for every query, push, score, lift-if-low, rank ----
 async function runFill() {
   const manifest = loadManifest();
-  const queries = await listQueries();
+  const batchPath = join(__dir, "knowledge/editorial-batch-36.json");
+  const priorities = existsSync(batchPath) ? JSON.parse(readFileSync(batchPath, "utf8")).posts.map(p => p.keyword) : [];
+  const allQueries = await listQueries();
+  const queries = selectNarratorQueries(allQueries, priorities);
   const results = [];
+  const maxWrites = narratorWriteLimit(process.env.NARRATOR_MAX_WRITES);
+  let attempted = 0;
+  console.log(`[narrator] ${allQueries.length} query rows -> ${queries.length} unique keyword editors; planned topics first`);
 
   for (const q of queries) {
+    if (attempted >= maxWrites) break;
     const id = q.query || q.id, keyword = q.keyword || "";
     if (!keyword) continue;
     try {
@@ -244,22 +267,20 @@ async function runFill() {
       const handFile = hand ? join(CONTENT_DIR, hand.file) : null;
       let score, source;
 
-      // GUARD: leave good drafts alone. A hand-written manifest file still wins,
-      // because that is the deliberate, version-controlled source of truth.
+      // Read the current editor even with FORCE or a listed score. FORCE permits
+      // replacing a protected score, never an unreadable/unknown editor.
       const hasHandDraft = Boolean(hand && handFile && existsSync(handFile));
-      let existing = null;
-      if (!FORCE && !hasHandDraft) {
-        existing = listedScore(q) ?? await readScore(id);
-        if (existing !== null && existing >= PROTECT_AT) {
-          results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
-          await sleep(SLEEP_MS);
-          continue;
-        }
+      const existing = await readScore(id, true);
+      if (!FORCE && existing !== null && existing >= PROTECT_AT) {
+        results.push({ keyword, score: existing, source: `kept (already ${existing}%)` });
+        await sleep(SLEEP_MS);
+        continue;
       }
 
+      attempted++;
       if (hasHandDraft) {
         const html = readFileSync(handFile, "utf8");
-        score = await pushAndScore(id, html, hand.title || keyword);
+        score = await pushAndScore(id, html, hand.title || keyword, keyword);
         source = "hand-written";
       } else {
         let terms = [];
@@ -286,7 +307,7 @@ async function runFill() {
           await sleep(SLEEP_MS);
           continue;
         }
-        score = await pushAndScore(id, html, title);
+        score = await pushAndScore(id, html, title, keyword);
       }
       results.push({ keyword, score, source });
     } catch (e) {
@@ -299,7 +320,8 @@ async function runFill() {
   const ready = rank.filter(r => (r.score ?? -1) >= SCORE_FLOOR);
   const work  = rank.filter(r => (r.score ?? -1) <  SCORE_FLOOR);
 
-  let md = `## Neuron Narrator -- filled ${results.length} editors\n\n`;
+  const imported = results.filter(r => r.source === "hand-written" || r.source.startsWith("auto-written")).length;
+  let md = `## Neuron Narrator -- checked ${results.length} unique editors; imported ${imported} drafts\n\n`;
   md += `**Score-ready (NeuronWriter >= ${SCORE_FLOOR}%, keyword coverage only) -- NOT compliance- or plagiarism-checked, no images. Do not publish from here: the weekly content PR runs those gates. Best first:**\n\n`;
   md += `| # | Keyword | Score | Source |\n|---|---|---|---|\n`;
   ready.forEach((r,i) => md += `| ${i+1} | ${r.keyword} | ${r.score}%${r.score>=SHIP_GOOD?" 💪":""} | ${r.source} |\n`);
@@ -308,7 +330,8 @@ async function runFill() {
     md += `\n**Still light (below ${SCORE_FLOOR}%) -- left as drafts to revisit:**\n\n| Keyword | Score |\n|---|---|\n`;
     work.forEach(r => md += `| ${r.keyword} | ${r.score===null?"err":r.score+"%"} |\n`);
   }
-  md += `\nAll drafts are in NeuronWriter now. Publish to the live site best-first, a few a week, via pull requests.\n`;
+  md += `\nCandidate attempts: ${attempted}/${maxWrites}; ${queries.length - results.length} unique editors not visited after the batch limit.\n`;
+  md += `\nOnly imported drafts changed NeuronWriter; kept, blocked and error rows did not. Score-ready is not publication approval. Review originality, source support, imagery and the built-page checks before any human merge.\n`;
   toSummary(md); await email("Neuron Narrator -- score-ready drafts (unchecked)", md.replace(/\n/g,"<br>"));
 
   // Surface the result in the Command Center (Recent Findings panel), not just email.
@@ -321,7 +344,8 @@ async function runFill() {
       ? `${ready.length} draft(s) score-ready (NeuronWriter ≥ ${SCORE_FLOOR}%, keyword coverage only — NOT compliance- or plagiarism-checked, no images). Top: ${top || "—"}. They reach the site only through the weekly content PR, which runs those gates.`
       : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
   }).catch(() => {});
-  return `fill: ${results.length} editors, ${ready.length} score-ready (unchecked)${ready[0] ? ` (top ${ready[0].keyword} ${ready[0].score}%)` : ""}`;
+  const failures = results.filter(r => r.source.startsWith("ERROR"));
+  return { status: failures.length ? (failures.length === results.length ? "error" : "partial") : "ok", summary: `fill: ${results.length} editors checked, ${imported} imported, ${failures.length} blocked/error, ${queries.length - results.length} deferred` };
 }
 
 // -- main ---------------------------------------------------------------------
@@ -329,8 +353,11 @@ const mode = (process.argv[2] || "score").toLowerCase();
 // Heartbeat both outcomes to agent_runs so the watchdog's expected-run check
 // can see this agent (needs SUPABASE_URL + SUPABASE_SERVICE_KEY in the workflow).
 try {
-  const summary = (mode === "fill" || mode === "push") ? await runFill() : await runScore();
-  await logRunREST("neuronwriter-narrator", "ok", summary || `mode=${mode} completed`).catch(() => {});
+  const result = (mode === "fill" || mode === "push") ? await runFill() : await runScore();
+  const status = typeof result === "object" ? result.status : "ok";
+  const summary = typeof result === "object" ? result.summary : result;
+  await logRunREST("neuronwriter-narrator", status, summary || `mode=${mode} completed`).catch(() => {});
+  if (status === "error") process.exitCode = 1;
 } catch (e) {
   console.error("Narrator failed:", e.message);
   await logRunREST("neuronwriter-narrator", "error", `mode=${mode}: ${e.message}`).catch(() => {});

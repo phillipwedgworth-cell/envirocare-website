@@ -1,0 +1,694 @@
+{
+  "date": "2026-10-28",
+  "status": "review-only",
+  "scope": "30 existing URL refreshes plus 6 data-center guides (3 already in PR #286). Not 36 new URLs. No publication schedule or approval implied.",
+  "posts": [
+    {
+      "slug": "data-center-pest-control-construction-handover",
+      "keyword": "data center pest control construction handover",
+      "title": "Data Center Pest Control: Construction Handover",
+      "route": "/blog/data-center-pest-control-construction-handover",
+      "kind": "new-data-center-guide",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 52,
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "d7f3561c4bca777b",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "data-center-pest-control-service-report",
+      "keyword": "data center pest control service report",
+      "title": "What Should a Data Center Pest Report Show?",
+      "route": "/blog/data-center-pest-control-service-report",
+      "kind": "new-data-center-guide",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 62,
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "a33b8b0ec561ea64",
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "data-center-pest-activity-response",
+      "keyword": "data center pest activity response",
+      "title": "Pest Activity in a Data Center: What Happens Next?",
+      "route": "/blog/data-center-pest-activity-response",
+      "kind": "new-data-center-guide",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
+      "neuronWriterStatus": "held — no NeuronWriter query; November analysis allowance exhausted 2026-11-04; create after the monthly reset"
+    },
+    {
+      "slug": "data-center-ipm-plan",
+      "keyword": "data center ipm plan",
+      "title": "What Should a Data Center IPM Plan Include?",
+      "route": "/blog/data-center-ipm-plan",
+      "kind": "draft-from-pr-286",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
+      "neuronWriterStatus": "held — no NeuronWriter query; November analysis allowance exhausted 2026-11-04; create after the monthly reset"
+    },
+    {
+      "slug": "data-center-rodent-entry-points",
+      "keyword": "data center rodent entry points",
+      "title": "Where Do Rodents Enter a Data Center?",
+      "route": "/blog/data-center-rodent-entry-points",
+      "kind": "draft-from-pr-286",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
+      "neuronWriterStatus": "held — no NeuronWriter query; November analysis allowance exhausted 2026-11-04; create after the monthly reset"
+    },
+    {
+      "slug": "data-center-pest-control-vendor-checklist",
+      "keyword": "data center pest control vendor checklist",
+      "title": "How Do You Evaluate a Data Center Pest-Control Vendor?",
+      "route": "/blog/data-center-pest-control-vendor-checklist",
+      "kind": "draft-from-pr-286",
+      "buyerTarget": "/data-center-pest-control",
+      "sourceIds": [
+        "epa-ipm",
+        "epa-buildings"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": null,
+      "competitorOriginalityChecked": true,
+      "reviewNote": "Reviewed 2026-10-29 against retrieved passages from six public competitor pages listed in claude/BLOG-SEARCH-AUDIT-2026-10-28.md. No shared normalized eight-word sequence observed. This bounded comparison is not universal plagiarism clearance. Facility workflows are planning recommendations; methods and commitments require a site-specific agreement.",
+      "neuronWriterStatus": "held — no NeuronWriter query; November analysis allowance exhausted 2026-11-04; create after the monthly reset"
+    },
+    {
+      "slug": "spiders-on-boat-docks-lake-martin",
+      "keyword": "spiders on boat docks lake martin",
+      "title": "Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down",
+      "route": "/blog/spiders-on-boat-docks-lake-martin",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-spiders"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 85,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "2c2dde71688cf6c3",
+      "neuronWriterBaseScore": 86,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "how-long-does-sentricon-take-to-work",
+      "keyword": "how long does sentricon take to work",
+      "title": "How Long Does Sentricon Take to Work? What Alabama Homeowners Should Expect",
+      "route": "/blog/how-long-does-sentricon-take-to-work",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/sentricon",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 73,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "e03c7891243a2110",
+      "neuronWriterBaseScore": 73,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "rodents-alabama-homes-fall",
+      "keyword": "mice in house in winter",
+      "title": "Mice and Rats in Alabama Homes: Fall Entry and Prevention",
+      "route": "/blog/rodents-alabama-homes-fall",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 76,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "88eb58c6d329863a",
+      "neuronWriterBaseScore": 74,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "carpenter-ants-vs-termites-alabama",
+      "keyword": "carpenter ants vs termites alabama",
+      "title": "Carpenter Ants vs. Termites: How Can You Tell?",
+      "route": "/blog/carpenter-ants-vs-termites-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 67,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "39a2710bc0fbe010",
+      "neuronWriterBaseScore": 42,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "argentine-ants-alabama-supercolony",
+      "keyword": "argentine ants alabama",
+      "title": "Argentine Ants in Alabama: Why the Trail Never Ends",
+      "route": "/blog/argentine-ants-alabama-supercolony",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-ants"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 71,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "ac950d1dbd568f36",
+      "neuronWriterBaseScore": 56,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "bug-bombs-foggers-do-they-work",
+      "keyword": "do bug bombs work",
+      "title": "Do Bug Bombs Work? Limits and Precautions for Alabama Homes",
+      "route": "/blog/bug-bombs-foggers-do-they-work",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-foggers",
+        "uc-roaches"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 76,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "452d860ec7423ea6",
+      "neuronWriterBaseScore": 62,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "how-often-pest-control-alabama",
+      "keyword": "how often pest control alabama",
+      "title": "How Often Should You Get Pest Control in Alabama?",
+      "route": "/blog/how-often-pest-control-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 67,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "3ef64857c67b2507",
+      "neuronWriterBaseScore": 50,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "first-pest-control-visit-what-to-expect",
+      "keyword": "first pest control visit what to expect",
+      "title": "What Happens on Your First Pest Control Visit (An Alabama Walkthrough)",
+      "route": "/blog/first-pest-control-visit-what-to-expect",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 72,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "d303f723d46ae5ca",
+      "neuronWriterBaseScore": 46,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "mice-vs-rats-alabama-which-do-i-have",
+      "keyword": "mice vs rats alabama",
+      "title": "Mice or Rats? How to Tell Which One Is in Your Alabama House",
+      "route": "/blog/mice-vs-rats-alabama-which-do-i-have",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 70,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "c51da774c40c345d",
+      "neuronWriterBaseScore": 43,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "mosquito-control-lake-house-dock-boathouse",
+      "keyword": "mosquito control lake house",
+      "title": "Mosquito Control for a Lake House: Docks, Boathouses, and the Shoreline",
+      "route": "/blog/mosquito-control-lake-house-dock-boathouse",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/mosquito",
+      "sourceIds": [
+        "cdc-mosquito"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 73,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "96b342763ec15c7f",
+      "neuronWriterBaseScore": 43,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "how-to-get-rid-of-ants-in-house-alabama",
+      "keyword": "how to get rid of ants in house alabama",
+      "title": "How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide",
+      "route": "/blog/how-to-get-rid-of-ants-in-house-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-ants"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 79,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "3442f3fb978f6178",
+      "neuronWriterBaseScore": 78,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "german-cockroaches-alabama",
+      "keyword": "german cockroaches alabama",
+      "title": "German Cockroaches in Alabama: German Cockroach Infestation, Roach Control, and Pest Control",
+      "route": "/blog/german-cockroaches-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-roaches"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 81,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "af223f0119947464",
+      "neuronWriterBaseScore": 83,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "how-to-get-rid-of-roaches-alabama",
+      "keyword": "how to get rid of roaches alabama",
+      "title": "How to Get Rid of Roaches in Alabama: Types of Cockroaches, Cockroach Control, and Pest Control for Alabama Homes",
+      "route": "/blog/how-to-get-rid-of-roaches-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-roaches"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 89,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "8894bfe3633e298c",
+      "neuronWriterBaseScore": 89,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "termite-damage-signs-alabama",
+      "keyword": "termite damage signs alabama",
+      "title": "Sign of Termites in Your Home: What Termite Damage Looks Like in Alabama",
+      "route": "/blog/termite-damage-signs-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 89,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "c3d75ec17fe6ed1d",
+      "neuronWriterBaseScore": 90,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "fall-pest-proofing-alabama",
+      "keyword": "fall pest proofing alabama",
+      "title": "Fall Pest-Proofing in Alabama: Seal Up Before the First Cold Nights",
+      "route": "/blog/fall-pest-proofing-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 60,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "b3d576f791f3adfb",
+      "neuronWriterBaseScore": 18,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "termite-treatment-cost-alabama",
+      "keyword": "termite treatment cost alabama",
+      "title": "How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)",
+      "route": "/blog/termite-treatment-cost-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 73,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "2e74c97624871c97",
+      "neuronWriterBaseScore": 62,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "green-caps-in-yard-sentricon",
+      "keyword": "green caps in yard sentricon",
+      "title": "What Are Those Round Green Caps in the Ground Around a House?",
+      "route": "/blog/green-caps-in-yard-sentricon",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/sentricon",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 53,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "c2824e2f5de9a87c",
+      "neuronWriterBaseScore": 33,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "more-bugs-after-pest-control-treatment",
+      "keyword": "more bugs after pest control treatment",
+      "title": "Seeing More Bugs After Pest Control? What to Report",
+      "route": "/blog/more-bugs-after-pest-control-treatment",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 74,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "eb323a5e72196c7d",
+      "neuronWriterBaseScore": 52,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "fleas-in-house-no-pets",
+      "keyword": "fleas in house no pets",
+      "title": "Fleas in a House With No Pets: Where to Look",
+      "route": "/blog/fleas-in-house-no-pets",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/flea",
+      "sourceIds": [
+        "uc-fleas"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 75,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "cc3dc6610f0ef774",
+      "neuronWriterBaseScore": 68,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "mosquito-repellent-yard-spray-vs-professional",
+      "keyword": "yard mosquito spray vs professional treatment",
+      "title": "Yard Mosquito Spray vs. Professional Treatment: What Actually Works in Alabama",
+      "route": "/blog/mosquito-repellent-yard-spray-vs-professional",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/mosquito",
+      "sourceIds": [
+        "cdc-mosquito"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 79,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "723d62c1f5ee1968",
+      "neuronWriterBaseScore": 63,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "alabama-termite-swarm-season",
+      "keyword": "alabama termite swarm season",
+      "title": "When Do Termites Swarm in Alabama? Signs and Next Steps",
+      "route": "/blog/alabama-termite-swarm-season",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites",
+        "aces-termite-inspection",
+        "aces-termite-range",
+        "msu-termite-swarms-2026"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 76,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "561325f84d2be3b4",
+      "neuronWriterBaseScore": 79,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "sentricon-vs-liquid-termite-treatment",
+      "keyword": "sentricon vs liquid termite treatment",
+      "title": "Sentricon vs. Liquid Termite Treatment: Which Is Best for Your Alabama Home?",
+      "route": "/blog/sentricon-vs-liquid-termite-treatment",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites",
+        "aces-termite-treatment-options",
+        "msu-termite-treatment-comparison"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 86,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "October 29 focused comparison review corrected the slab-treatment claim and restored sourced bait/liquid mechanisms, variable response and maintenance differences. No fixed dose, outcome deadline or superiority promise. Pricing and coverage remain inspection/agreement-specific. Exact revised-copy score pending; no new originality clearance.",
+      "neuronWriterQueryId": "630d376353ddaa94",
+      "neuronWriterBaseScore": 87,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "fire-ants-alabama-summer",
+      "keyword": "fire ants alabama",
+      "title": "Fire Ants in Alabama: Treatment Timing and Prevention",
+      "route": "/blog/fire-ants-alabama-summer",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/fire-ant",
+      "sourceIds": [
+        "aces-fireants"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 70,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "817c630cefeb15f9",
+      "neuronWriterBaseScore": 66,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "pests-after-rain-alabama",
+      "keyword": "pests after rain alabama",
+      "title": "Why Pests Get Worse After Rain in Alabama",
+      "route": "/blog/pests-after-rain-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 78,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "b632f6feee187598",
+      "neuronWriterBaseScore": 52,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "prepare-home-for-pest-control",
+      "keyword": "prepare home for pest control",
+      "title": "How to Prepare Your Home for Pest Control Service",
+      "route": "/blog/prepare-home-for-pest-control",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 72,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterStatus": "scored",
+      "neuronWriterQueryId": "07d67278f83e9f37",
+      "neuronWriterBaseScore": 44,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)"
+    },
+    {
+      "slug": "huntsville-pest-control-guide",
+      "keyword": "pest control huntsville al",
+      "title": "Pest Control in Huntsville, AL: A Local Guide",
+      "route": "/blog/huntsville-pest-control-guide",
+      "kind": "refresh-existing",
+      "buyerTarget": "/huntsville",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 84,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "8ef70fe4a69eedcc",
+      "neuronWriterBaseScore": 85,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "silverfish-control-alabama",
+      "keyword": "silverfish control alabama",
+      "title": "Silverfish Control in Alabama: How to Get Rid of Silverfish in Your Home and Prevent Silverfish Infestation in Alabama Homes",
+      "route": "/blog/silverfish-control-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-silverfish"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 78,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "c95632c6213dd094",
+      "neuronWriterBaseScore": 76,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "cricket-control-alabama",
+      "keyword": "cricket control alabama",
+      "title": "Cricket Control in Alabama: House Crickets, Camel Crickets, and Pest Control",
+      "route": "/blog/cricket-control-alabama",
+      "kind": "refresh-existing",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "umn-crickets"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 60,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "746491ba292b77f3",
+      "neuronWriterBaseScore": 54,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "mosquito-season-birmingham-al",
+      "keyword": "mosquito control birmingham al",
+      "title": "Mosquito Season in Birmingham, Alabama: Timing, Prevention and Mosquito Control",
+      "route": "/blog/mosquito-season-birmingham-al",
+      "kind": "refresh-existing",
+      "buyerTarget": "/birmingham-mosquito-control",
+      "sourceIds": [
+        "cdc-mosquito",
+        "adph-mosquito-season",
+        "adph-mosquito-biting-times",
+        "adph-mosquito-yard-prevention",
+        "cdc-aedes-life-cycle",
+        "cdc-mosquito-bite-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 71,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "October 29 focused seasonal/prevention revision corrects fixed temperature/season claims, life-stage errors, unsupported treatment outcomes and local pressure claims. URL, author and March 1 publication date preserved; March–October/eight-treatment program, inspection-based pricing and ACH disclosure retained. Current score 58 at c491cb2 is the existing commercial-query comparator (1d35d2e70d77981f, mosquito control birmingham al), historically assigned to /birmingham-mosquito-control; it is not a seasonal-intent score. Proposed seasonal query: mosquito season birmingham al, pending inventory/mapping review. Keep this keyword unchanged for an explicitly labeled comparable rerun; no new query, editor write, revised-copy score or originality clearance here.",
+      "neuronWriterQueryId": "54881fe05e4c6ffa",
+      "neuronWriterBaseScore": 58,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    },
+    {
+      "slug": "pest-control-birmingham-guide",
+      "keyword": "pest control birmingham al",
+      "title": "Pest Control in Birmingham: Services and Questions",
+      "route": "/blog/pest-control-birmingham-guide",
+      "kind": "refresh-existing",
+      "buyerTarget": "/birmingham",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "status": "draft-for-review",
+      "neuronWriterScore": 85,
+      "competitorOriginalityChecked": false,
+      "reviewNote": "Targeted answer, heading, snippet and citation refresh; retained body still needs a full editorial/source review. Existing URLs and publication dates preserved.",
+      "neuronWriterQueryId": "ecb1735fad64793f",
+      "neuronWriterBaseScore": 84,
+      "neuronWriterScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "neuronWriterStatus": "scored"
+    }
+  ]
+}

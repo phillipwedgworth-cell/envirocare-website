@@ -2,6 +2,34 @@
 // be tested without calling a model, Notion, a database, or a public review API.
 import { evaluateReview, legacyReviewKey, replyProblems, reviewKey } from './review-response-policy.mjs';
 
+// Parse the drafter's JSON tolerantly: strip ``` / ```json fences and any
+// surrounding prose, then take the first balanced {...} object. Throws an error
+// flagged draftParseFailure when nothing parseable remains.
+export function parseDraftOutput(raw) {
+  const fail = (why) => Object.assign(new Error(`Review draft output unparseable: ${why}`), { draftParseFailure: true });
+  if (typeof raw !== 'string' || !raw.trim()) throw fail('empty');
+  const text = raw.replace(/```(?:json|JSON)?/g, '').trim();
+  try { return JSON.parse(text); } catch { /* fall through to extraction */ }
+  const start = text.indexOf('{');
+  if (start === -1) throw fail('no JSON object');
+  let depth = 0, inString = false, escaped = false;
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    else if (ch === '{') depth++;
+    else if (ch === '}' && --depth === 0) {
+      try { return JSON.parse(text.slice(start, i + 1)); } catch { throw fail('invalid JSON object'); }
+    }
+  }
+  throw fail('unterminated JSON object');
+}
+
 export async function deliverReviewDrafts({ reviews, store, draft, deliver, scanReply, now = new Date() }) {
   if (!Array.isArray(reviews)) throw new Error('Review source is malformed');
   if (reviews.some(r => r.error)) throw new Error('Review source incomplete; no drafts delivered');
@@ -25,8 +53,18 @@ export async function deliverReviewDrafts({ reviews, store, draft, deliver, scan
       // trust it as delivered nor resend blindly. Preserve it for reconciliation.
       outcomes.push({ key, status: 'legacy_delivery_unverified' }); continue;
     }
-    const generated = await draft(review, lastOpening);
-    if (!generated || typeof generated.body !== 'string' || !['clear', 'concern', 'uncertain'].includes(generated.assessment)) throw new Error('Review draft response is malformed');
+    let generated;
+    try {
+      generated = await draft(review, lastOpening);
+    } catch (error) {
+      if (!error?.draftParseFailure) throw error;
+      // One unparseable model reply holds THAT review for a human; the rest of
+      // the batch still drafts. Nothing is claimed or delivered for it.
+      outcomes.push({ key, status: 'draft_rejected', reasons: ['drafter output unparseable — needs human'] }); continue;
+    }
+    if (!generated || typeof generated.body !== 'string' || !['clear', 'concern', 'uncertain'].includes(generated.assessment)) {
+      outcomes.push({ key, status: 'draft_rejected', reasons: ['drafter output malformed — needs human'] }); continue;
+    }
     const reply = `${generated.body.trim()}\n\n— The EnviroCare Team`;
     const problems = [...replyProblems(generated.body), ...replyProblems(reply), ...scanReply(reply)];
     if (problems.length) { outcomes.push({ key, status: 'draft_rejected', reasons: problems }); continue; }

@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { evaluateReview, REVIEW_POLICY, reviewKey, replyHash, replyProblems } from '../agents/lib/review-response-policy.mjs';
-import { deliverReviewDrafts } from '../agents/lib/review-response-workflow.mjs';
+import { deliverReviewDrafts, parseDraftOutput } from '../agents/lib/review-response-workflow.mjs';
 import { createReviewStore } from '../agents/lib/review-response-store.mjs';
 import { appendBlocksToPage, nParagraph } from '../agents/lib/notion.mjs';
 
@@ -312,4 +312,103 @@ test('real responder rejects missing credentials and malformed/failed source rea
     globalThis.fetch = originalFetch;
     for (const key of keys) { if (saved[key] === undefined) delete process.env[key]; else process.env[key] = saved[key]; }
   }
+});
+
+// ── Merge of #303 + hardening (2026-11-16) ──────────────────────────────────
+
+test('drafter output parse tolerates code fences and surrounding prose', () => {
+  const want = { body: 'Thanks so much, Pat!', assessment: 'clear' };
+  for (const raw of [
+    JSON.stringify(want),
+    '```json\n' + JSON.stringify(want) + '\n```',
+    '```\n' + JSON.stringify(want) + '\n```',
+    'Here is the reply:\n' + JSON.stringify(want) + '\nLet me know if you need changes.',
+    'Sure! ```json\n{"body":"Thanks so much, Pat!","assessment":"clear"}\n``` Hope that helps {not json}',
+  ]) assert.deepEqual(parseDraftOutput(raw), want, raw);
+  assert.deepEqual(parseDraftOutput('{"body":"A brace } and a quote \\" inside","assessment":"clear"}'),
+    { body: 'A brace } and a quote " inside', assessment: 'clear' });
+  for (const raw of ['', 'no json here', '{"body": "unterminated', '```json\n{body: bad}\n```']) {
+    assert.throws(() => parseDraftOutput(raw), e => e.draftParseFailure === true, raw);
+  }
+});
+
+test('an unparseable draft holds only that review; the rest of the batch still delivers', async () => {
+  const second = { ...review, id: 'synthetic-review-2' };
+  let calls = 0;
+  const f = fixture({
+    reviews: [review, second],
+    draft: async () => (++calls === 1 ? parseDraftOutput('I cannot produce JSON today.') : { body: reply, assessment: 'clear' }),
+  });
+  const out = await deliverReviewDrafts(f.args);
+  assert.equal(out.outcomes[0].status, 'draft_rejected');
+  assert.match(out.outcomes[0].reasons[0], /needs human/);
+  assert.equal(out.outcomes[1].status, 'delivered');
+  assert.equal(out.count, 1); assert.equal(out.held, 1); assert.equal(f.sends(), 1);
+  assert.equal(f.rows.has(reviewKey(review)), false);
+  assert.equal(out.publicSendingEnabled, false);
+});
+
+test('a non-parse drafter failure (e.g. model outage) still aborts the run', async () => {
+  const f = fixture({ draft: async () => { throw new Error('model unavailable'); } });
+  await assert.rejects(deliverReviewDrafts(f.args), /model unavailable/);
+  assert.equal(f.sends(), 0);
+});
+
+test('#303: drafting prompt forbids naming any individual and signs as the team', async () => {
+  const { DRAFT_SYSTEM } = await import('../agents/review-responder.mjs');
+  assert.match(DRAFT_SYSTEM, /Do NOT name any individual person in a reply/);
+  for (const who of ['owner', 'founder', 'technician', 'Phillip', 'Kevin']) assert.ok(DRAFT_SYSTEM.includes(who), who);
+  assert.match(DRAFT_SYSTEM, /signed as the\s+team, never as a person/);
+  assert.match(DRAFT_SYSTEM, /our direct line/);
+  assert.doesNotMatch(DRAFT_SYSTEM, /Phillip's direct line|a tech's name\)/);
+  const f = fixture();
+  const out = await deliverReviewDrafts({ ...f.args, deliver: async ({ reply: sent }) => {
+    assert.ok(sent.endsWith('\n\n— The EnviroCare Team')); assert.doesNotMatch(sent, /Phillip|Kevin/); return true; } });
+  assert.equal(out.count, 1);
+});
+
+async function withResponderEnv(fn) {
+  const keys = ['BRIGHTLOCAL_API_KEY', 'NOTION_TOKEN', 'ANTHROPIC_API_KEY', 'FORCE_REVIEWS'];
+  const saved = Object.fromEntries(keys.map(k => [k, process.env[k]]));
+  const originalFetch = globalThis.fetch;
+  try {
+    process.env.BRIGHTLOCAL_API_KEY = 'synthetic'; process.env.NOTION_TOKEN = 'synthetic';
+    process.env.ANTHROPIC_API_KEY = 'synthetic'; process.env.FORCE_REVIEWS = '1';
+    globalThis.fetch = async () => { throw new Error('test forbids all network'); };
+    return await fn(await import('../agents/review-responder.mjs'));
+  } finally {
+    globalThis.fetch = originalFetch;
+    for (const key of keys) { if (saved[key] === undefined) delete process.env[key]; else process.env[key] = saved[key]; }
+  }
+}
+
+test('BrightLocal key rejection raises one critical finding + alert email and drafts nothing', async () => {
+  await withResponderEnv(async responder => {
+    const findings = [], emails = [], runs = []; let drafts = 0;
+    const f = fixture();
+    const out = await responder.run({
+      fetchReviews: async () => [{ location: 'Alabaster', error: 'INVALID_API_KEY', keyRejected: true }],
+      store: f.args.store, draft: async () => { drafts++; return { body: reply, assessment: 'clear' }; },
+      deliver: async () => { throw new Error('must not deliver'); },
+      finding: async (...a) => { findings.push(a); }, email: async (...a) => { emails.push(a); },
+      logRun: async (...a) => { runs.push(a); },
+    });
+    assert.equal(out.keyRejected, true); assert.equal(out.publicSendingEnabled, false);
+    assert.equal(findings.length, 1); assert.equal(findings[0][2], 'critical');
+    assert.match(findings[0][4], /BrightLocal API key rejected/);
+    assert.equal(emails.length, 1); assert.match(emails[0][0], /BrightLocal API key rejected/);
+    assert.equal(runs[0][1], 'error'); assert.equal(drafts, 0);
+  });
+});
+
+test('a finding-write failure after successful delivery does not fail the run', async () => {
+  await withResponderEnv(async responder => {
+    const f = fixture();
+    const out = await responder.run({
+      fetchReviews: async () => [review], store: f.args.store,
+      draft: async () => ({ body: reply, assessment: 'clear' }), deliver: async () => true,
+      finding: async () => { throw new Error('supabase down'); }, email: async () => {}, logRun: async () => {},
+    });
+    assert.equal(out.count, 1); assert.equal(out.publicSendingEnabled, false);
+  });
 });

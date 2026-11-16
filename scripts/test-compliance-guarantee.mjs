@@ -102,6 +102,26 @@ const cases = [
   ["Up to $1M damage warranty.", true, "$1M abbreviated, no qualifier"],
   ["Up to $1 million in damage repair coverage", true, "$1 million spelled out, no qualifier"],
   ["Up to $1M repair coverage, subject to the terms of the agreement", false, "qualified on the same line must pass"],
+  // Sentricon credited with the coverage. Each must-flag string was live at e5b79f1
+  // while every guard passed; the qualifier is kept on so only the attribution
+  // rule can be what fires.
+  ['<strong style={{ color: "#fff" }}>$1M</strong> Sentricon® coverage', true, "Sentricon stat tile (NeighborhoodPage, mountain-brook)"],
+  ['<Stat num="$1M" lbl="Sentricon® Coverage" />', true, "Sentricon stat component (components/CityPage.tsx)"],
+  ["Sentricon® damage repair coverage is up to $1,000,000 on qualifying homes, subject to the terms of the agreement.", true, "Sentricon damage repair coverage, qualified"],
+  ["Sentricon repair coverage up to $1M, subject to the terms of the agreement", true, "Sentricon repair coverage, no ®"],
+  // The possessive, which the first draft of the widened rule let through. notIf
+  // suppresses a whole rule, so the "EnviroCare's sentricon" carve-out also
+  // switched off the guarantee/warranty branch and these two passed every guard.
+  // AGENTS.md section 1 bans the possessive whoever is named as possessor.
+  ["EnviroCare's Sentricon warranty protects your home", true, "possessive warranty must stay banned"],
+  ["EnviroCare's Sentricon warranties cover repairs", true, "possessive plural must stay banned"],
+  ["EnviroCare's Sentricon® guarantee covers repairs", true, "possessive guarantee must stay banned"],
+  // ...and the forms that must survive the widening
+  ["EnviroCare's Sentricon coverage is priced after a free termite inspection", false, "EnviroCare named as possessor"],
+  ["we can also transfer Sentricon® coverage from a prior owner", false, "plan shorthand, no money claim"],
+  ["Sentricon® baiting, $1M EnviroCare coverage, subject to the terms of the agreement", false, "approved form from AGENTS.md §1"],
+  ['<strong>$1M</strong> EnviroCare coverage · subject to the terms of the agreement', false, "corrected stat tile wording"],
+  ["Termite damage repair coverage of up to $1,000,000 is provided by EnviroCare on qualifying Sentricon® homes, subject to the terms of the agreement.", false, "corrected disclosure wording"],
   // --- name ---
   // Built from parts on purpose: a literal here would be rewritten by any future
   // sitewide rename sweep, silently turning this assertion into a tautology.
@@ -144,6 +164,22 @@ const cases = [
   ["Family-owned since 1958", false, "approved short form must pass"],
   ["EnviroCare", false, "the approved generic name must NOT flag"],
   ["EnviroCare Pest Services", false, "the approved Birmingham name must NOT flag"],
+  // 2026-11-10 (patch 0022, sweep C3): the bare $75 initial in every word order that was
+  // actually live, plus the template form. The old literal '$75 initial' caught none of these.
+  ["Startup fees are $75 for pest, $75 for pest + mosquito. Termite is priced at your free WDO inspection.", true, "$75 for pest, on a line that also says WDO"],
+  ["The one-time initial service fee is $75.", true, "initial ... $75 (reverse order)"],
+  ['{ plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo" }', true, "startup: \"$75\" table cell"],
+  ["$75 on Pest and on Pest + Mosquito. Complete is $229.", true, "$75 on Pest"],
+  ["There is a $75 setup fee on every pest plan.", true, "$75 setup (word from the real 0022 patch)"],
+  ["Pest plans carry a $75 service fee up front.", true, "$75 service fee"],
+  ["Is there a setup fee? Yes, $75.", true, "setup ... $75 (reverse order)"],
+  ["sub: `$${PRICING.plans.pest.startup} startup · one-time treatments`", true, "template startup with no anchor"],
+  // ...and the anchored forms that must pass
+  // (live copy also says "50% off"; that phrase is the separate decision-gated discount
+  // rule's business, so these cases leave it out to test the $75 rules alone)
+  ["$75 initial service (regular price $150)", false, "anchored $75 must pass"],
+  ["sub: `$${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular})`", false, "anchored template must pass"],
+  ["the inspection is free for existing customers once a year and $75 otherwise", false, "WDO inspection fee is a different product (S6a)"],
 ];
 
 let pass = 0;

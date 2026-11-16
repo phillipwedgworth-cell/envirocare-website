@@ -37,6 +37,7 @@ import { supabase, logAgentRun, writeFinding } from "./lib/supabase.mjs";
 import { gateOrSkip } from "./lib/agent-gate.mjs";
 import { createMessage } from "./lib/llm-with-logging.mjs";
 import { analyzePageContent } from "./lib/neuronwriter.mjs";
+import { assessEditorialDraft, sourcePrompt, sourcesFor } from "./lib/editorial-quality.mjs";
 
 const AGENT_NAME = "blog-writer";
 const MODEL = process.env.BLOG_WRITER_MODEL || "claude-sonnet-4-6";
@@ -137,12 +138,12 @@ VOICE: warm, direct, Southern, specific. Plain sentences. Local detail (creeks, 
 
 FORMAT — return ONLY a JSON object, no prose, no code fence:
 {"title": "...", "metaTitle": "... (<=60 chars, lead with the searcher's problem, no '| EnviroCare')", "metaDescription": "... (<=155 chars)", "excerpt": "... (2-3 sentences)", "readMinutes": 6, "heroEmoji": "one emoji", "body": "HTML"}
-BODY RULES: 800-1100 words. Start with <p class="lede">. Then 4-6 <h2> sections phrased as questions or plain statements; <ul>/<ol> where a list helps; <strong> sparingly. End with a short section that mentions the relevant EnviroCare service with a link. Do NOT include the closing call-to-action or the tagline — they are appended by code. Internal links: only to these routes, absolute-path href, at most 4 links: ${[...routes].slice(0, 80).join(", ")}. Do not link to any other URL.
+BODY RULES: 800-1100 words. Start with <p class="lede">. Then 4-6 <h2> sections phrased as questions or plain statements; <ul>/<ol> where a list helps; <strong> sparingly. End with a short section that mentions the relevant EnviroCare service with a link. Do NOT include the closing call-to-action or the tagline — they are appended by code. Internal links: only to these routes, absolute-path href, at most 4 links: ${[...routes].slice(0, 80).join(", ")}. External links: cite only the relevant primary sources below, beside the specific supported point. Do not imply they endorse EnviroCare. Start with a 15–100 word direct-answer lede and include a question heading.\n${sourcePrompt(topic.keyword)}
 
 HARD COMPLIANCE RULES (violations fail the build):
 - Never write: safe, pet-safe, kid-safe, eco-friendly, non-toxic, natural (as a product claim), EPA-approved, guarantee, guaranteed, warranty, same-day, eliminate/elimination for mosquitoes (use reduce/control), pest-free, "no contract", "cancel anytime".
 - Products are "EPA-registered products applied per label directions."
-- Pricing, only these, only if relevant: pest plan $35/month on a 12-month ACH agreement or $70 per visit; its $150 regular initial service is currently $75 with the approved 50%-off promotion. Mosquito is $45/month for an average-size yard, 8 treatments March–October, with a firm price after a free inspection and equal monthly ACH payments across the year; $34/month applies only with a pest plan. Mosquito + Tick is $65/month (covers chiggers, not fleas); standalone tick and flea work is quoted. Fire ant $150 covers most yards, with larger properties quoted by square footage. TERMITE IS NEVER A PRICE — "quoted after a free WDO inspection."
+- Pricing, only these, only if relevant: pest plan $35/month on a 12-month ACH agreement or $70 per visit; its $150 regular initial service is currently $75 with the approved 50%-off promotion. Mosquito is $45/month for an average-size yard, 8 treatments March–October, with a firm price after a free inspection and equal monthly ACH payments across the year; $34/month applies only with a pest plan. Mosquito + Tick is $65/month (covers chiggers, not fleas); standalone tick and flea work is quoted. Fire ant $150 covers most yards, with larger properties quoted by square footage. TERMITE IS NEVER A PRICE — "quoted after a free termite inspection. The real-estate WDO report is a separate paid service; never call it free."
 - Termite coverage: "up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement" — EnviroCare's own, never the manufacturer's.
 - Mosquito season is March through October. Never November.
 - No competitor names. No review counts. No "third-generation". Say "four generations" or "since 1958", never a year count.
@@ -159,7 +160,7 @@ function parseJson(text) {
 }
 
 const BANNED = /\b(pet[- ]safe|kid[- ]safe|child[- ]safe|eco[- ]friendly|non[- ]toxic|epa[- ]approved|guarantee[ds]?|warranty|same[- ]day|pest[- ]free|no contract|cancel anytime|third[- ]generation|bed ?bugs?|wildlife removal|raccoon|lawn care|encapsulat|tuscaloosa|through november|march.{1,3}november)\b/i;
-function complianceIssues(post) {
+function complianceIssues(post, keyword) {
   const text = `${post.title} ${post.metaTitle} ${post.metaDescription} ${post.excerpt} ${post.body}`;
   const issues = [];
   const m = text.match(BANNED); if (m) issues.push(`banned phrase: "${m[0]}"`);
@@ -176,7 +177,7 @@ function complianceIssues(post) {
   // A $75 initial with no $150 anchor nearby loses the offer framing.
   if (/\$\s?75\b[^.]{0,40}(initial|startup)/i.test(text) && !/\$\s?150/.test(text)) issues.push("$75 initial stated without the $150 anchor / promo label");
   if (/1,?000,?000[^.]{0,120}(sentricon|corteva|manufacturer)/i.test(text) && !/envirocare/i.test(text.match(/1,?000,?000[^.]{0,120}/i)?.[0] ?? "")) issues.push("coverage attributed to manufacturer");
-  if (/<a href="(?!\/)/.test(post.body)) issues.push("external link");
+  issues.push(...assessEditorialDraft(post.body, { keyword, title: post.title, metaTitle: post.metaTitle, metaDescription: post.metaDescription }).problems);
   return issues;
 }
 
@@ -185,7 +186,7 @@ async function draft(anthropic, topic, routes, recentTitles, termsHint) {
   const post = parseJson(res.content.map((c) => c.text ?? "").join(""));
   for (const k of ["title", "metaTitle", "metaDescription", "excerpt", "body"]) if (!post[k]) throw new Error(`draft missing ${k}`);
   // strip any link to a route that does not exist
-  post.body = post.body.replace(/<a href="([^"]+)">(.*?)<\/a>/g, (m, href, txt) => (routes.has(href) ? m : txt));
+  post.body = post.body.replace(/<a href="([^"]+)">(.*?)<\/a>/g, (m, href, txt) => (routes.has(href) || sourcesFor(topic.keyword).some(s => s.url === href) ? m : txt));
   post.readMinutes = Math.max(4, Math.min(12, Number(post.readMinutes) || Math.round(post.body.split(/\s+/).length / 180)));
   post.heroEmoji = String(post.heroEmoji || "🐛").slice(0, 4);
   return post;
@@ -241,13 +242,13 @@ export async function run() {
   for (const topic of queue) {
     try {
       let post = await draft(anthropic, topic, routes, recentTitles);
-      let issues = complianceIssues(post);
-      if (issues.length) { post = await draft(anthropic, { ...topic, angle: `${topic.angle}. PREVIOUS DRAFT FAILED COMPLIANCE: ${issues.join("; ")} — fix that.` }, routes, recentTitles); issues = complianceIssues(post); }
+      let issues = complianceIssues(post, topic.keyword);
+      if (issues.length) { post = await draft(anthropic, { ...topic, angle: `${topic.angle}. PREVIOUS DRAFT FAILED COMPLIANCE: ${issues.join("; ")} — fix that.` }, routes, recentTitles); issues = complianceIssues(post, topic.keyword); }
       if (issues.length) { await writeFinding(AGENT_NAME, "blog", "warning", null, `Draft "${topic.keyword}" failed compliance twice: ${issues.join("; ")} — skipped`, { topic }); continue; }
       let nw = await scoreInNeuronWriter(topic, post);
       if (nw.score !== null && nw.score < MIN_NW_SCORE && nw.missing?.length) {
         post = await draft(anthropic, topic, routes, recentTitles, nw.missing.slice(0, 25).join(", "));
-        const rewriteIssues = complianceIssues(post);
+        const rewriteIssues = complianceIssues(post, topic.keyword);
         if (rewriteIssues.length) {
           await writeFinding(AGENT_NAME, "blog", "warning", null, `NeuronWriter rewrite for "${topic.keyword}" failed compliance: ${rewriteIssues.join("; ")} — skipped`, { topic, nw });
           continue;

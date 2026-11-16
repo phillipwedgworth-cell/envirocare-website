@@ -68,7 +68,7 @@ const c: ComboContent = {
     },
     {
       q: "Can I combine mosquito with regular pest control?",
-      a: `Most Decatur customers do — one technician, one invoice (a convenience, not a discount). Paired with the bi-monthly pest plan, mosquito averages $${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo across the year.`,
+      a: `Most Decatur customers do — one technician, one invoice. Paired with the bi-monthly pest plan, mosquito averages $${PRICING.addOns.mosquito.monthlyWithPestOnly}/mo across the year.`,
     },
   ],
   office: { name: "North Alabama Office", phone: "(256) 937-7676", tel: "2569377676", address: "7027 Old Madison Pike Ste 108, Huntsville, AL 35806" },

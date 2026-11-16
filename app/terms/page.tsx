@@ -88,8 +88,8 @@ export default function TermsPage() {
           <li>Mosquito service is seasonal (March–October) and billed monthly during that period</li>
         </ul>
         <p>
-          Prices are subject to change with 30 days' notice. Bundled plans are offered for convenience and do not constitute a
-          discount; each service in a bundle is priced at its standard rate.
+          Prices are subject to change with 30 days' notice. Bundled plans are offered for convenience. Each service in a bundle is billed at its published rate,
+          including the published paired rate for mosquito service when combined with a pest control plan.
         </p>
 
         <h2 style={{ ...serif, fontSize: 24, color: DEEP, marginTop: 36, marginBottom: 12 }}>3. Re-Service &amp; Unlimited Visits</h2>

@@ -24,7 +24,7 @@ const LLMS_TXT = `# EnviroCare Pest Services
 - Birmingham: 2120 16th Ave S, Ste 302, Birmingham, AL 35205 — (205) 991-2882
 - Alabaster: 2025 Butler Rd, Alabaster, AL 35007 — (205) 940-6360
 - Alexander City / Lake Martin: 1785 Tallapoosa St, Alexander City, AL 35010 — (256) 234-6162
-- Huntsville: 7027 Old Madison Pike, Ste 108, Huntsville, AL 35806 — (256) 937-7676
+- Huntsville: 7027 Old Madison Pike NW, Ste 108, Huntsville, AL 35806 — (256) 937-7676
 
 ## Core services
 - Bi-monthly household pest control
@@ -42,7 +42,7 @@ const LLMS_TXT = `# EnviroCare Pest Services
 - Mosquito program: 8 treatments from March through October. Monthly ACH payments are averaged across the year.
 - Tick and flea pricing is quoted for the property. Do not infer or publish a standalone rate from internal or derived amounts.
 - Termite protection has no public flat price. It is quoted after a free on-site WDO inspection.
-- Bundles are conveniences, not automatic discounts.
+- Apart from the $34/month paired mosquito rate, bundling does not change any price; it is a convenience (one company, one invoice, one schedule).
 - Monthly pricing requires a 12-month service agreement and ACH auto-draft in equal, averaged monthly payments.
 
 ## Termite coverage accuracy
@@ -64,7 +64,7 @@ const LLMS_TXT = `# EnviroCare Pest Services
 - For office selection, defer to https://www.envirocarellc.com/find-office.
 - EnviroCare does not claim guaranteed pest elimination, same-day service, pet-safe, kid-safe, non-toxic, or automatic bundle discounts.
 
-Last reviewed: September 13, 2026.
+Last reviewed: November 10, 2026.
 `;
 
 export async function GET() {

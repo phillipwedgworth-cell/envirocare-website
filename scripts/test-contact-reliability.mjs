@@ -127,7 +127,7 @@ function harness(file, { responses = [{ ok: true }], tags = {} } = {}) {
 }
 function fill(h, file, { name = 'Test Visitor', phone = '2055550100' } = {}) {
   const fields = file === CONTACT
-    ? { 'contact-name': name, 'contact-phone': phone, 'contact-city': 'Birmingham', 'contact-service': 'Pest Control' }
+    ? { 'contact-name': name, 'contact-phone': phone, 'contact-city': 'Birmingham', 'contact-zip': '35007', 'contact-service': 'Pest Control' }
     : { 'sr-name': name, 'sr-tel': phone, 'sr-zip': '35007' };
   for (const [id, value] of Object.entries(fields)) h.change(id, value);
 }
@@ -141,23 +141,26 @@ async function test(name, run) {
 await test('Contact form has associated labels, field names, and contact autofill hints', () => {
   const h = harness(CONTACT), all = nodes(h.tree);
   const fields = all.filter(node => ['input', 'select', 'textarea'].includes(node.type));
-  assert.equal(fields.length, 7);
+  assert.equal(fields.length, 9); // 7 visible + ZIP (patch 0023) + hidden bot trap
   for (const field of fields) {
     assert.ok(field.props.id && field.props.name, 'Every control has an id and name');
     assert.ok(all.some(node => node.type === 'label' && node.props.htmlFor === field.props.id), `Visible label for ${field.props.name}`);
     assert.notEqual(field.props.style?.outline, 'none', 'Native focus must not be suppressed inline');
   }
-  for (const [name, expected] of [['name', 'name'], ['phone', 'tel'], ['email', 'email'], ['address', 'street-address'], ['city', 'address-level2']]) {
+  for (const [name, expected] of [['name', 'name'], ['phone', 'tel'], ['email', 'email'], ['address', 'street-address'], ['city', 'address-level2'], ['postal-code', 'postal-code']]) {
     assert.equal(fields.find(node => node.props.name === name).props.autoComplete, expected);
   }
 });
 
-await test('Concurrent contact submits send one request to the existing Formspree endpoint', async () => {
+await test('Concurrent contact submits send one request to /api/quote (not Formspree)', async () => {
   const gate = deferred(), h = harness(CONTACT, { responses: [gate.promise] }); fill(h, CONTACT);
   const submit = h.form().props.onSubmit;
   const first = submit(event()), second = submit(event());
   assert.equal(h.requests.length, 1);
-  assert.equal(h.requests[0].url, 'https://formspree.io/f/xwvypjal');
+  assert.equal(h.requests[0].url, '/api/quote');
+  assert.equal(h.requests[0].payload.zip, '35007');
+  assert.equal(h.requests[0].payload.company_website, '');
+  assert.equal(typeof h.requests[0].payload.elapsed_ms, 'number');
   assert.equal(h.requests[0].method, 'POST');
   h.render(); assert.equal(h.form().props['aria-busy'], true);
   gate.resolve({ ok: true }); await Promise.all([first, second]); await h.flush();
@@ -213,6 +216,37 @@ for (const file of [CONTACT, SCHEDULE]) {
     const descriptionId = h.focused?.props['aria-describedby'];
     const description = nodes(h.tree).find(node => node.props?.id === descriptionId);
     assert.ok(description && textContent(description).includes('2055550100'), 'Focused heading describes the accepted telephone number');
+  });
+}
+
+// ── Patch 0023: out-of-state ZIPs never leave the browser; a 422 is shown, not "Thank you".
+for (const file of [CONTACT, SCHEDULE]) {
+  const label = file === CONTACT ? 'Contact' : 'Schedule';
+  const zipId = file === CONTACT ? 'contact-zip' : 'sr-zip';
+  await test(`${label} form blocks a non-Alabama ZIP before any request`, async () => {
+    const h = harness(file); fill(h, file); h.change(zipId, '43925');
+    await h.form().props.onSubmit(event()); await h.flush();
+    assert.equal(h.requests.length, 0, 'No request for an Ohio ZIP');
+    assert.ok(nodes(h.tree).some(node => node.props?.role === 'alert' && textContent(node).includes('Alabama')));
+    assert.ok(h.form(), 'Form stays open so the visitor can correct the ZIP');
+  });
+  await test(`${label} form shows the out-of-area message on a 422, not a confirmation`, async () => {
+    let conversions = 0;
+    const h = harness(file, { responses: [{ ok: false, status: 422 }], tags: { gtag() { conversions++; }, fbq() { conversions++; } } }); fill(h, file);
+    await h.form().props.onSubmit(event()); await h.flush();
+    assert.equal(h.requests.length, 1);
+    assert.ok(nodes(h.tree).some(node => node.props?.role === 'alert' && textContent(node).includes('Alabama')));
+    assert.ok(h.form(), 'No success screen');
+    assert.equal(conversions, 0, 'A screened submission is not a conversion');
+  });
+  await test(`${label} form sends the hidden bot-trap field and fill time`, async () => {
+    const h = harness(file); fill(h, file);
+    await h.form().props.onSubmit(event()); await h.flush();
+    const p = h.requests[0].payload;
+    assert.equal(p.company_website, '');
+    assert.ok(Number.isFinite(p.elapsed_ms) && p.elapsed_ms >= 0);
+    const trap = nodes(h.tree).find(node => node.props?.name === 'company_website');
+    assert.equal(trap, undefined, 'Success screen replaced the form');
   });
 }
 
