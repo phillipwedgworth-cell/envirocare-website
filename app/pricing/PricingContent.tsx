@@ -237,7 +237,7 @@ export default function PricingContent() {
             <TrustDot />
             <span>Sentricon® Certified</span>
             <TrustDot />
-            <span>Up to $1M coverage</span>
+            <span>Up to $1M in EnviroCare damage coverage</span>
             <TrustDot />
             <span>Family-owned since 1958</span>
           </div>

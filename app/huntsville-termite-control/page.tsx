@@ -32,7 +32,7 @@ const c: ComboContent = {
   h1Accent: "Where New Construction Meets Old Pressure.",
   intro: [
     "Madison County is building faster than almost anywhere in the South — and every new slab poured along the Research Park corridor, in Providence, or out toward Hampton Cove sits on freshly disturbed soil. Disturbed soil is exactly what Eastern subterranean termites colonize first, and a slab home gives no visible warning until the damage is behind the drywall.",
-    "On the other end of the spectrum, Twickenham, Five Points, and Monte Sano hold some of Alabama's most loved historic homes — clay-heavy soil, original foundations, decades of termite pressure. EnviroCare's Huntsville office protects both, with Sentricon® and up to $1,000,000 in damage repair coverage.",
+    "On the other end of the spectrum, Twickenham, Five Points, and Monte Sano hold some of Alabama's most loved historic homes — clay-heavy soil, original foundations, decades of termite pressure. EnviroCare's Huntsville office protects both, with Sentricon® and up to $1,000,000 in EnviroCare damage repair coverage.",
   ],
   anglesHeading: "Huntsville termite pressure, both ends of the market",
   localAngles: [

@@ -120,7 +120,7 @@ const FAQS = [
   },
   {
     q: "Can termite coverage transfer to the buyer at closing?",
-    a: "An existing Sentricon® system's coverage can transfer with the home, and a new plan can be set up at or after closing, with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement and to inspection. Worth raising with the buyer during the inspection period rather than after they move in.",
+    a: "An existing Sentricon® system's coverage can transfer with the home, and a new plan can be set up at or after closing, with up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement and to inspection. Worth raising with the buyer during the inspection period rather than after they move in.",
   },
 ];
 

@@ -80,7 +80,7 @@ const c: ComboContent = {
     },
     {
       q: "What about termites?",
-      a: "Termites are a separate program — Sentricon® bait stations with up to $1M in damage repair coverage, subject to the terms of the agreement, because Birmingham's old housing stock on damp clay is prime termite ground. The inspection is free.",
+      a: "Termites are a separate program — Sentricon® bait stations with up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement, because Birmingham's old housing stock on damp clay is prime termite ground. The inspection is free.",
     },
   ],
   office: { name: "Birmingham Office", phone: "(205) 991-2882", tel: "2059912882", address: "2120 16th Ave S, Ste 302, Birmingham, AL 35205" },

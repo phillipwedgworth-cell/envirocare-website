@@ -62,7 +62,7 @@ export default function ServicesIndexPage() {
               <div className="svc-card-tag">Most Insurance</div>
               <div className="svc-card-name">Termite Control</div>
               <div className="svc-card-price">Priced after a free WDO inspection</div>
-              <div className="svc-card-desc">Sentricon® Always Active™ bait stations. Up to $1,000,000 termite damage repair coverage. No drilling, no concrete cuts.</div>
+              <div className="svc-card-desc">Sentricon® Always Active™ bait stations. Up to $1,000,000 in EnviroCare termite damage repair coverage. No drilling, no concrete cuts.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
           </div>

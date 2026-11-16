@@ -71,7 +71,7 @@ const phaseACitiesBase: Record<string, CityData> = {
     slug: "mountain-brook",
     name: "Mountain Brook",
     metaTitle: "Mountain Brook Pest, Termite & Mosquito Control | EnviroCare Since 1958",
-    metaDescription: "Family-owned pest, termite & mosquito control in Mountain Brook AL — English Village, Crestline, Mountain Brook Village, Cahaba Village. Sentricon® $1M termite coverage.",
+    metaDescription: "Family-owned pest, termite & mosquito control in Mountain Brook AL — English Village, Crestline, Mountain Brook Village, Cahaba Village. Sentricon® with $1M EnviroCare damage coverage.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",
@@ -98,7 +98,7 @@ const phaseACitiesBase: Record<string, CityData> = {
     faqs: [
       { q: "Do I need separate service for English Village vs Cahaba Village?", a: "No — one EnviroCare plan covers all four villages. Your technician will adjust the treatment based on your specific property: more mosquito attention near Watkins Brook, more termite focus on older English Village homes, more tick treatment for Crestline yards backing up to woods." },
       { q: "When do termites swarm in Mountain Brook?", a: "February through early May, with peak swarms during warm rainy afternoons in March-April. Older brick homes with crawlspaces are highest-risk. Sentricon® stations protect year-round, and our annual inspection catches early activity before damage occurs." },
-      { q: "Is Sentricon® really better than liquid termite treatment?", a: "For Mountain Brook's older homes, yes. Sentricon® doesn't require drilling through hardwood floors or pumping liquid into established landscaping. The Always Active™ bait stations work continuously — and the system is backed by up to $1,000,000 in damage repair coverage, subject to the terms of the agreement." },
+      { q: "Is Sentricon® really better than liquid termite treatment?", a: "For Mountain Brook's older homes, yes. Sentricon® doesn't require drilling through hardwood floors or pumping liquid into established landscaping. The Always Active™ bait stations work continuously — and the system is backed by up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement." },
       { q: "When does mosquito season start in Mountain Brook?", a: "Mosquito pressure starts in March with the first warm rains and runs through October. Our 30-day yard barrier program covers the full season — that's up to 8 applications. Crestline and Cahaba Village homes near the creek corridor benefit most." },
       { q: "When can pets and kids go back outside after treatment?", a: "Kids and pets can return once applications dry (typically 30-60 minutes). Your technician will walk you through specific timing during the visit. Our Mountain Brook technicians live in the same neighborhoods you do; we use products we'd use around our own families." },
       { q: "Do you offer one-time service or only contracts?", a: "Both. Free termite inspection is no-obligation. Pest service can be one-time or ongoing. The bi-monthly plan ($35/mo ACH) is most popular because it includes free re-service if pests come back between visits — monthly pricing uses a 12-month ACH billing agreement, or you can pay per visit. Your service manager confirms the exact terms in writing before anything starts." }
@@ -117,7 +117,7 @@ const phaseACitiesBase: Record<string, CityData> = {
     slug: "greystone",
     name: "Greystone",
     metaTitle: "Greystone Pest, Termite & Mosquito Control | EnviroCare Birmingham",
-    metaDescription: "Family-owned pest, termite, mosquito & tick control for Greystone golf community, Founders, Legacy & Cove. Sentricon® $1M termite coverage.",
+    metaDescription: "Family-owned pest, termite, mosquito & tick control for Greystone golf community, Founders, Legacy & Cove. Sentricon® with $1M EnviroCare damage coverage.",
     office: "Birmingham",
     phone: "(205) 940-6360",
     tel: "2059406360",
@@ -145,7 +145,7 @@ const phaseACitiesBase: Record<string, CityData> = {
       { q: "Do you service inside the Greystone gates?", a: "Yes — we serve homes throughout Greystone Founders, Legacy, and Cove. Our technicians are familiar with the gate access protocols and HOA expectations. Just provide gate access info when scheduling and we handle the rest." },
       { q: "Will mosquito treatments harm the golf course?", a: "No — our applications stay on your property and target harborage zones (shrubs, dense foliage, standing water). We don't treat common areas or the course itself. Kids and pets can return once treatments dry (30-60 min)." },
       { q: "I just moved to Greystone Legacy — when should I get a termite inspection?", a: "Sooner the better. Spring (Feb-May) is termite swarm season in Alabama. We do free, no-obligation inspections. If your builder included a termite warranty, we can also transfer EnviroCare termite coverage from a prior owner." },
-      { q: "Is Sentricon® better than liquid termite treatment for Greystone homes?", a: "For Greystone, yes — most homes have crawlspaces and beautifully landscaped beds you don't want disturbed. Sentricon® stations install around the perimeter with zero drilling, zero trenching, and zero tank trucks in your driveway. Backed by up to $1,000,000 in damage repair." },
+      { q: "Is Sentricon® better than liquid termite treatment for Greystone homes?", a: "For Greystone, yes — most homes have crawlspaces and beautifully landscaped beds you don't want disturbed. Sentricon® stations install around the perimeter with zero drilling, zero trenching, and zero tank trucks in your driveway. Backed by up to $1,000,000 in EnviroCare damage repair coverage." },
       { q: "What about pets?", a: "Pets can return once applications dry, typically 30-60 minutes. Our techs live in the same Birmingham-area neighborhoods you do; we use products we'd use around our own families and dogs." },
       { q: "Do I need separate pest control for fire ants?", a: "Fire ant treatment is a standalone service — starting at $150 and priced by the size of your yard, available to anyone. Flea treatment is an add-on to our interior plan; ask the office for details." }
     ],
