@@ -164,6 +164,22 @@ const cases = [
   ["Family-owned since 1958", false, "approved short form must pass"],
   ["EnviroCare", false, "the approved generic name must NOT flag"],
   ["EnviroCare Pest Services", false, "the approved Birmingham name must NOT flag"],
+  // 2026-11-10 (patch 0022, sweep C3): the bare $75 initial in every word order that was
+  // actually live, plus the template form. The old literal '$75 initial' caught none of these.
+  ["Startup fees are $75 for pest, $75 for pest + mosquito. Termite is priced at your free WDO inspection.", true, "$75 for pest, on a line that also says WDO"],
+  ["The one-time initial service fee is $75.", true, "initial ... $75 (reverse order)"],
+  ['{ plan: "Pest + Mosquito", startup: "$75", monthly: "From $69/mo" }', true, "startup: \"$75\" table cell"],
+  ["$75 on Pest and on Pest + Mosquito. Complete is $229.", true, "$75 on Pest"],
+  ["There is a $75 setup fee on every pest plan.", true, "$75 setup (word from the real 0022 patch)"],
+  ["Pest plans carry a $75 service fee up front.", true, "$75 service fee"],
+  ["Is there a setup fee? Yes, $75.", true, "setup ... $75 (reverse order)"],
+  ["sub: `$${PRICING.plans.pest.startup} startup · one-time treatments`", true, "template startup with no anchor"],
+  // ...and the anchored forms that must pass
+  // (live copy also says "50% off"; that phrase is the separate decision-gated discount
+  // rule's business, so these cases leave it out to test the $75 rules alone)
+  ["$75 initial service (regular price $150)", false, "anchored $75 must pass"],
+  ["sub: `$${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular})`", false, "anchored template must pass"],
+  ["the inspection is free for existing customers once a year and $75 otherwise", false, "WDO inspection fee is a different product (S6a)"],
 ];
 
 let pass = 0;

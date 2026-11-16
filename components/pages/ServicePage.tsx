@@ -317,7 +317,16 @@ export default function ServicePage({ slug }: { slug: string }) {
               {service.nearYou.links.map((l) => (
                 <li key={l.href} style={{ border: "1px solid rgba(14,142,64,.18)", borderRadius: 12, padding: ".85rem 1rem", background: "#FEFDF8" }}>
                   <Link href={l.href} style={{ color: "var(--green, #0A7935)", fontWeight: 700 }}>{l.label}</Link>
-                  <div style={{ fontSize: 13.5, color: "#4b5563", marginTop: 4 }}>{l.note}</div>
+                  <div style={{ fontSize: 13.5, color: "#4b5563", marginTop: 4 }}>
+                    {/* Patch 0022 (S24): a phone number in a note is a tap-to-call link. The
+                        href is built from the digits of the number DISPLAYED, so the two can
+                        never disagree (the defect test:citynap guards against elsewhere). */}
+                    {l.note.split(/(\(\d{3}\)\s?\d{3}-\d{4})/).map((part, i) =>
+                      /^\(\d{3}\)\s?\d{3}-\d{4}$/.test(part)
+                        ? <a key={i} href={`tel:+1${part.replace(/\D/g, "")}`} style={{ color: "inherit", fontWeight: 600 }}>{part}</a>
+                        : part
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
