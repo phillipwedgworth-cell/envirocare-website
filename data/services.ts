@@ -178,7 +178,7 @@ export const SERVICES: Service[] = [
     includes: [
       { title: 'Initial Installation', desc: 'Sentricon® bait stations placed around your Birmingham home\'s perimeter. No drilling, no mess, no disruption to landscaping.' },
       { title: 'Ongoing Monitoring', desc: 'Stations checked annually. Bait is always active — termites encountering the bait carry the lethal dose back to the colony.' },
-      { title: '$1M Damage Repair Coverage', desc: 'Backed by EnviroCare directly. If termites damage your home while we maintain your Sentricon® protection, repairs are covered up to $1,000,000, subject to the terms of the agreement.' },
+      { title: '$1M Damage Repair Coverage', desc: 'Backed by EnviroCare directly. If termites damage your home while we maintain your Sentricon® protection, EnviroCare covers the repairs up to $1,000,000, subject to the terms of the agreement.' },
       { title: 'Real Estate WDO Letter', desc: 'One free Wood-Destroying Organism inspection letter per year — essential for refinancing or selling a Birmingham home.' },
     ],
     wedgePoints: [

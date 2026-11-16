@@ -59,7 +59,7 @@ const c: ComboContent = {
     sub: "priced after a free WDO inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 damage repair coverage",
+      "Up to $1,000,000 EnviroCare damage repair coverage",
       "Annual inspection + station service",
       "Free WDO letter yearly for active customers",
       "Free termite inspection to start — no obligation",

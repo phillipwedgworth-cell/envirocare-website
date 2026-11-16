@@ -4,11 +4,11 @@ import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/Ne
 
 export const metadata: Metadata = withOpenGraph({
   title: "Pest Control Brook Highland AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
+  description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. Call (205) 940-6360.",
   alternates: { canonical: "/brook-highland" },
   openGraph: {
     title: "Pest Control Brook Highland AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M coverage, two ways to pay. Call (205) 940-6360.",
+    description: "Family-owned pest, Sentricon® termite, and mosquito service for Brook Highland homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/brook-highland",
     type: "website",
   },
@@ -185,7 +185,7 @@ const jsonLd = {
         "name": "Brook Highland, AL"
       },
       "name": "Pest Control Brook Highland",
-      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M coverage, subject to the terms of the agreement), and seasonal mosquito and tick yard service for Brook Highland homes."
+      "description": "Bi-monthly perimeter pest control, Sentricon® termite protection (no drilling, up to $1M in EnviroCare damage coverage, subject to the terms of the agreement), and seasonal mosquito and tick yard service for Brook Highland homes."
     },
     {
       "@type": "FAQPage",

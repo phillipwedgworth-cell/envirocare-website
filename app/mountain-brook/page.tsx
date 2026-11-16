@@ -91,13 +91,13 @@ const jsonLd = {
         { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "17:00" },
       ],
       description:
-        "Family-owned pest control, termite, mosquito, tick, and commercial service in Mountain Brook, Alabama, from a family doing pest control in Alabama since 1958. Sentricon® baiting with no drilling and up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. EPA-registered products applied to label directions.",
+        "Family-owned pest control, termite, mosquito, tick, and commercial service in Mountain Brook, Alabama, from a family doing pest control in Alabama since 1958. Sentricon® baiting with no drilling and up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. EPA-registered products applied to label directions.",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Pest & Termite Control in Mountain Brook",
         itemListElement: [
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with free re-service. $35/month." },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: "Mountain Brook, AL" }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: "Mountain Brook, AL" }, description: "Sentricon baiting, no drilling, coverage with up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "45", description: "Eight seasonal treatments, March–October." },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: "Mountain Brook, AL" }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage." },
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Pest Control", areaServed: "Mountain Brook, AL" } },
@@ -108,7 +108,7 @@ const jsonLd = {
       "@type": "FAQPage",
       speakable: { "@type": "SpeakableSpecification", cssSelector: [".mb-summary", ".mb-faq"] },
       mainEntity: [
-        { "@type": "Question", name: "How much is termite treatment in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." } },
+        { "@type": "Question", name: "How much is termite treatment in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with EnviroCare damage repair coverage up to $1,000,000 subject to the terms of the agreement." } },
         { "@type": "Question", name: "Is there mosquito control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." } },
         { "@type": "Question", name: "Who does commercial pest control in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." } },
         { "@type": "Question", name: "What does bi-monthly pest control cover in Mountain Brook?", acceptedAnswer: { "@type": "Answer", text: "EnviroCare's bi-monthly plan is $35 per month and covers 30+ common household pests including most ants, spiders, roaches, and rodents, with re-service between regular visits at no extra charge. Fire ant, flea, and tick are priced separately." } },
@@ -166,7 +166,7 @@ export default function MountainBrookPage() {
               Alabama, including Mountain Brook Village, English Village, Crestline Village, and Cahaba Village.
               Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service
               between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by
-              up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
+              up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
               The Wedgworth family has protected homes since 1958. Call (205)&nbsp;991-2882.
             </p>
           </div>
@@ -245,7 +245,7 @@ export default function MountainBrookPage() {
               concern. EnviroCare protects Mountain Brook homes with the{" "}
               <Link href="/services/termite-control" style={{ color: G, fontWeight: 600 }}>Sentricon® baiting system</Link>{" "}
               — installed around the home with no drilling into your foundation or slab, and priced after a free
-              on-site WDO inspection. Coverage runs up to $1,000,000, subject to the terms of the agreement.{" "}
+              on-site WDO inspection. EnviroCare's damage repair coverage runs up to $1,000,000, subject to the terms of the agreement.{" "}
               <Link href="/services/wdo-letters" style={{ color: G, fontWeight: 600 }}>Termite-letter (WDO) inspections</Link>{" "}
               for Mountain Brook home sales are also available for closings.
             </Sub>
@@ -342,7 +342,7 @@ export default function MountainBrookPage() {
               </Link>
               , where the older commercial buildings and tight lots change what we look for.
             </p>
-            <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with coverage up to $1,000,000 subject to the terms of the agreement." />
+            <Faq q="How much is termite treatment in Mountain Brook?" a="EnviroCare termite protection in Mountain Brook is priced after a free on-site WDO inspection. It uses the Sentricon baiting system with no drilling, with EnviroCare damage repair coverage up to $1,000,000 subject to the terms of the agreement." />
             <Faq q="Is EnviroCare a local Mountain Brook exterminator?" a="Yes. EnviroCare is a family-owned, professional pest control company and local exterminator serving Mountain Brook and the Birmingham area from our 16th Ave S office — the Wedgworth family has done pest control in Alabama since 1958 — with comprehensive pest control solutions for homes and businesses." />
             <Faq q="Is there mosquito control in Mountain Brook?" a="Yes. EnviroCare treats Mountain Brook yards every 30 days from March through October — eight treatments at $45/month, spread evenly across the year by ACH. Most homeowners see a clear seasonal reduction in mosquito activity." />
             <Faq q="Who does commercial pest control in Mountain Brook?" a="EnviroCare provides commercial pest control in Mountain Brook for offices, restaurants, retail, HOA common areas, and country-club facilities, with documented, inspection-ready service. Call (205) 991-2882." />
