@@ -152,6 +152,9 @@ export const SERVICES: Service[] = [
       { href: '/faq/termite-warranty', label: 'what the $1,000,000 damage repair coverage actually covers, subject to the terms of the agreement', note: 'Before you compare our termite protection against another company’s, it is worth reading' },
       { href: '/blog/is-sentricon-worth-it', label: 'Is Sentricon worth it?', note: 'Weighing the cost of a bait system against what it protects? A Certified Sentricon Specialist answers' },
       { href: '/blog/sentricon-vs-liquid-termite-treatment', label: 'Sentricon vs. liquid termite treatment', note: 'If you have been quoted a trench-and-drill liquid barrier instead, compare the two in' },
+      // 2026-11-16: independent source for the method comparison (work order step 6). Read live that day.
+      // Cited for how the methods differ only; it says nothing about EnviroCare's prices, coverage or agreement.
+      { href: 'https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/', label: 'Subterranean Termite Control Products for Alabamians (Alabama Cooperative Extension System, ANR-1252)', note: 'For an independent explanation of how liquid termiticides and bait systems differ, see' },
     ],
     name: 'Termite Control',
     shortName: 'Termite',
@@ -185,6 +188,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'How is Sentricon® different from liquid termite treatments?', a: 'Liquid termiticides treat the soil around or beneath a structure, and some applications require drilling where soil access is limited. Sentricon® uses in-ground bait stations: foraging termites feed on the bait and share it, which is designed to affect the colony. Both approaches need an inspection-based plan and follow-up. EnviroCare installs Sentricon®, and the inspection shows what your home needs.' },
+      { q: 'What does the Alabama Extension say about baits versus liquid treatments?', a: 'The Alabama Cooperative Extension System publication Subterranean Termite Control Products for Alabamians (ANR-1252) describes both. Liquid termiticides are used before and after construction and need a continuous treated zone in the soil; application can involve trenching or drilling. Bait systems use stations with a food source and a slow-acting termiticide, are less intrusive to install, act more slowly, and depend on ongoing inspection and servicing. That publication explains the methods; it does not set EnviroCare\'s pricing, coverage, or agreement terms, which come from your written EnviroCare agreement.' },
       { q: 'What does the $1M coverage actually cover?', a: 'If subterranean termites cause damage to your home while you\'re on the Sentricon® Always Active™ system and we\'ve been maintaining it, EnviroCare covers repair costs up to $1,000,000, subject to the terms of the agreement. That coverage is backed by EnviroCare directly.' },
       { q: 'Will Sentricon® mess up my landscaping?', a: 'No. Bait stations are small (about the size of a soda can) and installed flush with the ground around your home perimeter. No drilling, no concrete cuts, no torn-up flowerbeds.' },
       { q: 'How long does installation take?', a: 'Most homes are installed in 1–2 hours. We mark station locations with you first, then place them. You\'ll see them but they don\'t disrupt anything.' },
