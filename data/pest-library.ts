@@ -143,6 +143,8 @@ export const PESTS: PestEntry[] = [
     faqs: [
       { q: 'How do I know if it’s a brown recluse?', a: 'Look for a violin-shaped mark behind the head, uniform light-brown coloring, and six eyes (not eight). They’re found in quiet, undisturbed areas. If you’re unsure, capture it safely for our technician to identify.' },
       { q: 'Why are there suddenly so many spiders?', a: 'Spiders follow prey. A jump in spiders usually means there’s another insect population nearby. Controlling that food source is the most effective way to reduce spiders.' },
+      { q: 'How can I keep brown recluse spiders out of my house?', a: 'Take away the quiet places they hide. Store items in sealed plastic bins instead of cardboard boxes, keep clothes and shoes off closet and garage floors, cut down clutter in storage areas, and seal gaps around doors, windows, and utility lines. Sticky traps along the walls of closets, attics, and garages also show you whether they are there and where.' },
+      { q: 'How do I avoid being bitten by a brown recluse?', a: 'Most bites happen when a spider gets pressed against skin, usually while putting on clothes or shoes that have been sitting, or reaching into a stored box. Shake out clothing, shoes, and bedding that have not been used in a while, wear gloves when moving stored items, and keep beds a few inches off the wall. If you think you have been bitten, get medical advice.' },
     ],
   },
   {
@@ -259,6 +261,8 @@ export const PESTS: PestEntry[] = [
     faqs: [
       { q: 'What are the humpbacked "spider crickets" in my basement?', a: 'Those are camel (cave) crickets — wingless, long-legged, and harmless but unsettling. They love damp basements and crawlspaces, so moisture control plus treatment works best.' },
       { q: 'How do I stop crickets from getting in?', a: 'Sealing gaps around doors and the foundation, reducing moisture, and exterior perimeter treatment all reduce entry. We address the harborage around the home, not just the crickets inside.' },
+      { q: 'Are crickets harmful to people or pets?', a: 'No. Crickets do not bite people or spread disease. The problems are nuisance ones: chirping at night, chewing on paper, fabric, and stored items, and drawing in spiders that feed on them.' },
+      { q: 'What attracts crickets to my house?', a: 'Moisture, shelter, and light. Damp mulch and leaf litter against the foundation, gaps under garage and exterior doors, and porch lights left on at night all pull crickets toward the house. Yellow bug bulbs, mulch pulled back a few inches from the slab, and tight door sweeps make the house less inviting.' },
     ],
   },
   {
@@ -288,6 +292,8 @@ export const PESTS: PestEntry[] = [
     faqs: [
       { q: 'Are house centipedes dangerous?', a: 'They’re essentially harmless to people — they rarely bite and prefer to flee. They’re mostly a nuisance and a sign of moisture plus other insects to address.' },
       { q: 'Why do I keep seeing centipedes?', a: 'They follow their prey and moisture. Controlling the insects they eat and reducing dampness — along with treatment — is the lasting fix.' },
+      { q: 'What is the difference between a centipede and a millipede?', a: 'Centipedes are fast, flattened predators with one pair of long legs per body segment, and they hunt other insects. Millipedes are slow and rounded, have two pairs of short legs per segment, curl into a spiral when disturbed, and eat decaying plant matter. A centipede can pinch if handled; a millipede does not bite.' },
+      { q: 'How do centipedes get into the house?', a: 'Through the same openings other pests use: under doors, around plumbing and utility lines, through foundation cracks and vents, and up from damp basements and crawlspaces. Sealing gaps and lowering humidity, for example with a dehumidifier in a damp basement, makes the house much less inviting.' },
     ],
   },
   {
@@ -317,6 +323,8 @@ export const PESTS: PestEntry[] = [
     faqs: [
       { q: 'Why do millipedes come inside all at once?', a: 'Heavy rain saturates the soil where they live, or a sudden dry spell pushes them to move — and they migrate in large numbers, crossing foundations into the home. Exterior treatment plus moisture management reduces it.' },
       { q: 'Do millipedes bite or damage my house?', a: 'No — they don’t bite or damage structures. They’re a moisture-driven nuisance, but big migrations are unpleasant, so we treat the perimeter and the conditions drawing them in.' },
+      { q: 'Why are there so many millipedes around my new house?', a: 'New construction usually means fresh mulch, disturbed soil, and young landscaping that gets watered often, which is exactly the damp, decaying plant material millipedes live in. Numbers usually ease as the landscaping settles. In the meantime, keep mulch thin and pulled back a few inches from the foundation and let beds dry out between waterings.' },
+      { q: 'Do millipedes need to be treated inside the house?', a: 'Usually not. Millipedes that get indoors dry out and die within a few days, so a vacuum handles the ones inside. The lasting fix is outside: the foundation perimeter, mulch beds, and entry points, plus less moisture against the house.' },
     ],
   },
   {
