@@ -52,7 +52,7 @@ export default function CityDepth({ city }: { city: City }) {
               {city.pestHeadline || <>Local pest pressure in <em>{city.name}.</em></>}
             </h2>
             <p className="cd-sub">
-              What we treat most often around {city.name} — and how each program handles it.
+              {city.pestIntro ?? <>What we treat most often around {city.name} — and how each program handles it.</>}
             </p>
             <div className="cd-grid">
               {city.pestContext!.map((p, i) => (
