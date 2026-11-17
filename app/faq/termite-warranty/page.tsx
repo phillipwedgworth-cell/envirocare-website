@@ -65,7 +65,7 @@ const SCHEMA = {
       name: "How much does Sentricon cost at EnviroCare?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare prices Sentricon® after a free on-site WDO inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement, and the inspection is always free with no obligation.",
+        text: "EnviroCare prices Sentricon® after a free on-site termite inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement, and the inspection is always free with no obligation.",
       },
     },
     {
@@ -117,7 +117,7 @@ const FAQS = [
   },
   {
     q: "How much does Sentricon cost at EnviroCare?",
-    a: "Sentricon® is priced after a free on-site WDO inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. The inspection is free with no obligation.",
+    a: "Sentricon® is priced after a free on-site termite inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. The inspection is free with no obligation.",
   },
   {
     q: "Is drilling required to install Sentricon?",
@@ -137,7 +137,7 @@ const FAQS = [
   },
   {
     q: "Can I add Sentricon to my existing pest control plan?",
-    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free WDO inspection, with your familiar local team on one schedule. Call any of our four Alabama offices to add termite protection.",
+    a: "Yes. Sentricon can be added to any existing EnviroCare pest control plan on one invoice — pest control is $35/month and the Sentricon® portion is quoted at your free termite inspection, with your familiar local team on one schedule. Call any of our four Alabama offices to add termite protection.",
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",
@@ -555,7 +555,7 @@ export default function TermiteWarrantyFAQ() {
           >
             Up to $1,000,000 in EnviroCare Damage Repair Coverage.{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>
-              Priced after a free WDO inspection.
+              Priced after a free termite inspection.
             </em>
           </h2>
           <p

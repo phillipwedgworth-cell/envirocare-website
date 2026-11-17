@@ -16,11 +16,11 @@ import { PEST_OFFER_DESCRIPTION, PEST_PRICE_SPECIFICATION } from '@/lib/seo/pest
 export const metadata: Metadata = {
   title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
   description:
-    "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free WDO inspection.",
+    "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free termite inspection.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
-    description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free WDO inspection.",
+    description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free termite inspection.",
     url: 'https://www.envirocarellc.com/pricing',
     images: ['/og-image.png'],
     type: 'website',
@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
-    description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free WDO inspection.",
+    description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free termite inspection.",
     images: ['/og-image.png'],
   },
 };
 
-// OfferCatalog — priced plans only. Termite is a Service with NO price (quote after free WDO inspection).
+// OfferCatalog — priced plans only. Termite is a Service with NO price (quote after free termite inspection).
 const OFFER_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
@@ -64,7 +64,7 @@ const OFFER_SCHEMA = {
     {
       // Termite — intentionally NO price (Alabama requires an on-site WDO inspection first).
       "@type": "Offer", name: "Sentricon® Termite Protection",
-      itemOffered: { "@type": "Service", name: "Sentricon® Always Active™ Termite Protection", description: "Quoted after a free on-site WDO inspection (based on linear footage and foundation type). Up to $1,000,000 EnviroCare repair coverage, subject to the terms of the agreement. Available bundled with a pest plan ($75 initial service fee (50% off the $150 regular price))." },
+      itemOffered: { "@type": "Service", name: "Sentricon® Always Active™ Termite Protection", description: "Quoted after a free on-site termite inspection (based on linear footage and foundation type). Up to $1,000,000 EnviroCare repair coverage, subject to the terms of the agreement. Available bundled with a pest plan ($75 initial service fee (50% off the $150 regular price))." },
     },
   ],
 };
@@ -75,7 +75,7 @@ const FAQ_SCHEMA = {
   mainEntity: [
     { "@type": "Question", name: "Is there a contract?", acceptedAnswer: { "@type": "Answer", text: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." } },
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
-    { "@type": "Question", name: "What is the initial service fee?", acceptedAnswer: { "@type": "Answer", text: "$75 on Pest and on Pest + Mosquito, which is 50% off the $150 regular price. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment and there is no separate inspection fee. Mosquito booked alone has no initial fee; it is billed monthly." } },
+    { "@type": "Question", name: "What is the initial service fee?", acceptedAnswer: { "@type": "Answer", text: "$75 on Pest and on Pest + Mosquito, which is 50% off the $150 regular price. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment and there is no separate inspection fee. Mosquito booked alone has no initial fee; it is billed monthly. Mosquito + Tick is $65 a month, and the first application is 50% off." } },
     { "@type": "Question", name: "Can I get mosquito without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." } },
     { "@type": "Question", name: "What's the $1M EnviroCare coverage?", acceptedAnswer: { "@type": "Answer", text: "If termites cause structural damage while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement." } },
   ],

@@ -70,7 +70,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How does EnviroCare\'s termite protection compare to the big chains?',
-    a: 'EnviroCare is a Sentricon® Certified Specialist. Sentricon® Always Active™ uses in-ground bait stations around your home — no drilling into slabs or historic masonry, and no tank trucks. Qualifying homes carry up to $1,000,000 in EnviroCare repair coverage. Many chains still lead with liquid-barrier treatments that require drilling. Every EnviroCare termite quote starts with a free on-site WDO inspection, as Alabama requires.',
+    a: 'EnviroCare is a Sentricon® Certified Specialist. Sentricon® Always Active™ uses in-ground bait stations around your home — no drilling into slabs or historic masonry, and no tank trucks. Qualifying homes carry up to $1,000,000 in EnviroCare repair coverage. Many chains still lead with liquid-barrier treatments that require drilling. Every EnviroCare termite quote starts with a free on-site termite inspection, as Alabama requires.',
   },
   {
     q: 'Is EnviroCare cheaper than the national pest control companies?',
@@ -163,7 +163,7 @@ export default function FamilyOwnedVsChainsPage() {
             <p style={{ fontSize: 16, lineHeight: 1.75, margin: '0 0 14px', color: '#3f4a44' }}>
               For termites, the best protection in Birmingham is the one that does not drill your foundation. EnviroCare
               is a Sentricon® Certified Specialist, installing in-ground bait stations with up to $1,000,000 in
-              EnviroCare damage repair coverage, subject to the terms of the agreement, after a free WDO inspection. For
+              EnviroCare damage repair coverage, subject to the terms of the agreement, after a free termite inspection. For
               mosquitoes, the 30-day yard barrier runs March through October. One local pest control company can handle
               pest, termite, and mosquito service across Birmingham — Jefferson and Shelby County — for year-round peace
               of mind.

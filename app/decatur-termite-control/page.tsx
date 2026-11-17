@@ -33,7 +33,7 @@ const c: ComboContent = {
     },
     {
       title: "Springtime swarms off the water",
-      body: "Warm April evenings after rain bring the swarms — winged reproductives leaving mature colonies, often first noticed as shed wings on windowsills. Wings on YOUR sill mean a mature colony within striking distance. That's a free-inspection call, same week.",
+      body: "Warm April evenings after rain bring the swarms — winged reproductives leaving mature colonies, often first noticed as shed wings on windowsills. Wings on YOUR sill mean a mature colony within striking distance. That's a free-inspection call.",
     },
     {
       title: "The letter every closing needs",
@@ -43,7 +43,7 @@ const c: ComboContent = {
   price: {
     label: "Sentricon® Protection — Decatur",
     amount: "Free inspection",
-    sub: "priced after a free WDO inspection",
+    sub: "priced after a free termite inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
       "Up to $1,000,000 EnviroCare damage repair coverage — subject to the terms of the agreement",

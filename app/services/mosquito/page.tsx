@@ -13,10 +13,10 @@ export const metadata = {
   // "mosquito & tick control" variant shows for Birmingham and Huntsville. $45/month
   // and $65/month Mosquito + Tick are the canonical prices (AGENTS.md §5).
   title: 'Mosquito & Tick Control in Alabama | $45/mo | EnviroCare',
-  description: 'Mosquito yard treatment from $45/month — 8 treatments March through October. Mosquito + Tick $65/month. Free inspection across Alabama.',
+  description: 'Mosquito yard treatment from $45/month — 8 treatments March through October. Mosquito + Tick $65/month, first application 50% off. Free inspection across Alabama.',
   openGraph: {
     title: 'Mosquito & Tick Control in Alabama | $45/mo | EnviroCare',
-    description: 'Mosquito yard treatment from $45/month — 8 treatments March through October. Mosquito + Tick $65/month. Free inspection across Alabama.',
+    description: 'Mosquito yard treatment from $45/month — 8 treatments March through October. Mosquito + Tick $65/month, first application 50% off. Free inspection across Alabama.',
     url: 'https://www.envirocarellc.com/services/mosquito',
     images: ['/og-image.png'],
     type: 'website',
@@ -24,7 +24,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mosquito & Tick Control in Alabama | $45/mo | EnviroCare',
-    description: 'Mosquito yard treatment from $45/month — 8 treatments March through October. Mosquito + Tick $65/month. Free inspection across Alabama.',
+    description: 'Mosquito yard treatment from $45/month — 8 treatments March through October. Mosquito + Tick $65/month, first application 50% off. Free inspection across Alabama.',
     images: ['/og-image.png'],
   },
 };

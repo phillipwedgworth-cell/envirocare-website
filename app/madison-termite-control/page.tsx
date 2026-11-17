@@ -43,7 +43,7 @@ const c: ComboContent = {
   price: {
     label: "Sentricon® Protection — Madison",
     amount: "Free inspection",
-    sub: "priced after a free WDO inspection",
+    sub: "priced after a free termite inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
       "Up to $1,000,000 EnviroCare damage repair coverage — subject to the terms of the agreement",
@@ -63,7 +63,7 @@ const c: ComboContent = {
     },
     {
       q: "What does termite protection cost in Madison?",
-      a: "Every quote follows a free WDO inspection, because slab layout, soil contact, and additions change the station plan. There's no flat price to publish honestly — the inspection is free, takes about 20–30 minutes, and you'll have the exact number before we touch anything.",
+      a: "Every quote follows a free termite inspection, because slab layout, soil contact, and additions change the station plan. There's no flat price to publish honestly — the inspection is free, takes about 20–30 minutes, and you'll have the exact number before we touch anything.",
     },
     {
       q: "Is the $1,000,000 coverage from the Sentricon manufacturer?",

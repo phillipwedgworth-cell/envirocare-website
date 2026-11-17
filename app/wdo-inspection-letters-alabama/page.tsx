@@ -7,7 +7,7 @@
 // - NO turnaround-hour promises ("24 hours"/"48-72") — that claim is flagged
 //   for Phillip's review on the homeowner page; this page says "built around
 //   your closing date" until ops confirms what they honor.
-// - No prices invented; scheduling call quotes the fee.
+// - WDO fee: "as low as $125" (Phillip, Nov 17 2026); exact fee confirmed at scheduling.
 // - No individual employee named.
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -51,6 +51,10 @@ const FAQS = [
   {
     q: "Which loan types does your WDO letter satisfy?",
     a: "We complete the Alabama Department of Agriculture and Industries Official Alabama Wood Infestation Inspection Report, accepted for VA, FHA, conventional, and refinance transactions statewide. VA appraisers see this form constantly; there's no follow-up form fight.",
+  },
+  {
+    q: "How much does a WDO letter cost?",
+    a: "WDO inspections start as low as $125. The exact fee depends on the property and is confirmed when you schedule.",
   },
   {
     q: "How do you handle a closing date?",

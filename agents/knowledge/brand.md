@@ -24,7 +24,7 @@
 - Read `data/pricing.ts` and `data/compliance.ts` before writing prices. Historical notes are not a substitute.
 - Termite work is quoted after inspection; do not publish a flat price or renewal range.
 - Tick and flea pricing is quoted; do not publish internal add-on amounts.
-- A standalone real-estate WDO report is a paid service. Confirm the fee before booking; do not invent an amount or call the report free.
+- A standalone real-estate WDO report is a paid service, as low as $125 (Phillip, Nov 17 2026). Say "as low as $125"; the exact fee is confirmed at scheduling. Do not quote any other amount or call the report free.
 - Monthly prices require the 12-month ACH agreement and equal averaged payment disclosure from `PRICING.achTerms`.
 - Mosquito service uses eight treatments March–October; monthly payments are not per-treatment charges.
 - Initial service differs by plan: read `plans.<plan>.startup` and the current promotion terms.

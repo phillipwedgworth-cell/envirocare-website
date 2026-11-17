@@ -77,7 +77,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>
-              <div className="faq-a">Termite is priced after a free WDO inspection — Alabama requires it, and your Sentricon® price depends on your home's linear footage and foundation type. EnviroCare's plan includes up to $1,000,000 in termite damage repair coverage, annual inspection, and one WDO letter per year. The inspection is always free.</div>
+              <div className="faq-a">Termite is priced after a free termite inspection — Alabama requires it, and your Sentricon® price depends on your home's linear footage and foundation type. EnviroCare's plan includes up to $1,000,000 in termite damage repair coverage, annual inspection, and one WDO letter per year. The inspection is always free.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you bundle services?</summary>
@@ -85,7 +85,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Is there a setup fee?</summary>
-              <div className="faq-a">The initial service is $75 for Pest and for Pest + Mosquito (50% off the $150 regular price), and $229 for the Complete bundle. Termite is priced at your free WDO inspection. Mosquito or Mosquito + Tick booked on their own have no initial fee — they're billed monthly, in equal ACH payments across the year.</div>
+              <div className="faq-a">The initial service is $75 for Pest and for Pest + Mosquito (50% off the $150 regular price), and $229 for the Complete bundle. Termite is priced at your free termite inspection. Mosquito or Mosquito + Tick booked on their own have no initial fee — they're billed monthly, in equal ACH payments across the year. Mosquito + Tick is $65 a month, and the first application is 50% off.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you offer one-time treatments?</summary>

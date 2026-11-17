@@ -83,7 +83,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
       {
         // Termite carries NO flat price — Alabama requires an on-site WDO inspection first.
         '@type': 'Offer', name: 'Sentricon® Termite Protection',
-        itemOffered: { '@type': 'Service', name: 'Sentricon® Always Active™ Termite Baiting', description: 'In-ground bait station termite protection, no drilling required. Pricing is determined after a free on-site WDO inspection based on linear footage and foundation type. Qualifying homes carry up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement.' },
+        itemOffered: { '@type': 'Service', name: 'Sentricon® Always Active™ Termite Baiting', description: 'In-ground bait station termite protection, no drilling required. Pricing is determined after a free on-site termite inspection based on linear footage and foundation type. Qualifying homes carry up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement.' },
       },
       {
         '@type': 'Offer', name: 'Mosquito Yard Barrier', price: '45', priceCurrency: 'USD',

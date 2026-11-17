@@ -1079,7 +1079,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Carpenter ants forage at night and you may see one or two big ants on the kitchen counter in spring and summer, usually near a bathroom or an exterior wall with a moisture history. Termites give you mud tubes: pencil-width tunnels of soil running up a foundation wall, a pier, or a plumbing penetration. A mud tube is diagnostic; nothing else in Alabama builds one.</p>
 
 <h2>Why pest control for carpenter ants and termites is different</h2>
-<p>Carpenter ants are treated as part of a regular pest program, but the treatment does not last if the moisture stays — find the leak, dry the wood, and the colony has no reason to be there. It is a repair problem with an insect attached. Termites are a colony in the soil, possibly a hundred feet from the house, and Alabama requires licensed treatment: either a bait system the colony carries back and feeds on, or a treated zone in the soil around the whole foundation. It starts with a free WDO inspection and it carries an agreement, because the protection is ongoing.</p>
+<p>Carpenter ants are treated as part of a regular pest program, but the treatment does not last if the moisture stays — find the leak, dry the wood, and the colony has no reason to be there. It is a repair problem with an insect attached. Termites are a colony in the soil, possibly a hundred feet from the house, and Alabama requires licensed treatment: either a bait system the colony carries back and feeds on, or a treated zone in the soil around the whole foundation. It starts with a free termite inspection and it carries an agreement, because the protection is ongoing.</p>
 
 <h2>If you are not sure, schedule an inspection</h2>
 <p>Take a clear photo of the damage and of the insect if you have one, leave the mud tube or the frass in place, and let an inspector look. Do not spray the tube and do not tear out the trim. Carpenter ants are covered under the <a href="/services/pest-control">bi-monthly pest plan</a>; termites are handled under a separate Sentricon® agreement with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. Either way, the inspection costs nothing.</p>
@@ -1392,7 +1392,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>What changes with Formosans is the stakes of skipping the annual inspection: with a colony that size, a year of unnoticed termite activity is a much larger repair. It also raises the value of not bringing infested material onto the property — used railroad ties, landscape timbers of unknown origin, and salvaged lumber from the coast.</p>
 
-<p>Termite work at EnviroCare is priced after the inspection, never over the phone, and qualifying homes carry up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A free WDO inspection is the first step toward protecting your home from Alabama's termite pressure.</p>
+<p>Termite work at EnviroCare is priced after the inspection, never over the phone, and qualifying homes carry up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A free termite inspection is the first step toward protecting your home from Alabama's termite pressure.</p>
 
 <h2>Frequently asked questions about termites in Alabama</h2>
 
@@ -1413,7 +1413,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Termite control services in Birmingham, Huntsville, and across Alabama</h2>
 
-<p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides termite inspection, termite and pest control, and full pest management across central and north Alabama. Whether you are seeing swarmers, finding mud tubes, or just want to protect your home before termite season, a free WDO inspection is the first step. We identify the termite species, assess the damage, and recommend the right control program for your home.</p>
+<p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides termite inspection, termite and pest control, and full pest management across central and north Alabama. Whether you are seeing swarmers, finding mud tubes, or just want to protect your home before termite season, a free termite inspection is the first step. We identify the termite species, assess the damage, and recommend the right control program for your home.</p>
 
 <p>Call the office nearest you — Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a>, or Huntsville <a href="tel:+12569377676">(256) 937-7676</a> — or <a href="/quote">request a free quote online</a>.</p>
 
@@ -5252,7 +5252,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ul>
 <li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 promotional initial service (50% off the $150 regular price). Covers 30-plus pests including ants, spiders, cockroaches, rodents, silverfish, centipedes, and crickets, with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is quoted after inspection. The price is firm after a free inspection of your property.</li>
-<li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
+<li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free termite inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
 </ul>
 
@@ -5587,7 +5587,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>What changes with Formosan termites is the stakes of skipping the annual inspection: with a colony that size, a year of unnoticed termite activity is a much larger repair. It also raises the value of not bringing infested material onto the property — used railroad ties, landscape timbers of unknown origin, and salvaged lumber from the coast.</p>
 
-<p>Termite work at EnviroCare is priced after the inspection, never over the phone, and qualifying homes carry up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A free WDO inspection is the first step toward protecting your home from Alabama's termite pressure.</p>
+<p>Termite work at EnviroCare is priced after the inspection, never over the phone, and qualifying homes carry up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A free termite inspection is the first step toward protecting your home from Alabama's termite pressure.</p>
 
 <h2>Frequently asked questions about termites in Alabama</h2>
 
@@ -5614,7 +5614,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Termite inspection and pest control services in Birmingham, Huntsville, and across Alabama</h2>
 
-<p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides termite inspection, termite and pest control, and full pest management across central and north Alabama. Whether you are seeing swarmers, finding mud tubes, or just want to protect your home before termite season, a free WDO inspection is the first step. We identify the termite species, assess the damage, and recommend the right termite control program for your home.</p>
+<p>EnviroCare Pest Services — family-owned since 1958, fourth generation — provides termite inspection, termite and pest control, and full pest management across central and north Alabama. Whether you are seeing swarmers, finding mud tubes, or just want to protect your home before termite season, a free termite inspection is the first step. We identify the termite species, assess the damage, and recommend the right termite control program for your home.</p>
 
 <p>Call the office nearest you — Birmingham <a href="tel:+12059912882">(205) 991-2882</a>, Alabaster <a href="tel:+12059406360">(205) 940-6360</a>, Lake Martin / Alex City <a href="tel:+12562346162">(256) 234-6162</a>, or Huntsville <a href="tel:+12569377676">(256) 937-7676</a> — or <a href="/quote">request a free quote online</a>.</p>
 
@@ -6137,7 +6137,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ul>
 <li><strong>Bi-monthly pest control</strong> — starts at $35 a month on ACH, with a $75 promotional initial service (50% off the $150 regular price). Covers 30-plus pests including ants, spiders, cockroaches, rodents, silverfish, centipedes, millipedes, cave crickets, and crickets, with free re-service between scheduled visits.</li>
 <li><strong>Mosquito control</strong> — $45 a month for an average-size yard, eight treatments March through October. Mosquito plus tick control is quoted after inspection. The price is firm after a free inspection of your property.</li>
-<li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free WDO inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
+<li><strong>Complete pest control</strong> — $229 initial service. Pest, termite, and mosquito protection together — the Sentricon termite bait system priced after a free termite inspection, bi-monthly pest control service, and seasonal mosquito control in one program.</li>
 <li><strong>Termite control</strong> — always priced after inspection. Every home is different, and a reputable pest control company will not quote a termite job without inspecting the property first. Termite inspections are free at EnviroCare.</li>
 </ul>
 
