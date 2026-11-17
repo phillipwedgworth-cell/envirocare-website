@@ -97,7 +97,7 @@ export default function ServicesIndexPage() {
             <a href="/services/wdo-letters" className="svc-card">
               <div className="svc-card-tag">Closings</div>
               <div className="svc-card-name">Real Estate / WDO Letters</div>
-              <div className="svc-card-desc">The Official Alabama Wood Infestation Inspection Report, lender-ready format. $125 standalone or free annually for active customers.</div>
+              <div className="svc-card-desc">The Official Alabama Wood Infestation Inspection Report, lender-ready format. As low as $125.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             <a href="/services/commercial" className="svc-card">

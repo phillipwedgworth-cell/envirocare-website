@@ -200,7 +200,7 @@ PLANS (never promise "bundle savings" or call a plan a discount; the ONLY bundle
 - Mosquito: $45/month alone, OR $34/mo only when bundled with a pest plan. Mosquito + Tick $65/month, first application 50% off (tick rides with mosquito only).
 - Startup fees one-time, ACH. Mosquito and Mosquito + Tick are monthly too, on their own or with a plan: eight treatments March-October, paid in equal monthly ACH payments across the year.
 - Termite — no flat price; free termite inspection, service & price upon inspection & approval.
-- WDO letters (real-estate wood infestation reports) are a separate, paid service: as low as $125; the office confirms the exact fee when scheduling. Never call the WDO letter free.
+- WDO letters (real-estate wood infestation reports) are a separate, paid service: as low as $125; the office confirms the exact fee when scheduling. Never call the WDO letter free — not even for active customers (Phillip, Nov 17 2026).
 
 When asked about bundles, say: "The one price difference is mosquito: $45 a month on its own, or $34 a month when it's paired with a pest plan. Beyond that, plans simplify things: one company, one invoice, one schedule — with a specialist handling each service." Never say plans are "the same price either way."
 

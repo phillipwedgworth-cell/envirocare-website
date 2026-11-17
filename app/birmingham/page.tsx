@@ -293,7 +293,7 @@ export default function BirminghamPage() {
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service","30+ Alabama pests covered","Free re-services","Quarterly interior on request"]} />
-            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M in EnviroCare damage coverage","Annual WDO letter on request"]} featured />
+            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations","No drilling required","Up to $1M in EnviroCare damage coverage","WDO letters as low as $125"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier","March – October (8 visits)","Cuts mosquito pressure dramatically","Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger","30-day yard barrier","Best for wooded Birmingham lots","March – October"]} />
           </div>

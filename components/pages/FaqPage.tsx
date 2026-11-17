@@ -77,7 +77,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>
-              <div className="faq-a">Termite is priced after a free termite inspection — Alabama requires it, and your Sentricon® price depends on your home's linear footage and foundation type. EnviroCare's plan includes up to $1,000,000 in termite damage repair coverage, annual inspection, and one WDO letter per year. The inspection is always free.</div>
+              <div className="faq-a">Termite is priced after a free termite inspection — Alabama requires it, and your Sentricon® price depends on your home's linear footage and foundation type. EnviroCare's plan includes up to $1,000,000 in termite damage repair coverage, and an annual inspection. The termite inspection is always free; real-estate WDO letters are a separate service, as low as $125.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you bundle services?</summary>

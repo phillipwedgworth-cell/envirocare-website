@@ -37,7 +37,7 @@ const c: ComboContent = {
     },
     {
       title: "Real-estate ready, every year",
-      body: "Active Sentricon® customers get a free annual WDO letter — the document every Alabama closing with a loan requires. In a market where Madison homes turn over fast, that letter is real money at the table.",
+      body: "We issue WDO letters, the document every Alabama closing with a loan requires, starting as low as $125. In a market where Madison homes turn over fast, having one ready keeps the sale on schedule.",
     },
   ],
   price: {
@@ -49,7 +49,7 @@ const c: ComboContent = {
       "Up to $1,000,000 EnviroCare damage repair coverage — subject to the terms of the agreement",
       "No drilling, no trenching disruption",
       "Annual inspection + station service",
-      "Free WDO letter yearly for active customers",
+      "WDO letters as low as $125",
     ],
   },
   faqs: [
