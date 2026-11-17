@@ -290,8 +290,7 @@ export default function SentriconProtection() {
             </div>
             <div className="space-y-3">
               {[
-                { title: "Pre-treat during construction", desc: "Most effective — soil treatment applied before slab pour or framing begins" },
-                { title: "New construction installation", desc: "Sentricon stations installed at move-in, property immediately protected" },
+                                { title: "New construction installation", desc: "Stations installed at final grade, so nothing has to be scheduled around the slab pour" },
                 { title: "Existing home installation", desc: "Can be installed anytime — same effectiveness on older homes" },
                 { title: "Home purchase inspection", desc: "WDO inspection + Sentricon installation — protect your investment from closing day" },
               ].map((item, i) => (

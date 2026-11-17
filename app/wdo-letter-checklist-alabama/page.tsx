@@ -11,7 +11,8 @@
 //   reproduction. Alabama uses its OWN report — it is not the NPMA-33 industry
 //   form, and no "ADAI-WDO-100" designation exists anywhere in the rule.
 // - NO turnaround-time promise. Same rule as the B2B page.
-// - NO claim about who pays — that is set by the purchase contract and varies.
+// - Who pays: "in general the seller provides the report" (Phillip, 2026-11-16),
+//   always paired with "the purchase contract controls". No firmer claim than that.
 //   The ninety-day retreatment provision IS stated, because the rule fixes it;
 //   it is distinguished from a lender's acceptance window, which the rule does
 //   not set.
@@ -104,7 +105,7 @@ const FAQS = [
   },
   {
     q: "Who pays for the inspection, and how long is a report good for?",
-    a: "Who pays is set by the purchase contract, not by the inspection company, and it varies between transactions — check the contract on each file. On validity, note what Rule 80-10-9-.18 actually provides: where the report certifies apparent freedom from wood-destroying organisms and an infestation is found within ninety days of issuance, the licensee must treat the structure at no charge. That ninety-day provision is not the same thing as a lender's acceptance window, which is set by the lender. Confirm the lender's requirement separately.",
+    a: "In general the seller provides the report, but who pays is set by the purchase contract, not by the inspection company, and it varies between transactions — check the contract on each file. On validity, note what Rule 80-10-9-.18 actually provides: where the report certifies apparent freedom from wood-destroying organisms and an infestation is found within ninety days of issuance, the licensee must treat the structure at no charge. That ninety-day provision is not the same thing as a lender's acceptance window, which is set by the lender. Confirm the lender's requirement separately.",
   },
   {
     q: "What happens to areas the inspector cannot reach?",

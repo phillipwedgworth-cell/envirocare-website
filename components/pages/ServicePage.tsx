@@ -144,7 +144,7 @@ const SERVICE_ART_SVG: Record<string, string> = {
 </g>
 <rect x="50" y="280" width="300" height="6" fill="#F5A800" opacity="0.85"/>
 <g fill="#F5A800" opacity="0.7"><circle cx="55" cy="290" r="3"/><circle cx="120" cy="290" r="3"/><circle cx="200" cy="290" r="3"/><circle cx="280" cy="290" r="3"/><circle cx="345" cy="290" r="3"/></g>
-<g transform="translate(80,260)"><rect width="110" height="22" rx="4" fill="#F5A800"/><text x="55" y="15" font-family="DM Sans" font-size="11" font-weight="900" fill="#0A1A0E" text-anchor="middle">PRE-SLAB TREATED</text></g>
+<g transform="translate(80,260)"><rect width="110" height="22" rx="4" fill="#F5A800"/><text x="55" y="15" font-family="DM Sans" font-size="11" font-weight="900" fill="#0A1A0E" text-anchor="middle">SENTRICON READY</text></g>
 <g fill="#F5A800" opacity="0.7"><circle cx="50" cy="40" r="1.5"/><circle cx="350" cy="50" r="2"/></g>
 </svg>`,
   'wdo': `<svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">

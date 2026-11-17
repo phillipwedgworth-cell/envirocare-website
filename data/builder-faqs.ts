@@ -11,40 +11,40 @@
 export const BUILDER_FAQS: { q: string; a: string }[] = [
 
   {
-    q: "When during construction does the termite pre-treatment happen?",
-    a: "The soil treatment happens after footing and plumbing trenches are dug and before the concrete pour — that's the only window when the soil under the slab is fully exposed. We coordinate directly with your superintendent so the treatment lands at the right point in the pour schedule. Sentricon® stations go in later, at the landscape phase, once final grade is set.",
+    q: "When during construction does Sentricon® go in?",
+    a: "After final grade, usually at the landscape phase, once the lot will not be regraded. There is no pre-pour treatment, so nothing has to be scheduled around trenching or the slab pour. We set the install date with your superintendent.",
   },
   {
     q: "Is termite protection required by code for new construction in Alabama?",
-    a: "Yes. Alabama's residential building code requires protection against subterranean termites for new construction, and your building inspector will look for documentation that it was done. Every EnviroCare pre-treatment comes with a treatment certificate for your inspector's file, so there's no back-and-forth at inspection.",
+    a: "Yes. Alabama's residential building code requires protection against subterranean termites for new construction. The International Residential Code, which Alabama's residential code is based on, lists a termite baiting system as one of the accepted methods, and Corteva lists the Sentricon® system as meeting national code requirements. You get installation records for your file.",
   },
   {
-    q: "What does a builder pre-treatment cost?",
-    a: "It's quoted to the project — slab footprint, lot conditions, number of homes, and where you are in the build all factor in. We confirm scope and pricing after a free inspection of the site rather than quoting a flat number sight unseen. There's no charge for the site visit or the quote, and multi-lot projects are quoted as one coordinated scope.",
+    q: "Why Sentricon® instead of a liquid pretreatment?",
+    a: "Scheduling and staying power. A liquid pretreatment has to be applied in the short window between trenching and the pour, and later grading, utility work, and landscaping can disturb the treated soil. Sentricon® goes in after final grade, so it never holds up a pour, and the stations are checked on a schedule and serviced as needed from closing on. Lenders accept Sentricon® as termite protection for new and existing home sales, and the agreement can continue with the buyer.",
   },
   {
-    q: "Soil treatment or Sentricon® — which one do new builds get?",
-    a: "Most new builds get both, at different stages: a soil treatment before the pour to satisfy the code requirement, then Sentricon® Always Active stations at the landscape phase for ongoing colony protection. The exact scope is confirmed at the site inspection — every lot and build is a little different.",
+    q: "What does builder termite protection cost?",
+    a: "It's quoted to the project — the home's footprint, lot conditions, number of homes, and where you are in the build all factor in. We confirm scope and pricing after a free inspection of the site rather than quoting a flat number sight unseen. There's no charge for the site visit or the quote, and multi-lot projects are quoted as one coordinated scope.",
   },
   {
     q: "What paperwork does the builder receive?",
-    a: "Three documents across the build: a treatment certificate after the pre-pour soil treatment (for your building inspector), Sentricon® installation records at the landscape phase, and the Official Alabama Wood Infestation Inspection Report at closing for the buyer's lender and closing attorney. Everything stays on file with us, so replacements are a phone call away.",
+    a: "Sentricon® installation records for your file once the stations are in, and the Official Alabama Wood Infestation Inspection Report at closing for the buyer's lender and closing attorney. Everything stays on file with us, so replacements are a phone call away.",
   },
   {
-    q: "Does the protection carry a warranty?",
-    a: "Yes. New-construction termite protection is subject to the terms of the agreement, with damage coverage up to $1,000,000 — backed by EnviroCare directly, standing behind our own work. Specific terms are confirmed at the site inspection.",
+    q: "Does new-construction protection include damage coverage?",
+    a: "Yes. Sentricon® protection on a new home includes up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Specific terms are confirmed at the site inspection.",
   },
   {
     q: "Can the homeowner keep the Sentricon® protection after closing?",
-    a: "That's the whole point of installing it during construction. At closing, the buyer can pick up ongoing Sentricon® monitoring and renewal with us — the stations are already in the ground, so there's nothing to retrofit. Many builders present it as a feature of the home, because it is one.",
+    a: "That's the whole point of installing it during construction. At closing, the buyer can continue Sentricon® monitoring and renewal with us — the stations are already in the ground, so there's nothing to retrofit. Many builders present it as a feature of the home, because it is one.",
   },
   {
     q: "Do you work with production builders on multiple lots?",
-    a: "Yes. We schedule around phased pours across a subdivision, keep one point of contact for the whole project, and quote multi-lot work as a single coordinated scope. Whether it's one custom home on Lake Martin or a full phase in a Huntsville subdivision, the process is the same: we work to your schedule, not the other way around.",
+    a: "Yes. We schedule installs around phased closings across a subdivision, keep one point of contact for the whole project, and quote multi-lot work as a single coordinated scope. Whether it's one custom home on Lake Martin or a full phase in a Huntsville subdivision, the process is the same: we work to your schedule, not the other way around.",
   },
   {
-    q: "Will the treatment hold up my pour?",
-    a: "No — the soil treatment is applied in the window between trenching and pour, and we schedule it with your superintendent so it fits inside your existing timeline. Our job is to be there at the right moment, treat, document, and get out of the way.",
+    q: "Will termite protection hold up my pour?",
+    a: "No. There is nothing to do before the pour. Sentricon® is installed after final grade, so your slab schedule is never waiting on a termite treatment.",
   },
   {
     q: "What areas do you cover for builder work?",

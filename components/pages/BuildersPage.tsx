@@ -30,9 +30,9 @@ export default function BuildersPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">For Home Builders & GCs</span></div>
-          <h1>Pre-Slab Termite{" "}<em>Done Right</em></h1>
+          <h1>Sentricon® Termite Protection{" "}<em>For New Construction</em></h1>
           <p className="page-hero-sub">
-            Code-compliant soil treatment before pour. Sentricon® install at landscape phase. WDO letter at closing. One vendor, coordinated to your construction schedule — so your buyer takes possession with active protection from day one.
+            Sentricon® Always Active™ stations installed once the lot is at final grade, so there is no pre-pour treatment to schedule around your slab. Installation records for your file, the official WDO report at closing, and one vendor your buyer keeps.
           </p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
@@ -44,7 +44,7 @@ export default function BuildersPage() {
       <div className="trust">
         <div className="trust-inner">
           <div className="ti"><div className="ti-chk">✓</div>Family-Owned Since 1958</div>
-          <div className="ti"><div className="ti-chk">✓</div>Alabama Code-Compliant Treatment</div>
+          <div className="ti"><div className="ti-chk">✓</div>No Slab-Pour Scheduling</div>
           <div className="ti"><div className="ti-chk">✓</div>Sentricon® Certified Specialist</div>
           <div className="ti"><div className="ti-chk">✓</div>Builder Partnership Pricing</div>
           <div className="ti"><div className="ti-chk">✓</div>Coordinated Closing Documentation</div>
@@ -54,18 +54,18 @@ export default function BuildersPage() {
       <section className="flow-section" id="process">
         <div className="container">
           <div className="section-eyebrow">How We Work With You</div>
-          <h2 className="section-title">From Slab Pour To <span>Closing</span></h2>
-          <p className="section-sub">Three coordinated visits. One invoice. One vendor your buyer keeps.</p>
+          <h2 className="section-title">From Final Grade To <span>Closing</span></h2>
+          <p className="section-sub">No pour-day visit. One install, one closing report, one vendor your buyer keeps.</p>
           <div className="flow-grid">
             <div className="flow-card">
               <div className="flow-num">1</div>
-              <div className="flow-title">Pre-Slab Soil Treatment</div>
-              <div className="flow-desc">After trenches are dug, before concrete pour — EPA-registered termiticide applied strictly per label directions to the exposed soil and critical contact points. We coordinate directly with your superintendent. Documentation provided to your building inspector.</div>
+              <div className="flow-title">Site Visit &amp; Scope</div>
+              <div className="flow-desc">We walk the plans or the lot with your superintendent and confirm scope and pricing for the project, whether it is one custom home or a full phase. There is nothing to schedule before the pour.</div>
             </div>
             <div className="flow-card">
               <div className="flow-num">2</div>
-              <div className="flow-title">Sentricon® Install</div>
-              <div className="flow-desc">At landscape phase — Sentricon® Always Active stations placed around the foundation perimeter. No drilling, no concrete cuts. Colony protection begins immediately and follows the home to its owner.</div>
+              <div className="flow-title">Sentricon® Install At Final Grade</div>
+              <div className="flow-desc">Once grading is final, usually at the landscape phase, Sentricon® Always Active stations go in around the foundation perimeter. No trenching window to hit, no drilling, no concrete cuts. Installation records go in your file.</div>
             </div>
             <div className="flow-card">
               <div className="flow-num">3</div>
@@ -75,7 +75,7 @@ export default function BuildersPage() {
             <div className="flow-card">
               <div className="flow-num">4</div>
               <div className="flow-title">Buyer Handoff</div>
-              <div className="flow-desc">We offer your buyer continued Sentricon® monitoring and <a href="/services/pest-control">residential pest control</a>. They get a trusted vendor from day one; you hand over a home that&apos;s already protected.</div>
+              <div className="flow-desc">The stations are already in the ground, so your buyer can simply continue Sentricon® monitoring with us, along with <a href="/services/pest-control">residential pest control</a>. They get a trusted vendor from day one; you hand over a home that&apos;s already protected.</div>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function BuildersPage() {
 
       <section className="stat-band">
         <div className="stat-band-inner">
-          <div><div className="stat-band-n">3 visits</div><div className="stat-band-l">Per New Build</div></div>
+          <div><div className="stat-band-n">0</div><div className="stat-band-l">Pour-Day Visits To Schedule</div></div>
           <div><div className="stat-band-n">1 invoice</div><div className="stat-band-l">One Coordination Point</div></div>
           <div><div className="stat-band-n">$1M</div><div className="stat-band-l">EnviroCare-Backed Damage Coverage</div></div>
           <div><div className="stat-band-n">68 Years</div><div className="stat-band-l">In Alabama Construction</div></div>
@@ -100,20 +100,20 @@ export default function BuildersPage() {
           <h2 className="section-title">Built For <span>Construction Reality</span></h2>
           <div className="wedge-grid">
             <div className="wedge-card">
-              <div className="wedge-lead">We work to your schedule</div>
-              <div className="wedge-body">Pre-pour delays cost real money. We coordinate with your super, not the other way around — treatment scheduled to land inside your pour window, documented, and out of the way.</div>
+              <div className="wedge-lead">No slab-pour scheduling</div>
+              <div className="wedge-body">A liquid pretreatment has to land in the short window between trenching and the pour, and a rained-out day pushes it. Sentricon® goes in after final grade, so termite protection never sits on your critical path.</div>
             </div>
             <div className="wedge-card">
-              <div className="wedge-lead">Inspector-ready documentation</div>
-              <div className="wedge-body">Every soil treatment comes with a Treatment Certificate that satisfies Alabama&apos;s code-required termite protection documentation. No back-and-forth with the inspector.</div>
+              <div className="wedge-lead">Code- and lender-ready</div>
+              <div className="wedge-body">Corteva lists the Sentricon® system as meeting national code requirements for termite protection and as meeting lender requirements for new and existing home sales. You get installation records for your file and the official WDO report at closing.</div>
             </div>
             <div className="wedge-card">
-              <div className="wedge-lead">Sentricon® from day one</div>
-              <div className="wedge-body">Liquid barriers alone degrade over time and need retreatment. Sentricon® Always Active stations installed at landscape phase protect the home continuously — through your warranty period and into the buyer&apos;s ownership. <a href="/services/sentricon">Why we install Sentricon® →</a></div>
+              <div className="wedge-lead">Protection that stays intact</div>
+              <div className="wedge-body">Grading, utility trenches, and landscaping can disturb soil that was treated before the pour. Stations installed at final grade are checked on a schedule and serviced as needed, from closing into the buyer&apos;s ownership. <a href="/services/sentricon">Why we install Sentricon® →</a></div>
             </div>
             <div className="wedge-card">
               <div className="wedge-lead">One coordinated quote</div>
-              <div className="wedge-body">Soil treatment, Sentricon® install, and closing documentation quoted as one coordinated scope per project — single-lot custom builds or multi-lot phases. Scope and pricing confirmed after a free site inspection.</div>
+              <div className="wedge-body">Sentricon® install and closing documentation quoted as one coordinated scope per project — single-lot custom builds or multi-lot phases. Scope and pricing confirmed after a free site inspection.</div>
             </div>
           </div>
         </div>

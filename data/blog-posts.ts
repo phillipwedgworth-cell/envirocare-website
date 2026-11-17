@@ -2973,7 +2973,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'What Is a Termite Bond in Alabama — And Is Yours Still Good?',
     excerpt: 'A termite bond shifts the financial risk of a termite infestation from you to the pest control company — but only if it is the right type, still active, and covers what you think it does. What Alabama homeowners need to know.',
     publishedAt: '2026-07-14',
-    updatedAt: '2026-09-20',
+    updatedAt: '2026-11-16',
     author: 'Kevin Wedgworth',
     category: 'Termites',
     readMinutes: 8,
@@ -3035,6 +3035,9 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>What happens to a termite bond when a home sells?</h2>
 
 <p>Most bonds can transfer to a buyer, usually for a modest transfer fee — and a transferable repair bond is genuinely worth something in a negotiation. But transfer is not automatic: it typically has to be requested within a set window after closing, and buyers routinely do not know that. If you are buying in <a href="/vestavia-hills">Vestavia Hills</a> or Pelham, ask three questions before you close: is there a bond, is it retreatment-only or repair, and what does the transfer require?</p>
+
+<h3>Who provides the termite report when a house sells?</h3>
+<p>In general, the seller provides the Official Alabama Wood Infestation Inspection Report (the WDI or WDO report) and transfers the existing bond to the buyer at closing. That way the buyer gets both the snapshot and the ongoing protection. The purchase contract controls on every sale, though, so check what it says about who orders and pays for the report.</p>
 
 <p>That conversation pairs naturally with the wood infestation report your lender wants — the WDO letter is a snapshot of whether the home has active termites or visible damage at the time of inspection. A bond is the ongoing protection that keeps the home termite-free after that snapshot. We walked through the WDO process in our <a href="/blog/real-estate-wdo-letter-explained">WDO letter guide</a>, and the broader pre-purchase process in our <a href="/blog/termite-inspection-before-buying-home-alabama">buyer's termite inspection guide</a>.</p>
 
