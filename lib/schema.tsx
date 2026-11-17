@@ -57,7 +57,7 @@ export const SERVICE_CATALOG = {
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Builder Termite Protection',
       description: 'Sentricon® termite protection for new construction, installed after final grade, with the Official Alabama Wood Infestation Inspection Report at closing. Quoted per project.' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'WDO Real Estate Inspection',
-      description: 'WDO (wood-destroying organism) inspection letters for real estate transactions in our Alabama service area. Contact the office to confirm pricing, property requirements and scheduling.' } },
+      description: 'WDO (wood-destroying organism) inspection letters for real estate transactions in our Alabama service area, starting as low as $125. Contact the office to confirm the fee for your property, requirements and scheduling.' } },
   ],
 };
 

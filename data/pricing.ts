@@ -17,7 +17,7 @@
  * FAQs should migrate to read from here so there is ONE price source.
  *
  * ⚠️ OPEN DECISION (blocks the termite sweep — Phillip must resolve):
- *   Termite has NO flat price; it is quoted after a free WDO inspection.
+ *   Termite has NO flat price; it is quoted after a free termite inspection.
  *   BUT the ACH/monthly billing model needs a year-round termite anchor.
  *   Until TERMITE.monthlyAnchor is set, do not write a termite $/mo anywhere.
  */
@@ -86,14 +86,14 @@ export const PRICING = {
     // Tick and flea are QUOTED, not listed. They stay off the pricing page as
     // sellable line items (Phillip, Aug 24 2026) — the service pages remain for
     // search, but price discovery happens on the phone.
-    mosquitoTick: { monthly: 65, listOnPricingPage: false }, // monthly, same ruling
+    mosquitoTick: { monthly: 65, firstApplicationPercentOff: 50, listOnPricingPage: false }, // monthly; first application 50% off (Phillip, Nov 17 2026)
     tick: { monthlyWithMosquitoOnly: 20, listOnPricingPage: false }, // 65 - 45, derived
     flea: { model: 'Quoted — interior add-on', listOnPricingPage: false },
   },
 
   termite: {
     flatPrice: null,             // intentionally none
-    model: 'Quoted after a free WDO inspection.',
+    model: 'Quoted after a free termite inspection.',
     monthlyAnchor: null,         // ⚠️ OPEN DECISION — set before any termite $/mo copy
   },
 

@@ -43,7 +43,7 @@ type Plan = {
   tagline: string;
   priceLabel: string;     // big headline price, e.g. "From $69/mo" or "$45/month × 8"
   startup: string;        // e.g. "$75 initial service (reg. $150, 50% off)" or "Firm price after inspection"
-  note?: string;          // e.g. "Tick and flea quoted" or "Sentricon® priced after free WDO inspection"
+  note?: string;          // e.g. "Tick and flea quoted" or "Sentricon® priced after free termite inspection"
   features: string[];
   cta: string;
   featured?: boolean;
@@ -170,7 +170,7 @@ const TREAT = [
   "Fleas (interior add-on)",
   "Mosquitoes (seasonal, Mar–Oct)",
   "Ticks (with mosquito service)",
-  "Termites — Sentricon® (free WDO inspection)",
+  "Termites — Sentricon® (free termite inspection)",
 ];
 // Add-on services for active pest customers — billed for an additional charge.
 const ADD_ONS = [
@@ -224,7 +224,7 @@ export default function PricingContent() {
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.6, maxWidth: 640, margin: "0 auto" }}>
             Real &ldquo;from&rdquo; rates, on the page. Pest control is bimonthly — pay per visit, or spread it into equal monthly ACH payments.
-            Termite is quoted after a <strong style={{ color: GOLD }}>free on-site WDO inspection</strong> — Alabama requires it.
+            Termite is quoted after a <strong style={{ color: GOLD }}>free on-site termite inspection</strong> — Alabama requires it.
           </p>
           <div style={{
             display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center",
@@ -258,7 +258,7 @@ export default function PricingContent() {
             Compare every plan at a glance
           </h2>
           <p style={{ fontSize: 14, color: GREY, marginBottom: 20 }}>
-            &ldquo;From&rdquo; rates for standard property sizes. Termite is quoted after a free WDO inspection — see the note below.
+            &ldquo;From&rdquo; rates for standard property sizes. Termite is quoted after a free termite inspection — see the note below.
           </p>
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, minWidth: 720 }}>
@@ -376,7 +376,7 @@ export default function PricingContent() {
           <div>
             <FAQ q="Is there a contract?" a="There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
             <FAQ q="Why isn't there a flat termite price?" a="Alabama regulates termite treatment, so we have to do an on-site WDO (wood-destroying organism) inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free, and there's no obligation." />
-            <FAQ q="What is the initial service fee?" a="$75 on Pest and on Pest + Mosquito, which is 50% off the $150 regular price. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment: full interior and exterior knockdown, web and nest removal, and setting the barrier the recurring visits maintain. There is no separate inspection fee on top. Mosquito booked on its own has no initial fee — it is billed monthly." />
+            <FAQ q="What is the initial service fee?" a="$75 on Pest and on Pest + Mosquito, which is 50% off the $150 regular price. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment: full interior and exterior knockdown, web and nest removal, and setting the barrier the recurring visits maintain. There is no separate inspection fee on top. Mosquito booked on its own has no initial fee — it is billed monthly. Mosquito + Tick is $65 a month, and the first application is 50% off." />
             <FAQ q="Can I get mosquito without a pest plan?" a="Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." />
             <FAQ q="Does bundling change the price?" a="Only for mosquito: it is $45 a month on its own, or $34 a month when paired with a pest plan. Every other service is priced the same whether or not you bundle. What bundling mainly gets you is simplicity: one technician team, one invoice, one schedule." />
             <FAQ q="What does mosquito service cover, and can I add tick?" a="A 30-day yard barrier from March through October targeting mosquito breeding sites and adult populations. Tick treatment can be added alongside it — covering the ticks and chiggers that come with wooded and lakefront lots — and is quoted for your lot. Flea is a separate interior add-on, also quoted." />

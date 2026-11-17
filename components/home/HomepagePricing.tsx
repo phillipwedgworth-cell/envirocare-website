@@ -47,7 +47,7 @@ const PLANS: Plan[] = [
     description: 'A plan built around your property.',
     bullets: [
       'Sentricon® Always Active™ bait system',
-      'Free WDO inspection included',
+      'Free termite inspection included',
       'No drilling or trenching in your yard',
       'Annual renewal priced for your home',
     ],
@@ -80,7 +80,7 @@ function PlanPrice({ plan, mode }: { plan: Plan; mode: BillingMode }) {
     return (
       <span className={styles.priceGroup}>
         <span className={styles.quotedPrice}>Priced after inspection</span>
-        <span className={styles.priceNote}>Start with a free WDO inspection</span>
+        <span className={styles.priceNote}>Start with a free termite inspection</span>
       </span>
     );
   }

@@ -70,6 +70,11 @@ const faqLd = {
     },
     {
       "@type": "Question",
+      name: "How much does a WDO letter cost?",
+      acceptedAnswer: { "@type": "Answer", text: "WDO inspections start as low as $125. The exact fee depends on the property and is confirmed when you schedule." },
+    },
+    {
+      "@type": "Question",
       name: "How fast can I get a WDO inspection?",
       acceptedAnswer: {
         "@type": "Answer",
@@ -303,6 +308,10 @@ export default function WDOLettersPage() {
               {
                 q: "What is a WDO letter?",
                 a: "A WDO (wood-destroying organism) letter — formally the Alabama Wood Infestation Report — is the official termite inspection document required by most lenders for real estate closings. Issued by a licensed pest control company, the wood infestation report documents any current or past evidence of termites, powderpost beetles, wood borers, or wood-decay fungi.",
+              },
+              {
+                q: "How much does a WDO letter cost?",
+                a: "WDO inspections start as low as $125. The exact fee depends on the property and is confirmed when you schedule.",
               },
               {
                 q: "How fast can I get a WDO inspection?",

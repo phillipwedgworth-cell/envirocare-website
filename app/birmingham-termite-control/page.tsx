@@ -56,7 +56,7 @@ const c: ComboContent = {
   price: {
     label: "Sentricon® Protection — Birmingham",
     amount: "Free inspection",
-    sub: "priced after a free WDO inspection",
+    sub: "priced after a free termite inspection",
     bullets: [
       "Sentricon® Always Active™ bait stations",
       "Up to $1,000,000 EnviroCare damage repair coverage",

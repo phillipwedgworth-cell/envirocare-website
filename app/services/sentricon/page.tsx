@@ -2,18 +2,18 @@
 
 export const metadata = {
   title: "Sentricon® Termite System Alabama | $1M Coverage | EnviroCare",
-  description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare damage repair coverage, priced after a free WDO inspection. Since 1958.",
+  description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare damage repair coverage, priced after a free termite inspection. Since 1958.",
   alternates: { canonical: './' },
   openGraph: { url: 'https://www.envirocarellc.com/services/sentricon',
     title: "Sentricon® Termite System Alabama | $1M Coverage | EnviroCare",
-    description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare damage repair coverage, priced after a free WDO inspection. Since 1958.",
+    description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare damage repair coverage, priced after a free termite inspection. Since 1958.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Sentricon® Termite System Alabama | $1M Coverage | EnviroCare",
-    description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare damage repair coverage, priced after a free WDO inspection. Since 1958.",
+    description: "Sentricon Always Active termite baiting in Alabama — no drilling, EnviroCare damage repair coverage, priced after a free termite inspection. Since 1958.",
     images: ['/og-image.png'],
   },
 };

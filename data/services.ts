@@ -162,7 +162,7 @@ export const SERVICES: Service[] = [
     category: 'core',
     serviceArt: 'termite',
     price: 'Free inspection',
-    priceSub: 'Sentricon® quote provided after free WDO inspection & approval',
+    priceSub: 'Sentricon® quote provided after free termite inspection & approval',
     metaTitle: 'Termite Control in Alabama & Sentricon® | EnviroCare',
     metaDescription: 'Termite control across Alabama with the Sentricon® bait system — no drilling, no tank trucks. Free WDO termite inspection; Sentricon® is quoted after inspection in EnviroCare service areas.',
     heroEyebrow: 'Sentricon® Certified Specialist',
@@ -211,7 +211,7 @@ export const SERVICES: Service[] = [
       'Termites cause damage quietly, and an active termite infestation can go unnoticed until it reaches structural wood. With Sentricon®, foraging termites carry the bait back to the colony, collapsing it from the inside — which stops both an existing infestation and future ones. Every protected Birmingham home includes an annual termite inspection and one Wood-Destroying Organism (WDO) inspection letter per year, the document lenders require for refinancing or selling.',
       'Behind it stands EnviroCare-backed coverage: up to $1,000,000 in damage repair coverage while we maintain your Sentricon® protection, subject to the terms of the agreement. Installation takes most Birmingham homes one to two hours, and you do not need to be an existing pest control customer to start — though many Birmingham families add bi-monthly pest control after their termite inspection.',
       'Birmingham\'s humidity, mild winters, and clay-heavy soil make the metro one of the most active subterranean termite regions in the country. Jefferson and Shelby County homes sit in heavy termite pressure: a single colony can number in the hundreds of thousands and forage silently through floor joists, sills, and framing for years before any sign shows. That is why Birmingham termite protection has to be continuous monitoring rather than a one-time treatment you hope holds.',
-      'Watch for the early warning signs of a termite infestation: mud tubes running up your foundation, piers, or crawlspace walls; wood that sounds hollow when tapped or paint that looks rippled or bubbled; discarded wings near windows and doors after a spring swarm; doors or windows that suddenly stick from subtle warping; and frass or visible galleries in damaged wood. If you spot any of these at your Birmingham home, schedule a free WDO termite inspection — early action is the difference between a monitoring plan and a repair bill.',
+      'Watch for the early warning signs of a termite infestation: mud tubes running up your foundation, piers, or crawlspace walls; wood that sounds hollow when tapped or paint that looks rippled or bubbled; discarded wings near windows and doors after a spring swarm; doors or windows that suddenly stick from subtle warping; and frass or visible galleries in damaged wood. If you spot any of these at your Birmingham home, schedule a free termite inspection — early action is the difference between a monitoring plan and a repair bill.',
     ],
   },
   {

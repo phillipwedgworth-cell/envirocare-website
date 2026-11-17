@@ -124,7 +124,7 @@ function buildJsonLd(c: DeepCityConfig) {
           name: `Pest & Termite Control in ${c.name}`,
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bi-Monthly Pest Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "35", description: "Covers 30+ pests with free re-service. $35/month." },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting with no drilling. Qualifying homes may receive up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Priced after a free WDO inspection." },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Termite Protection (Sentricon)", areaServed: `${c.name}, AL` }, description: "Sentricon baiting with no drilling. Qualifying homes may receive up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Priced after a free termite inspection." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "45", description: "$45 per month via ACH, with eight treatments March–October and payments averaged equally across the year." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mosquito + Tick Control", areaServed: `${c.name}, AL` }, priceCurrency: "USD", price: "65", description: "Adds tick and chigger coverage." },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Pest Control", areaServed: `${c.name}, AL` } },
@@ -243,7 +243,7 @@ export default function DeepCityPage({ config: c }: { config: DeepCityConfig }) 
           </div>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.25rem" }}>
             <Plan name="Pest Control" price="$35" unit="/month" features={["Bi-monthly perimeter service", "30+ Alabama pests covered", "Free re-services", "Quarterly interior on request"]} />
-            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare damage repair coverage on qualifying homes, subject to agreement terms", "Priced after a free WDO inspection"]} featured />
+            <Plan name="Sentricon® Termite" price="Quote" unit="after inspection" features={["In-ground bait stations", "No drilling required", "Up to $1M EnviroCare damage repair coverage on qualifying homes, subject to agreement terms", "Priced after a free termite inspection"]} featured />
             <Plan name="Mosquito Yard" price="$45" unit="/month" features={["30-day yard barrier", "March – October (8 visits)", "Targets resting & breeding zones", "Tick add-on available"]} />
             <Plan name="Mosquito + Tick" price="$65" unit="/month" features={["Mosquito + tick + chigger", "30-day yard barrier", "Best for wooded lots", "March – October"]} />
           </div>
