@@ -25,7 +25,7 @@ const c: ComboContent = {
   localAngles: [
     {
       title: "The builder pre-treat has a shelf life",
-      body: "Code-required liquid pre-treats at pour time degrade — typically within 5–7 years, faster in re-graded soil. If your Madison home is past its first few years, the chemical barrier under it is already fading. Bait stations don't fade; they're serviced and re-baited on schedule.",
+      body: "Liquid pre-treats applied at pour time degrade — typically within 5–7 years, faster in re-graded soil. If your Madison home is past its first few years, the chemical barrier under it is already fading. Bait stations don't fade; they're serviced and re-baited on schedule.",
     },
     {
       title: "Farmland conversion feeds foragers",

@@ -287,7 +287,7 @@ export default function TermiteWarrantyFAQ() {
             {[
               {
                 n: "$1,000,000",
-                label: "Repair coverage",
+                label: "EnviroCare damage repair coverage",
                 note: "Subject to the terms of the agreement",
                 color: GOLD,
               },
@@ -553,7 +553,7 @@ export default function TermiteWarrantyFAQ() {
               ...ss,
             }}
           >
-            $1,000,000 Termite Protection.{" "}
+            Up to $1,000,000 in EnviroCare Damage Repair Coverage.{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>
               Priced after a free WDO inspection.
             </em>

@@ -90,8 +90,8 @@ export default function ServicesIndexPage() {
             </a>
             <a href="/builders" className="svc-card">
               <div className="svc-card-tag">New Construction</div>
-              <div className="svc-card-name">Builder Pre-Treat</div>
-              <div className="svc-card-desc">Pre-slab termite treatment plus Sentricon® install. Coordinated with your construction schedule. Builder partnership pricing.</div>
+              <div className="svc-card-name">Builder Termite Protection</div>
+              <div className="svc-card-desc">Sentricon® installed at final grade, with no slab-pour scheduling. WDO report at closing. Builder partnership pricing.</div>
               <span className="svc-card-link">Learn more →</span>
             </a>
             <a href="/services/wdo-letters" className="svc-card">

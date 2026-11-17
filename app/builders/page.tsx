@@ -13,20 +13,20 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com'
 
 export const metadata = {
   alternates: { canonical: '/builders' },
-  title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
+  title: 'Pre-Construction Termite Protection for Alabama Builders | EnviroCare',
   description:
-    'Pre-construction termite treatment for Alabama builders — pre-slab soil, Sentricon® install, WDO letter at closing. Call (205) 940-6360.',
+    'Sentricon® termite protection for Alabama new construction — installed at final grade, no slab-pour scheduling, WDO report at closing. Call (205) 940-6360.',
   openGraph: {
-    title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
-    description: 'Pre-construction termite treatment for Alabama builders — pre-slab soil, Sentricon® install, WDO letter at closing. Call (205) 940-6360.',
+    title: 'Pre-Construction Termite Protection for Alabama Builders | EnviroCare',
+    description: 'Sentricon® termite protection for Alabama new construction — installed at final grade, no slab-pour scheduling, WDO report at closing. Call (205) 940-6360.',
     url: 'https://www.envirocarellc.com/builders',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pre-Construction Termite Treatment for Alabama Builders | EnviroCare',
-    description: 'Pre-construction termite treatment for Alabama builders — pre-slab soil, Sentricon® install, WDO letter at closing. Call (205) 940-6360.',
+    title: 'Pre-Construction Termite Protection for Alabama Builders | EnviroCare',
+    description: 'Sentricon® termite protection for Alabama new construction — installed at final grade, no slab-pour scheduling, WDO report at closing. Call (205) 940-6360.',
     images: ['/og-image.png'],
   },
 };
@@ -37,11 +37,11 @@ const schema = {
     {
       '@type': 'Service',
       '@id': `${SITE}/builders#service`,
-      name: 'Pre-Construction Termite Treatment for Builders',
-      serviceType: 'Pre-Construction Termite Treatment',
+      name: 'Pre-Construction Termite Protection for Builders',
+      serviceType: 'Pre-Construction Termite Protection',
       url: `${SITE}/builders`,
       description:
-        'Code-compliant termite protection for Alabama new construction: pre-slab soil treatment with EPA-registered termiticide applied per label directions, Sentricon® Always Active installation at landscape phase, and the Official Alabama Wood Infestation Inspection Report at closing. Scope and pricing confirmed after a free site inspection.',
+        'Termite protection for Alabama new construction with the Sentricon® Always Active system, installed after final grade so there is no pre-pour treatment to schedule, plus the Official Alabama Wood Infestation Inspection Report at closing. Scope and pricing confirmed after a free site inspection.',
       audience: { '@type': 'BusinessAudience', name: 'Home builders and general contractors' },
       provider: {
         '@type': 'LocalBusiness',
