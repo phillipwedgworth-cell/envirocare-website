@@ -124,7 +124,7 @@ const jsonLd = {
           name: "How quickly can you respond for a commercial issue?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Commercial response time depends on your service agreement. New-customer assessments are typically scheduled within the same week. For existing commercial accounts on a regular service interval, urgent issues are usually handled within 24–48 hours. Call (256) 937-7676 for a current scheduling window.",
+            text: "Commercial response time depends on your service agreement. For existing commercial accounts on a regular service interval, urgent issues are usually handled within 24–48 hours. Call (256) 937-7676 for a current scheduling window.",
           },
         },
       ],
@@ -213,7 +213,7 @@ export default function RedstoneArsenalPage() {
             <Faq q="Can you handle wasps and stinging insects at a Research Park office building?" a="Yes — wasps, hornets, yellow jackets, and mud daubers are routine for us, especially around exterior signage, loading dock canopies, parking deck rafters, and roof-edge soffits. Single-visit nest removal or recurring commercial pest contracts both work; depends on building size and pressure level." />
             <Faq q="Do you do rodent control for commercial buildings in this area?" a="Yes. Commercial rodent programs are baited exterior stations on a regular service interval plus interior monitoring where needed. Common for restaurants, food-adjacent retail, and warehouses near the Arsenal where loading dock activity creates entry opportunities." />
             <Faq q="Are you authorized to work on the installation itself?" a="We are not currently a contracted pest control provider for the U.S. Army Garrison at Redstone Arsenal. Our service is to commercial and residential customers off-installation — Cummings Research Park, the contractor offices, hotels and retail along Hwy 20, and the residential areas surrounding the base." />
-            <Faq q="How quickly can you respond for a commercial issue?" a="Commercial response time depends on your service agreement. New-customer assessments are typically scheduled within the same week. For existing commercial accounts on a regular service interval, urgent issues are usually handled within 24–48 hours. Call (256) 937-7676 for a current scheduling window." />
+            <Faq q="How quickly can you respond for a commercial issue?" a="Commercial response time depends on your service agreement. For existing commercial accounts on a regular service interval, urgent issues are usually handled within 24–48 hours. Call (256) 937-7676 for a current scheduling window." />
             <Faq q="What does a commercial pest control agreement cost?" a="Pricing is based on building size, service frequency, and the pest pressure observed during the initial walkthrough. Free assessments are standard for any commercial property — we'll quote a fixed monthly figure after seeing the site." />
             <Faq q="Can you handle Sentricon® termite protection on commercial buildings?" a="Yes. The same in-ground bait station system used on residential properties scales to commercial. Up to $1M in EnviroCare-backed damage coverage on qualifying buildings, no drilling required, and annual inspection reporting suitable for facility audits or insurance documentation." />
           </div>

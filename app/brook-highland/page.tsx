@@ -83,7 +83,7 @@ const cfg: NeighborhoodConfig = {
     },
     {
       "q": "What's the response time for a same-week call?",
-      "a": "Most new-customer assessments are scheduled within the same week. Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 940-6360 for the current scheduling window."
+      "a": "Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 940-6360 for the current scheduling window."
     },
     {
       "q": "Is there a long-term contract?",
@@ -219,7 +219,7 @@ const jsonLd = {
           "name": "What's the response time for a same-week call?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most new-customer assessments are scheduled within the same week. Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 940-6360 for the current scheduling window."
+            "text": "Existing customers with an active service plan typically get urgent re-services within 24-48 hours. Call (205) 940-6360 for the current scheduling window."
           }
         },
         {

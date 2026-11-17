@@ -33,7 +33,7 @@ const c: ComboContent = {
     },
     {
       title: "Springtime swarms off the water",
-      body: "Warm April evenings after rain bring the swarms — winged reproductives leaving mature colonies, often first noticed as shed wings on windowsills. Wings on YOUR sill mean a mature colony within striking distance. That's a free-inspection call, same week.",
+      body: "Warm April evenings after rain bring the swarms — winged reproductives leaving mature colonies, often first noticed as shed wings on windowsills. Wings on YOUR sill mean a mature colony within striking distance. That's a free-inspection call.",
     },
     {
       title: "The letter every closing needs",
