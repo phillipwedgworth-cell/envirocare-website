@@ -316,6 +316,133 @@ const PAGE_REFRESH_JSON = {
     },
     "source": "content-refresh-agent",
     "updatedAt": "2026-11-10"
+  },
+  "/eagle-point": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "What to Expect From Pest Control in Eagle Point, Hoover, AL",
+    "paragraphs": [
+      "Eagle Point sits in one of the more pest-active corridors in the Birmingham area. The 35242 zip combines wooded lot lines, creek drainage, graded clay soils, and the kind of mature landscaping that gives household pests — ants, cockroaches, wasps, rodents, spiders, and stinging insects — consistent harborage close to the structure. Effective pest control in Hoover starts with understanding what is actually driving the pressure on a specific property, not just treating what is visible at the front door.",
+      "Professional pest control works in three stages: inspect, treat, and monitor. When a technician arrives at an Eagle Point home, the visit begins outside. The perimeter, foundation, eaves, soffits, utility entry points, and the landscaping edge where mulch meets brick are all checked before a single product goes down. That inspection shapes the treatment — where activity is concentrated, what conducive conditions exist, and whether the pest problem is a first occurrence or a recurring pattern. All products used are EPA-registered and applied according to label directions. After the exterior is addressed, the technician documents what was found and what was applied, so you have a service record for each visit.",
+      "Homeowners can handle some pest prevention on their own — sealing gaps, reducing moisture around the foundation, keeping firewood away from the structure, and clearing harborage in crawlspaces all help. What DIY cannot replicate is the trained read of an infestation that has moved into wall voids, the correct product placement for a cockroach or roach issue rooted in a drain line, or the scheduled monitoring that catches a new termite colony before damage accumulates. For general pest management and especially for termite control, rodent activity, and anything that involves structural access, professional pest control service consistently outperforms store-shelf alternatives.",
+      "Eagle Point properties benefit from residential and commercial pest control solutions that account for the specific pressure each lot faces. A home backing to wooded common areas has a different pest profile than a golf-adjacent lot or a lakeside property. Bi-monthly residential pest control covers more than 30 Alabama pests including ants, cockroaches, spiders, wasps, and rats and mice, with free re-service between scheduled visits if activity shows up between appointments. Fire ant, flea, tick, and mosquito control are separate services built for the yards where that pressure is highest. For homeowners and businesses across the Eagle Point and broader Hoover area, the same locally owned team handles both residential pest control and commercial accounts — from single-family homes to multi-tenant properties along the Highway 280 corridor.",
+      "Pest activity in this part of Alabama does not follow a clean seasonal calendar. Warm winters extend cockroach and ant pressure, and subterranean termites forage year-round. That is why pest prevention built around consistent exterior treatment, accurate inspections, and a technician who knows the local pest landscape outperforms reactive, one-time exterminator visits. Four generations of the same Alabama family have been running this service since 1958 — not a national franchise, not a call center, but a locally owned company that covers Eagle Point as part of its core service area."
+    ],
+    "faqs": [
+      {
+        "q": "What pests does the bi-monthly pest plan cover in Eagle Point?",
+        "a": "The general pest plan covers more than 30 household pests common to the Birmingham area, including ants, cockroaches, spiders, wasps and stinging insects, and rats and mice. Fire ants, fleas, ticks, and mosquitoes are separate add-on services, since those pests require a different treatment approach and schedule."
+      },
+      {
+        "q": "What should I expect when a technician visits my Eagle Point home?",
+        "a": "The technician starts with an exterior inspection of the foundation, eaves, entry points, and landscaping edge before any treatment is applied. Treatment follows the inspection findings, focusing on the areas where pest pressure is concentrated. At the end of the visit you receive a service record showing what was found and what was applied. If a pest problem returns between scheduled visits, re-service is included at no additional charge."
+      },
+      {
+        "q": "How is pest control in Hoover different from a one-time exterminator visit?",
+        "a": "A one-time exterminator visit addresses what is visible on the day of service. Ongoing residential pest control covers the full seasonal cycle, with bi-monthly exterior treatment, re-service between visits, and inspection records that show patterns over time. That approach is what keeps infestation pressure from rebuilding in the weeks after a single treatment."
+      },
+      {
+        "q": "Do you provide commercial pest control service for businesses along the Highway 280 corridor?",
+        "a": "Yes. EnviroCare serves both homeowners and businesses throughout the Eagle Point and Hoover area, including commercial properties along the 280 corridor. Commercial pest control service is built around your facility's hours, documentation requirements, and inspection schedule. Call (205) 940-6360 to schedule a commercial walkthrough and get a quote based on your facility's size and service needs."
+      }
+    ],
+    "neuron": {
+      "queryId": "94fc3ba735b024ee",
+      "keyword": "pest control eagle point hoover al",
+      "before": 45,
+      "after": 70,
+      "checkedAt": "2026-11-17"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0.005,
+      "competitorsChecked": 16,
+      "checkedAt": "2026-11-17"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-11-17"
+  },
+  "/liberty-park": {
+    "provider": "claude:claude-sonnet-4-6",
+    "heading": "Pest Control Services for Liberty Park and Vestavia Hills, AL",
+    "paragraphs": [
+      "Liberty Park sits inside one of the more demanding pest environments in the Birmingham metro. The wooded lot lines, the clay soils that hold moisture after every rain, and the creek drainages feeding toward the Cahaba corridor create steady pressure from rodents, spiders, roaches, ants, and termites across every season. Residential pest control in this corner of Vestavia Hills is not a one-time fix — it is ongoing pest management built around the actual conditions of these properties.",
+      "EnviroCare provides pest control service to homes and businesses throughout Vestavia Hills, Cahaba Heights, and the wider 35242 zip code using an exterior-first approach. Every visit targets the foundation perimeter, eaves, entry points, and the landscaping edge where pest pressure actually originates — stopping an infestation before it reaches the inside of the home. EPA-registered products applied according to label directions are used on every service, and re-service between scheduled visits is included in the residential plan at no additional charge.",
+      "Beyond the standard bi-monthly pest plan, Liberty Park homeowners frequently add targeted services for the pests their properties attract most. Rodent control addresses house mice and roof rats working in from the wooded perimeter. Spider control — particularly for the cellar and brown recluse species that colonize undisturbed storage spaces — is covered under the core pest plan. Cockroach and ant control, wasp and flea treatment, and standalone fire ant service are all available. For homes and businesses dealing with an active infestation, the inspection at the start of service identifies exactly what is present and where it is entering before any treatment begins.",
+      "Commercial pest control services are also available for Vestavia Hills businesses, including offices, medical facilities, restaurants, and multi-family properties throughout the Birmingham metro. Commercial programs are built around your inspection documentation requirements and operating schedule and are priced after a free on-site assessment. Whether protecting a single-family home in Liberty Park Estates or a commercial property along the Overton Road corridor, the pest control process works the same way: inspect first, treat what is there, and schedule follow-up service to keep the pressure from returning.",
+      "Choosing among pest control companies in Vestavia Hills comes down to consistency and local knowledge. A family-owned Alabama pest control operation that has worked these same Birmingham metro routes across four generations understands which pest problems are seasonal, which are structural, and which call for a different approach entirely. That local context — not a national call center — is what backs every pest and termite service EnviroCare provides in this community."
+    ],
+    "faqs": [
+      {
+        "q": "What pests are most common in Liberty Park and Vestavia Hills, AL?",
+        "a": "The pests we treat most often in this part of the Birmingham metro include carpenter ants, odorous house ants, cockroaches in garages and crawlspaces, rodents entering from wooded lot lines, spiders in storage areas and eaves, and subterranean termites in homes adjacent to tree lines and mulched beds. Mosquitoes and ticks are significant seasonal concerns given the community's proximity to creek drainages and wooded common areas."
+      },
+      {
+        "q": "What is the pest control process for a Liberty Park home?",
+        "a": "Every new service starts with a property walk to identify active pest pressure, entry points, and conditions that make the home attractive to pests. From there, bi-monthly exterior treatment addresses the foundation, eaves, and landscaping edge. If a pest problem appears between scheduled visits, we return and re-treat at no extra charge. For termite protection, the process begins with a free WDO inspection before any Sentricon station installation."
+      },
+      {
+        "q": "Do you provide commercial pest control services near Vestavia Hills?",
+        "a": "Yes. EnviroCare provides commercial pest control for offices, restaurants, medical and professional facilities, and multi-family properties throughout Vestavia Hills and the broader Birmingham metro. Commercial programs are customized to your documentation requirements and hours of operation, and pricing is confirmed after a free on-site inspection. Call (205) 991-2882 to schedule an assessment."
+      },
+      {
+        "q": "How do I get rid of a termite infestation in Vestavia Hills or Liberty Park?",
+        "a": "Colony elimination through a monitored bait system is the approach EnviroCare uses. Sentricon Always Active in-ground stations are placed around the perimeter of the structure — no drilling into your foundation or hardscape — and termites carry the active ingredient back to the colony on their own. It begins with a free termite inspection so you get an accurate assessment of what is present before any commitment is made."
+      }
+    ],
+    "neuron": {
+      "queryId": "0feceb0c6ccf219f",
+      "keyword": "pest control liberty park vestavia al",
+      "before": 50,
+      "after": 71,
+      "checkedAt": "2026-11-17"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0,
+      "maxSiteOverlap": 0.007,
+      "competitorsChecked": 15,
+      "checkedAt": "2026-11-17"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-11-17"
+  },
+  "/alabaster#mosquito": {
+    "provider": "gpt:gpt-5.6-luna",
+    "heading": "Mosquito Control Services in Alabaster, AL",
+    "paragraphs": [
+      "Mosquitoes are a normal part of Alabama summers, but homeowners can take practical steps to reduce mosquito activity around the property. After rain, inspect gutters, flowerpot saucers, children's toys, tarps, and other containers that can hold water. Trim back dense vegetation where practical, keep grass maintained, and discuss weed control or landscaping changes that may improve airflow around patios and doorways. These prevention steps do not replace professional treatment, but they can help reduce the places where mosquito breeding begins.",
+      "A professional mosquito inspection helps identify the areas where mosquitoes rest during the day and the spots that may support breeding after rainfall. EnviroCare can tailor service to the home's layout, shaded plantings, fence lines, drainage patterns, and the outdoor areas your family uses most. Treatment focuses on those activity zones rather than applying a generic approach across the entire property. EPA-registered products are applied according to label directions, with the goal of reducing mosquito populations and helping homeowners spend more time enjoying their outdoor space.",
+      "Some Alabaster residents search for mosquito authority locations when they want information about public mosquito activity or local health notices. You can find your local mosquito authority through city or county resources for that type of information. For residential mosquito control, a local exterminator can inspect the property and customize a recurring plan around its specific conditions. EnviroCare is locally owned and operated, serving Alabaster and nearby Alabama communities from the Butler Road office.",
+      "Mosquito control is one part of a broader outdoor pest plan. EnviroCare also provides tick control services to protect the areas around wooded edges, shaded yards, and regularly used outdoor spaces. Combining services is a matter of convenience, not a claim that one treatment handles every pest. A free inspection can help identify whether mosquito service, tick control, or another exterior treatment fits your property. The objective is to help you take back your yard throughout mosquito season without promising that every mosquito can be eliminated."
+    ],
+    "faqs": [
+      {
+        "q": "Are mosquitoes common in Alabama?",
+        "a": "Yes. Alabama's warm, humid conditions and frequent rainfall create seasonal conditions that support mosquitoes. Activity can be higher around standing water, shaded vegetation, drainage areas, and containers that collect rain."
+      },
+      {
+        "q": "What is a mosquito's worst enemy around an Alabaster home?",
+        "a": "Removing standing water is one of the most useful prevention steps. Empty containers, clear clogged gutters, refresh water in outdoor items, and address low spots when practical. Professional treatment can then focus on the areas where adult mosquitoes rest and where activity is most noticeable."
+      },
+      {
+        "q": "How can I reduce mosquitoes around my home in Alabaster?",
+        "a": "Begin with a property inspection, remove avoidable standing water, maintain vegetation, and limit dense harborage near patios and entrances. EnviroCare can identify problem areas, tailor mosquito control services to the property, and provide a free estimate after an on-site inspection."
+      }
+    ],
+    "neuron": {
+      "queryId": "e2a5391c4be92dd3",
+      "keyword": "mosquito control alabaster al",
+      "before": 49,
+      "after": 65,
+      "checkedAt": "2026-11-17"
+    },
+    "originality": {
+      "maxCompetitorOverlap": 0.002,
+      "maxSiteOverlap": 0,
+      "competitorsChecked": 31,
+      "checkedAt": "2026-11-17"
+    },
+    "source": "content-refresh-agent",
+    "updatedAt": "2026-11-17"
   }
 } as const;
 /* END PAGE_REFRESH_JSON */

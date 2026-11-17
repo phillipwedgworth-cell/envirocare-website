@@ -134,6 +134,115 @@ export const BLOG_POSTS: BlogPost[] = [
   //     text. New topic: no existing post covers kudzu bugs (stink bugs / lady beetles
   //     post is linked, not duplicated). Reduction language only; no bug-proof promise.
   {
+    slug: 'fultondale-mosquito-control',
+    title: 'Fultondale Mosquito Control: What Works, What Doesn\'t, and What to Expect',
+    excerpt: 'Shoal Creek and Jefferson County\'s clay soil keep Fultondale yards damp and mosquito-friendly from March through October. Here is how EnviroCare reduces mosquito pressure and handles year-round pest infestations for Fultondale homes and businesses.',
+    publishedAt: '2026-11-17',
+    author: 'Kevin Wedgworth',
+    category: 'Mosquitoes',
+    readMinutes: 8,
+    heroEmoji: '🦟',
+    heroImage: {
+      src: '/images/blog/fultondale-mosquito-control.webp',
+      og: '/images/blog/fultondale-mosquito-control-og.jpg',
+      width: 1600,
+      height: 900,
+      alt: 'Illustrated EnviroCare title card for the article "Fultondale Mosquito Control: What Works, What Doesn\'t, and What to Expect", with a simple house graphic.',
+    },
+    metaTitle: 'Mosquito Control in Fultondale AL | EnviroCare',
+    metaDescription: 'Fultondale mosquito and pest control from EnviroCare\'s Birmingham office. Barrier treatments March–October, plus termite, tick, and year-round pest plans.',
+    body: `
+<p class="lede">Pest control in Fultondale means dealing with one of the most mosquito-friendly landscapes in Jefferson County - Shoal Creek, heavy clay soil, and dense wooded buffers that hold moisture long after a rain. EnviroCare's Birmingham office handles Fultondale mosquito control, tick and chigger treatment, year-round pest plans, and termite protection for homes and businesses throughout the area. If mosquitoes have taken over your backyard or you're facing any other type of pest problem, read on - and call us today at (205) 991-2882 to schedule a free inspection.</p>
+
+<h2>Why Mosquito Habitat Runs Deep in Fultondale</h2>
+
+<p>Fultondale sits at the northern edge of Jefferson County where Shoal Creek and its tributaries carve through wooded hollows. Those low spots collect standing water after every rain, and Jefferson County's clay soil holds moisture far longer than sandy ground does. Even a yard with decent grading can stay soft and damp for days - and that is exactly the kind of water source that keeps a mosquito population fed throughout summer.</p>
+
+<p>The wooded corridor along Shoal Creek gives adult mosquitoes the shaded resting cover they need to survive the afternoon heat. Foundation plantings, dense shrubs along a back fence, and low-hanging foliage near the house create additional harborage zones that are easy to overlook. The <a href="https://www.alabamapublichealth.gov/mosquito/vector-control.html" target="_blank" rel="noopener">Alabama Department of Public Health notes</a> that shaded resting areas and water-holding containers are among the primary factors that sustain backyard mosquito populations - both are present in abundance across Fultondale's older and newer neighborhoods alike.</p>
+
+<p>Mosquito season in Fultondale follows the broader Alabama pattern: populations begin building as temperatures climb in late winter and early spring, peak through the hottest months, and taper into fall. <a href="https://www.alabamapublichealth.gov/blog/2024/09/nr-17.html" target="_blank" rel="noopener">ADPH seasonal guidance</a> confirms that mosquito abundance in Alabama is generally greatest from late spring to early fall, with possible increases after storm or flood conditions - both of which are common in the Shoal Creek watershed.</p>
+
+<h2>How Our Mosquito Barrier Treatment Works</h2>
+
+<p>Our barrier treatment targets the places where mosquitoes rest during daylight hours. A technician works the perimeter vegetation, the underside of leaves, dense shrub areas, shaded fence lines, and foundation plantings - the zones where mosquitoes coming off the creek corridor settle in and wait out the heat of the day. Treatment starts at a property line and works inward toward the structure, covering the key harborage zones methodically.</p>
+
+<p>We apply EPA-registered products according to label directions. That phrasing matters: effective pest control depends on the right product for the right target, applied correctly, and nothing about that process should be oversimplified.</p>
+
+<p>What barrier treatment does - and what it does not - is worth being direct about. It measurably reduces and knocks down the mosquito population on your property. It does not create an invisible wall that stops every mosquito coming from neighboring properties or water features beyond the treated area. That is not a realistic claim for any pest control service, and any pest control companies promising otherwise are overpromising. What you can expect is a yard that becomes usable again through the worst months of the Alabama season.</p>
+
+<p>Treatments run from March through October - eight visits spaced across the season to stay ahead of the population as it builds and then tapers. If mosquito activity picks back up between scheduled visits, we return at no additional charge.</p>
+
+<p>For more on how professional treatment compares to retail options, see our post on <a href="/blog/mosquito-repellent-yard-spray-vs-professional">yard mosquito spray vs. professional treatment</a>.</p>
+
+<h2>Mosquito and Tick Pressure Along the Shoal Creek Corridor</h2>
+
+<p>Wherever you have wooded edges, tall grass, and the kind of terrain that runs along Shoal Creek and backs up to tree lines in Fultondale's neighborhoods, you have tick habitat alongside mosquito habitat. Lone star ticks and black-legged ticks are both active in Jefferson County. Chiggers are a consistent complaint from homeowners whose properties border the creek greenway or any forested buffer.</p>
+
+<p>Tick control is available as an add-on to mosquito service. The Mosquito and Tick combination covers chigger pressure as well, and pricing is confirmed after a free inspection. If your property backs up to the Shoal Creek corridor or any wooded edge, the combination plan is worth considering.</p>
+
+<p>Flea treatment is a separate add-on and is not part of the mosquito or tick service. For properties where deer move through - common along the creek greenway - tick pressure can be especially persistent and consistent treatment across the season makes a real difference.</p>
+
+<h2>Reducing Mosquito Breeding Sites on Your Own Property</h2>
+
+<p>Professional mosquito pest management works better when homeowners address conditions that sustain breeding between treatments. The <a href="https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html" target="_blank" rel="noopener">CDC recommends</a> weekly emptying and scrubbing of water-holding containers - birdbaths, buckets, gutters, and anything else that collects standing water. Aedes mosquito eggs can survive drying and may hatch with the next rainfall, so consistent maintenance matters across the whole season.</p>
+
+<p>A few practical steps Fultondale homeowners can take:</p>
+<ul>
+  <li>Tip out standing water in containers every week, including saucers under potted plants</li>
+  <li>Keep gutters clear so water does not pool after rain</li>
+  <li>Trim dense foundation plantings and shrubs to reduce shaded resting cover</li>
+  <li>Fix any leaks or low spots in the yard that hold moisture for more than a few days</li>
+  <li>Keep window and door screens in good repair</li>
+</ul>
+
+<p>These steps reduce the breeding reservoir on your side of the property line. Barrier treatment handles the adult population in the resting zones. Together they produce better results than either one alone.</p>
+
+<h2>Year-Round Pest Control in Fultondale</h2>
+
+<p>Mosquitoes are seasonal, but pest infestations in Fultondale run all year. Argentine ants trail along foundations looking for moisture from spring through fall. Cockroach pressure - including German cockroaches finding entry points around plumbing - is a year-round concern in older homes near the interstate. Spider populations follow insect activity indoors, so a home with an ant or cockroach problem often develops a spider problem in the same spaces. Stink bugs and other overwintering pests push indoors as temperatures drop. Wasp and hornet activity builds through summer - routine pest control visits include eave treatment that discourages nesting, though treating an active nest is an add-on at an additional charge.</p>
+
+<p>Our bi-monthly pest control plan covers more than 30 Alabama pest species - six visits per year, with re-service between scheduled visits at no extra charge if a covered pest shows up. Fire ants, fleas, ticks, and mosquitoes are separate services and are not included in the standard plan. Fire ant extermination starts at $150 and is available to any home or business in the service area, not just existing pest customers.</p>
+
+<p>Rodent control is part of the residential pest plan and a standard part of commercial pest management for restaurants, governmental buildings, and other commercial accounts. If you are seeing signs of mice or rats, that is exactly the type of pest problem a free inspection is designed to assess.</p>
+
+<p>For a detailed walkthrough of what bi-monthly pest control covers and why the schedule fits Alabama, see <a href="/blog/how-often-pest-control-alabama">how often pest control should come in Alabama</a>.</p>
+
+<h2>Termite Protection for Fultondale Properties</h2>
+
+<p>Subterranean termites are active throughout Jefferson County. The moisture from the Shoal Creek corridor and the mix of older wood-frame construction in some Fultondale neighborhoods creates meaningful termite risk. EnviroCare is a Sentricon Certified Specialist. The Sentricon Always Active system targets the colony through bait stations placed in the soil around a home's perimeter, working continuously rather than relying on a liquid barrier that can degrade over time.</p>
+
+<p>Active customers with termite coverage carry up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement. All termite pricing is confirmed after a free termite inspection - we do not quote termite work over the phone, and Alabama pest control specialists should not, because every property is different.</p>
+
+<h2>Frequently Asked Questions About Pest Control in Fultondale</h2>
+
+<h3>When should I start mosquito treatments in Fultondale?</h3>
+<p>We recommend starting in March. Getting ahead of the population early is easier than trying to knock down an established one in June. Our season runs through October, covering the full active period.</p>
+
+<h3>Is mosquito service available without a pest control plan?</h3>
+<p>Yes. Mosquito service is a standalone option. Pricing is confirmed after a free inspection for your property. If you pair mosquito service with a pest control plan, the combined plan is available at a single monthly rate - see our <a href="/pricing">pricing page</a> for current plan details.</p>
+
+<h3>What are frequently asked questions about pest control that also apply to mosquito extermination?</h3>
+<p>Homeowners often ask whether extermination means a one-time visit or ongoing service. For mosquitoes in Alabama, a single visit is not enough - populations rebuild from surrounding mosquito habitat throughout the season. The eight-visit schedule exists for that reason. For general pest infestations, the bi-monthly schedule with included re-service handles most recurrence without extra charges.</p>
+
+<h3>Do you serve areas near Fultondale - Hoover, Gardendale, or the Shelby County line?</h3>
+<p>Yes. The Birmingham office serves Jefferson County broadly, including Fultondale, Gardendale, and surrounding communities. Hoover and areas closer to the Shelby County line are also within reach - Alabaster-area service is handled by our Alabaster office. Alabama pest control from EnviroCare covers Central Alabama from multiple offices, so the right team is always close.</p>
+
+<h3>How do I know if I have a termite problem?</h3>
+<p>Signs include mud tubes along foundation walls, wood that sounds hollow when tapped, discarded wings near windowsills in late spring, and damage near moisture sources in crawlspaces. A free inspection documents what is present and what your property's exposure looks like. The <a href="/blog/mosquito-borne-diseases-alabama">hidden dangers of mosquito-borne disease in Alabama</a> is a separate concern worth reading about if you spend time in wooded areas near the creek corridor.</p>
+
+<h3>What pest control solutions do you offer for a business or rental property?</h3>
+<p>EnviroCare serves commercial accounts including restaurants, governmental buildings, and rental properties. A range of pests is covered - rodents, cockroaches, ants, and more - on a schedule that fits each property's needs. For rental property specifics, see our post on <a href="/blog/pest-control-rental-property-landlords-alabama">pest control for rental property in Alabama</a>.</p>
+
+<h2>Get a Free Inspection from Your Local Pest Control Service</h2>
+
+<p>If mosquitoes have been keeping you off your porch, tick and chigger pressure has you worried about the yard, or you want an honest picture of what pest infestations look like at your Fultondale property, call us today. EnviroCare's Birmingham office handles effective pest control across Jefferson County - from the neighborhoods along Walker Chapel Road to the developments near the interstate corridors and properties backing up to the Shoal Creek greenway. As an established Alabama pest control provider with four generations in this business, we give you a straight answer about what we find and what it will take to address it.</p>
+
+<p>Call (205) 991-2882 or contact us online to schedule your free inspection. A real person answers - no call center, no automated routing.</p>
+
+<p><strong>No One Cares Like EnviroCare.</strong></p>
+`,
+  },
+  {
     slug: 'data-center-pest-control-construction-handover',
     title: 'Data Center Pest Control: Construction Handover',
     excerpt: 'A handover checklist for moving from a construction site to an operating facility: open penetrations, receiving procedures, monitoring records and repair ownership.',
@@ -711,64 +820,17 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'carpenter-bees-alabama',
     title: 'Carpenter Bees in Alabama: Damage, Prevention and Treatment',
-    excerpt: 'That big black bee hovering at your eave is almost always a carpenter bee. How to tell it from a bumblebee, what the round holes really do to your wood, and what prevention actually works.',
+    excerpt: 'Learn how to identify carpenter bees in Alabama, tell them from bumblebees, prevent repeat nesting, and address damage to wooden structures.',
     publishedAt: '2026-10-12',
+    updatedAt: '2026-11-17',
     author: 'Kevin Wedgworth',
     category: 'Pests',
     readMinutes: 4,
     heroEmoji: '🐝',
     metaTitle: 'Carpenter Bees in Alabama: Damage & Prevention | EnviroCare',
-    metaDescription: 'Carpenter bees in Alabama: telling them from bumblebees, the wood damage they do, prevention that works, and when a nest needs treatment.',
+    metaDescription: 'Learn how to identify carpenter bees in Alabama, spot wood damage, prevent repeat nesting, and get targeted treatment from EnviroCare.',
     body: `
-<p class="lede">Every spring in Alabama someone calls us about a big black bee hovering at the eave, buzzing at anyone who walks onto the porch. That is almost always a carpenter bee. They look scary, they rarely hurt anyone, and the real problem is the perfectly round hole they leave in your wood. Here is how to identify carpenter bees, what damage they actually do, and what works for prevention.</p>
-
-<h2>What a carpenter bee looks like</h2>
-
-<p>The eastern carpenter bee is the one Alabama homeowners see. It is large, about an inch long, and easy to confuse with a bumblebee. The quick tell is the abdomen: a bumblebee's is fuzzy and striped yellow, a carpenter bee's is shiny and mostly bare black. Bumblebees nest in the ground. Carpenter bees nest in wood.</p>
-
-<p>The ones hovering in front of your face are usually male carpenter bees guarding the nest. Males have no stinger, so the buzzing is bluff. Females can sting but seldom do unless handled.</p>
-
-<h2>Do carpenter bees damage your house?</h2>
-
-<p>They do not eat wood the way termites do. A female bores a round hole about 1/2 inch in diameter into a wood surface, turns, and tunnels along the grain to make galleries for her larva. One tunnel is mostly cosmetic. The trouble is that carpenter bees reuse old nesting sites year after year and extend them, so the same fascia board, deck rail or eave can be riddled after a few seasons. Woodpeckers then tear into the wood hunting the larvae, which does more structural damage than the bees.</p>
-
-<p>Favorite targets around Alabama homes are bare or weathered wood: fascia, soffits, porch ceilings, deck rails, fences, swing sets and outdoor furniture. Painted wood is attacked far less often than unfinished or stained wood.</p>
-
-<h2>Signs of a carpenter bee infestation</h2>
-
-<ul>
-<li>Perfectly round holes on the underside of wooden structures, often with coarse sawdust below.</li>
-<li>Yellowish-brown staining under the hole.</li>
-<li>Large bees hovering near the same spot of the eave or deck every day in spring.</li>
-<li>Woodpecker damage next to old holes.</li>
-</ul>
-
-<h2>Carpenter bee prevention that works</h2>
-
-<ul>
-<li><strong>Paint or finish bare wood.</strong> A good paint or finish is the best deterrent. Stain alone helps less.</li>
-<li><strong>Plug holes once activity stops.</strong> Adults spend the winter inside the old tunnels, so treat active holes in spring, then plug each hole with wood putty, caulk or a dowel and paint over it, so the gallery cannot be reused next spring.</li>
-<li><strong>Replace badly tunneled boards</strong> with treated or painted wood.</li>
-<li><strong>Skip the gadgets.</strong> Repellent sprays and traps sold for carpenter bees have weak evidence behind them. They may catch a few bees; they do not solve a nest.</li>
-</ul>
-
-<h2>Treatment, and why timing matters</h2>
-
-<p>Carpenter bees are pollinators, so we treat the nest, not the yard. A targeted insecticide treatment applied into the active holes in spring, followed by plugging and sealing once activity stops, is what breaks the cycle. Treating without sealing usually means new bees move back into the old tunnels next year.</p>
-
-<p>Carpenter bee treatment is available to our <a href="/services/pest-control">pest control</a> customers as an add-on for an additional charge, alongside wasps and hornets. If you are seeing round holes and want to rule out something worse in the wood, our <a href="/blog/carpenter-ants-vs-termites-alabama">carpenter ants vs. termites guide</a> covers the other wood-damaging insects.</p>
-
-<h2>Carpenter bee FAQs</h2>
-
-<h3>Where do carpenter bees go in the winter?</h3>
-<p>Adults overwinter inside the old tunnels. That is why the order matters: treat active holes in spring, then plug and paint them once activity stops, so the next generation has nowhere to return to.</p>
-
-<h3>Are carpenter bees native to Alabama?</h3>
-<p>Yes. The eastern carpenter bee is native across the Southeast and is an important pollinator, which is why the goal is keeping them out of your wood, not wiping them out.</p>
-
-<p>Already an EnviroCare pest control customer and seeing carpenter bees? Call your local office to add treatment: Alabaster (205) 940-6360, Birmingham (205) 991-2882, Alexander City / Lake Martin (256) 234-6162, or Huntsville (256) 937-7676.</p>
-
-<p>No One Cares Like EnviroCare.</p>
+<p class="lede">Carpenter bees are large, dark bees commonly seen around Alabama porches, eaves and decks in spring. They rarely sting people, but females bore round holes into unfinished or weathered wood. We explain how to identify them, what damage they cause, how to prevent carpenter bees from returning, and when targeted treatment makes sense.</p><p>This <a href="/blog/carpenter-bees-alabama">carpenter bees in Alabama guide</a> focuses on the questions homeowners ask when a large bee starts hovering around a porch or wooden structure.</p><h2>What are carpenter bees?</h2><p>The eastern carpenter bee is the species Alabama homeowners commonly see. It is large and stocky, often about an inch long, and its loud flight can make it seem more threatening than it is. Carpenter bees are solitary bees rather than social bees that build one large shared hive.</p><p>Carpenter bees are often mistaken for bumblebees because the two can be similar in size. Look at the abdomen. A carpenter bee has a shiny, mostly bare black abdomen, while a bumblebee has a fuzzy rear end with yellow or other bands. Bumblebees generally nest in the ground. Carpenter bees bore into wood.</p><p>Both are pollinators, so seeing one bee near flowers does not automatically mean there is a carpenter bee infestation. The concern is repeated activity around wooden surfaces, especially when you see round entry holes and sawdust below them.</p><h2>Are there big bees in Alabama?</h2><p>Yes. Carpenter bees are one of the large bees Alabama homeowners may notice from early spring into the warmer months. They are common around homes with exposed fascia, porch ceilings, deck rails, fences, sheds, swing sets, outdoor furniture and other unfinished or weathered wood.</p><p>The bees hovering directly in front of a person are usually males defending territory near a nesting site. Male carpenter bees do not have a stinger. They may buzz loudly, circle your head or make repeated passes, but that behavior is display rather than an ability to sting.</p><h2>Do carpenter bees sting?</h2><p>Female carpenter bees can sting, but they usually do not do so unless they are handled or trapped. Males cannot sting. The larger concern for a homeowner is damage to wood, not an attack on people inside the home.</p><p>Even when the bee is not aggressive, repeated hovering near a doorway, porch or deck can be unsettling. Keeping people away from active nesting holes and avoiding direct handling is a sensible precaution.</p><h2>Will carpenter bees damage your house?</h2><p>Carpenter bees do not eat wood the way termites do. Instead, a female chews a round entry hole, usually about one-half inch across, into a wood surface. She then turns at a right angle and bores along the grain to create a nest tunnel for her brood.</p><p>A single tunnel may begin as a limited problem. The concern grows when carpenter bees reuse the same area during successive seasons. New females may extend existing tunnels, causing damaged wood to become more vulnerable over time. Woodpeckers can also tear into old nesting areas while searching for larvae, adding to the damage.</p><p>Moisture intrusion through cracks, open joints or neglected wood can make repairs more complicated. A carpenter bee hole does not prove that termites are present, but unusual wood damage should not be ignored. For help comparing wood-damaging insects, see our guide to <a href="/blog/carpenter-ants-vs-termites-alabama">carpenter ants versus termites</a>.</p><h2>How can you identify carpenter bee activity?</h2><p>Look for a combination of the bee, the location and the wood damage. A large bee near flowers is not enough by itself to identify an active nest. Common signs include:</p><ul><li>Perfectly round entry holes in the underside or side of wooden structures, often close to the diameter of a dime.</li><li>Coarse sawdust or wood pulp below an entry hole.</li><li>Yellowish-brown staining beneath the hole from bee waste.</li><li>Large dark bees hovering near the same fascia, eave, deck rail or porch area.</li><li>Woodpecker damage around older holes.</li><li>Several holes in adjacent boards or in the same wooden surface.</li></ul><p>Carpenter bees are attracted to unfinished, weathered and soft wood. Painted wood is attacked less often than bare wood, although a painted surface is not an absolute barrier. If you see bees but no holes, watch the area rather than assuming the insects are nesting in the house.</p><h2>How do you prevent carpenter bees?</h2><p>Prevention begins with the wood itself. Paint exposed wood with a durable exterior coating, or use an appropriate finish on surfaces that cannot be painted. Stain alone may help, but a complete painted surface generally gives carpenter bees fewer appealing places to start nest construction.</p><p>Repair or replace boards that are badly tunneled. When making repairs, use treated or pre-finished lumber where appropriate. Pay particular attention to fascia, soffits, porch ceilings, deck rails, fences and outdoor furniture because these areas are exposed to weather and can be overlooked during routine home maintenance.</p><p>Existing holes should be plugged after active treatment and bee activity has stopped. A homeowner may use wood putty, exterior caulk or a properly fitted dowel, followed by paint over the repair. Do not simply seal an active nest tunnel without considering what is inside it. Plugging is part of a complete solution, not a substitute for addressing current activity.</p><p>Remove or relocate accessible dead wood, old lumber and untreated scraps near the structure when practical. These materials can provide alternate nesting sites. The Environmental Protection Agency recommends addressing food, water, shelter and entry points as part of pest prevention, and following product label directions when using a pesticide or other pest control product. See the <a href="https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control">EPA guidance on pest prevention and pesticide use</a>.</p><h2>What does not work well?</h2><p>Repellent sprays, traps and other retail gadgets may catch some bees or affect a small area, but they do not necessarily address an established nest tunnel. Spraying the surrounding wood without treating the entry hole and repairing the surface can leave the same problem for the next season.</p><p>Sealing every hole immediately can also be a poor approach if bees are still active inside. We recommend identifying active holes, addressing them with products applied according to label directions, and then plugging and finishing the openings when the timing is appropriate.</p><h2>How does carpenter bee treatment work?</h2><p>Effective carpenter bee control focuses on active nesting locations rather than treating the entire yard. A targeted application can address the holes and nearby areas where bees are entering. Once activity stops, plugging and sealing the openings helps prevent reuse. The surrounding wood may also need painting, repair or replacement.</p><p>Timing matters because adults can spend the winter inside old tunnels. Treating active holes in spring and completing the repair afterward helps interrupt the seasonal return. If carpenter bees have been using the same fascia or deck for several years, a technician can help identify which holes are active and which are old.</p><p>EnviroCare provides carpenter bee treatment as an add-on for existing pest control customers at an additional charge. We use EPA-registered products applied according to label directions and explain the wood repairs that can help deter future nesting. Treatment may involve work around eaves, rooflines, decks and other elevated wooden surfaces, so homeowners should consider the access and application requirements before attempting repeated do-it-yourself work.</p><h2>Where do carpenter bees go in the winter?</h2><p>Adult carpenter bees may spend the winter inside old nest tunnels. That is why an untreated hole can become a recurring issue. The adults or next season's bees may return to the same wooden area, extend an existing tunnel and continue the cycle. Treat active nesting first, then plug and paint the opening after activity stops.</p><h2>Is there a big hornet in Alabama?</h2><p>A large bee hovering near a porch is not automatically a hornet. Carpenter bees have a rounded, stocky shape and a shiny black abdomen. Hornets have a different body shape and behavior. A clear photo from a distance, the location of the insect and the presence of round holes in wood can help separate carpenter bee activity from a stinging insect nest.</p><h2>Frequently asked questions</h2><h3>How do you tell carpenter bees and bumblebees apart?</h3><p>Carpenter bees have a shiny, mostly bare black abdomen. Bumblebees usually have a fuzzy abdomen with yellow or other bands. Carpenter bees bore into wood, while bumblebees commonly nest in the ground.</p><h3>Will plugging the hole solve the problem?</h3><p>Plugging helps prevent reuse, but it should generally follow attention to active nesting. Sealing an active tunnel without addressing it can leave the problem inside the wood or encourage bees to create another exit.</p><h3>Are carpenter bees native to Alabama?</h3><p>Yes. The eastern carpenter bee is native across the Southeast and is an important pollinator. Our goal is to protect your wooden structures while managing activity around the home.</p><h3>Is carpenter bee treatment included in regular pest control?</h3><p>No. Carpenter bee treatment is an add-on for existing pest control customers at an additional charge. It is separate from routine bi-monthly home pest service.</p><h2>Carpenter bee help in Central and North Alabama</h2><p>We help homeowners address carpenter bee activity around homes and outbuildings in Central and North Alabama. Call the office serving your area: Birmingham at (205) 991-2882, Alabaster, Pelham, Helena and Calera at (205) 940-6360, Alexander City and Lake Martin at (256) 234-6162, or Huntsville at (256) 937-7676. We can help identify the signs, discuss treatment for eligible existing customers and explain which wood repairs may prevent repeat nesting.</p><p><strong>No One Cares Like EnviroCare.</strong></p>
 `,
   },
 
