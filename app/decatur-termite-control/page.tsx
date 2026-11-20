@@ -37,7 +37,7 @@ const c: ComboContent = {
     },
     {
       title: "The letter every closing needs",
-      body: "Alabama lenders require a WDO letter at closing. Active Sentricon® customers get one free every year — and in Decatur's steady real-estate market, walking into a sale with current termite documentation is leverage.",
+      body: "Alabama lenders require a WDO letter at closing, and we issue them starting as low as $125 — and in Decatur's steady real-estate market, walking into a sale with current termite documentation is leverage.",
     },
   ],
   price: {
@@ -49,7 +49,7 @@ const c: ComboContent = {
       "Up to $1,000,000 EnviroCare damage repair coverage — subject to the terms of the agreement",
       "No drilling — historic-home friendly",
       "Annual inspection + station service",
-      "Free WDO letter yearly for active customers",
+      "WDO letters as low as $125",
     ],
   },
   faqs: [

@@ -369,7 +369,7 @@ export default function CityPage({ slug }: { slug: string }) {
                 <a href="/services/pest-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-2"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">{city.programCopy?.termite?.description ?? 'Sentricon® Always Active™ bait stations, no drilling — with $1M EnviroCare repair coverage.'}</div>
-                <ul className="prog-features">{(city.programCopy?.termite?.features ?? ['$1M EnviroCare coverage', 'No drilling, no tanks', 'Annual WDO letter']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
+                <ul className="prog-features">{(city.programCopy?.termite?.features ?? ['$1M EnviroCare coverage', 'No drilling, no tanks', 'WDO letters as low as $125']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
                 <a href="/services/termite-control" className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">{city.programCopy?.mosquito?.description ?? '30-day yard barrier March–October. Make your outdoor space livable again.'}</div>

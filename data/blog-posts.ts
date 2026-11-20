@@ -3855,11 +3855,9 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>How much does a WDO inspection cost?</h2>
 
-<p>Standalone WDO reports are a paid service at EnviroCare; confirm the fee and scope before booking. Ask whether the quoted scope includes the on-site visual inspection, the completed Official Alabama Wood Infestation Inspection Report and delivery to the parties you identify. The cost of a WDO inspection may increase for larger properties, properties with multiple structures, or properties that require extended crawlspace inspection.</p>
+<p>WDO reports are a paid service at EnviroCare, starting as low as $125; confirm the fee and scope before booking. Ask whether the quoted scope includes the on-site visual inspection, the completed Official Alabama Wood Infestation Inspection Report and delivery to the parties you identify. The cost of a WDO inspection may increase for larger properties, properties with multiple structures, or properties that require extended crawlspace inspection.</p>
 
-<p>If you are already an active EnviroCare customer on our general pest control or termite program, your first WDO letter each year is <strong>free</strong> — the inspection is part of your ongoing pest management program.</p>
-
-<p>Termite inspections for the purpose of determining whether a home needs termite treatment — separate from a real estate WDO letter — are also free at EnviroCare. Every Alabama homeowner should have a termite inspection at least once a year, whether or not they are buying or selling a home, to catch termite activity early and avoid costly damage to the structure of your home.</p>
+<p>Termite inspections for the purpose of determining whether a home needs termite treatment — separate from a real estate WDO letter — are free at EnviroCare. Every Alabama homeowner should have a termite inspection at least once a year, whether or not they are buying or selling a home, to catch termite activity early and avoid costly damage to the structure of your home.</p>
 
 <h2>How long is a WDO letter valid?</h2>
 

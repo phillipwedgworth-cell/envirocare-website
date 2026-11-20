@@ -61,7 +61,7 @@ const c: ComboContent = {
       "Sentricon® Always Active™ bait stations",
       "Up to $1,000,000 EnviroCare damage repair coverage",
       "Annual inspection + station service",
-      "Free WDO letter yearly for active customers",
+      "WDO letters as low as $125",
       "Free termite inspection to start — no obligation",
     ],
   },
@@ -80,7 +80,7 @@ const c: ComboContent = {
     },
     {
       q: "I'm buying or selling a home — can you handle the termite letter?",
-      a: "Yes — we issue the official Alabama Wood Infestation Report (the WDO letter) used in real-estate closings. One per year is free for active termite customers.",
+      a: "Yes — we issue the official Alabama Wood Infestation Report (the WDO letter) used in real-estate closings. WDO letters start as low as $125; the office confirms the exact fee when you schedule.",
     },
     {
       q: "How much does termite treatment cost in Birmingham?",
