@@ -75,7 +75,7 @@ const CARDS: PestCard[] = [
   },
   {
     emoji: '🏚️', name: 'Crawlspace & Moisture Worries',
-    hook: 'Damp crawlspaces are where termite trouble starts. Begin with a free termite inspection — home, crawlspace, and foundation.',
+    hook: 'Damp crawlspaces are where termite trouble starts. Begin with a free termite inspection — home, crawlspace, and foundation. Real-estate WDO letters are a separate, paid service.',
     href: '/services/termite-control', linkLabel: 'Free Termite Inspection',
   },
   {
