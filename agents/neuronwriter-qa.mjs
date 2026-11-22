@@ -232,10 +232,22 @@ async function workerDraft(results, feedback = null) {
   return backfillMissingPages(text, results);
 }
 
+// The worker writes slug headings ("### termite-control") while results carry
+// repo paths ("app/services/termite-control/page.tsx"). Matching only the raw
+// path meant no heading ever matched, so every page was backfilled on top of
+// the worker's own section and the report came out doubled (37 pages -> 74
+// sections). That blew the word cap and escalated the critic on every run from
+// 2026-10-12 to 2026-11-16. Accept either spelling.
+function headingVariants(page) {
+  const slug = page.replace(/^app\//, '').replace(/\/page\.tsx$/, '');
+  return [...new Set([page, slug, slug.split('/').pop()])];
+}
+
 // Any page the worker left out gets a section built from the raw data, labelled
 // as such, so the report is never silently incomplete.
 function backfillMissingPages(text, results) {
-  const missing = results.filter(r => !r.error && !new RegExp(`^###\\s+${r.page.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'm').test(text));
+  const missing = results.filter(r => !r.error && !headingVariants(r.page).some(v =>
+    new RegExp(`^###\\s+${v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'm').test(text)));
   if (!missing.length) return text;
   const blocks = missing.map(r => {
     const status = r.score < 70 ? '🔴 BELOW THRESHOLD' : r.score > 80 ? '🟡 ABOVE BAND' : '✅ IN BAND';
@@ -248,7 +260,7 @@ function backfillMissingPages(text, results) {
 
 // ─── CRITIC ────────────────────────────────────────────────────────────────
 
-const rubric = `
+const rubricFor = (pageCount) => `
 - Every page with a score lists the numeric value (e.g. "73/100")
 - Pages with score < 70 explicitly marked BELOW THRESHOLD
 - Each page has a recommendation naming at least one specific missing term (not generic advice)
@@ -258,7 +270,7 @@ const rubric = `
 - Report is complete: not cut off mid-section and no "[TRUNCATED" marker
 - Every page named in the PAGES list in the TASK has its own ### section (sections marked "filled from raw data" count)
 - Any gap figure in the report matches that page's gap in the TASK's PAGES list
-- Under 1,100 words (16 pages are covered, so 700 was unreachable), no preamble, no sign-off`;
+- Under ${Math.max(1100, pageCount * 55)} words (${pageCount} pages are covered), no preamble, no sign-off`;
 
 // ─── WRITE ─────────────────────────────────────────────────────────────────
 
@@ -396,7 +408,9 @@ export async function run() {
     // code-computed gaps the rubric checks against must travel in the task.
     task: `NeuronWriter content quality QA report for ${results.filter(r => !r.error).length} EnviroCare service and city pages.\nPAGES (page — score — gap to the 70 threshold):\n${results.filter(r => !r.error).map(r => `- ${r.page} — ${r.score}/100 — ${r.score < 70 ? `${70 - r.score} below 70` : 'none'}`).join('\n')}`,
     output: draft,
-    rubric,
+    // Scales with the page count: the cap was fixed at 1,100 words for 16 pages
+    // and never moved when the set grew to 37.
+    rubric: rubricFor(results.filter(r => !r.error).length),
     revise: fb => workerDraft(results, fb),
     toolErrors,
     onEscalate: async (out, history) => {
