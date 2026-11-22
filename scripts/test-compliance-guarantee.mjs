@@ -52,6 +52,15 @@ const cases = [
   ["If heavy rain falls within 24 hours of your treatment, call us and we'll re-treat at no charge.", false, "rain condition, not a promise"],
   ["Sentricon stations are checked on a regular schedule through the year.", false, "no clock at all"],
   ["The rule fixes a ninety (90) day retreatment period.", false, "statutory period"],
+  // --- 24/7 availability (2026-11-18, sweep C6): must FLAG ---
+  ["24/7 emergency pest service across Birmingham", true, "24/7 service claim"],
+  ["Call us 24/7 for termite help", true, "24/7 call claim"],
+  ["Our team is available 24/7", true, "availability, reverse order"],
+  ["24 / 7 response for commercial accounts", true, "spaced 24 / 7"],
+  // --- 24/7 availability: must NOT flag ---
+  ["Always-active 24/7 protection", false, "describes the bait system, left for Phillip's ruling"],
+  ["We do not claim 24/7 service; routes are scheduled.", false, "negated, the canon's own wording"],
+  ["Sentricon stations work around the clock between visits.", false, "no 24/7 token"],
   // --- contract ---
   ["Pay per visit with no long-term agreement, or equal monthly ACH", true, "contract-free claim"],
   ["there are no contracts to worry about", true, "contract-free claim"],
