@@ -331,6 +331,7 @@ terms of the agreement` should appear too.
   describing a crawlspace as a place termites enter is fine.
 - **Bed bug** and **wildlife** are not offered.
 - **Carpenter bee** is existing customers only.
+- **Liquid termite treatment is existing customers only** (Phillip, 2026-11-23): renewals and retreatments for customers already on a liquid program. New termite customers are offered Sentricon only. Never market liquid treatment to new customers; comparing Sentricon with liquid treatment is fine. If an AI answer says EnviroCare offers liquid barrier treatment, it is half right — correct it to "Sentricon for new customers; liquid service continues for existing liquid customers".
 
 ## 4. NAP — phone numbers and addresses
 
