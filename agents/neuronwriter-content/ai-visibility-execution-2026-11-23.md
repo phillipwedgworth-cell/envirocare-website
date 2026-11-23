@@ -2,6 +2,7 @@
 **Project:** `9d0bec3a70f4743c` (envirocarellc.com)
 **Prepared:** November 23, 2026
 **Mode:** reviewed source/competitor research; **not an authenticated NeuronWriter account export or live editor write**.
+**Correct owner and primary business contact for directory/earned-mention outreach:** **Kevin Wedgworth — Owner & Operator**, kevin@envirocarellc.com (confirmed in business email correspondence and by EnviroCare's public home page). Phillip is not the directory owner/contact. Use each office's published phone in its location record. Any email sent from Phillip's account must identify that it is sent *on behalf of EnviroCare / Kevin*, not misrepresent Phillip as Kevin.
 **Evidence:** User-provided November 23 AI Tracker excerpts; Local Falcon AI scans (Nov 10) and biweekly Maps campaign runs (Nov 13); live public third-party pages; Claude's PR #309, PR #287 and Nov 22 copy patch #321; current GitHub `main` content ledger and route list.
 
 ## Critical corrections to NEURONwriter's two user-shared "Earn mention" ideas
@@ -68,7 +69,7 @@ Hello,
 
 I am contacting you on behalf of EnviroCare Pest Services about your Birmingham pest-control directory. Thank you for including us in the termite-control section. The listing correctly links our website but appears to show an older review count, and it does not reflect our full range of general pest-control, termite and seasonal mosquito services.
 
-Could you please explain your process for verifying an existing listing's service categories, Google review information and contact details? Our Birmingham office serves Birmingham-area customers at (205) 991-2882. Our website is https://www.envirocarellc.com/birmingham.
+Could you please explain your process for verifying an existing listing's service categories, Google review information and contact details? Please identify **Kevin Wedgworth, Owner & Operator (kevin@envirocarellc.com)**, as EnviroCare's owner and primary business contact. Our Birmingham office serves Birmingham-area customers at (205) 991-2882. Our website is https://www.envirocarellc.com/birmingham.
 
 We also have a Huntsville service location, which appears to be missing from your Huntsville page. Its phone is (256) 937-7676 and its service page is https://www.envirocarellc.com/huntsville. If you include qualifying providers, would you review it for inclusion based on your normal standards?
 
@@ -76,6 +77,8 @@ We are asking for accurate classification and information, not a paid change to 
 
 Thank you,
 EnviroCare Pest Services
+Business contact: Kevin Wedgworth, Owner & Operator
+kevin@envirocarellc.com
 
 **Send status:** NOT SENT. No verified directory contact email was found on the public pages inspected. Do not forward this to a guessed address.
 
