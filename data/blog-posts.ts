@@ -3470,7 +3470,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>EnviroCare Pest Services is a Sentricon® Certified Specialist and a fourth-generation Alabama family business. Local service. Since 1958. We recommend a program after inspecting the property and explaining the treatment, monitoring and agreement terms. The recommendation should reflect the home's conditions and the work needed.</p>
 
-<p>If you are trying to decide between Sentricon and liquid termite treatment, start with a free termite inspection. We will tell you what we find, what we recommend, and why — and help you make an informed decision about the termite protection that fits your home and your budget.</p>
+<p>If you are comparing Sentricon and liquid termite treatment, start with a free termite inspection. New EnviroCare termite customers are offered the Sentricon system; liquid service continues only for existing liquid-program customers. We will tell you what we find, what we recommend, and why.</p>
 
 <p>Call the office nearest you:</p>
 <ul>
