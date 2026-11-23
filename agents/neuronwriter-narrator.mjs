@@ -345,7 +345,13 @@ async function runFill() {
       : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
   }).catch(() => {});
   const failures = results.filter(r => r.source.startsWith("ERROR"));
-  return { status: failures.length ? (failures.length === results.length ? "error" : "partial") : "ok", summary: `fill: ${results.length} editors checked, ${imported} imported, ${failures.length} blocked/error, ${queries.length - results.length} deferred` };
+  // The run summary used to carry only the failure COUNT, so an identical
+  // "17 blocked/error" line every week was undiagnosable from agent_runs --
+  // the reasons lived only in the emailed markdown. Carry the distinct
+  // reasons (capped) so the weekly row is self-explaining.
+  const reasons = [...new Set(failures.map(r => r.source.replace(/^ERROR -- /, "").slice(0, 80)))].slice(0, 5);
+  const why = reasons.length ? ` [${reasons.join(" | ")}]` : "";
+  return { status: failures.length ? (failures.length === results.length ? "error" : "partial") : "ok", summary: `fill: ${results.length} editors checked, ${imported} imported, ${failures.length} blocked/error, ${queries.length - results.length} deferred${why}` };
 }
 
 // -- main ---------------------------------------------------------------------
