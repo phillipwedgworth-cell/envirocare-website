@@ -3,7 +3,7 @@
 **Prepared:** November 23, 2026
 **Mode:** reviewed source/competitor research; **not an authenticated NeuronWriter account export or live editor write**.
 **Correct owner and primary business contact for directory/earned-mention outreach:** **Kevin Wedgworth — Owner & Operator**, kevin@envirocarellc.com (confirmed in business email correspondence and by EnviroCare's public home page). Phillip is not the directory owner/contact. Use each office's published phone in its location record. Any email sent from Phillip's account must identify that it is sent *on behalf of EnviroCare / Kevin*, not misrepresent Phillip as Kevin.
-**Evidence:** User-provided November 23 AI Tracker excerpts; Local Falcon's actual November 10 and 16 scans; live public third-party pages; Claude's PR #309, PR #287 and Nov 22 copy patch #321; current GitHub `main` content ledger and route list.
+**Evidence:** User-provided November 23 AI Tracker excerpts; Local Falcon AI scans (Nov 10) and biweekly Maps campaign runs (Nov 13); live public third-party pages; Claude's PR #309, PR #287 and Nov 22 copy patch #321; current GitHub `main` content ledger and route list.
 
 ## Critical corrections to NEURONwriter's two user-shared "Earn mention" ideas
 
@@ -51,7 +51,7 @@ These are REVIEW-ONLY assets. Use the existing matching NeuronWriter analysis ID
 - **PR #309, Nov 16:** Claude **already saved and re-read six corrected NeuronWriter editors**: Bessemer, McCalla, Gardendale, Meridianville, Sylacauga, and pre-construction builders. Do **not** re-import earlier uncorrected drafts; they were corrected and their editors verified. Scores in PR #309 should not be generalized to other pages.
 - **PR #287, Oct 28–29:** 36-item editorial review had only 6 valid scores, 30 blocked; a seasonal article scored 38 using the WRONG commercial query. Automated FILL can overwrite good content with off-topic rewrites. Preserve author/date/canonical and existing editor content.
 - **Nov 22 PR #321:** Free termite evaluation vs **separately paid WDO report**, as low as $125 in the owner's Nov 17 ruling. Never market a free WDO report.
-- **Nov 16 Claude correction:** $1M is **EnviroCare's contractual damage repair coverage**, for qualifying homes, **subject to inspection and the terms of the agreement**; never attribute it to Sentricon. Fire-ant service is available on its own, and the approved baseline was $150 for most yards with a one-year warranty. The standard pest-plan scope includes rodent entry-point sealing per the owner's Oct 12 ruling; do not overwrite with contradictory service-copy.
+- **Nov 16 Claude correction:** $1M is **EnviroCare's contractual damage repair coverage**, **subject to inspection and approval and subject to the terms of the agreement** (approved wording); never attribute it to Sentricon. (Removed in review 2026-11-23: a fire-ant price/"warranty" line and a rodent-sealing scope line that are not in `data/pricing.ts` or AGENTS.md. Re-add only with the ruling's source.)
 - Follow the price canon (`data/pricing.ts`), phone canon (`data/offices.ts`) and the knowledge/content ledger before every import.
 - **No new NeuronWriter analyses solely to use remaining allowance.** The July 16 partial 6/74 export is stale; the intake script deliberately refuses partial/stale exports. The existing project contained 260 READY queries as of Claude's October 29 inventory; refresh this inside the authorized account before creating anything.
 
