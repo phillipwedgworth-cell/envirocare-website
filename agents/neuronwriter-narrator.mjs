@@ -256,6 +256,7 @@ async function runFill() {
   const results = [];
   const maxWrites = narratorWriteLimit(process.env.NARRATOR_MAX_WRITES);
   let attempted = 0;
+  let haltedReason = "";
   console.log(`[narrator] ${allQueries.length} query rows -> ${queries.length} unique keyword editors; planned topics first`);
 
   for (const q of queries) {
@@ -311,27 +312,42 @@ async function runFill() {
       }
       results.push({ keyword, score, source });
     } catch (e) {
-      results.push({ keyword, score: null, source: `ERROR -- ${e.message}` });
+      const reason = String(e?.message || e);
+      results.push({ keyword, score: null, source: `ERROR -- ${reason}` });
+      // Do not keep hammering the account after auth, quota, rate-limit or
+      // malformed editor responses; these are NOT scores below the floor.
+      if (/^NeuronWriter [a-z-]+ -> (401|403|429|5[0-9][0-9])\b|^Anthropic (401|403|429|5[0-9][0-9])\b|^get-content returned no valid|^evaluate-content returned no valid/.test(reason)) {
+        haltedReason = reason;
+        console.error(`[narrator] provider failure; stopping safely: ${reason.slice(0, 180)}`);
+        break;
+      }
     }
     await sleep(SLEEP_MS);
   }
 
   const rank = [...results].sort((a,b) => (b.score ?? -1) - (a.score ?? -1));
-  const ready = rank.filter(r => (r.score ?? -1) >= SCORE_FLOOR);
-  const work  = rank.filter(r => (r.score ?? -1) <  SCORE_FLOOR);
-
+  const ready = rank.filter(r => typeof r.score === "number" && r.score >= SCORE_FLOOR);
+  const low = rank.filter(r => typeof r.score === "number" && r.score < SCORE_FLOOR);
+  const errors = rank.filter(r => r.score === null);
   const imported = results.filter(r => r.source === "hand-written" || r.source.startsWith("auto-written")).length;
-  let md = `## Neuron Narrator -- checked ${results.length} unique editors; imported ${imported} drafts\n\n`;
-  md += `**Score-ready (NeuronWriter >= ${SCORE_FLOOR}%, keyword coverage only) -- NOT compliance- or plagiarism-checked, no images. Do not publish from here: the weekly content PR runs those gates. Best first:**\n\n`;
+  let md = `## Neuron Narrator -- checked ${results.length} editors, imported ${imported}, unscored errors ${errors.length}\n\n`;
+  md += `**Score-ready (NeuronWriter >= ${SCORE_FLOOR}%, keyword coverage only) -- NOT publication approval:**\n\n`;
   md += `| # | Keyword | Score | Source |\n|---|---|---|---|\n`;
   ready.forEach((r,i) => md += `| ${i+1} | ${r.keyword} | ${r.score}%${r.score>=SHIP_GOOD?" 💪":""} | ${r.source} |\n`);
-  if (!ready.length) md += `| — | (none cleared the floor yet) | | |\n`;
-  if (work.length) {
-    md += `\n**Still light (below ${SCORE_FLOOR}%) -- left as drafts to revisit:**\n\n| Keyword | Score |\n|---|---|\n`;
-    work.forEach(r => md += `| ${r.keyword} | ${r.score===null?"err":r.score+"%"} |\n`);
+  if (!ready.length) md += `| — | (none cleared the floor in this run) | | |\n`;
+  if (low.length) {
+    md += `\n**Measured below ${SCORE_FLOOR}% — drafts to improve:**\n\n| Keyword | Score |\n|---|---|\n`;
+    low.forEach(r => md += `| ${r.keyword} | ${r.score}% |\n`);
   }
-  md += `\nCandidate attempts: ${attempted}/${maxWrites}; ${queries.length - results.length} unique editors not visited after the batch limit.\n`;
-  md += `\nOnly imported drafts changed NeuronWriter; kept, blocked and error rows did not. Score-ready is not publication approval. Review originality, source support, imagery and the built-page checks before any human merge.\n`;
+  if (errors.length) {
+    md += `\n**Unscored because of errors — NOT demonstrated to be below ${SCORE_FLOOR}%:**\n\n| Keyword | Failure reason |\n|---|---|\n`;
+    const clean = s => String(s || "unknown failure").replace(/\|/g, "/").replace(/[\r\n]+/g, " ").slice(0, 180);
+    errors.forEach(r => md += `| ${r.keyword} | ${clean(r.source.replace(/^ERROR -- /, ""))} |\n`);
+  }
+  const deferred = Math.max(0, queries.length - results.length);
+  md += `\nCandidate attempts: ${attempted}/${maxWrites}; ${deferred} unique editors not visited${haltedReason ? " because the run stopped on an account/provider error" : " after the batch limit"}.\n`;
+  if (haltedReason) md += `**Stopped without retry:** ${haltedReason.replace(/[\r\n]+/g, " ").slice(0, 180)}\n`;
+  md += `\nOnly imported drafts changed NeuronWriter; kept and error rows did not. Score-ready is not publication approval. Check originality, sources, imagery and built-page guards before merge.\n`;
   toSummary(md); await email("Neuron Narrator -- score-ready drafts (unchecked)", md.replace(/\n/g,"<br>"));
 
   // Surface the result in the Command Center (Recent Findings panel), not just email.
@@ -342,16 +358,16 @@ async function runFill() {
     severity: ready.length ? "info" : "warning",
     finding: ready.length
       ? `${ready.length} draft(s) score-ready (NeuronWriter ≥ ${SCORE_FLOOR}%, keyword coverage only — NOT compliance- or plagiarism-checked, no images). Top: ${top || "—"}. They reach the site only through the weekly content PR, which runs those gates.`
-      : `Filled ${results.length} SEO draft(s); none cleared the ${SCORE_FLOOR}% floor yet — left as drafts to revisit.`,
+      : `Processed ${results.length} editor(s); ${errors.length} unscored error(s), ${low.length} measured below the ${SCORE_FLOOR}% floor. No publication approval.`,
   }).catch(() => {});
-  const failures = results.filter(r => r.source.startsWith("ERROR"));
+  const failures = errors;
   // The run summary used to carry only the failure COUNT, so an identical
   // "17 blocked/error" line every week was undiagnosable from agent_runs --
   // the reasons lived only in the emailed markdown. Carry the distinct
   // reasons (capped) so the weekly row is self-explaining.
   const reasons = [...new Set(failures.map(r => r.source.replace(/^ERROR -- /, "").slice(0, 80)))].slice(0, 5);
   const why = reasons.length ? ` [${reasons.join(" | ")}]` : "";
-  return { status: failures.length ? (failures.length === results.length ? "error" : "partial") : "ok", summary: `fill: ${results.length} editors checked, ${imported} imported, ${failures.length} blocked/error, ${queries.length - results.length} deferred${why}` };
+  return { status: failures.length ? (failures.length === results.length ? "error" : "partial") : "ok", summary: `fill: ${results.length} editors checked, ${imported} imported, ${low.length} below floor, ${failures.length} unscored errors, ${queries.length - results.length} deferred${haltedReason ? " [stopped for provider failure]" : ""}${why}` };
 }
 
 // -- main ---------------------------------------------------------------------
