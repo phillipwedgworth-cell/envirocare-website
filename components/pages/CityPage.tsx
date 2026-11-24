@@ -361,7 +361,7 @@ export default function CityPage({ slug }: { slug: string }) {
         <div className="container">
           <div className="section-eyebrow">Our Core Services</div>
           <h2 className="section-title">Four Pillars of <span>Total Protection</span></h2>
-          <p className="section-sub">{city.servicesIntro ?? <>Every {city.name} home gets the same four-pillar program — pest, termite, mosquito, and tick protection from the same family-owned team.</>}</p>
+          <p className="section-sub">{city.servicesIntro ?? <>Choose the programs your {city.name} home needs — pest, termite, mosquito, and tick protection, each with its own scope, from the same family-owned team.</>}</p>
           <div className="prog-grid">
             <div className="prog-card"><div className="prog-art prog-art-1"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Pest Control</div><div className="prog-desc">{city.programCopy?.pest?.description ?? 'Bi-monthly perimeter service against ants, roaches, spiders & 30+ pests.'}</div>
