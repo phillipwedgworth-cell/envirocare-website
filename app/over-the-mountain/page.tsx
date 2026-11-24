@@ -25,7 +25,7 @@ const cfg: ClusterConfig = {
   "h1": "Pest Control Over the Mountain — Vestavia Hills, Mountain Brook, Homewood & Hoover",
   "intro": [
     "The Over the Mountain communities carry some of the Birmingham metro's most established homes — mature trees, older masonry, wooded ridgeline lots, and landscaping worth protecting. That combination is exactly what termites, mosquitoes, and carpenter ants work hardest on.",
-    "EnviroCare has served these neighborhoods since our Birmingham expansion in 2002. Our technicians run Over the Mountain routes daily — the same tech, the same four-pillar program (pest, termite, mosquito, tick) on every visit."
+    "EnviroCare has served these neighborhoods since our Birmingham expansion in 2002. Our technicians run Over the Mountain routes daily, so a familiar local team handles your pest, termite, mosquito and tick programs."
   ],
   "pestAngle": "Established homes, deep shade, and ridgeline woods make Over the Mountain the metro's highest-pressure zone for termites in old masonry and mosquitoes in shaded yards.",
   "cities": [

@@ -187,6 +187,12 @@ const cases = [
   // (live copy also says "50% off"; that phrase is the separate decision-gated discount
   // rule's business, so these cases leave it out to test the $75 rules alone)
   ["$75 initial service (regular price $150)", false, "anchored $75 must pass"],
+  // 2026-11-23: "same tech" slipped past the "same technician" rule on three live pages
+  // (/over-the-mountain, /faq/termite-warranty, /faq/mosquito). Must flag the abbreviation too.
+  ["You get the same tech on every visit, a direct phone number.", true, "same tech ... every visit (/faq/mosquito)"],
+  ["EnviroCare assigns the same tech to your property so they know your home's history.", true, "same tech to your property (/faq/termite-warranty)"],
+  ["the same tech, the same four-pillar program (pest, termite, mosquito, tick) on every visit", true, "same tech ... every visit (/over-the-mountain)"],
+  ["real people, same technician on your route", false, "bare same technician stays allowed (rule comment)"],
   ["sub: `$${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular})`", false, "anchored template must pass"],
   ["the inspection is free for existing customers once a year and $75 otherwise", false, "WDO inspection fee is a different product (S6a)"],
 ];
