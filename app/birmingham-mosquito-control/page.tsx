@@ -33,7 +33,7 @@ const c: ComboContent = {
   h1Accent: "Take Your Yard Back.",
   intro: [
     "Birmingham sits in a humid valley laced with water: the Cahaba River to the south, Village Creek and Valley Creek threading through the city, and storm drainage in every older neighborhood. Local weather and breeding sites affect mosquito activity; our March–October service calendar does not establish the first or last mosquitoes at a property.",
-    "The Wedgworth family has been treating Alabama yards since 1958, and our 16th Ave S office serves Birmingham. Our 30-day barrier program targets where mosquitoes actually rest — shrub lines, eaves, fence rows, shaded foliage — so your porch, deck, and play set stay usable through an Alabama summer.",
+    "The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Today our 16th Ave S office serves Birmingham, and our 30-day barrier program targets where mosquitoes actually rest — shrub lines, eaves, fence rows, shaded foliage — so your porch, deck, and play set stay usable through an Alabama summer.",
   ],
   anglesHeading: "Why Birmingham mosquitoes are a different fight",
   localAngles: [
@@ -52,6 +52,26 @@ const c: ComboContent = {
     {
       title: "March through October service",
       body: "Our seasonal program includes eight scheduled treatments from March through October. Mosquito activity varies with weather and breeding sites, so an inspection should guide the recommendation rather than a fixed temperature cutoff or start date.",
+    },
+  ],
+  // Reviewed and corrected from GPT's Nov 23 AI-visibility insert
+  // (agents/neuronwriter-content/ai-visibility-birmingham-mosquito-content-insert-2026-11-23.html).
+  // AI answers for "mosquito control Birmingham" compare 21-day and 30-day
+  // programs; this answers that question without naming any company.
+  sections: [
+    {
+      heading: "Comparing mosquito treatment programs in Birmingham",
+      paras: [
+        "Mosquito companies describe their programs in different ways, so a 21-day schedule and a 30-day schedule are not automatically comparable. Line them up on the same terms: the number of treatments, the months of service, the areas treated, any yard-size limits, how follow-up visits work, and the total cost for the season.",
+        `EnviroCare's Birmingham program is eight scheduled treatments, March through October, at $45/month for an average-size yard. The firm price is set after a free inspection. ${ACH_TERMS} Treatments aim to reduce mosquito activity around the places mosquitoes rest; no program eliminates every mosquito, and draining standing water where you can still matters.`,
+      ],
+      list: [
+        "How many treatments are included, and in which months?",
+        "Which areas of the yard are treated, and are any excluded?",
+        "Is tick or chigger treatment included, or quoted separately?",
+        "What happens if mosquitoes stay active or heavy rain follows a visit?",
+        "What is the total cost for the full season, not just per visit?",
+      ],
     },
   ],
   price: {
@@ -79,6 +99,10 @@ const c: ComboContent = {
     {
       q: "When can kids and pets go back outside after treatment?",
       a: "Follow the re-entry instructions for the products and application used at your property. Ask the technician when people and pets may use treated areas again and which areas are excluded from treatment. A general drying-time estimate is not a substitute for those directions.",
+    },
+    {
+      q: "Is a 21-day mosquito schedule better than a 30-day schedule?",
+      a: "Not automatically. Results depend on the treatment method, product label directions, weather, shade and standing water on the property, not the interval alone. Compare the number of treatments, months covered, areas treated and the follow-up terms in writing. EnviroCare's Birmingham program is eight treatments from March through October, priced after a free inspection.",
     },
     {
       q: "Can I bundle mosquito with pest control?",

@@ -72,7 +72,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.envirocarellc.com'),
   title: {
-    default: 'EnviroCare — Family-Owned Alabama Since 1958',
+    default: 'EnviroCare Pest Services — Family-Owned Alabama Pest Control',
     template: '%s',
   },
   description:
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     // coverage disclaimer never rendered. The $1M figure is deliberately NOT here:
     // data/compliance.ts requires it be qualified wherever it appears, and the
     // qualifier does not fit a snippet. It stays on the pages that can carry it.
-    'Family-owned Alabama pest control since 1958. Bi-monthly pest service, Sentricon® termite protection, mosquito and tick yard treatment. Call (205) 940-6360.',
+    'Family-owned Alabama pest control from four offices. Bi-monthly pest service, Sentricon® termite protection, mosquito and tick yard treatment. Call (205) 940-6360.',
   // meta keywords removed 2026-07-24 — Google has ignored the tag since 2009;
   // it only signals "template site" to anything parsing the markup.
   authors: [{ name: 'EnviroCare, LLC' }],
@@ -94,21 +94,21 @@ export const metadata: Metadata = {
     // page that doesn't set its own, so og:url pointed at the homepage while each
     // page's canonical pointed at itself (Ahrefs: "OG URL not matching canonical").
     siteName: 'EnviroCare',
-    title: 'EnviroCare — Family-Owned Alabama Since 1958',
+    title: 'EnviroCare Pest Services — Family-Owned Alabama Pest Control',
     description:
-      'Bi-monthly pest control, Sentricon® termite protection, mosquito and tick yard service. Four Alabama offices, family-owned since 1958.',
+      'Bi-monthly pest control, Sentricon® termite protection, mosquito and tick yard service. Four Alabama offices, family-owned, fourth generation.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'EnviroCare — Family-Owned Alabama Since 1958',
+        alt: 'EnviroCare Pest Services — Family-Owned Alabama Pest Control',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EnviroCare — Alabama Since 1958',
+    title: 'EnviroCare Pest Services — Alabama Pest Control',
     description:
       'Family-owned bi-monthly pest control, Sentricon® termite protection, mosquito and tick yard service. Four Alabama offices.',
     images: ['/og-image.png'],
@@ -244,7 +244,7 @@ const LAKE_MARTIN_SCHEMA = {
   name: 'EnviroCare — Alex City / Lake Martin',
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    'EnviroCare\'s original 1958 office. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.',
+    'EnviroCare\'s Alexander City / Lake Martin office. The Wedgworth family\'s Alabama pest-control history began in Alexander City in 1958. Family-owned pest control, Sentricon® termite protection, mosquito and tick service for Lake Martin and East Alabama.',
   url: 'https://www.envirocarellc.com/lake-martin',
   telephone: '+1-256-234-6162',
   priceRange: '$$',
@@ -281,7 +281,7 @@ const HUNTSVILLE_SCHEMA = {
     // happened to contain the clause — shortening that string turned this line
     // into a blocking hit. Schema is live copy (AGENTS.md §6); it states its own
     // terms. The other three office schemas do not cite the figure at all.
-    'Family-owned Huntsville pest control and termite service. Sentricon® baiting with up to $1M in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. Bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
+    'Family-owned Huntsville pest control and termite service. Sentricon® baiting with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to inspection and approval and subject to the terms of the agreement. Bi-monthly perimeter service, mosquito and tick yard treatment across North Alabama.',
   url: 'https://www.envirocarellc.com/huntsville',
   telephone: '+1-256-937-7676',
   priceRange: '$$',
