@@ -244,3 +244,76 @@ These are independent editorial pitches, not requests for favorable ranking, pur
 - Score baseline and revised copy in the same actual editor and query; record SEO and AI scores, revision IDs, and competitor/content gap decisions; no measured scores are claimed here. Use existing monitored prompts and scheduled scans after corrections are visible. Do not exhaust credits merely because they exist.
 - Access: no NeuronWriter tools exposed in current session; browser access requires originating browser context. This update is a public-source research and owner-ready draft handoff only. No external messages, accounts, paid services, GBP changes, NeuronWriter writes, merge or deployment occurred.
 
+
+### November 24 follow-through — independent association authority and owner execution queue
+
+Public source recheck on November 24, 2026. Search/retrieval snapshots are not equivalent to authenticated membership records. Correct existing entries before considering new memberships. No account, message, application, or purchase authorized here.
+
+| Source | Market | Current public evidence | Correction and next step | Official contact / source |
+|---|---|---|---|---|
+| Huntsville Madison County Builders Association | Huntsville | Existing associate member Envirocare; 2025 Butler Rd, Alabaster, AL 35007; 205-447-9394; website links to company homepage. Kevin is correctly spelled; Lex is shown as Wedgeworth. | Ask whether this record is corporate or local. If corporate retain the Alabaster address with (205) 940-6360. If intended as North Alabama provider use the approved Huntsville NAP and /huntsville; request branch listing only if the association permits it. Verify the old phone before replacing it. Correct Lex's spelling only after owner confirms exact listed name. | https://huntsvillemadisoncountyba.growthzoneapp.com/hmcbamemberdirectory/Details/envirocare-3147080 ; info@hmcba.org ; https://hmcba.org/ |
+| We Build North Alabama / HMCBA affiliate directory | Huntsville | Josh Aiken and Todd Carroll public category entries show the Alabaster address paired with Birmingham's 205-991-2882. Josh's detailed profile independently confirms this pairing. | Reconcile the two affiliate records and parent listing in one member-service request. Retain genuine individual affiliations; do not replace people with an invented local office. Ask association if both directories share the same underlying member record. | https://webuildnorthalabama.growthzoneapp.com/activememberdirectory/Search/pest-control-106920 ; https://huntsvillemadisoncountyba.growthzoneapp.com/hmcbamemberdirectory/Details/josh-aiken-3917463 |
+| Alabama Pest Control Association | Statewide | Region 1 board page identifies Kevin Wedgeworth, EnviroCare. Surname has an extra e compared with Kevin Wedgworth. | Ask APCA to correct the spelling, verify current board role, and add the canonical website to his entry if APCA normally permits that. Do not claim an endorsement or a current role beyond the verified dated source. | https://alabamapca.com/Board-of-Directors ; https://www.alabamapca.com/contact/ ; apca@primemanagement.net |
+| Greater Birmingham Association of Home Builders | Birmingham metro | Existing EnviroCare, LLC associate listing, Pest Control category; 2025 Butler Road, Alabaster, AL 35007; (205) 940-6360; PO Box 1177, Alexander City; homepage link. Physical address and phone are consistent for Alabaster. | Preserve correct existing record. Confirm mailing address and eligibility for a distinct Birmingham location or service territory entry; request the approved service description only if supported. Do not relabel the correct Alabaster office as downtown Birmingham. | https://members.gbahb.com/professionalservicesdirectory/Details/envirocare-llc-2054308 ; https://birminghambuilder.com/staff/ ; shannonc@gbahb.com |
+| Alexander City Chamber | Alex City / Lake Martin | Existing entry uses EnviroCare (Lex Wedgeworth Pest Control); (256) 234-6162; HTTP homepage link; no street address displayed. | Update display name to EnviroCare; retain current phone; add approved Alex City address if accepted, use HTTPS /alexander-city, distinguish family history from legal dates. Preserve the existing profile. | https://chamber.alexcitychamber.com/directory/Details/envirocare-lex-wedgeworth-pest-control-2341386 ; https://chamber.alexcitychamber.com/contact ; info@alexandercitychamber.com |
+| Alabama Department of Agriculture and Industries | Statewide | Official search allows commercial applicator name, county, certification expiry or permit number lookup. Professional Services page distinguishes structural company licenses and individual operator certifications. | Kevin supplies current structural business license, applicable branch/operator records, license category/expiry and any current certificate of insurance. Use regulator's search to verify credentials before directory submissions. No company-specific license or ID independently established during this public recheck. Keep sensitive documents off the public GitHub repository. | https://agi.alabama.gov/pesticidemanagement/pesticide-applicator-search-services/ ; https://agi.alabama.gov/pesticidemanagement/programs/professional-services/ |
+
+**ContractorsRanked verification:** November 23 Huntsville city list shows EnviroCare included (#47 of 77, published score 56/100); corresponding profile lists free claiming and says payment cannot improve its score. Birmingham profile likewise offers free claiming. City ranking methodology gives weight to reputation, verified credentials and whether the listing is claimed, but several factors are not yet collected, so do not predict a rank or claim a measurable lift from submitting documents. Confirm all actual categories and hours, keep accurate hours, and decline featured advertising. Sources: https://www.contractorsranked.com/pest-control/huntsville-al ; https://www.contractorsranked.com/contractor/huntsville-al/envirocare-pest-services ; https://www.contractorsranked.com/contractor/birmingham-al/envirocare-pest-services .
+
+#### Four additional association requests, owner-ready, NOT SENT
+
+HMCBA (info@hmcba.org), subject: Update existing EnviroCare member and affiliate listings
+
+Hello,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. Thank you for maintaining our existing associate membership profile. We noticed the company and individual affiliate directory entries show different phone numbers against the Alabaster address. Could you confirm how the company record and North Alabama listing are connected and help update them with the correct location-specific details below? We would like Huntsville-area customers to reach our Huntsville office. Please let us know whether a separate branch entry is permitted under our existing membership, and confirm the spelling of the listed family names with us.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+Attach the approved Huntsville and Alabaster office rows, with Birmingham separately labeled if needed; use the exact approved description above.
+
+APCA (apca@primemanagement.net), subject: Board directory spelling correction
+
+Hello,
+
+Could you please correct my surname in the Region 1 director listing from Wedgeworth to Wedgworth? The company display name is EnviroCare. Please also confirm whether the board directory normally includes a website link; if so, our current website is https://www.envirocarellc.com. Thank you for helping keep the association's records accurate.
+
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+GBAHB (shannonc@gbahb.com), subject: Review existing EnviroCare associate directory listing
+
+Hello Shannon,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. Our existing associate listing correctly shows our Alabaster street address and phone. Could you help us confirm the mailing address and whether our membership allows a separate entry for our Birmingham office or an updated service-area description? We can provide the correct office records and approved description. We want to retain the existing listing and avoid duplicating our membership.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+Attach Alabaster and Birmingham approved payloads. Do not enroll or incur a new fee.
+
+Alexander City Chamber (info@alexandercitychamber.com), subject: Refresh existing EnviroCare member listing
+
+Hello,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. Our existing Chamber directory listing uses an earlier business name. Could you please update the display name to EnviroCare, retain our local phone number, and add our current Alexander City office address if the directory supports it? The local website and approved description follow. We appreciate your assistance maintaining a consistent listing.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+Attach Alexander City approved payload. Preserve the existing record and its genuine history.
+
+#### Owner execution order and acceptance checks
+
+1. First work session: claim Huntsville and Birmingham ContractorsRanked; correct Huntsville Exterminator Guild and HuntsvilleTopRated; check free county-directory additions; send the HMCBA member/affiliate correction and APCA spelling request. Use existing member credentials only. Ask for factual changes, not a ranking adjustment.
+2. Second work session: correct existing Birmingham Expertise, Birdeye, BBB and BestProsInTown records; distinguish Alabaster from Birmingham; check Yelp verification and Angi duplicate status. Submit the GBAHB and Alexander City Chamber corrections.
+3. Next: confirm Sentricon locator records and Alabama credentials. Review chamber eligibility and editorial pitches already drafted in this document. New paid memberships require separate approval; no paid links, paid reviews, or paid ranking placement.
+4. Track each record as READY, OWNER SUBMITTED, PUBLISHER PENDING, VERIFIED LIVE, or BLOCKED. A drafted request is READY only; it must not be recorded as submitted or live. Store submitted date, confirmed URL, exact changed fields, and public evidence of the correction. Keep screenshots and credential copies private. If a publisher merges branches, check that the remaining record matches its actual office.
+5. Claude: reconcile the public citations with the existing /about-us, /huntsville, /birmingham and builder pages. Add a genuine affiliation reference only where the linked source substantiates it and the role or membership is still current. Do not treat an association listing as endorsement. Check current canonical source before changing NAP, brand, pricing, coverage, or copy; no duplicate new pages just for scores.
+6. NeuronWriter: when authenticated access exists, match each verified source to the corresponding existing Earn Mention task; record target market and link, not a completed status until the public result is verified. Track unbranded local prompts separately from brand/Sentricon tests, preserving existing strong pages. Compare same prompt/platform/grid on the next existing scheduled run after publisher corrections. No new scan or invented score.
+
+This is the next execution batch, not a claim that external corrections have been made. All outreach remains owner-submitted. No accounts created, no payment made, no messages sent, and no live website deployment or NeuronWriter editor write.
