@@ -16,7 +16,7 @@
 
 1. **Huntsville National Pest Directory** — `https://nationalpestdirectory.com/al/huntsville` did not list EnviroCare among the rendered providers on November 23. **Better NEW placement candidate** than the already-listed Birmingham page, but its taxonomy defects reduce confidence. Proposed status: TODO / verify contact and listing criteria. Huntsville phone (256) 937-7676.
 2. **ContractorsRanked Huntsville** — `https://www.contractorsranked.com/pest-control/huntsville-al` **already lists EnviroCare #47 of 77**, with 35 reviews (November 2 snapshot). Local Falcon's saved place count is 40. Correct/claim existing profile rather than create a duplicate; confirm current live count first. This site has a "List your business" and "Contact" option. Proposed status: review/correction.
-3. **Huntsville/Madison Chamber** — `https://cm.hsvchamber.org/list/category/pest-control-553` currently lists four pest-control members and not EnviroCare. A possible **legitimate, authoritative local association** opportunity, subject to eligibility and membership costs. Contact the chamber for terms; no assumption EnviroCare is a current member.
+3. **Huntsville/Madison Chamber** — `https://cm.hsvchamber.org/list/category/pest-control-553` listed pest-control members and not EnviroCare (see the November 24 recheck below). A possible **legitimate, authoritative local association** opportunity, subject to eligibility and membership costs. Contact the chamber for terms; no assumption EnviroCare is a current member.
 4. **Review/directory citations** — Local Falcon's November 10 generic Huntsville ChatGPT scan repeatedly cited Birdeye, Angi, HomeAdvisor, ContractorsRanked, ThePestKillers and National Pest Directory. Validate existing EnviroCare presence and correct name, phone, office and service classification. No blind mass submissions.
 5. **Sentricon professional directory** — the Sentricon find-a-pro page was cited in the Birmingham "Sentricon company" AI scan. Confirm EnviroCare's actual Certified Specialist/operator directory entry and accurate location coverage with the vendor. Do not assert eligibility or create entries without verification.
 
@@ -90,3 +90,157 @@ kevin@envirocarellc.com
 
 ## Access boundary
 The connected tool set in the session has **no authenticated NEURONwriter MCP/AI Tracker editor access**; browser tab enumeration also returned a browser-origin error. No status was changed in NEURONwriter, no editor was saved, no new keyword analysis or AI tracking prompt was created, and no outside contact was made. This branch is draft-only and must not be described as an in-app execution.
+
+
+## November 24, 2026 — directory verification and owner-ready correction queue
+
+This section supersedes the earlier directory-status and outreach recommendations where they conflict. The following observations are from public pages inspected November 24; some directories render cached snapshots. Y = matching listing observed, N = absent from the inspected public list, U = unconfirmed (search coverage, blocked or unavailable page). N does not prove no profile exists anywhere. NAP = Y when name/address/phone match the owner-approved location (formatting-only differences ignored); N = a discrepancy, U = missing/unreadable field; — = no listing. Draft Y = a correction/submission or owner-verification script is prepared below, not a submitted form. No private account exports, new analytics metrics, credentials, or customer information added.
+
+### Huntsville first
+
+| Site | Market | Listed | URL | Observed name / address / phone | NAP correct | Action needed | Draft ready |
+|---|---|---|---|---|---|---|---|
+| ContractorsRanked | Huntsville | Y | https://www.contractorsranked.com/contractor/huntsville-al/envirocare-pest-services | EnviroCare Pest Services; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806; (256) 937-7676 | N (NW missing) | P0 free claim; correct directional suffix, city URL and service categories; submit credentials if requested | Y |
+| Birdeye | Huntsville | U | https://reviews.birdeye.com/ | No matching Huntsville EnviroCare profile found; do not confuse another similarly named business with EnviroCare | — | Search business name and ZIP 35806 in owner UI; ask about free add or claim; no paid signup | Y (conditional) |
+| National Pest Directory | Huntsville | N | https://nationalpestdirectory.com/al/huntsville | Not present in inspected city page | — | Request accurate inclusion; contact or free add pathway not verified; no payment | N |
+| Exterminator Guild | Huntsville | Y | https://exterminatorguild.com/us/al/huntsville/envirocare | EnviroCare; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806; (256) 937-7676 | N (NW missing) | P0 free claim; correct address and local URL; add accurate services and locations | Y |
+| The Pest Killers | Huntsville/Madison County | N | https://thepestkillers.com/al/madison-county/ | Not in county list | — | P0 search first, then free add using contractor portal; skip Pro plan | Y |
+| Angi | Huntsville | U | https://www.angi.com/ | No verified Alabama profile from targeted search | — | Search by local name/ZIP; free profile available; no lead subscription | Y (conditional) |
+| HomeAdvisor | Huntsville | U | https://www.homeadvisor.com/ | No verified Alabama profile from targeted search | — | Check if separate profile or synchronized Angi listing; no paid lead agreement | N |
+| HuntsvilleTopRated | Huntsville | Y | https://huntsvilletoprated.com/biz/envirocare/ | EnviroCare; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806, USA; 256-937-7676 | N (NW missing) | P0 free claim; correct local website, add services; select accurate regional classification | Y |
+| BestProsInTown | Huntsville | U | https://www.bestprosintown.com/ | No matching Huntsville result verified | — | Search by ZIP and address, check free Add a Business route before submitting | Y (conditional) |
+| HomeSpotHQ | Huntsville | U | https://www.homespothq.com/us/alabama/best-pest-control-huntsville-al/ | No EnviroCare in earlier indexed article excerpt; latest retrieval returned hosting placeholder | — | Deprioritize until site operates and editor can be verified | N |
+| BBB | Huntsville | N (branch not shown) | https://www.bbb.org/us/al/birmingham/profile/pest-control/envirocare-llc-0463-55001713 | Existing company profile shows Birmingham legacy and Alexander City locations only | — | P0 claim existing company profile; request Huntsville branch, do not create duplicate company | Y |
+| Yelp | Huntsville | U | https://biz.yelp.com/ | Public page inaccessible in this session; owner verification reported pending | U | P0 complete existing owner verification, confirm correct location, no ads | Y |
+
+### Birmingham
+
+| Site | Market | Listed | URL | Observed name / address / phone | NAP correct | Action needed | Draft ready |
+|---|---|---|---|---|---|---|---|
+| ContractorsRanked | Birmingham | Y | https://www.contractorsranked.com/contractor/birmingham-al/envirocare-pest-services | EnviroCare Pest Services; 2120 16th Ave S Ste 302, Birmingham, AL 35205; (205) 991-2882 | Y | P0 free claim; add service categories, local website, verify credentials if requested | Y |
+| Birdeye | Birmingham | Y | https://reviews.birdeye.com/envirocare-lawn-pest-services-159109156918557 | EnviroCare Lawn & Pest Services; 173 Distribution Dr, Birmingham, AL, 35209, United States; phone not visible in retrieved text | N | P0 unclaimed profile; correct legacy branding, ask which current office inherits historical listing and preserve genuine review history; add separate Birmingham branch if appropriate; no paid plan | Y |
+| National Pest Directory | Birmingham | Y | https://nationalpestdirectory.com/al/birmingham | EnviroCare Pest Services; address not shown; (205) 991-2882 | U | Existing termite listing; request general pest and seasonal mosquito categorization and city link; contact path unverified | N |
+| Exterminator Guild | Birmingham | N | https://exterminatorguild.com/us/al/birmingham | No matching entry among the 21 displayed businesses | — | Request consideration via verified owner support address; no ranking request | Y |
+| The Pest Killers | Birmingham/Jefferson County | N | https://thepestkillers.com/al/jefferson-county/ | No matching entry in full county list | — | P0 search and free add; decline paid placement | Y |
+| Angi | Birmingham | U | https://www.angi.com/ | No verified Alabama profile from targeted search | — | Verify prior listing before free creation | Y (conditional) |
+| HomeAdvisor | Birmingham | U | https://www.homeadvisor.com/ | No verified Alabama profile from targeted search | — | Confirm whether synchronized with Angi and whether any free option exists | N |
+| BirminghamTopRated | Birmingham metro | Y (Alabaster branch only observed) | https://birminghamtoprated.com/biz/envirocare/ | Envirocare; 2025 Butler Rd, Alabaster, AL 35007, USA; 205-940-6360 | Y for Alabaster; N for Birmingham | P0 claim correct Alabaster branch; do not replace its address with Birmingham; ask for separate Birmingham branch | Y |
+| Expertise.com | Birmingham | Y | https://www.expertise.com/home-improvement/pest-control/alabama/birmingham | EnviroCare Lawn & Pest Services; 73 Distribution Drive, Birmingham, AL 35209; phone not visible | N | P0 free provider portal; correct name/address/categories/heritage and description; remove lawn services | Y |
+| BestProsInTown | Birmingham | Y | https://www.bestprosintown.com/al/homewood/envirocare-lawn-and-pest-services-/ | EnviroCare Pest Services; 173 Distribution Dr, Birmingham, AL 35209; (205) 940-6360 | N | P0 suggest edit; resolve legacy branch with publisher; remove landscaping/gardeners categories; avoid paid AI Profile upsell | Y |
+| HomeSpotHQ | Birmingham | N (article snapshot) | https://www.homespothq.com/us/alabama/best-pest-control-birmingham-al/ | No match in indexed article; live listing/submit route unconfirmed | — | Deprioritize: provider examples also show inconsistent phone data in FAQ; do not pay | N |
+| BBB | Birmingham | Y | https://www.bbb.org/us/al/birmingham/profile/pest-control/envirocare-llc-0463-55001713 | EnviroCare, LLC; 173 Distribution Dr, Birmingham, AL 35209-6308; (205) 940-6360 | N | P0 free existing profile claim; obsolete address and lawn description; add missing branches; legal start date 1/1/1993 needs documentary check, not replacement with family-history year | Y |
+| Yelp | Birmingham | U (third-party link observed) | https://www.yelp.com/biz/envirocare-birmingham-4 | Expertise links this URL; public Yelp retrieval blocked; NAP not verified | U | P0 finish existing owner verification and correct location; no paid upgrade | Y |
+
+Note: BBB public profile currently displays Pest Control Services, Termite Control, Termite Inspections, Mosquito Control and Insect Control Devices; the reported Weed Control classification was not seen on the fetched page. Confirm any additional category within owner portal. Its Alexander City branch at https://www.bbb.org/us/al/alexander-city/profile/pest-control/envirocare-llc-0463-55001713/addressId/15933 shows EnviroCare, LLC; 1785 Tallapoosa St, Alexander City, AL 35010-1561; primary (205) 940-6360 and other (256) 234-6162. Ask BBB to keep primary corporate intake separate from branch-local number. Confirm the legal business start/incorporation fields with official documents; family history and legal entity dates are different concepts.
+
+### Approved submission payload (Kevin/Phillip submits, no accounts created by GPT)
+
+Public display name: EnviroCare. Category: Pest control service. Where separate categories exist, select termite control and mosquito control only when available and applicable. Preserve correct legal entity name where the directory specifically asks for it. Verify hours/office eligibility against owner-approved records.
+
+| Office | Address | Phone | Website |
+|---|---|---|---|
+| Huntsville | 7027 Old Madison Pike NW Ste 108, Huntsville, AL 35806 | (256) 937-7676 | https://www.envirocarellc.com/huntsville |
+| Birmingham | 2120 16th Ave S, Ste 302, Birmingham, AL 35205 | (205) 991-2882 | https://www.envirocarellc.com/birmingham |
+| Alabaster | 2025 Butler Rd, Alabaster, AL 35007 | (205) 940-6360 | https://www.envirocarellc.com/alabaster |
+| Alexander City | 1785 Tallapoosa St, Alexander City, AL 35010 | (256) 234-6162 | https://www.envirocarellc.com/alexander-city |
+
+Use the owner's description exactly; shorten only to fit character limits:
+
+> EnviroCare is a family-owned Alabama pest control company offering recurring pest control, Sentricon® termite protection, and seasonal mosquito control. The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Termite inspections are free; termite work is priced at inspection. Termite agreements include up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
+
+Short description (first two sentences only):
+
+> EnviroCare is a family-owned Alabama pest control company offering recurring pest control, Sentricon® termite protection, and seasonal mosquito control. The Wedgworth family's Alabama pest-control history began in Alexander City in 1958.
+
+### Owner-ready request drafts
+
+**ContractorsRanked, both cities:** use the free claim control on each profile. Message: "I am Kevin Wedgworth, Owner & Operator of EnviroCare. Please verify ownership and update this location using the attached office details and approved description. Please list our actual services and use the corresponding city website. I can provide current license and certification documents if needed. We are requesting accurate information, not a change to your ranking methodology." Huntsville: specifically add NW to Old Madison Pike. Birmingham: preserve current correct location.
+
+**Exterminator Guild:** help@exterminatorguild.com; official owner information https://exterminatorguild.com/for-businesses. Subject: EnviroCare Huntsville profile verification and Birmingham listing. "Hello, I'm Kevin Wedgworth, Owner & Operator of EnviroCare. I'd like to claim our existing Huntsville profile and correct the street suffix and local website. Please use the Huntsville office details and approved description below. We also have a separate Birmingham location; could you review it for inclusion under your usual evidence standards? I can provide proof of ownership. Thank you, Kevin Wedgworth." Attach the Huntsville and Birmingham rows and approved copy. No paid placement or ranking request.
+
+**The Pest Killers:** https://thepestkillers.com/for-contractors/; claims@thepestkillers.com. Use business search first, then Add your business if no duplicate. Submit the Huntsville and Birmingham records separately on the free tier. Message: "Please review these two EnviroCare locations for accurate inclusion in Madison County and Jefferson County. We would like to use the free listing option, with the attached office details and approved description. Please confirm any existing listings before adding either location." Do not select Pro or buy a top spot.
+
+**Top Rated Cities:** use free claim on Huntsville and the existing Alabaster listing shown on BirminghamTopRated. Message: "Please confirm ownership of these existing listings, use the office-specific information, and classify the company according to your regional definition. Please retain our Alabaster location and review our separate Birmingham office for inclusion, rather than overwriting Alabaster's record." Use three matching office rows and approved copy.
+
+**Expertise.com:** https://www.expertise.com/update (free portal). Subject: Correction to EnviroCare Birmingham business profile. "The EnviroCare entry in your Birmingham pest control guide has outdated information. Please change the display name to EnviroCare, replace the street address and phone with our Birmingham office details below, and replace the current description with the approved text. Please remove references to services we no longer offer. The family-history sentence in our approved description is the accurate wording. Thank you, Kevin Wedgworth, Owner & Operator." Include Birmingham row and approved description.
+
+**Birdeye and BestProsInTown:** use Claim this business or Suggest an edit on the existing legacy profile. Message: "I am Kevin Wedgworth, Owner & Operator of EnviroCare. This profile shows an obsolete address and/or business description. Please advise which current record should inherit the original office's history without duplicating or moving reviews incorrectly. Our current Alabaster and Birmingham office details are below. Please use the approved description and remove obsolete service categories. We are requesting a factual correction, not a paid upgrade." Include both office rows. If no Huntsville profile exists, ask how to add it free; do not initiate paid onboarding.
+
+**BBB:** https://www.bbb.org/get-listed (free claim). Subject: Correct existing EnviroCare, LLC business profile and branch records. "Hello, I am Kevin Wedgworth, Owner & Operator of EnviroCare. Please help us verify the existing company profile and correct its outdated address and description. We have four office locations; the correct details and approved description follow. Please confirm the proper headquarters and branch arrangement, remove retired lawn services, and distinguish our family's business history from the legal entity start and incorporation dates. We can supply supporting records for the legal dates. We are requesting an accurate free Business Profile, not applying for paid accreditation." Include all four rows. Do not replace the 1993 date without documents or create a duplicate corporate profile.
+
+**Angi / Yelp / conditional new listings:** search by exact city, name and ZIP. For an existing listing, claim it; for an actually missing listing, use the free option only. Use the applicable office row, approved description and service categories. Angi's own FAQ confirms free profiles: https://www.angi.com/faq/can-pros-advertise-angi. Yelp's support confirms free claiming: https://www.yelp-support.com/article/What-is-a-claimed-business?l=en_US. Do not accept paid ads, leads or other subscriptions. For HomeAdvisor, ask whether the Angi profile is synchronized and whether a free listing exists before proceeding.
+
+**National Pest Directory (hold — contact unverified):** prior outreach draft remains usable only after finding a real support channel. Birmingham is an existing listing; Huntsville is an inclusion request. Use the owner-approved text above rather than the earlier descriptive paragraph. No guessed recipient. HomeSpotHQ: hold until publisher/site status verified.
+
+### Association and manufacturer drafts — NOT SENT
+
+**Huntsville/Madison County Chamber** — https://hsvchamber.org/about/departments/membership/ ; pest control category https://cm.hsvchamber.org/list/category/pest-control-553 currently shows three members in retrieved snapshot and no EnviroCare. Membership contact Lakeysha Brown, Director, Membership & Engagements, (256) 535-2038. Subject: EnviroCare membership directory inquiry.
+
+Hello Lakeysha,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. Could you check whether our company has an existing membership and directory entry for our Huntsville office? If not, please send information about membership eligibility, dues, and how a pest control business is listed in your public member directory. If already eligible, we would like to provide our accurate Huntsville office details and approved company description.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+Attach Huntsville payload. Membership may require dues; obtain approval before applying or paying. This is separate from the Huntsville/Madison County Builders Association, which already lists Envirocare at 2025 Butler Rd, Alabaster, AL 35007, with 205-447-9394 (https://huntsvillemadisoncountyba.growthzoneapp.com/hmcbamemberdirectory/Details/envirocare-3147080). Verify intended listing and request consistent office routing.
+
+**Birmingham Business Alliance** — https://www.birminghambusinessalliance.com/directory/ ; membership https://www.birminghambusinessalliance.com/join/ ; investorrelations@birminghambusinessalliance.com. No match in retrieved member directory; membership status unconfirmed. Subject: Birmingham business membership and directory information.
+
+Hello,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. Could you confirm whether EnviroCare is already a member of the Birmingham Business Alliance and whether our Birmingham office is eligible for an online member directory listing? If we are not currently a member, please send the available small-business membership options, dues and directory details. If already eligible, we would like to provide our accurate Birmingham office details and approved description.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+Attach Birmingham payload. Membership or investor dues require approval.
+
+**Sentricon specialist locator** — https://www.sentricon.com/find-termite-professional.html. Official locator embeds Bullseye; fetching the embedded search returned HTTP 403, so no office result can be confirmed. Have Kevin search ZIPs 35806, 35205, 35007 and 35010, record provider names and matching NAP and screenshot each result. If results are missing or stale, send this to the existing Sentricon representative or official manufacturer support, not an invented email.
+
+Subject: Confirm four EnviroCare office records in Sentricon locator
+
+Hello,
+
+Could you verify our current Certified Sentricon Specialist locator records for Huntsville, Birmingham, Alabaster and Alexander City? We want homeowners searching those ZIP codes to see accurate information and to reach the appropriate local office. Please review the four office records attached and let us know whether any need correction or separate enrollment. If the locator uses a single company record with a service radius rather than branch records, please explain how each market is covered.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+Attach all four rows. Do not claim all four appear or ask the vendor to certify ineligible branches.
+
+### Earned editorial feature pitches — NOT SENT
+
+**Huntsville: Rocket City Mom** — verified contact form https://rocketcitymom.com/contact/. Subject: Local homeowner checklist idea: termite inspections and new homes in North Alabama
+
+Hello,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. Would your readers find a short homeowner checklist useful on what to ask about termite protection when buying a new or existing home in the Huntsville area? I'd be glad to contribute a practical, nonpromotional checklist covering inspection scope, how to compare written termite agreements, and what to ask before closing. I can provide original photographs of our actual work where appropriate and answer questions from your editor.
+
+Thank you for considering it,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+**Birmingham: 280 Living** — https://280living.com/about-us/about ; editor contact listed as Tim Stephens, tstephens@starnesmedia.com. Subject: Story idea: a Birmingham-area homeowner's guide to termite agreements
+
+Hello Tim,
+
+I'm Kevin Wedgworth, Owner & Operator of EnviroCare. I thought a useful reader-service story for 280 Living would be a practical guide to comparing termite agreements before buying or renewing coverage. It could explain the difference between a routine termite inspection and a real estate inspection report, what monitoring and repair coverage mean, and which questions homeowners should ask before signing. I would be happy to provide factual background, original photographs if useful, and a checklist for your editor to adapt independently.
+
+Thank you,
+Kevin Wedgworth
+Owner & Operator, EnviroCare
+
+These are independent editorial pitches, not requests for favorable ranking, purchased links, review placement or advertising. If a publisher prefers its own expert or no link, respect that.
+
+### NeuronWriter and Claude follow-through
+
+- Treat actual claims and corrections as outstanding owner actions; mark a source opportunity complete only when the corrected public page is visible. Add source links, observed listing name, market, exact date, and evidence to the existing AI Tracker task rather than create duplicates. Keep unverified sources pending.
+- Use the approved November 24 description in project brand settings and outgoing submissions; update only the intended field, review saved revision and compare against earlier corrections. Do not copy old brand variants or obsolete pricing into customer copy.
+- In Content Writer, prioritize existing Huntsville general pest, Huntsville termite, Madison pest and Birmingham termite/inspection analyses. Use the dedicated existing local termite routes /huntsville-termite-control and /birmingham-termite-control rather than targeting those terms primarily on generic city hubs or statewide service pages. Preserve Sentricon-winning assets. The owner-provided Claude patch bc61b8ca8c6cebb414cdcc410bc984da55cb62f8 describes corrections but GitHub fetch returned 422 (commit not found on accessible repository); confirm it is integrated before touching the same copy. Verify current main and live rendering, not a cached snapshot. Main commits #330–#333 already incorporate several previous editorial suggestions.
+- Score baseline and revised copy in the same actual editor and query; record SEO and AI scores, revision IDs, and competitor/content gap decisions; no measured scores are claimed here. Use existing monitored prompts and scheduled scans after corrections are visible. Do not exhaust credits merely because they exist.
+- Access: no NeuronWriter tools exposed in current session; browser access requires originating browser context. This update is a public-source research and owner-ready draft handoff only. No external messages, accounts, paid services, GBP changes, NeuronWriter writes, merge or deployment occurred.
+
