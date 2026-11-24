@@ -49,7 +49,6 @@ rodent control Alabama
 ## Brand keywords (one per line)
 EnviroCare
 EnviroCare Pest Services
-EnviroCare Pest and Termite Services
 EnviroCare Alabama
 EnviroCare Birmingham
 EnviroCare Alabaster
