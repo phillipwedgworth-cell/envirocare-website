@@ -2978,8 +2978,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 8,
     heroEmoji: '📄',
-    metaTitle: 'Termite Bond in Alabama: What It Covers & When It Lapses',
-    metaDescription: 'Alabama termite bonds explained — retreatment vs. repair coverage, how bonds lapse, what happens when a home sells, costs, benefits, and how Sentricon compares.',
+    metaTitle: 'Termite Bonds in Alabama: What They Cover & Cost',
+    metaDescription: 'What a termite bond in Alabama covers: retreatment vs. repair, renewal, transfer when you sell, what keeping one active costs, and how bonds lapse.',
     body: `
 <p class="lede">If your home has ever been treated for termites, somewhere in a drawer there is probably a termite bond — and if you are like most Alabama homeowners, you have not read it since the day you signed it. That is worth fixing this week, not the week you find mud tubes. A termite bond that has lapsed, or that covers less than you think it does, is one of the more costly surprises we see in homes from <a href="/hoover">Hoover</a> to <a href="/chelsea">Chelsea</a> to <a href="/huntsville">Huntsville</a>.</p>
 
