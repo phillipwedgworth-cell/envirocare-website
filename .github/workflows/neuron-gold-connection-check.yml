@@ -1,0 +1,52 @@
+name: NeuronWriter Gold connection check
+on:
+  push:
+    branches: [review/neuron-priority-score-diagnostics-2026-11-24]
+    paths:
+      - '.github/workflows/neuron-gold-connection-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-content-writer:
+    if: github.ref == 'refs/heads/review/neuron-priority-score-diagnostics-2026-11-24'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify read-only Content Writer access with existing secret
+        env:
+          NEURONWRITER_API_KEY: ${{ secrets.NEURONWRITER_API_KEY }}
+        shell: bash
+        run: |
+          set +x
+          if [ -z "$NEURONWRITER_API_KEY" ]; then
+            echo 'Existing NeuronWriter credential is unavailable to this runner.'
+            exit 2
+          fi
+          out="$(mktemp)"
+          trap 'rm -f "$out"' EXIT
+          set +e
+          node agents/neuronwriter-content/review-2026-11-24/score-priorities.mjs --score > "$out" 2>/dev/null
+          rc=$?
+          set -e
+          # Never print raw account inventory, editor text, key, or private scores
+          # into the logs of this public repository. Only aggregate statuses.
+          node --input-type=module - "$out" <<'NODE'
+          import fs from 'node:fs';
+          const rows=fs.readFileSync(process.argv[2],'utf8').split('\n').filter(Boolean).flatMap(line=>{try{return [JSON.parse(line)]}catch{return []}});
+          const summary=rows.findLast(r=>r.state==='summary');
+          const blocked=rows.find(r=>r.state==='inventory_blocked');
+          if(summary) {
+            const safe={scored:summary.scored,below65:summary.below65,empty:summary.empty,unscored:summary.unscored,notReadyOrMissing:summary.notReadyOrMissing,notVisited:summary.notVisited,halted:summary.halted,editorWrites:summary.editorWrites,analysesCreated:summary.analysesCreated};
+            console.log(JSON.stringify(safe));
+          } else if(blocked) {
+            console.log('Inventory blocked; reason category: '+String(blocked.reason).replace(/[^a-zA-Z0-9_]/g,'').slice(0,80));
+          } else {
+            console.log('No complete diagnostic summary.');
+          }
+          NODE
+          exit "$rc"
