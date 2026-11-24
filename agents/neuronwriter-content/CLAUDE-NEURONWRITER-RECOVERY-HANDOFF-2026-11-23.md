@@ -11,6 +11,32 @@ Improve EnviroCare's REAL Google Maps, Google Search and AI recommendation perfo
 - Direct ChatGPT tool access to NEURONwriter editor/AI Tracker still unavailable; Browser connector denied originating browser context. Do not imply any new NeuronWriter editor was saved by ChatGPT today.
 - A temporary Vercel Sandbox was started for local repository verification but **did not have the NeuronWriter API key injected**. Production Vercel testing project has configured env names, but API values were not available via the connector. Do not paste credentials into chat or repository.
 
+## Direct NeuronWriter analysis link from Phillip (November 23, 2026)
+
+Phillip has explicitly supplied the URL `https://app.neuronwriter.com/analysis/view/56177a4614f54094` and instructed us to work **inside NeuronWriter**. The extracted 16-character query ID is `56177a4614f54094`, but its keyword, analysis status and project membership are **NOT VERIFIED** by this ChatGPT session (private URL could not be fetched; ChatGPT desktop Browser connector lacked originating browser context). **Do not assume this is the Shelby County 'best termite' analysis.**
+
+### Actual direct connection — official NeuronWriter MCP (preferred)
+As of Nov 2026, NeuronWriter itself documents an official remote MCP service:
+- Endpoint: `https://app.neuronwriter.com/mcp/http`
+- In Claude: **Settings → Connectors → Add custom connector** → name it **NEURONwriter** → enter endpoint → Connect → log in to NeuronWriter and grant OAuth authorization.
+- Requires NeuronWriter Gold plan or higher; do not purchase/upgrade without authorization.
+- Docs: `https://neuronwriter.com/features/neuronwriter-mcp-agent-to-agent-protocols/`
+- NeuronWriter MCP supports browsing projects/queries, retrieving suggestions and competitor content, evaluating and importing editor drafts, and tagging analyses. Its official docs do **not** establish that MCP can edit the entire AI Tracker Opportunities UI; those tasks may still require authenticated in-app browser access.
+- OAuth avoids passing API keys in ChatGPT, Claude prompts, environment files or repo. If Claude already has a working NeuronWriter MCP connector, REUSE it; never add a duplicate connection unnecessarily.
+
+### Exact first task after authenticated connection
+1. Use the tool to retrieve/query `56177a4614f54094`; determine keyword, target URL, status, search locale/language, editor title/body and whether analysis belongs to EnviroCare project `9d0bec3a70f4743c`.
+2. If project does not match, **stop** and report rather than touching someone else's analysis. If the query is not READY, report that and do not create a duplicate. If saved editor is empty, distinguish "verified empty content" from malformed API response; don't overwrite a state you couldn't read.
+3. Read existing saved editor **including autosaves**, record a private backup/fingerprint; retrieve SERP competitor material and recommendations. Check first whether Claude PR #309 already corrected this editor.
+4. Score baseline read-only. Evaluate an improved candidate **without saving**; make the copy answer-first, original, specific to the verified keyword and relevant EnviroCare office, with primary sources and 2–3 genuinely helpful internal links. Keep legal/service/pricing claims within current canon.
+5. Compare the existing and proposed scores using **the same exact query ID**. Preserve existing editor if improved draft does not exceed existing score or fails factual/originality checks. If favorable and eligible, import once, verify the readback content/title/description and log final score and editor revision. Do not publish public website changes without review.
+6. Run the AI-related account modules that are actually accessible: Overview, Monitored Discussions, Competitors, Opportunities > Earn Mentions/Optimize/Create, and AI Readiness. Export complete results and map opportunities to existing page URLs. If an in-app task cannot be performed by MCP, use signed-in browser UI and separately record it as blocked until accessible.
+
+**Completion proof required:** Print a concise table with query ID, exact keyword, intended existing website URL, baseline score, candidate score, *verified saved or kept*, editor readback check, account/UI changes, credits spent and blockers. NEVER call a generated GitHub draft a saved NeuronWriter editor.
+
+### Current Narrator failure to diagnose
+The GitHub Actions run `45305185343` on Nov 23 executed with GitHub-stored API credentials and successfully read 278 queries, but stopped on `get-content returned no valid editor content; editor unchanged` for `data center pest control construction handover`. **No editor was imported.** This is an editor-response shape/state diagnostic problem, not evidence of a score below 65. Before adding more FILL attempts, have Claude inspect the safe response metadata (status, top-level keys, types and status codes only) without logging private editor text or API keys. Treat a genuine empty editor as empty only when the provider's documented response is unambiguous; otherwise stop, not overwrite.
+
 ## Execution order with an authenticated NeuronWriter connection
 1. Open project `9d0bec3a70f4743c`. Get CURRENT account subscription, renewal date, available credit/query allowances, existing 166+ editor inventory, AI Tracker overview, monitored prompts by engine, opportunity sets and any published-content audits. Save a dated nonsecret report of what is accessible. Do NOT create duplicate projects/queries just to use allowance. No upgrade without Phillip's authorization.
 2. Diagnose the 17 `err` rows from actual logs, not keyword-score guesses. Investigate `get-content`, `get-query`, `evaluate-content`, Anthropic and provider 401/403/429/500 responses; check if the 3/3 write limit and report formatting hid the real causes. Never retry writes after uncertain outcomes; restore from backups when justified.
