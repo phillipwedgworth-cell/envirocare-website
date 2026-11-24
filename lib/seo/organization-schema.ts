@@ -36,7 +36,7 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
   },
   image: 'https://www.envirocarellc.com/og-image.png',
   description:
-    'Family-owned Alabama pest control and termite company led by the Wedgworth family, whose pest-control history in Alabama began in Alexander City in 1958 as Wedgworth Pest Control. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1M in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement, and mosquito and tick yard treatment from four Alabama offices: Birmingham, Alabaster, Alexander City / Lake Martin, and Huntsville.',
+    'Family-owned, fourth-generation Alabama pest control and termite company led by the Wedgworth family. The Wedgworth family\'s Alabama pest-control history began in Alexander City in 1958. EnviroCare provides bi-monthly pest control, Sentricon® termite protection with up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement on qualifying homes, and mosquito and tick yard treatment from four Alabama offices: Birmingham, Alabaster, Alexander City / Lake Martin, and Huntsville.',
   // Do not put foundingDate: 1958 on this Organization. 1958 is the start of the
   // Wedgworth family's Alabama pest-control history, not the formation date of
   // the later EnviroCare, LLC legal entity.
@@ -81,9 +81,10 @@ export const ENVIROCARE_ORGANIZATION_SCHEMA = {
         itemOffered: { '@type': 'Service', name: 'Bi-Monthly Exterior Pest Control', description: 'Bi-monthly perimeter exterior treatment covering 30+ common Alabama pests with free re-services between scheduled visits.' },
       },
       {
-        // Termite carries NO flat price — Alabama requires an on-site WDO inspection first.
+        // Termite carries NO flat price — it is quoted after a free on-site termite inspection.
+        // (A WDO letter is a separate, paid report; never call the termite inspection a WDO.)
         '@type': 'Offer', name: 'Sentricon® Termite Protection',
-        itemOffered: { '@type': 'Service', name: 'Sentricon® Always Active™ Termite Baiting', description: 'In-ground bait station termite protection, no drilling required. Pricing is determined after a free on-site termite inspection based on linear footage and foundation type. Qualifying homes carry up to $1M in EnviroCare damage repair coverage, subject to the terms of the agreement.' },
+        itemOffered: { '@type': 'Service', name: 'Sentricon® Always Active™ Termite Baiting', description: 'In-ground bait station termite protection, no drilling required. Pricing is determined after a free on-site termite inspection based on linear footage and foundation type. Qualifying homes may carry up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.' },
       },
       {
         '@type': 'Offer', name: 'Mosquito Yard Barrier', price: '45', priceCurrency: 'USD',

@@ -35,7 +35,7 @@ export const OG_DEFAULT_IMAGE = {
   url: '/og-image.png',
   width: 1200,
   height: 630,
-  alt: 'EnviroCare — Family-Owned Alabama Since 1958',
+  alt: 'EnviroCare Pest Services — Family-Owned Alabama Pest Control',
 } as const;
 
 function plainTitle(title: Metadata['title']): string | undefined {
