@@ -100,14 +100,14 @@ This section supersedes the earlier directory-status and outreach recommendation
 
 | Site | Market | Listed | URL | Observed name / address / phone | NAP correct | Action needed | Draft ready |
 |---|---|---|---|---|---|---|---|
-| ContractorsRanked | Huntsville | Y | https://www.contractorsranked.com/contractor/huntsville-al/envirocare-pest-services | EnviroCare Pest Services; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806; (256) 937-7676 | N (NW missing) | P0 free claim; correct directional suffix, city URL and service categories; submit credentials if requested | Y |
+| ContractorsRanked | Huntsville | Y | https://www.contractorsranked.com/contractor/huntsville-al/envirocare-pest-services | EnviroCare Pest Services; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806; (256) 937-7676 | Y (matches site) | P0 free claim; correct city URL and service categories; submit credentials if requested | Y |
 | Birdeye | Huntsville | U | https://reviews.birdeye.com/ | No matching Huntsville EnviroCare profile found; do not confuse another similarly named business with EnviroCare | — | Search business name and ZIP 35806 in owner UI; ask about free add or claim; no paid signup | Y (conditional) |
 | National Pest Directory | Huntsville | N | https://nationalpestdirectory.com/al/huntsville | Not present in inspected city page | — | Request accurate inclusion; contact or free add pathway not verified; no payment | N |
-| Exterminator Guild | Huntsville | Y | https://exterminatorguild.com/us/al/huntsville/envirocare | EnviroCare; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806; (256) 937-7676 | N (NW missing) | P0 free claim; correct address and local URL; add accurate services and locations | Y |
+| Exterminator Guild | Huntsville | Y | https://exterminatorguild.com/us/al/huntsville/envirocare | EnviroCare; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806; (256) 937-7676 | Y (matches site) | P0 free claim; correct local URL; add accurate services and locations | Y |
 | The Pest Killers | Huntsville/Madison County | N | https://thepestkillers.com/al/madison-county/ | Not in county list | — | P0 search first, then free add using contractor portal; skip Pro plan | Y |
 | Angi | Huntsville | U | https://www.angi.com/ | No verified Alabama profile from targeted search | — | Search by local name/ZIP; free profile available; no lead subscription | Y (conditional) |
 | HomeAdvisor | Huntsville | U | https://www.homeadvisor.com/ | No verified Alabama profile from targeted search | — | Check if separate profile or synchronized Angi listing; no paid lead agreement | N |
-| HuntsvilleTopRated | Huntsville | Y | https://huntsvilletoprated.com/biz/envirocare/ | EnviroCare; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806, USA; 256-937-7676 | N (NW missing) | P0 free claim; correct local website, add services; select accurate regional classification | Y |
+| HuntsvilleTopRated | Huntsville | Y | https://huntsvilletoprated.com/biz/envirocare/ | EnviroCare; 7027 Old Madison Pike Ste 108, Huntsville, AL 35806, USA; 256-937-7676 | Y (matches site) | P0 free claim; correct local website, add services; select accurate regional classification | Y |
 | BestProsInTown | Huntsville | U | https://www.bestprosintown.com/ | No matching Huntsville result verified | — | Search by ZIP and address, check free Add a Business route before submitting | Y (conditional) |
 | HomeSpotHQ | Huntsville | U | https://www.homespothq.com/us/alabama/best-pest-control-huntsville-al/ | No EnviroCare in earlier indexed article excerpt; latest retrieval returned hosting placeholder | — | Deprioritize until site operates and editor can be verified | N |
 | BBB | Huntsville | N (branch not shown) | https://www.bbb.org/us/al/birmingham/profile/pest-control/envirocare-llc-0463-55001713 | Existing company profile shows Birmingham legacy and Alexander City locations only | — | P0 claim existing company profile; request Huntsville branch, do not create duplicate company | Y |
@@ -139,10 +139,12 @@ Public display name: EnviroCare. Category: Pest control service. Where separate 
 
 | Office | Address | Phone | Website |
 |---|---|---|---|
-| Huntsville | 7027 Old Madison Pike NW Ste 108, Huntsville, AL 35806 | (256) 937-7676 | https://www.envirocarellc.com/huntsville |
+| Huntsville | 7027 Old Madison Pike Ste 108, Huntsville, AL 35806 | (256) 937-7676 | https://www.envirocarellc.com/huntsville |
 | Birmingham | 2120 16th Ave S, Ste 302, Birmingham, AL 35205 | (205) 991-2882 | https://www.envirocarellc.com/birmingham |
 | Alabaster | 2025 Butler Rd, Alabaster, AL 35007 | (205) 940-6360 | https://www.envirocarellc.com/alabaster |
 | Alexander City | 1785 Tallapoosa St, Alexander City, AL 35010 | (256) 234-6162 | https://www.envirocarellc.com/alexander-city |
+
+Huntsville address note (Claude, Nov 24): the site, chat assistant and existing directories all use "7027 Old Madison Pike Ste 108" with no "NW". Keep that form so citations match the site; add "NW" anywhere only if the Huntsville GBP itself shows it, and then change the site first.
 
 Use the owner's description exactly; shorten only to fit character limits:
 
@@ -154,9 +156,9 @@ Short description (first two sentences only):
 
 ### Owner-ready request drafts
 
-**ContractorsRanked, both cities:** use the free claim control on each profile. Message: "I am Kevin Wedgworth, Owner & Operator of EnviroCare. Please verify ownership and update this location using the attached office details and approved description. Please list our actual services and use the corresponding city website. I can provide current license and certification documents if needed. We are requesting accurate information, not a change to your ranking methodology." Huntsville: specifically add NW to Old Madison Pike. Birmingham: preserve current correct location.
+**ContractorsRanked, both cities:** use the free claim control on each profile. Message: "I am Kevin Wedgworth, Owner & Operator of EnviroCare. Please verify ownership and update this location using the attached office details and approved description. Please list our actual services and use the corresponding city website. I can provide current license and certification documents if needed. We are requesting accurate information, not a change to your ranking methodology." Huntsville and Birmingham: preserve the current address, which already matches the site.
 
-**Exterminator Guild:** help@exterminatorguild.com; official owner information https://exterminatorguild.com/for-businesses. Subject: EnviroCare Huntsville profile verification and Birmingham listing. "Hello, I'm Kevin Wedgworth, Owner & Operator of EnviroCare. I'd like to claim our existing Huntsville profile and correct the street suffix and local website. Please use the Huntsville office details and approved description below. We also have a separate Birmingham location; could you review it for inclusion under your usual evidence standards? I can provide proof of ownership. Thank you, Kevin Wedgworth." Attach the Huntsville and Birmingham rows and approved copy. No paid placement or ranking request.
+**Exterminator Guild:** help@exterminatorguild.com; official owner information https://exterminatorguild.com/for-businesses. Subject: EnviroCare Huntsville profile verification and Birmingham listing. "Hello, I'm Kevin Wedgworth, Owner & Operator of EnviroCare. I'd like to claim our existing Huntsville profile and correct its local website. Please use the Huntsville office details and approved description below. We also have a separate Birmingham location; could you review it for inclusion under your usual evidence standards? I can provide proof of ownership. Thank you, Kevin Wedgworth." Attach the Huntsville and Birmingham rows and approved copy. No paid placement or ranking request.
 
 **The Pest Killers:** https://thepestkillers.com/for-contractors/; claims@thepestkillers.com. Use business search first, then Add your business if no duplicate. Submit the Huntsville and Birmingham records separately on the free tier. Message: "Please review these two EnviroCare locations for accurate inclusion in Madison County and Jefferson County. We would like to use the free listing option, with the attached office details and approved description. Please confirm any existing listings before adding either location." Do not select Pro or buy a top spot.
 
