@@ -25,8 +25,8 @@ export default function SentriconProtection() {
           "name": "Sentricon Termite Protection",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "EnviroCare Pest Control",
-            "description": "Certified Sentricon Specialist; family-owned pest control in Alabama since 1958",
+            "name": "EnviroCare",
+            "description": "Certified Sentricon Specialist; family-owned Alabama pest control. The Wedgworth family's Alabama pest-control history began in Alexander City in 1958.",
             "telephone": "(205) 940-6360",
             "address": { "@type": "PostalAddress", "streetAddress": "2025 Butler Rd", "addressLocality": "Alabaster", "addressRegion": "AL", "postalCode": "35007", "addressCountry": "US" }
           },
@@ -67,9 +67,9 @@ export default function SentriconProtection() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 border-t border-white/10">
               {[
                 { n: "#1", sub: "Termite bait system in America" },
-                { n: "24/7", sub: "Always-active protection" },
+                { n: "Year-Round", sub: "Always Active™ bait in the ground" },
                 { n: "Colony", sub: "Elimination including queen" },
-                { n: "Low-Impact", sub: "No trenching or drilling" },
+                { n: "Low-Impact", sub: "Usually no drilling or trenching" },
               ].map((t, i) => (
                 <div key={i}>
                   <div className="text-2xl font-bold" style={{color:"#F5A800"}}>{t.n}</div>
@@ -119,7 +119,7 @@ export default function SentriconProtection() {
               {
                 step: "01",
                 title: "Installation Around Your Home",
-                description: "EnviroCare's Certified Sentricon Specialists install bait stations in the ground around your property's perimeter, typically spaced 10–20 feet apart. No trenching. No drilling. Minimal disruption.",
+                description: "EnviroCare's Certified Sentricon Specialists install bait stations in the ground around your property's perimeter, typically spaced 10–20 feet apart. Usually no drilling or trenching, and minimal disruption.",
                 photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&auto=format&fit=crop",
                 photoAlt: "Pest control technician installing bait station in yard",
                 tip: "Stations can be installed in a single visit — most Alabama homes done in 2–4 hours"
@@ -138,7 +138,7 @@ export default function SentriconProtection() {
                 description: "Worker termites carry the bait back to the colony and share it with nestmates, including the queen. The active ingredient disrupts molting — termites can't develop without it. The colony begins to collapse.",
                 photo: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&auto=format&fit=crop",
                 photoAlt: "Professional termite inspection of home foundation",
-                tip: "Colony elimination typically occurs within 60–90 days depending on colony size"
+                tip: "Timing varies by property and by when termites find the bait"
               },
               {
                 step: "04",
@@ -186,13 +186,10 @@ export default function SentriconProtection() {
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Eliminates entire colony (including queen)", sentricon: "Yes", sStatus: "yes", liquid: "No — repels only", lStatus: "no" },
-                    { feature: "Requires trenching or drilling", sentricon: "No disruption", sStatus: "yes", liquid: "Yes — major disruption", lStatus: "no" },
-                    { feature: "Low chemical volume / safer near water", sentricon: "Minimal chemicals", sStatus: "yes", liquid: "Large volume chemicals", lStatus: "warn" },
-                    { feature: "Always-active 24/7 protection", sentricon: "Always active", sStatus: "yes", liquid: "Degrades over time", lStatus: "no" },
+                    { feature: "Eliminates entire colony (including queen)", sentricon: "Yes", sStatus: "yes", liquid: "Depends on the product used", lStatus: "warn" },
+                    { feature: "Requires trenching or drilling", sentricon: "Usually no drilling", sStatus: "yes", liquid: "Usually trenching; drilling where soil access is limited", lStatus: "warn" },
+                    { feature: "Always Active™ bait in the ground", sentricon: "Always active", sStatus: "yes", liquid: "Degrades over time", lStatus: "no" },
                     { feature: "Annual monitoring included", sentricon: "Yes", sStatus: "yes", liquid: "Varies by company", lStatus: "warn" },
-                    { feature: "Targeted application — minimal exposure", sentricon: "Yes", sStatus: "yes", liquid: "Requires precautions", lStatus: "warn" },
-                    { feature: "Effective at Lake Martin waterfront", sentricon: "Ideal near water", sStatus: "yes", liquid: "Restrictions near water", lStatus: "warn" },
                     { feature: "Used to protect the White House", sentricon: "Yes", sStatus: "yes", liquid: "No", lStatus: "no" },
                   ].map((row, i) => {
                     const renderStatus = (status: string, text: string, isSentricon: boolean) => {
@@ -215,6 +212,7 @@ export default function SentriconProtection() {
                 </tbody>
               </table>
             </div>
+            <p className="p-4 text-sm text-slate-600 text-center border-t border-slate-200">Liquid treatment continues for existing liquid customers; new customers are offered Sentricon®.</p>
           </div>
         </div>
       </section>
@@ -279,7 +277,7 @@ export default function SentriconProtection() {
             <div>
               <h2 className="text-3xl font-bold mb-4">Pre-Construction & New Home Protection</h2>
               <p className="text-green-100 leading-relaxed mb-5">
-                The best time to install Sentricon is before termites find your home — ideally before or during construction. EnviroCare works with Alabama home builders to install Sentricon pre-treat systems at the building phase, providing the most effective protection possible from day one.
+                The best time to install Sentricon is before termites find your home. For new construction, EnviroCare works with Alabama home builders to install Sentricon stations at final grade, so the home is protected from move-in.
               </p>
               <p className="text-green-100 leading-relaxed mb-6">
                 New homeowners who choose Sentricon at move-in inherit a property already protected — with monitoring stations in the ground and annual service built in.
@@ -315,15 +313,15 @@ export default function SentriconProtection() {
             {[
               {
                 q: "How quickly does Sentricon work?",
-                a: "Termites must first find the bait stations, which depends on how actively they're foraging. Once they begin feeding, the active ingredient spreads through the colony. Most homeowners see colony elimination within 60–90 days, though this varies by colony size and termite pressure."
+                a: "Termites must first find the bait stations, which depends on how actively they're foraging. Once they begin feeding, the active ingredient spreads through the colony. Timing varies by property and by when termites find the bait, so there is no fixed timeline."
               },
               {
                 q: "What about kids and pets around the stations?",
-                a: "The active ingredient in Sentricon (noviflumuron) targets a biological process unique to insects — it prevents molting and does not affect humans, pets, or other mammals. The bait is contained within locked bait stations in the ground, so there's nothing exposed in your yard."
+                a: "The bait is contained within locked bait stations set in the ground, so it is not spread across your yard. Your technician can show you the stations and the product label at installation."
               },
               {
                 q: "Can Sentricon be used near Lake Martin's water?",
-                a: "Yes — this is one of Sentricon's major advantages over liquid treatments. Because Sentricon uses minimal chemical application contained within bait stations, it's appropriate for use near water bodies including Lake Martin. Liquid barriers carry higher risk of runoff near waterfront properties."
+                a: "Yes. Sentricon stations are installed in the soil around the home, including at Lake Martin waterfront properties. Station placement for your property is confirmed at the free termite inspection."
               },
               {
                 q: "How often does EnviroCare visit to service the stations?",
@@ -343,7 +341,7 @@ export default function SentriconProtection() {
               },
               {
                 q: "How does the Sentricon system compare to traditional termite control?",
-                a: "Traditional termite control means trenching and injecting liquid around the foundation — a chemical barrier that degrades over 5–7 years. The Sentricon system uses in-ground bait stations termites actively prefer over wood, eliminating the colony itself. It's the same reason many customers pair it with regular pest control: protection that's maintained, not re-applied."
+                a: "Traditional termite control means trenching and injecting liquid around the foundation — a chemical barrier in the soil that degrades over time. The Sentricon system uses in-ground bait stations termites actively prefer over wood, eliminating the colony itself. It's the same reason many customers pair it with regular pest control: protection that's maintained, not re-applied."
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">

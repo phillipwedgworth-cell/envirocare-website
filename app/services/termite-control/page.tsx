@@ -3,10 +3,10 @@ import ServicePage from '@/components/pages/ServicePage';
 export const metadata = {
   alternates: { canonical: '/services/termite-control' },
   title: 'Termite Control in Alabama & Sentricon® | EnviroCare',
-  description: 'Termite control across Alabama with the Sentricon® bait system and no drilling. Free termite inspection; Sentricon® is quoted after the inspection.',
+  description: 'Termite control across Alabama with the Sentricon® bait system, usually no drilling. Free termite inspection; Sentricon® is quoted after the inspection.',
   openGraph: {
     title: 'Termite Control in Alabama & Sentricon® | EnviroCare',
-    description: 'Termite control across Alabama with the Sentricon® bait system and no drilling. Free termite inspection; Sentricon® is quoted after the inspection.',
+    description: 'Termite control across Alabama with the Sentricon® bait system, usually no drilling. Free termite inspection; Sentricon® is quoted after the inspection.',
     url: 'https://www.envirocarellc.com/services/termite-control',
     images: ['/og-image.png'],
     type: 'website',
@@ -14,7 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Termite Control in Alabama & Sentricon® | EnviroCare',
-    description: 'Termite control across Alabama with the Sentricon® bait system and no drilling. Free termite inspection; Sentricon® is quoted after the inspection.',
+    description: 'Termite control across Alabama with the Sentricon® bait system, usually no drilling. Free termite inspection; Sentricon® is quoted after the inspection.',
     images: ['/og-image.png'],
   },
 };

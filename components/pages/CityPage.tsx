@@ -39,6 +39,15 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  * #fff becomes forest, or the second pass would recolour shapes the first pass
  * had just produced.
  */
+// City hubs whose termite card should point at a dedicated local termite page
+// (each route exists under app/) instead of the statewide service page.
+const LOCAL_TERMITE_PAGES: Record<string, string> = {
+  birmingham: '/birmingham-termite-control',
+  huntsville: '/huntsville-termite-control',
+  madison: '/madison-termite-control',
+  decatur: '/decatur-termite-control',
+};
+
 const ART_INK = '#0A7935';   // forest green — the silhouettes themselves
 const ART_CUT = '#FEFDF8';   // cream — details knocked OUT of a silhouette
 function forCreamPanel(svg: string): string {
@@ -370,7 +379,7 @@ export default function CityPage({ slug }: { slug: string }) {
             <div className="prog-card"><div className="prog-art prog-art-2"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Termite Protection</div><div className="prog-desc">{city.programCopy?.termite?.description ?? 'Sentricon® Always Active™ bait stations, no drilling — with $1M EnviroCare repair coverage.'}</div>
                 <ul className="prog-features">{(city.programCopy?.termite?.features ?? ['$1M EnviroCare coverage', 'No drilling, no tanks', 'WDO letters as low as $125']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
-                <a href="/services/termite-control" className="prog-link">Learn more →</a></div></div>
+                <a href={LOCAL_TERMITE_PAGES[city.slug] ?? "/services/termite-control"} className="prog-link">Learn more →</a></div></div>
             <div className="prog-card"><div className="prog-art prog-art-3"><div className="prog-art-grid"></div></div>
               <div className="prog-body"><div className="prog-name">Mosquito Control</div><div className="prog-desc">{city.programCopy?.mosquito?.description ?? '30-day yard barrier March–October. Make your outdoor space livable again.'}</div>
                 <ul className="prog-features">{(city.programCopy?.mosquito?.features ?? ['March–October coverage', '30-day refresh', 'Applied according to label directions once dry']).map(feature => <li key={feature}><span className="prog-chk">✓</span>{feature}</li>)}</ul>
