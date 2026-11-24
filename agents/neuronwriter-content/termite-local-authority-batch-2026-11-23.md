@@ -3,7 +3,7 @@ Review-only proposed modules from Content Writer entries 61–90. Re-read each e
 
 ## 92c9878d57b917d0 — Alexander City exterminator — /alexander-city
 H2: What pest control services are available in Alexander City?
-EnviroCare Pest & Termite Services offers recurring residential pest control, Sentricon termite protection and seasonal mosquito control in the Alex City / Lake Martin area. Our standard residential pest program focuses on the exterior perimeter, with interior service on request under applicable plan terms.
+EnviroCare Pest Services offers recurring residential pest control, Sentricon termite protection and seasonal mosquito control in the Alex City / Lake Martin area. Our standard residential pest program focuses on the exterior perimeter, with interior service on request under applicable plan terms.
 H2: Can pest control be scheduled for a second home?
 Discuss property access, scheduled visits and how service findings are communicated while you are away. Ask which structures and outdoor areas are included in your service agreement.
 Editorial: distinguish Alexander City residential intent from broader lake-home intent; verify boundaries and actual local service workflow. Add real technician imagery and contextual service links.
@@ -11,7 +11,7 @@ Editorial: distinguish Alexander City residential intent from broader lake-home 
 ## d31fea843102cbc5 — Hoover termite control — /hoover
 H2: How can Hoover homeowners protect their homes from termites?
 EnviroCare offers termite inspections and Sentricon bait-station protection. An inspection helps identify signs of termite activity and conditions that may affect protection. Ask how stations are monitored, how renewal works and which structures are covered.
-Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Editorial: integrate with existing Hoover pest and mosquito analyses, not as a new duplicate URL. Verify local details and link canonical termite service.
 
 ## 8965c9b60e7b0b22 — warning signs of termite infestation — target unmapped
@@ -28,12 +28,12 @@ Editorial: verify service availability and existing canonical route; use genuine
 
 ## 471d62f63fa2b288 — termite control Alabaster — /alabaster
 H2: What does termite protection in Alabaster involve?
-EnviroCare Pest & Termite Services offers termite inspections and Sentricon bait-station protection. Ask for a written explanation of installation, inspection, monitoring, renewal, retreatment and repair coverage.
+EnviroCare Pest Services offers termite inspections and Sentricon bait-station protection. Ask for a written explanation of installation, inspection, monitoring, renewal, retreatment and repair coverage.
 Editorial: integrate with previously drafted Alabaster termite selection and inspection sections; avoid repeating identical copy or replacing existing landing page.
 
 ## b0b9daa0701d6dbd and dcc8724112919bb6 — Birmingham termite bond and inspection — /services/termite-control
 H2: What should a Birmingham termite agreement include?
-Compare the initial installation charge, renewal terms, monitoring, retreatment, repair coverage, exclusions and transfer provisions. A termite inspection can help determine which protection options are appropriate for your property. Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+Compare the initial installation charge, renewal terms, monitoring, retreatment, repair coverage, exclusions and transfer provisions. A termite inspection can help determine which protection options are appropriate for your property. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 H2: Is a termite inspection the same as a WDO letter?
 Ask whether you need a service inspection or a formal report for a real estate transaction. A WDO report has its own stated scope and is distinct from an ongoing service agreement.
 Editorial: verify state reporting rules and actual pricing; link /services/wdo-letters and /services/sentricon. Coordinate existing bond and cost analyses.
@@ -50,7 +50,7 @@ Editorial: verify boundaries, include genuine local experience and link relevant
 
 ## 0824f31f3ee818fa — Alexander City termite control — /alexander-city
 H2: What should you ask about termite coverage for an Alexander City home?
-Ask about inspection access, station monitoring, renewal and whether detached buildings are included. Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+Ask about inspection access, station monitoring, renewal and whether detached buildings are included. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Editorial: combine with previous Alexander City inspection and exterminator modules; do not imply dock coverage.
 
 ## 73a0906aeecd6559 — exterminator services near me — target unmapped

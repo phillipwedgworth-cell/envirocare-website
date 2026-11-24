@@ -48,7 +48,7 @@ rodent control Alabama
 
 ## Brand keywords (one per line)
 EnviroCare
-EnviroCare Pest & Termite Services
+EnviroCare Pest Services
 EnviroCare Pest and Termite Services
 EnviroCare Alabama
 EnviroCare Birmingham
@@ -84,7 +84,7 @@ Termite inspection vs WDO report; termite agreement transfer when selling a home
 Use canonical existing pages where they serve intent. Do not create duplicate analyses solely because a query variation exists.
 
 ## AI monitoring proposal (32 slots; reconcile existing prompts before edits)
-Use 6 branded factual prompts: who is EnviroCare Pest & Termite Services in Alabama; what services does EnviroCare Alabama offer; what termite system does EnviroCare Alabama use; what does EnviroCare termite repair coverage include; how does EnviroCare recurring pest billing work; where does EnviroCare Alabama provide service.
+Use 6 branded factual prompts: who is EnviroCare Pest Services in Alabama; what services does EnviroCare Alabama offer; what termite system does EnviroCare Alabama use; what does EnviroCare termite repair coverage include; how does EnviroCare recurring pest billing work; where does EnviroCare Alabama provide service.
 Use 18 unbranded local prompts: for each of Birmingham, Alabaster, Hoover, Huntsville, Auburn, Alexander City/Lake Martin ask which companies provide termite protection, recurring pest control, and termite inspections.
 Use 8 high-intent prompts: who installs Sentricon in Alabama; which companies provide termite letters in Birmingham; which companies offer termite inspections for Lake Martin home purchases; how to compare Alabama termite agreements; which pest companies serve second homes around Lake Martin; which companies offer commercial pest control in Huntsville; which companies offer builder termite protection in Alabama; which companies offer recurring pest control in Vestavia Hills.
 Keep exact wording and model consistent over time. Review existing 35 tracked prompts; retain valuable historical series, remove redundant or irrelevant prompts only after approval. Do not assume these proposed prompts are absent.

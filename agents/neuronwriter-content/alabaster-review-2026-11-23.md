@@ -9,7 +9,7 @@ Compare against existing title and snippet; preserve proven price and free termi
 ## Proposed replacement/additional copy (verify against current service terms)
 # Local Exterminator & Pest Control in Alabaster, AL
 
-EnviroCare Pest & Termite provides recurring pest control, termite protection and seasonal mosquito control for Alabaster homeowners. Our family's Alabama pest control tradition dates to 1958. We help identify pest problems, treat appropriate areas and establish a service plan for your property. Request an estimate to discuss the right coverage for your home.
+EnviroCare Pest Services provides recurring pest control, termite protection and seasonal mosquito control for Alabaster homeowners. Our family's Alabama pest control tradition dates to 1958. We help identify pest problems, treat appropriate areas and establish a service plan for your property. Request an estimate to discuss the right coverage for your home.
 
 ## Alabaster pest control services
 - Recurring pest control: exterior-focused service with interior treatment when needed, subject to plan terms.

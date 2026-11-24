@@ -5,12 +5,12 @@ Review only. Existing analysis IDs from entries 91–120. Proposed insertions an
 H2: What termites should Alabama homeowners know about?
 Subterranean termites are an important concern for Alabama homeowners. Possible signs include mud tubes, discarded wings and damaged wood. Identification of species and extent of activity may require professional inspection.
 H2: How does EnviroCare protect homes from termites?
-EnviroCare Pest & Termite Services offers termite inspections and Sentricon bait-station protection. Ask about installation, monitoring, renewal and repair coverage. Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+EnviroCare Pest Services offers termite inspections and Sentricon bait-station protection. Ask about installation, monitoring, renewal and repair coverage. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Editorial: verify species distribution, swarm timing and biology against Alabama Extension; use authentic labeled images and a concise identification table. Link /services/sentricon, /services/termite-control and existing swarm-season article. Remove redundant text only after inspecting current draft.
 
 ## bc0c4c4b24c840f8 — termite warranty Alabama — /faq/termite-warranty
 H2: What should you check in an Alabama termite agreement?
-Read the written terms to determine which structures are included, how monitoring and renewal work, what happens if activity is found, what repair coverage applies, and which exclusions or transfer conditions apply. Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+Read the written terms to determine which structures are included, how monitoring and renewal work, what happens if activity is found, what repair coverage applies, and which exclusions or transfer conditions apply. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Editorial: retain existing URL if appropriate; distinguish retreatment from repair coverage without implying legal uniformity. Review current agreement and state requirements. No guarantee language or attribution of repair coverage to Sentricon. Link core service and pricing pages.
 
 ## 0bed4b1594b13163 — Redstone Arsenal — /service-areas/redstone-arsenal

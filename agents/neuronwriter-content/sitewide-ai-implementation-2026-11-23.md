@@ -2,7 +2,7 @@
 Draft review only; do not merge, deploy, publish, contact anyone or modify GBP. This public repository is not a place for private audit exports.
 
 ## P0: correct entity and offers
-- Use approved public brand name EnviroCare Pest & Termite Services; consistent stable Organization @id and distinct legitimate location @ids, linked by parentOrganization/provider. Verify physical location status and hours before adding them; do not present a virtual office as staffed. Use canonical www.envirocarellc.com URLs; sameAs only for verified owned profiles.
+- Use approved public brand name EnviroCare Pest Services; consistent stable Organization @id and distinct legitimate location @ids, linked by parentOrganization/provider. Verify physical location status and hours before adding them; do not present a virtual office as staffed. Use canonical www.envirocarellc.com URLs; sameAs only for verified owned profiles.
 - Review /, /services, /pricing, /services/pest-control, /services/mosquito for Offer objects lacking price or currency. If a price cannot be verified, omit incomplete Offer rather than invent it. Differentiate introductory promotional price, standard initial price, recurring ACH monthly billing, and per-visit charge; name each clearly and use USD and appropriate billing period. Do not conflate visit frequency and billing frequency.
 - Verify all pricing against current owner-approved schedule and rendered pages before changing it. Do not assume old bundle prices or promotions remain current.
 - Apply schema.org properties only where valid; use visible coverage terms, do not add retail return policy to a service as a workaround. Do not imply guaranteed results.
@@ -12,12 +12,12 @@ Draft review only; do not merge, deploy, publish, contact anyone or modify GBP. 
 Target existing /services/sentricon and /builders routes. Improve contextual internal links from /, /services, /pricing, city pages, relevant termite articles and about page. Avoid duplicate intent. Confirm canonical URL and index status in Search Console; request indexing after approved release, not before.
 
 Proposed Sentricon opening:
-EnviroCare Pest & Termite Services provides termite inspections and Sentricon bait-station protection for Alabama homes. The system uses stations around the property. Ask about inspection findings, monitoring, renewal terms and eligibility for up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+EnviroCare Pest Services provides termite inspections and Sentricon bait-station protection for Alabama homes. The system uses stations around the property. Ask about inspection findings, monitoring, renewal terms and eligibility for up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Questions to answer with verified facts: What happens during a termite inspection? How do bait stations work? What does the agreement cover and exclude? What happens when activity is found? How does renewal work? When should a homeowner request a WDO letter?
 Never attribute repair coverage to Sentricon; do not imply universal coverage, liquid barrier treatments, or offer unsupported safety claims.
 
 Proposed builder opening:
-EnviroCare Pest & Termite Services works with Alabama builders to coordinate termite protection with construction schedules. Ask which treatment method is appropriate for your project, what documentation is provided, and how the homeowner's termite agreement is established.
+EnviroCare Pest Services works with Alabama builders to coordinate termite protection with construction schedules. Ask which treatment method is appropriate for your project, what documentation is provided, and how the homeowner's termite agreement is established.
 Confirm actual preconstruction methods (bait stations versus soil treatment), scheduling, documentation and applicable Alabama requirements before drafting detailed claims. No invented deadlines or prices.
 
 ## P1: brand identity

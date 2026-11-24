@@ -3,9 +3,9 @@ Draft only. Existing analysis IDs below. Re-read revisions and map canonical URL
 
 ## 2e74c97624871c97 — Termite treatment cost Alabama
 ### How much does termite treatment cost in Alabama?
-The cost of termite protection depends on your property, the treatment method and the agreement you choose. Ask for a written estimate that separates installation from annual renewal and explains monitoring, retreatment and repair coverage. EnviroCare Pest & Termite Services offers free termite inspections and Sentricon bait-station protection.
+The cost of termite protection depends on your property, the treatment method and the agreement you choose. Ask for a written estimate that separates installation from annual renewal and explains monitoring, retreatment and repair coverage. EnviroCare Pest Services offers free termite inspections and Sentricon bait-station protection.
 ### What should I compare in a termite quote?
-Compare the initial charge, recurring renewal, inspection schedule, response to termite activity, exclusions and transfer terms. Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+Compare the initial charge, recurring renewal, inspection schedule, response to termite activity, exclusions and transfer terms. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Editorial: link canonical termite page and coordinate with existing bond cost and Sentricon cost analyses; do not invent statewide averages or create three near-identical pages.
 
 ## c2824e2f5de9a87c — Green caps in yard Sentricon

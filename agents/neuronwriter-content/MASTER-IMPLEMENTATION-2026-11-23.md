@@ -18,14 +18,14 @@ Review PR #309 and current main, prior corrected drafts, latest NeuronWriter rev
 ## P1: final-page local improvements
 508dcd3056241d2d Meridianville /meridianville; 21d41c2926735743 Bessemer /bessemer; 76cfc114e678967c Gardendale /gardendale; c15fec13fdda0990 McCalla /mccalla; 3a1a7781cefeaeb2 Sylacauga /sylacauga.
 Check previous Claude drafts first, including PR #309 where applicable. Verify service boundaries and actual local proof. Proposed section framework for each, to be customized rather than duplicated:
-- What does recurring pest control in [verified city] include? EnviroCare Pest & Termite Services offers exterior-focused recurring residential pest control with interior service on request under applicable plan terms. Ask about covered pests, service frequency and re-service provisions.
+- What does recurring pest control in [verified city] include? EnviroCare Pest Services offers exterior-focused recurring residential pest control with interior service on request under applicable plan terms. Ask about covered pests, service frequency and re-service provisions.
 - What termite protection is available? Ask about termite inspections, Sentricon bait stations, monitoring, renewal and written agreement terms.
 - How can you request an estimate? Confirm service availability for your address and ask for a written description of the selected plan.
 Add genuine local detail and actual service imagery, never fabricated landmarks, customer stories, offices or claims. Preserve existing canonical routes.
 
 ## 65de1d68a325d90b — /services/pest-control
 H2: What does EnviroCare's recurring pest control service include?
-EnviroCare Pest & Termite Services provides recurring exterior-focused pest control for eligible Alabama properties. The standard residential program treats the exterior perimeter every other month, with interior service on request under applicable plan terms. Ask about covered pests, exclusions and follow-up service.
+EnviroCare Pest Services provides recurring exterior-focused pest control for eligible Alabama properties. The standard residential program treats the exterior perimeter every other month, with interior service on request under applicable plan terms. Ask about covered pests, exclusions and follow-up service.
 H2: Does monthly billing mean monthly treatment?
 No. Monthly ACH billing spreads the cost across the year; the agreement specifies service frequency. Ask for a written estimate separating initial service and recurring charges.
 Verify pricing and terms, link /pricing, termite, mosquito and interior services. Use this page as canonical authority for recurring pest service.

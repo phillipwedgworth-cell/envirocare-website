@@ -3,7 +3,7 @@ Review only. Existing analyses 121–150. These are proposed modules and editori
 
 ## 4f53109624247404 — Hoover pest control — /hoover
 H2: What does recurring pest control in Hoover include?
-EnviroCare Pest & Termite Services offers recurring exterior-focused residential pest control in its verified Hoover service area, with interior service on request under the applicable plan. Ask about covered pests, scheduled visits and re-service terms. Termite protection and seasonal mosquito control are separate service options.
+EnviroCare Pest Services offers recurring exterior-focused residential pest control in its verified Hoover service area, with interior service on request under the applicable plan. Ask about covered pests, scheduled visits and re-service terms. Termite protection and seasonal mosquito control are separate service options.
 H2: How is recurring service billed?
 Monthly ACH billing spreads payments throughout the year rather than changing the visit schedule. Compare the initial service charge, recurring payment, visit frequency and agreement terms before enrolling.
 Editorial: coordinate previous Hoover termite, mosquito and exterminator analyses on one canonical landing page. Verify rates, local service evidence and terms. Do not duplicate paragraphs.
@@ -19,7 +19,7 @@ Editorial: verify biology and recommendations against Alabama Extension or unive
 H2: What is the difference between termite bait stations and liquid treatments?
 Bait-station systems and liquid soil treatments are distinct termite management approaches. Station-based systems use installed bait stations, while liquid approaches depend on the specific product and application method. Site conditions, building construction, inspection findings and the proposed agreement help determine an appropriate approach.
 H2: Which termite approach does EnviroCare offer?
-EnviroCare offers Sentricon bait-station protection for eligible properties. Ask about installation, monitoring, renewal and repair coverage. Eligible properties may receive up to $1,000,000 in EnviroCare repair coverage, subject to inspection, approval, and the terms of the agreement.
+EnviroCare offers Sentricon bait-station protection for eligible properties. Ask about installation, monitoring, renewal and repair coverage. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.
 Editorial: verify current manufacturer guidance and independent Extension sources. Do not assert universal superiority, guaranteed timelines, environmental safety, no drilling in every circumstance, or that EnviroCare offers liquid treatment. Compare methods neutrally. Link core Sentricon and termite service pages.
 
 ## d17323c8531ce161 — Huntsville mosquito control — /huntsville-mosquito-control
