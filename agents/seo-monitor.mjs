@@ -484,10 +484,7 @@ DATA RULES (non-negotiable)
 
 PROMPT VERSION: ${PROMPT_VERSION}`;
 
-// Every tool call the worker made this run, for the critic.
-const runToolCalls = [];
-
-async function workerDraft(feedback = null, gscContext = '') {
+async function workerDraft(feedback = null, gscContext = '', toolCalls = []) {
   if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
 
   const base = feedback
@@ -517,7 +514,7 @@ async function workerDraft(feedback = null, gscContext = '') {
       if (block.type !== "tool_use") continue;
       console.log(`[${AGENT_NAME}] -> ${block.name}`, JSON.stringify(block.input).slice(0, 160));
       const result = await callTool(block.name, block.input);
-      runToolCalls.push(`${block.name}(${JSON.stringify(block.input ?? {}).slice(0, 80)}) — ${result && result.error ? `error: ${String(result.error).slice(0, 120)}` : "ok"}`);
+      toolCalls.push(`${block.name}(${JSON.stringify(block.input ?? {}).slice(0, 80)}) — ${result && result.error ? `error: ${String(result.error).slice(0, 120)}` : "ok"}`);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -550,9 +547,10 @@ export async function run() {
     console.warn(`[${AGENT_NAME}] seo-history fetch failed (non-fatal): ${e.message}`);
   }
 
+  const toolCalls = [];
   let draft;
   try {
-    draft = await workerDraft(null, gscContext);
+    draft = await workerDraft(null, gscContext, toolCalls);
   } catch (e) {
     console.error(`[${AGENT_NAME}] worker failed: ${e.message}`);
     await logAgentRun(AGENT_NAME, "error", e.message);
@@ -577,9 +575,9 @@ export async function run() {
     task: "Weekly Local Falcon SoLV brief for EnviroCare's 4 Alabama locations",
     output: draft,
     rubric,
-    toolCalls: runToolCalls,
+    toolCalls,
     // Revisions keep the GSC context; before 2026-10-09 they dropped it.
-    revise: (fb) => workerDraft(fb, gscContext),
+    revise: (fb) => workerDraft(fb, gscContext, toolCalls),
     onEscalate: async (output, history) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       escalated = true;

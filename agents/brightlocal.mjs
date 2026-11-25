@@ -25,15 +25,6 @@ const AGENT_NAME = "brightlocal";
 const WORKER_MODEL = "claude-haiku-4-5-20251001";
 const MAX_TURNS = 12;
 
-// Tool failures (a rejected key surfaced as BrightLocalKeyError, an MCP error,
-// etc.) get swallowed into a graceful { error } and never reach the worker's
-// final brief. Collect them here so run() can hand them to the critic, which
-// short-circuits the revision loops on an external block instead of burning them.
-const runToolErrors = [];
-// Every tool call this run made. The critic can only fairly judge fabricated
-// action claims when it is shown the calls the worker actually made.
-const runToolCalls = [];
-
 // cleanEnv() BOM/zero-width-strips + trims the key — a pasted key with an
 // invisible prefix authenticates as garbage and BrightLocal answers
 // INVALID_API_KEY, indistinguishable from a genuinely expired key.
@@ -369,7 +360,7 @@ Approach (you choose order, skip steps if irrelevant):
 
 Final brief format: 5-7 bullets. Lead with the biggest movers. Every bullet has a specific number and a delta vs last week (or "no prior data" if first run). Flag any count below 85 as BELOW TARGET with the gap to target. Date the brief with the run date only. No preamble, no sign-off.`;
 
-async function workerDraft(feedback = null) {
+async function workerDraft(feedback = null, toolErrors = [], toolCalls = []) {
   if (!anthropic) throw new Error("ANTHROPIC_API_KEY is not set");
 
   const initialUser = feedback
@@ -404,8 +395,8 @@ async function workerDraft(feedback = null) {
       // A tool error here (e.g. a propagated/ rejected-key failure) would
       // otherwise be buried in the tool_result and never reach the final brief —
       // record it so the critic can see external blockers.
-      if (result && result.error) runToolErrors.push(`${block.name}: ${result.error}`);
-      runToolCalls.push(`${block.name}(${block.input?.location_name ?? ""}) — ${result && result.error ? `error: ${result.error}` : "ok"}`);
+      if (result && result.error) toolErrors.push(`${block.name}: ${result.error}`);
+      toolCalls.push(`${block.name}(${block.input?.location_name ?? ""}) — ${result && result.error ? `error: ${result.error}` : "ok"}`);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -423,9 +414,11 @@ async function workerDraft(feedback = null) {
 export async function run() {
   console.log(`[${AGENT_NAME}] Starting`);
 
+  const toolErrors = [];
+  const toolCalls = [];
   let draft;
   try {
-    draft = await workerDraft();
+    draft = await workerDraft(null, toolErrors, toolCalls);
   } catch (err) {
     console.error(`[${AGENT_NAME}] worker failed: ${err.message}`);
     await logAgentRun(AGENT_NAME, "error", err.message);
@@ -448,9 +441,9 @@ export async function run() {
     task: "Weekly BrightLocal citation brief for EnviroCare's 4 Alabama offices (active citation counts)",
     output: draft,
     rubric,
-    revise: (feedback) => workerDraft(feedback),
-    toolErrors: runToolErrors,
-    toolCalls: runToolCalls,
+    revise: (feedback) => workerDraft(feedback, toolErrors, toolCalls),
+    toolErrors,
+    toolCalls,
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       escalated = true;

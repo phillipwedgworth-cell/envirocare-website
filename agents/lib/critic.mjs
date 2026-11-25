@@ -83,7 +83,7 @@ export function criticDraft(result) {
   return isExternallyBlocked(result) ? result.draft : result;
 }
 
-export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate, toolErrors = [], toolCalls = [] }) {
+export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate, toolErrors = [], toolCalls }) {
   let current = output;
   const history = [];
 
@@ -111,7 +111,11 @@ QUALITY RUBRIC (what "pass" requires):
 ${rubric}
 
 TOOL CALLS THE WORKER MADE THIS RUN:
-${toolCalls.length ? toolCalls.slice(0, 60).map(c => `- ${c}`).join('\n') + (toolCalls.length > 60 ? `\n- …and ${toolCalls.length - 60} more` : '') : '(no tool-call list was provided for this agent)'}
+${toolCalls === undefined
+  ? '(no tool-call list was provided for this agent)'
+  : toolCalls.length
+    ? toolCalls.slice(0, 60).map(c => `- ${c}`).join('\n') + (toolCalls.length > 60 ? `\n- …and ${toolCalls.length - 60} more` : '')
+    : '(no tool calls were made this run)'}
 
 Respond in this exact format:
 VERDICT: PASS or FAIL
