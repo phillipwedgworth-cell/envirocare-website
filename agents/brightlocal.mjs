@@ -30,6 +30,9 @@ const MAX_TURNS = 12;
 // final brief. Collect them here so run() can hand them to the critic, which
 // short-circuits the revision loops on an external block instead of burning them.
 const runToolErrors = [];
+// Every tool call this run made. The critic can only fairly judge fabricated
+// action claims when it is shown the calls the worker actually made.
+const runToolCalls = [];
 
 // cleanEnv() BOM/zero-width-strips + trims the key — a pasted key with an
 // invisible prefix authenticates as garbage and BrightLocal answers
@@ -292,7 +295,7 @@ const tools = [
     input_schema: {
       type: "object",
       properties: {
-        location_name: { type: "string", enum: ["Alabaster", "Huntsville", "Alex City"] },
+        location_name: { type: "string", enum: ["Alabaster", "Huntsville", "Alex City", "Birmingham"] },
       },
       required: ["location_name"],
     },
@@ -304,7 +307,7 @@ const tools = [
     input_schema: {
       type: "object",
       properties: {
-        location_name: { type: "string", enum: ["Alabaster", "Huntsville", "Alex City"] },
+        location_name: { type: "string", enum: ["Alabaster", "Huntsville", "Alex City", "Birmingham"] },
       },
       required: ["location_name"],
     },
@@ -402,6 +405,7 @@ async function workerDraft(feedback = null) {
       // otherwise be buried in the tool_result and never reach the final brief —
       // record it so the critic can see external blockers.
       if (result && result.error) runToolErrors.push(`${block.name}: ${result.error}`);
+      runToolCalls.push(`${block.name}(${block.input?.location_name ?? ""}) — ${result && result.error ? `error: ${result.error}` : "ok"}`);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -446,6 +450,7 @@ export async function run() {
     rubric,
     revise: (feedback) => workerDraft(feedback),
     toolErrors: runToolErrors,
+    toolCalls: runToolCalls,
     onEscalate: async (output) => {
       console.warn(`[${AGENT_NAME}] critic escalated — returning best draft`);
       escalated = true;

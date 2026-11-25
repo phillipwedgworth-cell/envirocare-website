@@ -394,11 +394,12 @@ export async function run() {
     workerName: AGENT_NAME,
     // The critic sees only task + output + rubric, so the page list and the
     // code-computed gaps the rubric checks against must travel in the task.
-    task: `NeuronWriter content quality QA report for ${results.filter(r => !r.error).length} EnviroCare service and city pages.\nPAGES (page — score — gap to the 70 threshold):\n${results.filter(r => !r.error).map(r => `- ${r.page} — ${r.score}/100 — ${r.score < 70 ? `${70 - r.score} below 70` : 'none'}`).join('\n')}`,
+    task: `NeuronWriter content quality QA report for ${results.length} EnviroCare service and city pages (${results.filter(r => !r.error).length} scored, ${results.filter(r => r.error).length} errored).\nPAGES (page — score — gap to the 70 threshold). Pages marked ERROR are real pages whose NeuronWriter fetch failed this run; the report SHOULD list them as errors:\n${results.map(r => r.error ? `- ${r.page} — ERROR (${String(r.error).slice(0, 100)}) — not scored` : `- ${r.page} — ${r.score}/100 — ${r.score < 70 ? `${70 - r.score} below 70` : 'none'}`).join('\n')}`,
     output: draft,
     rubric,
     revise: fb => workerDraft(results, fb),
     toolErrors,
+    toolCalls: results.map(r => `neuronwriter_score(${r.page}) — ${r.error ? `error: ${String(r.error).slice(0, 100)}` : `ok, ${r.score}/100`}`),
     onEscalate: async (out, history) => {
       console.warn(`[${AGENT_NAME}] critic escalated — discarding rejected prose; preserving raw measurements only`);
       escalated = true;

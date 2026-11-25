@@ -484,6 +484,9 @@ DATA RULES (non-negotiable)
 
 PROMPT VERSION: ${PROMPT_VERSION}`;
 
+// Every tool call the worker made this run, for the critic.
+const runToolCalls = [];
+
 async function workerDraft(feedback = null, gscContext = '') {
   if (!anthropic) throw new Error(anthropicInitError ?? "Anthropic client unavailable — cannot run worker");
 
@@ -514,6 +517,7 @@ async function workerDraft(feedback = null, gscContext = '') {
       if (block.type !== "tool_use") continue;
       console.log(`[${AGENT_NAME}] -> ${block.name}`, JSON.stringify(block.input).slice(0, 160));
       const result = await callTool(block.name, block.input);
+      runToolCalls.push(`${block.name}(${JSON.stringify(block.input ?? {}).slice(0, 80)}) — ${result && result.error ? `error: ${String(result.error).slice(0, 120)}` : "ok"}`);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -573,6 +577,7 @@ export async function run() {
     task: "Weekly Local Falcon SoLV brief for EnviroCare's 4 Alabama locations",
     output: draft,
     rubric,
+    toolCalls: runToolCalls,
     // Revisions keep the GSC context; before 2026-10-09 they dropped it.
     revise: (fb) => workerDraft(fb, gscContext),
     onEscalate: async (output, history) => {
