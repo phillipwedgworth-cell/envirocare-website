@@ -65,7 +65,7 @@ assert.equal(coveredBy('termite treatment inspection cost birmingham',existingTo
 // Execute the actual narrator in a VM with fake editor/LLM endpoints. This verifies
 // the gate sits before import-content for hand drafts, auto drafts and FORCE;
 // none of these tests uses credentials, sends email or changes an editor.
-async function runNarrator({html=good,force=false,existingScore=null,hand=true,readFails=false,multi=false,maxWrites,getContent,currentScoreResponse,listedScore}={}) {
+async function runNarrator({html=good,force=false,existingScore=null,hand=true,readFails=false,multi=false,maxWrites,getContent,getContentAll,getQuery,currentScoreResponse,listedScore}={}) {
  const calls=[];const findings=[];const logs=[];
  const env={NEURONWRITER_API_KEY:'test-only',ANTHROPIC_API_KEY:'test-only',NARRATOR_SLEEP_MS:'0',...(maxWrites?{NARRATOR_MAX_WRITES:maxWrites}:{}),...(force?{NARRATOR_FORCE:'1'}:{})};
  const context=vm.createContext({console:{log(){},warn(){},error(){}},process:{env,argv:['node','narrator','fill'],exit(code){throw Error(`exit ${code}`);}},setTimeout(cb){cb();},URL,fetch:async (target,opts)=>{
@@ -75,9 +75,9 @@ async function runNarrator({html=good,force=false,existingScore=null,hand=true,r
   else if(method==='list-queries')out=[{id:'q',keyword:'pest control',updated:'2026-10-20',...(listedScore!==undefined?{content_score:listedScore}:{})},{id:'older',keyword:' pest  control ',updated:'2026-01-01'},...(multi?[{id:'second',keyword:'general pest control',updated:'2026-10-20'}]:[])];
   else if(method==='get-content'){
     if(readFails)return {ok:false,status:503,text:async()=>'{"error":"unavailable"}'};
-    out=getContent!==undefined?getContent:existingScore===null?{content:''}:{content:good,score:existingScore};
+    out=req.revision_type==='all'&&getContentAll!==undefined?getContentAll:getContent!==undefined?getContent:existingScore===null?{content:''}:{content:good,score:existingScore};
   }
-  else if(method==='get-query')out={};
+  else if(method==='get-query')out=getQuery!==undefined?getQuery:{};
   else if(method==='evaluate-content')out=currentScoreResponse!==undefined&&calls.at(-2)?.method==='get-content'?currentScoreResponse:{content_score:75};
   else if(method==='import-content')out={content_score:75};
   else throw Error(`unexpected fetch ${target}`);
@@ -129,6 +129,23 @@ for(const force of [false,true]) {
  const forcedReadError=await runNarrator({readFails:true,force});
  assert.equal(forcedReadError.calls.filter(c=>c.method==='import-content'||c.method==='messages').length,0,'FORCE cannot bypass an HTTP editor-read failure');
 }
+// A never-saved editor answers get-content with a bare {} (verified 2026-11-25
+// through the NeuronWriter MCP connector). It is a verified EMPTY editor only
+// when the autosave-inclusive read is also {} and get-query says READY in this
+// project; otherwise it stays unknown and blocks drafting and import.
+const readyHere={status:'ready',project:'9d0bec3a70f4743c'};
+const neverSaved=await runNarrator({getContent:{},getQuery:readyHere,hand:false});
+assert.equal(neverSaved.calls.filter(c=>c.method==='import-content').length,1,'a verified never-saved editor gets one validated first draft');
+assert.ok(neverSaved.calls.some(c=>c.method==='get-content'&&c.req.revision_type==='all'),'never-saved check reads autosaves before treating {} as empty');
+assert.notEqual(neverSaved.logs[0][1],'error','a never-saved editor is not reported as a provider failure');
+for(const settings of [{getContentAll:{content:good}},{getContentAll:{content:''}},{getQuery:{status:'ready',project:'someone-else'}},{getQuery:{status:'in progress',project:'9d0bec3a70f4743c'}},{getQuery:{}}]){
+ const r=await runNarrator({getContent:{},getQuery:readyHere,hand:false,...settings});
+ assert.equal(r.calls.filter(c=>c.method==='import-content'||c.method==='messages').length,0,'{} with an autosave, another project, or a not-ready analysis stays an unknown read');
+ assert.equal(r.logs[0][1],'error','an unconfirmed {} read is still reported as a failure');
+}
+// One never-saved editor must not halt the run for the rest of the batch.
+const twoNeverSaved=await runNarrator({getContent:{},getQuery:readyHere,hand:false,multi:true,maxWrites:'2'});
+assert.equal(twoNeverSaved.calls.filter(c=>c.method==='import-content').length,2,'the run continues past a never-saved editor');
 const zeroScore=await runNarrator({getContent:{content:good},currentScoreResponse:{content_score:0}});
 assert.equal(zeroScore.calls.filter(c=>c.method==='import-content').length,1,'a verified zero score is valid and does not make the editor unreadable');
 for (const bad of ['0', '-1', '41', 'NaN', '1.5']) assert.throws(()=>narratorWriteLimit(bad));

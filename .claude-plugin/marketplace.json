@@ -1,0 +1,13 @@
+{
+  "name": "envirocare",
+  "owner": { "name": "EnviroCare, LLC" },
+  "metadata": { "description": "Claude Code plugins for the EnviroCare website and agent fleet." },
+  "plugins": [
+    {
+      "name": "envirocare-dev",
+      "source": "./plugins/envirocare-dev",
+      "description": "NeuroNarrator (NeuronWriter's official MCP, OAuth) plus safe-use skills for NeuronWriter editors and the read-only Fieldster (Key7) API.",
+      "version": "0.1.0"
+    }
+  ]
+}

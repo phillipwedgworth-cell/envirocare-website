@@ -3,7 +3,7 @@
   "workflows": {
     "brightlocal.yml":            { "job": "rankings",    "agents": { "brightlocal": 192 } },
     "content-refresh.yml":        { "job": "content",     "agents": { "content-refresh": 192, "blog-from-drafts": 192, "content-results": 192 } },
-    "collections-suppression.yml":{ "job": "collections", "agents": { "captivated-suppress-sync": 80 } },
+    "collections-suppression.yml":{ "job": "collections", "agents": { "captivated-suppress-sync": 80, "fieldster-health": 80 } },
     "lead-coordinator.yml":       { "job": "leads",       "agents": { "lead-coordinator": 80 } },
     "indexnow.yml":               { "job": "tool",        "agents": {} },
     "ingest-seo.yml":             { "job": "rankings",    "agents": {} },
