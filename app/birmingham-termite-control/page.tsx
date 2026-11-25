@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
   description:
-    "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
+    "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with usually no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
     title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
-    description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
+    description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with usually no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
-    description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
+    description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with usually no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
@@ -31,26 +31,26 @@ const c: ComboContent = {
   h1: "Termite Control in Birmingham —",
   h1Accent: "Protect the House, Not Just Treat It.",
   intro: [
-    "Birmingham is hard on houses when it comes to termites: a city of pre-1980 homes standing on moist red clay, in a climate that never gets cold enough to slow a colony down. Eastern subterranean termites stay active here most of the year, and standard homeowner's insurance policies generally exclude termite damage.",
-    "The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Today, EnviroCare serves Birmingham from its 16th Ave S office as a Sentricon® Certified Specialist, with up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement.",
+    "Birmingham has a lot of older homes, and central Alabama's warm, humid climate lets Eastern subterranean termites stay active most of the year. Standard homeowner's insurance policies generally exclude termite damage.",
+    "The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. Today, EnviroCare serves Birmingham from its 16th Ave S office as a Sentricon® Certified Specialist, with up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.",
   ],
   anglesHeading: "Why Birmingham homes are termite targets",
   localAngles: [
     {
-      title: "Pre-1980 housing stock",
-      body: "Highland Park, Crestwood, Forest Park, Homewood, and most Over-the-Mountain neighborhoods are full of homes with original foundations, vented crawlspaces, and decades of soil contact. That's exactly the access subterranean termites hunt for.",
+      title: "Older housing stock",
+      body: "Many older Birmingham-area homes have original foundations, vented crawlspaces, and decades of soil contact, the kind of access subterranean termites look for. The free inspection confirms what your house actually has.",
     },
     {
-      title: "Red clay that holds moisture",
-      body: "Jefferson County's clay soil stays damp against foundations year-round — termites travel through moisture, and Birmingham's soil gives them a highway. Sentricon® stations intercept them in that soil before they reach wood.",
+      title: "Clay soil and moisture",
+      body: "Clay soil can hold moisture against a foundation, and subterranean termites travel through moist soil. Sentricon® stations sit in that soil around the house, where foraging termites can find the bait.",
     },
     {
-      title: "No drilling in historic masonry",
-      body: "Liquid treatments drill holes every 12 inches through slabs, patios, and driveways. Sentricon® bait stations go in the ground around the perimeter — nothing drilled, no tank trucks, no scarred brick on a 1920s foundation.",
+      title: "Usually no drilling in historic masonry",
+      body: "Liquid treatments can require drilling through slabs, patios, and driveways where soil access is limited. Sentricon® bait stations go in the ground around the perimeter, usually with no drilling and no tank trucks, which matters on original brick and older foundations.",
     },
     {
       title: "Colony elimination, not a chemical moat",
-      body: "Bait gets carried back to the colony and ends it — including the queen. A liquid barrier just redirects foragers until it degrades in 5–7 years.",
+      body: "Foraging termites carry the bait back and share it, which is designed to affect the colony itself, including the queen. A liquid treatment works differently, treating the soil around or beneath the structure.",
     },
   ],
   price: {
@@ -72,19 +72,19 @@ const c: ComboContent = {
     },
     {
       q: "What does the $1M coverage actually mean?",
-      a: "If subterranean termites damage your home while you're on the Sentricon® Always Active™ program and we've maintained it, EnviroCare covers repairs up to $1,000,000. It's that coverage, subject to the terms of the agreement, not a vague warranty.",
+      a: "If subterranean termites damage your home while you're on the Sentricon® Always Active™ program and we've maintained it, EnviroCare covers repairs: up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.",
     },
     {
       q: "Is Sentricon® better than a liquid treatment for older homes?",
-      a: "For Birmingham's housing stock, almost always. Liquid requires drilling through original slabs and masonry and retreating every 5–7 years. Sentricon® stations install in the soil with zero drilling and eliminate the colony itself.",
+      a: "For many older homes, yes. Liquid treatment can require drilling through slabs and masonry where soil access is limited. Sentricon® stations install in the soil, usually with no drilling, and are designed to affect the colony itself. The inspection shows what your house needs.",
     },
     {
       q: "I'm buying or selling a home — can you handle the termite letter?",
-      a: "Yes — we issue the official Alabama Wood Infestation Report (the WDO letter) used in real-estate closings. WDO letters start as low as $125; the office confirms the exact fee when you schedule.",
+      a: "Yes — we issue the official Alabama Wood Infestation Report (the WDO letter) used in real-estate closings. WDO letters are a separately quoted, paid service, as low as $125. The office confirms the exact fee when you schedule.",
     },
     {
       q: "How much does termite treatment cost in Birmingham?",
-      a: "Termite work is never priced over the phone. The price depends on the house: the length of the foundation, slab or crawlspace construction, whether termites are active now, and moisture conditions. After the free inspection you get the price in writing before any work starts.",
+      a: "Alabama requires an inspection before termite work can be priced, so termite work is never priced over the phone. The price depends on the house: the length of the foundation, slab or crawlspace construction, whether termites are active now, and moisture conditions. After the free inspection you get the price in writing before any work starts.",
     },
     {
       q: "Do you do termite control in Hoover, Homewood, Mountain Brook and Vestavia Hills?",
@@ -120,7 +120,7 @@ const c: ComboContent = {
       heading: "Termite bonds in Birmingham",
       paras: [
         "In Alabama, \"termite bond\" is the everyday name for a termite protection agreement: the company inspects on a schedule, treats as needed, and the agreement renews each year. Buyers and lenders often ask whether a house has a bond, which is why a bond is commonly transferred when a house is sold.",
-        "EnviroCare's Sentricon® protection agreements include ongoing station service and up to $1,000,000 in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement. What a bond does and does not cover is explained in our termite bond guide.",
+        "EnviroCare's Sentricon® protection agreements include ongoing station service and up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement. What a bond does and does not cover is explained in our termite bond guide.",
       ],
     },
   ],
