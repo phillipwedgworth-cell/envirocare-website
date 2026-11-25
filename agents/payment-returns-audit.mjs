@@ -67,7 +67,8 @@ async function sb(path, init = {}) {
     headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}`, "Content-Type": "application/json", ...(init.headers || {}) },
   });
   if (!res.ok) throw new Error(`Supabase ${path.split("?")[0]} ${res.status}: ${(await res.text()).slice(0, 200)}`);
-  return res.status === 204 ? null : res.json();
+  const body = await res.text();
+  return body ? JSON.parse(body) : null;
 }
 
 async function checkOne(r) {
