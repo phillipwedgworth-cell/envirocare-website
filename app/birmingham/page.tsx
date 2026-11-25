@@ -177,7 +177,7 @@ const jsonLd = {
           name: "Do you treat termites in older Birmingham homes without drilling?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free termite inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes.",
+            text: "Yes — that's what Sentricon® Always Active™ is designed for. In-ground bait stations around the perimeter protect the structure, usually without drilling into original brick, stone, masonry, or finished foundations — useful for the older homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. It is priced after a free termite inspection. Qualifying homes may receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement.",
           },
         },
         {
@@ -185,7 +185,7 @@ const jsonLd = {
           name: "Which Birmingham suburbs do you serve?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Birmingham, with the Alabaster office at 2025 Butler Road covering south Shelby County.",
+            text: "The Birmingham office at 2120 16th Ave S, (205) 991-2882, serves Birmingham and its assigned Jefferson County territory, including Mountain Brook, Vestavia Hills, Homewood, Hoover, Trussville and nearby communities. Shelby County — Alabaster, Pelham, Helena, Chelsea, Calera, Greystone and Mt Laurel — is served from our Alabaster office at 2025 Butler Rd, (205) 940-6360. Give us your street address to confirm the right team.",
           },
         },
         {
@@ -210,6 +210,22 @@ const jsonLd = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can you treat an older home that has had previous termite treatment?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We assess the current condition of the structure and any existing treatment records during the free termite inspection. New customers are offered Sentricon®. Existing liquid-program customers can contact EnviroCare about renewals and retreatments under their current program. Review existing coverage before canceling or changing a contract — a home's age alone does not show whether earlier protection is still active.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What should I do before renovating an older Birmingham home?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Before opening walls, adding a porch, replacing flooring or changing landscaping, tell your termite provider what is planned. Keep treatment records, photograph suspicious pest evidence, and confirm whether an addition is included in the current agreement or needs an inspection or station adjustment. For structural repairs or suspected decay, involve the appropriate building professional as well as pest identification.",
           },
         },
       ],
@@ -272,12 +288,12 @@ export default function BirminghamPage() {
               The six pest patterns we see most across the Birmingham metro — and how each program handles them.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.1rem" }}>
-              <Card icon="termite" color="#C77A00" title="Termites in historic Birmingham homes" body="Mountain Brook, Forest Park, Highland Park, Five Points South — the older the home, the more vulnerable the foundation. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, no drilling into original brick or masonry. Up to $1M in EnviroCare-backed damage coverage on qualifying homes, subject to the terms of the agreement." />
+              <Card icon="termite" color="#C77A00" title="Termites in historic Birmingham homes" body="Mountain Brook, Forest Park, Highland Park, Five Points South — older homes often have crawlspaces, additions and decades of repairs that deserve a careful inspection, though age alone does not show whether termites are present. Sentricon® Always Active™ uses in-ground bait stations around the perimeter, usually no drilling into original brick or masonry. Up to $1M in EnviroCare damage repair coverage on qualifying homes, subject to the terms of the agreement." />
               <Card icon="ant" color="#0E8E40" title="Carpenter ants &amp; sugar ants" body="Older homes in Crestline, English Village, and Hollywood see seasonal carpenter ant invasions tracing moisture pathways. Bi-monthly perimeter service ($35/mo) covers the entire ant family — carpenter, sugar, odorous house ants, pavement ants — plus 30+ other Alabama pests." />
               <Card icon="mosquito" color="#0E7490" title="Mosquitoes along the Cahaba" body="Properties anywhere near the Cahaba River, Patton Creek, or Shades Creek see consistent mosquito pressure March–October. 30-day yard barrier at $45/month, or the Mosquito + Tick plan at $65/month which adds tick coverage and chiggers." />
               <Card icon="spider" color="#3F6184" title="Brown recluse in garages &amp; basements" body="Older Birmingham housing stock — particularly Forest Park, Highland Avenue, and the southside — harbors brown recluse in garages, storage areas, and undisturbed crawlspaces. Our interior/perimeter program targets cracks, voids, and the dark zones recluses actually nest in." />
               <Card icon="tick" color="#9A5B2E" title="Ticks on Red Mountain &amp; Shades Mountain" body="Mountain Brook, Vestavia, and Chelsea homes backing up to the wooded ridges carry Lone Star and American dog ticks. The Mosquito + Tick plan bundles mosquito + tick + chigger coverage — the actual biting trio you deal with from May through October." />
-              <Card icon="fireant" color="#DC4A1A" title="Fire ants in new construction &amp; lawns" body="Subdivisions across the metro — particularly Greystone, Mt Laurel, Lake Wilborn, and the newer Hoover sections — sit on graded clay that fire ants colonize aggressively. Whole-yard fire ant treatment is a separate service at $150 minimum, priced by yard size." />
+              <Card icon="fireant" color="#DC4A1A" title="Fire ants in new construction &amp; lawns" body="Subdivisions across the metro — particularly Greystone, Mt Laurel, Lake Wilborn, and the newer Hoover sections — sit on graded clay that fire ants colonize aggressively. Whole-yard fire ant treatment is a separate service: $150 covers most yards, larger properties are quoted by size, and it carries a one-year warranty." />
             </div>
           </div>
         </section>
@@ -393,12 +409,14 @@ export default function BirminghamPage() {
               &mdash; including the cases where we tell you to call someone else.
             </p>
             <Faq q="How much does pest control cost in Birmingham?" a="EnviroCare's bi-monthly perimeter program in Birmingham is $35/month on ACH, or $70 per bi-monthly visit. That covers 30+ common pests — ants, roaches, spiders, silverfish, crickets — and includes free re-services between scheduled visits. Monthly pricing uses a 12-month ACH billing agreement; per-visit terms are confirmed in writing before service starts." />
-            <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare is the Wedgworth family's Birmingham-area exterminator, now in our fourth generation. The family has been in Alabama pest control since 1958. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), with our Birmingham office at 2120 16th Ave S and our main office in Alabaster. We're not the cheapest in town and we're not trying to be — we're the family that's been doing it longest." />
-            <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's exactly what Sentricon® Always Active™ is for. In-ground bait stations around the perimeter protect the structure without drilling into original brick, stone, masonry, or finished foundations. Critical for the historic homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. priced after a free termite inspection, with up to $1M EnviroCare-backed damage coverage on qualifying homes." />
-            <Faq q="Which Birmingham suburbs do you serve?" a="All of them. Mountain Brook, Vestavia Hills, Homewood, Hoover, Alabaster, Pelham, Helena, Chelsea, Trussville, Greystone, Mt Laurel, Calera, and the city of Birmingham itself. Our Birmingham office is at 2120 16th Ave S, Birmingham, with the Alabaster office at 2025 Butler Road covering south Shelby County." />
+            <Faq q="What's the best exterminator in Birmingham AL?" a="EnviroCare is the Wedgworth family's Birmingham-area exterminator, now in our fourth generation. The family has been in Alabama pest control since 1958. We're a Sentricon® Certified Specialist, locally owned (not a franchise or national chain), with our Birmingham office at 2120 16th Ave S and our main office in Alabaster. We explain proposed service, scheduling and agreement terms before work begins." />
+            <Faq q="Do you treat termites in older Birmingham homes without drilling?" a="Yes — that's what Sentricon® Always Active™ is designed for. In-ground bait stations around the perimeter protect the structure, usually without drilling into original brick, stone, masonry, or finished foundations — useful for the older homes in Mountain Brook, Crestline, English Village, and the Highland Avenue corridor. It is priced after a free termite inspection. Qualifying homes may receive up to $1,000,000 in termite damage repair coverage provided by EnviroCare, subject to the terms of the agreement." />
+            <Faq q="Which Birmingham suburbs do you serve?" a="The Birmingham office at 2120 16th Ave S, (205) 991-2882, serves Birmingham and its assigned Jefferson County territory, including Mountain Brook, Vestavia Hills, Homewood, Hoover, Trussville and nearby communities. Shelby County — Alabaster, Pelham, Helena, Chelsea, Calera, Greystone and Mt Laurel — is served from our Alabaster office at 2025 Butler Rd, (205) 940-6360. Give us your street address to confirm the right team." />
             <Faq q="When should I treat for mosquitoes in Birmingham?" a="Mosquito season runs March through October in Birmingham. We apply the 30-day yard barrier monthly across those 8 months. $45 per month for mosquito only, or $65 per month for the Mosquito + Tick plan that adds tick coverage (worth it on any wooded Mountain Brook, Vestavia, or Chelsea property)." />
             <Faq q="What precautions do you take around family and pets?" a="We use only EPA-registered products and apply them strictly according to label directions. Your technician will advise the appropriate re-entry timing for treated areas once applications are dry." />
             <Faq q="Is there a long-term contract?" a="There are two ways to pay, and the terms of each are confirmed in writing before service starts. Monthly pricing uses a 12-month billing agreement, billed by ACH auto-draft in equal, averaged monthly payments." />
+            <Faq q="Can you treat an older home that has had previous termite treatment?" a="Yes. We assess the current condition of the structure and any existing treatment records during the free termite inspection. New customers are offered Sentricon®. Existing liquid-program customers can contact EnviroCare about renewals and retreatments under their current program. Review existing coverage before canceling or changing a contract — a home's age alone does not show whether earlier protection is still active." />
+            <Faq q="What should I do before renovating an older Birmingham home?" a="Before opening walls, adding a porch, replacing flooring or changing landscaping, tell your termite provider what is planned. Keep treatment records, photograph suspicious pest evidence, and confirm whether an addition is included in the current agreement or needs an inspection or station adjustment. For structural repairs or suspected decay, involve the appropriate building professional as well as pest identification." />
           </div>
         </section>
 

@@ -188,9 +188,8 @@ export default function SentriconProtection() {
                   {[
                     { feature: "Eliminates entire colony (including queen)", sentricon: "Yes", sStatus: "yes", liquid: "Depends on the product used", lStatus: "warn" },
                     { feature: "Requires trenching or drilling", sentricon: "Usually no drilling", sStatus: "yes", liquid: "Usually trenching; drilling where soil access is limited", lStatus: "warn" },
-                    { feature: "Always Active™ bait in the ground", sentricon: "Always active", sStatus: "yes", liquid: "Degrades over time", lStatus: "no" },
+                    { feature: "Always Active™ bait in the ground", sentricon: "Always active", sStatus: "yes", liquid: "Residual set by product label", lStatus: "warn" },
                     { feature: "Annual monitoring included", sentricon: "Yes", sStatus: "yes", liquid: "Varies by company", lStatus: "warn" },
-                    { feature: "Used to protect the White House", sentricon: "Yes", sStatus: "yes", liquid: "No", lStatus: "no" },
                   ].map((row, i) => {
                     const renderStatus = (status: string, text: string, isSentricon: boolean) => {
                       const Icon = status === "yes" ? Check : status === "no" ? X : TriangleAlert;
@@ -341,7 +340,7 @@ export default function SentriconProtection() {
               },
               {
                 q: "How does the Sentricon system compare to traditional termite control?",
-                a: "Traditional termite control means trenching and injecting liquid around the foundation — a chemical barrier in the soil that degrades over time. The Sentricon system uses in-ground bait stations termites actively prefer over wood, eliminating the colony itself. It's the same reason many customers pair it with regular pest control: protection that's maintained, not re-applied."
+                a: "Liquid termite control treats the soil around or beneath the foundation, usually by trenching and sometimes by drilling where soil access is limited; how long the treated zone lasts depends on the product label and site conditions. The Sentricon system uses in-ground bait stations that foraging termites feed on and share, designed to eliminate the colony, with ongoing station service. Neither method is a promise that damage cannot occur. New EnviroCare customers are offered Sentricon; liquid renewals and retreatments continue for existing liquid customers."
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-xl overflow-hidden">
