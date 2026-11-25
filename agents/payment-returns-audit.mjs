@@ -92,14 +92,23 @@ async function checkOne(r, used) {
 
   // Fee invoices: Administrative invoices dated on/after the return.
   const adminInvs = invs.filter(i => day(i.invoice_date) >= addDays(r.notice_date, -1) && /admin/i.test(i.service_type?.name || ""));
+  // A fee invoice counts for one return only (several returns can share a
+  // customer), and only once its line items are read and name a fee: an
+  // unreadable Administrative invoice is reported, never assumed to be the fee.
   const fees = [];
+  let unverifiedFee = false;
   for (const i of adminInvs) {
-    let names = [];
+    if (used.has(`inv:${i.id}`)) continue;
+    let names;
     try {
       const d = await fs(`/invoices/${i.id}`);
       names = (d.invoice_details || []).map(x => x.service?.name || x.description || "").filter(Boolean);
-    } catch { /* detail fetch is best-effort */ }
-    if (!names.length || names.some(n => FEE_NAMES.test(n))) fees.push({ number: i.invoice_number, total: i.total, balance: i.balance, names });
+    } catch { unverifiedFee = true; continue; }
+    if (names.some(n => FEE_NAMES.test(n))) {
+      used.add(`inv:${i.id}`);
+      fees.push({ number: i.invoice_number, total: i.total, balance: i.balance, names });
+      break; // one fee per return
+    }
   }
   const feeTotal = fees.reduce((s, f) => s + Number(f.total || 0), 0);
   const waivers = pays.filter(p => WAIVE_TYPES.test(p.payment_type || "") && day(p.payment_date) >= addDays(r.notice_date, -1));
@@ -116,7 +125,9 @@ async function checkOne(r, used) {
   if (!reversed) issues.push(partial
     ? `only ${money(reversedAmt)} of ${money(r.amount)} reversed`
     : `payment NOT reversed — Fieldster still shows ${listedInvs.length ? listedInvs.map(i => `${i.invoice_number} balance ${money(i.balance)}`).join(", ") : "it paid"}`);
-  if (!fees.length) issues.push("no Return Check Fee added");
+  if (!fees.length) issues.push(unverifiedFee
+    ? "fee not confirmed — an Administrative invoice exists but its line items could not be read"
+    : "no Return Check Fee added");
   if (feeWaived) issues.push(`fee ${money(feeTotal)} added then credited off (Credit Decrease)`);
   if (wrongFeeName) issues.push(`fee posted as "${fees.flatMap(f => f.names).join(", ")}" instead of the Return Check Fee service`);
 
@@ -179,7 +190,10 @@ async function main() {
     try { checks.push(await checkOne(r, used)); }
     catch (e) {
       errors++;
-      checks.push({ dispute_id: r.dispute_id, checked_at: new Date().toISOString(), status: "error", detail: { issues: [`check failed: ${e.message}`] } });
+      // Same keys as a normal row: PostgREST bulk upserts need uniform objects.
+      checks.push({ dispute_id: r.dispute_id, checked_at: new Date().toISOString(), status: "error",
+        reversed: null, fee_added: null, fee_waived: null, open_balance: null,
+        detail: { issues: [`check failed: ${e.message}`] } });
     }
   }
   const counts = checks.reduce((m, c) => (m[c.status] = (m[c.status] || 0) + 1, m), {});
