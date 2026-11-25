@@ -35,7 +35,9 @@
 import { writeFile, mkdir, readFile } from "node:fs/promises";
 
 const NW = "https://app.neuronwriter.com/neuron-api/0.5/writer";
-const BASE = process.env.AUDIT_BASE || "https://envirocare-web.vercel.app";
+// Live host only (AGENTS.md): envirocare-web.vercel.app 308s to www, so auditing it
+// measures a redirect. Default changed 2026-11-25 (Sunday audit 11-15 watch item W1).
+const BASE = process.env.AUDIT_BASE || "https://www.envirocarellc.com";
 const OUT = "./audit-results";
 
 let PROJECT_ID = process.env.NW_PROJECT_ID || "";
