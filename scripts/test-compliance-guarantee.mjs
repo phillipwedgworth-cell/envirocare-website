@@ -194,7 +194,22 @@ const cases = [
   ["the same tech, the same four-pillar program (pest, termite, mosquito, tick) on every visit", true, "same tech ... every visit (/over-the-mountain)"],
   ["real people, same technician on your route", false, "bare same technician stays allowed (rule comment)"],
   ["sub: `$${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular})`", false, "anchored template must pass"],
-  ["the inspection is free for existing customers once a year and $75 otherwise", false, "WDO inspection fee is a different product (S6a)"],
+  // The $75 rule must not reach a WDO fee (S6a). The case that used to prove this was
+  // "the inspection is free for existing customers once a year and $75 otherwise" -- the
+  // exact claim Phillip retired Nov 17 2026, so it now lives in the must-FLAG block below.
+  ["a WDO letter is $75 when the old fee schedule applied", false, "$75 rule does not reach a WDO fee (S6a)"],
+  // --- free yearly WDO letter (2026-11-25, sweep 11-23 C1): must FLAG. First three were live at 9bb061f ---
+  ["One free per year on active accounts; $125 standalone fee otherwise.", true, "/faq (FaqPage.tsx:120)"],
+  ["'1 free per year for active customers',", true, "data/services.ts:484 WDO feature bullet"],
+  ["EnviroCare writes WDO letters across all four markets; the inspection is free for existing customers once a year and $75 otherwise.", true, "blog-posts.ts:1584 selling-house checklist"],
+  ["Annual WDO letter free for plan members", true, "reverse order, letter word"],
+  ["Your yearly termite letter is complimentary", true, "complimentary + yearly + letter"],
+  // --- free yearly WDO letter: must NOT flag ---
+  ["The termite inspection that prices your Sentricon system is free. A real-estate WDO letter is a separate, paid service, as low as $125.", false, "the approved wording (services.ts:196), two sentences"],
+  ["bullets={[\"Free full-home inspection\", \"Annual inspection included\", \"Crawlspace + pier coverage\"]}", false, "CityPage termite plan bullets: no WDO or customer word"],
+  ["Active customers do not get a free yearly WDO letter.", false, "the ruling itself, negated"],
+  ["The free termite inspection is not a WDO letter.", false, "llms-full.txt:70, no yearly word"],
+  ["Sentricon stations are checked every year at no extra visit fee", false, "no free-word, no letter"],
 ];
 
 let pass = 0;
