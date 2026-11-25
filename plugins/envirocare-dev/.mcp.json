@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "neuronarrator": {
+      "type": "http",
+      "url": "https://app.neuronwriter.com/mcp/http"
+    }
+  }
+}

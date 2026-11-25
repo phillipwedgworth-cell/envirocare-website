@@ -106,11 +106,36 @@ const listedScore = (q) =>
   : validScore(q?.score) ? q.score
   : null;
 
+// A query whose editor has NEVER been saved answers get-content with a bare `{}`
+// (HTTP 200, zero keys). Verified 2026-11-25 through the NeuronWriter MCP
+// connector on project 9d0bec3a70f4743c: `d7f3561c4bca777b` (data center pest
+// control construction handover) and `ac950d1dbd568f36` (argentine ants alabama)
+// return `{}` for saved-only and `revision_type: "all"` reads, while the saved
+// editor `fb56d81f6e9ef61e` (carpenter bees alabama) returns content, title,
+// description, created, type, query, keyword, language, engine and project.
+// Before this check every never-saved editor was reported as a provider failure,
+// and the FIRST one halted the whole FILL run ("202 unique editors not visited",
+// Nov 23-24 runs). A bare `{}` is still ambiguous on its own, so it counts as a
+// verified empty editor ONLY when (1) the autosave-inclusive read is also a bare
+// `{}` and (2) get-query (quota-free) says the analysis is READY and belongs to
+// this project. Anything else stays an unknown read and fails closed.
+const isBareEmpty = (o) => !!o && typeof o === "object" && !Array.isArray(o) && Object.keys(o).length === 0;
+async function isNeverSavedEditor(id) {
+  const all = await nw("get-content", { query: id, revision_type: "all" });
+  if (!isBareEmpty(all)) return false;
+  const q = await nw("get-query", { query: id });
+  return String(q?.status || "").toLowerCase() === "ready" && String(q?.project || "") === PROJECT;
+}
+
 async function readScore(id, strict = false) {
   // Surface failures instead of swallowing them — a silent catch here is why a
   // broken call would show up as "-- (empty)" in the score table with no clue why.
   try {
     const c = await nw("get-content", { query: id });
+    if (isBareEmpty(c)) {
+      if (await isNeverSavedEditor(id)) return null; // verified: no saved or autosaved revision
+      throw new Error("get-content returned no valid editor content; editor unchanged");
+    }
     // The observed response has a string `content` field, including "" for an
     // empty editor. Missing/non-string content is an unknown read, not an empty
     // editor; an HTTP-200 error or changed response shape must fail closed.

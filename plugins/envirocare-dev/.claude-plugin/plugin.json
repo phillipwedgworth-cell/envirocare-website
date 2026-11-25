@@ -1,0 +1,7 @@
+{
+  "name": "envirocare-dev",
+  "version": "0.1.0",
+  "description": "EnviroCare dev tools: the NeuroNarrator MCP server (NeuronWriter, OAuth sign-in, no API key in the repo) and skills for working safely with NeuronWriter editors and the Fieldster (Key7) API.",
+  "author": { "name": "EnviroCare, LLC" },
+  "keywords": ["neuronwriter", "neuronarrator", "fieldster", "key7", "envirocare"]
+}

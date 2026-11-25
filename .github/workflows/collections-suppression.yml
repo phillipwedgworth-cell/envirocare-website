@@ -71,3 +71,20 @@ jobs:
           SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
         run: npm run captivated:suppress
+
+      # Read-only contract check of the Fieldster (Key7) endpoints the fleet
+      # reads (customers, open invoices, appointments, agreements, stored-card
+      # route status). Runs even if the sync above failed, so a rejected key or a
+      # renamed field shows up here in one place instead of breaking the
+      # collections rebuild silently, as the 2026-10-30 customer_id change did.
+      # It records statuses and missing field NAMES only, never customer data.
+      - name: Fieldster API health check (read-only)
+        if: always()
+        env:
+          FIELDSTER_API_TOKEN:       ${{ secrets.FIELDSTER_API_TOKEN || secrets.FIELDSTER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:              ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY:      ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+        run: |
+          node --no-warnings scripts/test-fieldster-client.mjs
+          npm run fieldster:health
