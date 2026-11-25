@@ -59,7 +59,7 @@ const c: ComboContent = {
     sub: "on ACH autopay · or $70 per visit",
     bullets: [
       "30+ Alabama pests covered",
-      "Fire ant treatment $150 for most yards, one-year warranty",
+      "Fire ant treatment $150 minimum, one-year warranty",
       "Interior service whenever needed",
       "Free re-services",
       "Equal monthly ACH payments (12-month agreement)",

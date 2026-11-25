@@ -337,7 +337,7 @@ export const SERVICES: Service[] = [
     category: 'specialty',
     serviceArt: 'fireant',
     metaTitle: 'Fire Ant Control in Alabama | Colony Elimination | EnviroCare',
-    metaDescription: 'Fire ant treatment that reaches the queen, not just the mound. $150 for most yards, one-year warranty. Open to all. Birmingham & across Alabama. (205) 940-6360.',
+    metaDescription: 'Fire ant treatment that reaches the queen, not just the mound. $150 minimum, one-year warranty. Open to all. Birmingham & across Alabama. (205) 940-6360.',
     heroEyebrow: 'Critical For Lake Homes',
     heroTagline: 'Fire Ant Control',
     heroSubhead: 'Yard-wide elimination, not just spot mound treatment. Built for Alabama families who actually use their yards — kids, dogs, barefoot summer.',
