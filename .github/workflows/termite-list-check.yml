@@ -1,0 +1,30 @@
+name: Termite list check (on demand)
+
+# Checks every account on a review list in Supabase `termite_list_review`
+# against Fieldster (read-only). No schedule: run it from the Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      list_name:
+        description: "list_name in termite_list_review"
+        default: "rachel-2026-11-19"
+  push:
+    branches: [claude/termite-list-check]
+    paths: [agents/termite-list-check.mjs, .github/workflows/termite-list-check.yml]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Check list against Fieldster
+        env:
+          FIELDSTER_API_TOKEN:       ${{ secrets.FIELDSTER_API_TOKEN || secrets.FIELDSTER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          LIST_NAME:                 ${{ inputs.list_name || 'rachel-2026-11-19' }}
+        run: node agents/termite-list-check.mjs
