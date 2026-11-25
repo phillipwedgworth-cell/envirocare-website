@@ -48,6 +48,9 @@ const FEE_NAMES = /return(ed)? check|nsf|chargeback|dispute|late fee/i;
 const money = n => `$${Number(n || 0).toFixed(2)}`;
 const day = s => (s || "").slice(0, 10);
 const addDays = (iso, n) => { const d = new Date(iso + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+// Adjustment rows (Debit Increase, Credit Decrease) can carry their value in
+// amount_applied rather than payment_total, so read whichever is set.
+const amt = p => Math.max(Math.abs(Number(p.payment_total || 0)), Math.abs(Number(p.amount_applied || 0)), Math.abs(Number(p.coa_amount || 0)));
 const near = (a, b) => Math.abs(Number(a) - Number(b)) < 0.02;
 
 async function fs(path, params = {}) {
@@ -71,13 +74,19 @@ async function sb(path, init = {}) {
   return body ? JSON.parse(body) : null;
 }
 
-async function checkOne(r) {
+async function checkOne(r, used) {
   const start = addDays(r.notice_date, -3);
   const pays = await fs("/payments", { customer_id: r.fieldster_customer_id, page_size: 500, payment_date_start: start });
   const invs = await fs("/invoices", { customer_id: r.fieldster_customer_id, page_size: 500, invoice_date_start: addDays(r.notice_date, -400) });
 
-  const reversals = pays.filter(p => REVERSAL_TYPES.test(p.payment_type || "") && day(p.payment_date) >= addDays(r.notice_date, -1));
-  const reversedAmt = reversals.reduce((s, p) => s + Math.abs(Number(p.payment_total || 0)), 0);
+  // A customer can have several returns; each reversal row may only count once.
+  const reversals = [];
+  let reversedAmt = 0;
+  for (const p of pays) {
+    if (reversedAmt + 0.01 >= Number(r.amount || 0)) break;
+    if (!REVERSAL_TYPES.test(p.payment_type || "") || day(p.payment_date) < addDays(r.notice_date, -1) || used.has(p.id)) continue;
+    used.add(p.id); reversals.push(p); reversedAmt += amt(p);
+  }
   const reversed = reversedAmt + 0.01 >= Number(r.amount || 0);
   const partial = !reversed && reversedAmt > 0;
 
@@ -94,10 +103,10 @@ async function checkOne(r) {
   }
   const feeTotal = fees.reduce((s, f) => s + Number(f.total || 0), 0);
   const waivers = pays.filter(p => WAIVE_TYPES.test(p.payment_type || "") && day(p.payment_date) >= addDays(r.notice_date, -1));
-  const feeWaived = fees.length > 0 && waivers.some(w => fees.some(f => near(w.payment_total, f.total)) || near(w.payment_total, feeTotal));
+  const feeWaived = fees.length > 0 && waivers.some(w => fees.some(f => near(amt(w), f.total)) || near(amt(w), feeTotal));
   const wrongFeeName = fees.some(f => f.names.length && !f.names.some(n => /return(ed)? check/i.test(n)));
-  const repaid = pays.filter(p => MONEY_IN_TYPES.test(p.payment_type || "") && day(p.payment_date) > r.notice_date)
-    .reduce((s, p) => s + Number(p.payment_total || 0), 0);
+  const repaid = pays.filter(p => MONEY_IN_TYPES.test(p.payment_type || "") && day(p.payment_date) >= r.notice_date)
+    .reduce((s, p) => s + amt(p), 0);
 
   const listed = (r.invoice_numbers || "").split(",").map(s => s.trim()).filter(Boolean);
   const listedInvs = invs.filter(i => listed.includes(i.invoice_number));
@@ -111,7 +120,7 @@ async function checkOne(r) {
   if (feeWaived) issues.push(`fee ${money(feeTotal)} added then credited off (Credit Decrease)`);
   if (wrongFeeName) issues.push(`fee posted as "${fees.flatMap(f => f.names).join(", ")}" instead of the Return Check Fee service`);
 
-  const status = !reversed ? "not_reversed" : !fees.length ? "no_fee" : feeWaived ? "fee_waived" : "ok";
+  const status = !reversed ? "not_reversed" : !fees.length ? "no_fee" : feeWaived ? "fee_waived" : issues.length ? "fee_issue" : "ok";
   return {
     dispute_id: r.dispute_id, checked_at: new Date().toISOString(), status, reversed,
     fee_added: fees.length ? feeTotal : null, fee_waived: feeWaived, open_balance: Math.round(openBalance * 100) / 100,
@@ -164,8 +173,10 @@ async function main() {
 
   const checks = [];
   let errors = 0;
+  const usedByCustomer = {};
   for (const r of rows) {
-    try { checks.push(await checkOne(r)); }
+    const used = (usedByCustomer[r.fieldster_customer_id] ||= new Set());
+    try { checks.push(await checkOne(r, used)); }
     catch (e) {
       errors++;
       checks.push({ dispute_id: r.dispute_id, checked_at: new Date().toISOString(), status: "error", detail: { issues: [`check failed: ${e.message}`] } });
