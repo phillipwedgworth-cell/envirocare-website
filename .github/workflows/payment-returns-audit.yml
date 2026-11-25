@@ -1,0 +1,26 @@
+name: Payment returns audit
+
+on:
+  push:
+    branches: [claude/payment-returns-audit]
+    paths: [agents/payment-returns-audit.mjs, .github/workflows/payment-returns-audit.yml]
+  workflow_dispatch: {}
+
+concurrency:
+  group: payment-returns-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Probe Fieldster API shape
+        env:
+          FIELDSTER_API_TOKEN: ${{ secrets.FIELDSTER_API_TOKEN || secrets.FIELDSTER_API_KEY }}
+          PROBE_CUSTOMER_IDS: "31390,18309"
+        run: node agents/payment-returns-audit.mjs --probe
