@@ -21,6 +21,13 @@
 //   e9348fff16b95fa  is a MONTHLY 5x5/10mi Birmingham/Hoover/OTM campaign (the
 //                    old entry said 9x9/20mi biweekly). Superseded as Birmingham's
 //                    core by 4ee47a23 from 10-02.
+// API quirks (re-confirmed by the 2026-11-16 and 2026-11-23 sweeps, sweep item K11):
+//   - getLocalFalconCampaignReport with `run` derived from `last_run` returns 400.
+//     Omit `run` to get the latest run.
+//   - Scans live at data.run_data.scans, not data.scans; a fieldmask must read
+//     run_data.scans.*, or it returns field_mask_warnings and no data.
+//   - Campaign NAMES are not evidence of what a campaign measures (K10): read
+//     scans[].location.address / place_id, never the name.
 // The ingest labels rows by the SCAN's place_id first (marketFor), so rows follow
 // the profile actually measured, whichever key produced them.
 export const LOCAL_FALCON_CAMPAIGNS = Object.freeze([
@@ -46,7 +53,9 @@ export const LOCAL_FALCON_CAMPAIGNS = Object.freeze([
     radiusMiles: 10,
     target: 20,
     targetNeedsReview: true,
-    // Not yet run. Until it completes, Alabaster is "pending", never 0%.
+    // Runs biweekly since 2026-10-02 (last run 2026-11-13, SoLV 43.82, per
+    // listLocalFalconCampaignReports 2026-11-25). A run with no data yet still
+    // reads "pending", never 0%. The old "Not yet run" note was stale (X12).
     seriesStart: "2026-10-02",
   }),
   Object.freeze({

@@ -13,9 +13,9 @@ read 2026-09-08); the previous values were assumed, never verified.
 | Market | Campaign key | Grid | Radius | Status | Notes |
 |---|---|---|---|---|---|
 | Huntsville | `a58db3090ac9ab0` | **7x7** | **7 mi** | scheduled | biweekly. Doc claimed 9x9/20mi |
-| Birmingham / Alabaster (Butler Rd) | `4ee47a23fc4793e` | 9x9 | 20 mi | scheduled | biweekly. The only one matching the stated epoch |
+| Birmingham (16th Ave GBP since 2026-10-02) | `4ee47a23fc4793e` | 9x9 | 20 mi | scheduled | biweekly, "Birmingham Core — Biweekly (9x9, 22kw, Birmingham GBP)". Runs before 2026-10-02 measured the Alabaster profile and are not Birmingham data. Re-read 2026-11-18 |
 | Lake Martin / Alex City | `a99dae3fd51a462` | **7x7** | **10 mi** | scheduled | biweekly. Doc claimed 9x9/20mi |
-| Birmingham (16th Ave, Jefferson Co.) | `e9348fff16b95fa` | 9x9 | 20 mi | scheduled | biweekly, created Sep 5 2026, first run Sep 9 — grid unverified until it runs |
+| Birmingham / Hoover / OTM | `e9348fff16b95fa` | **5x5** | **10 mi** | scheduled | **monthly** (last run 2026-11-12, next 2026-12-12, per listLocalFalconCampaignReports 2026-11-25). Not in LOCAL_FALCON_CAMPAIGNS, so no brief reads it (sweep K7) |
 
 **What this means for the numbers you already have.** Because rule 2 below is
 real, the headline SoLV figures are NOT on a common scale and must not be ranked
