@@ -778,10 +778,10 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Is Sentricon Worth It? A Certified Specialist Breaks Down the Cost, Effectiveness, and What Homeowners Should Know',
     excerpt: 'As a Certified Sentricon Specialist who has installed and monitored these systems across Alabama for decades, here\'s the honest answer on cost, effectiveness, and whether the investment makes sense for your home.',
     publishedAt: '2026-09-20',
-    updatedAt: '2026-10-11',
+    updatedAt: '2026-11-25',
     author: 'Kevin Wedgworth',
     category: 'Termites',
-    readMinutes: 8,
+    readMinutes: 9,
     heroEmoji: '🛡️',
     heroImage: {
       src: '/images/blog/envirocare-sentricon-alabama-home.webp',
@@ -819,7 +819,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>Continuing service.</strong> A managed baiting program includes inspection and maintenance duties defined in the service agreement. Ask how often the property will be visited, what is checked and documented, and whether extra visits are available if activity is reported.</p>
 
-<p><strong>When another approach may make sense:</strong> A property with confirmed active termite activity or unusual foundation conditions may need a different or supplemental treatment plan. A qualified inspector should explain the reasons, scope and limitations in writing rather than assuming one product fits every house.</p>
+<p><strong>What EnviroCare offers:</strong> New EnviroCare termite customers are offered Sentricon. Liquid-program renewals and retreatments continue for existing customers already on a liquid program — if that is you, call before canceling or changing systems. A property with confirmed active activity or unusual foundation conditions may still need specific attention, and the inspector should explain the reasons, scope and limitations in writing.</p>
 
 <h2>What Does a Sentricon System Cost?</h2>
 
@@ -828,6 +828,23 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Ask the company to show you four items side by side: <strong>initial installation</strong>, <strong>annual renewal</strong>, <strong>included inspection and maintenance</strong>, and <strong>what happens if termite activity or damage is discovered</strong>. Check whether repair provisions require an initial inspection, approval, continuous service, or other conditions.</p>
 
 <p>For an explanation of costs that can change by property, see our <a href="/blog/termite-treatment-cost-alabama">Alabama termite treatment cost guide</a>. A written inspection recommendation and agreement are more dependable than an online estimate.</p>
+
+<h2>Compare the Cost Over Five Years</h2>
+
+<p>Compare more than the first payment. A five-year total is the initial installation charge plus the renewal charges actually due during those five years, plus any separately agreed fees. Confirm when the first renewal falls due and whether the price can change, and do not count the first year twice if installation includes it.</p>
+
+<table>
+<thead><tr><th>Quote item</th><th>Question to ask</th></tr></thead>
+<tbody>
+<tr><td>Installation</td><td>What structure and perimeter does the initial price cover?</td></tr>
+<tr><td>Renewal and servicing</td><td>When is renewal due, what visits are included, and can the charge change?</td></tr>
+<tr><td>Activity or damage</td><td>What response, retreatment and repair provisions apply?</td></tr>
+<tr><td>Changes to the home</td><td>How do additions, paving, landscaping, a sale or a transfer affect coverage?</td></tr>
+<tr><td>Cancellation or lapse</td><td>What happens to station service and agreement benefits if payments stop?</td></tr>
+</tbody>
+</table>
+
+<p>The <a href="https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/">Alabama Cooperative Extension System</a> explains how bait systems and liquid termiticides differ, and the <a href="https://www.sentricon.com/en-us/faq.html">Sentricon manufacturer FAQ</a> describes the product. Neither sets EnviroCare's prices or agreement terms.</p>
 
 <h2>Questions to Ask Before Signing a Sentricon Agreement</h2>
 
@@ -846,7 +863,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>The stations themselves are durable and designed for long-term use in the ground. The bait inside — Sentricon Always Active — remains effective and attractive to termites for extended periods, but your Certified Sentricon Specialist will inspect and replace bait as part of your regular service visits.</p>
 
-<p>This ongoing upkeep is actually one of Sentricon's strengths. Unlike a liquid treatment that gradually loses effectiveness with no visible indicator, the bait station system gives your technician a way to directly monitor for termite activity at every visit. If foraging termites are feeding on a station, you know exactly where they are and that the system is actively working to eliminate the entire colony.</p>
+<p>This ongoing upkeep is one of Sentricon's strengths: the stations give your technician a direct way to check for termite activity at each service visit. If foraging termites are feeding on a station, the technician can see where and document it, and the system is designed to keep working on that colony. Do not move or remove stations during landscaping without consulting the service team.</p>
 
 <h2>DIY Termite Bait Stations vs. Professional Sentricon Installation</h2>
 
@@ -891,6 +908,12 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p><strong>What does a <a href="/blog/termite-bond-alabama-explained">termite bond</a> cover with Sentricon?</strong></p>
 <p>Termite service agreements differ. EnviroCare describes qualifying protection as <strong>up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval and subject to the terms of the agreement</strong>. The written agreement controls the exact service and any repair obligations; coverage is provided by EnviroCare, not automatically by the Sentricon product.</p>
+
+<p><strong>Is a free termite inspection the same as a closing WDO letter?</strong></p>
+<p>No. EnviroCare offers a free on-site inspection to prepare a termite protection proposal. A wood infestation (WDO) report required for a sale or refinance is a separately quoted, paid service. Tell the office which one you need and your closing deadline.</p>
+
+<p><strong>Is Sentricon the only termite option EnviroCare offers?</strong></p>
+<p>For new customers, yes — new termite customers are offered Sentricon Always Active. EnviroCare continues liquid-program renewals and retreatments for existing liquid customers. The inspection and the current agreement determine the applicable scope.</p>
 
 <p>To discuss a termite inspection and your agreement options, see <a href="/birmingham-termite-control">termite service in Birmingham</a>, <a href="/huntsville-termite-control">termite service in Huntsville</a>, or the <a href="/services/termite-control">termite protection overview</a>.</p>
 <ul>
@@ -2978,8 +3001,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Termites',
     readMinutes: 8,
     heroEmoji: '📄',
-    metaTitle: 'Termite Bond in Alabama: What It Covers & When It Lapses',
-    metaDescription: 'Alabama termite bonds explained — retreatment vs. repair coverage, how bonds lapse, what happens when a home sells, costs, benefits, and how Sentricon compares.',
+    metaTitle: 'Termite Bonds in Alabama: What They Cover & Cost',
+    metaDescription: 'What a termite bond in Alabama covers: retreatment vs. repair, renewal, transfer when you sell, what keeping one active costs, and how bonds lapse.',
     body: `
 <p class="lede">If your home has ever been treated for termites, somewhere in a drawer there is probably a termite bond — and if you are like most Alabama homeowners, you have not read it since the day you signed it. That is worth fixing this week, not the week you find mud tubes. A termite bond that has lapsed, or that covers less than you think it does, is one of the more costly surprises we see in homes from <a href="/hoover">Hoover</a> to <a href="/chelsea">Chelsea</a> to <a href="/huntsville">Huntsville</a>.</p>
 
@@ -3470,7 +3493,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <p>EnviroCare Pest Services is a Sentricon® Certified Specialist and a fourth-generation Alabama family business. Local service. Since 1958. We recommend a program after inspecting the property and explaining the treatment, monitoring and agreement terms. The recommendation should reflect the home's conditions and the work needed.</p>
 
-<p>If you are trying to decide between Sentricon and liquid termite treatment, start with a free termite inspection. We will tell you what we find, what we recommend, and why — and help you make an informed decision about the termite protection that fits your home and your budget.</p>
+<p>If you are comparing Sentricon and liquid termite treatment, start with a free termite inspection. New EnviroCare termite customers are offered the Sentricon system; liquid service continues only for existing liquid-program customers. We will tell you what we find, what we recommend, and why.</p>
 
 <p>Call the office nearest you:</p>
 <ul>

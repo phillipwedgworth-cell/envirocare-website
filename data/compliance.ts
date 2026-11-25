@@ -69,6 +69,13 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: 'same[\\s-]?day',        notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   { pattern: 'there today',           notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'availability claim', approvedInstead: 'prompt scheduling' },
   { pattern: 'available now',         notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned', reason: 'availability claim', approvedInstead: 'prompt scheduling' },
+  // 24/7 AVAILABILITY, 2026-11-18 (Wednesday open-items run, sweep C6). AGENTS.md section 2
+  // bans "24/7 service" and no rule matched it at all. Matched as a SHAPE: 24/7 within a
+  // short span of a service/availability word, either order. "24/7 Always-active protection"
+  // on /services/sentricon describes the bait system, not a service promise, and is left to
+  // Phillip's ruling; it does not match because "protection" is not an availability word.
+  // NOTE: keep pattern and notIf on ONE line -- see the comment on the WDO rule.
+  { pattern: '\\b24\\s*/\\s*7\\b[^.!?\\n]{0,40}?\\b(service|support|availab\\w*|emergenc\\w*|response|respond|call|answer\\w*|dispatch\\w*|technicians?|team|help|open|on[\\s-]?call)\\b|\\b(service|support|availab\\w*|emergenc\\w*|response|respond|call|answer\\w*|dispatch\\w*|technicians?|team|help|open|on[\\s-]?call)\\b[^.!?\\n]{0,40}?\\b24\\s*/\\s*7\\b', notIf: 'do(es)?\\s+not\\s+(claim|state|promise|offer|market|advertise)|never\\s+(say|claim|promise|write)|banned|no\\s+"?24', reason: 'availability claim (24/7 service)', approvedInstead: 'prompt scheduling during business hours' },
   // CALLBACK-TIME PROMISE, 2026-08-20. The three rules above match availability
   // LITERALS (same-day / there today / available now). None matched a promise stated
   // as a clock, so "We call back within 2 hours" sat live on /contact-us in three
@@ -113,7 +120,7 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // Pest / Pest+Mosquito startup must also render the regular-price anchor.
   { pattern: 'PRICING\\.plans\\.(?:pest|pestMosquito)\\.startup\\s*\\}', notIf: 'initialServiceRegular|150', reason: 'bare $75 initial (template) - Phillip Sep 7 2026: render PRICING.initialServiceRegular next to the startup figure', approvedInstead: '$${PRICING.plans.pest.startup} initial service (50% off the $${PRICING.initialServiceRegular} regular price)' },
   { pattern: '\\$\\s?75\\b[^.$\\n]{0,30}\\b(?:initial|start-?up|set-?up|service\\s+fee|for pest|on pest)|\\b(?:initial|start-?up|set-?up)\\b[^.$\\n]{0,40}\\$\\s?75\\b', notIf: '150', reason: 'bare $75 initial - Phillip Sep 7 2026: the $75 is 50% off the $150 regular price and must carry that anchor', approvedInstead: '$75 initial service (50% off the $150 regular price)' },
-  { pattern: '\\bsame technician\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
+  { pattern: '\\bsame tech(?:nician)?\\b[^.]*\\b(every (time|visit)|always|guaranteed?|each (visit|service)|your (property|home|house))\\b', reason: 'staffing promise', approvedInstead: 'a familiar local team whenever possible' },
   { pattern: 'bundle\\s*&\\s*save',   reason: 'bundle-discount claim', approvedInstead: 'bundle for convenience (one invoice, one tech)' },
   // GUARANTEE — the word is banned as a CLAIM, but three uses are legitimate and a
   // bare token match will destroy all three. Match the claim SHAPE, never the word.

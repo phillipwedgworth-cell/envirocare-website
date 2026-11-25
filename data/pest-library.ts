@@ -79,12 +79,14 @@ export const PESTS: PestEntry[] = [
     ],
     signs: ['Pencil-width mud tubes on foundations or crawlspace piers', 'Discarded wings near windows & doors after a swarm', 'Hollow-sounding or blistered wood', 'Spring swarms of dark, equal-winged insects'],
     seasonal: 'Swarms typically occur in spring (often after warm rain), but subterranean termites feed year-round in Alabama — protection should not be seasonal.',
-    treatment: 'EnviroCare installs the Sentricon® Always Active™ bait-station system around the structure — no drilling and no tank trucks. Colonies feed on the stations and decline over time, and the system stays active for ongoing monitoring. Eligible homes carry up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Every plan starts with a free termite inspection.',
+    treatment: 'EnviroCare installs the Sentricon® Always Active™ bait-station system in the soil around the structure — usually no drilling and no tank trucks. Colonies feed on the stations and decline over time, and the system stays active for ongoing monitoring. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement. Every plan starts with a free termite inspection.',
     serviceSlug: 'termite-control',
     serviceLabel: 'Termite Control',
     faqs: [
       { q: 'How do I know if I have termites or flying ants?', a: 'Termite swarmers have a straight waist, straight antennae, and four equal-length wings. Flying ants have a pinched waist, bent antennae, and front wings longer than the back. Discarded wings on a sill point to termites.' },
-      { q: 'Does Sentricon® require drilling into my slab?', a: 'No. Sentricon® stations are installed in the soil around the home — no drilling through concrete and no trenching with tank trucks.' },
+      { q: 'What does each termite sign look like?', a: 'Workers: pale, soft, about 1/8 inch, found in mud tubes or damaged wood, rarely seen in the open. Swarmers: dark, about 3/8 inch, four equal wings that break off easily. Mud tubes: pencil-width dirt tunnels on foundations, piers or crawlspace walls. Damaged wood: sounds hollow or blisters, with dirt packed in the galleries. Carpenter ants leave clean, smooth galleries and sawdust-like frass instead.' },
+      { q: 'Can I identify termites from a photo?', a: 'Sometimes, but not reliably. A photo cannot show how far activity extends or whether it is active, and several insects look alike. If you find mud tubes, swarmers or damaged wood, keep a sample or photo and request a free termite inspection. A WDO letter for a home sale is a separate, paid report.' },
+      { q: 'Does Sentricon® require drilling into my slab?', a: 'Usually not. Sentricon® stations go in the soil around the home, so there is no trenching with tank trucks; where a patio or driveway meets the house, a small core may be needed to place a station.' },
     ],
   },
   {

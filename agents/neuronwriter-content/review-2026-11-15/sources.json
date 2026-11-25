@@ -1,0 +1,175 @@
+{
+  "preparedOn": "2026-11-15",
+  "scope": "References attached to current source and targeted additions; inherited prose is not fully revalidated. A source does not endorse EnviroCare.",
+  "sources": [
+    {
+      "id": "epa-prevention",
+      "title": "EPA: Pest prevention and pesticide use",
+      "url": "https://www.epa.gov/safepestcontrol/dos-and-donts-pest-control",
+      "topics": [
+        "pest",
+        "prepare",
+        "rain",
+        "treatment",
+        "cricket",
+        "fall",
+        "winter"
+      ],
+      "supports": "Address food, water, shelter and entry points; follow product labels."
+    },
+    {
+      "id": "epa-termites",
+      "title": "EPA: Termite identification and control",
+      "url": "https://www.epa.gov/safepestcontrol/termites-how-identify-and-control-them",
+      "topics": [
+        "termite",
+        "sentricon",
+        "green cap"
+      ],
+      "supports": "Identify termite evidence, correct moisture conditions and obtain a professional treatment assessment. This source does not establish EnviroCare prices or repair terms."
+    },
+    {
+      "id": "cdc-mosquito",
+      "title": "CDC: Mosquito control at home",
+      "url": "https://www.cdc.gov/mosquitoes/mosquito-control/mosquito-control-at-home.html",
+      "topics": [
+        "mosquito",
+        "lake house"
+      ],
+      "supports": "Weekly water-container maintenance, screens, community prevention, and distinct label-directed larval/adult controls. Does not establish EnviroCare prices, service season, residual duration or return-visit obligations."
+    },
+    {
+      "id": "cdc-rodents",
+      "title": "CDC: Seal up to prevent rodents",
+      "url": "https://www.cdc.gov/healthy-pets/rodent-control/seal-up.html",
+      "topics": [
+        "rodent",
+        "mice",
+        "mouse",
+        "rat",
+        "fall"
+      ],
+      "supports": "Inspect gaps, seal entry points and manage food sources. Critical building penetrations require the facility team, not improvised residential repair methods."
+    },
+    {
+      "id": "uc-ants",
+      "title": "UC IPM: Ants",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/ants/",
+      "topics": [
+        "ant"
+      ],
+      "supports": "Combine species identification, sanitation, entry-point management and appropriate baiting; surface spraying alone does not prevent new entry."
+    },
+    {
+      "id": "uc-roaches",
+      "title": "UC IPM: Cockroaches",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/cockroaches/",
+      "topics": [
+        "roach",
+        "cockroach",
+        "bug bomb",
+        "fogger"
+      ],
+      "supports": "Identification, sanitation, monitoring and targeted controls work together; distinguish indoor-breeding species from outdoor invaders."
+    },
+    {
+      "id": "uc-spiders",
+      "title": "UC IPM: Spiders",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/spiders/",
+      "topics": [
+        "spider",
+        "dock"
+      ],
+      "supports": "Reduce hiding places, remove webs and address the insects that support spider activity; identification matters."
+    },
+    {
+      "id": "uc-fleas",
+      "title": "UC IPM: Fleas",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/fleas/",
+      "topics": [
+        "flea"
+      ],
+      "supports": "Flea management involves the host and environment; cleaning and coordinated pet care are distinct from structural treatment."
+    },
+    {
+      "id": "aces-fireants",
+      "title": "Alabama Extension: Managing fire ants with baits",
+      "url": "https://www.aces.edu/blog/topics/crop-production/managing-fire-ants-with-baits/",
+      "topics": [
+        "fire ant"
+      ],
+      "supports": "Bait selection, permitted application site and foraging conditions affect results; follow the label and avoid unsupported home remedies."
+    },
+    {
+      "id": "aces-termite-inspection",
+      "title": "Alabama Extension: Termite inspection and seasonal conditions",
+      "url": "https://www.aces.edu/blog/topics/home/schedule-your-termite-annual-inspection-to-avoid-costly-home-damage/",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Warm, humid conditions and rain affect swarming; inspection records document evidence and conducive conditions. Does not establish 2026 weather records, company call volumes or exact statewide swarm dates."
+    },
+    {
+      "id": "aces-termite-range",
+      "title": "Alabama Extension: Termite territory and control",
+      "url": "https://www.aces.edu/blog/topics/home/termite-territory-is-expanding-in-alabama-the-basics-of-termite-control/",
+      "topics": [
+        "termite",
+        "formosan"
+      ],
+      "supports": "Formosan infestations have been reported in central Alabama, beyond the coastal counties. Supports inspection and property-specific treatment selection, not a prediction for a particular town or property."
+    },
+    {
+      "id": "msu-termite-swarms-2026",
+      "title": "Mississippi State Extension: Understanding termite swarms",
+      "url": "https://extension.msstate.edu/news/feature-story/2026/protect-property-heavy-termite-swarms",
+      "topics": [
+        "termite",
+        "swarm"
+      ],
+      "supports": "Formosan swarmers are attracted to lights and can enter through openings; large indoor emergences warrant inspection. Mississippi annual activity reports must not be relabeled as Alabama or EnviroCare observations."
+    },
+    {
+      "id": "aces-termite-treatment-options",
+      "title": "Alabama Extension: Subterranean termite control products",
+      "url": "https://www.aces.edu/blog/topics/home/subterranean-termite-control-products-for-alabamians/",
+      "topics": [
+        "termite",
+        "sentricon"
+      ],
+      "supports": "Repellent/nonrepellent liquid treatments, bait colony effects and noviflumuron, construction-stage and postconstruction access, and bait alternatives for new construction. No universal dose, outcome deadline, superiority or company service commitment."
+    },
+    {
+      "id": "msu-termite-treatment-comparison",
+      "title": "Mississippi State Extension: Protect your house from termites",
+      "url": "https://extension.msstate.edu/publications/protect-your-house-termites",
+      "topics": [
+        "termite",
+        "sentricon"
+      ],
+      "supports": "Bait feeding and ongoing station service, generally slower bait response versus liquid treatment, and possible targeted combinations for active infestations. No Alabama-specific timing, company price, guaranteed result or universal inspection interval."
+    }
+  ],
+  "supplemental": [
+    {
+      "url": "https://19january2025snapshot.epa.gov/greenchemistry/presidential-green-chemistry-challenge-2000-designing-greener-chemicals-award",
+      "scope": "Historical 2000 award only; not an endorsement of EnviroCare or current safety/performance certification.",
+      "verifiedOn": "2026-11-15",
+      "article": "green-caps-in-yard-sentricon"
+    },
+    {
+      "url": "https://fireant.tamu.edu/learn/history-of-the-red-imported-fire-ant/",
+      "scope": "Retained historical imported-fire-ant background; not current local treatment performance.",
+      "verifiedOn": "2026-11-15",
+      "article": "fire-ants-alabama-summer"
+    },
+    {
+      "url": "https://ant-pests.extension.org/information-for-alabama-residents",
+      "scope": "Retained Alabama extension resource link, not an endorsement of EnviroCare.",
+      "verifiedOn": null,
+      "retrievalStatus": "November 15 web retrieval failed with 502; retained existing resource link, not freshly verified. Recheck or replace before publication.",
+      "article": "fire-ants-alabama-summer"
+    }
+  ]
+}

@@ -62,6 +62,14 @@ const CRITERIA: { n: string; h: string; body: string }[] = [
 
 const FAQS: { q: string; a: string }[] = [
   {
+    q: 'Why do directories and AI tools rank Birmingham pest control companies differently?',
+    a: 'Each directory and AI tool draws on different data: its own listings, review sources, sponsored placements and how recently a profile was updated. A high placement on a "best of" list does not show which company fits your house. Confirm the business location and phone number, read recent first-hand reviews for the office that would serve you, and compare written proposals for the same services.',
+  },
+  {
+    q: 'Which EnviroCare office serves Mountain Brook, Hoover, Homewood and Vestavia Hills?',
+    a: `The Birmingham office at ${OFFICES['birmingham-downtown'].address.street}, ${OFFICES['birmingham-downtown'].address.city} serves Birmingham, Mountain Brook, Hoover, Homewood, Vestavia Hills and the rest of Jefferson County. Call ${OFFICES['birmingham-downtown'].phone}. Shelby County communities such as Alabaster, Pelham, Helena and Chelsea are served from the Alabaster office at ${OFFICES.birmingham.address.street}, ${OFFICES.birmingham.phone}.`,
+  },
+  {
     q: 'What is the highest-rated pest control company in Birmingham, AL?',
     a: 'Ratings change, and each office has its own review history. Check current Google reviews for the location serving your home. Read recent comments about the service you need, then compare licensing, written pricing, coverage and follow-up terms alongside those reviews.',
   },
@@ -147,9 +155,9 @@ export default function BestPestControlBirminghamPage() {
             initial and recurring prices, the written agreement, and the local office handling follow-up.
           </p>
           <p style={{ fontSize: 16.5, lineHeight: 1.75, maxWidth: 780, marginTop: 10, color: '#4a5750' }}>
-            EnviroCare Pest Services is the public name of EnviroCare. The Wedgworth family
-            has been doing pest control in Alabama since 1958, starting in Alexander City. The fourth
-            generation is now in the business. Our four offices serve Birmingham, Alabaster, Huntsville and
+            EnviroCare Pest Services is the public name of EnviroCare.{' '}
+            {"The Wedgworth family's Alabama pest-control history began in Alexander City in 1958."}
+            {' '}The fourth generation is now in the business. Our four offices serve Birmingham, Alabaster, Huntsville and
             Alexander City / Lake Martin. <a href="/about-us" style={{ color: GREEN, fontWeight: 600 }}>Meet the family and find our offices.</a>
           </p>
 
@@ -176,6 +184,27 @@ export default function BestPestControlBirminghamPage() {
               </div>
             ))}
           </div>
+
+          {/* Reviewed and corrected from GPT's Nov 23 AI-visibility insert
+              (agents/neuronwriter-content/ai-visibility-best-birmingham-content-insert-2026-11-23.html).
+              AI answers for "best pest control Birmingham" mostly cite directories;
+              this explains how to read them without claiming any ranking. */}
+          <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(22px,3.4vw,30px)', color: GREEN, margin: '46px 0 14px' }}>
+            How to Read Birmingham &ldquo;Best Pest Control&rdquo; Lists
+          </h2>
+          <p style={{ fontSize: 16, lineHeight: 1.75, maxWidth: 800 }}>
+            Online directories and AI answers can help you find pest control companies, but each one
+            uses its own data, coverage area and sorting method. A high placement does not show which
+            company is right for your house. Check when the listing was last updated, confirm the
+            business address and phone number, and read recent first-hand reviews for the office that
+            would actually serve you.
+          </p>
+          <p style={{ fontSize: 16, lineHeight: 1.75, maxWidth: 800 }}>
+            Then compare written proposals for the same work. A company that handles household ants
+            may offer subterranean termite protection only under a separate agreement, so ask what each
+            proposal actually includes: the initial visit, the recurring schedule, the pests covered,
+            any termite monitoring, and the renewal and cancellation terms.
+          </p>
 
           <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(22px,3.4vw,30px)', color: GREEN, margin: '46px 0 14px' }}>
             Where EnviroCare Fits

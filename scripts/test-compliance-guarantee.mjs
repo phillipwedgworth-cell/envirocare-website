@@ -52,6 +52,15 @@ const cases = [
   ["If heavy rain falls within 24 hours of your treatment, call us and we'll re-treat at no charge.", false, "rain condition, not a promise"],
   ["Sentricon stations are checked on a regular schedule through the year.", false, "no clock at all"],
   ["The rule fixes a ninety (90) day retreatment period.", false, "statutory period"],
+  // --- 24/7 availability (2026-11-18, sweep C6): must FLAG ---
+  ["24/7 emergency pest service across Birmingham", true, "24/7 service claim"],
+  ["Call us 24/7 for termite help", true, "24/7 call claim"],
+  ["Our team is available 24/7", true, "availability, reverse order"],
+  ["24 / 7 response for commercial accounts", true, "spaced 24 / 7"],
+  // --- 24/7 availability: must NOT flag ---
+  ["Always-active 24/7 protection", false, "describes the bait system, left for Phillip's ruling"],
+  ["We do not claim 24/7 service; routes are scheduled.", false, "negated, the canon's own wording"],
+  ["Sentricon stations work around the clock between visits.", false, "no 24/7 token"],
   // --- contract ---
   ["Pay per visit with no long-term agreement, or equal monthly ACH", true, "contract-free claim"],
   ["there are no contracts to worry about", true, "contract-free claim"],
@@ -178,6 +187,12 @@ const cases = [
   // (live copy also says "50% off"; that phrase is the separate decision-gated discount
   // rule's business, so these cases leave it out to test the $75 rules alone)
   ["$75 initial service (regular price $150)", false, "anchored $75 must pass"],
+  // 2026-11-23: "same tech" slipped past the "same technician" rule on three live pages
+  // (/over-the-mountain, /faq/termite-warranty, /faq/mosquito). Must flag the abbreviation too.
+  ["You get the same tech on every visit, a direct phone number.", true, "same tech ... every visit (/faq/mosquito)"],
+  ["EnviroCare assigns the same tech to your property so they know your home's history.", true, "same tech to your property (/faq/termite-warranty)"],
+  ["the same tech, the same four-pillar program (pest, termite, mosquito, tick) on every visit", true, "same tech ... every visit (/over-the-mountain)"],
+  ["real people, same technician on your route", false, "bare same technician stays allowed (rule comment)"],
   ["sub: `$${PRICING.plans.pest.startup} initial service (reg. $${PRICING.initialServiceRegular})`", false, "anchored template must pass"],
   ["the inspection is free for existing customers once a year and $75 otherwise", false, "WDO inspection fee is a different product (S6a)"],
 ];

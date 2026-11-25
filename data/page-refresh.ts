@@ -215,7 +215,7 @@ const PAGE_REFRESH_JSON = {
     "figure": {
       "src": "/sentricon-install.webp",
       "alt": "Gloved hand pressing a termite bait station into the soil of a green lawn",
-      "caption": "Bait stations go into the soil around the house. No drilling through slabs, patios or driveways.",
+      "caption": "Bait stations go into the soil around the house, usually with no drilling through slabs, patios or driveways.",
       "width": 606,
       "height": 403
     },

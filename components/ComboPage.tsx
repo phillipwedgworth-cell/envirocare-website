@@ -13,6 +13,8 @@ export type ComboContent = {
   h1: string;
   h1Accent: string;            // italic gold tail of the H1
   intro: string[];             // 2-3 unique paragraphs
+  /** Optional crawlable links shown directly under the intro (e.g. the city hub). */
+  introLinks?: { name: string; href: string }[];
   localAngles: { title: string; body: string }[];
   anglesHeading: string;
   price: { label: string; amount: string; sub: string; bullets: string[] };
@@ -74,6 +76,13 @@ export default function ComboPage({ c }: { c: ComboContent }) {
           {c.intro.map((p, i) => (
             <p key={i} style={{ fontSize: 16.5, lineHeight: 1.75, color: "rgba(255,255,255,0.78)", margin: "0 0 14px", maxWidth: 680 }}>{p}</p>
           ))}
+          {c.introLinks?.length ? (
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.78)", margin: "0 0 14px" }}>
+              {c.introLinks.map((l, i) => (
+                <span key={l.href}>{i > 0 ? " · " : "See also: "}<a href={l.href} style={{ color: GOLD, fontWeight: 600 }}>{l.name}</a></span>
+              ))}
+            </p>
+          ) : null}
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 24 }}>
             <a href="/quote" style={{ background: GOLD, color: INK, padding: "14px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, textDecoration: "none" }}>Get a Free Quote →</a>
             <a href={`tel:${c.office.tel}`} style={{ color: "#fff", border: "1px solid rgba(255,255,255,0.3)", padding: "14px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>📞 {c.office.phone}</a>

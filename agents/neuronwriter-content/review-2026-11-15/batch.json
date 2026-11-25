@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-15",
+  "project": "9d0bec3a70f4743c",
+  "baseCommit": "8dc8ab3c697085459b5b9bf24396f1df888f9609",
+  "scope": "20 existing-URL review drafts; not new public pages or a website release.",
+  "status": "draft-for-claude-review",
+  "pages": [
+    {
+      "order": 1,
+      "slug": "green-caps-in-yard-sentricon",
+      "route": "/blog/green-caps-in-yard-sentricon",
+      "file": "01-green-caps-in-yard-sentricon.html",
+      "title": "What Are Those Round Green Caps in the Ground Around a House?",
+      "metaTitle": "Green Caps in Your Yard: Termite Stations | EnviroCare",
+      "metaDescription": "Identify green caps in your yard, check the termite service agreement and learn what to ask before disturbing a station.",
+      "originalPublishedAt": "2026-07-28",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "green caps in yard sentricon",
+      "queryId": "c2824e2f5de9a87c",
+      "expectedQueryKeyword": "green caps in yard sentricon",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/sentricon",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "extraSources": [
+        {
+          "url": "https://19january2025snapshot.epa.gov/greenchemistry/presidential-green-chemistry-challenge-2000-designing-greener-chemicals-award",
+          "scope": "Historical 2000 award only; not an endorsement of EnviroCare or current safety/performance certification.",
+          "verifiedOn": "2026-11-15"
+        }
+      ],
+      "image": {
+        "src": "/residential-singlefamily.webp",
+        "alt": "In-ground termite bait stations in a landscaped yard",
+        "position": "center 54%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "c7a45f7fe9deca553ce0e4f16fe7b449e32cc7c8fc2d5b3242171aa73209ad30",
+      "draftSha256": "027aae9bc76ff778b084b3dbf83780adccdd8d266dd4cc5d71464fa04e8eb18c",
+      "historicalScore": 53,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 2,
+      "slug": "how-long-does-sentricon-take-to-work",
+      "route": "/blog/how-long-does-sentricon-take-to-work",
+      "file": "02-how-long-does-sentricon-take-to-work.html",
+      "title": "How Long Does Sentricon Take to Work? What Alabama Homeowners Should Expect",
+      "metaTitle": "How Long Does Sentricon Take to Work? | EnviroCare",
+      "metaDescription": "Understand Sentricon progress, inspection records and follow-up questions without relying on a guaranteed treatment deadline.",
+      "originalPublishedAt": "2026-10-12",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "how long does sentricon take to work",
+      "queryId": "e03c7891243a2110",
+      "expectedQueryKeyword": "how long does sentricon take to work",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/sentricon",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/images/blog/how-long-sentricon-takes-to-work.webp",
+        "alt": "Illustrated timeline of a Sentricon bait station program: installation, termites finding the bait, bait shared through the colony, activity declining, and ongoing station service.",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "5a491c7f9211d60be03936b981d55e3f07b545b503e1523355229027d00e25b9",
+      "draftSha256": "efc0f4b8b5f5739bd0714d2da26c2b3d0a01ebe1530933b5bbdbd11fe9922ebb",
+      "historicalScore": 73,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image.",
+        "Replace generic deadline timeline and absolute installation answer with property-specific milestones and scope."
+      ]
+    },
+    {
+      "order": 3,
+      "slug": "termite-treatment-cost-alabama",
+      "route": "/blog/termite-treatment-cost-alabama",
+      "file": "03-termite-treatment-cost-alabama.html",
+      "title": "How Much Does Termite Treatment Cost in Alabama? (What Actually Drives the Price)",
+      "metaTitle": "Termite Treatment Cost in Alabama | EnviroCare",
+      "metaDescription": "Compare Alabama termite quotes by inspection findings, initial work, renewal terms and the written service agreement.",
+      "originalPublishedAt": "2026-08-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "termite treatment cost alabama",
+      "queryId": "2e74c97624871c97",
+      "expectedQueryKeyword": "termite treatment cost alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/sentricon-install.webp",
+        "alt": "Close view of a termite bait station being installed in soil",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "5af2a7d4b6cbdb5e4faf46695647ef1c85e13111a5344502a586be30d7fbef70",
+      "draftSha256": "9f0f81bc7e0d813700bd6419ee2727c6389c306955371205f14e16d1fdb1dcd7",
+      "historicalScore": 73,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 4,
+      "slug": "sentricon-vs-liquid-termite-treatment",
+      "route": "/blog/sentricon-vs-liquid-termite-treatment",
+      "file": "04-sentricon-vs-liquid-termite-treatment.html",
+      "title": "Sentricon vs. Liquid Termite Treatment: Which Is Best for Your Alabama Home?",
+      "metaTitle": "Sentricon vs. Liquid Termite Treatment | EnviroCare",
+      "metaDescription": "Compare Sentricon and liquid termite proposals by property conditions, access, maintenance and service responsibilities.",
+      "originalPublishedAt": "2026-02-18",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "sentricon vs liquid termite treatment",
+      "queryId": "630d376353ddaa94",
+      "expectedQueryKeyword": "sentricon vs liquid termite treatment",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites",
+        "aces-termite-treatment-options",
+        "msu-termite-treatment-comparison"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/sentricon-install.webp",
+        "alt": "Close view of a termite bait station being installed in soil",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "61374d637cc6f0aed1151dcc53382fa211aa00a52178cdf639f48843307777cb",
+      "draftSha256": "062f28c46b4684ffcb6d438a9a395d9dbb643f55bc52d6fe8c908041fe1f1a73",
+      "historicalScore": 86,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 5,
+      "slug": "termite-damage-signs-alabama",
+      "route": "/blog/termite-damage-signs-alabama",
+      "file": "05-termite-damage-signs-alabama.html",
+      "title": "Sign of Termites in Your Home: What Termite Damage Looks Like in Alabama",
+      "metaTitle": "Signs of Termites in Your Alabama Home | EnviroCare",
+      "metaDescription": "Document possible termite signs and prepare useful photos, locations and prior service records for an Alabama inspection.",
+      "originalPublishedAt": "2026-09-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "termite damage signs alabama",
+      "queryId": "c3d75ec17fe6ed1d",
+      "expectedQueryKeyword": "termite damage signs",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/termite-damage.jpg",
+        "alt": "Close-up of damaged wood used to illustrate a termite inspection topic",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "dfb525fe845eabd36abdc8f13ded85a13af90f4471d38928b6e8dcda723a98fe",
+      "draftSha256": "2778dad5fb7b8fb1089981356059b6f311b1d37ec97c3d319ce1ace3934b8195",
+      "historicalScore": 89,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 6,
+      "slug": "alabama-termite-swarm-season",
+      "route": "/blog/alabama-termite-swarm-season",
+      "file": "06-alabama-termite-swarm-season.html",
+      "title": "Why Alabama Termite Season Starts in March — And What to Watch For",
+      "metaTitle": "When Do Termites Swarm in Alabama? | EnviroCare",
+      "metaDescription": "Learn what to record when termites swarm in Alabama, including where insects appeared and what to ask at inspection.",
+      "originalPublishedAt": "2026-03-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "alabama termite swarm season",
+      "queryId": "561325f84d2be3b4",
+      "expectedQueryKeyword": "when do termites swarm in alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/termite-control",
+      "sourceIds": [
+        "epa-termites",
+        "aces-termite-inspection",
+        "aces-termite-range",
+        "msu-termite-swarms-2026"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/pests/termites.webp",
+        "alt": "Termite image illustrating termite identification",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "b8bad6dc5cc88a2c6bfa9d2a793dddd27e2a3f349a093c1f9e358f0bda97ccbd",
+      "draftSha256": "a51a628f7dd50061e48d033f190da7c51166f915c405c948a3cfabcae7ac6560",
+      "historicalScore": 76,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 7,
+      "slug": "rodents-alabama-homes-fall",
+      "route": "/blog/rodents-alabama-homes-fall",
+      "file": "07-rodents-alabama-homes-fall.html",
+      "title": "Mice and Rats in Alabama Homes: Why October Is When They Move In",
+      "metaTitle": "Mice in Alabama Homes in Fall and Winter | EnviroCare",
+      "metaDescription": "Plan a response to mice in an Alabama home with evidence records, entry-point inspection and a clear follow-up scope.",
+      "originalPublishedAt": "2026-09-08",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "mice in house in winter",
+      "queryId": "88eb58c6d329863a",
+      "expectedQueryKeyword": "mice in house in winter alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/home-southern.jpg",
+        "alt": "Landscaped residential house with a green lawn",
+        "position": "center 50%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "049f229439efd289133d7df3c944c496673e942d539b77ba73d6676809758734",
+      "draftSha256": "13575291f486351bb80ad253e8809734a4a8a91d59ab69e85268d9d800c948bc",
+      "historicalScore": 76,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 8,
+      "slug": "fall-pest-proofing-alabama",
+      "route": "/blog/fall-pest-proofing-alabama",
+      "file": "08-fall-pest-proofing-alabama.html",
+      "title": "Fall Pest-Proofing in Alabama: Seal Up Before the First Cold Nights",
+      "metaTitle": "Fall Pest-Proofing in Alabama | EnviroCare",
+      "metaDescription": "Build a practical fall pest-prevention checklist for entry routes, repairs, storage and follow-up observations.",
+      "originalPublishedAt": "2026-08-11",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "fall pest proofing alabama",
+      "queryId": "b3d576f791f3adfb",
+      "expectedQueryKeyword": "fall pest control tips alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "cdc-rodents",
+        "epa-prevention"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/images/blog/envirocare-fall-pest-prevention-alabama.webp",
+        "alt": "Illustration of a miniature brick home beside weatherstripping, a caulk gun, a flashlight, storage bins and an EnviroCare truck.",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "e309aca27ae9d39f36beb31635721925ad7cfce476792788eab4307a1066c11f",
+      "draftSha256": "384d54acfa8b0561fc6370b3f1fdd3b3aecaa82a6c67ebb1ebbe4f97cbe9b35b",
+      "historicalScore": 60,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 9,
+      "slug": "first-pest-control-visit-what-to-expect",
+      "route": "/blog/first-pest-control-visit-what-to-expect",
+      "file": "09-first-pest-control-visit-what-to-expect.html",
+      "title": "What Happens on Your First Pest Control Visit (An Alabama Walkthrough)",
+      "metaTitle": "Your First Pest Control Visit | EnviroCare",
+      "metaDescription": "Know what to ask at your first pest-control visit: identification, treatment scope, preparation and follow-up.",
+      "originalPublishedAt": "2026-09-26",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "first pest control visit what to expect",
+      "queryId": "d303f723d46ae5ca",
+      "expectedQueryKeyword": "first pest control visit what to expect",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/family-yard.jpg",
+        "alt": "Green residential yard and outdoor living space",
+        "position": "center 48%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "3c96211f95cff23ff71528e84961b117939f1f824990d11208ea1310b4a45dd4",
+      "draftSha256": "8deda664ad85829fa454b907405f0f6240eb4a7934e09daf909ce8903d62ee94",
+      "historicalScore": 72,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 10,
+      "slug": "prepare-home-for-pest-control",
+      "route": "/blog/prepare-home-for-pest-control",
+      "file": "10-prepare-home-for-pest-control.html",
+      "title": "How to Prepare Your Home for Pest Control Service",
+      "metaTitle": "Prepare Your Home for Pest Control | EnviroCare",
+      "metaDescription": "Prepare for pest-control service with access arrangements and instructions specific to your property and treatment.",
+      "originalPublishedAt": "2026-05-20",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "prepare home for pest control",
+      "queryId": "07d67278f83e9f37",
+      "expectedQueryKeyword": "prepare home for pest control",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/home-southern.jpg",
+        "alt": "Landscaped residential house with a green lawn",
+        "position": "center 50%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "1d14b7d4f52ba550129bc83cdd1ac3ad8e57a510420634516e1355c05875f4d7",
+      "draftSha256": "81afd7fe873746f45f590969f4dd0a056e19b65cffd071f4ea6ee4482bf8d52e",
+      "historicalScore": 72,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 11,
+      "slug": "how-often-pest-control-alabama",
+      "route": "/blog/how-often-pest-control-alabama",
+      "file": "11-how-often-pest-control-alabama.html",
+      "title": "How Often Should Pest Control Come? Why Alabama Is a Bi-Monthly State",
+      "metaTitle": "How Often Should Pest Control Come? | EnviroCare",
+      "metaDescription": "Compare routine pest visits, active-problem follow-up and separate termite or mosquito service schedules in Alabama.",
+      "originalPublishedAt": "2026-09-20",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "how often pest control alabama",
+      "queryId": "3ef64857c67b2507",
+      "expectedQueryKeyword": "how often pest control alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/hero-family.jpg",
+        "alt": "Family playing with their dog in a sunny backyard",
+        "position": "center 42%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "9aa5486d235fe5917ff7c2db042ea3309a1b4607875e5f0b4ef2b7446d43e7aa",
+      "draftSha256": "0a97c4787c7aa76c46d97e0f63863132679ed33fbe5f0dc97011318e14d77b12",
+      "historicalScore": 67,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 12,
+      "slug": "how-to-get-rid-of-ants-in-house-alabama",
+      "route": "/blog/how-to-get-rid-of-ants-in-house-alabama",
+      "file": "12-how-to-get-rid-of-ants-in-house-alabama.html",
+      "title": "How to Get Rid of Ants in Your House: An Alabama Step-by-Step Guide",
+      "metaTitle": "How to Get Rid of Ants in Your House | EnviroCare",
+      "metaDescription": "Make an indoor ant inspection more useful with photos, trail locations and questions about entry routes and follow-up.",
+      "originalPublishedAt": "2026-09-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "how to get rid of ants in house alabama",
+      "queryId": "3442f3fb978f6178",
+      "expectedQueryKeyword": "how to get rid of ants in house",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-ants"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/pests/ants.webp",
+        "alt": "Ant image illustrating household ant identification",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "0d503b60d7ea5f78b3fdbecbda2580114e4d3dc6b80e587dbffe6b9f6785f2b9",
+      "draftSha256": "986292b729b6a84e8850f7d60993c80f58d31595c18e30f32d1468bb4973523d",
+      "historicalScore": 79,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 13,
+      "slug": "argentine-ants-alabama-supercolony",
+      "route": "/blog/argentine-ants-alabama-supercolony",
+      "file": "13-argentine-ants-alabama-supercolony.html",
+      "title": "Argentine Ants in Alabama: Why the Trail Never Ends",
+      "metaTitle": "Argentine Ants in Alabama: Persistent Trails | EnviroCare",
+      "metaDescription": "Record recurring ant trails, property conditions and treatment history before assuming which ant species is present.",
+      "originalPublishedAt": "2026-09-14",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "argentine ants alabama",
+      "queryId": "ac950d1dbd568f36",
+      "expectedQueryKeyword": "argentine ants alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-ants"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/pests/ants.webp",
+        "alt": "Ant image illustrating household ant identification",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "ef7c328907976a1ed2126c5d4137a2032788eae93aef257745c49bdd4266b0ec",
+      "draftSha256": "a5c2bb59f1742beb47f37dc2436742144dd390bc52483b981d3e51d02ed3deb7",
+      "historicalScore": 71,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 14,
+      "slug": "german-cockroaches-alabama",
+      "route": "/blog/german-cockroaches-alabama",
+      "file": "14-german-cockroaches-alabama.html",
+      "title": "German Cockroaches in Alabama: German Cockroach Infestation, Roach Control, and Pest Control",
+      "metaTitle": "German Cockroaches in Alabama Homes | EnviroCare",
+      "metaDescription": "Ask useful questions about German cockroach identification, preparation, monitoring and follow-up in an Alabama home.",
+      "originalPublishedAt": "2026-09-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "german cockroaches alabama",
+      "queryId": "af223f0119947464",
+      "expectedQueryKeyword": "german cockroaches in house",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-roaches"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/pests/cockroaches.webp",
+        "alt": "Cockroach image illustrating household pest identification",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "e47a44227c90132b904983cd6516feca37277cc28fd147ef109f00686eddc98c",
+      "draftSha256": "7101ab3bdd3f597a18e502e6262095396618d5742901f5e7a3a363f2f0b53bd6",
+      "historicalScore": 81,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 15,
+      "slug": "how-to-get-rid-of-roaches-alabama",
+      "route": "/blog/how-to-get-rid-of-roaches-alabama",
+      "file": "15-how-to-get-rid-of-roaches-alabama.html",
+      "title": "How to Get Rid of Roaches in Alabama: Types of Cockroaches, Cockroach Control, and Pest Control for Alabama Homes",
+      "metaTitle": "How to Get Rid of Roaches in Alabama | EnviroCare",
+      "metaDescription": "Distinguish outdoor roach invaders from indoor activity and prepare useful evidence for a targeted control plan.",
+      "originalPublishedAt": "2026-09-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "how to get rid of roaches alabama",
+      "queryId": "8894bfe3633e298c",
+      "expectedQueryKeyword": "how to get rid of roaches in alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-roaches"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/pests/cockroaches.webp",
+        "alt": "Cockroach image illustrating household pest identification",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "b7be206037ab61f11b7d89115fc692adb50286d354542541d3dcfab7073a44bd",
+      "draftSha256": "1667fef3048abcb674920e26e7af64e73b7855e317980c7042a5c8d763cb6a0f",
+      "historicalScore": 89,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 16,
+      "slug": "spiders-on-boat-docks-lake-martin",
+      "route": "/blog/spiders-on-boat-docks-lake-martin",
+      "file": "16-spiders-on-boat-docks-lake-martin.html",
+      "title": "Spiders on Boat Docks at Lake Martin: What Lives There and What Keeps Them Down",
+      "metaTitle": "Spiders on Lake Martin Boat Docks | EnviroCare",
+      "metaDescription": "Plan dock-spider management at Lake Martin with clear access, treatment scope and shoreline restrictions.",
+      "originalPublishedAt": "2026-10-12",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "spiders on boat docks lake martin",
+      "queryId": "2c2dde71688cf6c3",
+      "expectedQueryKeyword": "spiders on boat docks lake martin",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "uc-spiders"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/images/blog/spiders-boat-dock-lake-martin.webp",
+        "alt": "Illustrated cross-section of a lake dock and boathouse showing where spiders build webs: under the decking, on the pilings, around the dock light and in the boathouse rafters.",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "cb8d134265d807bd593c2ae965a30e1f097e20e43e0b8178184ad9b1e81da1a3",
+      "draftSha256": "31f4e0f30493c091773564db99a7437bd46501ada44785254221d6e945e0343d",
+      "historicalScore": 85,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 17,
+      "slug": "mosquito-control-lake-house-dock-boathouse",
+      "route": "/blog/mosquito-control-lake-house-dock-boathouse",
+      "file": "17-mosquito-control-lake-house-dock-boathouse.html",
+      "title": "Mosquito Control for a Lake House: Docks, Boathouses, and the Shoreline",
+      "metaTitle": "Mosquito Control for an Alabama Lake House | EnviroCare",
+      "metaDescription": "Review containers, screens, yard conditions and shoreline treatment limits when planning lake-house mosquito service.",
+      "originalPublishedAt": "2026-10-04",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "mosquito control lake house",
+      "queryId": "96b342763ec15c7f",
+      "expectedQueryKeyword": "mosquito control lake house",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/mosquito",
+      "sourceIds": [
+        "cdc-mosquito"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/lake-home-hero.jpg",
+        "alt": "Lakefront home and landscape near the water",
+        "position": "center 55%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "ed3ae1c4ab399cd25adc6faaed043188c11c9922a937964f75d81b415cbfd487",
+      "draftSha256": "87e03ff649bba858b960ca6402683867066a2eee27cafa3126db9710fc91ed81",
+      "historicalScore": 73,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 18,
+      "slug": "fire-ants-alabama-summer",
+      "route": "/blog/fire-ants-alabama-summer",
+      "file": "18-fire-ants-alabama-summer.html",
+      "title": "Fire Ants in Alabama: Why They Get Worse Every Summer, and How to Actually Kill Them",
+      "metaTitle": "Fire Ants in Alabama: Treatment Planning | EnviroCare",
+      "metaDescription": "Compare fire-ant service scope, site uses and follow-up responsibilities before choosing a treatment plan.",
+      "originalPublishedAt": "2026-05-10",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "fire ants alabama",
+      "queryId": "817c630cefeb15f9",
+      "expectedQueryKeyword": "fire ant control alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/fire-ant",
+      "sourceIds": [
+        "aces-fireants"
+      ],
+      "extraSources": [
+        {
+          "url": "https://fireant.tamu.edu/learn/history-of-the-red-imported-fire-ant/",
+          "scope": "Retained historical imported-fire-ant background; not current local treatment performance.",
+          "verifiedOn": "2026-11-15"
+        },
+        {
+          "url": "https://ant-pests.extension.org/information-for-alabama-residents",
+          "scope": "Retained Alabama extension resource link, not an endorsement of EnviroCare.",
+          "verifiedOn": null,
+          "retrievalStatus": "November 15 web retrieval failed with 502; retained existing resource link, not freshly verified. Recheck or replace before publication."
+        }
+      ],
+      "image": {
+        "src": "/pests/ants.webp",
+        "alt": "Ant image illustrating household ant identification",
+        "position": "center",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "7c8c5a07cbf491e5ec988f1700c8bb4e7166a6bf7a6e6d454c0192f82b94c0b9",
+      "draftSha256": "52d923836c02abaa4cd911b34f25ef0f91196882cb333757ae48059b89260076",
+      "historicalScore": 70,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 19,
+      "slug": "fleas-in-house-no-pets",
+      "route": "/blog/fleas-in-house-no-pets",
+      "file": "19-fleas-in-house-no-pets.html",
+      "title": "Fleas in a House With No Pets: Where to Look",
+      "metaTitle": "Fleas in a House With No Pets | EnviroCare",
+      "metaDescription": "Prepare a flea inspection history for a house without current pets, including affected rooms and prior animal presence.",
+      "originalPublishedAt": "2026-07-21",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "fleas in house no pets",
+      "queryId": "cc3dc6610f0ef774",
+      "expectedQueryKeyword": "fleas in house no pets",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/flea",
+      "sourceIds": [
+        "uc-fleas"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/family-yard.jpg",
+        "alt": "Green residential yard and outdoor living space",
+        "position": "center 48%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "a6090641a82031d5f03e6af1d39de1db4999621c105bc8a3cbaa892be21ef716",
+      "draftSha256": "bb7c808ba419d0b5eca565779c965fe4e340ef3e082f2031faf0533d2d0641bd",
+      "historicalScore": 75,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    },
+    {
+      "order": 20,
+      "slug": "pests-after-rain-alabama",
+      "route": "/blog/pests-after-rain-alabama",
+      "file": "20-pests-after-rain-alabama.html",
+      "title": "Why Pests Get Worse After Rain in Alabama",
+      "metaTitle": "Pests After Rain in Alabama | EnviroCare",
+      "metaDescription": "Record pest activity after rain and discuss moisture, entry points and service scope without assuming treatment failure.",
+      "originalPublishedAt": "2026-05-20",
+      "originalAuthor": "Kevin Wedgworth",
+      "keyword": "pests after rain alabama",
+      "queryId": "b632f6feee187598",
+      "expectedQueryKeyword": "pests after rain alabama",
+      "queryMappingEvidence": "Current repository editorial-batch-36.json and editorial-query-map.json; live READY inventory must revalidate before use.",
+      "buyerTarget": "/services/pest-control",
+      "sourceIds": [
+        "epa-prevention"
+      ],
+      "extraSources": [],
+      "image": {
+        "src": "/lake-home-hero.jpg",
+        "alt": "Lakefront home and landscape near the water",
+        "position": "center 55%",
+        "kind": "editorial"
+      },
+      "baselineBodySha256": "96c0a7ed1c982d33e039854aa9a09e5c8f3ece153620793a975281d616316636",
+      "draftSha256": "4d3537f29fee077410432a11a8be6219082d848fc9c924d03423c84e2f85d6ab",
+      "historicalScore": 78,
+      "historicalScoredAt": "2026-11-04 (run 41876093091 attempt 3, head 8620245)",
+      "currentScore": null,
+      "accountStatus": "not-run",
+      "contentReview": "Targeted draft; retained body still needs a factual/editorial review. No new originality clearance or author signoff.",
+      "changes": [
+        "Replace opening with a direct answer preserving article intent.",
+        "Add a distinct property-specific question table, contextual primary-source reference and service/quote links.",
+        "Preserve canonical URL, original author and publication date; reuse the existing article image."
+      ]
+    }
+  ]
+}

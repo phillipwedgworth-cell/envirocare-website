@@ -10,18 +10,18 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 export const metadata: Metadata = {
   title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
   description:
-    "Termite control in Huntsville AL — Sentricon® in-ground baiting, no drilling. New construction on disturbed soil is termite-prone. Call (256) 937-7676.",
+    "Termite control in Huntsville AL — Sentricon® in-ground baiting, usually no drilling. Free termite inspection; priced after inspection. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-termite-control',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
-    description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, no drilling. New construction on disturbed soil is termite-prone. Call (256) 937-7676.",
+    description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, usually no drilling. Free termite inspection; priced after inspection. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
-    description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, no drilling. New construction on disturbed soil is termite-prone. Call (256) 937-7676.",
+    description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, usually no drilling. Free termite inspection; priced after inspection. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };
@@ -31,13 +31,14 @@ const c: ComboContent = {
   h1: "Termite Control in Huntsville,",
   h1Accent: "Where New Construction Meets Old Pressure.",
   intro: [
-    "Madison County is building faster than almost anywhere in the South — and every new slab poured along the Research Park corridor, in Providence, or out toward Hampton Cove sits on freshly disturbed soil. Disturbed soil is exactly what Eastern subterranean termites colonize first, and a slab home gives no visible warning until the damage is behind the drywall.",
-    "On the other end of the spectrum, Twickenham, Five Points, and Monte Sano hold some of Alabama's most loved historic homes — clay-heavy soil, original foundations, decades of termite pressure. EnviroCare's Huntsville office protects both, with Sentricon® and up to $1,000,000 in EnviroCare damage repair coverage.",
+    "Huntsville homes run from new slab construction along the Research Park corridor, in Providence, and out toward Hampton Cove to older houses near downtown. New construction can still face termite activity, and Eastern subterranean termites are active in North Alabama most of the year, so a free termite inspection is the place to start.",
+    "On the other end of the spectrum, Twickenham, Five Points, and Monte Sano have many historic homes with original foundations. EnviroCare's Huntsville office protects both, with Sentricon® and up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.",
   ],
+  introLinks: [{ name: "Huntsville pest control", href: "/huntsville" }],
   anglesHeading: "Huntsville termite pressure, both ends of the market",
   localAngles: [
     {
-      title: "New builds on disturbed soil",
+      title: "New builds still need an inspection",
       body: "New construction can still face termite activity. Ask the builder for any pretreatment records, and have the accessible foundation and surrounding areas inspected before choosing a continuing protection plan.",
     },
     {
@@ -45,7 +46,7 @@ const c: ComboContent = {
       body: "Some slab foundations conceal entry points near joints or plumbing penetrations. A professional inspection reviews accessible areas and explains any limits. Bait stations are part of a maintained termite program, not a substitute for investigating evidence of activity.",
     },
     {
-      title: "Historic district protection without drilling",
+      title: "Historic homes, usually without drilling",
       body: "Sentricon® bait stations can often be installed in soil around historic foundations without drilling original masonry. Inspecting the specific structure first helps determine appropriate placement and whether additional work is needed.",
     },
     {
@@ -59,7 +60,7 @@ const c: ComboContent = {
     sub: "Quoted after a termite inspection; WDO closing reports are separate",
     bullets: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 EnviroCare repair coverage, subject to inspection and approval and subject to the terms of the agreement",
+      "Up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement",
       "Annual inspection + station service",
       "Ask which inspection documents your agreement includes",
       "Free termite inspection to start — no obligation",
