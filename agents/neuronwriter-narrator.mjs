@@ -299,6 +299,13 @@ async function runFill() {
     if (attempted >= maxWrites) break;
     const id = q.query || q.id, keyword = q.keyword || "";
     if (!keyword) continue;
+    // A reviewed hand draft that is KEPT (identical to the editor, or scoring
+    // below it) wrote nothing, so it must not use up the write batch. Before
+    // 2026-11-26 it did: every FILL run re-checked the same first three
+    // manifest drafts, kept all three, hit 3/3 and never reached the rest of
+    // the manifest. Hand drafts count only when they import or error; the
+    // manifest is a short, reviewed list, so the extra unsaved scoring is bounded.
+    let counted = false;
     try {
       const hand = manifest[norm(keyword)];
       const handFile = hand ? join(CONTENT_DIR, hand.file) : null;
@@ -314,7 +321,7 @@ async function runFill() {
         continue;
       }
 
-      attempted++;
+      if (!hasHandDraft) { attempted++; counted = true; }
       if (hasHandDraft) {
         const html = readFileSync(handFile, "utf8");
         const title = hand.title || keyword;
@@ -335,6 +342,7 @@ async function runFill() {
           await sleep(SLEEP_MS);
           continue;
         }
+        attempted++; counted = true;
         score = await pushAndScore(id, html, title, keyword);
         source = "hand-written";
       } else {
@@ -366,6 +374,7 @@ async function runFill() {
       }
       results.push({ keyword, score, source });
     } catch (e) {
+      if (!counted) attempted++;
       const reason = String(e?.message || e);
       results.push({ keyword, score: null, source: `ERROR -- ${reason}` });
       // Do not keep hammering the account after auth, quota, rate-limit or
