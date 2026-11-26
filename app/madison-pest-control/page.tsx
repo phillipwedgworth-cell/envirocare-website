@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
 
-const TITLE = "Pest Control Madison AL | Bi-Monthly Service | EnviroCare";
+const TITLE = "Pest Control in Madison, AL | EnviroCare";
 const DESC =
   `Pest control in Madison, AL from $${PRICING.plans.pest.fromMonthly}/mo: bi-monthly perimeter service for 30+ pests, free re-service between visits. (256) 937-7676.`;
 
@@ -75,6 +75,9 @@ const c: ComboContent = {
   cityHub: { name: "Madison Service Area", href: "/madison" },
   servicePage: { name: "Pest Control Service", href: "/services/pest-control" },
   schemaName: "EnviroCare Pest Control — Madison, AL",
+  city: "Madison",
+  serviceType: "Pest control",
+  offers: ["fireAnt", "mosquito"],
   canonicalPath: "/madison-pest-control",
 };
 

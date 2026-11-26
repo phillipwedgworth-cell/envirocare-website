@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
-const TITLE = "Commercial Pest Control Madison AL | EnviroCare";
+const TITLE = "Commercial Pest Control in Madison, AL | EnviroCare";
 const DESC =
   "Commercial pest control in Madison, AL for restaurants, retail, offices and clinics along I-565. Documented service and audit-ready logs. (256) 937-7676.";
 
@@ -74,6 +74,8 @@ const c: ComboContent = {
   cityHub: { name: "Madison Service Area", href: "/madison" },
   servicePage: { name: "Commercial Pest Control", href: "/services/commercial" },
   schemaName: "EnviroCare Commercial Pest Control — Madison, AL",
+  city: "Madison",
+  serviceType: "Commercial pest control",
   canonicalPath: "/madison-commercial-pest-control",
 };
 

@@ -8,19 +8,19 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
+  title: "Termite Control in Birmingham, AL | EnviroCare",
   description:
     "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with usually no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-termite-control',
-    title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
+    title: "Termite Control in Birmingham, AL | EnviroCare",
     description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with usually no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Termite Control Birmingham AL | Free Inspection | EnviroCare",
+    title: "Termite Control in Birmingham, AL | EnviroCare",
     description: "Termite control in Birmingham, AL: a free inspection, then Sentricon® baiting with usually no drilling, backed by EnviroCare damage repair coverage. (205) 991-2882.",
     images: ['/og-image.png'],
   },
@@ -146,6 +146,9 @@ const c: ComboContent = {
     { name: "WDO letters", href: "/wdo-inspection-letters-alabama" },
   ],
   schemaName: "EnviroCare Termite Control — Birmingham, AL",
+  city: "Birmingham",
+  serviceType: "Termite control",
+  offers: ["termite"],
   canonicalPath: "/birmingham-termite-control",
 };
 

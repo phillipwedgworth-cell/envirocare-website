@@ -112,6 +112,8 @@ const config: DeepCityConfig = {
     ["Termite Control", "/services/termite-control"],
     ["Mosquito Control", "/services/mosquito"],
     ["Vestavia Hills Mosquito Control", "/vestavia-hills-mosquito-control"],
+    ["Vestavia Hills Termite Control", "/vestavia-hills-termite-control"],
+    ["Vestavia Hills Exterminator", "/vestavia-hills-exterminator"],
   ],
   // Birmingham office — Jefferson County + the Hwy 280 / 35242 corridor.
   officePhone: "(205) 991-2882",

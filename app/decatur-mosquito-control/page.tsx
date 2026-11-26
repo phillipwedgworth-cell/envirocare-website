@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
 
-const TITLE = "Mosquito Control Decatur AL | River & Refuge Yards | EnviroCare";
+const TITLE = "Mosquito Control in Decatur, AL | EnviroCare";
 const DESC =
   `Mosquito control in Decatur AL — ~$${PRICING.addOns.mosquito.monthly}/month, about 8 treatments March–October. Built for river-bottom humidity and refuge-edge yards. (256) 937-7676.`;
 
@@ -75,6 +75,9 @@ const c: ComboContent = {
   cityHub: { name: "Decatur Service Area", href: "/decatur" },
   servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Decatur, AL",
+  city: "Decatur",
+  serviceType: "Mosquito control",
+  offers: ["mosquito"],
   canonicalPath: "/decatur-mosquito-control",
 };
 
