@@ -11,8 +11,8 @@ import CityPage from '@/components/pages/CityPage';
 export const metadata: Metadata = withOpenGraph({
   alternates: { canonical: '/hampton-cove' },
   openGraph: { url: 'https://www.envirocarellc.com/hampton-cove', images: ['/og/og-hampton-cove.png'] },
-  title: 'Hampton Cove Pest Control | EnviroCare Since 1958',
-  description: 'Hampton Cove pest control. Premium Huntsville-area service. Sentricon® baiting, $1M EnviroCare coverage. Call (256) 937-7676.',
+  title: "Hampton Cove Pest Control & Termite Service | EnviroCare",
+  description: "Hampton Cove pest control for southeast Huntsville homes: bi-monthly service from $35/mo and Sentricon® termite protection. Call (256) 937-7676.",
 });
 
 export default function HamptonCovePage() {

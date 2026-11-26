@@ -10,12 +10,12 @@ import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Crestline AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Crestline homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. Call (205) 991-2882.",
+  title: "Pest Control Crestline AL | Termite & Mosquito | EnviroCare",
+  description: "Family-owned pest, Sentricon® termite and mosquito service for Crestline homes. Usually no drilling, two ways to pay. Call (205) 991-2882.",
   alternates: { canonical: "/crestline" },
   openGraph: {
-    title: "Pest Control Crestline AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Crestline homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. Call (205) 991-2882.",
+    title: "Pest Control Crestline AL | Termite & Mosquito | EnviroCare",
+    description: "Family-owned pest, Sentricon® termite and mosquito service for Crestline homes. Usually no drilling, two ways to pay. Call (205) 991-2882.",
     url: "https://www.envirocarellc.com/crestline",
     type: "website",
   },

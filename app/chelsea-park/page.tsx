@@ -4,14 +4,14 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Chelsea Park AL | Termite & Mosquito | EnviroCare",
+  title: "Pest Control Chelsea Park AL | Termite, Mosquito & Tick",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service for the Chelsea Park community in Chelsea AL (35043). New-construction pre-treat. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito and tick service for Chelsea Park in Chelsea, AL (35043), plus new-construction pre-treat. (205) 940-6360.",
   alternates: { canonical: "/chelsea-park" },
   openGraph: {
-    title: "Pest Control Chelsea Park — Chelsea AL | EnviroCare Since 1958",
+    title: "Pest Control Chelsea Park AL | Termite, Mosquito & Tick",
     description:
-      "Family-owned pest, termite, mosquito & tick service for the Chelsea Park community. No-drill Sentricon® with up to $1M EnviroCare coverage.",
+      "Pest control, Sentricon® termite, mosquito and tick service for Chelsea Park in Chelsea, AL (35043), plus new-construction pre-treat. (205) 940-6360.",
     url: "https://www.envirocarellc.com/chelsea-park",
     type: "website",
   },

@@ -2,19 +2,19 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/north-birmingham' },
-  title: "North Birmingham Pest Control — Gardendale, Fultondale | EnviroCare",
-  description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 991-2882.",
+  title: "North Birmingham Pest Control | Gardendale & Fultondale",
+  description: "Pest, termite and mosquito control across north Birmingham: Gardendale, Fultondale and north Jefferson County. Call (205) 991-2882.",
   openGraph: {
-    title: "North Birmingham Pest Control — Gardendale, Fultondale | EnviroCare",
-    description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 991-2882.",
+    title: "North Birmingham Pest Control | Gardendale & Fultondale",
+    description: "Pest, termite and mosquito control across north Birmingham: Gardendale, Fultondale and north Jefferson County. Call (205) 991-2882.",
     url: 'https://www.envirocarellc.com/north-birmingham',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "North Birmingham Pest Control — Gardendale, Fultondale | EnviroCare",
-    description: "Pest, termite & mosquito control across north Birmingham — Gardendale, Fultondale and north Jefferson County. Family-owned since 1958. Call (205) 991-2882.",
+    title: "North Birmingham Pest Control | Gardendale & Fultondale",
+    description: "Pest, termite and mosquito control across north Birmingham: Gardendale, Fultondale and north Jefferson County. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };

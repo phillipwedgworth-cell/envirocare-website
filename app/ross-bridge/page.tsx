@@ -4,12 +4,12 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Ross Bridge AL | Hoover Termite & Mosquito | EnviroCare",
+  title: "Pest Control Ross Bridge AL | Termite, Mosquito & Tick",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service for the Ross Bridge resort community in Hoover AL (35226). From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/ross-bridge" },
   openGraph: {
-    title: "Pest Control Ross Bridge — Hoover AL | EnviroCare Since 1958",
+    title: "Pest Control Ross Bridge AL | Termite, Mosquito & Tick",
     description:
       "Family-owned pest, termite, mosquito & tick service for the Ross Bridge resort community. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/ross-bridge",

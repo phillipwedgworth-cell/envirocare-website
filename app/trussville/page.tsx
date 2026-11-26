@@ -3,13 +3,13 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Trussville AL | Termite, Mosquito & Tick — Since 1958",
+  title: "Pest Control Trussville AL | Termite, Mosquito & Tick",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service in Trussville AL — Cahaba Project, Carrington, Stockton. From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/trussville" },
   openGraph: {
     images: ["/og/og-trussville.png"],
-    title: "Pest Control Trussville AL | EnviroCare — Since 1958",
+    title: "Pest Control Trussville AL | Termite, Mosquito & Tick",
     description:
       "Family-owned pest, termite, mosquito & tick service across Trussville. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/trussville",

@@ -9,12 +9,12 @@ import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Highland Lakes 35242 | EnviroCare",
-  description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage. Call (205) 940-6360.",
+  title: "Pest Control Highland Lakes AL 35242 | Termite & Mosquito",
+  description: "Family-owned pest, termite and mosquito service for Highland Lakes homes (35242). Sentricon® termite baiting, usually no drilling. Call (205) 940-6360.",
   alternates: { canonical: "/highland-lakes" },
   openGraph: {
-    title: "Pest Control Highland Lakes 35242 | EnviroCare",
-    description: "Family-owned pest, termite, and mosquito service for Highland Lakes homes (35242). Sentricon® no-drilling termite, $1M EnviroCare coverage, two ways to pay. Call (205) 940-6360.",
+    title: "Pest Control Highland Lakes AL 35242 | Termite & Mosquito",
+    description: "Family-owned pest, termite and mosquito service for Highland Lakes homes (35242). Sentricon® termite baiting, usually no drilling. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/highland-lakes",
     type: "website",
   },

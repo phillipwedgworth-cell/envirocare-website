@@ -5,13 +5,13 @@ import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPa
 export const metadata: Metadata = {
   title: "Pest Control Chelsea AL | Termite & Mosquito | EnviroCare",
   description:
-    "Pest control, Sentricon® termite, mosquito & tick service in Chelsea AL — Chelsea Park, Foothills. From $35/mo, $1M EnviroCare damage coverage. Call (205) 940-6360.",
+    "Pest control, Sentricon® termite, mosquito and tick service in Chelsea, AL, including Chelsea Park and the Foothills. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/chelsea" },
   openGraph: {
     images: ["/og/og-chelsea.png"],
-    title: "Pest Control Chelsea AL | EnviroCare — Since 1958",
+    title: "Pest Control Chelsea AL | Termite & Mosquito | EnviroCare",
     description:
-      "Family-owned pest, termite, mosquito & tick service across Chelsea. No-drill Sentricon® with up to $1M EnviroCare coverage.",
+      "Pest control, Sentricon® termite, mosquito and tick service in Chelsea, AL, including Chelsea Park and the Foothills. From $35/mo. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/chelsea",
     type: "website",
   },

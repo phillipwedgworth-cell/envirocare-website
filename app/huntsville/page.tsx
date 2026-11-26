@@ -24,7 +24,7 @@ export const metadata: Metadata = withOpenGraph({
   // AGENTS.md / data/compliance.ts). Description now names Madison and the three
   // services the Local Falcon AI scans showed Huntsville losing on (pest, termite,
   // commercial).
-  title: 'Pest Control Huntsville AL | Exterminator & Termite | EnviroCare',
+  title: "Pest Control Huntsville AL | Exterminator | EnviroCare",
   description: 'Pest control in Huntsville and Madison, AL from our Old Madison Pike office: recurring home service, Sentricon® termite protection and commercial programs.',
 });
 

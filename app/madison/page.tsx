@@ -21,13 +21,13 @@ import LocalExamples from "@/components/shared/LocalExamples";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: "Pest Control Madison AL | EnviroCare — Since 1958",
+  title: "Pest Control Madison AL | Termite & Mosquito | EnviroCare",
   description:
     "Family-owned pest, termite, mosquito and tick control in Madison, AL, from Heritage Plantation to Rainbow Mountain. Sentricon® baiting. (256) 937-7676.",
   alternates: { canonical: "/madison" },
   openGraph: {
     images: ["/og/og-madison.png"],
-    title: "Pest Control Madison AL | EnviroCare — Since 1958",
+    title: "Pest Control Madison AL | Termite & Mosquito | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito & tick control in Madison AL. Serving Heritage Plantation, Madison Crossings, and all 35756–35758 zip codes. Call the Huntsville office.",
     url: "https://www.envirocarellc.com/madison",

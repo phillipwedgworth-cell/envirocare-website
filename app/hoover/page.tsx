@@ -3,13 +3,13 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Hoover AL | Exterminator, Termite & Mosquito | EnviroCare",
+  title: "Pest Control Hoover AL | Exterminator & Termite | EnviroCare",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service in Hoover AL — Riverchase, Bluff Park, Ross Bridge. From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/hoover" },
   openGraph: {
     images: ["/og/og-hoover.png"],
-    title: "Pest Control Hoover AL | EnviroCare — Since 1958",
+    title: "Pest Control Hoover AL | Exterminator & Termite | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito, tick & commercial service across Hoover, with Sentricon® termite protection quoted after a free inspection.",
     url: "https://www.envirocarellc.com/hoover",

@@ -2,19 +2,19 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/over-the-mountain' },
-  title: "Over the Mountain Pest Control | EnviroCare",
-  description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 991-2882.",
+  title: "Over the Mountain Pest Control & Termite | EnviroCare",
+  description: "Pest, termite and mosquito control for Over the Mountain homes in Vestavia Hills, Mountain Brook, Homewood and Hoover. Call (205) 991-2882.",
   openGraph: {
-    title: "Over the Mountain Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 991-2882.",
+    title: "Over the Mountain Pest Control & Termite | EnviroCare",
+    description: "Pest, termite and mosquito control for Over the Mountain homes in Vestavia Hills, Mountain Brook, Homewood and Hoover. Call (205) 991-2882.",
     url: 'https://www.envirocarellc.com/over-the-mountain',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Over the Mountain Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control for Over the Mountain homes — Vestavia Hills, Mountain Brook, Homewood, Hoover. Family-owned since 1958. Call (205) 991-2882.",
+    title: "Over the Mountain Pest Control & Termite | EnviroCare",
+    description: "Pest, termite and mosquito control for Over the Mountain homes in Vestavia Hills, Mountain Brook, Homewood and Hoover. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
 };
