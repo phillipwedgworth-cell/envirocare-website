@@ -70,7 +70,7 @@ const phaseACitiesBase: Record<string, CityData> = {
   "mountain-brook": {
     slug: "mountain-brook",
     name: "Mountain Brook",
-    metaTitle: "Mountain Brook Pest, Termite & Mosquito Control | EnviroCare Since 1958",
+    metaTitle: "Mountain Brook Pest, Termite & Mosquito Control | EnviroCare",
     metaDescription: "Family-owned pest, termite & mosquito control in Mountain Brook AL — English Village, Crestline, Mountain Brook Village, Cahaba Village. Sentricon® with $1M EnviroCare damage coverage.",
     office: "Birmingham",
     phone: "(205) 940-6360",

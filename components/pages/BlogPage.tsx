@@ -21,7 +21,7 @@ export default function BlogPage() {
         <div className="page-hero-inner">
           <div className="city-eyebrow"><span className="city-eyebrow-txt">EnviroCare Pest Journal</span></div>
           <h1>Real Alabama{" "}<em>Pest Knowledge</em></h1>
-          <p className="page-hero-sub">68 years of field experience, distilled into articles. Coming soon — seasonal pest guides, Sentricon® deep-dives, and Alabama-specific advice you won\'t find in big-box pest control marketing.</p>
+          <p className="page-hero-sub">Four generations of field experience, distilled into articles. Coming soon — seasonal pest guides, Sentricon® deep-dives, and Alabama-specific advice you won\'t find in big-box pest control marketing.</p>
           <div className="page-hero-cta">
             <a href="tel:2059406360" className="btn-gold" style={{overflow:'visible'}}>Call (205) 940-6360</a>
             <a href="/faq" className="btn-outline-white">See FAQ →</a>
@@ -46,7 +46,7 @@ export default function BlogPage() {
           <div className="blog-empty">
             <div className="blog-empty-icon"><PenLine size={36} color="#0E8E40" /></div>
             <div className="blog-empty-h">Blog Launching Soon</div>
-            <div className="blog-empty-p">Real Alabama pest knowledge from 68 years in the field. Want a specific topic covered? Call us — your question might become the next post.</div>
+            <div className="blog-empty-p">Real Alabama pest knowledge from four generations in the field. Want a specific topic covered? Call us — your question might become the next post.</div>
           </div>
         </div>
       </section>

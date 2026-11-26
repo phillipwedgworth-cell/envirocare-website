@@ -87,8 +87,8 @@ export default function America250Banner() {
           <div className="ec250-eyebrow">🇺🇸 Happy Independence Day</div>
           <div className="ec250-headline">Happy 250th, America!</div>
           <div className="ec250-sub">
-            Celebrating America&rsquo;s Semiquincentennial — and 68 years of protecting
-            Alabama homes and families since 1958.
+            Celebrating America&rsquo;s Semiquincentennial — and a family that has been protecting
+            Alabama homes since 1958.
           </div>
           <div className="ec250-msg">
             From all of us at EnviroCare, we wish you a happy, festive, and joyful Fourth of July.

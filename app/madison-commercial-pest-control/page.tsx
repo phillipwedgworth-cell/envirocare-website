@@ -19,7 +19,7 @@ const c: ComboContent = {
   h1Accent: "Because One Roach Costs More Than a Year of Prevention.",
   intro: [
     "Madison's commercial strip has exploded — Town Madison's restaurants and hotels around the ballpark, the retail filling in along Highway 72 and Madison Boulevard, medical and professional suites serving a city that doubled. Every one of those doors has the same exposure: a single pest sighting in front of a customer, a health inspector, or a Google reviewer costs more than years of prevention ever would.",
-    "EnviroCare's commercial program is built for that math — scheduled exterior and interior service matched to your facility type, documentation you can hand an inspector or corporate auditor, and a local North Alabama office that answers when a manager calls at open. Fourth-generation family company; we've been keeping Alabama businesses clean since 1958.",
+    "EnviroCare's commercial program is built for that math — scheduled exterior and interior service matched to your facility type, documentation you can hand an inspector or corporate auditor, and a local North Alabama office that answers when a manager calls at open. Family-owned since 1958, four generations of the Wedgworth family on.",
   ],
   anglesHeading: "Madison facilities we service",
   localAngles: [

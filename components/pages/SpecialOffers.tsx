@@ -97,7 +97,7 @@ export default function SpecialOffers() {
           Current <em style={{ color: GOLD }}>Special Offers</em>
         </h1>
         <p style={{ fontSize: 16, color: "rgba(255,255,255,0.65)", maxWidth: 440, margin: "0 auto 8px", lineHeight: 1.7, ...sf }}>
-          No gimmicks. These are real savings for Alabama families — because 68 years of trust means something.
+          No gimmicks. These are real savings for Alabama families — because four generations of trust means something.
         </p>
         <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", ...sf }}>
           Call to claim any offer: <strong style={{ color: GOLD }}>(205) 940-6360</strong>

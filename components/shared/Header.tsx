@@ -189,7 +189,7 @@ export default function Header() {
         <nav className="sh-panel" onClick={(e) => e.stopPropagation()} aria-label="Full navigation">
           <div className="sh-panel-top">
             <span className="sh-panel-mark" aria-hidden="true">✿</span>
-            <span className="sh-panel-eyebrow">EnviroCare · Since 1958</span>
+            <span className="sh-panel-eyebrow">Family-owned since 1958</span>
             <button type="button" className="sh-panel-close" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
           </div>
           <div className="sh-panel-links">
