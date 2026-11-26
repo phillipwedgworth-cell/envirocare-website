@@ -75,6 +75,8 @@ const SERVICES: [string, string][] = [
   ["Termite Control", "/services/termite-control"],
   ["Mosquito Control", "/services/mosquito"],
   ["Tick Control", "/services/tick-control"],
+  ["Commercial Pest Control", "/services/commercial"],
+  ["WDO Letters", "/services/wdo-letters"],
   ["Plans & Pricing", "/pricing"],
 ];
 
@@ -84,7 +86,6 @@ const SPECIALTY: [string, string][] = [
   ["Flea Control", "/services/flea"],
   ["Builder Pre-Treat", "/builders"],
   ["Real Estate / WDO Letters", "/realtor"],
-  ["Commercial Service", "/services/commercial"],
   ["Pest Library", "/pest-library"],
   ["Seasonal Pest Calendar", "/pest-calendar"],
   ["Pest Tips & Blog", "/blog"],
