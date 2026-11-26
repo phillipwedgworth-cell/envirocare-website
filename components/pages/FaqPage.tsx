@@ -117,7 +117,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Can you do a WDO inspection for refinancing or selling?</summary>
-              <div className="faq-a">Yes — we provide the Official Alabama Wood Infestation Inspection Report (the Wood-Destroying Organism letter) accepted by every Alabama lender. One free per year on active accounts; $125 standalone fee otherwise.</div>
+              <div className="faq-a">Yes — we provide the Official Alabama Wood Infestation Inspection Report (the Wood-Destroying Organism letter) accepted by every Alabama lender. It is a separate, paid service, as low as $125. The free termite inspection that prices a Sentricon® system is not a WDO letter.</div>
             </details>
           </div>
         </div>

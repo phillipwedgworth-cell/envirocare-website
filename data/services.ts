@@ -481,8 +481,7 @@ export const SERVICES: Service[] = [
       'Fast turnaround (often 48 hours)',
       'Lender-ready format',
       'All Alabama lenders accepted',
-      '1 free per year for active customers',
-      '$125 standalone fee',
+      'Separate, paid service, as low as $125',
       'Includes recommendations if active issues',
     ],
     includes: [

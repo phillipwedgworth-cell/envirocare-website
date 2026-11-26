@@ -305,6 +305,24 @@ export const BANNED_PATTERNS: BannedTerm[] = [
     reason: 'wrong/nonexistent WDO form designation for Alabama',
     approvedInstead: 'Official Alabama Wood Infestation Inspection Report (Ala. Admin. Code r. 80-10-9-.18, Exhibit A)' },
 
+  // FREE YEARLY WDO LETTER, 2026-11-25 (Wednesday open-items run, sweep 11-23 C1).
+  // Phillip, Nov 17 2026: active customers do NOT get a free yearly WDO letter; a WDO
+  // letter is a separate, paid service (as low as $125). PRs #317 and #321 removed the
+  // claim from the pages they named, and it stayed live on /faq because no rule existed,
+  // so two PRs and a "verified" doc all missed it. Ninth instance of matching literals
+  // where a shape was needed: the live copies were "One free per year on active
+  // accounts", "1 free per year for active customers" and "free for existing customers
+  // once a year" -- no shared substring.
+  // SHAPE: within ONE sentence, in ANY order: a free-word, a yearly-word, and either a
+  // WDO/letter word or an existing-customer word. The three lookaheads all start at the
+  // same position and stop at sentence punctuation, so they test co-occurrence inside the
+  // sentence that contains the match. "Free full-home inspection", "Annual inspection
+  // included" (CityPage termite plan bullets) carry no WDO or customer word and pass.
+  // NOTE: keep pattern and notIf on ONE line -- see the comment on the WDO-form rule.
+  { pattern: '(?=[^.!?\\n]*\\b(free|complimentary|no[\\s-]charge)\\b)(?=[^.!?\\n]*\\b((per|a|each|every)\\s+year|annual(ly)?|yearly)\\b)(?=[^.!?\\n]*\\b(wdo|wood[\\s-]destroying|wood[\\s-]infestation|letters?|(active|existing|current)\\s+(customers?|accounts?))\\b)[^.!?\\n]*?\\b(free|complimentary|no[\\s-]charge)\\b[^.!?\\n]{0,40}', notIf: 'do(es)?\\s+not|don.t|never|no\\s+longer|is\\s+not|isn.t|banned',
+    reason: 'free yearly WDO letter - Phillip Nov 17 2026: active customers do not get a free WDO letter; it is a separate paid service',
+    approvedInstead: 'A WDO letter is a separate, paid service, as low as $125. The free termite inspection is not a WDO letter.' },
+
   // "FOUNDED 1958" -- the company was not. EnviroCare LLC began 1993 and
   // incorporated 2005; 1958 is when the FAMILY started, as Wedgworth Pest Control.
   // BBB publishes both dates, so this is a visible contradiction.
