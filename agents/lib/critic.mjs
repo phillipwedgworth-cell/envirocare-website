@@ -24,7 +24,8 @@ if (process.env.ANTHROPIC_API_KEY) {
   }
 }
 const MAX_LOOPS = 3;
-// Default to Haiku to keep spend low; override via CRITIC_MODEL env (e.g. opus
+// Defaults to Sonnet (see the 2026-09-05 note below; Phillip ruled 2026-11-18 that
+// Sonnet or higher is fine for agents). Override via CRITIC_MODEL env (e.g. opus
 // for a one-off deep review). A low Anthropic cap will catch any Opus creep fast.
 // Upgraded 2026-09-05: the critic judges compliance and synthesizes site-review
 // recommendations. Haiku produced duplicate/over-graded recs (Aug 24). ~$3/mo delta.
@@ -51,7 +52,13 @@ WHAT AUTOMATICALLY FAILS:
 - Missing IMPACT or EFFORT scores
 - Vague fixes like "improve trust signals" without specifying which signal, where, and how
 - Recommendations that don't reference competitor intelligence or site audit findings
-- ANY claim that the agent took an external action it has no tool for (e.g. "filed a support ticket," "emailed the team," "submitted to Google," "opened a Jira issue") — agents may ONLY claim actions that correspond to actual tool calls they made during this run. If you spot a fabricated action claim, FAIL the output and require the agent to either remove the claim or replace it with what it actually did/observed.`;
+- ANY claim that the agent took an external action it has no tool for (e.g. "filed a support ticket," "emailed the team," "submitted to Google," "opened a Jira issue") — agents may ONLY claim actions that correspond to actual tool calls they made during this run. Check such claims against the TOOL CALLS list in the message. If you spot a fabricated action claim, FAIL the output and require the agent to either remove the claim or replace it with what it actually did/observed.
+
+WHAT IS NOT A FABRICATED ACTION (never fail an output for these):
+- A recommendation or next step: "start with…", "recommended action:", "next step:", "should", "consider". Advice is not a claim that something was done.
+- A figure the output attributes to a named, dated source (e.g. "per BrightLocal audit dated 2026-11-09"). Context handed to the worker is a legitimate source.
+- An item the output reports as an ERROR or failed lookup. Reporting a failure honestly is correct, even if the item is missing from your task list.
+- If the message says no tool-call list was provided, do not fail anything on the fabricated-action rule; judge sourced figures only on whether they name a source and date.`;
 
 // External-dependency blockers. When a worker is stopped by something OUTSIDE
 // the prompt — a 429/rate limit, a monthly quota, a rejected/expired API key, an
@@ -76,7 +83,7 @@ export function criticDraft(result) {
   return isExternallyBlocked(result) ? result.draft : result;
 }
 
-export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate, toolErrors = [] }) {
+export async function criticLoop({ workerName, task, output, rubric, revise, onEscalate, toolErrors = [], toolCalls }) {
   let current = output;
   const history = [];
 
@@ -102,6 +109,13 @@ ${current}
 
 QUALITY RUBRIC (what "pass" requires):
 ${rubric}
+
+TOOL CALLS THE WORKER MADE THIS RUN:
+${toolCalls === undefined
+  ? '(no tool-call list was provided for this agent)'
+  : toolCalls.length
+    ? toolCalls.slice(0, 60).map(c => `- ${c}`).join('\n') + (toolCalls.length > 60 ? `\n- …and ${toolCalls.length - 60} more` : '')
+    : '(no tool calls were made this run)'}
 
 Respond in this exact format:
 VERDICT: PASS or FAIL
