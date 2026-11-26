@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
 
-const TITLE = "Mosquito Control Madison AL | Seasonal Yard Treatment | EnviroCare";
+const TITLE = "Mosquito Control in Madison, AL | EnviroCare";
 const DESC =
   `Mosquito control in Madison AL — ~$${PRICING.addOns.mosquito.monthly}/month, about 8 treatments March–October. Creek-line and greenway yards are the worst hit. Call (256) 937-7676.`;
 
@@ -75,6 +75,9 @@ const c: ComboContent = {
   cityHub: { name: "Madison Service Area", href: "/madison" },
   servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Madison, AL",
+  city: "Madison",
+  serviceType: "Mosquito control",
+  offers: ["mosquito"],
   canonicalPath: "/madison-mosquito-control",
 };
 

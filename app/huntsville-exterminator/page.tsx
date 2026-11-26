@@ -8,19 +8,19 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Exterminator Huntsville AL | EnviroCare — Family-Owned Since 1958",
+  title: "Exterminator in Huntsville, AL | EnviroCare",
   description:
     "Huntsville pest control with scheduled perimeter visits and interior re-service for covered pests. Monthly ACH option from $35/mo. (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-exterminator',
-    title: "Exterminator Huntsville AL | EnviroCare — Family-Owned Since 1958",
+    title: "Exterminator in Huntsville, AL | EnviroCare",
     description: "Huntsville pest control with scheduled perimeter visits and interior re-service for covered pests. Monthly ACH option from $35/mo. (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Exterminator Huntsville AL | EnviroCare — Family-Owned Since 1958",
+    title: "Exterminator in Huntsville, AL | EnviroCare",
     description: "Huntsville pest control with scheduled perimeter visits and interior re-service for covered pests. Monthly ACH option from $35/mo. (256) 937-7676.",
     images: ['/og-image.png'],
   },
@@ -87,6 +87,9 @@ const c: ComboContent = {
   cityHub: { name: "Huntsville Pest Control", href: "/huntsville" },
   servicePage: { name: "Pest Control Service", href: "/services/pest-control" },
   schemaName: "EnviroCare Exterminator — Huntsville, AL",
+  city: "Huntsville",
+  serviceType: "Pest control",
+  offers: ["fireAnt", "termite"],
   canonicalPath: "/huntsville-exterminator",
 };
 

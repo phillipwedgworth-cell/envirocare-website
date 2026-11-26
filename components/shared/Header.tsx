@@ -27,6 +27,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Phone, Menu, X, Sparkles, User, Flower2 } from "lucide-react";
 import { useOfficePhone } from "../../lib/use-office-phone";
+import { LOCAL_SERVICE_GROUPS } from "../../data/local-service-links";
 
 // The one internal Pay Bill URL. app/pay/page.tsx redirects it to the Key7
 // portal, so if the processor ever changes, that file changes and nothing here
@@ -224,6 +225,23 @@ export default function Header() {
                     <span className="sh-loc-office">{g.office}</span>
                     {g.cities.map(([label, href]) => (
                       <Link key={href} href={href} className="sh-sub" onClick={() => setMenuOpen(false)}>{label}</Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </details>
+
+            {/* LOCAL SERVICES (2026-11-26): the city × service pages, which
+                BrightLocal's AI Insights found linked only from the footer.
+                Anchors read "{Service} in {City}, AL" — see data/local-service-links.ts. */}
+            <details className="sh-group">
+              <summary className="sh-group-sum">Local Services</summary>
+              <div className="sh-group-body">
+                {LOCAL_SERVICE_GROUPS.map((g) => (
+                  <div key={g.city} className="sh-loc-group">
+                    <span className="sh-loc-office">{g.city}</span>
+                    {g.links.map((l) => (
+                      <Link key={l.href} href={l.href} className="sh-sub" onClick={() => setMenuOpen(false)}>{l.label}</Link>
                     ))}
                   </div>
                 ))}

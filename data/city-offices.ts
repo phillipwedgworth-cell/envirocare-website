@@ -122,7 +122,9 @@ export const CITY_OFFICE: Record<string, OfficeId> = Object.fromEntries([
        'best-pest-control-birmingham', 'birmingham-exterminator',
        'birmingham-mosquito-control', 'birmingham-termite-control',
        'east-birmingham', 'north-birmingham', 'over-the-mountain',
-       'vestavia-hills-mosquito-control'] as const)
+       'vestavia-hills-mosquito-control',
+       // Added 2026-11-26 with the pages (Jefferson County, body copy says 991-2882).
+       'vestavia-hills-termite-control', 'vestavia-hills-exterminator'] as const)
       .map((s): [string, OfficeId] => [s, 'birmingham-downtown']),
   ...(['chelsea', 'greystone', 'mt-laurel', 'inverness', 'brook-highland',
        'meadow-brook', 'eagle-point', 'highland-lakes', 'chelsea-park'] as const)

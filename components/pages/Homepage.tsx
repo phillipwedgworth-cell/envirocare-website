@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight, Check, MapPin, Phone, ShieldCheck } from 'lucide
 import HomepagePricing from '@/components/home/HomepagePricing';
 import HomepageZipFinder from '@/components/home/HomepageZipFinder';
 import { OFFICES, type OfficeId } from '@/data/offices';
+import { LOCAL_SERVICE_LINKS } from '@/data/local-service-links';
 import styles from './Homepage.module.css';
 
 // Static sections render on the server; pricing and the ZIP form are client islands.
@@ -144,6 +145,20 @@ export default function Homepage() {
           </div>
           <div className={styles.directoryGrid}>{serviceLinks.map(([name, href]) => (
             <Link key={href} href={href}><Check size={17} aria-hidden="true" /><span>{name}</span><ArrowRight size={16} aria-hidden="true" /></Link>
+          ))}</div>
+        </div>
+      </section>
+
+      {/* City × service pages (2026-11-26). BrightLocal's AI Insights found these
+          linked only from the footer; descriptive anchors come from data/local-service-links.ts. */}
+      <section className={styles.serviceDirectory} aria-labelledby="home-local-services-heading">
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <div><p className={styles.eyebrow}>Close to home</p><h2 id="home-local-services-heading">Local services by city.</h2></div>
+            <p>Termite, mosquito and pest service<br className={styles.desktopBreak} /> planned for your part of Alabama.</p>
+          </div>
+          <div className={styles.directoryGrid}>{LOCAL_SERVICE_LINKS.map(({ label, href }) => (
+            <Link key={href} href={href}><MapPin size={17} aria-hidden="true" /><span>{label}</span><ArrowRight size={16} aria-hidden="true" /></Link>
           ))}</div>
         </div>
       </section>

@@ -1,0 +1,43 @@
+name: Payment returns audit
+
+# Checks every bank return / chargeback in Supabase `payment_returns` against
+# Fieldster: was the payment reversed, was the Return Check Fee added, was the
+# fee waived. Emails a fix list. Runs in GitHub's cloud — Phillip's computer can
+# be off. Rows are added by the cloud Claude scheduled task that reads the
+# Fieldster Payments emails in Gmail (~6:47am CT), so this runs after it.
+#
+# READ-ONLY against Fieldster. Public repo: the agent never logs customer data.
+
+on:
+  schedule:
+    - cron: '13 13 * * 1-5'   # weekdays 13:13 UTC = 7:13am CST
+  push:
+    branches: [claude/payment-returns-audit]
+    paths: [agents/payment-returns-audit.mjs, .github/workflows/payment-returns-audit.yml]
+  workflow_dispatch: {}
+
+concurrency:
+  group: payment-returns-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Audit returns against Fieldster
+        env:
+          FIELDSTER_API_TOKEN:       ${{ secrets.FIELDSTER_API_TOKEN || secrets.FIELDSTER_API_KEY }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_KEY }}
+          RESEND_API_KEY:            ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_FROM:               ${{ secrets.NOTIFY_FROM }}
+          # Extra recipients (comma-separated), e.g. Rachel once Phillip approves.
+          RETURNS_REPORT_TO:         ${{ vars.RETURNS_REPORT_TO }}
+          # Test pushes to the branch write to Supabase but do not email.
+          RETURNS_NO_EMAIL:          ${{ github.event_name == 'push' && '1' || '' }}
+        run: node agents/payment-returns-audit.mjs

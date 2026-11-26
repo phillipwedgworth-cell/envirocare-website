@@ -8,6 +8,7 @@ import { GREEN, GOLD, DEEP, CREAM, INK, displayFont, bodyFont } from "@/lib/bran
 
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 import RefreshedContent from '@/components/RefreshedContent';
+import { LOCAL_OFFERS, type OfferKey } from '@/data/local-offers';
 export type ComboContent = {
   eyebrow: string;
   h1: string;
@@ -30,10 +31,29 @@ export type ComboContent = {
   areaServed?: { name: string; href?: string }[];
   /** Optional further-reading links shown with the cross links. */
   related?: { name: string; href: string }[];
+  /**
+   * City this page targets, e.g. "Madison" (no state). With `serviceType`, emits
+   * Service JSON-LD whose areaServed is this city plus any `areaServed` entries,
+   * and gives LocalBusiness an areaServed when the page has no explicit list.
+   */
+  city?: string;
+  /** Plain service name for Service JSON-LD, e.g. "Termite control". */
+  serviceType?: string;
+  /** Plain-English offer blocks from data/local-offers.ts. Unconfirmed (null) items never render. */
+  offers?: OfferKey[];
 };
 
 export default function ComboPage({ c }: { c: ComboContent }) {
-  const schema = [
+  const areaCities = [
+    ...(c.city ? [c.city] : []),
+    ...(c.areaServed ?? []).map((a) => a.name).filter((n) => n !== c.city),
+  ];
+  const areaServedSchema = areaCities.map((name) => ({ "@type": "City", name: `${name}, AL` }));
+  const offerBlocks = (c.offers ?? [])
+    .map((k) => LOCAL_OFFERS[k])
+    .map((b) => ({ ...b, items: b.items.filter((i): i is { title: string; body: string } => i.body !== null) }))
+    .filter((b) => b.items.length > 0);
+  const schema: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness" as const,
@@ -42,8 +62,19 @@ export default function ComboPage({ c }: { c: ComboContent }) {
       address: { "@type": "PostalAddress", streetAddress: c.office.address, addressRegion: "AL", addressCountry: "US" },
       url: `https://www.envirocarellc.com${c.canonicalPath}`,
       parentOrganization: { "@id": "https://www.envirocarellc.com/#organization" },
-      ...(c.areaServed?.length ? { areaServed: c.areaServed.map((a) => ({ "@type": "City", name: `${a.name}, AL` })) } : {}),
+      ...(areaServedSchema.length ? { areaServed: areaServedSchema } : {}),
     },
+    ...(c.city && c.serviceType
+      ? [{
+          "@context": "https://schema.org",
+          "@type": "Service" as const,
+          name: c.schemaName,
+          serviceType: c.serviceType,
+          url: `https://www.envirocarellc.com${c.canonicalPath}`,
+          provider: { "@id": "https://www.envirocarellc.com/#organization" },
+          areaServed: areaServedSchema,
+        }]
+      : []),
     {
       "@context": "https://schema.org",
       "@type": "FAQPage" as const,
@@ -150,6 +181,27 @@ export default function ComboPage({ c }: { c: ComboContent }) {
           <a href="/quote" style={{ display: "inline-block", background: GREEN, color: "#fff", padding: "14px 34px", borderRadius: 999, fontWeight: 700, fontSize: 15, textDecoration: "none" }}>Start Today →</a>
         </div>
       </section>
+
+      {/* OFFERS (optional) — confirmed terms only, see data/local-offers.ts */}
+      {offerBlocks.length ? (
+        <section style={{ padding: "48px clamp(20px,5vw,64px)", background: "#fff" }}>
+          <div style={{ maxWidth: 860, margin: "0 auto" }}>
+            {offerBlocks.map((b) => (
+              <div key={b.heading} style={{ marginBottom: 28 }}>
+                <h2 style={{ ...ss, fontSize: "clamp(1.4rem,2.6vw,1.85rem)", fontWeight: 600, color: INK, margin: "0 0 16px" }}>{b.heading}</h2>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 14 }}>
+                  {b.items.map((i) => (
+                    <div key={i.title} style={{ border: "1px solid rgba(14,142,64,0.15)", borderRadius: 14, padding: "18px 20px", background: CREAM }}>
+                      <h3 style={{ ...ss, fontSize: 16.5, color: DEEP, margin: "0 0 8px", fontWeight: 700 }}>{i.title}</h3>
+                      <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, margin: 0 }}>{i.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <RefreshedContent route={c.canonicalPath} />
 

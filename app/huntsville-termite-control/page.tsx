@@ -8,19 +8,19 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
+  title: "Termite Control in Huntsville, AL | EnviroCare",
   description:
     "Termite control in Huntsville AL — Sentricon® in-ground baiting, usually no drilling. Free termite inspection; priced after inspection. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-termite-control',
-    title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
+    title: "Termite Control in Huntsville, AL | EnviroCare",
     description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, usually no drilling. Free termite inspection; priced after inspection. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Termite Control Huntsville AL | Sentricon® | EnviroCare",
+    title: "Termite Control in Huntsville, AL | EnviroCare",
     description: "Termite control in Huntsville AL — Sentricon® in-ground baiting, usually no drilling. Free termite inspection; priced after inspection. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
@@ -92,6 +92,9 @@ const c: ComboContent = {
   cityHub: { name: "Huntsville Pest Control", href: "/huntsville" },
   servicePage: { name: "Termite Control Service", href: "/services/termite-control" },
   schemaName: "EnviroCare Termite Control — Huntsville, AL",
+  city: "Huntsville",
+  serviceType: "Termite control",
+  offers: ["termite"],
   canonicalPath: "/huntsville-termite-control",
 };
 
