@@ -2,19 +2,19 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/lake-martin-area' },
-  title: "Lake Martin Area Pest Control | EnviroCare",
-  description: "Pest, termite & mosquito control around Lake Martin — Alexander City, Dadeville, Eclectic, Auburn & Opelika. The original 1958 office. (256) 234-6162.",
+  title: "Lake Martin Area Pest Control & Termite Service | EnviroCare",
+  description: "Pest, termite and mosquito control around Lake Martin: Alexander City, Dadeville, Eclectic, Auburn and Opelika. Free termite inspection. (256) 234-6162.",
   openGraph: {
-    title: "Lake Martin Area Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control around Lake Martin — Alexander City, Dadeville, Eclectic, Auburn & Opelika. The original 1958 office. (256) 234-6162.",
+    title: "Lake Martin Area Pest Control & Termite Service | EnviroCare",
+    description: "Pest, termite and mosquito control around Lake Martin: Alexander City, Dadeville, Eclectic, Auburn and Opelika. Free termite inspection. (256) 234-6162.",
     url: 'https://www.envirocarellc.com/lake-martin-area',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Lake Martin Area Pest Control | EnviroCare",
-    description: "Pest, termite & mosquito control around Lake Martin — Alexander City, Dadeville, Eclectic, Auburn & Opelika. The original 1958 office. (256) 234-6162.",
+    title: "Lake Martin Area Pest Control & Termite Service | EnviroCare",
+    description: "Pest, termite and mosquito control around Lake Martin: Alexander City, Dadeville, Eclectic, Auburn and Opelika. Free termite inspection. (256) 234-6162.",
     images: ['/og-image.png'],
   },
 };

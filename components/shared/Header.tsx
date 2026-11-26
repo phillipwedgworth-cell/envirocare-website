@@ -67,9 +67,10 @@ const MENU_LINKS: [string, string][] = [
 //   - tap-to-open works on touch; a hover menu strands mobile users
 //
 // EVERY href below was checked against an existing app/<slug>/page.tsx.
-// 'madison' is deliberately ABSENT: data/cities.ts defines it but there is no
-// app/madison route, so linking it would manufacture a 404 in the nav. Madison
-// traffic has /madison-termite-control instead.
+// 'madison' was left out while there was no app/madison route. That route has
+// existed since 2026-08-17 (see app/sitemap.ts), so Madison is linked again
+// (2026-11-26, BrightLocal AI Insights for the Alex City location asked for
+// Alexander City, Lake Martin, Huntsville, Madison and Decatur in the menu).
 const SERVICE_LINKS: [string, string][] = [
   ["Pest Control", "/services/pest-control"],
   ["Termite Control", "/services/termite-control"],
@@ -94,7 +95,7 @@ const LOCATION_GROUPS: { office: string; cities: [string, string][] }[] = [
     ["Alabaster", "/alabaster"], ["Pelham", "/pelham"], ["Helena", "/helena"], ["Calera", "/calera"],
   ]},
   { office: "Huntsville", cities: [
-    ["Huntsville", "/huntsville"], ["Athens", "/athens"], ["Decatur", "/decatur"],
+    ["Huntsville", "/huntsville"], ["Madison", "/madison"], ["Athens", "/athens"], ["Decatur", "/decatur"],
     ["Hartselle", "/hartselle"], ["Harvest", "/harvest"], ["Hampton Cove", "/hampton-cove"],
   ]},
   { office: "Lake Martin", cities: [
