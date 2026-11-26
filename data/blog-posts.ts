@@ -4152,7 +4152,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Pest Control in Huntsville, AL: A Local Guide',
     excerpt: 'For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.',
     publishedAt: '2026-05-20',
-    updatedAt: "2026-10-29",
+    updatedAt: "2026-11-16",
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 15,
@@ -4161,6 +4161,12 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Explore pest-control questions for Huntsville homes: identification, inspection, service scope and separate termite or mosquito protection.",
     body: `
 <p class="lede">For pest control in Huntsville, start with the pest, where you see it and whether the issue is recurring. Ask for an inspection, a clear service scope and the right local contact. General pest service, termite protection and mosquito management are separate decisions.</p>
+
+<h2>Does EnviroCare provide pest control in Huntsville and Madison?</h2>
+
+<p><strong>Yes.</strong> EnviroCare serves Huntsville, Madison and nearby North Alabama communities from its Huntsville office at 7027 Old Madison Pike NW, Suite 108. Homeowners can call <a href="tel:2569377676">(256) 937-7676</a> for general pest service, or review the dedicated <a href="/huntsville">Huntsville pest control page</a>, <a href="/huntsville-termite-control">Huntsville termite control page</a> and <a href="/huntsville-mosquito-control">Huntsville mosquito control page</a> before requesting service.</p>
+
+<p>Those services solve different problems. General pest service covers common household pests; termite protection is inspected and scoped separately; mosquito and tick programs are outdoor services with their own season and treatment plan. If the property is in Madison, see the <a href="/madison">Madison service-area page</a> for the local contact path.</p>
 
 <h2>Which property conditions affect pest activity in Huntsville?</h2>
 
@@ -6028,7 +6034,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Pest Control in Birmingham, AL: Exterminator Services and Questions',
     excerpt: 'For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.',
     publishedAt: '2026-06-30',
-    updatedAt: "2026-10-29",
+    updatedAt: "2026-11-16",
     author: 'Kevin Wedgworth',
     category: 'Local',
     readMinutes: 14,
@@ -6037,6 +6043,12 @@ export const BLOG_POSTS: BlogPost[] = [
     metaDescription: "Compare pest-control options for Birmingham by pest, service scope, visit schedule and local office. Discuss termite and mosquito service separately.",
     body: `
 <p class="lede">For pest control in Birmingham, identify the pest and ask what the proposed plan covers, how visits are scheduled and which office serves the property. Compare the written scope and follow-up process, with termite and mosquito services considered separately.</p>
+
+<h2>Does EnviroCare provide pest control in Birmingham and Over-the-Mountain communities?</h2>
+
+<p><strong>Yes.</strong> EnviroCare serves Birmingham and surrounding communities through its Birmingham-area offices. For the city and nearby Over-the-Mountain communities, start with the <a href="/birmingham">Birmingham pest control page</a>; termite and mosquito services have separate local pages so homeowners can compare the correct scope instead of treating every pest problem as the same service.</p>
+
+<p>General pest service covers common household pests, while <a href="/birmingham-termite-control">Birmingham termite control</a> and <a href="/birmingham-mosquito-control">Birmingham mosquito control</a> are evaluated separately. If you are in Hoover, Vestavia Hills, Mountain Brook, Homewood or another nearby community, use the location page for that property or request a quote so the correct office can be assigned.</p>
 
 <h2>Which property conditions affect pest activity in Birmingham?</h2>
 

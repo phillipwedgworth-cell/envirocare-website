@@ -2,6 +2,7 @@
 
 import { getPostBySlug, isPublished } from '@/data/blog-posts';
 import { getBlogVisual } from '@/data/blog-visuals';
+import { getBlogCitations } from '@/data/blog-citations';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -13,6 +14,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
   }
 
   const photo = getBlogVisual(post);
+  const citations = getBlogCitations(post.slug);
 
   return (
     <main className="bpp-main">
@@ -49,6 +51,22 @@ export default function BlogPostPage({ slug }: { slug: string }) {
 
         <div className="bpp-body-wrap">
           <div className="bpp-body" dangerouslySetInnerHTML={{ __html: post.body }} />
+          {citations.length > 0 && (
+            <aside className="bpp-sources" aria-labelledby="bpp-sources-heading">
+              <h2 id="bpp-sources-heading">Sources &amp; further reading</h2>
+              <p className="bpp-sources-note">
+                Primary and public-health references used for factual context. These organizations do not endorse EnviroCare.
+              </p>
+              <ul>
+                {citations.map(source => (
+                  <li key={source.id}>
+                    <a href={source.url} rel="noreferrer">{source.title}</a>
+                    <span>{source.supports}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
         </div>
 
         <section className="bpp-cta-section">
@@ -209,6 +227,43 @@ const POST_CSS = `
 .bpp-body a {
   color: #0A7935;
   font-weight: 600;
+}
+.bpp-sources {
+  max-width: 720px;
+  margin: 44px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid #DCE6DF;
+}
+.bpp-sources h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: #0E1A0F;
+}
+.bpp-sources-note {
+  margin: 0 0 18px;
+  color: #5A6660;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.bpp-sources ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.bpp-sources li {
+  margin: 0 0 14px;
+  color: #1A2620;
+}
+.bpp-sources a {
+  color: #0A7935;
+  font-weight: 700;
+}
+.bpp-sources span {
+  display: block;
+  margin-top: 4px;
+  color: #5A6660;
+  font-size: 14px;
+  line-height: 1.5;
 }
 .bpp-cta-section {
   padding: 80px 24px;
