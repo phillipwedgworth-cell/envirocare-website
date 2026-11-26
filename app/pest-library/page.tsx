@@ -3,21 +3,21 @@ import PestLibraryIndex from "@/components/pages/PestLibraryIndex";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: "Alabama Pest Library | Identification & Control Guide | EnviroCare",
+  title: "Alabama Pest Library | Identify & Control Pests | EnviroCare",
   description:
-    "Identify Alabama pests — ants, termites, roaches, spiders, mosquitoes, ticks — and see how EnviroCare controls them. Since 1958.",
+    "Identify Alabama pests, from ants, termites and roaches to spiders, mosquitoes and ticks, and see how EnviroCare treats each one. (205) 940-6360.",
   alternates: { canonical: "/pest-library" },
   openGraph: {
-    title: "Alabama Pest Library | Identification & Control Guide | EnviroCare",
-    description: "Identify Alabama pests — ants, termites, roaches, spiders, mosquitoes, ticks — and see how EnviroCare controls them. Since 1958.",
+    title: "Alabama Pest Library | Identify & Control Pests | EnviroCare",
+    description: "Identify Alabama pests, from ants, termites and roaches to spiders, mosquitoes and ticks, and see how EnviroCare treats each one. (205) 940-6360.",
     url: 'https://www.envirocarellc.com/pest-library',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Alabama Pest Library | Identification & Control Guide | EnviroCare",
-    description: "Identify Alabama pests — ants, termites, roaches, spiders, mosquitoes, ticks — and see how EnviroCare controls them. Since 1958.",
+    title: "Alabama Pest Library | Identify & Control Pests | EnviroCare",
+    description: "Identify Alabama pests, from ants, termites and roaches to spiders, mosquitoes and ticks, and see how EnviroCare treats each one. (205) 940-6360.",
     images: ['/og-image.png'],
   },
 };

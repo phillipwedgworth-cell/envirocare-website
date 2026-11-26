@@ -4,7 +4,7 @@ import { PRICING } from "@/data/pricing";
 
 const TITLE = "Mosquito Control in Decatur, AL | EnviroCare";
 const DESC =
-  `Mosquito control in Decatur AL — ~$${PRICING.addOns.mosquito.monthly}/month, about 8 treatments March–October. Built for river-bottom humidity and refuge-edge yards. (256) 937-7676.`;
+  `Mosquito control in Decatur, AL from $${PRICING.addOns.mosquito.monthly}/month: eight treatments March through October for river-bottom yards. (256) 937-7676.`;
 
 export const metadata: Metadata = {
   title: TITLE,

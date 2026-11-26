@@ -6,11 +6,11 @@ import { PRICING } from '@/data/pricing';
 
 export const metadata = {
   alternates: { canonical: '/best-pest-control-birmingham' },
-  title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
+  title: "How to Choose a Pest Control Company in Birmingham, AL",
   description:
     'How to choose the best pest control in Birmingham — licensing, termite coverage, published pricing and where EnviroCare fits. (205) 991-2882.',
   openGraph: {
-    title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
+    title: "How to Choose a Pest Control Company in Birmingham, AL",
     description:
       'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     url: 'https://www.envirocarellc.com/best-pest-control-birmingham',
@@ -19,7 +19,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How to Choose a Pest Control Company in Birmingham | EnviroCare',
+    title: "How to Choose a Pest Control Company in Birmingham, AL",
     description:
       'What to check before hiring a Birmingham pest control company — licensing, termite coverage, published pricing and agreement terms.',
     images: ['/og-image.png'],

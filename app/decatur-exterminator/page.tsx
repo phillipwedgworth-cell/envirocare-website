@@ -4,7 +4,7 @@ import { PRICING } from "@/data/pricing";
 
 const TITLE = "Exterminator in Decatur, AL | EnviroCare";
 const DESC =
-  `Need an exterminator in Decatur AL? Fourth-generation Alabama company — one-time treatments or plans from $${PRICING.plans.pest.fromMonthly}/mo. Real local techs. (256) 937-7676.`;
+  `Exterminator in Decatur, AL: bi-monthly pest service from $${PRICING.plans.pest.fromMonthly}/mo, with free re-service between visits, from our Huntsville office. (256) 937-7676.`;
 
 export const metadata: Metadata = {
   title: TITLE,
