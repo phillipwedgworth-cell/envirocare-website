@@ -65,9 +65,9 @@ assert.equal(coveredBy('termite treatment inspection cost birmingham',existingTo
 // Execute the actual narrator in a VM with fake editor/LLM endpoints. This verifies
 // the gate sits before import-content for hand drafts, auto drafts and FORCE;
 // none of these tests uses credentials, sends email or changes an editor.
-async function runNarrator({html=good,force=false,existingScore=null,hand=true,readFails=false,multi=false,maxWrites,getContent,getContentAll,getQuery,currentScoreResponse,listedScore}={}) {
+async function runNarrator({html=good,force=false,protectAt,existingScore=null,hand=true,readFails=false,multi=false,maxWrites,getContent,getContentAll,getQuery,currentScoreResponse,listedScore}={}) {
  const calls=[];const findings=[];const logs=[];
- const env={NEURONWRITER_API_KEY:'test-only',ANTHROPIC_API_KEY:'test-only',NARRATOR_SLEEP_MS:'0',...(maxWrites?{NARRATOR_MAX_WRITES:maxWrites}:{}),...(force?{NARRATOR_FORCE:'1'}:{})};
+ const env={NEURONWRITER_API_KEY:'test-only',ANTHROPIC_API_KEY:'test-only',NARRATOR_SLEEP_MS:'0',...(maxWrites?{NARRATOR_MAX_WRITES:maxWrites}:{}),...(force?{NARRATOR_FORCE:'1'}:{}),...(protectAt?{NARRATOR_PROTECT_AT:protectAt}:{})};
  const context=vm.createContext({console:{log(){},warn(){},error(){}},process:{env,argv:['node','narrator','fill'],exit(code){throw Error(`exit ${code}`);}},setTimeout(cb){cb();},URL,fetch:async (target,opts)=>{
   const method=String(target).split('/').pop();const req=JSON.parse(opts.body);calls.push({method,req});
   let out;
@@ -146,8 +146,32 @@ for(const settings of [{getContentAll:{content:good}},{getContentAll:{content:''
 // One never-saved editor must not halt the run for the rest of the batch.
 const twoNeverSaved=await runNarrator({getContent:{},getQuery:readyHere,hand:false,multi:true,maxWrites:'2'});
 assert.equal(twoNeverSaved.calls.filter(c=>c.method==='import-content').length,2,'the run continues past a never-saved editor');
-const zeroScore=await runNarrator({getContent:{content:good},currentScoreResponse:{content_score:0}});
+const zeroScore=await runNarrator({getContent:{content:good},currentScoreResponse:{content_score:0},html:good.replace('useful','helpful')});
 assert.equal(zeroScore.calls.filter(c=>c.method==='import-content').length,1,'a verified zero score is valid and does not make the editor unreadable');
+// NeuronWriter editor drafts start with their own <h1> (the narrator's system
+// prompt requires it). Only that caller may put one H1 before the lede; blog
+// bodies may not, because the page already renders its H1 from the title.
+const withH1=`<h1>Pest Control</h1>${good}`;
+assert.equal(assessEditorialDraft(withH1,{keyword:'pest control',allowLeadingH1:true}).pass,true,'one leading H1 then the lede passes for editor drafts');
+assert.equal(assessEditorialDraft(withH1,{keyword:'pest control'}).pass,false,'blog bodies still must open with the lede');
+assert.equal(assessEditorialDraft(`<h1>A</h1><h1>B</h1>${good}`,{keyword:'pest control',allowLeadingH1:true}).pass,false,'only one leading H1 is skipped');
+assert.equal(assessEditorialDraft(`<h1>Pest Control</h1><p>${'word '.repeat(20)}</p>`+good.replace(/^<p class="lede">[\s\S]*?<\/p>/,''),{keyword:'pest control',allowLeadingH1:true}).pass,false,'the paragraph after the H1 must be marked as the lede');
+const h1Auto=await runNarrator({html:withH1,hand:false});
+assert.equal(h1Auto.calls.filter(c=>c.method==='import-content').length,1,'an auto draft that follows the H1-first system prompt is not blocked by the lede gate');
+// A reviewed hand draft replaces an unprotected editor unless it scores lower
+// (candidate evaluate-content returns 75 in this harness), and is not
+// re-imported when the editor already holds the same text.
+const handBetter=await runNarrator({existingScore:60,html:good.replace('useful','helpful')});
+assert.equal(handBetter.calls.filter(c=>c.method==='import-content').length,1,'a higher-scoring hand draft is imported');
+const handWorse=await runNarrator({existingScore:80,protectAt:'90',html:good.replace('useful','helpful')});
+assert.equal(handWorse.calls.filter(c=>c.method==='import-content').length,0,'a hand draft that does not beat the current editor is not imported');
+assert.ok(handWorse.calls.some(c=>c.method==='evaluate-content'),'the hand draft is scored unsaved before any import');
+const handTie=await runNarrator({existingScore:75,protectAt:'90',html:good.replace('useful','helpful')});
+assert.equal(handTie.calls.filter(c=>c.method==='import-content').length,1,'a tie still imports a reviewed hand draft (compliance fixes may not move the score)');
+const handSame=await runNarrator({existingScore:60,html:good});
+assert.equal(handSame.calls.filter(c=>c.method==='import-content').length,0,'a hand draft identical to the saved editor is not re-imported');
+const handWorseForced=await runNarrator({existingScore:80,protectAt:'90',force:true});
+assert.equal(handWorseForced.calls.filter(c=>c.method==='import-content').length,1,'FORCE still allows replacing with a hand draft');
 for (const bad of ['0', '-1', '41', 'NaN', '1.5']) assert.throws(()=>narratorWriteLimit(bad));
 assert.equal(narratorWriteLimit(),3);
 assert.equal(narratorWriteLimit('36'),36);
