@@ -22,6 +22,11 @@ const FOOTER_OFFICES = (
   phone: OFFICES[id].phone,
   phoneHref: OFFICES[id].phoneHref,
   footerLabel: FOOTER_LABELS[id],
+  // Full street address (2026-11-26): BrightLocal's AI Insights for the
+  // Birmingham location asked for the footer NAP to match each Google profile
+  // exactly. Read from data/offices.ts so a block's address always pairs with
+  // its own phone.
+  address: `${OFFICES[id].address.street}, ${OFFICES[id].address.city}, ${OFFICES[id].address.region} ${OFFICES[id].address.postalCode}`,
 }));
 
 const TEXT = "#4a5750";
@@ -183,9 +188,12 @@ export default function Footer() {
               2120 16th Ave S) appeared only in JSON-LD. Deriving the list means
               adding or moving an office can never again leave the footer stale. */}
           {FOOTER_OFFICES.map((o) => (
-            <a key={o.id} href={o.phoneHref} style={PHONE}>
-              <PhoneIcon /> {o.phone} — {o.footerLabel}
-            </a>
+            <div key={o.id}>
+              <a href={o.phoneHref} style={PHONE}>
+                <PhoneIcon /> {o.phone} — {o.footerLabel}
+              </a>
+              <div style={{ fontSize: 12.5, color: MUTED, lineHeight: 1.45, margin: "0 0 8px 22px" }}>{o.address}</div>
+            </div>
           ))}
           {/* PAY BILL (2026-09-22): the footer had no payment or customer-portal
               link anywhere. Sits directly under the office numbers because that is

@@ -62,7 +62,9 @@ export const metadata: Metadata = {
   // a local signal the SERP snippet did not carry. Exterminator stays secondary.
   // Oct 5 2026: "Local … Since 1958" dropped — the family's history began in Alexander
   // City; the Birmingham office opened in 2026. Head term and "Exterminator" kept.
-  title: "Pest Control Birmingham AL | Exterminator & Termite | EnviroCare",
+  // Nov 26 2026: 63 chars was past BrightLocal's 50-60 target. Head term and
+  // "Exterminator" kept; termite searches have /birmingham-termite-control.
+  title: "Pest Control Birmingham AL | Exterminator | EnviroCare",
   description:
     "Pest control in Birmingham, AL from our 16th Ave S office. Bi-monthly service from $35/mo, Sentricon® termite & mosquito programs. (205) 991-2882.",
   alternates: { canonical: "/birmingham" },
