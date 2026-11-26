@@ -12,10 +12,10 @@ export const metadata = {
   // pest management" 268; "commercial termite inspection/control" 495; restaurant /
   // warehouse / office pest control (Bessemer) at pos 8–9. Title and H1 now name the
   // service and the two metros that can actually win it; termite inspections added.
-  title: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
+  title: "Commercial Pest Control Birmingham & Huntsville | EnviroCare",
   description: 'Commercial pest control for restaurants, warehouses, offices & data centers in Birmingham & Huntsville AL. IPM, low-aerosol programs, audit-ready logs.',
   openGraph: {
-    title: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
+    title: "Commercial Pest Control Birmingham & Huntsville | EnviroCare",
     description: 'Commercial pest control for restaurants, warehouses, offices & data centers in Birmingham & Huntsville AL. IPM, low-aerosol programs, audit-ready logs.',
     url: 'https://www.envirocarellc.com/services/commercial',
     images: ['/og-image.png'],
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Commercial Pest Control — Birmingham & Huntsville AL | EnviroCare',
+    title: "Commercial Pest Control Birmingham & Huntsville | EnviroCare",
     description: 'Commercial pest control for restaurants, warehouses, offices & data centers in Birmingham & Huntsville AL. IPM, low-aerosol programs, audit-ready logs.',
     images: ['/og-image.png'],
   },

@@ -9,10 +9,10 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 export const metadata = {
   alternates: { canonical: '/quote' },
-  title: "Request a Pest Control Quote | EnviroCare Alabama",
+  title: "Request a Pest Control Quote in Alabama | EnviroCare",
   description: "Tell us which pest, termite or mosquito service you need. Our office will call to discuss your property, pricing and scheduling.",
   openGraph: {
-    title: "Request a Pest Control Quote | EnviroCare Alabama",
+    title: "Request a Pest Control Quote in Alabama | EnviroCare",
     description: "Tell us which pest, termite or mosquito service you need. Our office will call to discuss your property, pricing and scheduling.",
     url: 'https://www.envirocarellc.com/quote',
     images: ['/og-image.png'],
@@ -20,7 +20,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Request a Pest Control Quote | EnviroCare Alabama",
+    title: "Request a Pest Control Quote in Alabama | EnviroCare",
     description: "Tell us which pest, termite or mosquito service you need. Our office will call to discuss your property, pricing and scheduling.",
     images: ['/og-image.png'],
   },

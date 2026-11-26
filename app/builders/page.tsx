@@ -13,11 +13,11 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.envirocarellc.com'
 
 export const metadata = {
   alternates: { canonical: '/builders' },
-  title: 'Pre-Construction Termite Protection for Alabama Builders | EnviroCare',
+  title: "Termite Pre-Construction for Alabama Builders | EnviroCare",
   description:
     'Sentricon® termite protection for Alabama new construction — installed at final grade, no slab-pour scheduling, WDO report at closing. Call (205) 940-6360.',
   openGraph: {
-    title: 'Pre-Construction Termite Protection for Alabama Builders | EnviroCare',
+    title: "Termite Pre-Construction for Alabama Builders | EnviroCare",
     description: 'Sentricon® termite protection for Alabama new construction — installed at final grade, no slab-pour scheduling, WDO report at closing. Call (205) 940-6360.',
     url: 'https://www.envirocarellc.com/builders',
     images: ['/og-image.png'],
@@ -25,7 +25,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pre-Construction Termite Protection for Alabama Builders | EnviroCare',
+    title: "Termite Pre-Construction for Alabama Builders | EnviroCare",
     description: 'Sentricon® termite protection for Alabama new construction — installed at final grade, no slab-pour scheduling, WDO report at closing. Call (205) 940-6360.',
     images: ['/og-image.png'],
   },

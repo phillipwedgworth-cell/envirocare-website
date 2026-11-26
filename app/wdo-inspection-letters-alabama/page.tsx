@@ -16,7 +16,7 @@ import Link from "next/link";
 // em-dashes and buried the loan types Google never rendered.
 const TITLE = "WDO Letters for Alabama Closings | EnviroCare";
 const DESC =
-  "Order Alabama WDO inspection letters for your closings — VA, FHA, conventional and refi accepted. Direct scheduling for agents and attorneys. (205) 940-6360.";
+  "Order Alabama WDO inspection letters for closings: VA, FHA, conventional and refi accepted, direct scheduling for agents and attorneys. (205) 940-6360.";
 
 export const metadata: Metadata = {
   title: TITLE,

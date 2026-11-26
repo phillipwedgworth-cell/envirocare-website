@@ -21,14 +21,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Fire Ant Control in Alabama | Colony Elimination | EnviroCare",
+  title: "Fire Ant Control in Alabama | $150 Most Yards | EnviroCare",
   description:
-    "Fire ant treatment that reaches the queen, not just the mound. $150 minimum, one-year warranty. Open to all. Birmingham & across Alabama. (205) 940-6360.",
+    "Fire ant treatment that reaches the colony, not just the mound. $150 covers most yards, and it is open to everyone, pest plan or not. (205) 940-6360.",
   alternates: { canonical: "/services/fire-ant" },
   openGraph: { url: 'https://www.envirocarellc.com/services/fire-ant',
-    title: "Fire Ant Control | EnviroCare",
+    title: "Fire Ant Control in Alabama | $150 Most Yards | EnviroCare",
     description:
-      "Whole-colony fire ant treatment with season-long suppression. $150 minimum, backed by a one-year warranty.",
+      "Fire ant treatment that reaches the colony, not just the mound. $150 covers most yards, and it is open to everyone, pest plan or not. (205) 940-6360.",
     type: "website",
   },
 });

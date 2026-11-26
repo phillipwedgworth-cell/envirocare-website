@@ -13,7 +13,7 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 const TITLE = "Termite Control in Vestavia Hills, AL | EnviroCare";
 const DESC =
-  "Termite control in Vestavia Hills, AL: a free termite inspection, then Sentricon® bait stations for Cahaba Heights, Rocky Ridge and Liberty Park homes. Call (205) 991-2882.";
+  "Termite control in Vestavia Hills, AL: a free termite inspection, then Sentricon® bait stations for Cahaba Heights and Rocky Ridge homes. (205) 991-2882.";
 
 export const metadata: Metadata = withOpenGraph({
   title: TITLE,

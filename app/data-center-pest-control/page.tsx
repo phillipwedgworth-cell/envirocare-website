@@ -18,7 +18,7 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 
 const PATH = '/data-center-pest-control';
 const URL = `https://www.envirocarellc.com${PATH}`;
-const TITLE = 'Data Center Pest Control in Alabama | EnviroCare';
+const TITLE = "Data Center Pest Control Huntsville & Alabama | EnviroCare";
 const DESC =
   'Site-specific pest management for Alabama data centers: inspection, entry-point recommendations, monitoring and reporting agreed for your facility.';
 

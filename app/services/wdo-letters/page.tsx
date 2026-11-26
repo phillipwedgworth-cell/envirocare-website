@@ -3,13 +3,13 @@ import Link from "next/link";
 import { EmojiIcon } from "@/components/shared/PestIcon";
 
 export const metadata: Metadata = {
-  title: "WDO Inspection Letters in Alabama | EnviroCare",
+  title: "WDO Inspection Letters in Alabama | Realtors & Lenders",
   description:
     "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
   alternates: { canonical: "/services/wdo-letters" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "WDO Inspection Letters in Alabama | EnviroCare",
+    title: "WDO Inspection Letters in Alabama | Realtors & Lenders",
     description: "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
     url: 'https://www.envirocarellc.com/services/wdo-letters',
     images: ['/og-image.png'],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "WDO Inspection Letters in Alabama | EnviroCare",
+    title: "WDO Inspection Letters in Alabama | Realtors & Lenders",
     description: "Alabama WDO inspection letters for real estate closings — fast turnaround for realtors and lenders. Birmingham, Lake Martin & Huntsville.",
     images: ['/og-image.png'],
   },
