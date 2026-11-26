@@ -134,6 +134,8 @@ const LOCAL_SERVICES: [string, string][] = [
   ["Birmingham Mosquito Control", "/birmingham-mosquito-control"],
   ["Birmingham Exterminator", "/birmingham-exterminator"],
   ["Vestavia Hills Mosquito Control", "/vestavia-hills-mosquito-control"],
+  ["Vestavia Hills Termite Control", "/vestavia-hills-termite-control"],
+  ["Vestavia Hills Exterminator", "/vestavia-hills-exterminator"],
   ["Huntsville Termite Control", "/huntsville-termite-control"],
   ["Huntsville Mosquito Control", "/huntsville-mosquito-control"],
   ["Huntsville Exterminator", "/huntsville-exterminator"],

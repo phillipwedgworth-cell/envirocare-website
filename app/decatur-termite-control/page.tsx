@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
-const TITLE = "Termite Control Decatur AL | Sentricon® | EnviroCare";
+const TITLE = "Termite Control in Decatur, AL | EnviroCare";
 const DESC =
   "Termite control in Decatur, AL, where river humidity keeps colonies active nearly year-round. Sentricon® baiting and a free inspection. (256) 937-7676.";
 
@@ -74,6 +74,9 @@ const c: ComboContent = {
   cityHub: { name: "Decatur Service Area", href: "/decatur" },
   servicePage: { name: "Termite Control Service", href: "/services/termite-control" },
   schemaName: "EnviroCare Termite Control — Decatur, AL",
+  city: "Decatur",
+  serviceType: "Termite control",
+  offers: ["termite"],
   canonicalPath: "/decatur-termite-control",
 };
 

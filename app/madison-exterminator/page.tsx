@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
 
-const TITLE = "Exterminator Madison AL | Local, Family-Owned | EnviroCare";
+const TITLE = "Exterminator in Madison, AL | EnviroCare";
 const DESC =
   `Looking for an exterminator in Madison AL? Local, fourth-generation company — one-time treatments or bi-monthly plans from $${PRICING.plans.pest.fromMonthly}/mo. Call (256) 937-7676.`;
 
@@ -75,6 +75,9 @@ const c: ComboContent = {
   cityHub: { name: "Madison Service Area", href: "/madison" },
   servicePage: { name: "Pest Control Service", href: "/services/pest-control" },
   schemaName: "EnviroCare Exterminator — Madison, AL",
+  city: "Madison",
+  serviceType: "Pest control",
+  offers: ["fireAnt", "termite"],
   canonicalPath: "/madison-exterminator",
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { PRICING } from "@/data/pricing";
 
-const TITLE = "Exterminator Decatur AL | Family-Owned Since 1958 | EnviroCare";
+const TITLE = "Exterminator in Decatur, AL | EnviroCare";
 const DESC =
   `Need an exterminator in Decatur AL? Fourth-generation Alabama company — one-time treatments or plans from $${PRICING.plans.pest.fromMonthly}/mo. Real local techs. (256) 937-7676.`;
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const c: ComboContent = {
   eyebrow: "Exterminator · Decatur, Alabama",
-  h1: "Looking for a Decatur Exterminator?",
+  h1: "Looking for an Exterminator in Decatur?",
   h1Accent: "Hire the Family, Skip the Franchise.",
   intro: [
     "Type \"exterminator Decatur AL\" and you'll mostly get national brands whose nearest decision-maker is three states away. EnviroCare is the other option: an Alabama family company in its fourth generation, running Decatur and Morgan County routes out of our North Alabama office — close enough that the technician treating your house drove past Point Mallard to get there.",
@@ -79,6 +79,9 @@ const c: ComboContent = {
   cityHub: { name: "Decatur Service Area", href: "/decatur" },
   servicePage: { name: "Pest Control Service", href: "/services/pest-control" },
   schemaName: "EnviroCare Exterminator — Decatur, AL",
+  city: "Decatur",
+  serviceType: "Pest control",
+  offers: ["fireAnt", "termite"],
   canonicalPath: "/decatur-exterminator",
 };
 

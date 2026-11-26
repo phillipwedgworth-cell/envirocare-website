@@ -9,19 +9,19 @@ import ComboPage, { type ComboContent } from "@/components/ComboPage";
 import { ACH_TERMS } from "@/data/pricing";
 
 export const metadata: Metadata = {
-  title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
+  title: "Mosquito Control in Birmingham, AL | EnviroCare",
   description:
     "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/month. Call (205) 991-2882.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/birmingham-mosquito-control',
-    title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
+    title: "Mosquito Control in Birmingham, AL | EnviroCare",
     description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/month. Call (205) 991-2882.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Mosquito Control Birmingham AL | 30-Day Yard Barrier | EnviroCare",
+    title: "Mosquito Control in Birmingham, AL | EnviroCare",
     description: "Mosquito control in Birmingham AL — 30-day yard barrier for Cahaba River humidity. March–October, $45/month. Call (205) 991-2882.",
     images: ['/og-image.png'],
   },
@@ -113,6 +113,9 @@ const c: ComboContent = {
   cityHub: { name: "Birmingham Pest Control", href: "/birmingham" },
   servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Birmingham, AL",
+  city: "Birmingham",
+  serviceType: "Mosquito control",
+  offers: ["mosquito"],
   canonicalPath: "/birmingham-mosquito-control",
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
-const TITLE = "Termite Control Madison AL | Sentricon® | EnviroCare";
+const TITLE = "Termite Control in Madison, AL | EnviroCare";
 const DESC =
   "Termite control in Madison, AL, where new slabs on disturbed farmland are prime termite targets. Sentricon® baiting and a free inspection. (256) 937-7676.";
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const c: ComboContent = {
   eyebrow: "Termite Control · Madison, Alabama",
-  h1: "Termite Protection in Madison,",
+  h1: "Termite Control in Madison,",
   h1Accent: "Before the Slab Tells You It's Too Late.",
   intro: [
     "Almost everything in Madison is slab-on-grade and almost everything is under thirty years old — a combination that feels safe and isn't. Eastern subterranean termites colonize disturbed soil first, and Madison is one long stretch of recently disturbed soil, from Clift Farm's phases to the infill west of Wall Triana. A slab home gives no crawlspace to inspect and no mud tubes to spot; entry happens invisibly through expansion joints and plumbing penetrations.",
@@ -74,6 +74,9 @@ const c: ComboContent = {
   cityHub: { name: "Madison Service Area", href: "/madison" },
   servicePage: { name: "Termite Control Service", href: "/services/termite-control" },
   schemaName: "EnviroCare Termite Control — Madison, AL",
+  city: "Madison",
+  serviceType: "Termite control",
+  offers: ["termite"],
   canonicalPath: "/madison-termite-control",
 };
 

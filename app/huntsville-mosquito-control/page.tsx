@@ -8,19 +8,19 @@ import type { Metadata } from "next";
 import ComboPage, { type ComboContent } from "@/components/ComboPage";
 
 export const metadata: Metadata = {
-  title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
+  title: "Mosquito Control in Huntsville, AL | EnviroCare",
   description:
     "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a seasonal yard treatments, March–October, $45/month for an average-size yard. Call (256) 937-7676.",
   alternates: { canonical: "./" },
   openGraph: { url: 'https://www.envirocarellc.com/huntsville-mosquito-control',
-    title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
+    title: "Mosquito Control in Huntsville, AL | EnviroCare",
     description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a seasonal yard treatments, March–October, $45/month for an average-size yard. Call (256) 937-7676.",
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Mosquito Control Huntsville AL | Yard Barrier | EnviroCare",
+    title: "Mosquito Control in Huntsville, AL | EnviroCare",
     description: "Mosquito control in Huntsville AL — Tennessee Valley humidity demands a seasonal yard treatments, March–October, $45/month for an average-size yard. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
@@ -87,6 +87,9 @@ const c: ComboContent = {
   cityHub: { name: "Huntsville Pest Control", href: "/huntsville" },
   servicePage: { name: "Mosquito Control Service", href: "/services/mosquito" },
   schemaName: "EnviroCare Mosquito Control — Huntsville, AL",
+  city: "Huntsville",
+  serviceType: "Mosquito control",
+  offers: ["mosquito"],
   canonicalPath: "/huntsville-mosquito-control",
 };
 
