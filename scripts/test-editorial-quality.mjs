@@ -65,14 +65,14 @@ assert.equal(coveredBy('termite treatment inspection cost birmingham',existingTo
 // Execute the actual narrator in a VM with fake editor/LLM endpoints. This verifies
 // the gate sits before import-content for hand drafts, auto drafts and FORCE;
 // none of these tests uses credentials, sends email or changes an editor.
-async function runNarrator({html=good,force=false,protectAt,existingScore=null,hand=true,readFails=false,multi=false,maxWrites,getContent,getContentAll,getQuery,currentScoreResponse,listedScore}={}) {
+async function runNarrator({html=good,force=false,protectAt,existingScore=null,hand=true,readFails=false,multi=false,maxWrites,getContent,getContentAll,getQuery,currentScoreResponse,listedScore,handPages}={}) {
  const calls=[];const findings=[];const logs=[];
  const env={NEURONWRITER_API_KEY:'test-only',ANTHROPIC_API_KEY:'test-only',NARRATOR_SLEEP_MS:'0',...(maxWrites?{NARRATOR_MAX_WRITES:maxWrites}:{}),...(force?{NARRATOR_FORCE:'1'}:{}),...(protectAt?{NARRATOR_PROTECT_AT:protectAt}:{})};
  const context=vm.createContext({console:{log(){},warn(){},error(){}},process:{env,argv:['node','narrator','fill'],exit(code){throw Error(`exit ${code}`);}},setTimeout(cb){cb();},URL,fetch:async (target,opts)=>{
   const method=String(target).split('/').pop();const req=JSON.parse(opts.body);calls.push({method,req});
   let out;
   if(String(target).includes('anthropic.com'))out={content:[{type:'text',text:html}]};
-  else if(method==='list-queries')out=[{id:'q',keyword:'pest control',updated:'2026-10-20',...(listedScore!==undefined?{content_score:listedScore}:{})},{id:'older',keyword:' pest  control ',updated:'2026-01-01'},...(multi?[{id:'second',keyword:'general pest control',updated:'2026-10-20'}]:[])];
+  else if(method==='list-queries')out=[{id:'q',keyword:'pest control',updated:'2026-10-20',...(listedScore!==undefined?{content_score:listedScore}:{})},{id:'older',keyword:' pest  control ',updated:'2026-01-01'},...(multi||handPages?[{id:'second',keyword:'general pest control',updated:'2026-10-20'}]:[])];
   else if(method==='get-content'){
     if(readFails)return {ok:false,status:503,text:async()=>'{"error":"unavailable"}'};
     out=req.revision_type==='all'&&getContentAll!==undefined?getContentAll:getContent!==undefined?getContent:existingScore===null?{content:''}:{content:good,score:existingScore};
@@ -85,7 +85,7 @@ async function runNarrator({html=good,force=false,protectAt,existingScore=null,h
  }});
  const asModule=(key,exports)=>new vm.SyntheticModule(Object.keys(exports),function(){for(const [k,v]of Object.entries(exports))this.setExport(k,v);},{context,identifier:key});
  const modules={
-  'node:fs':asModule('fs',{readFileSync(p){if(String(p).endsWith('manifest.json'))return JSON.stringify({pages:hand?[{keyword:'pest control',file:'hand.html',title:'Pest Control'}]:[]});if(String(p).endsWith('editorial-batch-36.json'))return '{"posts":[]}';return html;},existsSync(){return true;},writeFileSync(){}}),
+  'node:fs':asModule('fs',{readFileSync(p){if(handPages){const hit=handPages.find(x=>String(p).endsWith(x.file));if(String(p).endsWith('manifest.json'))return JSON.stringify({pages:handPages.map(({keyword,file})=>({keyword,file,title:keyword}))});if(hit)return hit.html;}if(String(p).endsWith('manifest.json'))return JSON.stringify({pages:hand?[{keyword:'pest control',file:'hand.html',title:'Pest Control'}]:[]});if(String(p).endsWith('editorial-batch-36.json'))return '{"posts":[]}';return html;},existsSync(){return true;},writeFileSync(){}}),
   'node:path':asModule('path',{dirname:path.dirname,join:path.join}),
   'node:url':asModule('url',{fileURLToPath:url.fileURLToPath}),
   './lib/compliance.mjs':asModule('compliance',{COMPLIANCE_SYSTEM:'',userPrompt(){return 'Write a draft.';}}),
@@ -170,6 +170,11 @@ const handTie=await runNarrator({existingScore:75,protectAt:'90',html:good.repla
 assert.equal(handTie.calls.filter(c=>c.method==='import-content').length,1,'a tie still imports a reviewed hand draft (compliance fixes may not move the score)');
 const handSame=await runNarrator({existingScore:60,html:good});
 assert.equal(handSame.calls.filter(c=>c.method==='import-content').length,0,'a hand draft identical to the saved editor is not re-imported');
+// A kept hand draft wrote nothing, so it must not use up the write batch:
+// with a batch of 1, an identical first draft is skipped and the second is
+// still imported (2026-11-26: kept drafts burned 3/3 every run).
+const keptThenNext=await runNarrator({existingScore:60,maxWrites:'1',handPages:[{keyword:'pest control',file:'a.html',html:good},{keyword:'general pest control',file:'b.html',html:good.replace('useful','helpful')}]});
+assert.deepEqual(keptThenNext.calls.filter(c=>c.method==='import-content').map(c=>c.req.query),['second'],'a kept hand draft does not consume the write batch');
 const handWorseForced=await runNarrator({existingScore:80,protectAt:'90',force:true});
 assert.equal(handWorseForced.calls.filter(c=>c.method==='import-content').length,1,'FORCE still allows replacing with a hand draft');
 for (const bad of ['0', '-1', '41', 'NaN', '1.5']) assert.throws(()=>narratorWriteLimit(bad));
