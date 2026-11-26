@@ -4,12 +4,12 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Cahaba Heights AL | Termite & Mosquito | EnviroCare",
+  title: "Pest Control Cahaba Heights AL | Termite & Mosquito",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service for Cahaba Heights homes near Vestavia Hills AL (35243). From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/cahaba-heights" },
   openGraph: {
-    title: "Pest Control Cahaba Heights AL | EnviroCare — Since 1958",
+    title: "Pest Control Cahaba Heights AL | Termite & Mosquito",
     description:
       "Family-owned pest, termite, mosquito & tick service for Cahaba Heights — Dolly Ridge to Overton. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/cahaba-heights",

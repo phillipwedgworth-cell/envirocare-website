@@ -3,13 +3,13 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = {
-  title: "Pest Control Mt Laurel AL | Termite, Mosquito & Tick — Since 1958",
+  title: "Pest Control Mt Laurel AL | Termite, Mosquito & Tick",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service in Mt Laurel AL — Mt Laurel Village, Dunnavant Valley. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/mt-laurel" },
   openGraph: {
     images: ["/og/og-mt-laurel.png"],
-    title: "Pest Control Mt Laurel AL | EnviroCare — Since 1958",
+    title: "Pest Control Mt Laurel AL | Termite, Mosquito & Tick",
     description:
       "Family-owned pest, termite, mosquito & tick service for Mt Laurel's wooded village. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/mt-laurel",

@@ -19,13 +19,13 @@ import { breadcrumbList } from '@/lib/seo/breadcrumbs';
  */
 
 export const metadata: Metadata = {
-  title: "Mountain Brook Pest Control & Termite | Exterminator | EnviroCare",
+  title: "Mountain Brook Pest Control & Termite Service | EnviroCare",
   description:
     "Pest control, Sentricon® termite & commercial service in Mountain Brook AL — Crestline, English Village, Cahaba Village. From $35/mo. Call (205) 991-2882.",
   alternates: { canonical: "/mountain-brook" },
   openGraph: {
     images: ["/og/og-mountain-brook.png"],
-    title: "Mountain Brook Pest Control & Termite | Exterminator | EnviroCare",
+    title: "Mountain Brook Pest Control & Termite Service | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito, tick & commercial service for Mountain Brook homes and businesses. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/mountain-brook",

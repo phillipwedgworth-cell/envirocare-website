@@ -9,12 +9,12 @@ import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Indian Springs AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for Indian Springs Village homes. No drilling, $1M EnviroCare damage coverage. Call (205) 940-6360.",
+  title: "Pest Control Indian Springs AL | Termite & Mosquito",
+  description: "Family-owned pest, Sentricon® termite and mosquito service for Indian Springs Village homes. Usually no drilling. Call (205) 940-6360.",
   alternates: { canonical: "/indian-springs" },
   openGraph: {
-    title: "Pest Control Indian Springs AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for Indian Springs Village homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. Call (205) 940-6360.",
+    title: "Pest Control Indian Springs AL | Termite & Mosquito",
+    description: "Family-owned pest, Sentricon® termite and mosquito service for Indian Springs Village homes. Usually no drilling. Call (205) 940-6360.",
     url: "https://www.envirocarellc.com/indian-springs",
     type: "website",
   },

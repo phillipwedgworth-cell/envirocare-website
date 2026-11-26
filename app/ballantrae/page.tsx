@@ -4,12 +4,12 @@ import Link from "next/link";
 import DeepCityPage, { type DeepCityConfig } from "@/components/pages/DeepCityPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control Ballantrae AL | Pelham Termite & Mosquito | EnviroCare",
+  title: "Pest Control Ballantrae AL | Termite & Mosquito | EnviroCare",
   description:
     "Pest control, Sentricon® termite, mosquito & tick service for the Ballantrae golf community in Pelham AL (35124). From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/ballantrae" },
   openGraph: {
-    title: "Pest Control Ballantrae — Pelham AL | EnviroCare Since 1958",
+    title: "Pest Control Ballantrae AL | Termite & Mosquito | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito & tick service for the Ballantrae golf community. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/ballantrae",

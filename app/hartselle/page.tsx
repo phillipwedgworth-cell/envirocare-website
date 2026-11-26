@@ -11,8 +11,8 @@ import CityPage from '@/components/pages/CityPage';
 export const metadata: Metadata = withOpenGraph({
   alternates: { canonical: '/hartselle' },
   openGraph: { url: 'https://www.envirocarellc.com/hartselle', images: ['/og/og-hartselle.png'] },
-  title: 'Hartselle Pest Control & Termite Service | EnviroCare Since 1958',
-  description: 'Hartselle pest control. Morgan County family service. Sentricon® baiting, $1M EnviroCare coverage. Call (256) 937-7676.',
+  title: "Hartselle Pest Control & Termite Service | EnviroCare",
+  description: "Hartselle pest control for Morgan County homes: bi-monthly service from $35/mo and Sentricon® termite protection. Call (256) 937-7676.",
 });
 
 export default function HartsellePage() {

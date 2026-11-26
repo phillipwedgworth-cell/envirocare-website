@@ -10,12 +10,12 @@ import type { Metadata } from "next";
 import NeighborhoodPage, { type NeighborhoodConfig } from "@/components/pages/NeighborhoodPage";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Pest Control English Village AL | EnviroCare Since 1958",
-  description: "Family-owned pest, Sentricon® termite, and mosquito service for English Village homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. (205) 991-2882.",
+  title: "Pest Control English Village AL | Termite & Mosquito",
+  description: "Family-owned pest, Sentricon® termite and mosquito service for English Village homes. Usually no drilling, two ways to pay. Call (205) 991-2882.",
   alternates: { canonical: "/english-village" },
   openGraph: {
-    title: "Pest Control English Village AL | EnviroCare Since 1958",
-    description: "Family-owned pest, Sentricon® termite, and mosquito service for English Village homes. No drilling, $1M EnviroCare damage coverage, two ways to pay. Call (205) 991-2882.",
+    title: "Pest Control English Village AL | Termite & Mosquito",
+    description: "Family-owned pest, Sentricon® termite and mosquito service for English Village homes. Usually no drilling, two ways to pay. Call (205) 991-2882.",
     url: "https://www.envirocarellc.com/english-village",
     type: "website",
   },

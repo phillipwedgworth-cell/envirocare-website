@@ -2,19 +2,19 @@ import ClusterAreaPage, { type ClusterConfig } from '@/components/pages/ClusterA
 
 export const metadata = {
   alternates: { canonical: '/north-alabama' },
-  title: "North Alabama Pest Control — Huntsville, Madison, Athens | EnviroCare",
-  description: "Pest, termite & mosquito control across North Alabama — Huntsville, Madison, Athens, Decatur. Family-owned since 1958. Call (256) 937-7676.",
+  title: "North Alabama Pest Control | Huntsville, Madison & Athens",
+  description: "Pest, termite and mosquito control across North Alabama: Huntsville, Madison, Athens and Decatur, from our Huntsville office. Call (256) 937-7676.",
   openGraph: {
-    title: "North Alabama Pest Control — Huntsville, Madison, Athens | EnviroCare",
-    description: "Pest, termite & mosquito control across North Alabama — Huntsville, Madison, Athens, Decatur. Family-owned since 1958. Call (256) 937-7676.",
+    title: "North Alabama Pest Control | Huntsville, Madison & Athens",
+    description: "Pest, termite and mosquito control across North Alabama: Huntsville, Madison, Athens and Decatur, from our Huntsville office. Call (256) 937-7676.",
     url: 'https://www.envirocarellc.com/north-alabama',
     images: ['/og-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "North Alabama Pest Control — Huntsville, Madison, Athens | EnviroCare",
-    description: "Pest, termite & mosquito control across North Alabama — Huntsville, Madison, Athens, Decatur. Family-owned since 1958. Call (256) 937-7676.",
+    title: "North Alabama Pest Control | Huntsville, Madison & Athens",
+    description: "Pest, termite and mosquito control across North Alabama: Huntsville, Madison, Athens and Decatur, from our Huntsville office. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
 };

@@ -2,10 +2,10 @@ import CityPage from '@/components/pages/CityPage';
 
 export const metadata = {
   alternates: { canonical: '/meridianville' },
-  title: "Meridianville Pest Control & Termite Service | EnviroCare Since 1958",
+  title: "Meridianville Pest Control & Termite Service | EnviroCare",
   description: "Meridianville pest control from EnviroCare's Huntsville team. Household pests, Sentricon® termites and seasonal yard service. Call (256) 937-7676.",
   openGraph: {
-    title: "Meridianville Pest Control & Termite Service | EnviroCare Since 1958",
+    title: "Meridianville Pest Control & Termite Service | EnviroCare",
     description: "Meridianville pest control from EnviroCare's Huntsville team. Household pests, Sentricon® termites and seasonal yard service. Call (256) 937-7676.",
     url: 'https://www.envirocarellc.com/meridianville',
     images: ['/og-image.png'],
@@ -13,7 +13,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Meridianville Pest Control & Termite Service | EnviroCare Since 1958",
+    title: "Meridianville Pest Control & Termite Service | EnviroCare",
     description: "Meridianville pest control from EnviroCare's Huntsville team. Household pests, Sentricon® termites and seasonal yard service. Call (256) 937-7676.",
     images: ['/og-image.png'],
   },
