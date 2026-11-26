@@ -68,7 +68,7 @@ const ABOUT_FAQ_SCHEMA = {
       name: 'When was EnviroCare founded?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'EnviroCare was family-owned in Alabama since 1958, when it began in Alexander City as Wedgworth Pest Control. We have been protecting Alabama homes for more than 65 years, and the Wedgworth family is now four generations on.',
+        text: 'EnviroCare is family-owned. The Wedgworth family has been doing pest control in Alabama since 1958, when it began in Alexander City as Wedgworth Pest Control, and the family is now four generations on.',
       },
     },
     {

@@ -129,7 +129,7 @@ export default function Page() {
           <p style={{ fontSize: "clamp(16px, 2.4vw, 19px)", lineHeight: 1.6, opacity: 0.92, maxWidth: 620, margin: "0 auto 26px" }}>
             Official Alabama Wood Infestation Inspection Reports, scheduled around your closing date and delivered to every
             party on the file. Accepted for VA, FHA, conventional, and refinance loans statewide. One licensed,
-            fourth-generation Alabama company since 1958 — and a direct line, not a queue.
+            family-owned since 1958, four generations on — and a direct line, not a queue.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
             <a href="tel:2059406360" style={{ background: GOLD, color: INK, padding: "16px 30px", borderRadius: 10, fontWeight: 800, textDecoration: "none", fontSize: 17 }}>

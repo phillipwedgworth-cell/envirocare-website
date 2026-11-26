@@ -9,7 +9,7 @@ export const metadata: Metadata = withOpenGraph({
     "Pest control, Sentricon® termite, mosquito & tick service for Inverness homes along US-280 in Hoover AL (35242). From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/inverness" },
   openGraph: {
-    title: "Pest Control Inverness AL | EnviroCare — Since 1958",
+    title: "Pest Control Inverness AL | Termite & Mosquito | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito & tick service for the Inverness community off US-280. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/inverness",

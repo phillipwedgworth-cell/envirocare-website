@@ -11,7 +11,7 @@ export const metadata: Metadata = withOpenGraph({
     "Pest control, Sentricon® termite, mosquito & tick service for Greystone homes in Hoover AL — Founders, Legacy. From $35/mo. Call (205) 940-6360.",
   alternates: { canonical: "/greystone" },
   openGraph: {
-    title: "Pest Control Greystone AL | EnviroCare — Since 1958",
+    title: "Pest Control Greystone AL | Termite & Mosquito | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito & tick service for the Greystone golf community. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/greystone",

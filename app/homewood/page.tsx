@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/homewood" },
   openGraph: {
     images: ["/og/og-homewood.png"],
-    title: "Pest Control Homewood AL | EnviroCare — Since 1958",
+    title: "Pest Control Homewood AL | Termite & Mosquito | EnviroCare",
     description:
       "Family-owned pest, termite, mosquito & tick service across Homewood. No-drill Sentricon® with up to $1M EnviroCare coverage.",
     url: "https://www.envirocarellc.com/homewood",
