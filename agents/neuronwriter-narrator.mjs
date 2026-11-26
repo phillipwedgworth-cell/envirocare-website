@@ -119,6 +119,10 @@ const listedScore = (q) =>
 // verified empty editor ONLY when (1) the autosave-inclusive read is also a bare
 // `{}` and (2) get-query (quota-free) says the analysis is READY and belongs to
 // this project. Anything else stays an unknown read and fails closed.
+// Last editor HTML read per query, so a hand draft identical to the saved editor
+// is not re-imported every run.
+const lastEditorHtml = new Map();
+const plainText = (h) => String(h || "").replace(/ data-mce-[a-z]+="[^"]*"/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 const isBareEmpty = (o) => !!o && typeof o === "object" && !Array.isArray(o) && Object.keys(o).length === 0;
 async function isNeverSavedEditor(id) {
   const all = await nw("get-content", { query: id, revision_type: "all" });
@@ -143,6 +147,7 @@ async function readScore(id, strict = false) {
       throw new Error("get-content returned no valid editor content; editor unchanged");
     }
     const html = c.content;
+    lastEditorHtml.set(id, html);
     if (!html.trim()) return null; // verified empty editor
     let s = pickScore(c);
     if (s !== null) return s;
@@ -191,7 +196,7 @@ function stripFences(s) {
 async function writeDraft(keyword, terms, lift = false) {
   if (!ANTHROPIC_KEY) throw new Error("ANTHROPIC_API_KEY not set -- cannot auto-write.");
   let prompt = userPrompt(keyword, terms);
-  prompt += `\n\nEDITORIAL REQUIREMENTS: Start with a 15–100 word <p class="lede"> that directly answers the search. Include useful question headings, a concrete next step and relevant internal links. Cite a supplied source beside the specific point it supports. Never invent URLs, evidence, prices, certification, data-center experience or performance numbers. Do not imply sources endorse EnviroCare. Only use the following external sources, within their stated scope:\n${sourcePrompt(keyword)}`;
+  prompt += `\n\nEDITORIAL REQUIREMENTS: Directly after the single <h1>, put a 15–100 word <p class="lede"> that directly answers the search (the class attribute is required). Include useful question headings, a concrete next step and relevant internal links. Cite a supplied source beside the specific point it supports. Never invent URLs, evidence, prices, certification, data-center experience or performance numbers. Do not imply sources endorse EnviroCare. Only use the following external sources, within their stated scope:\n${sourcePrompt(keyword)}`;
   if (lift) prompt += `\n\nThis is a revision to improve SEO coverage. Work in MORE of the related terms `
     + `naturally and add depth (a richer FAQ, a short locally-specific section), while keeping every `
     + `compliance rule. Do not keyword-stuff. Aim for the 70-80 coverage range.`;
@@ -220,7 +225,7 @@ async function evaluateDraft(id, html, title) {
 }
 
 async function pushAndScore(id, html, title, keyword) {
-  const quality = assessEditorialDraft(html, { keyword, title });
+  const quality = assessEditorialDraft(html, { keyword, title, allowLeadingH1: true });
   if (!quality.pass) throw new Error(`editor unchanged: ${quality.problems.join("; ")}`);
   const resp = await nw("import-content", { project: PROJECT, query: id, html, title });
   let sc = pickScore(resp);
@@ -275,7 +280,13 @@ async function runScore() {
 async function runFill() {
   const manifest = loadManifest();
   const batchPath = join(__dir, "knowledge/editorial-batch-36.json");
-  const priorities = existsSync(batchPath) ? JSON.parse(readFileSync(batchPath, "utf8")).posts.map(p => p.keyword) : [];
+  // Reviewed hand drafts (manifest.json) go first, then the planned batch. Before
+  // 2026-11-26 the manifest was not ranked, so with the 3-write limit the six
+  // reviewed drafts (five city pages + builders) sorted alphabetically behind
+  // every planned topic and were never reached.
+  const handFirst = Object.values(manifest).map(e => e.keyword);
+  const planned = existsSync(batchPath) ? JSON.parse(readFileSync(batchPath, "utf8")).posts.map(p => p.keyword) : [];
+  const priorities = [...handFirst, ...planned];
   const allQueries = await listQueries();
   const queries = selectNarratorQueries(allQueries, priorities);
   const results = [];
@@ -306,7 +317,25 @@ async function runFill() {
       attempted++;
       if (hasHandDraft) {
         const html = readFileSync(handFile, "utf8");
-        score = await pushAndScore(id, html, hand.title || keyword, keyword);
+        const title = hand.title || keyword;
+        // Score the hand draft unsaved first; keep the current editor when the
+        // draft scores lower (unless FORCE is set).
+        const quality = assessEditorialDraft(html, { keyword, title, allowLeadingH1: true });
+        if (!quality.pass) throw new Error(`editor unchanged: ${quality.problems.join("; ")}`);
+        if (!FORCE && lastEditorHtml.has(id) && plainText(lastEditorHtml.get(id)) === plainText(html)) {
+          results.push({ keyword, score: existing, source: "kept (editor already matches the hand draft)" });
+          await sleep(SLEEP_MS);
+          continue;
+        }
+        // A reviewed hand draft may carry compliance fixes that do not move the
+        // keyword score, so a tie still imports; only a LOWER score keeps the editor.
+        const proposed = await evaluateDraft(id, html, title);
+        if (!FORCE && existing !== null && proposed < existing) {
+          results.push({ keyword, score: existing, source: `kept (hand draft ${proposed}% vs current ${existing}%)` });
+          await sleep(SLEEP_MS);
+          continue;
+        }
+        score = await pushAndScore(id, html, title, keyword);
         source = "hand-written";
       } else {
         let terms = [];

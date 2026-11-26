@@ -63,7 +63,7 @@ export function sourcePrompt(keyword) {
   return sourcesFor(keyword).map(s => `- ${s.title}: ${s.url}\n  Supported point ONLY: ${s.supports}`).join('\n');
 }
 
-export function assessEditorialDraft(html, { keyword = '', title = '', metaTitle, metaDescription } = {}) {
+export function assessEditorialDraft(html, { keyword = '', title = '', metaTitle, metaDescription, allowLeadingH1 = false } = {}) {
   const problems = [];
   if (metaTitle !== undefined && (!String(metaTitle).trim() || metaTitle.length > 60)) problems.push('meta title must contain 1–60 characters');
   if (metaDescription !== undefined && (!String(metaDescription).trim() || metaDescription.length > 155)) problems.push('meta description must contain 1–155 characters');
@@ -77,7 +77,12 @@ export function assessEditorialDraft(html, { keyword = '', title = '', metaTitle
   for (const reason of new Set(scans.flatMap(scan => scan.blocking.map(hit => hit.reason)))) problems.push(`compliance: ${reason}`);
   if (unknown.size) problems.push(`use literal text for unsupported HTML character references: ${[...unknown].join(', ')}`);
   if (/<script\b|<iframe\b|\bon[a-z]+\s*=/i.test(html)) problems.push('active HTML is not permitted');
-  const lede = String(html).match(/^\s*<p\b[^>]*class=["'][^"']*\blede\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/i);
+  // NeuronWriter editor content carries its own <h1> title first (the narrator's
+  // system prompt says "Start with one <h1>"), so for that caller one leading
+  // <h1> may precede the lede. Blog bodies never get this: the page renders its
+  // own H1 from the title, and a body H1 would double it.
+  const leadIn = allowLeadingH1 ? String(html).replace(/^\s*<h1\b[^>]*>[\s\S]*?<\/h1>/i, '') : String(html);
+  const lede = leadIn.match(/^\s*<p\b[^>]*class=["'][^"']*\blede\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/i);
   const words = strip(lede?.[1]).split(/\s+/).filter(Boolean).length;
   if (!lede || words < 15 || words > 100) problems.push('open with a concise 15–100 word lede answering the search');
   if (![...String(html).matchAll(/<h[23]\b[^>]*>([\s\S]*?)<\/h[23]>/gi)].some(m => strip(m[1]).endsWith('?'))) problems.push('include a question heading with a useful answer');
