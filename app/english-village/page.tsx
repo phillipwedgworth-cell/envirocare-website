@@ -58,7 +58,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🔥",
       title: "Fire ants on landscaped lots",
-      body: "Recent landscape work and lawn renovation on established properties disturbs soil and draws fire ants. Whole-yard fire ant treatment is a separate service available to any homeowner, $150 covers most yard sizes, with larger properties quoted by square footage.",
+      body: "Recent landscape work and lawn renovation on established properties disturbs soil and draws fire ants. Whole-yard fire ant treatment is a separate service available to any homeowner, $150 minimum, with larger properties quoted by square footage.",
     },
   ],
   landmarksLabel: "Areas of English Village We Serve",

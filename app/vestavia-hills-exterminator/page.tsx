@@ -48,7 +48,7 @@ const c: ComboContent = {
     },
     {
       title: "Fire ants in Liberty Park yards",
-      body: "Newer subdivisions on disturbed red clay are fire ant country. Fire ant treatment is open to anyone, whether or not you are on a pest plan, and $150 covers most yards.",
+      body: "Newer subdivisions on disturbed red clay are fire ant country. Fire ant treatment is open to anyone, whether or not you are on a pest plan, and the minimum is $150.",
     },
   ],
   sections: [
@@ -92,7 +92,7 @@ const c: ComboContent = {
     },
     {
       q: "Is fire ant treatment included?",
-      a: "No. Fire ant control is a standalone service that is open to anyone. $150 covers most yards, and larger properties are priced by the square footage treated, with the number given before any work starts.",
+      a: "No. Fire ant control is a standalone service that is open to anyone. $150 minimum, and larger properties are priced by the square footage treated, with the number given before any work starts.",
     },
     {
       q: "Do you cover Cahaba Heights, Liberty Park and Rocky Ridge?",

@@ -275,6 +275,12 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   { pattern: '\\bfire\\s?ant[^.\\n]{0,60}\\$\\s?200\\b|\\$\\s?200\\b[^.\\n]{0,40}\\bfire\\s?ant',
     reason: 'superseded fire ant minimum ($200) — the real minimum is $150',
     approvedInstead: '$150 minimum, priced by yard size, with a year of coverage and re-service included' },
+  // Phillip 2026-11-25: fire ant is "$150 minimum" / "as low as $150". "$150 for most
+  // yards" / "$150 covers most yards" reads as the typical price, which it is not.
+  // PR #342 fixed the "for" form only; ~37 "covers" copies survived until 2026-11-27.
+  { pattern: '\\$\\s?150\\s+(?:covers|for)\\s+most\\s+yard|covers\\s+most\\s+yards?\\s+for\\s+\\$\\s?150',
+    reason: 'fire ant "$150 for/covers most yards" reads as the typical price (Phillip 2026-11-25)',
+    approvedInstead: '$150 minimum, or as low as $150; larger properties quoted by size' },
 
   // TURNAROUND-TIME PROMISES on WDO/termite work. Matches the PROMISE SHAPE (a
   // deliverable + a clock), never a bare time reference — "if heavy rain falls

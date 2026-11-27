@@ -53,7 +53,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🐜",
       title: "Fire ants on freshly graded lots",
-      body: "Renovation and landscape work on established Crestline properties disturbs soil and draws fire ants to the fresh dirt. Whole-colony fire ant treatment is available to any homeowner, $150 covers most yard sizes, with larger properties quoted by square footage.",
+      body: "Renovation and landscape work on established Crestline properties disturbs soil and draws fire ants to the fresh dirt. Whole-colony fire ant treatment is available to any homeowner, $150 minimum, with larger properties quoted by square footage.",
     },
     {
       emoji: "🪲",

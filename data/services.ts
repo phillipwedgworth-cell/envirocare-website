@@ -360,7 +360,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       { q: 'How do I get rid of fire ants for good?', a: 'You have to reach the queen and the colony, not just the visible mound. Surface treatments scatter the ants and the queen survives, so the colony rebuilds nearby. Our treatment is carried back into the colony to take out the source.' },
-      { q: 'How much does fire ant control cost?', a: '$150 covers most yards. Larger properties are quoted by the square footage we treat, and your technician gives you the number up front before any work starts. Every fire ant treatment is backed by a one-year warranty.' },
+      { q: 'How much does fire ant control cost?', a: '$150 minimum. Larger properties are quoted by the square footage we treat, and your technician gives you the number up front before any work starts. Every fire ant treatment is backed by a one-year warranty.' },
       { q: 'Do I have to be on a pest plan to get fire ant control?', a: 'No. Fire ant control is a standalone service available to anyone — you don\'t need a recurring plan.' },
       { q: 'Why do my fire ant mounds keep coming back?', a: 'Because DIY methods rarely reach the queen. As long as she\'s alive, the colony just relocates and rebuilds, often only a few feet from the old mound.' },
       { q: 'What about pets and kids with fire ant treatment?', a: 'We use only EPA-registered products and follow the label directions for every application. Your technician will explain any simple, label-directed steps to follow on the day of service.' },

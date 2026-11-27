@@ -53,7 +53,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🐜",
       title: "Fire ants on renovated and graded lots",
-      body: "Ongoing renovation of the village's historic homes disturbs soil and draws fire ants to the freshly graded dirt. Whole-colony fire ant treatment is a separate service available to any homeowner, $150 covers most yard sizes, with larger properties quoted by square footage.",
+      body: "Ongoing renovation of the village's historic homes disturbs soil and draws fire ants to the freshly graded dirt. Whole-colony fire ant treatment is a separate service available to any homeowner, $150 minimum, with larger properties quoted by square footage.",
     },
     {
       emoji: "🪲",
