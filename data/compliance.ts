@@ -278,7 +278,9 @@ export const BANNED_PATTERNS: BannedTerm[] = [
   // Phillip 2026-11-25: fire ant is "$150 minimum" / "as low as $150". "$150 for most
   // yards" / "$150 covers most yards" reads as the typical price, which it is not.
   // PR #342 fixed the "for" form only; ~37 "covers" copies survived until 2026-11-27.
-  { pattern: '\\$\\s?150\\s+(?:covers|for)\\s+most\\s+yard|covers\\s+most\\s+yards?\\s+for\\s+\\$\\s?150',
+  // Widened 2026-11-27: the fire-ant page title said "$150 Most Yards" (no verb) and
+  // passed, so the verb is now optional.
+  { pattern: '\\$\\s?150\\s+(?:(?:covers|for)\\s+)?most\\s+yard|covers\\s+most\\s+yards?\\s+for\\s+\\$\\s?150',
     reason: 'fire ant "$150 for/covers most yards" reads as the typical price (Phillip 2026-11-25)',
     approvedInstead: '$150 minimum, or as low as $150; larger properties quoted by size' },
 
