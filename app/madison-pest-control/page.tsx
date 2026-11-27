@@ -60,7 +60,7 @@ const c: ComboContent = {
     },
     {
       q: "Do you treat inside the house or just outside?",
-      a: "The program is exterior-first — stopping pests at the barrier means fewer products used inside your home. Interior treatment is included whenever you want it, at no extra charge; just ask when we schedule your visit.",
+      a: "The program is exterior-first — stopping pests at the barrier means fewer products used inside your home. If pests show up inside between visits, we come back and treat inside at no extra charge. Just call the office.",
     },
     {
       q: "What happens if pests show up between visits?",

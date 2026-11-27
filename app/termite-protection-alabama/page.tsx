@@ -53,7 +53,7 @@ const SECTIONS: Section[] = [
       'A termite bond is a written agreement between a homeowner and a pest control company. A retreatment-only agreement obligates the company to treat again if termites return. A repair agreement can also cover qualifying damage repairs. The written agreement, not the name on it, decides which one you have.',
     more: [
       'Read the agreement for four things: whether it covers retreatment, repairs or both; the dollar limit and exclusions; the inspection schedule you must keep; and what happens to the agreement if you sell the house.',
-      `Qualifying homes with an active EnviroCare Sentricon® agreement can receive ${COVERAGE}. Ask for a copy of the agreement before you enroll.`,
+      `Most EnviroCare termite agreements are retreatment-only. On qualifying homes, an EnviroCare repair agreement adds ${COVERAGE}. Ask which agreement you are signing, and for a copy, before you enroll.`,
     ],
     links: [
       { href: '/blog/termite-bond-alabama-explained', label: 'What a termite bond in Alabama covers' },
@@ -228,8 +228,8 @@ export default function TermiteProtectionAlabamaPage() {
           </h1>
           <p style={{ fontSize: 18, lineHeight: 1.75, maxWidth: 800, marginTop: 16, fontWeight: 500 }}>
             EnviroCare Pest Services protects Alabama homes from subterranean termites with the Sentricon® Always
-            Active™ bait system. The termite inspection is free, protection is quoted after the inspection, and
-            qualifying homes with an active Sentricon® agreement can receive {COVERAGE}.
+            Active™ bait system. The termite inspection is free and protection is quoted after the inspection. Most
+            agreements are retreatment-only; on qualifying homes, an EnviroCare repair agreement adds {COVERAGE}.
           </p>
           <p style={{ ...p, color: '#4a5750' }}>
             {"The Wedgworth family's Alabama pest-control history began in Alexander City in 1958."} Four offices serve

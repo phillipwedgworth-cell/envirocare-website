@@ -32,7 +32,7 @@ export const BUILDER_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Does new-construction protection include damage coverage?",
-    a: "Yes. Sentricon® protection on a new home includes up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. Specific terms are confirmed at the site inspection.",
+    a: "It can. Repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to the terms of the agreement. Specific terms are confirmed at the site inspection.",
   },
   {
     q: "Can the homeowner keep the Sentricon® protection after closing?",

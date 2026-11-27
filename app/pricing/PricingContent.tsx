@@ -75,7 +75,7 @@ const MONTHLY_PLANS: Plan[] = [
     features: [
       "Everything in Pest + Mosquito",
       "Sentricon® Always Active™ termite protection",
-      "Up to $1,000,000 EnviroCare repair coverage",
+      "Repair coverage up to $1,000,000 available on qualifying homes",
       "One technician, one invoice",
       "Termite service & price provided upon inspection & approval",
     ],
@@ -137,10 +137,10 @@ const ALACARTE_PLANS: Plan[] = [
     tagline: "Sentricon® Always Active™",
     priceLabel: "Free inspection",
     startup: "Priced upon inspection & approval",
-    note: "Alabama requires an on-site WDO inspection first",
+    note: "Quoted after a free on-site termite inspection",
     features: [
       "Sentricon® Always Active™ bait stations",
-      "Up to $1,000,000 EnviroCare repair coverage",
+      "Repair coverage up to $1,000,000 available on qualifying homes",
       "No drilling — in-ground stations",
       "Service & price provided upon inspection & approval",
     ],
@@ -224,7 +224,7 @@ export default function PricingContent() {
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.72)", lineHeight: 1.6, maxWidth: 640, margin: "0 auto" }}>
             Real &ldquo;from&rdquo; rates, on the page. Pest control is bimonthly — pay per visit, or spread it into equal monthly ACH payments.
-            Termite is quoted after a <strong style={{ color: GOLD }}>free on-site termite inspection</strong> — Alabama requires it.
+            Termite is quoted after a <strong style={{ color: GOLD }}>free on-site termite inspection</strong>, because the price depends on your home.
           </p>
           <div style={{
             display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center",
@@ -380,7 +380,7 @@ export default function PricingContent() {
             <FAQ q="Can I get mosquito without a pest plan?" a="Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." />
             <FAQ q="Does bundling change the price?" a="Only for mosquito: it is $45 a month on its own, or $34 a month when paired with a pest plan. Every other service is priced the same whether or not you bundle. What bundling mainly gets you is simplicity: one technician team, one invoice, one schedule." />
             <FAQ q="What does mosquito service cover, and can I add tick?" a="A 30-day yard barrier from March through October targeting mosquito breeding sites and adult populations. Tick treatment can be added alongside it — covering the ticks and chiggers that come with wooded and lakefront lots — and is quoted for your lot. Flea is a separate interior add-on, also quoted." />
-            <FAQ q="What's the $1M EnviroCare coverage?" a="If termites cause structural damage to your home while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000, subject to the terms of the agreement. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
+            <FAQ q="What's the $1M EnviroCare coverage?" a="Most EnviroCare termite agreements are retreatment-only: if termites return, we treat again. On qualifying homes, an EnviroCare repair agreement also covers termite damage repairs up to $1,000,000, subject to inspection and approval and subject to the terms of the agreement. Sentricon® is also the only termite product to win the EPA's Presidential Green Chemistry Challenge Award." />
           </div>
         </div>
       </section>

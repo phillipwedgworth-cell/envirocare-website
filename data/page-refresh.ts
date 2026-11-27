@@ -378,7 +378,7 @@ const PAGE_REFRESH_JSON = {
       },
       {
         "q": "Does commercial pest control in Alabaster include termite inspections?",
-        "a": "Yes. EnviroCare is a Sentricon Certified Specialist and provides WDO inspections for commercial properties, including real estate transactions and lender-required reviews. Active Sentricon accounts include up to $1,000,000 in damage repair coverage, subject to the terms of the agreement. Termite inspection and monitoring pricing is confirmed after a free on-site visit because every commercial building is different."
+        "a": "Yes. EnviroCare is a Sentricon Certified Specialist and provides WDO inspections for commercial properties, including real estate transactions and lender-required reviews. Repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to the terms of the agreement. Termite inspection and monitoring pricing is confirmed after a free on-site visit because every commercial building is different."
       },
       {
         "q": "How do I find out how much commercial pest control will cost for my Alabaster business?",

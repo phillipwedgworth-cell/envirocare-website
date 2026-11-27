@@ -68,7 +68,7 @@ const OFFER_SCHEMA = {
     // schema contradicted the page it describes (AGENTS.md §6). City pages that
     // state the Mosquito + Tick plan are unaffected — see the Oct 24 handoff.
     {
-      // Termite — intentionally NO price (Alabama requires an on-site WDO inspection first).
+      // Termite — intentionally NO price (quoted after a free on-site termite inspection).
       "@type": "Offer", name: "Sentricon® Termite Protection",
       itemOffered: { "@type": "Service", name: "Sentricon® Always Active™ Termite Protection", description: "Quoted after a free on-site termite inspection (based on linear footage and foundation type). Up to $1,000,000 EnviroCare repair coverage, subject to the terms of the agreement. Available bundled with a pest plan ($75 initial service fee (50% off the $150 regular price))." },
     },
@@ -83,7 +83,7 @@ const FAQ_SCHEMA = {
     { "@type": "Question", name: "Why isn't there a flat termite price?", acceptedAnswer: { "@type": "Answer", text: "Alabama regulates termite treatment, so we do an on-site WDO inspection before quoting. Your Sentricon® price depends on your home's linear footage and foundation type. The inspection is always free." } },
     { "@type": "Question", name: "What is the initial service fee?", acceptedAnswer: { "@type": "Answer", text: "$75 on Pest and on Pest + Mosquito, which is 50% off the $150 regular price. Complete is $229, because it sets up termite protection as well. The first visit is a heavier treatment and there is no separate inspection fee. Mosquito booked alone has no initial fee; it is billed monthly. Mosquito + Tick is $65 a month, and the first application is 50% off." } },
     { "@type": "Question", name: "Can I get mosquito without a pest plan?", acceptedAnswer: { "@type": "Answer", text: "Yes — on its own, mosquito is $45 per month for an average-size yard, with a firm price after a free inspection. The program includes eight treatments March through October, with equal monthly ACH payments across the year. The $34/mo mosquito rate is only available with a pest plan. Tick rides alongside mosquito service and is quoted for your property; it is never sold on its own." } },
-    { "@type": "Question", name: "What's the $1M EnviroCare coverage?", acceptedAnswer: { "@type": "Answer", text: "If termites cause structural damage while you're on active Sentricon® protection, EnviroCare covers repairs up to $1,000,000 — that coverage, subject to the terms of the agreement." } },
+    { "@type": "Question", name: "What's the $1M EnviroCare coverage?", acceptedAnswer: { "@type": "Answer", text: "Most EnviroCare termite agreements are retreatment-only. On qualifying homes, an EnviroCare repair agreement also covers termite damage repairs up to $1,000,000, subject to inspection and approval and subject to the terms of the agreement." } },
   ],
 };
 

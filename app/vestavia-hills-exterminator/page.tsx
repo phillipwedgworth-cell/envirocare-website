@@ -84,7 +84,7 @@ const c: ComboContent = {
     },
     {
       q: "Do you treat inside the house?",
-      a: "Yes. Interior service is included whenever you are seeing pests inside. The regular schedule focuses on the exterior because that is where most pests get in.",
+      a: "Yes. If pests show up inside between visits, we come back and treat inside at no extra charge. The regular schedule focuses on the exterior because that is where most pests get in.",
     },
     {
       q: "What about wasps and carpenter bees?",

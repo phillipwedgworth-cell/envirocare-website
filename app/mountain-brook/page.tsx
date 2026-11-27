@@ -165,8 +165,8 @@ export default function MountainBrookPage() {
               EnviroCare provides pest control, termite protection, mosquito, and tick service in Mountain Brook,
               Alabama, including Mountain Brook Village, English Village, Crestline Village, and Cahaba Village.
               Bi-monthly pest control is $35/month and covers 30+ common household pests with free re-service
-              between visits. Termite protection uses the Sentricon® baiting system with no drilling, backed by
-              up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
+              between visits. Termite protection uses the Sentricon® baiting system with no drilling; on qualifying homes an EnviroCare repair agreement
+              adds up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. A family-owned Alabama company,
               The Wedgworth family has protected homes since 1958. Call (205)&nbsp;991-2882.
             </p>
           </div>

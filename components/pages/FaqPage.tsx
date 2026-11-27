@@ -77,7 +77,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">How much does termite protection cost?</summary>
-              <div className="faq-a">Termite is priced after a free termite inspection — Alabama requires it, and your Sentricon® price depends on your home's linear footage and foundation type. EnviroCare's plan includes up to $1,000,000 in termite damage repair coverage, and an annual inspection. The termite inspection is always free; real-estate WDO letters are a separate service, as low as $125.</div>
+              <div className="faq-a">Termite is priced after a free termite inspection — your Sentricon® price depends on your home's linear footage and foundation type. EnviroCare's plan includes an annual inspection. Most agreements are retreatment-only; repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to the terms of the agreement. The termite inspection is always free; real-estate WDO letters are a separate service, as low as $125.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you bundle services?</summary>
@@ -165,7 +165,7 @@ export default function FaqPage() {
             </details>
             <details className="faq-item">
               <summary className="faq-q">Do you treat inside the house?</summary>
-              <div className="faq-a">Interior service is included free on request between bi-monthly visits. We focus on exterior perimeter treatment since 90%+ of pests enter from outside, but interior is available anytime.</div>
+              <div className="faq-a">If pests show up inside between bi-monthly visits, we come back and treat inside at no extra charge. We focus on exterior perimeter treatment since 90%+ of pests enter from outside, but interior is available anytime.</div>
             </details>
             <details className="faq-item">
               <summary className="faq-q">What if I'm pregnant or have a newborn?</summary>
