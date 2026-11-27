@@ -38,7 +38,7 @@ const c: ComboContent = {
   localAngles: [
     {
       title: "Kill today's problem first",
-      body: "The first visit treats what brought you here — German roaches, sugar ants, spiders, wasps, whatever Birmingham's humidity has produced. Interior treatment is included whenever you're seeing pests inside.",
+      body: "The first visit treats what brought you here — German roaches, sugar ants, spiders, wasps, whatever Birmingham's humidity has produced. If pests show up inside between visits, we come back and treat inside at no extra charge.",
     },
     {
       title: "Then seal the perimeter",

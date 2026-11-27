@@ -45,7 +45,8 @@
     "test:api-auth": "node scripts/test-api-auth.mjs",
     "test:lead-screen": "node --no-warnings scripts/test-lead-screen.mjs",
     "test:review-workflow": "node scripts/test-review-workflow.mjs",
-    "test:lead-attribution": "node scripts/test-lead-attribution.mjs"
+    "test:lead-attribution": "node scripts/test-lead-attribution.mjs",
+    "test:repair-coverage": "node scripts/test-repair-coverage-wording.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

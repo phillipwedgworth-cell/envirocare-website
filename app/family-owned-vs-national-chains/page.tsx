@@ -70,7 +70,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How does EnviroCare\'s termite protection compare to the big chains?',
-    a: 'EnviroCare is a Sentricon® Certified Specialist. Sentricon® Always Active™ uses in-ground bait stations around your home — no drilling into slabs or historic masonry, and no tank trucks. Qualifying homes carry up to $1,000,000 in EnviroCare repair coverage. Many chains still lead with liquid-barrier treatments that require drilling. Every EnviroCare termite quote starts with a free on-site termite inspection, as Alabama requires.',
+    a: 'EnviroCare is a Sentricon® Certified Specialist. Sentricon® Always Active™ uses in-ground bait stations around your home — no drilling into slabs or historic masonry, and no tank trucks. Qualifying homes carry up to $1,000,000 in EnviroCare repair coverage. Many chains still lead with liquid-barrier treatments that require drilling. Every EnviroCare termite quote starts with a free on-site termite inspection.',
   },
   {
     q: 'Is EnviroCare cheaper than the national pest control companies?',
@@ -130,7 +130,7 @@ export default function FamilyOwnedVsChainsPage() {
             Alexander City, and Huntsville. The Wedgworth family has done pest control in Alabama since 1958. Unlike national chains, EnviroCare publishes its
             pricing, sends the same local technician on your route, includes free
             re-service, and protects homes with no-drill Sentricon® termite bait systems
-            backed by up to $1,000,000 in repair coverage on qualifying homes, subject to the terms of the agreement.
+            with repair coverage of up to $1,000,000 available on qualifying homes under an EnviroCare repair agreement, subject to the terms of the agreement.
           </p>
           <p style={{ fontSize: 16.5, lineHeight: 1.75, maxWidth: 780, marginTop: 10, color: '#4a5750' }}>
             The big chains are real companies with real footprints — this page isn&apos;t about

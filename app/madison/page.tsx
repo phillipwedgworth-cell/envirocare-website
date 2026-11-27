@@ -83,7 +83,7 @@ const jsonLd = {
       areaServed: { "@type": "City", name: "Madison", addressRegion: "AL" },
       name: "Pest Control Madison AL",
       description:
-        "Bi-monthly exterior perimeter service covering 30+ household pests. $35/month. Interior included quarterly. Free re-service between visits.",
+        "Bi-monthly exterior perimeter service covering 30+ household pests. $35/month. Free re-service between visits, inside or out, if pests come back.",
     },
     {
       "@type": "FAQPage",
@@ -357,7 +357,7 @@ export default function MadisonPage() {
               features: [
                 "30+ household pests covered",
                 "Exterior perimeter every other month",
-                "Interior included quarterly",
+                "Interior re-service if pests show up",
                 "Free re-service",
                 "Fire ant — separate add-on",
               ],

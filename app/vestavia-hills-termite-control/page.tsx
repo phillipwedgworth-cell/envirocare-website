@@ -84,7 +84,7 @@ const c: ComboContent = {
     },
     {
       q: "What does the $1,000,000 coverage mean?",
-      a: "EnviroCare's Sentricon® program comes with up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement. The written agreement sets what is covered, what is excluded and what has to be kept up, so ask us to walk you through it before you sign.",
+      a: "On qualifying homes, an EnviroCare repair agreement provides up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement. The written agreement sets what is covered, what is excluded and what has to be kept up, so ask us to walk you through it before you sign.",
     },
     {
       q: "How is that different from a retreatment-only plan?",

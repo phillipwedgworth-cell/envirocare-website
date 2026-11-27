@@ -72,7 +72,7 @@ const c: ComboContent = {
     },
     {
       q: "What does the $1M coverage actually mean?",
-      a: "If subterranean termites damage your home while you're on the Sentricon® Always Active™ program and we've maintained it, EnviroCare covers repairs: up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.",
+      a: "Most EnviroCare termite agreements are retreatment-only: if termites return, we treat again. On qualifying homes with an EnviroCare repair agreement that we've maintained, EnviroCare also covers repairs: up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.",
     },
     {
       q: "Is Sentricon® better than a liquid treatment for older homes?",
@@ -84,7 +84,7 @@ const c: ComboContent = {
     },
     {
       q: "How much does termite treatment cost in Birmingham?",
-      a: "Alabama requires an inspection before termite work can be priced, so termite work is never priced over the phone. The price depends on the house: the length of the foundation, slab or crawlspace construction, whether termites are active now, and moisture conditions. After the free inspection you get the price in writing before any work starts.",
+      a: "Termite work is never priced over the phone: it is quoted after a free on-site inspection, and Alabama rules require a written contract before work starts. The price depends on the house: the length of the foundation, slab or crawlspace construction, whether termites are active now, and moisture conditions. After the free inspection you get the price in writing before any work starts.",
     },
     {
       q: "Do you do termite control in Hoover, Homewood, Mountain Brook and Vestavia Hills?",
@@ -120,7 +120,7 @@ const c: ComboContent = {
       heading: "Termite bonds in Birmingham",
       paras: [
         "In Alabama, \"termite bond\" is the everyday name for a termite protection agreement: the company inspects on a schedule, treats as needed, and the agreement renews each year. Buyers and lenders often ask whether a house has a bond, which is why a bond is commonly transferred when a house is sold.",
-        "EnviroCare's Sentricon® protection agreements include ongoing station service and up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement. What a bond does and does not cover is explained in our termite bond guide.",
+        "EnviroCare's Sentricon® protection agreements include ongoing station service. Most are retreatment-only; repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to inspection and approval and subject to the terms of the agreement. What a bond does and does not cover is explained in our termite bond guide.",
       ],
     },
   ],

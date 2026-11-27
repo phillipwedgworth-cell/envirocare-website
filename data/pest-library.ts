@@ -79,7 +79,7 @@ export const PESTS: PestEntry[] = [
     ],
     signs: ['Pencil-width mud tubes on foundations or crawlspace piers', 'Discarded wings near windows & doors after a swarm', 'Hollow-sounding or blistered wood', 'Spring swarms of dark, equal-winged insects'],
     seasonal: 'Swarms typically occur in spring (often after warm rain), but subterranean termites feed year-round in Alabama — protection should not be seasonal.',
-    treatment: 'EnviroCare installs the Sentricon® Always Active™ bait-station system in the soil around the structure — usually no drilling and no tank trucks. Colonies feed on the stations and decline over time, and the system stays active for ongoing monitoring. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement. Every plan starts with a free termite inspection.',
+    treatment: 'EnviroCare installs the Sentricon® Always Active™ bait-station system in the soil around the structure — usually no drilling and no tank trucks. Colonies feed on the stations and decline over time, and the system stays active for ongoing monitoring. Most termite agreements are retreatment-only; repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to inspection and approval and subject to the terms of the agreement. Every plan starts with a free termite inspection.',
     serviceSlug: 'termite-control',
     serviceLabel: 'Termite Control',
     faqs: [

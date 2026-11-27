@@ -65,7 +65,7 @@ const SCHEMA = {
       name: "How much does Sentricon cost at EnviroCare?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "EnviroCare prices Sentricon® after a free on-site termite inspection, as Alabama requires — the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement, and the inspection is always free with no obligation.",
+        text: "EnviroCare prices Sentricon® after a free on-site termite inspection — the exact figure depends on your home's linear footage and foundation type. Every plan uses the same Sentricon® Always Active™ system. Most agreements are retreatment-only; repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to the terms of the agreement, and the inspection is always free with no obligation.",
       },
     },
     {
@@ -117,7 +117,7 @@ const FAQS = [
   },
   {
     q: "How much does Sentricon cost at EnviroCare?",
-    a: "Sentricon® is priced after a free on-site termite inspection — Alabama regulates termite work, so the exact figure depends on your home's linear footage and foundation type. Every plan includes the same Sentricon® Always Active™ system and the same up to $1,000,000 in EnviroCare damage repair coverage, subject to the terms of the agreement. The inspection is free with no obligation.",
+    a: "Sentricon® is priced after a free on-site termite inspection — the exact figure depends on your home's linear footage and foundation type. Every plan uses the same Sentricon® Always Active™ system. Most agreements are retreatment-only; repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to the terms of the agreement. The inspection is free with no obligation.",
   },
   {
     q: "Is drilling required to install Sentricon?",
@@ -141,7 +141,7 @@ const FAQS = [
   },
   {
     q: "EnviroCare vs. Terminix or Orkin for termites — what's the difference?",
-    a: "EnviroCare is a local, family-owned Sentricon Certified Specialist. The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. A familiar local team services your property, so your home's history stays with people who know it. The termite agreement includes up to $1,000,000 in EnviroCare damage repair coverage, subject to inspection and approval and subject to the terms of the agreement.",
+    a: "EnviroCare is a local, family-owned Sentricon Certified Specialist. The Wedgworth family's Alabama pest-control history began in Alexander City in 1958. A familiar local team services your property, so your home's history stays with people who know it. Most termite agreements are retreatment-only; repair coverage of up to $1,000,000 is available on qualifying homes under an EnviroCare repair agreement, subject to inspection and approval and subject to the terms of the agreement.",
   },
 ];
 
