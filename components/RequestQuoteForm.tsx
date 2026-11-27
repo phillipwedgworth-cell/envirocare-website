@@ -10,6 +10,7 @@
 import { useState } from 'react';
 import { officeForZip } from '@/data/zip-to-office';
 import AddressAutocomplete from '@/components/AddressAutocomplete';
+import { leadAttribution } from '@/lib/leads/attribution';
 
 const PLANS = [
   'Pest — from $35/mo',
@@ -64,7 +65,7 @@ export default function RequestQuoteForm() {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, attribution: leadAttribution() }),
       });
       const data = await res.json();
       if (!res.ok) {

@@ -10,6 +10,7 @@ import { Phone, MapPin, Clock, Mail, ChevronDown, CheckCircle } from "lucide-rea
 
 import Header from "@/components/shared/Header";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
+import { leadAttribution } from '@/lib/leads/attribution';
 import { OFFICES as OFFICE_DATA, type OfficeId } from "@/data/offices";
 const G = "#0A7935";
 const GOLD = "#F5A800";
@@ -143,6 +144,7 @@ export default function ContactUs() {
           ].filter(Boolean).join(" · "),
           company_website: submittedForm.company_website,
           elapsed_ms: Date.now() - renderedAt.current,
+          attribution: leadAttribution(),
         }),
       });
       if (res.status === 422) {

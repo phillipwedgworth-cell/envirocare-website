@@ -17,6 +17,7 @@ const LLMS_TXT = `# EnviroCare Pest Services
 - Does EnviroCare offer liquid termite treatment? New termite customers are offered Sentricon®. Liquid termite service continues only for existing liquid-program customers.
 - Is a WDO letter free? No. The termite inspection is free; a WDO letter (Official Alabama Wood Infestation Inspection Report) for a real-estate closing is a separate paid service, as low as $125.
 - How to choose a Birmingham pest-control company: https://www.envirocarellc.com/best-pest-control-birmingham
+- Alabama termite protection guide (termite bonds, retreatment vs repair coverage, Sentricon®, inspection cost, WDO letters, new construction, lake homes): https://www.envirocarellc.com/termite-protection-alabama
 
 ## Canonical website
 - [Home](https://www.envirocarellc.com/)

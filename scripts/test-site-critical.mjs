@@ -166,6 +166,9 @@ function formHarness({ ok = true, networkError = false, tags = {}, gate, initial
     services: ['pest'], SERVICES: [{ key: 'pest', label: 'Pest Control' }],
     name: 'Test Visitor', phone: '2055550100', zip: '35611', email: '', address: '',
     zipOutOfState: false, hp: '', renderedAt: { current: Date.now() - 5000 }, Date,
+    // lib/leads/attribution (2026-11-27). The real helper never throws; this stub
+    // lets the extracted submit() run in the sandbox.
+    leadAttribution: () => ({ landing_page: '/huntsville', page: '/quote', referrer_host: 'www.google.com' }),
     window: { location: { pathname: '/quote' }, ...tags },
     fetch: async (_url, options) => { payloads.push(JSON.parse(options.body)); if (gate) await gate; if (networkError) throw new Error('Offline'); return { ok }; },
   });
@@ -192,6 +195,11 @@ await test('Synchronous double submit sends one request only', async () => {
 await test('Network error releases the guard so retry remains possible', async () => {
   const h = formHarness({ networkError: true }); await h.submit(); await h.submit();
   assert.equal(h.states.at(-1), 'error'); assert.equal(h.payloads.length, 2); assert.equal(h.ctx.submitting.current, false);
+});
+await test('Schedule request sends landing-page attribution with the lead', async () => {
+  const h = formHarness(); await h.submit();
+  assert.equal(h.payloads[0].attribution?.landing_page, '/huntsville');
+  assert.equal(h.payloads[0].attribution?.page, '/quote');
 });
 await test('Already successful form cannot submit again', async () => {
   const h = formHarness({ initialState: 'done' }); await h.submit(); assert.equal(h.payloads.length, 0);

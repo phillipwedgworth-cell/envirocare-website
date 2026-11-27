@@ -7,6 +7,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+// Termite, Sentricon and WDO posts link back to the termite hub (2026-11-27).
+// The Nov 27 live crawl found most of these posts with one or two internal
+// links in; the hub links out to each of them, and this links each one back.
+const TERMITE_GUIDE_SLUGS = new Set([
+  'termite-bond-alabama-explained', 'homeowners-insurance-termite-damage-alabama',
+  'how-long-does-sentricon-take-to-work', 'is-sentricon-worth-it', 'carpenter-ants-vs-termites-alabama',
+  'formosan-termites-alabama', 'termite-questions-alabama-homeowners', 'termite-damage-signs-alabama',
+  'termite-treatment-cost-alabama', 'green-caps-in-yard-sentricon', 'termite-inspection-before-buying-home-alabama',
+  'alabama-termite-swarm-season', 'sentricon-vs-liquid-termite-treatment', 'real-estate-wdo-letter-explained',
+  'termite-season-2026-alabama', 'how-to-identify-termites-alabama',
+]);
+
 export default function BlogPostPage({ slug }: { slug: string }) {
   const post = getPostBySlug(slug);
   if (!post || !isPublished(post)) {
@@ -51,6 +63,15 @@ export default function BlogPostPage({ slug }: { slug: string }) {
 
         <div className="bpp-body-wrap">
           <div className="bpp-body" dangerouslySetInnerHTML={{ __html: post.body }} />
+          {TERMITE_GUIDE_SLUGS.has(post.slug) && (
+            <p className="bpp-guide-link" style={{ margin: '28px 0 0', padding: '14px 18px', background: '#F3F8F4', borderLeft: '4px solid #0E8E40', borderRadius: 6, fontSize: 16, lineHeight: 1.6 }}>
+              Part of our{' '}
+              <Link href="/termite-protection-alabama" style={{ color: '#0E8E40', fontWeight: 700 }}>
+                Alabama termite protection guide
+              </Link>
+              : termite bonds, Sentricon®, inspection costs, WDO letters, new construction and lake homes in one place.
+            </p>
+          )}
           {citations.length > 0 && (
             <aside className="bpp-sources" aria-labelledby="bpp-sources-heading">
               <h2 id="bpp-sources-heading">Sources &amp; further reading</h2>

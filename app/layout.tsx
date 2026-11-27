@@ -32,6 +32,7 @@ import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import ChatWidgetLazy from '../components/ChatWidgetLazy';
 import DeferredTracking from '../components/DeferredTracking';
+import LeadAttribution from '../components/LeadAttribution';
 import MobileActionBar from '../components/MobileActionBar';
 import Header from '../components/shared/Header';
 import America250Banner from '../components/America250Banner';
@@ -368,6 +369,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* GA4 + Meta Pixel — deferred until first user interaction or 5 s idle.
             Saves ~345 KiB from the LCP window; see components/DeferredTracking.tsx. */}
         <DeferredTracking metaEnabled={process.env.VERCEL_ENV === 'production'} />
+        {/* Landing-page attribution for web leads (2026-11-27). No cookies, no
+            personal data; see lib/leads/attribution.ts. */}
+        <LeadAttribution />
       </body>
     </html>
   );
