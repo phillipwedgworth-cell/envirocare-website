@@ -12,6 +12,12 @@
  * without a qualifier ("qualifying", "available", "repair agreement",
  * "retreatment-only", "can include", "may receive") in the same window.
  *
+ * Blind spot closed the same day: copy can carry the figure through a constant
+ * (`which comes with ${COVERAGE_LINE}` in data/local-offers.ts shipped to
+ * /birmingham-termite-control). The literal scan never saw it. The guard now
+ * finds every constant whose initializer holds the figure and checks each
+ * place that constant is used, exactly like a literal.
+ *
  * Run: npm run test:repair-coverage   (also part of `npm test`)
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
@@ -31,14 +37,30 @@ function* walk(dir) {
   }
 }
 
+const files = [];
+for (const root of ROOTS) for (const file of walk(root)) if (!SKIP.some((r) => r.test(file))) files.push(file);
+
+// Constants whose initializer carries the figure, e.g. COVERAGE_LINE.
+const CONST_DEF = /\bconst\s+([A-Za-z_$][\w$]*)\s*(?::[^=]+)?=\s*/g;
+const figConsts = new Set();
+for (const file of files) {
+  const s = readFileSync(file, 'utf8');
+  for (const m of s.matchAll(CONST_DEF)) {
+    const init = s.slice(m.index + m[0].length, m.index + m[0].length + 400).split(/;\s*\n/)[0];
+    if (/^[`'"(]/.test(init) && new RegExp(FIG.source).test(init)) figConsts.add(m[1]);
+  }
+}
+const FIG_ALL = figConsts.size
+  ? new RegExp(`${FIG.source}|\\b(?:${[...figConsts].join('|')})\\b`, 'g')
+  : FIG;
+
 const problems = [];
 let scanned = 0;
-for (const root of ROOTS) {
-  for (const file of walk(root)) {
-    if (SKIP.some((r) => r.test(file))) continue;
+for (const file of files) {
+  {
     scanned++;
     const s = readFileSync(file, 'utf8');
-    for (const m of s.matchAll(FIG)) {
+    for (const m of s.matchAll(FIG_ALL)) {
       const ctx = s.slice(Math.max(0, m.index - 140), m.index + m[0].length + 90);
       if (BAD.test(ctx) && !OK.test(ctx)) problems.push(`${file}: …${ctx.replace(/\s+/g, ' ').slice(0, 200)}…`);
     }
@@ -54,4 +76,8 @@ if (problems.length) {
   for (const p of problems) console.log(`  - ${p}`);
   process.exit(1);
 }
-console.log(`repair-coverage: PASS — ${scanned} files; every $1M mention is qualified (most agreements are retreatment-only)`);
+if (!figConsts.has('COVERAGE_LINE')) {
+  console.log('repair-coverage: FAIL — constant discovery found no COVERAGE_LINE; the constant scan is broken');
+  process.exit(1);
+}
+console.log(`repair-coverage: PASS — ${scanned} files, ${figConsts.size} figure constants (${[...figConsts].join(', ')}); every $1M mention is qualified (most agreements are retreatment-only)`);

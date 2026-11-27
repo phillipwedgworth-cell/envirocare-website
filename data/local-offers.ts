@@ -32,7 +32,7 @@ export const LOCAL_OFFERS: Record<OfferKey, OfferBlock> = {
     items: [
       {
         title: 'Damage repair coverage',
-        body: `New termite customers get the Sentricon® Always Active™ bait system, which comes with ${COVERAGE_LINE} The price is set after a free termite inspection, never as a flat number.`,
+        body: `New termite customers get the Sentricon® Always Active™ bait system. Most EnviroCare termite agreements are retreatment-only: if termites come back, we treat again. On qualifying homes, an EnviroCare repair agreement adds ${COVERAGE_LINE} The price is set after a free termite inspection, never as a flat number.`,
       },
       {
         title: 'Retreatment-only plans',
@@ -42,9 +42,10 @@ export const LOCAL_OFFERS: Record<OfferKey, OfferBlock> = {
         title: 'Your written agreement decides',
         body: 'What is covered, what is excluded and what you need to keep up are set by the written agreement. Ask us to walk you through it before you sign.',
       },
-      // NOT ON RECORD (2026-11-26): whether EnviroCare sells a retreat-only
-      // termite plan to new customers, and how it is priced against the repair
-      // plan. Fill in only after Phillip confirms. Hidden while null.
+      // ON RECORD 2026-11-27 (Phillip): about 8% of agreements carry repair
+      // coverage; the rest are retreatment-only (now said in the first item).
+      // STILL NOT ON RECORD: how a retreatment-only plan is priced against a
+      // repair agreement. Fill in only after Phillip confirms. Hidden while null.
       { title: 'Our retreatment-only option', body: null },
     ],
   },
