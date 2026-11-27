@@ -152,6 +152,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // homeowner-facing page remains /services/wdo-letters.
     { url: `${BASE_URL}/wdo-inspection-letters-alabama`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/wdo-letter-checklist-alabama`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
+    // Termite hub (2026-11-27): links every termite, Sentricon and WDO page.
+    { url: `${BASE_URL}/termite-protection-alabama`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/what-pest-problem`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
     { url: `${BASE_URL}/pest-calendar`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     // ADDED 2026-07-25 (live-site audit): these five were linked in the global

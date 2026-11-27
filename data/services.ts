@@ -146,6 +146,8 @@ export const SERVICES: Service[] = [
   {
     slug: 'termite-control',
     relatedLinks: [
+      // 2026-11-27: hub that links every termite, Sentricon and WDO page.
+      { href: '/termite-protection-alabama', label: 'the Alabama termite protection guide', note: 'Comparing termite bonds, Sentricon® and WDO letters? Start with' },
       // 2026-10-17 (Ahrefs): Google ranked THIS page #11 for "termite control birmingham"
       // ($18.58 CPC) instead of the dedicated city page. Point the Birmingham intent there.
       { href: '/birmingham-termite-control', label: 'termite control in Birmingham', note: 'Jefferson or St. Clair County homeowner? See' },

@@ -13,13 +13,19 @@ import PricingContent from "./PricingContent";
 import { breadcrumbList } from '@/lib/seo/breadcrumbs';
 import { PEST_OFFER_DESCRIPTION, PEST_PRICE_SPECIFICATION } from '@/lib/seo/pest-offer';
 
+// 2026-11-27: title was "Pest Control Prices Alabama | $35/mo, $75 First Visit".
+// "$75" with no $150 anchor breaks the initial-service rule (AGENTS.md section 5:
+// evergreen metadata uses the standing $35/mo price, not the promo), and GSC
+// Aug 28 - Nov 25 shows "pest control plans" (2,870 impressions, pos 16.5, 0 clicks)
+// and "quarterly pest control plan prices near me" (667, pos 5.8, 0 clicks) with no
+// "plans" wording in the title. The description keeps the anchored promo.
 export const metadata: Metadata = {
-  title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
+  title: "Pest Control Plans & Prices in Alabama | From $35/mo",
   description:
     "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free termite inspection.",
   alternates: { canonical: "/pricing" },
   openGraph: {
-    title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
+    title: "Pest Control Plans & Prices in Alabama | From $35/mo",
     description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free termite inspection.",
     url: 'https://www.envirocarellc.com/pricing',
     images: ['/og-image.png'],
@@ -27,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Pest Control Prices Alabama | $35/mo, $75 First Visit",
+    title: "Pest Control Plans & Prices in Alabama | From $35/mo",
     description: "Published prices: pest from $35/mo, $75 initial service (reg. $150, 50% off), mosquito $45/mo Mar–Oct. Termite quoted after a free termite inspection.",
     images: ['/og-image.png'],
   },

@@ -5,6 +5,7 @@ import AddressAutocomplete from "@/components/AddressAutocomplete";
 import { CheckCircle2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useOfficePhone } from "../lib/use-office-phone";
+import { leadAttribution } from '@/lib/leads/attribution';
 
 const G = "#0E8E40";
 const GOLD = "#F5A800";
@@ -224,6 +225,7 @@ export default function ScheduleRequest({ city }: { city?: string }) {
           notes,
           company_website: hp,
           elapsed_ms: Date.now() - renderedAt.current,
+          attribution: leadAttribution(),
         }),
       });
       if (res.ok) setConfirmedContact(submittedContact);

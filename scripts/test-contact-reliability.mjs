@@ -88,6 +88,8 @@ function harness(file, { responses = [{ ok: true }], tags = {} } = {}) {
     // guard never types into it, so a named stub is enough to render the form.
     '@/components/AddressAutocomplete': { default: 'AddressAutocomplete' },
     '../lib/use-office-phone': { useOfficePhone: () => ({ phone: '(205) 940-6360', phoneHref: 'tel:2059406360' }) },
+    // lib/leads/attribution (2026-11-27): landing-page attribution sent with each lead.
+    '@/lib/leads/attribution': { leadAttribution: () => ({ landing_page: '/huntsville', page: '/contact-us', referrer_host: '' }) },
   }, {
     window: { location: { pathname: file === CONTACT ? '/contact-us' : '/quote', search: '' }, ...tags },
     fetch: async (url, options) => {
