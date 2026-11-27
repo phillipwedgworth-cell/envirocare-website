@@ -58,7 +58,7 @@ const cfg: NeighborhoodConfig = {
     {
       emoji: "🔥",
       title: "Fire ants on newly landscaped lots",
-      body: "Fresh sod and landscape renovation on Cherokee Bend properties draws fire ants to the disturbed soil. Whole-colony fire ant treatment is a separate service available to any homeowner, $150 covers most yard sizes, with larger properties quoted by square footage.",
+      body: "Fresh sod and landscape renovation on Cherokee Bend properties draws fire ants to the disturbed soil. Whole-colony fire ant treatment is a separate service available to any homeowner, $150 minimum, with larger properties quoted by square footage.",
     },
   ],
   landmarksLabel: "Areas of Cherokee Bend We Serve",

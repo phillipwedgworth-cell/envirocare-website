@@ -70,7 +70,7 @@ export const LOCAL_OFFERS: Record<OfferKey, OfferBlock> = {
     items: [
       {
         title: 'Price',
-        body: '$150 covers most yards. Larger properties are priced by the square footage treated, and your technician gives you the number before any work starts.',
+        body: '$150 minimum. Larger properties are priced by the square footage treated, and your technician gives you the number before any work starts.',
       },
       {
         title: 'Open to everyone',

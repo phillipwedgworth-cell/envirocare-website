@@ -81,7 +81,7 @@ const cfg: ClusterConfig = {
     },
     {
       "q": "What about fire ants?",
-      "a": "Whole-colony fire ant treatment is available to anyone — $150 covers most yards, larger properties quoted by size, backed by a one-year warranty."
+      "a": "Whole-colony fire ant treatment is available to anyone — $150 minimum, larger properties quoted by size, backed by a one-year warranty."
     }
   ],
   "nearbyClusters": [

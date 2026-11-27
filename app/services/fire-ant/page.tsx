@@ -23,12 +23,12 @@ import Link from "next/link";
 export const metadata: Metadata = withOpenGraph({
   title: "Fire Ant Control in Alabama | $150 Most Yards | EnviroCare",
   description:
-    "Fire ant treatment that reaches the colony, not just the mound. $150 covers most yards, and it is open to everyone, pest plan or not. (205) 940-6360.",
+    "Fire ant treatment that reaches the colony, not just the mound. $150 minimum, and it is open to everyone, pest plan or not. (205) 940-6360.",
   alternates: { canonical: "/services/fire-ant" },
   openGraph: { url: 'https://www.envirocarellc.com/services/fire-ant',
     title: "Fire Ant Control in Alabama | $150 Most Yards | EnviroCare",
     description:
-      "Fire ant treatment that reaches the colony, not just the mound. $150 covers most yards, and it is open to everyone, pest plan or not. (205) 940-6360.",
+      "Fire ant treatment that reaches the colony, not just the mound. $150 minimum, and it is open to everyone, pest plan or not. (205) 940-6360.",
     type: "website",
   },
 });
@@ -56,7 +56,7 @@ export default function FireAntPage() {
       address: { "@type": "PostalAddress", streetAddress: "2025 Butler Rd", addressLocality: "Alabaster", addressRegion: "AL", postalCode: "35007", addressCountry: "US" },
     },
     description:
-      "Whole-colony fire ant bait treatment with season-long suppression for Alabama homes and properties. $150 covers most yards; larger properties are quoted by the square footage treated. Backed by a one-year warranty.",
+      "Whole-colony fire ant bait treatment with season-long suppression for Alabama homes and properties. $150 minimum; larger properties are quoted by the square footage treated. Backed by a one-year warranty.",
     areaServed: { "@type": "State", name: "Alabama" },
     offers: {
       "@type": "Offer",
@@ -76,7 +76,7 @@ export default function FireAntPage() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "$150 covers most yards. Larger properties are quoted by the square footage we treat, so call your local EnviroCare office for an exact number. Every fire ant treatment is backed by a one-year warranty.",
+            "$150 minimum. Larger properties are quoted by the square footage we treat, so call your local EnviroCare office for an exact number. Every fire ant treatment is backed by a one-year warranty.",
         },
       },
       {
@@ -142,7 +142,7 @@ export default function FireAntPage() {
           {/* PRICE CARD — clear, honest, mobile-legible */}
           <div style={{ display: "inline-block", background: "rgba(255,255,255,0.12)", border: `1px solid rgba(245,168,0,0.5)`, borderRadius: 12, padding: "16px 28px", margin: "8px 0 28px" }}>
             <div style={{ fontSize: "clamp(26px, 5vw, 34px)", fontWeight: 800, color: GOLD }}>$150</div>
-            <div style={{ fontSize: 15, opacity: 0.85, marginTop: 4 }}>Covers most yards · one-year warranty</div>
+            <div style={{ fontSize: 15, opacity: 0.85, marginTop: 4 }}>Minimum · one-year warranty</div>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
@@ -261,7 +261,7 @@ export default function FireAntPage() {
         {[
           {
             q: "What does fire ant control cost?",
-            a: "$150 covers most yards. Larger properties are quoted by the square footage we treat, so call your local office and we'll give you an exact number. Every treatment is backed by a one-year warranty.",
+            a: "$150 minimum. Larger properties are quoted by the square footage we treat, so call your local office and we'll give you an exact number. Every treatment is backed by a one-year warranty.",
           },
           {
             q: "Do I have to be an existing EnviroCare customer?",
@@ -294,7 +294,7 @@ export default function FireAntPage() {
           Ready to get rid of fire ants?
         </h2>
         <p style={{ fontSize: 16, opacity: 0.85, marginBottom: 24, maxWidth: 480, marginLeft: "auto", marginRight: "auto" }}>
-          $150 covers most yards, backed by a one-year warranty. One call gets you an exact quote.
+          $150 minimum, backed by a one-year warranty. One call gets you an exact quote.
         </p>
         <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
           <a
