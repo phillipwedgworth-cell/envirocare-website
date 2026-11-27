@@ -21,12 +21,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = withOpenGraph({
-  title: "Fire Ant Control in Alabama | $150 Most Yards | EnviroCare",
+  title: "Fire Ant Control in Alabama | $150 Minimum | EnviroCare",
   description:
     "Fire ant treatment that reaches the colony, not just the mound. $150 minimum, and it is open to everyone, pest plan or not. (205) 940-6360.",
   alternates: { canonical: "/services/fire-ant" },
   openGraph: { url: 'https://www.envirocarellc.com/services/fire-ant',
-    title: "Fire Ant Control in Alabama | $150 Most Yards | EnviroCare",
+    title: "Fire Ant Control in Alabama | $150 Minimum | EnviroCare",
     description:
       "Fire ant treatment that reaches the colony, not just the mound. $150 minimum, and it is open to everyone, pest plan or not. (205) 940-6360.",
     type: "website",
